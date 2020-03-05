@@ -1,0 +1,5 @@
+/.rpt2_cache
+/node_modules
+/dist
+/__tests
+/yarn-error.log

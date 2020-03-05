@@ -1,0 +1,50 @@
+{
+	"name": "rvk-styles",
+	"version": "0.0.0",
+	"main": "index.js",
+	"license": "UNLICENCED",
+	"private": true,
+	"scripts": {
+		"start": "yarn run cssserver",
+		"start:dev": "yarn run cssserver --config src/.cssserverrc-dev",
+		"publish": "yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
+		"dev": "yarn run gulp watch",
+		"test": "ospec scripts/dev.tests.js  &&  onchange 'public/css/canary/*.css' -f add,change -- yarn run test:css"
+	},
+	"__dependencies": {
+		"@hugsmidjan_is/cssserver": "^0.1.0"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@hugsmidjan/gulp-iconfont": "^0.2.0",
+		"@hugsmidjan/gulp-images": "^0.1.5",
+		"@hugsmidjan/gulp-sass": "^0.1.0",
+		"@hugsmidjan/hxmstyle": "^2.4.0",
+		"del": "^5.1.0",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-destructuring": "^2.1.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"onchange": "^6.1.0",
+		"ospec": "^4.0.1",
+		"prettier": "^1.19.1"
+	},
+	"browserslist": [
+		"defaults"
+	],
+	"hxmstyle": {
+		"options": {},
+		"dependenciesAdded": [
+			"eslint",
+			"eslint-config-prettier",
+			"eslint-plugin-destructuring",
+			"eslint-plugin-prettier",
+			"prettier"
+		]
+	},
+	"author": "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
+	"contributors": [
+		"Már Örlygsson <mar@hugsmidjan.is>"
+	],
+	"repository": "ssh://git@stash.hugsmidjan.is:7999/proj/rvk-styles.git"
+}
