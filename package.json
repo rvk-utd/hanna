@@ -6,7 +6,7 @@
 	"private": true,
 	"scripts": {
 		"start": "yarn run cssserver",
-		"start:dev": "yarn run cssserver --config src/.cssserverrc-dev",
+		"start:dev": "yarn run cssserver --config script/.cssserverrc-dev",
 		"publish": "yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
 		"dev": "yarn run gulp watch",
 		"test": "ospec scripts/dev.tests.js  &&  onchange 'public/css/canary/*.css' -f add,change -- yarn run test:css"
