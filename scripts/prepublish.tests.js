@@ -8,7 +8,7 @@ require('./dev.tests.js');
 o.spec('Publishing', () => {
 	o('package has a valid CSS version', () => {
 		o(cssVersion != null).equals(true);
-		o(/^\d+\.\d+/.test(cssVersion)).equals(true); // Technically redundant, but hey!
+		o(/^v\d+\.\d+/.test(cssVersion)).equals(true); // Technically redundant, but hey!
 	});
 
 	o('no CSS folder exists for the current CSS version', () => {
