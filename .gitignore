@@ -3,3 +3,5 @@
 /dist
 /__tests
 /yarn-error.log
+/public/css/dev/
+/public/css/*/*.css.map
