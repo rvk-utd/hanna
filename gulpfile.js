@@ -1,3 +1,4 @@
+/* global process */
 const { series, parallel, src, dest } = require('gulp');
 const del = require('del');
 const iconfontTaskFactory = require('@hugsmidjan/gulp-iconfont');
@@ -28,6 +29,7 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 	dist: devDistFolder,
 	// glob: ['*.{scss,sass}']
 	// watchGlob: ['*/**/*.{scss,sass}'],
+	sourcemaps: process.env.NODE_ENV !== 'production' ? '.' : false,
 	sassOptions: {
 		functions: {
 			'pct($number)': (number) => {
@@ -49,7 +51,7 @@ const publish = () => {
 	if (existsSync(publishFolder)) {
 		throw new Error('Publishing folder already exists');
 	}
-	src(['**/*', '!*.css.map'], { base: devDistFolder }).pipe(dest(publishFolder));
+	src('**/*', { base: devDistFolder, ignore: '*.css.map' }).pipe(dest(publishFolder));
 };
 
 // ===========================================================================
