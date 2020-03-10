@@ -26,6 +26,8 @@ const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
 const [sassBuild, sassWatch] = sassTaskFactory({
 	src: cssSourceFolder,
 	dist: devDistFolder,
+	// glob: ['*.{scss,sass}']
+	// watchGlob: ['*/**/*.{scss,sass}'],
 	sassOptions: {
 		functions: {
 			'pct($number)': (number) => {
