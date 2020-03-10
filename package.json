@@ -5,8 +5,8 @@
 	"license": "UNLICENCED",
 	"private": true,
 	"scripts": {
-		"start": "yarn run cssserver",
-		"start:dev": "yarn run cssserver --config script/cssserverrc-dev.json",
+		"start": "NODE_ENV=production  yarn run cssserver",
+		"start:dev": "NODE_ENV=development  yarn run cssserver --config script/cssserverrc-dev.json",
 		"publish": "yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
 		"dev": "yarn run gulp watch",
 		"test": "ospec scripts/dev.tests.js  &&  onchange 'public/css/canary/*.css' -f add,change -- yarn run test:css"
