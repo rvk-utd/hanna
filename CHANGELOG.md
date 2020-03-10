@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. Version number will be decided later -->
+- feat: Add prepublishing tests
+- feat: Enable `cssserver` for development and production
 - chore: Initial scaffolding
 
 ## 0.0.0
