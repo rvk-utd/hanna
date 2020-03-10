@@ -7,7 +7,7 @@ const { existsSync } = require('fs');
 
 // ---------------------------------------------------------------------------
 
-const { cssSourceFolder, devDistFolder, publishFolder } = require('scripts/config');
+const { cssSourceFolder, devDistFolder, publishFolder } = require('./scripts/config');
 
 // ---------------------------------------------------------------------------
 
