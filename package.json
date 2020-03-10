@@ -11,10 +11,9 @@
 		"dev": "yarn run gulp watch",
 		"test": "ospec scripts/dev.tests.js  &&  onchange 'public/css/canary/*.css' -f add,change -- yarn run test:css"
 	},
-	"__dependencies": {
-		"@hugsmidjan_is/cssserver": "^0.1.0"
+	"dependencies": {
+		"@hugsmidjan_is/cssserver": "^0.1.3"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@hugsmidjan/gulp-iconfont": "^0.2.0",
 		"@hugsmidjan/gulp-images": "^0.1.5",
