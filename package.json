@@ -8,11 +8,10 @@
 		"start": "NODE_ENV=production  yarn run cssserver",
 		"start:dev": "NODE_ENV=development  yarn run cssserver --config script/cssserverrc-dev.json",
 		"publish": "yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
-		"dev": "yarn run gulp watch",
-		"test": "ospec scripts/dev.tests.js  &&  onchange 'public/css/canary/*.css' -f add,change -- yarn run test:css"
+		"dev": "yarn run gulp watch"
 	},
 	"dependencies": {
-		"@hugsmidjan_is/cssserver": "^0.1.3"
+		"@hugsmidjan_is/cssserver": "^0.1.5"
 	},
 	"devDependencies": {
 		"@hugsmidjan/gulp-iconfont": "^0.2.0",
