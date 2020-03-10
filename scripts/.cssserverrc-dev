@@ -1,5 +1,6 @@
 {
 	"sslKeyPath": undefined,
 	"ttl_static": 0,
-	"ttl_bundle": 0
+	"ttl_bundle": 0,
+	"cache": false
 }
