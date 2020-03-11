@@ -20,5 +20,5 @@ yarn run dev
 In a second terminal start the dev server
 
 ```sh
-yarn run server:dev
+yarn run dev:server
 ```
