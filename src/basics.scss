@@ -1,3 +1,11 @@
+@use './utils/mediaFormats' as m;
+
 body {
 	background-color: beige;
+}
+
+@media #{m.$phablet_tablet} {
+	.selector {
+		color: red;
+	}
 }

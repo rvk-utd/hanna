@@ -1,0 +1,21 @@
+$xwideMin: 1860;
+$wideMin: 1220;
+$netbookMin: 980;
+$tabletMin: 760;
+$phabletMin: 480;
+$phoneMax: $phabletMin;
+
+$xwide: 'screen and (min-width: #{$xwideMin}px)';
+$wide: 'screen and (min-width: #{$wideMin}px)';
+$netbook: 'screen and (min-width: #{$netbookMin}px) and (max-width: #{$wideMin - 1}px)';
+$tablet: 'screen and (min-width: #{$tabletMin}px) and (max-width: #{$netbookMin - 1}px)';
+$phablet: 'screen and (min-width: #{$phabletMin}px) and (max-width: #{$tabletMin - 1}px)';
+$phone: 'screen and (max-width: #{$phabletMin - 1}px)';
+
+$netbook_up: 'screen and (min-width: #{$netbookMin}px)';
+$tablet_netbook: 'screen and (min-width: #{$tabletMin}px) and (max-width: #{$wideMin - 1}px)';
+$tablet_up: 'screen and (min-width: #{$tabletMin}px)';
+$phablet_tablet: 'screen and (min-width: #{$phabletMin}px) and (max-width: #{$netbookMin - 1}px)';
+$phablet_up: 'screen and (min-width: #{$phabletMin}px)';
+$phone_phablet: 'screen and (min-width: #{$tabletMin - 1}px)';
+$phone_tablet: 'screen and (max-width: #{$netbookMin - 1}px)';
