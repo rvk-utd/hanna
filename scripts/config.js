@@ -7,6 +7,6 @@ const distFolder = 'public/css/';
 module.exports = {
 	cssVersion,
 	cssSourceFolder: 'src/',
-	devDistFolder: distFolder + '/' + devVersion,
+	devDistFolder: distFolder + '/' + devVersion + '/',
 	publishFolder: distFolder + '/' + cssVersion,
 };
