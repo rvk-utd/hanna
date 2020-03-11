@@ -9,6 +9,7 @@ const { existsSync } = require('fs');
 // ---------------------------------------------------------------------------
 
 const { cssSourceFolder, devDistFolder, publishFolder } = require('./scripts/config');
+const isDev = process.env.NODE_ENV !== 'production';
 
 // ---------------------------------------------------------------------------
 
@@ -30,7 +31,7 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 	dist: devDistFolder,
 	// glob: ['*.{scss,sass}']
 	// watchGlob: ['*/**/*.{scss,sass}'],
-	sourcemaps: process.env.NODE_ENV !== 'production' ? '.' : false,
+	sourcemaps: isDev ? '.' : false,
 	sassOptions: {
 		functions: {
 			'pct($number)': (number) => {
@@ -44,6 +45,7 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 			},
 		},
 	},
+	minify: !isDev,
 });
 
 // ===========================================================================
