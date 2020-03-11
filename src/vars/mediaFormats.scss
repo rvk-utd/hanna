@@ -1,0 +1,21 @@
+$bp-xwideMin: 1860;
+$bp-wideMin: 1220;
+$bp-netbookMin: 980;
+$bp-tabletMin: 760;
+$bp-phabletMin: 480;
+$bp-phoneMax: $bp-phabletMin;
+
+$mq-xwide: 'screen and (min-width: #{$bp-xwideMin}px)';
+$mq-wide: 'screen and (min-width: #{$bp-wideMin}px)';
+$mq-netbook: 'screen and (min-width: #{$bp-netbookMin}px) and (max-width: #{$bp-wideMin - 1}px)';
+$mq-tablet: 'screen and (min-width: #{$bp-tabletMin}px) and (max-width: #{$bp-netbookMin - 1}px)';
+$mq-phablet: 'screen and (min-width: #{$bp-phabletMin}px) and (max-width: #{$bp-tabletMin - 1}px)';
+$mq-phone: 'screen and (max-width: #{$bp-phabletMin - 1}px)';
+
+$mq-netbook_up: 'screen and (min-width: #{$bp-netbookMin}px)';
+$mq-tablet_netbook: 'screen and (min-width: #{$bp-tabletMin}px) and (max-width: #{$bp-wideMin - 1}px)';
+$mq-tablet_up: 'screen and (min-width: #{$bp-tabletMin}px)';
+$mq-phablet_tablet: 'screen and (min-width: #{$bp-phabletMin}px) and (max-width: #{$bp-netbookMin - 1}px)';
+$mq-phablet_up: 'screen and (min-width: #{$bp-phabletMin}px)';
+$mq-phone_phablet: 'screen and (min-width: #{$bp-tabletMin - 1}px)';
+$mq-phone_tablet: 'screen and (max-width: #{$bp-netbookMin - 1}px)';

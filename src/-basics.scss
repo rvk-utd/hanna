@@ -2,11 +2,15 @@
 
 :root {
 	--foo-color: #{$color-blue};
+	--foo-color2: red;
 }
 
 @media screen {
 	body {
 		color: var(--foo-color);
+		@media #{$mq-phablet_tablet} {
+			color: var(--foo-color2);
+		}
 	}
 	body::before {
 		content: $icons-arrow-down;
