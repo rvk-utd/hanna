@@ -21,6 +21,7 @@ const [imagesCompress, imagesWatch] = imagesTaskFactory({
 const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
 	src: cssSourceFolder,
 	dist: devDistFolder + 'i/',
+	scssFile: 'vars/icons.scss',
 	// glob: 'iconfont/*.svg',
 });
 
