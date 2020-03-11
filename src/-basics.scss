@@ -1,0 +1,14 @@
+@use 'vars' as *;
+
+:root {
+	--foo-color: #{$color-blue};
+}
+
+@media screen {
+	body {
+		color: var(--foo-color);
+	}
+	body::before {
+		content: $icons-arrow-down;
+	}
+}
