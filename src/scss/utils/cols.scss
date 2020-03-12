@@ -1,0 +1,44 @@
+@use 'one' as *;
+
+// =======================================================
+// Column-based calc functions
+//
+// These globals are required for them to work:
+$gutterWidth: 30px !default;
+$columnWidth: 80px !default;
+$numCols: 12 !default;
+
+// percentage length - by columns
+//   $w = custom container width in pixels. When specified, this overrides the default column-based container width.
+//   $px = pixel-based modifier for the column-based container width. (Useful for gridded-containers with non-standard padding/margin)
+@function cols_pct(
+	$cols,
+	$gutters: $cols - one($cols),
+	$relNumCols: $numCols,
+	$relNumGutters: $relNumCols - one($relNumCols),
+	$w: null,
+	$px: 0
+) {
+	@if not $w {
+		$w: ($relNumCols * $columnWidth + $relNumGutters * $gutterWidth + $px);
+	}
+	@return pct(($cols * $columnWidth + $gutters * $gutterWidth) / $w);
+}
+
+// percentage length - pixels to page-width
+//   $px = pixel-based modifier for the column-based container width. (Useful for gridded-containers with non-standard padding/margin)
+@function px_pct(
+	$nPx,
+	$relNumCols: $numCols,
+	$relNumGutters: $relNumCols - one($relNumCols),
+	$px: 0
+) {
+	@return pct(
+		$nPx / ($relNumCols * $columnWidth + $relNumGutters * $gutterWidth + $px)
+	);
+}
+
+// pixel length - by columns
+@function cols_px($cols, $gutters: $cols - one($cols)) {
+	@return px($cols * $columnWidth + $gutters * $gutterWidth);
+}

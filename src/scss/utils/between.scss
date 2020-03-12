@@ -1,0 +1,26 @@
+// returns margin/padding value calc() function that delivers approximately
+// `$from` pixel spacing when the element's container is `$min` pixels wide
+// `$to` pixel spacing when the element's container is `$max` pixels wide.
+
+$between-minWidth: 320 !default;
+$between-maxWidth: 1440 !default;
+
+@function between(
+	$from,
+	$to,
+	$min: $between-minWidth,
+	$max: $between-maxWidth,
+	$pct: '%'
+) {
+	$slope: num($to - $from) / num($max - $min);
+	$intercept: $to - num($slope * $max);
+	@if ($slope == 0) {
+		@return px($intercept);
+	}
+	@if ($intercept == 0) {
+		@return set-unit($slope * 100, $pct);
+	} @else {
+		$a: set-unit(100, $pct);
+		@return calc(#{$a} + #{px($intercept)});
+	}
+}

@@ -17,14 +17,27 @@ const assertNumber = (value) => {
 // 	}
 // };
 
+const str = (str) => new sass.types.String(str);
+const num = (num, unit) => new sass.types.Number(num, unit);
+const bool = (bool) => sass.types.Boolean[bool ? 'TRUE' : 'FALSE'];
+
 module.exports = {
-	'_getEnv(variable)': (variable) => {
-		assertString(variable);
-		return new sass.types.String(process.env[variable]);
+	'_encodeURIComponent($val)': (val) => {
+		assertString(val);
+		return str(encodeURIComponent(val.getValue()));
 	},
 
-	'_isDevMode()': () =>
-		sass.types.Boolean[process.env.NODE_ENV !== 'production' ? 'TRUE' : 'FALSE'],
+	'_decodeURIComponent($val)': (val) => {
+		assertString(val);
+		return str(decodeURIComponent(val.getValue()));
+	},
+
+	'_getEnv($variable)': (variable) => {
+		assertString(variable);
+		return str(process.env[variable]);
+	},
+
+	'_isDevMode()': () => bool(process.env.NODE_ENV !== 'production'),
 
 	'_fileChecksum($file)': (file) => {
 		assertString(file);
@@ -34,27 +47,36 @@ module.exports = {
 		} catch (error) {
 			console.error('Can\'t do `_fileChecksum` for "' + file.getValue() + '"\n - - - -');
 		}
-		return new sass.types.String(ret);
+		return str(ret);
 	},
 
 	'pct($number)': (number) => {
 		assertNumber(number);
-		return new sass.types.Number(number.getValue() * 100, '%');
+		return num(number.getValue() * 100, '%');
 	},
 	'px($number)': (number) => {
 		assertNumber(number);
-		return new sass.types.Number(number.getValue(), 'px');
+		return num(number.getValue(), 'px');
 	},
 	'vw($number)': (number) => {
 		assertNumber(number);
-		return new sass.types.Number(number.getValue() * 100, 'vw');
+		return num(number.getValue() * 100, 'vw');
 	},
 	'vh($number)': (number) => {
 		assertNumber(number);
-		return new sass.types.Number(number.getValue() * 100, 'vh');
+		return num(number.getValue() * 100, 'vh');
 	},
 	'rem($number)': (number) => {
 		assertNumber(number);
-		return new sass.types.Number(number.getValue(), 'rem');
+		return num(number.getValue(), 'rem');
+	},
+	'num($number)': (number) => {
+		assertNumber(number);
+		return num(number.getValue());
+	},
+	'set-unit($number, $unit)': (number, unit) => {
+		assertNumber(number);
+		assertString(unit);
+		return num(number.getValue(), unit.getValue());
 	},
 };

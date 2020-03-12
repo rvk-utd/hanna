@@ -1,4 +1,8 @@
 @use 'vars' as *;
+@use 'utils' as *;
+@use 'utils/normalize' as *;
+
+@include normalize();
 
 :root {
 	--foo-color: #{$color-blue};
@@ -8,11 +12,12 @@
 @media screen {
 	body {
 		color: var(--foo-color);
+		width: prem(30);
+		z-index: num(200rem);
+		foobar: cols_pct(2);
+
 		@media #{$mq-phablet_tablet} {
 			color: var(--foo-color2);
 		}
-	}
-	body::before {
-		content: $icons-chevron-down;
 	}
 }

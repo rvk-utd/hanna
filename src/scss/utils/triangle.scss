@@ -1,0 +1,56 @@
+@use 'directions' as *;
+
+// Usage:
+//     .box:after {
+//         @include triangle(
+//               $dir,         // <-- up, down, left, right.
+//               $color,       // arrow color
+//               $height,      // i.e. "Length" of the arrow.
+//               $width,       // total width of the arrow. (Defaults to twice the @height)
+//               $wOffset,     // placement along the edge of the container. (Defaults to 50%.)
+//               $offsetEdge,  // Edge from which the offset is calculated. (Defaults to left or top respectively.)
+//             );
+//     }
+@mixin triangle(
+	$dir: top,
+	$color: #fff,
+	$h: 10px,
+	$w: 2 * $h,
+	$pos: 50%,
+	$posFrom: null,
+	$shift: 0
+) {
+	@include triangle--shape($dir, $color, $h, $w);
+	// Do auto positioning
+	@if (not $posFrom) {
+		$posFrom: if(isVertical($dir), left, top);
+	}
+	position: absolute;
+	#{$dir}: -$h;
+	#{$posFrom}: $pos;
+	margin-#{$dir}: -$shift;
+}
+
+@mixin triangle--shape($dir: top, $color: #fff, $h: 10px, $w: 2 * $h) {
+	content: ''; // ensure ::before/::after works automatically
+	display: inline-block;
+	width: 0;
+	height: 0;
+	min-width: 0;
+	min-height: 0;
+	border: 0 solid transparent;
+	@if (isVertical($dir)) {
+		border-width: $h ($w / 2);
+		$x: 10px;
+		margin: 10px ($x / 2);
+	} @else {
+		border-width: ($w / 2) $h;
+	}
+	border-#{opposite($dir)}-color: $color;
+	border-#{$dir}-width: 0;
+	@if (isVertical($dir)) {
+		margin: 0 (-$w / 2);
+	} @else {
+		margin: -($w / 2) 0;
+	}
+}
