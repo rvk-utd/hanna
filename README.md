@@ -3,14 +3,19 @@
 This package contains all you need to run the CSS server for Reykjavík's
 Design System.
 
-**Contents:**
+---
+
+**Chapters:**
 
 - [Run the server](#run-the-server)
 - [Development](#development)
 - [The public/ folder](#the-public-folder)
 	- [public/assets/](#publicassets)
 	- [public/css/](#publiccss)
+  [public/css/](#publiccss) [public/css/](#publiccss)
   [public/css/](#publiccss)
+
+---
 
 ## Run the server
 
