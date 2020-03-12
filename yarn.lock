@@ -23,10 +23,10 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/deque/-/deque-1.0.5.tgz#f4fa17fc5ee18317ec01a763d355782c7b395eaf"
   integrity sha512-6xnwtvp9DY1EINIKdTfvfeAtCYw4OqBZJhtiqkT3ivjnEfa25VQ3TsKvaFfKm8MyGIEfE95qLe+bNEt3nB0Ylg==
 
-"@hugsmidjan/gulp-iconfont@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@hugsmidjan/gulp-iconfont/-/gulp-iconfont-0.3.0.tgz#20bc209a0c524fd11eca573dc87bb9229e5a7f5c"
-  integrity sha512-QCr77uLMTGx7R0sVgUNqMyme0pENOmwDlMcU0Lex0dPLSAL9G/Ez3em7RovLjevvbZnsud/VGUu+7eehVOZPfw==
+"@hugsmidjan/gulp-iconfont@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@hugsmidjan/gulp-iconfont/-/gulp-iconfont-0.3.1.tgz#aafbd7afd54e6faf3e592f288871e5e9322dc041"
+  integrity sha512-hJDStEQ4e3OPy5X+tUi4sgEdaJEr59nP/HbPmVOwEpW57h14DIASJPn9YvGkM6EF/ZPfNvPsKhn12GUNVFhOSw==
   dependencies:
     "@hugsmidjan/gulp-utils" "^0.1.3"
     gulp-iconfont "^10.0.2"
