@@ -4,6 +4,7 @@ const del = require('del');
 const iconfontTaskFactory = require('@hugsmidjan/gulp-iconfont');
 const imagesTaskFactory = require('@hugsmidjan/gulp-images');
 const sassTaskFactory = require('@hugsmidjan/gulp-sass');
+const sassFunctions = require('./scripts/sassFunctions');
 const { existsSync } = require('fs');
 
 // ---------------------------------------------------------------------------
@@ -43,19 +44,7 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 	// glob: ['*.{scss,sass}']
 	// watchGlob: ['*/**/*.{scss,sass}'],
 	sourcemaps: isDev ? '.' : false,
-	sassOptions: {
-		functions: {
-			'pct($number)': (number) => {
-				const sass = require('sass');
-				if (!(number instanceof sass.types.Number)) {
-					throw new Error('$number: Expected a number.');
-				} else if (number.getUnit()) {
-					throw new Error('$number: Expected a unitless number.');
-				}
-				return new sass.types.Number(number.getValue() * 100, '%');
-			},
-		},
-	},
+	sassOptions: { functions: sassFunctions },
 	minify: !isDev,
 });
 
