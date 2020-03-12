@@ -10,10 +10,8 @@ Design System.
 - [Run the server](#run-the-server)
 - [Development](#development)
 - [The public/ folder](#the-public-folder)
-	- [public/assets/](#publicassets)
-	- [public/css/](#publiccss)
-  [public/css/](#publiccss) [public/css/](#publiccss)
-  [public/css/](#publiccss)
+  - [public/assets/](#publicassets)
+  - [public/css/](#publiccss)
 
 ---
 
