@@ -8,27 +8,31 @@ const { existsSync } = require('fs');
 
 // ---------------------------------------------------------------------------
 
-const { cssSourceFolder, devDistFolder, publishFolder } = require('./scripts/config');
+const {
+	sourceFolder,
+	devDistCssFolder,
+	publishCssFolder,
+} = require('./scripts/config');
 const isDev = process.env.NODE_ENV !== 'production';
 
 // ---------------------------------------------------------------------------
 
 const [imagesCompress, imagesWatch] = imagesTaskFactory({
-	src: cssSourceFolder,
-	dist: devDistFolder,
+	src: sourceFolder,
+	dist: devDistCssFolder,
 	// glob: ['i/**/*', '!i/_raw/**'],
 });
 
 const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
-	src: cssSourceFolder,
-	dist: devDistFolder + 'i/',
-	scssFile: 'vars/icons.scss',
+	src: sourceFolder,
+	dist: devDistCssFolder + 'i/',
+	scssFile: 'scss/vars/icons.scss',
 	// glob: 'iconfont/*.svg',
 });
 
 const [sassBuild, sassWatch] = sassTaskFactory({
-	src: cssSourceFolder,
-	dist: devDistFolder,
+	src: sourceFolder + 'scss/',
+	dist: devDistCssFolder,
 	// glob: ['*.{scss,sass}']
 	// watchGlob: ['*/**/*.{scss,sass}'],
 	sourcemaps: isDev ? '.' : false,
@@ -51,15 +55,17 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 // ===========================================================================
 
 const publish = () => {
-	if (existsSync(publishFolder)) {
-		throw new Error('Publishing folder already exists');
+	if (existsSync(publishCssFolder)) {
+		throw new Error('Publishing folder already exists.');
 	}
-	src('**/*', { base: devDistFolder, ignore: '*.css.map' }).pipe(dest(publishFolder));
+	src('**/*', { base: devDistCssFolder, ignore: '*.css.map' }).pipe(
+		dest(publishCssFolder)
+	);
 };
 
 // ===========================================================================
 
-const cleanup = () => del([devDistFolder]);
+const cleanup = () => del([devDistCssFolder]);
 
 // ===========================================================================
 

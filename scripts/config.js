@@ -1,12 +1,12 @@
 const pkg = require('../package.json');
 
 const cssVersion = 'v' + (pkg.version.match(/^\d+\.\d+/) || [''])[0];
-const devVersion = 'dev';
-const distFolder = 'public/css/';
+const distFolder = 'public/';
+const sourceFolder = 'src/';
 
 module.exports = {
 	cssVersion,
-	cssSourceFolder: 'src/',
-	devDistFolder: distFolder + '/' + devVersion + '/',
-	publishFolder: distFolder + '/' + cssVersion,
+	sourceFolder,
+	devDistCssFolder: distFolder + 'css/dev/',
+	publishCssFolder: distFolder + 'css/' + cssVersion,
 };
