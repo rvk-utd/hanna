@@ -23,10 +23,10 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/deque/-/deque-1.0.5.tgz#f4fa17fc5ee18317ec01a763d355782c7b395eaf"
   integrity sha512-6xnwtvp9DY1EINIKdTfvfeAtCYw4OqBZJhtiqkT3ivjnEfa25VQ3TsKvaFfKm8MyGIEfE95qLe+bNEt3nB0Ylg==
 
-"@hugsmidjan/gulp-iconfont@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@hugsmidjan/gulp-iconfont/-/gulp-iconfont-0.3.1.tgz#aafbd7afd54e6faf3e592f288871e5e9322dc041"
-  integrity sha512-hJDStEQ4e3OPy5X+tUi4sgEdaJEr59nP/HbPmVOwEpW57h14DIASJPn9YvGkM6EF/ZPfNvPsKhn12GUNVFhOSw==
+"@hugsmidjan/gulp-iconfont@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@hugsmidjan/gulp-iconfont/-/gulp-iconfont-0.3.2.tgz#31e577c1d1ae00ed7522eec0fc6ab3660662ec13"
+  integrity sha512-RbQJqZqS+L/Dtc+oyp9DVDJeukt7qPQHy8sVrRZMu9YSCu7zRi0DeeRQIdPpnlfoj1K8FGvMM1M+z7UapKGTxA==
   dependencies:
     "@hugsmidjan/gulp-utils" "^0.1.3"
     gulp-iconfont "^10.0.2"
@@ -71,10 +71,10 @@
   resolved "https://registry.yarnpkg.com/@hugsmidjan/hxmstyle/-/hxmstyle-2.4.0.tgz#9b20b191cb8da59e4e5214b25fd43e6198927af6"
   integrity sha512-QDHMVAM4T0nX6d0IPya9CH6/e3XShgEYg5MZ7COxwas5psq5ird/bCmVUeRqTws2Ytv5faEcNwLoEor7aND82A==
 
-"@hugsmidjan_is/cssserver@^0.1.6":
-  version "0.1.6"
-  resolved "https://nexus.hugsmidjan.is/repository/hxm-npm/@hugsmidjan_is/cssserver/-/cssserver-0.1.6.tgz#de04e820cf3d64afc385d50d2f2758fdbb969899"
-  integrity sha512-W5y+uTfwtMOirsIjhkfFY4itNfQ5e0s0vWi4Aj+dJ6p0XohCzEq2pI42RywB4Fl516Gz4k5c7yxqJfUTcmUUyg==
+"@hugsmidjan_is/cssserver@^0.1.7":
+  version "0.1.7"
+  resolved "https://nexus.hugsmidjan.is/repository/hxm-npm/@hugsmidjan_is/cssserver/-/cssserver-0.1.7.tgz#542939b1014fde5a740f178d7dd2de927369c73a"
+  integrity sha512-iwzEnatovha19W206Ep+09UjfQ8lGTzAEkfP8DRNjc/8kqT2s0ySTDdp8dRpfrHyVxJ9d9dBFL7kLgv7HI79iQ==
   dependencies:
     compression "^1.7.4"
     fastify "^2.12.0"

@@ -14,7 +14,7 @@
 		"node": "^12"
 	},
 	"dependencies": {
-		"@hugsmidjan_is/cssserver": "^0.1.6"
+		"@hugsmidjan_is/cssserver": "^0.1.7"
 	},
 	"devDependencies": {
 		"@hugsmidjan/gulp-iconfont": "^0.3.2",
