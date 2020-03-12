@@ -1,7 +1,7 @@
 @use 'vars' as *;
 
 :root {
-	--foo-color: #{$color-blue};
+	--foo-color: #{$color-suld-200};
 	--foo-color2: red;
 }
 
@@ -13,6 +13,6 @@
 		}
 	}
 	body::before {
-		content: $icons-chevron-down;
+		// content: $icons-chevron-down;
 	}
 }
