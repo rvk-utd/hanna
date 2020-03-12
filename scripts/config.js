@@ -9,4 +9,5 @@ module.exports = {
 	sourceFolder,
 	devDistCssFolder: distFolder + 'css/dev/',
 	publishCssFolder: distFolder + 'css/' + cssVersion,
+	assetsDistFolder: distFolder + 'assets/',
 };

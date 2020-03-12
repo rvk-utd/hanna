@@ -12,6 +12,7 @@ const {
 	sourceFolder,
 	devDistCssFolder,
 	publishCssFolder,
+	assetsDistFolder,
 } = require('./scripts/config');
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -21,6 +22,12 @@ const [imagesCompress, imagesWatch] = imagesTaskFactory({
 	src: sourceFolder,
 	dist: devDistCssFolder,
 	// glob: ['i/**/*', '!i/_raw/**'],
+});
+
+const [staticAssetsCompress, staticAssetsWatch] = imagesTaskFactory({
+	src: sourceFolder + 'assets/',
+	dist: assetsDistFolder,
+	glob: ['**/*', '!_raw/**'],
 });
 
 const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
@@ -65,15 +72,18 @@ const publish = () => {
 
 // ===========================================================================
 
-const cleanup = () => del([devDistCssFolder]);
+const cleanup = () => del([devDistCssFolder, assetsDistFolder]);
 
 // ===========================================================================
 
 exports.build = series(
 	cleanup,
-	parallel(imagesCompress, series(iconfontBundle, sassBuild))
+	parallel(imagesCompress, staticAssetsCompress, series(iconfontBundle, sassBuild))
 );
-exports.watch = series([exports.build, parallel(sassWatch, imagesWatch, iconfontWatch)]);
+exports.watch = series([
+	exports.build,
+	parallel(sassWatch, imagesWatch, staticAssetsWatch, iconfontWatch),
+]);
 exports.publish = publish;
 
 exports.default = exports.build;
