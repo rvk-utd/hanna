@@ -1,6 +1,8 @@
-$gutter: 40;
-$column: 65;
-$cols: 12;
-$edge-mobile: 24;
-$edge-desktop: 79;
-$contentMaxWidth: $column * $cols + $gutter * ($cols - 1);
+$grid-gutter: 40;
+$grid-column: 65;
+$grid-cols: 12;
+
+$grid-contentMaxWidth: $grid-column * $grid-cols + $grid-gutter * ($grid-cols - 1);
+
+$grid-edge--mobile: 24;
+$grid-edge--desktop: 79;
