@@ -10,11 +10,14 @@
 		"publish": "NODE_ENV=production  yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
 		"dev": "yarn run gulp watch"
 	},
+	"engines": {
+		"node": "^12"
+	},
 	"dependencies": {
 		"@hugsmidjan_is/cssserver": "^0.1.6"
 	},
 	"devDependencies": {
-		"@hugsmidjan/gulp-iconfont": "^0.3.1",
+		"@hugsmidjan/gulp-iconfont": "^0.3.2",
 		"@hugsmidjan/gulp-images": "^0.1.5",
 		"@hugsmidjan/gulp-sass": "^0.1.1",
 		"@hugsmidjan/hxmstyle": "^2.4.0",
