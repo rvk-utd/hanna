@@ -71,10 +71,10 @@
   resolved "https://registry.yarnpkg.com/@hugsmidjan/hxmstyle/-/hxmstyle-2.4.0.tgz#9b20b191cb8da59e4e5214b25fd43e6198927af6"
   integrity sha512-QDHMVAM4T0nX6d0IPya9CH6/e3XShgEYg5MZ7COxwas5psq5ird/bCmVUeRqTws2Ytv5faEcNwLoEor7aND82A==
 
-"@hugsmidjan_is/cssserver@^0.1.7":
-  version "0.1.7"
-  resolved "https://nexus.hugsmidjan.is/repository/hxm-npm/@hugsmidjan_is/cssserver/-/cssserver-0.1.7.tgz#542939b1014fde5a740f178d7dd2de927369c73a"
-  integrity sha512-iwzEnatovha19W206Ep+09UjfQ8lGTzAEkfP8DRNjc/8kqT2s0ySTDdp8dRpfrHyVxJ9d9dBFL7kLgv7HI79iQ==
+"@hugsmidjan_is/cssserver@^0.1.8":
+  version "0.1.8"
+  resolved "https://nexus.hugsmidjan.is/repository/hxm-npm/@hugsmidjan_is/cssserver/-/cssserver-0.1.8.tgz#35128274d9fbec8ab3b08af8678db208de817097"
+  integrity sha512-50jcR9wbq/UO6d/x9VWKHQbcqaPUqc96vwuknI5anXxniE13tbE1NVCFiCcyiCEGUZduwj74fm4j6w4kKqz++Q==
   dependencies:
     compression "^1.7.4"
     fastify "^2.12.0"
