@@ -1,0 +1,26 @@
+$_isDev: _isDevMode();
+
+@mixin WARNING__($message, $mode: normal) {
+	@if (_isDev) {
+		$color: if($mode == soft, orange, red);
+		$hover: if($mode == soft, ':hover', '');
+
+		&#{$hover} {
+			box-shadow: 0 0 0 1px rgba($color, 0.5) !important;
+		}
+		&#{$hover}::before {
+			all: initial !important;
+			order: -999 !important;
+			font-family: sans-serif !important;
+			position: absolute !important;
+			white-space: nowrap !important;
+			z-index: 2 !important;
+			font-size: rem(12) !important;
+			line-height: 1.5em !important;
+			color: $color !important;
+			background-color: rgba($color, 0.05) !important;
+			padding: 0 0.5em !important;
+			content: $message !important;
+		}
+	}
+}

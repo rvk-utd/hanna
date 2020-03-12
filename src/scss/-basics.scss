@@ -1,6 +1,7 @@
 @use 'vars' as *;
 @use 'utils' as *;
 @use 'utils/normalize' as *;
+@use 'utils/writeMediaFormatMarkers' as *;
 
 @include normalize();
 
@@ -20,4 +21,10 @@
 			color: var(--foo-color2);
 		}
 	}
+
+	a[href='#'] {
+		@include WARNING__('Use <button/> instead');
+	}
 }
+
+@include writeMediaFormatMarkers($mediaFormats, 'body', _isDevMode());
