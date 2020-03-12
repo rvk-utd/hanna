@@ -11,7 +11,7 @@
 		"dev": "yarn run gulp watch"
 	},
 	"dependencies": {
-		"@hugsmidjan_is/cssserver": "^0.1.5"
+		"@hugsmidjan_is/cssserver": "^0.1.6"
 	},
 	"devDependencies": {
 		"@hugsmidjan/gulp-iconfont": "^0.3.0",
