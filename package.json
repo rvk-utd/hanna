@@ -7,7 +7,7 @@
 	"scripts": {
 		"start": "NODE_ENV=production  yarn run cssserver --config cssserver-prod.json",
 		"dev:server": "NODE_ENV=development  yarn run cssserver --config script/cssserver-dev.json",
-		"publish": "NODE_ENV=production  yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
+		"publish:css": "NODE_ENV=production  yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
 		"dev": "yarn run gulp watch"
 	},
 	"engines": {
