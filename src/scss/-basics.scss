@@ -1,5 +1,4 @@
-@use 'vars' as *;
-@use 'utils' as *;
+@use '_globals' as *;
 @use 'utils/normalize' as *;
 @use 'utils/writeMediaFormatMarkers' as *;
 
