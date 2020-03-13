@@ -1,0 +1,4 @@
+/*!@deps
+	Button
+	ButtonTertiary
+*/@media screen{.HeroBlock{color:#00f}.HeroBlock__title{font-size:4rem;line-height:5rem}.HeroBlock__summary{font-size:1.25rem;line-height:2rem;margin:2.5rem 0}}

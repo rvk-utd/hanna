@@ -1,0 +1,1 @@
+@media screen{.Tabs{display:flex}.Tabs__tab{background:transparent;border:0;border-bottom:4px solid #f1f2f3;border-radius:0;color:inherit;color:#2a2b2c;cursor:pointer;font:inherit;padding:0 58px;text-align:inherit}.Tabs__tab:focus{box-shadow:none;outline:none}.Tabs__tab[data-active=true]{border-color:#0376e1;color:#0376e1}}
