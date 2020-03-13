@@ -38,4 +38,4 @@
 	}
 }
 
-// @include writeMediaFormatMarkers($mediaFormats, 'body', _isDevMode());
+@include writeMediaFormatMarkers($mediaFormats, 'body', _isDevMode());
