@@ -9,6 +9,7 @@
 		max-width: 100%;
 		padding: 0 prem(20);
 		text-decoration: none;
+		margin-right: prem(30);
 
 		@media #{$mq-tablet_up} {
 			min-width: prem(270);
