@@ -11,15 +11,12 @@
 }
 
 @media screen {
+	html {
+		font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	}
+
 	body {
 		color: var(--foo-color);
-		width: prem(30);
-		z-index: num(200rem);
-		foobar: cols_pct(2);
-
-		@media #{$mq-phablet_tablet} {
-			color: var(--foo-color2);
-		}
 	}
 
 	h1,
@@ -41,4 +38,4 @@
 	}
 }
 
-@include writeMediaFormatMarkers($mediaFormats, 'body', _isDevMode());
+// @include writeMediaFormatMarkers($mediaFormats, 'body', _isDevMode());
