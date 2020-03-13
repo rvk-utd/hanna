@@ -3,6 +3,7 @@
 @use 'utils/writeMediaFormatMarkers' as *;
 
 @include normalize();
+/*! Reykjavík Design System basic CSS styles */
 
 :root {
 	--foo-color: #{$color-suld-200};
@@ -21,8 +22,22 @@
 		}
 	}
 
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		margin: 0;
+		font-weight: inherit;
+		font-size: inherit;
+	}
+
 	a[href='#'] {
 		@include WARNING__('Use <button/> instead');
+	}
+
+	button {
+		@include buttonReset();
 	}
 }
 
