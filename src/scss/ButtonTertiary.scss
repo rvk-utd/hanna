@@ -2,6 +2,13 @@
 
 @media screen {
 	.ButtonTertiary {
-		color: blue;
+		display: inline-block;
+		white-space: nowrap;
+		color: $color-faxafloi-100;
+	}
+
+	.ButtonTertiary::before {
+		@include icon($icons-dash);
+		margin-right: prem(16);
 	}
 }

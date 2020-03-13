@@ -2,6 +2,22 @@
 
 @media screen {
 	.Button {
-		color: blue;
+		color: $color-white;
+		background-color: $color-faxafloi-100;
+		display: inline-block;
+		white-space: nowrap;
+		max-width: 100%;
+		padding: 0 prem(20);
+		text-decoration: none;
+
+		@media #{$mq-tablet_up} {
+			min-width: prem(270);
+		}
+	}
+	.Button:hover,
+	.Button:focus,
+	.Button:active {
+		text-decoration: none;
+		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
 	}
 }

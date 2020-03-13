@@ -8,4 +8,13 @@
 	.HeroBlock {
 		color: blue;
 	}
+	.HeroBlock__title {
+		font-size: prem(64);
+		line-height: prem(80);
+	}
+	.HeroBlock__summary {
+		margin: prem(40) 0;
+		font-size: prem(20);
+		line-height: prem(32);
+	}
 }
