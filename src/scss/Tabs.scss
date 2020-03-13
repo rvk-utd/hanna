@@ -2,6 +2,7 @@
 
 @media screen {
 	.Tabs {
+		margin-top: prem(40);
 		display: flex;
 	}
 
@@ -9,6 +10,7 @@
 		@include buttonReset();
 		border: 0;
 		border-bottom: 4px solid $color-suld-50;
+		line-height: prem(40);
 		padding: 0 58px;
 		color: $color-suld-200;
 		text-decoration: none;

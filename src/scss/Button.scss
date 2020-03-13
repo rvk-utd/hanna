@@ -6,6 +6,8 @@
 		background-color: $color-faxafloi-100;
 		display: inline-block;
 		white-space: nowrap;
+		vertical-align: middle;
+		line-height: prem(56);
 		max-width: 100%;
 		padding: 0 prem(20);
 		text-decoration: none;
