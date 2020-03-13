@@ -1,0 +1,11 @@
+/*!@deps
+	Button
+	ButtonTertiary
+*/
+@use 'globals' as *;
+
+@media screen {
+	.HeroBlock {
+		color: blue;
+	}
+}
