@@ -1,0 +1,20 @@
+@use 'globals' as *;
+
+@media screen {
+	.Tabs {
+		display: flex;
+	}
+
+	.Tabs__tab {
+		@include buttonReset();
+		border: 0;
+		border-bottom: 4px solid $color-suld-50;
+		padding: 0 58px;
+		color: $color-suld-200;
+	}
+
+	.Tabs__tab[data-active='true'] {
+		color: $color-faxafloi-100;
+		border-color: $color-faxafloi-100;
+	}
+}
