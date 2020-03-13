@@ -1,7 +1,7 @@
 const o = require('ospec');
 const { existsSync, rmdirSync } = require('fs');
 const glob = require('glob').sync;
-const { cssVersion, publishFolder, devDistFolder } = require('./config');
+const { cssVersion, publishCssFolder, devDistCssFolder } = require('./config');
 
 // ---------------------------------------------------------------------------
 
@@ -12,10 +12,10 @@ o.spec('Publishing', () => {
 	});
 
 	o('no CSS folder exists for the current CSS version', () => {
-		let cssFolderDoesntExist = !existsSync(publishFolder);
-		if (!cssFolderDoesntExist && glob(publishFolder + '/*').length === 0) {
+		let cssFolderDoesntExist = !existsSync(publishCssFolder);
+		if (!cssFolderDoesntExist && glob(publishCssFolder + '/*').length === 0) {
 			try {
-				rmdirSync(publishFolder);
+				rmdirSync(publishCssFolder);
 				cssFolderDoesntExist = true;
 			} catch (e) {
 				console.error(e);
@@ -26,7 +26,7 @@ o.spec('Publishing', () => {
 
 	o('Built CSS files exist in dev folder', () => {
 		const devFilesExist =
-			existsSync(devDistFolder) && glob(devDistFolder + '/*.css').length > 0;
+			existsSync(devDistCssFolder) && glob(devDistCssFolder + '/*.css').length > 0;
 		o(devFilesExist).equals(true);
 	});
 
@@ -35,6 +35,6 @@ o.spec('Publishing', () => {
 	// const validateCssDepsInFolder = require('cssserver/validateCssDeps');
 	//
 	// o('CSS files in dev folder have valid /*!@deps */ tokens', () => {
-	// 	o(validateCssDepsInFolder(devDistFolder)).deepEquals({ valid: true });
+	// 	o(validateCssDepsInFolder(devDistCssFolder)).deepEquals({ valid: true });
 	// });
 });
