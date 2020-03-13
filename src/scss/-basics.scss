@@ -12,13 +12,6 @@
 @media screen {
 	body {
 		color: var(--foo-color);
-		width: prem(30);
-		z-index: num(200rem);
-		foobar: cols_pct(2);
-
-		@media #{$mq-phablet_tablet} {
-			color: var(--foo-color2);
-		}
 	}
 
 	a[href='#'] {
@@ -26,4 +19,4 @@
 	}
 }
 
-@include writeMediaFormatMarkers($mediaFormats, 'body', _isDevMode());
+// @include writeMediaFormatMarkers($mediaFormats, 'body', _isDevMode());
