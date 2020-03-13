@@ -54,7 +54,7 @@ const publish = () => {
 	if (existsSync(publishCssFolder)) {
 		throw new Error('Publishing folder already exists.');
 	}
-	src('**/*', { base: devDistCssFolder, ignore: '*.css.map' }).pipe(
+	return src('**/*', { base: devDistCssFolder, ignore: '*.css.map' }).pipe(
 		dest(publishCssFolder)
 	);
 };
