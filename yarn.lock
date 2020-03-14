@@ -71,19 +71,6 @@
   resolved "https://registry.yarnpkg.com/@hugsmidjan/hxmstyle/-/hxmstyle-2.4.0.tgz#9b20b191cb8da59e4e5214b25fd43e6198927af6"
   integrity sha512-QDHMVAM4T0nX6d0IPya9CH6/e3XShgEYg5MZ7COxwas5psq5ird/bCmVUeRqTws2Ytv5faEcNwLoEor7aND82A==
 
-"@hugsmidjan_is/cssserver@^0.1.8":
-  version "0.1.8"
-  resolved "https://nexus.hugsmidjan.is/repository/hxm-npm/@hugsmidjan_is/cssserver/-/cssserver-0.1.8.tgz#35128274d9fbec8ab3b08af8678db208de817097"
-  integrity sha512-50jcR9wbq/UO6d/x9VWKHQbcqaPUqc96vwuknI5anXxniE13tbE1NVCFiCcyiCEGUZduwj74fm4j6w4kKqz++Q==
-  dependencies:
-    compression "^1.7.4"
-    fastify "^2.12.0"
-    fastify-compress "^2.0.1"
-    fastify-static "^2.6.0"
-    glob "^7.1.6"
-    lru-cache "^5.1.1"
-    rc "^1.2.8"
-
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.3.tgz#3a582bdb53804c6ba6d146579c46e52130cf4a3b"
@@ -1419,6 +1406,19 @@ csso@^4.0.2:
   integrity sha512-kS7/oeNVXkHWxby5tHVxlhjizRCSv8QdU7hB2FpdAibDU8FjTAolhNjKNTiLzXtUrKT6HwClE81yXwEk1309wg==
   dependencies:
     css-tree "1.0.0-alpha.37"
+
+cssserve@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/cssserve/-/cssserve-1.0.0.tgz#dc7438161041b5e99b3c327b167b220d3f8cb9a6"
+  integrity sha512-I6NrOPBNMsjljFIUZgAT6QtKKXWLgZJD3/ce3dpIanSIE1VFtBNJzWP+KIfRCXwIVtm/b92zPguC+GyFVSKybw==
+  dependencies:
+    compression "^1.7.4"
+    fastify "^2.12.0"
+    fastify-compress "^2.0.1"
+    fastify-static "^2.6.0"
+    glob "^7.1.6"
+    lru-cache "^5.1.1"
+    rc "^1.2.8"
 
 cubic2quad@^1.0.0:
   version "1.1.1"

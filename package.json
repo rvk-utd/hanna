@@ -5,8 +5,8 @@
 	"license": "UNLICENCED",
 	"private": true,
 	"scripts": {
-		"start": "NODE_ENV=production  yarn run cssserver --config cssserver-prod.json",
-		"dev:server": "NODE_ENV=development  yarn run cssserver --config script/cssserver-dev.json",
+		"start": "NODE_ENV=production  yarn run cssserve --config cssserve-prod.json",
+		"dev:server": "NODE_ENV=development  yarn run cssserve --config script/cssserve-dev.json",
 		"publish:css": "NODE_ENV=production  yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
 		"dev": "yarn run gulp watch"
 	},
@@ -14,7 +14,7 @@
 		"node": "^12"
 	},
 	"dependencies": {
-		"@hugsmidjan_is/cssserver": "^0.1.8"
+		"cssserve": "^1.0.0"
 	},
 	"devDependencies": {
 		"@hugsmidjan/gulp-iconfont": "^0.3.2",

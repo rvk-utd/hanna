@@ -30,9 +30,9 @@ o.spec('Publishing', () => {
 		o(devFilesExist).equals(true);
 	});
 
-	// // FIXME: Add parseModules check - via cssserver
+	// // FIXME: Add parseModules check - via cssserve
 	//
-	// const validateCssDepsInFolder = require('cssserver/validateCssDeps');
+	// const validateCssDepsInFolder = require('cssserve/validateCssDeps');
 	//
 	// o('CSS files in dev folder have valid /*!@deps */ tokens', () => {
 	// 	o(validateCssDepsInFolder(devDistCssFolder)).deepEquals({ valid: true });

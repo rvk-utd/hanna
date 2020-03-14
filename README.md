@@ -10,8 +10,8 @@ Design System.
 - [Run the server](#run-the-server)
 - [Development](#development)
 - [The public/ folder](#the-public-folder)
-  - [public/assets/](#publicassets)
-  - [public/css/](#publiccss)
+	- [public/assets/](#publicassets)
+	- [public/css/](#publiccss)
 
 ---
 
@@ -22,10 +22,11 @@ yarn install --production
 yarn run start
 ```
 
-The `start` script runs a `cssserver` which can be configured in a variety of
-ways, including a `--config file` argument, CLI `--args`, via `.cssserverrc`
+The `start` script runs a `cssserve` which can be configured in a variety of
+ways, including a `--config file` argument, CLI `--args`, via `.cssservec`
 file in the project root or parent folder, as well as some environment
-variables. (See [`cssserver`'s documentation](https://youtu.be/dQw4w9WgXcQ)
+variables. (See
+[`cssserve`'s documentation](https://github.com/hugsmidjan/cssserve#configuration)
 for details.)
 
 ## Development
