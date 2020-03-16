@@ -1,6 +1,6 @@
 @use '_globals' as *;
-@use 'utils/normalize' as *;
-@use 'utils/writeMediaFormatMarkers' as *;
+@use 'utils/scssutils/normalize' as *;
+@use 'utils/scssutils/writeMediaFormatMarkers' as *;
 
 @include normalize();
 /*! Reykjavík Design System basic CSS styles */
@@ -39,4 +39,4 @@
 	}
 }
 
-@include writeMediaFormatMarkers($mediaFormats, 'body', _isDevMode());
+@include writeMediaFormatMarkers($mediaFormats, 'body', isDevMode());

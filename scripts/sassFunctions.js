@@ -22,24 +22,24 @@ const num = (num, unit) => new sass.types.Number(num, unit);
 const bool = (bool) => sass.types.Boolean[bool ? 'TRUE' : 'FALSE'];
 
 module.exports = {
-	'_encodeURIComponent($val)': (val) => {
+	'encodeURIComponent($val)': (val) => {
 		assertString(val);
 		return str(encodeURIComponent(val.getValue()));
 	},
 
-	'_decodeURIComponent($val)': (val) => {
+	'decodeURIComponent($val)': (val) => {
 		assertString(val);
 		return str(decodeURIComponent(val.getValue()));
 	},
 
-	'_getEnv($variable)': (variable) => {
+	'getEnv($variable)': (variable) => {
 		assertString(variable);
 		return str(process.env[variable]);
 	},
 
-	'_isDevMode()': () => bool(process.env.NODE_ENV !== 'production'),
+	'isDevMode()': () => bool(process.env.NODE_ENV !== 'production'),
 
-	'_fileChecksum($file)': (file) => {
+	'fileChecksum($file)': (file) => {
 		assertString(file);
 		let ret = '';
 		try {

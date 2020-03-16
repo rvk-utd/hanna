@@ -2,14 +2,14 @@
 // `$from` pixel spacing when the element's container is `$min` pixels wide
 // `$to` pixel spacing when the element's container is `$max` pixels wide.
 
-$between-minWidth: 320 !default;
-$between-maxWidth: 1440 !default;
+$_between-minWidth: 320 !default;
+$_between-maxWidth: 1440 !default;
 
 @function between(
 	$from,
 	$to,
-	$min: $between-minWidth,
-	$max: $between-maxWidth,
+	$min: $_between-minWidth,
+	$max: $_between-maxWidth,
 	$pct: '%'
 ) {
 	$slope: num($to - $from) / num($max - $min);

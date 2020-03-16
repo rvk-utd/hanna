@@ -1,7 +1,7 @@
-$_isDev: _isDevMode();
+$_isDev: isDevMode();
 
 @mixin WARNING__($message, $mode: normal) {
-	@if (_isDev) {
+	@if ($_isDev) {
 		$color: if($mode == soft, orange, red);
 		$hover: if($mode == soft, ':hover', '');
 

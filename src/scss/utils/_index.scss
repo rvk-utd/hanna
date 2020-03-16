@@ -1,28 +1,25 @@
-@forward 'a11y';
-@forward 'icons';
-@forward 'triangle';
-@forward 'hideText';
-@forward 'directions';
-@forward 'afterclear';
-@forward 'extendSides';
-@forward 'buttonReset';
-@forward 'overflowEllipsis';
-@forward 'WARNING__';
+@forward 'scssutils/a11y';
+@forward 'scssutils/icons';
+@forward 'scssutils/triangle';
+@forward 'scssutils/hideText';
+@forward 'scssutils/fade';
+@forward 'scssutils/directions';
+@forward 'scssutils/afterclear';
+@forward 'scssutils/extendSides';
+@forward 'scssutils/buttonReset';
+@forward 'scssutils/overflowEllipsis';
+@forward 'scssutils/WARNING__';
 
 @use '../vars/grid' as *;
-@forward 'between' with (
-	$between-maxWidth: $grid-contentMaxWidth
+@forward 'scssutils/between' with (
+	$_between-maxWidth: $grid-contentMaxWidth
 );
-@forward 'cols' with (
-	$columnWidth: $grid-column,
-	$gutterWidth: $grid-gutter,
-	$numCols: $grid-numCols
+@forward 'scssutils/cols' with (
+	$_columnWidth: $grid-column,
+	$_gutterWidth: $grid-gutter,
+	$_numCols: 7
 );
 
 @function prem($px) {
 	@return rem($px / 16);
-}
-
-@function fade($color, $opacity) {
-	@return scale-color($color, $alpha: ($opacity - 100%));
 }
