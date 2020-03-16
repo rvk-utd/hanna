@@ -1,24 +1,28 @@
-$bp-xwideMin: 1860;
-$bp-wideMin: 1220;
-$bp-netbookMin: 980;
-$bp-tabletMin: 760;
-$bp-phabletMin: 480;
-$bp-phoneMax: $bp-phabletMin;
+// Starting breakpoints **including* $grid-edge--*
+$bp-wide: 1380; // $grid-edge--wide: 80;
+$bp-netbook: 980;
+$bp-tablet: 760;
+$bp-phablet: 480;
+$bp-phone: 320; // $grid-edge--phone: 20;
+// ATH: 20px í 320px jafngilda:
+// 24px í 375px og 26px í 415px)
 
-$mq-xwide: 'screen and (min-width: #{$bp-xwideMin}px)';
-$mq-wide: 'screen and (min-width: #{$bp-wideMin}px)';
-$mq-netbook: 'screen and (min-width: #{$bp-netbookMin}px) and (max-width: #{$bp-wideMin - 1}px)';
-$mq-tablet: 'screen and (min-width: #{$bp-tabletMin}px) and (max-width: #{$bp-netbookMin - 1}px)';
-$mq-phablet: 'screen and (min-width: #{$bp-phabletMin}px) and (max-width: #{$bp-tabletMin - 1}px)';
-$mq-phone: 'screen and (max-width: #{$bp-phabletMin - 1}px)';
+$mq-wide: 'screen and (min-width: #{$bp-wide}px)';
+$mq-netbook: 'screen and (min-width: #{$bp-netbook}px) and (max-width: #{$bp-wide - 1}px)';
+$mq-tablet: 'screen and (min-width: #{$bp-tablet}px) and (max-width: #{$bp-netbook - 1}px)';
+$mq-phablet: 'screen and (min-width: #{$bp-phablet}px) and (max-width: #{$bp-tablet - 1}px)';
+$mq-phone: 'screen and (max-width: #{$bp-phablet - 1}px)';
 
-$mq-netbook_up: 'screen and (min-width: #{$bp-netbookMin}px)';
-$mq-tablet_netbook: 'screen and (min-width: #{$bp-tabletMin}px) and (max-width: #{$bp-wideMin - 1}px)';
-$mq-tablet_up: 'screen and (min-width: #{$bp-tabletMin}px)';
-$mq-phablet_tablet: 'screen and (min-width: #{$bp-phabletMin}px) and (max-width: #{$bp-netbookMin - 1}px)';
-$mq-phablet_up: 'screen and (min-width: #{$bp-phabletMin}px)';
-$mq-phone_phablet: 'screen and (min-width: #{$bp-tabletMin - 1}px)';
-$mq-phone_tablet: 'screen and (max-width: #{$bp-netbookMin - 1}px)';
+$mq-netbook_up: 'screen and (min-width: #{$bp-netbook}px)';
+
+$mq-tablet_netbook: 'screen and (min-width: #{$bp-tablet}px) and (max-width: #{$bp-wide - 1}px)';
+$mq-tablet_up: 'screen and (min-width: #{$bp-tablet}px)';
+
+$mq-phablet_tablet: 'screen and (min-width: #{$bp-phablet}px) and (max-width: #{$bp-netbook - 1}px)';
+$mq-phablet_up: 'screen and (min-width: #{$bp-phablet}px)';
+
+$mq-phone_phablet: 'screen and (min-width: #{$bp-tablet - 1}px)';
+$mq-phone_tablet: 'screen and (max-width: #{$bp-netbook - 1}px)';
 
 $mediaFormats: (
 	'phone': $mq-phone,
