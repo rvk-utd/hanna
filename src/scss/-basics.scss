@@ -5,19 +5,56 @@
 @include normalize();
 /*! Reykjavík Design System basic CSS styles */
 
+@font-face {
+	font-family: $iconfont-name;
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+	$version: '?' + fileChecksum('public/css/dev/i/icons.woff2');
+	src: url('i/icons.woff2'+$version) format('woff2'),
+		url('i/icons.woff'+$version) format('woff');
+}
+
 :root {
 	--foo-color: #{$color-suld-200};
 	--foo-color2: red;
 }
 
 @media screen {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+	[hidden][hidden],
+	[aria-hidden][aria-hidden='true'] {
+		display: none;
+	}
+
 	html {
-		font-family: 'Roboto', Arial, Helvetica, sans-serif;
+		height: 100%;
+		min-width: 320px;
+		box-sizing: border-box;
+		overflow-x: hidden;
+
+		// "Fix" nasty/smudgy font rendering on mac
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		background-color: $color-suld-0;
+		color: $color-suld-200;
+
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: px($font-base-size);
+		line-height: px($font-base-leading);
 	}
 
 	body {
-		color: $color-suld-200;
-		color: var(--foo-color);
+	}
+
+	*:first-child {
+		margin-top: 0;
 	}
 
 	h1,
@@ -30,12 +67,99 @@
 		font-size: inherit;
 	}
 
+	p,
+	ul,
+	ol,
+	dl,
+	table,
+	blockquote {
+		margin: 0;
+	}
+
+	address {
+		font-style: normal;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		vertical-align: top;
+	}
+
+	table {
+		border-collapse: separate;
+	}
+	th,
+	td {
+		padding: 0;
+	}
+
+	abbr {
+		cursor: help;
+	}
+
+	a[href^='tel:'] {
+		color: inherit;
+	}
+	a {
+		// @include LinkStyle();
+	}
 	a[href='#'] {
 		@include WARNING__('Use <button/> instead');
 	}
 
 	button {
 		@include buttonReset();
+	}
+	button:disabled {
+		cursor: auto;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	input,
+	textarea,
+	select {
+		font-size: inherit;
+		line-height: inherit;
+		padding: 0;
+	}
+
+	ol {
+		padding-left: 1.5em;
+	}
+	li ol {
+		margin-bottom: 0;
+	}
+	ol {
+		counter-reset: ol;
+		list-style: none;
+	}
+	ol > li::before {
+		counter-increment: ol;
+		content: counter(ol) '. ';
+		float: left;
+		min-width: 2.5em;
+		text-align: right;
+		margin: 0 0.5em -0.5em -2.8em;
+	}
+	ol[type='a'], // <-- NOTE: non-scripted <ol> styling is limited
+	ol[data-oltype='a'] > li::before {
+		content: counter(ol, lower-alpha) '. ';
+	}
+	ol[data-oltype='A'] > li::before {
+		content: counter(ol, upper-alpha) '. ';
+	}
+	ol[type='i'], // <-- NOTE: non-scripted <ol> styling is limited
+	ol[data-oltype='i'] > li::before {
+		content: counter(ol, lower-roman) '. ';
+	}
+	ol[data-oltype='I'] > li::before {
+		content: counter(ol, upper-roman) '. ';
 	}
 }
 
