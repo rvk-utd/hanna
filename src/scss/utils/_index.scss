@@ -1,4 +1,5 @@
 @forward 'scssutils';
+@forward 'font';
 
 @function prem($px) {
 	@return rem($px / 16);

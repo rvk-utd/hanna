@@ -1,0 +1,97 @@
+@use '../vars/mq' as *;
+
+@mixin _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS) {
+	font-size: px($sizeS);
+	line-height: px($leading);
+
+	@media #{$mq-tablet_up} {
+		font-size: between_tablet_up($sizeS, $sizeL);
+		line-height: between_tablet_up($leadS, $leadL);
+	}
+	@media #{$mq-wide} {
+		font-size: px($sizeL);
+		line-height: px($leadL);
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin HeadingStyle--xlarge() {
+	font-weight: $font-weight--bold;
+	@include _ResponsiveFontSize(
+		$font-hd-xl-size,
+		$font-hd-xl-size,
+		$font-hd-xl-leading,
+		$font-hd-xl-leading
+	);
+}
+@mixin HeadingStyle--large() {
+	font-weight: $font-weight--bold;
+	@include _ResponsiveFontSize(
+		$font-hd-xl-size,
+		$font-hd-l-size,
+		$font-hd-l-leading,
+		$font-hd-l-leading
+	);
+}
+@mixin HeadingStyle--medium() {
+	font-weight: $font-weight--bold;
+	@include _ResponsiveFontSize(
+		$font-hd-m-size,
+		$font-hd-m-size,
+		$font-hd-m-leading,
+		$font-hd-m-leading
+	);
+}
+@mixin HeadingStyle--small() {
+	font-weight: $font-weight--bold;
+	@include _ResponsiveFontSize(
+		$font-hd-s-size,
+		$font-hd-s-size,
+		$font-hd-s-leading,
+		$font-hd-s-leading
+	);
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin SubheadingStyle--large() {
+	font-weight: $font-weight--bold;
+	@include _ResponsiveFontSize(
+		$font-sh-l-size,
+		$font-sh-l-size,
+		$font-sh-l-leading,
+		$font-sh-l-leading
+	);
+}
+@mixin SubheadingStyle--large-thin() {
+	font-weight: $font-weight--normal;
+	@include _ResponsiveFontSize(
+		$font-sh-l-size,
+		$font-sh-l-size,
+		$font-sh-l-leading,
+		$font-sh-l-leading
+	);
+}
+@mixin SubheadingStyle--small() {
+	font-weight: $font-weight--bold;
+	@include _ResponsiveFontSize(
+		$font-sh-s-size,
+		$font-sh-s-size,
+		$font-sh-s-leading,
+		$font-sh-s-leading
+	);
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin BodyTextStyle--large() {
+	font-size: prem(20);
+	line-height: prem(32);
+}
+@mixin BodyTextStyle--small() {
+	font-size: prem(16);
+	line-height: prem(24);
+}
+
+// ---------------------------------------------------------------------------
