@@ -1,17 +1,8 @@
 @use 'globals' as *;
+@use 'Button' as *;
 
 @media screen {
 	.ButtonTertiary {
-		display: inline-block;
-		white-space: nowrap;
-		vertical-align: middle;
-		line-height: prem(30);
-		color: $color-faxafloi-100;
-		margin-right: prem(30);
-	}
-
-	.ButtonTertiary::before {
-		@include icon($icons-dash);
-		margin-right: prem(16);
+		@include ButtonTertiary;
 	}
 }
