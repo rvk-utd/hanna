@@ -13,7 +13,7 @@
 			}
 		}
 	}
-	#{$selector} {
+	#{$selector}::after {
 		@if ($visible) {
 			position: fixed !important;
 			bottom: 0 !important;
