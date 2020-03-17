@@ -1,26 +1,87 @@
 @use 'globals' as *;
 
-@media screen {
-	.Button {
-		color: $color-white;
-		background-color: $color-faxafloi-100;
+@mixin Button() {
+	$borderRadius: prem(3);
+	@include buttonReset();
+	color: $color-white;
+	background-color: $color-faxafloi-100;
+	display: inline-block;
+	white-space: nowrap;
+	vertical-align: middle;
+	line-height: prem(56);
+	max-width: 100%;
+	padding: 0 prem(20);
+	text-decoration: none;
+	margin-right: prem(30);
+	text-align: center;
+	border-radius: $borderRadius;
+	position: relative;
+
+	@media #{$mq-tablet_up} {
+		min-width: prem(270);
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
+	}
+
+	// aria-clicked
+	&:active {
+		background-color: $color-faxafloi-150;
+	}
+
+	&:focus::after {
+		content: '';
+		$frameOffset: prem(-4);
+		border: 2px solid $color-faxafloi-100;
+		position: absolute;
+		top: $frameOffset;
+		right: $frameOffset;
+		bottom: $frameOffset;
+		left: $frameOffset;
+		border-radius: $borderRadius;
+	}
+
+	[disabled='true'] {
+		background-color: $color-faxafloi-50;
+	}
+
+	&--small {
+		line-height: prem(40);
+
+		@media #{$mq-tablet_up} {
+			min-width: prem(170);
+		}
+	}
+}
+
+@mixin ButtonTertiary() {
+	@media screen {
 		display: inline-block;
 		white-space: nowrap;
 		vertical-align: middle;
-		line-height: prem(56);
-		max-width: 100%;
-		padding: 0 prem(20);
-		text-decoration: none;
+		line-height: prem(30);
+		color: $color-faxafloi-100;
 		margin-right: prem(30);
 
-		@media #{$mq-tablet_up} {
-			min-width: prem(270);
+		&::before {
+			content: '';
+			width: prem(16);
+			height: prem(2);
+			display: inline-block;
+			vertical-align: middle;
+			background-color: $color-faxafloi-100;
+			margin-right: prem(16);
+			transition: width 300ms ease-in-out;
 		}
-	}
-	.Button:hover,
-	.Button:focus,
-	.Button:active {
-		text-decoration: none;
-		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
+
+		&:hover:before,
+		&:focus:before,
+		&:active:before {
+			width: prem(48);
+		}
 	}
 }
