@@ -1,0 +1,8 @@
+@use 'globals' as *;
+@use 'Button' as *;
+
+@media screen {
+	.ButtonPrimary {
+		@include Button;
+	}
+}
