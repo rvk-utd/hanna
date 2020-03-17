@@ -11,5 +11,11 @@
 		&:focus {
 			background-color: $color-suld-50;
 		}
+
+		&[disabled],
+		&[disabled='true'] {
+			background-color: $color-suld-0;
+			opacity: 0.5;
+		}
 	}
 }
