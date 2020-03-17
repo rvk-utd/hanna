@@ -2,6 +2,7 @@
 
 @mixin Button() {
 	$borderRadius: prem(3);
+	$frameOffset: prem(4);
 	@include buttonReset();
 	color: $color-white;
 	background-color: $color-faxafloi-100;
@@ -11,6 +12,7 @@
 	line-height: prem(56);
 	max-width: 100%;
 	padding: 0 prem(20);
+	margin: $frameOffset;
 	text-decoration: none;
 	margin-right: prem(30);
 	text-align: center;
@@ -28,24 +30,25 @@
 		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
 	}
 
-	// aria-clicked
+	// aria-clicke
 	&:active {
 		background-color: $color-faxafloi-150;
 	}
 
 	&:focus::after {
 		content: '';
-		$frameOffset: prem(-4);
+		$frameOffsetNegative: $frameOffset * -1;
 		border: 2px solid $color-faxafloi-100;
 		position: absolute;
-		top: $frameOffset;
-		right: $frameOffset;
-		bottom: $frameOffset;
-		left: $frameOffset;
+		top: $frameOffsetNegative;
+		right: $frameOffsetNegative;
+		bottom: $frameOffsetNegative;
+		left: $frameOffsetNegative;
 		border-radius: $borderRadius;
 	}
 
-	[disabled='true'] {
+	&[disabled],
+	&[disabled='true'] {
 		background-color: $color-faxafloi-50;
 	}
 
