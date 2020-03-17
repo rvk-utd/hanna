@@ -1,4 +1,6 @@
-$font-family: 'L15', Helvetica, Arial, sans-serif;
+$font-family-name: 'L15';
+
+$font-family: $font-family-name, Helvetica, Arial, sans-serif;
 $font-weight--normal: 400;
 $font-weight--bold: 700;
 
