@@ -1,0 +1,15 @@
+@use 'globals' as *;
+@use 'Button' as *;
+
+@media screen {
+	.ButtonSecondary {
+		@include Button;
+		background-color: $color-suld-0;
+		border: 1px solid $color-faxafloi-100;
+		color: $color-faxafloi-100;
+
+		&:focus {
+			background-color: $color-suld-50;
+		}
+	}
+}
