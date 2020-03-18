@@ -1,6 +1,6 @@
 @use '../globals' as *;
 
-@mixin FocusedFrame(
+@mixin _FocusedFrame(
 	$frameOffset,
 	$borderRadius,
 	$borderColor: $color-faxafloi-100,
@@ -16,14 +16,6 @@
 		bottom: $frameOffsetNegative;
 		left: $frameOffsetNegative;
 		border-radius: $borderRadius;
-	}
-}
-
-@mixin DisabledButton($backgroundColor: transparent) {
-	&[disabled],
-	&[disabled='true'] {
-		background-color: $backgroundColor;
-		opacity: 0.5;
 	}
 }
 
@@ -62,13 +54,13 @@
 	}
 
 	&:focus {
-		@include FocusedFrame($frameOffset, $borderRadius);
+		@include _FocusedFrame($frameOffset, $borderRadius);
 	}
 
 	&[disabled],
-	&[disabled='true'] {
+	&[aria-disabled='true'] {
 		background-color: $color-faxafloi-50;
-		cursor: not-allowed;
+		opacity: 0.5;
 	}
 
 	&--small {
@@ -112,7 +104,7 @@
 		}
 
 		&:focus {
-			@include FocusedFrame($frameOffset, $borderRadius, $color-faxafloi-75, 1px);
+			@include _FocusedFrame($frameOffset, $borderRadius, $color-faxafloi-75, 1px);
 			&:after {
 				right: 0;
 				left: 0;
@@ -123,6 +115,9 @@
 			font-weight: 400;
 		}
 
-		@include DisabledButton();
+		&[disabled],
+		&[aria-disabled='true'] {
+			opacity: 0.5;
+		}
 	}
 }
