@@ -1,4 +1,4 @@
-@use '../vars/mq' as *;
+@use '../vars' as *;
 
 @mixin _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS) {
 	font-size: px($sizeS);

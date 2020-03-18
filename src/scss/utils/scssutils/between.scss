@@ -12,15 +12,14 @@ $_between-maxWidth: 1440 !default;
 	$max: $_between-maxWidth,
 	$pct: '%'
 ) {
-	$slope: num($to - $from) / num($max - $min);
-	$intercept: $to - num($slope * $max);
-	@if ($slope == 0) {
+	$slopeFactor: num($to - $from) / num($max - $min);
+	$intercept: $to - num($slopeFactor * $max);
+	@if ($slopeFactor == 0) {
 		@return px($intercept);
 	}
+	$slope: set-unit($slopeFactor * 100, $pct);
 	@if ($intercept == 0) {
-		@return set-unit($slope * 100, $pct);
-	} @else {
-		$a: set-unit(100, $pct);
-		@return calc(#{$a} + #{px($intercept)});
+		@return $slope;
 	}
+	@return calc(#{$slope} + #{px($intercept)});
 }

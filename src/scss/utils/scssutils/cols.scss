@@ -1,4 +1,4 @@
-@use 'one' as *;
+@use 'oneof' as *;
 
 // =======================================================
 // Column-based calc functions
@@ -13,9 +13,9 @@ $_numCols: 12 !default;
 //   $px = pixel-based modifier for the column-based container width. (Useful for gridded-containers with non-standard padding/margin)
 @function cols_pct(
 	$cols,
-	$gutters: $cols - one($cols),
+	$gutters: $cols - oneof($cols),
 	$relNumCols: $_numCols,
-	$relNumGutters: $relNumCols - one($relNumCols),
+	$relNumGutters: $relNumCols - oneof($relNumCols),
 	$w: null,
 	$px: 0
 ) {
@@ -30,7 +30,7 @@ $_numCols: 12 !default;
 @function px_pct(
 	$nPx,
 	$relNumCols: $_numCols,
-	$relNumGutters: $relNumCols - one($relNumCols),
+	$relNumGutters: $relNumCols - oneof($relNumCols),
 	$px: 0
 ) {
 	@return pct(
@@ -39,6 +39,6 @@ $_numCols: 12 !default;
 }
 
 /** pixel length - by columns */
-@function cols_px($cols, $gutters: $cols - one($cols)) {
+@function cols_px($cols, $gutters: $cols - oneof($cols)) {
 	@return px($cols * $_columnWidth + $gutters * $_gutterWidth);
 }

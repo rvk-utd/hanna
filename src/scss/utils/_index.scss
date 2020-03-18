@@ -1,6 +1,42 @@
 @forward 'scssutils';
 @forward 'font';
+@forward 'between';
+@forward 'bodyPadding';
+
+// ---------------------------------------------------------------------------
+
+@use '../vars' as *;
 
 @function prem($px) {
 	@return rem($px / 16);
+}
+
+@mixin Layout__header--height($property: height) {
+	#{$property}: 70px;
+
+	@media #{$mq-wide} {
+		#{$property}: 136px;
+	}
+}
+
+@mixin setMaxWidth($maxWidth) {
+	width: 100%;
+	max-width: prem($maxWidth);
+	margin-left: auto;
+	margin-right: auto;
+}
+@mixin extendBackgroundWithUnderlay($dir: both, $pseudo: before) {
+	z-index: 1;
+	position: relative;
+
+	&::#{$pseudo} {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: if($dir == right, null, calc(50% - 50vw));
+		right: if($dir == left, null, calc(50% - 50vw));
+		z-index: -1;
+		background: inherit;
+	}
 }

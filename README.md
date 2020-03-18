@@ -60,7 +60,7 @@ Placing files into this folder allows stable (`<img src="..." />`) links to
 https://styles.reykjavik.is/assets/reykjavik-logo.svg, etc. – links that don't
 involve the path token "CSS" or a css-version number.
 
-If certain perennial asssets need versioning, then embed that value into their
+If certain perennial assets need versioning, then embed that value into their
 filename.
 
 ### public/css/
