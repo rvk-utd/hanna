@@ -1,0 +1,79 @@
+@use '_globals' as *;
+
+/*!@deps
+	-basics
+*/
+@media screen {
+	body {
+		@include bodyPadding();
+	}
+
+	.Layout {
+		min-height: 100vh;
+		display: flex;
+		flex-flow: column nowrap;
+		// align-items: center;
+		position: relative;
+		@include setMaxWidth($grid-contentMaxWidth);
+	}
+
+	.Layout__header {
+		position: absolute 0 0 _ 0;
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		@include Layout__header--height();
+	}
+
+	.Layout__header__logo {
+		@include hideText(soft);
+		width: prem(181);
+	}
+	.Layout__header__logo > img {
+		width: 100%;
+	}
+	.Layout__header__skiplink {
+	}
+	.Layout__nav__closebutton {
+	}
+
+	.Layout__main {
+		flex-grow: 1;
+		@include Layout__header--height(padding-top);
+		padding-bottom: rem(30);
+	}
+
+	.Layout__nav {
+	}
+
+	.Layout__footer {
+		position: relative;
+		border-top: 1px solid $color-suld-75;
+		padding-top: between_cols(20, 100);
+		padding-bottom: between_cols(40, 110);
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+
+		@media #{$mq-tablet_up} {
+			flex-flow: row;
+			align-items: stretch;
+			justify-content: space-between;
+		}
+	}
+	.Layout__footer::before {
+		content: '';
+		margin-top: prem(12);
+		background: url($logo-notext-url) 0 0 no-repeat;
+		background-size: auto 100%;
+		width: prem(33);
+		height: prem(51);
+
+		@media #{$mq-tablet_netbook} {
+			width: cols_pct(1);
+		}
+		@media #{$mq-wide} {
+			width: cols_pct(2);
+		}
+	}
+}
