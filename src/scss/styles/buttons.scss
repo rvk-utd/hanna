@@ -76,9 +76,9 @@
 	$frameOffset: prem(8);
 	$borderRadius: prem(8);
 	@media screen {
-		display: inline-block;
+		display: inline-flex;
 		white-space: nowrap;
-		vertical-align: middle;
+		align-items: center;
 		line-height: prem(30);
 		color: $color-faxafloi-100;
 		margin: $frameOffset;
@@ -92,7 +92,6 @@
 			width: prem(16);
 			height: prem(2);
 			display: inline-block;
-			vertical-align: middle;
 			background-color: $color-faxafloi-100;
 			margin-right: prem(16);
 			transition: width 300ms ease-in-out;
