@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 @forward 'scssutils/a11y';
 @forward 'scssutils/icons';
 @forward 'scssutils/triangle';
@@ -11,9 +13,9 @@
 @forward 'scssutils/WARNING__';
 // @forward 'scssutils/oneof';
 
-@use '../vars/grid' as *;
 @forward 'scssutils/between' with (
-	$_between-maxWidth: $grid-contentMaxWidth
+	$_between-minWidth: $bp-phone,
+	$_between-maxWidth: $grid-contentMaxWidth--outer
 );
 @forward 'scssutils/cols' with (
 	$_columnWidth: $grid-column,

@@ -2,7 +2,9 @@ $grid-gutter: 40;
 $grid-column: 65;
 $grid-numCols: 12;
 
-$grid-contentMaxWidth: $grid-column * $grid-numCols + $grid-gutter * ($grid-numCols - 1);
-
 $grid-edge--phone: 20;
 $grid-edge--wide: 80;
+
+$grid-contentMaxWidth: $grid-column * $grid-numCols + $grid-gutter * ($grid-numCols - 1);
+
+$grid-contentMaxWidth--outer: $grid-contentMaxWidth + 2 * $grid-edge--wide;
