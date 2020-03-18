@@ -1,0 +1,21 @@
+@use '../globals' as *;
+
+$link-transition: 100ms ease-in-out;
+
+@mixin LinkStyle_transition() {
+	transition: $link-transition;
+	transition-property: border-color, background-color, color, text-shadow, box-shadow;
+}
+
+@mixin LinkStyle() {
+	color: $color-link;
+	text-decoration: none;
+	@include LinkStyle_transition();
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color-link--hover;
+		text-decoration: underline;
+	}
+}
