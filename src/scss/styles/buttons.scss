@@ -1,0 +1,132 @@
+@use '../globals' as *;
+
+@mixin _FocusedFrame(
+	$frameOffset,
+	$borderRadius,
+	$borderColor: $color-faxafloi-100,
+	$borderWidth: prem(2)
+) {
+	&:after {
+		content: '';
+		$frameOffsetNegative: $frameOffset * -1;
+		border: $borderWidth solid $borderColor;
+		position: absolute;
+		top: $frameOffsetNegative;
+		right: $frameOffsetNegative;
+		bottom: $frameOffsetNegative;
+		left: $frameOffsetNegative;
+		border-radius: $borderRadius;
+	}
+}
+
+@mixin Button($frameOffset: prem(4)) {
+	$borderRadius: prem(3);
+	@include buttonReset();
+	color: $color-white;
+	background-color: $color-faxafloi-100;
+	display: block;
+	white-space: nowrap;
+	vertical-align: middle;
+	line-height: prem(56);
+	max-width: 100%;
+	padding: 0 prem(20);
+	margin: $frameOffset;
+	text-decoration: none;
+	margin-right: prem(30);
+	text-align: center;
+	border-radius: $borderRadius;
+	position: relative;
+	transition: box-shadow 150ms ease-in-out;
+
+	@media #{$mq-tablet_up} {
+		min-width: prem(270);
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
+	}
+
+	&:active {
+		background-color: $color-faxafloi-150;
+	}
+
+	&:focus {
+		@include _FocusedFrame($frameOffset, $borderRadius);
+	}
+
+	&[disabled],
+	&[aria-disabled='true'] {
+		background-color: $color-faxafloi-50;
+		opacity: 0.5;
+	}
+
+	&--small {
+		line-height: prem(40);
+
+		@media #{$mq-tablet_up} {
+			min-width: prem(170);
+		}
+	}
+
+	& + .ButtonPrimary,
+	& + .ButtonSecondary,
+	& + .ButtonTertiary  {
+		margin-top: prem(16);
+	}
+}
+
+@mixin ButtonTertiary() {
+	$frameOffset: prem(8);
+	$borderRadius: prem(8);
+	@media screen {
+		display: flex;
+		white-space: nowrap;
+		align-items: center;
+		line-height: prem(20);
+		color: $color-faxafloi-100;
+		margin: $frameOffset;
+		padding: 0 prem(16);
+		position: relative;
+		font-weight: 700;
+
+		&::before {
+			content: '';
+			width: prem(16);
+			height: prem(2);
+			display: inline-block;
+			background-color: $color-faxafloi-100;
+			margin-right: prem(16);
+			transition: width 300ms ease-in-out;
+		}
+
+		&:hover:before,
+		&:active:before {
+			width: prem(48);
+		}
+
+		&:focus {
+			@include _FocusedFrame(
+				$frameOffset,
+				$borderRadius,
+				$color-faxafloi-75,
+				prem(1)
+			);
+			&:after {
+				right: 0;
+				left: 0;
+			}
+		}
+
+		&--small {
+			font-weight: 400;
+		}
+
+		&[disabled],
+		&[aria-disabled='true'] {
+			opacity: 0.5;
+		}
+	}
+}

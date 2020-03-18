@@ -2,7 +2,8 @@
 @use 'styles/buttons' as *;
 
 @media screen {
-	.ButtonTertiary {
-		@include ButtonTertiary();
+	.ButtonPrimary {
+		@include Button();
+		font-weight: 700;
 	}
 }
