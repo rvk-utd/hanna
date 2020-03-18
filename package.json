@@ -14,7 +14,7 @@
 		"node": "^12"
 	},
 	"dependencies": {
-		"cssserve": "^1.0.0"
+		"cssserve": "^1.1.0"
 	},
 	"devDependencies": {
 		"@hugsmidjan/gulp-iconfont": "^0.3.2",
