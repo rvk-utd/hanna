@@ -2,22 +2,32 @@
 
 @media screen {
 	.Tabs {
-		margin-top: prem(40);
 		display: flex;
+		flex-flow: row wrap;
+		border-bottom: 4px solid $color-suld-50;
+		font-weight: $font-weight--bold;
+		line-height: prem(24);
+		margin: prem(40) 0;
 	}
 
 	.Tabs__tab {
-		@include buttonReset();
 		border: 0;
 		border-bottom: 4px solid $color-suld-50;
-		line-height: prem(40);
-		padding: 0 58px;
+		margin-bottom: -4px;
+		padding: between_cols(5, 20) between_cols(15, 40);
+		// padding-bottom: between_cols(14, 24);
 		color: $color-suld-200;
+	}
+	.Tabs__tab:hover,
+	.Tabs__tab:focus,
+	.Tabs__tab:active {
+		color: $color-faxafloi-100;
+		border-bottom-color: $color-suld-100;
 		text-decoration: none;
 	}
 
 	.Tabs__tab[data-active='true'] {
 		color: $color-faxafloi-100;
-		border-color: $color-faxafloi-100;
+		border-bottom-color: $color-faxafloi-100;
 	}
 }
