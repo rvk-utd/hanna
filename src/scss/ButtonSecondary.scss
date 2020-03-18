@@ -3,7 +3,7 @@
 
 @media screen {
 	.ButtonSecondary {
-		@include Button;
+		@include Button(prem(5));
 		background-color: $color-suld-0;
 		border: 1px solid $color-faxafloi-100;
 		color: $color-faxafloi-100;
@@ -12,10 +12,6 @@
 			background-color: $color-suld-50;
 		}
 
-		&[disabled],
-		&[disabled='true'] {
-			background-color: $color-suld-0;
-			opacity: 0.5;
-		}
+		@include DisabledButton($color-suld-0);
 	}
 }
