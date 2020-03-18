@@ -1,0 +1,25 @@
+@use 'globals' as *;
+@use 'styles/buttons' as *;
+
+@media screen {
+	.ButtonBack {
+		@include ButtonTertiary;
+		font-size: prem(12);
+	}
+
+	.ButtonBack:before {
+		@include icon($icons-arrow-left-long);
+		background: 0;
+		height: auto;
+		width: auto;
+		margin-right: prem(8);
+		font-size: prem(9);
+		max-width: prem(12);
+		overflow: hidden;
+		transition-property: max-width;
+	}
+
+	.ButtonBack:hover:before {
+		max-width: prem(22);
+	}
+}
