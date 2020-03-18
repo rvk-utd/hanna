@@ -1,9 +1,9 @@
 @use 'globals' as *;
-@use 'Button' as *;
+@use 'styles/buttons' as *;
 
 @media screen {
 	.ButtonPrimary {
-		@include Button;
+		@include Button();
 		font-weight: 700;
 	}
 }

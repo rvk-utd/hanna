@@ -1,8 +1,8 @@
 @use 'globals' as *;
-@use 'Button' as *;
+@use 'styles/buttons' as *;
 
 @media screen {
 	.ButtonTertiary {
-		@include ButtonTertiary;
+		@include ButtonTertiary();
 	}
 }
