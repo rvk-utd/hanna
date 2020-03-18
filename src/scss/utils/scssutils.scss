@@ -20,5 +20,5 @@
 @forward 'scssutils/cols' with (
 	$_columnWidth: $grid-column,
 	$_gutterWidth: $grid-gutter,
-	$_numCols: 7
+	$_numCols: $grid-numCols
 );
