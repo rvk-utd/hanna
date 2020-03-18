@@ -1,4 +1,11 @@
-// screen-reader and rtl-friendly hiding
+$_focusLink-color: #c00 !default;
+$_focusLink-borderColor: 3px double #029 !default;
+$_focusLink-border: 3px double $_focusLink-borderColor !default;
+$_focusLink-background: #fff !default;
+$_focusLink-dir: ltr !default; // screen-reader and rtl-friendly hiding
+
+// ---------------------------------------------------------------------------
+
 @mixin sr-only($mode: normal) {
 	position: absolute;
 	width: 1px;
@@ -25,7 +32,11 @@
 	}
 }
 
-@mixin sr-only-focusable($styles: true, $link: #c00, $border: #029, $bg: #fff) {
+@mixin sr-only-focusable(
+	$link: $_focusLink-color,
+	$border: $_focusLink-border,
+	$bg: $_focusLink-background
+) {
 	@include sr-only();
 
 	&:active,
@@ -33,16 +44,15 @@
 	&:focus-within,
 	&.--focus-within {
 		@include sr-only--undo();
-		@include _private__defaultFocusStyling($styles, $link, $border, $bg);
+		@include _srFocusStyling($link, $border, $bg);
 	}
 }
 
 @mixin sr-only-content-focusable(
-	$styles: true,
-	$link: #c00,
-	$border: #029,
-	$bg: #fff,
-	$dir: ltr
+	$link: $_focusLink-color,
+	$border: $_focusLink-border,
+	$bg: $_focusLink-background,
+	$dir: $_focusLink-dir
 ) {
 	@include sr-offscreen($dir);
 
@@ -50,7 +60,7 @@
 	a:active,
 	button:focus {
 		@include sr-offscreen-content--undo($dir);
-		@include _private__defaultFocusStyling($styles, $link, $border, $bg);
+		@include _srFocusStyling($link, $border, $bg);
 	}
 }
 
@@ -84,18 +94,14 @@
 
 // ---------------------------------------------------------------------------
 
-@mixin _private__defaultFocusStyling($styles, $link, $border, $bg) {
+@mixin _srFocusStyling($link, $border, $bg) {
 	z-index: 99999;
-	@if ($styles == true) {
-		font-size: 1em;
-		background: $bg;
-		border: 1px solid $border;
-		margin: 0;
-		padding: 0.2em 0.33em;
-		color: $link;
-		text-shadow: none;
-		white-space: nowrap;
-	} @else {
-		@content;
-	}
+	font-size: 1em;
+	background: $bg;
+	border: $border;
+	margin: 0;
+	padding: 0.2em 0.33em;
+	color: $link;
+	text-shadow: none;
+	white-space: nowrap;
 }
