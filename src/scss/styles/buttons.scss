@@ -4,7 +4,7 @@
 	$frameOffset,
 	$borderRadius,
 	$borderColor: $color-faxafloi-100,
-	$borderWidth: 2px
+	$borderWidth: prem(2)
 ) {
 	&:after {
 		content: '';
@@ -104,7 +104,12 @@
 		}
 
 		&:focus {
-			@include _FocusedFrame($frameOffset, $borderRadius, $color-faxafloi-75, 1px);
+			@include _FocusedFrame(
+				$frameOffset,
+				$borderRadius,
+				$color-faxafloi-75,
+				prem(1)
+			);
 			&:after {
 				right: 0;
 				left: 0;
