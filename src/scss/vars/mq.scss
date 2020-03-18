@@ -31,3 +31,9 @@ $mediaFormats: (
 	'netbook': $mq-netbook,
 	'wide': $mq-wide,
 );
+
+// ---------------------------------------------------------------------------
+// High level media-formats
+
+$mq-Hamburger: $mq-phone_tablet;
+$mq-Topmenu: $mq-netbook_up;

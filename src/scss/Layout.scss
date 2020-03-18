@@ -77,3 +77,19 @@
 		}
 	}
 }
+
+// ===========================================================================
+
+@media #{$mq-Hamburger} {
+	.Layout__header__skiplink {
+		margin-left: auto;
+	}
+}
+
+// ===========================================================================
+
+@media #{$mq-Topmenu} {
+	.Layout__header__skiplink {
+		@include sr-only-focusable();
+	}
+}
