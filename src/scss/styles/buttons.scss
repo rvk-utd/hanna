@@ -24,7 +24,7 @@
 	@include buttonReset();
 	color: $color-white;
 	background-color: $color-faxafloi-100;
-	display: inline-block;
+	display: block;
 	white-space: nowrap;
 	vertical-align: middle;
 	line-height: prem(56);
@@ -70,19 +70,24 @@
 			min-width: prem(170);
 		}
 	}
+
+	& + .ButtonPrimary,
+	& + .ButtonSecondary,
+	& + .ButtonTertiary  {
+		margin-top: prem(16);
+	}
 }
 
 @mixin ButtonTertiary() {
 	$frameOffset: prem(8);
 	$borderRadius: prem(8);
 	@media screen {
-		display: inline-flex;
+		display: flex;
 		white-space: nowrap;
 		align-items: center;
-		line-height: prem(30);
+		line-height: prem(20);
 		color: $color-faxafloi-100;
 		margin: $frameOffset;
-		margin-right: prem(30);
 		padding: 0 prem(16);
 		position: relative;
 		font-weight: 700;
