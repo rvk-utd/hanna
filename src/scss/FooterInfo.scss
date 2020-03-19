@@ -3,20 +3,20 @@
 
 @media screen {
 	.FooterInfo {
-		@media #{$mq-tablet_up} {
-			display: flex;
-		}
+		flex-basis: 100%;
 	}
 
 	.FooterInfo__group {
 		margin-bottom: between_cols(30, 40);
 
 		@media #{$mq-tablet_up} {
-			width: cols_pct(3.5, 3, 11);
-			margin-left: cols_pct(0, 1, 11);
+			float: left;
+			width: cols_pct(5, 4, 11);
+			margin-left: cols_pct(1, 0, 11);
 		}
 		@media #{$mq-netbook_up} {
 			width: cols_pct(3, 2, 11);
+			margin-left: cols_pct(0, 1, 11);
 		}
 	}
 
@@ -27,13 +27,21 @@
 	.FooterInfo__group[role='contactinfo'] {
 		box-sizing: content-box;
 		background-color: $color-suld-25;
-		margin-top: cols_pct(0, -1, 11);
-		padding: cols_pct(0, 1, 11);
+
+		@media #{$mq-phone_phablet} {
+			margin-left: prem(-15);
+			margin-right: prem(-15);
+			padding: prem(15);
+		}
 
 		@media #{$mq-tablet} {
+			margin-top: cols_pct(0, -1, 11);
+			padding: cols_pct(0, 1, 11);
+		}
+		@media #{$mq-netbook} {
 			width: cols_pct(4, 3, 11);
 		}
-		@media #{$mq-netbook_up} {
+		@media #{$mq-wide} {
 			margin-left: cols_pct(1, 0, 11);
 			margin-right: cols_pct(1, 0, 11);
 		}
