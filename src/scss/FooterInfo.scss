@@ -34,7 +34,7 @@
 			padding: prem(15);
 		}
 
-		@media #{$mq-tablet} {
+		@media #{$mq-tablet_up} {
 			margin-top: cols_pct(0, -1, 11);
 			padding: cols_pct(0, 1, 11);
 		}
