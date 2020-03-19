@@ -19,10 +19,10 @@
 	}
 }
 
-@mixin Button($frameOffset: prem(4)) {
+@mixin Button($frameOffset: prem(4), $text-color: $color-white) {
 	$borderRadius: prem(3);
 	@include buttonReset();
-	color: $color-white;
+	color: $text-color;
 	background-color: $color-faxafloi-100;
 	display: block;
 	white-space: nowrap;
@@ -47,6 +47,7 @@
 	&:active {
 		text-decoration: none;
 		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
+		color: $text-color;
 	}
 
 	&:active {
@@ -100,6 +101,11 @@
 			background-color: $color-faxafloi-100;
 			margin-right: prem(16);
 			transition: width 300ms ease-in-out;
+		}
+
+		&:hover,
+		&:active {
+			text-decoration: none;
 		}
 
 		&:hover:before,
