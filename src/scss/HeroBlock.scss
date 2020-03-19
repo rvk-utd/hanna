@@ -1,5 +1,5 @@
 /*!@deps
-	Button
+	ButtonPrimary
 	ButtonTertiary
 */
 @use 'globals' as *;
@@ -15,5 +15,12 @@
 		margin: prem(40) 0;
 		font-size: prem(20);
 		line-height: prem(32);
+	}
+
+	.HeroBlock > .ButtonPrimary {
+		display: inline-block;
+	}
+	.HeroBlock > .ButtonTertiary {
+		display: inline-flex;
 	}
 }
