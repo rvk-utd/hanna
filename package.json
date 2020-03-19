@@ -6,7 +6,7 @@
 	"private": true,
 	"scripts": {
 		"start": "NODE_ENV=production  yarn run cssserve --config cssserve-prod.json",
-		"dev:server": "NODE_ENV=development  yarn run cssserve --config script/cssserve-dev.json",
+		"dev:server": "NODE_ENV=development  yarn run cssserve --config scripts/cssserve-dev.json",
 		"publish:css": "NODE_ENV=production  yarn run gulp build  &&  ospec scripts/prepublish.tests.js  &&  yarn run gulp publish",
 		"dev": "yarn run gulp watch"
 	},
