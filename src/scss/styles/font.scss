@@ -2,7 +2,7 @@
 
 @mixin _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS) {
 	font-size: px($sizeS);
-	line-height: px($leading);
+	line-height: px($leadS);
 
 	@media #{$mq-tablet_up} {
 		font-size: between_tablet_up($sizeS, $sizeL);
@@ -20,8 +20,8 @@
 	font-weight: $font-weight--bold;
 	@include _ResponsiveFontSize(
 		$font-hd-xl-size,
-		$font-hd-xl-size,
 		$font-hd-xl-leading,
+		$font-hd-xl-size,
 		$font-hd-xl-leading
 	);
 }
@@ -29,8 +29,8 @@
 	font-weight: $font-weight--bold;
 	@include _ResponsiveFontSize(
 		$font-hd-xl-size,
-		$font-hd-l-size,
 		$font-hd-l-leading,
+		$font-hd-l-size,
 		$font-hd-l-leading
 	);
 }
@@ -38,8 +38,8 @@
 	font-weight: $font-weight--bold;
 	@include _ResponsiveFontSize(
 		$font-hd-m-size,
-		$font-hd-m-size,
 		$font-hd-m-leading,
+		$font-hd-m-size,
 		$font-hd-m-leading
 	);
 }
@@ -47,8 +47,8 @@
 	font-weight: $font-weight--bold;
 	@include _ResponsiveFontSize(
 		$font-hd-s-size,
-		$font-hd-s-size,
 		$font-hd-s-leading,
+		$font-hd-s-size,
 		$font-hd-s-leading
 	);
 }
@@ -59,8 +59,8 @@
 	font-weight: $font-weight--bold;
 	@include _ResponsiveFontSize(
 		$font-sh-l-size,
-		$font-sh-l-size,
 		$font-sh-l-leading,
+		$font-sh-l-size,
 		$font-sh-l-leading
 	);
 }
@@ -68,8 +68,8 @@
 	font-weight: $font-weight--normal;
 	@include _ResponsiveFontSize(
 		$font-sh-l-size,
-		$font-sh-l-size,
 		$font-sh-l-leading,
+		$font-sh-l-size,
 		$font-sh-l-leading
 	);
 }
@@ -77,8 +77,8 @@
 	font-weight: $font-weight--bold;
 	@include _ResponsiveFontSize(
 		$font-sh-s-size,
-		$font-sh-s-size,
 		$font-sh-s-leading,
+		$font-sh-s-size,
 		$font-sh-s-leading
 	);
 }
