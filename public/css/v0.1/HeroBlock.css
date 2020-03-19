@@ -1,0 +1,4 @@
+/*!@deps
+	ButtonPrimary
+	ButtonTertiary
+*/@media screen{.HeroBlock__title{font-size:4rem;line-height:5rem}.HeroBlock__summary{margin:2.5rem 0;font-size:1.25rem;line-height:2rem}.HeroBlock>.ButtonPrimary{display:inline-block}.HeroBlock>.ButtonTertiary{display:inline-flex}}
