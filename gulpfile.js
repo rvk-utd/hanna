@@ -10,6 +10,7 @@ const { existsSync } = require('fs');
 // ---------------------------------------------------------------------------
 
 const {
+	cssVersion,
 	sourceFolder,
 	devDistCssFolder,
 	publishCssFolder,
@@ -50,14 +51,34 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 
 // ===========================================================================
 
-const publish = () => {
+const publish_copyToCssFolder = () => {
 	if (existsSync(publishCssFolder)) {
 		throw new Error('Publishing folder already exists.');
 	}
-	return src('**/*', { base: devDistCssFolder, ignore: '*.css.map' }).pipe(
+	return src('**/*', { base: devDistCssFolder, ignore: '**/*.css.map' }).pipe(
 		dest(publishCssFolder)
 	);
 };
+const publish_commitToGit = (done) => {
+	try {
+		require('child_process').execSync(
+			'git reset  &&  ' +
+				'git add public/css  &&  ' +
+				`git commit -m "publish: css/${cssVersion}"`
+		);
+	} catch (error) {
+		done(error);
+	}
+	try {
+		require('child_process').execSync(
+			'git reset  &&  ' +
+				'git add public/assets  &&  ' +
+				`git commit -m "publish: assets"`
+		);
+	} catch (error) {}
+	done();
+};
+const publish = series(publish_copyToCssFolder, publish_commitToGit);
 
 // ===========================================================================
 
