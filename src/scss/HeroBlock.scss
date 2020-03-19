@@ -3,13 +3,13 @@
 	ButtonTertiary
 */
 @use 'globals' as *;
+@use 'styles/font' as *;
 
 @media screen {
 	.HeroBlock {
 	}
 	.HeroBlock__title {
-		font-size: prem(64);
-		line-height: prem(80);
+		@include HeadingStyle--large();
 	}
 	.HeroBlock__summary {
 		margin: prem(40) 0;

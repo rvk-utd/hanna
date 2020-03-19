@@ -1,16 +1,12 @@
-@use '../vars' as *;
+@use '../_globals' as *;
 
 @mixin _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS) {
-	font-size: px($sizeS);
-	line-height: px($leadS);
+	font-size: px($sizeL);
+	line-height: px($leadL);
 
-	@media #{$mq-tablet_up} {
-		font-size: between_tablet_up($sizeS, $sizeL);
-		line-height: between_tablet_up($leadS, $leadL);
-	}
-	@media #{$mq-wide} {
-		font-size: px($sizeL);
-		line-height: px($leadL);
+	@media #{$mq-phone_netbook} {
+		font-size: between_phone_netbook($sizeS, $sizeL);
+		line-height: between_phone_netbook($leadS, $leadL);
 	}
 }
 
@@ -21,8 +17,8 @@
 	@include _ResponsiveFontSize(
 		$font-hd-xl-size,
 		$font-hd-xl-leading,
-		$font-hd-xl-size,
-		$font-hd-xl-leading
+		$font-hd-xl-size--phone,
+		$font-hd-xl-leading--phone
 	);
 }
 @mixin HeadingStyle--large() {
@@ -30,8 +26,8 @@
 	@include _ResponsiveFontSize(
 		$font-hd-xl-size,
 		$font-hd-l-leading,
-		$font-hd-l-size,
-		$font-hd-l-leading
+		$font-hd-l-size--phone,
+		$font-hd-l-leading--phone
 	);
 }
 @mixin HeadingStyle--medium() {
@@ -39,8 +35,8 @@
 	@include _ResponsiveFontSize(
 		$font-hd-m-size,
 		$font-hd-m-leading,
-		$font-hd-m-size,
-		$font-hd-m-leading
+		$font-hd-m-size--phone,
+		$font-hd-m-leading--phone
 	);
 }
 @mixin HeadingStyle--small() {
@@ -48,8 +44,8 @@
 	@include _ResponsiveFontSize(
 		$font-hd-s-size,
 		$font-hd-s-leading,
-		$font-hd-s-size,
-		$font-hd-s-leading
+		$font-hd-s-size--phone,
+		$font-hd-s-leading--phone
 	);
 }
 
@@ -60,8 +56,8 @@
 	@include _ResponsiveFontSize(
 		$font-sh-l-size,
 		$font-sh-l-leading,
-		$font-sh-l-size,
-		$font-sh-l-leading
+		$font-sh-l-size--phone,
+		$font-sh-l-leading--phone
 	);
 }
 @mixin SubheadingStyle--large-thin() {
@@ -69,8 +65,8 @@
 	@include _ResponsiveFontSize(
 		$font-sh-l-size,
 		$font-sh-l-leading,
-		$font-sh-l-size,
-		$font-sh-l-leading
+		$font-sh-l-size--phone,
+		$font-sh-l-leading--phone
 	);
 }
 @mixin SubheadingStyle--small() {
@@ -78,20 +74,24 @@
 	@include _ResponsiveFontSize(
 		$font-sh-s-size,
 		$font-sh-s-leading,
-		$font-sh-s-size,
-		$font-sh-s-leading
+		$font-sh-s-size--phone,
+		$font-sh-s-leading--phone
 	);
 }
 
 // ---------------------------------------------------------------------------
 
 @mixin BodyTextStyle--large() {
-	font-size: prem(20);
-	line-height: prem(32);
+	@include _ResponsiveFontSize(
+		$font-bd-l-size,
+		$font-bd-l-leading,
+		$font-bd-s-size,
+		$font-bd-s-leading
+	);
 }
 @mixin BodyTextStyle--small() {
-	font-size: prem(16);
-	line-height: prem(24);
+	font-size: prem($font-bd-s-size);
+	line-height: prem($font-bd-s-leading);
 }
 
 // ---------------------------------------------------------------------------
