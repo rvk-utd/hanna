@@ -1,4 +1,7 @@
 {
+	"ttl_static": 600,
+	"ttl_bundle": 600,
+
 	"proxied": true,
 	"cacheRefreshToken": null,
 	"sslKeyPath": null,
