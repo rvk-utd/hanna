@@ -6,21 +6,23 @@
 @use 'styles/font' as *;
 
 @media screen {
-	.HeroBlock {
+	.PageTitleBlock {
 	}
-	.HeroBlock__title {
+	.PageTitleBlock__title {
 		@include HeadingStyle--large();
 	}
-	.HeroBlock__summary {
+	.PageTitleBlock__image {
+	}
+	.PageTitleBlock__summary {
 		margin: prem(40) 0;
 		font-size: prem(20);
 		line-height: prem(32);
 	}
 
-	.HeroBlock > .ButtonPrimary {
+	.PageTitleBlock > .ButtonPrimary {
 		display: inline-block;
 	}
-	.HeroBlock > .ButtonTertiary {
+	.PageTitleBlock > .ButtonTertiary {
 		display: inline-flex;
 	}
 }
