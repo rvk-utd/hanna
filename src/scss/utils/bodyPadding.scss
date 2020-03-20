@@ -2,9 +2,8 @@
 @use 'between' as *;
 @use 'scssutils/between' as *;
 
-@mixin bodyPadding($neg: false, $dir: both) {
-	$f: if($neg, -1, 1);
-	$fluidVal: between_phone_netbook($f * $grid-edge--phone, $f * $grid-edge--wide);
+@mixin bodyPadding($dir: both) {
+	$fluidVal: between_phone_netbook($grid-edge--phone, $grid-edge--wide);
 	padding-left: if($dir != right, $fluidVal, null);
 	padding-right: if($dir != right, $fluidVal, null);
 }
