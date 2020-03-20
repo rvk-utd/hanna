@@ -1,0 +1,49 @@
+/*!@deps
+	ButtonTertiary
+*/
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.LabeledTextBlock {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.LabeledTextBlock + .LabeledTextBlock {
+		margin-top: between_tablet_netbook(50, 100);
+	}
+
+	.LabeledTextBlock__label {
+		@include HeadingStyle--small();
+		display: flex;
+		align-items: center;
+		width: cols_pct(5);
+	}
+	.LabeledTextBlock__label:before {
+		content: '';
+		width: prem($grid-column);
+		height: prem(4);
+		display: inline-block;
+		background-color: $color-faxafloi-100;
+		margin-right: prem(40);
+	}
+
+	.LabeledTextBlock__summary {
+		width: cols_pct(6);
+		padding-top: grid-units();
+		margin-left: auto;
+	}
+
+	.LabeledTextBlock--left {
+		@include bodyPaddingInner(margin, true, left);
+	}
+
+	.LabeledTextBlock--left:before {
+		width: prem(36);
+	}
+
+	.LabeledTextBlock__summary > .ButtonTertiary {
+		margin-top: grid-units(3);
+	}
+}
