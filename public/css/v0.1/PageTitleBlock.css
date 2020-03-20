@@ -1,0 +1,4 @@
+/*!@deps
+	ButtonPrimary
+	ButtonTertiary
+*/@media screen{.PageTitleBlock__title{font-weight:700;font-size:72px;line-height:80px}}@media screen and (max-width:1379px){.PageTitleBlock__title{font-size:calc(3.77358vw + 19.92453px);line-height:calc(3.77358vw + 27.92453px)}}@media screen{.PageTitleBlock__summary{font-size:20px;line-height:32px;margin:2.5rem 0}}@media screen and (max-width:1379px){.PageTitleBlock__summary{font-size:calc(.37736vw + 14.79245px);line-height:calc(.75472vw + 21.58491px)}}@media screen{.PageTitleBlock>.ButtonPrimary{display:inline-block}}@media screen{.PageTitleBlock>.ButtonTertiary{display:inline-flex}}
