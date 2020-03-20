@@ -6,22 +6,22 @@
 @use 'styles/font' as *;
 
 @media screen {
-	.PageTitleBlock {
+	.HeroBlock {
 	}
-	.PageTitleBlock__title {
+	.HeroBlock__title {
 		@include HeadingStyle--large();
 	}
-	.PageTitleBlock__image {
+	.HeroBlock__image {
 	}
-	.PageTitleBlock__summary {
+	.HeroBlock__summary {
 		@include BodyTextStyle--large();
 		margin: prem(40) 0;
 	}
 
-	.PageTitleBlock > .ButtonPrimary {
+	.HeroBlock > .ButtonPrimary {
 		display: inline-block;
 	}
-	.PageTitleBlock > .ButtonTertiary {
+	.HeroBlock > .ButtonTertiary {
 		display: inline-flex;
 	}
 }
