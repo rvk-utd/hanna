@@ -14,5 +14,5 @@
 	$to: $f * $grid-edge--wide;
 
 	#{$property}-left: if($dir != right, between_cols($from, $to), null);
-	#{$property}-right: if($dir != right, between_cols($from, $to), null);
+	#{$property}-right: if($dir != left, between_cols($from, $to), null);
 }
