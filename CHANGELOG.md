@@ -2,7 +2,7 @@
 
 ## Upcoming...
 
-- ... <!-- Add new lines here. Version number will be decided later -->
+- ... <!-- Add new lines here. -->
 - **BREAKING** feat: Rename `PageTitleBlock` back to `HeroBlock`
 - feat: Add `LabeledTextBlock`
 
