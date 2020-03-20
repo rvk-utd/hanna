@@ -10,6 +10,10 @@
 	@return rem($px / 16);
 }
 
+@function grid-units($units: 1) {
+	@return prem($grid-unit * $units);
+}
+
 @mixin Layout__header--height($property: height) {
 	#{$property}: 70px;
 
