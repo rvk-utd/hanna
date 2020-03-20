@@ -14,9 +14,8 @@
 	.PageTitleBlock__image {
 	}
 	.PageTitleBlock__summary {
+		@include BodyTextStyle--large();
 		margin: prem(40) 0;
-		font-size: prem(20);
-		line-height: prem(32);
 	}
 
 	.PageTitleBlock > .ButtonPrimary {
