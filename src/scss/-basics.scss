@@ -21,16 +21,16 @@
 	font-weight: $font-weight--normal;
 	font-style: normal;
 	font-display: block;
-	src: url('/assets/XXXXXXXXX-regular.woff2') format('woff2'),
-		url('/assets/XXXXXXXXX-regular.woff') format('woff');
+	src: url('/assets/L15-regular.woff2') format('woff2'),
+		url('/assets/L15-regular.woff') format('woff');
 }
 @font-face {
 	font-family: $font-family-name;
 	font-weight: $font-weight--bold;
 	font-style: normal;
 	font-display: block;
-	src: url('/assets/XXXXXXXXX-bold.woff2') format('woff2'),
-		url('/assets/XXXXXXXXX-bold.woff') format('woff');
+	src: url('/assets/L15-bold.woff2') format('woff2'),
+		url('/assets/L15-bold.woff') format('woff');
 }
 
 :root {

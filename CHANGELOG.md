@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - **BREAKING** feat: Rename `PageTitleBlock` back to `HeroBlock`
 - feat: Add `LabeledTextBlock`
+- feat: Add L15 webfont (unofficial FontSquirrel version)
 
 ## 0.1.0
 
