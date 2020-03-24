@@ -70,6 +70,10 @@ module.exports = {
 		assertNumber(number);
 		return num(number.getValue(), 'rem');
 	},
+	'em($number)': (number) => {
+		assertNumber(number);
+		return num(number.getValue(), 'em');
+	},
 	'num($number)': (number) => {
 		assertNumber(number);
 		return num(number.getValue());
