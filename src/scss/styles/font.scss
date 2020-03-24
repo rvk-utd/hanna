@@ -1,12 +1,30 @@
 @use '../_globals' as *;
 
 @mixin _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS) {
-	font-size: px($sizeL);
-	line-height: px($leadL);
+	font-size: px($sizeS);
+	line-height: px($leadS);
 
-	@media #{$mq-phone_netbook} {
-		font-size: between_phone_netbook($sizeS, $sizeL);
-		line-height: between_phone_netbook($leadS, $leadL);
+	@media #{$mq-phablet_netbook} {
+		font-size: between_phablet_netbook($sizeS, $sizeL);
+		line-height: between_phablet_netbook($leadS, $leadL);
+	}
+	@media #{$mq-wide} {
+		font-size: px($sizeL);
+		line-height: px($leadL);
+	}
+}
+
+@mixin _ResponsiveFontSizeFast($sizeL, $leadL, $sizeS, $leadS) {
+	font-size: px($sizeS);
+	line-height: px($leadS);
+
+	@media #{$mq-tablet_netbook} {
+		font-size: between_tablet_netbook($sizeS, $sizeL);
+		line-height: between_tablet_netbook($leadS, $leadL);
+	}
+	@media #{$mq-wide} {
+		font-size: px($sizeL);
+		line-height: px($leadL);
 	}
 }
 
@@ -82,7 +100,7 @@
 // ---------------------------------------------------------------------------
 
 @mixin BodyTextStyle--large() {
-	@include _ResponsiveFontSize(
+	@include _ResponsiveFontSizeFast(
 		$font-bd-l-size,
 		$font-bd-l-leading,
 		$font-bd-s-size,
