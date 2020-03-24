@@ -4,9 +4,9 @@
 $_scaleDown: ($bp-phone - 2 * $grid-edge--phone) / $grid-contentMaxWidth;
 
 @function between_cols($from, $to, $cols: $grid-numCols, $gutters: null) {
-	// $max: if($gutters == null, cols_px($cols), cols_px($cols, $gutters));
-	$max: 1200px;
-	@return between($from, $to, $max * $_scaleDown, $max, '%');
+	$max: if($gutters == null, cols_px($cols), cols_px($cols, $gutters));
+	$min: $_scaleDown * $max;
+	@return between($from, $to, $min, $max, '%');
 }
 
 // ---------------------------------------------------------------------------
