@@ -1,0 +1,39 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.RelatedLinks {
+		background-color: $color-suld-50;
+	}
+
+	.RelatedLinks__title {
+		@include HeadingStyle--small();
+	}
+
+	.RelatedLinks__title {
+		margin-bottom: between_phone_netbook(20, 53);
+	}
+}
+
+@media #{$mq-tablet_up} {
+	.RelatedLinks {
+		width: cols_pct(6);
+		padding: grid-units(8) cols_pct(1, 0) prem(133) cols_pct(1, 1);
+		position: absolute;
+		top: prem(180);
+		right: 0;
+		bottom: prem(-180);
+		@include bodyPaddingInner(margin, false, right);
+	}
+	.RelatedLinks__list {
+	}
+
+	.RelatedLinks__li {
+		margin-bottom: prem(19);
+	}
+
+	.RelatedLinks__link {
+		@include BodyTextStyle--large();
+		color: $color-suld-200;
+	}
+}
