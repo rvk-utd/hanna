@@ -1,20 +1,32 @@
 @use 'globals' as *;
-
 @use 'styles/cards' as *;
+
+/*!@deps
+	RelatedLinks
+*/
 
 @include Card('ExtraLinks');
 
 @media screen {
-	.ExtraLinks {
+	.ExtraLinkswrap {
+		background-color: $color-suld-25;
 		border-left: prem(8) solid $color-esja-100;
+	}
+	.ExtraLinks {
 		padding: prem(62) 0 prem(116) prem(8);
 	}
 }
 
 @media #{$mq-tablet_up} {
+	.ExtraLinkswrap {
+		@include bodyPaddingInner(margin, true);
+		position: relative;
+	}
 	.ExtraLinks {
 		border-width: prem(24);
 		padding: grid-units(10) 0 grid-units(10) grid-units(7);
+		// @include bodyPaddingInner(padding);
+		max-width: 100%;
 	}
 
 	.ExtraLinks__title {
@@ -36,5 +48,13 @@
 		text-decoration: none;
 		outline: none;
 		color: $color-suld-200;
+	}
+
+	.ExtraLinks--relatedLinks {
+		max-width: cols_pct(6);
+	}
+
+	.ExtraLinks--relatedLinks > .ExtraLinks__card {
+		width: cols_pct(3, 2, 6);
 	}
 }
