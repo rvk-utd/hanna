@@ -1,0 +1,40 @@
+@use 'globals' as *;
+
+@use 'styles/cards' as *;
+
+@include Card('ExtraLinks');
+
+@media screen {
+	.ExtraLinks {
+		border-left: prem(8) solid $color-esja-100;
+		padding: prem(62) 0 prem(116) prem(8);
+	}
+}
+
+@media #{$mq-tablet_up} {
+	.ExtraLinks {
+		border-width: prem(24);
+		padding: grid-units(10) 0 grid-units(10) grid-units(7);
+	}
+
+	.ExtraLinks__title {
+		margin-bottom: grid-units(7);
+	}
+
+	.ExtraLinks__card {
+		margin: 0 cols_pct(0, 1) grid-units(5) 0;
+	}
+
+	.ExtraLinks__card:nth-child(4n + 1) {
+		margin-right: 0;
+	}
+
+	.ExtraLinks__card:hover,
+	.ExtraLinks__card:focus,
+	.ExtraLinks__card:active {
+		background-color: $color-esja-100;
+		text-decoration: none;
+		outline: none;
+		color: $color-suld-200;
+	}
+}
