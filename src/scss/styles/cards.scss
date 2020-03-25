@@ -1,0 +1,71 @@
+@use '../globals' as *;
+@use 'font' as *;
+
+@mixin Card($bem) {
+	@media screen {
+		.#{$bem} {
+			color: $color-suld-200;
+		}
+
+		.#{$bem}__title {
+			@include HeadingStyle--small();
+			width: 100%;
+		}
+
+		.#{$bem}__card {
+			display: block;
+			padding: prem(24) prem(24) prem(16) prem(24);
+			margin: 0 prem(73) prem(16) 0;
+			width: cols_pct(3);
+			min-height: prem(168);
+			position: relative;
+			color: inherit;
+		}
+
+		.#{$bem}__card__summary:after {
+			content: '';
+			display: block;
+			width: grid-units(5);
+			height: prem(2);
+			background: $color-suld-200;
+			margin-top: grid-units(2);
+			margin-bottom: grid-units(2);
+		}
+
+		.#{$bem}__card__title,
+		.#{$bem}__card__summary {
+			display: block;
+		}
+
+		.#{$bem}__card__title {
+			@include BodyTextStyle--large();
+			font-weight: 700;
+		}
+
+		.#{$bem}__card__summary {
+			@include BodyTextStyle--small();
+		}
+	}
+
+	@media #{$mq-phone_tablet} {
+		.#{$bem}__card {
+			width: 45%;
+			min-width: 272px;
+		}
+	}
+
+	@media #{$mq-tablet_up} {
+		.#{$bem} {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.#{$bem}__card {
+			margin: 0 cols_pct(0, 1) grid-units(5) 0;
+		}
+
+		.#{$bem}__card:nth-child(4n + 1) {
+			margin-right: 0;
+		}
+	}
+}
