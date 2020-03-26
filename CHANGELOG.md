@@ -6,6 +6,7 @@
 - **BREAKING** feat: Rename `PageTitleBlock` back to `HeroBlock`
 - feat: Add `LabeledTextBlock`, `ExtraInfo`, `ActionCards`
 - feat: Add L15 webfont
+- fix: Tweak `HeroBlock` styling
 
 ## 0.1.0
 

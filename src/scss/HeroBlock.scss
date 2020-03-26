@@ -7,15 +7,21 @@
 
 @media screen {
 	.HeroBlock {
+		padding: between_cols(0, 3 * $grid-unit);
+		margin-bottom: between_cols(30, 10 * $grid-unit);
 	}
 	.HeroBlock__title {
 		@include HeadingStyle--large();
+		margin-bottom: em(40/64);
 	}
 	.HeroBlock__image {
+		display: block;
+		margin-top: grid-units(-1);
+		margin-bottom: grid-units(2);
 	}
 	.HeroBlock__summary {
 		@include BodyTextStyle--large();
-		margin: prem(40) 0;
+		margin-bottom: em(40/20);
 	}
 
 	.HeroBlock > .ButtonPrimary {
@@ -23,5 +29,38 @@
 	}
 	.HeroBlock > .ButtonTertiary {
 		display: inline-flex;
+	}
+}
+
+@media #{$mq-phablet_tablet} {
+	.HeroBlock {
+		padding-right: between_phablet_tablet(0, cols_px(3, 3));
+	}
+	// .HeroBlock__title,
+	// .HeroBlock__image,
+	// .HeroBlock__summary {
+	// 	max-width: prem(cols_pct(8) / 100 * $bp-netbook);
+	// }
+}
+@media #{$mq-netbook_up} {
+	.HeroBlock {
+		position: relative;
+		padding-right: cols_pct(6, 6);
+	}
+	.HeroBlock__image {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: cols_pct(6, 6);
+		width: cols_pct(6);
+		margin: 0;
+	}
+	.HeroBlock__image > img {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		margin: auto;
 	}
 }
