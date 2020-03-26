@@ -8,25 +8,24 @@
 @include Card('ExtraLinks');
 
 @media screen {
-	.ExtraLinkswrap {
+	.ExtraLinks {
 		background-color: $color-suld-25;
 		border-left: prem(8) solid $color-esja-100;
-	}
-	.ExtraLinks {
 		padding: prem(62) 0 prem(116) prem(8);
 	}
 }
 
 @media #{$mq-tablet_up} {
-	.ExtraLinkswrap {
-		@include bodyPaddingInner(margin, true);
-		position: relative;
-	}
 	.ExtraLinks {
-		border-width: prem(24);
-		padding: grid-units(10) 0 grid-units(10) grid-units(7);
-		// @include bodyPaddingInner(padding);
-		max-width: 100%;
+		position: relative;
+		border: 0;
+		padding: grid-units(10) 0 grid-units(10) 0;
+
+		@include extendBackgroundWithUnderlay();
+
+		&:before {
+			border-left: prem(24) solid $color-esja-100;
+		}
 	}
 
 	.ExtraLinks__title {
@@ -51,7 +50,7 @@
 	}
 
 	.ExtraLinks--relatedLinks {
-		max-width: cols_pct(6);
+		padding-right: cols_pct(6, 6);
 	}
 
 	.ExtraLinks--relatedLinks > .ExtraLinks__card {
