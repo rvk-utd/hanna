@@ -6,6 +6,7 @@
 - **BREAKING** feat: Rename `PageTitleBlock` back to `HeroBlock`
 - feat: Add `LabeledTextBlock`
 - feat: Add L15 webfont (unofficial FontSquirrel version)
+- feat: Add `ExtraInfo`, `ActionCards`
 
 ## 0.1.0
 
