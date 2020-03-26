@@ -1,0 +1,40 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.RelatedLinks {
+		background-color: $color-suld-50;
+		padding: grid-units(8) cols_pct(1, 0) grid-units(5) cols_pct(1, 1);
+	}
+
+	.RelatedLinks__title {
+		@include HeadingStyle--small();
+	}
+
+	.RelatedLinks__title {
+		margin-bottom: between_phone_netbook(20, 53);
+	}
+
+	.RelatedLinks__link {
+		@include BodyTextStyle--large();
+		color: $color-suld-200;
+	}
+}
+
+@media #{$mq-tablet_up} {
+	.RelatedLinks {
+		width: cols_pct(6);
+		padding: grid-units(8) cols_pct(1, 0) prem(133) cols_pct(1, 1);
+		position: absolute;
+		top: prem(180);
+		right: 0;
+		bottom: prem(-180);
+	}
+
+	.RelatedLinks__list {
+	}
+
+	.RelatedLinks__li {
+		margin-bottom: prem(19);
+	}
+}
