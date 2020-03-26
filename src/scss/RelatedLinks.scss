@@ -4,6 +4,7 @@
 @media screen {
 	.RelatedLinks {
 		background-color: $color-suld-50;
+		padding: grid-units(8) cols_pct(1, 0) grid-units(5) cols_pct(1, 1);
 	}
 
 	.RelatedLinks__title {
@@ -12,6 +13,11 @@
 
 	.RelatedLinks__title {
 		margin-bottom: between_phone_netbook(20, 53);
+	}
+
+	.RelatedLinks__link {
+		@include BodyTextStyle--large();
+		color: $color-suld-200;
 	}
 }
 
@@ -23,17 +29,12 @@
 		top: prem(180);
 		right: 0;
 		bottom: prem(-180);
-		@include bodyPaddingInner(margin, false, right);
 	}
+
 	.RelatedLinks__list {
 	}
 
 	.RelatedLinks__li {
 		margin-bottom: prem(19);
-	}
-
-	.RelatedLinks__link {
-		@include BodyTextStyle--large();
-		color: $color-suld-200;
 	}
 }
