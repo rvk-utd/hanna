@@ -1,8 +1,5 @@
 @use '_globals' as *;
 
-/*!@deps
-	-basics
-*/
 @media screen {
 	body {
 		@include bodyPadding();
