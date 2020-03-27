@@ -4,7 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - **BREAKING** feat: Rename `PageTitleBlock` back to `HeroBlock`
-- feat: Add `LabeledTextBlock`, `ExtraInfo`, `ActionCards`
+- feat: Add `LabeledTextBlock`, `ExtraInfo`, `ActionCards`, `BreadCrumbs`
 - feat: Add L15 webfont
 - fix: Tweak `HeroBlock` styling
 
