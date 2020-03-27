@@ -11,9 +11,7 @@
 	.ActionCards__card {
 		border: 1px solid $color-suld-75;
 	}
-}
 
-@media #{$mq-tablet_up} {
 	.ActionCards__card:hover,
 	.ActionCards__card:focus,
 	.ActionCards__card:active {
@@ -21,9 +19,5 @@
 		text-decoration: none;
 		outline: none;
 		color: $color-faxafloi-100;
-
-		.ActionCards__card__summary:after {
-			background-color: $color-faxafloi-100;
-		}
 	}
 }
