@@ -10,8 +10,12 @@
 @media screen {
 	.ExtraLinks {
 		background-color: $color-suld-25;
-		border-left: prem(8) solid $color-esja-100;
-		padding: prem(62) 0 prem(116) prem(8);
+		padding: prem(62) 0 prem(32) prem(8);
+		@include extendBackgroundWithUnderlay();
+
+		&:before {
+			border-left: prem(8) solid $color-esja-100;
+		}
 	}
 }
 
@@ -21,10 +25,8 @@
 		border: 0;
 		padding: grid-units(10) 0 grid-units(10) 0;
 
-		@include extendBackgroundWithUnderlay();
-
 		&:before {
-			border-left: prem(24) solid $color-esja-100;
+			border-width: prem(24);
 		}
 	}
 

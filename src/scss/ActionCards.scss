@@ -4,16 +4,16 @@
 @include Card('ActionCards');
 
 @media screen {
+	.ActionCards__title {
+		margin-bottom: between_phone_netbook(20, 40);
+	}
+
 	.ActionCards__card {
 		border: 1px solid $color-suld-75;
 	}
 }
 
 @media #{$mq-tablet_up} {
-	.ActionCards__title {
-		margin-bottom: grid-units(5);
-	}
-
 	.ActionCards__card:hover,
 	.ActionCards__card:focus,
 	.ActionCards__card:active {
