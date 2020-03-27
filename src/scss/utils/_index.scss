@@ -18,6 +18,9 @@
 @mixin Layout__header--height($property: height) {
 	#{$property}: 70px;
 
+	@media #{$mq-tablet_up} {
+		#{$property}: between_tablet_netbook(70, 136);
+	}
 	@media #{$mq-wide} {
 		#{$property}: 136px;
 	}
