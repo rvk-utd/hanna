@@ -1,9 +1,6 @@
 @use 'globals' as *;
 @use 'styles/cards' as *;
-
-/*!@deps
-	RelatedLinks
-*/
+@use 'styles/font' as *;
 
 @include Card('ExtraLinks');
 
@@ -16,6 +13,24 @@
 		&:before {
 			border-left: prem(8) solid $color-esja-100;
 		}
+	}
+
+	.ExtraLinks__related {
+		background-color: $color-suld-50;
+		padding: grid-units(8) cols_pct(1, 0) grid-units(5) cols_pct(1, 1);
+	}
+
+	.ExtraLinks__related__title {
+		@include HeadingStyle--small();
+	}
+
+	.ExtraLinks__related__title {
+		margin-bottom: between_phone_netbook(20, 53);
+	}
+
+	.ExtraLinks__related__link {
+		@include BodyTextStyle--large();
+		color: $color-suld-200;
 	}
 }
 
@@ -57,5 +72,21 @@
 
 	.ExtraLinks--relatedLinks > .ExtraLinks__card {
 		width: cols_pct(3, 2, 6);
+	}
+
+	.ExtraLinks__related {
+		width: cols_pct(6);
+		padding: grid-units(8) cols_pct(1, 0) prem(133) cols_pct(1, 1);
+		position: absolute;
+		top: prem(180);
+		right: 0;
+		bottom: prem(-180);
+	}
+
+	.ExtraLinks__related__list {
+	}
+
+	.ExtraLinks__related__li {
+		margin-bottom: prem(19);
 	}
 }
