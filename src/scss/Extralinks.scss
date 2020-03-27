@@ -2,7 +2,7 @@
 @use 'styles/cards' as *;
 @use 'styles/font' as *;
 
-@include Card('ExtraLinks');
+@include Card('ExtraLinks', 'ExtraLinks__main');
 
 @media screen {
 	.ExtraLinks {
@@ -39,6 +39,7 @@
 		position: relative;
 		border: 0;
 		padding: grid-units(10) 0 grid-units(10) 0;
+		display: flex;
 
 		&:before {
 			border-width: prem(24);
@@ -66,27 +67,20 @@
 		color: $color-suld-200;
 	}
 
-	.ExtraLinks--relatedLinks {
-		padding-right: cols_pct(6, 6);
-	}
-
-	.ExtraLinks--relatedLinks > .ExtraLinks__card {
+	.ExtraLinks__main:not(:last-child) > .ExtraLinks__card {
 		width: cols_pct(3, 2, 6);
 	}
-
 	.ExtraLinks__related {
 		width: cols_pct(6);
+		flex-shrink: 0;
 		padding: grid-units(8) cols_pct(1, 0) prem(133) cols_pct(1, 1);
-		position: absolute;
-		top: prem(180);
-		right: 0;
-		bottom: prem(-180);
+		margin-top: prem(120);
+		margin-bottom: prem(-250);
 	}
 
 	.ExtraLinks__related__list {
 	}
-
-	.ExtraLinks__related__li {
+	.ExtraLinks__related__item {
 		margin-bottom: prem(19);
 	}
 }
