@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.0
+
+_2020-03-30_
+
 - **BREAKING** feat: Rename `PageTitleBlock` back to `HeroBlock`
 - feat: Add `LabeledTextBlock`, `ExtraLinks`, `ActionCards`, `BreadCrumbs`
 - feat: Add L15 webfont
