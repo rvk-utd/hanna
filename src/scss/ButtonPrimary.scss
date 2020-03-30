@@ -3,7 +3,7 @@
 
 @media screen {
 	.ButtonPrimary {
-		@include Button();
+		@include ButtonStyle();
 		font-weight: 700;
 	}
 }

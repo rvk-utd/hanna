@@ -3,7 +3,7 @@
 
 @media screen {
 	.ButtonSecondary {
-		@include Button(prem(5), $color-faxafloi-100);
+		@include ButtonStyle(prem(5), $color-faxafloi-100);
 		background-color: $color-suld-0;
 		border: 1px solid $color-faxafloi-100;
 

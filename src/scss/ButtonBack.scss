@@ -3,11 +3,11 @@
 
 @media screen {
 	.ButtonBack {
-		@include ButtonTertiary;
+		@include ButtonTertiaryStyle();
 		font-size: prem(12);
 	}
 
-	.ButtonBack:before {
+	.ButtonBack::before {
 		@include icon($icons-arrow-left-long);
 		background: 0;
 		height: auto;
@@ -19,7 +19,7 @@
 		transition-property: max-width;
 	}
 
-	.ButtonBack:hover:before {
+	.ButtonBack:hover::before {
 		max-width: prem(22);
 	}
 }
