@@ -1,8 +1,8 @@
 $iconfont-name: 'icons' !default;
 $iconfont-font-family: $iconfont-name, Arial, Helvetica, sans-serif !default;
 
-@mixin icon($icon: '') {
-	@if ($icon != '') {
+@mixin icon($icon: null) {
+	@if ($icon != null) {
 		content: $icon;
 	}
 	display: inline-block;
