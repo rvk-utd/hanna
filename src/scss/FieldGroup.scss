@@ -1,0 +1,12 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.FieldGroup {
+		margin-bottom: between_cols(30, 70);
+	}
+	.FieldGroup__legend {
+		@include HeadingStyle--medium(); // Whatevs
+		margin-bottom: prem(20);
+	}
+}
