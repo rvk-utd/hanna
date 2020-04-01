@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add component `FieldGroup`
+- feat: Add components `FieldGroup`, `Checkbox`, `CheckboxGroup`, `RadioGroup`
 
 ## 0.2.0
 

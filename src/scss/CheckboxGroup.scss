@@ -1,0 +1,11 @@
+@use '_globals' as *;
+@use 'styles/forms' as *;
+
+/*!@deps
+	FormField
+*/
+
+@media screen {
+	@include TogglerGroup(Checkbox);
+	@include TogglerKnob(Checkbox);
+}
