@@ -1,0 +1,30 @@
+@use '_globals' as *;
+// @use 'styles/forms' as *;
+
+@media screen {
+	.FormField {
+		display: flex;
+		flex-flow: column;
+	}
+	.FormField--nolabel > .FormField__label {
+		@include sr-only();
+	}
+	.FormField--small {
+	}
+	.FormField--invalid {
+	}
+	.FormField--disabled {
+	}
+	// .FormField[aria-required='true'] {
+	// }
+
+	.FormField__label {
+		order: -1;
+	}
+	.FormField__input {
+	}
+
+	.FormField__error {
+		color: $color-heidmork-150;
+	}
+}
