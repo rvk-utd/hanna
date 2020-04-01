@@ -183,6 +183,21 @@
 	ol[data-oltype='I'] > li::before {
 		content: counter(ol, upper-roman) '. ';
 	}
+
+	fieldset {
+		padding: 0;
+		border: 0;
+		margin: 0;
+	}
+	legend {
+		float: left; // HACK: Trigger correct positioning within <fieldset>
+	}
+	:not(fieldset) > legend {
+		@include WARNING__('<legend/> must be first-child of <fieldset/>');
+	}
+	legend + * {
+		clear: both;
+	}
 }
 
 @include writeMediaFormatMarkers($mediaFormats, 'body', isDevMode());
