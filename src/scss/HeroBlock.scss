@@ -24,6 +24,12 @@
 		margin-bottom: em(40/20);
 	}
 
+	.HeroBlock__summary li, // ul, ol
+	.HeroBlock__summary [class],
+	.HeroBlock__summary blockquote {
+		@include WARNING__('Use simple markup only');
+	}
+
 	.HeroBlock > .ButtonPrimary {
 		display: inline-block;
 	}
