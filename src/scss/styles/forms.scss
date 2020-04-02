@@ -1,4 +1,5 @@
 @use '../_globals' as *;
+@use 'font' as *;
 
 @mixin TogglerGroup($BEM) {
 	.#{$BEM}Group--inline {
@@ -93,5 +94,27 @@
 			color: $color-heidmork-150;
 			padding-left: prem(36);
 		}
+	}
+}
+
+@mixin FormInput() {
+	@include BodyTextStyle--large();
+	border: prem(1) solid $color-suld-100;
+	transition: all 300ms ease-in-out;
+	transition-property: padding, color, border-color;
+	box-sizing: content-box;
+	border-radius: prem(3);
+	padding: prem(14) grid-units(2) prem(13);
+
+	&::placeholder {
+		@include BodyTextStyle--small();
+		color: $color-suld-150;
+	}
+
+	.FormField__input:hover,
+	.FormField__input:focus,
+	.FormField__input:active {
+		border-color: $color-faxafloi-100;
+		outline: 0;
 	}
 }
