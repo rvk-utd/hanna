@@ -72,7 +72,7 @@ Those folders contain the output of a SASS build task - and should generally
 never change. Only new (semantically-versioned) folders should be added.
 
 The only exception to this immutability rule are obviously named testing/demo
-folders, like `public/css/canary/` or such.
+folders, like `public/css/dev-v1/` or such.
 
 **NOTE:** The development CSS build task builds into a folder called
 `public/css/dev/`. This folder is **not** pushed to the live server.
