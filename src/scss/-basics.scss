@@ -131,7 +131,8 @@
 	a {
 		@include LinkStyle();
 	}
-	a[href='#'] {
+	a[href='#'],
+	a:not([href]) {
 		@include WARNING__('Use <button/> instead');
 	}
 	button[href] {
