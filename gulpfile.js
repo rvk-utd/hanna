@@ -10,13 +10,14 @@ const { existsSync } = require('fs');
 // ---------------------------------------------------------------------------
 
 const {
-	cssVersion,
 	sourceFolder,
+	distFolder,
 	devDistCssFolder,
 	publishCssFolder,
+	publishDevCssFolder,
 	assetsDistFolder,
 } = require('./scripts/config');
-const isDev = process.env.NODE_ENV !== 'production';
+const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 // ---------------------------------------------------------------------------
 
@@ -49,51 +50,78 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 	minify: !isDev,
 });
 
+const makeGitCommitTask = (folder) => (done) => {
+	try {
+		require('child_process').execSync(
+			`git reset  &&  ` +
+				`git add ${folder}  &&  ` +
+				`git commit -m "publish: ${folder.substr(distFolder.length)}"`
+		);
+	} catch (error) {
+		console.error(error.stdout.toString());
+	}
+	done();
+};
+
 // ===========================================================================
 
-const publish_copyToCssFolder = () => {
+const copyToCssFolder = () => {
 	if (existsSync(publishCssFolder)) {
 		throw new Error('Publishing folder already exists.');
 	}
-	return src('**/*', { base: devDistCssFolder, ignore: '**/*.css.map' }).pipe(
+	require('child_process').execSync('ospec scripts/prepublish.tests.js');
+
+	return src(devDistCssFolder + '**/*', { base: devDistCssFolder }).pipe(
 		dest(publishCssFolder)
 	);
 };
-const publish_commitToGit = (done) => {
-	try {
-		require('child_process').execSync(
-			'git reset  &&  ' +
-				'git add public/css  &&  ' +
-				`git commit -m "publish: css/${cssVersion}"`
-		);
-	} catch (error) {
-		done(error);
-	}
-	try {
-		require('child_process').execSync(
-			'git reset  &&  ' +
-				'git add public/assets  &&  ' +
-				`git commit -m "publish: assets"`
-		);
-	} catch (error) {}
-	done();
-};
-const publish = series(publish_copyToCssFolder, publish_commitToGit);
+const copyToDevCssFolder = () =>
+	src(devDistCssFolder + '**/*', { base: devDistCssFolder }).pipe(
+		dest(publishDevCssFolder)
+	);
+
+const commitCssToGit = makeGitCommitTask(publishCssFolder);
+const commitDevCssToGit = makeGitCommitTask(publishDevCssFolder);
+const commitAssetsToGit = makeGitCommitTask(assetsDistFolder.replace(/\/$/, ''));
 
 // ===========================================================================
 
-const cleanup = () => del([devDistCssFolder, assetsDistFolder]);
+const cleanupCSS = () => del([devDistCssFolder]);
+const cleanupAssets = () => del([assetsDistFolder]);
+const cleanupPublicDevCss = () => del([publishDevCssFolder]);
 
 // ===========================================================================
 
-exports.build = series(
-	cleanup,
-	parallel(imagesCompress, staticAssetsCompress, series(iconfontBundle, sassBuild))
+const buildCss = series(
+	cleanupCSS,
+	parallel(imagesCompress, series(iconfontBundle, sassBuild))
 );
+const buildAssets = series(cleanupAssets, staticAssetsCompress);
+
+// -------------------------
+
+exports.publishCss = series(buildCss, copyToCssFolder, commitCssToGit);
+exports.publishDevCss = series(
+	buildCss,
+	cleanupPublicDevCss,
+	copyToDevCssFolder,
+	commitDevCssToGit
+);
+exports.publishAssets = series(buildAssets, commitAssetsToGit);
+
+exports.publishAll = series(
+	exports.publishCss,
+	exports.publishDevCss,
+	exports.publishAssets
+);
+
+// -------------------------
+
+exports.build = parallel(buildAssets, buildCss);
+
 exports.watch = series([
 	exports.build,
 	parallel(sassWatch, imagesWatch, staticAssetsWatch, iconfontWatch),
 ]);
-exports.publish = publish;
 
 exports.default = exports.build;

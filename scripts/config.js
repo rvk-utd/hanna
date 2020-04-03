@@ -7,7 +7,9 @@ const sourceFolder = 'src/';
 module.exports = {
 	cssVersion,
 	sourceFolder,
+	distFolder,
+	assetsDistFolder: distFolder + 'assets/',
 	devDistCssFolder: distFolder + 'css/dev/',
 	publishCssFolder: distFolder + 'css/' + cssVersion,
-	assetsDistFolder: distFolder + 'assets/',
+	publishDevCssFolder: distFolder + 'css/dev-' + cssVersion.split('.')[0],
 };
