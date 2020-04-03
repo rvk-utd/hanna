@@ -94,6 +94,15 @@
 		margin: 0;
 	}
 
+	p ul,
+	p ol,
+	p div,
+	p p,
+	p dl,
+	p blockquote {
+		@include WARNING__('No block-level tags inside <p/>');
+	}
+
 	address {
 		font-style: normal;
 	}
@@ -124,6 +133,9 @@
 	}
 	a[href='#'] {
 		@include WARNING__('Use <button/> instead');
+	}
+	button[href] {
+		@include WARNING__('Use <a href=""/>');
 	}
 
 	button {
@@ -182,6 +194,13 @@
 	}
 	ol[data-oltype='I'] > li::before {
 		content: counter(ol, upper-roman) '. ';
+	}
+	:not(ul):not(ol) > li {
+		@include WARNING__('<li/> must be inside <ol/> or <ul/>');
+	}
+	ol > :not(li),
+	ul > :not(li) {
+		@include WARNING__('Lists may only contain <ll/>s');
 	}
 
 	fieldset {
