@@ -3,10 +3,15 @@
 ## Upcoming...
 
 - ...
+
+## 0.2.1
+
+_2020-04-03_
+
 - feat: Add component `FieldGroup`
+- fix: Stop `a.Button*`s expanding to full width
 - feat: Publish a `dev-v0` CSS version - with debug and error messages for
   developers writing templates/markup
-- fix: Stop `a.Button*`s expanding to full width
 - docs: Document the bundler URLs – `v{N}`, `dev-v{N}` vs `dev`
 - docs: Dump this CHANGELOG on the server as `/changelog.txt`
 
