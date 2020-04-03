@@ -57,14 +57,14 @@ folders:
 
 ### public/assets/
 
-This folder is built from `src/assets`
+This folder is built (copied, compressed, etc.) from `src/assets`
 
 Placing files into this folder allows stable (`<img src="..." />`) links to
 https://styles.reykjavik.is/assets/reykjavik-logo.svg, etc. – links that don't
 involve the path token "CSS" or a css-version number.
 
-If certain perennial assets need versioning, then embed that value into their
-filename.
+If certain perennial assets need versioning, then embed their version number
+in their filename.
 
 ### public/css/
 
@@ -74,8 +74,8 @@ images, font-files, etc.
 Those folders contain the output of a SASS build task - and should generally
 never change. Only new (semantically-versioned) folders should be added.
 
-The only exception to this immutability rule are obviously named testing/demo
-folders, like `public/css/dev-v1/` or such.
+The only exception to this immutability rule are any obviously named
+testing/demo folders, like `public/css/dev-v1/` or such.
 
 **NOTE:** The development CSS build task builds into a folder called
 `public/css/dev/`. This folder is **not** pushed to the live server.
