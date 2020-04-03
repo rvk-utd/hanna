@@ -9,6 +9,7 @@ Design System.
 
 <!-- prettier-ignore-start -->
 - [Run the server](#run-the-server)
+	- [Get CSS bundles](#get-css-bundles)
 - [Development](#development)
 - [The public/ folder](#the-public-folder)
 	- [public/assets/](#publicassets)
@@ -32,6 +33,34 @@ variables. (See
 [`cssserve`'s documentation](https://github.com/hugsmidjan/cssserve#configuration)
 for details.)
 
+### Get CSS bundles
+
+The saerver's "bundle" API works like this:
+
+```
+https://[HOSTNAME_AND_PORT]/bundle/[VERSION_FOLDER]?m=[CSS_TOKEN1,CSS_TOKEN2]
+```
+
+(**NOTE** The name of any CSS file under `public/css/[VERSION_FOLDER]` is a
+valid "cssToken".
+
+**Example:**
+
+```
+https://localhost:4000/bundle/v0?m=-basics,Layout-full,HeroBlock
+```
+
+This gives you `@import` links pointing to the latest minified
+production-ready CSS files for "Version 0.\*".
+
+You can also get a development version of the CSS, with visual "debug"
+messages and common markup-mistakes flagged, by changing the `VERSION_FOLDER`
+to `dev-v0`. Like so:
+
+```
+https://localhost:4000/bundle/dev-v0?m=-basics,Layout-full,HeroBlock
+```
+
 ## Development
 
 Start the SCSS build and image compression task:
@@ -45,6 +74,14 @@ In a second terminal start the dev server
 
 ```sh
 yarn run dev:server
+```
+
+The dev server has both HTTP and bundler caching turned off, which allows you
+to instantly see the latest SASS build results from the `public/css/dev`
+folder, like so:
+
+```
+https://localhost:4000/bundle/dev?m=-basics,Layout-full,HeroBlock
 ```
 
 ## The public/ folder
