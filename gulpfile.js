@@ -109,12 +109,6 @@ exports.publishDevCss = series(
 );
 exports.publishAssets = series(buildAssets, commitAssetsToGit);
 
-exports.publishAll = series(
-	exports.publishCss,
-	exports.publishDevCss,
-	exports.publishAssets
-);
-
 // -------------------------
 
 exports.build = parallel(buildAssets, buildCss);
