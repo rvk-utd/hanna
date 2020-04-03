@@ -15,10 +15,10 @@ $_isDev: isDevMode();
 			position: absolute !important;
 			white-space: nowrap !important;
 			z-index: 2 !important;
-			font-size: rem(12) !important;
+			font-size: 12px !important;
 			line-height: 1.5em !important;
 			color: $color !important;
-			background-color: rgba($color, 0.05) !important;
+			background-color: rgba(mix($color, white, 10%), 0.5) !important;
 			padding: 0 0.5em !important;
 			content: $message !important;
 		}
