@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `FieldGroup`
+- feat: Publish a `dev-v0` CSS version - with debug and error messages for
+  developers writing templates/markup
 
 ## 0.2.0
 
