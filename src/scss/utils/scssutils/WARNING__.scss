@@ -24,3 +24,6 @@ $_isDev: isDevMode();
 		}
 	}
 }
+@mixin WARNING_soft__($message) {
+	@include WARNING__($message, soft);
+}
