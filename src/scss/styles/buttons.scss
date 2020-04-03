@@ -33,7 +33,7 @@
 
 	color: $text-color;
 	background-color: $color-faxafloi-100;
-	display: block;
+	display: table; // hack to prevent <a href=""> buttons from extending to full-width
 	line-height: prem(56);
 	padding: 0 prem(20);
 	margin-right: prem(30);
@@ -44,6 +44,7 @@
 	transition: box-shadow 150ms ease-in-out;
 	max-width: 100%;
 	min-width: between_phone_netbook(100, 270);
+
 	@media #{$mq-wide} {
 		min-width: 270px;
 	}
