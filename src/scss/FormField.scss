@@ -54,7 +54,7 @@
 		margin-top: prem(5);
 
 		&:before {
-			// @include icon($icons-error);
+			@include icon($icons-error);
 			margin-right: grid-units(1);
 			font-size: prem(10);
 		}
@@ -64,6 +64,6 @@
 	}
 	.FormField__assist:before {
 		font-size: prem(11);
-		// content: $icons-alert;
+		content: $icons-alert;
 	}
 }
