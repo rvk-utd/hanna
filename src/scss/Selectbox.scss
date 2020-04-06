@@ -1,0 +1,50 @@
+@use 'globals' as *;
+
+@media screen {
+	.Selectbox {
+		display: inline-block;
+		// TODO: mixin form input styling
+		// & {}
+		// .FormField--small > * > & {}
+		// .FormField--nonempty > * > & {}
+		// .FormField--invalid > * > & {}
+	}
+
+	.Selectbox--focused {
+		// TODO: mixin form input focused styling
+	}
+	.Selectbox--disabled {
+		// TODO: mixin form input disabled styling
+	}
+
+	.Selectbox::after {
+		@include icon($icons-chevron-down);
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: prem(20);
+		pointer-events: none;
+		margin: auto;
+		color: $color-suld-200;
+		font-size: prem(16);
+		height: 1em;
+		line-height: 1em;
+	}
+
+	.Selectbox__value {
+		display: block;
+		margin-right: prem(50);
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	.Selectbox__value--empty {
+		// TODO: placeholder style mixin
+		color: $color-suld-100;
+	}
+
+	// ---------------------------------------------------------------------------
+	// The "noscript" version
+	.SimpleSelect {
+		max-width: 100%;
+	}
+}
