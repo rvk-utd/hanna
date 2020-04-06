@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ...
+- feat: Add components `FieldGroup`, `Checkbox`, `CheckboxGroup`, `RadioGroup`
 
 ## 0.2.1
 

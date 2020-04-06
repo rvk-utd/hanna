@@ -1,0 +1,69 @@
+@use '_globals' as *;
+@use 'styles/forms' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.FormField {
+		display: flex;
+		flex-flow: column;
+		position: relative;
+	}
+	.FormField--nolabel > .FormField__label {
+		@include sr-only();
+	}
+	.FormField--small {
+	}
+	.FormField--invalid {
+	}
+	.FormField--disabled {
+	}
+	// .FormField[aria-required='true'] {
+	// }
+
+	.FormField__label {
+		order: -1;
+		color: $color-suld-150;
+		font-size: prem($font-label-size);
+		line-height: prem(14);
+	}
+
+	.FormField:not(.FormField--small) > .FormField__label {
+		position: absolute;
+		left: grid-units(2);
+		top: prem(2);
+	}
+
+	.FormField--empty:not(.FormField--small):not(.FormField--active) > .FormField__label {
+		@include BodyTextStyle--small();
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.FormField__input {
+	}
+
+	.FormField__input > input {
+		@include FormInput();
+	}
+
+	.FormField__assist,
+	.FormField__error {
+		font-size: prem($font-label-size);
+		line-height: prem(14);
+		padding-left: grid-units(2);
+		margin-top: prem(5);
+
+		&:before {
+			@include icon($icons-error);
+			margin-right: grid-units(1);
+			font-size: prem(10);
+		}
+	}
+	.FormField__assist {
+		color: $color-suld-150;
+	}
+	.FormField__assist:before {
+		font-size: prem(11);
+		content: $icons-alert;
+	}
+}
