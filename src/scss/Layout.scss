@@ -1,4 +1,5 @@
 @use '_globals' as *;
+@use 'styles/header' as *;
 
 @media screen {
 	body {
@@ -22,13 +23,8 @@
 		@include Layout__header--height();
 	}
 
-	.Layout__header__logo {
-		@include hideText(soft);
-		width: prem(181);
-	}
-	.Layout__header__logo > img {
-		width: 100%;
-	}
+	@include LayoutHeaderLogo('Layout__header__logo');
+
 	.Layout__header__skiplink {
 	}
 	.Layout__nav__closebutton {
