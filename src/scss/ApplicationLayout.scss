@@ -1,0 +1,70 @@
+@use 'globals' as *;
+@use 'styles/header' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.ApplicationLayout {
+		min-height: 100vh;
+	}
+
+	.ApplicationLayout__header {
+		padding-top: prem(22);
+		padding-bottom: prem(33);
+	}
+
+	@include LayoutHeaderLogo('ApplicationLayout__header__logo');
+
+	.ApplicationLayout__header__logout {
+		@include BodyTextStyle--small();
+		position: fixed;
+		right: prem(30);
+		top: prem(33);
+		color: $color-suld-200;
+		font-weight: 700;
+	}
+
+	.ApplicationLayout__header__logout:after {
+		@include icon($icons-close);
+		font-size: prem(13);
+		margin-left: prem(13);
+		padding-top: prem(1);
+	}
+}
+
+@media #{$mq-tablet_up} {
+	body {
+		background-color: $color-suld-50;
+	}
+
+	.ApplicationLayout {
+		background-color: $color-suld-0;
+		max-width: cols_pct(9, 9);
+		@include bodyPaddingInner(margin, true);
+		@include bodyPadding();
+	}
+
+	.ApplicationLayout__main {
+		max-width: cols_pct(7);
+	}
+
+	.ApplicationLayout__header {
+		padding-top: between_tablet_netbook(22, 40);
+		padding-bottom: between_tablet_netbook(33, 60);
+	}
+
+	.ApplicationLayout__header__logout {
+		right: grid-units(10);
+		top: between_tablet_netbook(30, 56);
+	}
+}
+
+@media #{$mq-wide} {
+	.ApplicationLayout__header {
+		padding-top: prem(40);
+		padding-bottom: prem(60);
+	}
+
+	.ApplicationLayout__header__logout {
+		top: prem(56);
+	}
+}
