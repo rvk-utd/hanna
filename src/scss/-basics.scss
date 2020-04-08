@@ -1,6 +1,7 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
 @use 'styles/links' as *;
+@use 'styles/theme' as *;
 @use 'utils/scssutils/normalize' as *;
 @use 'utils/scssutils/writeMediaFormatMarkers' as *;
 
@@ -41,6 +42,7 @@
 	// in JavaScript-land, set by `qj/getScrollbarWidth.setCSSvar()`
 	--browser-scrollbar-width: 0;
 }
+@include theme();
 
 @media screen {
 	*,

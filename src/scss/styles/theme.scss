@@ -1,0 +1,44 @@
+@use '_globals' as *;
+
+@mixin theme() {
+	html,
+	.Layout[data-theme='traust'],
+	html[data-theme='traust'] {
+		// aka. trustworthy
+		--theme-color-primary: #{$color-faxafloi-100};
+		--theme-color-secondary: #{$color-sund-100};
+		--theme-color-tertiary: #{$color-ellidarardalur-100};
+	}
+
+	.Layout[data-theme='areidanleg'],
+	html[data-theme='areidanleg'] {
+		// aka. friendly dependable
+		--theme-color-primary: #{$color-faxafloi-100};
+		--theme-color-secondary: #{$color-nautholsvik-100};
+		--theme-color-tertiary: #{$color-sund-100};
+	}
+
+	.Layout[data-theme='vingjarnleg'],
+	html[data-theme='vingjarnleg'] {
+		//aka. friendly
+		--theme-color-primary: #{$color-ellidarardalur-100};
+		--theme-color-secondary: #{$color-rokkur-100};
+		--theme-color-tertiary: #{$color-nautholsvik-100};
+	}
+
+	.Layout[data-theme='lifandi'],
+	html[data-theme='lifandi'] {
+		//aka. lively
+		--theme-color-primary: #{$color-sund-100};
+		--theme-color-secondary: #{$color-rokkur-100};
+		--theme-color-tertiary: #{$color-nautholsvik-100};
+	}
+
+	.Layout[data-theme='litrik'],
+	html[data-theme='litrik'] {
+		//aka. colorful
+		--theme-color-primary: #{$color-heidmork-100};
+		--theme-color-secondary: #{$color-nautholsvik-100};
+		--theme-color-tertiary: #{$color-esja-100};
+	}
+}
