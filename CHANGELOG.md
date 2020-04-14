@@ -4,7 +4,7 @@
 
 - ...
 - feat: Add components `FormField`, `TextInput`, `Selectbox`, `Checkbox`,
-  `CheckboxGroup` and `RadioGroup`.
+  `CheckboxGroup`, `CheckboxButtonsGroup`, `RadioGroup` and `RadioButtonsGroup`.
 
 ## 0.2.1
 
