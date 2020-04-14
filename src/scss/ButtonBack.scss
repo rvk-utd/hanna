@@ -4,7 +4,7 @@
 @media screen {
 	.ButtonBack {
 		@include ButtonTertiaryStyle();
-		font-size: prem(12);
+		font-size: prem($font-size-A);
 	}
 
 	.ButtonBack::before {

@@ -3,7 +3,7 @@
 @media screen {
 	.BreadCrumbs {
 		color: $color-suld-100;
-		font-size: prem(12);
+		font-size: prem($font-size-A);
 		line-height: prem(24);
 	}
 	.BreadCrumbs__title {
