@@ -1,11 +1,11 @@
 @use '../_globals' as *;
 
-@mixin _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS) {
+@mixin _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS, $media: $mq-phablet_netbook) {
 	$lead: $leadS != null and $leadL != null;
 	font-size: px($sizeS);
 	line-height: if($lead, px($leadS), null);
 
-	@media #{$mq-phablet_netbook} {
+	@media #{$media} {
 		font-size: between_phablet_netbook($sizeS, $sizeL);
 		line-height: if($lead, between_phablet_netbook($leadS, $leadL), null);
 	}
@@ -16,17 +16,7 @@
 }
 
 @mixin _ResponsiveFontSizeFast($sizeL, $leadL, $sizeS, $leadS) {
-	font-size: px($sizeS);
-	line-height: px($leadS);
-
-	@media #{$mq-tablet_netbook} {
-		font-size: between_tablet_netbook($sizeS, $sizeL);
-		line-height: between_tablet_netbook($leadS, $leadL);
-	}
-	@media #{$mq-wide} {
-		font-size: px($sizeL);
-		line-height: px($leadL);
-	}
+	@include _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS, $mq-tablet_netbook);
 }
 
 // ---------------------------------------------------------------------------
