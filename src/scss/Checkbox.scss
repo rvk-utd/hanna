@@ -1,3 +1,11 @@
+@use 'styles/forms';
+
 /*!@deps
 	CheckboxGroup
 */
+
+@mixin css() {
+	@media screen {
+		@include forms.TogglerKnob(Checkbox);
+	}
+}

@@ -1,11 +1,15 @@
 @use '_globals' as *;
-@use 'styles/forms' as *;
+@use 'styles/forms';
+@use 'Checkbox';
 
 /*!@deps
 	FormField
+	Checkbox
 */
 
+@include Checkbox.css();
+
 @media screen {
-	@include TogglerGroup(CheckboxGroup);
+	@include forms.TogglerGroup(CheckboxGroup);
 	@include TogglerKnob(Checkbox);
 }
