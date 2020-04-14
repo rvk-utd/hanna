@@ -49,8 +49,8 @@ $font-sh-s-leading--phone: 30;
 $font-bd-l-size: 20;
 $font-bd-l-leading: 32;
 
-$font-bd-s-size: 16;
-$font-bd-s-leading: 24;
+$font-bd-s-size: $font-base-size;
+$font-bd-s-leading: $font-base-leading;
 
 // ---------------------------------------------------------------------------
 // buttons and labels
@@ -59,3 +59,15 @@ $font-btn-size: 16;
 
 $font-label-size: 12;
 $font-label-leading: 16;
+
+// ---------------------------------------------------------------------------
+// Non-semantic font-sizes
+$font-size-12: 12;
+$font-size-16: 16;
+$font-size-20: 20;
+$font-size-24: 24;
+$font-size-32: 32;
+$font-size-40: 40;
+$font-size-48: 48;
+$font-size-64: 64;
+$font-size-72: 72;

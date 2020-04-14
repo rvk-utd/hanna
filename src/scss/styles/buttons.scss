@@ -44,6 +44,7 @@
 	transition: box-shadow 150ms ease-in-out;
 	max-width: 100%;
 	min-width: between_phone_netbook(100, 270);
+	font-size: prem($font-btn-size);
 
 	@media #{$mq-wide} {
 		min-width: 270px;
@@ -88,6 +89,7 @@
 		display: flex;
 		white-space: nowrap;
 		align-items: center;
+		font-size: prem($font-btn-size);
 		line-height: prem(28);
 		padding: 0 prem(12);
 		margin-right: prem(30);

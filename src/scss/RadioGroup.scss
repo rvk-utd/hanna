@@ -1,0 +1,14 @@
+@use 'styles/forms';
+
+/*!@deps
+	FormField
+
+	CheckboxGroup
+*/
+
+@mixin css() {
+	@media screen {
+		@include forms.TogglerKnob(Radio);
+		@include forms.TogglerGroup(RadioGroup);
+	}
+}
