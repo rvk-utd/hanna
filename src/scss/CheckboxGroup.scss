@@ -6,6 +6,6 @@
 */
 
 @media screen {
-	@include TogglerGroup(Checkbox);
+	@include TogglerGroup(CheckboxGroup);
 	@include TogglerKnob(Checkbox);
 }

@@ -1,50 +1,42 @@
 @use 'globals' as *;
 
-@media screen {
-	.Selectbox {
-		display: inline-block;
-		// TODO: mixin form input styling
-		// & {}
-		// .FormField--small > * > & {}
-		// .FormField--nonempty > * > & {}
-		// .FormField--invalid > * > & {}
-	}
+/*!@deps
+	FormField
+*/
 
-	.Selectbox--focused {
-		// TODO: mixin form input focused styling
-	}
-	.Selectbox--disabled {
-		// TODO: mixin form input disabled styling
-	}
+@mixin css() {
+	@media screen {
+		.Selectbox {
+		}
 
-	.Selectbox::after {
-		@include icon($icons-chevron-down);
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		right: prem(20);
-		pointer-events: none;
-		margin: auto;
-		color: $color-suld-200;
-		font-size: prem(16);
-		height: 1em;
-		line-height: 1em;
-	}
+		.Selectbox > .FormField__input--disabled {
+		}
+		.Selectbox > .FormField__input--focused {
+		}
 
-	.Selectbox__value {
-		display: block;
-		margin-right: prem(50);
-		overflow: hidden;
-		white-space: nowrap;
-	}
-	.Selectbox__value--empty {
-		// TODO: placeholder style mixin
-		color: $color-suld-100;
-	}
+		.Selectbox > .FormField__input::after {
+			@include icon($icons-chevron-down);
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: prem(20);
+			pointer-events: none;
+			margin: auto;
+			color: $color-suld-200;
+			font-size: prem(16);
+			height: 1em;
+			line-height: 1em;
+		}
 
-	// ---------------------------------------------------------------------------
-	// The "noscript" version
-	.SimpleSelect {
-		max-width: 100%;
+		.Selectbox > * > .FormField__input__value {
+			@include overflowEllipsis();
+			// white-space: nowrap;
+			// overflow: hidden;
+			display: block;
+			margin-right: prem(50);
+		}
+
+		.Selectbox > * > .FormField__input__value--empty {
+		}
 	}
 }

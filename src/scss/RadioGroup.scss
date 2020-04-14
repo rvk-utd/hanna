@@ -6,6 +6,6 @@
 */
 
 @media screen {
-	@include TogglerGroup(Radio);
+	@include TogglerGroup(RadioGroup);
 	@include TogglerKnob(Radio);
 }

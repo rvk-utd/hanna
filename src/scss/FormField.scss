@@ -1,57 +1,112 @@
 @use '_globals' as *;
 @use 'styles/forms' as *;
 @use 'styles/font' as *;
+@use 'Selectbox';
+@use 'TextInput';
 
 @media screen {
 	.FormField {
 		display: flex;
 		flex-flow: column;
 		position: relative;
+		margin-bottom: grid-units(3);
 	}
+
+	.FormField__label {
+		font-weight: $font-weight--bold;
+		margin-bottom: prem(10);
+		align-self: flex-start;
+	}
+	.FormField--disabled > .FormField__label {
+		color: $color-suld-100;
+	}
+
+	label.FormField__label {
+		color: $color-suld-150;
+		font-size: prem($font-label-size);
+		font-weight: $font-weight--normal;
+		line-height: prem(14);
+		transition: all 100ms ease-out;
+	}
+	:not(.FormField--small) > label.FormField__label {
+		position: absolute;
+		top: 1px;
+		left: grid-units(2);
+		line-height: prem(24);
+	}
+	.FormField--empty:not(.FormField--small):not(.FormField--focused)
+		> label.FormField__label {
+		font-size: prem($font-bd-s-size);
+		line-height: $InputField-heightI + $InputField-paddingTop;
+	}
+
 	.FormField--nolabel > .FormField__label {
 		@include sr-only();
 	}
-	.FormField--small {
-	}
-	.FormField--invalid {
-	}
-	.FormField--disabled {
-	}
-	// .FormField[aria-required='true'] {
-	// }
 
-	.FormField__label {
-		order: -1;
-		color: $color-suld-150;
-		font-size: prem($font-label-size);
-		line-height: prem(14);
-	}
-
-	.FormField:not(.FormField--small) > .FormField__label {
-		position: absolute;
-		left: grid-units(2);
-		top: prem(2);
-	}
-
-	.FormField--empty:not(.FormField--small):not(.FormField--active) > .FormField__label {
-		@include BodyTextStyle--small();
-		top: 50%;
-		transform: translateY(-50%);
-	}
+	// ---------------------------------------------------------------------------
 
 	.FormField__input {
+		@include InputField();
+	}
+	.FormField--small > .FormField__input {
+		@include InputField--small();
+	}
+	.FormField--empty > .FormField__input,
+	.FormField__input::placeholder {
+		@include InputField--placeholder();
+	}
+	.FormField--filled > .FormField__input {
+		@include InputField--filled();
+	}
+	.FormField--invalid > .FormField__input,
+	.FormField__input[aria-invalid='true'] {
+		@include InputField--invalid();
+	}
+	// .FormField__input--focused[class],
+	.FormField--focused > .FormField__input,
+	.FormField__input:hover,
+	.FormField__input:focus {
+		@include InputField--focused();
+	}
+	.FormField--readonly > .FormField__input,
+	.FormField__input[readonly] {
+		@include InputField--readonly();
+	}
+	// .FormField__input--disabled[class],
+	.FormField--disabled > .FormField__input,
+	.FormField__input[disabled] {
+		@include InputField--disabled();
 	}
 
-	.FormField__input > input {
-		@include FormInput();
+	// Reset contained field elements by default ...
+	.FormField__input input,
+	.FormField__input select,
+	.FormField__input textarea {
+		border: 0;
+		background: 0;
+		padding: 0;
+		width: 100%;
+		line-height: inherit;
+		color: inherit;
 	}
+
+	// ---------------------------------------------------------------------------
+
+	.FormField__options {
+	}
+	.FormField__options__item {
+	}
+
+	// ---------------------------------------------------------------------------
 
 	.FormField__assist,
 	.FormField__error {
-		font-size: prem($font-label-size);
+		color: $color-heidmork-100;
+		font-size: prem($font-size-A);
 		line-height: prem(14);
 		padding-left: grid-units(2);
-		margin-top: prem(5);
+		margin-top: prem(9);
 
 		&:before {
 			@include icon($icons-error);
@@ -63,7 +118,14 @@
 		color: $color-suld-150;
 	}
 	.FormField__assist:before {
-		font-size: prem(11);
 		content: $icons-alert;
+		font-size: prem(11);
 	}
 }
+
+// ===========================================================================
+
+// Inline the most common input types for better
+// compression and loading speed
+@include Selectbox.css();
+@include TextInput.css();
