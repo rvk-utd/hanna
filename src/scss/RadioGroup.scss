@@ -1,11 +1,14 @@
-@use '_globals' as *;
-@use 'styles/forms' as *;
+@use 'styles/forms';
 
 /*!@deps
 	FormField
+
+	CheckboxGroup
 */
 
-@media screen {
-	@include TogglerGroup(RadioGroup);
-	@include TogglerKnob(Radio);
+@mixin css() {
+	@media screen {
+		@include forms.TogglerKnob(Radio);
+		@include forms.TogglerGroup(RadioGroup);
+	}
 }
