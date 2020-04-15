@@ -53,7 +53,8 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 const makeGitCommitTask = (folder) => (done) => {
 	try {
 		require('child_process').execSync(
-			`git reset  &&  ` +
+			`git checkout master  &&  ` +
+				`git reset  &&  ` +
 				`git add ${folder}  &&  ` +
 				`git commit -m "publish: ${folder.substr(distFolder.length)}"`
 		);
