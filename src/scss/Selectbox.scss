@@ -22,10 +22,14 @@
 			right: prem(20);
 			pointer-events: none;
 			margin: auto;
-			color: $color-suld-200;
+			color: var(--input-border-color);
+			transition: all 200ms ease-in-out;
 			font-size: prem(16);
 			height: 1em;
 			line-height: 1em;
+		}
+		.Selectbox > .FormField__input--focused::after {
+			transform: rotate(180deg);
 		}
 
 		.Selectbox > * > .FormField__input__value {
