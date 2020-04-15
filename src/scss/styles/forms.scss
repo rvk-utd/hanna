@@ -159,7 +159,7 @@ $InputField-paddingH: grid-units(2);
 
 @mixin TogglerButtonsGroup($BEM) {
 	.#{$BEM} > .FormField__options {
-		margin: 0 prem(-15);
+		margin: 0 prem(-15) prem(-9);
 		display: flex;
 		flex-flow: row wrap;
 	}
@@ -170,6 +170,7 @@ $InputField-paddingH: grid-units(2);
 	}
 	.#{$BEM}--slim > * > .FormField__options__item > label {
 		padding: prem(10) prem(36) prem(10) prem(20);
+		border-radius: prem(6);
 	}
 
 	$mar: prem(30);
@@ -189,13 +190,13 @@ $InputField-paddingH: grid-units(2);
 	}
 	.#{$BEM}__label {
 		font-weight: 700;
-		font-size: prem(18);
+		font-size: prem(16);
 		display: inline-block;
 		width: 100%;
 		padding: prem(20);
 		padding-right: prem(36);
 		position: relative;
-		border: prem(1) solid $color-suld-150;
+		border: prem(1) solid $color-suld-100;
 		transition: all 150ms ease-in-out;
 		transition-property: box-shadow, color, border-color, background-color;
 	}
@@ -265,6 +266,11 @@ $InputField-paddingH: grid-units(2);
 	// Disabled
 	.#{$BEM}__input:disabled + .#{$BEM}__label {
 		color: $color-suld-150;
+		border-color: $color-suld-100;
+		box-shadow: none;
+	}
+	.#{$BEM}__input:disabled + .#{$BEM}__label > small {
+		color: $color-suld-150;
 	}
 	.#{$BEM}__input:disabled + .#{$BEM}__label::before {
 		border-color: $color-suld-100;
@@ -275,8 +281,6 @@ $InputField-paddingH: grid-units(2);
 	// Disabled + Checked
 	@if $radio {
 		.#{$BEM}__input:disabled:checked + .#{$BEM}__label::before {
-			background-color: $color-suld-100;
-			color: $color-suld-50;
 		}
 	}
 
