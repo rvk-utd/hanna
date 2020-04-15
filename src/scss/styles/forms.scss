@@ -170,7 +170,7 @@ $InputField-paddingH: grid-units(2);
 	}
 	.#{$BEM}--slim > * > .FormField__options__item > label {
 		padding: prem(10) prem(36) prem(10) prem(20);
-		border-radius: prem(6);
+		border-radius: prem(3);
 	}
 
 	$mar: prem(30);
@@ -193,8 +193,8 @@ $InputField-paddingH: grid-units(2);
 		font-size: prem(16);
 		display: inline-block;
 		width: 100%;
-		padding: prem(20);
-		padding-right: prem(36);
+		padding: prem(22) prem(20) prem(20) prem(24);
+		padding-right: prem(46);
 		position: relative;
 		border: prem(1) solid $color-suld-100;
 		transition: all 150ms ease-in-out;
@@ -205,8 +205,8 @@ $InputField-paddingH: grid-units(2);
 	.#{$BEM}__label::before {
 		@include icon('');
 		position: absolute;
-		top: prem(6);
-		right: prem(6);
+		top: prem(8);
+		right: prem(8);
 		width: prem(12);
 		height: prem(12);
 		line-height: prem(10);
@@ -224,7 +224,7 @@ $InputField-paddingH: grid-units(2);
 	// smalltext
 	.#{$BEM}__label > small {
 		display: block;
-		font-size: prem(14);
+		font-size: prem(12);
 		font-weight: 400;
 		color: $color-blackish;
 	}
