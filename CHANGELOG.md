@@ -5,6 +5,7 @@
 - ...
 - feat: Add components `FormField`, `TextInput`, `Selectbox`, `Checkbox`,
   `CheckboxGroup`, `CheckboxButtonsGroup`, `RadioGroup` and `RadioButtonsGroup`.
+- feat: Add component `Alert` width yellow, green, blue and red styles.
 
 ## 0.2.1
 
