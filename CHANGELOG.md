@@ -3,8 +3,14 @@
 ## Upcoming...
 
 - ...
+
+## 0.2.2
+
+_2020-04-15_
+
 - feat: Add components `FormField`, `TextInput`, `Selectbox`, `Checkbox`,
-  `CheckboxGroup`, `CheckboxButtonsGroup`, `RadioGroup` and `RadioButtonsGroup`.
+  `CheckboxGroup`, `CheckboxButtonsGroup`, `RadioGroup` and
+  `RadioButtonsGroup`.
 
 ## 0.2.1
 
