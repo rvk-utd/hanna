@@ -13,6 +13,8 @@
 	}
 
 	.FormField__label {
+		position: relative;
+		z-index: 1;
 		font-weight: $font-weight--bold;
 		margin-bottom: prem(10);
 		align-self: flex-start;
