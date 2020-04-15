@@ -1,0 +1,16 @@
+@use '_globals' as *;
+@use 'styles/forms';
+@use 'RadioButtonsGroup';
+
+/*!@deps
+	FormField
+*/
+
+@media screen {
+	@include forms.TogglerButtonsKnob(CheckboxButton);
+	@include forms.TogglerButtonsGroup(CheckboxButtonsGroup);
+}
+
+// ===========================================================================
+// Inline for better compression and loading speed
+@include RadioButtonsGroup.css();
