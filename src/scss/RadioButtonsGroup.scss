@@ -2,8 +2,6 @@
 @use 'styles/forms';
 
 /*!@deps
-	FormField
-
 	CheckboxButtonsGroup
 */
 
@@ -11,14 +9,5 @@
 	@media screen {
 		@include forms.TogglerButtonsKnob(RadioButton);
 		@include forms.TogglerButtonsGroup(RadioButtonsGroup);
-	}
-	$mar: prem(30);
-	@media #{$mq-tablet_up} {
-		.RadioButtonsGroup--2col > * > .FormField__options__item {
-			width: calc(50% - #{$mar});
-		}
-		.RadioButtonsGroup--3col > * > .FormField__options__item {
-			width: calc(33.333% - #{$mar});
-		}
 	}
 }

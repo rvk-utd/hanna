@@ -171,6 +171,16 @@ $InputField-paddingH: grid-units(2);
 	.#{$BEM}--slim > * > .FormField__options__item > label {
 		padding: prem(10) prem(36) prem(10) prem(20);
 	}
+
+	$mar: prem(30);
+	@media #{$mq-tablet_up} {
+		.#{$BEM}--2col > * > .FormField__options__item {
+			width: calc(50% - #{$mar});
+		}
+		.#{$BEM}--3col > * > .FormField__options__item {
+			width: calc(33.333% - #{$mar});
+		}
+	}
 }
 
 @mixin TogglerButtonsKnob($BEM, $radio: ($BEM==RadioButton)) {

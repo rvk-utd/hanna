@@ -1,27 +1,13 @@
 @use '_globals' as *;
 @use 'styles/forms';
 @use 'RadioButtonsGroup';
-@use 'Checkbox';
 
 /*!@deps
-	FormField
-	Checkbox
 */
 
 @media screen {
 	@include forms.TogglerButtonsKnob(CheckboxButton);
 	@include forms.TogglerButtonsGroup(CheckboxButtonsGroup);
-}
-$mar: prem(30);
-@media #{$mq-tablet_up} {
-	@media #{$mq-tablet_up} {
-		.CheckboxButtonsGroup--2col > * > .FormField__options__item {
-			width: calc(50% - #{$mar});
-		}
-		.CheckboxButtonsGroup--3col > * > .FormField__options__item {
-			width: calc(33.333% - #{$mar});
-		}
-	}
 }
 
 // ===========================================================================
