@@ -16,7 +16,10 @@
 	}
 
 	.Layout__header {
-		position: absolute 0 0 _ 0;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		// right: 0;
 		z-index: 3;
 		display: flex;
 		align-items: center;
