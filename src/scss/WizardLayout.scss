@@ -40,7 +40,7 @@
 		padding-top: prem(1);
 	}
 
-	.WizardLayout__main {
+	.WizardLayout__wrap {
 		flex-grow: 1;
 		position: relative;
 		z-index: 2;
@@ -62,7 +62,7 @@
 		top: between_tablet_netbook(30, 56);
 	}
 
-	.WizardLayout__main {
+	.WizardLayout__wrap {
 		//width: cols_pct(8, 7);
 		width: cols_pct(10);
 		display: flex;
@@ -73,7 +73,7 @@
 		margin-right: prem(30);
 		flex-shrink: 0;
 	}
-	.WizardLayout__form {
+	.WizardLayout__main {
 		width: 100%;
 		max-width: 580px;
 	}
@@ -92,7 +92,7 @@
 		background: $color-suld-50;
 	}
 
-	.WizardLayout__form {
+	.WizardLayout__main {
 		min-height: 600px;
 	}
 
