@@ -1,0 +1,26 @@
+/*!@deps
+	ButtonTertiary
+*/
+
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.GridBlocks {
+	}
+	.GridBlocks--threecol {
+	}
+	.GridBlocks__block {
+		width: cols_pct(4);
+	}
+	.GridBlocks--threecol > .GridBlocks__block {
+		width: cols_pct(5);
+	}
+	.GridBlocks--threecol > .GridBlocks__illustration {
+		width: 100%;
+	}
+	.GridBlocks__links {
+	}
+	.GridBlocks__link {
+	}
+}
