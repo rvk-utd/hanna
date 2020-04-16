@@ -1,26 +1,34 @@
 @use 'globals' as *;
 @use 'styles/header' as *;
 @use 'styles/font' as *;
-@use 'styles/font' as *;
 
 @media screen {
 	.WizardLayout {
 		min-height: 100vh;
+		display: flex;
+		flex-flow: column nowrap;
+		// align-items: center;
 		position: relative;
+		@include setMaxWidth($grid-contentMaxWidth);
 	}
 
 	.WizardLayout__header {
-		padding-top: prem(22);
-		padding-bottom: prem(33);
+		position: relative;
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		@include Layout__header--height();
 	}
 
 	@include LayoutHeaderLogo('WizardLayout__header__logo');
 
+
+
 	.WizardLayout__header__logout {
 		@include BodyTextStyle--small();
-		position: fixed;
+		position: absolute;
 		right: prem(30);
-		top: prem(33);
+		top: prem(20);
 		color: $color-suld-200;
 		font-weight: 700;
 	}
@@ -31,34 +39,34 @@
 		margin-left: prem(13);
 		padding-top: prem(1);
 	}
+
+	.WizardLayout__main {
+		flex-grow: 1;
+		position: relative;
+		z-index: 2;
+	}
+
+	.WizardLayout__deco {
+		display: none;
+	}
 }
 
 @media #{$mq-tablet_up} {
-	body {
-		background-color: $color-suld-50;
-	}
 
 	.WizardLayout {
-		background-color: $color-suld-0;
-		max-width: cols_pct(9, 9);
-		@include bodyPaddingInner(margin, true);
-		@include bodyPadding();
-	}
-
-	.WizardLayout__header {
-		padding-top: between_tablet_netbook(22, 40);
-		padding-bottom: between_tablet_netbook(33, 60);
+		position: static;
 	}
 
 	.WizardLayout__header__logout {
-		right: grid-units(10);
+		right: 0;
 		top: between_tablet_netbook(30, 56);
 	}
 
 	.WizardLayout__main {
-		width: 100%;
-		max-width: cols_pct(10);
+		//width: cols_pct(8, 7);
+		width: cols_pct(10);
 		display: flex;
+
 	}
 	.WizardLayout__progress {
 		width: prem(170);
@@ -67,6 +75,35 @@
 	}
 	.WizardLayout__form {
 		width: 100%;
+		max-width: 580px;
+	}
+}
+
+@media #{$mq-netbook_up} {
+
+	.WizardLayout::after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: calc((100vw / 2) - (#{prem($grid-contentMaxWidth)} / 3));
+		background: $color-suld-50;
+	}
+
+	.WizardLayout__form {
+		min-height: 600px;
+	}
+
+	.WizardLayout__deco {
+		display: block;
+		position: absolute;
+		top: 100px;
+		right: -121px;
+		width: 217px;
+		height: 468px;
+		background: url(/assets/WizardLayout.png) 0 0 no-repeat;
 	}
 }
 
