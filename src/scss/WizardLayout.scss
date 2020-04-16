@@ -1,20 +1,22 @@
 @use 'globals' as *;
 @use 'styles/header' as *;
 @use 'styles/font' as *;
+@use 'styles/font' as *;
 
 @media screen {
-	.ApplicationLayout {
+	.WizardLayout {
 		min-height: 100vh;
+		position: relative;
 	}
 
-	.ApplicationLayout__header {
+	.WizardLayout__header {
 		padding-top: prem(22);
 		padding-bottom: prem(33);
 	}
 
-	@include LayoutHeaderLogo('ApplicationLayout__header__logo');
+	@include LayoutHeaderLogo('WizardLayout__header__logo');
 
-	.ApplicationLayout__header__logout {
+	.WizardLayout__header__logout {
 		@include BodyTextStyle--small();
 		position: fixed;
 		right: prem(30);
@@ -23,7 +25,7 @@
 		font-weight: 700;
 	}
 
-	.ApplicationLayout__header__logout:after {
+	.WizardLayout__header__logout:after {
 		@include icon($icons-close);
 		font-size: prem(13);
 		margin-left: prem(13);
@@ -36,35 +38,50 @@
 		background-color: $color-suld-50;
 	}
 
-	.ApplicationLayout {
+	.WizardLayout {
 		background-color: $color-suld-0;
 		max-width: cols_pct(9, 9);
 		@include bodyPaddingInner(margin, true);
 		@include bodyPadding();
 	}
 
-	.ApplicationLayout__main {
-		max-width: cols_pct(7);
-	}
-
-	.ApplicationLayout__header {
+	.WizardLayout__header {
 		padding-top: between_tablet_netbook(22, 40);
 		padding-bottom: between_tablet_netbook(33, 60);
 	}
 
-	.ApplicationLayout__header__logout {
+	.WizardLayout__header__logout {
 		right: grid-units(10);
 		top: between_tablet_netbook(30, 56);
+	}
+
+	.WizardLayout__main {
+		width: 100%;
+		max-width: cols_pct(10);
+		display: flex;
+	}
+	.WizardLayout__progress {
+		width: prem(170);
+		margin-right: prem(30);
+		flex-shrink: 0;
+	}
+	.WizardLayout__form {
+		width: 100%;
 	}
 }
 
 @media #{$mq-wide} {
-	.ApplicationLayout__header {
+	.WizardLayout__header {
 		padding-top: prem(40);
 		padding-bottom: prem(60);
 	}
 
-	.ApplicationLayout__header__logout {
+	.WizardLayout__header__logout {
 		top: prem(56);
+	}
+
+	.WizardLayout__progress {
+		margin-right: prem(55);
+
 	}
 }
