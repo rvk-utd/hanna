@@ -1,0 +1,68 @@
+@use '_globals' as *;
+
+@media screen {
+	.WizardStepper {
+		counter-reset: step;
+	}
+	.WizardStepper__step {
+		display: block;
+		padding-left: prem(32);
+		position: relative;
+		margin-bottom: prem(36);
+		font-size: prem(12);
+		color: $color-suld-150;
+
+		&::before {
+			content: counter(step);
+			counter-increment: step;
+			width: prem(24);
+			line-height: prem(24);
+			position: absolute;
+			top: prem(0);
+			left: 0;
+			background: $color-suld-50;
+			border-radius: 50%;
+			color: $color-suld-100;
+			font-size: prem(14);
+			font-weight: $font-weight--bold;
+			text-align: center;
+		}
+
+		&::after {
+			content: "";
+			width: prem(2);
+			height: prem(24);
+			background: $color-suld-50;
+			position: absolute;
+			top: prem(30);
+			left: prem(11);
+		}
+		&:last-child::after {
+			content: none;
+		}
+	}
+	.WizardStepper__step--active {
+		color: $color-faxafloi-100;
+
+		&::before {
+			@include icon($icons-pen);
+			font-size: prem(12);
+			background: $color-faxafloi-100;
+			color: $color-suld-0;
+		}
+	}
+	.WizardStepper__step--done {
+		color: $color-faxafloi-100;
+
+		&::before {
+			@include icon($icons-checkmark);
+			font-size: prem(12);
+			background: $color-faxafloi-100;
+			color: $color-suld-0;
+		}
+
+		&::after {
+			background: $color-faxafloi-100;
+		}
+	}
+}
