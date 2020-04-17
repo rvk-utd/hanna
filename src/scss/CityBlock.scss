@@ -61,10 +61,9 @@
 		margin-bottom: grid-units(4);
 	}
 	.CityBlock__summary {
-		// @include BodyTextStyle--small();
 		margin-bottom: grid-units(4);
 	}
-	.CityBlock__summary li, // ul, ol
+	.CityBlock__summary li, // Captures ul, ol
 	.CityBlock__summary [class],
 	.CityBlock__summary blockquote {
 		@include WARNING__('Use simple markup only');
@@ -99,7 +98,6 @@ $largeimage-minH: 880;
 		display: flex;
 		flex-flow: column;
 		box-sizing: content-box;
-		// width: cols_pct(5, 3);
 		width: between(300, cols_px(5, 3), $min: $bp-tablet);
 		margin: cols_pct(0, 1) 0;
 		margin-left: auto;
