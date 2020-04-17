@@ -1,0 +1,154 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/buttons' as *;
+
+/*!@deps
+	ButtonPrimary
+	ButtonTertiary
+*/
+
+@media screen {
+	.CityBlock {
+		display: flex;
+		flex-flow: column-reverse;
+		margin-bottom: between_cols(30, 20 * $grid-unit);
+	}
+	.CityBlock__content {
+		background-color: $color-faxafloi-100;
+		color: $color-suld-0;
+		padding: between_cols(30, $grid-column) 0;
+		@include bodyPaddingInner(margin, true);
+		@include bodyPaddingInner(padding, false);
+
+		$minH: 480 - 2 * $grid-column;
+
+		min-height: between_phone_netbook(200, $minH);
+		@media #{$mq-wide} {
+			min-height: px($minH);
+		}
+	}
+	.CityBlock__image {
+		position: relative;
+		display: block;
+		@include bodyPaddingInner(margin, true);
+
+		height: between_phone_phablet(200, 300);
+	}
+
+	.CityBlock__image > img {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin: auto;
+		object-fit: cover;
+
+		@media #{$mq-tablet_up} {
+			object-fit: contain;
+		}
+	}
+	.CityBlock--illustration > .CityBlock__image > img {
+		object-fit: contain; // always contain illustrations
+	}
+	.CityBlock--largeimage > .CityBlock__image > img {
+		object-fit: cover; // always cover large images
+	}
+
+	.CityBlock__title {
+		@include HeadingStyle--small();
+		margin-bottom: grid-units(4);
+	}
+	.CityBlock__summary {
+		// @include BodyTextStyle--small();
+		margin-bottom: grid-units(4);
+	}
+	.CityBlock__summary li, // ul, ol
+	.CityBlock__summary [class],
+	.CityBlock__summary blockquote {
+		@include WARNING__('Use simple markup only');
+	}
+
+	.CityBlock--largebox > * > .CityBlock__buttons {
+		margin-top: auto;
+	}
+	.CityBlock__button {
+		@include ButtonTertiaryStyle($color-suld-0, simple);
+		display: block;
+		margin-bottom: 0;
+	}
+}
+
+// ===========================================================================
+
+$largebox-minH: 800 - 2 * $grid-column;
+$largeimage-minH: 880;
+
+@media #{$mq-tablet_up} {
+	.CityBlock {
+		position: relative;
+		flex-flow: row-reverse;
+		justify-content: space-between;
+	}
+	.CityBlock--align--left {
+		flex-flow: row;
+	}
+
+	.CityBlock__content {
+		display: flex;
+		flex-flow: column;
+		box-sizing: content-box;
+		// width: cols_pct(5, 3);
+		width: between(300, cols_px(5, 3), $min: $bp-tablet);
+		margin: cols_pct(0, 1) 0;
+		margin-left: auto;
+		padding-left: cols_pct(0, 1);
+		@include bodyPaddingInner(padding, false, right);
+		@include bodyPaddingInner(margin, true, right);
+	}
+	.CityBlock--largebox > .CityBlock__content {
+		margin-top: 0;
+		margin-bottom: 0;
+
+		min-height: between_phone_netbook(400, $largebox-minH);
+	}
+	.CityBlock--largeimage > .CityBlock__content {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	.CityBlock--align--left > .CityBlock__content {
+		margin-right: auto;
+		padding-right: cols_pct(0, 1);
+		@include bodyPaddingInner(padding, false, left);
+		@include bodyPaddingInner(margin, true, left);
+	}
+
+	.CityBlock__image {
+		box-sizing: content-box;
+		height: auto;
+		width: cols_pct(6);
+		margin-right: auto;
+		@include bodyPaddingInner(margin, true, left);
+		@include bodyPaddingInner(padding, false, left);
+	}
+	.CityBlock--largeimage > .CityBlock__image {
+		min-height: between_phone_netbook(400, $largeimage-minH);
+	}
+	.CityBlock--align--left > .CityBlock__image {
+		margin-left: auto;
+		@include bodyPaddingInner(margin, true, right);
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+@media #{$mq-wide} {
+	.CityBlock--largebox > .CityBlock__content {
+		min-height: px($largebox-minH);
+	}
+	.CityBlock--largeimage > .CityBlock__image {
+		min-height: px($largeimage-minH);
+	}
+}
