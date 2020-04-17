@@ -52,14 +52,16 @@
 	}
 
 	&:hover,
-	&:focus,
-	&:active {
+	&:focus {
 		text-decoration: none;
 		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
 		color: $text-color;
 	}
-	&:active {
+	&:active,
+	&[aria-pressed='true'] {
+		text-decoration: none;
 		background-color: $color-faxafloi-150;
+		color: $text-color;
 	}
 	&:focus {
 		@include _FocusedFrame($frameOffset, $borderRadius);
@@ -114,15 +116,20 @@
 			transition: inherit;
 		}
 
+		&:active,
+		&[aria-pressed='true'] {
+			transition-duration: 100ms;
+			text-decoration: none;
+			color: $color-faxafloi-150; // to give it some distinction at least
+		}
+
 		&:hover,
-		&:focus,
-		&:active {
+		&:focus {
 			padding-right: prem(0);
 			text-decoration: none;
 		}
 		&:hover::before,
-		&:focus::before,
-		&:active::before {
+		&:focus::before {
 			width: $dashWidth--hover;
 		}
 
