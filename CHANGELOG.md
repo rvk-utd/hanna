@@ -3,6 +3,16 @@
 ## Upcoming...
 
 - ...
+- feat: Make all `Button*`s inline by default - and correct their
+  active/pressed state.
+
+## 0.2.2
+
+_2020-04-15_
+
+- feat: Add components `FormField`, `TextInput`, `Selectbox`, `Checkbox`,
+  `CheckboxGroup`, `CheckboxButtonsGroup`, `RadioGroup` and
+  `RadioButtonsGroup`.
 
 ## 0.2.1
 

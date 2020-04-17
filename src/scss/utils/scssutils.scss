@@ -19,7 +19,7 @@
 
 @forward 'scssutils/between' with (
 	$_between-minWidth: $bp-phone,
-	$_between-maxWidth: $grid-contentMaxWidth--outer
+	$_between-maxWidth: $grid-contentMaxWidth
 );
 @forward 'scssutils/cols' with (
 	$_columnWidth: $grid-column,

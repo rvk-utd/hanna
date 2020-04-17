@@ -1,0 +1,46 @@
+@use 'globals' as *;
+
+/*!@deps
+	FormField
+*/
+
+@mixin css() {
+	@media screen {
+		.Selectbox {
+		}
+
+		.Selectbox > .FormField__input--disabled {
+		}
+		.Selectbox > .FormField__input--focused {
+		}
+
+		.Selectbox > .FormField__input::after {
+			@include icon($icons-chevron-down);
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: prem(20);
+			pointer-events: none;
+			margin: auto;
+			color: var(--input-border-color);
+			transition: all 200ms ease-in-out;
+			font-size: prem(16);
+			height: 1em;
+			line-height: 1em;
+		}
+		.Selectbox > .FormField__input--focused::after {
+			transform: rotate(180deg);
+		}
+
+		.Selectbox > * > .FormField__input__value {
+			@include overflowEllipsis();
+			// white-space: nowrap;
+			// overflow: hidden;
+			display: block;
+			margin-right: prem(50);
+		}
+
+		.Selectbox > * > .FormField__input__value--empty {
+		}
+	}
+}

@@ -1,0 +1,133 @@
+@use '_globals' as *;
+@use 'styles/forms' as *;
+@use 'styles/font' as *;
+@use 'Selectbox';
+@use 'TextInput';
+
+@media screen {
+	.FormField {
+		display: flex;
+		flex-flow: column;
+		position: relative;
+		margin-bottom: grid-units(3);
+	}
+
+	.FormField__label {
+		position: relative;
+		z-index: 1;
+		font-weight: $font-weight--bold;
+		margin-bottom: prem(10);
+		align-self: flex-start;
+	}
+	.FormField--disabled > .FormField__label {
+		color: $color-suld-100;
+	}
+
+	label.FormField__label {
+		color: $color-suld-150;
+		font-size: prem($font-label-size);
+		font-weight: $font-weight--normal;
+		line-height: prem(14);
+		transition: all 100ms ease-out;
+	}
+	:not(.FormField--small) > label.FormField__label {
+		position: absolute;
+		top: 1px;
+		left: grid-units(2);
+		line-height: prem(24);
+	}
+	.FormField--empty:not(.FormField--small):not(.FormField--focused)
+		> label.FormField__label {
+		font-size: prem($font-bd-s-size);
+		line-height: $InputField-heightI + $InputField-paddingTop;
+	}
+
+	.FormField--nolabel > .FormField__label {
+		@include sr-only();
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.FormField__input {
+		@include InputField();
+	}
+	.FormField--small > .FormField__input {
+		@include InputField--small();
+	}
+	.FormField--empty > .FormField__input,
+	.FormField__input::placeholder {
+		@include InputField--placeholder();
+	}
+	.FormField--filled > .FormField__input {
+		@include InputField--filled();
+	}
+	.FormField--invalid > .FormField__input,
+	.FormField__input[aria-invalid='true'] {
+		@include InputField--invalid();
+	}
+	// .FormField__input--focused[class],
+	.FormField--focused > .FormField__input,
+	.FormField__input:hover,
+	.FormField__input:focus {
+		@include InputField--focused();
+	}
+	.FormField--readonly > .FormField__input,
+	.FormField__input[readonly] {
+		@include InputField--readonly();
+	}
+	// .FormField__input--disabled[class],
+	.FormField--disabled > .FormField__input,
+	.FormField__input[disabled] {
+		@include InputField--disabled();
+	}
+
+	// Reset contained field elements by default ...
+	.FormField__input input,
+	.FormField__input select,
+	.FormField__input textarea {
+		border: 0;
+		background: 0;
+		padding: 0;
+		width: 100%;
+		line-height: inherit;
+		color: inherit;
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.FormField__options {
+	}
+	.FormField__options__item {
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.FormField__assist,
+	.FormField__error {
+		color: $color-heidmork-100;
+		font-size: prem($font-size-12);
+		line-height: prem(14);
+		padding-left: grid-units(2);
+		margin-top: prem(9);
+
+		&:before {
+			@include icon($icons-error);
+			margin-right: grid-units(1);
+			font-size: prem(10);
+		}
+	}
+	.FormField__assist {
+		color: $color-suld-150;
+	}
+	.FormField__assist:before {
+		content: $icons-alert;
+		font-size: prem(11);
+	}
+}
+
+// ===========================================================================
+
+// Inline the most common input types for better
+// compression and loading speed
+@include Selectbox.css();
+@include TextInput.css();

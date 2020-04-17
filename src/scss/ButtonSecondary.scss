@@ -7,7 +7,8 @@
 		background-color: $color-suld-0;
 		border: 1px solid $color-faxafloi-100;
 
-		&:focus {
+		&:active,
+		&[aria-pressed] {
 			background-color: $color-suld-50;
 		}
 		&[disabled] {
