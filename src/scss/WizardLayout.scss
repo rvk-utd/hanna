@@ -22,8 +22,6 @@
 
 	@include LayoutHeaderLogo('WizardLayout__header__logo');
 
-
-
 	.WizardLayout__close {
 		@include BodyTextStyle--small();
 		position: absolute;
@@ -52,7 +50,6 @@
 }
 
 @media #{$mq-tablet_up} {
-
 	.WizardLayout {
 		position: static;
 	}
@@ -65,7 +62,6 @@
 		//width: cols_pct(8, 7);
 		width: cols_pct(10);
 		display: flex;
-
 	}
 	.WizardLayout__stepper {
 		width: prem(170);
@@ -79,9 +75,8 @@
 }
 
 @media #{$mq-netbook_up} {
-
 	.WizardLayout::after {
-		content: "";
+		content: '';
 		position: absolute;
 		z-index: -1;
 		top: 0;
@@ -107,7 +102,6 @@
 
 	.WizardLayout__close {
 		top: prem(56);
-
 	}
 }
 
@@ -125,5 +119,4 @@
 		top: prem(56);
 		right: calc((100vw / 2) - (#{prem($grid-contentMaxWidth)} / 2));
 	}
-
 }
