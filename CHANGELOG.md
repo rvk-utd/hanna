@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ...
+- feat: Add component `WizardLayout`,
 - feat: Make all `Button*`s inline by default - and correct their
   active/pressed state.
 
