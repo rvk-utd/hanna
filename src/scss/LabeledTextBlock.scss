@@ -12,13 +12,13 @@
 	.LabeledTextBlock__label {
 		@include HeadingStyle--small();
 		display: flex;
-		align-items: center;
 	}
 	.LabeledTextBlock__label:before {
 		content: '';
 		min-width: grid-units(5);
 		height: prem(4);
-		display: inline-block;
+		margin-top: 0.7em;
+		transform: translateY(-50%);
 		background-color: $color-faxafloi-100;
 		margin-right: prem(20);
 	}
