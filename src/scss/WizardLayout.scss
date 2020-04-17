@@ -1,0 +1,124 @@
+@use 'globals' as *;
+@use 'styles/header' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.WizardLayout {
+		min-height: 100vh;
+		display: flex;
+		flex-flow: column nowrap;
+		// align-items: center;
+		position: relative;
+		@include setMaxWidth($grid-contentMaxWidth);
+	}
+
+	.WizardLayout__header {
+		position: relative;
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		@include Layout__header--height();
+	}
+
+	@include LayoutHeaderLogo('WizardLayout__header__logo');
+
+	.WizardLayout__close {
+		@include BodyTextStyle--small();
+		position: absolute;
+		right: prem(30);
+		top: prem(20);
+		color: $color-suld-200;
+		font-weight: 700;
+	}
+
+	.WizardLayout__close:after {
+		@include icon($icons-close);
+		font-size: prem(13);
+		margin-left: prem(13);
+		padding-top: prem(1);
+	}
+
+	.WizardLayout__wrap {
+		flex-grow: 1;
+		position: relative;
+		z-index: 2;
+	}
+
+	.WizardLayout__deco {
+		display: none;
+	}
+}
+
+@media #{$mq-tablet_up} {
+	.WizardLayout {
+		position: static;
+	}
+
+	.WizardLayout__close {
+		top: between_tablet_netbook(30, 56);
+	}
+
+	.WizardLayout__wrap {
+		//width: cols_pct(8, 7);
+		width: cols_pct(10);
+		display: flex;
+	}
+	.WizardLayout__stepper {
+		width: prem(170);
+		margin-right: prem(30);
+		flex-shrink: 0;
+	}
+	.WizardLayout__main {
+		width: 100%;
+		max-width: 580px;
+	}
+}
+
+@media #{$mq-netbook_up} {
+	.WizardLayout::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: calc((100vw / 2) - (#{prem($grid-contentMaxWidth)} / 3));
+		background: $color-suld-50;
+	}
+
+	.WizardLayout__main {
+		min-height: 600px;
+	}
+
+	.WizardLayout__deco {
+		display: block;
+		position: absolute;
+		top: 100px;
+		right: -121px;
+	}
+	.WizardLayout__deco--geometry {
+		background: url(/assets/WizardLayout-deco.png) 0 0 no-repeat;
+		width: 217px;
+		height: 468px;
+	}
+
+	.WizardLayout__close {
+		top: prem(56);
+	}
+}
+
+@media #{$mq-wide} {
+	.WizardLayout__header {
+		padding-top: prem(40);
+		padding-bottom: prem(60);
+	}
+
+	.WizardLayout__progress {
+		margin-right: prem(55);
+	}
+
+	.WizardLayout__close {
+		top: prem(56);
+		right: calc((100vw / 2) - (#{prem($grid-contentMaxWidth)} / 2));
+	}
+}

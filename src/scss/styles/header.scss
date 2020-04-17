@@ -1,0 +1,13 @@
+@use '../_globals' as *;
+
+@mixin LayoutHeaderLogo($BEM: 'Layout__header__logo') {
+	.#{$BEM} {
+		display: block;
+		@include hideText(soft);
+		width: prem(181);
+	}
+
+	.#{$BEM} > img {
+		width: 100%;
+	}
+}
