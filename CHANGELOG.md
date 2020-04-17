@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ...
+- feat: Add component `WizardStepper`,
 
 ## 0.2.2
 
