@@ -29,13 +29,6 @@
 	.HeroBlock__summary blockquote {
 		@include WARNING__('Use simple markup only');
 	}
-
-	.HeroBlock > .ButtonPrimary {
-		display: inline-block;
-	}
-	.HeroBlock > .ButtonTertiary {
-		display: inline-flex;
-	}
 }
 
 @media #{$mq-phablet_tablet} {

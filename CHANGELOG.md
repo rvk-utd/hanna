@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ...
+- feat: Make all `Button*`s inline by default.
 
 ## 0.2.2
 
