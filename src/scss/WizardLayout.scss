@@ -90,14 +90,16 @@
 		min-height: 600px;
 	}
 
-	.WizardLayout__deco--geometry {
+	.WizardLayout__deco {
 		display: block;
 		position: absolute;
 		top: 100px;
 		right: -121px;
+	}
+	.WizardLayout__deco--geometry {
+		background: url(/assets/WizardLayout-deco.png) 0 0 no-repeat;
 		width: 217px;
 		height: 468px;
-		background: url(/assets/WizardLayout-deco.png) 0 0 no-repeat;
 	}
 
 	.WizardLayout__close {
