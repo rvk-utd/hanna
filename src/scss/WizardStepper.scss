@@ -29,7 +29,7 @@
 		}
 
 		&::after {
-			content: "";
+			content: '';
 			width: prem(2);
 			height: prem(24);
 			background: $color-suld-50;
@@ -40,6 +40,11 @@
 		&:last-child::after {
 			content: none;
 		}
+	}
+	button.WizardStepper__step:hover,
+	button.WizardStepper__step:focus,
+	button.WizardStepper__step:active {
+		color: $color-link--hover;
 	}
 	.WizardStepper__step--active {
 		color: $color-faxafloi-100;
