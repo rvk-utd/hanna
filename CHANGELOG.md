@@ -2,7 +2,8 @@
 
 ## Upcoming...
 
-- ...
+- ... <!-- Add new lines here. -->
+- feat: Add component `CityBlock`
 - feat: Make all `Button*`s inline by default - and correct their
   active/pressed state.
 

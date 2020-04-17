@@ -35,11 +35,6 @@
 	.HeroBlock {
 		padding-right: between_phablet_tablet(0, cols_px(3, 3));
 	}
-	// .HeroBlock__title,
-	// .HeroBlock__image,
-	// .HeroBlock__summary {
-	// 	max-width: prem(cols_pct(8) / 100 * $bp-netbook);
-	// }
 }
 @media #{$mq-netbook_up} {
 	.HeroBlock {
@@ -60,6 +55,7 @@
 		bottom: 0;
 		left: 0;
 		width: 100%;
+		height: 100%;
 		margin: auto;
 	}
 }
