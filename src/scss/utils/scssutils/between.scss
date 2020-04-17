@@ -12,6 +12,13 @@ $_between-maxWidth: 1440 !default;
 	$max: $_between-maxWidth,
 	$pct: '%'
 ) {
+	@if (unit($from) == '%') {
+		$from: $min * set-unit($from, '') / 100;
+	}
+	@if (unit($to) == '%') {
+		$to: $max * set-unit($to, '') / 100;
+	}
+
 	$slopeFactor: num($to - $from) / num($max - $min);
 	$intercept: $to - num($slopeFactor * $max);
 	@if ($slopeFactor == 0) {
