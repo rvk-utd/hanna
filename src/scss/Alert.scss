@@ -2,63 +2,67 @@
 
 @media screen {
 	.Alert {
-		padding: prem(17) prem(32) prem(16) prem(64);
+		padding: prem(13) prem(20) prem(12) prem(44);
 		border-radius: prem(8);
 		position: relative;
 	}
 	.Alert::before {
-		content: "•";
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: prem(30);
-		line-height: prem(12);
+		@include icon();
+		font-size: prem(16);
+		// line-height: prem(12);
 		position: absolute;
-		top: prem(22);
-		left: prem(40);
+		top: prem(14);
+		left: prem(14);
 	}
 
-	.Alert--yellow {
+	.Alert--warning {
 		background: $color-nautholsvik-50;
 	}
-	.Alert--yellow:before {
+	.Alert--warning:before {
 		color: $color-nautholsvik-100;
+		content: $icons-error;
 	}
 
-	.Alert--red {
+	.Alert--error {
 		background: fade($color-heidmork-50, 30%); // a11y hax
 	}
-	.Alert--red:before {
+	.Alert--error:before {
 		color: $color-heidmork-100;
+		content: $icons-error;
 	}
-	.Alert--red > a {
+	.Alert--error > a {
 		color: $color-faxafloi-150;
 	}
 
-	.Alert--green {
+	.Alert--success {
 		background: $color-ellidarardalur-50;
 	}
-	.Alert--green:before {
+	.Alert--success:before {
 		color: $color-ellidarardalur-100;
+		content: $icons-error;
 	}
-	.Alert--green > a {
+	.Alert--success > a {
 		color: $color-faxafloi-150;
 	}
 
-	.Alert--blue {
+	.Alert--info {
 		background: $color-faxafloi-50;
 	}
-	.Alert--blue:before {
+	.Alert--info:before {
 		color: $color-faxafloi-100;
+		content: $icons-error;
 	}
-	.Alert--blue > a {
+	.Alert--info > a {
 		color: $color-nautholsvik-100;
 	}
+}
 
-/*
-	.Alert--gray {
-		background: $color-suld-25;
+@media #{$mq-tablet_up} {
+	.Alert {
+		padding: prem(17) prem(32) prem(16) prem(64);
 	}
-	.Alert--gray:before {
-		color: $color-suld-150;
+	.Alert::before {
+		top: prem(17);
+		left: prem(25);
 	}
-*/
 }
