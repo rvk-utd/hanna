@@ -1,19 +1,19 @@
 /* global process */
 const sass = require('sass');
 
-const assertString = (value) => {
-	if (!(value instanceof sass.types.String)) {
-		throw new Error('$number: Expected a number.');
+const typeError = (argName = 'argument', typeName) =>
+	new Error('Expected ' + argName + ' to be a ' + typeName + '.');
+
+const assert = (type) => (value, argName) => {
+	if (!(value instanceof type)) {
+		throw typeError(argName, type.name);
 	}
 };
-const assertNumber = (value) => {
-	if (!(value instanceof sass.types.Number)) {
-		throw new Error('$number: Expected a number.');
-	}
-};
-// const assertUnitless = (number) => {
+const assertString = assert(sass.types.String);
+const assertNumber = assert(sass.types.Number);
+// const assertUnitless = (number, argName) => {
 // 	if (number.getUnit()) {
-// 		throw new Error('$number: Expected a unitless number.');
+// 		throw typeError(argName, 'unitless number');
 // 	}
 // };
 
@@ -79,8 +79,8 @@ module.exports = {
 		return num(number.getValue());
 	},
 	'set-unit($number, $unit)': (number, unit) => {
-		assertNumber(number);
-		assertString(unit);
+		assertNumber(number, '$number');
+		assertString(unit, '$unit');
 		return num(number.getValue(), unit.getValue());
 	},
 };
