@@ -1,6 +1,7 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
 @use 'styles/buttons' as *;
+@use 'styles/links' as *;
 
 /*!@deps
 	ButtonPrimary
@@ -65,6 +66,9 @@
 	}
 	.CityBlock__summary {
 		margin-bottom: grid-units(4);
+	}
+	.CityBlock__summary a {
+		@include LinkStyle_Underlined();
 	}
 	.CityBlock__summary li, // Captures ul, ol
 	.CityBlock__summary [class],
