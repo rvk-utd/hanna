@@ -34,8 +34,8 @@
 }
 
 :root {
-	--foo-color: #{$color-suld-200};
-	--foo-color2: red;
+	--color-link: #{$color-link_raw};
+	--color-link--hover: #{$color-link--hover_raw};
 }
 
 @media screen {

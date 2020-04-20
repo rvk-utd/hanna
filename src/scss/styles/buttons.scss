@@ -83,7 +83,11 @@
 	}
 }
 
-@mixin ButtonTertiaryStyle($color: $color-faxafloi-100, $mode: normal) {
+@mixin ButtonTertiaryStyle(
+	$color: $color-link,
+	$color--hover: $color-link--hover,
+	$mode: normal
+) {
 	$borderRadius: prem(8);
 	$dashWidth: prem(16);
 	$dashWidth--hover: prem(48);
@@ -98,6 +102,7 @@
 	padding-right: $dashWidth--hover - $dashWidth;
 	margin-right: prem(15);
 	margin-bottom: prem(16);
+	color: inherit; // IE11 ??
 	color: $color;
 	font-weight: 700;
 	transition: all 300ms ease-in-out;
@@ -125,7 +130,8 @@
 	&:hover,
 	&:focus {
 		padding-right: prem(0);
-		color: $color;
+		color: inherit; // IE11 ??
+		color: $color--hover;
 		text-decoration: none;
 	}
 	&:hover::before,
@@ -134,7 +140,7 @@
 	}
 
 	&:focus {
-		@include _FocusedFrame(prem(8), prem(8), rgba($color, 0.5), prem(1));
+		@include _FocusedFrame(prem(8), prem(8), rgba($color--hover, 0.5), prem(1));
 	}
 
 	@if $mode != simple {
