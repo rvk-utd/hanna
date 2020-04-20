@@ -1,5 +1,6 @@
 @use '../globals' as *;
 @use 'font' as *;
+@use 'links' as *;
 
 @mixin Card($bem, $wrapperClass: $bem) {
 	@media screen {
@@ -19,7 +20,7 @@
 			width: cols_pct(3);
 			min-height: prem(168);
 			position: relative;
-			color: inherit;
+			@include LinkStyle_Reset();
 		}
 
 		.#{$bem}__card__summary:after {

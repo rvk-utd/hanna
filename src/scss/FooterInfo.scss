@@ -1,5 +1,6 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
+@use 'styles/links' as *;
 
 @media screen {
 	.FooterInfo {
@@ -62,6 +63,6 @@
 		margin-bottom: prem(30);
 	}
 	.FooterInfo__groupcontent a {
-		color: inherit;
+		@include LinkStyle_Reset();
 	}
 }
