@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `CityBlock`
 - feat: Add component `WizardLayout`,
+- feat: Add component `WizardStepper`,
 - feat: Make all `Button*`s inline by default - and correct their
   active/pressed state.
 

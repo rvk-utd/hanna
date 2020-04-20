@@ -1,6 +1,6 @@
 @use '../globals' as *;
 
-$link-transition: 100ms ease-in-out;
+$link-transition: 150ms ease-in-out;
 
 @mixin LinkStyle_transition() {
 	transition: $link-transition;
