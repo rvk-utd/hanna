@@ -73,7 +73,7 @@
 		@include overflowEllipsis();
 	}
 
-	.FileInput__file-remove {
+	.FileInput__file__remove {
 		@include hideText(soft);
 		width: prem(10);
 		color: inherit;
