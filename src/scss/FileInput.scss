@@ -1,0 +1,107 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.FileInput {
+		margin-bottom: between_cols(30, 70);
+		// max-width: prem($contentInnerMaxWidth);
+	}
+	.FileInput__dropzone {
+		background: fade($color-suld-50, 22%);
+		border: 1px dashed $color-suld-100;
+		padding: prem(20);
+		transition: all 150ms ease-in-out;
+		transition-property: background-color, border-color;
+		cursor: pointer;
+		margin-bottom: prem(20);
+		text-align: center;
+		color: $color-suld-200;
+	}
+
+	.FileInput__dropzone:hover,
+	.FileInput__dropzone:focus,
+	.FileInput__dropzone.FileInput__dropzone--highlight {
+		background: $color-suld-50;
+		border-color: $color-suld-150;
+	}
+
+	.FileInput__droptext {
+		position: relative;
+		text-align: center;
+		color: $color-suld-200;
+		padding-top: prem(80);
+
+		&::before {
+			@include icon($icons-arrow-up-long);
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: prem(64);
+			margin-left: prem(-32);
+			line-height: prem(64);
+			font-size: prem(24);
+			color: #fff;
+			background: $color-faxafloi-100;
+			border-radius: 50%;
+		}
+	}
+	.FileInput__droptext strong {
+		display: inline-block;
+		color: $color-faxafloi-100;
+		border-bottom: 2px solid $color-faxafloi-100;
+	}
+
+	.FileInput__input,
+	.FileInput__input--fake {
+		display: none;
+	}
+
+	.FileInput__filelist {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.FileInput__file {
+		width: 100%;
+		padding-left: 26px;
+		margin-bottom: prem(8);
+		position: relative;
+	}
+	.FileInput__filename {
+		display: inline-block;
+		width: 100%;
+		@include overflowEllipsis();
+	}
+
+	.FileInput__file-remove {
+		@include hideText(soft);
+		width: prem(10);
+		color: inherit;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin-top: prem(-5);
+
+		&::before {
+			@include icon($icons-close);
+			font-size: prem(10);
+			line-height: 1;
+			color: $color-faxafloi-100;
+		}
+
+		&:hover::before,
+		&:focus::before {
+			color: $color-faxafloi-150;
+		}
+	}
+}
+
+@media #{$mq-tablet_up} {
+	.FileInput__dropzone {
+		padding: prem(64);
+	}
+	.FileInput__file {
+		width: calc(50% - #{prem(30)});
+		margin-right: prem(30);
+	}
+}
