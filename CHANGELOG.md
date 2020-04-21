@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ...
+- feat: add `GridBlocks`
 
 ## 0.2.2
 
