@@ -1,0 +1,91 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.InfoBlock {
+		background-color: $color-suld-25;
+		padding: between_phone_netbook(40, 120) cols_pct(1, 1);
+		@include bodyPaddingInner(margin, true, left);
+		@include bodyPaddingInner(padding, false, left);
+	}
+
+	.InfoBlock__title {
+		@include HeadingStyle--small();
+		margin-bottom: prem(20);
+	}
+
+	.InfoBlock__subtitle {
+		@include BodyTextStyle--large();
+	}
+
+	.InfoBlock__items {
+		margin-top: between_phone_netbook(40, 64);
+	}
+	.InfoBlock__item {
+		padding-left: prem(28);
+		margin-bottom: prem(16);
+	}
+	.InfoBlock__item:before {
+		content: '';
+		display: inline-block;
+		background-color: $color-esja-100;
+		margin-right: grid-units(2);
+		width: prem(12);
+		height: prem(4);
+		margin-left: prem(-28);
+	}
+
+	.InfoBlock__extrainfo,
+	.InfoBlock__attention {
+		border-top: 1px solid $color-suld-150;
+		margin-top: between_phone_netbook(64, 80);
+		padding-top: between_phone_netbook(40, 64);
+	}
+	.InfoBlock__extrainfo {
+		@include BodyTextStyle--small();
+	}
+	.InfoBlock__attention {
+		@include BodyTextStyle--large();
+		position: relative;
+		color: $color-heidmork-100;
+		padding-left: grid-units(5);
+
+		&:before {
+			content: '';
+			background-color: $color-heidmork-100;
+			width: grid-units(1);
+			position: absolute;
+			top: between_phone_netbook(40, 64);
+			left: 0;
+			bottom: 0;
+		}
+	}
+}
+
+@media #{$mq-tablet_up} {
+	.InfoBlock__items {
+		column-count: 2;
+		column-gap: prem(45);
+	}
+
+	.InfoBlock__subtitle {
+		width: cols_pct(5);
+		min-width: 350px;
+	}
+}
+
+@media #{$mq-wide} {
+	.InfoBlock {
+		padding-top: prem(120);
+		padding-bottom: prem(120);
+	}
+
+	.InfoBlock__extrainfo,
+	.InfoBlock__attention {
+		margin-top: grid-units(10);
+		padding-top: grid-units(8);
+	}
+	.InfoBlock__attention:before {
+		top: grid-units(8);
+	}
+}
