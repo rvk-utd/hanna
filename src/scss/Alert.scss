@@ -5,6 +5,7 @@
 		padding: prem(13) prem(20) prem(12) prem(44);
 		border-radius: prem(8);
 		position: relative;
+		margin-bottom: prem(20);
 	}
 	.Alert::before {
 		@include icon();
@@ -20,7 +21,7 @@
 	}
 	.Alert--warning:before {
 		color: $color-nautholsvik-100;
-		content: $icons-error;
+		content: $icons-alert;
 	}
 
 	.Alert--error {
@@ -39,7 +40,7 @@
 	}
 	.Alert--success:before {
 		color: $color-ellidarardalur-100;
-		content: $icons-error;
+		content: $icons-checkmark;
 	}
 	.Alert--success > a {
 		color: $color-faxafloi-150;
@@ -60,6 +61,7 @@
 @media #{$mq-tablet_up} {
 	.Alert {
 		padding: prem(17) prem(32) prem(16) prem(64);
+		margin-bottom: prem(30);
 	}
 	.Alert::before {
 		top: prem(17);
