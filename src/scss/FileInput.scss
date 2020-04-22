@@ -1,11 +1,29 @@
 @use '_globals' as *;
+@use 'styles/forms';
 @use 'styles/font' as *;
+
+/*!@deps
+	FormField
+*/
 
 @media screen {
 	.FileInput {
 		margin-bottom: between_cols(30, 70);
-		// max-width: prem($contentInnerMaxWidth);
+		position: relative;
 	}
+
+	.FileInput__input {
+		display: none;
+	}
+	.FileInput__input--fake {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		height: 0px;
+		width: 0px;
+	}
+
 	.FileInput__dropzone {
 		background: fade($color-suld-50, 22%);
 		border: 1px dashed $color-suld-100;
@@ -16,10 +34,12 @@
 		margin-bottom: prem(20);
 		text-align: center;
 		color: $color-suld-200;
+		position: relative;
 	}
 
 	.FileInput__dropzone:hover,
 	.FileInput__dropzone:focus,
+	.FileInput__input--fake:focus + .FileInput__dropzone,
 	.FileInput__dropzone.FileInput__dropzone--highlight {
 		background: $color-suld-50;
 		border-color: $color-suld-150;
@@ -30,6 +50,7 @@
 		text-align: center;
 		color: $color-suld-200;
 		padding-top: prem(80);
+		margin: 0;
 
 		&::before {
 			@include icon($icons-arrow-up-long);
@@ -45,15 +66,32 @@
 			border-radius: 50%;
 		}
 	}
-	.FileInput__droptext strong {
+
+	.FileInput__droptext > strong {
 		display: inline-block;
 		color: $color-faxafloi-100;
 		border-bottom: 2px solid $color-faxafloi-100;
 	}
 
-	.FileInput__input,
-	.FileInput__input--fake {
-		display: none;
+	// disabled
+	.FormField--disabled > .FileInput__dropzone {
+		background: fade($color-suld-50, 10%);
+		border: 1px dashed $color-suld-50;
+		cursor: default;
+	}
+	.FormField--disabled .FileInput__droptext,
+	.FormField--disabled .FileInput__droptext > strong {
+		color: $color-suld-100;
+		border: none;
+	}
+	.FormField--disabled .FileInput__droptext::before {
+		background: $color-suld-100;
+	}
+
+	//invalid
+	.FormField--invalid > .FileInput__dropzone {
+		background: fade($color-heidmork-100, 10%);
+		border: 1px dashed $color-heidmork-100;
 	}
 
 	.FileInput__filelist {
@@ -67,13 +105,14 @@
 		margin-bottom: prem(8);
 		position: relative;
 	}
+
 	.FileInput__filename {
 		display: inline-block;
 		width: 100%;
 		@include overflowEllipsis();
 	}
 
-	.FileInput__file__remove {
+	.FileInput__file-remove {
 		@include hideText(soft);
 		width: prem(10);
 		color: inherit;
@@ -100,7 +139,8 @@
 	.FileInput__dropzone {
 		padding: prem(64);
 	}
-	.FileInput__file {
+
+	.FileInput--multi .FileInput__file {
 		width: calc(50% - #{prem(30)});
 		margin-right: prem(30);
 	}
