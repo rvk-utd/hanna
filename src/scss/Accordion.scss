@@ -1,0 +1,59 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.Accordion__item {
+		margin-bottom: grid-units(10);
+	}
+
+	.Accordion__button {
+		@include BodyTextStyle--large();
+		color: $color-faxafloi-100;
+		display: flex;
+	}
+	.Accordion__button:before {
+		@include icon($icons-close);
+		font-size: 18px;
+		font-size: prem(18);
+		color: $color-suld-200;
+		width: prem(24);
+		margin-right: prem(24);
+		transform: rotateZ(45deg);
+		transition: transform 200ms ease-in-out;
+	}
+	.Accordion__item--open > .Accordion__button:before {
+		transform: rotateZ(0);
+	}
+
+	.Accordion__content {
+		@include BodyTextStyle--large();
+		padding-left: prem(48);
+		height: 0;
+		opacity: 0;
+		transition: opacity 200ms ease-in-out;
+		overflow: hidden;
+	}
+	.Accordion__item--open > .Accordion__content {
+		padding-top: grid-units(4);
+		height: auto;
+		opacity: 1;
+	}
+}
+
+@media #{$mq-netbook_up} {
+	.Accordion {
+		width: cols_pct(8);
+	}
+
+	.Accordion__button {
+		width: cols_pct(5, 4, 8);
+	}
+	.Accordion__button:before {
+		width: cols_pct(1, 0, 5);
+		margin-right: cols_pct(0, 1, 5);
+	}
+
+	.Accordion__content {
+		padding-left: cols_pct(1, 1, 8);
+	}
+}
