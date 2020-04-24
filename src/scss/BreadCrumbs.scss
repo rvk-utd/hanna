@@ -8,7 +8,7 @@
 		line-height: prem(24);
 	}
 	.BreadCrumbs__title {
-		@include sr-only();
+		display: none; // ok if aria-label/aria-labelledby is used!
 	}
 
 	.BreadCrumbs__item {
