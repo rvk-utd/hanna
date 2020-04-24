@@ -8,6 +8,17 @@
 		@include bodyPaddingInner(margin, true, left);
 		@include bodyPaddingInner(padding, false, left);
 	}
+	.InfoBlock:before {
+		content: '';
+		display: block;
+		position: absolute;
+		right: 0;
+		transform: translate3d(50%, prem(-20), 0);
+		width: between_phone_netbook(49, 89);
+		height: prem(75);
+		background: url('/assets/InfoBlock-chevron.svg') 0 0 no-repeat;
+		background-size: contain;
+	}
 
 	.InfoBlock__title {
 		@include HeadingStyle--small();
@@ -78,6 +89,9 @@
 	.InfoBlock {
 		padding-top: prem(120);
 		padding-bottom: prem(120);
+	}
+	.InfoBlock:before {
+		width: prem(89);
 	}
 
 	.InfoBlock__extrainfo,
