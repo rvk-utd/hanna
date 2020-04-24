@@ -11,7 +11,7 @@
 		flex-wrap: wrap;
 	}
 
-	.GridBlocks__block {
+	.GridBlocks__item {
 		margin-bottom: prem(40);
 		display: flex;
 		flex-wrap: wrap;
@@ -22,40 +22,40 @@
 		margin-bottom: grid-units(4);
 	}
 
-	.GridBlocks__block__title {
+	.GridBlocks__item__title {
 		@include SubheadingStyle--large();
 		margin-bottom: grid-units(2);
 	}
 
-	.GridBlocks__block__summary {
+	.GridBlocks__item__summary {
 		margin-bottom: grid-units(3);
 	}
 }
 
 @media #{$mq-phone_tablet} {
-	.GridBlocks__block:nth-child(2n + 1) {
+	.GridBlocks__item:nth-child(2n + 1) {
 		margin-left: 0;
 	}
 }
 
 @media #{$mq-phablet_tablet} {
-	.GridBlocks__block {
+	.GridBlocks__item {
 		width: 46%;
 		margin-left: 8%;
 	}
 }
 
 @media #{$mq-netbook_up} {
-	.GridBlocks__block {
+	.GridBlocks__item {
 		width: cols_pct(4);
 		margin-left: cols_pct(0, 1);
 	}
 
-	.GridBlocks--twocol > .GridBlocks__block {
+	.GridBlocks--twocol > .GridBlocks__item {
 		width: cols_pct(5);
 		margin-left: cols_pct(1, 2);
 	}
-	.GridBlocks--twocol > .GridBlocks__block:nth-child(2n + 1) {
+	.GridBlocks--twocol > .GridBlocks__item:nth-child(2n + 1) {
 		margin: 0;
 	}
 	.GridBlocks--twocol > * > .GridBlocks__illustration {
@@ -66,7 +66,7 @@
 		width: cols_pct(4, 3, 5, 4);
 	}
 
-	.GridBlocks:not(.GridBlocks--twocol) > .GridBlocks__block:nth-child(3n + 1) {
+	.GridBlocks:not(.GridBlocks--twocol) > .GridBlocks__item:nth-child(3n + 1) {
 		margin-left: 0;
 	}
 }
