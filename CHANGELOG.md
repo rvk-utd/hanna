@@ -9,6 +9,7 @@
 - feat: Make all `Button*`s inline by default - and correct their
   active/pressed state.
 - feat: Add component `InfoBlock`
+- feat: add `GridBlocks`
 
 ## 0.2.2
 
