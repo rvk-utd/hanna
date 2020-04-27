@@ -106,15 +106,25 @@
 		position: relative;
 	}
 
+	.FileInput__fileinfo {
+		display: flex;
+		vertical-align: middle;
+		align-items: center;
+		align-content: center;
+	}
+
 	.FileInput__filename {
-		display: inline-block;
-		width: 100%;
 		@include overflowEllipsis();
+	}
+	.FileInput__filesize {
+		padding-left: prem(3);
+		white-space: nowrap;
 	}
 
 	.FileInput__preview {
 		width: 40px;
 		height: 40px;
+		flex-shrink: 0;
 		display: inline-block;
 		margin-right: prem(15);
 		vertical-align: middle;
