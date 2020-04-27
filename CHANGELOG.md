@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 
 - feat: add component `FileInput`
+- feat: Add component `Alert` width warning, success, info and error styles.
 
 ## 0.2.3
 
