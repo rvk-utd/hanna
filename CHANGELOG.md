@@ -6,6 +6,7 @@
 - feat: Add component `CityBlock`
 - feat: Add component `WizardLayout`,
 - feat: Add component `WizardStepper`,
+- feat: Add component `MainMenu`,
 - feat: Make all `Button*`s inline by default - and correct their
   active/pressed state.
 - feat: Add component `InfoBlock`

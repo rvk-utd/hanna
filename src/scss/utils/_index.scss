@@ -6,6 +6,7 @@
 
 @use '../vars' as *;
 @use 'between' as *;
+@use 'scssutils/media' as *;
 
 @function prem($px) {
 	@return rem($px / 16);
@@ -15,14 +16,21 @@
 	@return prem($grid-unit * $units);
 }
 
-@mixin Layout__header--height($property: height) {
-	#{$property}: 70px;
-
-	@media #{$mq-tablet_up} {
-		#{$property}: between_tablet_netbook(70, 136);
+@mixin Layout__header--height($property: height, $media: all) {
+	@if $media != Topmenu {
+		#{$property}: 70px;
 	}
-	@media #{$mq-wide} {
-		#{$property}: 136px;
+	@if $media != Hamburger {
+		@if $media == Topmenu {
+			#{$property}: between_Topmenu(70, 136);
+		} @else {
+			@include media($mq-Topmenu) {
+				#{$property}: between_Topmenu(70, 136);
+			}
+		}
+		@include media($mq-wide) {
+			#{$property}: 136px;
+		}
 	}
 }
 
