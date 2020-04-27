@@ -3,14 +3,16 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add component `CityBlock`
-- feat: Add component `WizardLayout`,
-- feat: Add component `WizardStepper`,
-- feat: Add component `MainMenu`,
+
+## 0.2.3
+
+_2020-04-27_
+
+- feat: Add component `MainMenu` (WIP),
+- feat: Add component `WizardLayout`, `WizardStepper`, `CityBlock`,
+  `InfoBlock`, `GridBlocks`
 - feat: Make all `Button*`s inline by default - and correct their
   active/pressed state.
-- feat: Add component `InfoBlock`
-- feat: add `GridBlocks`
 
 ## 0.2.2
 
