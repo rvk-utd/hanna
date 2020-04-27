@@ -5,11 +5,22 @@
 	.Accordion__item {
 		margin-bottom: grid-units(10);
 	}
+	.Accordion__item--disabled {
+		opacity: 0.5;
+	}
 
 	.Accordion__button {
 		@include BodyTextStyle--large();
 		color: $color-faxafloi-100;
 		display: flex;
+	}
+	.Accordion__button:hover,
+	.Accordion__button:focus,
+	.Accordion__button:active {
+		color: $color-faxafloi-150;
+		&:before {
+			color: $color-faxafloi-150;
+		}
 	}
 	.Accordion__button:before {
 		@include icon($icons-close);
