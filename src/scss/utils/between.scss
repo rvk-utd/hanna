@@ -11,6 +11,15 @@ $_scaleDown: ($bp-phone - 2 * $grid-edge--phone) / $grid-contentMaxWidth;
 
 // ---------------------------------------------------------------------------
 
+@function between_Hamburger($from, $to) {
+	@return between_phone_phablet($from, $to);
+}
+@function between_Topmenu($from, $to) {
+	@return between_tablet_netbook($from, $to);
+}
+
+// ---------------------------------------------------------------------------
+
 @function between_phone($from, $to) {
 	@return between($from, $to, $bp-phone, $bp-phablet, 'vw');
 }
