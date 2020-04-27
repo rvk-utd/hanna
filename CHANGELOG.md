@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 
+- feat: add component `FileInput`
+
 ## 0.2.3
 
 _2020-04-27_
