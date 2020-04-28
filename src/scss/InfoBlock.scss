@@ -1,6 +1,42 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
 
+@mixin Attention($BEM: 'InfoBlock', $border: true) {
+	@include media(screen) {
+		.#{$BEM}__attention {
+			@include BodyTextStyle--large();
+			position: relative;
+			color: $color-heidmork-100;
+			padding-left: grid-units(5);
+
+			border-top: if($border, 1px solid $color-suld-150, 0);
+			margin-top: between_phone_netbook(64, 80);
+			padding-top: between_phone_netbook(40, 64);
+
+			&:before {
+				content: '';
+				background-color: $color-heidmork-100;
+				width: grid-units(1);
+				position: absolute;
+				top: between_phone_netbook(40, 64);
+				left: 0;
+				bottom: 0;
+			}
+		}
+	}
+
+	@include media($mq-wide) {
+		.#{$BEM}__attention {
+			margin-top: grid-units(10);
+			padding-top: grid-units(8);
+
+			&:before {
+				top: grid-units(8);
+			}
+		}
+	}
+}
+
 @media screen {
 	.InfoBlock {
 		background-color: $color-suld-25;
@@ -46,6 +82,8 @@
 		margin-left: prem(-28);
 	}
 
+	@include Attention();
+
 	.InfoBlock__extrainfo,
 	.InfoBlock__attention {
 		border-top: 1px solid $color-suld-150;
@@ -54,22 +92,6 @@
 	}
 	.InfoBlock__extrainfo {
 		@include BodyTextStyle--small();
-	}
-	.InfoBlock__attention {
-		@include BodyTextStyle--large();
-		position: relative;
-		color: $color-heidmork-100;
-		padding-left: grid-units(5);
-
-		&:before {
-			content: '';
-			background-color: $color-heidmork-100;
-			width: grid-units(1);
-			position: absolute;
-			top: between_phone_netbook(40, 64);
-			left: 0;
-			bottom: 0;
-		}
 	}
 }
 
@@ -94,12 +116,8 @@
 		width: prem(89);
 	}
 
-	.InfoBlock__extrainfo,
-	.InfoBlock__attention {
+	.InfoBlock__extrainfo {
 		margin-top: grid-units(10);
 		padding-top: grid-units(8);
-	}
-	.InfoBlock__attention:before {
-		top: grid-units(8);
 	}
 }
