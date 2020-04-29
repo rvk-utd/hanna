@@ -14,6 +14,9 @@
 		color: $color-faxafloi-100;
 		display: flex;
 	}
+	button.Accordion__button:not([aria-controls]) {
+		@include WARNING__('`aria-controls` missing.');
+	}
 	.Accordion__button:hover,
 	.Accordion__button:focus,
 	.Accordion__button:active {
@@ -32,22 +35,24 @@
 		transform: rotateZ(45deg);
 		transition: transform 200ms ease-in-out;
 	}
-	.Accordion__item--open > .Accordion__button:before {
+	.Accordion__button[aria-pressed='true']:before {
 		transform: rotateZ(0);
 	}
 
 	.Accordion__content {
 		@include BodyTextStyle--large();
 		padding-left: prem(48);
-		height: 0;
-		opacity: 0;
 		transition: opacity 200ms ease-in-out;
 		overflow: hidden;
-	}
-	.Accordion__item--open > .Accordion__content {
 		padding-top: grid-units(4);
 		height: auto;
 		opacity: 1;
+	}
+	html.beforejsinit .Accordion__content,
+	.Accordion__content[hidden] {
+		padding-top: 0;
+		height: 0;
+		opacity: 0;
 	}
 }
 
