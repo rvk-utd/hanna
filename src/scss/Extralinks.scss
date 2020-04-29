@@ -33,7 +33,20 @@
 
 	.ExtraLinks__related {
 		background-color: $color-suld-50;
-		padding: grid-units(8) cols_pct(1, 0) grid-units(5) cols_pct(1, 1);
+		padding: between_phone_netbook(32, 64) cols_pct(1, 0)
+			between_phone_netbook(80, 133) cols_pct(1, 1);
+		margin-top: between_phone_netbook(40, 120);
+
+		@include media($mq-tablet) {
+			margin-top: prem(32);
+		}
+
+		@include media($mq-wide) {
+			margin-top: prem(120);
+			margin-bottom: prem(-250);
+			padding-top: prem(64);
+			padding-bottom: prem(133);
+		}
 	}
 
 	.ExtraLinks__related__title {
@@ -75,17 +88,21 @@
 	.ExtraLinks__main:not(:last-child) > .ExtraLinks__card {
 		width: cols_pct(3, 2, 6);
 	}
-	.ExtraLinks__related {
-		width: cols_pct(6);
-		flex-shrink: 0;
-		padding: grid-units(8) cols_pct(1, 0) prem(133) cols_pct(1, 1);
-		margin-top: prem(120);
-		margin-bottom: prem(-250);
-	}
 
 	.ExtraLinks__related__list {
 	}
 	.ExtraLinks__related__item {
 		margin-bottom: prem(19);
+	}
+}
+
+@media #{$mq-netbook_up} {
+	.ExtraLinks {
+		display: flex;
+	}
+
+	.ExtraLinks__related {
+		width: cols_pct(6);
+		flex-shrink: 0;
 	}
 }
