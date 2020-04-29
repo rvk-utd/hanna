@@ -7,11 +7,27 @@
 @media screen {
 	.ExtraLinks {
 		background-color: $color-suld-25;
-		padding: prem(62) 0 prem(32) prem(8);
+		padding: between_phone_netbook(30, 80) 0 between_phone_netbook(30, 80);
 		@include extendBackgroundWithUnderlay();
 
+		@include media($mq-wide) {
+			padding: grid-units(10) 0 grid-units(10) 0;
+		}
+
 		&:before {
-			border-left: prem(8) solid $color-esja-100;
+			border-left: between_phone_netbook(8, 24) solid $color-esja-100;
+
+			@include media($mq-wide) {
+				border-width: prem(24);
+			}
+		}
+	}
+
+	.ExtraLinks__title {
+		margin-bottom: between_phone_netbook(20, 56);
+
+		@include media($mq-wide) {
+			margin-bottom: grid-units(7);
 		}
 	}
 
@@ -22,9 +38,6 @@
 
 	.ExtraLinks__related__title {
 		@include HeadingStyle--small();
-	}
-
-	.ExtraLinks__related__title {
 		margin-bottom: between_phone_netbook(20, 53);
 	}
 
@@ -34,24 +47,16 @@
 	}
 }
 
+@media #{$mq-phablet_tablet} {
+	.ExtraLinks__card {
+		margin: 0;
+	}
+}
+
 @media #{$mq-tablet_up} {
 	.ExtraLinks {
 		position: relative;
 		border: 0;
-		padding: grid-units(10) 0 grid-units(10) 0;
-		display: flex;
-
-		&:before {
-			border-width: prem(24);
-		}
-	}
-
-	.ExtraLinks__title {
-		margin-bottom: grid-units(7);
-	}
-
-	.ExtraLinks__card {
-		margin: 0 cols_pct(0, 1) grid-units(5) 0;
 	}
 
 	.ExtraLinks__card:nth-child(4n + 1) {
