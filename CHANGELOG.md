@@ -8,6 +8,7 @@
 - refactor: Improve scaling for `ActionCards` and `ExtraKinks`. Make use of
   CSS grid in `Card` mixin.
 - feat: add component `FileInput`
+- feat: add component `Datepicker`
 - feat: Add component `Alert` width warning, success, info and error styles.
 
 ## 0.2.3
