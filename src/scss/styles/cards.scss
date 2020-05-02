@@ -6,31 +6,36 @@
 	@media screen {
 		.#{$wrapperClass} {
 			color: $color-suld-200;
-			display: flex;
-			flex-wrap: wrap;
+			display: grid;
+			grid-auto-flow: row;
+			gap: prem($grid-gutter) cols_pct(0, 1);
+			grid-template-columns: repeat(4, 1fr);
+
+			@include media($mq-phone) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			@include media($mq-phablet_tablet) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@include media($mq-tablet) {
+				grid-template-columns: repeat(3, 1fr);
+			}
 		}
 
 		.#{$bem}__title {
 			@include HeadingStyle--small();
 			width: 100%;
+			grid-column: 1/-1;
 		}
 
 		.#{$bem}__card {
 			display: block;
 			padding: prem(24) prem(24) prem(16) prem(24);
-			margin: 0 cols_pct(0, 1) between_phone_netbook(20, 40) 0;
-			width: 100%;
 			min-height: prem(168);
 			position: relative;
 			@include LinkStyle_Reset();
-
-			@include media($mq-netbook_up) {
-				width: cols_pct(3);
-			}
-
-			@include media($mq-wide) {
-				margin-bottom: grid-units(5);
-			}
 		}
 
 		.#{$bem}__card__summary:after {
@@ -55,17 +60,6 @@
 
 		.#{$bem}__card__summary {
 			@include BodyTextStyle--small();
-		}
-	}
-
-	@media #{$mq-phablet_tablet} {
-		.#{$bem}__card {
-			width: 48%;
-			margin-right: 0;
-
-			&:nth-child(2n + 1) {
-				margin-left: auto;
-			}
 		}
 	}
 }
