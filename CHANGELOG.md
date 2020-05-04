@@ -3,7 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-
+- feat: Add component `Accordion`
+- feat: Add component `ProcessStepper`
+- refactor: Improve scaling for `ActionCards` and `ExtraKinks`. Make use of
+  CSS grid in `Card` mixin.
 - feat: add component `FileInput`
 - feat: Add component `Alert` width warning, success, info and error styles.
 
