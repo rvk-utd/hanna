@@ -7,24 +7,51 @@
 @media screen {
 	.ExtraLinks {
 		background-color: $color-suld-25;
-		padding: prem(62) 0 prem(32) prem(8);
+		padding: between_phone_netbook(30, 80) 0 between_phone_netbook(30, 80);
 		@include extendBackgroundWithUnderlay();
 
+		@include media($mq-wide) {
+			padding: grid-units(10) 0 grid-units(10) 0;
+		}
+
 		&:before {
-			border-left: prem(8) solid $color-esja-100;
+			border-left: between_phone_netbook(8, 24) solid $color-esja-100;
+
+			@include media($mq-wide) {
+				border-width: prem(24);
+			}
+		}
+	}
+
+	.ExtraLinks__title {
+		margin-bottom: between_phone_netbook(20, 56);
+		overflow-wrap: break-word;
+
+		@include media($mq-wide) {
+			margin-bottom: grid-units(7);
 		}
 	}
 
 	.ExtraLinks__related {
 		background-color: $color-suld-50;
-		padding: grid-units(8) cols_pct(1, 0) grid-units(5) cols_pct(1, 1);
+		padding: between_phone_netbook(32, 64) cols_pct(1, 0)
+			between_phone_netbook(80, 133) cols_pct(1, 1);
+		margin-top: between_phone_netbook(40, 120);
+
+		@include media($mq-tablet) {
+			margin-top: prem(32);
+		}
+
+		@include media($mq-wide) {
+			margin-top: prem(120);
+			margin-bottom: prem(-250);
+			padding-top: prem(64);
+			padding-bottom: prem(133);
+		}
 	}
 
 	.ExtraLinks__related__title {
 		@include HeadingStyle--small();
-	}
-
-	.ExtraLinks__related__title {
 		margin-bottom: between_phone_netbook(20, 53);
 	}
 
@@ -38,24 +65,6 @@
 	.ExtraLinks {
 		position: relative;
 		border: 0;
-		padding: grid-units(10) 0 grid-units(10) 0;
-		display: flex;
-
-		&:before {
-			border-width: prem(24);
-		}
-	}
-
-	.ExtraLinks__title {
-		margin-bottom: grid-units(7);
-	}
-
-	.ExtraLinks__card {
-		margin: 0 cols_pct(0, 1) grid-units(5) 0;
-	}
-
-	.ExtraLinks__card:nth-child(4n + 1) {
-		margin-right: 0;
 	}
 
 	.ExtraLinks__card:hover,
@@ -67,20 +76,29 @@
 		color: $color-suld-200;
 	}
 
-	.ExtraLinks__main:not(:last-child) > .ExtraLinks__card {
-		width: cols_pct(3, 2, 6);
-	}
-	.ExtraLinks__related {
-		width: cols_pct(6);
-		flex-shrink: 0;
-		padding: grid-units(8) cols_pct(1, 0) prem(133) cols_pct(1, 1);
-		margin-top: prem(120);
-		margin-bottom: prem(-250);
-	}
-
 	.ExtraLinks__related__list {
 	}
 	.ExtraLinks__related__item {
 		margin-bottom: prem(19);
+	}
+}
+
+@media #{$mq-netbook_up} {
+	.ExtraLinks {
+		display: flex;
+	}
+
+	.ExtraLinks__main:not(:last-child) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.ExtraLinks__main {
+		width: cols_pct(6);
+	}
+
+	.ExtraLinks__related {
+		width: cols_pct(5);
+		margin-left: auto;
+		flex-shrink: 0;
 	}
 }
