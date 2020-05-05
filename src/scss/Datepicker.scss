@@ -12,6 +12,8 @@
 		background-color: $color-suld-0;
 		display: inline-block;
 		position: relative;
+		font-size: px($font-base-size);
+		line-height: px($font-base-leading);
 	}
 
 	.react-datepicker__input-container {
@@ -24,8 +26,7 @@
 		color: $color-suld-0;
 		font-size: prem(20);
 		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+		top: 0;
 		right: prem(20);
 		width: prem(48);
 		line-height: prem(32);
