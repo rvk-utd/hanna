@@ -221,26 +221,29 @@
 		margin-right: auto;
 	}
 
-	.react-datepicker__navigation--years-previous {
-		top: 4px;
-		border-top-color: $color-suld-150;
+	[class].react-datepicker__navigation--years {
+		top: auto;
+		left: auto;
+
+		&::before {
+			content: none;
+		}
+
+		&::after {
+			content: $icons-chevron-down;
+			color: $color-suld-150;
+		}
 
 		&:hover,
-		&:focus,
-		&:active {
-			border-top-color: $color-suld-200;
+		&:focus {
+			&::after {
+				color: $color-suld-200;
+			}
 		}
 	}
 
-	.react-datepicker__navigation--years-upcoming {
-		top: -4px;
-		border-bottom-color: $color-suld-150;
-
-		&:hover,
-		&:focus,
-		&:active {
-			border-bottom-color: $color-suld-200;
-		}
+	[class].react-datepicker__navigation--years-upcoming::after {
+		content: $icons-chevron-up;
 	}
 
 	.react-datepicker__month-container {
