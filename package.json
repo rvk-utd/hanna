@@ -2,7 +2,7 @@
 	"name": "rvk-styles",
 	"version": "0.2.3",
 	"main": "index.js",
-	"license": "UNLICENCED",
+	"license": "MIT",
 	"private": true,
 	"scripts": {
 		"start": "NODE_ENV=production  yarn run cssserve --config cssserve-prod.json",
@@ -50,7 +50,9 @@
 	},
 	"author": "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
 	"contributors": [
-		"Már Örlygsson <mar@hugsmidjan.is>"
+		"Kári Yngvason <kari@hugsmidjan.is>",
+		"Már Örlygsson <mar@hugsmidjan.is>",
+		"Valur Sverrisson <valur@hugsmidjan.is>"
 	],
 	"repository": "ssh://git@stash.hugsmidjan.is:7999/proj/rvk-styles.git"
 }
