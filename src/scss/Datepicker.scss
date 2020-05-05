@@ -54,6 +54,7 @@
 		padding-left: prem(24);
 		color: $color-suld-150;
 		border-left: 2px solid $color-suld-150;
+		pointer-events: none;
 	}
 	.FormField--focused .react-datepicker__input-container::after {
 		border-color: $color-faxafloi-100;
@@ -169,6 +170,7 @@
 	[class].react-datepicker__navigation--years {
 		top: auto;
 		left: auto;
+		@include suppress_WARNING__();
 
 		&::before {
 			content: none;
@@ -360,6 +362,7 @@
 	.react-datepicker__year-read-view--down-arrow,
 	.react-datepicker__month-read-view--down-arrow,
 	.react-datepicker__month-year-read-view--down-arrow {
+		visibility: visible !important; // override inline `visibility: hidden`
 		position: relative;
 		order: 1;
 		margin-left: prem(5);
