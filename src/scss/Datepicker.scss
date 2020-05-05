@@ -62,6 +62,10 @@
 
 	// Arrows and triangles
 	.react-datepicker__triangle {
+		display: none;
+	}
+	/*
+	.react-datepicker__triangle {
 		position: absolute;
 		left: 50px;
 	}
@@ -130,7 +134,7 @@
 		border-bottom: none;
 		border-top-color: $color-suld-0;
 	}
-
+*/
 	.react-datepicker__current-month {
 		color: $color-suld-0;
 		font-size: prem(24);
