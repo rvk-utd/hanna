@@ -1,0 +1,13 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/buttons' as *;
+@use 'styles/links' as *;
+
+/*!@deps
+	ButtonTertiary
+*/
+
+@media screen {
+	.IslandBlock {
+	}
+}
