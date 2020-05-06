@@ -3,12 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Tweak `Accordion` open/close styling
 
 ## 0.2.4
 
 _2020-05-06_
 
-- feat: Add components `Accordion` ,`ProcessStepper` ,`FileInput`, `Datepicker` and `Alert`
+- feat: Add components `Accordion` ,`ProcessStepper` ,`FileInput`,
+  `Datepicker` and `Alert`
 - fix: Improve responsive scaling for `ActionCards` and `ExtraLinks`
 
 ## 0.2.3
