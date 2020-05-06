@@ -145,6 +145,11 @@
 		}
 	}
 
+	.react-datepicker__navigation--next,
+	.react-datepicker__navigation--previous {
+		display: none;
+	}
+	/*
 	.react-datepicker__navigation--next {
 		right: prem(12);
 		left: auto;
@@ -158,19 +163,15 @@
 	.react-datepicker__navigation--next--disabled:after {
 		color: $color-suld-100;
 	}
-
-	.react-datepicker__navigation--years {
-		position: relative;
-		top: 0;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
+*/
 
 	[class].react-datepicker__navigation--years {
+		@include suppress_WARNING__();
+		position: relative;
 		top: auto;
 		left: auto;
-		@include suppress_WARNING__();
+		margin-left: auto;
+		margin-right: auto;
 
 		&::before {
 			content: none;
@@ -355,7 +356,7 @@
 		visibility: visible !important; // override inline `visibility: hidden`
 		text-transform: capitalize;
 		color: $color-suld-0;
-		font-size: prem(24);
+		font-size: prem(20);
 		font-weight: $font-weight--bold;
 	}
 
