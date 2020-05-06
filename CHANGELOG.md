@@ -3,23 +3,23 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add component `Accordion`
-- feat: Add component `ProcessStepper`
-- refactor: Improve scaling for `ActionCards` and `ExtraKinks`. Make use of
-  CSS grid in `Card` mixin.
-- feat: add component `FileInput`
-- feat: add component `Datepicker`
-- feat: Add component `Alert` width warning, success, info and error styles.
+
+## 0.2.4
+
+_2020-05-06_
+
+- feat: Add components `Accordion` ,`ProcessStepper` ,`FileInput`, `Datepicker` and `Alert`
+- fix: Improve responsive scaling for `ActionCards` and `ExtraLinks`
 
 ## 0.2.3
 
 _2020-04-27_
 
-- feat: Add component `MainMenu` (WIP),
-- feat: Add component `WizardLayout`, `WizardStepper`, `CityBlock`,
+- feat: Add component `MainMenu` (WIP)
+- feat: Add components `WizardLayout`, `WizardStepper`, `CityBlock`,
   `InfoBlock`, `GridBlocks`
 - feat: Make all `Button*`s inline by default - and correct their
-  active/pressed state.
+  active/pressed state
 
 ## 0.2.2
 
@@ -27,7 +27,7 @@ _2020-04-15_
 
 - feat: Add components `FormField`, `TextInput`, `Selectbox`, `Checkbox`,
   `CheckboxGroup`, `CheckboxButtonsGroup`, `RadioGroup` and
-  `RadioButtonsGroup`.
+  `RadioButtonsGroup`
 
 ## 0.2.1
 
