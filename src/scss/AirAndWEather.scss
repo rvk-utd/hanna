@@ -1,0 +1,68 @@
+@use '_globals' as *;
+
+@media screen {
+	.AirAndWeather {
+		display: flex;
+		align-items: center;
+		align-content: center;
+		line-height: prem(24);
+	}
+
+	.AirAndWeather__air {
+		margin-right: prem(22);
+	}
+	.AirAndWeather__air > span {
+		vertical-align: middle;
+		display: inline-block;
+	}
+	.AirAndWeather__air__icon {
+		@include hideText();
+		width: prem(12);
+		height: prem(12);
+		border-radius: 50%;
+		margin-left: prem(8);
+	}
+	.AirAndWeather__air__icon--great {
+		background-color: $color-ellidarardalur-100;
+	}
+	.AirAndWeather__air__icon--good {
+		background-color: $color-ellidarardalur-75;
+	}
+	.AirAndWeather__air__icon--medium {
+		background-color: $color-nautholsvik-100;
+	}
+	.AirAndWeather__air__icon--poor {
+		background-color: $color-heidmork-75;
+	}
+	.AirAndWeather__air__icon--bad {
+		background-color: $color-heidmork-100;
+	}
+
+	.AirAndWeather__weather > span {
+		vertical-align: middle;
+		display: inline-block;
+	}
+	.AirAndWeather__weather__sky {
+		@include hideText();
+		width: prem(24);
+		height: prem(24);
+		margin-left: prem(5);
+		background: 50% 50% no-repeat;
+		background-size: contain;
+	}
+	.AirAndWeather__weather__sky--sun {
+		background-image: url('/assets/AirAndWeather-sun.svg');
+	}
+	.AirAndWeather__weather__sky--clouds {
+		background-image: url('/assets/AirAndWeather-clouds.svg');
+		transform: rotate(10deg);
+	}
+	.AirAndWeather__weather__sky--rain {
+		background-image: url('/assets/AirAndWeather-rain.svg');
+		transform: rotate(20deg);
+	}
+	.AirAndWeather__weather__sky--snow {
+		background-image: url('/assets/AirAndWeather-snow.svg');
+		transform: rotate(30deg);
+	}
+}
