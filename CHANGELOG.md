@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `AirAndWeather` (WIP)
 
 ## 0.8.34
 
