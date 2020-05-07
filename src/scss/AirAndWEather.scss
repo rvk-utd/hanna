@@ -55,14 +55,11 @@
 	}
 	.AirAndWeather__weather__sky--clouds {
 		background-image: url('/assets/AirAndWeather-clouds.svg');
-		transform: rotate(10deg);
 	}
 	.AirAndWeather__weather__sky--rain {
 		background-image: url('/assets/AirAndWeather-rain.svg');
-		transform: rotate(20deg);
 	}
 	.AirAndWeather__weather__sky--snow {
 		background-image: url('/assets/AirAndWeather-snow.svg');
-		transform: rotate(30deg);
 	}
 }
