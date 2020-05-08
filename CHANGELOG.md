@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.5
+
+_2020-05-08_
+
 - feat: Add component `IslandBlock`
 - feat: Add `--align--right` modifier to `HeroBlock`
 - fix: Tweak `Accordion` open/close styling
