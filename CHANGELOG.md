@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `--align--right` modifier to `HeroBlock`
 - fix: Tweak `Accordion` open/close styling
 
 ## 0.2.4

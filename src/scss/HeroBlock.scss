@@ -41,6 +41,11 @@
 		position: relative;
 		padding-right: cols_pct(6, 6);
 	}
+	.HeroBlock--align--right {
+		padding-right: 0;
+		padding-left: cols_pct(5, 5);
+	}
+
 	.HeroBlock__image {
 		position: absolute;
 		top: 0;
@@ -49,6 +54,12 @@
 		width: cols_pct(6);
 		margin: 0;
 	}
+	.HeroBlock--align--right > .HeroBlock__image {
+		padding-right: 0;
+		left: auto;
+		right: cols_pct(7, 7);
+	}
+
 	.HeroBlock__image > img {
 		position: absolute;
 		top: 0;
