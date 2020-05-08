@@ -369,8 +369,9 @@ template {
 		font-family: sans-serif;
 		cursor: default; /* 1 */
 		overflow-y: scroll; /* 2 */
-		word-break: break-word; /* 3 */
-		overflow-wrap: break-word; /* 3 */
+		// Disabled. Should be Opt-in.
+		// word-break: break-word; /* 3 */
+		// overflow-wrap: break-word; /* 3 */
 	}
 
 	// /*

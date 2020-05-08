@@ -248,6 +248,7 @@ $InputField-paddingH: grid-units(2);
 	--input-border-color: #{$color-suld-100};
 	@include BodyTextStyle--large($leading: false);
 	display: block;
+	width: 100%;
 	background-color: $color-suld-0;
 	color: $color-suld-200;
 	border: prem(1) solid var(--input-border-color);

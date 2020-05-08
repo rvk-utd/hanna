@@ -3,11 +3,26 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add component `CityBlock`
-- feat: Add component `WizardLayout`,
-- feat: Add component `WizardStepper`,
+- feat: Add `--align--right` modifier to `HeroBlock`
+- fix: Tweak `Accordion` open/close styling
+
+## 0.2.4
+
+_2020-05-06_
+
+- feat: Add components `Accordion` ,`ProcessStepper` ,`FileInput`,
+  `Datepicker` and `Alert`
+- fix: Improve responsive scaling for `ActionCards` and `ExtraLinks`
+
+## 0.2.3
+
+_2020-04-27_
+
+- feat: Add component `MainMenu` (WIP)
+- feat: Add components `WizardLayout`, `WizardStepper`, `CityBlock`,
+  `InfoBlock`, `GridBlocks`
 - feat: Make all `Button*`s inline by default - and correct their
-  active/pressed state.
+  active/pressed state
 
 ## 0.2.2
 
@@ -15,7 +30,7 @@ _2020-04-15_
 
 - feat: Add components `FormField`, `TextInput`, `Selectbox`, `Checkbox`,
   `CheckboxGroup`, `CheckboxButtonsGroup`, `RadioGroup` and
-  `RadioButtonsGroup`.
+  `RadioButtonsGroup`
 
 ## 0.2.1
 

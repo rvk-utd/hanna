@@ -159,6 +159,9 @@
 		line-height: inherit;
 		padding: 0;
 	}
+	input:invalid {
+		box-shadow: none; // reset red default browser stylesheet box-shadow
+	}
 	[disabled],
 	[aria-disabled='true'] {
 		cursor: not-allowed;

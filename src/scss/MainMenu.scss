@@ -1,0 +1,204 @@
+@use '_globals' as *;
+@use 'styles/links' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.MainMenu {
+	}
+	.MainMenu__title {
+		display: none; // ok if aria-label/aria-labelledby is used!
+	}
+	.MainMenu__items {
+	}
+	.MainMenu__item {
+		color: $color-suld-200;
+		white-space: nowrap;
+	}
+	.MainMenu__item[aria-current='true'] {
+		color: $color-faxafloi-100;
+	}
+	.MainMenu__link {
+		color: inherit;
+		display: block;
+		width: max-content;
+		font-weight: $font-weight--bold;
+		padding: prem(10) prem(15);
+	}
+
+	.MainMenu__link::before {
+		@include icon();
+		margin-right: prem(8);
+		vertical-align: prem(-3);
+	}
+	.MainMenu__item--mypages > .MainMenu__link::before {
+		content: $icons-user;
+	}
+	.MainMenu__item--search > .MainMenu__link::before {
+		content: $icons-search;
+	}
+}
+
+@media #{$mq-Hamburger} {
+	.MainMenu {
+	}
+	.MainMenu__link {
+	}
+}
+
+@media #{$mq-Topmenu} {
+	.MainMenu {
+	}
+	.MainMenu__items {
+		position: absolute;
+		z-index: 3;
+		top: 0;
+		right: 0;
+		left: cols_pct(3, 3);
+		margin: 0 prem(-20);
+		@include media($mq-tablet) {
+			left: 220px;
+			margin: 0 between_tablet(-15, -20);
+		}
+		@include Layout__header--height(height, $media: Topmenu);
+		display: flex;
+		align-items: center;
+	}
+
+	.MainMenu__item--home {
+		@include sr-only-content-focusable();
+	}
+	@include media($mq-tablet) {
+		.MainMenu__item--search > .MainMenu__link {
+			@include hideText(soft);
+			box-sizing: content-box;
+			width: 1em;
+		}
+		.MainMenu__item--search > .MainMenu__link::before {
+			margin-right: prem(40);
+		}
+	}
+
+	[class='MainMenu__item'] + .MainMenu__item:not([class='MainMenu__item']) {
+		margin-left: auto;
+	}
+
+	.MainMenu__link {
+		padding: prem(10) prem(20);
+		@include media($mq-tablet) {
+			padding: prem(10) between_tablet(15, 20);
+		}
+	}
+}
+// ===========================================================================
+
+@media screen {
+	.MainMenu:not(nav) {
+		@include WARNING__('Please use <nav/>');
+	}
+	.MainMenu:not([aria-label]):not([aria-labelledby]) {
+		@include WARNING__('Please add `aria-label` or `aria-labelledby`');
+	}
+	.MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
+		@include WARNING__('Please add `id` attribute');
+	}
+	.MainMenu__list:first-child {
+		@include WARNING__('`.MainMenu__title` missing');
+	}
+	.MainMenu__item:first-child:not(.MainMenu__item--home) {
+		@include WARNING__('Home link missing');
+	}
+}
+
+// ===========================================================================
+// Mega Menu
+// ===========================================================================
+
+@media #{$mq-Hamburger} {
+	.Mainmenu__mega__link {
+		background-image: none !important;
+	}
+}
+
+@media #{$mq-Topmenu} {
+	.MainMenu__megapanel {
+		margin: between_cols(30, 60) 0;
+	}
+
+	[data-scripted] > .MainMenu__megapanel {
+		display: none;
+		margin: 0;
+		padding: between_cols(30, 120) 0;
+	}
+	[data-scripted] > .MainMenu__megapanel--active {
+		position: absolute;
+		display: block;
+		@include Layout__header--height(top, $media: Hamburger);
+	}
+
+	.Mainmenu__mega__title {
+		border-top: 1px solid $color-suld-75;
+		padding-top: between_cols(30, 60);
+		margin-bottom: prem(20);
+		@include HeadingStyle--small();
+	}
+	.Mainmenu__mega__title--active {
+		@include sr-only();
+	}
+
+	.Mainmenu__mega__items {
+		display: grid;
+		grid-auto-flow: row;
+		gap: prem($grid-gutter) cols_pct(0, 1);
+		grid-template-columns: repeat(4, 1fr);
+
+		@include media($mq-tablet) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	.Mainmenu__mega__item {
+		display: flex;
+		align-items: flex-end;
+	}
+	.Mainmenu__mega__link[class] {
+		background: -500px 0 no-repeat;
+		text-decoration: none;
+	}
+	.Mainmenu__mega__link[style*='background-image:']::before {
+		content: '';
+		display: block;
+		background: 0 50% / auto 100% no-repeat;
+		background-image: inherit;
+		height: between_tablet_netbook(70, 100);
+		margin-bottom: prem(10);
+
+		@include media($mq-wide) {
+			height: px(100);
+		}
+	}
+	// .Mainmenu__mega__link:hover::before,
+	// .Mainmenu__mega__link:focus::before,
+	// .Mainmenu__mega__link:active::before {
+	// }
+
+	.Mainmenu__mega__link__title {
+		font-size: $font-size-20;
+		// font-weight: $font-weight--bold;
+	}
+	.Mainmenu__mega__link:hover .Mainmenu__mega__link__title,
+	.Mainmenu__mega__link:focus .Mainmenu__mega__link__title,
+	.Mainmenu__mega__link:active .Mainmenu__mega__link__title {
+		text-decoration: underline;
+	}
+
+	.Mainmenu__mega__link__summary {
+		display: block;
+		color: $color-suld-200;
+		font-weight: $font-weight--normal;
+		text-decoration: none !important;
+		height: prem(2 * $font-base-leading);
+
+		@include media($mq-tablet_netbook) {
+			height: prem(3 * $font-base-leading);
+		}
+	}
+}

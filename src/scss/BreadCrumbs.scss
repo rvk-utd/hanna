@@ -8,7 +8,7 @@
 		line-height: prem(24);
 	}
 	.BreadCrumbs__title {
-		@include sr-only();
+		display: none; // ok if aria-label/aria-labelledby is used!
 	}
 
 	.BreadCrumbs__item {
@@ -56,6 +56,15 @@
 	}
 
 	.BreadCrumbs__item:last-child:not([aria-current='true']) {
-		@include WARNING__('You forgot aria-current="true".');
+		@include WARNING__('You forgot aria-current="true"');
+	}
+	.BreadCrumbs:not(nav) {
+		@include WARNING__('Please use <nav/>');
+	}
+	.BreadCrumbs:not([aria-label]):not([aria-labelledby]) {
+		@include WARNING__('Please add `aria-label` or `aria-labelledby`');
+	}
+	.BreadCrumbs[aria-labelledby] > .BreadCrumbs__title:not([id]) {
+		@include WARNING__('Please add `id` attribute');
 	}
 }

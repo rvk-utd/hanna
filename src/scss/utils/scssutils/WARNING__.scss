@@ -27,3 +27,19 @@ $_isDev: isDevMode();
 @mixin WARNING_soft__($message) {
 	@include WARNING__($message, soft);
 }
+
+@mixin suppress_WARNING__($mode: normal) {
+	@if ($_isDev) {
+		$hover: if($mode == soft, ':hover', '');
+
+		&#{$hover} {
+			box-shadow: none !important;
+		}
+		&#{$hover}::before {
+			content: none !important;
+		}
+	}
+}
+@mixin suppress_WARNING_soft__() {
+	@include suppress_WARNING__(soft);
+}

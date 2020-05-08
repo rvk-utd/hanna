@@ -1,0 +1,70 @@
+@use '_globals' as *;
+
+@media screen {
+	.Alert {
+		padding: prem(13) prem(20) prem(12) prem(44);
+		border-radius: prem(8);
+		position: relative;
+		margin-bottom: prem(20);
+	}
+	.Alert::before {
+		@include icon();
+		font-size: prem(16);
+		// line-height: prem(12);
+		position: absolute;
+		top: prem(14);
+		left: prem(14);
+	}
+
+	.Alert--warning {
+		background: $color-nautholsvik-50;
+	}
+	.Alert--warning:before {
+		color: $color-nautholsvik-100;
+		content: $icons-alert;
+	}
+
+	.Alert--error {
+		background: fade($color-heidmork-50, 30%); // a11y hax
+	}
+	.Alert--error:before {
+		color: $color-heidmork-100;
+		content: $icons-error;
+	}
+	.Alert--error > a {
+		color: $color-faxafloi-150;
+	}
+
+	.Alert--success {
+		background: $color-ellidarardalur-50;
+	}
+	.Alert--success:before {
+		color: $color-ellidarardalur-100;
+		content: $icons-checkmark;
+	}
+	.Alert--success > a {
+		color: $color-faxafloi-150;
+	}
+
+	.Alert--info {
+		background: $color-faxafloi-50;
+	}
+	.Alert--info:before {
+		color: $color-faxafloi-100;
+		content: $icons-error;
+	}
+	.Alert--info > a {
+		color: $color-nautholsvik-100;
+	}
+}
+
+@media #{$mq-tablet_up} {
+	.Alert {
+		padding: prem(17) prem(32) prem(16) prem(64);
+		margin-bottom: prem(30);
+	}
+	.Alert::before {
+		top: prem(17);
+		left: prem(25);
+	}
+}
