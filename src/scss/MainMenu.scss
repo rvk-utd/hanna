@@ -124,14 +124,17 @@
 		margin: between_cols(30, 60) 0;
 	}
 
-	[data-scripted] > .MainMenu__megapanel {
+	.before-sprinkling .MainMenu__megapanel {
+		display: none;
+	}
+	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel {
 		display: none;
 		margin: 0;
 		padding: between_cols(30, 120) 0;
 	}
-	[data-scripted] > .MainMenu__megapanel--active {
-		position: absolute;
+	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel--active {
 		display: block;
+		position: absolute;
 		@include Layout__header--height(top, $media: Hamburger);
 	}
 
