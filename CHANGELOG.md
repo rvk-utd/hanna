@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Mis-Casing in some `MegaMenu__` class-names
 
 ## 0.2.5
 

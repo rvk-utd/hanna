@@ -114,7 +114,7 @@
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
-	.Mainmenu__mega__link {
+	.MainMenu__mega__link {
 		background-image: none !important;
 	}
 }
@@ -135,17 +135,17 @@
 		@include Layout__header--height(top, $media: Hamburger);
 	}
 
-	.Mainmenu__mega__title {
+	.MainMenu__mega__title {
 		border-top: 1px solid $color-suld-75;
 		padding-top: between_cols(30, 60);
 		margin-bottom: prem(20);
 		@include HeadingStyle--small();
 	}
-	.Mainmenu__mega__title--active {
+	.MainMenu__mega__title--active {
 		@include sr-only();
 	}
 
-	.Mainmenu__mega__items {
+	.MainMenu__mega__items {
 		display: grid;
 		grid-auto-flow: row;
 		gap: prem($grid-gutter) cols_pct(0, 1);
@@ -155,15 +155,15 @@
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
-	.Mainmenu__mega__item {
+	.MainMenu__mega__item {
 		display: flex;
 		align-items: flex-end;
 	}
-	.Mainmenu__mega__link[class] {
+	.MainMenu__mega__link[class] {
 		background: -500px 0 no-repeat;
 		text-decoration: none;
 	}
-	.Mainmenu__mega__link[style*='background-image:']::before {
+	.MainMenu__mega__link[style*='background-image:']::before {
 		content: '';
 		display: block;
 		background: 0 50% / auto 100% no-repeat;
@@ -175,22 +175,22 @@
 			height: px(100);
 		}
 	}
-	// .Mainmenu__mega__link:hover::before,
-	// .Mainmenu__mega__link:focus::before,
-	// .Mainmenu__mega__link:active::before {
+	// .MainMenu__mega__link:hover::before,
+	// .MainMenu__mega__link:focus::before,
+	// .MainMenu__mega__link:active::before {
 	// }
 
-	.Mainmenu__mega__link__title {
+	.MainMenu__mega__link__title {
 		font-size: $font-size-20;
 		// font-weight: $font-weight--bold;
 	}
-	.Mainmenu__mega__link:hover .Mainmenu__mega__link__title,
-	.Mainmenu__mega__link:focus .Mainmenu__mega__link__title,
-	.Mainmenu__mega__link:active .Mainmenu__mega__link__title {
+	.MainMenu__mega__link:hover .MainMenu__mega__link__title,
+	.MainMenu__mega__link:focus .MainMenu__mega__link__title,
+	.MainMenu__mega__link:active .MainMenu__mega__link__title {
 		text-decoration: underline;
 	}
 
-	.Mainmenu__mega__link__summary {
+	.MainMenu__mega__link__summary {
 		display: block;
 		color: $color-suld-200;
 		font-weight: $font-weight--normal;
