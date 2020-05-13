@@ -28,18 +28,10 @@
 
 	@include LayoutHeaderLogo('Layout__header__logo');
 
-	.Layout__header__skiplink {
-	}
-	.Layout__nav__closebutton {
-	}
-
 	.Layout__main {
 		flex-grow: 1;
 		@include Layout__header--height(padding-top);
 		padding-bottom: rem(30);
-	}
-
-	.Layout__nav {
 	}
 
 	.Layout__footer {
@@ -89,6 +81,9 @@
 	}
 	html.menu-is-open .Layout__main {
 		display: none;
+	}
+
+	.Layout__nav__closebutton {
 	}
 }
 
