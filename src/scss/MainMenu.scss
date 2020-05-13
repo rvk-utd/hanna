@@ -24,6 +24,11 @@
 		font-weight: $font-weight--bold;
 		padding: prem(10) prem(15);
 	}
+	.MainMenu__link:hover,
+	.MainMenu__link:focus,
+	.MainMenu__link:active {
+		@include LinkStyle--hover();
+	}
 
 	.MainMenu__link::before {
 		@include icon();
