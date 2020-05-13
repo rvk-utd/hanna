@@ -11,11 +11,11 @@
 //     @include extendSides(both, (-25/16)em )  // ...which can also be a negative value
 //     @include extendSides(left, (25/16)em )  // etc.
 //
-@mixin extendSides($side: both, $pad: 0) {
-	$margin: 0;
+@mixin extendSides($side: both, $pad: 0px) {
+	$margin: 0px;
 	@if ($pad < 0) {
 		$margin: $pad;
-		$pad: 0;
+		$pad: 0px;
 	}
 	$page-expand-padding: calc(50vw - 50% + #{$pad});
 	$page-expand-margin: calc(50% - 50vw + #{$margin});

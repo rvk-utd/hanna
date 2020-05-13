@@ -7,6 +7,11 @@ $link-transition: 150ms ease-in-out;
 	transition-property: border-color, background-color, color, text-shadow, box-shadow;
 }
 
+@mixin LinkStyle--hover() {
+	color: $color-link--hover;
+	text-decoration: underline;
+}
+
 @mixin LinkStyle() {
 	color: $color-link;
 	text-decoration: none;
@@ -16,8 +21,7 @@ $link-transition: 150ms ease-in-out;
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color-link--hover;
-		text-decoration: underline;
+		@include LinkStyle--hover();
 	}
 }
 

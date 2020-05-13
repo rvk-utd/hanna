@@ -52,7 +52,13 @@
 		max-height: 3000px; // DECIDE: is this enough?
 		opacity: 1;
 	}
-	html.beforejsinit .Accordion__content,
+
+	html.before-sprinkling > .Accordion__content {
+		display: none;
+	}
+	.Accordion[data-sprinkled] > .Accordion__content {
+		display: none;
+	}
 	.Accordion__content[hidden] {
 		display: block; // override default
 		padding-top: 0;

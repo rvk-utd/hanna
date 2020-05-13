@@ -24,6 +24,11 @@
 		font-weight: $font-weight--bold;
 		padding: prem(10) prem(15);
 	}
+	.MainMenu__link:hover,
+	.MainMenu__link:focus,
+	.MainMenu__link:active {
+		@include LinkStyle--hover();
+	}
 
 	.MainMenu__link::before {
 		@include icon();
@@ -38,12 +43,16 @@
 	}
 }
 
+// ---------------------------------------------------------------------------
+
 @media #{$mq-Hamburger} {
 	.MainMenu {
 	}
 	.MainMenu__link {
 	}
 }
+
+// ---------------------------------------------------------------------------
 
 @media #{$mq-Topmenu} {
 	.MainMenu {
@@ -89,6 +98,11 @@
 		}
 	}
 }
+
+// ===========================================================================
+//
+// Markup Warnings
+//
 // ===========================================================================
 
 @media screen {
@@ -110,42 +124,78 @@
 }
 
 // ===========================================================================
+//
 // Mega Menu
+//
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
-	.Mainmenu__mega__link {
+	.MainMenu__megapanel {
+		margin-bottom: prem(30);
+	}
+
+	.MainMenu__mega__title {
+		@include SubheadingStyle--small;
+	}
+
+	.MainMenu__mega__link {
 		background-image: none !important;
 	}
+
+	.MainMenu__mega__link__summary {
+		display: none;
+	}
+
+	.MainMenu__megapanel__backtomenu {
+		display: none;
+	}
 }
+
+// ---------------------------------------------------------------------------
 
 @media #{$mq-Topmenu} {
 	.MainMenu__megapanel {
 		margin: between_cols(30, 60) 0;
 	}
 
-	[data-scripted] > .MainMenu__megapanel {
+	html.before-sprinkling .MainMenu__megapanel {
 		display: none;
-		margin: 0;
-		padding: between_cols(30, 120) 0;
 	}
-	[data-scripted] > .MainMenu__megapanel--active {
-		position: absolute;
+	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel {
 		display: block;
-		@include Layout__header--height(top, $media: Hamburger);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 200ms ease-in-out;
+		transition-property: opacity, visibility;
+
+		position: absolute;
+		z-index: 4;
+		left: 0;
+		right: 0;
+		margin: 0;
+		padding: between_cols(50, 150) 0;
+		@include extendSides();
+		background-color: $color-suld-0;
+		@include Layout__header--height(top);
+		border-bottom: 1px solid $color-suld-50;
+		box-shadow: 0 60px 100px -40px rgba(black, 0.03);
+	}
+	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel--active {
+		opacity: 1;
+		visibility: visible;
 	}
 
-	.Mainmenu__mega__title {
+	.MainMenu__mega__title {
 		border-top: 1px solid $color-suld-75;
 		padding-top: between_cols(30, 60);
 		margin-bottom: prem(20);
 		@include HeadingStyle--small();
 	}
-	.Mainmenu__mega__title--active {
+	.MainMenu[data-sprinkled] > * > * > .MainMenu__mega__title {
 		@include sr-only();
 	}
 
-	.Mainmenu__mega__items {
+	.MainMenu__mega__items {
 		display: grid;
 		grid-auto-flow: row;
 		gap: prem($grid-gutter) cols_pct(0, 1);
@@ -155,15 +205,15 @@
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
-	.Mainmenu__mega__item {
+	.MainMenu__mega__item {
 		display: flex;
 		align-items: flex-end;
 	}
-	.Mainmenu__mega__link[class] {
+	.MainMenu__mega__link[class] {
 		background: -500px 0 no-repeat;
 		text-decoration: none;
 	}
-	.Mainmenu__mega__link[style*='background-image:']::before {
+	.MainMenu__mega__link[style*='background-image:']::before {
 		content: '';
 		display: block;
 		background: 0 50% / auto 100% no-repeat;
@@ -175,22 +225,22 @@
 			height: px(100);
 		}
 	}
-	// .Mainmenu__mega__link:hover::before,
-	// .Mainmenu__mega__link:focus::before,
-	// .Mainmenu__mega__link:active::before {
+	// .MainMenu__mega__link:hover::before,
+	// .MainMenu__mega__link:focus::before,
+	// .MainMenu__mega__link:active::before {
 	// }
 
-	.Mainmenu__mega__link__title {
+	.MainMenu__mega__link__title {
 		font-size: $font-size-20;
 		// font-weight: $font-weight--bold;
 	}
-	.Mainmenu__mega__link:hover .Mainmenu__mega__link__title,
-	.Mainmenu__mega__link:focus .Mainmenu__mega__link__title,
-	.Mainmenu__mega__link:active .Mainmenu__mega__link__title {
+	.MainMenu__mega__link:hover .MainMenu__mega__link__title,
+	.MainMenu__mega__link:focus .MainMenu__mega__link__title,
+	.MainMenu__mega__link:active .MainMenu__mega__link__title {
 		text-decoration: underline;
 	}
 
-	.Mainmenu__mega__link__summary {
+	.MainMenu__mega__link__summary {
 		display: block;
 		color: $color-suld-200;
 		font-weight: $font-weight--normal;
@@ -200,5 +250,28 @@
 		@include media($mq-tablet_netbook) {
 			height: prem(3 * $font-base-leading);
 		}
+	}
+
+	.MainMenu__megapanel__backtomenu {
+		position: absolute;
+		right: prem(10);
+		top: 0;
+		margin-top: prem(-25);
+		width: prem(50);
+		line-height: prem(50);
+		font-size: prem(12);
+		opacity: 0.5;
+		@include hideText(soft);
+	}
+	.MainMenu__megapanel__backtomenu:hover,
+	.MainMenu__megapanel__backtomenu:focus,
+	.MainMenu__megapanel__backtomenu:active {
+		opacity: 1;
+	}
+
+	.MainMenu__megapanel__backtomenu::before {
+		@include icon($icons-close-thin);
+		width: 100%;
+		margin-right: 1px;
 	}
 }
