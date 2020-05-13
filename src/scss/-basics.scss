@@ -223,4 +223,5 @@
 	}
 }
 
+@include writeMediaFormatMarkers($mediaFormats);
 @include writeMediaFormatMarkers($mediaFormats, 'body', isDevMode());
