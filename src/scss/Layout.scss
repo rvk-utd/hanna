@@ -77,6 +77,19 @@
 	.Layout__header__skiplink {
 		margin-left: auto;
 	}
+
+	// TODO: This needs more work.
+	html.before-sprinkling .Layout__nav > *:not(.BreadCrumbs),
+	// .Layout[data-sprinkled] > .Layout__nav > *:not(.BreadCrumbs),
+	html.menu-is-active  .Layout__nav > *:not(.BreadCrumbs) {
+		display: none;
+	}
+	html.menu-is-open .Layout__nav > *:not(.BreadCrumbs) {
+		display: block;
+	}
+	html.menu-is-open .Layout__main {
+		display: none;
+	}
 }
 
 // ===========================================================================

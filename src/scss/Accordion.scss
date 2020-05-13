@@ -53,7 +53,7 @@
 		opacity: 1;
 	}
 
-	.before-sprinkling > .Accordion__content {
+	html.before-sprinkling > .Accordion__content {
 		display: none;
 	}
 	.Accordion[data-sprinkled] > .Accordion__content {

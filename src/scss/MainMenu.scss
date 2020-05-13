@@ -130,8 +130,20 @@
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
+	.MainMenu__megapanel {
+		margin-bottom: prem(30);
+	}
+
+	.MainMenu__mega__title {
+		@include SubheadingStyle--small;
+	}
+
 	.MainMenu__mega__link {
 		background-image: none !important;
+	}
+
+	.MainMenu__mega__link__summary {
+		display: none;
 	}
 
 	.MainMenu__megapanel__backtomenu {
@@ -146,7 +158,7 @@
 		margin: between_cols(30, 60) 0;
 	}
 
-	.before-sprinkling .MainMenu__megapanel {
+	html.before-sprinkling .MainMenu__megapanel {
 		display: none;
 	}
 	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel {
