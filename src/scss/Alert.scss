@@ -21,7 +21,7 @@
 	}
 	.Alert--warning:before {
 		color: $color-nautholsvik-100;
-		content: $icons-alert;
+		content: $icons-warning;
 	}
 
 	.Alert--error {
@@ -51,7 +51,7 @@
 	}
 	.Alert--info:before {
 		color: $color-faxafloi-100;
-		content: $icons-error;
+		content: $icons-info;
 	}
 	.Alert--info > a {
 		color: $color-nautholsvik-100;
