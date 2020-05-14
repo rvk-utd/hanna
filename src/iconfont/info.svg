@@ -1,3 +1,8 @@
-<svg viewBox="0 0 168 168" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M84 48C64.12 48 48 64.12 48 84C48 103.88 64.12 120 84 120C103.88 120 120 103.88 120 84C120 64.11 103.88 48 84 48ZM89 104H79V80H89V104ZM89 74H79V64H89V74Z" fill="black"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<path d="M50,0C22.389,0,0,22.389,0,50c0,27.612,22.389,50,50,50c27.612,0,50-22.388,50-50C100,22.375,77.612,0,50,0z M56.945,77.776
+	h-13.89V44.445h13.89V77.776z M56.945,36.112h-13.89v-13.89h13.89V36.112z"/>
 </svg>
