@@ -90,14 +90,13 @@
 
 // ---------------------------------------------------------------------------
 
-@mixin BodyTextStyle--large($leading: true, $bold: false) {
+@mixin BodyTextStyle--large($leading: true) {
 	@include _ResponsiveFontSizeFast(
 		$font-bd-l-size,
 		if($leading, $font-bd-l-leading, null),
 		$font-bd-s-size,
 		if($leading, $font-bd-s-leading, null)
 	);
-	font-weight: if($bold, $font-weight--bold, null);
 }
 @mixin BodyTextStyle--small($leading: true) {
 	font-size: prem($font-bd-s-size);
