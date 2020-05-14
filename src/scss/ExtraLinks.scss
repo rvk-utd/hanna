@@ -90,9 +90,6 @@
 
 	.ExtraLinks__main:not(:last-child) {
 		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.ExtraLinks__main {
 		width: cols_pct(6);
 	}
 
