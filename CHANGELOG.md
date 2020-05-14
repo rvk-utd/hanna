@@ -4,8 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Finish styling of `MainMenu`'s mega panels
-- fix: Use `html.before-sprinkling` and `[data-sprinkled]` to suppress flicker
 - fix: Mis-Casing in some `MegaMenu__` class-names
+- fix: Use `html.before-sprinkling` and `[data-sprinkled]` to suppress flicker
+- fix: Misc minor styling fixes for `ExtraLinks` and `LabeledTextBlock`
 
 ## 0.2.5
 
