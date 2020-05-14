@@ -7,6 +7,14 @@
 		font-size: prem($font-size-12);
 		line-height: prem(24);
 	}
+
+	.Layout__nav .BreadCrumbs {
+		position: absolute;
+		@include Layout__header--height(top);
+		left: 0;
+		max-width: 100%;
+	}
+
 	.BreadCrumbs__title {
 		display: none; // ok if aria-label/aria-labelledby is used!
 	}
