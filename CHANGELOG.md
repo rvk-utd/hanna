@@ -4,7 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add updated `Alert` icons
-- fix: Tweak margin-bottom of `HeroBlock`, `LabeledTextBlock` and `ExtraLinks`
+- fix: Tweak spacing/padding of `Layout__main`, `HeroBlock`,
+  `LabeledTextBlock` and `ExtraLinks`
 - fix: Maintain correct `HeroBlock__image` aspect ratio
 
 ## 0.2.6
