@@ -5,7 +5,7 @@
 @use 'styles/font' as *;
 
 @media screen {
-	.LabeledTextBlock + .LabeledTextBlock {
+	.LabeledTextBlock {
 		margin-top: prem(30);
 	}
 
@@ -39,13 +39,10 @@
 }
 
 @media #{$mq-tablet_up} {
-	.LabeledTextBlock + .LabeledTextBlock {
-		margin-top: between_tablet_netbook(50, 100);
-	}
-
 	.LabeledTextBlock {
 		display: flex;
 		align-items: flex-start;
+		margin-bottom: between_tablet_netbook(50, 100);
 	}
 
 	.LabeledTextBlock__label {
