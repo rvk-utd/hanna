@@ -8,6 +8,7 @@
 	.ExtraLinks {
 		background-color: $color-suld-25;
 		padding: between_phone_netbook(30, 80) 0 between_phone_netbook(30, 80);
+		margin-bottom: between_cols(30, 100);
 		@include extendBackgroundWithUnderlay();
 
 		@include media($mq-wide) {

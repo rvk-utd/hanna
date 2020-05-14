@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add updated `Alert` icons
+- fix: Tweak margin-bottom of `HeroBlock`, `LabeledTextBlock` and `ExtraLinks`
 
 ## 0.2.6
 
