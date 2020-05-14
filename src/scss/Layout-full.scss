@@ -6,12 +6,3 @@
 	BreadCrumbs
 	MainMenu
 */
-
-@media screen {
-	.Layout__nav > .BreadCrumbs {
-		position: absolute;
-		@include Layout__header--height(top);
-		left: 0;
-		max-width: 100%;
-	}
-}

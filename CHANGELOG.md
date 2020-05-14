@@ -4,6 +4,16 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.2.7
+
+_2020-05-14_
+
+- feat: Add updated `Alert` icons
+- fix: Tweak spacing/padding of `Layout__main`, `HeroBlock`,
+  `LabeledTextBlock` and `ExtraLinks`
+- fix: Maintain correct `HeroBlock__image` aspect ratio
+- fix: Convenience tokens, like `Layout-full`, should have no styles
+
 ## 0.2.6
 
 _2020-05-14_
@@ -71,6 +81,6 @@ _2020-03-30_
 
 _2020-03-20_
 
-- First version – Includes: `-basics`, `Layout`, `FooterInfo`, `Layout-full`,
-  `ButtonBack`, `ButtonPrimary`, `ButtonSecondary`, `ButtonTertiary`, `Tabs`,
-  `PageTitleBlock`
+- First version – Includes: `-basics`, `Layout`, `FooterInfo`, `Layout-full`
+  conveniConvenience tokens, like `ButtonPrimary`, , should have no styles
+  themselves`ButtonTertiary`, `Tabs`, `PageTitleBlock`

@@ -11,6 +11,7 @@
 
 	.Accordion__button {
 		@include BodyTextStyle--large();
+		font-weight: $font-weight--bold;
 		color: $color-faxafloi-100;
 		display: flex;
 		align-items: flex-start;

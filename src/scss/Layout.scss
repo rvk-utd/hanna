@@ -31,7 +31,7 @@
 	.Layout__main {
 		flex-grow: 1;
 		@include Layout__header--height(padding-top);
-		padding-bottom: rem(30);
+		padding-bottom: prem(30);
 	}
 
 	.Layout__footer {

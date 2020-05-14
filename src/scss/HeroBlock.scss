@@ -7,8 +7,10 @@
 
 @media screen {
 	.HeroBlock {
-		padding: between_cols(0, 3 * $grid-unit);
-		margin-bottom: between_cols(30, 10 * $grid-unit);
+		padding: between_cols(0, 3 * $grid-unit) 0;
+		margin-bottom: between_cols(30, 100);
+		display: flex;
+		flex-flow: column nowrap;
 	}
 	.HeroBlock__title {
 		@include HeadingStyle--large();
@@ -18,6 +20,7 @@
 		display: block;
 		margin-top: grid-units(-1);
 		margin-bottom: grid-units(2);
+		order: 1;
 	}
 	.HeroBlock__summary {
 		@include BodyTextStyle--large();
@@ -28,6 +31,9 @@
 	.HeroBlock__summary [class],
 	.HeroBlock__summary blockquote {
 		@include WARNING__('Use simple markup only');
+	}
+
+	.HeroBlock__buttons {
 	}
 }
 
@@ -48,15 +54,18 @@
 
 	.HeroBlock__image {
 		position: absolute;
-		top: 0;
-		bottom: 0;
+		top: 50%;
 		left: cols_pct(6, 6);
 		width: cols_pct(6);
+		padding-top: cols_pct(6);
 		margin: 0;
+		transform: translateY(-50%);
 	}
 	.HeroBlock--align--right > .HeroBlock__image {
 		padding-right: 0;
-		left: auto;
+		left: 0;
+		@include bodyPaddingInner(margin, true, left);
+		width: auto;
 		right: cols_pct(7, 7);
 	}
 
@@ -68,5 +77,6 @@
 		width: 100%;
 		height: 100%;
 		margin: auto;
+		object-fit: contain;
 	}
 }

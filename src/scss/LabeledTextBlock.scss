@@ -6,7 +6,7 @@
 
 @media screen {
 	.LabeledTextBlock {
-		margin-bottom: prem(30);
+		margin-bottom: between_cols(30, 100);
 	}
 
 	.LabeledTextBlock__label {
@@ -24,6 +24,7 @@
 	}
 
 	.LabeledTextBlock__summary {
+		@include BodyTextStyle--large();
 		padding-top: grid-units();
 		margin-left: auto;
 	}
@@ -42,7 +43,6 @@
 	.LabeledTextBlock {
 		display: flex;
 		align-items: flex-start;
-		margin-bottom: between_tablet_netbook(50, 100);
 	}
 
 	.LabeledTextBlock__label {
