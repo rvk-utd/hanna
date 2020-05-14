@@ -33,7 +33,7 @@
 @mixin HeadingStyle--large() {
 	font-weight: $font-weight--bold;
 	@include _ResponsiveFontSize(
-		$font-hd-xl-size,
+		$font-hd-l-size,
 		$font-hd-l-leading,
 		$font-hd-l-size--phone,
 		$font-hd-l-leading--phone
