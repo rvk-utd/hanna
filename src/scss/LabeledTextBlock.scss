@@ -24,6 +24,7 @@
 	}
 
 	.LabeledTextBlock__summary {
+		@include BodyTextStyle--large();
 		padding-top: grid-units();
 		margin-left: auto;
 	}
