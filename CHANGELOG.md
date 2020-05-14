@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add updated `Alert` icons
 
 ## 0.2.6
 
