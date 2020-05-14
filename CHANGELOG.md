@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.6
+
+_2020-05-14_
+
 - feat: Finish styling of `MainMenu`'s mega panels
 - fix: Mis-Casing in some `MegaMenu__` class-names
 - fix: Use `html.before-sprinkling` and `[data-sprinkled]` to suppress flicker
