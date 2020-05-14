@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.7
+
+_2020-05-14_
+
 - feat: Add updated `Alert` icons
 - fix: Tweak spacing/padding of `Layout__main`, `HeroBlock`,
   `LabeledTextBlock` and `ExtraLinks`
