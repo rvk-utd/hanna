@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Improve `IslandBlock` styling
 
 ## 0.2.7
 
