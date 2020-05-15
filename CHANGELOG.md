@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.8
+
+_2020-05-15_
+
 - fix: Improve `IslandBlock` styling
 
 ## 0.2.7
