@@ -223,5 +223,47 @@
 	}
 }
 
+// ===========================================================================
+// HACK: Drupal admin styles
+// TODO: Get 1XInternet to cleanly insert these styles themselves
+// for logged-in Drupal editors
+// ===========================================================================
+@media screen {
+	[class].visually-hidden {
+		@include sr-only();
+	}
+	.local-tasks {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		z-index: 99999;
+		background: $color-ellidarardalur-50;
+		box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.1), 0 0 3px 0 rgba(57, 103, 76, 0.4);
+		padding: 0.75rem;
+	}
+	.local-tasks ul {
+		display: flex;
+		border-bottom: 1px solid $color-suld-100;
+	}
+	.local-tasks li {
+		margin-bottom: -1px;
+	}
+	.local-tasks li a {
+		font-weight: 400;
+		display: block;
+		color: $color-suld-150;
+		padding: 0.5rem 1rem;
+		border: 1px solid transparent;
+		border-top-left-radius: 0.25rem;
+		border-top-right-radius: 0.25rem;
+	}
+	.local-tasks li a.is-active {
+		color: $color-suld-200;
+		background-color: $color-suld-0;
+		border-color: $color-suld-100 $color-suld-100 $color-suld-0;
+	}
+}
+// ===========================================================================
+
 @include writeMediaFormatMarkers($mediaFormats);
 @include writeMediaFormatMarkers($mediaFormats, 'body', isDevMode());
