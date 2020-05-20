@@ -1,6 +1,6 @@
 $_isDev: isDevMode();
 
-@mixin WARNING__($message, $mode: normal) {
+@mixin WARNING__($message, $mode: normal, $pos: before) {
 	@if ($_isDev) {
 		$color: if($mode == soft, orange, red);
 		$hover: if($mode == soft, ':hover', '');
@@ -8,7 +8,7 @@ $_isDev: isDevMode();
 		&#{$hover} {
 			box-shadow: 0 0 0 1px rgba($color, 0.5) !important;
 		}
-		&#{$hover}::before {
+		&#{$hover}::#{$pos} {
 			all: initial !important;
 			order: -999 !important;
 			font-family: sans-serif !important;
@@ -24,22 +24,22 @@ $_isDev: isDevMode();
 		}
 	}
 }
-@mixin WARNING_soft__($message) {
-	@include WARNING__($message, soft);
+@mixin WARNING_soft__($message, $pos: before) {
+	@include WARNING__($message, soft, $pos);
 }
 
-@mixin suppress_WARNING__($mode: normal) {
+@mixin suppress_WARNING__($mode: normal, $pos: before) {
 	@if ($_isDev) {
 		$hover: if($mode == soft, ':hover', '');
 
 		&#{$hover} {
 			box-shadow: none !important;
 		}
-		&#{$hover}::before {
+		&#{$hover}::#{$pos} {
 			content: none !important;
 		}
 	}
 }
-@mixin suppress_WARNING_soft__() {
-	@include suppress_WARNING__(soft);
+@mixin suppress_WARNING_soft__($pos: before) {
+	@include suppress_WARNING__(soft, $pos);
 }
