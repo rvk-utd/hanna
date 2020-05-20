@@ -223,7 +223,11 @@
 	}
 }
 
+// ===========================================================================
 // HACK: Drupal admin styles
+// TODO: Get 1XInternet to cleanly insert these styles themselves
+// for logged-in Drupal editors
+// ===========================================================================
 @media screen {
 	[class].visually-hidden {
 		@include sr-only();
@@ -259,6 +263,7 @@
 		border-color: $color-suld-100 $color-suld-100 $color-suld-0;
 	}
 }
+// ===========================================================================
 
 @include writeMediaFormatMarkers($mediaFormats);
 @include writeMediaFormatMarkers($mediaFormats, 'body', isDevMode());
