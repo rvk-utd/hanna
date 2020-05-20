@@ -39,25 +39,25 @@
 		border-top: 1px solid $color-suld-75;
 		padding-top: between_cols(20, 100);
 		padding-bottom: between_cols(20, 70);
-		display: flex;
 
-		@media #{$mq-phone_phablet} {
-			flex-flow: column;
+		@media #{$mq-tablet_up} {
+			padding-left: cols_pct(1, 1);
 		}
 	}
+
 	.Layout__footer::before {
 		content: '';
-		margin-top: prem(12);
+		display: block;
+		margin: prem(12) auto;
 		margin-bottom: prem(30);
-		background: url($logo-notext-url) 50% 0 no-repeat;
+		background: url($logo-notext-url) 0 0 no-repeat;
 		background-size: auto 100%;
 		width: prem(33);
 		height: prem(51);
-		flex-shrink: 0;
-		align-items: center;
 
 		@media #{$mq-tablet_up} {
-			width: cols_pct(1, 1);
+			position: absolute;
+			left: 0;
 			background-position: 0 0;
 		}
 	}
