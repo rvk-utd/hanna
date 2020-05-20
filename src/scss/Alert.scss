@@ -15,6 +15,9 @@
 		top: prem(14);
 		left: prem(14);
 	}
+	.Alert:not([role='alert']) {
+		@include WARNING__('Should be role="alert"', $pos: after);
+	}
 
 	.Alert--warning {
 		background: $color-nautholsvik-50;
