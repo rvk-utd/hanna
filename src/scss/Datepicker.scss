@@ -253,7 +253,7 @@
 
 	.react-datepicker__day--today,
 	.react-datepicker__month-text--today {
-		font-weight: bold;
+		font-weight: $font-weight--bold;
 	}
 
 	.react-datepicker__day--highlighted,

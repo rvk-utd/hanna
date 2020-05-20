@@ -35,6 +35,10 @@
 
 	.HeroBlock__buttons {
 	}
+
+	.HeroBlock > :last-child {
+		margin-bottom: 0;
+	}
 }
 
 @media #{$mq-phablet_tablet} {
