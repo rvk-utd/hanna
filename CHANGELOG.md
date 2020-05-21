@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Rename `ProcessStepper` to `ProcessOverview`
 - **BREAKING** feat: Rename `Accordion` to `AccordionList`
 - feat: Add component `SubHeading`
 - feat: Handle `h3.AccordionList__title`
