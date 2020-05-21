@@ -3,7 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Improve styling of `Button*`
+- feat: Handle `h3.Accordion__title`
+- fix: Improve styling of `Button*`, `Accordion`
 
 ## 0.2.8
 

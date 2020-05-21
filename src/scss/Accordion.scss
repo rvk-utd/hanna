@@ -1,7 +1,14 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
 
+@function _between($from, $to) {
+	@return between_container($from, $to, cols_px(8));
+}
+
 @media screen {
+	.Accordion {
+		max-width: cols_px(8);
+	}
 	.Accordion__item {
 		margin-bottom: grid-units(10);
 	}
@@ -9,12 +16,17 @@
 		opacity: 0.5;
 	}
 
-	.Accordion__button {
+	.Accordion__title {
+		position: relative;
 		@include BodyTextStyle--large();
 		font-weight: $font-weight--bold;
+		padding-left: _between(32, cols_px(1, 1));
 		color: $color-faxafloi-100;
-		display: flex;
-		align-items: flex-start;
+	}
+	.Accordion__button {
+		color: inherit;
+		margin-left: _between(-32, cols_px(-1));
+		padding-left: _between(32, cols_px(1));
 	}
 	button.Accordion__button:not([aria-controls]) {
 		@include WARNING__('`aria-controls` missing.');
@@ -27,10 +39,11 @@
 
 	.Accordion__button:before {
 		@include icon($icons-close);
-		font-size: prem(18);
+		position: absolute;
+		left: 0;
+		width: _between(24, cols_px(1, 0));
+		font-size: em(18/20);
 		color: $color-suld-200;
-		width: prem(24);
-		margin-right: prem(24);
 		transform: rotateZ(45deg);
 		transition: transform 100ms ease-in-out;
 	}
@@ -43,9 +56,11 @@
 		color: $color-faxafloi-150;
 	}
 
+	// ---------------------------------------------------------------------------
+
 	.Accordion__content {
 		@include BodyTextStyle--large();
-		padding-left: prem(48);
+		padding-left: _between(32, cols_px(1, 1));
 		transition: all 200ms ease-in-out;
 		transition-property: opacity, visibility, max-height, padding-top;
 		overflow: hidden;
@@ -70,19 +85,4 @@
 }
 
 @media #{$mq-netbook_up} {
-	.Accordion {
-		width: cols_pct(8);
-	}
-
-	.Accordion__button {
-		width: cols_pct(5, 4, 8);
-	}
-	.Accordion__button:before {
-		width: cols_pct(1, 0, 5);
-		margin-right: cols_pct(0, 1, 5);
-	}
-
-	.Accordion__content {
-		padding-left: cols_pct(1, 1, 8);
-	}
 }
