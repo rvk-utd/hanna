@@ -3,8 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Handle `h3.Accordion__title`
-- fix: Improve styling of `Button*`, `Accordion`
+- **BREAKING** feat: Rename `Accordion` to `AccordionList`
+- feat: Handle `h3.AccordionList__title`
+- fix: Improve styling of `Button*`, `AccordionList`
 
 ## 0.2.8
 
