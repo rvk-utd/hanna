@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `SubHeading`
 - fix: Improve styling of `Button*`
 
 ## 0.2.8

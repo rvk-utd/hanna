@@ -1,0 +1,13 @@
+@use 'styles/font' as *;
+
+@media screen {
+	.SubHeading {
+		// margin-top: ???;
+		// margin-bottom: ???;
+		@include SubheadingStyle--large();
+	}
+
+	.SubHeading--small {
+		@include SubheadingStyle--small();
+	}
+}
