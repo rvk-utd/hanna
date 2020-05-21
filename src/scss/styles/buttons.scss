@@ -68,6 +68,7 @@
 
 	&[disabled],
 	&[aria-disabled='true'] {
+		box-shadow: none;
 		background-color: $color-faxafloi-50;
 		opacity: 0.5;
 	}

@@ -4,6 +4,7 @@
 @media screen {
 	.ButtonSecondary {
 		@include ButtonStyle(prem(5), $color-faxafloi-100);
+		font-weight: $font-weight--normal;
 		background-color: $color-suld-0;
 		border: 1px solid $color-faxafloi-100;
 
@@ -11,7 +12,8 @@
 		&[aria-pressed] {
 			background-color: $color-suld-50;
 		}
-		&[disabled] {
+		&[disabled],
+		&[aria-disabled='true'] {
 			background-color: $color-suld-0;
 			opacity: 0.5;
 		}

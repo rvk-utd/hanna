@@ -3,7 +3,7 @@
 @use 'styles/font' as *;
 
 @media screen {
-	.ProcessStepper {
+	.ProcessOverview {
 		background-color: $color-suld-25;
 		padding: between_phone_netbook(50, 120) 0 between_phone_netbook(50, 192);
 		@include bodyPaddingInner(margin, true);
@@ -15,7 +15,7 @@
 		}
 	}
 
-	.ProcessStepper__title {
+	.ProcessOverview__title {
 		@include HeadingStyle--small();
 		margin-bottom: between_phone_netbook(40, 118);
 
@@ -24,7 +24,7 @@
 		}
 	}
 
-	.ProcessStepper__item {
+	.ProcessOverview__item {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: flex-start;
@@ -32,13 +32,13 @@
 		position: relative;
 	}
 
-	.ProcessStepper__item__title {
+	.ProcessOverview__item__title {
 		@include HeadingStyle--small();
 		display: flex;
 		align-items: center;
 		margin-bottom: grid-units(3);
 	}
-	.ProcessStepper__item__title:before {
+	.ProcessOverview__item__title:before {
 		content: '';
 		display: inline-block;
 		width: cols_pct(0, 1);
@@ -57,12 +57,12 @@
 		}
 	}
 
-	.ProcessStepper__item__content {
+	.ProcessOverview__item__content {
 		@include BodyTextStyle--large();
 	}
 
-	@include Attention('ProcessStepper', false);
-	.ProcessStepper__attention {
+	@include Attention('ProcessOverview', false);
+	.ProcessOverview__attention {
 		padding-top: 0;
 
 		&:before {
@@ -72,17 +72,17 @@
 }
 
 @media #{$mq-tablet_up} {
-	.ProcessStepper__item__title {
+	.ProcessOverview__item__title {
 		width: cols_pct(5);
 	}
 
-	.ProcessStepper__attention,
-	.ProcessStepper__item__content {
+	.ProcessOverview__attention,
+	.ProcessOverview__item__content {
 		width: cols_pct(7);
 		margin-left: auto;
 	}
 
-	.ProcessStepper__attention {
+	.ProcessOverview__attention {
 		padding-right: cols_pct(1, 0, 7);
 	}
 }

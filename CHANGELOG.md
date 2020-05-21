@@ -4,6 +4,16 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.3.0
+
+_2020-05-21_
+
+- **BREAKING** feat: Rename `ProcessStepper` to `ProcessOverview`
+- **BREAKING** feat: Rename `Accordion` to `AccordionList`
+- feat: Add component `SubHeading`
+- feat: Handle `h3.AccordionList__title`
+- fix: Improve styling of `Button*`, `AccordionList`
+
 ## 0.2.8
 
 _2020-05-15_

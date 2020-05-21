@@ -1,0 +1,88 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@function _between($from, $to) {
+	@return between_container($from, $to, cols_px(8));
+}
+
+@media screen {
+	.AccordionList {
+		max-width: cols_px(8);
+	}
+	.AccordionList__item {
+		margin-bottom: grid-units(10);
+	}
+	.AccordionList__item--disabled {
+		opacity: 0.5;
+	}
+
+	.AccordionList__title {
+		position: relative;
+		@include BodyTextStyle--large();
+		font-weight: $font-weight--bold;
+		padding-left: _between(32, cols_px(1, 1));
+		color: $color-faxafloi-100;
+	}
+	.AccordionList__button {
+		color: inherit;
+		margin-left: _between(-32, cols_px(-1));
+		padding-left: _between(32, cols_px(1));
+	}
+	button.AccordionList__button:not([aria-controls]) {
+		@include WARNING__('`aria-controls` missing.');
+	}
+	.AccordionList__button:hover,
+	.AccordionList__button:focus,
+	.AccordionList__button:active {
+		color: $color-faxafloi-150;
+	}
+
+	.AccordionList__button:before {
+		@include icon($icons-close);
+		position: absolute;
+		left: 0;
+		width: _between(24, cols_px(1, 0));
+		font-size: em(18/20);
+		color: $color-suld-200;
+		transform: rotateZ(45deg);
+		transition: transform 100ms ease-in-out;
+	}
+	.AccordionList__button[aria-pressed='true']:before {
+		transform: rotateZ(0);
+	}
+	.AccordionList__button:hover::before,
+	.AccordionList__button:focus::before,
+	.AccordionList__button:active::before {
+		color: $color-faxafloi-150;
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.AccordionList__content {
+		@include BodyTextStyle--large();
+		padding-left: _between(32, cols_px(1, 1));
+		transition: all 200ms ease-in-out;
+		transition-property: opacity, visibility, max-height, padding-top;
+		overflow: hidden;
+		padding-top: grid-units(4);
+		max-height: 3000px; // DECIDE: is this enough?
+		opacity: 1;
+	}
+
+	html.before-sprinkling > .AccordionList__content {
+		display: none;
+	}
+	.AccordionList[data-sprinkled] > .AccordionList__content {
+		display: none;
+	}
+	.AccordionList__content[hidden] {
+		display: block; // override default
+		padding-top: 0;
+		max-height: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+@media #{$mq-netbook_up} {
+}
