@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.3.0
+
+_2020-05-21_
+
 - **BREAKING** feat: Rename `ProcessStepper` to `ProcessOverview`
 - **BREAKING** feat: Rename `Accordion` to `AccordionList`
 - feat: Add component `SubHeading`
