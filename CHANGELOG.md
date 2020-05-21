@@ -3,8 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Rename `Accordion` to `AccordionList`
 - feat: Add component `SubHeading`
-- fix: Improve styling of `Button*`
+- feat: Handle `h3.AccordionList__title`
+- fix: Improve styling of `Button*`, `AccordionList`
 
 ## 0.2.8
 
