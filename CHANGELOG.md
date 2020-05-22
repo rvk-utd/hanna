@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add component `TextBlock`
+- feat: Add component `TextBlock`, `BasicTable`
 
 ## 0.3.0
 
