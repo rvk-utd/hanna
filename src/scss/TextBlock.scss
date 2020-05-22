@@ -10,7 +10,7 @@
 		@include HeadingStyle--medium();
 		margin-bottom: $baseVMargin;
 	}
-	.TextBlock__content {
+	.TextBlock {
 		@include textContent();
 	}
 }
