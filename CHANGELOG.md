@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.3.1
+
+_2020-05-25_
+
 - feat: Add component `TextBlock`, `BasicTable`
 
 ## 0.3.0
