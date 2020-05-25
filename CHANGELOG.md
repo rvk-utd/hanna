@@ -8,7 +8,7 @@
 
 _2020-05-25_
 
-- feat: Add component `TextBlock`, `BasicTable`
+- feat: Add components `TextBlock`, `BasicTable`
 
 ## 0.3.0
 
