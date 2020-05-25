@@ -4,6 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.3.1
+
+_2020-05-25_
+
+- feat: Add components `TextBlock`, `BasicTable`
+
 ## 0.3.0
 
 _2020-05-21_

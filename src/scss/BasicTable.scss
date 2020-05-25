@@ -1,0 +1,57 @@
+@use '_globals' as *;
+
+@media screen {
+	.TableWrapper--BasicTable {
+		margin: 0 0 prem(30);
+	}
+
+	.BasicTable--fullwidth {
+		min-width: 100%;
+	}
+	.BasicTable > * > * > th,
+	.BasicTable > * > * > td {
+		padding: between(12, 24) between(16, 30);
+		text-align: left;
+		vertical-align: center;
+		white-space: pre-line;
+
+		&:first-child {
+			padding-left: 0;
+		}
+		&:last-child {
+			padding-right: 0;
+		}
+
+		@media #{$mq-wide} {
+			padding: prem(24);
+		}
+	}
+	.BasicTable > thead > * > th {
+		padding-bottom: between(4, 12);
+
+		@media #{$mq-wide} {
+			padding-bottom: prem(12);
+		}
+	}
+	.BasicTable--compact > * > * > th,
+	.BasicTable--compact > * > * > td {
+		padding: between(6, 12);
+
+		@media #{$mq-wide} {
+			padding: prem(12);
+		}
+	}
+	.BasicTable--compact > thead > * > th {
+		padding-bottom: between(2, 6);
+
+		@media #{$mq-wide} {
+			padding-bottom: prem(4);
+		}
+	}
+	.BasicTable > tfoot > * > th,
+	.BasicTable > tfoot > * > td {
+		border-top: 2px solid $color-suld-50;
+		border-bottom: 0;
+		font-weight: $font-weight--bold;
+	}
+}

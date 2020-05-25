@@ -1,0 +1,16 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+@use 'utils/textContent' as *;
+
+@media screen {
+	.TextBlock {
+		margin-bottom: between_cols(20, 30);
+	}
+	.TextBlock__title {
+		@include HeadingStyle--medium();
+		margin-bottom: $baseVMargin;
+	}
+	.TextBlock {
+		@include textContent();
+	}
+}
