@@ -1,0 +1,15 @@
+/* This is used in mypages microservices list */
+
+@use '_globals' as *;
+
+@media #{$mq-tablet_up} {
+	[class]._csscolumns {
+		column-count: 2;
+		column-width: 50%;
+		column-gap: prem($grid-gutter);
+	}
+
+	[class]._csscolumns li {
+		break-inside: avoid;
+	}
+}
