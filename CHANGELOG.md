@@ -9,6 +9,7 @@
 _2020-05-25_
 
 - feat: Add components `TextBlock`, `BasicTable`
+- fix: Improve `HeroBlock`, `CityBlock` image styling
 - fix: Decrease `.Layout__main`'s top padding
 
 ## 0.3.0
