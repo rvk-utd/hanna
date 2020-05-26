@@ -33,6 +33,10 @@
 		@include WARNING__('Use simple markup only');
 	}
 
+	.HeroBlock__summary > p {
+		margin-bottom: $baseVMargin;
+	}
+
 	.HeroBlock__buttons {
 	}
 
