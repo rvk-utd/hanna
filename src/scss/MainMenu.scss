@@ -72,9 +72,6 @@
 		display: flex;
 		align-items: center;
 	}
-	.MainMenu--align--right .MainMenu__items {
-		justify-content: flex-end;
-	}
 
 	.MainMenu__item--home {
 		@include sr-only-content-focusable();
