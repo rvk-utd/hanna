@@ -13,13 +13,14 @@
 		// align-items: center;
 		position: relative;
 		@include setMaxWidth($grid-contentMaxWidth);
+		@include Layout__header--height(padding-top);
 	}
 
 	.Layout__header {
-		// position: absolute;
-		// top: 0;
-		// left: 0;
-		// right: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
 		z-index: 3;
 		display: flex;
 		align-items: center;
@@ -29,8 +30,8 @@
 	@include LayoutHeaderLogo('Layout__header__logo');
 
 	.Layout__main {
+		padding-top: prem(50);
 		flex-grow: 1;
-		@include Layout__header--height(padding-top);
 		padding-bottom: prem(30);
 	}
 
