@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `SearchInput`
 - feat: Add explicit `.MainMenu__separator` marker
 
 ## 0.3.2
