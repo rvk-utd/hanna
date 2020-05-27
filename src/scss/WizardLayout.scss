@@ -25,6 +25,7 @@
 	.WizardLayout__close {
 		@include BodyTextStyle--small();
 		position: absolute;
+		z-index: 5;
 		right: prem(30);
 		top: prem(20);
 		color: $color-suld-200;
@@ -48,7 +49,21 @@
 		display: none;
 	}
 }
+@media #{$mq-phone_phablet} {
+	body {
+		padding-left: prem(16);
+		padding-right: prem(16);
+	}
+	.WizardLayout__wrap {
+		padding-left: prem(48);
+	}
 
+	.WizardLayout__stepper {
+		position: fixed;
+		left: prem(16);
+		width: prem(24);
+	}
+}
 @media #{$mq-tablet_up} {
 	.WizardLayout {
 		position: static;

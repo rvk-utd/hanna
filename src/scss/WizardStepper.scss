@@ -7,6 +7,7 @@
 	.WizardStepper__step {
 		display: block;
 		padding-left: prem(32);
+		height: prem(24);
 		position: relative;
 		margin-bottom: prem(36);
 		font-size: prem(12);
@@ -75,5 +76,14 @@
 	.WizardStepper__step--done
 		+ .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current='step']) {
 		@include WARNING__('You forgot aria-current="step".');
+	}
+}
+
+@media #{$mq-phone_phablet} {
+	.WizardStepper__step {
+		width: prem(24);
+	}
+	.WizardStepper__step__text {
+		@include sr-only();
 	}
 }
