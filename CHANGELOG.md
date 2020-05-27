@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add explicit `.MainMenu__separator` marker
 
 ## 0.3.2
 
