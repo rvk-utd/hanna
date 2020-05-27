@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add utility component `.experimental_Columnized`
+- feat: **Experimental** add `.AccordionList--fullwidth`, `.Form`,
+  `.TextBlock--align--right`
 
 ## 0.3.1
 
