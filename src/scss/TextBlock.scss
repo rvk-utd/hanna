@@ -4,7 +4,11 @@
 
 @media screen {
 	.TextBlock {
+		max-width: cols_px(6);
 		margin-bottom: between_cols(20, 30);
+	}
+	.TextBlock--align--right {
+		margin-left: auto;
 	}
 	.TextBlock__title {
 		@include HeadingStyle--medium();

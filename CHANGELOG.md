@@ -2,7 +2,16 @@
 
 ## Upcoming...
 
+## 0.3.2
+
+_2020-05-27_
+
 - ... <!-- Add new lines here. -->
+- fix: Improve `HeroBlock`, `CityBlock` image styling
+- fix: Decrease `.Layout__main`'s top padding
+- feat: **experimental** Add utility component `.experimental_Columnized`
+- feat: **experimental** Add `.AccordionList--fullwidth`, `.Form`,
+  `.TextBlock--align--right`
 
 ## 0.3.1
 

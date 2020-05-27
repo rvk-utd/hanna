@@ -34,9 +34,6 @@
 	.CityBlock__image {
 		position: relative;
 		display: block;
-		@include bodyPaddingInner(margin, true);
-
-		height: between_phone_phablet(200, 300);
 	}
 
 	.CityBlock__image > img {
@@ -53,7 +50,7 @@
 			object-fit: contain;
 		}
 	}
-	.CityBlock--illustration > .CityBlock__image > img {
+	.CityBlock--largebox > .CityBlock__image > img {
 		object-fit: contain; // always contain illustrations
 	}
 	.CityBlock--largeimage > .CityBlock__image > img {
@@ -83,6 +80,15 @@
 		@include ButtonTertiaryStyle($mode: simple);
 		display: block;
 		margin-bottom: 0;
+	}
+}
+
+// ===========================================================================
+
+@media #{$mq-phone_phablet} {
+	.CityBlock__image {
+		@include bodyPaddingInner(margin, true);
+		height: between_phone_phablet(200, 300);
 	}
 }
 
@@ -131,17 +137,19 @@ $largeimage-minH: 880;
 	}
 
 	.CityBlock__image {
-		box-sizing: content-box;
-		height: auto;
 		width: cols_pct(6);
-		margin-right: auto;
+	}
+	.CityBlock--largebox > .CityBlock__image,
+	.CityBlock--largeimage > .CityBlock__image {
+		box-sizing: content-box;
 		@include bodyPaddingInner(margin, true, left);
 		@include bodyPaddingInner(padding, false, left);
 	}
 	.CityBlock--largeimage > .CityBlock__image {
 		min-height: between_phone_netbook(400, $largeimage-minH);
 	}
-	.CityBlock--align--left > .CityBlock__image {
+	.CityBlock--align--left.CityBlock--largebox > .CityBlock__image,
+	.CityBlock--align--left.CityBlock--largeimage > .CityBlock__image {
 		margin-left: auto;
 		@include bodyPaddingInner(margin, true, right);
 	}

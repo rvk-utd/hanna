@@ -33,11 +33,19 @@
 		@include WARNING__('Use simple markup only');
 	}
 
+	.HeroBlock__summary > p {
+		margin-bottom: $baseVMargin;
+	}
+
 	.HeroBlock__buttons {
 	}
 
 	.HeroBlock > :last-child {
 		margin-bottom: 0;
+	}
+
+	.HeroBlock--align--right > .HeroBlock__image {
+		@include WARNING__('--align--right may not use __image');
 	}
 }
 
@@ -49,7 +57,7 @@
 @media #{$mq-netbook_up} {
 	.HeroBlock {
 		position: relative;
-		padding-right: cols_pct(6, 6);
+		padding-right: cols_pct(6);
 	}
 	.HeroBlock--align--right {
 		padding-right: 0;
@@ -59,18 +67,11 @@
 	.HeroBlock__image {
 		position: absolute;
 		top: 50%;
-		left: cols_pct(6, 6);
+		left: cols_pct(6);
 		width: cols_pct(6);
 		padding-top: cols_pct(6);
 		margin: 0;
 		transform: translateY(-50%);
-	}
-	.HeroBlock--align--right > .HeroBlock__image {
-		padding-right: 0;
-		left: 0;
-		@include bodyPaddingInner(margin, true, left);
-		width: auto;
-		right: cols_pct(7, 7);
 	}
 
 	.HeroBlock__image > img {
