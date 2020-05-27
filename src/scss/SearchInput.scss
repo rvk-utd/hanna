@@ -1,0 +1,57 @@
+@use '_globals' as *;
+
+/*!@deps
+	FormField
+*/
+
+@media screen {
+	.SearchInput {
+	}
+	.SearchInput::after {
+		@include icon('');
+		content: $icons-search;
+		display: block;
+		color: $color-suld-0;
+		font-size: prem(20);
+		position: absolute;
+		top: prem(12);
+		right: prem(20);
+		width: prem(48);
+		line-height: prem(32);
+		padding-left: prem(24);
+		color: $color-suld-150;
+		border-left: 2px solid $color-suld-150;
+		pointer-events: none;
+	}
+	.FormField--focused .SearchInput::after {
+		border-color: $color-faxafloi-100;
+		color: $color-faxafloi-100;
+	}
+}
+
+@media screen {
+	.AutoComplete__list {
+		position: absolute;
+		z-index: 5;
+		top: calc(100% + 5px);
+		left: 0;
+		right: 0;
+		padding: prem(16);
+		max-height: 184px;
+		overflow: auto;
+		background: $color-suld-0;
+		box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.15), 0px 60px 120px rgba(0, 0, 0, 0.15);
+		border-radius: 3px;
+	}
+	.AutoComplete__list__item {
+		color: $color-suld-150;
+		margin-bottom: prem(16);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.AutoComplete__list__item.autoComplete_selected {
+		color: $color-faxafloi-100;
+	}
+}
