@@ -134,6 +134,14 @@
 		content: $icons-alert;
 		font-size: prem(11);
 	}
+
+	.FormField__error:not([id]),
+	.FormField__assist:not([id]) {
+		@include WARNING__(
+			'should have id atribute to match input[aria-describedby]',
+			$pos: after
+		);
+	}
 }
 
 // ===========================================================================
