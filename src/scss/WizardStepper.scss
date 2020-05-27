@@ -6,10 +6,16 @@
 	}
 	.WizardStepper__step {
 		display: block;
-		padding-left: prem(32);
+		padding-left: prem(40);
+		margin-top: prem(-12);
+		margin-left: prem(-12);
+		white-space: nowrap;
+		box-sizing: content-box;
 		height: prem(24);
 		position: relative;
-		margin-bottom: prem(36);
+		padding-top: prem(8);
+		padding-bottom: prem(30);
+		margin-bottom: prem(6);
 		font-size: prem(12);
 		color: $color-suld-150;
 
@@ -19,8 +25,8 @@
 			width: prem(24);
 			line-height: prem(24);
 			position: absolute;
-			top: prem(0);
-			left: 0;
+			top: prem(8);
+			left: prem(8);
 			background: $color-suld-50;
 			border-radius: 50%;
 			color: $color-suld-100;
@@ -35,8 +41,8 @@
 			height: prem(24);
 			background: $color-suld-50;
 			position: absolute;
-			top: prem(30);
-			left: prem(11);
+			bottom: 0;
+			left: prem(19);
 		}
 		&:last-child::after {
 			content: none;
@@ -81,9 +87,7 @@
 
 @media #{$mq-phone_phablet} {
 	.WizardStepper__step {
-		width: prem(24);
-	}
-	.WizardStepper__step__text {
-		@include sr-only();
+		width: prem(0);
+		overflow: hidden;
 	}
 }
