@@ -25,6 +25,7 @@
 	.WizardLayout__close {
 		@include BodyTextStyle--small();
 		position: absolute;
+		z-index: 5;
 		right: prem(30);
 		top: prem(20);
 		color: $color-suld-200;
