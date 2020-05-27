@@ -3,13 +3,12 @@
 @use '_globals' as *;
 
 @media #{$mq-tablet_up} {
-	[class]._csscolumns {
+	[class].experimental_Columnized {
 		column-count: 2;
 		column-width: 50%;
 		column-gap: cols_pct(0, 1);
 	}
-
-	[class]._csscolumns li {
+	[class].experimental_Columnized li {
 		break-inside: avoid;
 	}
 }
