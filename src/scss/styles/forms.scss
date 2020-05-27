@@ -260,6 +260,10 @@ $InputField-paddingH: grid-units(2);
 	height: $InputField-heightI + $InputField-paddingTop + prem(2);
 	line-height: $InputField-heightI;
 }
+@mixin InputField--noLabel() {
+	padding-top: $InputField-paddingTop / 2;
+	padding-bottom: $InputField-paddingTop / 2;
+}
 @mixin InputField--small() {
 	padding-top: 0;
 	font-size: $font-base-size;

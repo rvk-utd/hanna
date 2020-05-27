@@ -62,6 +62,9 @@
 	.FormField__input {
 		@include InputField();
 	}
+	.FormField--nolabel > .FormField__input {
+		@include InputField--noLabel();
+	}
 	.FormField--small > .FormField__input {
 		@include InputField--small();
 	}
