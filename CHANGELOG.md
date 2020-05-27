@@ -2,6 +2,10 @@
 
 ## Upcoming...
 
+## 0.3.2
+
+_2020-05-27_
+
 - ... <!-- Add new lines here. -->
 - fix: Improve `HeroBlock`, `CityBlock` image styling
 - fix: Decrease `.Layout__main`'s top padding
