@@ -9,6 +9,9 @@
 	.AccordionList {
 		max-width: cols_px(8);
 	}
+	.AccordionList--fullwidth {
+		max-width: 100%;
+	}
 	.AccordionList__item {
 		margin-bottom: grid-units(10);
 	}
