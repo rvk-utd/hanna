@@ -5,7 +5,6 @@
 @media #{$mq-tablet_up} {
 	[class].experimental_Columnized {
 		column-count: 2;
-		column-width: 50%;
 		column-gap: cols_pct(0, 1);
 	}
 	[class].experimental_Columnized li {
