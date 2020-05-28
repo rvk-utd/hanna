@@ -62,6 +62,9 @@
 	.FormField__input {
 		@include InputField();
 	}
+	.FormField--nolabel > .FormField__input {
+		@include InputField--noLabel();
+	}
 	.FormField--small > .FormField__input {
 		@include InputField--small();
 	}
@@ -133,6 +136,14 @@
 	.FormField__assist:before {
 		content: $icons-alert;
 		font-size: prem(11);
+	}
+
+	.FormField__error:not([id]),
+	.FormField__assist:not([id]) {
+		@include WARNING__(
+			'should have id atribute to match input[aria-describedby]',
+			$pos: after
+		);
 	}
 }
 

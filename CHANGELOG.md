@@ -2,11 +2,19 @@
 
 ## Upcoming...
 
+- ... <!-- Add new lines here. -->
+
+## 0.3.3
+
+_2020-05-28_
+
+- feat: Add component `SearchInput`
+- feat: Add explicit `.MainMenu__separator` marker
+
 ## 0.3.2
 
 _2020-05-27_
 
-- ... <!-- Add new lines here. -->
 - fix: Improve `HeroBlock`, `CityBlock` image styling
 - fix: Decrease `.Layout__main`'s top padding
 - feat: **experimental** Add utility component `.experimental_Columnized`

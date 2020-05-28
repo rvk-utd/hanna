@@ -70,7 +70,13 @@
 		}
 		@include Layout__header--height(height, $media: Topmenu);
 		display: flex;
+		justify-content: flex-end;
 		align-items: center;
+	}
+
+	.MainMenu__separator[class] {
+		display: block;
+		margin-left: auto;
 	}
 
 	.MainMenu__item--home {
@@ -85,10 +91,6 @@
 		.MainMenu__item--search > .MainMenu__link::before {
 			margin-right: prem(40);
 		}
-	}
-
-	[class='MainMenu__item'] + .MainMenu__item:not([class='MainMenu__item']) {
-		margin-left: auto;
 	}
 
 	.MainMenu__link {
