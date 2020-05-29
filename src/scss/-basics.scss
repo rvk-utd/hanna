@@ -37,6 +37,9 @@
 :root {
 	--color-link: #{$color-link_raw};
 	--color-link--hover: #{$color-link--hover_raw};
+	// NOTE: This variable receives its actual value somewhere off
+	// in JavaScript-land, set by `qj/getScrollbarWidth.setCSSvar()`
+	--browser-scrollbar-width: 0;
 }
 
 @media screen {
