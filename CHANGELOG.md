@@ -3,14 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: minor layout fixes for `wizardstepper`
 
-## 0.3.3
+## 0.3.3 – 0.3.4
 
 _2020-05-28_
 
 - feat: Add component `SearchInput`
 - feat: Add explicit `.MainMenu__separator` marker
+- fix: minor layout fixes for `wizardstepper`
 
 ## 0.3.2
 
