@@ -3,9 +3,13 @@
 @media screen {
 	html.modal-open {
 		overflow: hidden;
+		margin-right: var(--browser-scrollbar-width);
+	}
+	html.modal-open .Modal {
+		overflow-y: auto;
 	}
 
-	.ModalPopperwrapper {
+	.Modalwrapper {
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -15,13 +19,10 @@
 		overflow: hidden;
 		background-color: rgba(0, 0, 0, 0.5);
 	}
-	html.modal-open .ModalPopper {
-		overflow-y: auto;
-	}
 
-	.ModalPopper {
-		transform: translateY(-25%);
-		opacity: 0;
+	.Modal {
+		transform: translateY(0);
+		opacity: 1;
 		transition: all 0.25s ease-in-out;
 		position: absolute;
 		top: prem(50);
@@ -36,22 +37,26 @@
 		padding: between_phone_netbook(20, 70) between_phone_netbook(20, 80);
 		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 	}
-	.ModalPopper--w6 {
+	[hidden].Modalwrapper {
+		display: block;
+	}
+	[hidden].Modalwrapper > .Modal {
+		transform: translateY(-25%);
+		opacity: 0;
+	}
+
+	.Modal--w6 {
 		padding: between_phone_netbook(20, 40) between_phone_netbook(20, 50);
 		max-width: cols_px(6);
 	}
-	.ModalPopper--w8 {
+	.Modal--w8 {
 		max-width: cols_px(8);
 	}
-	.ModalPopper--w10 {
+	.Modal--w10 {
 		max-width: cols_px(10);
 	}
-	html.modal-shown .ModalPopper {
-		transform: translateY(0);
-		opacity: 1;
-	}
 
-	.ModalPopper__closebutton {
+	.Modal__closebutton {
 		display: block;
 		position: absolute;
 		z-index: 5;
@@ -72,12 +77,12 @@
 }
 
 @media #{$mq-netbook_up} {
-	.ModalPopper {
+	.Modal {
 		padding: prem(70) prem(80);
 		max-height: calc(100vh - 200);
 		top: prem(100);
 	}
-	.ModalPopper--w6 {
+	.Modal--w6 {
 		padding: prem(40) prem(50);
 	}
 }
