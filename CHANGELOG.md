@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: minor layout fixes for `wizardstepper`
 
 ## 0.3.3
 
