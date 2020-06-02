@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Modal`
+- fix: Pass through mouse-clicks on labels overlapping `FormField`s
 
 ## 0.3.4
 

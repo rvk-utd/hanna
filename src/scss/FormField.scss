@@ -40,12 +40,14 @@
 		font-weight: $font-weight--normal;
 		line-height: prem(14);
 		transition: all 100ms ease-out;
+		pointer-events: none;
 	}
 	:not(.FormField--small) > label.FormField__label {
 		position: absolute;
 		top: 1px;
 		left: grid-units(2);
 		line-height: prem(24);
+		pointer-events: initial;
 	}
 	.FormField--empty:not(.FormField--small):not(.FormField--focused)
 		> label.FormField__label {
