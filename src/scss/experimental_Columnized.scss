@@ -5,7 +5,7 @@
 @media #{$mq-tablet_up} {
 	[class].experimental_Columnized {
 		column-count: 2;
-		column-gap: cols_pct(0, 1);
+		column-gap: cols_pct(0, 1, 8);
 	}
 	[class].experimental_Columnized li {
 		break-inside: avoid;
