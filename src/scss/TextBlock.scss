@@ -9,6 +9,10 @@
 	}
 	.TextBlock--align--right {
 		margin-left: auto;
+		max-width: cols-px(7);
+	}
+	.TextBlock--wide {
+		max-width: cols-px(8);
 	}
 	.TextBlock__title {
 		@include HeadingStyle--medium();
