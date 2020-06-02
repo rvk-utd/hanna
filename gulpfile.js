@@ -10,6 +10,7 @@ const { existsSync } = require('fs');
 // ---------------------------------------------------------------------------
 
 const {
+	cssVersion,
 	sourceFolder,
 	distFolder,
 	devDistCssFolder,
@@ -101,7 +102,12 @@ const buildAssets = series(cleanupAssets, staticAssetsCompress);
 
 // -------------------------
 
-exports.publishCss = series(buildCss, copyToCssFolder, commitCssToGit);
+exports.publishCss = series(
+	buildCss,
+	() => cssVersion.startsWith('v0.') && del([publishCssFolder]), // NOTE: only do this before v1.0
+	copyToCssFolder,
+	commitCssToGit
+);
 exports.publishDevCss = series(
 	buildCss,
 	cleanupPublicDevCss,

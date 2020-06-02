@@ -1,0 +1,91 @@
+@use 'globals' as *;
+
+@media screen {
+	html.modal-open {
+		overflow: hidden;
+		margin-right: var(--browser-scrollbar-width);
+	}
+	html.modal-open .Modal {
+		overflow-y: auto;
+	}
+
+	.Modalwrapper {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 10000;
+		min-height: 100vh;
+		overflow: hidden;
+		background-color: rgba(0, 0, 0, 0.5);
+		transition: all 150ms ease-in-out;
+		transition-property: opacity, visibility;
+	}
+	[hidden].Modalwrapper {
+		display: block; // override default `[hidden][hidden]` styling
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	.Modal {
+		transform: translateY(0);
+		transition: all 0.25s ease-in-out;
+		position: absolute;
+		top: prem(50);
+		left: prem(16);
+		right: prem(16);
+		margin: 0 auto 20px;
+		z-index: 10002;
+		width: 95%;
+		max-height: calc(100vh - 100);
+		max-width: cols_px(8);
+		background-color: #fff;
+		padding: between_phone_netbook(20, 70) between_phone_netbook(20, 80);
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+	}
+	[hidden].Modalwrapper > .Modal {
+		transform: translateY(-25%);
+		opacity: 0;
+	}
+
+	.Modal--w6 {
+		padding: between_phone_netbook(20, 40) between_phone_netbook(20, 50);
+		max-width: cols_px(6);
+	}
+	.Modal--w8 {
+		max-width: cols_px(8);
+	}
+	.Modal--w10 {
+		max-width: cols_px(10);
+	}
+
+	.Modal__closebutton {
+		display: block;
+		position: absolute;
+		z-index: 5;
+		top: prem(20);
+		right: prem(20);
+
+		&::before {
+			@include icon('');
+			content: $icons-close;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: prem(10);
+			font-size: prem(16);
+			line-height: prem(32);
+			color: $color-suld-150;
+		}
+	}
+}
+
+@media #{$mq-netbook_up} {
+	.Modal {
+		padding: prem(70) prem(80);
+		max-height: calc(100vh - 200);
+		top: prem(100);
+	}
+	.Modal--w6 {
+		padding: prem(40) prem(50);
+	}
+}

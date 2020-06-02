@@ -28,9 +28,11 @@
 			height: 1em;
 			line-height: 1em;
 		}
-		.Selectbox > .FormField__input--focused::after {
+		// select options are not necessarily visible on focus,
+		// * leaving this arrow in reversed state with no visible dropdown
+		/*.Selectbox > .FormField__input--focused::after {
 			transform: rotate(180deg);
-		}
+		}*/
 
 		.Selectbox > * > .FormField__input__value {
 			@include overflowEllipsis();

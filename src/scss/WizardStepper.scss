@@ -6,10 +6,11 @@
 	}
 	.WizardStepper__step {
 		display: block;
+		overflow: hidden;
+		line-height: 1.35;
 		padding-left: prem(40);
 		margin-top: prem(-12);
 		margin-left: prem(-12);
-		white-space: nowrap;
 		box-sizing: content-box;
 		height: prem(24);
 		position: relative;
@@ -17,6 +18,7 @@
 		padding-bottom: prem(30);
 		margin-bottom: prem(6);
 		font-size: prem(12);
+		line-height: prem(18);
 		color: $color-suld-150;
 
 		&::before {

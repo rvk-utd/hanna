@@ -60,6 +60,7 @@
 
 	.WizardLayout__stepper {
 		position: fixed;
+		top: prem(80);
 		left: prem(16);
 		width: prem(24);
 	}
@@ -77,6 +78,7 @@
 		//width: cols_pct(8, 7);
 		width: cols_pct(10);
 		display: flex;
+		padding-left: prem(16);
 	}
 	.WizardLayout__stepper {
 		width: prem(170);
@@ -105,18 +107,6 @@
 		min-height: 600px;
 	}
 
-	.WizardLayout__deco {
-		display: block;
-		position: absolute;
-		top: 100px;
-		right: -121px;
-	}
-	.WizardLayout__deco--geometry {
-		background: url(/assets/WizardLayout-deco.png) 0 0 no-repeat;
-		width: 217px;
-		height: 468px;
-	}
-
 	.WizardLayout__close {
 		top: prem(56);
 	}
@@ -130,6 +120,18 @@
 
 	.WizardLayout__progress {
 		margin-right: prem(55);
+	}
+
+	.WizardLayout__deco {
+		display: block;
+		position: absolute;
+		top: 100px;
+		right: -121px;
+	}
+	.WizardLayout__deco--geometry {
+		background: url(/assets/WizardLayout-deco.png) 0 0 no-repeat;
+		width: 217px;
+		height: 468px;
 	}
 
 	.WizardLayout__close {

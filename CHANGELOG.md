@@ -4,6 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.3.4
+
+_2020-05-29_
+
+- fix: minor layout fixes for `wizardstepper`
+
 ## 0.3.3
 
 _2020-05-28_
