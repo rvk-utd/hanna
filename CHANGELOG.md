@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Modal`
+- feat: Add support (default value) for `--browser-scrollbar-width`
 - fix: Pass through mouse-clicks on labels overlapping `FormField`s
 
 ## 0.3.4
