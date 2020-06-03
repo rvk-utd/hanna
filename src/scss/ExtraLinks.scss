@@ -16,7 +16,7 @@
 		}
 
 		&:before {
-			border-left: between_phone_netbook(8, 24) solid $color-esja-100;
+			border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
 
 			@include media($mq-wide) {
 				border-width: prem(24);
@@ -71,7 +71,7 @@
 	.ExtraLinks__card:hover,
 	.ExtraLinks__card:focus,
 	.ExtraLinks__card:active {
-		background-color: $color-esja-100;
+		background-color: $color-theme-primary;
 		text-decoration: none;
 		outline: none;
 		color: $color-suld-200;
