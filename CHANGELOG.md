@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add CSS for `Form` component
 - feat: Add `--align--right` and `--wide` modifiers to `TextBlock`
 - fix: Improve `Checkbox`/`Radio` error styling
 - feat: Set global CSS color variables based on `[data-color-theme="{...}"]`
