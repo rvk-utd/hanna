@@ -1,0 +1,6 @@
+@use '_globals' as *;
+@use 'styles/layout' as *;
+
+@media screen {
+	@include ComponentLayout('Form');
+}
