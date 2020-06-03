@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.3.6
+
+_2020-06-03_
+
 - feat: Add CSS for `Form` component
 - feat: Add `--align--right` and `--wide` modifiers to `TextBlock`
 - fix: Improve `Checkbox`/`Radio` error styling
