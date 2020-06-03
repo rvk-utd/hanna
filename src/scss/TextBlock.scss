@@ -9,7 +9,16 @@
 	}
 	.TextBlock--align--right {
 		margin-left: auto;
+		max-width: cols-px(7);
 	}
+	.TextBlock--wide {
+		margin-left: 0; // Enforce that --wide and --align--right don't mix
+		max-width: cols-px(8);
+	}
+	.TextBlock--align--right.TextBlock--wide {
+		@include WARNING__("`--align--right` can't be `--wide`");
+	}
+
 	.TextBlock__title {
 		@include HeadingStyle--medium();
 		margin-bottom: $baseVMargin;
