@@ -5,17 +5,6 @@
 @use 'TextInput';
 
 @media screen {
-	/* TODO: Move this to a proper place.
-	 * NOTE: Ask designer if we should have a pattern for columnizing content,
-	 * this cols_px(N) is used in more places now like AccordionList and TextBLock */
-	.Form {
-		max-width: cols_px(6);
-	}
-	.Form--align--right {
-		margin-left: auto;
-	}
-	/* End TODO */
-
 	.FormField {
 		display: flex;
 		flex-flow: column;
