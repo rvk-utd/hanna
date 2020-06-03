@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: add `--align--right` and `--wide` modifiers to `TextBlock`
+- fix: Improve `Checkbox`/`Radio` error styling
 
 ## 0.3.5
 

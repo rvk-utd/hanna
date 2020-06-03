@@ -46,8 +46,17 @@
 		transition-property: box-shadow, border-color, background-color;
 	}
 
+	// Invalid
+	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label {
+		color: $color-heidmork-150;
+	}
+	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label::before,
+	.#{$BEM}__input[aria-invalid='true']:checked + .#{$BEM}__label::before {
+		border-color: $color-heidmork-100;
+	}
+
 	// Focus + Hover
-	.#{$BEM}__label:hover::before,
+	.#{$BEM}__label[class]:hover::before,
 	.#{$BEM}__input:focus + .#{$BEM}__label::before {
 		border-color: $color-faxafloi-100;
 		box-shadow: inset 0 0 0 2px $color-faxafloi-100;
@@ -63,11 +72,6 @@
 		border-color: transparent;
 		background-color: $color-faxafloi-100;
 		color: $color-suld-0;
-	}
-
-	// Invalid
-	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label {
-		color: $color-heidmork-100;
 	}
 
 	// Disabled
@@ -91,8 +95,7 @@
 	// __error
 	@if (not $radio) {
 		.#{$BEM}__error {
-			color: $color-heidmork-150;
-			padding-left: prem(36);
+			@include FormField__error($paddingLeft: prem(36), $marginTop: 0);
 		}
 	}
 }
@@ -296,4 +299,27 @@ $InputField-paddingH: grid-units(2);
 @mixin InputField--readonly() {
 	--input-border-color: #{$color-suld-100};
 	background-color: $color-suld-50;
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin FormField__error($paddingLeft: grid-units(2), $marginTop: prem(9)) {
+	color: $color-heidmork-100;
+	font-size: prem($font-size-12);
+	line-height: prem(14);
+	padding-left: $paddingLeft;
+	margin-top: $marginTop;
+
+	&:before {
+		@include icon($icons-error);
+		margin-right: grid-units(1);
+		font-size: prem(10);
+	}
+
+	&:not([id]) {
+		@include WARNING__(
+			'should have id atribute to match input[aria-describedby]',
+			$pos: after
+		);
+	}
 }

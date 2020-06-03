@@ -120,17 +120,7 @@
 
 	.FormField__assist,
 	.FormField__error {
-		color: $color-heidmork-100;
-		font-size: prem($font-size-12);
-		line-height: prem(14);
-		padding-left: grid-units(2);
-		margin-top: prem(9);
-
-		&:before {
-			@include icon($icons-error);
-			margin-right: grid-units(1);
-			font-size: prem(10);
-		}
+		@include FormField__error();
 	}
 	.FormField__assist {
 		color: $color-suld-150;
@@ -138,14 +128,6 @@
 	.FormField__assist:before {
 		content: $icons-alert;
 		font-size: prem(11);
-	}
-
-	.FormField__error:not([id]),
-	.FormField__assist:not([id]) {
-		@include WARNING__(
-			'should have id atribute to match input[aria-describedby]',
-			$pos: after
-		);
 	}
 }
 
