@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: add `--align--right` and `--wide` modifiers to `TextBlock`
 
 ## 0.3.5
 
