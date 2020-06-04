@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Pass through mouse-clicks on labels overlapping `FormField`s
 
 ## 0.3.6
 
