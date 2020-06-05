@@ -2,12 +2,26 @@
 
 @media screen {
 	.SubHeading {
-		// margin-top: ???;
-		// margin-bottom: ???;
 		@include SubheadingStyle--large();
+		margin-top: prem(40);
+		margin-bottom: prem(20);
 	}
 
 	.SubHeading--small {
 		@include SubheadingStyle--small();
+		margin-top: prem(40);
+		margin-bottom: prem(20);
+	}
+}
+
+@media #{$mq-netbook_up} {
+	.SubHeading {
+		margin-top: prem(50);
+		margin-bottom: prem(30);
+	}
+
+	.SubHeading--small {
+		margin-top: prem(50);
+		margin-bottom: prem(30);
 	}
 }
