@@ -3,7 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: add largetext variant for TextBlock
+- fix: add missing margin to single checkbox
 - fix: Pass through mouse-clicks on labels overlapping `FormField`s
+- fix: add spacing for SubHeading
+- fix: html needs relative position when scrollbarwidth margin is applied
 
 ## 0.3.6
 
