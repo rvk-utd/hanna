@@ -1,10 +1,16 @@
+@use 'globals' as *;
 @use 'styles/font' as *;
 
 @media screen {
 	.SubHeading {
-		// margin-top: ???;
-		// margin-bottom: ???;
 		@include SubheadingStyle--large();
+		margin-top: prem(40);
+		margin-bottom: prem(20);
+
+		@include media($mq-netbook_up) {
+			margin-top: prem(50);
+			margin-bottom: prem(30);
+		}
 	}
 
 	.SubHeading--small {

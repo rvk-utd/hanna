@@ -1,3 +1,4 @@
+@use '_globals' as *;
 @use 'styles/forms';
 
 /*!@deps
@@ -7,5 +8,8 @@
 @mixin css() {
 	@media screen {
 		@include forms.TogglerKnob(Checkbox);
+		.Checkbox:not(.FormField__options__item) {
+			margin-bottom: grid-units(3);
+		}
 	}
 }

@@ -16,4 +16,12 @@
 	.TextBlock {
 		@include textContent();
 	}
+
+	.TextBlock--largetext {
+		@include BodyTextStyle--large();
+	}
+
+	.TextBlock--largetext .TextBlock__title {
+		@include HeadingStyle--large();
+	}
 }
