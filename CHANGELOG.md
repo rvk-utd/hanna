@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: add largetext variant for `TextBlock`
+- feat: Add `WizardLayoutClose` mini component
 - fix: add missing margin to single `Checkbox`
 - fix: Pass through mouse-clicks on labels overlapping `FormField`s
 - fix: add spacing for `SubHeading`
