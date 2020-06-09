@@ -3,7 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.0
+
+_2020-06-09_
+
+- feat: Bump minor version to match `hanna-components`
 - feat: add largetext variant for `TextBlock`
+- feat: Add `WizardLayoutClose` mini component
 - fix: add missing margin to single `Checkbox`
 - fix: Pass through mouse-clicks on labels overlapping `FormField`s
 - fix: add spacing for `SubHeading`
