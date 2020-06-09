@@ -1,0 +1,42 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@mixin css() {
+	@media screen {
+		.WizardLayoutClose {
+			@include BodyTextStyle--small();
+			position: absolute;
+			z-index: 5;
+			right: 0;
+			top: prem(20);
+			color: $color-suld-200;
+			font-weight: 700;
+		}
+
+		.WizardLayoutClose:after {
+			@include icon($icons-close);
+			font-size: prem(13);
+			margin-left: prem(13);
+			padding-top: prem(1);
+		}
+	}
+	@media #{$mq-tablet_up} {
+		.WizardLayoutClose {
+			right: prem(30);
+			top: between_tablet_netbook(30, 56);
+		}
+	}
+
+	@media #{$mq-netbook_up} {
+		.WizardLayoutClose {
+			top: prem(56);
+		}
+	}
+
+	@media #{$mq-wide} {
+		.WizardLayoutClose {
+			top: prem(56);
+			right: calc((100vw / 2) - (#{prem($grid-contentMaxWidth)} / 2));
+		}
+	}
+}

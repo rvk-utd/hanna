@@ -1,6 +1,7 @@
 @use 'globals' as *;
 @use 'styles/header' as *;
 @use 'styles/font' as *;
+@use 'WizardLayoutClose';
 
 @media screen {
 	.WizardLayout {
@@ -21,23 +22,6 @@
 	}
 
 	@include LayoutHeaderLogo('WizardLayout__header__logo');
-
-	.WizardLayout__close {
-		@include BodyTextStyle--small();
-		position: absolute;
-		z-index: 5;
-		right: prem(30);
-		top: prem(20);
-		color: $color-suld-200;
-		font-weight: 700;
-	}
-
-	.WizardLayout__close:after {
-		@include icon($icons-close);
-		font-size: prem(13);
-		margin-left: prem(13);
-		padding-top: prem(1);
-	}
 
 	.WizardLayout__wrap {
 		flex-grow: 1;
@@ -70,12 +54,7 @@
 		position: static;
 	}
 
-	.WizardLayout__close {
-		top: between_tablet_netbook(30, 56);
-	}
-
 	.WizardLayout__wrap {
-		//width: cols_pct(8, 7);
 		width: cols_pct(10);
 		display: flex;
 		padding-left: prem(16);
@@ -106,10 +85,6 @@
 	.WizardLayout__main {
 		min-height: 600px;
 	}
-
-	.WizardLayout__close {
-		top: prem(56);
-	}
 }
 
 @media #{$mq-wide} {
@@ -133,9 +108,6 @@
 		width: 217px;
 		height: 468px;
 	}
-
-	.WizardLayout__close {
-		top: prem(56);
-		right: calc((100vw / 2) - (#{prem($grid-contentMaxWidth)} / 2));
-	}
 }
+
+@include WizardLayoutClose.css();
