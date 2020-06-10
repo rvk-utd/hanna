@@ -67,8 +67,7 @@
 		right: prem(20);
 
 		&::before {
-			@include icon('');
-			content: $icons-close;
+			@include icon($icons-close);
 			display: inline-block;
 			vertical-align: middle;
 			margin-right: prem(10);
