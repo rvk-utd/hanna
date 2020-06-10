@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Wrap `.SearchInput`'s input in a div, add `<button/>`
 
 ## 0.4.0
 

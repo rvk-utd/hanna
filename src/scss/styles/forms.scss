@@ -250,7 +250,8 @@ $InputField-paddingH: grid-units(2);
 @mixin InputField() {
 	--input-border-color: #{$color-suld-100};
 	@include BodyTextStyle--large($leading: false);
-	display: block;
+	position: relative;
+	display: flex;
 	width: 100%;
 	background-color: $color-suld-0;
 	color: $color-suld-200;
