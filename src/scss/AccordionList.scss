@@ -72,7 +72,7 @@
 		opacity: 1;
 	}
 
-	html.before-sprinkling > .AccordionList__content {
+	html.before-sprinkling .AccordionList__content {
 		display: none;
 	}
 	.AccordionList[data-sprinkled] > .AccordionList__content {
