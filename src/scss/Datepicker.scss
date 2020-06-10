@@ -8,6 +8,10 @@
 
 // 'react-datepicker/dist/react-datepicker.css' @ v2.14.1
 @media screen {
+	.Datepicker > * > .react-datepicker-wrapper {
+		flex-grow: 1;
+	}
+
 	.react-datepicker {
 		background-color: $color-suld-0;
 		display: block;

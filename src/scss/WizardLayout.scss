@@ -60,11 +60,12 @@
 		padding-left: prem(16);
 	}
 	.WizardLayout__stepper {
+		flex-shrink: 1;
 		width: prem(170);
 		margin-right: prem(30);
-		flex-shrink: 0;
 	}
 	.WizardLayout__main {
+		flex-shrink: 1;
 		width: 100%;
 		max-width: 580px;
 	}

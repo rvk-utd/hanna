@@ -13,7 +13,7 @@
 		@include HeadingStyle--small();
 		display: flex;
 	}
-	.LabeledTextBlock__label:before {
+	.LabeledTextBlock__label::before {
 		content: '';
 		min-width: grid-units(5);
 		height: prem(4);
@@ -49,7 +49,7 @@
 		width: cols_pct(5);
 	}
 
-	.LabeledTextBlock__label:before {
+	.LabeledTextBlock__label::before {
 		margin-right: cols_pct(0, 1, 5);
 		width: cols_pct(1, 0, 5);
 	}
@@ -63,7 +63,7 @@
 		max-width: 100%;
 	}
 
-	.LabeledTextBlock--left > .LabeledTextBlock__label:before {
+	.LabeledTextBlock--left > .LabeledTextBlock__label::before {
 		max-width: prem(32);
 	}
 }

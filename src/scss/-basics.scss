@@ -48,6 +48,7 @@
 	*,
 	*::before,
 	*::after {
+		flex-shrink: 0;
 		box-sizing: border-box;
 	}
 	[hidden][hidden],

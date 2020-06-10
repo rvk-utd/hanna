@@ -14,7 +14,8 @@
 	.GridBlocks__item {
 		margin-bottom: prem(40);
 		display: flex;
-		flex-wrap: wrap;
+		flex-flow: column;
+		align-items: flex-start;
 	}
 
 	.GridBlocks__illustration > img {
@@ -54,6 +55,7 @@
 	.GridBlocks--twocol > .GridBlocks__item {
 		width: cols_pct(5);
 		margin-left: cols_pct(1, 2);
+		flex-flow: row;
 	}
 	.GridBlocks--twocol > .GridBlocks__item:nth-child(2n + 1) {
 		margin: 0;
