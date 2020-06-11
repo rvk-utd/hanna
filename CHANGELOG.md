@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Drop experimental `.AccordionList--fullwidth`, add
+  `.AccordionList--wide`
 
 ## 0.4.0
 
