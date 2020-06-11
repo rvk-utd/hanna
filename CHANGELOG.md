@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - **BREAKING** feat: Drop support for `.HeroBlock--align--right`
+- feat: Set min-height on `.HeroBlock` and tweak vertical align
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
 
