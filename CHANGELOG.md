@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `.SubHeading--wide` and `.SubHeading--align--right` styling
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
 
