@@ -1,0 +1,17 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+/*!@deps
+	TextBlock
+*/
+
+@mixin css() {
+	@media screen {
+		.PageHeading {
+			@include HeadingStyle--large();
+			max-width: cols_px(6);
+			margin-top: between_cols(0, 3 * $grid-unit);
+			margin-bottom: em(40/64);
+		}
+	}
+}

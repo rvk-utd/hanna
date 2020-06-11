@@ -4,6 +4,7 @@
 @use 'utils/textContent' as *;
 
 @use 'SubHeading';
+@use 'PageHeading';
 
 @media screen {
 	.TextBlock {
@@ -33,3 +34,4 @@
 // Inline the most common text atom components
 // for better compression and loading speed
 @include SubHeading.css();
+@include PageHeading.css();

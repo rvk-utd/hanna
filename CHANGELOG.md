@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `PageHeading`
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
 
