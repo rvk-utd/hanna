@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Drop support for `.HeroBlock--align--right`
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
 

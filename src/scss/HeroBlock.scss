@@ -43,10 +43,6 @@
 	.HeroBlock > :last-child {
 		margin-bottom: 0;
 	}
-
-	.HeroBlock--align--right > .HeroBlock__image {
-		@include WARNING__('--align--right may not use __image');
-	}
 }
 
 @media #{$mq-phablet_tablet} {
@@ -58,10 +54,6 @@
 	.HeroBlock {
 		position: relative;
 		padding-right: cols_pct(6);
-	}
-	.HeroBlock--align--right {
-		padding-right: 0;
-		padding-left: cols_pct(5, 5);
 	}
 
 	.HeroBlock__image {
