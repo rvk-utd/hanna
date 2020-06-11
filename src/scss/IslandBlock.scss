@@ -3,6 +3,8 @@
 @use 'styles/buttons' as *;
 @use 'styles/links' as *;
 
+// left item BP
+
 @media screen {
 	.IslandBlock {
 		margin-bottom: between_cols(40, 133);
@@ -16,11 +18,13 @@
 	}
 	.IslandBlock--expanded > .IslandBlock__content {
 		background-color: $color-suld-25;
-		padding: between_cols(20, 120) grid-units(7);
+		padding: between_cols(20, 120) cols_pct(1, 0.5);
 		@include bodyPaddingInner(padding, false, left);
 	}
 	.IslandBlock--expanded > .IslandBlock__content + .IslandBlock__content {
 		background-color: $color-esja-50;
+		padding-left: cols_pct(1, 0.5);
+		@include bodyPaddingInner(padding, false, right);
 	}
 
 	.IslandBlock__title {
