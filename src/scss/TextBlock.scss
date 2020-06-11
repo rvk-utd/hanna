@@ -6,9 +6,9 @@
 @use 'SubHeading';
 
 @media screen {
-	@include ComponentLayout('TextBlock');
 	.TextBlock {
 		margin-bottom: between_cols(20, 30);
+		@include ComponentLayout();
 	}
 
 	.TextBlock__title {
