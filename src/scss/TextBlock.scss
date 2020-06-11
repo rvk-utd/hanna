@@ -3,6 +3,8 @@
 @use 'styles/layout' as *;
 @use 'utils/textContent' as *;
 
+@use 'SubHeading';
+
 @media screen {
 	@include ComponentLayout('TextBlock');
 	.TextBlock {
@@ -25,3 +27,9 @@
 		@include HeadingStyle--large();
 	}
 }
+
+// ===========================================================================
+
+// Inline the most common text atom components
+// for better compression and loading speed
+@include SubHeading.css();
