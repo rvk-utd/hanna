@@ -5,6 +5,9 @@
 - ... <!-- Add new lines here. -->
 - **BREAKING** feat: Wrap `.SearchInput`'s input in a div, add `<button/>`
 
+- feat: Drop experimental `.AccordionList--fullwidth`, add
+  `.AccordionList--wide`
+
 ## 0.4.0
 
 _2020-06-09_
