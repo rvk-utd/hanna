@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `PageHeading`
+- feat: Add `.SubHeading--wide` and `.SubHeading--align--right` styling
+- feat: Drop `.BasicTable--fullwidth` - make all tables wide by default
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
 
