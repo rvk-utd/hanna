@@ -1,18 +1,19 @@
 @use '../_globals' as *;
 
-@mixin ComponentLayout() {
+@mixin ComponentLayout($wide: true) {
 	max-width: cols_px(6);
 
 	&--align--right {
 		margin-left: auto;
 		max-width: cols_px(7);
 	}
-
-	&--wide {
-		margin-left: 0; // Enforce that --wide and --align--right don't mix
-		max-width: cols_px(8);
-	}
-	&--align--right#{&}--wide {
-		@include WARNING__("`--align--right` can't be `--wide`");
+	@if $wide {
+		&--wide {
+			margin-left: 0; // Enforce that --wide and --align--right don't mix
+			max-width: cols_px(8);
+		}
+		&--align--right#{&}--wide {
+			@include WARNING__("`--align--right` can't be `--wide`");
+		}
 	}
 }
