@@ -4,7 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 - **BREAKING** feat: Drop support for `.HeroBlock--align--right`
+- **BREAKING** feat: Wrap `.SearchInput`'s input in a div, add `<button/>`
 - feat: Set min-height on `.HeroBlock` and tweak vertical align
+
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
 
