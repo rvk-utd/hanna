@@ -8,6 +8,7 @@
 - feat: Drop `.BasicTable--fullwidth` - make all tables wide by default
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
+- fix: Stablize `.AccordionList` width, left-padding and icon-placement
 
 ## 0.4.0
 
