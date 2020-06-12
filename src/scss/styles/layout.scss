@@ -4,8 +4,10 @@
 	max-width: cols_px(6);
 
 	&--align--right {
-		margin-left: auto;
-		max-width: cols_px(7);
+		@include media($mq-tablet_up) {
+			margin-left: auto;
+			width: cols_pct(7);
+		}
 	}
 	@if $wide {
 		&--wide {
