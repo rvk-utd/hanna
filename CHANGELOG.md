@@ -7,6 +7,9 @@
 - **BREAKING** feat: Wrap `.SearchInput`'s input in a div, add `<button/>`
 - feat: Set min-height on `.HeroBlock` and tweak vertical align
 
+- feat: Add component `PageHeading`
+- feat: Add `.SubHeading--wide` and `.SubHeading--align--right` styling
+- feat: Drop `.BasicTable--fullwidth` - make all tables wide by default
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
 

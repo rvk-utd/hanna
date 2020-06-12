@@ -1,0 +1,18 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/layout' as *;
+
+/*!@deps
+	TextBlock
+*/
+
+@mixin css() {
+	@media screen {
+		.PageHeading {
+			@include HeadingStyle--large();
+			@include ComponentLayout($wide: false);
+			margin-top: between_cols(0, 3 * $grid-unit);
+			margin-bottom: em(40/64);
+		}
+	}
+}

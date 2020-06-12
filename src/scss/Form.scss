@@ -2,5 +2,7 @@
 @use 'styles/layout' as *;
 
 @media screen {
-	@include ComponentLayout('Form');
+	.Form {
+		@include ComponentLayout();
+	}
 }
