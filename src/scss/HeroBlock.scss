@@ -7,7 +7,7 @@
 
 @media screen {
 	.HeroBlock {
-		padding: between_cols(0, 3 * $grid-unit) 0;
+		padding: between_cols(0, 1 * $grid-unit) 0;
 		margin-bottom: between_cols(30, 100);
 		display: flex;
 		flex-flow: column nowrap;
@@ -43,38 +43,39 @@
 	.HeroBlock > :last-child {
 		margin-bottom: 0;
 	}
-
-	.HeroBlock--align--right > .HeroBlock__image {
-		@include WARNING__('--align--right may not use __image');
-	}
 }
+
+// ---------------------------------------------------------------------------
 
 @media #{$mq-phablet_tablet} {
 	.HeroBlock {
 		padding-right: between_phablet_tablet(0, cols_px(3, 3));
 	}
 }
+
+// ---------------------------------------------------------------------------
+
 @media #{$mq-netbook_up} {
 	.HeroBlock {
 		position: relative;
 		padding-right: cols_pct(6);
-	}
-	.HeroBlock--align--right {
-		padding-right: 0;
-		padding-left: cols_pct(5, 5);
+		min-height: prem(370);
 	}
 
 	.HeroBlock__image {
 		position: absolute;
+		z-index: -1;
 		top: 50%;
 		right: 0;
 		width: cols_pct(6);
-		padding-top: cols_pct(6);
+		padding-top: cols_pct(6); // 110% of width
 		margin: 0;
 		transform: translateY(-50%);
+		pointer-events: none;
 	}
 
 	.HeroBlock__image > img {
+		pointer-events: initial;
 		position: absolute;
 		top: 0;
 		bottom: 0;
