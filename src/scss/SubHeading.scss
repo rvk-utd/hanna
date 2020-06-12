@@ -1,5 +1,6 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
+@use 'styles/layout' as *;
 
 /*!@deps
 	TextBlock
@@ -11,6 +12,7 @@
 			@include SubheadingStyle--large();
 			margin-top: prem(40);
 			margin-bottom: prem(20);
+			@include ComponentLayout();
 
 			@include media($mq-netbook_up) {
 				margin-top: prem(50);
