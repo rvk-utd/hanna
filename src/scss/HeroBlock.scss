@@ -43,6 +43,18 @@
 	.HeroBlock > :last-child {
 		margin-bottom: 0;
 	}
+
+	// Remove these warning in v0.8+
+	.HeroBlock__title:last-child,
+	.HeroBlock__title + .HeroBlock__summary,
+	.HeroBlock__title + .HeroBlock__buttons {
+		@include WARNING__('`.HeroBlock__image` is required as of v0.5');
+	}
+	.HeroBlock--align--right {
+		@include WARNING__(
+			'`--align--right` was removed in v0.5, use `PageHeader` and `TextBlock` instead'
+		);
+	}
 }
 
 // ---------------------------------------------------------------------------
