@@ -91,14 +91,12 @@
 @media #{$mq-tablet_up} {
 	.IslandBlock {
 		display: flex;
-		flex-flow: row-reverse;
 		align-items: center;
 	}
-	.IslandBlock--align--right {
+	.IslandBlock--align--right > .IslandBlock__image {
+		order: -1;
 	}
-	.IslandBlock--align--left {
-		flex-flow: row;
-	}
+
 	.IslandBlock__image,
 	.IslandBlock__content {
 		width: cols_pct(6);
