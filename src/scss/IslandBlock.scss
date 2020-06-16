@@ -3,7 +3,6 @@
 @use 'styles/buttons' as *;
 @use 'styles/links' as *;
 
-// left item BP
 
 @media screen {
 	.IslandBlock {
@@ -15,7 +14,6 @@
 
 	.IslandBlock__content {
 		padding: grid-units(2) 0;
-		// box-shadow: inset 0 0 10px rgba(red, 0.5);
 	}
 	.IslandBlock--expanded > .IslandBlock__image,
 	.IslandBlock--expanded > .IslandBlock__content {
