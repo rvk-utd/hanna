@@ -3,7 +3,6 @@
 @use 'styles/buttons' as *;
 @use 'styles/links' as *;
 
-
 @media screen {
 	.IslandBlock {
 		margin-bottom: between_cols(40, 133);
@@ -73,16 +72,19 @@
 
 	$offset: between_phone_phablet(0, 60);
 
-	.IslandBlock--expanded > .IslandBlock__content:first-child {
+	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:first-child,
+	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__image,
+	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:last-child {
 		margin-right: $offset;
 	}
-	.IslandBlock--expanded > .IslandBlock__content:last-child {
+	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:first-child,
+	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__image,
+	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:last-child {
 		margin-left: $offset;
 	}
 
 	.IslandBlock--expanded > .IslandBlock__image {
 		min-height: between_phone_phablet(175, 300);
-		margin-left: $offset;
 	}
 }
 
