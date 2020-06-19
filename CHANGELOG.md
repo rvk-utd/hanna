@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.1
+
+_2020-06-19_
+
 - feat: Add component `PageHeading`
 - feat: Add `.SubHeading--wide` and `.SubHeading--align--right` styling
 - feat: Drop `.BasicTable--fullwidth` - make all tables wide by default
