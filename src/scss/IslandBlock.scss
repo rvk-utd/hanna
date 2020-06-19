@@ -109,7 +109,6 @@
 	.IslandBlock--expanded {
 		flex-flow: row;
 		align-items: stretch;
-		padding-bottom: between_cols(50, 105);
 	}
 	.IslandBlock--expanded > .IslandBlock__image,
 	.IslandBlock--expanded > .IslandBlock__content,
@@ -117,6 +116,7 @@
 		box-sizing: content-box;
 		width: cols_pct(5, 5);
 		min-height: between_tablet_up(280, 400);
+		margin-bottom: between_cols(50, 105);
 
 		@include media($mq-wide) {
 			min-height: 400px;
@@ -124,8 +124,8 @@
 	}
 	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:first-child,
 	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:last-child {
-		position: relative;
-		top: between_cols(50, 105);
+		margin-top: between_cols(50, 105);
+		margin-bottom: 0;
 	}
 	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__image,
 	.IslandBlock--expanded > .IslandBlock__content:first-child {
