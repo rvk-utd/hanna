@@ -3,10 +3,13 @@
 @use 'styles/layout' as *;
 @use 'utils/textContent' as *;
 
+@use 'SubHeading';
+@use 'PageHeading';
+
 @media screen {
-	@include ComponentLayout('TextBlock');
 	.TextBlock {
 		margin-bottom: between_cols(20, 30);
+		@include ComponentLayout();
 	}
 
 	.TextBlock__title {
@@ -25,3 +28,10 @@
 		@include HeadingStyle--large();
 	}
 }
+
+// ===========================================================================
+
+// Inline the most common text atom components
+// for better compression and loading speed
+@include SubHeading.css();
+@include PageHeading.css();

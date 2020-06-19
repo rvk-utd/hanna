@@ -1,0 +1,13 @@
+<svg width="375" height="281" viewBox="0 0 375 281" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+	:root {
+		--theme-color-primary: #727477;
+		--theme-color-secondary: #c7cbd0;
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<path d="M375 142.29H0V280.89H375V142.29Z" fill="#FCFAF7"/>
+<path d="M375 0H0V146.48H375V0Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M375 212.09L337.77 187.03L299.98 212.21L262.75 187.15L224.96 212.21L187.73 187.15L149.85 212.21L112.71 187.15L75.01 212.09L37.79 187.03L0 212.21V250.69L37.79 225.05L74.82 250.81L112.71 225.17L149.85 250.81L187.73 225.17L224.96 250.81L262.75 225.17L299.98 250.69L337.77 225.05L375 250.6V212.09Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M375 139.65L337.77 114.58L299.98 139.77L262.75 114.7L224.96 139.77L187.73 114.7L149.85 139.77L112.71 114.7L75.01 139.64L37.79 114.58L0 139.77V178.25L37.79 152.61L74.82 178.37L112.71 152.73L149.85 178.37L187.73 152.73L224.96 178.37L262.75 152.73L299.98 178.25L337.77 152.61L375 178.15V178.16V139.65Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+</svg>

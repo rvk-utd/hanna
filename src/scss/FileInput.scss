@@ -115,6 +115,7 @@
 
 	.FileInput__filename {
 		@include overflowEllipsis();
+		flex-shrink: 1;
 	}
 	.FileInput__filesize {
 		padding-left: prem(3);
@@ -124,7 +125,6 @@
 	.FileInput__preview {
 		width: 40px;
 		height: 40px;
-		flex-shrink: 0;
 		display: inline-block;
 		margin-right: prem(15);
 		vertical-align: middle;

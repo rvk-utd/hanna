@@ -1,0 +1,18 @@
+<svg width="375" height="272" viewBox="0 0 375 272" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+	:root {
+		--theme-color-primary: #727477;
+		--theme-color-secondary: #c7cbd0;
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<path d="M375 0H0V272H375V0Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M189.41 51H121.66V118.75H189.41V51Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M125.04 197.17H155.53V79.06L87.7803 134.99L125.04 197.17Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+<path d="M187.56 197.17H155.53V79.06L223.27 134.99L187.56 197.17Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M53.6 134.83H0V197.18H53.6V134.83Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M315.049 107.76H273.609V149.2H315.049V107.76Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M275.68 197.17H294.33V124.92L252.89 159.14L275.68 197.17Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+<path d="M313.92 197.17H294.33V124.92L335.77 159.14L313.92 197.17Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M375 197H0V272H375V197Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+</svg>

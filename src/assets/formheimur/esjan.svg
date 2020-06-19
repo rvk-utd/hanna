@@ -1,0 +1,13 @@
+<svg width="375" height="271" viewBox="0 0 375 271" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+	:root {
+		--theme-color-primary: #727477;
+		--theme-color-secondary: #c7cbd0;
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<path d="M0.330078 270.54H375V8.19995H0.330078V270.54Z" fill="white"/>
+<path d="M0.330078 270.54H375V159.78H0.330078V270.54Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M0.330078 86.1899V210.43H71.5801H148.21H198.62H208.2L325.91 86.1899H0.330078Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M0 0V116H16.75H185.13H238.68H297.91L375 41.3963V0H0Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+</svg>

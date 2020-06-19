@@ -1,0 +1,13 @@
+<svg width="379" height="280" viewBox="0 0 379 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+	:root {
+		--theme-color-primary: #727477;
+		--theme-color-secondary: #c7cbd0;
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<path d="M379 273L379 0L0 0L0 273L379 273Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+<path d="M379 205H0V280H379V205Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M180.742 204.72H66.8018L123.772 113.57L180.742 204.72Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M232.942 204.72H163.712L198.282 149.33L232.942 204.72Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+</svg>

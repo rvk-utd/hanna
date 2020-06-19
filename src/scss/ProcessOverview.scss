@@ -25,9 +25,6 @@
 	}
 
 	.ProcessOverview__item {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-start;
 		margin-bottom: grid-units(10);
 		position: relative;
 	}
@@ -72,6 +69,11 @@
 }
 
 @media #{$mq-tablet_up} {
+	.ProcessOverview__item {
+		display: flex;
+		align-items: flex-start;
+	}
+
 	.ProcessOverview__item__title {
 		width: cols_pct(5);
 	}

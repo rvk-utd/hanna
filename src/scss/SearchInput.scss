@@ -8,8 +8,7 @@
 	.SearchInput {
 	}
 	.SearchInput::after {
-		@include icon('');
-		content: $icons-search;
+		@include icon($icons-search);
 		display: block;
 		color: $color-suld-0;
 		font-size: prem(20);

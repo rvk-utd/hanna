@@ -1,0 +1,17 @@
+<svg width="375" height="271" viewBox="0 0 375 271" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+	:root {
+		--theme-color-primary: #727477;
+		--theme-color-secondary: #c7cbd0;
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<path d="M375 0H0V271H375V0Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+<path d="M64.7758 193.703H64.4392L104.54 94.9536L144.641 193.703H144.295L149.355 206.16H163.157L104.54 61.8163L45.9233 206.16H59.7161L64.7758 193.703Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M59.4683 172.805H149.74L138.492 145.11H70.5778L59.4683 172.805Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M118.848 97.0612H104.54H90.2227L104.54 61.8163L118.848 97.0612Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M307.303 115.812H216.893L262.093 54.5635L307.303 115.812Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M307.313 115.802H216.893V206.16H307.313V115.802Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M288.778 134.325H235.428V187.637H288.778V134.325Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+<path d="M375 206.16H0V271H375V206.16Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+</svg>

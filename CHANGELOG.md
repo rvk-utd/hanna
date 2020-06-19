@@ -4,6 +4,19 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.4.1
+
+_2020-06-19_
+
+- feat: Add component `PageHeading`
+- feat: Add `.SubHeading--wide` and `.SubHeading--align--right` styling
+- feat: Drop `.BasicTable--fullwidth` - make all tables wide by default
+- feat: Drop experimental `.AccordionList--fullwidth`, add
+  `.AccordionList--wide`
+- fix: Stablize `.IslandBlock__content` widths, paddings, margins
+- fix: Stablize `.AccordionList` width, left-padding and icon-placement
+- fix: Minor tweaks/fixes for `InfoBlock`, `TextBlock`, and a few others
+
 ## 0.4.0
 
 _2020-06-09_

@@ -1,21 +1,20 @@
 @use '../_globals' as *;
 
-@mixin ComponentLayout($BEM) {
-	@if $BEM {
-		.#{$BEM} {
-			max-width: cols_px(6);
-		}
+@mixin ComponentLayout($wide: true) {
+	max-width: cols_px(6);
 
-		.#{$BEM}--align--right {
+	&--align--right {
+		@include media($mq-tablet_up) {
 			margin-left: auto;
-			max-width: cols_px(7);
+			width: cols_pct(7);
 		}
-
-		.#{$BEM}--wide {
+	}
+	@if $wide {
+		&--wide {
 			margin-left: 0; // Enforce that --wide and --align--right don't mix
 			max-width: cols_px(8);
 		}
-		.#{$BEM}--align--right.#{$BEM}--wide {
+		&--align--right#{&}--wide {
 			@include WARNING__("`--align--right` can't be `--wide`");
 		}
 	}
