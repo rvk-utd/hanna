@@ -10,6 +10,7 @@
   `.AccordionList--wide`
 - fix: Stablize `.IslandBlock__content` widths, paddings, margins
 - fix: Stablize `.AccordionList` width, left-padding and icon-placement
+- fix: Minor tweaks/fixes for `InfoBlock`, `TextBlock`, and a few others
 
 ## 0.4.0
 
