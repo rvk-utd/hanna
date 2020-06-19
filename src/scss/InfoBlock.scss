@@ -5,20 +5,27 @@
 @media screen {
 	.InfoBlock {
 		background-color: $color-suld-25;
-		padding: between_phone_netbook(40, 120) cols_pct(1, 1);
-		@include bodyPaddingInner(margin, true, left);
+		padding: between_cols(40, 120) cols_pct(1, 1);
 		@include bodyPaddingInner(padding, false, left);
+		@include bodyPaddingInner(margin, true, left);
+		box-sizing: content-box;
+		position: relative;
+		max-width: cols_px(10);
 	}
 	.InfoBlock:before {
-		content: '';
-		display: block;
+		@include icon($icons-fatchevron-up);
+		color: $color-esja-150;
 		position: absolute;
 		right: 0;
-		transform: translate3d(50%, prem(-20), 0);
-		width: between_phone_netbook(49, 89);
-		height: prem(75);
-		background: url('/assets/InfoBlock-chevron.svg') 0 0 no-repeat;
-		background-size: contain;
+		width: 1em;
+		height: 1em;
+		line-height: 1em;
+		margin: -0.2em -0.5em;
+		font-size: between_phone_netbook(49, 89);
+
+		@include media($mq-wide) {
+			font-size: prem(89);
+		}
 	}
 
 	.InfoBlock__title {
@@ -28,10 +35,20 @@
 
 	.InfoBlock__subtitle {
 		@include BodyTextStyle--large();
+
+		@include media($mq-tablet_up) {
+			width: cols_pct(5);
+			min-width: 350px;
+		}
 	}
 
 	.InfoBlock__items {
-		margin-top: between_phone_netbook(40, 64);
+		margin-top: between_cols(35, 64, 10);
+
+		@include media($mq-tablet_up) {
+			column-count: 2;
+			column-gap: prem(45);
+		}
 	}
 	.InfoBlock__item {
 		padding-left: prem(28);
@@ -52,37 +69,12 @@
 	.InfoBlock__extrainfo,
 	.InfoBlock__attention {
 		border-top: 1px solid $color-suld-150;
-		margin-top: between_phone_netbook(64, 80);
-		padding-top: between_phone_netbook(40, 64);
-	}
-	.InfoBlock__extrainfo {
-		@include BodyTextStyle--small();
-	}
-}
+		margin-top: between_cols(64, 80, 10);
+		padding-top: between_cols(40, 64, 10);
 
-@media #{$mq-tablet_up} {
-	.InfoBlock__items {
-		column-count: 2;
-		column-gap: prem(45);
-	}
-
-	.InfoBlock__subtitle {
-		width: cols_pct(5);
-		min-width: 350px;
-	}
-}
-
-@media #{$mq-wide} {
-	.InfoBlock {
-		padding-top: prem(120);
-		padding-bottom: prem(120);
-	}
-	.InfoBlock:before {
-		width: prem(89);
-	}
-
-	.InfoBlock__extrainfo {
-		margin-top: grid-units(10);
-		padding-top: grid-units(8);
+		@include media($mq-wide) {
+			margin-top: grid-units(10);
+			padding-top: grid-units(8);
+		}
 	}
 }
