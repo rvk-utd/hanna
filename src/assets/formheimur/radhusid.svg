@@ -1,0 +1,16 @@
+<svg width="375" height="272" viewBox="0 0 375 272" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+	:root {
+		--theme-color-primary: #727477;
+		--theme-color-secondary: #c7cbd0;
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<path d="M375 0H0V272H375V0Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+<path d="M127.34 107.07H111.49V206.09H127.34V107.07Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M327.63 69.8L305.6 115.23H375V58.23L327.63 69.8Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M305.6 171H257.3V109.65L219.26 71.78L171.23 54.16V206.09H257.3H305.6H311.06H375V115.23H305.6V171Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M375 206.09H0V272H375V206.09Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M257.3 114.54H217.3C217.3 89.74 197.12 69.56 172.32 69.56C147.52 69.56 127.34 89.74 127.34 114.54H87.3398C87.3398 67.68 125.46 29.56 172.32 29.56C219.18 29.56 257.3 67.68 257.3 114.54Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M375 31.02C335.56 38.36 305.6 73.01 305.6 114.54H345.6C345.6 95.21 357.85 78.7 375 72.35V31.02Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+</svg>
