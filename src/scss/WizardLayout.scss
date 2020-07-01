@@ -53,6 +53,10 @@
 	.WizardLayout {
 		position: static;
 	}
+	.WizardLayout__header {
+		padding-left: prem(16);
+		padding-right: prem(16);
+	}
 
 	.WizardLayout__wrap {
 		width: cols_pct(10);
@@ -90,8 +94,7 @@
 
 @media #{$mq-wide} {
 	.WizardLayout__header {
-		padding-top: prem(40);
-		padding-bottom: prem(60);
+		padding: prem(40) prem(8) prem(60);
 	}
 
 	.WizardLayout__progress {
