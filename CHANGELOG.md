@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - fix: logo spacing for WizardLayout in tablet/netbook
 - fix: AccordionList__content not working correctly when sprinkled
+- fix: Remove dotted border from FormField reqstar
 
 ## 0.4.1
 
