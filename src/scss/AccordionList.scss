@@ -87,7 +87,7 @@
 		display: none;
 	}
 	.AccordionList[data-sprinkled] > .AccordionList__content {
-		display: none;
+		display: block;
 	}
 	.AccordionList__content[hidden] {
 		display: block; // override default
