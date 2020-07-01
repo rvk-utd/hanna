@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: logo spacing for WizardLayout in tablet/netbook
+- fix: AccordionList__content not working correctly when sprinkled
 
 ## 0.4.1
 
