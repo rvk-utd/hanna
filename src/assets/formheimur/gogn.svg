@@ -1,0 +1,19 @@
+<svg width="383" height="271" viewBox="0 0 383 271" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+	:root {
+		--theme-color-primary: #727477;
+		--theme-color-secondary: #c7cbd0;
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<g clip-path="url(#clip0)">
+<path d="M382.12 0H0V270.13H382.12V0Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+<path d="M191.06 135.06H284.78C284.78 83.3 242.82 41.34 191.06 41.34C139.3 41.34 97.3398 83.3 97.3398 135.06C97.3398 186.82 139.3 228.78 191.06 228.78V135.06Z" fill="white"/>
+<path d="M191.06 228.79V135.07H97.3398C97.3398 186.83 139.3 228.79 191.06 228.79Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="382.12" height="270.13" fill="white"/>
+</clipPath>
+</defs>
+</svg>

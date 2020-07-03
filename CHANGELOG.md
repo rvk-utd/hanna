@@ -7,11 +7,27 @@
 - **BREAKING** feat: Wrap `.SearchInput`'s input in a div, add `<button/>`
 - feat: Set min-height on `.HeroBlock` and tweak vertical align
 
+
+## 0.4.2
+
+_2020-07-03_
+
+- feat: Improve styling of `.FormField__label__reqstar`
+- fix: logo spacing for `WizardLayout` in tablet/netbook
+- fix: `.AccordionList__content` not working correctly when sprinkled
+
+## 0.4.1
+
+_2020-06-19_
+
 - feat: Add component `PageHeading`
 - feat: Add `.SubHeading--wide` and `.SubHeading--align--right` styling
 - feat: Drop `.BasicTable--fullwidth` - make all tables wide by default
 - feat: Drop experimental `.AccordionList--fullwidth`, add
   `.AccordionList--wide`
+- fix: Stablize `.IslandBlock__content` widths, paddings, margins
+- fix: Stablize `.AccordionList` width, left-padding and icon-placement
+- fix: Minor tweaks/fixes for `InfoBlock`, `TextBlock`, and a few others
 
 ## 0.4.0
 
