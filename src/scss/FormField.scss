@@ -47,6 +47,12 @@
 		@include sr-only();
 	}
 
+	.FormField__label__reqstar {
+		border-bottom: none;
+		float: right;
+		margin-left: 0.25em;
+	}
+
 	// ---------------------------------------------------------------------------
 
 	.FormField__input {

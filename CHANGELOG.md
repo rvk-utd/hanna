@@ -4,6 +4,14 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.4.2
+
+_2020-07-03_
+
+- feat: Improve styling of `.FormField__label__reqstar`
+- fix: logo spacing for `WizardLayout` in tablet/netbook
+- fix: `.AccordionList__content` not working correctly when sprinkled
+
 ## 0.4.1
 
 _2020-06-19_
