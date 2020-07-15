@@ -102,6 +102,10 @@
 		flex-shrink: 1;
 		line-height: inherit;
 		color: inherit;
+
+		&:focus {
+			outline: 0;
+		}
 	}
 
 	// ---------------------------------------------------------------------------
