@@ -52,6 +52,14 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 		padding: prem($grid-unit * 4);
 		margin-bottom: $baseVMargin;
 		position: relative;
+
+		&:before {
+			content: '”';
+			font-size: prem(64);
+			position: absolute;
+			top: prem($grid-unit * 4);
+			left: prem($grid-unit * 0);
+		}
 	}
 
 	a:not(.Button) {
