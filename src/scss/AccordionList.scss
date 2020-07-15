@@ -86,7 +86,7 @@
 	html.before-sprinkling .AccordionList__content {
 		display: none;
 	}
-	.AccordionList[data-sprinkled] > .AccordionList__content {
+	.AccordionList__item[data-sprinkled] > .AccordionList__content {
 		display: block;
 	}
 	.AccordionList__content[hidden] {
