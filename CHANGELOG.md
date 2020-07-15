@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: fixed html height was messing up absolute positions
+- fix: correct icon position for `Datepicker`
+- fix: disable browser default focus outline on nested input fields
 
 ## 0.4.2
 
