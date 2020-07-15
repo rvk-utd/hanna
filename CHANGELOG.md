@@ -8,6 +8,16 @@
 - feat: Set min-height on `.HeroBlock` and tweak vertical align
 
 
+## 0.4.3
+
+_2020-07-15_
+
+- fix: fixed html height was messing up absolute positions
+- fix: correct icon position for `Datepicker`
+- fix: disable browser default focus outline on nested input fields
+- fix: add basic quotes to blockquote
+- fix: add correct link styles to `TextContent` links
+
 ## 0.4.2
 
 _2020-07-03_
