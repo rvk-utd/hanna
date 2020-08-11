@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add "Efnistákn" (See [1](src/assets/efnistakn/files.json),
+  [2](src/assets/efnistakn/menu/files.json)) and
+  "[Formheimur](src/assets/formheimur/files.json)" SVG assets.
 
 ## 0.4.3
 
