@@ -6,7 +6,9 @@
 		@include bodyPaddingInner(margin, true);
 	
 		width: 100vw;
-		overflow-y: scroll;
+
+		overflow-x: scroll;
+		overflow-y: hidden;
 
 		@media #{$mq-tablet_up} {
 			width: auto;
@@ -71,26 +73,46 @@
 		&--portrait &__inner::before {
 			padding-bottom: percentage(376/272);
 		}
+
+		&__image {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
+			height: 100%;
+
+			@supports (object-fit: cover) {
+				width: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
 		
 		&__caption {
 			@include BodyTextStyle--large($leading: false);
 
 			display: flex;
 
-			// 2x lines + padding
-			min-height: calc(2.5em + #{prem(8)});
 			padding-top: prem(8);
+			// how are we handling long captions?
+			// 2x lines + padding explicitly set
+			height: calc(2.5em + #{prem(8)});
+			
 
 			line-height: 1.25;
 		}
 	}
 
 	.GalleryNav {
+		// just scroll items in mobile?
 		display: none;
 
 		@media #{$mq-tablet_up} {
 			display: flex;
 			align-items: flex-end;
+			// how are we positioning the nav?
 			// justify-content: center;
 
 			// if aligned below
