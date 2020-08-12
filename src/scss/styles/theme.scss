@@ -1,32 +1,32 @@
 @use '_globals' as *;
 
 @mixin theme() {
-	html,
-	[data-color-theme='trustworthy'] {
+	:root:root,
+	[data-color-theme][data-color-theme='trustworthy'] {
 		--theme-color-primary: #{$color-faxafloi-100};
 		--theme-color-secondary: #{$color-sund-100};
 		--theme-color-tertiary: #{$color-ellidarardalur-100};
 	}
 
-	[data-color-theme='dependable'] {
+	[data-color-theme][data-color-theme='dependable'] {
 		--theme-color-primary: #{$color-faxafloi-100};
 		--theme-color-secondary: #{$color-nautholsvik-100};
 		--theme-color-tertiary: #{$color-sund-100};
 	}
 
-	[data-color-theme='friendly'] {
+	[data-color-theme][data-color-theme='friendly'] {
 		--theme-color-primary: #{$color-ellidarardalur-100};
 		--theme-color-secondary: #{$color-rokkur-100};
 		--theme-color-tertiary: #{$color-nautholsvik-100};
 	}
 
-	[data-color-theme='lively'] {
+	[data-color-theme][data-color-theme='lively'] {
 		--theme-color-primary: #{$color-sund-100};
 		--theme-color-secondary: #{$color-rokkur-100};
 		--theme-color-tertiary: #{$color-nautholsvik-100};
 	}
 
-	[data-color-theme='colorful'] {
+	[data-color-theme][data-color-theme='colorful'] {
 		--theme-color-primary: #{$color-heidmork-100};
 		--theme-color-secondary: #{$color-nautholsvik-100};
 		--theme-color-tertiary: #{$color-esja-100};
