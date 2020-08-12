@@ -80,13 +80,13 @@
 	$offset: between_phone_phablet(0, 60);
 
 	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:first-child,
-	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__image,
-	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:last-child {
+	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:last-child,
+	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__image {
 		margin-right: $offset;
 	}
 	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:first-child,
-	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__image,
-	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:last-child {
+	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:last-child,
+	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__image {
 		margin-left: $offset;
 	}
 
