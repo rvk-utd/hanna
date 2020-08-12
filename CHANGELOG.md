@@ -3,6 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.5.0
+
+_2020-08-12_
+
+- **BREAKING** target: **Hanna 0.5** markup patterns
 - **BREAKING** feat: Drop support for `.HeroBlock--align--right`
 - **BREAKING** feat: Wrap `.SearchInput`'s input in a div, add `<button/>`
 - feat: Set min-height on `.HeroBlock` and tweak vertical align
@@ -47,7 +53,7 @@ _2020-06-19_
 
 _2020-06-09_
 
-- feat: Bump minor version to match `hanna-components`
+- **BREAKING** target: **Hanna 0.4** markup patterns
 - feat: add largetext variant for `TextBlock`
 - feat: Add `WizardLayoutClose` mini component
 - fix: add missing margin to single `Checkbox`
