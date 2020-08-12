@@ -100,6 +100,7 @@
 @media #{$mq-tablet_up} {
 	.IslandBlock {
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
 	}
 	.IslandBlock--align--right > .IslandBlock__content:last-child,
