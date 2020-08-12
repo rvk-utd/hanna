@@ -6,6 +6,7 @@
 - feat: Add "Efnistákn" (See [1](src/assets/efnistakn/files.json),
   [2](src/assets/efnistakn/menu/files.json)) and
   "[Formheimur](src/assets/formheimur/files.json)" SVG assets.
+- feat: Style inlined "Formheimur" `<svg/>` assets in `IslandBlock`
 
 ## 0.4.3
 
