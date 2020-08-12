@@ -68,11 +68,11 @@
 		}
 	}
 
-	.GalleryItem--landscape &__inner::before {
+	.GalleryItem--landscape .GalleryItem__inner::before {
 		padding-bottom: percentage(312/480);
 	}
 
-	.GalleryItem--portrait &__inner::before {
+	.GalleryItem--portrait .GalleryItem__inner::before {
 		padding-bottom: percentage(376/272);
 	}
 
@@ -166,7 +166,7 @@
 		}
 	}
 
-	.GalleryNav__item__button {
+	.GalleryNav__button {
 		@media #{$mq-tablet_up} {
 			display: block;
 			width: 100%;
