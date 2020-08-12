@@ -6,7 +6,11 @@
 - **BREAKING** feat: Drop support for `.HeroBlock--align--right`
 - **BREAKING** feat: Wrap `.SearchInput`'s input in a div, add `<button/>`
 - feat: Set min-height on `.HeroBlock` and tweak vertical align
-
+- feat: Add "Efnistákn" (See [1](src/assets/efnistakn/files.json),
+  [2](src/assets/efnistakn/menu/files.json)) and
+  "[Formheimur](src/assets/formheimur/files.json)" SVG assets.
+- feat: Style inlined "Formheimur" `<svg/>` assets in `IslandBlock`
+- fix: Set correct padding+margins on `IslandBlock`'s content blocks
 
 ## 0.4.3
 

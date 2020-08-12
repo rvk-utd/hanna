@@ -38,7 +38,7 @@
 			@include LinkStyle_Reset();
 		}
 
-		.#{$bem}__card__summary:after {
+		.#{$bem}__card:after {
 			content: '';
 			display: block;
 			width: grid-units(5);
@@ -46,6 +46,12 @@
 			background: currentColor;
 			margin-top: grid-units(2);
 			margin-bottom: grid-units(2);
+			transition: width 0.25s ease-in-out;
+		}
+
+		.#{$bem}__card:hover:after,
+		.#{$bem}__card:focus:after {
+			width: 100%;
 		}
 
 		.#{$bem}__card__title,
