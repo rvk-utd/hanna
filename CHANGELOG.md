@@ -7,6 +7,7 @@
   [2](src/assets/efnistakn/menu/files.json)) and
   "[Formheimur](src/assets/formheimur/files.json)" SVG assets.
 - feat: Style inlined "Formheimur" `<svg/>` assets in `IslandBlock`
+- fix: Set correct padding+margins on `IslandBlock`'s content blocks
 
 ## 0.4.3
 
