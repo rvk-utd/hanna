@@ -14,96 +14,99 @@
 			width: auto;
 			overflow: visible;
 		}
-
-		&__inner {
-			position: relative;
-		}
-
-		&__track {
-			display: flex;
-			align-items: flex-end;
-			flex-wrap: nowrap;
-
-			margin-left: -(prem($grid-gutter / 2));
-			margin-right: -(prem($grid-gutter / 2));
-
-			will-change: transform;
-
-			transition: transform 300ms ease-out;
-		}
-
-		&__item {
-			flex: none;
-			padding: 0 prem($grid-gutter / 2);
-		}
 	}
 
+	.Gallery__inner {
+		position: relative;
+	}
+
+	.Gallery__track {
+		display: flex;
+		align-items: flex-end;
+		flex-wrap: nowrap;
+
+		margin-left: -(prem($grid-gutter / 2));
+		margin-right: -(prem($grid-gutter / 2));
+
+		will-change: transform;
+
+		transition: transform 300ms ease-out;
+	}
+
+	.Gallery__item {
+		flex: none;
+		padding: 0 prem($grid-gutter / 2);
+	}
+
+	// ITEM
 	.GalleryItem {
 		// <figure>
 		flex: none;
 
 		margin: 0;
 		padding: 0 prem($grid-gutter / 2);
+	}
 
-		&--landscape {
-			width: calc(#{cols_pct(5)} + #{$grid-gutter}px);
+	.GalleryItem--landscape {
+		width: calc(#{cols_pct(5)} + #{$grid-gutter}px);
 			// width: prem(480 + $grid-gutter);
-		}
+	}
 
-		&--portrait {
-			width: calc(#{cols_pct(3)} + #{$grid-gutter}px);
+	.GalleryItem--portrait {
+		width: calc(#{cols_pct(3)} + #{$grid-gutter}px);
 			// width: prem(272 + $grid-gutter);
-		}
+	}
 
-		&__inner {
-			position: relative;
+	.GalleryItem__inner {
+		position: relative;
 
-			background: $color-suld-50;
+		background: $color-suld-50;
 
-			&::before {
-				content: '';
-				display: block;
-			}
-		}
-
-		&--landscape &__inner::before {
-			padding-bottom: percentage(312/480);
-		}
-
-		&--portrait &__inner::before {
-			padding-bottom: percentage(376/272);
-		}
-
-		&__image {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-
-			height: 100%;
-
-			@supports (object-fit: cover) {
-				width: 100%;
-				object-fit: cover;
-				object-position: center;
-			}
-		}
-		
-		&__caption {
-			@include BodyTextStyle--large($leading: false);
-
-			display: flex;
-
-			padding-top: prem(8);
-			// how are we handling long captions?
-			// 2x lines + padding explicitly set
-			height: calc(2.5em + #{prem(8)});
-			
-
-			line-height: 1.25;
+		&::before {
+			content: '';
+			display: block;
 		}
 	}
+
+	.GalleryItem--landscape &__inner::before {
+		padding-bottom: percentage(312/480);
+	}
+
+	.GalleryItem--portrait &__inner::before {
+		padding-bottom: percentage(376/272);
+	}
+
+	.GalleryItem__image {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		height: 100%;
+
+		@supports (object-fit: cover) {
+			width: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+		
+	.GalleryItem__caption {
+		@include BodyTextStyle--large($leading: false);
+
+		display: flex;
+
+		padding-top: prem(8);
+		// how are we handling long captions?
+		// 2x lines + padding explicitly set :: revisit when we have a solution
+		height: calc(2.5em + #{prem(8)});
+		
+		line-height: 1.25;
+	}
+
+
+	// NAV
 
 	.GalleryNav {
 		// just scroll items in mobile?
@@ -119,8 +122,11 @@
 			padding-top: prem(8);
 
 			height: prem(24 + 8);
+		}
+	}
 
-		&__item {
+	.GalleryNav__item {
+		@media #{$mq-tablet_up} {
 			flex: none;
 
 			position: relative;
@@ -150,21 +156,23 @@
 				margin-right: 0;
 			}
 		}
+	}
 		
-			&__item--isActive {
-				background: var(--theme-color-primary);
+	.GalleryNav__item--isActive {
+		@media #{$mq-tablet_up} {
+			background: var(--theme-color-primary);
 			
-				transform: none;
-			}
-
-			&__button {
-				display: block;
-				width: 100%;
-				height: 100%;
-
-				text-indent: 9px;
-			}
+			transform: none;
 		}
-		
+	}
+
+	.GalleryNav__item__button {
+		@media #{$mq-tablet_up} {
+			display: block;
+			width: 100%;
+			height: 100%;
+
+			text-indent: 9px;
+		}
 	}
 }
