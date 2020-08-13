@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.5.1
+
+_2020-08-13_
+
 - fix: Upgrade Formheimur assets with custom theme-color tweaks
 
 ## 0.5.0
