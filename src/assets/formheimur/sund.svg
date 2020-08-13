@@ -1,12 +1,32 @@
-<svg width="360" height="271" viewBox="0 0 360 271" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="360" height="271" viewBox="0 0 360 271" fill="none" xmlns="http://www.w3.org/2000/svg" class="formheimur-sund">
 <style>
 	:root {
-		--theme-color-primary: #727477;
-		--theme-color-secondary: #c7cbd0;
-		--theme-color-tertiary: #e3e5e7;
+		--litur1: #727477;
+		--litur2: #c0c6cb;
+		--litur3: #e3e5e7;
+	}
+	:root .formheimur-sund {
+		--litur1: var(--theme-color-primary);
+		--litur2: var(--theme-color-secondary);
+		--litur3: var(--theme-color-tertiary);
+	}
+
+	/* Frávik */
+	[data-color-theme='trustworthy'] .formheimur-sund {
+		--litur2: var(--theme-color-tertiary);
+		--litur3: var(--theme-color-secondary);
+	}
+	[data-color-theme='friendly'] .formheimur-sund,
+	[data-color-theme='lively'] .formheimur-sund {
+		--litur1: var(--theme-color-tertiary);
+		--litur3: var(--theme-color-primary);
+	}
+	[data-color-theme='colorful'] .formheimur-sund {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
 	}
 </style>
-<path d="M359.309 270.47L359.309 0L0.00012207 0L0.00012207 270.47L359.309 270.47Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
+<path d="M359.309 270.47L359.309 0L0.00012207 0L0.00012207 270.47L359.309 270.47Z" fill="var(--litur3)"/>
 <path d="M157.338 30.3024H151.095V40.7106H157.338V30.3024Z" fill="white"/>
 <path d="M157.338 49.9602H151.095V60.3684H157.338V49.9602Z" fill="white"/>
 <path d="M157.338 69.6276H151.095V80.0358H157.338V69.6276Z" fill="white"/>
@@ -15,9 +35,9 @@
 <path d="M157.338 190.438H151.095V200.846H157.338V190.438Z" fill="white"/>
 <path d="M157.338 210.105H151.095V220.513H157.338V210.105Z" fill="white"/>
 <path d="M157.338 229.763H151.095V240.171H157.338V229.763Z" fill="white"/>
-<path d="M157.338 129.559H151.095V139.967H157.338V129.559Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
-<path d="M157.338 149.523H151.095V159.931H157.338V149.523Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
-<path d="M157.338 169.487H151.095V179.895H157.338V169.487Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M157.338 129.559H151.095V139.967H157.338V129.559Z" fill="var(--litur2)"/>
+<path d="M157.338 149.523H151.095V159.931H157.338V149.523Z" fill="var(--litur2)"/>
+<path d="M157.338 169.487H151.095V179.895H157.338V169.487Z" fill="var(--litur2)"/>
 <path d="M208.316 168.539H202.073V178.947H208.316V168.539Z" fill="white"/>
 <path d="M208.316 148.881H202.073V159.29H208.316V148.881Z" fill="white"/>
 <path d="M208.316 129.214H202.073V139.622H208.316V129.214Z" fill="white"/>
@@ -28,9 +48,9 @@
 <path d="M310.369 129.214H304.125V139.622H310.369V129.214Z" fill="white"/>
 <path d="M310.369 109.556H304.125V119.964H310.369V109.556Z" fill="white"/>
 <path d="M310.369 89.8887H304.125V100.297H310.369V89.8887Z" fill="white"/>
-<path d="M310.369 70.2309H304.125V80.6391H310.369V70.2309Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
-<path d="M310.369 50.2667H304.125V60.6749H310.369V50.2667Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
-<path d="M310.369 30.3024H304.125V40.7106H310.369V30.3024Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M310.369 70.2309H304.125V80.6391H310.369V70.2309Z" fill="var(--litur2)"/>
+<path d="M310.369 50.2667H304.125V60.6749H310.369V50.2667Z" fill="var(--litur2)"/>
+<path d="M310.369 30.3024H304.125V40.7106H310.369V30.3024Z" fill="var(--litur2)"/>
 <path d="M259.286 30.3024H253.042V40.7106H259.286V30.3024Z" fill="white"/>
 <path d="M259.285 49.9602H253.042V60.3684H259.285V49.9602Z" fill="white"/>
 <path d="M259.285 69.6276H253.042V80.0358H259.285V69.6276Z" fill="white"/>
@@ -52,25 +72,25 @@
 <path d="M55.1717 190.438H48.9287V200.846H55.1717V190.438Z" fill="white"/>
 <path d="M55.1712 210.105H48.9282V220.513H55.1712V210.105Z" fill="white"/>
 <path d="M55.1712 229.763H48.9282V240.171H55.1712V229.763Z" fill="white"/>
-<path d="M208.316 228.001H202.073V238.409H208.316V228.001Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M208.316 208.037H202.073V218.445H208.316V208.037Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M208.316 188.073H202.073V198.481H208.316V188.073Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M208.316 70.2309H202.073V80.6391H208.316V70.2309Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M208.316 50.2667H202.073V60.6749H208.316V50.2667Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M208.316 30.3024H202.073V40.7106H208.316V30.3024Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M310.369 228.001H304.125V238.409H310.369V228.001Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M310.369 208.037H304.125V218.445H310.369V208.037Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M310.369 188.073H304.125V198.481H310.369V188.073Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M259.285 129.559H253.042V139.967H259.285V129.559Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M259.285 149.523H253.042V159.931H259.285V149.523Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M259.285 169.487H253.042V179.895H259.285V169.487Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M106.254 228.001H100.011V238.409H106.254V228.001Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M106.254 208.037H100.011V218.445H106.254V208.037Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M106.255 188.073H100.012V198.481H106.255V188.073Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M106.254 70.2309H100.011V80.6391H106.254V70.2309Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M106.254 50.2667H100.011V60.6749H106.254V50.2667Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M106.255 30.3024H100.012V40.7106H106.255V30.3024Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M55.1717 129.559H48.9287V139.967H55.1717V129.559Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M55.1707 149.523H48.9277V159.931H55.1707V149.523Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M55.1707 169.487H48.9277V179.895H55.1707V169.487Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M208.316 228.001H202.073V238.409H208.316V228.001Z" fill="var(--litur1)"/>
+<path d="M208.316 208.037H202.073V218.445H208.316V208.037Z" fill="var(--litur1)"/>
+<path d="M208.316 188.073H202.073V198.481H208.316V188.073Z" fill="var(--litur1)"/>
+<path d="M208.316 70.2309H202.073V80.6391H208.316V70.2309Z" fill="var(--litur1)"/>
+<path d="M208.316 50.2667H202.073V60.6749H208.316V50.2667Z" fill="var(--litur1)"/>
+<path d="M208.316 30.3024H202.073V40.7106H208.316V30.3024Z" fill="var(--litur1)"/>
+<path d="M310.369 228.001H304.125V238.409H310.369V228.001Z" fill="var(--litur1)"/>
+<path d="M310.369 208.037H304.125V218.445H310.369V208.037Z" fill="var(--litur1)"/>
+<path d="M310.369 188.073H304.125V198.481H310.369V188.073Z" fill="var(--litur1)"/>
+<path d="M259.285 129.559H253.042V139.967H259.285V129.559Z" fill="var(--litur1)"/>
+<path d="M259.285 149.523H253.042V159.931H259.285V149.523Z" fill="var(--litur1)"/>
+<path d="M259.285 169.487H253.042V179.895H259.285V169.487Z" fill="var(--litur1)"/>
+<path d="M106.254 228.001H100.011V238.409H106.254V228.001Z" fill="var(--litur1)"/>
+<path d="M106.254 208.037H100.011V218.445H106.254V208.037Z" fill="var(--litur1)"/>
+<path d="M106.255 188.073H100.012V198.481H106.255V188.073Z" fill="var(--litur1)"/>
+<path d="M106.254 70.2309H100.011V80.6391H106.254V70.2309Z" fill="var(--litur1)"/>
+<path d="M106.254 50.2667H100.011V60.6749H106.254V50.2667Z" fill="var(--litur1)"/>
+<path d="M106.255 30.3024H100.012V40.7106H106.255V30.3024Z" fill="var(--litur1)"/>
+<path d="M55.1717 129.559H48.9287V139.967H55.1717V129.559Z" fill="var(--litur1)"/>
+<path d="M55.1707 149.523H48.9277V159.931H55.1707V149.523Z" fill="var(--litur1)"/>
+<path d="M55.1707 169.487H48.9277V179.895H55.1707V169.487Z" fill="var(--litur1)"/>
 </svg>

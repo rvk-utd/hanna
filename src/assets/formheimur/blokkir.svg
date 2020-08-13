@@ -1,15 +1,36 @@
-<svg width="375" height="281" viewBox="0 0 375 281" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="375" height="281" viewBox="0 0 375 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="formheimur-blokkir">
 <style>
 	:root {
-		--theme-color-primary: #727477;
-		--theme-color-secondary: #c7cbd0;
-		--theme-color-tertiary: #e3e5e7;
+		--litur1: #727477;
+		--litur2: #c0c6cb;
+		--litur3: #e3e5e7;
+	}
+	:root .formheimur-blokkir {
+		--litur1: var(--theme-color-primary);
+		--litur2: var(--theme-color-secondary);
+		--litur3: var(--theme-color-tertiary);
+	}
+
+	/* Frávik */
+	[data-color-theme='trustworthy'] .formheimur-blokkir {
+		--litur1: var(--theme-color-tertiary);
+		--litur2: var(--theme-color-primary);
+		--litur3: var(--theme-color-secondary);
+	}
+	[data-color-theme='lively'] .formheimur-blokkir {
+		--litur1: var(--theme-color-tertiary);
+		--litur3: var(--theme-color-primary);
+	}
+	[data-color-theme='colorful'] .formheimur-blokkir {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
 	}
 </style>
-<path d="M375 0H0V281H375V0Z" fill="#e3e5e7" style="fill: var(--theme-color-tertiary)"/>
-<path d="M375 187.33H0V281H375V187.33Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
-<path d="M375 93.67H0V187.34H375V93.67Z" fill="white"/>
-<path d="M201.39 93.67H173.12V187.34H201.39V93.67Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
-<path d="M99.54 93.67H71.26V187.34H99.53V93.67H99.54Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
-<path d="M302.58 93.67H274.31V187.34H302.58V93.67Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+
+<path d="M375 0H0V281H375V0Z" fill="var(--litur3)"/>
+<path d="M375 187H0V281H375V187Z" fill="var(--litur1)"/>
+<path d="M375 94H0V187H375V94Z" fill="white"/>
+<path d="M201 94H173V187H201V94Z" fill="var(--litur2)"/>
+<path d="M100 94H71V187H100V94Z" fill="var(--litur2)"/>
+<path d="M303 94H274V187H303V94Z" fill="var(--litur2)"/>
 </svg>
