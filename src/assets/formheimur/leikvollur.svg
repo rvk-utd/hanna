@@ -1,13 +1,29 @@
-<svg width="375" height="272" viewBox="0 0 375 272" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="375" height="272" viewBox="0 0 375 272" fill="none" xmlns="http://www.w3.org/2000/svg" class="formheimur-leikvollur">
 <style>
 	:root {
-		--theme-color-primary: #727477;
-		--theme-color-secondary: #c7cbd0;
-		--theme-color-tertiary: #e3e5e7;
+		--litur1: #727477;
+		--litur2: #c0c6cb;
+	}
+	:root .formheimur-leikvollur {
+		--litur1: var(--theme-color-primary);
+		--litur2: var(--theme-color-secondary);
+	}
+
+	/* Frávik */
+	[data-color-theme='trustworthy'] .formheimur-leikvollur {
+		--litur1: var(--theme-color-tertiary);
+		--litur2: var(--theme-color-primary);
+	}
+	[data-color-theme='friendly'] .formheimur-leikvollur {
+		--litur2: var(--theme-color-tertiary);
+	}
+	[data-color-theme='colorful'] .formheimur-leikvollur {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
 	}
 </style>
-<path d="M375 0H0V272H375V0Z" fill="#727477" style="fill: var(--theme-color-primary)"/>
+<path d="M375 0H0V272H375V0Z" fill="var(--litur1)"/>
 <path d="M375 193H0V210H375V193Z" fill="white"/>
 <path d="M188 103C160.55 103 134.53 92.21 114.74 72.63C94.92 53.02 84 27.23 84 0H104C104 21.84 112.81 42.59 128.81 58.41C144.83 74.27 165.85 83 188 83C210.15 83 231.17 74.27 247.19 58.41C263.19 42.59 272 21.84 272 0H292C292 27.22 281.08 53.02 261.26 72.63C241.47 92.22 215.45 103 188 103Z" fill="white"/>
-<path d="M315.5 199C326.27 199 335 190.27 335 179.5C335 168.73 326.27 160 315.5 160C304.73 160 296 168.73 296 179.5C296 190.27 304.73 199 315.5 199Z" fill="#c7cbd0" style="fill: var(--theme-color-secondary)"/>
+<path d="M315.5 199C326.27 199 335 190.27 335 179.5C335 168.73 326.27 160 315.5 160C304.73 160 296 168.73 296 179.5C296 190.27 304.73 199 315.5 199Z" fill="var(--litur2)"/>
 </svg>

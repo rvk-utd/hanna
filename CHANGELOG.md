@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Upgrade Formheimur assets with custom theme-color tweaks
 
 ## 0.5.0
 
