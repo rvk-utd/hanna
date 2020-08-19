@@ -10,7 +10,7 @@
 	}
 
 	.ImageCards--background {
-		background-color: $color-suld-50;
+		background-color: $color-suld-25;
 		padding: between_phone_netbook(40, 136) 0;
 		@include extendBackgroundWithUnderlay();
 		@include media($mq-wide) {
