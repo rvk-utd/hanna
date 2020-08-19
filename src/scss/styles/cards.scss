@@ -2,32 +2,53 @@
 @use 'font' as *;
 @use 'links' as *;
 
-@mixin Card($bem, $wrapperClass: $bem) {
+@mixin CardGrid($bem, $wrapperClass: $bem, $cols: 3) {
 	@media screen {
 		.#{$wrapperClass} {
 			color: $color-suld-200;
 			display: grid;
 			grid-auto-flow: row;
-			gap: prem($grid-gutter) cols_pct(0, 1);
+			gap: prem($grid-gutter) cols_pct(0, 1, $cols * 3);
 			grid-template-columns: repeat(4, 1fr);
 
-			@include media($mq-phone) {
+			@include media($mq-phone_phablet) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+		}
+
+		$listSelector: if($bem == $wrapperClass, $wrapperClass, $bem);
+		.#{$listSelector}__list {
+			display: grid;
+			grid-auto-flow: row;
+			gap: prem($grid-gutter) cols_pct(0, 1, $cols * 3);
+			grid-template-columns: repeat($cols, 1fr);
+			grid-column: span $cols;
+
+			@include media($mq-phone_phablet) {
+				grid-column: span 1;
 				grid-template-columns: repeat(1, 1fr);
 			}
 
-			@include media($mq-phablet_tablet) {
+			@include media($mq-phablet) {
 				grid-template-columns: repeat(2, 1fr);
 			}
 
 			@include media($mq-tablet) {
-				grid-template-columns: repeat(3, 1fr);
+				grid-template-columns: repeat(2, 1fr);
 			}
 		}
+	}
+}
 
+@mixin Card($bem, $wrapperClass: $bem, $cols: 3, $grid: true) {
+	@if ($grid) {
+		@include CardGrid($bem, $wrapperClass, $cols);
+	}
+
+	@media screen {
 		.#{$bem}__title {
 			@include HeadingStyle--small();
 			width: 100%;
-			grid-column: 1/-1;
 		}
 
 		.#{$bem}__card {
