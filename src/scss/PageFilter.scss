@@ -1,0 +1,100 @@
+/*!@deps
+	TextInput
+	Selectbox
+	ButtonPrimary
+	ButtonTertiary
+*/
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.PageFilter {
+		background-color: $color-suld-25;
+		padding: between_cols(30, 80) 0 between_cols(20, 40) 0;
+		margin-bottom: between_cols(30, 100);
+		@include extendBackgroundWithUnderlay();
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+	.PageFilter:before {
+		border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
+
+		@include media($mq-wide) {
+			border-width: prem(24);
+		}
+	}
+
+	.PageFilter__title {
+		@include HeadingStyle--small();
+		margin-bottom: em(20/64);
+		width: 100%;
+	}
+	.PageFilter__summary {
+		// @include BodyTextStyle--small();
+		margin-bottom: prem(20);
+		width: 100%;
+	}
+
+	.PageFilter__filters {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-start;
+		margin-bottom: between_cols(10, 40);
+		width: 100%;
+		max-width: cols_px(9, 9);
+		flex-shrink: 0;
+	}
+	.PageFilter__filters > .FormField {
+		flex-shrink: 0;
+		margin-right: cols_pct(0, 1, 9, 9);
+		margin-bottom: prem(3 * $grid-unit);
+		// min-width: cols_pct(3, 2, 9, 9); // In FireFox the min-width becomes larger and thus only fits 2 FormFields per line.
+		min-width: cols_pct(3, 1, 9, 9);
+
+		@include media($mq-phone) {
+			width: 100%;
+		}
+	}
+
+	.PageFilter__buttons {
+		flex-basis: 1%;
+		align-self: flex-end;
+		margin-bottom: between_cols(10, 40);
+	}
+	.PageFilter__buttons > .ButtonPrimary {
+		margin-bottom: prem(3 * $grid-unit);
+		margin-right: -40px;
+	}
+	.PageFilter__buttons > .ButtonPrimary:last-child {
+		margin-right: 0;
+	}
+
+	.PageFilter__footnote {
+		width: 100%;
+		// @include BodyTextStyle--small();
+		position: relative;
+		margin-top: between_cols(30, 60);
+		padding-left: between_cols(10, 36);
+		color: $color-suld-150;
+	}
+	.PageFilter__footnote::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		margin: prem(4) 0;
+		border-left: prem(4) solid currentColor;
+	}
+	.PageFilter__footnote::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		border-top: 1px solid currentColor;
+		margin-top: between_cols(-12, -40);
+	}
+}
