@@ -1,0 +1,73 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/cards' as *;
+
+@include CardGrid('ImageCards');
+
+@media screen {
+	.ImageCards {
+		margin-bottom: prem(48);
+	}
+
+	.ImageCards--background {
+		background-color: $color-suld-25;
+		padding: between_phone_netbook(40, 136) 0;
+		@include extendBackgroundWithUnderlay();
+		@include media($mq-wide) {
+			padding: prem(136) 0;
+		}
+	}
+
+	.ImageCards__title {
+		display: block;
+		@include HeadingStyle--small();
+	}
+
+	.ImageCards__summary > .ImageCards__title {
+		margin-bottom: prem(16);
+	}
+
+	.ImageCards__list {
+		gap: between_phone_netbook(24, 80) cols_pct(0, 1, 9);
+		@include media($mq-wide) {
+			gap: prem(80) cols_pct(0, 1, 9);
+		}
+	}
+
+	.ImageCards__card {
+		color: $color-suld-200;
+		border-bottom: 1px solid $color-suld-200;
+		padding-bottom: between_phone_netbook(16, 32);
+		display: block;
+		height: 100%;
+		@include media($mq-wide) {
+			padding-bottom: prem(32);
+		}
+	}
+
+	.ImageCards__image {
+		display: block;
+		margin-bottom: between_phone_netbook(18, 24);
+	}
+
+	.ImageCards__card__title {
+		margin-bottom: grid-units(1);
+		display: block;
+		@include SubheadingStyle--small();
+	}
+
+	.ImageCards__card__meta {
+		@include BodyTextStyle--small();
+		color: $color-suld-150;
+		font-weight: 400;
+	}
+
+	.ImageCards__card:hover,
+	.ImageCards__card:focus,
+	.ImageCards__card:active {
+		border-color: $color-faxafloi-100;
+		text-decoration: none;
+		outline: none;
+		color: $color-faxafloi-100;
+	}
+}

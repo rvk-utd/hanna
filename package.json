@@ -1,6 +1,6 @@
 {
 	"name": "rvk-styles",
-	"version": "0.4.3",
+	"version": "0.5.1",
 	"main": "index.js",
 	"license": "MIT",
 	"private": true,
@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"@hugsmidjan/gulp-iconfont": "^0.3.2",
-		"@hugsmidjan/gulp-images": "^0.1.5",
+		"@hugsmidjan/gulp-images": "^0.1.7",
 		"@hugsmidjan/gulp-sass": "^0.1.2",
 		"@hugsmidjan/hxmstyle": "^2.4.0",
 		"del": "^5.1.0",

@@ -7,24 +7,78 @@
 @media screen {
 	.SearchInput {
 	}
-	.SearchInput::after {
+
+	.SearchInput__input {
+	}
+
+	// underlying inactive button-like icon
+	.SearchInput > .FormField__input::after {
 		@include icon($icons-search);
 		display: block;
-		color: $color-suld-0;
-		font-size: prem(20);
 		position: absolute;
-		top: prem(12);
+		top: 50%;
+		transform: translateY(-50%);
 		right: prem(20);
 		width: prem(48);
+		font-size: prem(20);
 		line-height: prem(32);
 		padding-left: prem(24);
 		color: $color-suld-150;
-		border-left: 2px solid $color-suld-150;
+		border-left: 2px solid currentColor;
 		pointer-events: none;
 	}
-	.FormField--focused .SearchInput::after {
-		border-color: $color-faxafloi-100;
+	.SearchInput.FormField--small > .FormField__input::after {
+		line-height: prem(22);
+	}
+	.SearchInput.FormField--focused > .FormField__input::after {
 		color: $color-faxafloi-100;
+	}
+
+	// Optional button, which then overlaps + hides the ::after pseudo.
+	.SearchInput__button {
+		@include hideText(soft);
+		position: absolute;
+		top: 2px;
+		bottom: 2px;
+		right: 2px;
+		z-index: 1;
+		width: prem(66);
+		display: flex;
+		align-items: center;
+		background-color: $color-suld-0;
+		color: $color-suld-150;
+		font-size: prem(20);
+	}
+	.SearchInput__button:hover,
+	.SearchInput__button:focus {
+		color: $color-faxafloi-100;
+	}
+	.SearchInput__button::before {
+		@include icon($icons-search);
+		width: calc(100% - 2px);
+		margin-right: 1px;
+		padding-left: prem(6);
+		transition: all 150ms ease-in-out;
+	}
+	.SearchInput__button:hover::before,
+	.SearchInput__button:focus::before {
+		background-color: $color-suld-25;
+		transform: scale(1.15);
+	}
+	.SearchInput__button::after {
+		content: '';
+		order: -1;
+		position: relative;
+		z-index: 1;
+		height: percentage(32/50);
+		border-left: 2px solid currentColor;
+	}
+
+	// Remove this warning in v0.8+
+	.SearchInput > input.FormField__input {
+		warning: 'this `<input/>` must be wrapped in a div as of v0.5';
+		box-shadow: 0 0 2px 0 rgba(red, 0.5);
+		transform: skewY(deg(3));
 	}
 }
 

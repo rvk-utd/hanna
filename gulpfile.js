@@ -82,6 +82,11 @@ const copyToDevCssFolder = () =>
 		dest(publishDevCssFolder)
 	);
 
+const copyNonImagesToAssetFolder = () =>
+	src(sourceFolder + 'assets/**/*.{json,txt}', { base: sourceFolder + 'assets/' }).pipe(
+		dest(assetsDistFolder)
+	);
+
 const commitCssToGit = makeGitCommitTask(publishCssFolder);
 const commitDevCssToGit = makeGitCommitTask(publishDevCssFolder);
 const commitAssetsToGit = makeGitCommitTask(assetsDistFolder.replace(/\/$/, ''));
@@ -98,7 +103,10 @@ const buildCss = series(
 	cleanupCSS,
 	parallel(imagesCompress, series(iconfontBundle, sassBuild))
 );
-const buildAssets = series(cleanupAssets, staticAssetsCompress);
+const buildAssets = series(
+	cleanupAssets,
+	parallel(copyNonImagesToAssetFolder, staticAssetsCompress)
+);
 
 // -------------------------
 
