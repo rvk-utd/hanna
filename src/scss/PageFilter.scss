@@ -16,7 +16,7 @@
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-between;
-		align-items: flex-end;
+		align-items: flex-start;
 	}
 	.PageFilter:before {
 		border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
