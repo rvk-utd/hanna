@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add `PageFilter` component
+- feat: Add `PageFilter` and `ImageCards` components
 
 ## 0.5.1
 
