@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: add `ImageCards` component
 
 ## 0.5.1
 
