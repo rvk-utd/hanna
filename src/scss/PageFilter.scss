@@ -59,14 +59,9 @@
 	}
 
 	.PageFilter__buttons {
-		flex-basis: 1%;
-		align-self: flex-end;
 		margin-bottom: between_cols(10, 40);
 	}
-	.PageFilter__buttons > .ButtonPrimary {
-		margin-bottom: prem(3 * $grid-unit);
-		margin-right: -40px;
-	}
+	.PageFilter__buttons > .ButtonTertiary:last-child,
 	.PageFilter__buttons > .ButtonPrimary:last-child {
 		margin-right: 0;
 	}
