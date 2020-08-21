@@ -1,0 +1,66 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/layout' as *;
+
+@media screen {
+	.Bling {
+		display: none;
+	}
+}
+
+@media #{$mq-tablet_up} {
+	.Bling {
+		display: block; // override default hidden state
+		position: absolute;
+		z-index: -1;
+		pointer-events: none;
+	}
+	.Bling > svg {
+		width: 100%;
+		height: auto;
+		display: block;
+		margin: 0 -50%;
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.Bling--size--small {
+		width: cols_pct(4, 4);
+	}
+	.Bling--size--medium {
+		width: cols_pct(6, 6);
+	}
+	.Bling--size--large {
+		width: cols_pct(11, 11);
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.Bling--align--left {
+		left: cols_pct(1);
+	}
+	.Bling--align--right {
+		left: cols_pct(11, 11);
+	}
+	.Bling--align--right > svg {
+		transform: scaleX(-1);
+	}
+
+	// ---------------------------------------------------------------------------
+
+	// .Bling--vertical--up {
+	// 	transform: translateY(0%);
+	// }
+	.Bling--vertical--center {
+		transform: translateY(-50%);
+	}
+	.Bling--vertical--down {
+		transform: translateY(-100%);
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.Bling--overlay {
+		z-index: 1;
+	}
+}
