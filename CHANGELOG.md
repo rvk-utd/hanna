@@ -3,7 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add component `Bling`
+- feat: Add component `Bling`, and "[Bling](src/assets/bling/files.json)" SVG
+  assets
 - feat: Add components `PageFilter` and `ImageCards`
 - feat: Add "[Illustration](src/assets/illustrations/files.json)" PNG asssets
 
