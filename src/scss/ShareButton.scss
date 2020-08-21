@@ -1,0 +1,38 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.ShareButton {
+		@include hideText();
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: $color-faxafloi-100;
+		color: $color-suld-0;
+		position: relative;
+		display: inline-block;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			text-indent: 0;
+			text-align: center;
+			line-height: 35px;
+		}
+	}
+
+	.ShareButton + .ShareButton {
+		margin-left: prem(16);
+	}
+
+	.ShareButton--twitter::before {
+		content: 'T';
+	}
+
+	.ShareButton--facebook::before {
+		content: 'F';
+	}
+}
