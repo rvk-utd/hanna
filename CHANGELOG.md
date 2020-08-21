@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `Bling`'s `vertical` positioning was inverted
 
 ## 0.5.2
 
