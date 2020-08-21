@@ -1,1 +1,154 @@
-{}
+{
+	"atvinna1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/atvinna1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/atvinna1.png"
+	},
+	"atvinna2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/atvinna2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/atvinna2.png"
+	},
+	"atvinna3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/atvinna3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/atvinna3.png"
+	},
+	"borgarstjori1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/borgarstjori1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/borgarstjori1.png"
+	},
+	"borgarstjori2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/borgarstjori2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/borgarstjori2.png"
+	},
+	"borgarstjori3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/borgarstjori3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/borgarstjori3.png"
+	},
+	"born1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/born1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/born1.png"
+	},
+	"born2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/born2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/born2.png"
+	},
+	"born3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/born3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/born3.png"
+	},
+	"born4": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/born4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/born4.png"
+	},
+	"fjarlmal2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarlmal2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarlmal2.png"
+	},
+	"fjarmal1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarmal1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarmal1.png"
+	},
+	"fjarmal2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarmal2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarmal2.png"
+	},
+	"fjarmal3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarmal3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarmal3.png"
+	},
+	"fjarmal4": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarmal4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarmal4.png"
+	},
+	"framkvæmdir1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvæmdir1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvæmdir1.png"
+	},
+	"framkvæmdir2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvæmdir2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvæmdir2.png"
+	},
+	"framkvæmdir3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvæmdir3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvæmdir3.png"
+	},
+	"framkvæmdir4": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvæmdir4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvæmdir4.png"
+	},
+	"fundargerd1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/fundargerd1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fundargerd1.png"
+	},
+	"rad1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/rad1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/rad1.png"
+	},
+	"rad2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/rad2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/rad2.png"
+	},
+	"rad3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/rad3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/rad3.png"
+	},
+	"svid1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/svid1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/svid1.png"
+	},
+	"svid2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/svid2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/svid2.png"
+	},
+	"tolfrædi1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/tolfrædi1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tolfrædi1.png"
+	},
+	"tolfrædi2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/tolfrædi2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tolfrædi2.png"
+	},
+	"tomstundir1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/tomstundir1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tomstundir1.png"
+	},
+	"tomstundir2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/tomstundir2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tomstundir2.png"
+	},
+	"tomstundir3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/tomstundir3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tomstundir3.png"
+	},
+	"tomstundir4": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/tomstundir4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tomstundir4.png"
+	},
+	"umhverfi1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/umhverfi1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/umhverfi1.png"
+	},
+	"umhverfi2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/umhverfi2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/umhverfi2.png"
+	},
+	"umhverfi3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/umhverfi3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/umhverfi3.png"
+	},
+	"velferd1": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/velferd1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/velferd1.png"
+	},
+	"velferd2": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/velferd2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/velferd2.png"
+	},
+	"velferd3": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/velferd3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/velferd3.png"
+	},
+	"velferd4": {
+		"src": "https://styles.reykjavik.is/assets/illustrations/velferd4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/velferd4.png"
+	}
+}

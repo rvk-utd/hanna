@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 111">
+<style>
+	:root {
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<polygon points="464.2,66.3 530,110.8 530,43.7 464.2,0 397.5,43.7 331.7,0 264.9,43.7 199.2,0 132.5,43.6 66.9,0
+	0,43.7 0,111 66.9,66.3 132.6,110.8 199.2,66.3 264.9,110.8 331.7,66.3 397.5,110.8" fill="var(--theme-color-tertiary)" opacity=".33"/>
+</svg>

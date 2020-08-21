@@ -7,3 +7,5 @@
 /public/css/dev/
 /public/css/*/*.css.map
 /src/scss/vars/icons.scss
+
+/assets-originals

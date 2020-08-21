@@ -2,7 +2,7 @@
 @use 'styles/cards' as *;
 @use 'styles/font' as *;
 
-@include Card('ExtraLinks', 'ExtraLinks__main');
+@include Card('ExtraLinks', 'ExtraLinks__main', 4);
 
 @media screen {
 	.ExtraLinks {
@@ -14,22 +14,34 @@
 		@include media($mq-wide) {
 			padding: grid-units(10) 0 grid-units(10) 0;
 		}
+	}
+	.ExtraLinks:before {
+		border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
 
-		&:before {
-			border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
-
-			@include media($mq-wide) {
-				border-width: prem(24);
-			}
+		@include media($mq-wide) {
+			border-width: prem(24);
 		}
 	}
 
 	.ExtraLinks__title {
 		margin-bottom: between_phone_netbook(20, 56);
 		overflow-wrap: break-word;
+		grid-column: 1/-1;
 
 		@include media($mq-wide) {
 			margin-bottom: grid-units(7);
+		}
+	}
+
+	.ExtraLinks__main {
+		@include media($mq-tablet) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	.ExtraLinks__list {
+		@include media($mq-tablet) {
+			grid-column: span 3;
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 
@@ -96,6 +108,9 @@
 	.ExtraLinks__main:not(:last-child) {
 		grid-template-columns: repeat(2, 1fr);
 		width: cols_pct(6);
+	}
+	.ExtraLinks__main:not(:last-child) > .ExtraLinks__list {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.ExtraLinks__related {
