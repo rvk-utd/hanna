@@ -3,9 +3,15 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.5.2
+
+_2020-08-21_
+
+- feat: Add component `PageFilter`
+- feat: Add component `ImageCards`
 - feat: Add component `Bling`, and "[Bling](src/assets/bling/files.json)" SVG
   assets
-- feat: Add components `PageFilter` and `ImageCards`
 - feat: Add "[Illustration](src/assets/illustrations/files.json)" PNG asssets
 
 ## 0.5.1
