@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Increase width of illustration containers to match new, wider crops
+- fix: Minor `IslandBlock` and `CityBlock` image tweaks
 - fix: `Bling`'s `vertical` positioning was inverted
 - fix: Revert removal of button `width: max-content` capping
 

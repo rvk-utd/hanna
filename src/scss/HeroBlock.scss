@@ -18,6 +18,7 @@
 	}
 	.HeroBlock__image {
 		display: block;
+		margin: 0 cols_pct(-1);
 		margin-top: grid-units(-1);
 		margin-bottom: grid-units(2);
 		order: 1;
@@ -78,15 +79,16 @@
 		position: absolute;
 		z-index: -1;
 		top: 50%;
-		right: 0;
-		width: cols_pct(6);
-		padding-top: cols_pct(6); // 110% of width
+		right: cols_pct(0, -1);
+		width: cols_pct(6, 7);
+		padding-top: cols_pct(6);
 		margin: 0;
 		transform: translateY(-50%);
 		pointer-events: none;
 	}
 
 	.HeroBlock__image > img {
+		visibility: hidden;
 		pointer-events: initial;
 		position: absolute;
 		top: 0;
