@@ -14,6 +14,7 @@
 		position: absolute;
 		z-index: -1;
 		pointer-events: none;
+		padding: 3.5% 0;
 	}
 	.Bling > svg {
 		width: 100%;
@@ -48,13 +49,13 @@
 
 	// ---------------------------------------------------------------------------
 
-	// .Bling--vertical--up {
+	// .Bling--vertical--down {
 	// 	transform: translateY(0%);
 	// }
 	.Bling--vertical--center {
 		transform: translateY(-50%);
 	}
-	.Bling--vertical--down {
+	.Bling--vertical--up {
 		transform: translateY(-100%);
 	}
 

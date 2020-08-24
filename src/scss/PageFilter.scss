@@ -67,6 +67,10 @@
 	.PageFilter__buttons > .ButtonTertiary:last-child,
 	.PageFilter__buttons > .ButtonPrimary:last-child {
 		margin-right: 0;
+		// The default max-content value triggers a FireFox flex-item width calculation bug,
+		// adding ~38ox of whitespace on right-hand-side when there's only a single buttuon.
+		// o_O   –– 2020-08-24
+		width: auto;
 	}
 
 	.PageFilter__footnote {
