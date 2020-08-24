@@ -35,7 +35,6 @@
 		position: relative;
 		display: block;
 	}
-
 	.CityBlock__image > img {
 		position: absolute;
 		top: 0;
@@ -43,17 +42,10 @@
 		width: 100%;
 		height: 100%;
 		margin: auto;
-		object-fit: cover;
-
-		@media #{$mq-tablet_up} {
-			object-fit: contain;
-		}
-	}
-	.CityBlock--largebox > .CityBlock__image > img {
-		object-fit: contain; // always contain illustrations
+		object-fit: contain;
 	}
 	.CityBlock--largeimage > .CityBlock__image > img {
-		object-fit: cover; // always cover large images
+		object-fit: cover;
 	}
 
 	.CityBlock__title {
@@ -86,8 +78,18 @@
 
 @media #{$mq-phone_phablet} {
 	.CityBlock__image {
+		margin: 0 cols_pct(-1);
+		height: between_phone_phablet(230, 350);
+		margin-bottom: prem(20);
+	}
+	.CityBlock--largebox > .CityBlock__image,
+	.CityBlock--largeimage > .CityBlock__image {
 		@include bodyPaddingInner(margin, true);
 		height: between_phone_phablet(200, 300);
+		margin-bottom: 0;
+	}
+	.CityBlock--largebox > .CityBlock__image > img {
+		object-fit: cover;
 	}
 }
 
@@ -138,10 +140,12 @@ $largeimage-minH: 880;
 	}
 
 	.CityBlock__image {
-		width: cols_pct(6);
+		margin: 0 cols_pct(0, -1);
+		width: cols_pct(6, 7);
 	}
 	.CityBlock--largebox > .CityBlock__image,
 	.CityBlock--largeimage > .CityBlock__image {
+		width: cols_pct(6);
 		box-sizing: content-box;
 		@include bodyPaddingInner(margin, true, left);
 		@include bodyPaddingInner(padding, false, left);
