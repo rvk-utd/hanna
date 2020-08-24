@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: `Bling`'s `vertical` positioning was inverted
+- fix: Revert removal of button `width: max-content` capping
 
 ## 0.5.2
 
