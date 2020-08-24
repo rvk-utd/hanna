@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: add component `NewsHero`
 
 ## 0.5.2
 
