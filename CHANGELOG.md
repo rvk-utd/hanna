@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `CityCouncilHero`
 - fix: `Bling`'s `vertical` positioning was inverted
 - fix: Revert removal of button `width: max-content` capping
 
