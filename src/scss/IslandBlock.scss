@@ -14,11 +14,14 @@
 	.IslandBlock__content {
 		padding: grid-units(2) 0;
 	}
+	.IslandBlock__image {
+		margin: 0 cols_pct(0, -1);
+	}
 	.IslandBlock--expanded > .IslandBlock__image,
 	.IslandBlock--expanded > .IslandBlock__content {
 		display: block;
+		padding: between_cols(20, 120) 0;
 		background-color: $color-suld-25;
-		padding: between_cols(20, 120);
 		@include bodyPaddingInner(margin, true);
 		@include bodyPaddingInner(padding);
 	}
@@ -61,9 +64,9 @@
 	}
 	.IslandBlock--expanded > .IslandBlock__image > svg {
 		position: absolute;
-		top: 0;
+		top: 50%;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translate(-50%, -50%);
 		height: 100%;
 		width: auto;
 	}
@@ -89,9 +92,12 @@
 	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__image {
 		margin-left: $offset;
 	}
-
 	.IslandBlock--expanded > .IslandBlock__image {
-		min-height: between_phone_phablet(175, 300);
+		min-height: between_phone_phablet(210, 400);
+	}
+	.IslandBlock--expanded > .IslandBlock__image > svg {
+		width: 100%;
+		height: auto;
 	}
 }
 
@@ -108,9 +114,11 @@
 		order: -1;
 	}
 
-	.IslandBlock__image,
 	.IslandBlock__content {
 		width: cols_pct(6);
+	}
+	.IslandBlock__image {
+		width: cols_pct(6, 7);
 	}
 
 	// ---------------------------------------------------------------------------
@@ -119,12 +127,11 @@
 		flex-flow: row;
 		align-items: stretch;
 	}
-	.IslandBlock--expanded > .IslandBlock__image,
 	.IslandBlock--expanded > .IslandBlock__content,
 	.IslandBlock--expanded > .IslandBlock__image {
 		box-sizing: content-box;
 		width: cols_pct(5, 5);
-		min-height: between_tablet_up(280, 400);
+		min-height: between_tablet_netbook(280, 400);
 		margin-bottom: between_cols(50, 105);
 
 		@include media($mq-wide) {
