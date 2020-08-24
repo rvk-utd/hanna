@@ -43,11 +43,20 @@
 		}
 	}
 
+	.NewsHero__title {
+		@include HeadingStyle--large();
+		margin: prem(32) 0 prem(24);
+	}
+
 	.NewsHero__meta {
 		font-size: prem($font-size-12);
 		color: $color-suld-150;
 		line-height: em(16 / $font-size-12);
 		order: -1;
+	}
+
+	.NewsHero__summary {
+		margin-bottom: prem(32);
 	}
 
 	.NewsHero__image {
@@ -69,14 +78,6 @@
 				margin-left: auto;
 			}
 		}
-	}
-
-	.NewsHero__summary {
-		margin-bottom: prem(32);
-	}
-
-	.NewsHero > .PageHeading {
-		margin: prem(32) 0 prem(24);
 	}
 
 	.NewsHero__bling {
