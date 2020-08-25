@@ -8,6 +8,7 @@
 
 @media screen {
 	.NewsHero {
+		position: relative;
 		display: flex;
 		flex-flow: column wrap;
 		padding: between_cols(0, 1 * $grid-unit) 0;
@@ -80,12 +81,7 @@
 		}
 	}
 
-	.NewsHero__bling {
-		display: none;
-		@include media($mq-tablet_up) {
-			display: block;
-			width: cols_pct(5, 5);
-			order: -1;
-		}
+	.NewsHero > .Bling {
+		top: 50%;
 	}
 }
