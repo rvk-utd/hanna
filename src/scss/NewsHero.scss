@@ -21,6 +21,10 @@
 	.NewsHero--align--right .NewsHero__content {
 		margin-left: auto;
 
+		@include media($mq-phablet_up) {
+			width: cols_pct(7);
+		}
+
 		@include media($mq-phone_phablet) {
 			width: 100%;
 		}
