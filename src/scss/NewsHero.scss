@@ -14,19 +14,11 @@
 		padding: between_cols(0, 1 * $grid-unit) 0;
 		margin-bottom: between_cols(30, 120);
 		@include media($mq-phablet_up) {
-			@include bodyPaddingInner(margin, true, right);
 			flex-flow: row nowrap;
 		}
 	}
 
-	.NewsHero--align--left {
-		@include media($mq-tablet_up) {
-			@include bodyPaddingInner(margin, true, left);
-			margin-right: 0;
-		}
-	}
-
-	.NewsHero--align--left .NewsHero__content {
+	.NewsHero--align--right .NewsHero__content {
 		margin-left: auto;
 
 		@include media($mq-phone_phablet) {
@@ -61,6 +53,7 @@
 	}
 
 	.NewsHero__image {
+		@include bodyPaddingInner(margin, true, right);
 		display: block;
 		margin-top: grid-units(-1);
 		margin-bottom: grid-units(2);
