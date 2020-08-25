@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: add component `NewsHero`
 - feat: Add dreprecation warnings for `.TextBlock__title` (Remove in v0.6)
 - feat: Add component `CityCouncilHero`
 - fix: Increase width of illustration containers to match new, wider crops
