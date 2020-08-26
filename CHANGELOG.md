@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: add component `Gallery`
 
 ## 0.5.3
 

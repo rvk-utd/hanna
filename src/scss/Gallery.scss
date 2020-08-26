@@ -1,0 +1,159 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	html.before-sprinkling {
+		.Gallery {
+			opacity: 0;
+		}
+
+		.GalleryItem__image {
+			position: static;
+		}
+	}
+
+	.Gallery {
+		position: relative;
+		@include bodyPaddingInner(margin, true);
+
+		width: 100vw;
+
+		overflow-x: scroll;
+		overflow-y: hidden;
+
+		@include media($mq-tablet_up) {
+			width: auto;
+			overflow: visible;
+		}
+	}
+
+	.Gallery__track {
+		display: flex;
+		align-items: flex-end;
+		flex-wrap: nowrap;
+
+		margin-left: -(prem($grid-gutter / 2));
+		margin-right: -(prem($grid-gutter / 2));
+
+		will-change: transform;
+
+		transition: transform 300ms ease-out;
+
+		@include media($mq-phone_phablet) {
+			transform: none !important;
+		}
+	}
+
+	.Gallery__item {
+		flex: none;
+		padding: 0 prem($grid-gutter / 2);
+	}
+
+	// ITEM
+	.GalleryItem {
+		// <figure>
+		flex: none;
+
+		margin: 0;
+		padding: 0 prem($grid-gutter / 2);
+		min-width: 200px;
+		width: cols_pct(3, 2);
+	}
+	.GalleryItem--landscape {
+		min-width: 345px;
+		width: cols_pct(5, 4);
+	}
+
+	.GalleryItem__image {
+		display: block;
+		position: relative;
+		background: $color-suld-50;
+		padding-bottom: percentage(376/272);
+	}
+	.GalleryItem--landscape > .GalleryItem__image {
+		padding-bottom: percentage(312/480);
+	}
+
+	.GalleryItem__image > img {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.GalleryItem__caption {
+		@include BodyTextStyle--large($leading: false);
+
+		display: flex;
+
+		padding-top: prem(8);
+		// how are we handling long captions?
+		// 2x lines + padding explicitly set :: revisit when we have a solution
+		height: calc(2.5em + #{prem(8)});
+
+		line-height: 1.25;
+	}
+
+	// NAV
+
+	.Gallery .CarouselStepper {
+		// just scroll items in mobile?
+		display: none;
+
+		@include media($mq-tablet_up) {
+			display: flex;
+			align-items: flex-end;
+			// how are we positioning the nav?
+			// justify-content: center;
+
+			// if aligned below
+			padding-top: prem(8);
+
+			height: prem(24 + 8);
+		}
+	}
+
+	.Gallery .CarouselStepper__button {
+		@include media($mq-tablet_up) {
+			flex: none;
+
+			position: relative;
+
+			width: 8px;
+			height: 100%;
+
+			margin-left: 4px;
+			margin-right: 4px;
+
+			overflow: hidden;
+			white-space: nowrap;
+
+			// should be variable for theming??
+			background: $color-faxafloi-50;
+
+			transform: scaleY((16/24));
+			transform-origin: bottom center;
+
+			transition: transform 100ms ease-in-out;
+
+			text-indent: 9px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.Gallery .CarouselStepper__button[aria-pressed='true'] {
+		@include media($mq-tablet_up) {
+			background: var(--theme-color-primary);
+			transform: none;
+		}
+	}
+}
