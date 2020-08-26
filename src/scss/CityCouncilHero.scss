@@ -1,0 +1,80 @@
+/*!@deps
+	ButtonTertiary
+	Bling
+*/
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.CityCouncilHero {
+		position: relative;
+		margin-bottom: between_cols(30, 100);
+		display: flex;
+		flex-flow: row-reverse;
+		justify-content: space-between;
+
+		@include media($mq-phone_phablet) {
+			flex-flow: column-reverse;
+		}
+	}
+
+	.CityCouncilHero__image {
+		position: relative;
+		@include bodyPaddingInner(margin, $neg: true);
+		padding-top: 75%;
+
+		@include media($mq-tablet_up) {
+			@include bodyPaddingInner(padding, $dir: left);
+			box-sizing: content-box;
+			width: cols_pct(6);
+			padding-top: px_pct(890);
+		}
+	}
+	.CityCouncilHero__image--missing {
+		background-color: $color-suld-50;
+	}
+	.CityCouncilHero__image > img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 33%;
+	}
+
+	.CityCouncilHero__content {
+		margin-top: between_cols(20, 120);
+		@include media($mq-tablet_up) {
+			width: cols_pct(6);
+			margin-bottom: px_pct(170);
+		}
+		@include media($mq-netbook_up) {
+			width: cols_pct(5);
+		}
+	}
+
+	.CityCouncilHero__name {
+		@include HeadingStyle--large();
+		margin-bottom: px_pct(40, 5);
+	}
+	.CityCouncilHero__jobtitle {
+		@include SubheadingStyle--large();
+		margin-bottom: prem(8);
+	}
+	.CityCouncilHero__party {
+		@include BodyTextStyle--large();
+		color: $color-suld-150;
+		margin-top: prem(8);
+	}
+	.CityCouncilHero__buttons {
+		margin-top: prem(35);
+	}
+	.CityCouncilHero__buttons > .ButtonTertiary {
+		display: block;
+	}
+
+	.CityCouncilHero > .Bling {
+		top: 100%;
+	}
+}

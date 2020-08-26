@@ -15,6 +15,7 @@
 	.TextBlock__title {
 		@include HeadingStyle--medium();
 		margin-bottom: $baseVMargin;
+		@include WARNING__('Deprecated. Use PageHeading/SubHeading');
 	}
 	.TextBlock {
 		@include textContent();
@@ -26,6 +27,11 @@
 
 	.TextBlock--largetext .TextBlock__title {
 		@include HeadingStyle--large();
+	}
+
+	.TextBlock .PageHeading,
+	.TextBlock .SubHeading {
+		@include WARNING__('Should NOT be used inside TextBlock');
 	}
 }
 

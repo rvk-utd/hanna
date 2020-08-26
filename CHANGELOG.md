@@ -3,7 +3,29 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add components `PageFilter`, `ImageCards` and `Gallery`
+- feat: add component `Gallery`
+
+## 0.5.3
+
+_2020-08-26_
+
+- feat: add component `NewsHero`
+- feat: Add dreprecation warnings for `.TextBlock__title` (Remove in v0.6)
+- feat: Add component `CityCouncilHero`
+- fix: Increase width of illustration containers to match new, wider crops
+- fix: Minor `IslandBlock` and `CityBlock` image tweaks
+- fix: `Bling`'s `vertical` positioning was inverted
+- fix: Revert removal of button `width: max-content` capping
+
+## 0.5.2
+
+_2020-08-21_
+
+- feat: Add component `PageFilter`
+- feat: Add component `ImageCards`
+- feat: Add component `Bling`, and "[Bling](src/assets/bling/files.json)" SVG
+  assets
+- feat: Add "[Illustration](src/assets/illustrations/files.json)" PNG asssets
 
 ## 0.5.1
 
@@ -19,7 +41,7 @@ _2020-08-12_
 - **BREAKING** feat: Drop support for `.HeroBlock--align--right`
 - **BREAKING** feat: Wrap `.SearchInput`'s input in a div, add `<button/>`
 - feat: Set min-height on `.HeroBlock` and tweak vertical align
-- feat: Add "Efnistákn" (See [1](src/assets/efnistakn/files.json),
+- feat: Add "Efnistákn" (see [1](src/assets/efnistakn/files.json),
   [2](src/assets/efnistakn/menu/files.json)) and
   "[Formheimur](src/assets/formheimur/files.json)" SVG assets.
 - feat: Style inlined "Formheimur" `<svg/>` assets in `IslandBlock`

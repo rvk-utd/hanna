@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 240">
+<style>
+	:root {
+		--theme-color-tertiary: #e3e5e7;
+	}
+</style>
+<path	d="M395.6,147.9C383.8,64.2,312.1,0,225.1,0C138.2,0,66.5,64.2,54.6,147.9H0V240h450v-92.1H395.6z"	fill="var(--theme-color-tertiary)" />
+</svg>
