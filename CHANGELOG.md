@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.5.3
+
+_2020-08-26_
+
 - feat: add component `NewsHero`
 - feat: Add dreprecation warnings for `.TextBlock__title` (Remove in v0.6)
 - feat: Add component `CityCouncilHero`
