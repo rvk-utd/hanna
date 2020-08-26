@@ -1,0 +1,49 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.ShareButtons__list {
+		display: flex;
+	}
+
+	.ShareButtons__link {
+		@include hideText();
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: $color-faxafloi-100;
+		color: $color-suld-0;
+		position: relative;
+		display: inline-block;
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $color-faxafloi-150;
+			color: $color-suld-0;
+		}
+	}
+
+	.ShareButtons__link::before {
+		@include icon($icons-facebook);
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		text-indent: 0;
+		text-align: center;
+		line-height: 35px;
+	}
+
+	.ShareButtons__item {
+		margin-left: prem(16);
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	// FIXME: Add the rest of the ShareButton icons
+	.ShareButtons__link--twitter::before {
+		content: $icons-twitter;
+	}
+}

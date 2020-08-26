@@ -176,15 +176,25 @@
 		right: 0;
 		margin: 0;
 		padding: between_cols(50, 150) 0;
-		@include extendSides();
 		background-color: $color-suld-0;
 		@include Layout__header--height(top);
-		border-bottom: 1px solid $color-suld-50;
-		box-shadow: 0 60px 100px -40px rgba(black, 0.03);
 	}
 	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel--active {
 		opacity: 1;
 		visibility: visible;
+	}
+
+	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: calc(50% - 50vw);
+		right: calc(50% - 50vw);
+		background: inherit;
+		border-bottom: 1px solid $color-suld-50;
+		box-shadow: 0 60px 100px -40px rgba(black, 0.03);
 	}
 
 	.MainMenu__mega__title {
@@ -257,12 +267,12 @@
 
 	.MainMenu__megapanel__backtomenu {
 		position: absolute;
-		right: prem(10);
 		top: 0;
-		margin-top: prem(-25);
+		right: 0;
+		margin-right: prem(-18);
 		width: prem(50);
 		line-height: prem(50);
-		font-size: prem(12);
+		font-size: prem(14);
 		opacity: 0.5;
 		@include hideText(soft);
 	}

@@ -4,6 +4,18 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.5.3
+
+_2020-08-26_
+
+- feat: add component `NewsHero`
+- feat: Add dreprecation warnings for `.TextBlock__title` (Remove in v0.6)
+- feat: Add component `CityCouncilHero`
+- fix: Increase width of illustration containers to match new, wider crops
+- fix: Minor `IslandBlock` and `CityBlock` image tweaks
+- fix: `Bling`'s `vertical` positioning was inverted
+- fix: Revert removal of button `width: max-content` capping
+
 ## 0.5.2
 
 _2020-08-21_

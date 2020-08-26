@@ -41,6 +41,7 @@
 	position: relative;
 	transition: all 150ms ease-in-out;
 	transition-property: border-color, background-color, color, text-shadow, box-shadow;
+	width: max-content;
 	max-width: 100%;
 	min-width: between_phone_netbook(100, 270);
 	font-size: prem($font-btn-size);
@@ -95,6 +96,7 @@
 
 	position: relative;
 	display: inline-block;
+	width: max-content;
 	vertical-align: middle;
 	white-space: nowrap;
 	font-size: prem($font-btn-size);
