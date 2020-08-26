@@ -13,6 +13,7 @@
 	}
 
 	.Gallery {
+		position: relative;
 		@include bodyPaddingInner(margin, true);
 
 		width: 100vw;
@@ -24,10 +25,6 @@
 			width: auto;
 			overflow: visible;
 		}
-	}
-
-	.Gallery__inner {
-		position: relative;
 	}
 
 	.Gallery__track {
@@ -59,51 +56,31 @@
 
 		margin: 0;
 		padding: 0 prem($grid-gutter / 2);
+		min-width: 200px;
+		width: cols_pct(3, 2);
 	}
-
 	.GalleryItem--landscape {
 		min-width: 345px;
 		width: cols_pct(5, 4);
 	}
 
-	.GalleryItem--portrait {
-		min-width: 200px;
-		width: cols_pct(3, 2);
-	}
-
-	.GalleryItem__inner {
+	.GalleryItem__image {
+		display: block;
 		position: relative;
-
 		background: $color-suld-50;
-
-		&::before {
-			content: '';
-			display: block;
-		}
+		padding-bottom: percentage(376/272);
 	}
-
-	.GalleryItem--landscape .GalleryItem__inner::before {
+	.GalleryItem--landscape > .GalleryItem__image {
 		padding-bottom: percentage(312/480);
 	}
 
-	.GalleryItem--portrait .GalleryItem__inner::before {
-		padding-bottom: percentage(376/272);
-	}
-
-	.GalleryItem__image {
+	.GalleryItem__image > img {
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		left: 0;
-		right: 0;
-
+		width: 100%;
 		height: 100%;
-
-		@supports (object-fit: cover) {
-			width: 100%;
-			object-fit: cover;
-			object-position: center;
-		}
+		object-fit: cover;
 	}
 
 	.GalleryItem__caption {
@@ -125,7 +102,7 @@
 		// just scroll items in mobile?
 		display: none;
 
-		@media #{$mq-tablet_up} {
+		@include media($mq-tablet_up) {
 			display: flex;
 			align-items: flex-end;
 			// how are we positioning the nav?
@@ -139,7 +116,7 @@
 	}
 
 	.Gallery .CarouselStepper__button {
-		@media #{$mq-tablet_up} {
+		@include media($mq-tablet_up) {
 			flex: none;
 
 			position: relative;
