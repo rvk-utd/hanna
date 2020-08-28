@@ -8,7 +8,7 @@
 	.ExtraLinks {
 		background-color: $color-suld-25;
 		padding: between_phone_netbook(30, 80) 0 between_phone_netbook(30, 80);
-		margin-bottom: between_cols(30, 100);
+		margin-bottom: between_cols(60, 100);
 		@include extendBackgroundWithUnderlay();
 
 		@include media($mq-wide) {
@@ -48,8 +48,12 @@
 	.ExtraLinks__related {
 		background-color: $color-suld-50;
 		padding: between_phone_netbook(32, 64) cols_pct(1, 0)
-			between_phone_netbook(80, 133) cols_pct(1, 1);
+			between_phone_netbook(80, 130) cols_pct(1, 1);
 		margin-top: between_phone_netbook(40, 120);
+
+		@include media($mq-netbook_up) {
+			margin-bottom: px_pct(-210);
+		}
 
 		@include media($mq-tablet) {
 			margin-top: prem(32);
@@ -57,9 +61,9 @@
 
 		@include media($mq-wide) {
 			margin-top: prem(120);
-			margin-bottom: prem(-250);
+			margin-bottom: prem(-210);
 			padding-top: prem(64);
-			padding-bottom: prem(133);
+			padding-bottom: prem(130);
 		}
 	}
 
@@ -101,15 +105,19 @@
 		display: flex;
 	}
 
+	.ExtraLinks--related {
+		margin-bottom: px_pct(230);
+	}
+
 	.ExtraLinks__main {
 		flex-shrink: 1;
 	}
 
-	.ExtraLinks__main:not(:last-child) {
+	.ExtraLinks--related > .ExtraLinks__main {
 		grid-template-columns: repeat(2, 1fr);
 		width: cols_pct(6);
 	}
-	.ExtraLinks__main:not(:last-child) > .ExtraLinks__list {
+	.ExtraLinks--related > .ExtraLinks__main > .ExtraLinks__list {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
