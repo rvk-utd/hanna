@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: add component `Gallery`
+- fix: Tweak `WizardStepper__step` spacing and hover style
 
 ## 0.5.3
 
