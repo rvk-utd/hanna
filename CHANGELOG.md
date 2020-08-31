@@ -6,6 +6,7 @@
 - feat: add component `Gallery`
 - fix: Tweak `Alert` colors more consitent and make A11y more uniform
 - fix: Tweak `WizardStepper__step` spacing and hover style
+- fix: Display invisible `.HeroBlock__image`s
 
 ## 0.5.3
 
