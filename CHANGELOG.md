@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: add component `Gallery`
+- fix: Tweak `Alert` colors more consitent and make A11y more uniform
 - fix: Tweak `WizardStepper__step` spacing and hover style
 
 ## 0.5.3
