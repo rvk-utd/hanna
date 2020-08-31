@@ -29,7 +29,7 @@
 		margin-left: auto;
 	}
 
-	.LabeledTextBlock--left:before {
+	.LabeledTextBlock--left::before {
 		width: prem(36);
 	}
 

@@ -16,7 +16,7 @@
 			font-weight: 700;
 		}
 
-		.WizardLayoutClose:after {
+		.WizardLayoutClose::after {
 			@include icon($icons-close);
 			font-size: prem(13);
 			margin-left: prem(13);

@@ -59,7 +59,7 @@
 			@include LinkStyle_Reset();
 		}
 
-		.#{$bem}__card:after {
+		.#{$bem}__card::after {
 			content: '';
 			display: block;
 			width: grid-units(5);
@@ -70,8 +70,8 @@
 			transition: width 0.25s ease-in-out;
 		}
 
-		.#{$bem}__card:hover:after,
-		.#{$bem}__card:focus:after {
+		.#{$bem}__card:hover::after,
+		.#{$bem}__card:focus::after {
 			width: 100%;
 		}
 

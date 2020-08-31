@@ -35,7 +35,7 @@
 		align-items: center;
 		margin-bottom: grid-units(3);
 	}
-	.ProcessOverview__item__title:before {
+	.ProcessOverview__item__title::before {
 		content: '';
 		display: inline-block;
 		width: cols_pct(0, 1);

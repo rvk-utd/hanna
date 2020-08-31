@@ -53,7 +53,7 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 		margin-bottom: $baseVMargin;
 		position: relative;
 
-		&:before {
+		&::before {
 			content: '”';
 			font-size: prem(64);
 			position: absolute;

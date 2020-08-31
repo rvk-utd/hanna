@@ -311,7 +311,7 @@ $InputField-paddingH: grid-units(2);
 	padding-left: $paddingLeft;
 	margin-top: $marginTop;
 
-	&:before {
+	&::before {
 		@include icon($icons-error);
 		margin-right: grid-units(1);
 		font-size: prem(10);

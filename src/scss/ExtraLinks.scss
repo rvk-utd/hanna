@@ -15,7 +15,7 @@
 			padding: prem(80) 0;
 		}
 	}
-	.ExtraLinks:before {
+	.ExtraLinks::before {
 		border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
 
 		@include media($mq-wide) {

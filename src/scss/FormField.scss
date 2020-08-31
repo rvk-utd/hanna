@@ -124,7 +124,7 @@
 	.FormField__assist {
 		color: $color-suld-150;
 	}
-	.FormField__assist:before {
+	.FormField__assist::before {
 		content: $icons-alert;
 		font-size: prem(11);
 	}
