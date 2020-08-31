@@ -3,6 +3,15 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: add component `Gallery`
+
+## 0.5.4
+
+_2020-08-31_
+
+- fix: Tweak `Alert` colors more consitent and make A11y more uniform
+- fix: Tweak `WizardStepper__step` spacing and hover style
+- fix: Display invisible `.HeroBlock__image`s
 
 ## 0.5.3
 

@@ -12,13 +12,12 @@
 		margin-top: prem(-12);
 		margin-left: prem(-12);
 		box-sizing: content-box;
-		height: prem(24);
-		position: relative;
-		padding-top: prem(8);
-		padding-bottom: prem(30);
-		margin-bottom: prem(6);
-		font-size: prem(12);
 		line-height: prem(18);
+		position: relative;
+		padding-top: prem(11);
+		padding-bottom: prem(31);
+		margin-bottom: prem(8);
+		font-size: prem(12);
 		color: $color-suld-150;
 
 		&::before {
@@ -54,6 +53,7 @@
 	button.WizardStepper__step:focus,
 	button.WizardStepper__step:active {
 		color: $color-link--hover;
+		text-decoration: underline;
 	}
 	.WizardStepper__step[aria-current='step'] {
 		color: $color-faxafloi-100;
