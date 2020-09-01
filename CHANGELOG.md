@@ -4,7 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: add component `Gallery`
-- fix: add margins to  `InfoBlock` and `ExtraLinks` components
+- feat: Add styling for `.ExtraLinks--related` modifier
+- fix: Add margins to `InfoBlock` and `ExtraLinks` components
 
 ## 0.5.4
 
