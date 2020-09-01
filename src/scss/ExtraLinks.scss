@@ -101,23 +101,16 @@
 	.ExtraLinks {
 		display: flex;
 	}
-	.ExtraLinks--related {
-		margin-bottom: px_pct(230);
-	}
 
 	.ExtraLinks__main {
 		flex-shrink: 1;
 	}
 
-	.ExtraLinks__related {
-		margin-bottom: px_pct(-210);
-	}
-
-	.ExtraLinks--related > .ExtraLinks__main {
+	.ExtraLinks__main:not(:last-child) {
 		grid-template-columns: repeat(2, 1fr);
 		width: cols_pct(6);
 	}
-	.ExtraLinks--related > .ExtraLinks__main > .ExtraLinks__list {
+	.ExtraLinks__main:not(:last-child) > .ExtraLinks__list {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
