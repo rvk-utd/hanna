@@ -10,14 +10,12 @@
 
 	.ActionCards__card {
 		border: 1px solid $color-suld-75;
+		--link-color--hover: #{$color-faxafloi-100};
+		--link-focus-outline: 0;
 	}
-
 	.ActionCards__card:hover,
 	.ActionCards__card:focus,
 	.ActionCards__card:active {
-		border-color: $color-faxafloi-100;
-		text-decoration: none;
-		outline: none;
-		color: $color-faxafloi-100;
+		border: 1px solid $color-faxafloi-100;
 	}
 }

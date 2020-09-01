@@ -52,11 +52,11 @@
 		}
 
 		.#{$bem}__card {
+			@include LinkStyle_Reset(noborder);
 			display: block;
 			padding: prem(24) prem(24) prem(16) prem(24);
 			min-height: prem(168);
 			width: 100%;
-			@include LinkStyle_Reset();
 		}
 
 		.#{$bem}__card::after {

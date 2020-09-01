@@ -16,7 +16,7 @@
 		}
 	}
 	.ExtraLinks::before {
-		border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
+		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
 
 		@include media($mq-wide) {
 			border-width: prem(24);
@@ -84,10 +84,9 @@
 	.ExtraLinks__card:hover,
 	.ExtraLinks__card:focus,
 	.ExtraLinks__card:active {
-		background-color: $color-theme-primary;
-		text-decoration: none;
+		background-color: $var--color-theme-primary;
+		color: $var--color-theme-primary--text;
 		outline: none;
-		color: $color-suld-200;
 	}
 
 	.ExtraLinks__related__list {

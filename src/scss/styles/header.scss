@@ -1,9 +1,11 @@
 @use '../_globals' as *;
+@use './links' as *;
 
 @mixin LayoutHeaderLogo($BEM: 'Layout__header__logo') {
 	.#{$BEM} {
-		display: block;
+		@include LinkStyle_Reset(true);
 		@include hideText(soft);
+		display: block;
 		width: prem(181);
 	}
 

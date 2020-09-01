@@ -22,12 +22,8 @@
 		display: block;
 		width: max-content;
 		font-weight: $font-weight--bold;
-		padding: prem(10) prem(15);
-	}
-	.MainMenu__link:hover,
-	.MainMenu__link:focus,
-	.MainMenu__link:active {
-		@include LinkStyle--hover();
+		$pB: prem(10) - $link-underline-thickness;
+		padding: prem(10) prem(15) $pB prem(15);
 	}
 
 	.MainMenu__link::before {
@@ -79,10 +75,23 @@
 		margin-left: auto;
 	}
 
+	.MainMenu__item {
+		margin: 0 prem(10);
+	}
 	.MainMenu__item--home {
 		@include sr-only-content-focusable();
 	}
+
+	.MainMenu__link {
+		$pB: prem(10) - $link-underline-thickness;
+		padding: prem(10) prem(10) $pB prem(10);
+	}
+
 	@include media($mq-tablet) {
+		.MainMenu__link {
+			padding-left: between_tablet(5, 10);
+			padding-right: between_tablet(5, 10);
+		}
 		.MainMenu__item--search > .MainMenu__link {
 			@include hideText(soft);
 			box-sizing: content-box;
@@ -90,13 +99,6 @@
 		}
 		.MainMenu__item--search > .MainMenu__link::before {
 			margin-right: prem(40);
-		}
-	}
-
-	.MainMenu__link {
-		padding: prem(10) prem(20);
-		@include media($mq-tablet) {
-			padding: prem(10) between_tablet(15, 20);
 		}
 	}
 }
@@ -222,9 +224,9 @@
 		align-items: flex-end;
 	}
 	.MainMenu__mega__link[class] {
+		@include LinkStyle_Reset(true);
 		width: 100%;
 		background: -500px 0 no-repeat;
-		text-decoration: none;
 	}
 	.MainMenu__mega__link[style*='background-image:']::before {
 		content: '';
@@ -238,26 +240,20 @@
 			height: px(100);
 		}
 	}
-	// .MainMenu__mega__link:hover::before,
-	// .MainMenu__mega__link:focus::before,
-	// .MainMenu__mega__link:active::before {
-	// }
 
 	.MainMenu__mega__link__title {
 		font-size: $font-size-20;
-		// font-weight: $font-weight--bold;
+		@include setDefaultLinkVariables();
+		@include LinkStyle--basic();
 	}
 	.MainMenu__mega__link:hover .MainMenu__mega__link__title,
 	.MainMenu__mega__link:focus .MainMenu__mega__link__title,
 	.MainMenu__mega__link:active .MainMenu__mega__link__title {
-		text-decoration: underline;
+		@include LinkStyle--hover();
 	}
 
 	.MainMenu__mega__link__summary {
 		display: block;
-		color: $color-suld-200;
-		font-weight: $font-weight--normal;
-		text-decoration: none !important;
 		height: prem(2 * $font-base-leading);
 
 		@include media($mq-tablet_netbook) {

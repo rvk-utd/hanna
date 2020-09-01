@@ -3,7 +3,7 @@
 @media screen {
 	html.modal-open {
 		overflow: hidden;
-		margin-right: var(--browser-scrollbar-width);
+		margin-right: $var--browser-scrollbar-width;
 	}
 	html.modal-open .Modal {
 		overflow-y: auto;
@@ -63,18 +63,18 @@
 		display: block;
 		position: absolute;
 		z-index: 5;
-		top: prem(20);
-		right: prem(20);
-
-		&::before {
-			@include icon($icons-close);
-			display: inline-block;
-			vertical-align: middle;
-			margin-right: prem(10);
-			font-size: prem(16);
-			line-height: prem(32);
-			color: $color-suld-150;
-		}
+		top: prem(5);
+		right: prem(10);
+		padding: prem(10);
+		font-size: prem(14);
+	}
+	.Modal__closebutton::before {
+		@include icon($icons-close);
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: prem(10);
+		font-size: prem(16);
+		color: $color-suld-150;
 	}
 }
 

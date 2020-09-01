@@ -15,7 +15,7 @@
 	}
 	.InfoBlock::before {
 		@include icon($icons-fatchevron-up);
-		color: $color-esja-150;
+		color: $var--color-theme-secondary;
 		position: absolute;
 		right: 0;
 		width: 1em;
@@ -58,24 +58,22 @@
 	.InfoBlock__item::before {
 		content: '';
 		display: inline-block;
-		background-color: $color-esja-100;
+		background-color: $var--color-theme-primary--safeish;
 		margin-right: grid-units(2);
 		width: prem(12);
 		height: prem(4);
 		margin-left: prem(-28);
 	}
 
-	@include Attention();
-
 	.InfoBlock__extrainfo,
 	.InfoBlock__attention {
-		border-top: 1px solid $color-suld-150;
-		margin-top: between_cols(64, 80, 10);
-		padding-top: between_cols(40, 64, 10);
+		@include AttentionStyle();
+	}
 
-		@include media($mq-wide) {
-			margin-top: grid-units(10);
-			padding-top: grid-units(8);
-		}
+	.InfoBlock__extrainfo {
+		padding-left: 0;
+	}
+	.InfoBlock__extrainfo::before {
+		content: none;
 	}
 }

@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: add component `Gallery`
+- feat: Make all components pick up theme-colors
 - feat: Add styling for `.ExtraLinks--related` modifier
 - fix: Add margins to `InfoBlock` and `ExtraLinks` components
 

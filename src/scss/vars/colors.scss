@@ -48,16 +48,3 @@ $color-suld-200: #2a2b2c;
 
 $color-white: $color-suld-0;
 $color-blackish: $color-suld-200;
-
-// ===========================================================================
-// Semantic colors
-
-$color-link_raw: $color-faxafloi-100;
-$color-link--hover_raw: $color-faxafloi-100;
-
-$color-link: var(--color-link);
-$color-link--hover: var(--color-link--hover);
-
-$color-theme-primary: var(--theme-color-primary);
-$color-theme-secondary: var(--theme-color-secondary);
-$color-theme-tertiary: var(--theme-color-tertiary);

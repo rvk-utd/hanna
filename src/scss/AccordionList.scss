@@ -51,6 +51,9 @@
 	.AccordionList__button:active {
 		color: $color-faxafloi-150;
 	}
+	.AccordionList__button[disabled] {
+		color: $color-faxafloi-100;
+	}
 
 	.AccordionList__button::before {
 		@include icon($icons-close);
