@@ -15,11 +15,10 @@
 		margin-bottom: between_cols(30, 20 * $grid-unit);
 	}
 	.CityBlock__content {
-		--color-link: $color-suld-0;
-		--color-link--hover: $color-suld-0;
+		background-color: $var--color-theme-primary;
+		color: $var--color-theme-primary--text;
+		@include LinkStyle_SameColor();
 
-		background-color: $color-faxafloi-100;
-		color: $color-suld-0;
 		padding: between_cols(30, $grid-column) 0;
 		@include bodyPaddingInner(margin, true);
 		@include bodyPaddingInner(padding, false);
@@ -56,7 +55,7 @@
 		margin-bottom: grid-units(4);
 	}
 	.CityBlock__summary a {
-		@include LinkStyle_Underlined();
+		@include LinkStyle_SameColor();
 	}
 	.CityBlock__summary li, // Captures ul, ol
 	.CityBlock__summary [class],

@@ -20,7 +20,7 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 			left: 0;
 			width: prem($grid-unit * 2);
 			height: prem(2);
-			background-color: $color-faxafloi-75;
+			background-color: $var--color-theme-primary--safeish;
 		}
 	}
 }
@@ -60,19 +60,6 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 			top: prem($grid-unit * 4);
 			left: prem($grid-unit * 0);
 		}
-	}
-
-	a:not(.Button) {
-		color: var(--color-link);
-		font-weight: 700;
-		border-bottom: 2px solid transparent;
-		display: inline;
-	}
-	a:not(.Button):hover,
-	a:not(.Button):focus {
-		color: var(--color-link--hover);
-		text-decoration: none;
-		border-bottom-color: var(--color-link--hover);
 	}
 
 	> :last-child {

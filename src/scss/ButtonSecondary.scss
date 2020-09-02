@@ -3,14 +3,20 @@
 
 @media screen {
 	.ButtonSecondary {
-		@include ButtonStyle(prem(5), $color-faxafloi-100);
+		@include ButtonStyle(prem(5), $var--color-theme-primary--safe);
 		font-weight: $font-weight--normal;
 		background-color: $color-suld-0;
-		border: 1px solid $color-faxafloi-100;
+		border: 1px solid $var--color-theme-primary;
 
+		&:hover,
+		&:focus,
+		&:active {
+			border: 1px solid $var--color-theme-primary;
+		}
 		&:active,
 		&[aria-pressed] {
 			background-color: $color-suld-50;
+			color: $var--color-theme-primary--safe;
 		}
 		&[disabled],
 		&[aria-disabled='true'] {

@@ -15,14 +15,14 @@
 		width: 35px;
 		height: 35px;
 		border-radius: 50%;
-		background-color: $color-faxafloi-100;
-		color: $color-suld-0;
+		background-color: $var--color-theme-primary;
+		color: $var--color-theme-primary--text;
 		position: relative;
 		display: inline-block;
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: $color-faxafloi-150;
+			background-color: $var--color-theme-primary--dark;
 			color: $color-suld-0;
 		}
 	}

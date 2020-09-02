@@ -1,34 +1,72 @@
+@use 'sass:color';
 @use '_globals' as *;
 
 @mixin theme() {
 	:root:root,
+	[data-color-theme][data-color-theme],
 	[data-color-theme][data-color-theme='trustworthy'] {
 		--theme-color-primary: #{$color-faxafloi-100};
 		--theme-color-secondary: #{$color-sund-100};
 		--theme-color-tertiary: #{$color-ellidarardalur-100};
+
+		--theme-color-primary--text: #{$color-suld-0};
+		--theme-color-primary--dark: #{$color-faxafloi-150};
+		--theme-color-primary--safe: var(--theme-color-primary);
+		// safe to use for ButtonTertiary borders, etc.
+		--theme-color-primary--safeish: var(--theme-color-primary);
 	}
 
 	[data-color-theme][data-color-theme='dependable'] {
 		--theme-color-primary: #{$color-faxafloi-100};
 		--theme-color-secondary: #{$color-nautholsvik-100};
 		--theme-color-tertiary: #{$color-sund-100};
+
+		--theme-color-primary--dark: #{$color-faxafloi-150};
 	}
 
 	[data-color-theme][data-color-theme='friendly'] {
 		--theme-color-primary: #{$color-ellidarardalur-100};
 		--theme-color-secondary: #{$color-rokkur-100};
 		--theme-color-tertiary: #{$color-nautholsvik-100};
+
+		--theme-color-primary--text: #000000;
+		--theme-color-primary--dark: #{$color-ellidarardalur-150};
+		--theme-color-primary--safe: #{color.scale(
+				$color-ellidarardalur-100,
+				$saturation: 55%,
+				$lightness: -52%
+			)};
+		--theme-color-primary--safeish: #{color.scale(
+				$color-ellidarardalur-100,
+				$saturation: 35%,
+				$lightness: -25%
+			)};
 	}
 
 	[data-color-theme][data-color-theme='lively'] {
 		--theme-color-primary: #{$color-sund-100};
 		--theme-color-secondary: #{$color-blafjoll-100};
 		--theme-color-tertiary: #{$color-nautholsvik-100};
+
+		--theme-color-primary--text: #000000;
+		--theme-color-primary--dark: #{$color-sund-150};
+		--theme-color-primary--safe: #{color.scale(
+				$color-sund-100,
+				$saturation: 55%,
+				$lightness: -52%
+			)};
+		--theme-color-primary--safeish: #{color.scale(
+				$color-sund-100,
+				$saturation: 35%,
+				$lightness: -25%
+			)};
 	}
 
 	[data-color-theme][data-color-theme='colorful'] {
 		--theme-color-primary: #{$color-heidmork-100};
 		--theme-color-secondary: #{$color-nautholsvik-100};
 		--theme-color-tertiary: #{$color-esja-100};
+
+		--theme-color-primary--dark: #{$color-heidmork-150};
 	}
 }

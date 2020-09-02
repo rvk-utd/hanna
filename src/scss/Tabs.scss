@@ -1,4 +1,5 @@
 @use '_globals' as *;
+@use './styles/links' as *;
 
 @media screen {
 	.Tabs {
@@ -11,7 +12,7 @@
 	}
 
 	.Tabs__tab {
-		border: 0;
+		@include LinkStyle_Reset();
 		border-bottom: 4px solid $color-suld-50;
 		margin-bottom: -4px;
 		padding: between_cols(5, 20) between_cols(15, 40);
@@ -21,8 +22,7 @@
 	.Tabs__tab:hover,
 	.Tabs__tab:focus,
 	.Tabs__tab:active {
-		color: $color-faxafloi-100;
-		border-bottom-color: $color-suld-100;
+		border-bottom: 4px solid $color-suld-100;
 		text-decoration: none;
 	}
 
