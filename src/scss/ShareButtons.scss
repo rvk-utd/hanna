@@ -28,7 +28,7 @@
 	}
 
 	.ShareButtons__link::before {
-		@include icon($icons-facebook);
+		@include icon();
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -46,8 +46,16 @@
 		}
 	}
 
-	// FIXME: Add the rest of the ShareButton icons
+	.ShareButtons__link--facebook::before {
+		content: $icons-facebook;
+	}
 	.ShareButtons__link--twitter::before {
 		content: $icons-twitter;
+	}
+	.ShareButtons__link--linkedin::before {
+		content: 'LI';
+	}
+	.ShareButtons__link--email::before {
+		content: 'E';
 	}
 }

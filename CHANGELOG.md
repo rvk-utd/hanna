@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: add component `Gallery`
+- feat: Add component `ShareButtons`
 - feat: Make all components pick up theme-colors
 - feat: Update `WizardStepper__step` colors and line-wrap handling
 - feat: Add styling for `.ExtraLinks--related` modifier
