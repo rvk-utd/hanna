@@ -96,7 +96,6 @@ $ButtonTertiary--dashColor: var(
 $ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth, #{prem(16)});
 $ButtonTertiary--dashWidth--hover: var(--ButtonTertiary--dashWidth--hover, #{prem(48)});
 $ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, #{prem(2)});
-// $ButtonTertiary--dashOpacity: 1;
 
 @mixin ButtonTertiaryStyle($mode: normal) {
 	$borderRadius: prem(8);
@@ -128,7 +127,6 @@ $ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, #{prem(2)});
 		margin-bottom: prem(3);
 		background-color: currentColor;
 		color: $ButtonTertiary--dashColor;
-		// opacity: $ButtonTertiary--dashOpacity;
 		margin-right: prem(16);
 		transition: inherit;
 	}
@@ -137,7 +135,6 @@ $ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, #{prem(2)});
 		&:active,
 		&[aria-pressed='true'] {
 			--ButtonTertiary--dashColor: _inherit;
-			// --ButtonTertiary--dashOpacity: 0.5;
 			--ButtonTertiary--dashHeight: #{prem(6)};
 		}
 	}
