@@ -6,6 +6,10 @@
 		display: flex;
 	}
 
+	.ShareButtons__label {
+		@include sr-only();
+	}
+
 	.ShareButtons__link {
 		@include hideText();
 		width: 35px;

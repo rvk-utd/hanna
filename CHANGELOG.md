@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: add component `Gallery`
 - feat: Add styling for `.ExtraLinks--related` modifier
+- fix: Visually hide `.ShareButtons__label`
 - fix: Add margins to `InfoBlock` and `ExtraLinks` components
 
 ## 0.5.4
