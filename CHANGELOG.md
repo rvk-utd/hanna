@@ -8,6 +8,7 @@
 - feat: Make all components pick up theme-colors
 - feat: Update `WizardStepper__step` colors and line-wrap handling
 - feat: Add styling for `.ExtraLinks--related` modifier
+- fix: Limit height of portrait `.NewsHero__image`s & increase text size
 - fix: Visually hide `.ShareButtons__label`
 - fix: Add margins to `InfoBlock` and `ExtraLinks` components
 
