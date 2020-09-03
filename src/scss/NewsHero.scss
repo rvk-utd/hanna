@@ -71,7 +71,8 @@
 			padding-left: cols_pct(0, 1);
 			margin-left: auto;
 			order: 1;
-			margin-bottom: between_cols(-20, -80);
+			margin-top: between_cols(0, -24);
+			margin-bottom: between_cols(-20, -100);
 		}
 	}
 	.NewsHero__image > img {
