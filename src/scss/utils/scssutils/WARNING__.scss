@@ -24,10 +24,6 @@ $_isDev: isDevMode();
 		}
 	}
 }
-@mixin WARNING_soft__($message, $pos: before) {
-	@include WARNING__($message, soft, $pos);
-}
-
 @mixin suppress_WARNING__($mode: normal, $pos: before) {
 	@if ($_isDev) {
 		$hover: if($mode == soft, ':hover', '');
@@ -39,6 +35,10 @@ $_isDev: isDevMode();
 			content: none !important;
 		}
 	}
+}
+
+@mixin WARNING_soft__($message, $pos: before) {
+	@include WARNING__($message, soft, $pos);
 }
 @mixin suppress_WARNING_soft__($pos: before) {
 	@include suppress_WARNING__(soft, $pos);

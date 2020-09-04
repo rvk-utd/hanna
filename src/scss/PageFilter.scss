@@ -21,8 +21,8 @@
 		justify-content: space-between;
 		align-items: flex-start;
 	}
-	.PageFilter:before {
-		border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
+	.PageFilter::before {
+		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
 
 		@include media($mq-wide) {
 			border-width: prem(24);

@@ -1,8 +1,8 @@
 @use '../vars' as *;
 
 @forward 'scssutils/a11y' with (
-	$_focusLink-color: $color-link--hover,
-	$_focusLink-borderColor: 3px double $color-link--hover,
+	$_focusLink-color: $var--link-color--hover,
+	$_focusLink-borderColor: 3px double $var--link-color--hover,
 	$_focusLink-background: $color-suld-0,
 );
 @forward 'scssutils/icons';

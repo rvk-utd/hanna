@@ -5,6 +5,18 @@
 - ... <!-- Add new lines here. -->
 - feat: add component `Gallery`
 
+## 0.5.5
+
+_2020-09-04_
+
+- feat: Add component `ShareButtons`
+- feat: Make all components pick up theme-colors
+- feat: Update `WizardStepper__step` colors and line-wrap handling
+- feat: Add styling for `.ExtraLinks--related` modifier
+- fix: Limit height of portrait `.NewsHero__image`s & increase text size
+- fix: Visually hide `.ShareButtons__label`
+- fix: Add margins to `InfoBlock` and `ExtraLinks` components
+
 ## 0.5.4
 
 _2020-08-31_

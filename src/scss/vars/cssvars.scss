@@ -1,0 +1,58 @@
+@use 'colors' as *;
+@use 'font' as *;
+
+// ---------------------------------------------------------------------------
+
+$var--color-theme-primary: var(--theme-color-primary);
+$var--color-theme-secondary: var(--theme-color-secondary);
+$var--color-theme-tertiary: var(--theme-color-tertiary);
+
+$var--color-theme-primary--text: var(--theme-color-primary--text);
+$var--color-theme-primary--dark: var(--theme-color-primary--dark);
+$var--color-theme-primary--safe: var(--theme-color-primary--safe);
+$var--color-theme-primary--safeish: var(--theme-color-primary--safeish);
+
+// ---------------------------------------------------------------------------
+
+$link-underline-thickness: prem(2);
+
+// local variables ("_" prefixed)
+$_link-color: $color-faxafloi-100;
+$_link-color--hover: $color-faxafloi-100;
+$_link-weight: $font-weight--bold;
+$_link-underline: $link-underline-thickness solid transparent;
+$_link-underline--hover: $link-underline-thickness solid currentColor;
+$_link-underline-offset: 0.15em;
+$_link-focus-outline: normal;
+$_link-transition: 150ms ease-in-out;
+
+@mixin setDefaultLinkVariables($all: false) {
+	--link-color: $_link-color;
+	--link-color--hover: $_link-color--hover;
+	--link-weight: $_link-weight;
+	--link-underline: $_link-underline;
+	--link-underline--hover: $_link-underline--hover;
+	--link-underline-offset: $_link-underline-offset;
+	@if $all {
+		--link-focus-outline: $_link-focus-outline;
+		--link-transition: $_link-transition;
+	}
+}
+$var--link-color: var(--link-color, $_link-color);
+$var--link-color--hover: var(--link-color--hover, $_link-color--hover);
+$var--link-weight: var(--link-weight, $_link-weight);
+$var--link-underline: var(--link-underline, $_link-underline);
+$var--link-underline--hover: var(--link-underline--hover, $_link-underline--hover);
+$var--link-underline-offset: var(--link-underline-offset, $_link-underline-offset);
+$var--link-focus-outline: var(--link-focus-outline, $_link-focus-outline);
+$var--link-transition: var(--link-transition, $_link-transition);
+
+// ---------------------------------------------------------------------------
+
+$var--input-border-color: var(--input-border-color);
+
+// ---------------------------------------------------------------------------
+
+// NOTE: This variable receives its actual value somewhere off
+// in JavaScript-land, set by `qj/getScrollbarWidth.setCSSvar()`
+$var--browser-scrollbar-width: var(--browser-scrollbar-width, 0);

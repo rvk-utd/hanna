@@ -1,7 +1,7 @@
 @use 'directions' as *;
 
 // Usage:
-//     .box:after {
+//     .box::after {
 //         @include triangle(
 //               $dir,         // <-- up, down, left, right.
 //               $color,       // arrow color

@@ -35,12 +35,12 @@
 		align-items: center;
 		margin-bottom: grid-units(3);
 	}
-	.ProcessOverview__item__title:before {
+	.ProcessOverview__item__title::before {
 		content: '';
 		display: inline-block;
 		width: cols_pct(0, 1);
 		height: prem(4);
-		background-color: $color-faxafloi-100;
+		background-color: $var--color-theme-primary--safeish;
 		position: absolute;
 		@include bodyPaddingInner(margin, true, left);
 
@@ -58,13 +58,8 @@
 		@include BodyTextStyle--large();
 	}
 
-	@include Attention('ProcessOverview', false);
 	.ProcessOverview__attention {
-		padding-top: 0;
-
-		&:before {
-			top: 0;
-		}
+		@include AttentionStyle(false);
 	}
 }
 
