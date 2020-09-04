@@ -4,6 +4,11 @@
 
 - ... <!-- Add new lines here. -->
 - feat: add component `Gallery`
+
+## 0.5.5
+
+_2020-09-04_
+
 - feat: Add component `ShareButtons`
 - feat: Make all components pick up theme-colors
 - feat: Update `WizardStepper__step` colors and line-wrap handling
