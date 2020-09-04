@@ -112,7 +112,9 @@ $ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, #{prem(2)});
 	vertical-align: middle;
 	white-space: nowrap;
 	font-size: prem($font-btn-size);
-	padding-right: calc($ButtonTertiary--dashWidth--hover - $ButtonTertiary--dashWidth);
+	padding-right: calc(
+		#{$ButtonTertiary--dashWidth--hover} - #{$ButtonTertiary--dashWidth}
+	);
 	margin-right: prem(15);
 	margin-bottom: prem(16);
 	font-weight: 700;
