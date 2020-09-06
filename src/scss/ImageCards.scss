@@ -24,6 +24,11 @@
 		@include HeadingStyle--small();
 	}
 
+	.ImageCards__title,
+	.ImageCards__summary {
+		margin-bottom: between_phone_netbook(20, 40);
+	}
+
 	.ImageCards__summary > .ImageCards__title {
 		margin-bottom: prem(16);
 	}

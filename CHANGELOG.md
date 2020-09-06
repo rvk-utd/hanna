@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Gallery`
+- fix: Tolerate missing `.ImageCards__title`
 
 ## 0.5.5
 

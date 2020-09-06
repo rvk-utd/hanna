@@ -5,36 +5,40 @@
 @mixin CardGrid($bem, $wrapperClass: $bem, $cols: 3) {
 	@media screen {
 		.#{$wrapperClass} {
-			color: $color-suld-200;
 			display: grid;
-			grid-auto-flow: row;
-			gap: prem($grid-gutter) cols_pct(0, 1, $cols * 3);
-			grid-template-columns: repeat(4, 1fr);
+			column-gap: cols_pct(0, 1);
+			grid-template: 'title' 'list';
 
-			@include media($mq-phone_phablet) {
-				grid-template-columns: repeat(1, 1fr);
+			@if $cols == 3 {
+				@include media($mq-tablet_up) {
+					grid-template: 'title list' / 1fr ($cols * 1fr);
+				}
 			}
 		}
 
-		$listSelector: if($bem == $wrapperClass, $wrapperClass, $bem);
-		.#{$listSelector}__list {
+		.#{$bem}__list {
+			grid-area: list;
 			display: grid;
 			grid-auto-flow: row;
 			gap: prem($grid-gutter) cols_pct(0, 1, $cols * 3);
-			grid-template-columns: repeat($cols, 1fr);
-			grid-column: span $cols;
-
-			@include media($mq-phone_phablet) {
-				grid-column: 1;
-				grid-template-columns: repeat(1, 1fr);
+			@if $cols == 3 {
+				grid-template-columns: repeat($cols, cols_pct(3, 2, 9));
+			} @else {
+				grid-template-columns: repeat($cols, cols_pct(3));
 			}
 
+			@include media($mq-phone) {
+				grid-template-columns: 100%;
+			}
 			@include media($mq-phablet) {
-				grid-template-columns: repeat(2, 1fr);
+				grid-template-columns: repeat(2, cols_pct(6));
 			}
-
 			@include media($mq-tablet) {
-				grid-template-columns: repeat(2, 1fr);
+				@if $cols == 3 {
+					grid-template-columns: repeat(2, cols_pct(6, 5, 9));
+				} @else {
+					grid-template-columns: repeat(2, cols_pct(4));
+				}
 			}
 		}
 	}
