@@ -1,0 +1,47 @@
+/*!@deps
+*/
+@use 'globals' as *;
+@use 'styles/links' as *;
+
+@media screen {
+	.TagPill {
+		@include LinkStyle_Reset(true);
+		// normalize links and buttons
+		display: inline-block;
+		white-space: nowrap;
+		vertical-align: middle;
+		text-decoration: none;
+
+		background-color: $color-suld-75;
+		color: $color-suld-200;
+		height: prem(30);
+		line-height: prem(30);
+		border-radius: prem(15);
+		font-size: prem(12);
+		min-width: prem(70);
+		margin-bottom: prem(16);
+		margin-right: between_phablet_netbook(12, 16);
+		padding: 0 between_phablet_netbook(12, 16);
+
+		@include media($mq-wide) {
+			margin-right: px(16);
+			padding-left: px(16);
+			padding-right: px(16);
+		}
+	}
+
+	a.TagPill:hover,
+	a.TagPill:focus,
+	a.TagPill:active,
+	button.TagPill:hover,
+	button.TagPill:focus {
+		background-color: $color-suld-150;
+		color: $color-suld-0;
+	}
+
+	.TagPill[disabled],
+	.TagPill[aria-disabled],
+	.TagPill[aria-pressed] {
+		@include WARNING__('Undefined state');
+	}
+}
