@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
+- feat: Change `Tabs` and `ActionCards` to also use theme colors
 - fix: Tolerate missing `.ImageCards__title`
 - fix: Apply `ExtraLinks__card` hover styling on all screen sizes
 

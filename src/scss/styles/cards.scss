@@ -68,7 +68,7 @@
 			display: block;
 			width: grid-units(5);
 			height: prem(2);
-			background: currentColor;
+			background: var(--Card-lineColor, currentColor);
 			margin-top: grid-units(2);
 			margin-bottom: grid-units(2);
 			transition: width 0.25s ease-in-out;
