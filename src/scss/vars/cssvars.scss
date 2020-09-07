@@ -27,15 +27,15 @@ $_link-focus-outline: normal;
 $_link-transition: 150ms ease-in-out;
 
 @mixin setDefaultLinkVariables($all: false) {
-	--link-color: $_link-color;
-	--link-color--hover: $_link-color--hover;
-	--link-weight: $_link-weight;
-	--link-underline: $_link-underline;
-	--link-underline--hover: $_link-underline--hover;
-	--link-underline-offset: $_link-underline-offset;
+	--link-color: #{$_link-color};
+	--link-color--hover: #{$_link-color--hover};
+	--link-weight: #{$_link-weight};
+	--link-underline: #{$_link-underline};
+	--link-underline--hover: #{$_link-underline--hover};
+	--link-underline-offset: #{$_link-underline-offset};
 	@if $all {
-		--link-focus-outline: $_link-focus-outline;
-		--link-transition: $_link-transition;
+		--link-focus-outline: #{$_link-focus-outline};
+		--link-transition: #{$_link-transition};
 	}
 }
 $var--link-color: var(--link-color, $_link-color);
@@ -46,6 +46,10 @@ $var--link-underline--hover: var(--link-underline--hover, $_link-underline--hove
 $var--link-underline-offset: var(--link-underline-offset, $_link-underline-offset);
 $var--link-focus-outline: var(--link-focus-outline, $_link-focus-outline);
 $var--link-transition: var(--link-transition, $_link-transition);
+
+// ---------------------------------------------------------------------------
+
+$var--table-border-color: var(--input-border-color);
 
 // ---------------------------------------------------------------------------
 

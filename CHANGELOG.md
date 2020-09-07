@@ -8,6 +8,7 @@
 - feat: Change `Tabs` and `ActionCards` to also use theme colors
 - fix: Tolerate missing `.ImageCards__title`
 - fix: Apply `ExtraLinks__card` hover styling on all screen sizes
+- fix: Reset `.MainMenu__mega__link__title` link colors variables
 
 ## 0.5.5
 
