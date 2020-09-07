@@ -1,0 +1,99 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	html.modal-open {
+		overflow: hidden;
+		margin-right: var(--browser-scrollbar-width);
+	}
+
+	.GalleryModalwrapper {
+		display: flex;
+		background: $color-suld-0;
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 100vh;
+		overflow: auto;
+	}
+
+	.GalleryModal {
+		@include setMaxWidth($grid-contentMaxWidth--outer);
+		display: flex;
+		align-items: center;
+		position: relative;
+		padding: prem(24) prem($grid-edge--phone);
+		@include media($mq-tablet_up) {
+			padding: prem(104) prem($grid-edge--wide);
+		}
+	}
+
+	.GalleryModal__text {
+		background: $color-theme-primary;
+		color: $color-suld-0;
+		width: cols_pct(3, 3);
+		padding: prem(24);
+		min-height: 392px;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+	}
+
+	.GalleryModal__caption {
+		margin-bottom: prem(16);
+		@include SubheadingStyle--small();
+	}
+
+	.GalleryModal__description {
+	}
+
+	.GalleryModal__image {
+		width: cols_pct(7, 8);
+		margin-left: auto;
+		margin-right: cols_pct(1);
+	}
+	.GalleryModal__image > img {
+		width: 768px;
+		max-width: 100%;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.GalleryModal__prev,
+	.GalleryModal__next,
+	.GalleryModal__closebutton {
+		position: absolute;
+		color: $color-theme-primary;
+		&:before {
+			@include icon($icons-arrow-left);
+			font-size: 23px;
+		}
+	}
+
+	.GalleryModal__prev,
+	.GalleryModal__next {
+		@include hideText(soft);
+		width: 23px;
+		height: 24px;
+	}
+
+	.GalleryModal__prev {
+		left: prem(30);
+	}
+
+	.GalleryModal__closebutton {
+		top: prem(64);
+		font-weight: $font-weight--bold;
+		&:before {
+			margin-right: prem(12);
+		}
+	}
+
+	.GalleryModal__next {
+		right: prem($grid-edge--wide);
+	}
+	.GalleryModal__next:before {
+		content: $icons-arrow-right;
+	}
+}

@@ -1,5 +1,8 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
+/*!@deps
+	GalleryModal
+*/
 
 @media screen {
 	html.before-sprinkling {
