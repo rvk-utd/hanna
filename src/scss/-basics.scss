@@ -222,15 +222,17 @@
 	legend + * {
 		clear: both;
 	}
-}
 
-@media screen {
+	// ===========================================================================
+
 	table {
 		@include BodyTextStyle--small();
+		border-collapse: collapse;
 		margin-bottom: $baseVMargin;
 	}
 	th,
 	td {
+		vertical-align: top;
 		padding: prem(1 * $grid-unit) prem(2 * $grid-unit);
 		color: $color-suld-150;
 		font-weight: $font-weight--normal;
@@ -244,11 +246,12 @@
 	}
 	thead > * > th {
 		font-weight: $font-weight--bold;
-		color: $color-suld-200;
+		vertical-align: bottom;
 	}
 	tbody > * > th,
 	tbody > * > td {
-		border-bottom: 1px solid $color-suld-50;
+		border: 1px solid $color-suld-75;
+		border-width: 1px 0;
 	}
 }
 

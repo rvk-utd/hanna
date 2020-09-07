@@ -6,6 +6,7 @@
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
 - feat: Change `Tabs` and `ActionCards` to also use theme colors
+- feat: Update styling for basic tables, add `.Cell--*` type styles
 - fix: Tolerate missing `.ImageCards__title`
 - fix: Apply `ExtraLinks__card` hover styling on all screen sizes
 - fix: Reset `.MainMenu__mega__link__title` link colors variables
