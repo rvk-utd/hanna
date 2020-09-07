@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Gallery`
+- feat: Add component `TagPill`
 
 ## 0.5.5
 
