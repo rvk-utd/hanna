@@ -23,26 +23,30 @@
 		}
 	}
 
+	.ExtraLinks__main {
+	}
+
 	.ExtraLinks__title {
 		margin-bottom: between_phone_netbook(20, 56);
-		overflow-wrap: break-word;
-		grid-column: 1/-1;
 
 		@include media($mq-wide) {
-			margin-bottom: grid-units(7);
+			margin-bottom: 56px;
 		}
 	}
 
-	.ExtraLinks__main {
-		@include media($mq-tablet) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
 	.ExtraLinks__list {
-		@include media($mq-tablet) {
-			grid-column: span 3;
-			grid-template-columns: repeat(3, 1fr);
-		}
+	}
+
+	.ExtraLinks__card {
+		border: 1px solid $color-suld-75;
+	}
+	.ExtraLinks__card:hover,
+	.ExtraLinks__card:focus,
+	.ExtraLinks__card:active {
+		border-color: transparent;
+		background-color: $var--color-theme-primary;
+		color: $var--color-theme-primary--text;
+		outline: none;
 	}
 
 	.ExtraLinks__related {
@@ -79,14 +83,6 @@
 	.ExtraLinks {
 		position: relative;
 		border: 0;
-	}
-
-	.ExtraLinks__card:hover,
-	.ExtraLinks__card:focus,
-	.ExtraLinks__card:active {
-		background-color: $var--color-theme-primary;
-		color: $var--color-theme-primary--text;
-		outline: none;
 	}
 
 	.ExtraLinks__related__list {

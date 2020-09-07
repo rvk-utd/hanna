@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
+- fix: Tolerate missing `.ImageCards__title`
+- fix: Apply `ExtraLinks__card` hover styling on all screen sizes
 
 ## 0.5.5
 
