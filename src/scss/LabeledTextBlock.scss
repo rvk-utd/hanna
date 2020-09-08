@@ -29,7 +29,7 @@
 		margin-left: auto;
 	}
 
-	.LabeledTextBlock--left::before {
+	.LabeledTextBlock--wide::before {
 		width: prem(36);
 	}
 
@@ -58,12 +58,12 @@
 		width: cols_pct(6);
 	}
 
-	.LabeledTextBlock--left {
+	.LabeledTextBlock--wide {
 		@include bodyPaddingInner(margin, true, left);
 		max-width: 100%;
 	}
 
-	.LabeledTextBlock--left > .LabeledTextBlock__label::before {
+	.LabeledTextBlock--wide > .LabeledTextBlock__label::before {
 		max-width: prem(32);
 	}
 }

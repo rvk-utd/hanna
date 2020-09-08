@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Add `.LabeledTextBlock--wide`, replacing `--left`
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
 - feat: Add `.TextBlock--labelled` option with left-floating H2 headings
