@@ -70,13 +70,13 @@
 		width: cols_pct(5, 4);
 	}
 
-	.GalleryItem__image {
+	.GalleryItem__button {
 		display: block;
 		position: relative;
 		background: $color-suld-50;
 		padding-bottom: percentage(376/272);
 	}
-	.GalleryItem--landscape > .GalleryItem__image {
+	.GalleryItem--landscape > .GalleryItem__button {
 		padding-bottom: percentage(312/480);
 	}
 
