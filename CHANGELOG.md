@@ -12,6 +12,8 @@
 - feat: Add `.TextBlock--labelled` option with left-floating H2 headings
 - feat: Change `Tabs` and `ActionCards` to also use theme colors
 - feat: Update styling for basic tables, add `.Cell--*` type styles
+- fix: Correct the width of `.LabeledTextBlock--wide`'s summary column – and
+  tweak mobile styling to better match `.TextBlock--labelled`'s
 - fix: Make all `BasicTable`s full-width
 - fix: Remove max-width off all `--align--right` text/heading components
 - fix: Tolerate missing `.ImageCards__title`
