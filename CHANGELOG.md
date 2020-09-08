@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
+- feat: Add `.TextBlock--labelled` option with left-floating H2 headings
 - feat: Change `Tabs` and `ActionCards` to also use theme colors
 - feat: Update styling for basic tables, add `.Cell--*` type styles
 - fix: Remove max-width off all `--align--right` text/heading components

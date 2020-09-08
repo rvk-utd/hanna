@@ -30,7 +30,10 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 @mixin textContent() {
 	> h2 {
 		@include HeadingStyle--small();
-		margin-bottom: $baseVMargin;
+		margin-bottom: var(--h2--marginBottom, $baseVMargin);
+	}
+	> * + h2 {
+		margin-top: var(--h2--marginTop, 1.5em);
 	}
 	> h3 {
 		@include SubheadingStyle--large();
