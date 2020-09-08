@@ -17,8 +17,6 @@
 	// ---------------------------------------------------------------------------
 
 	.TextBlock--labelled > h2 {
-		--h2--marginTop: 2em;
-		--h2--marginBottom: 0.25em;
 		// @include HeadingStyle--small(); // <-- same as textContent()'s styling for h2
 		display: flex;
 	}
@@ -34,6 +32,8 @@
 	}
 	@include media($mq-tablet_up) {
 		.TextBlock--labelled {
+			--h2--marginTop: 2em;
+			--h2--marginBottom: 0.25em;
 			// same as --align--right (`see layout.ComponentLayout()`)
 			margin-left: auto;
 			width: cols_pct(7);
