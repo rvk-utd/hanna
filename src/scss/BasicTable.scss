@@ -3,14 +3,10 @@
 @media screen {
 	.TableWrapper--BasicTable {
 		margin: 0 0 prem(30) 0;
-		min-width: 100%;
 	}
 
 	.BasicTable {
 		min-width: 100%;
-		@include media($mq-netbook_up) {
-			min-width: 0;
-		}
 	}
 
 	.BasicTable > * > * > th,
