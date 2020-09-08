@@ -29,11 +29,14 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 // reset <button> styles for easier custom styling
 @mixin textContent() {
 	> h2 {
-		@include HeadingStyle--medium();
-		margin-bottom: $baseVMargin;
+		@include HeadingStyle--small();
+		margin-bottom: var(--h2--marginBottom, $baseVMargin);
+	}
+	> * + h2 {
+		margin-top: var(--h2--marginTop, 1.5em);
 	}
 	> h3 {
-		@include HeadingStyle--small();
+		@include SubheadingStyle--large();
 		margin-bottom: $baseVMargin;
 	}
 	> h4 {

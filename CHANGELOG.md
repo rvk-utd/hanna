@@ -5,12 +5,14 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
+- feat: Add `.TextBlock--labelled` option with left-floating H2 headings
 - feat: Change `Tabs` and `ActionCards` to also use theme colors
 - feat: Update styling for basic tables, add `.Cell--*` type styles
 - fix: Remove max-width off all `--align--right` text/heading components
 - fix: Tolerate missing `.ImageCards__title`
 - fix: Apply `ExtraLinks__card` hover styling on all screen sizes
 - fix: Reset `.MainMenu__mega__link__title` link colors variables
+- fix: Reduce/Tweak font-size headings inside `TextBlock`s
 - fix: Reduce font-size of `<ul/>`s and `<ol/>`s inside large-text blocks
 
 ## 0.5.5
