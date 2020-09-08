@@ -38,6 +38,14 @@
 @include theme();
 
 @media screen {
+	:root {
+		--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+
+		@include media($mq-wide) {
+			--baseVerticalMargin: #{px(3 * $grid-unit)};
+		}
+	}
+
 	*,
 	*::before,
 	*::after {
@@ -228,7 +236,7 @@
 	table {
 		@include BodyTextStyle--small();
 		border-collapse: collapse;
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	th,
 	td {
