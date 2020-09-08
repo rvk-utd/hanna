@@ -6,6 +6,7 @@
 	&--align--right {
 		@include media($mq-tablet_up) {
 			margin-left: auto;
+			max-width: none;
 			width: cols_pct(7);
 		}
 	}
