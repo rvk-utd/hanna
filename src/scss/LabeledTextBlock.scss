@@ -12,7 +12,7 @@
 	.LabeledTextBlock__label {
 		@include HeadingStyle--small();
 		display: flex;
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	.LabeledTextBlock__label::before {
 		content: '';

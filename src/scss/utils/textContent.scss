@@ -1,12 +1,10 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
 
-$baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
-
 @mixin defaultULStyle() {
 	list-style: none;
 	padding: 0;
-	margin-bottom: $baseVMargin;
+	margin-bottom: $var--baseVerticalMargin;
 	@include BodyTextStyle--small();
 
 	> li {
@@ -30,21 +28,21 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 @mixin textContent() {
 	> h2 {
 		@include HeadingStyle--small();
-		margin-bottom: var(--h2--marginBottom, $baseVMargin);
+		margin-bottom: var(--h2--marginBottom, $var--baseVerticalMargin);
 	}
 	> * + h2 {
 		margin-top: var(--h2--marginTop, 1.5em);
 	}
 	> h3 {
 		@include SubheadingStyle--large();
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	> h4 {
 		@include SubheadingStyle--small();
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	> p {
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	ul {
 		@include defaultULStyle();
@@ -54,7 +52,7 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 	}
 	blockquote {
 		padding: prem($grid-unit * 4);
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 		position: relative;
 
 		&::before {
