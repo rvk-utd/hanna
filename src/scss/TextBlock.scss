@@ -11,7 +11,11 @@
 		position: relative;
 		margin-bottom: between_cols(20, 30);
 		@include ComponentLayout();
+		@include BodyTextStyle--large();
 		@include textContent();
+	}
+	.TextBlock--small {
+		@include BodyTextStyle--small();
 	}
 
 	// ---------------------------------------------------------------------------
@@ -64,19 +68,12 @@
 
 	// ---------------------------------------------------------------------------
 
-	.TextBlock__title {
-		@include HeadingStyle--medium();
-		margin-bottom: $baseVMargin;
-		@include WARNING__('Deprecated. Use PageHeading/SubHeading');
-	}
 	.TextBlock--largetext {
-		@include BodyTextStyle--large();
+		@include WARNING__('`--largetext` is Outdated. TextBlock is "large" by default');
 	}
-
-	.TextBlock--largetext .TextBlock__title {
-		@include HeadingStyle--large();
+	.TextBlock__title {
+		@include WARNING__('`__title` is Outdated. Use PageHeading/SubHeading');
 	}
-
 	.TextBlock .PageHeading,
 	.TextBlock .SubHeading {
 		@include WARNING__('Should NOT be used inside TextBlock');

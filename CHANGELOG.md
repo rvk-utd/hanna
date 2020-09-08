@@ -4,6 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 - **BREAKING** feat: Add `.LabeledTextBlock--wide`, replacing `--left`
+- **BREAKING** feat: Simplify `TextBlock` – remove support for
+  `.TextBlock--largetext` modifier and `.TextBlock__title`
+- feat: Add `.TextBlock--small` option for smaller font-size
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
 - feat: Add `.TextBlock--labelled` option with left-floating H2 headings
