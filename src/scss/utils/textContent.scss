@@ -7,6 +7,7 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 	list-style: none;
 	padding: 0;
 	margin-bottom: $baseVMargin;
+	@include BodyTextStyle--small();
 
 	> li {
 		margin-bottom: prem($grid-unit * 2);
@@ -46,7 +47,7 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 		@include defaultULStyle();
 	}
 	ol {
-		// TODO: Ad basic ol styling
+		@include BodyTextStyle--small();
 	}
 	blockquote {
 		padding: prem($grid-unit * 4);

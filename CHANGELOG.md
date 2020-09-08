@@ -10,6 +10,7 @@
 - fix: Tolerate missing `.ImageCards__title`
 - fix: Apply `ExtraLinks__card` hover styling on all screen sizes
 - fix: Reset `.MainMenu__mega__link__title` link colors variables
+- fix: Reduce font-size of `<ul/>`s and `<ol/>`s inside large-text blocks
 
 ## 0.5.5
 
