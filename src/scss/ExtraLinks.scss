@@ -2,8 +2,6 @@
 @use 'styles/cards' as *;
 @use 'styles/font' as *;
 
-@include Card('ExtraLinks', 'ExtraLinks__main', 4);
-
 @media screen {
 	.ExtraLinks {
 		background-color: $color-suld-25;
@@ -27,17 +25,14 @@
 	}
 
 	.ExtraLinks__title {
-		margin-bottom: between_phone_netbook(20, 56);
-
-		@include media($mq-wide) {
-			margin-bottom: 56px;
-		}
+		@include CardListTitle();
 	}
-
 	.ExtraLinks__list {
+		@include CardList();
 	}
 
 	.ExtraLinks__card {
+		@include Card();
 		border: 1px solid $color-suld-75;
 	}
 	.ExtraLinks__card:hover,
