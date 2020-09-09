@@ -359,7 +359,7 @@
 		visibility: visible !important; // override inline `visibility: hidden`
 		text-transform: capitalize;
 		color: $color-suld-0;
-		font-size: prem(20);
+		font-size: prem($font-size-20);
 		font-weight: $font-weight--bold;
 	}
 
