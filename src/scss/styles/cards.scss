@@ -2,95 +2,75 @@
 @use 'font' as *;
 @use 'links' as *;
 
-@mixin CardGrid($bem, $wrapperClass: $bem, $cols: 3) {
-	@media screen {
-		.#{$wrapperClass} {
-			display: grid;
-			column-gap: cols_pct(0, 1);
-			grid-template: 'title' 'list';
-
-			@if $cols == 3 {
-				@include media($mq-tablet_up) {
-					grid-template: 'title list' / 1fr ($cols * 1fr);
-				}
-			}
-		}
-
-		.#{$bem}__list {
-			grid-area: list;
-			display: grid;
-			grid-auto-flow: row;
-			gap: prem($grid-gutter) cols_pct(0, 1, $cols * 3);
-			@if $cols == 3 {
-				grid-template-columns: repeat($cols, cols_pct(3, 2, 9));
-			} @else {
-				grid-template-columns: repeat($cols, cols_pct(3));
-			}
-
-			@include media($mq-phone) {
-				grid-template-columns: 100%;
-			}
-			@include media($mq-phablet) {
-				grid-template-columns: repeat(2, cols_pct(6));
-			}
-			@include media($mq-tablet) {
-				@if $cols == 3 {
-					grid-template-columns: repeat(2, cols_pct(6, 5, 9));
-				} @else {
-					grid-template-columns: repeat(2, cols_pct(4));
-				}
-			}
-		}
+@mixin CardBlock() {
+	@include media($mq-tablet_up) {
+		display: grid;
+		column-gap: $var--grid-gutter;
+		grid-template: 'title list' / $var--grid-3 $var--grid-9;
+	}
+	@include media($mq-tablet) {
+		grid-template-columns: $var--grid-4 $var--grid-8;
 	}
 }
 
-@mixin Card($bem, $wrapperClass: $bem, $cols: 3, $grid: true) {
-	@if ($grid) {
-		@include CardGrid($bem, $wrapperClass, $cols);
+@mixin CardListTitle() {
+	grid-area: title;
+	@include HeadingStyle--small();
+	margin-bottom: $var--baseVerticalMargin;
+}
+
+@mixin CardList($cols: 3) {
+	grid-area: list;
+	display: grid;
+	grid-auto-flow: row;
+	gap: var(--grid-gutter);
+	grid-template-columns: repeat($cols, $var--grid-3);
+
+	@include media($mq-phone) {
+		grid-template-columns: 100%;
+	}
+	@include media($mq-phablet) {
+		grid-template-columns: repeat(2, $var--grid-6);
+	}
+	@include media($mq-tablet) {
+		grid-template-columns: repeat($cols - 1, $var--grid-4);
+	}
+}
+
+@mixin Card() {
+	@include LinkStyle_Reset(noborder);
+	display: block;
+	padding: prem(24) prem(24) prem(16) prem(24);
+	min-height: prem(168);
+	width: 100%;
+
+	&::after {
+		content: '';
+		display: block;
+		width: grid-units(5);
+		height: prem(2);
+		background: var(--Card-lineColor, currentColor);
+		margin-top: grid-units(2);
+		margin-bottom: grid-units(2);
+		transition: width 0.25s ease-in-out;
 	}
 
-	@media screen {
-		.#{$bem}__title {
-			@include HeadingStyle--small();
-			width: 100%;
-		}
+	&:hover::after,
+	&:focus::after {
+		width: 100%;
+	}
 
-		.#{$bem}__card {
-			@include LinkStyle_Reset(noborder);
-			display: block;
-			padding: prem(24) prem(24) prem(16) prem(24);
-			min-height: prem(168);
-			width: 100%;
-		}
+	&__title,
+	&__summary {
+		display: block;
+	}
 
-		.#{$bem}__card::after {
-			content: '';
-			display: block;
-			width: grid-units(5);
-			height: prem(2);
-			background: var(--Card-lineColor, currentColor);
-			margin-top: grid-units(2);
-			margin-bottom: grid-units(2);
-			transition: width 0.25s ease-in-out;
-		}
+	&__title {
+		@include BodyTextStyle--large();
+		font-weight: 700;
+	}
 
-		.#{$bem}__card:hover::after,
-		.#{$bem}__card:focus::after {
-			width: 100%;
-		}
-
-		.#{$bem}__card__title,
-		.#{$bem}__card__summary {
-			display: block;
-		}
-
-		.#{$bem}__card__title {
-			@include BodyTextStyle--large();
-			font-weight: 700;
-		}
-
-		.#{$bem}__card__summary {
-			@include BodyTextStyle--small();
-		}
+	&__summary {
+		@include BodyTextStyle--small();
 	}
 }

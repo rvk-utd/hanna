@@ -1,3 +1,5 @@
+@use 'mq' as *;
+
 $grid-unit: 8;
 
 $grid-gutter: 40;
@@ -8,7 +10,7 @@ $grid-edge--phone: 20;
 $grid-edge--wide: 80;
 
 $grid-contentMaxWidth: $grid-column * $grid-numCols + $grid-gutter * ($grid-numCols - 1);
+$grid-contentMinWidth: $bp-phone - 2 * $grid-edge--phone;
 
 $grid-contentMaxWidth--outer: $grid-contentMaxWidth + 2 * $grid-edge--wide;
-
-$var--baseVerticalMargin: var(--baseVerticalMargin);
+$grid-contentMinWidth--outer: $bp-phone;

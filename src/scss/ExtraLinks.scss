@@ -2,8 +2,6 @@
 @use 'styles/cards' as *;
 @use 'styles/font' as *;
 
-@include Card('ExtraLinks', 'ExtraLinks__main', 4);
-
 @media screen {
 	.ExtraLinks {
 		background-color: $color-suld-25;
@@ -27,17 +25,14 @@
 	}
 
 	.ExtraLinks__title {
-		margin-bottom: between_phone_netbook(20, 56);
-
-		@include media($mq-wide) {
-			margin-bottom: 56px;
-		}
+		@include CardListTitle();
 	}
-
 	.ExtraLinks__list {
+		@include CardList($cols: 4);
 	}
 
 	.ExtraLinks__card {
+		@include Card();
 		border: 1px solid $color-suld-75;
 	}
 	.ExtraLinks__card:hover,
@@ -93,31 +88,20 @@
 }
 
 @media #{$mq-netbook_up} {
-	.ExtraLinks {
-		display: flex;
-	}
 	.ExtraLinks--related {
+		display: flex;
 		margin-bottom: px_pct(230);
 	}
-
-	.ExtraLinks__main {
-		flex-shrink: 1;
+	.ExtraLinks--related > .ExtraLinks__main {
+		width: $var--grid-6;
+	}
+	.ExtraLinks--related > .ExtraLinks__main > .ExtraLinks__list {
+		grid-template-columns: repeat(2, $var--grid-3);
 	}
 
 	.ExtraLinks__related {
 		margin-bottom: px_pct(-210);
-	}
-
-	.ExtraLinks--related > .ExtraLinks__main {
-		grid-template-columns: repeat(2, 1fr);
-		width: cols_pct(6);
-	}
-	.ExtraLinks--related > .ExtraLinks__main > .ExtraLinks__list {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.ExtraLinks__related {
-		width: cols_pct(5);
+		width: $var--grid-5;
 		margin-left: auto;
 	}
 }

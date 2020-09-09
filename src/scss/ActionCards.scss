@@ -1,14 +1,19 @@
 @use 'globals' as *;
 @use 'styles/cards' as *;
 
-@include Card('ActionCards');
-
 @media screen {
-	.ActionCards__title {
-		margin-bottom: between_phone_netbook(20, 40);
+	.ActionCards {
+		@include CardBlock();
+		margin-bottom: between_cols(60, 100);
 	}
-
+	.ActionCards__title {
+		@include CardListTitle();
+	}
+	.ActionCards__list {
+		@include CardList();
+	}
 	.ActionCards__card {
+		@include Card();
 		border: 1px solid $color-suld-75;
 		--link-color--hover: #{$color-suld-200};
 		--link-focus-outline: 0;

@@ -61,11 +61,11 @@
 		margin: 0;
 	}
 	.GridBlocks--twocol > * > .GridBlocks__illustration {
-		width: cols_pct(1, 0, 5, 4);
-		margin-right: cols_pct(0, 1, 5, 4);
+		width: cols_pct(1, 0, 5);
+		margin-right: cols_pct(0, 1, 5);
 	}
 	.GridBlocks--twocol > * > .GridBlocks__textwrap {
-		width: cols_pct(4, 3, 5, 4);
+		width: cols_pct(4, 3, 5);
 	}
 
 	.GridBlocks:not(.GridBlocks--twocol) > .GridBlocks__item:nth-child(3n + 1) {
