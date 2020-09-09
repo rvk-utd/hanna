@@ -1,106 +1,59 @@
 @use '../_globals' as *;
 
-@mixin _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS, $media: $mq-phablet_netbook) {
-	$lead: $leadS != null and $leadL != null;
-	font-size: px($sizeS);
-	line-height: if($lead, px($leadS), null);
-
-	@media #{$media} {
-		font-size: between_phablet_netbook($sizeS, $sizeL);
-		line-height: if($lead, between_phablet_netbook($leadS, $leadL), null);
-	}
-	@media #{$mq-wide} {
-		font-size: px($sizeL);
-		line-height: if($lead, px($leadL), null);
-	}
-}
-
-@mixin _ResponsiveFontSizeFast($sizeL, $leadL, $sizeS, $leadS) {
-	@include _ResponsiveFontSize($sizeL, $leadL, $sizeS, $leadS, $mq-tablet_netbook);
-}
-
-// ---------------------------------------------------------------------------
-
 @mixin HeadingStyle--xlarge() {
 	font-weight: $font-weight--bold;
-	@include _ResponsiveFontSize(
-		$font-hd-xl-size,
-		$font-hd-xl-leading,
-		$font-hd-xl-size--phone,
-		$font-hd-xl-leading--phone
-	);
+	font-size: var(--font-hd-xl-size);
+	line-height: var(--font-hd-xl-leading);
 }
 @mixin HeadingStyle--large() {
 	font-weight: $font-weight--bold;
-	@include _ResponsiveFontSize(
-		$font-hd-l-size,
-		$font-hd-l-leading,
-		$font-hd-l-size--phone,
-		$font-hd-l-leading--phone
-	);
+	font-size: var(--font-hd-l-size);
+	line-height: var(--font-hd-l-leading);
 }
 @mixin HeadingStyle--medium() {
 	font-weight: $font-weight--bold;
-	@include _ResponsiveFontSize(
-		$font-hd-m-size,
-		$font-hd-m-leading,
-		$font-hd-m-size--phone,
-		$font-hd-m-leading--phone
-	);
+	font-size: var(--font-hd-m-size);
+	line-height: var(--font-hd-m-leading);
 }
 @mixin HeadingStyle--small() {
 	font-weight: $font-weight--bold;
-	@include _ResponsiveFontSize(
-		$font-hd-s-size,
-		$font-hd-s-leading,
-		$font-hd-s-size--phone,
-		$font-hd-s-leading--phone
-	);
+	font-size: var(--font-hd-s-size);
+	line-height: var(--font-hd-s-leading);
 }
 
 // ---------------------------------------------------------------------------
 
 @mixin SubheadingStyle--large() {
 	font-weight: $font-weight--bold;
-	@include _ResponsiveFontSize(
-		$font-sh-l-size,
-		$font-sh-l-leading,
-		$font-sh-l-size--phone,
-		$font-sh-l-leading--phone
-	);
+	font-size: var(--font-sh-l-size);
+	line-height: var(--font-sh-l-leading);
 }
 @mixin SubheadingStyle--large-thin() {
 	font-weight: $font-weight--normal;
-	@include _ResponsiveFontSize(
-		$font-sh-l-size,
-		$font-sh-l-leading,
-		$font-sh-l-size--phone,
-		$font-sh-l-leading--phone
-	);
+	font-size: var(--font-sh-l-size);
+	line-height: var(--font-sh-l-leading);
 }
 @mixin SubheadingStyle--small() {
 	font-weight: $font-weight--bold;
-	@include _ResponsiveFontSize(
-		$font-sh-s-size,
-		$font-sh-s-leading,
-		$font-sh-s-size--phone,
-		$font-sh-s-leading--phone
-	);
+	font-size: var(--font-sh-s-size);
+	line-height: var(--font-sh-s-leading);
 }
 
 // ---------------------------------------------------------------------------
 
 @mixin BodyTextStyle--large($leading: true) {
-	@include _ResponsiveFontSizeFast(
-		$font-bd-l-size,
-		if($leading, $font-bd-l-leading, null),
-		$font-bd-s-size,
-		if($leading, $font-bd-s-leading, null)
-	);
+	font-size: var(--font-bd-l-size);
+	@if $leading {
+		line-height: var(--font-bd-l-leading);
+	}
 }
 @mixin BodyTextStyle--small($leading: true) {
 	font-size: prem($font-bd-s-size);
-	line-height: if($leading, prem($font-bd-s-leading), null);
+	// font-size: var(--font-bd-s-size);
+	@if $leading {
+		line-height: prem($font-bd-s-leading);
+		// line-height: var(--font-bd-s-size);
+	}
 }
 
 // ---------------------------------------------------------------------------

@@ -57,6 +57,49 @@ $var--input-border-color: var(--input-border-color);
 
 // ---------------------------------------------------------------------------
 
+$var--baseVerticalMargin: var(--baseVerticalMargin);
+
+// ---------------------------------------------------------------------------
+
+$var--grid-0-1: var(--grid-0-1);
+$var--grid-1: var(--grid-1);
+$var--grid-2: var(--grid-2);
+$var--grid-3: var(--grid-3);
+$var--grid-4: var(--grid-4);
+$var--grid-5: var(--grid-5);
+$var--grid-6: var(--grid-6);
+$var--grid-7: var(--grid-7);
+$var--grid-8: var(--grid-8);
+$var--grid-9: var(--grid-9);
+$var--grid-10: var(--grid-10);
+$var--grid-11: var(--grid-11);
+
+$var--grid-gutter: var(--grid-gutter);
+$var--grid-column: var(--grid-column);
+
+// ---------------------------------------------------------------------------
+
+$var--font-hd-xl-size: var(--font-hd-xl-size);
+$var--font-hd-xl-leading: var(--font-hd-xl-leading);
+$var--font-hd-l-size: var(--font-hd-l-size);
+$var--font-hd-l-leading: var(--font-hd-l-leading);
+$var--font-hd-m-size: var(--font-hd-m-size);
+$var--font-hd-m-leading: var(--font-hd-m-leading);
+$var--font-hd-s-size: var(--font-hd-s-size);
+$var--font-hd-s-leading: var(--font-hd-s-leading);
+
+$var--font-sh-l-size: var(--font-sh-l-size);
+$var--font-sh-l-leading: var(--font-sh-l-leading);
+$var--font-sh-s-size: var(--font-sh-s-size);
+$var--font-sh-s-leading: var(--font-sh-s-leading);
+
+$var--font-bd-l-size: var(--font-bd-l-size);
+$var--font-bd-l-leading: var(--font-bd-l-leading);
+$var--font-bd-s-size: var(--font-bd-s-size);
+$var--font-bd-s-leading: var(--font-bd-s-leading);
+
+// ---------------------------------------------------------------------------
+
 // NOTE: This variable receives its actual value somewhere off
 // in JavaScript-land, set by `qj/getScrollbarWidth.setCSSvar()`
 $var--browser-scrollbar-width: var(--browser-scrollbar-width, 0);

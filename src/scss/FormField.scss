@@ -39,7 +39,7 @@
 	}
 	.FormField--empty:not(.FormField--small):not(.FormField--focused)
 		> label.FormField__label {
-		font-size: prem($font-bd-s-size);
+		font-size: $var--font-bd-s-size;
 		line-height: $InputField-heightI + $InputField-paddingTop;
 	}
 

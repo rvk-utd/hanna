@@ -28,7 +28,7 @@
 		@include CardListTitle();
 	}
 	.ExtraLinks__list {
-		@include CardList();
+		@include CardList($cols: 4);
 	}
 
 	.ExtraLinks__card {
@@ -88,31 +88,20 @@
 }
 
 @media #{$mq-netbook_up} {
-	.ExtraLinks {
-		display: flex;
-	}
 	.ExtraLinks--related {
+		display: flex;
 		margin-bottom: px_pct(230);
 	}
-
-	.ExtraLinks__main {
-		flex-shrink: 1;
+	.ExtraLinks--related > .ExtraLinks__main {
+		width: $var--grid-6;
+	}
+	.ExtraLinks--related > .ExtraLinks__main > .ExtraLinks__list {
+		grid-template-columns: repeat(2, $var--grid-3);
 	}
 
 	.ExtraLinks__related {
 		margin-bottom: px_pct(-210);
-	}
-
-	.ExtraLinks--related > .ExtraLinks__main {
-		grid-template-columns: repeat(2, 1fr);
-		width: cols_pct(6);
-	}
-	.ExtraLinks--related > .ExtraLinks__main > .ExtraLinks__list {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.ExtraLinks__related {
-		width: cols_pct(5);
+		width: $var--grid-5;
 		margin-left: auto;
 	}
 }
