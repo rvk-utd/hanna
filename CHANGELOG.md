@@ -3,6 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.6.0
+
+_2020-09-09_
+
+- **BREAKING** target: **Hanna 0.6** markup patterns
 - **BREAKING** feat: Add `.LabeledTextBlock--wide`, replacing `--left`
 - **BREAKING** feat: Simplify `TextBlock` – remove support for
   `.TextBlock--largetext` modifier and `.TextBlock__title`
