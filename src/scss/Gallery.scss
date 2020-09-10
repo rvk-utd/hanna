@@ -17,9 +17,6 @@
 
 	.Gallery {
 		position: relative;
-		@include bodyPaddingInner(margin, true);
-
-		width: 100vw;
 
 		overflow-x: scroll;
 		overflow-y: hidden;
