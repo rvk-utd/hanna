@@ -113,6 +113,8 @@
 		display: none;
 
 		@include media($mq-tablet_up) {
+			margin-left: auto;
+			width: max-content;
 			display: flex;
 			align-items: flex-end;
 			// how are we positioning the nav?
