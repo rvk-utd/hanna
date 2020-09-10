@@ -16,9 +16,9 @@
 	.WizardLayout__header {
 		position: relative;
 		z-index: 3;
+		height: $var--Layout__header-height;
 		display: flex;
 		align-items: center;
-		@include Layout__header--height();
 	}
 
 	@include LayoutHeaderLogo('WizardLayout__header__logo');

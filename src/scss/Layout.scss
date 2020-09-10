@@ -12,8 +12,8 @@
 		flex-flow: column nowrap;
 		// align-items: center;
 		position: relative;
+		padding-top: $var--Layout__header-height;
 		@include setMaxWidth($grid-contentMaxWidth);
-		@include Layout__header--height(padding-top);
 	}
 
 	.Layout__header {
@@ -24,7 +24,7 @@
 		z-index: 3;
 		display: flex;
 		align-items: center;
-		@include Layout__header--height();
+		height: $var--Layout__header-height;
 	}
 
 	@include LayoutHeaderLogo('Layout__header__logo');

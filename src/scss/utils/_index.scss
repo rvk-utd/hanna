@@ -15,24 +15,6 @@
 	@return prem($grid-unit * $units);
 }
 
-@mixin Layout__header--height($property: height, $media: all) {
-	@if $media != Topmenu {
-		#{$property}: 70px;
-	}
-	@if $media != Hamburger {
-		@if $media == Topmenu {
-			#{$property}: between_Topmenu(70, 136);
-		} @else {
-			@include media($mq-Topmenu) {
-				#{$property}: between_Topmenu(70, 136);
-			}
-		}
-		@include media($mq-wide) {
-			#{$property}: 136px;
-		}
-	}
-}
-
 @mixin setMaxWidth($maxWidth) {
 	width: 100%;
 	max-width: prem($maxWidth);

@@ -10,7 +10,7 @@
 
 	.Layout__nav .BreadCrumbs {
 		position: absolute;
-		@include Layout__header--height(top);
+		top: $var--Layout__header-height;
 		left: 0;
 		max-width: 100%;
 	}

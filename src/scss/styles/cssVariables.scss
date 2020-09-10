@@ -9,9 +9,12 @@
 			}
 			@include _gridVariables();
 			@include _fontVariables();
+			@include _LayoutHeader();
 		}
 	}
 }
+
+// ---------------------------------------------------------------------------
 
 @function _flexCol($cols, $gutters: $cols - 1) {
 	$f: cols_pct($cols, $gutters) / 100%;
@@ -63,6 +66,7 @@
 		--grid-11: #{cols_px(11)};
 	}
 }
+
 // ---------------------------------------------------------------------------
 
 @mixin _fontVariables() {
@@ -162,5 +166,21 @@
 
 		--font-bd-l-size: #{px($font-bd-l-size)};
 		--font-bd-l-leading: #{px($font-bd-l-leading)};
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _LayoutHeader() {
+	$min: 70;
+	$max: 136;
+
+	--Layout__header-height: #{px($min)};
+
+	@include media($mq-Topmenu) {
+		--Layout__header-height: #{between_Topmenu($min, $max)};
+	}
+	@include media($mq-wide) {
+		--Layout__header-height: #{px($max)};
 	}
 }

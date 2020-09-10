@@ -106,3 +106,7 @@ $var--font-bd-s-leading: var(--font-bd-s-leading);
 // NOTE: This variable receives its actual value somewhere off
 // in JavaScript-land, set by `qj/getScrollbarWidth.setCSSvar()`
 $var--browser-scrollbar-width: var(--browser-scrollbar-width, 0);
+
+// ---------------------------------------------------------------------------
+
+$var--Layout__header-height: var(--Layout__header-height);
