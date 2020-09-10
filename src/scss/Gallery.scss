@@ -108,7 +108,7 @@
 
 	// NAV
 
-	.Gallery .CarouselStepper {
+	.Gallery__stepper {
 		// just scroll items in mobile?
 		display: none;
 
@@ -127,7 +127,7 @@
 		}
 	}
 
-	.Gallery .CarouselStepper__button {
+	.Gallery__stepper__button {
 		@include media($mq-tablet_up) {
 			flex: none;
 
@@ -162,7 +162,7 @@
 		}
 	}
 
-	.Gallery .CarouselStepper__button[aria-pressed='true'] {
+	.Gallery__stepper__button[aria-pressed='true'] {
 		@include media($mq-tablet_up) {
 			background: var(--theme-color-primary);
 			transform: none;
