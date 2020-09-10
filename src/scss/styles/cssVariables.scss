@@ -23,6 +23,12 @@
 @mixin _gridVariables() {
 	--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
 
+	--grid-edge: #{between_phone_netbook($grid-edge--phone, $grid-edge--wide)};
+	--grid-edge--neg: #{between_phone_netbook(
+			-1 * $grid-edge--phone,
+			-1 * $grid-edge--wide
+		)};
+
 	--grid-0-1: #{_flexCol(0, 1)};
 	--grid-1: #{_flexCol(1)};
 	--grid-2: #{_flexCol(2)};
@@ -40,6 +46,9 @@
 	--grid-column: var(--grid-1);
 
 	@include media($mq-wide) {
+		--grid-edge: #{px($grid-edge--wide)};
+		--grid-edge--neg: #{px(-1 * $grid-edge--wide)};
+
 		--grid-0-1: #{cols_px(0, 1)};
 		--grid-1: #{cols_px(1)};
 		--grid-2: #{cols_px(2)};

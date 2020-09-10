@@ -3,7 +3,7 @@
 
 @media screen {
 	body {
-		@include bodyPadding();
+		padding: 0 $var--grid-edge;
 	}
 
 	.Layout {

@@ -59,7 +59,7 @@
 	}
 
 	.LabeledTextBlock--left {
-		@include bodyPaddingInner(margin, true, left);
+		margin-left: $var--grid-edge--neg;
 		max-width: 100%;
 	}
 

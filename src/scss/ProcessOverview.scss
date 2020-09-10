@@ -5,9 +5,10 @@
 @media screen {
 	.ProcessOverview {
 		background-color: $color-suld-25;
-		padding: between_phone_netbook(50, 120) 0 between_phone_netbook(50, 192);
-		@include bodyPaddingInner(margin, true);
-		@include bodyPaddingInner(padding, false);
+		margin: 0 $var--grid-edge--neg;
+		padding: 0 $var--grid-edge;
+		padding-top: between_phone_netbook(50, 120);
+		padding-bottom: between_phone_netbook(50, 192);
 
 		@include media($mq-wide) {
 			padding-top: prem(120);
@@ -42,7 +43,7 @@
 		height: prem(4);
 		background-color: $var--color-theme-primary--safeish;
 		position: absolute;
-		@include bodyPaddingInner(margin, true, left);
+		margin-left: $var--grid-edge--neg;
 
 		@include media($mq-wide) {
 			width: 38px;

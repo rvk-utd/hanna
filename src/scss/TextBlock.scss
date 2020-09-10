@@ -47,7 +47,7 @@
 		}
 		.TextBlock--labelled > h2::before {
 			float: left;
-			margin-left: between_cols(-$grid-edge--phone, -$grid-edge--wide, 5);
+			margin-left: $var--grid-edge--neg;
 			width: between_cols(0.67 * $grid-edge--phone, 36/80 * $grid-edge--wide, 5);
 			margin-right: 0;
 		}
