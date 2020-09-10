@@ -13,7 +13,9 @@
 		// align-items: center;
 		position: relative;
 		padding-top: $var--Layout__header-height;
-		@include setMaxWidth($grid-contentMaxWidth);
+		width: 100%;
+		max-width: prem($grid-contentMaxWidth);
+		margin: 0 auto;
 	}
 
 	.Layout__header {

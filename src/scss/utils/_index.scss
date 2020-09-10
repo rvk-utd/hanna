@@ -15,12 +15,6 @@
 	@return prem($grid-unit * $units);
 }
 
-@mixin setMaxWidth($maxWidth) {
-	width: 100%;
-	max-width: prem($maxWidth);
-	margin-left: auto;
-	margin-right: auto;
-}
 @mixin extendBackgroundWithUnderlay($dir: both, $pseudo: before) {
 	z-index: 1;
 	position: relative;

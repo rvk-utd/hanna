@@ -10,7 +10,9 @@
 		flex-flow: column nowrap;
 		// align-items: center;
 		position: relative;
-		@include setMaxWidth($grid-contentMaxWidth);
+		width: 100%;
+		max-width: prem($grid-contentMaxWidth);
+		margin: 0 auto;
 	}
 
 	.WizardLayout__header {
