@@ -7,9 +7,19 @@
 
 @media screen {
 	.NameCards {
-		// @include CardList(3);
 		display: grid;
 		gap: var(--grid-gutter);
-		grid-template-columns: repeat(3, $var--grid-4);
+
+		@include media($mq-phablet_up) {
+			grid-template-columns: repeat(2, $var--grid-6);
+		}
+
+		@include media($mq-tablet) {
+			grid-template-columns: repeat(3, $var--grid-4);
+		}
+
+		@include media($mq-netbook_up) {
+			grid-template-columns: repeat(3, $var--grid-4);
+		}
 	}
 }

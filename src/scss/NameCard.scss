@@ -10,6 +10,7 @@
 	}
 
 	.NameCard__name {
+		width: 100%;
 		@include BodyTextStyle--large();
 		margin-bottom: prem(16);
 	}
@@ -30,19 +31,20 @@
 		display: inline-block;
 		margin-right: prem(16);
 	}
+
 	.NameCard__location {
+		width: 100%;
 		margin-top: prem(16);
 	}
-	.NameCard__name,
-	.NameCard__location,
+
 	.NameCard__hours {
 		width: 100%;
-	}
-	.NameCard__hours {
 		margin-bottom: prem(48);
 	}
+
 	.NameCard__vacancy {
 		color: $color-suld-150;
+		margin-right: prem(20);
 	}
 	.NameCard__vacancy::before {
 		content: '';
@@ -59,9 +61,17 @@
 	.NameCard__vacancy--vacany::before {
 		background-color: $color-ellidarardalur-100;
 	}
+
 	.NameCard__updated {
 		font-size: prem($font-size-12);
 		color: $color-suld-150;
 		margin-left: auto;
+
+		@include media(
+			'screen and (min-width: #{$bp-phablet}px) and (max-width: 1230px)'
+		) {
+			width: 100%;
+			margin: prem(8) 0 0 0;
+		}
 	}
 }
