@@ -1,0 +1,15 @@
+@use 'globals' as *;
+@use 'styles/cards' as *;
+
+/*!@deps
+	NameCard
+*/
+
+@media screen {
+	.NameCards {
+		// @include CardList(3);
+		display: grid;
+		gap: var(--grid-gutter);
+		grid-template-columns: repeat(3, $var--grid-4);
+	}
+}

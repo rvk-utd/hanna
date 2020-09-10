@@ -1,0 +1,67 @@
+@use 'globals' as *;
+@use 'styles/font.scss' as *;
+
+@media screen {
+	.NameCard {
+		border: 1px solid $color-suld-100;
+		padding: prem(32) prem(24);
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.NameCard__name {
+		@include BodyTextStyle--large();
+		margin-bottom: prem(16);
+	}
+
+	.NameCard__tel {
+		align-items: center;
+		display: inline-flex;
+		margin-right: prem(24);
+		@include BodyTextStyle--small(false);
+		font-weight: 700;
+		line-height: (19/16);
+	}
+	.NameCard__tel::before {
+		content: '';
+		width: prem(16);
+		height: prem(2);
+		background-color: $color-sund-100;
+		display: inline-block;
+		margin-right: prem(16);
+	}
+	.NameCard__location {
+		margin-top: prem(16);
+	}
+	.NameCard__name,
+	.NameCard__location,
+	.NameCard__hours {
+		width: 100%;
+	}
+	.NameCard__hours {
+		margin-bottom: prem(48);
+	}
+	.NameCard__vacancy {
+		color: $color-suld-150;
+	}
+	.NameCard__vacancy::before {
+		content: '';
+		width: prem(8);
+		height: prem(8);
+		margin-right: prem(9);
+		display: inline-block;
+		border-radius: 50%;
+		background-color: $color-suld-150;
+	}
+	.NameCard__vacancy--vacany {
+		color: $color-suld-200;
+	}
+	.NameCard__vacancy--vacany::before {
+		background-color: $color-ellidarardalur-100;
+	}
+	.NameCard__updated {
+		font-size: prem($font-size-12);
+		color: $color-suld-150;
+		margin-left: auto;
+	}
+}
