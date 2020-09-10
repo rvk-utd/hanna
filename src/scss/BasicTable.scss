@@ -2,7 +2,10 @@
 
 @media screen {
 	.TableWrapper--BasicTable {
-		margin: 0 0 prem(30);
+		margin: 0 0 prem(30) 0;
+	}
+
+	.BasicTable {
 		min-width: 100%;
 	}
 
@@ -11,7 +14,6 @@
 		padding: between(12, 24) between(16, 30);
 		text-align: left;
 		vertical-align: center;
-		white-space: pre-line;
 
 		&:first-child {
 			padding-left: 0;
@@ -25,12 +27,13 @@
 		}
 	}
 	.BasicTable > thead > * > th {
-		padding-bottom: between(4, 12);
+		padding-bottom: between(8, 18);
 
 		@media #{$mq-wide} {
-			padding-bottom: prem(12);
+			padding-bottom: prem(18);
 		}
 	}
+
 	.BasicTable--compact > * > * > th,
 	.BasicTable--compact > * > * > td {
 		padding: between(6, 12);
@@ -40,16 +43,32 @@
 		}
 	}
 	.BasicTable--compact > thead > * > th {
-		padding-bottom: between(2, 6);
+		padding-bottom: between(4, 8);
 
 		@media #{$mq-wide} {
-			padding-bottom: prem(4);
+			padding-bottom: prem(8);
 		}
 	}
+
 	.BasicTable > tfoot > * > th,
 	.BasicTable > tfoot > * > td {
-		border-top: 2px solid $color-suld-50;
+		border-top: 2px solid $color-suld-100;
 		border-bottom: 0;
 		font-weight: $font-weight--bold;
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.BasicTable > * > * > .Cell--number {
+		text-align: right;
+		white-space: nowrap;
+	}
+	.BasicTable > * > * > .Cell--tel {
+		text-align: left;
+		white-space: normal;
+	}
+	.BasicTable > * > * > .Cell--text {
+		text-align: left;
+		white-space: normal;
 	}
 }

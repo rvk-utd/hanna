@@ -2,6 +2,7 @@
 @use 'styles/font' as *;
 @use 'styles/links' as *;
 @use 'styles/theme' as *;
+@use 'styles/cssVariables' as *;
 @use 'utils/scssutils/normalize' as *;
 @use 'utils/scssutils/writeMediaFormatMarkers' as *;
 
@@ -36,6 +37,7 @@
 }
 
 @include theme();
+@include cssVariables();
 
 @media screen {
 	*,
@@ -222,15 +224,17 @@
 	legend + * {
 		clear: both;
 	}
-}
 
-@media screen {
+	// ===========================================================================
+
 	table {
 		@include BodyTextStyle--small();
-		margin-bottom: $baseVMargin;
+		border-collapse: collapse;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	th,
 	td {
+		vertical-align: top;
 		padding: prem(1 * $grid-unit) prem(2 * $grid-unit);
 		color: $color-suld-150;
 		font-weight: $font-weight--normal;
@@ -244,11 +248,12 @@
 	}
 	thead > * > th {
 		font-weight: $font-weight--bold;
-		color: $color-suld-200;
+		vertical-align: bottom;
 	}
 	tbody > * > th,
 	tbody > * > td {
-		border-bottom: 1px solid $color-suld-50;
+		border: 1px solid $color-suld-75;
+		border-width: 1px 0;
 	}
 }
 

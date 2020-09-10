@@ -29,7 +29,6 @@
 	// normalize links
 	white-space: nowrap;
 	vertical-align: middle;
-	text-decoration: none;
 
 	color: $color;
 	background-color: $var--color-theme-primary;
@@ -91,11 +90,11 @@
 $ButtonTertiary--color: var(--ButtonTertiary--color, _inherit);
 $ButtonTertiary--dashColor: var(
 	--ButtonTertiary--dashColor,
-	#{$var--color-theme-primary--safeish}
+	$var--color-theme-primary--safeish
 );
-$ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth, #{prem(16)});
-$ButtonTertiary--dashWidth--hover: var(--ButtonTertiary--dashWidth--hover, #{prem(48)});
-$ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, #{prem(2)});
+$ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth, prem(16));
+$ButtonTertiary--dashWidth--hover: var(--ButtonTertiary--dashWidth--hover, prem(48));
+$ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 
 @mixin ButtonTertiaryStyle($mode: normal) {
 	$borderRadius: prem(8);

@@ -3,13 +3,11 @@
 @use 'styles/links' as *;
 @use 'styles/cards' as *;
 
-@include CardGrid('ImageCards');
-
 @media screen {
 	.ImageCards {
-		margin-bottom: prem(48);
+		@include CardBlock();
+		margin-bottom: between_cols(60, 100);
 	}
-
 	.ImageCards--background {
 		background-color: $color-suld-25;
 		padding: between_phone_netbook(40, 136) 0;
@@ -20,8 +18,12 @@
 	}
 
 	.ImageCards__title {
-		display: block;
-		@include HeadingStyle--small();
+		@include CardListTitle();
+	}
+
+	.ImageCards__title,
+	.ImageCards__summary {
+		margin-bottom: $var--baseVerticalMargin;
 	}
 
 	.ImageCards__summary > .ImageCards__title {
@@ -29,9 +31,10 @@
 	}
 
 	.ImageCards__list {
-		gap: between_phone_netbook(24, 80) cols_pct(0, 1, 9);
+		@include CardList();
+		row-gap: between_phone_netbook(24, 80);
 		@include media($mq-wide) {
-			gap: prem(80) cols_pct(0, 1, 9);
+			row-gap: prem(80);
 		}
 	}
 

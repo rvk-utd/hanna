@@ -27,15 +27,15 @@ $_link-focus-outline: normal;
 $_link-transition: 150ms ease-in-out;
 
 @mixin setDefaultLinkVariables($all: false) {
-	--link-color: $_link-color;
-	--link-color--hover: $_link-color--hover;
-	--link-weight: $_link-weight;
-	--link-underline: $_link-underline;
-	--link-underline--hover: $_link-underline--hover;
-	--link-underline-offset: $_link-underline-offset;
+	--link-color: #{$_link-color};
+	--link-color--hover: #{$_link-color--hover};
+	--link-weight: #{$_link-weight};
+	--link-underline: #{$_link-underline};
+	--link-underline--hover: #{$_link-underline--hover};
+	--link-underline-offset: #{$_link-underline-offset};
 	@if $all {
-		--link-focus-outline: $_link-focus-outline;
-		--link-transition: $_link-transition;
+		--link-focus-outline: #{$_link-focus-outline};
+		--link-transition: #{$_link-transition};
 	}
 }
 $var--link-color: var(--link-color, $_link-color);
@@ -49,7 +49,54 @@ $var--link-transition: var(--link-transition, $_link-transition);
 
 // ---------------------------------------------------------------------------
 
+$var--table-border-color: var(--input-border-color);
+
+// ---------------------------------------------------------------------------
+
 $var--input-border-color: var(--input-border-color);
+
+// ---------------------------------------------------------------------------
+
+$var--baseVerticalMargin: var(--baseVerticalMargin);
+
+// ---------------------------------------------------------------------------
+
+$var--grid-0-1: var(--grid-0-1);
+$var--grid-1: var(--grid-1);
+$var--grid-2: var(--grid-2);
+$var--grid-3: var(--grid-3);
+$var--grid-4: var(--grid-4);
+$var--grid-5: var(--grid-5);
+$var--grid-6: var(--grid-6);
+$var--grid-7: var(--grid-7);
+$var--grid-8: var(--grid-8);
+$var--grid-9: var(--grid-9);
+$var--grid-10: var(--grid-10);
+$var--grid-11: var(--grid-11);
+
+$var--grid-gutter: var(--grid-gutter);
+$var--grid-column: var(--grid-column);
+
+// ---------------------------------------------------------------------------
+
+$var--font-hd-xl-size: var(--font-hd-xl-size);
+$var--font-hd-xl-leading: var(--font-hd-xl-leading);
+$var--font-hd-l-size: var(--font-hd-l-size);
+$var--font-hd-l-leading: var(--font-hd-l-leading);
+$var--font-hd-m-size: var(--font-hd-m-size);
+$var--font-hd-m-leading: var(--font-hd-m-leading);
+$var--font-hd-s-size: var(--font-hd-s-size);
+$var--font-hd-s-leading: var(--font-hd-s-leading);
+
+$var--font-sh-l-size: var(--font-sh-l-size);
+$var--font-sh-l-leading: var(--font-sh-l-leading);
+$var--font-sh-s-size: var(--font-sh-s-size);
+$var--font-sh-s-leading: var(--font-sh-s-leading);
+
+$var--font-bd-l-size: var(--font-bd-l-size);
+$var--font-bd-l-leading: var(--font-bd-l-leading);
+$var--font-bd-s-size: var(--font-bd-s-size);
+$var--font-bd-s-leading: var(--font-bd-s-leading);
 
 // ---------------------------------------------------------------------------
 

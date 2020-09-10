@@ -12,30 +12,31 @@
 	.LabeledTextBlock__label {
 		@include HeadingStyle--small();
 		display: flex;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	.LabeledTextBlock__label::before {
 		content: '';
-		min-width: grid-units(5);
-		height: prem(4);
+		flex-shrink: 0;
 		margin-top: 0.7em;
-		transform: translateY(-50%);
+		height: prem(4);
 		background-color: $var--color-theme-primary--safeish;
-		margin-right: prem(20);
+		transform: translateY(-50%);
+		width: em(36/40);
+		margin-right: em(20/40);
 	}
 
 	.LabeledTextBlock__summary {
 		@include BodyTextStyle--large();
-		padding-top: grid-units();
-		margin-left: auto;
 	}
-
-	.LabeledTextBlock--left::before {
-		width: prem(36);
-	}
-
 	.LabeledTextBlock__summary > .ButtonTertiary {
 		display: block;
 		margin-top: grid-units(3);
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.LabeledTextBlock--left {
+		@include WARNING__('`--left` is outdated use `--wide` instead');
 	}
 }
 
@@ -46,24 +47,30 @@
 	}
 
 	.LabeledTextBlock__label {
-		width: cols_pct(5);
-	}
-
-	.LabeledTextBlock__label::before {
-		margin-right: cols_pct(0, 1, 5);
-		width: cols_pct(1, 0, 5);
-	}
-
-	.LabeledTextBlock__summary {
 		width: cols_pct(6);
 	}
-
-	.LabeledTextBlock--left {
-		@include bodyPaddingInner(margin, true, left);
-		max-width: 100%;
+	.LabeledTextBlock__label::before {
+		width: cols_pct(1, 0, 6);
+		margin-right: cols_pct(0, 1, 6);
+	}
+	.LabeledTextBlock__summary {
+		width: cols_pct(6);
+		margin-top: grid-units(1);
+		margin-left: auto;
 	}
 
-	.LabeledTextBlock--left > .LabeledTextBlock__label::before {
-		max-width: prem(32);
+	.LabeledTextBlock--wide > .LabeledTextBlock__label {
+		width: cols_pct(5);
+		display: block;
+		position: relative;
+	}
+	.LabeledTextBlock--wide > .LabeledTextBlock__label::before {
+		float: left;
+		margin-left: between_cols(-$grid-edge--phone, -$grid-edge--wide, 5);
+		width: between_cols(0.67 * $grid-edge--phone, 36/80 * $grid-edge--wide, 5);
+		margin-right: 0;
+	}
+	.LabeledTextBlock--wide > .LabeledTextBlock__summary {
+		width: cols_pct(7);
 	}
 }

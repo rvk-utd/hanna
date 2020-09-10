@@ -1,12 +1,11 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
 
-$baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
-
 @mixin defaultULStyle() {
 	list-style: none;
 	padding: 0;
-	margin-bottom: $baseVMargin;
+	margin-bottom: $var--baseVerticalMargin;
+	@include BodyTextStyle--small();
 
 	> li {
 		margin-bottom: prem($grid-unit * 2);
@@ -28,29 +27,32 @@ $baseVMargin: between_cols($grid-unit * 2, $grid-unit * 3);
 // reset <button> styles for easier custom styling
 @mixin textContent() {
 	> h2 {
-		@include HeadingStyle--medium();
-		margin-bottom: $baseVMargin;
+		@include HeadingStyle--small();
+		margin-bottom: var(--h2--marginBottom, $var--baseVerticalMargin);
+	}
+	> * + h2 {
+		margin-top: var(--h2--marginTop, 1.5em);
 	}
 	> h3 {
-		@include HeadingStyle--small();
-		margin-bottom: $baseVMargin;
+		@include SubheadingStyle--large();
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	> h4 {
 		@include SubheadingStyle--small();
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	> p {
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 	}
 	ul {
 		@include defaultULStyle();
 	}
 	ol {
-		// TODO: Ad basic ol styling
+		@include BodyTextStyle--small();
 	}
 	blockquote {
 		padding: prem($grid-unit * 4);
-		margin-bottom: $baseVMargin;
+		margin-bottom: $var--baseVerticalMargin;
 		position: relative;
 
 		&::before {

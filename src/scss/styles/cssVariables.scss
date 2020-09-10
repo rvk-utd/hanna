@@ -1,0 +1,157 @@
+@use 'globals' as *;
+
+@mixin cssVariables() {
+	@media screen {
+		:root {
+			--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+			@include media($mq-wide) {
+				--baseVerticalMargin: #{px(3 * $grid-unit)};
+			}
+			@include _gridVariables();
+			@include _fontVariables();
+		}
+	}
+}
+
+@function _flexCol($cols, $gutters: $cols - 1) {
+	$f: cols_pct($cols, $gutters) / 100%;
+	$from: $f * $grid-contentMinWidth;
+	$to: $f * $grid-contentMaxWidth;
+	@return between_phone_netbook($from, $to);
+}
+
+@mixin _gridVariables() {
+	--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+
+	--grid-0-1: #{_flexCol(0, 1)};
+	--grid-1: #{_flexCol(1)};
+	--grid-2: #{_flexCol(2)};
+	--grid-3: #{_flexCol(3)};
+	--grid-4: #{_flexCol(4)};
+	--grid-5: #{_flexCol(5)};
+	--grid-6: #{_flexCol(6)};
+	--grid-7: #{_flexCol(7)};
+	--grid-8: #{_flexCol(8)};
+	--grid-9: #{_flexCol(9)};
+	--grid-10: #{_flexCol(10)};
+	--grid-11: #{_flexCol(11)};
+
+	--grid-gutter: var(--grid-0-1);
+	--grid-column: var(--grid-1);
+
+	@include media($mq-wide) {
+		--grid-0-1: #{cols_px(0, 1)};
+		--grid-1: #{cols_px(1)};
+		--grid-2: #{cols_px(2)};
+		--grid-3: #{cols_px(3)};
+		--grid-4: #{cols_px(4)};
+		--grid-5: #{cols_px(5)};
+		--grid-6: #{cols_px(6)};
+		--grid-7: #{cols_px(7)};
+		--grid-8: #{cols_px(8)};
+		--grid-9: #{cols_px(9)};
+		--grid-10: #{cols_px(10)};
+		--grid-11: #{cols_px(11)};
+	}
+}
+// ---------------------------------------------------------------------------
+
+@mixin _fontVariables() {
+	--font-hd-xl-size: #{px($font-hd-xl-size--phone)};
+	--font-hd-xl-leading: #{px($font-hd-xl-leading--phone)};
+	--font-hd-l-size: #{px($font-hd-l-size--phone)};
+	--font-hd-l-leading: #{px($font-hd-l-leading--phone)};
+	--font-hd-m-size: #{px($font-hd-m-size--phone)};
+	--font-hd-m-leading: #{px($font-hd-m-leading--phone)};
+	--font-hd-s-size: #{px($font-hd-s-size--phone)};
+	--font-hd-s-leading: #{px($font-hd-s-leading--phone)};
+
+	--font-sh-l-size: #{px($font-sh-l-size--phone)};
+	--font-sh-l-leading: #{px($font-sh-l-leading--phone)};
+	--font-sh-s-size: #{px($font-sh-s-size--phone)};
+	--font-sh-s-leading: #{px($font-sh-s-leading--phone)};
+
+	--font-bd-l-size: #{px($font-bd-s-size)};
+	--font-bd-l-leading: #{px($font-bd-s-leading)};
+	--font-bd-s-size: #{px($font-bd-s-size)};
+	--font-bd-s-leading: #{px($font-bd-s-leading)};
+
+	@include media($mq-phablet_netbook) {
+		--font-hd-xl-size: #{between_phablet_netbook(
+				$font-hd-xl-size--phone,
+				$font-hd-xl-size
+			)};
+		--font-hd-xl-leading: #{between_phablet_netbook(
+				$font-hd-xl-leading--phone,
+				$font-hd-xl-leading
+			)};
+		--font-hd-l-size: #{between_phablet_netbook(
+				$font-hd-l-size--phone,
+				$font-hd-l-size
+			)};
+		--font-hd-l-leading: #{between_phablet_netbook(
+				$font-hd-l-leading--phone,
+				$font-hd-l-leading
+			)};
+		--font-hd-m-size: #{between_phablet_netbook(
+				$font-hd-m-size--phone,
+				$font-hd-m-size
+			)};
+		--font-hd-m-leading: #{between_phablet_netbook(
+				$font-hd-m-leading--phone,
+				$font-hd-m-leading
+			)};
+		--font-hd-s-size: #{between_phablet_netbook(
+				$font-hd-s-size--phone,
+				$font-hd-s-size
+			)};
+		--font-hd-s-leading: #{between_phablet_netbook(
+				$font-hd-s-leading--phone,
+				$font-hd-s-leading
+			)};
+
+		--font-sh-l-size: #{between_phablet_netbook(
+				$font-sh-l-size--phone,
+				$font-sh-l-size
+			)};
+		--font-sh-l-leading: #{between_phablet_netbook(
+				$font-sh-l-leading--phone,
+				$font-sh-l-leading
+			)};
+		--font-sh-s-size: #{between_phablet_netbook(
+				$font-sh-s-size--phone,
+				$font-sh-s-size
+			)};
+		--font-sh-s-leading: #{between_phablet_netbook(
+				$font-sh-s-leading--phone,
+				$font-sh-s-leading
+			)};
+	}
+
+	@include media($mq-tablet_netbook) {
+		--font-bd-l-size: #{between_tablet_netbook($font-bd-s-size, $font-bd-l-size)};
+		--font-bd-l-leading: #{between_tablet_netbook(
+				$font-bd-s-leading,
+				$font-bd-l-leading
+			)};
+	}
+
+	@include media($mq-wide) {
+		--font-hd-xl-size: #{px($font-hd-xl-size)};
+		--font-hd-xl-leading: #{px($font-hd-xl-leading)};
+		--font-hd-l-size: #{px($font-hd-l-size)};
+		--font-hd-l-leading: #{px($font-hd-l-leading)};
+		--font-hd-m-size: #{px($font-hd-m-size)};
+		--font-hd-m-leading: #{px($font-hd-m-leading)};
+		--font-hd-s-size: #{px($font-hd-s-size)};
+		--font-hd-s-leading: #{px($font-hd-s-leading)};
+
+		--font-sh-l-size: #{px($font-sh-l-size)};
+		--font-sh-l-leading: #{px($font-sh-l-leading)};
+		--font-sh-s-size: #{px($font-sh-s-size)};
+		--font-sh-s-leading: #{px($font-sh-s-leading)};
+
+		--font-bd-l-size: #{px($font-bd-l-size)};
+		--font-bd-l-leading: #{px($font-bd-l-leading)};
+	}
+}

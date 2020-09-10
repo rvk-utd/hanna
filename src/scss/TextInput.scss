@@ -19,6 +19,7 @@ $_pHSmall: ($InputField-heightI--small - prem($font-base-leading)) / 2;
 	@return 2 * $_pHSmall + prem(2) + prem($i * $font-base-leading);
 }
 
+// inlined by FormField
 @mixin css() {
 	@media screen {
 		.TextInput {
