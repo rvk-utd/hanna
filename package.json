@@ -1,6 +1,6 @@
 {
 	"name": "rvk-styles",
-	"version": "0.5.3",
+	"version": "0.5.4",
 	"main": "index.js",
 	"license": "MIT",
 	"private": true,
@@ -33,7 +33,8 @@
 		"md5-file": "^4.0.0",
 		"onchange": "^6.1.0",
 		"ospec": "^4.0.1",
-		"prettier": "^1.19.1"
+		"prettier": "^1.19.1",
+		"sass": "^1.26.10"
 	},
 	"browserslist": [
 		"defaults"

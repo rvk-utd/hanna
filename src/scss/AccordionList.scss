@@ -51,8 +51,11 @@
 	.AccordionList__button:active {
 		color: $color-faxafloi-150;
 	}
+	.AccordionList__button[disabled] {
+		color: $color-faxafloi-100;
+	}
 
-	.AccordionList__button:before {
+	.AccordionList__button::before {
 		@include icon($icons-close);
 		position: absolute;
 		left: 0;
@@ -62,7 +65,7 @@
 		transform: rotateZ(45deg);
 		transition: transform 100ms ease-in-out;
 	}
-	.AccordionList__button[aria-pressed='true']:before {
+	.AccordionList__button[aria-pressed='true']::before {
 		transform: rotateZ(0);
 	}
 	.AccordionList__button:hover::before,

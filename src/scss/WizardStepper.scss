@@ -5,21 +5,25 @@
 		counter-reset: step;
 	}
 	.WizardStepper__step {
+		--WizardStepper-ballBackground: #{$color-suld-50};
+		--WizardStepper-ballColor: #{$color-suld-100};
+		--WizardStepper-lineColor: #{$color-suld-75};
+
 		display: block;
-		overflow: hidden;
 		line-height: 1.35;
+		padding: prem(12) 0;
 		padding-left: prem(40);
-		margin-top: prem(-12);
-		margin-left: prem(-12);
+		margin: prem(-12) 0 0 prem(-12);
 		box-sizing: content-box;
-		height: prem(24);
-		position: relative;
-		padding-top: prem(8);
-		padding-bottom: prem(30);
-		margin-bottom: prem(6);
-		font-size: prem(12);
 		line-height: prem(18);
+		position: relative;
+		margin-bottom: prem(34);
+		font-size: prem(12);
 		color: $color-suld-150;
+
+		@include media($mq-phone_phablet) {
+			margin-bottom: prem(24);
+		}
 
 		&::before {
 			content: counter(step);
@@ -29,9 +33,9 @@
 			position: absolute;
 			top: prem(8);
 			left: prem(8);
-			background: $color-suld-50;
+			background: var(--WizardStepper-ballBackground);
 			border-radius: 50%;
-			color: $color-suld-100;
+			color: var(--WizardStepper-ballColor);
 			font-size: prem(14);
 			font-weight: $font-weight--bold;
 			text-align: center;
@@ -39,12 +43,12 @@
 
 		&::after {
 			content: '';
-			width: prem(2);
-			height: prem(24);
-			background: $color-suld-50;
 			position: absolute;
-			bottom: 0;
+			top: prem(38);
+			bottom: prem(-24);
 			left: prem(19);
+			width: prem(2);
+			background: var(--WizardStepper-lineColor);
 		}
 		&:last-child::after {
 			content: none;
@@ -53,32 +57,30 @@
 	button.WizardStepper__step:hover,
 	button.WizardStepper__step:focus,
 	button.WizardStepper__step:active {
-		color: $color-link--hover;
+		color: $var--link-color--hover;
+		text-decoration: underline;
 	}
+
+	.WizardStepper__step--done,
 	.WizardStepper__step[aria-current='step'] {
 		color: $color-faxafloi-100;
+		--WizardStepper-ballBackground: #{$color-faxafloi-100};
+		--WizardStepper-ballColor: #{$color-suld-0};
+		--WizardStepper-ballIcon: '#{$icons-pen}';
 
 		&::before {
-			@include icon($icons-pen);
+			@include icon();
+			content: var(--WizardStepper-ballIcon);
 			font-size: prem(12);
-			background: $color-faxafloi-100;
-			color: $color-suld-0;
 		}
 	}
 	.WizardStepper__step--done {
-		color: $color-faxafloi-100;
-
-		&::before {
-			@include icon($icons-checkmark);
-			font-size: prem(12);
-			background: $color-faxafloi-100;
-			color: $color-suld-0;
-		}
-
-		&::after {
-			background: $color-faxafloi-100;
-		}
+		--WizardStepper-ballBackground: #{$color-faxafloi-75};
+		--WizardStepper-ballIcon: '#{$icons-checkmark}';
+		--WizardStepper-lineColor: #{$color-faxafloi-100};
 	}
+
+	// ---------------------------------------------------------------------------
 
 	.WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current='step']),
 	.WizardStepper__step--done

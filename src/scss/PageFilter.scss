@@ -21,8 +21,8 @@
 		justify-content: space-between;
 		align-items: flex-start;
 	}
-	.PageFilter:before {
-		border-left: between_phone_netbook(8, 24) solid $color-theme-primary;
+	.PageFilter::before {
+		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
 
 		@include media($mq-wide) {
 			border-width: prem(24);
@@ -51,7 +51,7 @@
 	}
 	.PageFilter__filters > .FormField {
 		flex-shrink: 0;
-		margin-right: cols_pct(0, 1, 9, 9);
+		margin-right: $var--grid-gutter;
 		margin-bottom: prem(3 * $grid-unit);
 		// min-width: cols_pct(3, 2, 9, 9); // In FireFox the min-width becomes larger and thus only fits 2 FormFields per line.
 		min-width: cols_pct(3, 1, 9, 9);

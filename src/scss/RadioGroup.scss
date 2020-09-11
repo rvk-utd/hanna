@@ -6,6 +6,7 @@
 	CheckboxGroup
 */
 
+// inlined by CheckboxGroup
 @mixin css() {
 	@media screen {
 		@include forms.TogglerKnob(Radio);

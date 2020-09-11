@@ -2,6 +2,15 @@
 
 @media screen {
 	.Alert {
+		--Alert-background: #{mix($color-faxafloi-50, white, 50%)}; // a11y hax
+		--Alert-icon-color: #{$color-faxafloi-100};
+		--Alert-icon: '#{$icons-info}';
+
+		$linkColor: mix($color-faxafloi-100, $color-faxafloi-150, 80%);
+		--link-color: #{$linkColor};
+		--link-color-hover: #{$linkColor};
+
+		background: var(--Alert-background);
 		padding: prem(13) prem(20) prem(12) prem(44);
 		border-radius: prem(8);
 		position: relative;
@@ -9,55 +18,44 @@
 	}
 	.Alert::before {
 		@include icon();
+		content: var(--Alert-icon);
+		color: var(--Alert-icon-color);
+
 		font-size: prem(16);
 		// line-height: prem(12);
 		position: absolute;
 		top: prem(14);
 		left: prem(14);
 	}
+	.Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error) {
+		@include WARNING__('"Type" modifier class-name is missing', $pos: after);
+	}
 	.Alert:not([role='alert']) {
 		@include WARNING__('Should be role="alert"', $pos: after);
 	}
 
-	.Alert--warning {
-		background: $color-nautholsvik-50;
-	}
-	.Alert--warning:before {
-		color: $color-nautholsvik-100;
-		content: $icons-warning;
-	}
+	// 	// This is the default styling state
+	// 	.Alert--info {
+	// }
 
 	.Alert--error {
-		background: fade($color-heidmork-50, 30%); // a11y hax
+		--Alert-background: #{mix($color-heidmork-50, white, 50%)}; // a11y hax
+		--Alert-icon-color: #{$color-heidmork-100};
+		--Alert-icon: '#{$icons-error}';
 	}
-	.Alert--error:before {
-		color: $color-heidmork-100;
-		content: $icons-error;
+	.Alert--warning {
+		--Alert-background: #{$color-nautholsvik-50};
+		--Alert-icon-color: #{mix($color-nautholsvik-100, $color-nautholsvik-150, 67%)}; // a11y hax
+		--Alert-icon: '#{$icons-warning}';
 	}
-	.Alert--error > a {
-		color: $color-faxafloi-150;
-	}
-
 	.Alert--success {
-		background: $color-ellidarardalur-50;
-	}
-	.Alert--success:before {
-		color: $color-ellidarardalur-100;
-		content: $icons-checkmark;
-	}
-	.Alert--success > a {
-		color: $color-faxafloi-150;
-	}
-
-	.Alert--info {
-		background: $color-faxafloi-50;
-	}
-	.Alert--info:before {
-		color: $color-faxafloi-100;
-		content: $icons-info;
-	}
-	.Alert--info > a {
-		color: $color-nautholsvik-100;
+		--Alert-background: #{mix($color-ellidarardalur-50, white, 60%)}; // a11y hax
+		--Alert-icon-color: #{mix(
+				$color-ellidarardalur-100,
+				$color-ellidarardalur-150,
+				67%
+			)};
+		--Alert-icon: '#{$icons-checkmark}';
 	}
 }
 

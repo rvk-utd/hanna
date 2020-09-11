@@ -3,7 +3,38 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: add component `Gallery`
+- feat: Add component `Gallery`
+- feat: Add component `TagPill`
+- feat: Add `.TextBlock--labelled` option with left-floating H2 headings
+- feat: Change `Tabs` and `ActionCards` to also use theme colors
+- feat: Update styling for basic tables, add `.Cell--*` type styles
+- fix: Make all `BasicTable`s full-width
+- fix: Remove max-width off all `--align--right` text/heading components
+- fix: Tolerate missing `.ImageCards__title`
+- fix: Apply `ExtraLinks__card` hover styling on all screen sizes
+- fix: Reset `.MainMenu__mega__link__title` link colors variables
+- fix: Reduce/Tweak font-size headings inside `TextBlock`s
+- fix: Reduce font-size of `<ul/>`s and `<ol/>`s inside large-text blocks
+
+## 0.5.5
+
+_2020-09-04_
+
+- feat: Add component `ShareButtons`
+- feat: Make all components pick up theme-colors
+- feat: Update `WizardStepper__step` colors and line-wrap handling
+- feat: Add styling for `.ExtraLinks--related` modifier
+- fix: Limit height of portrait `.NewsHero__image`s & increase text size
+- fix: Visually hide `.ShareButtons__label`
+- fix: Add margins to `InfoBlock` and `ExtraLinks` components
+
+## 0.5.4
+
+_2020-08-31_
+
+- fix: Tweak `Alert` colors more consitent and make A11y more uniform
+- fix: Tweak `WizardStepper__step` spacing and hover style
+- fix: Display invisible `.HeroBlock__image`s
 
 ## 0.5.3
 

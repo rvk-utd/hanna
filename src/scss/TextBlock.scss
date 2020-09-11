@@ -8,19 +8,67 @@
 
 @media screen {
 	.TextBlock {
+		position: relative;
 		margin-bottom: between_cols(20, 30);
 		@include ComponentLayout();
-	}
-
-	.TextBlock__title {
-		@include HeadingStyle--medium();
-		margin-bottom: $baseVMargin;
-		@include WARNING__('Deprecated. Use PageHeading/SubHeading');
-	}
-	.TextBlock {
 		@include textContent();
 	}
 
+	// ---------------------------------------------------------------------------
+
+	.TextBlock--labelled > h2 {
+		// @include HeadingStyle--small(); // <-- same as textContent()'s styling for h2
+		display: flex;
+	}
+	.TextBlock--labelled > h2::before {
+		content: '';
+		flex-shrink: 0;
+		margin-top: 0.7em;
+		height: prem(4);
+		background-color: $var--color-theme-primary--safeish;
+		transform: translateY(-50%);
+		width: em(36/40);
+		margin-right: em(20/40);
+	}
+	@include media($mq-tablet_up) {
+		.TextBlock--labelled {
+			--h2--marginTop: 2em;
+			--h2--marginBottom: 0.25em;
+			// same as --align--right (`see layout.ComponentLayout()`)
+			margin-left: auto;
+			width: cols_pct(7);
+		}
+		.TextBlock--labelled > h2 {
+			display: block;
+			position: relative;
+			height: 0;
+			margin-left: cols_pct(-5, -5, 7);
+			padding-right: cols_pct(7, 7, 7);
+		}
+		.TextBlock--labelled > h2::before {
+			float: left;
+			margin-left: between_cols(-$grid-edge--phone, -$grid-edge--wide, 5);
+			width: between_cols(0.67 * $grid-edge--phone, 36/80 * $grid-edge--wide, 5);
+			margin-right: 0;
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.TextBlock--small.TextBlock--labelled {
+		@include WARNING__("`--small` can't be `--labelled`");
+	}
+	.TextBlock--wide.TextBlock--labelled {
+		@include WARNING__("`--wide` can't be `--labelled`");
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.TextBlock__title {
+		@include HeadingStyle--medium();
+		margin-bottom: $var--baseVerticalMargin;
+		@include WARNING__('Deprecated. Use PageHeading/SubHeading');
+	}
 	.TextBlock--largetext {
 		@include BodyTextStyle--large();
 	}

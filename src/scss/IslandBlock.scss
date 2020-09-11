@@ -21,13 +21,19 @@
 	.IslandBlock--expanded > .IslandBlock__content {
 		display: block;
 		padding: between_cols(20, 120) 0;
-		background-color: $color-suld-25;
 		@include bodyPaddingInner(margin, true);
 		@include bodyPaddingInner(padding);
 	}
-	.IslandBlock--expanded > .IslandBlock__image,
+	.IslandBlock--expanded > .IslandBlock__content {
+		background-color: $color-suld-25;
+	}
+	.IslandBlock--expanded > .IslandBlock__image {
+		background-color: $var--color-theme-tertiary;
+	}
 	.IslandBlock--expanded > .IslandBlock__content:last-child {
-		background-color: $color-esja-50;
+		background-color: $var--color-theme-primary;
+		color: $var--color-theme-primary--text;
+		@include LinkStyle_SameColor();
 	}
 
 	.IslandBlock__title {

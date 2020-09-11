@@ -1,8 +1,7 @@
 @use '../vars' as *;
 @use 'scssutils' as *;
 
-$_phoneContainer: ($bp-phone - 2 * $grid-edge--phone);
-$_scaleDown: $_phoneContainer / $grid-contentMaxWidth;
+$_scaleDown: $grid-contentMinWidth / $grid-contentMaxWidth;
 
 @function between_cols($from, $to, $cols: $grid-numCols, $gutters: null) {
 	$max: if($gutters == null, cols_px($cols), cols_px($cols, $gutters));
@@ -14,7 +13,7 @@ $_scaleDown: $_phoneContainer / $grid-contentMaxWidth;
 	$from,
 	$to,
 	$max: $grid-contentMaxWidth,
-	$min: $_phoneContainer
+	$min: $grid-contentMinWidth
 ) {
 	@return between($from, $to, $min, $max, '%');
 }

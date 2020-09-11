@@ -6,25 +6,29 @@
 		display: flex;
 	}
 
+	.ShareButtons__label {
+		@include sr-only();
+	}
+
 	.ShareButtons__link {
 		@include hideText();
 		width: 35px;
 		height: 35px;
 		border-radius: 50%;
-		background-color: $color-faxafloi-100;
-		color: $color-suld-0;
+		background-color: $var--color-theme-primary;
+		color: $var--color-theme-primary--text;
 		position: relative;
 		display: inline-block;
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: $color-faxafloi-150;
+			background-color: $var--color-theme-primary--dark;
 			color: $color-suld-0;
 		}
 	}
 
 	.ShareButtons__link::before {
-		@include icon($icons-facebook);
+		@include icon();
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -42,8 +46,16 @@
 		}
 	}
 
-	// FIXME: Add the rest of the ShareButton icons
+	.ShareButtons__link--facebook::before {
+		content: $icons-facebook;
+	}
 	.ShareButtons__link--twitter::before {
 		content: $icons-twitter;
+	}
+	.ShareButtons__link--linkedin::before {
+		content: 'LI';
+	}
+	.ShareButtons__link--email::before {
+		content: 'E';
 	}
 }
