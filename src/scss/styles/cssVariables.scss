@@ -3,15 +3,21 @@
 @mixin cssVariables() {
 	@media screen {
 		:root {
-			--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+			$gru: $grid-unit;
+			--baseVerticalMargin: #{between_phone_netbook(2 * $gru, 3 * $gru)};
+			--baseVerticalMargin-2: #{between_phone_netbook(4 * $gru, 6 * $gru)};
 			@include media($mq-wide) {
-				--baseVerticalMargin: #{px(3 * $grid-unit)};
+				--baseVerticalMargin: #{px(3 * $gru)};
+				--baseVerticalMargin-2: #{px(6 * $gru)};
 			}
 			@include _gridVariables();
 			@include _fontVariables();
+			@include _LayoutHeader();
 		}
 	}
 }
+
+// ---------------------------------------------------------------------------
 
 @function _flexCol($cols, $gutters: $cols - 1) {
 	$f: cols_pct($cols, $gutters) / 100%;
@@ -21,7 +27,11 @@
 }
 
 @mixin _gridVariables() {
-	--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+	--grid-edge: #{between_phone_netbook($grid-edge--phone, $grid-edge--wide)};
+	--grid-edge--neg: #{between_phone_netbook(
+			-1 * $grid-edge--phone,
+			-1 * $grid-edge--wide
+		)};
 
 	--grid-0-1: #{_flexCol(0, 1)};
 	--grid-1: #{_flexCol(1)};
@@ -40,6 +50,9 @@
 	--grid-column: var(--grid-1);
 
 	@include media($mq-wide) {
+		--grid-edge: #{px($grid-edge--wide)};
+		--grid-edge--neg: #{px(-1 * $grid-edge--wide)};
+
 		--grid-0-1: #{cols_px(0, 1)};
 		--grid-1: #{cols_px(1)};
 		--grid-2: #{cols_px(2)};
@@ -54,6 +67,7 @@
 		--grid-11: #{cols_px(11)};
 	}
 }
+
 // ---------------------------------------------------------------------------
 
 @mixin _fontVariables() {
@@ -153,5 +167,21 @@
 
 		--font-bd-l-size: #{px($font-bd-l-size)};
 		--font-bd-l-leading: #{px($font-bd-l-leading)};
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _LayoutHeader() {
+	$min: 70;
+	$max: 136;
+
+	--Layout__header-height: #{px($min)};
+
+	@include media($mq-Topmenu) {
+		--Layout__header-height: #{between_Topmenu($min, $max)};
+	}
+	@include media($mq-wide) {
+		--Layout__header-height: #{px($max)};
 	}
 }

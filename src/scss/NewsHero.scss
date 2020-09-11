@@ -58,7 +58,7 @@
 	}
 
 	.NewsHero__image {
-		@include bodyPaddingInner(margin, true, right);
+		margin-right: $var--grid-edge--neg;
 		position: relative;
 		display: block;
 		margin-top: grid-units(-1);

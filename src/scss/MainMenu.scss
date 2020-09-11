@@ -18,7 +18,9 @@
 		color: $color-faxafloi-100;
 	}
 	.MainMenu__link {
-		color: inherit;
+		@include buttonReset();
+		@include LinkStyle();
+		--link-color: _inherit;
 		display: block;
 		width: max-content;
 		font-weight: $font-weight--bold;
@@ -59,12 +61,12 @@
 		top: 0;
 		right: 0;
 		left: cols_pct(3, 3);
+		height: $var--Layout__header-height;
 		margin: 0 prem(-20);
 		@include media($mq-tablet) {
 			left: 220px;
 			margin: 0 between_tablet(-15, -20);
 		}
-		@include Layout__header--height(height, $media: Topmenu);
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
@@ -174,12 +176,12 @@
 
 		position: absolute;
 		z-index: 4;
+		top: $var--Layout__header-height;
 		left: 0;
 		right: 0;
 		margin: 0;
 		padding: between_cols(50, 150) 0;
 		background-color: $color-suld-0;
-		@include Layout__header--height(top);
 	}
 	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel--active {
 		opacity: 1;
