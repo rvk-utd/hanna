@@ -6,7 +6,7 @@
 @use 'styles/font' as *;
 
 @media screen {
-	.CityCouncilHero {
+	.InfoHero {
 		position: relative;
 		margin-bottom: between_cols(30, 100);
 		display: flex;
@@ -18,7 +18,7 @@
 		}
 	}
 
-	.CityCouncilHero__image {
+	.InfoHero__image {
 		position: relative;
 		margin: 0 $var--grid-edge--neg;
 		padding-top: 75%;
@@ -30,10 +30,10 @@
 			padding-top: px_pct(890);
 		}
 	}
-	.CityCouncilHero__image--missing {
+	.InfoHero__image--missing {
 		background-color: $color-suld-50;
 	}
-	.CityCouncilHero__image > img {
+	.InfoHero__image > img {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -43,7 +43,7 @@
 		object-position: 50% 33%;
 	}
 
-	.CityCouncilHero__content {
+	.InfoHero__content {
 		margin-top: between_cols(20, 120);
 		@include media($mq-tablet_up) {
 			width: cols_pct(6);
@@ -54,27 +54,27 @@
 		}
 	}
 
-	.CityCouncilHero__name {
+	.InfoHero__title {
 		@include HeadingStyle--large();
 		margin-bottom: px_pct(40, 5);
 	}
-	.CityCouncilHero__jobtitle {
+	.InfoHero__subtitle {
 		@include SubheadingStyle--large();
 		margin-bottom: prem(8);
 	}
-	.CityCouncilHero__party {
+	.InfoHero__blurb {
 		@include BodyTextStyle--large();
 		color: $color-suld-150;
 		margin-top: prem(8);
 	}
-	.CityCouncilHero__buttons {
+	.InfoHero__buttons {
 		margin-top: prem(35);
 	}
-	.CityCouncilHero__buttons > .ButtonTertiary {
+	.InfoHero__buttons > .ButtonTertiary {
 		display: block;
 	}
 
-	.CityCouncilHero > .Bling {
+	.InfoHero > .Bling {
 		top: 100%;
 	}
 }
