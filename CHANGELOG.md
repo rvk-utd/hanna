@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `--narrow` and `--translucent` options to `ProcessOverview`
 
 ## 0.6.0
 

@@ -1,19 +1,22 @@
 @use 'globals' as *;
 @use 'styles/attention' as *;
 @use 'styles/font' as *;
+@use 'styles/labeledTitle' as *;
 
 @media screen {
 	.ProcessOverview {
 		background-color: $color-suld-25;
 		margin: 0 $var--grid-edge--neg;
 		padding: 0 $var--grid-edge;
-		padding-top: between_phone_netbook(50, 120);
-		padding-bottom: between_phone_netbook(50, 192);
-
-		@include media($mq-wide) {
-			padding-top: prem(120);
-			padding-bottom: prem(192);
-		}
+		// @include extendBackgroundWithUnderlay(); // <-- this could be used also
+		margin-bottom: between_cols(30, 120);
+		padding-top: between_cols(50, 120);
+		padding-bottom: between_cols(50, 192);
+	}
+	.ProcessOverview--translucent {
+		background: 0;
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 
 	.ProcessOverview__title {
@@ -31,28 +34,7 @@
 	}
 
 	.ProcessOverview__item__title {
-		@include HeadingStyle--small();
-		display: flex;
-		align-items: center;
-		margin-bottom: grid-units(3);
-	}
-	.ProcessOverview__item__title::before {
-		content: '';
-		display: inline-block;
-		width: cols_pct(0, 1);
-		height: prem(4);
-		background-color: $var--color-theme-primary--safeish;
-		position: absolute;
-		margin-left: $var--grid-edge--neg;
-
-		@include media($mq-wide) {
-			width: 38px;
-		}
-		@include media($mq-phone_phablet) {
-			margin: 0 prem(30) 0 0;
-			width: prem(30);
-			position: static;
-		}
+		@include LabeledTitleStyle--basics();
 	}
 
 	.ProcessOverview__item__content {
@@ -64,6 +46,8 @@
 	}
 }
 
+// ---------------------------------------------------------------------------
+
 @media #{$mq-tablet_up} {
 	.ProcessOverview__item {
 		display: flex;
@@ -72,15 +56,27 @@
 
 	.ProcessOverview__item__title {
 		width: cols_pct(5);
+		@include LabeledTitleStyle--outdented();
+	}
+	.ProcessOverview--narrow > * > .ProcessOverview__item__title {
+		display: flex;
+		width: cols_pct(3);
+		--dash-width: #{em(36/40)};
+		--dash-margin: #{cols_pct(0, 1, 3)};
+		--dash-indent: 0;
 	}
 
-	.ProcessOverview__attention,
 	.ProcessOverview__item__content {
-		width: cols_pct(7);
-		margin-left: auto;
+		max-width: cols_pct(7);
+		margin-left: cols_pct(0, 1);
 	}
 
 	.ProcessOverview__attention {
-		padding-right: cols_pct(1, 0, 7);
+		max-width: cols_pct(7);
+		margin-left: cols_pct(5, 5);
+		padding-right: cols_pct(1);
+	}
+	.ProcessOverview--narrow > .ProcessOverview__attention {
+		margin-left: cols_pct(3, 3);
 	}
 }
