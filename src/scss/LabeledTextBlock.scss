@@ -3,6 +3,7 @@
 */
 @use 'globals' as *;
 @use 'styles/font' as *;
+@use 'styles/labeledTitle' as *;
 
 @media screen {
 	.LabeledTextBlock {
@@ -10,19 +11,7 @@
 	}
 
 	.LabeledTextBlock__label {
-		@include HeadingStyle--small();
-		display: flex;
-		margin-bottom: $var--baseVerticalMargin;
-	}
-	.LabeledTextBlock__label::before {
-		content: '';
-		flex-shrink: 0;
-		margin-top: 0.7em;
-		height: prem(4);
-		background-color: $var--color-theme-primary--safeish;
-		transform: translateY(-50%);
-		width: em(36/40);
-		margin-right: em(20/40);
+		@include LabeledTitleStyle--basics();
 	}
 
 	.LabeledTextBlock__summary {
@@ -48,27 +37,18 @@
 
 	.LabeledTextBlock__label {
 		width: cols_pct(6);
+		--dash-width: #{cols_pct(1, 0, 5)};
+		--dash-margin: #{cols_pct(0, 1, 5)};
 	}
-	.LabeledTextBlock__label::before {
-		width: cols_pct(1, 0, 6);
-		margin-right: cols_pct(0, 1, 6);
+	.LabeledTextBlock--wide > .LabeledTextBlock__label {
+		width: cols_pct(5);
+		@include LabeledTitleStyle--outdented();
 	}
+
 	.LabeledTextBlock__summary {
 		width: cols_pct(6);
 		margin-top: grid-units(1);
 		margin-left: auto;
-	}
-
-	.LabeledTextBlock--wide > .LabeledTextBlock__label {
-		width: cols_pct(5);
-		display: block;
-		position: relative;
-	}
-	.LabeledTextBlock--wide > .LabeledTextBlock__label::before {
-		float: left;
-		margin-left: between_cols(-$grid-edge--phone, -$grid-edge--wide, 5);
-		width: between_cols(0.67 * $grid-edge--phone, 36/80 * $grid-edge--wide, 5);
-		margin-right: 0;
 	}
 	.LabeledTextBlock--wide > .LabeledTextBlock__summary {
 		width: cols_pct(7);
