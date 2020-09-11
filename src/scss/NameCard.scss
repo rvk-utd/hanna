@@ -13,6 +13,7 @@
 	.NameCard__name {
 		width: 100%;
 		@include BodyTextStyle--large();
+		font-weight: $font-weight--bold;
 		margin-bottom: prem(16);
 	}
 
@@ -20,14 +21,16 @@
 	}
 
 	.NameCard__tel__number {
-		@include BodyTextStyle--small(false);
+		--link-color: _inherit;
+		font-size: prem($font-bd-s-size);
+		line-height: prem(19);
+		font-weight: $font-weight--bold;
 		align-items: center;
 		display: inline-flex;
 		margin-left: prem(32);
 		margin-right: prem(24);
 		font-weight: 700;
-		line-height: em(19/16);
-		margin-bottom: prem(8);
+		margin-bottom: prem(4);
 	}
 	.NameCard__tel__number::before {
 		content: '';
