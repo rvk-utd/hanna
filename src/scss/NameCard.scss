@@ -6,7 +6,8 @@
 		border: 1px solid $color-suld-100;
 		padding: prem(32) prem(24);
 		display: flex;
-		flex-wrap: wrap;
+		flex-flow: column;
+		min-height: prem(268);
 	}
 
 	.NameCard__name {
@@ -16,62 +17,68 @@
 	}
 
 	.NameCard__tel {
+	}
+
+	.NameCard__tel__number {
+		@include BodyTextStyle--small(false);
 		align-items: center;
 		display: inline-flex;
+		margin-left: prem(32);
 		margin-right: prem(24);
-		@include BodyTextStyle--small(false);
 		font-weight: 700;
-		line-height: (19/16);
+		line-height: em(19/16);
+		margin-bottom: prem(8);
 	}
-	.NameCard__tel::before {
+	.NameCard__tel__number::before {
 		content: '';
-		width: prem(16);
+		float: left;
 		height: prem(2);
 		background-color: $color-sund-100;
-		display: inline-block;
+		margin-left: prem(-32);
+		width: prem(16);
 		margin-right: prem(16);
 	}
 
 	.NameCard__location {
-		width: 100%;
-		margin-top: prem(16);
+		margin-top: prem(8);
+	}
+	.NameCard__hours {
+		margin-bottom: grid-units(1.5);
 	}
 
-	.NameCard__hours {
-		width: 100%;
-		margin-bottom: prem(48);
+	.NameCard__meta {
+		margin-top: auto;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: flex-end;
 	}
 
 	.NameCard__vacancy {
 		color: $color-suld-150;
-		margin-right: prem(20);
-	}
-	.NameCard__vacancy::before {
-		content: '';
-		width: prem(8);
-		height: prem(8);
-		margin-right: prem(9);
-		display: inline-block;
-		border-radius: 50%;
-		background-color: $color-suld-150;
+		margin-top: grid-units(1);
+		margin-right: grid-units(1);
+		--led-color: #{$color-suld-150};
 	}
 	.NameCard__vacancy--vacany {
 		color: $color-suld-200;
+		--led-color: #{$color-ellidarardalur-100};
 	}
-	.NameCard__vacancy--vacany::before {
-		background-color: $color-ellidarardalur-100;
+	.NameCard__vacancy::before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		width: prem(8);
+		height: prem(8);
+		margin-right: prem(9);
+		border-radius: 50%;
+		background-color: var(--led-color);
 	}
 
 	.NameCard__updated {
+		align-self: flex-end;
 		font-size: prem($font-size-12);
+		margin-top: grid-units(1);
 		color: $color-suld-150;
-		margin-left: auto;
-
-		@include media(
-			'screen and (min-width: #{$bp-phablet}px) and (max-width: 1230px)'
-		) {
-			width: 100%;
-			margin: prem(8) 0 0 0;
-		}
 	}
 }
