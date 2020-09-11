@@ -1,6 +1,7 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
 @use 'styles/layout' as *;
+@use 'styles/labeledTitle' as *;
 @use 'utils/textContent' as *;
 
 @use 'SubHeading';
@@ -21,18 +22,7 @@
 	// ---------------------------------------------------------------------------
 
 	.TextBlock--labelled > h2 {
-		// @include HeadingStyle--small(); // <-- same as textContent()'s styling for h2
-		display: flex;
-	}
-	.TextBlock--labelled > h2::before {
-		content: '';
-		flex-shrink: 0;
-		margin-top: 0.7em;
-		height: prem(4);
-		background-color: $var--color-theme-primary--safeish;
-		transform: translateY(-50%);
-		width: em(36/40);
-		margin-right: em(20/40);
+		@include LabeledTitleStyle--basics($margin: false);
 	}
 	@include media($mq-tablet_up) {
 		.TextBlock--labelled {
@@ -43,17 +33,10 @@
 			width: cols_pct(7);
 		}
 		.TextBlock--labelled > h2 {
-			display: block;
-			position: relative;
+			@include LabeledTitleStyle--outdented();
 			height: 0;
 			margin-left: cols_pct(-5, -5, 7);
 			padding-right: cols_pct(7, 7, 7);
-		}
-		.TextBlock--labelled > h2::before {
-			float: left;
-			margin-left: $var--grid-edge--neg;
-			width: between_cols(0.67 * $grid-edge--phone, 36/80 * $grid-edge--wide, 5);
-			margin-right: 0;
 		}
 	}
 
