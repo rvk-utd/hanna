@@ -4,6 +4,11 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
+
+## 0.6.1
+
+_2020-09-11_
+
 - fix: Broken `button.MainMenu__links` styling
 - refactor: Reduced file sizes through more aggressive CSS variables use
 
