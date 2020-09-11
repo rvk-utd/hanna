@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
+- fix: Broken `button.MainMenu__links` styling
 
 ## 0.6.0
 

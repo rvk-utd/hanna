@@ -18,7 +18,9 @@
 		color: $color-faxafloi-100;
 	}
 	.MainMenu__link {
-		color: inherit;
+		@include buttonReset();
+		@include LinkStyle();
+		--link-color: _inherit;
 		display: block;
 		width: max-content;
 		font-weight: $font-weight--bold;
