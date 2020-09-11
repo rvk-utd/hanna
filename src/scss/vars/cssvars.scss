@@ -14,7 +14,7 @@ $var--color-theme-primary--safeish: var(--theme-color-primary--safeish);
 
 // ---------------------------------------------------------------------------
 
-$link-underline-thickness: prem(2);
+$link-underline-thickness: 2rem / 16;
 
 // local variables ("_" prefixed)
 $_link-color: $color-faxafloi-100;
