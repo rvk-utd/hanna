@@ -3,11 +3,23 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.6.0
+
+_2020-09-09_
+
+- **BREAKING** target: **Hanna 0.6** markup patterns
+- **BREAKING** feat: Add `.LabeledTextBlock--wide`, replacing `--left`
+- **BREAKING** feat: Simplify `TextBlock` – remove support for
+  `.TextBlock--largetext` modifier and `.TextBlock__title`
+- feat: Add `.TextBlock--small` option for smaller font-size
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
 - feat: Add `.TextBlock--labelled` option with left-floating H2 headings
 - feat: Change `Tabs` and `ActionCards` to also use theme colors
 - feat: Update styling for basic tables, add `.Cell--*` type styles
+- fix: Correct the width of `.LabeledTextBlock--wide`'s summary column – and
+  tweak mobile styling to better match `.TextBlock--labelled`'s
 - fix: Make all `BasicTable`s full-width
 - fix: Remove max-width off all `--align--right` text/heading components
 - fix: Tolerate missing `.ImageCards__title`
