@@ -24,8 +24,6 @@
 }
 
 @mixin _gridVariables() {
-	--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
-
 	--grid-edge: #{between_phone_netbook($grid-edge--phone, $grid-edge--wide)};
 	--grid-edge--neg: #{between_phone_netbook(
 			-1 * $grid-edge--phone,
