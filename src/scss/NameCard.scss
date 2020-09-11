@@ -8,6 +8,9 @@
 		display: flex;
 		flex-flow: column;
 		min-height: prem(268);
+		// for standalone-display
+		max-width: cols_px(4);
+		margin-bottom: $var--grid-gutter;
 	}
 
 	.NameCard__name {
