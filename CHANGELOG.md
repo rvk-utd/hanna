@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add components `NameCard` and `NameCards`
 - feat: Add component `Gallery`
 - feat: Add component `TagPill`
 - feat: Add `.TextBlock--labelled` option with left-floating H2 headings
