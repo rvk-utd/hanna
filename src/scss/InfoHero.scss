@@ -10,11 +10,15 @@
 		position: relative;
 		margin-bottom: between_cols(30, 100);
 		display: flex;
-		flex-flow: row-reverse;
+		flex-flow: column-reverse;
 		justify-content: space-between;
-
-		@include media($mq-phone_phablet) {
-			flex-flow: column-reverse;
+	}
+	@include media($mq-tablet_up) {
+		.InfoHero {
+			flex-flow: row-reverse;
+		}
+		.InfoHero--align--left {
+			flex-flow: row;
 		}
 	}
 
@@ -30,6 +34,7 @@
 			padding-top: px_pct(890);
 		}
 	}
+
 	.InfoHero__image--missing {
 		background-color: $color-suld-50;
 	}
