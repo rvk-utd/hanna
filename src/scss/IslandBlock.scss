@@ -20,9 +20,8 @@
 	.IslandBlock--expanded > .IslandBlock__image,
 	.IslandBlock--expanded > .IslandBlock__content {
 		display: block;
-		padding: between_cols(20, 120) 0;
-		@include bodyPaddingInner(margin, true);
-		@include bodyPaddingInner(padding);
+		margin: 0 $var--grid-edge--neg;
+		padding: between_cols(20, 120) $var--grid-edge;
 	}
 	.IslandBlock--expanded > .IslandBlock__content {
 		background-color: $color-suld-25;

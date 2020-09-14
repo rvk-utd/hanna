@@ -1,0 +1,31 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+
+@mixin LabeledTitleStyle--basics($margin: true) {
+	@include HeadingStyle--small();
+	display: flex;
+	@if $margin {
+		margin-bottom: $var--baseVerticalMargin;
+	}
+
+	&::before {
+		content: '';
+		float: left; // allows outdenting by switching parent to display: block
+		flex-shrink: 0;
+		margin-top: 0.7em;
+		height: prem(4);
+		background-color: $var--color-theme-primary--safeish;
+		transform: translateY(-50%);
+		width: var(--dash-width, em(36/40));
+		margin-right: var(--dash-margin, em(20/40));
+		margin-left: var(--dash-indent, 0);
+	}
+}
+
+@mixin LabeledTitleStyle--outdented() {
+	display: block;
+	position: relative;
+	--dash-width: calc(#{(36 / 80)} * #{$var--grid-edge});
+	--dash-margin: 0;
+	--dash-indent: #{$var--grid-edge--neg};
+}

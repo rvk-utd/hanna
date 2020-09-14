@@ -14,7 +14,7 @@ $var--color-theme-primary--safeish: var(--theme-color-primary--safeish);
 
 // ---------------------------------------------------------------------------
 
-$link-underline-thickness: prem(2);
+$link-underline-thickness: 2rem / 16;
 
 // local variables ("_" prefixed)
 $_link-color: $color-faxafloi-100;
@@ -58,8 +58,12 @@ $var--input-border-color: var(--input-border-color);
 // ---------------------------------------------------------------------------
 
 $var--baseVerticalMargin: var(--baseVerticalMargin);
+$var--baseVerticalMargin-2: var(--baseVerticalMargin-2);
 
 // ---------------------------------------------------------------------------
+
+$var--grid-edge: var(--grid-edge);
+$var--grid-edge--neg: var(--grid-edge--neg);
 
 $var--grid-0-1: var(--grid-0-1);
 $var--grid-1: var(--grid-1);
@@ -103,3 +107,7 @@ $var--font-bd-s-leading: var(--font-bd-s-leading);
 // NOTE: This variable receives its actual value somewhere off
 // in JavaScript-land, set by `qj/getScrollbarWidth.setCSSvar()`
 $var--browser-scrollbar-width: var(--browser-scrollbar-width, 0);
+
+// ---------------------------------------------------------------------------
+
+$var--Layout__header-height: var(--Layout__header-height);

@@ -3,7 +3,7 @@
 
 @media screen {
 	body {
-		@include bodyPadding();
+		padding: 0 $var--grid-edge;
 	}
 
 	.Layout {
@@ -12,8 +12,10 @@
 		flex-flow: column nowrap;
 		// align-items: center;
 		position: relative;
-		@include setMaxWidth($grid-contentMaxWidth);
-		@include Layout__header--height(padding-top);
+		padding-top: $var--Layout__header-height;
+		width: 100%;
+		max-width: prem($grid-contentMaxWidth);
+		margin: 0 auto;
 	}
 
 	.Layout__header {
@@ -24,7 +26,7 @@
 		z-index: 3;
 		display: flex;
 		align-items: center;
-		@include Layout__header--height();
+		height: $var--Layout__header-height;
 	}
 
 	@include LayoutHeaderLogo('Layout__header__logo');

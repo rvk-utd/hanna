@@ -3,6 +3,7 @@
 */
 @use 'globals' as *;
 @use 'styles/font' as *;
+@use 'styles/labeledTitle' as *;
 
 @media screen {
 	.LabeledTextBlock {
@@ -10,32 +11,21 @@
 	}
 
 	.LabeledTextBlock__label {
-		@include HeadingStyle--small();
-		display: flex;
-	}
-	.LabeledTextBlock__label::before {
-		content: '';
-		min-width: grid-units(5);
-		height: prem(4);
-		margin-top: 0.7em;
-		transform: translateY(-50%);
-		background-color: $var--color-theme-primary--safeish;
-		margin-right: prem(20);
+		@include LabeledTitleStyle--basics();
 	}
 
 	.LabeledTextBlock__summary {
 		@include BodyTextStyle--large();
-		padding-top: grid-units();
-		margin-left: auto;
 	}
-
-	.LabeledTextBlock--left::before {
-		width: prem(36);
-	}
-
 	.LabeledTextBlock__summary > .ButtonTertiary {
 		display: block;
 		margin-top: grid-units(3);
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.LabeledTextBlock--left {
+		@include WARNING__('`--left` is outdated use `--wide` instead');
 	}
 }
 
@@ -46,24 +36,21 @@
 	}
 
 	.LabeledTextBlock__label {
-		width: cols_pct(5);
+		width: cols_pct(6);
+		--dash-width: #{cols_pct(1, 0, 5)};
+		--dash-margin: #{cols_pct(0, 1, 5)};
 	}
-
-	.LabeledTextBlock__label::before {
-		margin-right: cols_pct(0, 1, 5);
-		width: cols_pct(1, 0, 5);
+	.LabeledTextBlock--wide > .LabeledTextBlock__label {
+		width: cols_pct(5);
+		@include LabeledTitleStyle--outdented();
 	}
 
 	.LabeledTextBlock__summary {
 		width: cols_pct(6);
+		margin-top: grid-units(1);
+		margin-left: auto;
 	}
-
-	.LabeledTextBlock--left {
-		@include bodyPaddingInner(margin, true, left);
-		max-width: 100%;
-	}
-
-	.LabeledTextBlock--left > .LabeledTextBlock__label::before {
-		max-width: prem(32);
+	.LabeledTextBlock--wide > .LabeledTextBlock__summary {
+		width: cols_pct(7);
 	}
 }

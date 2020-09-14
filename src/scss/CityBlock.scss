@@ -19,9 +19,8 @@
 		color: $var--color-theme-primary--text;
 		@include LinkStyle_SameColor();
 
-		padding: between_cols(30, $grid-column) 0;
-		@include bodyPaddingInner(margin, true);
-		@include bodyPaddingInner(padding, false);
+		margin: 0 $var--grid-edge--neg;
+		padding: between_cols(30, $grid-column) $var--grid-edge;
 
 		$minH: 480 - 2 * $grid-column;
 
@@ -83,9 +82,8 @@
 	}
 	.CityBlock--largebox > .CityBlock__image,
 	.CityBlock--largeimage > .CityBlock__image {
-		@include bodyPaddingInner(margin, true);
+		margin: 0 $var--grid-edge--neg;
 		height: between_phone_phablet(200, 300);
-		margin-bottom: 0;
 	}
 	.CityBlock--largebox > .CityBlock__image > img {
 		object-fit: cover;
@@ -117,8 +115,8 @@ $largeimage-minH: 880;
 		margin: cols_pct(0, 1) 0;
 		margin-left: auto;
 		padding-left: cols_pct(0, 1);
-		@include bodyPaddingInner(padding, false, right);
-		@include bodyPaddingInner(margin, true, right);
+		margin-right: $var--grid-edge--neg;
+		padding-right: $var--grid-edge;
 	}
 	.CityBlock--largebox > .CityBlock__content {
 		margin-top: 0;
@@ -134,8 +132,8 @@ $largeimage-minH: 880;
 	.CityBlock--align--left > .CityBlock__content {
 		margin-right: auto;
 		padding-right: cols_pct(0, 1);
-		@include bodyPaddingInner(padding, false, left);
-		@include bodyPaddingInner(margin, true, left);
+		margin-left: $var--grid-edge--neg;
+		padding-left: $var--grid-edge;
 	}
 
 	.CityBlock__image {
@@ -146,8 +144,8 @@ $largeimage-minH: 880;
 	.CityBlock--largeimage > .CityBlock__image {
 		width: cols_pct(6);
 		box-sizing: content-box;
-		@include bodyPaddingInner(margin, true, left);
-		@include bodyPaddingInner(padding, false, left);
+		margin-left: $var--grid-edge--neg;
+		padding-left: $var--grid-edge;
 	}
 	.CityBlock--largeimage > .CityBlock__image {
 		min-height: between_phone_netbook(400, $largeimage-minH);
@@ -155,7 +153,7 @@ $largeimage-minH: 880;
 	.CityBlock--align--left.CityBlock--largebox > .CityBlock__image,
 	.CityBlock--align--left.CityBlock--largeimage > .CityBlock__image {
 		margin-left: auto;
-		@include bodyPaddingInner(margin, true, right);
+		margin-right: $var--grid-edge--neg;
 	}
 }
 

@@ -20,11 +20,11 @@
 
 	.CityCouncilHero__image {
 		position: relative;
-		@include bodyPaddingInner(margin, $neg: true);
+		margin: 0 $var--grid-edge--neg;
 		padding-top: 75%;
 
 		@include media($mq-tablet_up) {
-			@include bodyPaddingInner(padding, $dir: left);
+			padding-left: $var--grid-edge;
 			box-sizing: content-box;
 			width: cols_pct(6);
 			padding-top: px_pct(890);
