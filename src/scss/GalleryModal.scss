@@ -7,7 +7,7 @@
 @media screen {
 	html.modal-open {
 		overflow: hidden;
-		margin-right: var(--browser-scrollbar-width);
+		margin-right: $var--browser-scrollbar-width;
 	}
 
 	.GalleryModalwrapper {
@@ -24,7 +24,7 @@
 	}
 
 	[hidden].GalleryModalwrapper {
-		display: block; // override default `[hidden][hidden]` styling
+		display: block; // override default `[hidden][hidden]` styli5ng
 		visibility: hidden;
 		opacity: 0;
 	}
@@ -51,7 +51,7 @@
 	.GalleryModal__prev,
 	.GalleryModal__next,
 	.GalleryModal__closebutton {
-		color: $color-theme-primary;
+		color: $var--color-theme-primary;
 
 		&::before {
 			@include icon($icons-arrow-left);
