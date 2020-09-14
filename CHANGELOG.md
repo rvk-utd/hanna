@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Simplify `IslandBlock` to be always "expanded", no
+  illustration
 - feat: Add component `IslandPageBlock` with illustration only
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
 
