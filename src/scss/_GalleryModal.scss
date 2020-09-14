@@ -1,0 +1,107 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+@use '_GalleryModalItem' as GalleryModalItem;
+
+@mixin css() {
+	@media screen {
+		html.modal-open {
+			overflow: hidden;
+			margin-right: $var--browser-scrollbar-width;
+		}
+
+		.GalleryModalwrapper {
+			display: flex;
+			background: $color-suld-0;
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			height: 100vh;
+			overflow-y: auto;
+			transition: all 150ms ease-in-out;
+			transition-property: opacity, visibility;
+		}
+
+		[hidden].GalleryModalwrapper {
+			display: block; // override default `[hidden][hidden]` styli5ng
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		.GalleryModal {
+			@include setMaxWidth($grid-contentMaxWidth--outer);
+			position: relative;
+
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+
+			padding: prem(64) prem($grid-edge--phone);
+
+			@include media($mq-tablet_up) {
+				padding: prem(104) prem($grid-edge--wide);
+			}
+
+			@include media($mq-netbook_up) {
+				flex-flow: row;
+			}
+		}
+
+		.GalleryModal__prev,
+		.GalleryModal__next,
+		.GalleryModal__closebutton {
+			color: $var--color-theme-primary;
+
+			&::before {
+				@include icon($icons-arrow-left);
+				font-size: 23px;
+			}
+		}
+
+		.GalleryModal__next {
+			right: prem($grid-edge--wide);
+		}
+		.GalleryModal__next::before {
+			content: $icons-arrow-right;
+		}
+
+		.GalleryModal__prev,
+		.GalleryModal__next {
+			position: static;
+
+			@include media($mq-netbook_up) {
+				@include hideText(soft);
+				width: 23px;
+				height: 24px;
+				position: absolute;
+			}
+
+			@include media($mq-phone-tablet) {
+				margin: prem(20) 0;
+			}
+		}
+
+		.GalleryModal__prev {
+			left: prem(30);
+		}
+
+		.GalleryModal__closebutton {
+			position: absolute;
+			top: prem(16);
+			left: prem($grid-edge--phone);
+			font-weight: $font-weight--bold;
+
+			@include media($mq-netbook_up) {
+				top: prem(64);
+				left: prem($grid-edge--wide);
+			}
+		}
+		.GalleryModal__closebutton::before {
+			margin-right: prem(12);
+		}
+	}
+}
+
+// ===========================================================================
+// Inline in order to not expose as standalone component styles
+@include GalleryModalItem.css();

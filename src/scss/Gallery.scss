@@ -1,8 +1,6 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
-/*!@deps
-	GalleryModal
-*/
+@use '_GalleryModal' as GalleryModal;
 
 @media screen {
 	html.before-sprinkling {
@@ -166,3 +164,7 @@
 		}
 	}
 }
+
+// ===========================================================================
+// Inline in order to not expose as standalone component styles
+@include GalleryModal.css();
