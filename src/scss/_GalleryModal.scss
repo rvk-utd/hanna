@@ -29,14 +29,16 @@
 		}
 
 		.GalleryModal {
-			@include setMaxWidth($grid-contentMaxWidth--outer);
+			width: 100%;
+			max-width: prem($grid-contentMaxWidth);
+			margin: 0 auto;
 			position: relative;
 
 			display: flex;
 			flex-flow: column;
 			align-items: center;
 
-			padding: prem(64) prem($grid-edge--phone);
+			padding: prem(72) $var--grid-edge;
 
 			@include media($mq-tablet_up) {
 				padding: prem(104) prem($grid-edge--wide);
@@ -87,14 +89,9 @@
 
 		.GalleryModal__closebutton {
 			position: absolute;
-			top: prem(16);
-			left: prem($grid-edge--phone);
+			top: $var--grid-column;
+			left: $var--grid-edge;
 			font-weight: $font-weight--bold;
-
-			@include media($mq-netbook_up) {
-				top: prem(64);
-				left: prem($grid-edge--wide);
-			}
 		}
 		.GalleryModal__closebutton::before {
 			margin-right: prem(12);
