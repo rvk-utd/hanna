@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `IslandPageBlock` with illustration only
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
 
 ## 0.6.1
