@@ -141,8 +141,8 @@ exports.publishAssets = series(buildAssets, commitAssetsToGit);
 exports.build = parallel(buildAssets, buildCss);
 
 exports.watch = series([
-	initBrowserSync,
 	exports.build,
+	initBrowserSync,
 	parallel(sassWatch, imagesWatch, staticAssetsWatch, iconfontWatch),
 ]);
 
