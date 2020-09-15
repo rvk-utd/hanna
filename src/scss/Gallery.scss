@@ -159,7 +159,7 @@
 
 	.Gallery__stepper__button[aria-pressed='true'] {
 		@include media($mq-tablet_up) {
-			background: $var--theme-color-primary;
+			background: $var--color-theme-primary;
 			transform: none;
 		}
 	}
