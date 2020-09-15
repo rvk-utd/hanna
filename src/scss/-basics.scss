@@ -71,6 +71,11 @@
 		line-height: px($font-base-leading);
 	}
 
+	html.modal-open {
+		overflow: hidden;
+		margin-right: $var--browser-scrollbar-width;
+	}
+
 	body {
 	}
 

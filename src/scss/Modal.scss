@@ -1,10 +1,6 @@
 @use 'globals' as *;
 
 @media screen {
-	html.modal-open {
-		overflow: hidden;
-		margin-right: $var--browser-scrollbar-width;
-	}
 	html.modal-open .Modal {
 		overflow-y: auto;
 	}
