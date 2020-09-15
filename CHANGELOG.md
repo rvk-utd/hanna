@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add components `NameCard` and `NameCards`
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
 
 ## 0.6.1

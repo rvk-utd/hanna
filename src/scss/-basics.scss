@@ -128,7 +128,7 @@
 		cursor: help;
 	}
 
-	a[href^='tel:'] {
+	a[href^='tel:']:not([class]) {
 		color: inherit;
 	}
 	a {
