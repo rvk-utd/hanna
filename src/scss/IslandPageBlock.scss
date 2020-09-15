@@ -1,0 +1,55 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/buttons' as *;
+@use 'styles/links' as *;
+
+@media screen {
+	.IslandPageBlock {
+		margin-bottom: between_cols(40, 133);
+		display: flex;
+		flex-flow: column-reverse;
+		justify-content: space-between;
+		align-items: center;
+	}
+	@media #{$mq-tablet_up} {
+		.IslandPageBlock {
+			flex-flow: row;
+		}
+		.IslandPageBlock--align--right {
+			flex-flow: row-reverse;
+		}
+	}
+
+	.IslandPageBlock__content {
+		padding: grid-units(2) 0;
+
+		@media #{$mq-tablet_up} {
+			width: cols_pct(6);
+		}
+	}
+	.IslandPageBlock__image {
+		margin: 0 cols_pct(0, -1);
+
+		@media #{$mq-tablet_up} {
+			width: cols_pct(6, 7);
+		}
+	}
+
+	.IslandPageBlock__title {
+		@include HeadingStyle--small();
+		margin-bottom: grid-units(3);
+	}
+
+	.IslandPageBlock__summary {
+		@include BodyTextStyle--large();
+		margin-bottom: grid-units(4);
+	}
+
+	.IslandPageBlock__buttons {
+	}
+	.IslandPageBlock__button {
+		@include ButtonTertiaryStyle($mode: simple);
+		display: block;
+		margin-bottom: 0;
+	}
+}

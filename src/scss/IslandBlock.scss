@@ -5,31 +5,22 @@
 
 @media screen {
 	.IslandBlock {
-		margin-bottom: between_cols(40, 133);
-	}
-	.IslandBlock--expanded {
 		margin-bottom: between_cols(40, 167);
+		display: flex;
+		flex-flow: column-reverse;
+		justify-content: space-between;
 	}
 
+	.IslandBlock__image,
 	.IslandBlock__content {
-		padding: grid-units(2) 0;
-	}
-	.IslandBlock__image {
-		margin: 0 cols_pct(0, -1);
-	}
-	.IslandBlock--expanded > .IslandBlock__image,
-	.IslandBlock--expanded > .IslandBlock__content {
 		display: block;
 		margin: 0 $var--grid-edge--neg;
 		padding: between_cols(20, 120) $var--grid-edge;
 	}
-	.IslandBlock--expanded > .IslandBlock__content {
+	.IslandBlock__content {
 		background-color: $color-suld-25;
 	}
-	.IslandBlock--expanded > .IslandBlock__image {
-		background-color: $var--color-theme-tertiary;
-	}
-	.IslandBlock--expanded > .IslandBlock__content:last-child {
+	.IslandBlock__content:last-child {
 		background-color: $var--color-theme-primary;
 		color: $var--color-theme-primary--text;
 		@include LinkStyle_SameColor();
@@ -53,13 +44,14 @@
 		margin-bottom: 0;
 	}
 
-	.IslandBlock--expanded > .IslandBlock__image {
+	.IslandBlock__image {
+		background-color: $var--color-theme-tertiary;
 		position: relative;
 		display: block;
 		overflow: hidden;
 	}
 	// TODO: Figure out what styles are needed for inlined <SVG/>s
-	.IslandBlock--expanded > .IslandBlock__image > img {
+	.IslandBlock__image > img {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -67,7 +59,7 @@
 		height: 100%;
 		object-fit: cover;
 	}
-	.IslandBlock--expanded > .IslandBlock__image > svg {
+	.IslandBlock__image > svg {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -80,27 +72,27 @@
 // ---------------------------------------------------------------------------
 
 @media #{$mq-phone_phablet} {
-	.IslandBlock--expanded {
+	.IslandBlock {
 		background-color: $color-suld-25;
 		@include extendBackgroundWithUnderlay();
 	}
 
 	$offset: between_phone_phablet(0, 60);
 
-	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:first-child,
-	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:last-child,
-	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__image {
+	.IslandBlock--align--left > .IslandBlock__content:first-child,
+	.IslandBlock--align--right > .IslandBlock__content:last-child,
+	.IslandBlock--align--right > .IslandBlock__image {
 		margin-right: $offset;
 	}
-	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:first-child,
-	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:last-child,
-	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__image {
+	.IslandBlock--align--right > .IslandBlock__content:first-child,
+	.IslandBlock--align--left > .IslandBlock__content:last-child,
+	.IslandBlock--align--left > .IslandBlock__image {
 		margin-left: $offset;
 	}
-	.IslandBlock--expanded > .IslandBlock__image {
+	.IslandBlock__image {
 		min-height: between_phone_phablet(210, 400);
 	}
-	.IslandBlock--expanded > .IslandBlock__image > svg {
+	.IslandBlock__image > svg {
 		width: 100%;
 		height: auto;
 	}
@@ -110,53 +102,37 @@
 
 @media #{$mq-tablet_up} {
 	.IslandBlock {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.IslandBlock--align--right > .IslandBlock__content:last-child,
-	.IslandBlock--align--right > .IslandBlock__image {
-		order: -1;
-	}
-
-	.IslandBlock__content {
-		width: cols_pct(6);
-	}
-	.IslandBlock__image {
-		width: cols_pct(6, 7);
-	}
-
-	// ---------------------------------------------------------------------------
-
-	.IslandBlock--expanded {
 		flex-flow: row;
-		align-items: stretch;
 	}
-	.IslandBlock--expanded > .IslandBlock__content,
-	.IslandBlock--expanded > .IslandBlock__image {
+	.IslandBlock--align--right {
+		flex-flow: row-reverse;
+	}
+
+	.IslandBlock__content,
+	.IslandBlock__image {
 		box-sizing: content-box;
 		width: cols_pct(5, 5);
-		min-height: between_tablet_netbook(280, 400);
 		margin-bottom: between_cols(50, 105);
+		min-height: between_tablet_netbook(280, 400);
 
 		@include media($mq-wide) {
 			min-height: 400px;
 		}
 	}
-	.IslandBlock--expanded > .IslandBlock__content:last-child,
-	.IslandBlock--expanded > .IslandBlock__image {
+	.IslandBlock__content:last-child,
+	.IslandBlock__image {
 		margin-top: between_cols(50, 105);
 		margin-bottom: 0;
 	}
-	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:first-child,
-	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:last-child,
-	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__image {
+	.IslandBlock--align--left > .IslandBlock__content:first-child,
+	.IslandBlock--align--right > .IslandBlock__content:last-child,
+	.IslandBlock--align--right > .IslandBlock__image {
 		margin-right: 0;
 		padding-right: cols_pct(1, 0.5);
 	}
-	.IslandBlock--expanded.IslandBlock--align--right > .IslandBlock__content:first-child,
-	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__content:last-child,
-	.IslandBlock--expanded.IslandBlock--align--left > .IslandBlock__image {
+	.IslandBlock--align--right > .IslandBlock__content:first-child,
+	.IslandBlock--align--left > .IslandBlock__content:last-child,
+	.IslandBlock--align--left > .IslandBlock__image {
 		margin-left: 0;
 		padding-left: cols_pct(1, 0.5);
 	}
