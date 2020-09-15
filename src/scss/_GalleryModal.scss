@@ -46,6 +46,11 @@
 			}
 		}
 
+		.GalleryModalPager {
+			display: flex;
+			flex-flow: row-reverse;
+		}
+
 		.GalleryModalPager__button,
 		.GalleryModal__closebutton {
 			color: $var--color-theme-primary;
@@ -56,34 +61,41 @@
 			}
 		}
 
-		.GalleryModalPager__button--next {
-			right: prem($grid-edge--wide);
-		}
-		.GalleryModalPager__button--next::before {
-			content: $icons-arrow-right;
-		}
-
 		.GalleryModalPager__button {
 			position: static;
 
+			&::before {
+				width: 100%;
+			}
+
 			@include media($mq-netbook_up) {
 				@include hideText(soft);
-				width: 23px;
-				height: 24px;
+				width: $var--grid-column;
+				height: 50%;
+				transform: translateY(-50%);
 				position: absolute;
 			}
 
 			@include media($mq-phone-tablet) {
 				margin: prem(20) 0;
+				text-align: center;
+				min-width: prem(128);
 			}
 		}
-
+		.GalleryModalPager__button--next {
+			right: $var--grid-edge;
+		}
+		.GalleryModalPager__button--next::before {
+			content: $icons-arrow-right;
+		}
 		.GalleryModalPager__button[disabled] {
 			display: none;
 		}
-
 		.GalleryModalPager__button--prev {
-			left: prem(30);
+			@include media($mq-netbook_up) {
+				left: 0;
+				width: var(--grid-edge);
+			}
 		}
 
 		.GalleryModal__closebutton {
