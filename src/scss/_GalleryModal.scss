@@ -38,11 +38,7 @@
 			flex-flow: column;
 			align-items: center;
 
-			padding: prem(72) $var--grid-edge;
-
-			@include media($mq-tablet_up) {
-				padding: prem(104) prem($grid-edge--wide);
-			}
+			padding: between_cols(72, 104) $var--grid-edge;
 
 			@include media($mq-netbook_up) {
 				flex-flow: row;
