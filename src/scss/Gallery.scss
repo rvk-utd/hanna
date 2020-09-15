@@ -29,6 +29,7 @@
 		display: flex;
 		align-items: flex-end;
 		flex-wrap: nowrap;
+		flex-flow: row-reverse;
 
 		margin-left: -(prem($grid-gutter / 2));
 		margin-right: -(prem($grid-gutter / 2));
@@ -54,6 +55,8 @@
 	.GalleryItem {
 		// <figure>
 		flex: none;
+		display: flex;
+		flex-flow: column-reverse;
 
 		margin: 0;
 		padding: 0 prem($grid-gutter / 2);
@@ -65,12 +68,14 @@
 		width: cols_pct(5, 4);
 	}
 
-	.GalleryItem__button {
+	.GalleryItem__button,
+	.GalleryItem > .GalleryItem__image {
 		display: block;
 		position: relative;
 		background: $color-suld-50;
 		padding-bottom: percentage(376/272);
 	}
+	.GalleryItem--landscape > .GalleryItem__image,
 	.GalleryItem--landscape > .GalleryItem__button {
 		padding-bottom: percentage(312/480);
 	}
