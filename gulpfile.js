@@ -6,6 +6,7 @@ const imagesTaskFactory = require('@hugsmidjan/gulp-images');
 const sassTaskFactory = require('@hugsmidjan/gulp-sass');
 const sassFunctions = require('./scripts/sassFunctions');
 const { existsSync } = require('fs');
+const browserSync = require('browser-sync');
 
 // ---------------------------------------------------------------------------
 
@@ -107,6 +108,18 @@ const buildAssets = series(
 	parallel(copyNonImagesToAssetFolder, staticAssetsCompress)
 );
 
+const initBrowserSync = (done) => {
+	const browserSyncInstance = browserSync.create();
+	browserSyncInstance.init({
+		proxy: 'localhost:6006',
+	});
+
+	browserSyncInstance.watch(['public/css/**/*.css']).on('change', () => {
+		browserSyncInstance.reload();
+	});
+	done();
+};
+
 // -------------------------
 
 exports.publishCss = series(
@@ -129,6 +142,7 @@ exports.build = parallel(buildAssets, buildCss);
 
 exports.watch = series([
 	exports.build,
+	initBrowserSync,
 	parallel(sassWatch, imagesWatch, staticAssetsWatch, iconfontWatch),
 ]);
 
