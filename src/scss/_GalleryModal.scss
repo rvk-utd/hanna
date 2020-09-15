@@ -4,11 +4,6 @@
 
 @mixin css() {
 	@media screen {
-		html.modal-open {
-			overflow: hidden;
-			margin-right: $var--browser-scrollbar-width;
-		}
-
 		.GalleryModalwrapper {
 			display: flex;
 			background: $color-suld-0;
