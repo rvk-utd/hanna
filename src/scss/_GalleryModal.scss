@@ -31,6 +31,7 @@
 		.GalleryModal {
 			width: 100%;
 			max-width: prem($grid-contentMaxWidth);
+			max-width: prem($grid-contentMaxWidth--outer);
 			margin: 0 auto;
 			position: relative;
 
@@ -45,8 +46,7 @@
 			}
 		}
 
-		.GalleryModal__prev,
-		.GalleryModal__next,
+		.GalleryModalPager__button,
 		.GalleryModal__closebutton {
 			color: $var--color-theme-primary;
 
@@ -56,15 +56,14 @@
 			}
 		}
 
-		.GalleryModal__next {
+		.GalleryModalPager__button--next {
 			right: prem($grid-edge--wide);
 		}
-		.GalleryModal__next::before {
+		.GalleryModalPager__button--next::before {
 			content: $icons-arrow-right;
 		}
 
-		.GalleryModal__prev,
-		.GalleryModal__next {
+		.GalleryModalPager__button {
 			position: static;
 
 			@include media($mq-netbook_up) {
@@ -79,7 +78,11 @@
 			}
 		}
 
-		.GalleryModal__prev {
+		.GalleryModalPager__button[disabled] {
+			display: none;
+		}
+
+		.GalleryModalPager__button--prev {
 			left: prem(30);
 		}
 
