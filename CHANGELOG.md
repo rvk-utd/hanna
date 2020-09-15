@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Rename `CityCouncilHero` to `InfoHero`
+- feat: Add `--align--left` and `--align--right` options to `InfoHero`
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
 
 ## 0.6.1
