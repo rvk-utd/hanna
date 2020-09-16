@@ -1,0 +1,62 @@
+@use 'globals' as *;
+@use 'styles/links' as *;
+
+/*!@deps
+	ColumnBlock
+*/
+
+// inlined by ColumnBlock
+@mixin css() {
+	@media screen {
+		.BlockColumn {
+			width: 100%; // to avoid flex item auto-sizing
+		}
+		.BlockColumn--background {
+			background-color: $color-suld-25;
+			box-sizing: content-box;
+			margin: 0 $var--grid-edge--neg;
+			padding: between_cols(30, 80) $var--grid-edge;
+		}
+		.BlockColumn--background--primary {
+			background-color: $var--color-theme-primary;
+			color: $var--color-theme-primary--text;
+			@include LinkStyle_SameColor();
+		}
+	}
+
+	@include media($mq-tablet_up) {
+		.BlockColumn {
+			width: cols_pct(6);
+		}
+		.BlockColumn--narrow {
+			width: cols_pct(5, 5);
+		}
+
+		.BlockColumn--background {
+			width: cols_pct(5, 5);
+			align-self: stretch;
+			--padding--inner: #{cols_pct(1, 0.5)};
+		}
+		.BlockColumn--background.BlockColumn--narrow[class] {
+			width: cols_pct(4, 4);
+			--padding--inner: #{cols_pct(1)};
+		}
+
+		:not(.ColumnBlock--align--right) > .BlockColumn--background:first-child,
+		.ColumnBlock--align--right > .BlockColumn--background:last-child {
+			padding-right: var(--padding--inner);
+		}
+		:not(.ColumnBlock--align--right) > .BlockColumn--background:last-child,
+		.ColumnBlock--align--right > .BlockColumn--background:first-child {
+			padding-left: var(--padding--inner);
+		}
+	}
+
+	// ===========================================================================
+
+	@media screen {
+		:not(.ColumnBlock) > .BlockColumn {
+			@include WARNING__('Must be direct child of a `ColumnBlock`');
+		}
+	}
+}

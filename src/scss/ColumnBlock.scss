@@ -1,0 +1,42 @@
+@use 'globals' as *;
+@use 'BlockColumn';
+
+/*!@deps
+	BlockColumn
+*/
+
+@media screen {
+	.ColumnBlock {
+		margin-bottom: between_cols(60, 100);
+		display: flex;
+		flex-flow: column-reverse;
+		justify-content: space-between;
+		align-items: center;
+	}
+	@media #{$mq-tablet_up} {
+		.ColumnBlock {
+			flex-flow: row;
+		}
+		.ColumnBlock--align--right {
+			flex-flow: row-reverse;
+		}
+	}
+
+	// ===========================================================================
+
+	.ColumnBlock > .BlockColumn:nth-child(n + 3) {
+		@include WARNING__('Only two `BlockColumn`s allowed here');
+	}
+	.ColumnBlock > .BlockColumn:first-child:last-child {
+		@include WARNING__('Two `BlockColumn`s are required');
+	}
+	.ColumnBlock > :not(.BlockColumn) {
+		@include WARNING__('Only `BlockColumn`s allowed here');
+	}
+}
+
+// ===========================================================================
+
+// Inline conjoined component for better
+// compression and loading speed
+@include BlockColumn.css();
