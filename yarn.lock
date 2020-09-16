@@ -1623,10 +1623,10 @@ csso@^4.0.2:
   dependencies:
     css-tree "1.0.0-alpha.39"
 
-cssserve@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/cssserve/-/cssserve-1.1.2.tgz#8037dfe72e8c5ab8880ed4bfb919c7e58288cc0e"
-  integrity sha512-agFDUPeKDSxM9JHN77gZSHBnd4HjgElEKyFS8plIUnywwq4jJzXtpt77TmyLUKwkNB66fmRy27LE1pPrT+CaZA==
+cssserve@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/cssserve/-/cssserve-1.1.4.tgz#9a4460534a622fc6f5f178185c1075d02dbc8de7"
+  integrity sha512-dij4lqXPEsB0gCjB39Ap4c0Rerl7/958W1xguT39Fro9qdTIk8Y4+pQJdPbyaokf2jNyva+3+mjXzPtVCKIbRQ==
   dependencies:
     compression "^1.7.4"
     fastify "^2.12.0"
