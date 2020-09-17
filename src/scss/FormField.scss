@@ -92,9 +92,7 @@
 	}
 
 	// Reset contained field elements by default ...
-	.FormField__input input,
-	.FormField__input select,
-	.FormField__input textarea {
+	.FormField__input > * {
 		border: 0;
 		background: 0;
 		padding: 0;
@@ -102,10 +100,9 @@
 		flex-shrink: 1;
 		line-height: inherit;
 		color: inherit;
-
-		&:focus {
-			outline: 0;
-		}
+	}
+	.FormField__input > *:focus {
+		outline: 0;
 	}
 
 	// ---------------------------------------------------------------------------
