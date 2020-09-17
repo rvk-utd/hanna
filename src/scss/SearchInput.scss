@@ -8,7 +8,8 @@
 	.SearchInput {
 	}
 
-	.SearchInput__input {
+	input.SearchInput__input {
+		margin-right: prem(50);
 	}
 
 	// underlying inactive button-like icon
