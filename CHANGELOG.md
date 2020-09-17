@@ -3,8 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add components `RowBlock`, `RowBlockColumn`, `Illustration`
 - feat: Add components `NameCard` and `NameCards`
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
+- fix: Add back missing `.FormField__input` borders
 
 ## 0.6.1
 
