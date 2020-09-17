@@ -49,6 +49,11 @@
 	--grid-gutter: var(--grid-0-1);
 	--grid-column: var(--grid-1);
 
+	--grid-0-1--neg: #{_flexCol(0, -1)};
+	// --grid-1--neg: #{_flexCol(-1)};
+	--grid-gutter--neg: var(--grid-0-1--neg);
+	// --grid-column--neg: var(--grid-1--neg);
+
 	@include media($mq-wide) {
 		--grid-edge: #{px($grid-edge--wide)};
 		--grid-edge--neg: #{px(-1 * $grid-edge--wide)};
@@ -65,6 +70,9 @@
 		--grid-9: #{cols_px(9)};
 		--grid-10: #{cols_px(10)};
 		--grid-11: #{cols_px(11)};
+
+		--grid-0-1--neg: #{cols_px(0, -1)};
+		// --grid-1--neg: #{_flexCol(-1)};
 	}
 }
 
