@@ -6,6 +6,9 @@
 
 @media screen {
 	.FormField {
+		--input-border-color: #{$color-suld-100};
+		--input-border-radius: #{prem(3)};
+
 		display: flex;
 		flex-flow: column;
 		position: relative;
