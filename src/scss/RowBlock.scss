@@ -1,12 +1,12 @@
 @use 'globals' as *;
-@use 'BlockColumn';
+@use 'RowBlockColumn';
 
 /*!@deps
-	BlockColumn
+	RowBlockColumn
 */
 
 @media screen {
-	.ColumnBlock {
+	.RowBlock {
 		margin-bottom: between_cols(60, 100);
 		display: flex;
 		flex-flow: column-reverse;
@@ -14,24 +14,24 @@
 		align-items: center;
 	}
 	@media #{$mq-tablet_up} {
-		.ColumnBlock {
+		.RowBlock {
 			flex-flow: row;
 		}
-		.ColumnBlock--align--right {
+		.RowBlock--align--right {
 			flex-flow: row-reverse;
 		}
 	}
 
 	// ===========================================================================
 
-	.ColumnBlock > .BlockColumn:nth-child(n + 3) {
-		@include WARNING__('Only two `BlockColumn`s allowed here');
+	.RowBlock > .RowBlockColumn:nth-child(n + 3) {
+		@include WARNING__('Only two `RowBlockColumn`s allowed here');
 	}
-	.ColumnBlock > .BlockColumn:first-child:last-child {
-		@include WARNING__('Two `BlockColumn`s are required');
+	.RowBlock > .RowBlockColumn:first-child:last-child {
+		@include WARNING__('Two `RowBlockColumn`s are required');
 	}
-	.ColumnBlock > :not(.BlockColumn) {
-		@include WARNING__('Only `BlockColumn`s allowed here');
+	.RowBlock > :not(.RowBlockColumn) {
+		@include WARNING__('Only `RowBlockColumn`s allowed here');
 	}
 }
 
@@ -39,4 +39,4 @@
 
 // Inline conjoined component for better
 // compression and loading speed
-@include BlockColumn.css();
+@include RowBlockColumn.css();

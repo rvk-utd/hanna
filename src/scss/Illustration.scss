@@ -2,7 +2,7 @@
 @use 'styles/links' as *;
 
 /*!@deps
-	BlockColumn
+	RowBlockColumn
 */
 
 @media screen {
@@ -41,8 +41,8 @@
 // ===========================================================================
 
 @media screen {
-	.BlockColumn--background .Illustration {
-		@include WARNING__('Do not use inside `.BlockColumn--background`');
+	.RowBlockColumn--background .Illustration {
+		@include WARNING__('Do not use inside `.RowBlockColumn--background`');
 		@if isDevMode() {
 			z-index: 1;
 		}
