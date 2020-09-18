@@ -49,14 +49,6 @@ $var--link-transition: var(--link-transition, $_link-transition);
 
 // ---------------------------------------------------------------------------
 
-$var--table-border-color: var(--input-border-color);
-
-// ---------------------------------------------------------------------------
-
-$var--input-border-color: var(--input-border-color);
-
-// ---------------------------------------------------------------------------
-
 $var--baseVerticalMargin: var(--baseVerticalMargin);
 $var--baseVerticalMargin-2: var(--baseVerticalMargin-2);
 
@@ -80,6 +72,11 @@ $var--grid-11: var(--grid-11);
 
 $var--grid-gutter: var(--grid-gutter);
 $var--grid-column: var(--grid-column);
+
+$var--grid-0-1--neg: var(--grid-0-1--neg);
+// $var--grid-1--neg: var(--grid-1--neg);
+$var--grid-gutter--neg: var(--grid-gutter--neg);
+// $var--grid-column--neg: var(--grid-column--neg);
 
 // ---------------------------------------------------------------------------
 

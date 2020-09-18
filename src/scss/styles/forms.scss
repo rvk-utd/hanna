@@ -254,10 +254,10 @@ $InputField-paddingH: grid-units(2);
 	width: 100%;
 	background-color: $color-suld-0;
 	color: $color-suld-200;
-	border: prem(1) solid $var--input-border-color;
+	border: prem(1) solid var(--input-border-color);
 	transition: all 300ms ease-in-out;
 	transition-property: color, border-color, box-shadow, background-color;
-	border-radius: prem(3);
+	border-radius: var(--input-border-radius);
 	padding: 0 $InputField-paddingH;
 	padding-top: $InputField-paddingTop;
 	height: $InputField-heightI + $InputField-paddingTop + prem(2);
@@ -287,7 +287,7 @@ $InputField-paddingH: grid-units(2);
 @mixin InputField--focused() {
 	--input-border-color: #{$color-faxafloi-100};
 	color: $color-suld-200;
-	box-shadow: inset 0 0 0 1px $var--input-border-color;
+	box-shadow: inset 0 0 0 1px var(--input-border-color);
 	outline: 0;
 }
 @mixin InputField--disabled() {

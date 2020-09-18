@@ -5,13 +5,9 @@
 @media screen {
 	.ExtraLinks {
 		background-color: $color-suld-25;
-		padding: between_phone_netbook(30, 80) 0 between_phone_netbook(30, 80);
+		padding: between_cols(30, 80) 0;
 		margin-bottom: between_cols(60, 100);
 		@include extendBackgroundWithUnderlay();
-
-		@include media($mq-wide) {
-			padding: prem(80) 0;
-		}
 	}
 	.ExtraLinks::before {
 		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;

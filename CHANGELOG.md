@@ -8,7 +8,11 @@
 - **BREAKING** feat: Simplify `IslandBlock` to be always "expanded", no
   illustration
 - feat: Add component `IslandPageBlock` with illustration only
+- feat: Add component `SiteSearchInput`
+- feat: Add components `RowBlock`, `RowBlockColumn`, `Illustration`
+- feat: Add components `NameCard` and `NameCards`
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
+- fix: Add back missing `.FormField__input` borders
 
 ## 0.6.1
 

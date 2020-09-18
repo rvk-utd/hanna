@@ -71,6 +71,11 @@
 		line-height: px($font-base-leading);
 	}
 
+	html.modal-open {
+		overflow: hidden;
+		margin-right: $var--browser-scrollbar-width;
+	}
+
 	body {
 	}
 
@@ -113,7 +118,7 @@
 	img {
 		width: 100%;
 		height: auto;
-		vertical-align: top;
+		display: block;
 	}
 
 	table {
@@ -128,7 +133,7 @@
 		cursor: help;
 	}
 
-	a[href^='tel:'] {
+	a[href^='tel:']:not([class]) {
 		color: inherit;
 	}
 	a {
