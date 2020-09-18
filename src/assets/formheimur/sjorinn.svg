@@ -1,12 +1,8 @@
 <svg width="375" height="281" viewBox="0 0 375 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="formheimur-sjorinn">
 <style>
-	:root {
-		--litur1: #727477;
-		--litur2: #c0c6cb;
-	}
-	:root .formheimur-sjorinn {
-		--litur1: var(--theme-color-primary);
-		--litur2: var(--theme-color-secondary);
+	.formheimur-sjorinn {
+		--litur1: var(--theme-color-primary, #dcddde);
+		--litur2: var(--theme-color-secondary, #ebeced);
 	}
 
 	/* Frávik */

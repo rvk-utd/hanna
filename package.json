@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"@hugsmidjan/gulp-iconfont": "^0.3.2",
-		"@hugsmidjan/gulp-images": "^0.1.7",
+		"@hugsmidjan/gulp-images": "^0.1.8",
 		"@hugsmidjan/gulp-sass": "^0.1.2",
 		"@hugsmidjan/hxmstyle": "^2.4.0",
 		"browser-sync": "^2.26.12",
