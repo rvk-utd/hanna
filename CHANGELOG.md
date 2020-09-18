@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add components `ArticleCarousel`
 - feat: Add components `RowBlock`, `RowBlockColumn`, `Illustration`
 - feat: Add components `NameCard` and `NameCards`
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
