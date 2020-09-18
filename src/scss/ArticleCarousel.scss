@@ -1,5 +1,7 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
+@use 'styles/carousel' as *;
+@use 'styles/buttons' as *;
 
 @media screen {
 	.ArticleCarousel {
@@ -19,12 +21,23 @@
 		border: 2px solid $color-suld-75;
 		border-top: 0;
 		width: $var--grid-5;
-		padding: prem(21) $var--grid-column prem(56);
+		min-width: 330px;
+
+		padding: prem(21) $var--grid-column between_phone_netbook(24, 72);
 		margin-right: $var--grid-gutter;
 		position: relative;
+
+		@include media($mq-wide) {
+			padding-bottom: prem(72);
+		}
 	}
 
 	.ArticleCarouselCard::before {
+		content: '';
+		display: block;
+	}
+
+	.ArticleCarouselCard::after {
 		content: '';
 		display: block;
 		height: prem(21);
@@ -47,9 +60,27 @@
 	);
 
 	@each $colorName, $color in $colors {
-		.ArticleCarouselCard--#{$colorName}::before {
+		.ArticleCarouselCard--#{$colorName}::after {
 			background-color: $color;
 		}
+	}
+
+	.ArticleCarouselCard__illustration {
+		position: relative;
+		padding-top: percentage(300/ ($grid-column * 3 + 4 * $grid-gutter));
+		display: block;
+	}
+
+	.ArticleCarouselCard__illustration > img {
+		position: absolute;
+		top: 0;
+		left: $var--grid-column--neg;
+		left: $var--grid-column--neg;
+		right: $var--grid-column--neg;
+		width: calc(100% + #{$var--grid-column} + #{$var--grid-column});
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
 	}
 
 	.ArticleCarouselCard__title {
@@ -68,12 +99,16 @@
 		@include BodyTextStyle--small();
 		margin-bottom: prem(24);
 	}
-	.ArticleCarouselCard > .ButtonTertiary::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+
+	.ArticleCarouselCard__button {
+		@include ButtonTertiaryStyle($mode: simple);
+	}
+
+	.ArticleCarousel__stepper {
+		@include CarouselStepper();
+		@include media($mq-tablet_up) {
+			margin-left: 0;
+			margin-top: prem(24);
+		}
 	}
 }
