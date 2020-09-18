@@ -9,7 +9,11 @@
 
 	.ArticleCarousel__title {
 		@include HeadingStyle--medium();
-		display: none;
+		margin-bottom: between_phone_netbook(32, 72);
+
+		@include media($mq-wide) {
+			margin-bottom: prem(72);
+		}
 	}
 
 	.ArticleCarousel__track {
