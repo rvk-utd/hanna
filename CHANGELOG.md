@@ -3,10 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add components `ArticleCarousel`, `CarouselStepper`
-- feat: Add component `SiteSearchInput`
-- feat: Add components `RowBlock`, `RowBlockColumn`, `Illustration`
+- feat: Add components `ArticleCarousel`
 - feat: Add components `NameCard` and `NameCards`
+- feat: Add component `SiteSearchInput`
+- feat: Add low-level component `CarouselStepper`
+- feat: Add low-level components `RowBlock`, `RowBlockColumn`, `Illustration`
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
 - fix: Add back missing `.FormField__input` borders
 
