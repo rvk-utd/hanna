@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Update `Bling` shapes and settings
 
 ## 0.6.2
 

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 930 708"
+	style="
+		--bling-width: 930;   /* 786 + 2 * 72 (shifting the center-point by 72px) */
+		--bling-offset: 136;  /* 208 - 72 */
+	/*
+		--bling-offset-ish: xxx;
+		--bling-offset-center: xxx;
+	*/
+	"
+>
+	<path d="M450,708V0l480,354L450,708z"
+		fill="var(--bling-color-a, #f3f4f5)"/>
+	<path d="M144,139v380h381V139H144z M448,440H222V217h226V440z"
+		fill="var(--bling-color-b, #ebeced)"/>
+</svg>

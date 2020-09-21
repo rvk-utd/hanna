@@ -9,54 +9,94 @@
 }
 
 @media #{$mq-tablet_up} {
+	$toPct: 100% / $grid-contentMaxWidth;
+
 	.Bling {
 		display: block; // override default hidden state
 		position: absolute;
+		width: 100%;
 		z-index: -1;
 		pointer-events: none;
-		padding: 3.5% 0;
+		--bling-color-a: #{$var--color-theme-tertiary};
+		--bling-color-b: #{$var--color-theme-secondary};
+		--bling-width: 0;
+		--bling-offset: 0;
+		// --bling-offset-ish: ;
+		// --bling-offset-center: ;
 	}
+
 	.Bling > svg {
-		width: 100%;
+		width: calc(var(--bling-width) * #{$toPct});
 		height: auto;
 		display: block;
-		margin: 0 -50%;
+		position: relative;
+		padding: 3.5% 0;
 	}
 
 	// ---------------------------------------------------------------------------
 
-	.Bling--size--small {
-		width: cols_pct(4, 4);
+	// .Bling--color--tertiary {
+	// 	--bling-color-a: #{$var--color-theme-tertiary};
+	// 	--bling-color-b: #{$var--color-theme-secondary};
+	// }
+	.Bling--color--secondary {
+		--bling-color-a: #{$var--color-theme-secondary};
+		--bling-color-b: #{$var--color-theme-tertiary};
 	}
-	.Bling--size--medium {
-		width: cols_pct(6, 6);
-	}
-	.Bling--size--large {
-		width: cols_pct(11, 11);
+	.Bling--color--primary {
+		--bling-color-a: #{$var--color-theme-primary};
+		--bling-color-b: #{$var--color-theme-secondary};
 	}
 
 	// ---------------------------------------------------------------------------
 
-	.Bling--align--left {
-		left: cols_pct(1);
-	}
-	.Bling--align--right {
-		left: cols_pct(11, 11);
-	}
+	.Bling--align--left > svg,
 	.Bling--align--right > svg {
+		left: calc(var(--bling-offset) * #{$toPct});
+	}
+	.Bling--align--left-ish > svg,
+	.Bling--align--right-ish > svg {
+		left: calc(var(--bling-offset-ish, var(--bling-offset)) * #{$toPct});
+		@if isDevMode() {
+			// prettier-ignore
+			--notDefined--bling-offset-ish: var(--bling-offset-ish, );
+			outline: var(--notDefined--bling-offset-ish) 10px dashed rgba(red, 0.25);
+		}
+	}
+	.Bling--align--left-center > svg,
+	.Bling--align--right-center > svg {
+		left: calc(
+			var(--bling-offset-center, var(--bling-offset-ish, var(--bling-offset))) * #{$toPct}
+		);
+		@if isDevMode() {
+			// prettier-ignore
+			--notDefined--bling-offset-center: var(--bling-offset-center, );
+			outline: var(--notDefined--bling-offset-center) 10px dashed rgba(red, 0.25);
+		}
+	}
+
+	.Bling--align--right,
+	.Bling--align--right-ish,
+	.Bling--align--right-center {
 		transform: scaleX(-1);
 	}
 
 	// ---------------------------------------------------------------------------
 
-	// .Bling--vertical--down {
-	// 	transform: translateY(0%);
-	// }
-	.Bling--vertical--center {
-		transform: translateY(-50%);
+	.Bling--vertical--up > svg {
+		transform: translate(-50%, -100%);
 	}
-	.Bling--vertical--up {
-		transform: translateY(-100%);
+	.Bling--vertical--up-ish > svg {
+		transform: translate(-50%, -75%);
+	}
+	.Bling--vertical--center > svg {
+		transform: translate(-50%, -50%);
+	}
+	.Bling--vertical--down-ish > svg {
+		transform: translate(-50%, -25%);
+	}
+	.Bling--vertical--down > svg {
+		transform: translate(-50%, 0%);
 	}
 
 	// ---------------------------------------------------------------------------
