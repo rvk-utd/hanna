@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 826 580"
+	style="
+		--bling-width: 826; /* 666 + 2 * 80 (shifting the center-point by 80px) */
+		--bling-offset: 0;
+		--bling-offset-ish: 272;
+	/*
+		--bling-offset-center: xxx;
+	*/
+	"
+>
+	<path d="M482.9,580L666,274.6L333,0L0,274.6L183.1,580H482.9z"
+		fill="var(--bling-color-a, #f3f4f5)"/>
+</svg>

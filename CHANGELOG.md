@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Update `Bling` shapes and settings
 - **BREAKING** feat: Rename `CityCouncilHero` to `InfoHero`
 - feat: Add `--align--left` and `--align--right` options to `InfoHero`
 - **BREAKING** feat: Simplify `IslandBlock` to be always "expanded", no
