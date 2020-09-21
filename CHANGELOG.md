@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.6.2
+
+_2020-09-21_
+
 - feat: Add components `ArticleCarousel`
 - feat: Add components `NameCard` and `NameCards`
 - feat: Add component `SiteSearchInput`
