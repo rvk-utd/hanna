@@ -36,10 +36,10 @@
     "@hugsmidjan/gulp-utils" "^0.1.3"
     gulp-iconfont "^10.0.2"
 
-"@hugsmidjan/gulp-images@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@hugsmidjan/gulp-images/-/gulp-images-0.1.7.tgz#188606de75ab5ff00fedb73c28b3f27e11f5cfea"
-  integrity sha512-fb9MB6fV7BG00fmVS7JvuqnQ4KiYUaCmZsIDnWeo9QKqZy0HX1RSK66v1NP/2PGJrwaJNjk/Pp3hwSJ/pfu5Og==
+"@hugsmidjan/gulp-images@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@hugsmidjan/gulp-images/-/gulp-images-0.1.8.tgz#67e9e2db6ca7c44f4a9b01b012c92375c2f1559d"
+  integrity sha512-LKZXlS35n551argd7F5QsX2ROcN+qc2ttkcvHClkOvqiII9SIlyZRGFztIoICMMmmxA+2CTTU+Rg+EYEcAeltw==
   dependencies:
     "@hugsmidjan/gulp-utils" "^0.1.3"
     gulp-flatmap "^1"

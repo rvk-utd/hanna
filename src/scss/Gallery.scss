@@ -2,6 +2,10 @@
 @use 'styles/font' as *;
 @use '_GalleryModal' as GalleryModal;
 
+/*!@deps
+	CarouselStepper
+*/
+
 @media screen {
 	html.before-sprinkling {
 		.Gallery {
@@ -18,11 +22,18 @@
 
 		overflow-x: scroll;
 		overflow-y: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
 
 		@include media($mq-tablet_up) {
 			width: auto;
 			overflow: visible;
 		}
+	}
+
+	.Gallery__inner {
+		min-width: 100vw;
 	}
 
 	.Gallery__track {
@@ -60,11 +71,11 @@
 
 		margin: 0;
 		padding: 0 prem($grid-gutter / 2);
-		min-width: 200px;
+		max-width: 270px;
 		width: cols_pct(3, 2);
 	}
 	.GalleryItem--landscape {
-		min-width: 345px;
+		max-width: 345px;
 		width: cols_pct(5, 4);
 	}
 
@@ -106,68 +117,9 @@
 		display: none;
 	}
 
-	// NAV
-
-	.Gallery__stepper {
-		// just scroll items in mobile?
-		display: none;
-
-		@include media($mq-tablet_up) {
-			margin-left: auto;
-			width: max-content;
-			display: flex;
-			align-items: flex-end;
-			// how are we positioning the nav?
-			// justify-content: center;
-
-			// if aligned below
-			padding-top: prem(8);
-
-			height: prem(24 + 8);
-		}
-	}
-
-	.Gallery__stepper__button {
-		@include media($mq-tablet_up) {
-			flex: none;
-
-			position: relative;
-
-			width: 8px;
-			height: 100%;
-
-			margin-left: 4px;
-			margin-right: 4px;
-
-			overflow: hidden;
-			white-space: nowrap;
-
-			// should be variable for theming??
-			background: $color-faxafloi-50;
-
-			transform: scaleY((16/24));
-			transform-origin: bottom center;
-
-			transition: transform 100ms ease-in-out;
-
-			text-indent: 9px;
-
-			&:first-child {
-				margin-left: 0;
-			}
-
-			&:last-child {
-				margin-right: 0;
-			}
-		}
-	}
-
-	.Gallery__stepper__button[aria-pressed='true'] {
-		@include media($mq-tablet_up) {
-			background: $var--color-theme-primary;
-			transform: none;
-		}
-	}
+	// .Gallery > .CarouselStepper {
+	// 	// Add custom styling here....
+	// }
 }
 
 // ===========================================================================
