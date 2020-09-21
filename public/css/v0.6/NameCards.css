@@ -1,0 +1,3 @@
+/*!@deps
+	NameCard
+*/@media screen{.NameCards{display:grid;-moz-column-gap:var(--grid-gutter);column-gap:var(--grid-gutter)}}@media screen and (min-width:480px) and (max-width:979px){.NameCards{grid-template-columns:repeat(2,48.3443708609%)}}@media screen and (min-width:980px){.NameCards{grid-template-columns:repeat(3,31.1258278146%)}}
