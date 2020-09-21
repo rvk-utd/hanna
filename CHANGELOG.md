@@ -3,7 +3,18 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.6.2
+
+_2020-09-21_
+
+- feat: Add components `ArticleCarousel`
+- feat: Add components `NameCard` and `NameCards`
+- feat: Add component `SiteSearchInput`
+- feat: Add low-level component `CarouselStepper`
+- feat: Add low-level components `RowBlock`, `RowBlockColumn`, `Illustration`
 - feat: Add `--narrow` and `--transparent` options to `ProcessOverview`
+- fix: Add back missing `.FormField__input` borders
 
 ## 0.6.1
 

@@ -1,14 +1,9 @@
 <svg width="375" height="272" viewBox="0 0 375 272" fill="none" xmlns="http://www.w3.org/2000/svg" class="formheimur-radhusid">
 <style>
-	:root {
-		--litur1: #727477;
-		--litur2: #c0c6cb;
-		--litur3: #e3e5e7;
-	}
-	:root .formheimur-radhusid {
-		--litur1: var(--theme-color-primary);
-		--litur2: var(--theme-color-secondary);
-		--litur3: var(--theme-color-tertiary);
+	.formheimur-radhusid {
+		--litur1: var(--theme-color-primary, #dcddde);
+		--litur2: var(--theme-color-secondary, #ebeced);
+		--litur3: var(--theme-color-tertiary, #f3f4f5);
 	}
 
 	/* Frávik */

@@ -1,5 +1,10 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
+@use '_GalleryModal' as GalleryModal;
+
+/*!@deps
+	CarouselStepper
+*/
 
 @media screen {
 	html.before-sprinkling {
@@ -17,6 +22,9 @@
 
 		overflow-x: scroll;
 		overflow-y: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
 
 		@include media($mq-tablet_up) {
 			width: auto;
@@ -24,10 +32,15 @@
 		}
 	}
 
+	.Gallery__inner {
+		min-width: 100vw;
+	}
+
 	.Gallery__track {
 		display: flex;
 		align-items: flex-end;
 		flex-wrap: nowrap;
+		flex-flow: row-reverse;
 
 		margin-left: -(prem($grid-gutter / 2));
 		margin-right: -(prem($grid-gutter / 2));
@@ -45,29 +58,36 @@
 		flex: none;
 		padding: 0 prem($grid-gutter / 2);
 	}
+	.GalleryItem__button {
+		width: 100%;
+	}
 
 	// ITEM
 	.GalleryItem {
 		// <figure>
 		flex: none;
+		display: flex;
+		flex-flow: column-reverse;
 
 		margin: 0;
 		padding: 0 prem($grid-gutter / 2);
-		min-width: 200px;
+		max-width: 270px;
 		width: cols_pct(3, 2);
 	}
 	.GalleryItem--landscape {
-		min-width: 345px;
+		max-width: 345px;
 		width: cols_pct(5, 4);
 	}
 
-	.GalleryItem__image {
+	.GalleryItem__button,
+	.GalleryItem > .GalleryItem__image {
 		display: block;
 		position: relative;
 		background: $color-suld-50;
 		padding-bottom: percentage(376/272);
 	}
-	.GalleryItem--landscape > .GalleryItem__image {
+	.GalleryItem--landscape > .GalleryItem__image,
+	.GalleryItem--landscape > .GalleryItem__button {
 		padding-bottom: percentage(312/480);
 	}
 
@@ -93,64 +113,15 @@
 		line-height: 1.25;
 	}
 
-	// NAV
-
-	.Gallery .CarouselStepper {
-		// just scroll items in mobile?
+	.GalleryItem__description {
 		display: none;
-
-		@include media($mq-tablet_up) {
-			display: flex;
-			align-items: flex-end;
-			// how are we positioning the nav?
-			// justify-content: center;
-
-			// if aligned below
-			padding-top: prem(8);
-
-			height: prem(24 + 8);
-		}
 	}
 
-	.Gallery .CarouselStepper__button {
-		@include media($mq-tablet_up) {
-			flex: none;
-
-			position: relative;
-
-			width: 8px;
-			height: 100%;
-
-			margin-left: 4px;
-			margin-right: 4px;
-
-			overflow: hidden;
-			white-space: nowrap;
-
-			// should be variable for theming??
-			background: $color-faxafloi-50;
-
-			transform: scaleY((16/24));
-			transform-origin: bottom center;
-
-			transition: transform 100ms ease-in-out;
-
-			text-indent: 9px;
-
-			&:first-child {
-				margin-left: 0;
-			}
-
-			&:last-child {
-				margin-right: 0;
-			}
-		}
-	}
-
-	.Gallery .CarouselStepper__button[aria-pressed='true'] {
-		@include media($mq-tablet_up) {
-			background: var(--theme-color-primary);
-			transform: none;
-		}
-	}
+	// .Gallery > .CarouselStepper {
+	// 	// Add custom styling here....
+	// }
 }
+
+// ===========================================================================
+// Inline in order to not expose as standalone component styles
+@include GalleryModal.css();

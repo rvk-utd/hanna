@@ -1,12 +1,8 @@
 <svg width="379" height="280" viewBox="0 0 379 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="formheimur-perlan">
 <style>
-	:root {
-		--litur1: #727477;
-		--litur2: #c0c6cb;
-	}
-	:root .formheimur-perlan {
-		--litur1: var(--theme-color-primary);
-		--litur2: var(--theme-color-secondary);
+	.formheimur-perlan {
+		--litur1: var(--theme-color-primary, #dcddde);
+		--litur2: var(--theme-color-secondary, #ebeced);
 	}
 
 	/* Frávik */

@@ -1,0 +1,90 @@
+@use 'globals' as *;
+@use 'styles/font.scss' as *;
+
+@media screen {
+	.NameCard {
+		border: 1px solid $color-suld-100;
+		padding: prem(32) prem(24);
+		display: flex;
+		flex-flow: column;
+		min-height: prem(268);
+		// for standalone-display
+		max-width: cols_px(4);
+		margin-bottom: $var--grid-gutter;
+	}
+
+	.NameCard__name {
+		width: 100%;
+		@include BodyTextStyle--large();
+		font-weight: $font-weight--bold;
+		margin-bottom: prem(16);
+	}
+
+	.NameCard__tel {
+	}
+
+	.NameCard__tel__number {
+		--link-color: _inherit;
+		font-size: prem($font-bd-s-size);
+		line-height: prem(19);
+		font-weight: $font-weight--bold;
+		align-items: center;
+		display: inline-flex;
+		margin-left: prem(32);
+		margin-right: prem(24);
+		font-weight: 700;
+		margin-bottom: prem(4);
+	}
+	.NameCard__tel__number::before {
+		content: '';
+		float: left;
+		height: prem(2);
+		background-color: $color-sund-100;
+		margin-left: prem(-32);
+		width: prem(16);
+		margin-right: prem(16);
+	}
+
+	.NameCard__location {
+		margin-top: prem(8);
+	}
+	.NameCard__hours {
+		margin-bottom: grid-units(1.5);
+	}
+
+	.NameCard__meta {
+		margin-top: auto;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
+	.NameCard__vacancy {
+		color: $color-suld-150;
+		margin-top: grid-units(1);
+		margin-right: grid-units(1);
+		--led-color: #{$color-suld-150};
+	}
+	.NameCard__vacancy--vacany {
+		color: $color-suld-200;
+		--led-color: #{$color-ellidarardalur-100};
+	}
+	.NameCard__vacancy::before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		width: prem(8);
+		height: prem(8);
+		margin-right: prem(9);
+		border-radius: 50%;
+		background-color: var(--led-color);
+	}
+
+	.NameCard__updated {
+		align-self: flex-end;
+		font-size: prem($font-size-12);
+		margin-top: grid-units(1);
+		color: $color-suld-150;
+	}
+}
