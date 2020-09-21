@@ -1,7 +1,10 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
-@use 'styles/carousel' as *;
 @use '_GalleryModal' as GalleryModal;
+
+/*!@deps
+	CarouselStepper
+*/
 
 @media screen {
 	html.before-sprinkling {
@@ -114,11 +117,9 @@
 		display: none;
 	}
 
-	// NAV
-
-	.Gallery__stepper {
-		@include CarouselStepper();
-	}
+	// .Gallery > .CarouselStepper {
+	// 	// Add custom styling here....
+	// }
 }
 
 // ===========================================================================

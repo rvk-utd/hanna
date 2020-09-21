@@ -1,8 +1,11 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
-@use 'styles/carousel' as *;
 @use 'styles/buttons' as *;
 @use 'styles/links' as *;
+
+/*!@deps
+	CarouselStepper
+*/
 
 @media screen {
 	.ArticleCarousel {
@@ -113,8 +116,7 @@
 		@include ButtonTertiaryStyle($mode: simple);
 	}
 
-	.ArticleCarousel__stepper {
-		@include CarouselStepper();
+	.ArticleCarousel > .CarouselStepper {
 		@include media($mq-tablet_up) {
 			margin-left: 0;
 			margin-top: prem(24);
