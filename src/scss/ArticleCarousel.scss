@@ -2,6 +2,7 @@
 @use 'styles/font' as *;
 @use 'styles/carousel' as *;
 @use 'styles/buttons' as *;
+@use 'styles/links' as *;
 
 @media screen {
 	.ArticleCarousel {
@@ -69,6 +70,10 @@
 		}
 	}
 
+	.ArticleCarouselCard__link {
+		@include LinkStyle_Reset(noborder);
+	}
+
 	.ArticleCarouselCard__illustration {
 		position: relative;
 		padding-top: percentage(300/ ($grid-column * 3 + 4 * $grid-gutter));
@@ -104,7 +109,7 @@
 		margin-bottom: prem(24);
 	}
 
-	.ArticleCarouselCard__button {
+	.ArticleCarouselCard__morelink {
 		@include ButtonTertiaryStyle($mode: simple);
 	}
 
