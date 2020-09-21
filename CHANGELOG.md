@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add components `ArticleCarousel`, `CarouselStepper`
 - feat: Add component `SiteSearchInput`
 - feat: Add components `RowBlock`, `RowBlockColumn`, `Illustration`
 - feat: Add components `NameCard` and `NameCards`
