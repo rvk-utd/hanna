@@ -40,7 +40,7 @@
 @mixin Card() {
 	@include LinkStyle_Reset(noborder);
 	display: block;
-	padding: prem(24) prem(24) prem(16) prem(24);
+	padding: prem(24) prem(24) prem(32) prem(24);
 	min-height: prem(168);
 	width: 100%;
 
@@ -51,7 +51,6 @@
 		height: prem(2);
 		background: var(--Card-lineColor, currentColor);
 		margin-top: grid-units(2);
-		margin-bottom: grid-units(2);
 		transition: width 0.25s ease-in-out;
 	}
 
@@ -68,6 +67,7 @@
 	&__title {
 		@include BodyTextStyle--large();
 		font-weight: 700;
+		margin-bottom: prem(8);
 	}
 
 	&__summary {
