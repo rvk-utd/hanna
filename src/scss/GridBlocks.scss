@@ -18,9 +18,12 @@
 		align-items: flex-start;
 	}
 
+	.GridBlocks__illustration {
+		width: prem(80);
+	}
+
 	.GridBlocks__illustration > img {
-		max-width: 100%;
-		margin-bottom: grid-units(4);
+		margin-bottom: grid-units(3);
 	}
 
 	.GridBlocks__item__title {
