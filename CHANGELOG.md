@@ -9,6 +9,7 @@
 - **BREAKING** feat: Simplify `IslandBlock` to be always "expanded", no
   illustration
 - feat: Add component `IslandPageBlock` with illustration only
+- fix: Set explicit width on `GridBlocks__illustration` images
 
 ## 0.6.2
 

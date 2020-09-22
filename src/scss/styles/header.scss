@@ -1,15 +1,13 @@
 @use '../_globals' as *;
 @use './links' as *;
 
-@mixin LayoutHeaderLogo($BEM: 'Layout__header__logo') {
-	.#{$BEM} {
-		@include LinkStyle_Reset(true);
-		@include hideText(soft);
-		display: block;
-		width: prem(181);
-	}
+@mixin LayoutHeaderLogo() {
+	@include LinkStyle_Reset(true);
+	@include hideText(soft);
+	display: block;
+	width: prem(181);
 
-	.#{$BEM} > img {
+	& > img {
 		width: 100%;
 	}
 }

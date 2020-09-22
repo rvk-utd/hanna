@@ -29,7 +29,9 @@
 		height: $var--Layout__header-height;
 	}
 
-	@include LayoutHeaderLogo('Layout__header__logo');
+	.Layout__header__logo {
+		@include LayoutHeaderLogo();
+	}
 
 	.Layout__main {
 		padding-top: prem(50);
