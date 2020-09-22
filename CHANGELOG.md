@@ -11,8 +11,13 @@
   illustration
 - feat: Add component `IslandPageBlock` with illustration only
 - feat: Allow `GridBlock` item titles to have links
-- fix: Set explicit width on `GridBlocks__illustration` images
 - feat: Add custom (content) styling for `.Layout--HomePage`
+
+## 0.6.3
+
+_2020-09-22_
+
+- fix: Set explicit width on (disappeared) `GridBlocks__illustration` images
 
 ## 0.6.2
 
