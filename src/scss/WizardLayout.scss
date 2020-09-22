@@ -23,7 +23,9 @@
 		align-items: center;
 	}
 
-	@include LayoutHeaderLogo('WizardLayout__header__logo');
+	.WizardLayout__header__logo {
+		@include LayoutHeaderLogo();
+	}
 
 	.WizardLayout__wrap {
 		flex-grow: 1;
