@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Allow `GridBlock` item titles to have links
 - fix: Set explicit width on `GridBlocks__illustration` images
 
 ## 0.6.2

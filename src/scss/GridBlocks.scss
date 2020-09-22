@@ -27,8 +27,20 @@
 	}
 
 	.GridBlocks__item__title {
+		position: relative; // as offset for the __titlelink::before hit-area
 		@include SubheadingStyle--large();
 		margin-bottom: grid-units(2);
+	}
+	.GridBlocks__item__titlelink {
+	}
+	.GridBlocks__item__titlelink::before {
+		content: '';
+		// background-color: rgba(yellow, 0.35); // DEV helper
+		position: absolute;
+		bottom: 100%;
+		left: prem(-20);
+		width: prem(80 + 60);
+		height: prem(80 + 20 + 3 * $grid-unit); // the efnistakn images are 80px x 80px
 	}
 
 	.GridBlocks__item__summary {
@@ -73,5 +85,12 @@
 
 	.GridBlocks:not(.GridBlocks--twocol) > .GridBlocks__item:nth-child(3n + 1) {
 		margin-left: 0;
+	}
+
+	.GridBlocks--twocol .GridBlocks__item__titlelink::before {
+		bottom: auto;
+		left: auto;
+		top: prem(-20);
+		right: 100%;
 	}
 }
