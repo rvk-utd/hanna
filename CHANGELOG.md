@@ -3,7 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Set explicit width on `GridBlocks__illustration` images
+
+## 0.6.3
+
+_2020-09-22_
+
+- fix: Set explicit width on (disappeared) `GridBlocks__illustration` images
 
 ## 0.6.2
 
