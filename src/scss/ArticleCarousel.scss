@@ -66,9 +66,8 @@
 		'rokkur': $color-rokkur-100,
 		'suld': $color-suld-100,
 	);
-
 	@each $colorName, $color in $colors {
-		.ArticleCarouselCard--#{$colorName}::after {
+		.ArticleCarouselCard[data-color='#{$colorName}']::after {
 			background-color: $color;
 		}
 	}
@@ -81,6 +80,9 @@
 		position: relative;
 		padding-top: percentage(300/ ($grid-column * 3 + 4 * $grid-gutter));
 		display: block;
+	}
+	.ArticleCarouselCard__illustration--missing {
+		background-color: $color-suld-25;
 	}
 
 	.ArticleCarouselCard__illustration > img {

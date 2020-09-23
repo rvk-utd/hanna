@@ -4,6 +4,22 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.7.0
+
+_2020-09-23_
+
+- **BREAKING** target: **Hanna 0.7** markup patterns
+- **BREAKING** feat: Update `Bling` shapes and settings
+- `CityCouncilHero` –> `InfoHero` changes:
+  - **BREAKING** feat: Rename `CityCouncilHero` to `InfoHero`
+  - feat: Add `--align--left` and `--align--right` options to `InfoHero`
+  - feat: Add styling for `.InfoHero__bling` combo presets
+- **BREAKING** feat: Simplify `IslandBlock` to be always "expanded", no
+  illustration
+- feat: Add component `IslandPageBlock` with illustration only
+- feat: Allow `GridBlock` item titles to have links
+- feat: Add custom (content) Frontpage styling for `.Layout--HomePage`
+
 ## 0.6.3
 
 _2020-09-22_

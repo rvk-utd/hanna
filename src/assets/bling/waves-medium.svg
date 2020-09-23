@@ -1,0 +1,13 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 572 120"
+	style="
+		--bling-width: 572;
+		--bling-offset: 64;
+		--bling-offset-ish: 286;
+		--bling-offset-center: 604;
+	"
+>
+	<polygon points="429,120 501,71 572,120 572,47 501,0 429,47 358,0 286,47 215,0 143,47 72,0 0,47 0,120 72,71 143,120 215,71
+		286,120 358,71 "
+		fill="var(--bling-color-a, #f3f4f5)"/>
+</svg>

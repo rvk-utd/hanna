@@ -1,6 +1,14 @@
 {
-	"ahugavert": "https://styles.reykjavik.is/assets/bling/ahugavert.svg",
-	"fjoll": "https://styles.reykjavik.is/assets/bling/fjoll.svg",
-	"oldur": "https://styles.reykjavik.is/assets/bling/oldur.svg",
-	"perlan": "https://styles.reykjavik.is/assets/bling/perlan.svg"
+	"box-bowl": "https://styles.reykjavik.is/assets/bling/box-bowl.svg",
+	"box-triangle": "https://styles.reykjavik.is/assets/bling/box-triangle.svg",
+	"circle-large": "https://styles.reykjavik.is/assets/bling/circle-large.svg",
+	"circle-medium": "https://styles.reykjavik.is/assets/bling/circle-medium.svg",
+	"circle-small": "https://styles.reykjavik.is/assets/bling/circle-small.svg",
+	"halfcircle-down-large": "https://styles.reykjavik.is/assets/bling/halfcircle-down-large.svg",
+	"interesting": "https://styles.reykjavik.is/assets/bling/interesting.svg",
+	"pentagon-large": "https://styles.reykjavik.is/assets/bling/pentagon-large.svg",
+	"snake-large": "https://styles.reykjavik.is/assets/bling/snake-large.svg",
+	"triangle-large": "https://styles.reykjavik.is/assets/bling/triangle-large.svg",
+	"triangle-small": "https://styles.reykjavik.is/assets/bling/triangle-small.svg",
+	"waves-medium": "https://styles.reykjavik.is/assets/bling/waves-medium.svg"
 }
