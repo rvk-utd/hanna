@@ -1,6 +1,6 @@
 const pkg = require('../package.json');
 
-const cssVersion = 'v' + (pkg.version.match(/^\d+\.\d+/) || [''])[0];
+const cssVersion = 'v' + (pkg.version.match(/^0\.\d+/) || [pkg.version])[0];
 const distFolder = 'public/';
 const sourceFolder = 'src/';
 
