@@ -65,9 +65,14 @@
 	}
 	.Bling--align--left-center > svg,
 	.Bling--align--right-center > svg {
-		left: calc(
-			var(--bling-offset-center, var(--bling-offset-ish, var(--bling-offset))) * #{$toPct}
+		// postcss-calc (v7.0.4) has LOTS of issues
+		// Remove this workaround when https://github.com/postcss/postcss-calc/issues/119
+		// has been successfully resolved
+		--postcss-calc-bug-workaround: var(
+			--bling-offset-center,
+			var(--bling-offset-ish, var(--bling-offset))
 		);
+		left: calc(var(--postcss-calc-bug-workaround) * #{$toPct});
 		@if isDevMode() {
 			// prettier-ignore
 			--notDefined--bling-offset-center: var(--bling-offset-center, );
