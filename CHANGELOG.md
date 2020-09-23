@@ -3,6 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.0
+
+_2020-09-23_
+
+- **BREAKING** target: **Hanna 0.7** markup patterns
 - **BREAKING** feat: Update `Bling` shapes and settings
 - `CityCouncilHero` –> `InfoHero` changes:
   - **BREAKING** feat: Rename `CityCouncilHero` to `InfoHero`
