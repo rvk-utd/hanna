@@ -1,0 +1,9 @@
+/*!@deps
+	TextInput
+	SearchInput
+	Datepicker
+	Selectbox
+	ButtonPrimary
+	ButtonSecondary
+	ButtonTertiary
+*/@media screen{.PageFilter{background-color:#f8f8f9;padding:calc(5.38793% + 14.91379px) 0 calc(2.15517% + 13.96552px);margin-bottom:calc(7.5431% + 8.87931px);z-index:1;position:relative;display:flex;flex-flow:row wrap;justify-content:space-between;align-items:flex-start}.PageFilter:before{content:"";position:absolute;top:0;bottom:0;left:var(--grid-edge--neg);right:var(--grid-edge--neg);z-index:-1;background:inherit;border-left:calc(1.50943vw + 3.16981px) solid var(--theme-color-primary)}}@media screen and (min-width:1380px){.PageFilter:before{border-width:1.5rem}}@media screen{.PageFilter__title{font-weight:700;font-size:var(--font-hd-s-size);line-height:var(--font-hd-s-leading);margin-bottom:.3125em;width:100%}}@media screen{.PageFilter__summary{margin-bottom:1.25rem;width:100%}}@media screen{.PageFilter__filters{display:flex;flex-flow:row wrap;align-items:flex-start;margin-bottom:calc(3.23276% + .94828px);width:100%;max-width:936px;flex-shrink:0}}@media screen{.PageFilter__filters>.FormField{flex-shrink:0;margin-right:var(--grid-gutter);margin-bottom:1.5rem;min-width:24.7863247863%}}@media screen and (max-width:479px){.PageFilter__filters>.FormField{width:100%}}@media screen{.PageFilter__buttons{margin-bottom:calc(3.23276% + .94828px)}}@media screen{.PageFilter__buttons>.ButtonPrimary:last-child,.PageFilter__buttons>.ButtonTertiary:last-child{margin-right:0;width:auto}}@media screen{.PageFilter__footnote{width:100%;position:relative;margin-top:calc(3.23276% + 20.94828px);padding-left:calc(2.80172% + 2.15517px);color:#727477}}@media screen{.PageFilter__footnote:before{content:"";position:absolute;top:0;bottom:0;left:0;margin:.25rem 0;border-left:.25rem solid}}@media screen{.PageFilter__footnote:after{content:"";position:absolute;top:0;left:0;right:0;border-top:1px solid;margin-top:calc(-3.01724% + -3.55172px)}}
