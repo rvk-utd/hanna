@@ -3,7 +3,6 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Allow `GridBlock` item titles to have links
 - **BREAKING** feat: Update `Bling` shapes and settings
 - **BREAKING** feat: Rename `CityCouncilHero` to `InfoHero`
 - feat: Add `--align--left` and `--align--right` options to `InfoHero`
@@ -11,7 +10,7 @@
   illustration
 - feat: Add component `IslandPageBlock` with illustration only
 - feat: Allow `GridBlock` item titles to have links
-- feat: Add custom (content) styling for `.Layout--HomePage`
+- feat: Add custom (content) Frontpage styling for `.Layout--HomePage`
 
 ## 0.6.3
 
