@@ -401,7 +401,6 @@ template {
 	//  * Remove (otherwise unoverridable) default box-shadow inset on iOS devices!
 	//  * (Save bandwidth by only enumerating the most common/useful HTML5 input types)
 	//  */
-	input[type='search'],
 	input[type='tel'],
 	input[type='number'],
 	input[type='email'],
@@ -415,6 +414,13 @@ template {
 	}
 	input[type='number'] {
 		-moz-appearance: textfield;
+	}
+	input[type='search'],
+	input[type='search']::-webkit-search-decoration,
+	input[type='search']::-webkit-search-cancel-button,
+	input[type='search']::-webkit-search-results-button,
+	input[type='search']::-webkit-search-results-decoration {
+	  -webkit-appearance:none;
 	}
 	input[type='number']::-webkit-inner-spin-button,
 	input[type='number']::-webkit-outer-spin-button {
