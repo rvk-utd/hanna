@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Include the `menu/*` files in the
   [master "Efnistákn" asset list](src/assets/bling/files.json)
+- fix Add top-border on open `MainMenu` mega panels
 - fix: Hide word "Reykjavík" appearing in `.Layout__header__logo`
 
 ## 0.7.0
