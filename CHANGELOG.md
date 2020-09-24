@@ -4,6 +4,17 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.7.1
+
+_2020-09-24_
+
+- feat: Include the `menu/*` files in the
+  [master "Efnistákn" asset list](src/assets/bling/files.json)
+- feat: Support `--menu-item-icon` on `.MainMenu__mega__links` – deprecate
+  inlined `background-image` style
+- fix Add top-border on open `MainMenu` mega panels
+- fix: Hide word "Reykjavík" appearing in `.Layout__header__logo`
+
 ## 0.7.0
 
 _2020-09-23_
