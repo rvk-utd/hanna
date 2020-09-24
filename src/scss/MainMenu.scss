@@ -229,13 +229,16 @@
 	.MainMenu__mega__link[class] {
 		@include LinkStyle_Reset(true);
 		width: 100%;
+		// @deprecated Remove this line in version 0.8
 		background: -500px 0 no-repeat;
 	}
-	.MainMenu__mega__link[style*='background-image:']::before {
+	.MainMenu__mega__link::before {
 		content: '';
 		display: block;
 		background: 0 50% / auto 100% no-repeat;
-		background-image: inherit;
+		// fall back to `inherit` to support old background-image on the link HTML pattern
+		// @deprecated Remove `inherit` fallback in version 0.8
+		background-image: var(--menu-item-icon, inherit);
 		height: between_tablet_netbook(70, 100);
 		margin-bottom: prem(10);
 
