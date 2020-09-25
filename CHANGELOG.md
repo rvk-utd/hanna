@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Heading`
 
 ## 0.7.1 – 0.7.2
 

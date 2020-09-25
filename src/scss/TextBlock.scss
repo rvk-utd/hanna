@@ -4,8 +4,9 @@
 @use 'styles/labeledTitle' as *;
 @use 'utils/textContent' as *;
 
-@use 'SubHeading';
 @use 'PageHeading';
+@use 'Heading';
+@use 'SubHeading';
 
 @media screen {
 	.TextBlock {
@@ -67,5 +68,6 @@
 
 // Inline the most common text atom components
 // for better compression and loading speed
-@include SubHeading.css();
 @include PageHeading.css();
+@include Heading.css();
+@include SubHeading.css();
