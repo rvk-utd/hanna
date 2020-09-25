@@ -9,23 +9,26 @@
 // inlined by TextBlock
 @mixin css() {
 	@media screen {
-		.SubHeading {
-			@include SubheadingStyle--large();
+		.Heading {
+			@include HeadingStyle--medium();
 			@include ComponentLayout();
-			margin-top: between_phone_netbook(40, 50);
+			margin-top: between_phone_netbook(40, 60);
 			margin-bottom: between_phone_netbook(20, 30);
 
 			@include media($mq-wide) {
-				margin-top: 50px;
+				margin-top: 60px;
 				margin-bottom: 30px;
 			}
 		}
-		.SubHeading--small {
-			@include SubheadingStyle--small();
+		.Heading--large {
+			@include HeadingStyle--large();
+		}
+		.Heading--small {
+			@include HeadingStyle--small();
 		}
 
-		h1.SubHeading {
-			@include WARNING__('Only use <H2/> or lower for .SubHeading');
+		h1.Heading {
+			@include WARNING__('Only use <H2/> or lower for .Heading');
 		}
 	}
 }

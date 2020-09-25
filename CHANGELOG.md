@@ -4,6 +4,13 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.7.3
+
+_2020-09-25_
+
+- feat: Add component `Heading`
+- feat: Add support for `.Bling--parent--*` layout options
+
 ## 0.7.1 – 0.7.2
 
 _2020-09-24_
