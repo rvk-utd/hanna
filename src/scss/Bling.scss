@@ -14,11 +14,13 @@
 	.Bling {
 		display: block; // override default hidden state
 		position: absolute;
+		left: 0;
+		right: 0;
 		width: 100%;
 		z-index: -1;
 		pointer-events: none;
-		--bling-color-a: #{$var--color-theme-tertiary};
-		--bling-color-b: #{$var--color-theme-secondary};
+		--bling-color-a: #{$var--color-theme-tertiary}; // Default to --color--tertiary
+		--bling-color-b: #{$var--color-theme-secondary}; // Default to --color--tertiary
 		--bling-width: 0;
 		--bling-offset: 0;
 		// --bling-offset-ish: ;
@@ -26,6 +28,7 @@
 	}
 
 	.Bling > svg {
+		transform: translate(-50%, -50%); // Default to --vertical--center
 		width: calc(var(--bling-width) * #{$toPct});
 		height: auto;
 		display: block;
@@ -94,9 +97,9 @@
 	.Bling--vertical--up-ish > svg {
 		transform: translate(-50%, -75%);
 	}
-	.Bling--vertical--center > svg {
-		transform: translate(-50%, -50%);
-	}
+	// .Bling--vertical--center > svg {
+	// 	transform: translate(-50%, -50%);
+	// }
 	.Bling--vertical--down-ish > svg {
 		transform: translate(-50%, -25%);
 	}
@@ -106,7 +109,25 @@
 
 	// ---------------------------------------------------------------------------
 
+	.Bling--parent--top {
+		top: 0;
+	}
+	.Bling--parent--top-ish {
+		top: 25%;
+	}
+	.Bling--parent--center {
+		top: 50%;
+	}
+	.Bling--parent--bottom-ish {
+		top: 75%;
+	}
+	.Bling--parent--bottom {
+		top: 100%;
+	}
+
+	// ---------------------------------------------------------------------------
+
 	.Bling--overlay {
-		z-index: 1;
+		z-index: 2;
 	}
 }

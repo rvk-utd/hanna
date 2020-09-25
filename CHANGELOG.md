@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Heading`
+- feat: Add support for `.Bling--parent--*` layout options
 
 ## 0.7.1 – 0.7.2
 
