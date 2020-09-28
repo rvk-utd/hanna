@@ -52,6 +52,7 @@
 	}
 	.CityBlock__summary {
 		margin-bottom: grid-units(4);
+		@include BodyTextStyle--large();
 	}
 	.CityBlock__summary a {
 		@include LinkStyle_SameColor();

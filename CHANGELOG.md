@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Minor styling fixes for `MainMenu`, `CityBlock`
 
 ## 0.7.3
 
