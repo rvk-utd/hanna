@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `MiniMetrics`
 - fix: Minor styling fixes for `MainMenu`, `CityBlock`
 
 ## 0.7.3
