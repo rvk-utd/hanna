@@ -2,11 +2,15 @@
 @use 'styles/font' as *;
 
 @media screen {
-	.SiteSearchSuggestions {
+	.SiteSearch {
 		position: relative;
 	}
 
-	.SiteSearchSuggestions__container {
+	.SearchCurtainWrap--focused > .SiteSearch {
+		margin-right: -100px;
+	}
+
+	.SiteSearch__container {
 		background: $color-suld-0;
 		border: 1px solid $color-suld-75;
 		position: absolute;
@@ -19,17 +23,32 @@
 		transition: all 300ms ease-in-out;
 	}
 
-	.SiteSearchSuggestions__container--open {
+	.SiteSearch__container--open {
 		height: auto;
 		opacity: 1;
 		padding: prem(48) prem(32);
 	}
 
-	.SiteSearchSuggestions__item {
-		margin-bottom: prem(32);
+	.SiteSearch__item {
+		margin-bottom: prem(24);
 		@include BodyTextStyle--large();
 	}
-	.SiteSearchSuggestions__item:last-child {
+	.SiteSearch__item:last-child {
 		margin-bottom: 0;
+	}
+
+	.SearchCurtainWrap > * {
+		position: relative;
+		z-index: 2;
+	}
+	.SearchCurtainWrap--focused::after {
+		content: '';
+		background-color: rgba($color-suld-0, 0.9);
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
 	}
 }
