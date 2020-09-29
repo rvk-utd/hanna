@@ -20,9 +20,13 @@
 		}
 	}
 
-	.ArticleCarousel__track {
+	.ArticleCarousel__track, // @deprected  Will be removed in v0.8
+	.ArticleCarousel__items {
 		display: flex;
 		flex-flow: row;
+	}
+	.ArticleCarousel__track {
+		@include WARNING__('Deprecated: use `.ArticleCarousel__items` instead');
 	}
 
 	.ArticleCarouselCard {

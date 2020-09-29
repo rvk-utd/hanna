@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `MiniMetrics`
+- feat: Rename `Gallery` and `ArticleCarousel`'s `__track` to `__items` – Flag
+  the old `__items` class-name as deprecated
 - fix: Minor styling fixes for `MainMenu`, `CityBlock`
 
 ## 0.7.3
