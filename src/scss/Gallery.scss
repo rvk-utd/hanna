@@ -1,5 +1,6 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
+@use 'styles/links' as *;
 @use '_GalleryModal' as GalleryModal;
 
 /*!@deps
@@ -35,7 +36,6 @@
 	.Gallery__track, // @deprected  Will be removed in v0.8
 	.Gallery__items {
 		display: flex;
-		align-items: flex-end;
 		flex-wrap: nowrap;
 		flex-flow: row-reverse;
 
@@ -64,46 +64,35 @@
 
 		margin: 0;
 		padding: 0 prem($grid-gutter / 2);
-		max-width: 270px;
-		width: cols_pct(3, 2);
-	}
-	.GalleryItem--landscape {
-		max-width: 345px;
-		width: cols_pct(5, 4);
 	}
 
-	.GalleryItem__button,
-	.GalleryItem > .GalleryItem__image {
-		display: block;
-		position: relative;
-		background: $color-suld-50;
-		padding-bottom: percentage(376/272);
-	}
-	.GalleryItem--landscape > .GalleryItem__image,
-	.GalleryItem--landscape > .GalleryItem__button {
-		padding-bottom: percentage(312/480);
+	.GalleryItem__button {
+		display: flex;
+		flex-flow: column;
+		justify-content: flex-end;
+		height: $var--grid-4;
+		@include LinkStyle_Reset(true);
 	}
 
+	.GalleryItem__image {
+	}
 	.GalleryItem__image > img {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
+		max-width: $var--grid-5;
+		// min-width: $var--grid-3;
+		max-height: $var--grid-4;
 	}
 
 	.GalleryItem__caption {
 		@include BodyTextStyle--large($leading: false);
+		$leading: 1.25em;
+		line-height: $leading;
 
-		display: flex;
+		width: 0;
+		min-width: 100%;
+		max-height: 3 * $leading;
 
-		padding-top: prem(8);
-		// how are we handling long captions?
-		// 2x lines + padding explicitly set :: revisit when we have a solution
-		height: calc(2.5em + #{prem(8)});
-
-		line-height: 1.25;
+		margin-top: prem(8);
+		margin-bottom: auto;
 	}
 
 	.GalleryItem__description {
