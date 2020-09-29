@@ -32,10 +32,6 @@
 		}
 	}
 
-	.Gallery__inner {
-		min-width: 100vw;
-	}
-
 	.Gallery__track {
 		display: flex;
 		align-items: flex-end;
@@ -52,14 +48,6 @@
 		@include media($mq-phone_phablet) {
 			transform: none !important;
 		}
-	}
-
-	.Gallery__item {
-		flex: none;
-		padding: 0 prem($grid-gutter / 2);
-	}
-	.GalleryItem__button {
-		width: 100%;
 	}
 
 	// ITEM
