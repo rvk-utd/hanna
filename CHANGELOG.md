@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add new `Bling` SVG assets – `box-medium`, `bowl-medium`,
+  `circle-xlarge`, `loops-small`, `arrow-right-large`
 - feat: Add component `MiniMetrics`
 - feat: Rename `Gallery` and `ArticleCarousel`'s `__track` to `__items` – Flag
   the old `__items` class-name as deprecated
