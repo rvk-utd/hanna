@@ -17,6 +17,25 @@
 		max-width: prem($grid-contentMaxWidth);
 		margin: 0 auto;
 	}
+	@if (getEnv('NODE_ENV') == '') {
+		body:hover {
+			--show-grid-lines: '';
+		}
+		.Layout:hover {
+			--show-grid-lines: none;
+		}
+		.Layout::after {
+			content: var(--show-grid-lines, none);
+			pointer-events: none;
+			position: absolute;
+			z-index: 10;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			@include showColumnGridLines();
+		}
+	}
 
 	.Layout__header {
 		position: absolute;

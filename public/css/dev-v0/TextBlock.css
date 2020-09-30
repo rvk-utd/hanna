@@ -7,4 +7,442 @@
 */
 /*!@deps
 	TextBlock
-*/@media screen{.TextBlock{position:relative;margin-bottom:calc(1.07759% + 16.98276px);max-width:584px;font-size:var(--font-bd-l-size);line-height:var(--font-bd-l-leading)}}@media screen and (min-width:760px){.TextBlock--align--right{margin-left:auto;max-width:none;width:56.9536423841%}}@media screen{.TextBlock--wide{margin-left:0;max-width:792px}}@media screen{.TextBlock--align--right.TextBlock--wide{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.TextBlock--align--right.TextBlock--wide:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"`--align--right` can't be `--wide`"!important}}@media screen{.TextBlock>h2{font-weight:700;font-size:var(--font-hd-s-size);line-height:var(--font-hd-s-leading);margin-bottom:var(--h2--marginBottom,var(--baseVerticalMargin))}}@media screen{.TextBlock>*+h2{margin-top:var(--h2--marginTop,1.5em)}}@media screen{.TextBlock>h3{font-size:var(--font-sh-l-size);line-height:var(--font-sh-l-leading)}}@media screen{.TextBlock>h3,.TextBlock>h4{font-weight:700;margin-bottom:var(--baseVerticalMargin)}.TextBlock>h4{font-size:var(--font-sh-s-size);line-height:var(--font-sh-s-leading)}}@media screen{.TextBlock>p,.TextBlock ul{margin-bottom:var(--baseVerticalMargin)}.TextBlock ul{list-style:none;padding:0;font-size:1rem;line-height:1.5rem}.TextBlock ul>li{margin-bottom:1rem;position:relative;padding-left:2rem}.TextBlock ul>li:before{content:"";position:absolute;top:.75rem;left:0;width:1rem;height:.125rem;background-color:var(--theme-color-primary--safeish)}}@media screen{.TextBlock ol{font-size:1rem;line-height:1.5rem}}@media screen{.TextBlock blockquote{padding:2rem;margin-bottom:var(--baseVerticalMargin);position:relative}.TextBlock blockquote:before{content:"”";font-size:4rem;position:absolute;top:2rem;left:0}}@media screen{.TextBlock>:last-child{margin-bottom:0}}@media screen{.TextBlock--small{font-size:1rem;line-height:1.5rem}}@media screen{.TextBlock--labelled>h2{font-weight:700;font-size:var(--font-hd-s-size);line-height:var(--font-hd-s-leading);display:flex}.TextBlock--labelled>h2:before{content:"";float:left;flex-shrink:0;margin-top:.7em;height:.25rem;background-color:var(--theme-color-primary--safeish);transform:translateY(-50%);width:var(--dash-width,.9em);margin-right:var(--dash-margin,.5em);margin-left:var(--dash-indent,0)}}@media screen and (min-width:760px){.TextBlock--labelled{--h2--marginTop:2em;--h2--marginBottom:0.25em;margin-left:auto;width:56.9536423841%}.TextBlock--labelled>h2{display:block;position:relative;--dash-width:calc(0.45*var(--grid-edge));--dash-margin:0;--dash-indent:var(--grid-edge--neg);height:0;margin-left:-75.5813953488%;padding-right:105.8139534884%}}@media screen{.TextBlock--small.TextBlock--labelled{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.TextBlock--small.TextBlock--labelled:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"`--small` can't be `--labelled`"!important}}@media screen{.TextBlock--wide.TextBlock--labelled{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.TextBlock--wide.TextBlock--labelled:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"`--wide` can't be `--labelled`"!important}}@media screen{.TextBlock--largetext{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.TextBlock--largetext:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:'`--largetext` is Outdated. TextBlock is "large" by default'!important}}@media screen{.TextBlock__title{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.TextBlock__title:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"`__title` is Outdated. Use PageHeading/SubHeading"!important}}@media screen{.TextBlock .PageHeading,.TextBlock .SubHeading{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.TextBlock .PageHeading:before,.TextBlock .SubHeading:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"Should NOT be used inside TextBlock"!important}}@media screen{.PageHeading{font-weight:700;font-size:var(--font-hd-l-size);line-height:var(--font-hd-l-leading);max-width:584px;margin-top:calc(2.58621% + -7.24138px);margin-bottom:.625em}}@media screen and (min-width:760px){.PageHeading--align--right{margin-left:auto;max-width:none;width:56.9536423841%}}@media screen{.Heading{font-weight:700;font-size:var(--font-hd-m-size);line-height:var(--font-hd-m-leading);max-width:584px;margin-top:calc(1.88679vw + 33.96226px);margin-bottom:calc(.9434vw + 16.98113px)}}@media screen and (min-width:760px){.Heading--align--right{margin-left:auto;max-width:none;width:56.9536423841%}}@media screen{.Heading--wide{margin-left:0;max-width:792px}}@media screen{.Heading--align--right.Heading--wide{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.Heading--align--right.Heading--wide:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"`--align--right` can't be `--wide`"!important}}@media screen and (min-width:1380px){.Heading{margin-top:60px;margin-bottom:30px}}@media screen{.Heading--large{font-weight:700;font-size:var(--font-hd-l-size);line-height:var(--font-hd-l-leading)}}@media screen{.Heading--small{font-weight:700;font-size:var(--font-hd-s-size);line-height:var(--font-hd-s-leading)}}@media screen{h1.Heading{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}h1.Heading:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"Only use <H2/> or lower for .Heading"!important}}@media screen{.SubHeading{font-weight:700;font-size:var(--font-sh-l-size);line-height:var(--font-sh-l-leading);max-width:584px;margin-top:calc(.9434vw + 36.98113px);margin-bottom:calc(.9434vw + 16.98113px)}}@media screen and (min-width:760px){.SubHeading--align--right{margin-left:auto;max-width:none;width:56.9536423841%}}@media screen{.SubHeading--wide{margin-left:0;max-width:792px}}@media screen{.SubHeading--align--right.SubHeading--wide{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.SubHeading--align--right.SubHeading--wide:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"`--align--right` can't be `--wide`"!important}}@media screen and (min-width:1380px){.SubHeading{margin-top:50px;margin-bottom:30px}}@media screen{.SubHeading--small{font-weight:700;font-size:var(--font-sh-s-size);line-height:var(--font-sh-s-leading)}}@media screen{h1.SubHeading{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}h1.SubHeading:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"Only use <H2/> or lower for .SubHeading"!important}}
+*/
+@media screen {
+  .TextBlock {
+    position: relative;
+    margin-bottom: calc(1.0775862069% + 16.9827586207px);
+    max-width: 584px;
+    font-size: var(--font-bd-l-size);
+    line-height: var(--font-bd-l-leading);
+  }
+}
+@media screen and (min-width: 760px) {
+  .TextBlock--align--right {
+    margin-left: auto;
+    max-width: none;
+    width: 56.9536423841%;
+  }
+}
+@media screen {
+  .TextBlock--wide {
+    margin-left: 0;
+    max-width: 792px;
+  }
+}
+@media screen {
+  .TextBlock--align--right.TextBlock--wide {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .TextBlock--align--right.TextBlock--wide::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "`--align--right` can't be `--wide`" !important;
+  }
+}
+@media screen {
+  .TextBlock > h2 {
+    font-weight: 700;
+    font-size: var(--font-hd-s-size);
+    line-height: var(--font-hd-s-leading);
+    margin-bottom: var(--h2--marginBottom, var(--baseVerticalMargin));
+  }
+}
+@media screen {
+  .TextBlock > * + h2 {
+    margin-top: var(--h2--marginTop, 1.5em);
+  }
+}
+@media screen {
+  .TextBlock > h3 {
+    font-weight: 700;
+    font-size: var(--font-sh-l-size);
+    line-height: var(--font-sh-l-leading);
+    margin-bottom: var(--baseVerticalMargin);
+  }
+}
+@media screen {
+  .TextBlock > h4 {
+    font-weight: 700;
+    font-size: var(--font-sh-s-size);
+    line-height: var(--font-sh-s-leading);
+    margin-bottom: var(--baseVerticalMargin);
+  }
+}
+@media screen {
+  .TextBlock > p {
+    margin-bottom: var(--baseVerticalMargin);
+  }
+}
+@media screen {
+  .TextBlock ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--baseVerticalMargin);
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .TextBlock ul > li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 2rem;
+  }
+  .TextBlock ul > li::before {
+    content: "";
+    position: absolute;
+    top: 0.75rem;
+    left: 0;
+    width: 1rem;
+    height: 0.125rem;
+    background-color: var(--theme-color-primary--safeish);
+  }
+}
+@media screen {
+  .TextBlock ol {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+@media screen {
+  .TextBlock blockquote {
+    padding: 2rem;
+    margin-bottom: var(--baseVerticalMargin);
+    position: relative;
+  }
+  .TextBlock blockquote::before {
+    content: "”";
+    font-size: 4rem;
+    position: absolute;
+    top: 2rem;
+    left: 0rem;
+  }
+}
+@media screen {
+  .TextBlock > :last-child {
+    margin-bottom: 0;
+  }
+}
+@media screen {
+  .TextBlock--small {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+@media screen {
+  .TextBlock--labelled > h2 {
+    font-weight: 700;
+    font-size: var(--font-hd-s-size);
+    line-height: var(--font-hd-s-leading);
+    display: flex;
+  }
+  .TextBlock--labelled > h2::before {
+    content: "";
+    float: left;
+    flex-shrink: 0;
+    margin-top: 0.7em;
+    height: 0.25rem;
+    background-color: var(--theme-color-primary--safeish);
+    transform: translateY(-50%);
+    width: var(--dash-width, 0.9em);
+    margin-right: var(--dash-margin, 0.5em);
+    margin-left: var(--dash-indent, 0);
+  }
+}
+@media screen and (min-width: 760px) {
+  .TextBlock--labelled {
+    --h2--marginTop: 2em;
+    --h2--marginBottom: 0.25em;
+    margin-left: auto;
+    width: 56.9536423841%;
+  }
+
+  .TextBlock--labelled > h2 {
+    display: block;
+    position: relative;
+    --dash-width: calc(0.45 * var(--grid-edge));
+    --dash-margin: 0;
+    --dash-indent: var(--grid-edge--neg);
+    height: 0;
+    margin-left: -75.5813953488%;
+    padding-right: 105.8139534884%;
+  }
+}
+@media screen {
+  .TextBlock--small.TextBlock--labelled {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .TextBlock--small.TextBlock--labelled::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "`--small` can't be `--labelled`" !important;
+  }
+}
+@media screen {
+  .TextBlock--wide.TextBlock--labelled {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .TextBlock--wide.TextBlock--labelled::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "`--wide` can't be `--labelled`" !important;
+  }
+}
+@media screen {
+  .TextBlock--largetext {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .TextBlock--largetext::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: '`--largetext` is Outdated. TextBlock is "large" by default' !important;
+  }
+}
+@media screen {
+  .TextBlock__title {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .TextBlock__title::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "`__title` is Outdated. Use PageHeading/SubHeading" !important;
+  }
+}
+@media screen {
+  .TextBlock .PageHeading,
+.TextBlock .SubHeading {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .TextBlock .PageHeading::before,
+.TextBlock .SubHeading::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Should NOT be used inside TextBlock" !important;
+  }
+}
+@media screen {
+  .PageHeading {
+    font-weight: 700;
+    font-size: var(--font-hd-l-size);
+    line-height: var(--font-hd-l-leading);
+    max-width: 584px;
+    margin-top: calc(2.5862068966% + -7.2413793103px);
+    margin-bottom: 0.625em;
+  }
+}
+@media screen and (min-width: 760px) {
+  .PageHeading--align--right {
+    margin-left: auto;
+    max-width: none;
+    width: 56.9536423841%;
+  }
+}
+@media screen {
+  .Heading {
+    font-weight: 700;
+    font-size: var(--font-hd-m-size);
+    line-height: var(--font-hd-m-leading);
+    max-width: 584px;
+    margin-top: calc(1.8867924528vw + 33.9622641509px);
+    margin-bottom: calc(0.9433962264vw + 16.9811320755px);
+  }
+}
+@media screen and (min-width: 760px) {
+  .Heading--align--right {
+    margin-left: auto;
+    max-width: none;
+    width: 56.9536423841%;
+  }
+}
+@media screen {
+  .Heading--wide {
+    margin-left: 0;
+    max-width: 792px;
+  }
+}
+@media screen {
+  .Heading--align--right.Heading--wide {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .Heading--align--right.Heading--wide::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "`--align--right` can't be `--wide`" !important;
+  }
+}
+@media screen and (min-width: 1380px) {
+  .Heading {
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+}
+@media screen {
+  .Heading--large {
+    font-weight: 700;
+    font-size: var(--font-hd-l-size);
+    line-height: var(--font-hd-l-leading);
+  }
+}
+@media screen {
+  .Heading--small {
+    font-weight: 700;
+    font-size: var(--font-hd-s-size);
+    line-height: var(--font-hd-s-leading);
+  }
+}
+@media screen {
+  h1.Heading {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  h1.Heading::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Only use <H2/> or lower for .Heading" !important;
+  }
+}
+@media screen {
+  .SubHeading {
+    font-weight: 700;
+    font-size: var(--font-sh-l-size);
+    line-height: var(--font-sh-l-leading);
+    max-width: 584px;
+    margin-top: calc(0.9433962264vw + 36.9811320755px);
+    margin-bottom: calc(0.9433962264vw + 16.9811320755px);
+  }
+}
+@media screen and (min-width: 760px) {
+  .SubHeading--align--right {
+    margin-left: auto;
+    max-width: none;
+    width: 56.9536423841%;
+  }
+}
+@media screen {
+  .SubHeading--wide {
+    margin-left: 0;
+    max-width: 792px;
+  }
+}
+@media screen {
+  .SubHeading--align--right.SubHeading--wide {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .SubHeading--align--right.SubHeading--wide::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "`--align--right` can't be `--wide`" !important;
+  }
+}
+@media screen and (min-width: 1380px) {
+  .SubHeading {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+}
+@media screen {
+  .SubHeading--small {
+    font-weight: 700;
+    font-size: var(--font-sh-s-size);
+    line-height: var(--font-sh-s-leading);
+  }
+}
+@media screen {
+  h1.SubHeading {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  h1.SubHeading::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Only use <H2/> or lower for .SubHeading" !important;
+  }
+}
+/*# sourceMappingURL=TextBlock.css.map */

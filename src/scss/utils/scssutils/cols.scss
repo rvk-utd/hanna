@@ -42,3 +42,19 @@ $_numCols: 12 !default;
 @function cols_px($cols, $gutters: $cols - oneof($cols)) {
 	@return px($cols * $_columnWidth + $gutters * $_gutterWidth);
 }
+
+@mixin showColumnGridLines(
+	$columnColor: rgba(black, 0.04),
+	$gutterColor: rgba(white, 0.06)
+) {
+	@if (isDevMode()) {
+		background-image: linear-gradient(
+			90deg,
+			$columnColor 0,
+			$columnColor px($_columnWidth),
+			$gutterColor px($_columnWidth),
+			$gutterColor px($_columnWidth + $_gutterWidth)
+		);
+		background-size: cols_pct(1, 1) 100%;
+	}
+}

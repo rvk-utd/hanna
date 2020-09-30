@@ -1,2 +1,67 @@
 /*!@deps
-*/@media screen{.TagPill{--link-color:_inherit;--link-weight:_inherit;--link-underline:none;--link-color--hover:_inherit;--link-underline--hover:none;--link-underline-offset:0;display:inline-block;white-space:nowrap;vertical-align:middle;text-decoration:none;background-color:#e3e5e7;color:#2a2b2c;height:1.875rem;line-height:1.875rem;border-radius:.9375rem;font-size:.75rem;min-width:4.375rem;margin-bottom:1rem;margin-right:calc(.44444vw + 9.86667px);padding:0 calc(.44444vw + 9.86667px)}}@media screen and (min-width:1380px){.TagPill{margin-right:16px;padding-left:16px;padding-right:16px}}@media screen{a.TagPill:active,a.TagPill:focus,a.TagPill:hover,button.TagPill:focus,button.TagPill:hover{background-color:#727477;color:#fff}}@media screen{.TagPill[aria-disabled],.TagPill[aria-pressed],.TagPill[disabled]{box-shadow:0 0 0 1px rgba(255,0,0,.5)!important}.TagPill[aria-disabled]:before,.TagPill[aria-pressed]:before,.TagPill[disabled]:before{all:initial!important;order:-999!important;font-family:sans-serif!important;position:absolute!important;white-space:nowrap!important;z-index:2!important;font-size:12px!important;line-height:1.5em!important;color:red!important;background-color:rgba(255,230,230,.5)!important;padding:0 .5em!important;content:"Undefined state"!important}}
+*/
+@media screen {
+  .TagPill {
+    --link-color: _inherit;
+    --link-weight: _inherit;
+    --link-underline: none;
+    --link-color--hover: _inherit;
+    --link-underline--hover: none;
+    --link-underline-offset: 0;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: #e3e5e7;
+    color: #2a2b2c;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    border-radius: 0.9375rem;
+    font-size: 0.75rem;
+    min-width: 4.375rem;
+    margin-bottom: 1rem;
+    margin-right: calc(0.4444444444vw + 9.8666666667px);
+    padding: 0 calc(0.4444444444vw + 9.8666666667px);
+  }
+}
+@media screen and (min-width: 1380px) {
+  .TagPill {
+    margin-right: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media screen {
+  a.TagPill:hover,
+a.TagPill:focus,
+a.TagPill:active,
+button.TagPill:hover,
+button.TagPill:focus {
+    background-color: #727477;
+    color: #ffffff;
+  }
+}
+@media screen {
+  .TagPill[disabled],
+.TagPill[aria-disabled],
+.TagPill[aria-pressed] {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .TagPill[disabled]::before,
+.TagPill[aria-disabled]::before,
+.TagPill[aria-pressed]::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Undefined state" !important;
+  }
+}
+/*# sourceMappingURL=TagPill.css.map */
