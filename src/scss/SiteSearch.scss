@@ -1,5 +1,10 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
+@use 'SiteSearchInput';
+
+// Inline conjoined component for better
+// compression and loading speed
+@include SiteSearchInput.css();
 
 @media screen {
 	.SiteSearch {
@@ -36,7 +41,7 @@
 	}
 
 	.SiteSearch__item {
-		padding: prem(16) prem(32);
+		padding: prem(16) prem(45) prem(16) prem(32);
 		@include BodyTextStyle--large();
 	}
 
@@ -51,7 +56,7 @@
 		color: $color-suld-100;
 		float: right;
 		margin-left: prem(20);
-		font-size: prem(16);
+		font-size: prem($font-size-16);
 	}
 
 	.SearchCurtainWrap > * {
