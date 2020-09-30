@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.ImageCards__image--missing`
 
 ## 0.7.5
 

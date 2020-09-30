@@ -61,7 +61,21 @@
 
 	.ImageCards__image {
 		display: block;
+		position: relative;
+		padding-top: pct(168/272);
 		margin-bottom: between_phone_netbook(18, 24);
+	}
+	.ImageCards__image--missing {
+		background-color: $color-suld-25;
+		box-shadow: inset 0 0 0 1px $color-suld-75;
+	}
+	.ImageCards__image > img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.ImageCards__card__title {
