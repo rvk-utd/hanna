@@ -3,8 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.5
+
+_2020-09-30_
+
 - fix: Add missing asset type `dome-large` to
   ["Blings"](src/assets/bling/files.json)
+- fix: Minor styling tweaks for `NewsHero`
 
 ## 0.7.4
 
