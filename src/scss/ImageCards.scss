@@ -3,6 +3,12 @@
 @use 'styles/links' as *;
 @use 'styles/cards' as *;
 
+// NOTE: include ButtonTertiary because they might be commonly used with `ImageCards`
+
+/*!@deps
+	ButtonTertiary
+*/
+
 @media screen {
 	.ImageCards {
 		@include CardBlock();

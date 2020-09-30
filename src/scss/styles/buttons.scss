@@ -87,14 +87,14 @@
 	}
 }
 
-$ButtonTertiary--color: var(--ButtonTertiary--color, _inherit);
-$ButtonTertiary--dashColor: var(
+$var--ButtonTertiary--color: var(--ButtonTertiary--color, _inherit);
+$var--ButtonTertiary--dashColor: var(
 	--ButtonTertiary--dashColor,
 	$var--color-theme-primary--safeish
 );
-$ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth, prem(16));
-$ButtonTertiary--dashWidth--hover: var(--ButtonTertiary--dashWidth--hover, prem(48));
-$ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
+$var--ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth, prem(16));
+$var--ButtonTertiary--dashWidth--hover: var(--ButtonTertiary--dashWidth--hover, prem(48));
+$var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 
 @mixin ButtonTertiaryStyle($mode: normal) {
 	$borderRadius: prem(8);
@@ -104,7 +104,7 @@ $ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	@include LinkStyle_Reset(true);
 	--link-focus-outline: 0;
 
-	color: $ButtonTertiary--color;
+	color: $var--ButtonTertiary--color;
 	position: relative;
 	display: inline-block;
 	width: max-content;
@@ -112,7 +112,7 @@ $ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	white-space: nowrap;
 	font-size: prem($font-btn-size);
 	padding-right: calc(
-		#{$ButtonTertiary--dashWidth--hover} - #{$ButtonTertiary--dashWidth}
+		#{$var--ButtonTertiary--dashWidth--hover} - #{$var--ButtonTertiary--dashWidth}
 	);
 	margin-right: prem(15);
 	margin-bottom: prem(16);
@@ -121,13 +121,13 @@ $ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 
 	&::before {
 		content: '';
-		width: $ButtonTertiary--dashWidth;
-		height: $ButtonTertiary--dashHeight;
+		width: $var--ButtonTertiary--dashWidth;
+		height: $var--ButtonTertiary--dashHeight;
 		display: inline-block;
 		vertical-align: middle;
 		margin-bottom: prem(3);
 		background-color: currentColor;
-		color: $ButtonTertiary--dashColor;
+		color: $var--ButtonTertiary--dashColor;
 		margin-right: prem(16);
 		transition: inherit;
 	}
@@ -144,22 +144,27 @@ $ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	&:focus,
 	&:active {
 		padding-right: prem(0);
-		color: $ButtonTertiary--color;
+		color: $var--ButtonTertiary--color;
 	}
 	&:hover::before,
 	&:focus::before {
-		width: $ButtonTertiary--dashWidth--hover;
+		width: $var--ButtonTertiary--dashWidth--hover;
 	}
 
 	&:focus {
 		opacity: 0.5;
-		@include _FocusedFrame(prem(8), prem(8), $ButtonTertiary--dashColor, prem(1));
+		@include _FocusedFrame(
+			prem(8),
+			prem(8),
+			$var--ButtonTertiary--dashColor,
+			prem(1)
+		);
 	}
 
 	@if $mode == normal or $mode == disabledOnly {
 		&[disabled],
 		&[aria-disabled='true'] {
-			--ButtonTertiary--dashColor: #{$ButtonTertiary--color};
+			--ButtonTertiary--dashColor: #{$var--ButtonTertiary--color};
 			opacity: 0.5;
 			pointer-events: none;
 		}

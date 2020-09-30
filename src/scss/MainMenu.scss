@@ -261,6 +261,7 @@
 	.MainMenu__mega__link__summary {
 		display: block;
 		height: prem(2 * $font-base-leading);
+		font-size: inherit; // override default <small> styling
 
 		@include media($mq-tablet_netbook) {
 			height: prem(3 * $font-base-leading);
