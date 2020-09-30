@@ -19,7 +19,10 @@ const {
 	publishDevCssFolder,
 	assetsDistFolder,
 } = require('./scripts/config');
-const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+
+const isProd = process.env.NODE_ENV === 'production';
+const isDebug = process.env.NODE_ENV === 'public_debug';
+// const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 // ---------------------------------------------------------------------------
 
@@ -48,9 +51,9 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 	dist: devDistCssFolder,
 	// glob: ['*.{scss,sass}']
 	// watchGlob: ['*/**/*.{scss,sass}'],
-	sourcemaps: isDev ? '.' : false,
 	sassOptions: { functions: sassFunctions },
-	minify: !isDev,
+	sourcemaps: isProd || isDebug ? false : '.',
+	minify: isProd,
 });
 
 const makeGitCommitTask = (folder) => (done) => {
