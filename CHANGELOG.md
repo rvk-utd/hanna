@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Add missing asset type `dome-large` to
+  ["Blings"](src/assets/bling/files.json)
 
 ## 0.7.4
 
