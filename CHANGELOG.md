@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.4
+
+_2020-09-30_
+
 - feat: Add new `Bling` SVG assets – `box-medium`, `bowl-medium`,
   `circle-xlarge`, `loops-small`, `arrow-right-large`
 - feat: Add component `MiniMetrics`
