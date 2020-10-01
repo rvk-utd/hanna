@@ -65,7 +65,8 @@
 		transform: rotateZ(45deg);
 		transition: transform 100ms ease-in-out;
 	}
-	.AccordionList__button[aria-pressed='true']::before {
+	.AccordionList__button[aria-pressed='true']::before,
+	.AccordionList__button[aria-expanded='true']::before {
 		transform: rotateZ(0);
 	}
 	.AccordionList__button:hover::before,
