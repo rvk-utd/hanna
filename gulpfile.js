@@ -21,7 +21,7 @@ const {
 } = require('./scripts/config');
 
 const isProd = process.env.NODE_ENV === 'production';
-const isDebug = process.env.NODE_ENV === 'public_debug';
+// const isDebug = process.env.NODE_ENV === 'public_debug';
 // const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 // ---------------------------------------------------------------------------
