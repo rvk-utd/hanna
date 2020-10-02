@@ -1,0 +1,103 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/labeledTitle' as *;
+@use 'styles/links' as *;
+
+@function _flexDash($pxWidth) {
+	// get the pxWidth as a ratio of `vw` based on a maxinum 64px width (i.e. $var--grid-column)
+	// FIXME: calculated value will be just a hair off $var--grid-column
+	$from: ($pxWidth / $grid-column) / $grid-numCols * $grid-contentMinWidth;
+	@return between_phone_netbook(floor($from), $pxWidth);
+}
+
+@media screen {
+	.SearchResults,
+	.SearchResultsWrap {
+		@include media($mq-netbook_up) {
+			max-width: $var--grid-9;
+		}
+		margin-left: auto;
+	}
+
+	.SearchResultsWrap {
+		padding-top: between_phone_netbook(64, 88);
+	}
+
+	.SiteSearchInput + .SearchResults {
+		margin-top: prem(40);
+	}
+
+	.SearchResults__title {
+		@include HeadingStyle--medium();
+		margin-bottom: between_phone_netbook(48, 64);
+	}
+
+	.SearchResults__query {
+		@include SubheadingStyle--small();
+		display: block;
+	}
+
+	.SearchResultItem {
+		@include LinkStyle_Reset(true);
+		display: flex;
+		flex-flow: row wrap;
+		color: $color-suld-200;
+		padding-left: $var--grid-1;
+		margin-bottom: between_phone_netbook(48, 64);
+
+		@include media($mq-netbook_up) {
+			max-width: $var--grid-6;
+		}
+	}
+
+	.SearchResultItem__title {
+		--dash-width: #{_flexDash(24)};
+		--dash-margin: #{_flexDash(32)};
+		--dash-indent: #{_flexDash(8)};
+
+		@include LabeledTitleStyle--basics();
+		@include SubheadingStyle--large();
+
+		max-width: 100%;
+		margin-bottom: prem(16);
+		margin-left: $var--grid-column--neg;
+
+		@include media($mq-wide) {
+			--dash-width: #{prem(24)};
+			--dash-margin: #{prem(32)};
+			--dash-indent: #{prem(8)};
+		}
+	}
+
+	.SearchResultItem__title::before {
+		transition: width 200ms ease-in-out;
+	}
+
+	.SearchResultItem:hover > .SearchResultItem__title,
+	.SearchResultItem:focus > .SearchResultItem__title,
+	.SearchResultItem:active > .SearchResultItem__title {
+		--dash-width: #{_flexDash(48)};
+		@include media($mq-wide) {
+			--dash-width: #{prem(48)};
+		}
+	}
+
+	.SearchResultItem__meta {
+		display: block;
+		color: $color-faxafloi-100;
+		font-size: prem($font-label-size);
+		margin-bottom: prem(16);
+		order: -1;
+		width: 100%;
+		line-height: em(16 / $font-label-size);
+	}
+
+	.SearchResultItem__meta > span {
+		color: $color-suld-200;
+	}
+
+	.SearchResultItem__summary {
+		max-width: 100%;
+		font-weight: $font-weight--normal;
+	}
+}
