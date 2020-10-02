@@ -15,7 +15,7 @@
 		left: 0;
 		right: 0;
 		width: 100%;
-		z-index: -1;
+		z-index: -10;
 		pointer-events: none;
 		--bling-color-a: #{$var--color-theme-tertiary}; // Default to --color--tertiary
 		--bling-color-b: #{$var--color-theme-secondary}; // Default to --color--tertiary
