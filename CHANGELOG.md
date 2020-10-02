@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.PageFilter--underlap`
 - feat: Add styling for `.ImageCards__image--missing`
 - feat: Add new ["Efnistákn"](src/assets/efnistakn/files.json) assets –
   `sund_barnalaug`, `sund_eimbad`, `sund_kaldurpottur`, `sund_metralaug`,
