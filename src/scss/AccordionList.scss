@@ -56,11 +56,11 @@
 	}
 
 	.AccordionList__button::before {
-		@include icon($icons-close);
+		@include icon($icons-close-thin);
 		position: absolute;
 		left: 0;
 		width: var(--iconWidth);
-		font-size: em(18/20);
+		font-size: em(14 / $font-bd-l-size);
 		color: $color-suld-200;
 		transform: rotateZ(45deg);
 		transition: transform 100ms ease-in-out;
