@@ -10,7 +10,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 10000;
+		z-index: $zIndex--modal;
 		min-height: 100vh;
 		overflow: hidden;
 		background-color: rgba(0, 0, 0, 0.5);
@@ -31,7 +31,6 @@
 		left: prem(16);
 		right: prem(16);
 		margin: 0 auto 20px;
-		z-index: 10002;
 		width: 95%;
 		max-height: calc(100vh - 100);
 		max-width: cols_px(8);
