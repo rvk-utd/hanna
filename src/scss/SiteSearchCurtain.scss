@@ -1,7 +1,7 @@
 @use '_globals' as *;
 
 /*!@deps
-	SiteSearch
+	SiteSearchAutocomplete
 */
 
 @media screen {
@@ -11,8 +11,12 @@
 	}
 
 	@include media($mq-tablet_up) {
-		.SearchCurtainWrap--focused > .SiteSearch {
-			margin-right: calc(2.5 * #{$var--grid-column--neg});
+		.SearchCurtainWrap > .SiteSearchAutocomplete {
+			width: 100%;
+			transition: width 200ms ease-in-out;
+		}
+		.SearchCurtainWrap--focused > .SiteSearchAutocomplete {
+			width: $var--grid-7-7;
 		}
 	}
 
