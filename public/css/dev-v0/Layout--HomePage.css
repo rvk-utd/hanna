@@ -1,3 +1,38 @@
 /*!@deps
 	Layout-full
-*/@media screen{.Layout--HomePage .ExtraLinks:before{border-left:0}.Layout--HomePage .ExtraLinks__card{border-color:transparent;background-color:#fff;--Card-lineColor:#0372e1;padding-top:2.5rem;padding-bottom:2.5rem}.Layout--HomePage .ExtraLinks__card:after{margin-top:2rem;height:.25rem;max-width:67%}.ExtraLinks__card:active,.ExtraLinks__card:focus,.ExtraLinks__card:hover{border-color:transparent;background-color:#fff;color:inherit;outline:normal}.ExtraLinks__card:active>.ExtraLinks__card__title,.ExtraLinks__card:focus>.ExtraLinks__card__title,.ExtraLinks__card:hover>.ExtraLinks__card__title{color:#0372e1}}
+*/
+@media screen {
+  .Layout--HomePage .ExtraLinks::before {
+    border-left: 0;
+  }
+
+  .Layout--HomePage .ExtraLinks__card {
+    border-color: transparent;
+    background-color: #ffffff;
+    --Card-lineColor: #0372e1;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .Layout--HomePage .ExtraLinks__card::after {
+    margin-top: 2rem;
+    height: 0.25rem;
+    max-width: 67%;
+  }
+
+  .ExtraLinks__card:hover,
+.ExtraLinks__card:focus,
+.ExtraLinks__card:active {
+    border-color: transparent;
+    background-color: #ffffff;
+    color: inherit;
+    outline: normal;
+  }
+
+  .ExtraLinks__card:hover > .ExtraLinks__card__title,
+.ExtraLinks__card:focus > .ExtraLinks__card__title,
+.ExtraLinks__card:active > .ExtraLinks__card__title {
+    color: #0372e1;
+  }
+}
+/*# sourceMappingURL=Layout--HomePage.css.map */

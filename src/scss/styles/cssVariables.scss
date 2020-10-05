@@ -10,6 +10,7 @@
 				--baseVerticalMargin: #{px(3 * $gru)};
 				--baseVerticalMargin-2: #{px(6 * $gru)};
 			}
+			@include setDefaultLinkVariables(true);
 			@include _gridVariables();
 			@include _fontVariables();
 			@include _LayoutHeader();

@@ -17,13 +17,32 @@
 		max-width: prem($grid-contentMaxWidth);
 		margin: 0 auto;
 	}
+	@if (getEnv('NODE_ENV') == '') {
+		body:hover {
+			--show-grid-lines: '';
+		}
+		.Layout:hover {
+			--show-grid-lines: none;
+		}
+		.Layout::after {
+			content: var(--show-grid-lines, none);
+			pointer-events: none;
+			position: absolute;
+			z-index: $zIndex--modal + 100;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			@include showColumnGridLines();
+		}
+	}
 
 	.Layout__header {
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 3;
+		z-index: $zIndex--header;
 		display: flex;
 		align-items: center;
 		height: $var--Layout__header-height;

@@ -34,7 +34,7 @@ module.exports = {
 
 	'getEnv($variable)': (variable) => {
 		assertString(variable);
-		return str(process.env[variable]);
+		return str(process.env[variable.getValue()] || '');
 	},
 
 	'isDevMode()': () => bool(process.env.NODE_ENV !== 'production'),

@@ -21,6 +21,12 @@
 		justify-content: space-between;
 		align-items: flex-start;
 	}
+
+	.PageFilter--underlap {
+		z-index: -1;
+		margin-bottom: prem(-24);
+	}
+
 	.PageFilter::before {
 		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
 

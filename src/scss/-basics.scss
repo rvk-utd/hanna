@@ -15,8 +15,8 @@
 	font-style: normal;
 	font-display: block;
 	$version: '?' + fileChecksum('public/css/dev/i/icons.woff2');
-	src: url('i/icons.woff2'+$version) format('woff2'),
-		url('i/icons.woff'+$version) format('woff');
+	src: url('i/icons.woff2' + $version) format('woff2'),
+		url('i/icons.woff' + $version) format('woff');
 }
 
 @font-face {

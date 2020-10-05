@@ -58,7 +58,6 @@
 	}
 
 	.NewsHero__image {
-		margin-right: $var--grid-edge--neg;
 		position: relative;
 		display: block;
 		margin-top: grid-units(-1);
@@ -66,9 +65,11 @@
 		order: -1;
 
 		@include media($mq-phablet_up) {
-			width: cols_pct(6);
+			margin-right: $var--grid-edge--neg;
+			padding-right: $var--grid-edge;
+			box-sizing: content-box;
+			width: cols_pct(5, 5);
 			padding-top: cols_pct(6, 6.5);
-			padding-left: cols_pct(0, 1);
 			margin-left: auto;
 			order: 1;
 			margin-top: between_cols(0, -24);
