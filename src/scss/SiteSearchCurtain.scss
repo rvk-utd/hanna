@@ -1,0 +1,39 @@
+@use '_globals' as *;
+
+/*!@deps
+	SiteSearch
+*/
+
+@media screen {
+	.SearchCurtainWrap > * {
+		position: relative;
+		z-index: 2;
+	}
+
+	@include media($mq-tablet_up) {
+		.SearchCurtainWrap--focused > .SiteSearch {
+			margin-right: calc(2.5 * #{$var--grid-column--neg});
+		}
+	}
+
+	.SearchCurtainWrap::after {
+		content: '';
+
+		transition: all 200ms ease-in-out;
+		transition-property: background-color, opacity;
+
+		background-color: rgba($color-suld-0, 0.9);
+		opacity: 0;
+
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+	}
+	.SearchCurtainWrap--focused::after {
+		opacity: 1;
+		z-index: 1;
+	}
+}
