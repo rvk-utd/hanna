@@ -11,6 +11,21 @@
 	.Datepicker > * > .react-datepicker-wrapper {
 		flex-grow: 1;
 	}
+	.Datepicker > * > .react-datepicker__tab-loop {
+		width: auto;
+	}
+	.Datepicker input {
+		width: 100%;
+		border: 0;
+		background: 0;
+		padding: 0;
+		width: 100%;
+		line-height: inherit;
+		color: inherit;
+	}
+	.Datepicker input:focus {
+		outline: 0;
+	}
 
 	.react-datepicker {
 		background-color: $color-suld-0;
@@ -18,27 +33,6 @@
 		position: relative;
 		font-size: px($font-base-size);
 		line-height: px($font-base-leading);
-	}
-
-	.react-datepicker__month-container::after {
-		content: '';
-		background: $color-suld-25;
-		position: absolute;
-		z-index: 1;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		width: prem(88);
-	}
-
-	.react-datepicker__header {
-		position: relative;
-		z-index: 4;
-	}
-	.react-datepicker__month {
-		padding-bottom: prem(8);
-		position: relative;
-		z-index: 3;
 	}
 
 	.react-datepicker__input-container {
@@ -92,6 +86,27 @@
 	}
 	.react-datepicker__current-month {
 		display: none;
+	}
+
+	.react-datepicker__month-container::after {
+		content: '';
+		background: $color-suld-25;
+		position: absolute;
+		z-index: 1;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: prem(88);
+	}
+
+	.react-datepicker__header {
+		position: relative;
+		z-index: 4;
+	}
+	.react-datepicker__month {
+		padding-bottom: prem(8);
+		position: relative;
+		z-index: 3;
 	}
 
 	.react-datepicker__header__dropdown {
