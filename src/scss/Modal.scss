@@ -32,7 +32,7 @@
 		right: prem(16);
 		margin: 0 auto 20px;
 		width: 95%;
-		max-height: calc(100vh - 100);
+		max-height: calc(100vh - #{prem(2 * 50)});
 		max-width: cols_px(8);
 		background-color: #fff;
 		padding: between_phone_netbook(20, 70) between_phone_netbook(20, 80);
@@ -76,8 +76,8 @@
 @media #{$mq-netbook_up} {
 	.Modal {
 		padding: prem(70) prem(80);
-		max-height: calc(100vh - 200);
 		top: prem(100);
+		max-height: calc(100vh - #{prem(2 * 100)});
 	}
 	.Modal--w6 {
 		padding: prem(40) prem(50);
