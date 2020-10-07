@@ -8,6 +8,7 @@
 - feat: Add new ["Efnistákn"](src/assets/efnistakn/files.json) assets –
   `sund_barnalaug`, `sund_eimbad`, `sund_kaldurpottur`, `sund_metralaug`,
   `sund_sauna`, `sund_sundfot`, `sund_utiklefi`, `wifi`
+- feat: Add support for neutral `.TabPanel` wrapper elements
 - fix: Fix visual regression in `Datepicker`
 
 ## 0.7.5

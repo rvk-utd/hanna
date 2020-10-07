@@ -29,4 +29,8 @@
 	.Tabs__tab[aria-pressed='true'] {
 		border-bottom-color: $var--color-theme-primary--safeish;
 	}
+
+	.before-sprinkling .TabPanel:not([data-sprinkled]) {
+		display: none;
+	}
 }
