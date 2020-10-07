@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `SiteSearchAutocomplete`
+- feat: Add component `SiteSearchCurtain`
 - feat: Add styling for `.PageFilter--underlap`
 - feat: Add styling for `.ImageCards__image--missing`
 - feat: Add new ["Efnistákn"](src/assets/efnistakn/files.json) assets –
