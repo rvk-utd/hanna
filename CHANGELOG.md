@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add scroll and overflow styling to `BasicTable`'s wrapper
 
 ## 0.7.6
 
