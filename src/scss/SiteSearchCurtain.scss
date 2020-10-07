@@ -5,22 +5,22 @@
 */
 
 @media screen {
-	.SearchCurtainWrap {
+	.SiteSearchCurtain {
 		position: relative;
 		z-index: 2;
 	}
 
 	@include media($mq-tablet_up) {
-		.SearchCurtainWrap > .SiteSearchAutocomplete {
+		.SiteSearchCurtain > .SiteSearchAutocomplete {
 			width: 100%;
 			transition: width 200ms ease-in-out;
 		}
-		.SearchCurtainWrap--focused > .SiteSearchAutocomplete {
+		.SiteSearchCurtain--focused > .SiteSearchAutocomplete {
 			width: $var--grid-7-7;
 		}
 	}
 
-	.SearchCurtainWrap::after {
+	.SiteSearchCurtain::after {
 		content: '';
 		position: fixed;
 		z-index: -1;
@@ -35,7 +35,7 @@
 		visibility: hidden;
 		transition: opacity 200ms ease-in-out, visibility 0ms 200ms;
 	}
-	.SearchCurtainWrap--focused::after {
+	.SiteSearchCurtain--focused::after {
 		pointer-events: auto;
 		transition-delay: 0ms;
 		visibility: visible;
