@@ -1,0 +1,44 @@
+/*!@deps
+	SiteSearchAutocomplete
+*/
+@media screen {
+  .SiteSearchCurtain {
+    position: relative;
+    z-index: 2;
+  }
+}
+@media screen and (min-width: 760px) {
+  .SiteSearchCurtain > .SiteSearchAutocomplete {
+    width: 100%;
+    transition: width 200ms ease-in-out;
+  }
+
+  .SiteSearchCurtain--focused > .SiteSearchAutocomplete {
+    width: var(--grid-7-7);
+  }
+}
+@media screen {
+  .SiteSearchCurtain::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease-in-out, visibility 0ms 200ms;
+  }
+}
+@media screen {
+  .SiteSearchCurtain--focused::after {
+    pointer-events: auto;
+    transition-delay: 0ms;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=SiteSearchCurtain.css.map */

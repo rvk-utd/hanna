@@ -27,8 +27,13 @@
     border-bottom: 4px solid var(--theme-color-primary--safeish);
   }
 
-  .Tabs__tab[data-active=true] {
+  .Tabs__tab[data-active=true],
+.Tabs__tab[aria-pressed=true] {
     border-bottom-color: var(--theme-color-primary--safeish);
+  }
+
+  .before-sprinkling .TabPanel:not([data-sprinkled]) {
+    display: none;
   }
 }
 /*# sourceMappingURL=Tabs.css.map */

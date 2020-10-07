@@ -30,6 +30,11 @@
     background: inherit;
   }
 
+  .PageFilter--underlap {
+    z-index: -1;
+    margin-bottom: -1.5rem;
+  }
+
   .PageFilter::before {
     border-left: calc(1.5094339623vw + 3.1698113208px) solid var(--theme-color-primary);
   }
