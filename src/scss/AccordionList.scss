@@ -87,12 +87,12 @@
 		opacity: 1;
 	}
 
-	html.before-sprinkling .AccordionList__content {
+	html.before-sprinkling
+		.AccordionList__item:not([data-sprinkled])
+		> .AccordionList__content {
 		display: none;
 	}
-	.AccordionList__item[data-sprinkled] > .AccordionList__content {
-		display: block;
-	}
+
 	.AccordionList__content[hidden] {
 		display: block; // override default
 		padding-top: 0;
