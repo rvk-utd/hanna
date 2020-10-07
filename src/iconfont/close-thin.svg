@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-<path fill="#2A2B2C" d="M50.006,39.427L11.918,1.354c-1.803-1.802-5.107-1.802-6.911,0L1.351,5.01c-1.802,1.802-1.802,5.107,0,6.912
-	l38.085,38.074L1.351,88.082c-1.802,1.802-1.802,5.106,0,6.911l3.658,3.655c1.802,1.803,5.107,1.803,6.911,0l38.107-38.053
-	L88.081,98.65c1.803,1.803,5.106,1.802,6.911-0.001l3.657-3.655c1.803-1.803,1.803-5.108,0-6.912L60.581,50.014l38.068-38.093
-	c1.803-1.803,1.803-5.108,0-6.911l-3.657-3.656c-1.803-1.803-5.108-1.803-6.911,0L50.006,39.427z"/>
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#2A2B2C;}
+</style>
+<path class="st0" d="M100,89.7L60.2,50L100,10.2L89.7,0L50,39.7L10.2,0L0,10.2L39.7,50L0,89.7l10.2,10.2L50,60.2L89.7,100L100,89.7z
+	"/>
 </svg>

@@ -4,6 +4,20 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.7.6
+
+_2020-10-07_
+
+- feat: Add component `SiteSearchAutocomplete`
+- feat: Add component `SiteSearchCurtain`
+- feat: Add styling for `.PageFilter--underlap`
+- feat: Add styling for `.ImageCards__image--missing`
+- feat: Add new ["Efnistákn"](src/assets/efnistakn/files.json) assets –
+  `sund_barnalaug`, `sund_eimbad`, `sund_kaldurpottur`, `sund_metralaug`,
+  `sund_sauna`, `sund_sundfot`, `sund_utiklefi`, `wifi`
+- feat: Add support for neutral `.TabPanel` wrapper elements
+- fix: Fix visual regression in `Datepicker`
+
 ## 0.7.5
 
 _2020-09-30_
@@ -20,7 +34,7 @@ _2020-09-30_
   `circle-xlarge`, `loops-small`, `arrow-right-large`
 - feat: Add component `MiniMetrics`
 - feat: Rename `Gallery` and `ArticleCarousel`'s `__track` to `__items` – Flag
-  the old `__items` class-name as deprecated
+  the old `__track` class-name as deprecated
 - feat: Tweak `Gallery`'s styling and match updated markup
 - fix: Minor styling fixes for `MainMenu`, `CityBlock`
 

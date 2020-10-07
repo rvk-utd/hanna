@@ -13,6 +13,18 @@
   }
 }
 @media screen {
+  .SiteSearchInput > .FormField__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    opacity: 0.00001;
+    pointer-events: none;
+    margin: -1px;
+  }
+}
+@media screen {
   .SiteSearchInput > .FormField__input {
     padding: calc(1.5094339623vw + 5.1698113208px) calc(1.5094339623vw + 11.1698113208px);
     padding-right: var(--ssi-height);

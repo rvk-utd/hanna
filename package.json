@@ -1,6 +1,6 @@
 {
 	"name": "rvk-styles",
-	"version": "0.7.5",
+	"version": "0.7.6",
 	"main": "index.js",
 	"license": "MIT",
 	"private": true,
@@ -11,6 +11,7 @@
 		"publish:devcss": "NODE_ENV=public_debug  yarn run gulp publishDevCss",
 		"publish:assets": "NODE_ENV=production  yarn run gulp publishAssets",
 		"publish:all": "yarn run publish:assets  &&  yarn run publish:css  &&  yarn run publish:devcss",
+		"format": "eslint --fix  \"*.js\" \"{src,scripts}/**/*.js\"  &&  prettier --write \"*.{json,md}\" \"{src,scripts}/**/*.{json,md,scss}\"",
 		"dev": "yarn run gulp watch"
 	},
 	"engines": {
@@ -23,18 +24,18 @@
 		"@hugsmidjan/gulp-iconfont": "^0.3.2",
 		"@hugsmidjan/gulp-images": "^0.1.8",
 		"@hugsmidjan/gulp-sass": "^0.1.2",
-		"@hugsmidjan/hxmstyle": "^2.4.0",
+		"@hugsmidjan/hxmstyle": "^3.0.0",
 		"browser-sync": "^2.26.12",
 		"del": "^5.1.0",
-		"eslint": "^6.8.0",
-		"eslint-config-prettier": "^6.10.0",
-		"eslint-plugin-destructuring": "^2.1.0",
-		"eslint-plugin-prettier": "^3.1.2",
+		"eslint": "^7.10.0",
+		"eslint-config-prettier": "^6.12.0",
+		"eslint-plugin-destructuring": "^2.2.0",
+		"eslint-plugin-prettier": "^3.1.4",
 		"gulp": "^4.0.2",
 		"md5-file": "^4.0.0",
 		"onchange": "^6.1.0",
 		"ospec": "^4.0.1",
-		"prettier": "^1.19.1",
+		"prettier": "^2.1.2",
 		"sass": "^1.26.10"
 	},
 	"browserslist": [

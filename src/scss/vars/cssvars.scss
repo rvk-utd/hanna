@@ -16,36 +16,27 @@ $var--color-theme-primary--safeish: var(--theme-color-primary--safeish);
 
 $link-underline-thickness: 2rem / 16;
 
-// local variables ("_" prefixed)
-$_link-color: $color-faxafloi-100;
-$_link-color--hover: $color-faxafloi-100;
-$_link-weight: $font-weight--bold;
-$_link-underline: $link-underline-thickness solid transparent;
-$_link-underline--hover: $link-underline-thickness solid currentColor;
-$_link-underline-offset: 0.15em;
-$_link-focus-outline: normal;
-$_link-transition: 150ms ease-in-out;
-
 @mixin setDefaultLinkVariables($all: false) {
-	--link-color: #{$_link-color};
-	--link-color--hover: #{$_link-color--hover};
-	--link-weight: #{$_link-weight};
-	--link-underline: #{$_link-underline};
-	--link-underline--hover: #{$_link-underline--hover};
-	--link-underline-offset: #{$_link-underline-offset};
+	--link-color: #{$color-faxafloi-100};
+	--link-color--hover: #{$color-faxafloi-100};
+	--link-weight: #{$font-weight--bold};
+	--link-underline: #{$link-underline-thickness} solid transparent;
+	--link-underline--hover: #{$link-underline-thickness} solid currentColor;
+	--link-underline-offset: 0.15em;
 	@if $all {
-		--link-focus-outline: #{$_link-focus-outline};
-		--link-transition: #{$_link-transition};
+		--link-focus-outline: 1.5px dotted currentColor;
+		--link-transition: 150ms ease-in-out;
 	}
 }
-$var--link-color: var(--link-color, $_link-color);
-$var--link-color--hover: var(--link-color--hover, $_link-color--hover);
-$var--link-weight: var(--link-weight, $_link-weight);
-$var--link-underline: var(--link-underline, $_link-underline);
-$var--link-underline--hover: var(--link-underline--hover, $_link-underline--hover);
-$var--link-underline-offset: var(--link-underline-offset, $_link-underline-offset);
-$var--link-focus-outline: var(--link-focus-outline, $_link-focus-outline);
-$var--link-transition: var(--link-transition, $_link-transition);
+
+$var--link-color: var(--link-color);
+$var--link-color--hover: var(--link-color--hover);
+$var--link-weight: var(--link-weight);
+$var--link-underline: var(--link-underline);
+$var--link-underline--hover: var(--link-underline--hover);
+$var--link-underline-offset: var(--link-underline-offset);
+$var--link-focus-outline: var(--link-focus-outline);
+$var--link-transition: var(--link-transition);
 
 // ---------------------------------------------------------------------------
 
@@ -59,16 +50,27 @@ $var--grid-edge--neg: var(--grid-edge--neg);
 
 $var--grid-0-1: var(--grid-0-1);
 $var--grid-1: var(--grid-1);
+$var--grid-1-1: var(--grid-1-1);
 $var--grid-2: var(--grid-2);
+$var--grid-2-2: var(--grid-2-2);
 $var--grid-3: var(--grid-3);
+$var--grid-3-3: var(--grid-3-3);
 $var--grid-4: var(--grid-4);
+$var--grid-4-4: var(--grid-4-4);
 $var--grid-5: var(--grid-5);
+$var--grid-5-5: var(--grid-5-5);
 $var--grid-6: var(--grid-6);
+$var--grid-6-6: var(--grid-6-6);
 $var--grid-7: var(--grid-7);
+$var--grid-7-7: var(--grid-7-7);
 $var--grid-8: var(--grid-8);
+$var--grid-8-8: var(--grid-8-8);
 $var--grid-9: var(--grid-9);
+$var--grid-9-9: var(--grid-9-9);
 $var--grid-10: var(--grid-10);
+$var--grid-10-10: var(--grid-10-10);
 $var--grid-11: var(--grid-11);
+$var--grid-11-11: var(--grid-11-11);
 
 $var--grid-gutter: var(--grid-gutter);
 $var--grid-column: var(--grid-column);

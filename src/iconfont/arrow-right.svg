@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-<path d="M98.111,46.022l-32.04-31.877c-2.204-2.196-5.776-2.196-7.877,0c-2.206,2.197-2.206,5.746,0,7.838l22.583,22.469H5.566
-	C2.521,44.452,0,46.959,0,49.995c0,3.027,2.521,5.533,5.566,5.533l75.105-0.001l-22.478,22.47c-2.206,2.188-2.206,5.746,0.001,7.837
-	c1.05,1.042,2.515,1.669,3.994,1.669c1.465,0,2.832-0.521,3.988-1.669l32.146-31.975c1.041-1.049,1.676-2.506,1.676-3.97
-	C99.789,48.53,99.153,47.065,98.111,46.022z"/>
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<path d="M98.1,46l-32-31.9c-2.2-2.2-5.8-2.2-7.9,0c-2.2,2.2-2.2,5.7,0,7.8l22.6,22.5H5.6C2.5,44.5,0,47,0,50c0,3,2.5,5.5,5.6,5.5
+	l75.1,0L58.2,78c-2.2,2.2-2.2,5.7,0,7.8c1.1,1,2.5,1.7,4,1.7c1.5,0,2.8-0.5,4-1.7l32.1-32c1-1,1.7-2.5,1.7-4
+	C99.8,48.5,99.2,47.1,98.1,46z"/>
 </svg>

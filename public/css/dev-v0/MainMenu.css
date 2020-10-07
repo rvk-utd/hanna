@@ -23,11 +23,11 @@
     color: inherit;
     cursor: pointer;
     text-decoration: none;
-    color: var(--link-color, #0372e1);
-    font-weight: var(--link-weight, 700);
-    padding-bottom: var(--link-underline-offset, 0.15em);
-    border-bottom: var(--link-underline, 0.125rem solid transparent);
-    transition: var(--link-transition, 150ms ease-in-out);
+    color: var(--link-color);
+    font-weight: var(--link-weight);
+    padding-bottom: var(--link-underline-offset);
+    border-bottom: var(--link-underline);
+    transition: var(--link-transition);
     transition-property: border-color, background-color, color, text-shadow, box-shadow;
     --link-color: _inherit;
     display: block;
@@ -42,9 +42,11 @@
     box-shadow: none;
   }
   .MainMenu__link:hover, .MainMenu__link:focus, .MainMenu__link:active {
-    color: var(--link-color--hover, #0372e1);
-    border-bottom: var(--link-underline--hover, 0.125rem solid currentColor);
-    outline: var(--link-focus-outline, normal);
+    color: var(--link-color--hover);
+    border-bottom: var(--link-underline--hover);
+  }
+  .MainMenu__link:focus {
+    outline: var(--link-focus-outline);
   }
 
   .MainMenu__link::before {
@@ -75,7 +77,7 @@
 @media screen and (min-width: 760px) {
   .MainMenu__items {
     position: absolute;
-    z-index: 3;
+    z-index: 100;
     top: 0;
     right: 0;
     left: 25.8278145695%;
@@ -117,10 +119,10 @@
     z-index: 99999;
     font-size: 1em;
     background: #ffffff;
-    border: 3px double 3px double var(--link-color--hover, #0372e1);
+    border: 3px double 3px double var(--link-color--hover);
     margin: 0;
     padding: 0.2em 0.33em;
-    color: var(--link-color--hover, #0372e1);
+    color: var(--link-color--hover);
     text-shadow: none;
     white-space: nowrap;
   }
@@ -277,7 +279,7 @@
     transition: all 200ms ease-in-out;
     transition-property: opacity, visibility;
     position: absolute;
-    z-index: 4;
+    z-index: 100;
     top: var(--Layout__header-height);
     left: 0;
     right: 0;
@@ -380,11 +382,11 @@
     --link-underline--hover: 0.125rem solid currentColor;
     --link-underline-offset: 0.15em;
     text-decoration: none;
-    color: var(--link-color, #0372e1);
-    font-weight: var(--link-weight, 700);
-    padding-bottom: var(--link-underline-offset, 0.15em);
-    border-bottom: var(--link-underline, 0.125rem solid transparent);
-    transition: var(--link-transition, 150ms ease-in-out);
+    color: var(--link-color);
+    font-weight: var(--link-weight);
+    padding-bottom: var(--link-underline-offset);
+    border-bottom: var(--link-underline);
+    transition: var(--link-transition);
     transition-property: border-color, background-color, color, text-shadow, box-shadow;
   }
 }
@@ -392,9 +394,13 @@
   .MainMenu__mega__link:hover .MainMenu__mega__link__title,
 .MainMenu__mega__link:focus .MainMenu__mega__link__title,
 .MainMenu__mega__link:active .MainMenu__mega__link__title {
-    color: var(--link-color--hover, #0372e1);
-    border-bottom: var(--link-underline--hover, 0.125rem solid currentColor);
-    outline: var(--link-focus-outline, normal);
+    color: var(--link-color--hover);
+    border-bottom: var(--link-underline--hover);
+  }
+}
+@media screen and (min-width: 760px) {
+  .MainMenu__mega__link:focus .MainMenu__mega__link__title {
+    outline: var(--link-focus-outline);
   }
 }
 @media screen and (min-width: 760px) {

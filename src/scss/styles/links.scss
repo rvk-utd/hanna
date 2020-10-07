@@ -12,6 +12,8 @@
 @mixin LinkStyle--hover() {
 	color: $var--link-color--hover;
 	border-bottom: $var--link-underline--hover;
+}
+@mixin LinkStyle--focus() {
 	outline: $var--link-focus-outline;
 }
 
@@ -22,6 +24,9 @@
 	&:focus,
 	&:active {
 		@include LinkStyle--hover();
+	}
+	&:focus {
+		@include LinkStyle--focus();
 	}
 }
 

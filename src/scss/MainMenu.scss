@@ -57,7 +57,7 @@
 	}
 	.MainMenu__items {
 		position: absolute;
-		z-index: 3;
+		z-index: $zIndex--header;
 		top: 0;
 		right: 0;
 		left: cols_pct(3, 3);
@@ -175,7 +175,7 @@
 		transition-property: opacity, visibility;
 
 		position: absolute;
-		z-index: 4;
+		z-index: $zIndex--header;
 		top: $var--Layout__header-height;
 		left: 0;
 		right: 0;
@@ -256,6 +256,9 @@
 	.MainMenu__mega__link:focus .MainMenu__mega__link__title,
 	.MainMenu__mega__link:active .MainMenu__mega__link__title {
 		@include LinkStyle--hover();
+	}
+	.MainMenu__mega__link:focus .MainMenu__mega__link__title {
+		@include LinkStyle--focus();
 	}
 
 	.MainMenu__mega__link__summary {

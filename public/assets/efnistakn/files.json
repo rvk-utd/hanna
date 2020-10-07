@@ -36,6 +36,13 @@
 	"stadur_01": "https://styles.reykjavik.is/assets/efnistakn/stadur_01.svg",
 	"stofnun_01": "https://styles.reykjavik.is/assets/efnistakn/stofnun_01.svg",
 	"stofnun_02": "https://styles.reykjavik.is/assets/efnistakn/stofnun_02.svg",
+	"sund_barnalaug": "https://styles.reykjavik.is/assets/efnistakn/barnalaug.svg",
+	"sund_eimbad": "https://styles.reykjavik.is/assets/efnistakn/eimbad.svg",
+	"sund_kaldurpottur": "https://styles.reykjavik.is/assets/efnistakn/kaldurpottur.svg",
+	"sund_metralaug": "https://styles.reykjavik.is/assets/efnistakn/metralaug.svg",
+	"sund_sauna": "https://styles.reykjavik.is/assets/efnistakn/sauna.svg",
+	"sund_sundfot": "https://styles.reykjavik.is/assets/efnistakn/sundfot.svg",
+	"sund_utiklefi": "https://styles.reykjavik.is/assets/efnistakn/utiklefi.svg",
 	"timi_01": "https://styles.reykjavik.is/assets/efnistakn/timi_01.svg",
 	"tomstundir_01": "https://styles.reykjavik.is/assets/efnistakn/tomstundir_01.svg",
 	"tonlist_01": "https://styles.reykjavik.is/assets/efnistakn/tonlist_01.svg",
@@ -49,5 +56,6 @@
 	"velferd_02": "https://styles.reykjavik.is/assets/efnistakn/velferd_02.svg",
 	"velferd_03": "https://styles.reykjavik.is/assets/efnistakn/velferd_03.svg",
 	"verdlaun_01": "https://styles.reykjavik.is/assets/efnistakn/verdlaun_01.svg",
-	"verdlaun_02": "https://styles.reykjavik.is/assets/efnistakn/verdlaun_02.svg"
+	"verdlaun_02": "https://styles.reykjavik.is/assets/efnistakn/verdlaun_02.svg",
+	"wifi": "https://styles.reykjavik.is/assets/efnistakn/wifi.svg"
 }
