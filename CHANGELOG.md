@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.6
+
+_2020-10-07_
+
 - feat: Add component `SiteSearchAutocomplete`
 - feat: Add component `SiteSearchCurtain`
 - feat: Add styling for `.PageFilter--underlap`
