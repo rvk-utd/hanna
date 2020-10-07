@@ -257,6 +257,9 @@
 	.MainMenu__mega__link:active .MainMenu__mega__link__title {
 		@include LinkStyle--hover();
 	}
+	.MainMenu__mega__link:focus .MainMenu__mega__link__title {
+		@include LinkStyle--focus();
+	}
 
 	.MainMenu__mega__link__summary {
 		display: block;

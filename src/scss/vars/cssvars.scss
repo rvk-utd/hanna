@@ -24,7 +24,7 @@ $link-underline-thickness: 2rem / 16;
 	--link-underline--hover: #{$link-underline-thickness} solid currentColor;
 	--link-underline-offset: 0.15em;
 	@if $all {
-		--link-focus-outline: normal;
+		--link-focus-outline: 1.5px dotted currentColor;
 		--link-transition: 150ms ease-in-out;
 	}
 }
