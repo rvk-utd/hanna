@@ -51,14 +51,15 @@
 	}
 	.TableWrapper__scroller {
 		padding: 0 $var--grid-edge;
-		border-right: $var--browser-scrollbar-width solid transparent; // push away fromunder
+		// border-right: $var--browser-scrollbar-width solid transparent; // push away fromunder
 	}
 }
 
 // ===========================================================================
 
 @media screen {
-	.BasicTable {
+	.BasicTable,
+	.TableWrapper--BasicTable > table {
 		min-width: 100%;
 	}
 	.BasicTable,

@@ -237,8 +237,12 @@
 		border-collapse: collapse;
 		margin-bottom: $var--baseVerticalMargin;
 	}
+	caption {
+		text-align: left;
+	}
 	th,
 	td {
+		text-align: left;
 		vertical-align: top;
 		padding: prem(1 * $grid-unit) prem(2 * $grid-unit);
 		color: $color-suld-150;
