@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add scroll and overflow styling to `BasicTable`'s wrapper
+- feat: Support `--ImageCards--fallback` variable as primary fallback image
 
 ## 0.7.6
 
