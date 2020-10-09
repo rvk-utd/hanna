@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `SearchResults`
 - feat: Add scroll and overflow styling to `BasicTable`'s wrapper
 - feat: Support `--ImageCards--fallback` variable as primary fallback image
 
