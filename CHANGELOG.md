@@ -6,6 +6,7 @@
 - feat: Add icons to `.ExtraLinks__related__link--{type}` links
 - feat: Order `GalleryItems` left-to-right
 - feat: Support full range of WYSIWYG content inside `LabeledTextBlock`
+- feat: Reduce font-size of "Labelled" (left-floated) `*TextBlock` headlines
 - fix: Tweak vertical spacing in `ExtraLinks`
 - fix: Increase spacing between "labelled" `H2`s and their text-column
 - fix: Correct text-column width in `HeroBlock`

@@ -61,7 +61,7 @@
 	.ProcessOverview--narrow > * > .ProcessOverview__item__title {
 		display: flex;
 		width: cols_pct(3);
-		--dash-width: #{em(36/40)};
+		--dash-width: #{em(36 / $LabelledTitleStyle--fontSize)};
 		--dash-margin: #{cols_pct(0, 1, 3)};
 		--dash-indent: 0;
 	}
