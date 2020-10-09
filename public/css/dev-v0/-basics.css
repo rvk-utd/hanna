@@ -449,7 +449,7 @@ table {
   font-weight: normal;
   font-style: normal;
   font-display: block;
-  src: url("i/icons.woff2?f6d6a92e8d2cf2331e6bad4aba4ae8b0") format("woff2"), url("i/icons.woff?f6d6a92e8d2cf2331e6bad4aba4ae8b0") format("woff");
+  src: url("i/icons.woff2?1f80126230cb4d89c396fc2c966cef2b") format("woff2"), url("i/icons.woff?1f80126230cb4d89c396fc2c966cef2b") format("woff");
 }
 @font-face {
   font-family: "L15";
@@ -515,20 +515,39 @@ table {
   :root {
     --baseVerticalMargin: calc(0.7547169811vw + 13.5849056604px);
     --baseVerticalMargin-2: calc(1.5094339623vw + 27.1698113208px);
+    --link-color: #0372e1;
+    --link-color--hover: #0372e1;
+    --link-weight: 700;
+    --link-underline: 0.125rem solid transparent;
+    --link-underline--hover: 0.125rem solid currentColor;
+    --link-underline-offset: 0.15em;
+    --link-focus-outline: 1.5px dotted currentColor;
+    --link-transition: 150ms ease-in-out;
     --grid-edge: calc(5.6603773585vw + 1.8867924528px);
     --grid-edge--neg: calc(-5.6603773585vw + -1.8867924528px);
     --grid-0-1: calc(2.8989129077vw + -0.0049981257px);
     --grid-1: calc(4.6382606523vw + -0.0079970011px);
+    --grid-1-1: calc(7.5371735599vw + -0.0129951268px);
     --grid-2: calc(12.1754342122vw + -0.020992128px);
+    --grid-2-2: calc(15.0743471198vw + -0.0259902537px);
     --grid-3: calc(19.7126077721vw + -0.0339872548px);
+    --grid-3-3: calc(22.6115206797vw + -0.0389853805px);
     --grid-4: calc(27.249781332vw + -0.0469823816px);
+    --grid-4-4: calc(30.1486942397vw + -0.0519805073px);
     --grid-5: calc(34.7869548919vw + -0.0599775084px);
+    --grid-5-5: calc(37.6858677996vw + -0.0649756341px);
     --grid-6: calc(42.3241284518vw + -0.0729726353px);
+    --grid-6-6: calc(45.2230413595vw + -0.077970761px);
     --grid-7: calc(49.8613020117vw + -0.0859677621px);
+    --grid-7-7: calc(52.7602149194vw + -0.0909658878px);
     --grid-8: calc(57.3984755717vw + -0.0989628889px);
+    --grid-8-8: calc(60.2973884793vw + -0.1039610146px);
     --grid-9: calc(64.9356491316vw + -0.1119580157px);
+    --grid-9-9: calc(67.8345620392vw + -0.1169561414px);
     --grid-10: calc(72.4728226915vw + -0.1249531426px);
+    --grid-10-10: calc(75.3717355992vw + -0.1299512683px);
     --grid-11: calc(80.0099962514vw + -0.1379482694px);
+    --grid-11-11: calc(82.9089091591vw + -0.1429463951px);
     --grid-gutter: var(--grid-0-1);
     --grid-column: var(--grid-1);
     --grid-0-1--neg: calc(-2.8989129077vw + 0.0049981257px);
@@ -566,16 +585,27 @@ table {
     --grid-edge--neg: -80px;
     --grid-0-1: 40px;
     --grid-1: 64px;
+    --grid-1-1: 104px;
     --grid-2: 168px;
+    --grid-2-2: 208px;
     --grid-3: 272px;
+    --grid-3-3: 312px;
     --grid-4: 376px;
+    --grid-4-4: 416px;
     --grid-5: 480px;
+    --grid-5-5: 520px;
     --grid-6: 584px;
+    --grid-6-6: 624px;
     --grid-7: 688px;
+    --grid-7-7: 728px;
     --grid-8: 792px;
+    --grid-8-8: 832px;
     --grid-9: 896px;
+    --grid-9-9: 936px;
     --grid-10: 1000px;
+    --grid-10-10: 1040px;
     --grid-11: 1104px;
+    --grid-11-11: 1144px;
     --grid-0-1--neg: -40px;
     --grid-1--neg: -64px;
     --grid-column--neg: var(--grid-1--neg);
@@ -745,17 +775,19 @@ td {
 
   a {
     text-decoration: none;
-    color: var(--link-color, #0372e1);
-    font-weight: var(--link-weight, 700);
-    padding-bottom: var(--link-underline-offset, 0.15em);
-    border-bottom: var(--link-underline, 0.125rem solid transparent);
-    transition: var(--link-transition, 150ms ease-in-out);
+    color: var(--link-color);
+    font-weight: var(--link-weight);
+    padding-bottom: var(--link-underline-offset);
+    border-bottom: var(--link-underline);
+    transition: var(--link-transition);
     transition-property: border-color, background-color, color, text-shadow, box-shadow;
   }
   a:hover, a:focus, a:active {
-    color: var(--link-color--hover, #0372e1);
-    border-bottom: var(--link-underline--hover, 0.125rem solid currentColor);
-    outline: var(--link-focus-outline, normal);
+    color: var(--link-color--hover);
+    border-bottom: var(--link-underline--hover);
+  }
+  a:focus {
+    outline: var(--link-focus-outline);
   }
 
   a[href="#"],

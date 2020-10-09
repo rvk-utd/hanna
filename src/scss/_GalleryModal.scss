@@ -8,6 +8,7 @@
 			display: flex;
 			background: $color-suld-0;
 			position: fixed;
+			z-index: $zIndex--modal;
 			top: 0;
 			right: 0;
 			left: 0;
@@ -95,6 +96,7 @@
 
 		.GalleryModal__closebutton {
 			position: absolute;
+			z-index: 1;
 			top: $var--grid-column;
 			left: $var--grid-edge;
 			font-weight: $font-weight--bold;

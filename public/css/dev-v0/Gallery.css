@@ -204,6 +204,7 @@
     display: flex;
     background: #ffffff;
     position: fixed;
+    z-index: 1000;
     top: 0;
     right: 0;
     left: 0;
@@ -314,6 +315,7 @@
 @media screen {
   .GalleryModal__closebutton {
     position: absolute;
+    z-index: 1;
     top: var(--grid-column);
     left: var(--grid-edge);
     font-weight: 700;

@@ -19,7 +19,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 3;
+    z-index: 100;
     display: flex;
     align-items: center;
     height: var(--Layout__header-height);
@@ -119,10 +119,10 @@ html.menu-is-active .Layout__nav > *:not(.BreadCrumbs) {
     z-index: 99999;
     font-size: 1em;
     background: #ffffff;
-    border: 3px double 3px double var(--link-color--hover, #0372e1);
+    border: 3px double 3px double var(--link-color--hover);
     margin: 0;
     padding: 0.2em 0.33em;
-    color: var(--link-color--hover, #0372e1);
+    color: var(--link-color--hover);
     text-shadow: none;
     white-space: nowrap;
   }

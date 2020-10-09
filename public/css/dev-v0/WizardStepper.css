@@ -63,7 +63,7 @@
   button.WizardStepper__step:hover,
 button.WizardStepper__step:focus,
 button.WizardStepper__step:active {
-    color: var(--link-color--hover, #0372e1);
+    color: var(--link-color--hover);
     text-decoration: underline;
   }
 }

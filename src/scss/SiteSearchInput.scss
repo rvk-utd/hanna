@@ -8,12 +8,16 @@
 	.SiteSearchInput {
 		// Changes as evident in the "Frontpage" Figma document
 		// --input-border-color: #{$color-suld-75};
-		// --input-border-radius: #{0};
+		// --input-border-radius: 0;
 		--ssi-height: #{between_phone_netbook(64, 96)};
 		@include media($mq-wide) {
 			--ssi-height: 96px;
 		}
 	}
+	.SiteSearchInput > .FormField__label {
+		@include sr-only();
+	}
+
 	.SiteSearchInput > .FormField__input {
 		padding: between_phone_netbook(10, 26) between_phone_netbook(16, 32);
 		padding-right: var(--ssi-height);

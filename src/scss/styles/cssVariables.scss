@@ -10,6 +10,7 @@
 				--baseVerticalMargin: #{px(3 * $gru)};
 				--baseVerticalMargin-2: #{px(6 * $gru)};
 			}
+			@include setDefaultLinkVariables(true);
 			@include _gridVariables();
 			@include _fontVariables();
 			@include _LayoutHeader();
@@ -35,16 +36,27 @@
 
 	--grid-0-1: #{_flexCol(0, 1)};
 	--grid-1: #{_flexCol(1)};
+	--grid-1-1: #{_flexCol(1, 1)};
 	--grid-2: #{_flexCol(2)};
+	--grid-2-2: #{_flexCol(2, 2)};
 	--grid-3: #{_flexCol(3)};
+	--grid-3-3: #{_flexCol(3, 3)};
 	--grid-4: #{_flexCol(4)};
+	--grid-4-4: #{_flexCol(4, 4)};
 	--grid-5: #{_flexCol(5)};
+	--grid-5-5: #{_flexCol(5, 5)};
 	--grid-6: #{_flexCol(6)};
+	--grid-6-6: #{_flexCol(6, 6)};
 	--grid-7: #{_flexCol(7)};
+	--grid-7-7: #{_flexCol(7, 7)};
 	--grid-8: #{_flexCol(8)};
+	--grid-8-8: #{_flexCol(8, 8)};
 	--grid-9: #{_flexCol(9)};
+	--grid-9-9: #{_flexCol(9, 9)};
 	--grid-10: #{_flexCol(10)};
+	--grid-10-10: #{_flexCol(10, 10)};
 	--grid-11: #{_flexCol(11)};
+	--grid-11-11: #{_flexCol(11, 11)};
 
 	--grid-gutter: var(--grid-0-1);
 	--grid-column: var(--grid-1);
@@ -60,16 +72,27 @@
 
 		--grid-0-1: #{cols_px(0, 1)};
 		--grid-1: #{cols_px(1)};
+		--grid-1-1: #{cols_px(1, 1)};
 		--grid-2: #{cols_px(2)};
+		--grid-2-2: #{cols_px(2, 2)};
 		--grid-3: #{cols_px(3)};
+		--grid-3-3: #{cols_px(3, 3)};
 		--grid-4: #{cols_px(4)};
+		--grid-4-4: #{cols_px(4, 4)};
 		--grid-5: #{cols_px(5)};
+		--grid-5-5: #{cols_px(5, 5)};
 		--grid-6: #{cols_px(6)};
+		--grid-6-6: #{cols_px(6, 6)};
 		--grid-7: #{cols_px(7)};
+		--grid-7-7: #{cols_px(7, 7)};
 		--grid-8: #{cols_px(8)};
+		--grid-8-8: #{cols_px(8, 8)};
 		--grid-9: #{cols_px(9)};
+		--grid-9-9: #{cols_px(9, 9)};
 		--grid-10: #{cols_px(10)};
+		--grid-10-10: #{cols_px(10, 10)};
 		--grid-11: #{cols_px(11)};
+		--grid-11-11: #{cols_px(11, 11)};
 
 		--grid-0-1--neg: #{cols_px(0, -1)};
 		--grid-1--neg: #{cols_px(-1, 0)};

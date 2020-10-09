@@ -111,7 +111,25 @@
 @media screen {
   .ImageCards__image {
     display: block;
+    position: relative;
+    padding-top: 61.7647058824%;
     margin-bottom: calc(0.5660377358vw + 16.1886792453px);
+  }
+}
+@media screen {
+  .ImageCards__image--missing {
+    background: #f8f8f9 url("/assets/reykjavik-logo-notext.svg") 50% 50%/auto 48.8095238095% no-repeat;
+  }
+}
+@media screen {
+  .ImageCards__image > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 @media screen {

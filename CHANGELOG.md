@@ -3,11 +3,22 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add scroll and overflow styling to `BasicTable`'s wrapper
+- feat: Support `--ImageCards--fallback` variable as primary fallback image
+
+## 0.7.6
+
+_2020-10-07_
+
+- feat: Add component `SiteSearchAutocomplete`
+- feat: Add component `SiteSearchCurtain`
 - feat: Add styling for `.PageFilter--underlap`
 - feat: Add styling for `.ImageCards__image--missing`
 - feat: Add new ["Efnistákn"](src/assets/efnistakn/files.json) assets –
   `sund_barnalaug`, `sund_eimbad`, `sund_kaldurpottur`, `sund_metralaug`,
   `sund_sauna`, `sund_sundfot`, `sund_utiklefi`, `wifi`
+- feat: Add support for neutral `.TabPanel` wrapper elements
+- fix: Fix visual regression in `Datepicker`
 
 ## 0.7.5
 
