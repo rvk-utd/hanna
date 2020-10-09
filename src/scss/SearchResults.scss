@@ -13,10 +13,40 @@
 @media screen {
 	.SearchResults,
 	.SearchResultsWrap {
+		position: relative;
 		@include media($mq-netbook_up) {
 			max-width: $var--grid-9;
 		}
 		margin-left: auto;
+	}
+
+	.SearchResults--loading {
+		opacity: 0.5;
+	}
+
+	@keyframes loadingAnimation {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	.SearchResults--loading::before {
+		content: '';
+		position: absolute;
+		top: prem(100);
+		left: 50%;
+		transform: translateX(-50%);
+
+		width: prem(48);
+		height: prem(48);
+
+		border-radius: 50%;
+		border: prem(2) solid $color-faxafloi-100;
+		border-color: $color-faxafloi-100 transparent $color-faxafloi-100 transparent;
+		animation: loadingAnimation 1s linear infinite;
 	}
 
 	.SearchResultsWrap {
