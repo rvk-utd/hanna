@@ -1,4 +1,3 @@
-/* global process */
 const sass = require('sass');
 
 const typeError = (argName = 'argument', typeName) =>
