@@ -14,10 +14,10 @@
 	.SearchResults,
 	.SearchResultsWrap {
 		position: relative;
-		@include media($mq-netbook_up) {
-			max-width: $var--grid-9;
-		}
 		margin-left: auto;
+		@include media($mq-netbook_up) {
+			width: $var--grid-9;
+		}
 	}
 
 	.SearchResults--loading {
@@ -45,7 +45,7 @@
 
 		border-radius: 50%;
 		border: prem(2) solid $color-faxafloi-100;
-		border-color: $color-faxafloi-100 transparent $color-faxafloi-100 transparent;
+		border-color: $color-faxafloi-100 transparent;
 		animation: loadingAnimation 1s linear infinite;
 	}
 
@@ -76,7 +76,7 @@
 		margin-bottom: between_phone_netbook(48, 64);
 
 		@include media($mq-netbook_up) {
-			max-width: $var--grid-6;
+			width: $var--grid-6;
 		}
 	}
 
