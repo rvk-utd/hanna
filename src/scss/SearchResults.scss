@@ -3,6 +3,11 @@
 @use 'styles/labeledTitle' as *;
 @use 'styles/links' as *;
 
+/*!@deps
+	Tabs,
+	Alert
+*/
+
 @function _flexDash($pxWidth) {
 	// get the pxWidth as a ratio of `vw` based on a maxinum 64px width (i.e. $var--grid-column)
 	// FIXME: calculated value will be just a hair off $var--grid-column
@@ -11,13 +16,19 @@
 }
 
 @media screen {
-	.SearchResults,
-	.SearchResultsWrap {
+	.SiteSearchPage {
 		position: relative;
 		margin-left: auto;
+		padding-top: between_phone_netbook(64, 88);
 		@include media($mq-netbook_up) {
 			width: $var--grid-9;
 		}
+	}
+
+	.SearchResults {
+		position: relative;
+		margin-left: auto;
+		padding-top: grid-units(2);
 	}
 
 	.SearchResults--loading {
@@ -49,14 +60,6 @@
 		animation: loadingAnimation 1s linear infinite;
 	}
 
-	.SearchResultsWrap {
-		padding-top: between_phone_netbook(64, 88);
-	}
-
-	.SiteSearchInput + .SearchResults {
-		margin-top: prem(40);
-	}
-
 	.SearchResults__title {
 		@include HeadingStyle--medium();
 		margin-bottom: between_phone_netbook(48, 64);
@@ -67,7 +70,14 @@
 		display: block;
 	}
 
-	.SearchResultItem {
+	.SearchResults__list {
+		padding-left: 0;
+	}
+	.SearchResultsItem::before {
+		@include sr-only();
+	}
+
+	.SearchResultItem__link {
 		@include LinkStyle_Reset(true);
 		display: flex;
 		flex-flow: row wrap;
@@ -103,9 +113,9 @@
 		transition: width 200ms ease-in-out;
 	}
 
-	.SearchResultItem:hover > .SearchResultItem__title,
-	.SearchResultItem:focus > .SearchResultItem__title,
-	.SearchResultItem:active > .SearchResultItem__title {
+	.SearchResultItem__link:hover > .SearchResultItem__title,
+	.SearchResultItem__link:focus > .SearchResultItem__title,
+	.SearchResultItem__link:active > .SearchResultItem__title {
 		--dash-width: #{_flexDash(48)};
 		@include media($mq-wide) {
 			--dash-width: #{prem(48)};
