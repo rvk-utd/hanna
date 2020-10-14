@@ -11,10 +11,16 @@
 		--link-color-hover: #{$linkColor};
 
 		background: var(--Alert-background);
-		padding: prem(13) prem(20) prem(12) prem(44);
 		border-radius: prem(8);
 		position: relative;
+
+		padding: prem(13) prem(20) prem(12) prem(44);
 		margin-bottom: prem(20);
+
+		@include media($mq-tablet_up) {
+			padding: prem(17) prem(32) prem(16) prem(64);
+			margin-bottom: prem(30);
+		}
 	}
 	.Alert::before {
 		@include icon();
@@ -26,6 +32,11 @@
 		position: absolute;
 		top: prem(14);
 		left: prem(14);
+
+		@include media($mq-tablet_up) {
+			top: prem(17);
+			left: prem(25);
+		}
 	}
 	.Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error) {
 		@include WARNING__('"Type" modifier class-name is missing', $pos: after);
@@ -57,15 +68,64 @@
 			)};
 		--Alert-icon: '#{$icons-checkmark}';
 	}
-}
 
-@media #{$mq-tablet_up} {
-	.Alert {
-		padding: prem(17) prem(32) prem(16) prem(64);
-		margin-bottom: prem(30);
+	// ---------------------------------------------------------------------------
+
+	$closing-duration: 400ms;
+	.Alert--closable {
+		$ease-out-quartic: cubic-bezier(0.165, 0.84, 0.44, 1);
+		transition: all $closing-duration 0ms;
+		transition-timing-function: linear, $ease-out-quartic, ease-in-out, ease-in-out,
+			ease-in-out;
+		transition-property: visibility, max-height, opacity, margin, padding;
+		max-height: 1000px;
+
+		overflow: hidden;
+		padding-right: prem(30);
+
+		@include media($mq-tablet_up) {
+			padding-right: prem(48);
+		}
 	}
-	.Alert::before {
-		top: prem(17);
-		left: prem(25);
+	.Alert--closable[hidden] {
+		display: block; // override default :hidden styling
+		transition-delay: 0ms 0ms $closing-duration;
+		opacity: 0;
+		max-height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		visibility: hidden;
+	}
+
+	.Alert__close {
+		@include hideText(soft);
+		position: absolute;
+		top: prem(-6);
+		right: prem(-6);
+		width: prem(42);
+		height: prem(42);
+		line-height: prem(40);
+		transition: all 200ms ease-in-out;
+		font-size: prem(12);
+		opacity: 0.67;
+
+		@include media($mq-tablet_up) {
+			opacity: 1;
+			top: prem(7);
+			right: prem(6);
+		}
+	}
+	.Alert__close:hover,
+	.Alert__close:focus,
+	.Alert__close:active {
+		opacity: 1;
+		font-size: prem(16);
+	}
+	.Alert__close::before {
+		@include icon($icons-close);
+		margin-right: 1px;
+		width: 100%;
 	}
 }
