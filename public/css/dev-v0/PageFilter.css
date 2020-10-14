@@ -10,9 +10,8 @@
 @media screen {
   .PageFilter {
     background-color: #f8f8f9;
-    padding: calc(5.3879310345% + 14.9137931034px) 0 calc(2.1551724138% + 13.9655172414px) 0;
-    margin-bottom: calc(7.5431034483% + 8.8793103448px);
-    z-index: 1;
+    padding: calc(5.3879310345% + 14.9137931034px) 0 0 0;
+    margin-bottom: calc(9.6982758621% + 22.8448275862px);
     position: relative;
     display: flex;
     flex-flow: row wrap;
@@ -31,12 +30,13 @@
   }
 
   .PageFilter--underlap {
-    z-index: -1;
     margin-bottom: -1.5rem;
   }
 
   .PageFilter::before {
     border-left: calc(1.5094339623vw + 3.1698113208px) solid var(--theme-color-primary);
+    margin-bottom: calc(-2.1551724138% + -13.9655172414px);
+    pointer-events: none;
   }
 }
 @media screen and (min-width: 1380px) {

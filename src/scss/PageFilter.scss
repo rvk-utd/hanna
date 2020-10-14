@@ -13,8 +13,8 @@
 @media screen {
 	.PageFilter {
 		background-color: $color-suld-25;
-		padding: between_cols(30, 80) 0 between_cols(20, 40) 0;
-		margin-bottom: between_cols(30, 100);
+		padding: between_cols(30, 80) 0 0 0;
+		margin-bottom: between_cols(50, 140);
 		@include extendBackgroundWithUnderlay();
 		display: flex;
 		flex-flow: row wrap;
@@ -23,12 +23,13 @@
 	}
 
 	.PageFilter--underlap {
-		z-index: -1;
 		margin-bottom: prem(-24);
 	}
 
 	.PageFilter::before {
 		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
+		margin-bottom: between_cols(-20, -40);
+		pointer-events: none;
 
 		@include media($mq-wide) {
 			border-width: prem(24);

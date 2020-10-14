@@ -3,7 +3,6 @@
     background-color: #f8f8f9;
     padding: calc(5.3879310345% + 14.9137931034px) 0;
     margin-bottom: calc(4.3103448276% + 47.9310344828px);
-    z-index: 1;
     position: relative;
   }
   .ExtraLinks::before {

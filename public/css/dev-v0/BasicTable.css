@@ -1,10 +1,63 @@
 @media screen {
-  .TableWrapper--BasicTable {
-    margin: 0 0 1.875rem 0;
+  .TableWrapper {
+    position: relative;
+    overflow-x: auto;
   }
 
-  .BasicTable {
+  .TableWrapper > table,
+.TableWrapper > * > table {
+    margin: 0;
+  }
+
+  .TableWrapper--at::before,
+.TableWrapper--at::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1.25rem;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.04) 50%, transparent 100%);
+    pointer-events: none;
+    transition: opacity 250ms ease-in-out;
+  }
+
+  .TableWrapper--at::after {
+    left: auto;
+    right: 0;
+    transform: scaleX(-1);
+  }
+
+  .TableWrapper--at--start::before {
+    opacity: 0;
+  }
+
+  .TableWrapper--at--end::after {
+    opacity: 0;
+  }
+
+  .TableWrapper__scroller {
+    overflow-x: auto;
+  }
+}
+@media screen and (max-width: 979px) {
+  .TableWrapper {
+    margin: 0 var(--grid-edge--neg);
+  }
+
+  .TableWrapper__scroller {
+    padding: 0 var(--grid-edge);
+  }
+}
+@media screen {
+  .BasicTable,
+.TableWrapper--BasicTable > table {
     min-width: 100%;
+  }
+
+  .BasicTable,
+.TableWrapper--BasicTable {
+    margin-bottom: 1.875rem;
   }
 
   .BasicTable > * > * > th,
@@ -19,7 +72,7 @@
   }
   .BasicTable > * > * > th:last-child,
 .BasicTable > * > * > td:last-child {
-    padding-right: 0;
+    padding-right: 0.75rem;
   }
 }
 @media screen and (min-width: 1380px) {

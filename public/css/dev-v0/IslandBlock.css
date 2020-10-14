@@ -127,7 +127,6 @@
 @media screen and (max-width: 759px) {
   .IslandBlock {
     background-color: #f8f8f9;
-    z-index: 1;
     position: relative;
   }
   .IslandBlock::before {

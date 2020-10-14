@@ -1,4 +1,3 @@
-/* global process */
 const { series, parallel, src, dest } = require('gulp');
 const del = require('del');
 const iconfontTaskFactory = require('@hugsmidjan/gulp-iconfont');

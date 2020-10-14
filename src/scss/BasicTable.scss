@@ -1,12 +1,70 @@
 @use '_globals' as *;
 
 @media screen {
-	.TableWrapper--BasicTable {
-		margin: 0 0 prem(30) 0;
+	.TableWrapper {
+		position: relative;
+		overflow-x: auto;
+	}
+	.TableWrapper > table,
+	.TableWrapper > * > table {
+		margin: 0;
 	}
 
-	.BasicTable {
+	.TableWrapper--at::before,
+	.TableWrapper--at::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: prem(20);
+		background-image: linear-gradient(
+			90deg,
+			rgba(black, 0.1) 0,
+			rgba(black, 0.04) 50%,
+			transparent 100%
+		);
+		pointer-events: none;
+		transition: opacity 250ms ease-in-out;
+	}
+	.TableWrapper--at::after {
+		left: auto;
+		right: 0;
+		transform: scaleX(-1);
+	}
+
+	.TableWrapper--at--start::before {
+		// content: none
+		opacity: 0;
+	}
+	.TableWrapper--at--end::after {
+		// content: none
+		opacity: 0;
+	}
+	.TableWrapper__scroller {
+		overflow-x: auto;
+	}
+}
+@include media($mq-phone_tablet) {
+	.TableWrapper {
+		margin: 0 $var--grid-edge--neg;
+	}
+	.TableWrapper__scroller {
+		padding: 0 $var--grid-edge;
+		// border-right: $var--browser-scrollbar-width solid transparent; // push away fromunder
+	}
+}
+
+// ===========================================================================
+
+@media screen {
+	.BasicTable,
+	.TableWrapper--BasicTable > table {
 		min-width: 100%;
+	}
+	.BasicTable,
+	.TableWrapper--BasicTable {
+		margin-bottom: prem(30);
 	}
 
 	.BasicTable > * > * > th,
@@ -19,7 +77,7 @@
 			padding-left: 0;
 		}
 		&:last-child {
-			padding-right: 0;
+			padding-right: prem(12);
 		}
 
 		@media #{$mq-wide} {

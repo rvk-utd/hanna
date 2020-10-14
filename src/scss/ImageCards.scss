@@ -64,11 +64,29 @@
 		position: relative;
 		padding-top: pct(168/272);
 		margin-bottom: between_phone_netbook(18, 24);
+		background-color: $color-suld-0;
 	}
 	.ImageCards__image--missing {
-		background: $color-suld-25 url('/assets/reykjavik-logo-notext.svg') 50% 50% / auto
-			pct(82/168) no-repeat;
+		background: var(--ImageCards--fallback, $color-suld-25) 50% 50% / cover no-repeat;
+		box-shadow: 0 0 0x 2px $color-suld-0;
 	}
+	// Hack to apply a differently sized/positioned fallback image
+	// *if* --ImageCards--fallback is undefined/empty
+	.ImageCards__image--missing::before {
+		content: attr(var(--ImageCards--fallback, nothing));
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url('/assets/reykjavik-logo-notext.svg') 50% 50% / auto pct(82/168)
+			no-repeat;
+	}
+	.ImageCards--background .ImageCards__image--missing {
+		background-color: $color-suld-0;
+		box-shadow: 0 0 0x 2px $color-suld-25;
+	}
+
 	.ImageCards__image > img {
 		position: absolute;
 		top: 0;

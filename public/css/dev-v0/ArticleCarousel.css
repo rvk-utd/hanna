@@ -67,7 +67,7 @@
     content: "";
     display: block;
     height: 1.3125rem;
-    background-color: #0372e1;
+    background-color: var(--theme-color-primary);
     position: absolute;
     top: 0;
     right: -2px;

@@ -4,6 +4,20 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.7.7
+
+_2020-10-14_
+
+- feat: Add component `SearchResults`
+- feat: Add component `Attention`
+- feat: Add styling for `.Alert--closable`
+- feat: Add styling for `.Tabs__tab__badge`
+- feat: Add scroll and overflow styling to `BasicTable`'s wrapper
+- feat: Support `--ImageCards--fallback` variable as primary fallback image
+- feat: Increase the clickable area of `SiteSearchInput`'s text input field
+- feat: Make `.ArticleCarouselCard` use the primary theme color by default
+- fix: Make `.PageFilter--underlap`'s content clickable again
+
 ## 0.7.6
 
 _2020-10-07_

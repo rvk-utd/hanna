@@ -53,13 +53,14 @@
 		content: '';
 		display: block;
 		height: prem(21);
-		background-color: $color-faxafloi-100;
+		background-color: $var--color-theme-primary;
 		position: absolute;
 		top: 0;
 		right: -2px;
 		left: -2px;
 	}
 
+	// Prefer `data-color` over `data-color-theme`
 	$colors: (
 		'faxafloi': $color-faxafloi-100,
 		'nautholsvik': $color-nautholsvik-100,

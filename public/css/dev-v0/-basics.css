@@ -449,7 +449,7 @@ table {
   font-weight: normal;
   font-style: normal;
   font-display: block;
-  src: url("i/icons.woff2?1f80126230cb4d89c396fc2c966cef2b") format("woff2"), url("i/icons.woff?1f80126230cb4d89c396fc2c966cef2b") format("woff");
+  src: url("i/icons.woff2?ad539a3b517719ee43690c70bddb6faa") format("woff2"), url("i/icons.woff?ad539a3b517719ee43690c70bddb6faa") format("woff");
 }
 @font-face {
   font-family: "L15";
@@ -688,6 +688,11 @@ table {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    quotes: "“" "”" "‘" "’";
+  }
+
+  *:lang(is) {
+    quotes: "„" "“" "‚" "‘";
   }
 
   html.modal-open {
@@ -987,8 +992,13 @@ ul > :not(li)::before {
     margin-bottom: var(--baseVerticalMargin);
   }
 
+  caption {
+    text-align: left;
+  }
+
   th,
 td {
+    text-align: left;
     vertical-align: top;
     padding: 0.5rem 1rem;
     color: #727477;

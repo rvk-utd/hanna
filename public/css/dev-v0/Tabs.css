@@ -32,6 +32,13 @@
     border-bottom-color: var(--theme-color-primary--safeish);
   }
 
+  .Tabs__tab__badge {
+    font-size: 12;
+    color: #727477;
+    font-weight: 400;
+    margin-left: 0.25rem;
+  }
+
   .before-sprinkling .TabPanel:not([data-sprinkled]) {
     display: none;
   }

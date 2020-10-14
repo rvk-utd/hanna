@@ -69,6 +69,11 @@
 		font-weight: 400;
 		font-size: px($font-base-size);
 		line-height: px($font-base-leading);
+		// quotes: auto; // Doesn't work in most browsers yet... See: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes#Browser_compatibility
+		quotes: '“' '”' '‘' '’'; // English style as "normal-looking" fallback
+	}
+	*:lang(is) {
+		quotes: '„' '“' '‚' '‘';
 	}
 
 	html.modal-open {
@@ -237,8 +242,12 @@
 		border-collapse: collapse;
 		margin-bottom: $var--baseVerticalMargin;
 	}
+	caption {
+		text-align: left;
+	}
 	th,
 	td {
+		text-align: left;
 		vertical-align: top;
 		padding: prem(1 * $grid-unit) prem(2 * $grid-unit);
 		color: $color-suld-150;
