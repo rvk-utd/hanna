@@ -11,6 +11,7 @@
 - feat: Support `--ImageCards--fallback` variable as primary fallback image
 - feat: Increase the clickable area of `SiteSearchInput`'s text input field
 - feat: Make `.ArticleCarouselCard` use the primary theme color by default
+- fix: Make `.PageFilter--underlap`'s content clickable again
 
 ## 0.7.6
 

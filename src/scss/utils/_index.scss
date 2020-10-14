@@ -16,7 +16,6 @@
 }
 
 @mixin extendBackgroundWithUnderlay($dir: both, $pseudo: before) {
-	z-index: 1;
 	position: relative;
 
 	&::#{$pseudo} {
