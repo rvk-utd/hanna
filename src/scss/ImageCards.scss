@@ -68,6 +68,7 @@
 	}
 	.ImageCards__image--missing {
 		background: var(--ImageCards--fallback, $color-suld-25) 50% 50% / cover no-repeat;
+		box-shadow: 0 0 0x 2px $color-suld-0;
 	}
 	// Hack to apply a differently sized/positioned fallback image
 	// *if* --ImageCards--fallback is undefined/empty
@@ -83,6 +84,7 @@
 	}
 	.ImageCards--background .ImageCards__image--missing {
 		background-color: $color-suld-0;
+		box-shadow: 0 0 0x 2px $color-suld-25;
 	}
 
 	.ImageCards__image > img {
