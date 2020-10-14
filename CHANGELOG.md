@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.7
+
+_2020-10-14_
+
 - feat: Add component `SearchResults`
 - feat: Add component `Attention`
 - feat: Add styling for `.Alert--closable`
