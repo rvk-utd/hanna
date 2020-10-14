@@ -8,6 +8,10 @@
 @use 'Heading';
 @use 'SubHeading';
 
+/*!@deps
+	Attention
+*/
+
 @media screen {
 	.TextBlock {
 		position: relative;

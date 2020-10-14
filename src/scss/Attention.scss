@@ -1,0 +1,29 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.Attention {
+		margin: $var--baseVerticalMargin-2 0;
+
+		@include BodyTextStyle--large();
+		font-weight: $font-weight--bold;
+		border-left: grid-units(1) solid
+			var(--Attention-border-color, $color-heidmork-100);
+		padding-left: calc(0.5 * #{$var--grid-column});
+		padding-right: $var--grid-column;
+	}
+	.Attention--strong {
+		color: var(--Attention-text-color, $color-heidmork-100);
+	}
+
+	.Attention:last-child {
+		// margin-bottom: $var--baseVerticalMargin;
+		margin-bottom: 0;
+	}
+	.Attention > p {
+		margin-bottom: $var--baseVerticalMargin;
+	}
+	.Attention > p:last-child {
+		margin-bottom: 0;
+	}
+}
