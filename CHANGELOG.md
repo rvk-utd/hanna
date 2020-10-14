@@ -9,6 +9,7 @@
 - feat: Add scroll and overflow styling to `BasicTable`'s wrapper
 - feat: Support `--ImageCards--fallback` variable as primary fallback image
 - feat: Increase the clickable area of `SiteSearchInput`'s text input field
+- feat: Make `.ArticleCarouselCard` use the primary theme color by default
 
 ## 0.7.6
 
