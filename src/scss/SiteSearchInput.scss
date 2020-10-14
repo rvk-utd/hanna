@@ -19,12 +19,16 @@
 	}
 
 	.SiteSearchInput > .FormField__input {
-		padding: between_phone_netbook(10, 26) between_phone_netbook(16, 32);
-		padding-right: var(--ssi-height);
+		padding: 0 var(--ssi-height) 0 0;
 		height: auto;
+	}
+	.SiteSearchInput > .FormField__input > input {
+		padding: between_phone_netbook(10, 26) 0;
+		padding-left: between_phone_netbook(16, 32);
 
 		@include media($mq-wide) {
-			padding: 26px var(--ssi-height) 26px 32px;
+			padding: 26px 0;
+			padding-left: 32px;
 		}
 	}
 

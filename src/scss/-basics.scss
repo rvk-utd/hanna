@@ -69,6 +69,11 @@
 		font-weight: 400;
 		font-size: px($font-base-size);
 		line-height: px($font-base-leading);
+		// quotes: auto; // Doesn't work in most browsers yet... See: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes#Browser_compatibility
+		quotes: '“' '”' '‘' '’'; // English style as "normal-looking" fallback
+	}
+	*:lang(is) {
+		quotes: '„' '“' '‚' '‘';
 	}
 
 	html.modal-open {
