@@ -87,10 +87,10 @@
     mkdirp "^0.5.1"
     node-notifier "^5.4.0"
 
-"@hugsmidjan/hxmstyle@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@hugsmidjan/hxmstyle/-/hxmstyle-3.0.0.tgz#d215603b66a3951f80b762084607c841f0c3d9ca"
-  integrity sha512-XsbKJL525r5wRFBVn/RpSDnYbhw+PMIw5JQKchPG/V5u6v/Hmq3bLHijD0fckN/pTxPYT5+eNZvLFxOLIrltLw==
+"@hugsmidjan/hxmstyle@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@hugsmidjan/hxmstyle/-/hxmstyle-3.1.0.tgz#3ca611d4ddb83d93fc2fbd29f463a8d9546b9ff7"
+  integrity sha512-HJgH33XNf/AK7DwjCkBgxmE08Wqj/GDrPkedI2Kfe+oLWcxFUMzOTVgRYF0UV0lAX8B+0sRWyIjzaAB8PqNkog==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
