@@ -6,6 +6,7 @@
 - feat: Add component `SearchResults`
 - feat: Add scroll and overflow styling to `BasicTable`'s wrapper
 - feat: Support `--ImageCards--fallback` variable as primary fallback image
+- feat: Increase the clickable area of `SiteSearchInput`'s text input field
 
 ## 0.7.6
 
