@@ -69,6 +69,12 @@
 		@include SubheadingStyle--small();
 		display: block;
 	}
+	.SearchResults__query::before {
+		content: open-quote;
+	}
+	.SearchResults__query::after {
+		content: close-quote;
+	}
 
 	.SearchResults__list {
 		padding-left: 0;
