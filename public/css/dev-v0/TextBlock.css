@@ -8,6 +8,9 @@
 /*!@deps
 	TextBlock
 */
+/*!@deps
+	Attention
+*/
 @media screen {
   .TextBlock {
     position: relative;

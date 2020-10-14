@@ -26,14 +26,20 @@
 }
 @media screen {
   .SiteSearchInput > .FormField__input {
-    padding: calc(1.5094339623vw + 5.1698113208px) calc(1.5094339623vw + 11.1698113208px);
-    padding-right: var(--ssi-height);
+    padding: 0 var(--ssi-height) 0 0;
     height: auto;
   }
 }
+@media screen {
+  .SiteSearchInput > .FormField__input > input {
+    padding: calc(1.5094339623vw + 5.1698113208px) 0;
+    padding-left: calc(1.5094339623vw + 11.1698113208px);
+  }
+}
 @media screen and (min-width: 1380px) {
-  .SiteSearchInput > .FormField__input {
-    padding: 26px var(--ssi-height) 26px 32px;
+  .SiteSearchInput > .FormField__input > input {
+    padding: 26px 0;
+    padding-left: 32px;
   }
 }
 @media screen {

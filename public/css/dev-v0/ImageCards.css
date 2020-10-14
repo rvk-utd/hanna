@@ -23,7 +23,6 @@
   .ImageCards--background {
     background-color: #f8f8f9;
     padding: calc(9.0566037736vw + 11.0188679245px) 0;
-    z-index: 1;
     position: relative;
   }
   .ImageCards--background::before {
@@ -114,11 +113,30 @@
     position: relative;
     padding-top: 61.7647058824%;
     margin-bottom: calc(0.5660377358vw + 16.1886792453px);
+    background-color: #ffffff;
   }
 }
 @media screen {
   .ImageCards__image--missing {
-    background: #f8f8f9 url("/assets/reykjavik-logo-notext.svg") 50% 50%/auto 48.8095238095% no-repeat;
+    background: var(--ImageCards--fallback, #f8f8f9) 50% 50%/cover no-repeat;
+    box-shadow: 0 0 0x 2px #ffffff;
+  }
+}
+@media screen {
+  .ImageCards__image--missing::before {
+    content: attr(var(--ImageCards--fallback, nothing));
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/assets/reykjavik-logo-notext.svg") 50% 50%/auto 48.8095238095% no-repeat;
+  }
+}
+@media screen {
+  .ImageCards--background .ImageCards__image--missing {
+    background-color: #ffffff;
+    box-shadow: 0 0 0x 2px #f8f8f9;
   }
 }
 @media screen {

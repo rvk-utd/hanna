@@ -146,6 +146,7 @@
     padding: 0;
     width: 100%;
     flex-shrink: 1;
+    height: auto;
     line-height: inherit;
     color: inherit;
   }
