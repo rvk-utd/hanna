@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - feat: Add missing ["Efnistákn"](src/assets/efnistakn/files.json) asset –
   `sund_heiturpottur`
+- fix: Rename `sund_*` efnistákn SVG files – Token names remain unchanged and
+  old SVG files remain, but are unlisted.
 - fix: Tweak fadeout transition for `.Alert--closable`
 
 ## 0.7.7
