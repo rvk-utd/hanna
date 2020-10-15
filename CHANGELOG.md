@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add missing ["Efnistákn"](src/assets/efnistakn/files.json) asset –
+  `sund_heiturpottur`
 - fix: Tweak fadeout transition for `.Alert--closable`
 
 ## 0.7.7
