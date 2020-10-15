@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `FeatureList`
 - feat: Add missing ["Efnistákn"](src/assets/efnistakn/files.json) asset –
   `sund_heiturpottur`
 - fix: Rename `sund_*` efnistákn SVG files – Token names remain unchanged and
