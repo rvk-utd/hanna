@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Tweak fadeout transition for `.Alert--closable`
 
 ## 0.7.7
 
