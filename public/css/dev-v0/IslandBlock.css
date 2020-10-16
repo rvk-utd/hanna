@@ -1,9 +1,9 @@
 @media screen {
   .IslandBlock {
-    margin-bottom: calc(13.6853448276% + 1.6810344828px);
     display: flex;
     flex-flow: column-reverse;
     justify-content: space-between;
+    margin-bottom: calc(13.6853448276% + 1.6810344828px);
   }
 
   .IslandBlock__image,

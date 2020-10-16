@@ -4,6 +4,7 @@
 */
 @media screen {
   .SiteSearchInput {
+    margin-bottom: 3.5rem;
     --ssi-height: calc(3.0188679245vw + 54.3396226415px);
   }
 }

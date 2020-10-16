@@ -2,6 +2,10 @@
 	CarouselStepper
 */
 @media screen {
+  .ArticleCarousel {
+    margin-bottom: calc(9.6982758621% + 12.8448275862px);
+  }
+
   .ArticleCarousel__title {
     font-weight: 700;
     font-size: var(--font-hd-m-size);

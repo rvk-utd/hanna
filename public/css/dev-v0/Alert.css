@@ -135,6 +135,12 @@
   }
 }
 @media screen {
+  .Alert--closable[hidden]::before {
+    transition: opacity 100ms ease-in-out;
+    opacity: 0;
+  }
+}
+@media screen {
   .Alert__close {
     overflow: hidden;
     white-space: nowrap;
@@ -145,6 +151,7 @@
     height: 2.625rem;
     line-height: 2.5rem;
     transition: all 200ms ease-in-out;
+    transition-property: font-size, opacity;
     font-size: 0.75rem;
     opacity: 0.67;
   }
@@ -181,6 +188,11 @@
     letter-spacing: 0;
     margin-right: 1px;
     width: 100%;
+  }
+}
+@media screen {
+  [hidden] > .Alert__close {
+    opacity: 0;
   }
 }
 /*# sourceMappingURL=Alert.css.map */
