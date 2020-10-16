@@ -7,6 +7,7 @@
 - feat: Add missing ["Efnistákn"](src/assets/efnistakn/files.json) asset –
   `sund_heiturpottur`
 - feat: Tweak styling of `.ImageCards__image--missing` fallback
+- fix: Tweak vertical spacing between components
 - fix: Rename `sund_*` efnistákn SVG files – Token names remain unchanged and
   old SVG files remain, but are unlisted.
 - fix: Tweak fadeout transition for `.Alert--closable`

@@ -14,8 +14,9 @@
 		--ImageCards--fallback: url('/assets/illustrations/esjan.png');
 
 		@include CardBlock();
-		margin-bottom: between_cols(60, 100);
+		margin-bottom: between_cols(60, 110);
 	}
+
 	.ImageCards--background {
 		background-color: $color-suld-25;
 		padding: between_phone_netbook(40, 136) 0;

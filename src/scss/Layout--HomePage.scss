@@ -5,6 +5,18 @@
 */
 
 @media screen {
+	.Layout--HomePage .RowBlock {
+		margin-bottom: between_cols(70, 200);
+	}
+
+	// ---------------------------------------------------------------------------
+
+	.Layout--HomePage .GridBlocks {
+		margin-bottom: between_cols(40, 170);
+	}
+
+	// ---------------------------------------------------------------------------
+
 	.Layout--HomePage .ExtraLinks::before {
 		border-left: 0;
 	}

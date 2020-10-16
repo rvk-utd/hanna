@@ -9,10 +9,11 @@
 	.GridBlocks {
 		display: flex;
 		flex-wrap: wrap;
+		margin-bottom: between_cols(40, 120);
 	}
 
 	.GridBlocks__item {
-		margin-bottom: prem(40);
+		margin: prem(20) 0;
 		display: flex;
 		flex-flow: column;
 		align-items: flex-start;

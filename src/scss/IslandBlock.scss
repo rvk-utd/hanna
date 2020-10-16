@@ -5,10 +5,10 @@
 
 @media screen {
 	.IslandBlock {
-		margin-bottom: between_cols(40, 167);
 		display: flex;
 		flex-flow: column-reverse;
 		justify-content: space-between;
+		margin-bottom: between_cols(40, 167);
 	}
 
 	.IslandBlock__image,
