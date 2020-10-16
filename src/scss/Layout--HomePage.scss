@@ -11,6 +11,29 @@
 
 	// ---------------------------------------------------------------------------
 
+	.ScrollCTA {
+		display: none;
+		margin-top: between_container(-30, -80);
+		margin-bottom: between_container(30, 210);
+		font-size: $font-size-12;
+		font-weight: $font-weight--bold;
+
+		@include media($mq-tablet_up) {
+			display: block !important;
+		}
+	}
+	.ScrollCTA::after {
+		@include icon($icons-chevron-down);
+		display: block;
+		margin-top: prem(6);
+		width: 1em;
+		height: 1em;
+		line-height: 1em;
+		color: $color-faxafloi-100;
+	}
+
+	// ---------------------------------------------------------------------------
+
 	.Layout--HomePage .GridBlocks {
 		margin-bottom: between_cols(40, 170);
 	}
