@@ -121,8 +121,7 @@
   .Gallery__track,
 .Gallery__items {
     display: flex;
-    flex-wrap: nowrap;
-    flex-flow: row-reverse;
+    flex-flow: row-reverse nowrap;
     margin-left: -1.25rem;
     margin-right: -1.25rem;
     will-change: transform;

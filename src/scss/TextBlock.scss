@@ -7,6 +7,7 @@
 @use 'PageHeading';
 @use 'Heading';
 @use 'SubHeading';
+@use 'Sharpie';
 
 /*!@deps
 	Attention
@@ -75,3 +76,4 @@
 @include PageHeading.css();
 @include Heading.css();
 @include SubHeading.css();
+@include Sharpie.css();

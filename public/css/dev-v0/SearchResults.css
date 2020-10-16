@@ -18,7 +18,6 @@
   .SearchResults {
     position: relative;
     margin-left: auto;
-    padding-top: 1rem;
   }
 }
 @media screen {

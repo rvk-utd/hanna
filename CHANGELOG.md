@@ -4,6 +4,22 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.7.8
+
+_2020-10-16_
+
+- feat: Add component `FeatureList`
+- feat: Add component `Sharpie` (for presentational text coloring)
+- feat: Add styling for `.InfoHero__titleblurb`
+- feat: Add missing ["Efnistákn"](src/assets/efnistakn/files.json) asset –
+  `sund_heiturpottur`
+- feat: Tweak styling of `.ImageCards__image--missing` fallback
+- feat: Add custom `.ScrollCTA` styling on `.Layout--HomePage`
+- fix: Tweak vertical spacing between components
+- fix: Rename `sund_*` efnistákn SVG files – Token names remain unchanged and
+  old SVG files remain, but are unlisted.
+- fix: Tweak fadeout transition for `.Alert--closable`
+
 ## 0.7.7
 
 _2020-10-14_

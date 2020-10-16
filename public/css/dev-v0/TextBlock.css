@@ -9,6 +9,9 @@
 	TextBlock
 */
 /*!@deps
+	TextBlock
+*/
+/*!@deps
 	Attention
 */
 @media screen {
@@ -446,6 +449,48 @@
     background-color: rgba(255, 230, 230, 0.5) !important;
     padding: 0 0.5em !important;
     content: "Only use <H2/> or lower for .SubHeading" !important;
+  }
+}
+@media screen {
+  p.Sharpie,
+ol.Sharpie,
+ul.Sharpie,
+li.Sharpie,
+div.Sharpie {
+    color: inherit;
+  }
+  p.Sharpie,
+ol.Sharpie,
+ul.Sharpie,
+li.Sharpie,
+div.Sharpie {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  p.Sharpie::before,
+ol.Sharpie::before,
+ul.Sharpie::before,
+li.Sharpie::before,
+div.Sharpie::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Only use `Sharpie` on inline elements" !important;
+  }
+
+  .Sharpie--green {
+    color: #0a662b;
+  }
+
+  .Sharpie--red {
+    color: #d8222f;
   }
 }
 /*# sourceMappingURL=TextBlock.css.map */

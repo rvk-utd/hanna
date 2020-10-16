@@ -8,14 +8,16 @@
 @media screen {
 	.GridBlocks {
 		display: flex;
-		flex-wrap: wrap;
+		flex-flow: row wrap;
+		margin-bottom: between_cols(40, 120);
 	}
 
 	.GridBlocks__item {
-		margin-bottom: prem(40);
+		margin: prem(20) 0;
 		display: flex;
 		flex-flow: column;
 		align-items: flex-start;
+		width: 100%;
 	}
 
 	.GridBlocks__illustration {
@@ -48,18 +50,19 @@
 	}
 }
 
-@media #{$mq-phone_tablet} {
-	.GridBlocks__item:nth-child(2n + 1) {
-		margin-left: 0;
-	}
-}
+// ---------------------------------------------------------------------------
 
 @media #{$mq-phablet_tablet} {
 	.GridBlocks__item {
 		width: 46%;
 		margin-left: 8%;
 	}
+	.GridBlocks__item:nth-child(2n + 1) {
+		margin-left: 0;
+	}
 }
+
+// ---------------------------------------------------------------------------
 
 @media #{$mq-netbook_up} {
 	.GridBlocks__item {

@@ -3,7 +3,8 @@
 */
 @media screen {
   .ImageCards {
-    margin-bottom: calc(4.3103448276% + 47.9310344828px);
+    --ImageCards--fallback: url("/assets/illustrations/esjan.png");
+    margin-bottom: calc(5.3879310345% + 44.9137931034px);
   }
 }
 @media screen and (min-width: 760px) {
@@ -118,25 +119,10 @@
 }
 @media screen {
   .ImageCards__image--missing {
-    background: var(--ImageCards--fallback, #f8f8f9) 50% 50%/cover no-repeat;
-    box-shadow: 0 0 0x 2px #ffffff;
-  }
-}
-@media screen {
-  .ImageCards__image--missing::before {
-    content: attr(var(--ImageCards--fallback, nothing));
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("/assets/reykjavik-logo-notext.svg") 50% 50%/auto 48.8095238095% no-repeat;
-  }
-}
-@media screen {
-  .ImageCards--background .ImageCards__image--missing {
-    background-color: #ffffff;
-    box-shadow: 0 0 0x 2px #f8f8f9;
+    border: 0.75rem solid transparent;
+    padding-top: calc(61.7647058824% - 1.5rem);
+    background: #ffffff var(--ImageCards--fallback) 50% 50%/contain no-repeat;
+    background-clip: padding-box;
   }
 }
 @media screen {

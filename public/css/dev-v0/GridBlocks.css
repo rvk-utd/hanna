@@ -4,14 +4,16 @@
 @media screen {
   .GridBlocks {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+    margin-bottom: calc(8.6206896552% + 15.8620689655px);
   }
 
   .GridBlocks__item {
-    margin-bottom: 2.5rem;
+    margin: 1.25rem 0;
     display: flex;
     flex-flow: column;
     align-items: flex-start;
+    width: 100%;
   }
 
   .GridBlocks__illustration {
@@ -43,15 +45,14 @@
     margin-bottom: 1.5rem;
   }
 }
-@media screen and (max-width: 979px) {
-  .GridBlocks__item:nth-child(2n+1) {
-    margin-left: 0;
-  }
-}
 @media screen and (min-width: 480px) and (max-width: 979px) {
   .GridBlocks__item {
     width: 46%;
     margin-left: 8%;
+  }
+
+  .GridBlocks__item:nth-child(2n+1) {
+    margin-left: 0;
   }
 }
 @media screen and (min-width: 980px) {

@@ -36,8 +36,7 @@
 	.Gallery__track, // @deprected  Will be removed in v0.8
 	.Gallery__items {
 		display: flex;
-		flex-wrap: nowrap;
-		flex-flow: row-reverse;
+		flex-flow: row-reverse nowrap;
 
 		margin-left: -(prem($grid-gutter / 2));
 		margin-right: -(prem($grid-gutter / 2));
