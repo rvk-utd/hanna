@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `FeatureList`
 - feat: Add component `Sharpie` (for presentational text coloring)
+- feat: Add styling for `.InfoHero__titleblurb`
 - feat: Add missing ["Efnistákn"](src/assets/efnistakn/files.json) asset –
   `sund_heiturpottur`
 - feat: Tweak styling of `.ImageCards__image--missing` fallback

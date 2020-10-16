@@ -1,5 +1,6 @@
 /*!@deps
 	ButtonTertiary
+	Sharpie
 	Bling
 */
 @use 'globals' as *;
@@ -63,6 +64,10 @@
 		@include HeadingStyle--large();
 		margin-bottom: px_pct(40, 5);
 	}
+	.InfoHero__titleblurb {
+		margin-top: px_pct(-32, 5);
+		margin-bottom: px_pct(24, 5);
+	}
 	.InfoHero__subtitle {
 		@include SubheadingStyle--large();
 		margin-bottom: prem(8);
@@ -70,10 +75,11 @@
 	.InfoHero__blurb {
 		@include BodyTextStyle--large();
 		color: $color-suld-150;
-		margin-top: prem(8);
+		margin-bottom: prem(8);
 	}
+
 	.InfoHero__buttons {
-		margin-top: prem(35);
+		margin-top: prem(32);
 	}
 	.InfoHero__buttons > .ButtonTertiary {
 		display: block;
