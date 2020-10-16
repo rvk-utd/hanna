@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.8
+
+_2020-10-16_
+
 - feat: Add component `FeatureList`
 - feat: Add component `Sharpie` (for presentational text coloring)
 - feat: Add styling for `.InfoHero__titleblurb`
