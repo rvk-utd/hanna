@@ -22,7 +22,7 @@
 			--show-grid-lines: '';
 		}
 		.Layout:hover {
-			--show-grid-lines: none;
+			--show-grid-lines: initial;
 		}
 		.Layout::after {
 			content: var(--show-grid-lines, none);
