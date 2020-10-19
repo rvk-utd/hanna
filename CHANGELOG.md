@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add 109 new ["Illustration"](src/assets/illustrations/files.json)
+  assets, with "tags" info added
 
 ## 0.7.8
 
