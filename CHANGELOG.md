@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add 109 new ["Illustration"](src/assets/illustrations/files.json)
   assets, with "tags" info added
+- fix: Make `.ImageCards__image--missing` background border visible
 
 ## 0.7.8
 
