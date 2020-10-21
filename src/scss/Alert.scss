@@ -38,7 +38,7 @@
 			left: prem(25);
 		}
 	}
-	.Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error) {
+	.Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical) {
 		@include WARNING__('"Type" modifier class-name is missing', $pos: after);
 	}
 	.Alert:not([role='alert']) {
@@ -49,6 +49,7 @@
 	// 	.Alert--info {
 	// }
 
+	.Alert--critical,
 	.Alert--error {
 		--Alert-background: #{mix($color-heidmork-50, white, 50%)}; // a11y hax
 		--Alert-icon-color: #{$color-heidmork-100};
