@@ -13,6 +13,7 @@
 
 	.Tabs__tab {
 		@include LinkStyle_Reset(true);
+		white-space: nowrap;
 		border-bottom: 4px solid $color-suld-50;
 		margin-bottom: -4px;
 		padding: between_cols(5, 20) between_cols(15, 40);
