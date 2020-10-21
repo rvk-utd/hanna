@@ -83,7 +83,7 @@
 		max-height: 1000px;
 
 		overflow: hidden;
-		padding-right: prem(30);
+		padding-right: prem(25);
 
 		@include media($mq-tablet_up) {
 			padding-right: prem(48);
@@ -111,19 +111,20 @@
 		@include hideText(soft);
 		position: absolute;
 		top: prem(3);
-		right: prem(-6);
+		right: prem(-7);
 		width: prem(42);
 		height: prem(42);
 		line-height: prem(40);
-		transition: all 200ms ease-in-out;
+		transition: all 150ms ease-in-out;
 		transition-property: font-size, opacity;
-		font-size: prem(12);
+		font-size: prem(9);
 		opacity: 0.67;
 
 		@include media($mq-tablet_up) {
 			opacity: 1;
 			top: prem(7);
 			right: prem(6);
+			font-size: prem(12);
 		}
 	}
 	.Alert__close:hover,
