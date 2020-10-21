@@ -1,4 +1,5 @@
 @use '_globals' as *;
+@use 'styles/links' as *;
 
 @media screen {
 	.Alert {
@@ -88,7 +89,7 @@
 			padding-right: prem(48);
 		}
 	}
-	.Alert--closable[hidden] {
+	.Alert--closable[hidden][hidden] {
 		display: block; // override default :hidden styling
 		transition-delay: 0ms 0ms $closing-duration;
 		opacity: 0;
@@ -100,15 +101,16 @@
 		visibility: hidden;
 	}
 
-	.Alert--closable[hidden]::before {
+	.Alert--closable[hidden][hidden]::before {
 		transition: opacity 100ms ease-in-out;
 		opacity: 0;
 	}
 
 	.Alert__close {
+		@include LinkStyle_Reset(false);
 		@include hideText(soft);
 		position: absolute;
-		top: prem(-6);
+		top: prem(3);
 		right: prem(-6);
 		width: prem(42);
 		height: prem(42);
