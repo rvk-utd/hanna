@@ -26,22 +26,22 @@
 
 // reset <button> styles for easier custom styling
 @mixin textContent() {
-	> h2 {
+	h2 {
 		@include HeadingStyle--small();
 		margin-bottom: var(--h2--marginBottom, $var--baseVerticalMargin);
 	}
-	> * + h2 {
+	* + h2 {
 		margin-top: var(--h2--marginTop, 1.5em);
 	}
-	> h3 {
+	h3 {
 		@include SubheadingStyle--large();
 		margin-bottom: $var--baseVerticalMargin;
 	}
-	> h4 {
+	h4 {
 		@include SubheadingStyle--small();
 		margin-bottom: $var--baseVerticalMargin;
 	}
-	> p {
+	p {
 		margin-bottom: $var--baseVerticalMargin;
 	}
 	ul {

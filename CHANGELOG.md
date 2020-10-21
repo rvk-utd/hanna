@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add 109 new ["Illustration"](src/assets/illustrations/files.json)
   assets, with "tags" info added
+- feat: Relax content styling inside `TextBlock`, etc to allow more nesting
 - fix: Make `.ImageCards__image--missing` background border visible
 - fix: Prevent line-wrapping inside `.Tabs__tab`
 
