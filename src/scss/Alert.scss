@@ -1,4 +1,5 @@
 @use '_globals' as *;
+@use 'styles/links' as *;
 
 @media screen {
 	.Alert {
@@ -38,7 +39,7 @@
 			left: prem(25);
 		}
 	}
-	.Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error) {
+	.Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical) {
 		@include WARNING__('"Type" modifier class-name is missing', $pos: after);
 	}
 	.Alert:not([role='alert']) {
@@ -49,6 +50,7 @@
 	// 	.Alert--info {
 	// }
 
+	.Alert--critical,
 	.Alert--error {
 		--Alert-background: #{mix($color-heidmork-50, white, 50%)}; // a11y hax
 		--Alert-icon-color: #{$color-heidmork-100};
@@ -81,13 +83,13 @@
 		max-height: 1000px;
 
 		overflow: hidden;
-		padding-right: prem(30);
+		padding-right: prem(25);
 
 		@include media($mq-tablet_up) {
 			padding-right: prem(48);
 		}
 	}
-	.Alert--closable[hidden] {
+	.Alert--closable[hidden][hidden] {
 		display: block; // override default :hidden styling
 		transition-delay: 0ms 0ms $closing-duration;
 		opacity: 0;
@@ -99,28 +101,30 @@
 		visibility: hidden;
 	}
 
-	.Alert--closable[hidden]::before {
+	.Alert--closable[hidden][hidden]::before {
 		transition: opacity 100ms ease-in-out;
 		opacity: 0;
 	}
 
 	.Alert__close {
+		@include LinkStyle_Reset(false);
 		@include hideText(soft);
 		position: absolute;
-		top: prem(-6);
-		right: prem(-6);
+		top: prem(3);
+		right: prem(-7);
 		width: prem(42);
 		height: prem(42);
 		line-height: prem(40);
-		transition: all 200ms ease-in-out;
+		transition: all 150ms ease-in-out;
 		transition-property: font-size, opacity;
-		font-size: prem(12);
+		font-size: prem(9);
 		opacity: 0.67;
 
 		@include media($mq-tablet_up) {
 			opacity: 1;
 			top: prem(7);
 			right: prem(6);
+			font-size: prem(12);
 		}
 	}
 	.Alert__close:hover,

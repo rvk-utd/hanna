@@ -4,6 +4,18 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.7.9
+
+_2020-10-22_
+
+- feat: Add support for `.Layout__alerts` and `.Layout__content`
+- feat: Add styling for `.Alert--alert` state (alias for `--error`)
+- feat: Add 109 new ["Illustration"](src/assets/illustrations/files.json)
+  assets, with "tags" info added
+- feat: Relax content styling inside `TextBlock`, etc to allow more nesting
+- fix: Make `.ImageCards__image--missing` background border visible
+- fix: Prevent line-wrapping inside `.Tabs__tab`
+
 ## 0.7.8
 
 _2020-10-16_

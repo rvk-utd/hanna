@@ -48,12 +48,13 @@ $_numCols: 12 !default;
 	$gutterColor: rgba(white, 0.06)
 ) {
 	@if (isDevMode()) {
+		$colPct: pct($_columnWidth / ($_columnWidth + $_gutterWidth));
 		background-image: linear-gradient(
 			90deg,
 			$columnColor 0,
-			$columnColor px($_columnWidth),
-			$gutterColor px($_columnWidth),
-			$gutterColor px($_columnWidth + $_gutterWidth)
+			$columnColor $colPct,
+			$gutterColor $colPct,
+			$gutterColor 100%
 		);
 		background-size: cols_pct(1, 1) 100%;
 	}

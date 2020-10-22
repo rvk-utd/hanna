@@ -74,7 +74,6 @@
 		border: $borderW solid transparent;
 		padding-top: calc(#{pct(168/272)} - #{2 * $borderW});
 		background: $color-suld-0 var(--ImageCards--fallback) 50% 50% / contain no-repeat;
-		background-clip: padding-box;
 	}
 
 	.ImageCards__image > img {
