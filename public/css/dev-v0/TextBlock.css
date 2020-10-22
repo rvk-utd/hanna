@@ -144,13 +144,13 @@
   }
 }
 @media screen {
-  .TextBlock--labelled > h2 {
+  .TextBlock--labelled h2 {
     font-weight: 700;
     font-size: var(--font-hd-s-size);
     line-height: var(--font-hd-s-leading);
     display: flex;
   }
-  .TextBlock--labelled > h2::before {
+  .TextBlock--labelled h2::before {
     content: "";
     float: left;
     flex-shrink: 0;
@@ -171,7 +171,7 @@
     width: 56.9536423841%;
   }
 
-  .TextBlock--labelled > h2 {
+  .TextBlock--labelled h2 {
     display: block;
     position: relative;
     --dash-width: calc(0.45 * var(--grid-edge));

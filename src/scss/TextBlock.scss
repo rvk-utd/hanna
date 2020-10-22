@@ -27,7 +27,7 @@
 
 	// ---------------------------------------------------------------------------
 
-	.TextBlock--labelled > h2 {
+	.TextBlock--labelled h2 {
 		@include LabeledTitleStyle--basics($margin: false);
 	}
 	@include media($mq-tablet_up) {
@@ -38,7 +38,7 @@
 			margin-left: auto;
 			width: cols_pct(7);
 		}
-		.TextBlock--labelled > h2 {
+		.TextBlock--labelled h2 {
 			@include LabeledTitleStyle--outdented();
 			height: 0;
 			margin-left: cols_pct(-5, -5, 7);
