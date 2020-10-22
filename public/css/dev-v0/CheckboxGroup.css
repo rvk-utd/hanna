@@ -210,7 +210,7 @@
   }
 
   .Radio__input:checked + .Radio__label::before {
-    content: "";
+    content: "";
     border-color: transparent;
     background-color: #0372e1;
     color: #ffffff;

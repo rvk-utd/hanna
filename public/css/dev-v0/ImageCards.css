@@ -122,7 +122,6 @@
     border: 0.75rem solid transparent;
     padding-top: calc(61.7647058824% - 1.5rem);
     background: #ffffff var(--ImageCards--fallback) 50% 50%/contain no-repeat;
-    background-clip: padding-box;
   }
 }
 @media screen {
