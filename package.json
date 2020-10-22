@@ -1,6 +1,6 @@
 {
 	"name": "rvk-styles",
-	"version": "0.7.8",
+	"version": "0.7.9",
 	"main": "index.js",
 	"license": "MIT",
 	"private": true,

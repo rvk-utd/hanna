@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.9
+
+_2020-10-22_
+
 - feat: Add support for `.Layout__alerts` and `.Layout__content`
 - feat: Add styling for `.Alert--alert` state (alias for `--error`)
 - feat: Add 109 new ["Illustration"](src/assets/illustrations/files.json)
