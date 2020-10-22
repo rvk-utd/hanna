@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add support for `.Layout__alerts` and `.Layout__content`
 - feat: Add styling for `.Alert--alert` state (alias for `--error`)
 - feat: Add 109 new ["Illustration"](src/assets/illustrations/files.json)
   assets, with "tags" info added

@@ -1,5 +1,6 @@
 @use '_globals' as *;
 @use 'styles/header' as *;
+@use 'styles/links' as *;
 
 @media screen {
 	body {
@@ -8,23 +9,38 @@
 
 	.Layout {
 		min-height: 100vh;
+		width: 100%;
+		max-width: prem($grid-contentMaxWidth);
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.Layout__alerts {
+	}
+	.Layout__alerts .Alert {
+		margin: grid-units(2) prem(-15);
+		@include media($mq-tablet_up) {
+			margin: grid-units(2) 0 0 0;
+		}
+	}
+
+	.Layout__content {
+		min-height: 100vh;
 		display: flex;
 		flex-flow: column nowrap;
 		// align-items: center;
 		position: relative;
 		padding-top: $var--Layout__header-height;
-		width: 100%;
-		max-width: prem($grid-contentMaxWidth);
-		margin: 0 auto;
 	}
+
 	@if (getEnv('NODE_ENV') == '') {
 		body:hover {
 			--show-grid-lines: '';
 		}
-		.Layout:hover {
+		.Layout__content:hover {
 			--show-grid-lines: initial;
 		}
-		.Layout::after {
+		.Layout__content::after {
 			content: var(--show-grid-lines, none);
 			pointer-events: none;
 			position: absolute;
@@ -118,3 +134,20 @@
 		@include sr-only-focusable();
 	}
 }
+
+// ===========================================================================
+// BEGIN @deprecated  (remove in v0.8)
+// Styles to make the addition of .Layout__content non-breaking
+.Layout {
+	display: flex;
+	flex-flow: column nowrap;
+	padding-top: $var--Layout__header-height;
+}
+.Layout__alerts {
+	margin-top: calc(-1 * #{$var--Layout__header-height});
+	margin-bottom: $var--Layout__header-height;
+}
+.Layout__content {
+	margin-top: calc(-1 * #{$var--Layout__header-height});
+}
+/* END @deprecated*/
