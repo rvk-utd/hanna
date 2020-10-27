@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Instantly show `.Gallery` once it has been "sprinkled"
 
 ## 0.7.9 – 0.7.10
 

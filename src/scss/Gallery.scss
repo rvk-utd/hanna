@@ -8,13 +8,12 @@
 */
 
 @media screen {
-	html.before-sprinkling {
-		.Gallery {
-			opacity: 0;
-		}
+	html.before-sprinkling .Gallery:not([data-sprinkled]) {
+		opacity: 0;
 
-		.GalleryItem__image {
-			position: static;
+		// fake space for the CarouselStepper
+		@include media($mq-tablet_up) {
+			padding-bottom: prem(24 + 8);
 		}
 	}
 
