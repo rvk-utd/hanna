@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Instantly show `.Gallery` once it has been "sprinkled"
+- fix: Improve `ArticleCarousel` + `Gallery` mobile and unscripted styling
 
 ## 0.7.9 – 0.7.10
 
