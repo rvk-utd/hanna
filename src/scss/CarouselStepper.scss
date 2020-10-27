@@ -50,10 +50,14 @@
 		}
 	}
 
+	.CarouselStepper__button:hover,
+	.CarouselStepper__button:focus {
+		background: $color-suld-150;
+		transform: scaleY((20/24));
+	}
+
 	.CarouselStepper__button[aria-pressed='true'] {
-		@include media($mq-tablet_up) {
-			background: $var--color-theme-primary;
-			transform: none;
-		}
+		background: $var--color-theme-primary;
+		transform: none;
 	}
 }
