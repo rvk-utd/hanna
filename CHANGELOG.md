@@ -7,6 +7,7 @@
   make it more resilent to overlapping other content
 - feat: Styling for `.Layout__nav` and `MainMenu` toggling on small screens
 - fix: Improve `ArticleCarousel` + `Gallery` mobile and unscripted styling
+- fix: Prevent `button.Tabs__tab`'s widths collapsing in Chrome
 
 ## 0.7.9 – 0.7.10
 
