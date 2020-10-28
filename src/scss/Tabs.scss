@@ -20,7 +20,7 @@
 		// NOTE: left/right paddings must *NOT* be %-based because
 		// it triggers a Chrome bug that collapses the width of <button/> flex-items
 		// ARGH!...  --Már @ 2020-10-28
-		padding: between_cols(5, 20) between_phone_up(15, 40);
+		padding: between_cols(5, 20) between_phone_netbook(15, 40);
 		@include media($mq-wide) {
 			padding-left: 40px;
 			padding-right: 40px;
