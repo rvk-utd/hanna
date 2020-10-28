@@ -6,9 +6,29 @@
 	@include hideText(soft);
 	display: block;
 	width: prem(182);
+	height: prem(53);
 
 	& > img {
 		width: 100%;
+		height: 100%;
 		display: inline-block;
+		vertical-align: top;
+		object-fit: contain;
+		object-position: 0% 50%;
+		margin-right: prem(10);
+		margin-left: -1px;
+	}
+
+	@include media($mq-Hamburger) {
+		margin: prem(-10) prem(-20);
+		padding: prem(10) prem(20);
+		overflow: hidden;
+		box-sizing: content-box;
+		width: prem(35);
+
+		& > img {
+			object-fit: cover;
+			margin-right: prem(21);
+		}
 	}
 }
