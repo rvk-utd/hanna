@@ -61,6 +61,7 @@
     font-size: var(--font-hd-s-size);
     line-height: var(--font-hd-s-leading);
     margin-bottom: var(--h2--marginBottom, var(--baseVerticalMargin));
+    clear: both;
   }
 }
 @media screen {
@@ -74,6 +75,7 @@
     font-size: var(--font-sh-l-size);
     line-height: var(--font-sh-l-leading);
     margin-bottom: var(--baseVerticalMargin);
+    clear: both;
   }
 }
 @media screen {

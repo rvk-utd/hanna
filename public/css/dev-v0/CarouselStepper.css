@@ -1,11 +1,8 @@
 @media screen {
   .CarouselStepper {
-    display: none;
-  }
-}
-@media screen and (min-width: 760px) {
-  .CarouselStepper {
-    margin-left: auto;
+    --CarouselStepper--align-left: auto;
+    margin-right: -0.25rem;
+    margin-left: var(--CarouselStepper--align-left, -0.25rem);
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
@@ -14,15 +11,13 @@
     padding-top: 0.5rem;
     height: 2rem;
   }
-}
-@media screen and (min-width: 760px) {
+
   .CarouselStepper__button {
     flex: none;
     position: relative;
     width: 8px;
     height: 100%;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin: 0 0.25rem;
     overflow: hidden;
     white-space: nowrap;
     background: #c0ddf7;
@@ -31,14 +26,13 @@
     transition: transform 100ms ease-in-out;
     text-indent: 9px;
   }
-  .CarouselStepper__button:first-child {
-    margin-left: 0;
+
+  .CarouselStepper__button:hover,
+.CarouselStepper__button:focus {
+    background: #727477;
+    transform: scaleY(0.8333333333);
   }
-  .CarouselStepper__button:last-child {
-    margin-right: 0;
-  }
-}
-@media screen and (min-width: 760px) {
+
   .CarouselStepper__button[aria-pressed=true] {
     background: var(--theme-color-primary);
     transform: none;
