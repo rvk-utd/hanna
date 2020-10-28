@@ -33,26 +33,6 @@
 		padding-top: $var--Layout__header-height;
 	}
 
-	@if (getEnv('NODE_ENV') == '') {
-		body:hover {
-			--show-grid-lines: '';
-		}
-		.Layout__content:hover {
-			--show-grid-lines: initial;
-		}
-		.Layout__content::after {
-			content: var(--show-grid-lines, none);
-			pointer-events: none;
-			position: absolute;
-			z-index: $zIndex--modal + 100;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			@include showColumnGridLines();
-		}
-	}
-
 	.Layout__header {
 		position: absolute;
 		top: 0;
@@ -80,7 +60,7 @@
 		padding-top: between_cols(20, 100);
 		padding-bottom: between_cols(20, 70);
 
-		@media #{$mq-tablet_up} {
+		@include media($mq-tablet_up) {
 			padding-left: cols_pct(1, 1);
 		}
 	}
@@ -88,12 +68,11 @@
 	.Layout__footer::before {
 		content: '';
 		display: block;
-		margin: prem(12) auto;
-		margin-bottom: prem(30);
+		margin: prem(11) auto prem(29) auto;
 		background: url($logo-notext-url) 0 0 no-repeat;
 		background-size: auto 100%;
-		width: prem(33);
-		height: prem(51);
+		width: prem(35);
+		height: prem(53);
 
 		@media #{$mq-tablet_up} {
 			position: absolute;
@@ -106,24 +85,99 @@
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
-	.Layout__header__skiplink {
-		margin-left: auto;
+	html.menu-is-open {
+		overflow-y: hidden;
+		padding-right: $var--browser-scrollbar-width;
 	}
 
-	// TODO: This needs more work.
-	html.before-sprinkling .Layout__nav > *:not(.BreadCrumbs),
-	// .Layout[data-sprinkled] > .Layout__nav > *:not(.BreadCrumbs),
-	html.menu-is-active  .Layout__nav > *:not(.BreadCrumbs) {
-		display: none;
+	.Layout__header {
+		width: 100%;
+		transition: left 300ms 0ms ease-in-out;
 	}
-	html.menu-is-open .Layout__nav > *:not(.BreadCrumbs) {
-		display: block;
+
+	html.menu-is-open .Layout__header {
+		position: fixed;
+		top: 0;
+		left: grid-units(1);
+		right: 0;
+		padding-left: $var--grid-edge;
+		transition-delay: 0ms;
+		pointer-events: none;
 	}
-	html.menu-is-open .Layout__main {
-		display: none;
+	.Layout__header__logo,
+	.Layout__header__skiplink {
+		pointer-events: auto;
+	}
+
+	.Layout__header__skiplink[class] {
+		@include hideText(soft);
+		@include LinkStyle_Reset(true);
+		position: fixed;
+		right: $var--grid-edge;
+		bottom: grid-units(3);
+		background-color: $color-faxafloi-100;
+		color: $color-suld-0;
+		width: prem(48);
+		height: prem(48);
+		line-height: prem(48);
+		transition-duration: 250ms;
+		--open-icon-color: _inherit;
+		--close-icon-color: transparent;
+	}
+	html.menu-is-open .Layout__header__skiplink {
+		--open-icon-color: transparent;
+		--close-icon-color: _inherit;
+		margin-right: $var--browser-scrollbar-width;
+	}
+
+	.Layout__header__skiplink:hover,
+	.Layout__header__skiplink:focus,
+	.Layout__header__skiplink:active {
+		background-color: $color-faxafloi-150;
+		box-shadow: 0 0 15px rgba(#000, 0.2);
+	}
+
+	.Layout__header__skiplink::before,
+	.Layout__header__skiplink::after {
+		@include icon();
+		width: 100%;
+		margin-right: 1px;
+		content: $icons-menu;
+		font-size: prem(24);
+		color: var(--open-icon-color);
+		transition: inherit;
+	}
+	.Layout__header__skiplink::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: $icons-close;
+		font-size: prem(20);
+		color: var(--close-icon-color);
+	}
+
+	// Page content fadeout during menu open
+	html.menu-is-active .Layout__nav::before {
+		content: '';
+		position: fixed;
+		z-index: $zIndex--header - 1;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background-color: $color-suld-0;
+		opacity: 0;
+		visibility: hidden;
+		transition: (opacity 300ms (200ms) ease-in-out, visibility 0ms (300ms + 200ms));
+	}
+	html.menu-is-open .Layout__nav::before {
+		transition-delay: 0ms;
+		opacity: 1;
+		visibility: visible;
 	}
 
 	.Layout__nav__closebutton {
+		@include sr-only-focusable();
 	}
 }
 
@@ -150,4 +204,26 @@
 .Layout__content {
 	margin-top: calc(-1 * #{$var--Layout__header-height});
 }
-/* END @deprecated*/
+// END @deprecated
+
+// ===========================================================================
+// Grid helper
+@if (getEnv('NODE_ENV') == '') {
+	body:hover {
+		--show-grid-lines: '';
+	}
+	.Layout__content:hover {
+		--show-grid-lines: initial;
+	}
+	.Layout__content::after {
+		content: var(--show-grid-lines, none);
+		pointer-events: none;
+		position: absolute;
+		z-index: $zIndex--modal + 100;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		@include showColumnGridLines();
+	}
+}

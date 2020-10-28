@@ -8,29 +8,22 @@
 */
 
 @media screen {
-	html.before-sprinkling {
-		.Gallery {
-			opacity: 0;
-		}
-
-		.GalleryItem__image {
-			position: static;
-		}
+	html.before-sprinkling .Gallery:not([data-sprinkled]) {
+		opacity: 0;
+		// fake space for the CarouselStepper
+		padding-bottom: prem(24 + 8);
 	}
 
 	.Gallery {
-		position: relative;
-
-		overflow-x: scroll;
+		overflow-x: auto;
 		overflow-y: hidden;
+	}
+	.Gallery[data-sprinkled] {
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-end;
-
-		@include media($mq-tablet_up) {
-			width: auto;
-			overflow: visible;
-		}
+		overflow: visible;
 	}
 
 	.Gallery__track, // @deprected  Will be removed in v0.8
@@ -44,10 +37,10 @@
 		will-change: transform;
 
 		transition: transform 300ms ease-out;
-
-		@include media($mq-phone_phablet) {
-			transform: none !important;
-		}
+	}
+	.Gallery:not([data-sprinkled]) .Gallery__items {
+		flex-direction: row;
+		overflow: auto;
 	}
 
 	.Gallerty__track {
@@ -57,28 +50,40 @@
 	// ITEM
 	.GalleryItem {
 		// <figure>
-		flex: none;
 		display: flex;
 		flex-flow: column-reverse;
 
 		margin: 0;
 		padding: 0 prem($grid-gutter / 2);
+
+		--GalleryItem__image--max-width: 280px;
+		--GalleryItem__image--max-height: 240px;
+
+		@include media($mq-tablet_up) {
+			--GalleryItem__image--max-width: var(#{$var--grid-5});
+			// min-width: $var--grid-3;
+			--GalleryItem__image--max-height: var(#{$var--grid-4});
+		}
 	}
 
 	.GalleryItem__button {
-		display: flex;
-		flex-flow: column;
-		justify-content: flex-end;
-		height: $var--grid-4;
 		@include LinkStyle_Reset(true);
 	}
 
-	.GalleryItem__image {
+	.GalleryItem__button,
+	// Image has no __button (link)
+	.GalleryItem > .GalleryItem__image {
+		display: flex;
+		flex-flow: column;
+		justify-content: flex-end;
+		height: var(--GalleryItem__image--max-height);
 	}
+
 	.GalleryItem__image > img {
-		max-width: $var--grid-5;
-		// min-width: $var--grid-3;
-		max-height: $var--grid-4;
+		display: block;
+		margin-top: auto;
+		max-width: var(--GalleryItem__image--max-width);
+		max-height: var(--GalleryItem__image--max-height);
 	}
 
 	.GalleryItem__caption {
@@ -98,9 +103,10 @@
 		display: none;
 	}
 
-	// .Gallery > .CarouselStepper {
-	// 	// Add custom styling here....
-	// }
+	.Gallery > .CarouselStepper {
+		flex-direction: row-reverse;
+		// Add custom styling here....
+	}
 }
 
 // ===========================================================================

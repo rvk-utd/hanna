@@ -95,29 +95,24 @@
 	CarouselStepper
 */
 @media screen {
-  html.before-sprinkling .Gallery {
+  html.before-sprinkling .Gallery:not([data-sprinkled]) {
     opacity: 0;
-  }
-  html.before-sprinkling .GalleryItem__image {
-    position: static;
+    padding-bottom: 2rem;
   }
 
   .Gallery {
-    position: relative;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
+  }
+
+  .Gallery[data-sprinkled] {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-  }
-}
-@media screen and (min-width: 760px) {
-  .Gallery {
-    width: auto;
     overflow: visible;
   }
-}
-@media screen {
+
   .Gallery__track,
 .Gallery__items {
     display: flex;
@@ -127,14 +122,12 @@
     will-change: transform;
     transition: transform 300ms ease-out;
   }
-}
-@media screen and (max-width: 759px) {
-  .Gallery__track,
-.Gallery__items {
-    transform: none !important;
+
+  .Gallery:not([data-sprinkled]) .Gallery__items {
+    flex-direction: row;
+    overflow: auto;
   }
-}
-@media screen {
+
   .Gallerty__track {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
@@ -152,22 +145,24 @@
     padding: 0 0.5em !important;
     content: "Deprecated: use `.Gallery__items` instead" !important;
   }
-}
-@media screen {
+
   .GalleryItem {
-    flex: none;
     display: flex;
     flex-flow: column-reverse;
     margin: 0;
     padding: 0 1.25rem;
+    --GalleryItem__image--max-width: 280px;
+    --GalleryItem__image--max-height: 240px;
+  }
+}
+@media screen and (min-width: 760px) {
+  .GalleryItem {
+    --GalleryItem__image--max-width: var(var(--grid-5));
+    --GalleryItem__image--max-height: var(var(--grid-4));
   }
 }
 @media screen {
   .GalleryItem__button {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-end;
-    height: var(--grid-4);
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
@@ -177,9 +172,20 @@
   }
 }
 @media screen {
+  .GalleryItem__button,
+.GalleryItem > .GalleryItem__image {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    height: var(--GalleryItem__image--max-height);
+  }
+}
+@media screen {
   .GalleryItem__image > img {
-    max-width: var(--grid-5);
-    max-height: var(--grid-4);
+    display: block;
+    margin-top: auto;
+    max-width: var(--GalleryItem__image--max-width);
+    max-height: var(--GalleryItem__image--max-height);
   }
 }
 @media screen {
@@ -196,6 +202,11 @@
 @media screen {
   .GalleryItem__description {
     display: none;
+  }
+}
+@media screen {
+  .Gallery > .CarouselStepper {
+    flex-direction: row-reverse;
   }
 }
 @media screen {

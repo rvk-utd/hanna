@@ -1,59 +1,51 @@
 @use '_globals' as *;
 
 @media screen {
-	.CarouselStepper {
-		// just scroll items in mobile?
-		display: none;
+	$margin: prem(4);
 
-		@include media($mq-tablet_up) {
-			margin-left: auto;
-			width: max-content;
-			display: flex;
-			align-items: flex-end;
-			padding-top: prem(8);
-			height: prem(24 + 8);
-		}
+	.CarouselStepper {
+		--CarouselStepper--align-left: auto;
+		margin-right: -$margin;
+		margin-left: var(--CarouselStepper--align-left, -$margin);
+		width: max-content;
+		display: flex;
+		align-items: flex-end;
+		padding-top: prem(8);
+		height: prem(24 + 8);
 	}
 
 	.CarouselStepper__button {
-		@include media($mq-tablet_up) {
-			flex: none;
+		flex: none;
 
-			position: relative;
+		position: relative;
 
-			width: 8px;
-			height: 100%;
+		width: 8px;
+		height: 100%;
 
-			margin-left: 4px;
-			margin-right: 4px;
+		margin: 0 $margin;
 
-			overflow: hidden;
-			white-space: nowrap;
+		overflow: hidden;
+		white-space: nowrap;
 
-			// should be variable for theming??
-			background: $color-faxafloi-50;
+		// should be variable for theming??
+		background: $color-faxafloi-50;
 
-			transform: scaleY((16/24));
-			transform-origin: bottom center;
+		transform: scaleY((16/24));
+		transform-origin: bottom center;
 
-			transition: transform 100ms ease-in-out;
+		transition: transform 100ms ease-in-out;
 
-			text-indent: 9px;
+		text-indent: 9px;
+	}
 
-			&:first-child {
-				margin-left: 0;
-			}
-
-			&:last-child {
-				margin-right: 0;
-			}
-		}
+	.CarouselStepper__button:hover,
+	.CarouselStepper__button:focus {
+		background: $color-suld-150;
+		transform: scaleY((20/24));
 	}
 
 	.CarouselStepper__button[aria-pressed='true'] {
-		@include media($mq-tablet_up) {
-			background: $var--color-theme-primary;
-			transform: none;
-		}
+		background: $var--color-theme-primary;
+		transform: none;
 	}
 }

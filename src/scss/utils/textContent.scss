@@ -29,6 +29,7 @@
 	h2 {
 		@include HeadingStyle--small();
 		margin-bottom: var(--h2--marginBottom, $var--baseVerticalMargin);
+		clear: both;
 	}
 	* + h2 {
 		margin-top: var(--h2--marginTop, 1.5em);
@@ -36,6 +37,7 @@
 	h3 {
 		@include SubheadingStyle--large();
 		margin-bottom: $var--baseVerticalMargin;
+		clear: both;
 	}
 	h4 {
 		@include SubheadingStyle--small();

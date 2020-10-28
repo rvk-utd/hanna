@@ -16,9 +16,15 @@
 		white-space: nowrap;
 		border-bottom: 4px solid $color-suld-50;
 		margin-bottom: -4px;
-		padding: between_cols(5, 20) between_cols(15, 40);
-		// padding-bottom: between_cols(14, 24);
 		color: $color-suld-200;
+		// NOTE: left/right paddings must *NOT* be %-based because
+		// it triggers a Chrome bug that collapses the width of <button/> flex-items
+		// ARGH!...  --Már @ 2020-10-28
+		padding: between_cols(5, 20) between_phone_netbook(15, 40);
+		@include media($mq-wide) {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
 	}
 	.Tabs__tab:hover,
 	.Tabs__tab:focus,
@@ -36,6 +42,7 @@
 		color: $color-suld-150;
 		font-weight: $font-weight--normal;
 		margin-left: prem(4);
+		margin-right: prem(-8);
 	}
 
 	.before-sprinkling .TabPanel:not([data-sprinkled]) {

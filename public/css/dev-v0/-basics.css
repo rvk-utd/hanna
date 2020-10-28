@@ -570,7 +570,7 @@ table {
     --font-bd-l-leading: 24px;
     --font-bd-s-size: 16px;
     --font-bd-s-leading: 24px;
-    --Layout__header-height: 70px;
+    --Layout__header-height: 99px;
   }
 }
 @media screen and (min-width: 1380px) {
@@ -653,7 +653,7 @@ table {
 }
 @media screen and (min-width: 760px) {
   :root {
-    --Layout__header-height: calc(10.6451612903vw + -10.9032258065px);
+    --Layout__header-height: calc(5.9677419355vw + 53.6451612903px);
   }
 }
 @media screen and (min-width: 1380px) {

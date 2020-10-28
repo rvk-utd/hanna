@@ -13,6 +13,27 @@
     color: #0372e1;
   }
 
+  .MainMenu__item--home {
+    position: absolute;
+    right: 9999px;
+    left: auto;
+  }
+  .MainMenu__item--home a:focus,
+.MainMenu__item--home a:active,
+.MainMenu__item--home button:focus {
+    position: absolute;
+    right: -9999px;
+    z-index: 99999;
+    font-size: 1em;
+    background: #ffffff;
+    border: 3px double 3px double var(--link-color--hover);
+    margin: 0;
+    padding: 0.2em 0.33em;
+    color: var(--link-color--hover);
+    text-shadow: none;
+    white-space: nowrap;
+  }
+
   .MainMenu__link {
     border: 0;
     border-radius: 0;
@@ -35,7 +56,6 @@
     width: -moz-max-content;
     width: max-content;
     font-weight: 700;
-    padding: 0.625rem 0.9375rem 0.5rem 0.9375rem;
   }
   .MainMenu__link:focus {
     outline: none;
@@ -47,6 +67,14 @@
   }
   .MainMenu__link:focus {
     outline: var(--link-focus-outline);
+  }
+
+  .MainMenu__link[aria-pressed=true] {
+    border-bottom-color: #c0ddf7;
+  }
+
+  .MainMenu__link[aria-pressed=true]:focus {
+    border-bottom-color: currentColor;
   }
 
   .MainMenu__link::before {
@@ -72,6 +100,218 @@
 
   .MainMenu__item--search > .MainMenu__link::before {
     content: "";
+  }
+}
+@media screen and (max-width: 759px) {
+  html.before-sprinkling .MainMenu {
+    display: none;
+  }
+
+  .MainMenu {
+    position: relative;
+    --MainMenu--offsetLeft: 4rem;
+  }
+}
+@media screen and (max-width: 370px) {
+  .MainMenu {
+    --MainMenu--offsetLeft: 1rem;
+  }
+}
+@media screen and (max-height: 640px) {
+  .MainMenu {
+    --MainMenu__list--padTop: 0px;
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-active .MainMenu {
+    display: block;
+    visibility: hidden;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 var(--grid-edge);
+    padding-top: var(--Layout__header-height);
+    margin-top: -100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    --valmundur-height: 197px;
+    --valmundur-width: 536px;
+  }
+}
+@media screen and (max-width: 479px) {
+  html.menu-is-active .MainMenu {
+    --valmundur-height: calc(29.375vw + 56px);
+  }
+}
+@media screen and (max-height: 640px) {
+  html.menu-is-active .MainMenu {
+    --valmundur-height: calc(31.25vh + -50px);
+  }
+}
+@media screen and (max-height: 640px) and (max-width: 479px) {
+  html.menu-is-active .MainMenu {
+    --valmundur-width: 480px;
+  }
+}
+@media screen and (max-height: 480px) {
+  html.menu-is-active .MainMenu {
+    --valmundur-height: 0;
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-closed .MainMenu,
+html.menu-is-open .MainMenu {
+    transition: margin-top 300ms ease-in-out, visibility 0ms 400ms;
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-open .MainMenu {
+    transition-delay: 0ms;
+    visibility: visible;
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-active .MainMenu::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0;
+    background: white url("/assets/valmundur-a-sundi.png") 50% 0%/var(--valmundur-width) auto repeat-x;
+    transition: height 500ms ease-out, visibility 0ms 600ms, background-size 500ms ease-in-out;
+    visibility: hidden;
+    box-shadow: 0 -35px 15px -10px white;
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-open .MainMenu::after {
+    transition-delay: 0ms;
+    visibility: visible;
+    height: var(--valmundur-height);
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-active .MainMenu__items {
+    padding-bottom: var(--valmundur-height);
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-active .MainMenu__megas {
+    margin-top: calc(-1 * var(--valmundur-height));
+    padding-bottom: var(--valmundur-height);
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__items {
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: var(--MainMenu__list--padTop, 1.5rem);
+    margin-left: var(--MainMenu--offsetLeft);
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__item {
+    width: 100%;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__link {
+    padding: 0.5rem 0 0.375rem 0;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__separator[class] {
+    display: block;
+    margin-left: auto;
+    order: -1;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__separator ~ .MainMenu__item {
+    width: auto;
+    order: -1;
+    font-size: 12px;
+    margin-left: 1rem;
+    margin-bottom: 0;
+    margin-top: calc(-0.5 * var(--Layout__header-height));
+    transform: translateY(-50%) translateY(var(--MainMenu__list--padTop, -1.5rem));
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__megas {
+    margin-left: var(--MainMenu--offsetLeft);
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-active .MainMenu__megapanel {
+    display: none;
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-active .MainMenu__megapanel--active,
+.MainMenu__megas[data-pristine=true] > .MainMenu__megapanel--parent {
+    display: block;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__megapanel {
+    padding-top: 2.5rem;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__mega__title {
+    font-weight: 700;
+    font-size: var(--font-sh-s-size);
+    line-height: var(--font-sh-s-leading);
+  }
+}
+@media screen and (max-width: 759px) {
+  html.menu-is-active .MainMenu__mega__title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    opacity: 0.00001;
+    pointer-events: none;
+    margin: -1px;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__mega__item {
+    margin-bottom: 1.1875rem;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__mega__link {
+    background-image: none !important;
+  }
+}
+@media screen and (max-width: 759px) {
+  [aria-current=true] .MainMenu__mega__link::before {
+    content: "";
+    float: left;
+    margin-left: -1.5rem;
+    width: 0.5rem;
+    height: 0.125rem;
+    margin-top: 0.6875rem;
+    background-color: currentColor;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__mega__link__summary {
+    display: none;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu__megapanel__backtomenu {
+    display: none;
   }
 }
 @media screen and (min-width: 760px) {
@@ -106,28 +346,6 @@
   }
 }
 @media screen and (min-width: 760px) {
-  .MainMenu__item--home {
-    position: absolute;
-    right: 9999px;
-    left: auto;
-  }
-  .MainMenu__item--home a:focus,
-.MainMenu__item--home a:active,
-.MainMenu__item--home button:focus {
-    position: absolute;
-    right: -9999px;
-    z-index: 99999;
-    font-size: 1em;
-    background: #ffffff;
-    border: 3px double 3px double var(--link-color--hover);
-    margin: 0;
-    padding: 0.2em 0.33em;
-    color: var(--link-color--hover);
-    text-shadow: none;
-    white-space: nowrap;
-  }
-}
-@media screen and (min-width: 760px) {
   .MainMenu__link {
     padding: 0.625rem 0.625rem 0.5rem 0.625rem;
   }
@@ -149,129 +367,17 @@
     margin-right: 2.5rem;
   }
 }
-@media screen {
-  .MainMenu:not(nav) {
-    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
-  }
-  .MainMenu:not(nav)::before {
-    all: initial !important;
-    order: -999 !important;
-    font-family: sans-serif !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    z-index: 2 !important;
-    font-size: 12px !important;
-    line-height: 1.5em !important;
-    color: red !important;
-    background-color: rgba(255, 230, 230, 0.5) !important;
-    padding: 0 0.5em !important;
-    content: "Please use <nav/>" !important;
-  }
-
-  .MainMenu:not([aria-label]):not([aria-labelledby]) {
-    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
-  }
-  .MainMenu:not([aria-label]):not([aria-labelledby])::before {
-    all: initial !important;
-    order: -999 !important;
-    font-family: sans-serif !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    z-index: 2 !important;
-    font-size: 12px !important;
-    line-height: 1.5em !important;
-    color: red !important;
-    background-color: rgba(255, 230, 230, 0.5) !important;
-    padding: 0 0.5em !important;
-    content: "Please add `aria-label` or `aria-labelledby`" !important;
-  }
-
-  .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
-    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
-  }
-  .MainMenu[aria-labelledby] > .MainMenu__title:not([id])::before {
-    all: initial !important;
-    order: -999 !important;
-    font-family: sans-serif !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    z-index: 2 !important;
-    font-size: 12px !important;
-    line-height: 1.5em !important;
-    color: red !important;
-    background-color: rgba(255, 230, 230, 0.5) !important;
-    padding: 0 0.5em !important;
-    content: "Please add `id` attribute" !important;
-  }
-
-  .MainMenu__list:first-child {
-    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
-  }
-  .MainMenu__list:first-child::before {
-    all: initial !important;
-    order: -999 !important;
-    font-family: sans-serif !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    z-index: 2 !important;
-    font-size: 12px !important;
-    line-height: 1.5em !important;
-    color: red !important;
-    background-color: rgba(255, 230, 230, 0.5) !important;
-    padding: 0 0.5em !important;
-    content: "`.MainMenu__title` missing" !important;
-  }
-
-  .MainMenu__item:first-child:not(.MainMenu__item--home) {
-    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
-  }
-  .MainMenu__item:first-child:not(.MainMenu__item--home)::before {
-    all: initial !important;
-    order: -999 !important;
-    font-family: sans-serif !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    z-index: 2 !important;
-    font-size: 12px !important;
-    line-height: 1.5em !important;
-    color: red !important;
-    background-color: rgba(255, 230, 230, 0.5) !important;
-    padding: 0 0.5em !important;
-    content: "Home link missing" !important;
-  }
-}
-@media screen and (max-width: 759px) {
-  .MainMenu__megapanel {
-    margin-bottom: 1.875rem;
-  }
-
-  .MainMenu__mega__title {
-    font-weight: 700;
-    font-size: var(--font-sh-s-size);
-    line-height: var(--font-sh-s-leading);
-  }
-
-  .MainMenu__mega__link {
-    background-image: none !important;
-  }
-
-  .MainMenu__mega__link__summary {
-    display: none;
-  }
-
-  .MainMenu__megapanel__backtomenu {
-    display: none;
-  }
-}
 @media screen and (min-width: 760px) {
   .MainMenu__megapanel {
     margin: calc(3.2327586207% + 20.9482758621px) 0;
   }
-
+}
+@media screen and (min-width: 760px) {
   html.before-sprinkling .MainMenu__megapanel {
     display: none;
   }
-
+}
+@media screen and (min-width: 760px) {
   .MainMenu[data-sprinkled] > * > .MainMenu__megapanel {
     display: block;
     opacity: 0;
@@ -287,12 +393,14 @@
     padding: calc(10.775862069% + 19.8275862069px) 0;
     background-color: #ffffff;
   }
-
+}
+@media screen and (min-width: 760px) {
   .MainMenu[data-sprinkled] > * > .MainMenu__megapanel--active {
     opacity: 1;
     visibility: visible;
   }
-
+}
+@media screen and (min-width: 760px) {
   .MainMenu[data-sprinkled] > * > .MainMenu__megapanel::before {
     content: "";
     position: absolute;
@@ -306,7 +414,8 @@
     border-bottom: 1px solid #f1f2f3;
     box-shadow: 0 60px 100px -40px rgba(0, 0, 0, 0.03);
   }
-
+}
+@media screen and (min-width: 760px) {
   .MainMenu__mega__title {
     border-top: 1px solid #e3e5e7;
     padding-top: calc(3.2327586207% + 20.9482758621px);
@@ -315,7 +424,8 @@
     font-size: var(--font-hd-s-size);
     line-height: var(--font-hd-s-leading);
   }
-
+}
+@media screen and (min-width: 760px) {
   .MainMenu[data-sprinkled] > * > * > .MainMenu__mega__title {
     position: absolute;
     width: 1px;
@@ -326,7 +436,8 @@
     pointer-events: none;
     margin: -1px;
   }
-
+}
+@media screen and (min-width: 760px) {
   .MainMenu__mega__items {
     display: grid;
     grid-auto-flow: row;
@@ -453,6 +564,143 @@
     letter-spacing: 0;
     width: 100%;
     margin-right: 1px;
+  }
+}
+@media screen and (max-width: 759px) {
+  .MainMenu[class][class] {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .MainMenu__items--greetingHack[class][class] {
+    order: -1;
+    padding-bottom: 0;
+  }
+
+  .MainMenu:not([data-sprinkled]) > .MainMenu__greeting {
+    display: none;
+  }
+
+  .MainMenu__greeting {
+    max-height: 400px;
+    margin-left: var(--MainMenu--offsetLeft);
+    max-width: 15rem;
+  }
+
+  .MainMenu__greeting[hidden] {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms 100ms, max-height 300ms ease-in-out, visibility 0ms 400ms;
+  }
+
+  .MainMenu__greeting > h3 {
+    font-weight: 700;
+    font-size: var(--font-sh-s-size);
+    line-height: var(--font-sh-s-leading);
+    margin-bottom: 1rem;
+  }
+
+  .MainMenu__greeting > p {
+    padding-bottom: 1rem;
+  }
+}
+@media screen and (min-width: 760px) {
+  .MainMenu__greeting {
+    display: none;
+  }
+}
+@media screen {
+  .MainMenu:not(nav) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .MainMenu:not(nav)::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Please use <nav/>" !important;
+  }
+
+  .MainMenu:not([aria-label]):not([aria-labelledby]) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .MainMenu:not([aria-label]):not([aria-labelledby])::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Please add `aria-label` or `aria-labelledby`" !important;
+  }
+
+  .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .MainMenu[aria-labelledby] > .MainMenu__title:not([id])::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Please add `id` attribute" !important;
+  }
+
+  .MainMenu__list:first-child {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .MainMenu__list:first-child::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "`.MainMenu__title` missing" !important;
+  }
+
+  .MainMenu__item:first-child:not(.MainMenu__item--home) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .MainMenu__item:first-child:not(.MainMenu__item--home)::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Home link missing" !important;
   }
 }
 /*# sourceMappingURL=MainMenu.css.map */
