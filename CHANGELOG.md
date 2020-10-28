@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.11
+
+_2020-10-28_
+
 - feat: Add white background and outline around Reykjavík's logo shape – to
   make it more resilent to overlapping other content
 - feat: Styling for `.Layout__nav` and `MainMenu` toggling on small screens
