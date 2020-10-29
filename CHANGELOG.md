@@ -7,6 +7,7 @@
 - fix: Correct text-column width in `HeroBlock`
 - fix: Tweak line-height and spacing of `ButtonTertiary`
 - fix: Make `ActionCards__card`s equal height within a row
+- fix: Correct the width of `.GridBlocks--twocol > .GridBlocks__item`s
 
 ## 0.7.11
 
