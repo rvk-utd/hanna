@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Increase spacing between "labelled" `H2`s and their text-column
 
 ## 0.7.11
 
