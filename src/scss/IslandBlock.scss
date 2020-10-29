@@ -41,7 +41,6 @@
 	.IslandBlock__button {
 		@include ButtonTertiaryStyle($mode: simple);
 		display: block;
-		margin-bottom: 0;
 	}
 
 	.IslandBlock__image {

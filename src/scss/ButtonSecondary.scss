@@ -3,7 +3,7 @@
 
 @media screen {
 	.ButtonSecondary {
-		@include ButtonStyle(prem(5), $var--color-theme-primary--safe);
+		@include ButtonStyle(prem(-5), $var--color-theme-primary--safe);
 		font-weight: $font-weight--normal;
 		background-color: $color-suld-0;
 		border: 1px solid $var--color-theme-primary;

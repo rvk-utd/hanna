@@ -10,16 +10,17 @@
 	&::after {
 		content: '';
 		position: absolute;
-		top: -$frameOffset;
-		right: -$frameOffset;
-		bottom: -$frameOffset;
-		left: -$frameOffset;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: $frameOffset;
 		border: $borderWidth solid $borderColor;
 		border-radius: $borderRadius;
 	}
 }
 
-@mixin ButtonStyle($frameOffset: prem(4), $color: $var--color-theme-primary--text) {
+@mixin ButtonStyle($frameOffset: prem(-4), $color: $var--color-theme-primary--text) {
 	@include LinkStyle_Reset(true);
 	--link-focus-outline: 0;
 
@@ -110,6 +111,7 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	width: max-content;
 	vertical-align: middle;
 	white-space: nowrap;
+	line-height: prem(19);
 	font-size: prem($font-btn-size);
 	padding-right: calc(
 		#{$var--ButtonTertiary--dashWidth--hover} - #{$var--ButtonTertiary--dashWidth}
@@ -154,7 +156,7 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	&:focus {
 		opacity: 0.5;
 		@include _FocusedFrame(
-			prem(8),
+			prem(-13) prem(-16),
 			prem(8),
 			$var--ButtonTertiary--dashColor,
 			prem(1)
