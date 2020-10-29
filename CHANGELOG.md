@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Increase spacing between "labelled" `H2`s and their text-column
+- fix: Correct text-column width in `HeroBlock`
 
 ## 0.7.11
 
