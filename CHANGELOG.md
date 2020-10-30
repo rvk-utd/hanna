@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add icons to `.ExtraLinks__related__link--{type}` links
+- feat: Order `GalleryItems` left-to-right
 - fix: Tweak vertical spacing in `ExtraLinks`
 - fix: Increase spacing between "labelled" `H2`s and their text-column
 - fix: Correct text-column width in `HeroBlock`

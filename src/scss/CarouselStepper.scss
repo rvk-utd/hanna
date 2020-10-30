@@ -4,9 +4,7 @@
 	$margin: prem(4);
 
 	.CarouselStepper {
-		--CarouselStepper--align-left: auto;
-		margin-right: -$margin;
-		margin-left: var(--CarouselStepper--align-left, -$margin);
+		margin: 0 -$margin;
 		width: max-content;
 		display: flex;
 		align-items: flex-end;
