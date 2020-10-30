@@ -64,9 +64,28 @@
 		margin-bottom: between_phone_netbook(20, 53);
 	}
 
+	$icon-indent: prem(26);
+	.ExtraLinks__related__item {
+		padding-left: $icon-indent;
+	}
 	.ExtraLinks__related__link {
 		@include BodyTextStyle--large();
 		color: $color-suld-200;
+		position: relative;
+	}
+	.ExtraLinks__related__link::before {
+		@include icon($icons-dash);
+		position: absolute;
+		right: 100%;
+		width: $icon-indent;
+		text-align: left;
+		font-size: em(16/20);
+	}
+
+	@each $name, $icon in (text: $icons-text, pdf: $icons-file-pdf, link: $icons-link) {
+		.ExtraLinks__related__link--#{$name}::before {
+			content: $icon;
+		}
 	}
 }
 
