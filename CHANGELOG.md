@@ -13,6 +13,7 @@
 - fix: Make `ActionCards__card`s equal height within a row
 - fix: Correct the width of `.GridBlocks--twocol > .GridBlocks__item`s
 - fix: Suppress focus outline on `.MainMenu__link`s
+- fix: Remove redundant mediaFormat marker styling off `<body/>`
 
 ## 0.7.11
 

@@ -313,5 +313,4 @@
 }
 // ===========================================================================
 
-@include writeMediaFormatMarkers($mediaFormats);
-@include writeMediaFormatMarkers($mediaFormats, 'body', isDevMode());
+@include writeMediaFormatMarkers($mediaFormats, $visible: isDevMode());
