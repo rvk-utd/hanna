@@ -24,9 +24,16 @@ $LabelledTitleStyle--fontSize: $font-sh-l-size;
 	}
 }
 
+@mixin LabeledTitleStyle--floating() {
+	width: cols_pct(5, 5);
+	--dash-width: #{$var--grid-column};
+	--dash-margin: #{$var--grid-gutter};
+}
+
 @mixin LabeledTitleStyle--outdented() {
 	display: block;
 	position: relative;
+	width: cols_pct(4, 4);
 	--dash-width: calc(#{(36 / 80)} * #{$var--grid-edge});
 	--dash-margin: 0;
 	--dash-indent: #{$var--grid-edge--neg};

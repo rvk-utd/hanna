@@ -101,7 +101,6 @@
 		--dash-indent: #{_flexDash(8)};
 
 		@include LabeledTitleStyle--basics();
-		@include SubheadingStyle--large();
 
 		max-width: 100%;
 		margin-bottom: prem(16);
