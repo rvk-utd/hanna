@@ -2,6 +2,7 @@
 @use 'styles/font' as *;
 @use 'styles/labeledTitle' as *;
 @use 'styles/links' as *;
+@use 'styles/buttons' as *;
 
 /*!@deps
 	Tabs,
@@ -28,35 +29,10 @@
 	.SearchResults {
 		position: relative;
 		margin-left: auto;
+		transition: opacity 300ms ease-in-out;
 	}
-
-	.SearchResults--loading {
+	.SearchResults--loadingquery {
 		opacity: 0.5;
-	}
-
-	@keyframes loadingAnimation {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
-	}
-
-	.SearchResults--loading::before {
-		content: '';
-		position: absolute;
-		top: prem(100);
-		left: 50%;
-		transform: translateX(-50%);
-
-		width: prem(48);
-		height: prem(48);
-
-		border-radius: 50%;
-		border: prem(2) solid $color-faxafloi-100;
-		border-color: $color-faxafloi-100 transparent;
-		animation: loadingAnimation 1s linear infinite;
 	}
 
 	.SearchResults__title {
@@ -75,58 +51,103 @@
 		content: close-quote;
 	}
 
+	.SearchResults__results {
+	}
+
 	.SearchResults__list {
+		position: relative;
 		padding-left: 0;
 	}
-	.SearchResultsItem::before {
-		@include sr-only();
+
+	.SearchResults--loading, // @deprecated remove in v0.8
+	.SearchResults--loadingfilter > * > .SearchResults__list--loading,
+	.SearchResults--loadingmore > * > .SearchResults__list--loading {
+		opacity: 0.5;
 	}
-
-	.SearchResultItem__link {
-		@include LinkStyle_Reset(true);
-		display: flex;
-		flex-flow: row wrap;
-		color: $color-suld-200;
-		padding-left: $var--grid-1;
-		margin-bottom: between_phone_netbook(48, 64);
-
-		@include media($mq-netbook_up) {
-			width: $var--grid-6;
+	@keyframes loadingAnimation {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
 		}
 	}
+	.SearchResults--loading > .SearchResults__list::before, // @deprecated remove in v0.8
+	.SearchResults__list--loading::before {
+		content: '';
+		position: absolute;
+		top: prem(20);
+		left: 25%;
 
-	.SearchResultItem__title {
-		--dash-width: #{_flexDash(24)};
+		width: prem(48);
+		height: prem(48);
+
+		border-radius: 50%;
+		border: prem(3) solid $color-faxafloi-100;
+		border-color: $color-faxafloi-100 transparent;
+		animation: loadingAnimation 1000ms linear infinite;
+	}
+
+	.SearchResultsItem::before {
+		// hide <ol><li> counter markers
+		@include sr-only();
+	}
+	.SearchResultsItem__link {
+		@include LinkStyle_Reset(true);
+		display: block;
+		padding-left: $var--grid-1;
+		margin-bottom: between_phone_netbook(48, 64);
+		max-width: cols_px(6);
+
+		// @include media($mq-netbook_up) {
+		// 	width: $var--grid-6;
+		// }
+	}
+
+	$baseDashWidth: 24;
+	$hoverDashWidth: 48;
+	$dashDiff: $hoverDashWidth - $baseDashWidth;
+	$dashTransition: 200ms ease-in-out;
+
+	.SearchResultsItem__title {
+		--dash-width: #{_flexDash($baseDashWidth)};
 		--dash-margin: #{_flexDash(32)};
 		--dash-indent: #{_flexDash(8)};
 
 		@include LabeledTitleStyle--basics();
 
-		max-width: 100%;
 		margin-bottom: prem(16);
 		margin-left: $var--grid-column--neg;
 
+		margin-right: _flexDash(-$dashDiff);
+		padding-right: _flexDash($dashDiff);
+		transition: padding-right $dashTransition;
+
 		@include media($mq-wide) {
-			--dash-width: #{prem(24)};
+			--dash-width: #{prem($baseDashWidth)};
 			--dash-margin: #{prem(32)};
 			--dash-indent: #{prem(8)};
+
+			margin-right: prem(-$dashDiff);
+			padding-right: prem($dashDiff);
 		}
 	}
 
-	.SearchResultItem__title::before {
-		transition: width 200ms ease-in-out;
+	.SearchResultsItem__title::before {
+		transition: width $dashTransition;
 	}
 
-	.SearchResultItem__link:hover > .SearchResultItem__title,
-	.SearchResultItem__link:focus > .SearchResultItem__title,
-	.SearchResultItem__link:active > .SearchResultItem__title {
-		--dash-width: #{_flexDash(48)};
+	.SearchResultsItem__link:hover > .SearchResultsItem__title,
+	.SearchResultsItem__link:focus > .SearchResultsItem__title,
+	.SearchResultsItem__link:active > .SearchResultsItem__title {
+		padding-right: 0;
+
+		--dash-width: #{_flexDash($hoverDashWidth)};
 		@include media($mq-wide) {
-			--dash-width: #{prem(48)};
+			--dash-width: #{prem($hoverDashWidth)};
 		}
 	}
-
-	.SearchResultItem__meta {
+	.SearchResultsItem__meta {
 		display: block;
 		color: $color-faxafloi-100;
 		font-size: prem($font-label-size);
@@ -135,13 +156,34 @@
 		width: 100%;
 		line-height: em(16 / $font-label-size);
 	}
-
-	.SearchResultItem__meta > span {
+	.SearchResultsItem__meta > span {
 		color: $color-suld-200;
 	}
-
-	.SearchResultItem__summary {
+	.SearchResultsItem__summary {
 		max-width: 100%;
 		font-weight: $font-weight--normal;
+	}
+
+	.SearchResults__loadmore {
+		@include ButtonTertiaryStyle();
+		display: block;
+		border: 50px solid transparent;
+		border-width: prem(50) prem(300);
+		margin: 0 auto;
+
+		@include media($mq-phone) {
+			border-left-width: prem(30);
+			border-left-width: prem(30);
+		}
+		@include media($mq-phablet) {
+			border-left-width: prem(100);
+			border-left-width: prem(100);
+		}
+	}
+	.SearchResults__loadmore__count {
+		font-size: $font-size-12;
+		color: $color-suld-150;
+		font-weight: $font-weight--normal;
+		margin-left: prem(4);
 	}
 }

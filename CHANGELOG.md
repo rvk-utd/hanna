@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Improve styling for `SearchResults` – support `__loadmore` and new
+  `--loading*` styles
 - feat: Add icons to `.ExtraLinks__related__link--{type}` links
 - feat: Order `GalleryItems` left-to-right
 - feat: Support full range of WYSIWYG content inside `LabeledTextBlock`
