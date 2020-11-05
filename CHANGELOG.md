@@ -4,6 +4,25 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.7.12
+
+_2020-11-05_
+
+- feat: Improve styling for `SearchResults` – support `__loadmore` and new
+  `--loading*` styles
+- feat: Add icons to `.ExtraLinks__related__link--{type}` links
+- feat: Order `GalleryItems` left-to-right
+- feat: Support full range of WYSIWYG content inside `LabeledTextBlock`
+- feat: Reduce font-size of "Labelled" (left-floated) `*TextBlock` headlines
+- fix: Tweak vertical spacing in `ExtraLinks`
+- fix: Increase spacing between "labelled" `H2`s and their text-column
+- fix: Correct text-column width in `HeroBlock`
+- fix: Tweak line-height and spacing of `ButtonTertiary`
+- fix: Make `ActionCards__card`s equal height within a row
+- fix: Correct the width of `.GridBlocks--twocol > .GridBlocks__item`s
+- fix: Suppress focus outline on `.MainMenu__link`s
+- fix: Remove redundant mediaFormat marker styling off `<body/>`
+
 ## 0.7.11
 
 _2020-10-28_

@@ -5,7 +5,7 @@
 @media screen {
 	.ExtraLinks {
 		background-color: $color-suld-25;
-		padding: between_cols(30, 80) 0;
+		padding: between_cols(30, 90) 0;
 		margin-bottom: between_cols(60, 100);
 		@include extendBackgroundWithUnderlay();
 	}
@@ -22,6 +22,11 @@
 
 	.ExtraLinks__title {
 		@include CardListTitle();
+
+		margin-bottom: between_phone_netbook(24, 57);
+		@include media($mq-wide) {
+			margin-bottom: 57px;
+		}
 	}
 	.ExtraLinks__list {
 		@include CardList($cols: 4);
@@ -44,12 +49,12 @@
 		background-color: $color-suld-50;
 		padding-right: cols_pct(1, 0);
 		padding-left: cols_pct(1, 1);
-		margin-top: between_phone_netbook(40, 120);
+		margin-top: between_phone_netbook(40, 90);
 		padding-top: between_phone_netbook(32, 64);
 		padding-bottom: between_phone_netbook(80, 130);
 
 		@include media($mq-wide) {
-			margin-top: prem(120);
+			margin-top: prem(90);
 			padding-top: prem(64);
 			padding-bottom: prem(130);
 		}
@@ -64,9 +69,28 @@
 		margin-bottom: between_phone_netbook(20, 53);
 	}
 
+	$icon-indent: prem(26);
+	.ExtraLinks__related__item {
+		padding-left: $icon-indent;
+	}
 	.ExtraLinks__related__link {
 		@include BodyTextStyle--large();
 		color: $color-suld-200;
+		position: relative;
+	}
+	.ExtraLinks__related__link::before {
+		@include icon($icons-dash);
+		position: absolute;
+		right: 100%;
+		width: $icon-indent;
+		text-align: left;
+		font-size: em(16/20);
+	}
+
+	@each $name, $icon in (text: $icons-text, pdf: $icons-file-pdf, link: $icons-link) {
+		.ExtraLinks__related__link--#{$name}::before {
+			content: $icon;
+		}
 	}
 }
 

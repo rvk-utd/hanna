@@ -1,8 +1,6 @@
 @media screen {
   .CarouselStepper {
-    --CarouselStepper--align-left: auto;
-    margin-right: -0.25rem;
-    margin-left: var(--CarouselStepper--align-left, -0.25rem);
+    margin: -0.25rem;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;

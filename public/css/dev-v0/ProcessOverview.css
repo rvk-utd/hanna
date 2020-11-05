@@ -35,8 +35,8 @@
 @media screen {
   .ProcessOverview__item__title {
     font-weight: 700;
-    font-size: var(--font-hd-s-size);
-    line-height: var(--font-hd-s-leading);
+    font-size: var(--font-sh-l-size);
+    line-height: var(--font-sh-l-leading);
     display: flex;
     margin-bottom: var(--baseVerticalMargin);
   }
@@ -48,8 +48,8 @@
     height: 0.25rem;
     background-color: var(--theme-color-primary--safeish);
     transform: translateY(-50%);
-    width: var(--dash-width, 0.9em);
-    margin-right: var(--dash-margin, 0.5em);
+    width: var(--dash-width, 1.125em);
+    margin-right: var(--dash-margin, 0.625em);
     margin-left: var(--dash-indent, 0);
   }
 }
@@ -88,36 +88,33 @@
     align-items: flex-start;
   }
 
-  .ProcessOverview__item__title {
-    width: 39.7350993377%;
+  :not(.ProcessOverview--narrow) > * > .ProcessOverview__item__title {
     display: block;
     position: relative;
+    width: 34.4370860927%;
     --dash-width: calc(0.45 * var(--grid-edge));
     --dash-margin: 0;
     --dash-indent: var(--grid-edge--neg);
   }
 
   .ProcessOverview--narrow > * > .ProcessOverview__item__title {
-    display: flex;
     width: 22.5165562914%;
-    --dash-width: 0.9em;
-    --dash-margin: 14.7058823529%;
-    --dash-indent: 0;
+    --dash-margin: var(--grid-gutter);
   }
 
-  .ProcessOverview__item__content {
+  .ProcessOverview__item__content,
+.ProcessOverview__attention {
     max-width: 56.9536423841%;
-    margin-left: 3.3112582781%;
+    margin-left: auto;
+  }
+
+  .ProcessOverview--narrow > * > .ProcessOverview__item__content,
+.ProcessOverview--narrow > .ProcessOverview__attention {
+    margin-right: 17.2185430464%;
   }
 
   .ProcessOverview__attention {
-    max-width: 56.9536423841%;
-    margin-left: 43.0463576159%;
     padding-right: 5.298013245%;
-  }
-
-  .ProcessOverview--narrow > .ProcessOverview__attention {
-    margin-left: 25.8278145695%;
   }
 }
 /*# sourceMappingURL=ProcessOverview.css.map */

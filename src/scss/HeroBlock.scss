@@ -71,7 +71,7 @@
 @media #{$mq-netbook_up} {
 	.HeroBlock {
 		position: relative;
-		padding-right: cols_pct(6);
+		padding-right: cols_pct(6, 6);
 		min-height: prem(370);
 	}
 

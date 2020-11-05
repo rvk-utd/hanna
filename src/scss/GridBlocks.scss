@@ -72,7 +72,7 @@
 
 	.GridBlocks--twocol > .GridBlocks__item {
 		width: cols_pct(5);
-		margin-left: cols_pct(1, 2);
+		margin-left: cols_pct(0, 1);
 		flex-flow: row;
 	}
 	.GridBlocks--twocol > .GridBlocks__item:nth-child(2n + 1) {

@@ -1,7 +1,8 @@
+@charset "UTF-8";
 @media screen {
   .ExtraLinks {
     background-color: #f8f8f9;
-    padding: calc(5.3879310345% + 14.9137931034px) 0;
+    padding: calc(6.4655172414% + 11.8965517241px) 0;
     margin-bottom: calc(4.3103448276% + 47.9310344828px);
     position: relative;
   }
@@ -32,6 +33,12 @@
     font-size: var(--font-hd-s-size);
     line-height: var(--font-hd-s-leading);
     margin-bottom: var(--baseVerticalMargin);
+    margin-bottom: calc(3.1132075472vw + 14.0377358491px);
+  }
+}
+@media screen and (min-width: 1380px) {
+  .ExtraLinks__title {
+    margin-bottom: 57px;
   }
 }
 @media screen {
@@ -68,7 +75,7 @@
     display: block;
     padding: 1.5rem 1.5rem 2rem 1.5rem;
     min-height: 10.5rem;
-    width: 100%;
+    height: 100%;
     border: 1px solid #e3e5e7;
   }
   .ExtraLinks__card::after {
@@ -112,14 +119,14 @@
     background-color: #f1f2f3;
     padding-right: 5.298013245%;
     padding-left: 8.6092715232%;
-    margin-top: calc(7.5471698113vw + 15.8490566038px);
+    margin-top: calc(4.7169811321vw + 24.9056603774px);
     padding-top: calc(3.0188679245vw + 22.3396226415px);
     padding-bottom: calc(4.7169811321vw + 64.9056603774px);
   }
 }
 @media screen and (min-width: 1380px) {
   .ExtraLinks__related {
-    margin-top: 7.5rem;
+    margin-top: 5.625rem;
     padding-top: 4rem;
     padding-bottom: 8.125rem;
   }
@@ -138,10 +145,53 @@
   }
 }
 @media screen {
+  .ExtraLinks__related__item {
+    padding-left: 1.625rem;
+  }
+}
+@media screen {
   .ExtraLinks__related__link {
     font-size: var(--font-bd-l-size);
     line-height: var(--font-bd-l-leading);
     color: #2a2b2c;
+    position: relative;
+  }
+}
+@media screen {
+  .ExtraLinks__related__link::before {
+    content: "";
+    display: inline-block;
+    text-indent: 0;
+    text-align: center;
+    vertical-align: top;
+    font-family: "icons", Arial, Helvetica, sans-serif;
+    speak: none;
+    font-weight: normal;
+    font-style: normal;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
+    position: absolute;
+    right: 100%;
+    width: 1.625rem;
+    text-align: left;
+    font-size: 0.8em;
+  }
+}
+@media screen {
+  .ExtraLinks__related__link--text::before {
+    content: "";
+  }
+}
+@media screen {
+  .ExtraLinks__related__link--pdf::before {
+    content: "";
+  }
+}
+@media screen {
+  .ExtraLinks__related__link--link::before {
+    content: "";
   }
 }
 @media screen and (min-width: 760px) {

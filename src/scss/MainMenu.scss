@@ -24,6 +24,7 @@
 	.MainMenu__link {
 		@include buttonReset();
 		@include LinkStyle();
+		--link-focus-outline: 0;
 		--link-color: _inherit;
 		display: block;
 		width: max-content;
@@ -418,6 +419,8 @@
 		margin-right: 1px;
 	}
 }
+
+// ...
 
 // ===========================================================================
 // MainMenu "Greeting"

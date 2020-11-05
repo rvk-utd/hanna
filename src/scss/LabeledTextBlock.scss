@@ -1,10 +1,12 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/labeledTitle' as *;
+@use 'utils/textContent' as *;
+
 /*!@deps
 	Attention
 	ButtonTertiary
 */
-@use 'globals' as *;
-@use 'styles/font' as *;
-@use 'styles/labeledTitle' as *;
 
 @media screen {
 	.LabeledTextBlock {
@@ -17,10 +19,11 @@
 
 	.LabeledTextBlock__summary {
 		@include BodyTextStyle--large();
+		@include textContent();
 	}
 	.LabeledTextBlock__summary > .ButtonTertiary {
 		display: block;
-		margin-top: grid-units(3);
+		margin-top: $var--baseVerticalMargin;
 	}
 
 	// ---------------------------------------------------------------------------
@@ -37,12 +40,9 @@
 	}
 
 	.LabeledTextBlock__label {
-		width: cols_pct(6);
-		--dash-width: #{cols_pct(1, 0, 5)};
-		--dash-margin: #{cols_pct(0, 1, 5)};
+		@include LabeledTitleStyle--floating();
 	}
 	.LabeledTextBlock--wide > .LabeledTextBlock__label {
-		width: cols_pct(5);
 		@include LabeledTitleStyle--outdented();
 	}
 

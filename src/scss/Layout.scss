@@ -212,10 +212,10 @@
 	body:hover {
 		--show-grid-lines: '';
 	}
-	.Layout__content:hover {
+	.Layout:hover {
 		--show-grid-lines: initial;
 	}
-	.Layout__content::after {
+	.Layout::after {
 		content: var(--show-grid-lines, none);
 		pointer-events: none;
 		position: absolute;

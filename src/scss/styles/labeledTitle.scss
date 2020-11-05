@@ -1,8 +1,10 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
 
+$LabelledTitleStyle--fontSize: $font-sh-l-size;
+
 @mixin LabeledTitleStyle--basics($margin: true) {
-	@include HeadingStyle--small();
+	@include SubheadingStyle--large();
 	display: flex;
 	@if $margin {
 		margin-bottom: $var--baseVerticalMargin;
@@ -16,15 +18,22 @@
 		height: prem(4);
 		background-color: $var--color-theme-primary--safeish;
 		transform: translateY(-50%);
-		width: var(--dash-width, em(36/40));
-		margin-right: var(--dash-margin, em(20/40));
+		width: var(--dash-width, em(36 / $LabelledTitleStyle--fontSize));
+		margin-right: var(--dash-margin, em(20 / $LabelledTitleStyle--fontSize));
 		margin-left: var(--dash-indent, 0);
 	}
+}
+
+@mixin LabeledTitleStyle--floating() {
+	width: cols_pct(5, 5);
+	--dash-width: #{$var--grid-column};
+	--dash-margin: #{$var--grid-gutter};
 }
 
 @mixin LabeledTitleStyle--outdented() {
 	display: block;
 	position: relative;
+	width: cols_pct(4, 4);
 	--dash-width: calc(#{(36 / 80)} * #{$var--grid-edge});
 	--dash-margin: 0;
 	--dash-indent: #{$var--grid-edge--neg};

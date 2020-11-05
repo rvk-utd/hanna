@@ -12,6 +12,9 @@
 		// fake space for the CarouselStepper
 		padding-bottom: prem(24 + 8);
 	}
+	html.before-sprinkling[class] > .ArticleCarousel__items {
+		overflow: visible;
+	}
 
 	.ArticleCarousel {
 		margin-bottom: between_cols(40, 130);
@@ -142,6 +145,5 @@
 
 	.ArticleCarousel > .CarouselStepper {
 		margin-top: prem(24);
-		margin-left: var(--CarouselStepper--margin);
 	}
 }
