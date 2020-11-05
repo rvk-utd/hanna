@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Gobally use `:focus-visible` and `[data-focus-visible-added]`
 
 ## 0.7.12
 

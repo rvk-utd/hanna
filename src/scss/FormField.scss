@@ -78,15 +78,15 @@
 	.FormField__input[aria-invalid='true'] {
 		@include InputField--invalid();
 	}
+	.FormField--readonly > .FormField__input,
+	.FormField__input[readonly] {
+		@include InputField--readonly();
+	}
 	// .FormField__input--focused[class],
 	.FormField--focused > .FormField__input,
 	.FormField__input:hover,
 	.FormField__input:focus {
 		@include InputField--focused();
-	}
-	.FormField--readonly > .FormField__input,
-	.FormField__input[readonly] {
-		@include InputField--readonly();
 	}
 	// .FormField__input--disabled[class],
 	.FormField--disabled > .FormField__input,

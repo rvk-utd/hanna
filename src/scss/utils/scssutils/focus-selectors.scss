@@ -1,0 +1,32 @@
+@mixin keyboardFocus-selector() {
+	&[data-focus-visible-added] {
+		@content;
+	}
+	&:focus-visible {
+		@content;
+	}
+}
+
+@mixin hoverActiveKeyboardFocus-selector($active: true, $focus: true) {
+	&:hover,
+	#{if($active, '&:active', '')},
+	#{if($focus, '&[data-focus-visible-added]', '')} {
+		@content;
+	}
+	@if ($focus) {
+		&:focus-visible {
+			@content;
+		}
+	}
+}
+
+// If you already set a universal (old-school) :focus style and you want to revert/hide those styles in
+// for mouse focus in supporting browsers
+@mixin nonKeyboardFocus-selector() {
+	[data-js-focus-visible] &:focus:not([data-focus-visible-added]) {
+		@content;
+	}
+	&:focus:not(:focus-visible) {
+		@content;
+	}
+}

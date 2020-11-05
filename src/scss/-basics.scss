@@ -51,6 +51,17 @@
 		display: none;
 	}
 
+	*:focus:focus,
+	*[data-focus-visible-added]:focus {
+		@include LinkStyle--focusOutline();
+	}
+
+	[tabindex='-1']:focus,
+	[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
+		outline: none;
+		outline-offset: 0;
+	}
+
 	html {
 		min-height: 100vh;
 		min-width: 320px;
