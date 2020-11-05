@@ -154,7 +154,6 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	}
 
 	&:focus {
-		opacity: 0.5;
 		@include _FocusedFrame(
 			prem(-13) prem(-16),
 			prem(8),
