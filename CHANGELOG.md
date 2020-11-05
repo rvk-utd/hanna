@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.12
+
+_2020-11-05_
+
 - feat: Improve styling for `SearchResults` – support `__loadmore` and new
   `--loading*` styles
 - feat: Add icons to `.ExtraLinks__related__link--{type}` links
