@@ -1097,35 +1097,6 @@ tbody > * > td {
   }
 }
 #mediaformat::after {
-  display: none !important;
-}
-
-@media screen and (max-width: 479px) {
-  body::after {
-    content: "phone";
-  }
-}
-@media screen and (min-width: 480px) and (max-width: 759px) {
-  body::after {
-    content: "phablet";
-  }
-}
-@media screen and (min-width: 760px) and (max-width: 979px) {
-  body::after {
-    content: "tablet";
-  }
-}
-@media screen and (min-width: 980px) and (max-width: 1379px) {
-  body::after {
-    content: "netbook";
-  }
-}
-@media screen and (min-width: 1380px) {
-  body::after {
-    content: "wide";
-  }
-}
-body::after {
   position: fixed !important;
   bottom: 0 !important;
   right: 0 !important;

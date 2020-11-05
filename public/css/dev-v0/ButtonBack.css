@@ -20,6 +20,7 @@
     width: max-content;
     vertical-align: middle;
     white-space: nowrap;
+    line-height: 1.1875rem;
     font-size: 1rem;
     padding-right: calc( 		var(--ButtonTertiary--dashWidth--hover, 3rem) - var(--ButtonTertiary--dashWidth, 1rem) 	);
     margin-right: 0.9375rem;
@@ -53,10 +54,11 @@
   .ButtonBack:focus::after {
     content: "";
     position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-    bottom: -0.5rem;
-    left: -0.5rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -0.8125rem -1rem;
     border: 0.0625rem solid var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
     border-radius: 0.5rem;
   }

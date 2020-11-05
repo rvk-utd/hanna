@@ -50,6 +50,7 @@
     border-bottom: var(--link-underline);
     transition: var(--link-transition);
     transition-property: border-color, background-color, color, text-shadow, box-shadow;
+    --link-focus-outline: 0;
     --link-color: _inherit;
     display: block;
     width: -webkit-max-content;

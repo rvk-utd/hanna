@@ -96,27 +96,20 @@
 */
 @media screen {
   html.before-sprinkling .Gallery:not([data-sprinkled]) {
-    opacity: 0;
     padding-bottom: 2rem;
   }
 
-  .Gallery {
-    overflow-x: auto;
-    overflow-y: hidden;
+  html.before-sprinkling[class] > .Gallery__items {
+    overflow: visible;
   }
 
-  .Gallery[data-sprinkled] {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    overflow: visible;
+  .Gallery {
+    margin-bottom: calc(10.5603448276% + 2.4310344828px);
   }
 
   .Gallery__track,
 .Gallery__items {
     display: flex;
-    flex-flow: row-reverse nowrap;
     margin-left: -1.25rem;
     margin-right: -1.25rem;
     will-change: transform;
@@ -124,7 +117,6 @@
   }
 
   .Gallery:not([data-sprinkled]) .Gallery__items {
-    flex-direction: row;
     overflow: auto;
   }
 
@@ -157,8 +149,8 @@
 }
 @media screen and (min-width: 760px) {
   .GalleryItem {
-    --GalleryItem__image--max-width: var(var(--grid-5));
-    --GalleryItem__image--max-height: var(var(--grid-4));
+    --GalleryItem__image--max-width: var(--grid-5);
+    --GalleryItem__image--max-height: var(--grid-4);
   }
 }
 @media screen {
@@ -202,11 +194,6 @@
 @media screen {
   .GalleryItem__description {
     display: none;
-  }
-}
-@media screen {
-  .Gallery > .CarouselStepper {
-    flex-direction: row-reverse;
   }
 }
 @media screen {
