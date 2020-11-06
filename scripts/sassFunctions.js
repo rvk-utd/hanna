@@ -1,4 +1,5 @@
 const sass = require('sass');
+const md5File = require('md5-file');
 
 const typeError = (argName = 'argument', typeName) =>
 	new Error('Expected ' + argName + ' to be a ' + typeName + '.');
@@ -42,9 +43,9 @@ module.exports = {
 		assertString(file);
 		let ret = '';
 		try {
-			ret = require('md5-file').sync(file.getValue());
+			ret = md5File.sync(file.getValue());
 		} catch (error) {
-			console.error('Can\'t do `_fileChecksum` for "' + file.getValue() + '"\n - - - -');
+			console.error('Can\'t do `fileChecksum` for "' + file.getValue() + '"\n - - - -');
 		}
 		return str(ret);
 	},
