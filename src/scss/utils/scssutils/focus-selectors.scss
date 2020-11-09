@@ -28,3 +28,24 @@
 		@content;
 	}
 }
+
+// ===========================================================================
+
+@mixin setDefaultKeyboardFocusStyle() {
+	*:focus:focus,
+	*:focus[data-focus-visible-added] {
+		@content;
+	}
+	*:focus:focus-visible {
+		@content;
+	}
+}
+@mixin setDefaultNonKeyboardFocusStyle() {
+	*:focus[tabindex='-1'],
+	[data-js-focus-visible] *:focus:not([data-focus-visible-added]) {
+		@content;
+	}
+	*:focus:not(:focus-visible) {
+		@content;
+	}
+}

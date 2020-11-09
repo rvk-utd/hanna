@@ -51,17 +51,10 @@
 		display: none;
 	}
 
-	*:focus:focus,
-	*[data-focus-visible-added]:focus {
+	@include setDefaultKeyboardFocusStyle {
 		@include LinkStyle--focusOutline();
 	}
-
-	[tabindex='-1']:focus,
-	[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
-		outline: none;
-		outline-offset: 0;
-	}
-	*:focus:not(:focus-visible) {
+	@include setDefaultNonKeyboardFocusStyle {
 		outline: none;
 		outline-offset: 0;
 	}
