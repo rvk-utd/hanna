@@ -61,6 +61,10 @@
 		outline: none;
 		outline-offset: 0;
 	}
+	*:focus:not(:focus-visible) {
+		outline: none;
+		outline-offset: 0;
+	}
 
 	html {
 		min-height: 100vh;
