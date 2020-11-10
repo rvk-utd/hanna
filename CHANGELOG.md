@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.TableWrapper--BasicTable--align--right`
 - feat: Gobally use `:focus-visible` and `[data-focus-visible-added]`
 - fix: Correct vertical margins of `.GridBlocks--twocol > .GridBlocks__item`s
 
