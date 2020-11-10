@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Gobally use `:focus-visible` and `[data-focus-visible-added]`
+- fix: Correct vertical margins of `.GridBlocks--twocol > .GridBlocks__item`s
 
 ## 0.7.12
 
