@@ -31,10 +31,8 @@
 	}
 
 	a.TagPill:hover,
-	a.TagPill:focus,
 	a.TagPill:active,
-	button.TagPill:hover,
-	button.TagPill:focus {
+	button.TagPill:hover {
 		background-color: $color-suld-150;
 		color: $color-suld-0;
 	}

@@ -5,24 +5,26 @@
 	$frameOffset,
 	$borderRadius,
 	$borderColor: $var--color-theme-primary,
-	$borderWidth: prem(2)
+	$borderWidth: prem(2),
+	$borderStyle: solid
 ) {
-	&::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		margin: $frameOffset;
-		border: $borderWidth solid $borderColor;
-		border-radius: $borderRadius;
+	@include keyboardFocus-selector {
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: $frameOffset;
+			border: $borderWidth $borderStyle $borderColor;
+			border-radius: $borderRadius;
+		}
 	}
 }
 
 @mixin ButtonStyle($frameOffset: prem(-4), $color: $var--color-theme-primary--text) {
 	@include LinkStyle_Reset(true);
-	--link-focus-outline: 0;
 
 	$borderRadius: prem(3);
 	// @include buttonReset(); // <-- This is NOT needed as `-basics` has global button reset
@@ -52,9 +54,8 @@
 		min-width: 270px;
 	}
 
-	&:hover,
-	&:focus,
-	&:active {
+	@include hoverActiveKeyboardFocus-selector {
+		outline: 0;
 		text-decoration: none;
 		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
 		color: $color;
@@ -65,9 +66,7 @@
 		background-color: $var--color-theme-primary--dark;
 		color: $color-suld-0;
 	}
-	&:focus {
-		@include _FocusedFrame($frameOffset, $borderRadius);
-	}
+	@include _FocusedFrame($frameOffset, $borderRadius);
 
 	&[disabled],
 	&[aria-disabled='true'] {
@@ -103,7 +102,6 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	$dashWidth--hover: prem(48);
 
 	@include LinkStyle_Reset(true);
-	--link-focus-outline: 0;
 
 	color: $var--ButtonTertiary--color;
 	position: relative;
@@ -142,25 +140,26 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 		}
 	}
 
-	&:hover,
-	&:focus,
-	&:active {
+	@include hoverActiveKeyboardFocus-selector {
 		padding-right: prem(0);
 		color: $var--ButtonTertiary--color;
+		outline: 0;
+
+		&::before {
+			width: $var--ButtonTertiary--dashWidth--hover;
+		}
 	}
-	&:hover::before,
-	&:focus::before {
-		width: $var--ButtonTertiary--dashWidth--hover;
+	&:active::before {
+		width: $var--ButtonTertiary--dashWidth;
 	}
 
-	&:focus {
-		@include _FocusedFrame(
-			prem(-13) prem(-16),
-			prem(8),
-			$var--ButtonTertiary--dashColor,
-			prem(1)
-		);
-	}
+	@include _FocusedFrame(
+		prem(-13) prem(-16),
+		prem(8),
+		$var--ButtonTertiary--dashColor,
+		prem(1),
+		dotted
+	);
 
 	@if $mode == normal or $mode == disabledOnly {
 		&[disabled],

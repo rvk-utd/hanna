@@ -47,7 +47,6 @@
 		@include WARNING__('`aria-controls` missing.');
 	}
 	.AccordionList__button:hover,
-	.AccordionList__button:focus,
 	.AccordionList__button:active {
 		color: $color-faxafloi-150;
 	}
@@ -70,7 +69,6 @@
 		transform: rotateZ(0);
 	}
 	.AccordionList__button:hover::before,
-	.AccordionList__button:focus::before,
 	.AccordionList__button:active::before {
 		color: $color-faxafloi-150;
 	}

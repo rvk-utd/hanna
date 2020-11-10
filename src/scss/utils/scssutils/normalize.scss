@@ -378,7 +378,7 @@ template {
 	//  * Remove default outline from [tabindex="-1"] elements
 	//  * when they receive focus via JavaScript
 	//  */
-	[tabindex] {
+	[tabindex="-1"] {
 		outline: none;
 	}
 

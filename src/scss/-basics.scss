@@ -51,6 +51,14 @@
 		display: none;
 	}
 
+	@include setDefaultKeyboardFocusStyle {
+		@include LinkStyle--focusOutline();
+	}
+	@include setDefaultNonKeyboardFocusStyle {
+		outline: none;
+		outline-offset: 0;
+	}
+
 	html {
 		min-height: 100vh;
 		min-width: 320px;

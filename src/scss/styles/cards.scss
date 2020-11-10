@@ -54,8 +54,7 @@
 		transition: width 0.25s ease-in-out;
 	}
 
-	&:hover::after,
-	&:focus::after {
+	&:hover::after {
 		width: 100%;
 	}
 

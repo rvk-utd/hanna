@@ -6,6 +6,7 @@
 	$_focusLink-background: $color-suld-0,
 );
 @forward 'scssutils/icons';
+@forward 'scssutils/focus-selectors';
 @forward 'scssutils/triangle';
 @forward 'scssutils/hideText';
 @forward 'scssutils/fade';

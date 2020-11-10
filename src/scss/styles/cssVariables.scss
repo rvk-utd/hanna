@@ -10,7 +10,11 @@
 				--baseVerticalMargin: #{px(3 * $gru)};
 				--baseVerticalMargin-2: #{px(6 * $gru)};
 			}
+
 			@include setDefaultLinkVariables(true);
+			--link-focus-outline: 3px solid #{$color-faxafloi-100};
+			--link-focus-outlineOffset: 2px;
+
 			@include _gridVariables();
 			@include _fontVariables();
 			@include _LayoutHeader();

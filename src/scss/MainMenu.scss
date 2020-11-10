@@ -24,7 +24,6 @@
 	.MainMenu__link {
 		@include buttonReset();
 		@include LinkStyle();
-		--link-focus-outline: 0;
 		--link-color: _inherit;
 		display: block;
 		width: max-content;
@@ -32,9 +31,6 @@
 	}
 	.MainMenu__link[aria-pressed='true'] {
 		border-bottom-color: $color-faxafloi-50;
-	}
-	.MainMenu__link[aria-pressed='true']:focus {
-		border-bottom-color: currentColor;
 	}
 
 	.MainMenu__link::before {
@@ -378,12 +374,8 @@
 		@include LinkStyle--basic();
 	}
 	.MainMenu__mega__link:hover .MainMenu__mega__link__title,
-	.MainMenu__mega__link:focus .MainMenu__mega__link__title,
 	.MainMenu__mega__link:active .MainMenu__mega__link__title {
 		@include LinkStyle--hover();
-	}
-	.MainMenu__mega__link:focus .MainMenu__mega__link__title {
-		@include LinkStyle--focus();
 	}
 
 	.MainMenu__mega__link__summary {
@@ -408,7 +400,6 @@
 		@include hideText(soft);
 	}
 	.MainMenu__megapanel__backtomenu:hover,
-	.MainMenu__megapanel__backtomenu:focus,
 	.MainMenu__megapanel__backtomenu:active {
 		opacity: 1;
 	}
