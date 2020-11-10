@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Correct vertical margins of `.GridBlocks--twocol > .GridBlocks__item`s
 
 ## 0.7.12
 
