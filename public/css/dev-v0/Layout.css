@@ -12,6 +12,12 @@
     position: relative;
   }
 
+  .Layout__alerts {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 350ms ease-in-out;
+  }
+
   .Layout__alerts .Alert {
     margin: 1rem -0.9375rem;
   }

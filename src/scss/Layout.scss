@@ -16,6 +16,9 @@
 	}
 
 	.Layout__alerts {
+		max-height: 1000px;
+		overflow: hidden;
+		transition: max-height 350ms ease-in-out;
 	}
 	.Layout__alerts .Alert {
 		margin: grid-units(2) prem(-15);
