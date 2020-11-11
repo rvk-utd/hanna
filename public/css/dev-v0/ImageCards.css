@@ -97,7 +97,6 @@
     --link-color: _inherit;
     --link-underline: 1px solid #2a2b2c;
     --link-underline--hover: 1px solid #0372e1;
-    --link-focus-outline: 0;
     padding-bottom: calc(1.5094339623vw + 11.1698113208px);
     display: block;
     height: 100%;

@@ -56,10 +56,9 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
-    --link-focus-outline: 0;
     color: var(--ButtonTertiary--color, _inherit);
     position: relative;
     display: inline-block;
@@ -89,17 +88,26 @@
     margin-right: 1rem;
     transition: inherit;
   }
-  .IslandPageBlock__button:hover, .IslandPageBlock__button:focus, .IslandPageBlock__button:active {
+  .IslandPageBlock__button:hover, .IslandPageBlock__button:active, .IslandPageBlock__button[data-focus-visible-added] {
     padding-right: 0rem;
     color: var(--ButtonTertiary--color, _inherit);
+    outline: 0;
   }
-  .IslandPageBlock__button:hover::before, .IslandPageBlock__button:focus::before {
+  .IslandPageBlock__button:hover::before, .IslandPageBlock__button:active::before, .IslandPageBlock__button[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--dashWidth--hover, 3rem);
   }
-  .IslandPageBlock__button:focus {
-    opacity: 0.5;
+  .IslandPageBlock__button:focus-visible {
+    padding-right: 0rem;
+    color: var(--ButtonTertiary--color, _inherit);
+    outline: 0;
   }
-  .IslandPageBlock__button:focus::after {
+  .IslandPageBlock__button:focus-visible::before {
+    width: var(--ButtonTertiary--dashWidth--hover, 3rem);
+  }
+  .IslandPageBlock__button:active::before {
+    width: var(--ButtonTertiary--dashWidth, 1rem);
+  }
+  .IslandPageBlock__button[data-focus-visible-added]::after {
     content: "";
     position: absolute;
     top: 0;
@@ -107,7 +115,18 @@
     bottom: 0;
     left: 0;
     margin: -0.8125rem -1rem;
-    border: 0.0625rem solid var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border-radius: 0.5rem;
+  }
+  .IslandPageBlock__button:focus-visible::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -0.8125rem -1rem;
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
     border-radius: 0.5rem;
   }
 }

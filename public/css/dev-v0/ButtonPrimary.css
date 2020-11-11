@@ -3,10 +3,9 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
-    --link-focus-outline: 0;
     white-space: nowrap;
     vertical-align: middle;
     color: var(--theme-color-primary--text);
@@ -36,7 +35,16 @@
   }
 }
 @media screen {
-  .ButtonPrimary:hover, .ButtonPrimary:focus, .ButtonPrimary:active {
+  .ButtonPrimary:hover, .ButtonPrimary:active, .ButtonPrimary[data-focus-visible-added] {
+    outline: 0;
+    text-decoration: none;
+    box-shadow: 0 0.75rem 1rem rgba(0, 0, 0, 0.09);
+    color: var(--theme-color-primary--text);
+  }
+}
+@media screen {
+  .ButtonPrimary:focus-visible {
+    outline: 0;
     text-decoration: none;
     box-shadow: 0 0.75rem 1rem rgba(0, 0, 0, 0.09);
     color: var(--theme-color-primary--text);
@@ -50,7 +58,20 @@
   }
 }
 @media screen {
-  .ButtonPrimary:focus::after {
+  .ButtonPrimary[data-focus-visible-added]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -0.25rem;
+    border: 0.125rem solid var(--theme-color-primary);
+    border-radius: 0.1875rem;
+  }
+}
+@media screen {
+  .ButtonPrimary:focus-visible::after {
     content: "";
     position: absolute;
     top: 0;

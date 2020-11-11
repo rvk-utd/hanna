@@ -29,7 +29,9 @@
     position: relative;
     display: inline-block;
   }
-  .ShareButtons__link:hover, .ShareButtons__link:focus, .ShareButtons__link:active {
+
+  .ShareButtons__link:hover,
+.ShareButtons__link:active {
     background-color: var(--theme-color-primary--dark);
     color: #ffffff;
   }

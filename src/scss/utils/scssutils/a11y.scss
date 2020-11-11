@@ -41,8 +41,11 @@ $_focusLink-dir: ltr !default; // screen-reader and rtl-friendly hiding
 
 	&:active,
 	&:focus,
-	&:focus-within,
 	&.--focus-within {
+		@include sr-only--undo();
+		@include _srFocusStyling($link, $border, $bg);
+	}
+	&:focus-within {
 		@include sr-only--undo();
 		@include _srFocusStyling($link, $border, $bg);
 	}

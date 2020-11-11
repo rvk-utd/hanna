@@ -47,7 +47,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
     overflow: hidden;
@@ -153,7 +153,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
     position: fixed;
@@ -176,7 +176,6 @@
   }
 
   .Layout__header__skiplink:hover,
-.Layout__header__skiplink:focus,
 .Layout__header__skiplink:active {
     background-color: #013b70;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -243,7 +242,25 @@
     pointer-events: none;
     margin: -1px;
   }
-  .Layout__nav__closebutton:active, .Layout__nav__closebutton:focus, .Layout__nav__closebutton:focus-within, .Layout__nav__closebutton.--focus-within {
+  .Layout__nav__closebutton:active, .Layout__nav__closebutton:focus, .Layout__nav__closebutton.--focus-within {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    opacity: 1;
+    pointer-events: auto;
+    margin: 0;
+    z-index: 99999;
+    font-size: 1em;
+    background: #ffffff;
+    border: 3px double 3px double var(--link-color--hover);
+    margin: 0;
+    padding: 0.2em 0.33em;
+    color: var(--link-color--hover);
+    text-shadow: none;
+    white-space: nowrap;
+  }
+  .Layout__nav__closebutton:focus-within {
     width: auto;
     height: auto;
     overflow: visible;
@@ -273,7 +290,25 @@
     pointer-events: none;
     margin: -1px;
   }
-  .Layout__header__skiplink:active, .Layout__header__skiplink:focus, .Layout__header__skiplink:focus-within, .Layout__header__skiplink.--focus-within {
+  .Layout__header__skiplink:active, .Layout__header__skiplink:focus, .Layout__header__skiplink.--focus-within {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    opacity: 1;
+    pointer-events: auto;
+    margin: 0;
+    z-index: 99999;
+    font-size: 1em;
+    background: #ffffff;
+    border: 3px double 3px double var(--link-color--hover);
+    margin: 0;
+    padding: 0.2em 0.33em;
+    color: var(--link-color--hover);
+    text-shadow: none;
+    white-space: nowrap;
+  }
+  .Layout__header__skiplink:focus-within {
     width: auto;
     height: auto;
     overflow: visible;

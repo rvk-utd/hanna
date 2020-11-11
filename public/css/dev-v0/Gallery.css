@@ -158,7 +158,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
   }

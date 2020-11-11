@@ -3,10 +3,9 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
-    --link-focus-outline: 0;
     color: var(--ButtonTertiary--color, _inherit);
     position: relative;
     display: inline-block;
@@ -39,17 +38,26 @@
     --ButtonTertiary--dashColor: _inherit;
     --ButtonTertiary--dashHeight: 0.375rem;
   }
-  .ButtonTertiary:hover, .ButtonTertiary:focus, .ButtonTertiary:active {
+  .ButtonTertiary:hover, .ButtonTertiary:active, .ButtonTertiary[data-focus-visible-added] {
     padding-right: 0rem;
     color: var(--ButtonTertiary--color, _inherit);
+    outline: 0;
   }
-  .ButtonTertiary:hover::before, .ButtonTertiary:focus::before {
+  .ButtonTertiary:hover::before, .ButtonTertiary:active::before, .ButtonTertiary[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--dashWidth--hover, 3rem);
   }
-  .ButtonTertiary:focus {
-    opacity: 0.5;
+  .ButtonTertiary:focus-visible {
+    padding-right: 0rem;
+    color: var(--ButtonTertiary--color, _inherit);
+    outline: 0;
   }
-  .ButtonTertiary:focus::after {
+  .ButtonTertiary:focus-visible::before {
+    width: var(--ButtonTertiary--dashWidth--hover, 3rem);
+  }
+  .ButtonTertiary:active::before {
+    width: var(--ButtonTertiary--dashWidth, 1rem);
+  }
+  .ButtonTertiary[data-focus-visible-added]::after {
     content: "";
     position: absolute;
     top: 0;
@@ -57,7 +65,18 @@
     bottom: 0;
     left: 0;
     margin: -0.8125rem -1rem;
-    border: 0.0625rem solid var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border-radius: 0.5rem;
+  }
+  .ButtonTertiary:focus-visible::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -0.8125rem -1rem;
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
     border-radius: 0.5rem;
   }
   .ButtonTertiary[disabled], .ButtonTertiary[aria-disabled=true] {

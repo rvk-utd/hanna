@@ -12,7 +12,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
     white-space: nowrap;
@@ -30,7 +30,6 @@
 }
 @media screen {
   .Tabs__tab:hover,
-.Tabs__tab:focus,
 .Tabs__tab:active {
     border-bottom: 4px solid var(--theme-color-primary--safeish);
   }

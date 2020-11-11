@@ -5,6 +5,7 @@
 		position: relative;
 		overflow-x: auto;
 	}
+
 	.TableWrapper > table,
 	.TableWrapper > * > table {
 		margin: 0;
@@ -65,6 +66,12 @@
 	.BasicTable,
 	.TableWrapper--BasicTable {
 		margin-bottom: prem(30);
+	}
+	.TableWrapper--BasicTable--align--right {
+		@include media($mq-tablet_up) {
+			margin-left: auto;
+			width: cols_pct(7);
+		}
 	}
 
 	.BasicTable > * > * > th,

@@ -348,7 +348,7 @@ html {
   /* 2 */
 }
 
-[tabindex] {
+[tabindex="-1"] {
   outline: none;
 }
 
@@ -521,8 +521,9 @@ table {
     --link-underline: 0.125rem solid transparent;
     --link-underline--hover: 0.125rem solid currentColor;
     --link-underline-offset: 0.15em;
-    --link-focus-outline: 1.5px dotted currentColor;
     --link-transition: 150ms ease-in-out;
+    --link-focus-outline: 3px solid #0372e1;
+    --link-focus-outlineOffset: 2px;
     --grid-edge: calc(5.6603773585vw + 1.8867924528px);
     --grid-edge--neg: calc(-5.6603773585vw + -1.8867924528px);
     --grid-0-1: calc(2.8989129077vw + -0.0049981257px);
@@ -674,6 +675,28 @@ table {
     display: none;
   }
 
+  *:focus:focus,
+*:focus[data-focus-visible-added] {
+    outline: var(--link-focus-outline);
+    outline-offset: var(--link-focus-outlineOffset);
+  }
+
+  *:focus:focus-visible {
+    outline: var(--link-focus-outline);
+    outline-offset: var(--link-focus-outlineOffset);
+  }
+
+  *:focus[tabindex="-1"],
+[data-js-focus-visible] *:focus:not([data-focus-visible-added]) {
+    outline: none;
+    outline-offset: 0;
+  }
+
+  *:focus:not(:focus-visible) {
+    outline: none;
+    outline-offset: 0;
+  }
+
   html {
     min-height: 100vh;
     min-width: 320px;
@@ -787,12 +810,9 @@ td {
     transition: var(--link-transition);
     transition-property: border-color, background-color, color, text-shadow, box-shadow;
   }
-  a:hover, a:focus, a:active {
+  a:hover, a:active {
     color: var(--link-color--hover);
     border-bottom: var(--link-underline--hover);
-  }
-  a:focus {
-    outline: var(--link-focus-outline);
   }
 
   a[href="#"],
@@ -842,10 +862,6 @@ a:not([href])::before {
     text-align: inherit;
     color: inherit;
     cursor: pointer;
-  }
-  button:focus {
-    outline: none;
-    box-shadow: none;
   }
 
   button:disabled {

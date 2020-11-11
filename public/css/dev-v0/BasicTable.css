@@ -59,7 +59,14 @@
 .TableWrapper--BasicTable {
     margin-bottom: 1.875rem;
   }
-
+}
+@media screen and (min-width: 760px) {
+  .TableWrapper--BasicTable--align--right {
+    margin-left: auto;
+    width: 56.9536423841%;
+  }
+}
+@media screen {
   .BasicTable > * > * > th,
 .BasicTable > * > * > td {
     padding: calc(1.3513513514% + 7.6756756757px) calc(1.5765765766% + 10.954954955px);

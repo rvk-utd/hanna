@@ -20,12 +20,11 @@
 		color: $var--color-theme-primary--text;
 		position: relative;
 		display: inline-block;
-		&:hover,
-		&:focus,
-		&:active {
-			background-color: $var--color-theme-primary--dark;
-			color: $color-suld-0;
-		}
+	}
+	.ShareButtons__link:hover,
+	.ShareButtons__link:active {
+		background-color: $var--color-theme-primary--dark;
+		color: $color-suld-0;
 	}
 
 	.ShareButtons__link::before {

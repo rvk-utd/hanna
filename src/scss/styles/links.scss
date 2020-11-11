@@ -13,20 +13,17 @@
 	color: $var--link-color--hover;
 	border-bottom: $var--link-underline--hover;
 }
-@mixin LinkStyle--focus() {
+@mixin LinkStyle--focusOutline() {
 	outline: $var--link-focus-outline;
+	outline-offset: $var--link-focus-outlineOffset;
 }
 
 @mixin LinkStyle() {
 	@include LinkStyle--basic();
 
 	&:hover,
-	&:focus,
 	&:active {
 		@include LinkStyle--hover();
-	}
-	&:focus {
-		@include LinkStyle--focus();
 	}
 }
 
@@ -41,7 +38,7 @@
 	// unless..
 	@if $hover {
 		@if $hover != noborder {
-			--link-color--hover: _inherit;
+			--link-color--hover: currentColor;
 		}
 		--link-underline--hover: none;
 		--link-underline-offset: 0;
@@ -52,7 +49,7 @@
 // is the same as the surrounding text color.
 @mixin LinkStyle_SameColor() {
 	--link-color: _inherit;
-	--link-color--hover: _inherit;
+	--link-color--hover: currentColor;
 	--link-underline: 1px dotted currentColor;
 	--link-underline--hover: 2px solid currentColor;
 	--ButtonTertiary--dashColor: currentColor; // #{$var--color-theme-primary--dark};
