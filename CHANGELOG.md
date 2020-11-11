@@ -3,12 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Make active `.MainMenu__megapanel` extend to full height
 
-## 0.7.13
+## 0.7.13 – 0.7.14
 
 _2020-11-11_
 
+- feat: Make active `.MainMenu__megapanel` extend to full height
 - feat: Add styling for `.TableWrapper--BasicTable--align--right`
 - feat: Gobally use `:focus-visible` and `[data-focus-visible-added]`
 - fix: Correct vertical margins of `.GridBlocks--twocol > .GridBlocks__item`s
