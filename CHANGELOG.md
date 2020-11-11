@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.13
+
+_2020-11-11_
+
 - feat: Add styling for `.TableWrapper--BasicTable--align--right`
 - feat: Gobally use `:focus-visible` and `[data-focus-visible-added]`
 - fix: Correct vertical margins of `.GridBlocks--twocol > .GridBlocks__item`s
