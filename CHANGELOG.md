@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Change `.Attention` styling - deprecate `--strong variant`
 
 ## 0.7.13 – 0.7.14
 
