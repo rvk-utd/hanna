@@ -71,7 +71,6 @@
 }
 @media screen {
   .ExtraLinks__card:hover,
-.ExtraLinks__card:focus,
 .ExtraLinks__card:active {
     border-color: transparent;
     background-color: #ffffff;
@@ -81,7 +80,6 @@
 }
 @media screen {
   .ExtraLinks__card:hover > .ExtraLinks__card__title,
-.ExtraLinks__card:focus > .ExtraLinks__card__title,
 .ExtraLinks__card:active > .ExtraLinks__card__title {
     color: #0372e1;
   }

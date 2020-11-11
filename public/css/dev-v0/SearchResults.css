@@ -116,7 +116,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
     display: block;
@@ -210,10 +210,9 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
-    --link-focus-outline: 0;
     color: var(--ButtonTertiary--color, _inherit);
     position: relative;
     display: inline-block;
@@ -250,17 +249,26 @@
     --ButtonTertiary--dashColor: _inherit;
     --ButtonTertiary--dashHeight: 0.375rem;
   }
-  .SearchResults__loadmore:hover, .SearchResults__loadmore:focus, .SearchResults__loadmore:active {
+  .SearchResults__loadmore:hover, .SearchResults__loadmore:active, .SearchResults__loadmore[data-focus-visible-added] {
     padding-right: 0rem;
     color: var(--ButtonTertiary--color, _inherit);
+    outline: 0;
   }
-  .SearchResults__loadmore:hover::before, .SearchResults__loadmore:focus::before {
+  .SearchResults__loadmore:hover::before, .SearchResults__loadmore:active::before, .SearchResults__loadmore[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--dashWidth--hover, 3rem);
   }
-  .SearchResults__loadmore:focus {
-    opacity: 0.5;
+  .SearchResults__loadmore:focus-visible {
+    padding-right: 0rem;
+    color: var(--ButtonTertiary--color, _inherit);
+    outline: 0;
   }
-  .SearchResults__loadmore:focus::after {
+  .SearchResults__loadmore:focus-visible::before {
+    width: var(--ButtonTertiary--dashWidth--hover, 3rem);
+  }
+  .SearchResults__loadmore:active::before {
+    width: var(--ButtonTertiary--dashWidth, 1rem);
+  }
+  .SearchResults__loadmore[data-focus-visible-added]::after {
     content: "";
     position: absolute;
     top: 0;
@@ -268,7 +276,18 @@
     bottom: 0;
     left: 0;
     margin: -0.8125rem -1rem;
-    border: 0.0625rem solid var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border-radius: 0.5rem;
+  }
+  .SearchResults__loadmore:focus-visible::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -0.8125rem -1rem;
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
     border-radius: 0.5rem;
   }
   .SearchResults__loadmore[disabled], .SearchResults__loadmore[aria-disabled=true] {

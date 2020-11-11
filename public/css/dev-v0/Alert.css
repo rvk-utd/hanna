@@ -170,7 +170,6 @@
 }
 @media screen {
   .Alert__close:hover,
-.Alert__close:focus,
 .Alert__close:active {
     opacity: 1;
     font-size: 1rem;

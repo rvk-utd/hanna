@@ -62,7 +62,6 @@
     height: 100%;
     border: 1px solid #e3e5e7;
     --link-color--hover: #2a2b2c;
-    --link-focus-outline: 0;
   }
   .ActionCards__card::after {
     content: "";
@@ -73,7 +72,7 @@
     margin-top: 1rem;
     transition: width 0.25s ease-in-out;
   }
-  .ActionCards__card:hover::after, .ActionCards__card:focus::after {
+  .ActionCards__card:hover::after {
     width: 100%;
   }
   .ActionCards__card__title, .ActionCards__card__summary {
@@ -92,7 +91,6 @@
 }
 @media screen {
   .ActionCards__card:hover,
-.ActionCards__card:focus,
 .ActionCards__card:active {
     --Card-lineColor: var(--theme-color-primary--safeish);
     border: 1px solid var(--theme-color-primary--safeish);

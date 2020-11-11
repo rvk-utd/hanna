@@ -87,7 +87,7 @@
     margin-top: 1rem;
     transition: width 0.25s ease-in-out;
   }
-  .ExtraLinks__card:hover::after, .ExtraLinks__card:focus::after {
+  .ExtraLinks__card:hover::after {
     width: 100%;
   }
   .ExtraLinks__card__title, .ExtraLinks__card__summary {
@@ -106,7 +106,6 @@
 }
 @media screen {
   .ExtraLinks__card:hover,
-.ExtraLinks__card:focus,
 .ExtraLinks__card:active {
     border-color: transparent;
     background-color: var(--theme-color-primary);

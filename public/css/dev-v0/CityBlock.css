@@ -13,7 +13,7 @@
     background-color: var(--theme-color-primary);
     color: var(--theme-color-primary--text);
     --link-color: _inherit;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline: 1px dotted currentColor;
     --link-underline--hover: 2px solid currentColor;
     --ButtonTertiary--dashColor: currentColor;
@@ -69,7 +69,7 @@
 @media screen {
   .CityBlock__summary a {
     --link-color: _inherit;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline: 1px dotted currentColor;
     --link-underline--hover: 2px solid currentColor;
     --ButtonTertiary--dashColor: currentColor;
@@ -108,10 +108,9 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
-    --link-focus-outline: 0;
     color: var(--ButtonTertiary--color, _inherit);
     position: relative;
     display: inline-block;
@@ -142,17 +141,26 @@
     margin-right: 1rem;
     transition: inherit;
   }
-  .CityBlock__button:hover, .CityBlock__button:focus, .CityBlock__button:active {
+  .CityBlock__button:hover, .CityBlock__button:active, .CityBlock__button[data-focus-visible-added] {
     padding-right: 0rem;
     color: var(--ButtonTertiary--color, _inherit);
+    outline: 0;
   }
-  .CityBlock__button:hover::before, .CityBlock__button:focus::before {
+  .CityBlock__button:hover::before, .CityBlock__button:active::before, .CityBlock__button[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--dashWidth--hover, 3rem);
   }
-  .CityBlock__button:focus {
-    opacity: 0.5;
+  .CityBlock__button:focus-visible {
+    padding-right: 0rem;
+    color: var(--ButtonTertiary--color, _inherit);
+    outline: 0;
   }
-  .CityBlock__button:focus::after {
+  .CityBlock__button:focus-visible::before {
+    width: var(--ButtonTertiary--dashWidth--hover, 3rem);
+  }
+  .CityBlock__button:active::before {
+    width: var(--ButtonTertiary--dashWidth, 1rem);
+  }
+  .CityBlock__button[data-focus-visible-added]::after {
     content: "";
     position: absolute;
     top: 0;
@@ -160,7 +168,18 @@
     bottom: 0;
     left: 0;
     margin: -0.8125rem -1rem;
-    border: 0.0625rem solid var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border-radius: 0.5rem;
+  }
+  .CityBlock__button:focus-visible::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -0.8125rem -1rem;
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
     border-radius: 0.5rem;
   }
 }

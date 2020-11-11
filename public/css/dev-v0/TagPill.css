@@ -5,7 +5,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: _inherit;
+    --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
     display: inline-block;
@@ -33,10 +33,8 @@
 }
 @media screen {
   a.TagPill:hover,
-a.TagPill:focus,
 a.TagPill:active,
-button.TagPill:hover,
-button.TagPill:focus {
+button.TagPill:hover {
     background-color: #727477;
     color: #ffffff;
   }

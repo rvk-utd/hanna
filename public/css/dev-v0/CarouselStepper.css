@@ -25,8 +25,7 @@
     text-indent: 9px;
   }
 
-  .CarouselStepper__button:hover,
-.CarouselStepper__button:focus {
+  .CarouselStepper__button:hover {
     background: #727477;
     transform: scaleY(0.8333333333);
   }

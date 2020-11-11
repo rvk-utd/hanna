@@ -70,7 +70,6 @@
 }
 @media screen {
   .AccordionList__button:hover,
-.AccordionList__button:focus,
 .AccordionList__button:active {
     color: #013b70;
   }
@@ -112,7 +111,6 @@
 }
 @media screen {
   .AccordionList__button:hover::before,
-.AccordionList__button:focus::before,
 .AccordionList__button:active::before {
     color: #013b70;
   }
