@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make active `.MainMenu__megapanel` extend to full height
 
 ## 0.7.13
 

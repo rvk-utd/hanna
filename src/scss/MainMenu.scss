@@ -281,6 +281,15 @@
 	//
 	// ===========================================================================
 
+	html[data-mega-panel-active] {
+		overflow-y: hidden;
+		padding-right: $var--browser-scrollbar-width;
+	}
+	html[data-mega-panel-active] .Layout__alerts {
+		max-height: 0;
+		transition-duration: 0ms;
+	}
+
 	.MainMenu__megapanel {
 		margin: between_cols(30, 60) 0;
 	}
@@ -298,29 +307,20 @@
 		position: absolute;
 		z-index: $zIndex--header;
 		top: $var--Layout__header-height;
-		left: 0;
-		right: 0;
+		left: calc(0.5 * #{$var--browser-scrollbar-width});
+		right: calc(-0.5 * #{$var--browser-scrollbar-width});
+		height: calc(100vh - #{$var--Layout__header-height});
 		margin: 0;
 		padding: between_cols(50, 150) 0;
+		@include extendSides();
 		background-color: $color-suld-0;
+		border-top: 1px solid $color-suld-75;
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel--active {
 		opacity: 1;
 		visibility: visible;
-	}
-
-	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel::before {
-		content: '';
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		bottom: 0;
-		left: calc(50% - 50vw);
-		right: calc(50% - 50vw);
-		background: inherit;
-		border-top: 1px solid $color-suld-75;
-		border-bottom: 1px solid $color-suld-50;
-		box-shadow: 0 60px 100px -40px rgba(black, 0.03);
 	}
 
 	.MainMenu__mega__title {
@@ -389,19 +389,20 @@
 	}
 
 	.MainMenu__megapanel__backtomenu {
-		position: absolute;
-		top: calc(0.5 * #{$var--grid-gutter});
+		position: fixed;
+		top: $var--Layout__header-height;
 		right: 0;
-		margin-right: prem(-18);
 		width: prem(50);
 		line-height: prem(50);
-		font-size: prem(14);
+		font-size: prem(16);
 		opacity: 0.5;
+		transition: all 180ms ease-in-out;
 		@include hideText(soft);
 	}
 	.MainMenu__megapanel__backtomenu:hover,
 	.MainMenu__megapanel__backtomenu:active {
 		opacity: 1;
+		transform: scale(1.2);
 	}
 
 	.MainMenu__megapanel__backtomenu::before {
