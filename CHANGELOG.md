@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Change `.Attention` styling - deprecate `--strong variant`
+- fix: Prevent site-wide `Alert` cutoff on mobile screen-sizes
 
 ## 0.7.13 – 0.7.14
 

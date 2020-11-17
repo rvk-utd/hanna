@@ -18,13 +18,15 @@
 	.Layout__alerts {
 		max-height: 1000px;
 		overflow: hidden;
+		margin: 0 prem(-15);
 		transition: max-height 350ms ease-in-out;
+
+		@include media($mq-tablet_up) {
+			margin: 0;
+		}
 	}
 	.Layout__alerts .Alert {
-		margin: grid-units(2) prem(-15);
-		@include media($mq-tablet_up) {
-			margin: grid-units(2) 0 0 0;
-		}
+		margin: grid-units(2) 0 0 0;
 	}
 
 	.Layout__content {
