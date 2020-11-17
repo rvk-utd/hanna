@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add 5 new ["Illustration"](src/assets/illustrations/files.json) assets
+  for the homepage
 - feat: Add styling for `.SearchResultsHighlightItem` with images
 - feat: Tweak styling of `.SearchResultsItem__meta`
 - feat: Change `.Attention` styling - deprecate `--strong variant`

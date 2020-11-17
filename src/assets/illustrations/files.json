@@ -733,5 +733,30 @@
 		"tags": ["theme/friendly"],
 		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_vor.png",
 		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_vor.png"
+	},
+	"forsida": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida.png"
+	},
+	"forsida-17juni": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-17juni.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-17juni.png"
+	},
+	"forsida-blidvidri": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-blidvidri.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-blidvidri.png"
+	},
+	"forsida-rigning": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-rigning.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-rigning.png"
+	},
+	"forsida-snjor": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-snjor.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-snjor.png"
 	}
 }
