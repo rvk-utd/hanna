@@ -256,8 +256,8 @@
 	},
 	"arstid_haust": {
 		"tags": ["theme/friendly"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/haust.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haust.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_haust.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_haust.png"
 	},
 	"hjalpastad": {
 		"tags": ["theme/friendly"],
@@ -581,8 +581,8 @@
 	},
 	"arstid_sumar": {
 		"tags": ["theme/friendly"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/sumar.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/sumar.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_sumar.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_sumar.png"
 	},
 	"sund1": {
 		"tags": [],
@@ -716,8 +716,8 @@
 	},
 	"arstid_vetur": {
 		"tags": ["theme/friendly"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/vetur.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/vetur.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_vetur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_vetur.png"
 	},
 	"vinir": {
 		"tags": [],
@@ -731,7 +731,7 @@
 	},
 	"arstid_vor": {
 		"tags": ["theme/friendly"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/vor.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/vor.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_vor.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_vor.png"
 	}
 }
