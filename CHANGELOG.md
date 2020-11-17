@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.SearchResultsHighlightItem` with images
+- feat: Tweak styling of `.SearchResultsItem__meta`
 - feat: Change `.Attention` styling - deprecate `--strong variant`
 - fix: Prevent site-wide `Alert` cutoff on mobile screen-sizes
 
