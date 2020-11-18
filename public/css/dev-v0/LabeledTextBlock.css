@@ -7,7 +7,7 @@
   .LabeledTextBlock {
     margin-bottom: calc(7.5431034483% + 8.8793103448px);
   }
-  .before-sprinkling .LabeledTextBlock, .LabeledTextBlock[data-is-seen][data-is-seen=false] {
+  .LabeledTextBlock[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

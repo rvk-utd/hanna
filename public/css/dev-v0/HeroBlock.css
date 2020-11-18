@@ -9,7 +9,7 @@
     display: flex;
     flex-flow: column nowrap;
   }
-  .before-sprinkling .HeroBlock, .HeroBlock[data-is-seen][data-is-seen=false] {
+  .HeroBlock[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
