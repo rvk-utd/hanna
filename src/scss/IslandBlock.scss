@@ -5,6 +5,7 @@
 
 @media screen {
 	.IslandBlock {
+		@include SeenEffect--fadeup();
 		display: flex;
 		flex-flow: column-reverse;
 		justify-content: space-between;

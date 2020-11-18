@@ -2,6 +2,7 @@
 
 @media screen {
 	.TableWrapper {
+		@include SeenEffect--fadeup();
 		position: relative;
 		overflow-x: auto;
 	}

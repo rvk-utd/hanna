@@ -8,6 +8,17 @@
     justify-content: center;
     min-height: 272px;
   }
+  .before-sprinkling .MiniMetrics, .MiniMetrics[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .MiniMetrics[data-is-seen=""], .MiniMetrics[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .MiniMetrics[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 
   .MiniMetrics__text {
     font-weight: 700;

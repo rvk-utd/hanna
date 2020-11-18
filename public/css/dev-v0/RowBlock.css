@@ -12,6 +12,17 @@
     justify-content: space-between;
     align-items: center;
   }
+  .before-sprinkling .RowBlock, .RowBlock[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .RowBlock[data-is-seen=""], .RowBlock[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .RowBlock[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 }
 @media screen and (min-width: 760px) {
   .RowBlock {

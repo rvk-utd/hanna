@@ -10,6 +10,17 @@
     padding-top: calc(4.3103448276% + 11.9310344828px);
     padding-bottom: calc(5.1724137931% + 17.5172413793px);
   }
+  .before-sprinkling .FeatureList, .FeatureList[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .FeatureList[data-is-seen=""], .FeatureList[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .FeatureList[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 }
 @media screen and (max-width: 479px) {
   .FeatureList {

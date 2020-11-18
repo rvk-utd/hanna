@@ -34,6 +34,11 @@
     margin-bottom: calc(1.5094339623vw + 43.1698113208px);
   }
 }
+@media screen and (min-width: 1380px) {
+  .SearchResults__title {
+    margin-bottom: 4rem;
+  }
+}
 @media screen {
   .SearchResults__query {
     font-weight: 700;
@@ -100,7 +105,7 @@
   }
 }
 @media screen {
-  .SearchResultsItem::before {
+  ol.SearchResults__list > li::before {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -112,6 +117,16 @@
   }
 }
 @media screen {
+  .SearchResultsItem {
+    margin-bottom: calc(1.5094339623vw + 43.1698113208px);
+  }
+}
+@media screen and (min-width: 1380px) {
+  .SearchResultsItem {
+    margin-bottom: 4rem;
+  }
+}
+@media screen {
   .SearchResultsItem__link {
     --link-color: _inherit;
     --link-weight: _inherit;
@@ -119,10 +134,16 @@
     --link-color--hover: currentColor;
     --link-underline--hover: none;
     --link-underline-offset: 0;
-    display: block;
+    display: flex;
+    flex-flow: column;
     padding-left: var(--grid-1);
-    margin-bottom: calc(1.5094339623vw + 43.1698113208px);
+    margin-left: var(--grid-1--neg);
     max-width: 584px;
+  }
+}
+@media screen and (min-width: 760px) {
+  .SearchResultsItem__link {
+    margin-left: 0;
   }
 }
 @media screen {
@@ -152,6 +173,11 @@
     width: var(--dash-width, 1.125em);
     margin-right: var(--dash-margin, 0.625em);
     margin-left: var(--dash-indent, 0);
+  }
+}
+@media screen and (max-width: 759px) {
+  .SearchResultsItem__title {
+    margin-left: 0;
   }
 }
 @media screen and (min-width: 1380px) {
@@ -186,23 +212,29 @@
 @media screen {
   .SearchResultsItem__meta {
     display: block;
-    color: #0372e1;
     font-size: 0.75rem;
-    margin-bottom: 1rem;
+    line-height: 1rem;
     order: -1;
-    width: 100%;
-    line-height: 1.3333333333em;
+  }
+}
+@media screen and (min-width: 760px) {
+  .SearchResultsItem__meta {
+    margin-bottom: 1rem;
   }
 }
 @media screen {
   .SearchResultsItem__meta > span {
-    color: #2a2b2c;
+    display: inline-block;
   }
 }
 @media screen {
   .SearchResultsItem__summary {
-    max-width: 100%;
     font-weight: 400;
+  }
+}
+@media screen {
+  .SearchResultsItem__image {
+    display: none;
   }
 }
 @media screen {
@@ -317,6 +349,102 @@
     color: #727477;
     font-weight: 400;
     margin-left: 0.25rem;
+  }
+}
+@media screen {
+  .SearchResultsHighlightItem {
+    margin-bottom: calc(1.5094339623vw + 43.1698113208px);
+  }
+}
+@media screen and (min-width: 1380px) {
+  .SearchResultsHighlightItem {
+    margin-bottom: 4rem;
+  }
+}
+@media screen {
+  .SearchResultsHighlightItem__link {
+    --link-color: _inherit;
+    --link-weight: _inherit;
+    --link-underline: none;
+    --link-color--hover: currentColor;
+    --link-underline--hover: none;
+    --link-underline-offset: 0;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    padding: var(--grid-1);
+    min-height: var(--grid-4);
+    border: 1px solid #e3e5e7;
+    margin: 0 var(--grid-1--neg);
+  }
+}
+@media screen and (min-width: 760px) {
+  .SearchResultsHighlightItem__link {
+    margin: 0 -1px;
+    padding-right: var(--grid-4-4);
+  }
+}
+@media screen {
+  .SearchResultsHighlightItem__link::after {
+    content: " ";
+    clear: both;
+    display: block;
+    height: 0;
+  }
+}
+@media screen {
+  .SearchResultsHighlightItem__link:hover,
+.SearchResultsHighlightItem__link:active {
+    border-color: #0372e1;
+    box-shadow: inset 0 0 0 1px #0372e1;
+  }
+}
+@media screen {
+  .SearchResultsHighlightItem__title {
+    font-weight: 700;
+    font-size: var(--font-hd-s-size);
+    line-height: var(--font-hd-s-leading);
+    margin-bottom: 1.5rem;
+  }
+}
+@media screen {
+  .SearchResultsHighlightItem__meta {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    margin-top: -1rem;
+    order: -1;
+  }
+}
+@media screen and (min-width: 760px) {
+  .SearchResultsHighlightItem__meta {
+    margin-bottom: 1rem;
+  }
+}
+@media screen {
+  .SearchResultsHighlightItem__image {
+    order: -2;
+  }
+}
+@media screen and (max-width: 759px) {
+  .SearchResultsHighlightItem__image {
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 759px) {
+  .SearchResultsHighlightItem__image > img {
+    max-width: 18.75rem;
+  }
+}
+@media screen and (min-width: 760px) {
+  .SearchResultsHighlightItem__image > img {
+    position: absolute;
+    top: 1.25rem;
+    right: 0;
+    width: var(--grid-4-4);
+    height: calc(100% - 2.5rem);
+    -o-object-fit: contain;
+       object-fit: contain;
   }
 }
 /*# sourceMappingURL=SearchResults.css.map */

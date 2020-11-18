@@ -10,6 +10,7 @@
 
 @media screen {
 	.CityBlock {
+		@include SeenEffect--fadeup();
 		display: flex;
 		flex-flow: column-reverse;
 		margin-bottom: between_cols(30, 20 * $grid-unit);

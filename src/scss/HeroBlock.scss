@@ -7,6 +7,7 @@
 
 @media screen {
 	.HeroBlock {
+		@include SeenEffect--fadeup();
 		padding: between_cols(0, 1 * $grid-unit) 0;
 		margin-bottom: between_cols(30, 100);
 		display: flex;

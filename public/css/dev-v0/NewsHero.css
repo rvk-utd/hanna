@@ -11,6 +11,17 @@
     padding: calc(0.8620689655% + -2.4137931034px) 0;
     margin-bottom: calc(9.6982758621% + 2.8448275862px);
   }
+  .before-sprinkling .NewsHero, .NewsHero[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .NewsHero[data-is-seen=""], .NewsHero[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .NewsHero[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 }
 @media screen and (min-width: 480px) {
   .NewsHero {

@@ -18,6 +18,17 @@
     justify-content: space-between;
     align-items: flex-start;
   }
+  .before-sprinkling .PageFilter, .PageFilter[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .PageFilter[data-is-seen=""], .PageFilter[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .PageFilter[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
   .PageFilter::before {
     content: "";
     position: absolute;

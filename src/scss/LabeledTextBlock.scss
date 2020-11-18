@@ -10,6 +10,7 @@
 
 @media screen {
 	.LabeledTextBlock {
+		@include SeenEffect--fadeup();
 		margin-bottom: between_cols(30, 100);
 	}
 

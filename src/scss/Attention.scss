@@ -6,14 +6,14 @@
 		margin: $var--baseVerticalMargin-2 0;
 
 		@include BodyTextStyle--large();
-		font-weight: $font-weight--bold;
-		border-left: grid-units(1) solid
-			var(--Attention-border-color, $color-heidmork-100);
+		border-left: grid-units(1) solid $var--color-theme-primary;
 		padding-left: calc(0.5 * #{$var--grid-column});
 		padding-right: $var--grid-column;
 	}
 	.Attention--strong {
-		color: var(--Attention-text-color, $color-heidmork-100);
+		@include WARNING__('Deprecated: `.Attention--strong` is no longer supported');
+		// color: var(--Attention-text-color, $color-heidmork-100);
+		// font-weight: $font-weight--bold;
 	}
 
 	.Attention:last-child {

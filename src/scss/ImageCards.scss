@@ -11,6 +11,7 @@
 
 @media screen {
 	.ImageCards {
+		@include SeenEffect--fadeup();
 		--ImageCards--fallback: url('/assets/illustrations/esjan.png');
 
 		@include CardBlock();

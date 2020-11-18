@@ -3,6 +3,7 @@
 
 @media screen {
 	.ActionCards {
+		@include SeenEffect--fadeup();
 		@include CardBlock();
 		margin-bottom: between_cols(60, 100);
 	}

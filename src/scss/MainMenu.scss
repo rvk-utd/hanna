@@ -2,6 +2,17 @@
 @use 'styles/links' as *;
 @use 'styles/font' as *;
 
+@keyframes MainMenu__mega__item--fadeup {
+	0% {
+		opacity: 0;
+		transform: translateY(prem(50));
+	}
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
 @media screen {
 	.MainMenu {
 	}
@@ -343,10 +354,17 @@
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
-	.MainMenu__mega__item {
+	.MainMenu__megapanel--active > * > .MainMenu__mega__item {
 		display: flex;
 		align-items: flex-end;
+		animation: MainMenu__mega__item--fadeup 200ms 200ms ease-out 1 backwards;
 	}
+	@for $i from 2 through 8 {
+		.MainMenu__mega__item:nth-child(#{$i}) {
+			animation-delay: (($i - 1) * 150ms + 300ms);
+		}
+	}
+
 	.MainMenu__mega__link[class] {
 		@include LinkStyle_Reset(true);
 		width: 100%;

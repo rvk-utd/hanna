@@ -8,6 +8,7 @@
 
 @media screen {
 	.NewsHero {
+		@include SeenEffect--fadeup();
 		position: relative;
 		display: flex;
 		flex-flow: column wrap;

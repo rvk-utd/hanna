@@ -15,14 +15,16 @@
   .Layout__alerts {
     max-height: 1000px;
     overflow: hidden;
+    margin: 0 -0.9375rem;
     transition: max-height 350ms ease-in-out;
-  }
-
-  .Layout__alerts .Alert {
-    margin: 1rem -0.9375rem;
   }
 }
 @media screen and (min-width: 760px) {
+  .Layout__alerts {
+    margin: 0;
+  }
+}
+@media screen {
   .Layout__alerts .Alert {
     margin: 1rem 0 0 0;
   }

@@ -21,6 +21,7 @@
 		position: relative;
 		margin-left: auto;
 		padding-top: between_phone_netbook(64, 88);
+
 		@include media($mq-netbook_up) {
 			width: $var--grid-9;
 		}
@@ -31,6 +32,7 @@
 		margin-left: auto;
 		transition: opacity 300ms ease-in-out;
 	}
+
 	.SearchResults--loadingquery {
 		opacity: 0.5;
 	}
@@ -38,6 +40,10 @@
 	.SearchResults__title {
 		@include HeadingStyle--medium();
 		margin-bottom: between_phone_netbook(48, 64);
+
+		@include media($mq-wide) {
+			margin-bottom: prem(64);
+		}
 	}
 
 	.SearchResults__query {
@@ -88,20 +94,30 @@
 		animation: loadingAnimation 1000ms linear infinite;
 	}
 
-	.SearchResultsItem::before {
+	ol.SearchResults__list > li::before {
 		// hide <ol><li> counter markers
 		@include sr-only();
 	}
+
+	.SearchResultsItem {
+		margin-bottom: between_phone_netbook(48, 64);
+
+		@include media($mq-wide) {
+			margin-bottom: prem(64);
+		}
+	}
+
 	.SearchResultsItem__link {
 		@include LinkStyle_Reset(true);
-		display: block;
+		display: flex;
+		flex-flow: column;
 		padding-left: $var--grid-1;
-		margin-bottom: between_phone_netbook(48, 64);
+		margin-left: $var--grid-1--neg;
 		max-width: cols_px(6);
 
-		// @include media($mq-netbook_up) {
-		// 	width: $var--grid-6;
-		// }
+		@include media($mq-tablet_up) {
+			margin-left: 0;
+		}
 	}
 
 	$baseDashWidth: 24;
@@ -123,6 +139,9 @@
 		padding-right: _flexDash($dashDiff);
 		transition: padding-right $dashTransition;
 
+		@include media($mq-phone_phablet) {
+			margin-left: 0;
+		}
 		@include media($mq-wide) {
 			--dash-width: #{prem($baseDashWidth)};
 			--dash-margin: #{prem(32)};
@@ -149,19 +168,21 @@
 	}
 	.SearchResultsItem__meta {
 		display: block;
-		color: $color-faxafloi-100;
 		font-size: prem($font-label-size);
-		margin-bottom: prem(16);
+		line-height: prem(16);
 		order: -1;
-		width: 100%;
-		line-height: em(16 / $font-label-size);
+		@include media($mq-tablet_up) {
+			margin-bottom: prem(16);
+		}
 	}
 	.SearchResultsItem__meta > span {
-		color: $color-suld-200;
+		display: inline-block;
 	}
 	.SearchResultsItem__summary {
-		max-width: 100%;
 		font-weight: $font-weight--normal;
+	}
+	.SearchResultsItem__image {
+		display: none;
 	}
 
 	.SearchResults__loadmore {
@@ -185,5 +206,75 @@
 		color: $color-suld-150;
 		font-weight: $font-weight--normal;
 		margin-left: prem(4);
+	}
+}
+
+// ===========================================================================
+
+// ===========================================================================
+
+@media screen {
+	.SearchResultsHighlightItem {
+		margin-bottom: between_phone_netbook(48, 64);
+
+		@include media($mq-wide) {
+			margin-bottom: prem(64);
+		}
+	}
+	.SearchResultsHighlightItem__link {
+		@include LinkStyle_Reset(true);
+		position: relative;
+		display: flex;
+		flex-flow: column;
+		padding: $var--grid-1;
+		min-height: $var--grid-4;
+		border: 1px solid $color-suld-75;
+		margin: 0 $var--grid-1--neg;
+
+		@include media($mq-tablet_up) {
+			margin: 0 -1px;
+			padding-right: $var--grid-4-4;
+		}
+
+		@include afterClear();
+	}
+	.SearchResultsHighlightItem__link:hover,
+	.SearchResultsHighlightItem__link:active {
+		border-color: $color-faxafloi-100;
+		box-shadow: inset 0 0 0 1px $color-faxafloi-100;
+	}
+	.SearchResultsHighlightItem__title {
+		@include HeadingStyle--small();
+		margin-bottom: grid-units(3);
+	}
+
+	.SearchResultsHighlightItem__meta {
+		display: block;
+		font-size: prem($font-label-size);
+		line-height: prem(16);
+		margin-top: prem(-16);
+		order: -1;
+		@include media($mq-tablet_up) {
+			margin-bottom: prem(16);
+		}
+	}
+	.SearchResultsHighlightItem__image {
+		order: -2;
+		@include media($mq-phone_phablet) {
+			margin-bottom: prem(32);
+		}
+	}
+	.SearchResultsHighlightItem__image > img {
+		@include media($mq-phone_phablet) {
+			max-width: prem(300);
+		}
+		@include media($mq-tablet_up) {
+			position: absolute;
+			top: prem(20);
+			right: 0;
+			width: $var--grid-4-4;
+			height: calc(100% - #{prem(40)});
+			object-fit: contain;
+		}
 	}
 }

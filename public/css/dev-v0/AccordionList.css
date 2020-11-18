@@ -6,6 +6,17 @@
     --leftIndent: calc(3.6363636364vw + 20.3636363636px);
     --iconWidth: calc(2.7272727273vw + 15.2727272727px);
   }
+  .before-sprinkling .AccordionList, .AccordionList[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .AccordionList[data-is-seen=""], .AccordionList[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .AccordionList[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 }
 @media screen and (min-width: 760px) and (max-width: 1379px) {
   .AccordionList {
