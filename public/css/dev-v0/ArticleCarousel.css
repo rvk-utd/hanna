@@ -14,7 +14,7 @@
     margin-bottom: calc(9.6982758621% + 12.8448275862px);
     --globalPrimary: var(--theme-color-primary--safeish);
   }
-  .before-sprinkling .ArticleCarousel, .ArticleCarousel[data-is-seen][data-is-seen=false] {
+  .ArticleCarousel[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

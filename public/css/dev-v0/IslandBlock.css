@@ -5,7 +5,7 @@
     justify-content: space-between;
     margin-bottom: calc(13.6853448276% + 1.6810344828px);
   }
-  .before-sprinkling .IslandBlock, .IslandBlock[data-is-seen][data-is-seen=false] {
+  .IslandBlock[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

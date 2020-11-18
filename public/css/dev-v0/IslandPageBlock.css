@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  .before-sprinkling .IslandPageBlock, .IslandPageBlock[data-is-seen][data-is-seen=false] {
+  .IslandPageBlock[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
