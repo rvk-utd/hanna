@@ -8,6 +8,17 @@
     flex-flow: column-reverse;
     margin-bottom: calc(14.0086206897% + -9.224137931px);
   }
+  .before-sprinkling .CityBlock, .CityBlock[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .CityBlock[data-is-seen=""], .CityBlock[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .CityBlock[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 
   .CityBlock__content {
     background-color: var(--theme-color-primary);

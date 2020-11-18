@@ -7,6 +7,17 @@
     flex-flow: row wrap;
     margin-bottom: calc(8.6206896552% + 15.8620689655px);
   }
+  .before-sprinkling .GridBlocks, .GridBlocks[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .GridBlocks[data-is-seen=""], .GridBlocks[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .GridBlocks[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 
   .GridBlocks__item {
     margin: 1.25rem 0;

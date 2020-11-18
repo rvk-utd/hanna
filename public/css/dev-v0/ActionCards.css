@@ -2,6 +2,17 @@
   .ActionCards {
     margin-bottom: calc(4.3103448276% + 47.9310344828px);
   }
+  .before-sprinkling .ActionCards, .ActionCards[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .ActionCards[data-is-seen=""], .ActionCards[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .ActionCards[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 }
 @media screen and (min-width: 760px) {
   .ActionCards {

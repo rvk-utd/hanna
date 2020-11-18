@@ -6,6 +6,17 @@
     --ImageCards--fallback: url("/assets/illustrations/esjan.png");
     margin-bottom: calc(5.3879310345% + 44.9137931034px);
   }
+  .before-sprinkling .ImageCards, .ImageCards[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .ImageCards[data-is-seen=""], .ImageCards[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .ImageCards[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 }
 @media screen and (min-width: 760px) {
   .ImageCards {

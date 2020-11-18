@@ -9,6 +9,17 @@
     display: flex;
     flex-flow: column nowrap;
   }
+  .before-sprinkling .HeroBlock, .HeroBlock[data-is-seen][data-is-seen=false] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .HeroBlock[data-is-seen=""], .HeroBlock[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .HeroBlock[data-is-seen=true] {
+    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+  }
 
   .HeroBlock__title {
     font-weight: 700;
