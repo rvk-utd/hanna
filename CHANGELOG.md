@@ -3,6 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.15
+
+_2020-11-18_
+
+- feat: Add fade-up effects for page/block components on `[data-is-seen]`
 - feat: Add 5 new ["Illustration"](src/assets/illustrations/files.json) assets
   for the homepage
 - feat: Add styling for `.SearchResultsHighlightItem` with images
