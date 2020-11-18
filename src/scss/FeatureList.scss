@@ -8,6 +8,7 @@
 
 @media screen {
 	.FeatureList {
+		@include SeenEffect--fadeup();
 		--efnistakn: ; // scope variable to container.
 		background-color: $color-suld-25;
 		--left-offset: #{$var--grid-1};

@@ -12,6 +12,7 @@
 
 @media screen {
 	.PageFilter {
+		@include SeenEffect--fadeup();
 		background-color: $color-suld-25;
 		padding: between_cols(30, 80) 0 0 0;
 		margin-bottom: between_cols(50, 140);

@@ -15,6 +15,7 @@
 
 @media screen {
 	.TextBlock {
+		@include SeenEffect--fadeup();
 		position: relative;
 		margin-bottom: between_cols(20, 30);
 		@include ComponentLayout();

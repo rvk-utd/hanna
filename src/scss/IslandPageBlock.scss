@@ -5,6 +5,7 @@
 
 @media screen {
 	.IslandPageBlock {
+		@include SeenEffect--fadeup();
 		margin-bottom: between_cols(40, 133);
 		display: flex;
 		flex-flow: column-reverse;

@@ -7,6 +7,7 @@
 
 @media screen {
 	.AccordionList {
+		@include SeenEffect--fadeup();
 		max-width: cols_px(8);
 		padding-left: var(--leftIndent);
 

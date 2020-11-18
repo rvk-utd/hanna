@@ -4,6 +4,7 @@
 
 @media screen {
 	.MiniMetrics {
+		@include SeenEffect--fadeup();
 		position: relative;
 		margin-top: between_cols(60, 240);
 		margin-bottom: between_cols(60, 290);

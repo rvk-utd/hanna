@@ -17,6 +17,7 @@
 	}
 
 	.Gallery {
+		@include SeenEffect--fadeup();
 		margin-bottom: between_cols(32, 130);
 	}
 

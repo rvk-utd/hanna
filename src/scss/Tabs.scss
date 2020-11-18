@@ -3,6 +3,7 @@
 
 @media screen {
 	.Tabs {
+		@include SeenEffect--fadeup();
 		display: flex;
 		flex-flow: row wrap;
 		border-bottom: 4px solid $color-suld-50;

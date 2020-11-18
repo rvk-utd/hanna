@@ -17,6 +17,7 @@
 	}
 
 	.ArticleCarousel {
+		@include SeenEffect--fadeup();
 		margin-bottom: between_cols(40, 130);
 		--globalPrimary: #{$var--color-theme-primary--safeish};
 	}

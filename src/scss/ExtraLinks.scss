@@ -4,6 +4,7 @@
 
 @media screen {
 	.ExtraLinks {
+		@include SeenEffect--fadeup();
 		background-color: $color-suld-25;
 		padding: between_cols(30, 90) 0;
 		margin-bottom: between_cols(60, 100);
