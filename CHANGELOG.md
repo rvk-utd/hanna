@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.17
+
+_2020-11-19_
+
 - feat: Add component `IframeBlock`
 - fix: Add basic styling for bare `<iframes/>`s and `<video/>`s
 
