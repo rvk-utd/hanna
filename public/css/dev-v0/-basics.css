@@ -778,10 +778,20 @@ p blockquote::before {
     font-style: normal;
   }
 
-  img {
+  img,
+video {
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  iframe {
+    width: 100%;
+    display: block;
+  }
+
+  iframe:not([frameborder=yes]) {
+    border: 0;
   }
 
   table {
