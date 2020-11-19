@@ -1,0 +1,19 @@
+@use '_globals' as *;
+
+@media screen {
+	.IframeBlock {
+		margin-bottom: prem(30); // like BasicTable (need reconsidering)
+	}
+	.IframeBlock--compact {
+		margin-bottom: 0;
+	}
+	.IframeBlock--framed {
+		box-shadow: 0 0 0 2px $color-suld-100;
+	}
+	.IframeBlock--align--right {
+		@include media($mq-tablet_up) {
+			margin-left: auto;
+			width: $var--grid-7; // tolerate containment by right-aligned TextBlock, for instance
+		}
+	}
+}

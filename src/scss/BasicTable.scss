@@ -6,6 +6,12 @@
 		position: relative;
 		overflow-x: auto;
 	}
+	.TableWrapper--BasicTable--align--right {
+		@include media($mq-tablet_up) {
+			margin-left: auto;
+			width: $var--grid-7; // tolerate containment by right-aligned TextBlock, for instance
+		}
+	}
 
 	.TableWrapper > table,
 	.TableWrapper > * > table {
@@ -67,12 +73,6 @@
 	.BasicTable,
 	.TableWrapper--BasicTable {
 		margin-bottom: prem(30);
-	}
-	.TableWrapper--BasicTable--align--right {
-		@include media($mq-tablet_up) {
-			margin-left: auto;
-			width: cols_pct(7);
-		}
 	}
 
 	.BasicTable > * > * > th,

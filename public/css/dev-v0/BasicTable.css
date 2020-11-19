@@ -14,12 +14,20 @@
   .TableWrapper[data-is-seen=true] {
     transition: opacity 500ms ease-in-out, transform 500ms ease-out;
   }
-
+}
+@media screen and (min-width: 760px) {
+  .TableWrapper--BasicTable--align--right {
+    margin-left: auto;
+    width: var(--grid-7);
+  }
+}
+@media screen {
   .TableWrapper > table,
 .TableWrapper > * > table {
     margin: 0;
   }
-
+}
+@media screen {
   .TableWrapper--at::before,
 .TableWrapper--at::after {
     content: "";
@@ -32,21 +40,25 @@
     pointer-events: none;
     transition: opacity 250ms ease-in-out;
   }
-
+}
+@media screen {
   .TableWrapper--at::after {
     left: auto;
     right: 0;
     transform: scaleX(-1);
   }
-
+}
+@media screen {
   .TableWrapper--at--start::before {
     opacity: 0;
   }
-
+}
+@media screen {
   .TableWrapper--at--end::after {
     opacity: 0;
   }
-
+}
+@media screen {
   .TableWrapper__scroller {
     overflow-x: auto;
   }
@@ -70,14 +82,7 @@
 .TableWrapper--BasicTable {
     margin-bottom: 1.875rem;
   }
-}
-@media screen and (min-width: 760px) {
-  .TableWrapper--BasicTable--align--right {
-    margin-left: auto;
-    width: 56.9536423841%;
-  }
-}
-@media screen {
+
   .BasicTable > * > * > th,
 .BasicTable > * > * > td {
     padding: calc(1.3513513514% + 7.6756756757px) calc(1.5765765766% + 10.954954955px);

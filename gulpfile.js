@@ -144,9 +144,14 @@ exports.publishAssets = series(buildAssets, commitAssetsToGit);
 exports.build = parallel(buildAssets, buildCss);
 
 exports.watch = series([
-	exports.build,
-	initBrowserSync,
-	parallel(sassWatch, imagesWatch, staticAssetsWatch, iconfontWatch),
+	// exports.build, // with assets
+	buildCss, // without assets
+	parallel(
+		sassWatch,
+		imagesWatch,
+		// staticAssetsWatch,
+		iconfontWatch
+	),
 ]);
 
 exports.default = exports.build;
