@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `IframeBlock`
+- fix: Add basic styling for bare `<iframes/>`s and `<video/>`s
 
 ## 0.7.15 – 0.7.16
 
