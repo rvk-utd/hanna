@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Suppress initial flicker of "seen" content on page-load
 
 ## 0.7.17
 
