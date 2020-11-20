@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.18
+
+_2020-11-20_
+
 - feat: Suppress initial flicker of "seen" content on page-load
 
 ## 0.7.17
