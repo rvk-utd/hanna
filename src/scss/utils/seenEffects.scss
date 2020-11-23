@@ -1,10 +1,10 @@
 @mixin SeenEffect--fadeup() {
 	.before-sprinkling &,
-	&[data-is-seen][data-is-seen='false'] {
+	&[data-is-seen='false'] {
 		opacity: 0;
 		transform: translateY(200px);
 	}
-	&[data-is-seen=''],
+	&[data-is-seen=''], // By setting data-is-seen="" a developer can opt-out of the transitioning effect.
 	&[data-is-seen='true'] {
 		opacity: 1;
 		transform: none;
