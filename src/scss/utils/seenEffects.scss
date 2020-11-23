@@ -1,5 +1,5 @@
 @mixin SeenEffect--fadeup() {
-	// .before-sprinkling &,
+	.before-sprinkling &,
 	&[data-is-seen][data-is-seen='false'] {
 		opacity: 0;
 		transform: translateY(200px);
