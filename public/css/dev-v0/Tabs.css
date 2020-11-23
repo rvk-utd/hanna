@@ -7,7 +7,7 @@
     line-height: 1.5rem;
     margin: 2.5rem 0;
   }
-  .Tabs[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .Tabs, .Tabs[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

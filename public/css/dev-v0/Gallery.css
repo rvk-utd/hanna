@@ -106,7 +106,7 @@
   .Gallery {
     margin-bottom: calc(10.5603448276% + 2.4310344828px);
   }
-  .Gallery[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .Gallery, .Gallery[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
