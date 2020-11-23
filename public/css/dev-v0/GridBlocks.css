@@ -7,7 +7,7 @@
     flex-flow: row wrap;
     margin-bottom: calc(8.6206896552% + 15.8620689655px);
   }
-  .GridBlocks[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .GridBlocks, .GridBlocks[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

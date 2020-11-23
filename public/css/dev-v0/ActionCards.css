@@ -2,7 +2,7 @@
   .ActionCards {
     margin-bottom: calc(4.3103448276% + 47.9310344828px);
   }
-  .ActionCards[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .ActionCards, .ActionCards[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

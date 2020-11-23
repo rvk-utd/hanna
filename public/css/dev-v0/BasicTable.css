@@ -3,7 +3,7 @@
     position: relative;
     overflow-x: auto;
   }
-  .TableWrapper[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .TableWrapper, .TableWrapper[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

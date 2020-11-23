@@ -8,7 +8,7 @@
     flex-flow: column-reverse;
     margin-bottom: calc(14.0086206897% + -9.224137931px);
   }
-  .CityBlock[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .CityBlock, .CityBlock[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

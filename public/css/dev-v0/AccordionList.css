@@ -6,7 +6,7 @@
     --leftIndent: calc(3.6363636364vw + 20.3636363636px);
     --iconWidth: calc(2.7272727273vw + 15.2727272727px);
   }
-  .AccordionList[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .AccordionList, .AccordionList[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }

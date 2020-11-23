@@ -18,7 +18,7 @@
     justify-content: space-between;
     align-items: flex-start;
   }
-  .PageFilter[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .PageFilter, .PageFilter[data-is-seen][data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
