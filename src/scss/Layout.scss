@@ -19,7 +19,7 @@
 		max-height: 1000px;
 		overflow: hidden;
 		margin: 0 prem(-15);
-		transition: max-height 350ms ease-in-out;
+		transition: max-height 400ms ease-in;
 
 		@include media($mq-tablet_up) {
 			margin: 0;
@@ -97,7 +97,7 @@
 
 	.Layout__header {
 		width: 100%;
-		transition: left 300ms 0ms ease-in-out;
+		transition: left 400ms 0ms ease-in;
 	}
 
 	html.menu-is-open .Layout__header {
@@ -125,7 +125,7 @@
 		width: prem(48);
 		height: prem(48);
 		line-height: prem(48);
-		transition-duration: 250ms;
+		transition-duration: 200ms;
 		--open-icon-color: _inherit;
 		--close-icon-color: transparent;
 	}
@@ -172,7 +172,7 @@
 		background-color: $color-suld-0;
 		opacity: 0;
 		visibility: hidden;
-		transition: (opacity 300ms (200ms) ease-in-out, visibility 0ms (300ms + 200ms));
+		transition: (opacity 400ms 200ms ease-in-out, visibility 0ms (400ms + 200ms));
 	}
 	html.menu-is-open .Layout__nav::before {
 		transition-delay: 0ms;

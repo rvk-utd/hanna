@@ -30,7 +30,7 @@
 	.SearchResults {
 		position: relative;
 		margin-left: auto;
-		transition: opacity 300ms ease-in-out;
+		transition: opacity 400ms ease-in;
 	}
 
 	.SearchResults--loadingquery {
@@ -123,7 +123,7 @@
 	$baseDashWidth: 24;
 	$hoverDashWidth: 48;
 	$dashDiff: $hoverDashWidth - $baseDashWidth;
-	$dashTransition: 200ms ease-in-out;
+	$dashTransition: 200ms ease-in;
 
 	.SearchResultsItem__title {
 		--dash-width: #{_flexDash($baseDashWidth)};

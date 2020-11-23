@@ -63,7 +63,7 @@
 		font-size: em(14 / $font-bd-l-size);
 		color: $color-suld-200;
 		transform: rotateZ(45deg);
-		transition: transform 100ms ease-in-out;
+		transition: transform 200ms ease-in;
 	}
 	.AccordionList__button[aria-pressed='true']::before,
 	.AccordionList__button[aria-expanded='true']::before {
@@ -78,7 +78,7 @@
 
 	.AccordionList__content {
 		@include BodyTextStyle--large();
-		transition: all 200ms ease-in-out;
+		transition: all 200ms ease-in;
 		transition-property: opacity, visibility, max-height, padding-top;
 		overflow: hidden;
 		padding-top: grid-units(4);

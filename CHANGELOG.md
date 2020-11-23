@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Normalize transition durations and timing-functions – to use only
+  `200`, `400` or `650ms` and `ease-in`
 
 ## 0.7.18
 

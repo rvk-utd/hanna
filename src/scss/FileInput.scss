@@ -28,7 +28,7 @@
 		background: fade($color-suld-50, 22%);
 		border: 1px dashed $color-suld-100;
 		padding: prem(20);
-		transition: all 150ms ease-in-out;
+		transition: all 200ms ease-in;
 		transition-property: background-color, border-color;
 		cursor: pointer;
 		margin-bottom: prem(20);

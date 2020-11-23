@@ -10,6 +10,7 @@
 		transform: none;
 	}
 	&[data-is-seen='true'] {
-		transition: (opacity 500ms ease-in-out, transform 500ms ease-out);
+		transition: all 650ms ease-in;
+		transition-property: opacity, transform;
 	}
 }

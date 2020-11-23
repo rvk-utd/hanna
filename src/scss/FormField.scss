@@ -31,7 +31,7 @@
 		font-size: prem($font-label-size);
 		font-weight: $font-weight--normal;
 		line-height: prem(14);
-		transition: all 100ms ease-out;
+		transition: all 200ms ease-in;
 	}
 	:not(.FormField--small) > label.FormField__label {
 		position: absolute;
