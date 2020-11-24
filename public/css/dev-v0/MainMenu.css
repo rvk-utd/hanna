@@ -173,7 +173,7 @@
 @media screen and (max-width: 759px) {
   html.menu-is-closed .MainMenu,
 html.menu-is-open .MainMenu {
-    transition: margin-top 300ms ease-in-out, visibility 0ms 400ms;
+    transition: margin-top 400ms 0ms ease-in-out, visibility 0ms 400ms;
   }
 }
 @media screen and (max-width: 759px) {
@@ -192,7 +192,7 @@ html.menu-is-open .MainMenu {
     bottom: 0;
     height: 0;
     background: white url("/assets/valmundur-a-sundi.png") 50% 0%/var(--valmundur-width) auto repeat-x;
-    transition: height 500ms ease-out, visibility 0ms 600ms, background-size 500ms ease-in-out;
+    transition: height 400ms ease-in, visibility 0ms 400ms, background-size 400ms ease-in;
     visibility: hidden;
     box-shadow: 0 -35px 15px -10px white;
   }
@@ -403,7 +403,7 @@ html.menu-is-open .MainMenu {
     display: block;
     opacity: 0;
     visibility: hidden;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: opacity, visibility;
     position: absolute;
     z-index: 100;
@@ -468,50 +468,74 @@ html.menu-is-open .MainMenu {
   .MainMenu__megapanel--active > * > .MainMenu__mega__item {
     display: flex;
     align-items: flex-end;
-    -webkit-animation: MainMenu__mega__item--fadeup 200ms 200ms ease-out 1 backwards;
-            animation: MainMenu__mega__item--fadeup 200ms 200ms ease-out 1 backwards;
+    -webkit-animation: MainMenu__mega__item--fadeup 200ms 200ms ease-in 1 backwards;
+            animation: MainMenu__mega__item--fadeup 200ms 200ms ease-in 1 backwards;
   }
 }
 @media screen and (min-width: 760px) {
   .MainMenu__mega__item:nth-child(2) {
-    -webkit-animation-delay: 450ms;
-            animation-delay: 450ms;
+    -webkit-animation-delay: 300ms;
+            animation-delay: 300ms;
   }
 }
 @media screen and (min-width: 760px) {
   .MainMenu__mega__item:nth-child(3) {
+    -webkit-animation-delay: 400ms;
+            animation-delay: 400ms;
+  }
+}
+@media screen and (min-width: 760px) {
+  .MainMenu__mega__item:nth-child(4) {
+    -webkit-animation-delay: 500ms;
+            animation-delay: 500ms;
+  }
+}
+@media screen and (min-width: 760px) {
+  .MainMenu__mega__item:nth-child(5) {
     -webkit-animation-delay: 600ms;
             animation-delay: 600ms;
   }
 }
 @media screen and (min-width: 760px) {
-  .MainMenu__mega__item:nth-child(4) {
-    -webkit-animation-delay: 750ms;
-            animation-delay: 750ms;
+  .MainMenu__mega__item:nth-child(6) {
+    -webkit-animation-delay: 700ms;
+            animation-delay: 700ms;
   }
 }
 @media screen and (min-width: 760px) {
-  .MainMenu__mega__item:nth-child(5) {
+  .MainMenu__mega__item:nth-child(7) {
+    -webkit-animation-delay: 800ms;
+            animation-delay: 800ms;
+  }
+}
+@media screen and (min-width: 760px) {
+  .MainMenu__mega__item:nth-child(8) {
     -webkit-animation-delay: 900ms;
             animation-delay: 900ms;
   }
 }
 @media screen and (min-width: 760px) {
-  .MainMenu__mega__item:nth-child(6) {
-    -webkit-animation-delay: 1050ms;
-            animation-delay: 1050ms;
+  .MainMenu__mega__item:nth-child(9) {
+    -webkit-animation-delay: 1000ms;
+            animation-delay: 1000ms;
   }
 }
 @media screen and (min-width: 760px) {
-  .MainMenu__mega__item:nth-child(7) {
+  .MainMenu__mega__item:nth-child(10) {
+    -webkit-animation-delay: 1100ms;
+            animation-delay: 1100ms;
+  }
+}
+@media screen and (min-width: 760px) {
+  .MainMenu__mega__item:nth-child(11) {
     -webkit-animation-delay: 1200ms;
             animation-delay: 1200ms;
   }
 }
 @media screen and (min-width: 760px) {
-  .MainMenu__mega__item:nth-child(8) {
-    -webkit-animation-delay: 1350ms;
-            animation-delay: 1350ms;
+  .MainMenu__mega__item:nth-child(12) {
+    -webkit-animation-delay: 1300ms;
+            animation-delay: 1300ms;
   }
 }
 @media screen and (min-width: 760px) {
@@ -587,7 +611,7 @@ html.menu-is-open .MainMenu {
     line-height: 3.125rem;
     font-size: 1rem;
     opacity: 0.5;
-    transition: all 180ms ease-in-out;
+    transition: all 200ms ease-in;
     overflow: hidden;
     white-space: nowrap;
   }
@@ -645,7 +669,7 @@ html.menu-is-open .MainMenu {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: opacity 200ms 100ms, max-height 300ms ease-in-out, visibility 0ms 400ms;
+    transition: opacity 200ms 200ms, max-height 200ms 0ms ease-in-out, visibility 0ms 400ms;
   }
 
   .MainMenu__greeting > h3 {

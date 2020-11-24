@@ -18,7 +18,7 @@
   .SearchResults {
     position: relative;
     margin-left: auto;
-    transition: opacity 300ms ease-in-out;
+    transition: opacity 400ms ease-in;
   }
 }
 @media screen {
@@ -160,7 +160,7 @@
     margin-left: var(--grid-column--neg);
     margin-right: calc(-1.4150943396vw + -4.4716981132px);
     padding-right: calc(1.5094339623vw + 3.1698113208px);
-    transition: padding-right 200ms ease-in-out;
+    transition: padding-right 200ms ease-in;
   }
   .SearchResultsItem__title::before {
     content: "";
@@ -191,7 +191,7 @@
 }
 @media screen {
   .SearchResultsItem__title::before {
-    transition: width 200ms ease-in-out;
+    transition: width 200ms ease-in;
   }
 }
 @media screen {
@@ -259,7 +259,7 @@
     margin-right: 0.9375rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in;
     display: block;
     border: 50px solid transparent;
     border-width: 3.125rem 18.75rem;

@@ -20,7 +20,7 @@
     margin-right: 0.9375rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in;
   }
   .ButtonTertiary::before {
     content: "";

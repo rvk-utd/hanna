@@ -77,7 +77,7 @@
 	.Alert--closable {
 		$ease-out-quartic: cubic-bezier(0.165, 0.84, 0.44, 1);
 		transition: all $closing-duration 0ms;
-		transition-timing-function: linear, $ease-out-quartic, ease-in-out, ease-in-out,
+		transition-timing-function: ease-in, $ease-out-quartic, ease-in, ease-in,
 			ease-in-out;
 		transition-property: visibility, max-height, opacity, margin, padding;
 		max-height: 1000px;
@@ -91,7 +91,7 @@
 	}
 	.Alert--closable[hidden][hidden] {
 		display: block; // override default :hidden styling
-		transition-delay: 0ms 0ms $closing-duration;
+		transition-delay: 0ms 0ms $closing-duration 0ms;
 		opacity: 0;
 		max-height: 0;
 		padding-top: 0;
@@ -102,7 +102,7 @@
 	}
 
 	.Alert--closable[hidden][hidden]::before {
-		transition: opacity 100ms ease-in-out;
+		transition: opacity 200ms ease-in;
 		opacity: 0;
 	}
 
@@ -115,7 +115,7 @@
 		width: prem(42);
 		height: prem(42);
 		line-height: prem(40);
-		transition: all 150ms ease-in-out;
+		transition: all 200ms ease-in;
 		transition-property: font-size, opacity;
 		font-size: prem(9);
 		opacity: 0.67;

@@ -110,7 +110,7 @@
 @media screen {
   .Alert--closable {
     transition: all 400ms 0ms;
-    transition-timing-function: linear, cubic-bezier(0.165, 0.84, 0.44, 1), ease-in-out, ease-in-out, ease-in-out;
+    transition-timing-function: ease-in, cubic-bezier(0.165, 0.84, 0.44, 1), ease-in, ease-in, ease-in-out;
     transition-property: visibility, max-height, opacity, margin, padding;
     max-height: 1000px;
     overflow: hidden;
@@ -125,7 +125,7 @@
 @media screen {
   .Alert--closable[hidden][hidden] {
     display: block;
-    transition-delay: 0ms 0ms 400ms;
+    transition-delay: 0ms 0ms 400ms 0ms;
     opacity: 0;
     max-height: 0;
     padding-top: 0;
@@ -137,7 +137,7 @@
 }
 @media screen {
   .Alert--closable[hidden][hidden]::before {
-    transition: opacity 100ms ease-in-out;
+    transition: opacity 200ms ease-in;
     opacity: 0;
   }
 }
@@ -154,7 +154,7 @@
     width: 2.625rem;
     height: 2.625rem;
     line-height: 2.5rem;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: font-size, opacity;
     font-size: 0.5625rem;
     opacity: 0.67;

@@ -13,7 +13,7 @@
     min-height: 100vh;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.5);
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: opacity, visibility;
   }
 
@@ -25,7 +25,7 @@
 
   .Modal {
     transform: translateY(0);
-    transition: all 0.25s ease-in-out;
+    transition: all 200ms ease-in;
     position: absolute;
     top: 3.125rem;
     left: 1rem;

@@ -51,7 +51,7 @@
 		height: prem(2);
 		background: var(--Card-lineColor, currentColor);
 		margin-top: grid-units(2);
-		transition: width 0.25s ease-in-out;
+		transition: width 200ms ease-in;
 	}
 
 	&:hover::after {

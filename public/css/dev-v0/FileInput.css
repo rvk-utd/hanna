@@ -25,7 +25,7 @@
     background: rgba(241, 242, 243, 0.22);
     border: 1px dashed #c7cbd0;
     padding: 1.25rem;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: background-color, border-color;
     cursor: pointer;
     margin-bottom: 1.25rem;

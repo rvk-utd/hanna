@@ -9,7 +9,7 @@
 			flex-flow: column;
 			align-items: center;
 
-			transition: all 200ms ease-in-out;
+			transition: all 200ms ease-in;
 			transition-property: opacity;
 
 			@include media($mq-netbook_up) {
@@ -80,7 +80,7 @@
 		.GalleryModalItem__caption,
 		.GalleryModalItem__description,
 		.GalleryModalItem__image {
-			transition: all 200ms ease-in-out;
+			transition: all 200ms ease-in;
 			transition-property: opacity;
 		}
 	}

@@ -28,7 +28,7 @@
     padding-right: 2.875rem;
     position: relative;
     border: 0.0625rem solid #c7cbd0;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
 
@@ -54,7 +54,7 @@
     line-height: 0.625rem;
     font-size: 0.5rem;
     border: 0.0625rem solid #727477;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
 
@@ -162,7 +162,7 @@
     padding-right: 2.875rem;
     position: relative;
     border: 0.0625rem solid #c7cbd0;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
 
@@ -189,7 +189,7 @@
     font-size: 0.625rem;
     border-radius: 50%;
     border: 0.0625rem solid #727477;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
 

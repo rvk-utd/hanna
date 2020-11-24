@@ -10,7 +10,7 @@
     padding-top: calc(4.3103448276% + 11.9310344828px);
     padding-bottom: calc(5.1724137931% + 17.5172413793px);
   }
-  .before-sprinkling .FeatureList, .FeatureList[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .FeatureList, .FeatureList[data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -19,7 +19,8 @@
     transform: none;
   }
   .FeatureList[data-is-seen=true] {
-    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+    transition: all 650ms ease-in;
+    transition-property: opacity, transform;
   }
 }
 @media screen and (max-width: 479px) {

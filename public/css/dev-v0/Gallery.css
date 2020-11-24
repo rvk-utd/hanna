@@ -5,7 +5,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: opacity;
   }
 }
@@ -87,7 +87,7 @@
   .GalleryModalItem__caption,
 .GalleryModalItem__description,
 .GalleryModalItem__image {
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: opacity;
   }
 }
@@ -106,7 +106,7 @@
   .Gallery {
     margin-bottom: calc(10.5603448276% + 2.4310344828px);
   }
-  .before-sprinkling .Gallery, .Gallery[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .Gallery, .Gallery[data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -115,7 +115,8 @@
     transform: none;
   }
   .Gallery[data-is-seen=true] {
-    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+    transition: all 650ms ease-in;
+    transition-property: opacity, transform;
   }
 
   .Gallery__track,
@@ -124,7 +125,7 @@
     margin-left: -1.25rem;
     margin-right: -1.25rem;
     will-change: transform;
-    transition: transform 300ms ease-out;
+    transition: transform 200ms ease-in;
   }
 
   .Gallery:not([data-sprinkled]) .Gallery__items {
@@ -218,7 +219,7 @@
     left: 0;
     height: 100vh;
     overflow-y: auto;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: opacity, visibility;
   }
 

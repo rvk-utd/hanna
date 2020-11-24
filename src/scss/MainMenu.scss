@@ -62,8 +62,8 @@
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
-	$menu-speed: 300ms;
-	$swimmer-speed: 500ms;
+	$menu-speed: 400ms;
+	$swimmer-speed: 400ms;
 
 	html.before-sprinkling .MainMenu {
 		display: none;
@@ -113,10 +113,7 @@
 	}
 	html.menu-is-closed .MainMenu,
 	html.menu-is-open .MainMenu {
-		transition: (
-			margin-top $menu-speed ease-in-out,
-			visibility 0ms ($menu-speed + 100ms)
-		);
+		transition: (margin-top $menu-speed 0ms ease-in-out, visibility 0ms $menu-speed);
 	}
 	html.menu-is-open .MainMenu {
 		transition-delay: 0ms;
@@ -134,9 +131,9 @@
 		background: white url('/assets/valmundur-a-sundi.png') 50% 0% /
 			var(--valmundur-width) auto repeat-x;
 		transition: (
-			height $swimmer-speed ease-out,
-			visibility 0ms ($swimmer-speed + 100ms),
-			background-size $swimmer-speed ease-in-out
+			height $swimmer-speed ease-in,
+			visibility 0ms $swimmer-speed,
+			background-size $swimmer-speed ease-in
 		);
 		visibility: hidden;
 		box-shadow: 0 -35px 15px -10px white;
@@ -312,7 +309,7 @@
 		display: block;
 		opacity: 0;
 		visibility: hidden;
-		transition: all 200ms ease-in-out;
+		transition: all 200ms ease-in;
 		transition-property: opacity, visibility;
 
 		position: absolute;
@@ -357,11 +354,11 @@
 	.MainMenu__megapanel--active > * > .MainMenu__mega__item {
 		display: flex;
 		align-items: flex-end;
-		animation: MainMenu__mega__item--fadeup 200ms 200ms ease-out 1 backwards;
+		animation: MainMenu__mega__item--fadeup 200ms 200ms ease-in 1 backwards;
 	}
-	@for $i from 2 through 8 {
+	@for $i from 2 through 12 {
 		.MainMenu__mega__item:nth-child(#{$i}) {
-			animation-delay: (($i - 1) * 150ms + 300ms);
+			animation-delay: ($i - 1) * 100ms + 200ms;
 		}
 	}
 
@@ -414,7 +411,7 @@
 		line-height: prem(50);
 		font-size: prem(16);
 		opacity: 0.5;
-		transition: all 180ms ease-in-out;
+		transition: all 200ms ease-in;
 		@include hideText(soft);
 	}
 	.MainMenu__megapanel__backtomenu:hover,
@@ -461,9 +458,9 @@
 		max-height: 0;
 		overflow: hidden;
 		transition: (
-			opacity 200ms 100ms,
-			max-height 300ms ease-in-out,
-			visibility 0ms (300ms + 100ms)
+			opacity 200ms 200ms,
+			max-height 200ms 0ms ease-in-out,
+			visibility 0ms (200ms + 200ms)
 		);
 	}
 	.MainMenu__greeting > h3 {
