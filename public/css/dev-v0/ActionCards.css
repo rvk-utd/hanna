@@ -2,7 +2,7 @@
   .ActionCards {
     margin-bottom: calc(4.3103448276% + 47.9310344828px);
   }
-  .before-sprinkling .ActionCards, .ActionCards[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .ActionCards, .ActionCards[data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -11,7 +11,8 @@
     transform: none;
   }
   .ActionCards[data-is-seen=true] {
-    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+    transition: all 650ms ease-in;
+    transition-property: opacity, transform;
   }
 }
 @media screen and (min-width: 760px) {
@@ -81,7 +82,7 @@
     height: 0.125rem;
     background: var(--Card-lineColor, currentColor);
     margin-top: 1rem;
-    transition: width 0.25s ease-in-out;
+    transition: width 200ms ease-in;
   }
   .ActionCards__card:hover::after {
     width: 100%;

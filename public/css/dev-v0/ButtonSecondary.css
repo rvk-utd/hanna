@@ -18,7 +18,7 @@
     text-align: center;
     border-radius: 0.1875rem;
     position: relative;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: border-color, background-color, color, text-shadow, box-shadow;
     width: -webkit-max-content;
     width: -moz-max-content;

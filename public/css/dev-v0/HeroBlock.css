@@ -9,7 +9,7 @@
     display: flex;
     flex-flow: column nowrap;
   }
-  .before-sprinkling .HeroBlock, .HeroBlock[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .HeroBlock, .HeroBlock[data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -18,7 +18,8 @@
     transform: none;
   }
   .HeroBlock[data-is-seen=true] {
-    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+    transition: all 650ms ease-in;
+    transition-property: opacity, transform;
   }
 
   .HeroBlock__title {

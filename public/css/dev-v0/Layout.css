@@ -16,7 +16,7 @@
     max-height: 1000px;
     overflow: hidden;
     margin: 0 -0.9375rem;
-    transition: max-height 350ms ease-in-out;
+    transition: max-height 400ms ease-in;
   }
 }
 @media screen and (min-width: 760px) {
@@ -137,7 +137,7 @@
 
   .Layout__header {
     width: 100%;
-    transition: left 300ms 0ms ease-in-out;
+    transition: left 400ms 0ms ease-in;
   }
 
   html.menu-is-open .Layout__header {
@@ -172,7 +172,7 @@
     width: 3rem;
     height: 3rem;
     line-height: 3rem;
-    transition-duration: 250ms;
+    transition-duration: 200ms;
     --open-icon-color: _inherit;
     --close-icon-color: transparent;
   }
@@ -231,7 +231,7 @@
     background-color: #ffffff;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 300ms 200ms ease-in-out, visibility 0ms 500ms;
+    transition: opacity 400ms 200ms ease-in-out, visibility 0ms 600ms;
   }
 
   html.menu-is-open .Layout__nav::before {

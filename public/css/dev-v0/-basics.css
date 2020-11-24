@@ -521,7 +521,7 @@ table {
     --link-underline: 0.125rem solid transparent;
     --link-underline--hover: 0.125rem solid currentColor;
     --link-underline-offset: 0.15em;
-    --link-transition: 150ms ease-in-out;
+    --link-transition: 200ms ease-in;
     --link-focus-outline: 3px solid #0372e1;
     --link-focus-outlineOffset: 2px;
     --grid-edge: calc(5.6603773585vw + 1.8867924528px);

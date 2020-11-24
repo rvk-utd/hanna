@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  .before-sprinkling .IslandPageBlock, .IslandPageBlock[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .IslandPageBlock, .IslandPageBlock[data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -15,7 +15,8 @@
     transform: none;
   }
   .IslandPageBlock[data-is-seen=true] {
-    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+    transition: all 650ms ease-in;
+    transition-property: opacity, transform;
   }
 }
 @media screen and (min-width: 760px) {
@@ -84,7 +85,7 @@
     margin-right: 0.9375rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in;
     display: block;
   }
   .IslandPageBlock__button::before {

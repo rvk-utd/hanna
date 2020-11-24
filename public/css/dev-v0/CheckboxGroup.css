@@ -53,7 +53,7 @@
     line-height: 1.125rem;
     font-size: 0.75rem;
     border: 0.0625rem solid #727477;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: box-shadow, border-color, background-color;
   }
 
@@ -190,7 +190,7 @@
     font-size: 0.875rem;
     border-radius: 50%;
     border: 0.0625rem solid #727477;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
     transition-property: box-shadow, border-color, background-color;
   }
 

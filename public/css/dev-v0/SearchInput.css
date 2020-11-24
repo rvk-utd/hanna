@@ -81,7 +81,7 @@
     width: calc(100% - 2px);
     margin-right: 1px;
     padding-left: 0.375rem;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in;
   }
 
   .SearchInput__button:hover::before,

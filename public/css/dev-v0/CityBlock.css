@@ -8,7 +8,7 @@
     flex-flow: column-reverse;
     margin-bottom: calc(14.0086206897% + -9.224137931px);
   }
-  .before-sprinkling .CityBlock, .CityBlock[data-is-seen][data-is-seen=false] {
+  .before-sprinkling .CityBlock, .CityBlock[data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -17,7 +17,8 @@
     transform: none;
   }
   .CityBlock[data-is-seen=true] {
-    transition: opacity 500ms ease-in-out, transform 500ms ease-out;
+    transition: all 650ms ease-in;
+    transition-property: opacity, transform;
   }
 
   .CityBlock__content {
@@ -136,7 +137,7 @@
     margin-right: 0.9375rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in;
     display: block;
     margin-bottom: 0;
   }

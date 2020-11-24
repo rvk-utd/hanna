@@ -21,7 +21,7 @@
     background: #c0ddf7;
     transform: scaleY(0.6666666667);
     transform-origin: bottom center;
-    transition: transform 100ms ease-in-out;
+    transition: transform 200ms ease-in;
     text-indent: 9px;
   }
 
