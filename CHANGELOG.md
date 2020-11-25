@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make `.ImageCards__image` background transparent
 - feat: Add "favicon" files
 - feat: Reexport all "Illustration" assets with transparent background
 - fix: Remove non-ascii characters from Illustration asset/file names

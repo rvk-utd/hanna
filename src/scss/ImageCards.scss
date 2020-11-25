@@ -67,13 +67,12 @@
 		position: relative;
 		padding-top: pct(168/272);
 		margin-bottom: between_phone_netbook(18, 24);
-		background-color: $color-suld-0;
 	}
 	.ImageCards__image--missing {
 		$borderW: prem(12);
 		border: $borderW solid transparent;
 		padding-top: calc(#{pct(168/272)} - #{2 * $borderW});
-		background: $color-suld-0 var(--ImageCards--fallback) 50% 50% / contain no-repeat;
+		background: var(--ImageCards--fallback) 50% 50% / contain no-repeat;
 	}
 
 	.ImageCards__image > img {
