@@ -32,6 +32,7 @@ const [imagesCompress, imagesWatch] = imagesTaskFactory({
 });
 
 const [staticAssetsCompress, staticAssetsWatch] = imagesTaskFactory({
+	name: 'assets',
 	src: sourceFolder + 'assets/',
 	dist: assetsDistFolder,
 	svgoRules: { inlineStyles: false },

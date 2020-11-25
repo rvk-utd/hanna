@@ -125,14 +125,13 @@
     position: relative;
     padding-top: 61.7647058824%;
     margin-bottom: calc(0.5660377358vw + 16.1886792453px);
-    background-color: #ffffff;
   }
 }
 @media screen {
   .ImageCards__image--missing {
     border: 0.75rem solid transparent;
     padding-top: calc(61.7647058824% - 1.5rem);
-    background: #ffffff var(--ImageCards--fallback) 50% 50%/contain no-repeat;
+    background: var(--ImageCards--fallback) 50% 50%/contain no-repeat;
   }
 }
 @media screen {
