@@ -12,7 +12,8 @@
 		"publish:assets": "NODE_ENV=production  yarn run gulp publishAssets",
 		"publish:all": "yarn run publish:assets  &&  yarn run publish:css  &&  yarn run publish:devcss",
 		"format": "eslint --fix  \"*.js\" \"{src,scripts}/**/*.js\"  &&  prettier --write \"*.{json,md}\" \"{src,scripts}/**/*.{json,md,scss}\"",
-		"dev": "yarn run gulp watch"
+		"build": "gulp build",
+		"dev": "gulp watch"
 	},
 	"engines": {
 		"node": "^12"
