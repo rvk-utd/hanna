@@ -3,8 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Reexport all "Illustration" assets with transparent background
 - feat: Add "favicon" files
+- feat: Reexport all "Illustration" assets with transparent background
+- fix: Remove non-ascii characters from Illustration asset/file names
 
 ## 0.7.19
 
