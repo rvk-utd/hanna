@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Reexport all "Illustration" assets with transparent background
 - feat: Add "favicon" files
 
 ## 0.7.19
