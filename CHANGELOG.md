@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.20
+
+_2020-11-25_
+
 - feat: Make `.ImageCards__image` background transparent
 - feat: Add "favicon" files
 - feat: Reexport all "Illustration" assets with transparent background
