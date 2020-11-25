@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Increase font-size of list items inside `*TextBlock`s
 
 ## 0.7.20
 
