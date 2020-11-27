@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Increase font-size of list items inside `*TextBlock`s
+- feat: Add utility component `BlockBreak` for flexbox hard line-breaks – as
+  [using `<br/>` is unreliable](https://stackoverflow.com/a/45143493)
 
 ## 0.7.20
 
