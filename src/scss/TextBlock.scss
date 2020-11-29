@@ -15,12 +15,14 @@
 
 @media screen {
 	.TextBlock {
-		@include SeenEffect--fadeup();
 		position: relative;
 		margin-bottom: between_cols(20, 30);
 		@include ComponentLayout();
 		@include BodyTextStyle--large();
 		@include textContent();
+	}
+	.TextBlock:not(.RowBlockColumn > .TextBlock) {
+		@include SeenEffect--fadeup();
 	}
 	.TextBlock--small {
 		@include BodyTextStyle--small();
