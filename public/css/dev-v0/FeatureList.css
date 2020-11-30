@@ -19,7 +19,7 @@
     transform: none;
   }
   .FeatureList[data-is-seen=true] {
-    transition: all 650ms ease-in;
+    transition: all 500ms ease-in-out;
     transition-property: opacity, transform;
   }
 }

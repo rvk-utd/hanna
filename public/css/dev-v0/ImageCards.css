@@ -6,18 +6,6 @@
     --ImageCards--fallback: url("/assets/illustrations/esjan.png");
     margin-bottom: calc(5.3879310345% + 44.9137931034px);
   }
-  .before-sprinkling .ImageCards, .ImageCards[data-is-seen=false] {
-    opacity: 0;
-    transform: translateY(200px);
-  }
-  .ImageCards[data-is-seen=""], .ImageCards[data-is-seen=true] {
-    opacity: 1;
-    transform: none;
-  }
-  .ImageCards[data-is-seen=true] {
-    transition: all 650ms ease-in;
-    transition-property: opacity, transform;
-  }
 }
 @media screen and (min-width: 760px) {
   .ImageCards {
@@ -30,6 +18,100 @@
 @media screen and (min-width: 760px) and (max-width: 979px) {
   .ImageCards {
     grid-template-columns: var(--grid-4) var(--grid-8);
+  }
+}
+@media screen {
+  .before-sprinkling .ImageCards .ImageCards__summary, .ImageCards[data-is-seen=false] .ImageCards__summary {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=""], .ImageCards[data-is-seen=true] .ImageCards__summary {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__summary {
+    transition: all 500ms ease-in-out;
+    transition-property: opacity, transform;
+  }
+}
+@media screen {
+  .before-sprinkling .ImageCards .ImageCards__item, .ImageCards[data-is-seen=false] .ImageCards__item {
+    opacity: 0;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=""], .ImageCards[data-is-seen=true] .ImageCards__item {
+    opacity: 1;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item {
+    transition: all 500ms ease-in-out;
+    transition-property: opacity, transform;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(1) {
+    transition-delay: 250ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(2) {
+    transition-delay: 300ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(3) {
+    transition-delay: 350ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(4) {
+    transition-delay: 400ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(5) {
+    transition-delay: 450ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(6) {
+    transition-delay: 500ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(7) {
+    transition-delay: 550ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(8) {
+    transition-delay: 600ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(9) {
+    transition-delay: 650ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(10) {
+    transition-delay: 700ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(11) {
+    transition-delay: 750ms;
+  }
+}
+@media screen {
+  .ImageCards[data-is-seen=true] .ImageCards__item:nth-child(12) {
+    transition-delay: 800ms;
   }
 }
 @media screen {

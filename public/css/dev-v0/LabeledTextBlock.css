@@ -16,7 +16,7 @@
     transform: none;
   }
   .LabeledTextBlock[data-is-seen=true] {
-    transition: all 650ms ease-in;
+    transition: all 500ms ease-in-out;
     transition-property: opacity, transform;
   }
 
@@ -74,8 +74,6 @@
     list-style: none;
     padding: 0;
     margin-bottom: var(--baseVerticalMargin);
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
   .LabeledTextBlock__summary ul > li {
     margin-bottom: 1rem;
@@ -92,8 +90,11 @@
     background-color: var(--theme-color-primary--safeish);
   }
   .LabeledTextBlock__summary ol {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    margin-bottom: var(--baseVerticalMargin);
+  }
+  .LabeledTextBlock__summary li ol,
+.LabeledTextBlock__summary li ul {
+    margin-bottom: 0;
   }
   .LabeledTextBlock__summary blockquote {
     padding: 2rem;

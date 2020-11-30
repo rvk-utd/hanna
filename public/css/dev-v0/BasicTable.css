@@ -3,16 +3,17 @@
     position: relative;
     overflow-x: auto;
   }
-  .before-sprinkling .TableWrapper, .TableWrapper[data-is-seen=false] {
+
+  .before-sprinkling .TableWrapper:not(.TextBlock *), .TableWrapper:not(.TextBlock *)[data-is-seen=false] {
     opacity: 0;
     transform: translateY(200px);
   }
-  .TableWrapper[data-is-seen=""], .TableWrapper[data-is-seen=true] {
+  .TableWrapper:not(.TextBlock *)[data-is-seen=""], .TableWrapper:not(.TextBlock *)[data-is-seen=true] {
     opacity: 1;
     transform: none;
   }
-  .TableWrapper[data-is-seen=true] {
-    transition: all 650ms ease-in;
+  .TableWrapper:not(.TextBlock *)[data-is-seen=true] {
+    transition: all 500ms ease-in-out;
     transition-property: opacity, transform;
   }
 }
