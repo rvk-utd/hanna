@@ -14,23 +14,21 @@
 
 	// strictly for transition effect
 	.ExtraLinks {
-		@include SeenEffect--unseen() {
 			@include extendBackgroundWithUnderlay(left, after);
-			&::after {
-				content: '';
-				border-left: between_phone_netbook(8, 24) solid $color-suld-25;
-				top: 0;
-			}
+	}
+	.ExtraLinks:after {
+		content: '';
+		border-left: between_phone_netbook(8, 24) solid $color-suld-25;
+		top: 100%;
+		@include SeenEffect--unseen() {
+			top: 0;
 		}
 		@include SeenEffect--transition() {
-			&::after {
-				@include Transition--long();
-			}
+			@include Transition--long();
 		}
 		@include SeenEffect--seen() {
-			&::after {
-				top: 100%;
-			}
+			transform: scaleY(0);
+			transform-origin: 0 100%;
 		}
 	}
 
