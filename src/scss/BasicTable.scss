@@ -5,7 +5,7 @@
 		position: relative;
 		overflow-x: auto;
 	}
-	.TableWrapper:not(.TextBlock .TableWrapper) {
+	.TableWrapper:not(.TextBlock *) {
 		@include SeenEffect--fadeup();
 	}
 	.TableWrapper--BasicTable--align--right {

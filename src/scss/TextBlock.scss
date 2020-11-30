@@ -21,7 +21,7 @@
 		@include BodyTextStyle--large();
 		@include textContent();
 	}
-	.TextBlock:not(.RowBlockColumn > .TextBlock) {
+	:not(.RowBlockColumn) > .TextBlock {
 		@include SeenEffect--fadeup();
 	}
 	.TextBlock--small {

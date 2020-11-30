@@ -15,7 +15,7 @@
 			margin-top: between_cols(0, 3 * $grid-unit);
 			margin-bottom: em(40/64);
 		}
-		.PageHeading:not(.RowBlockColumn > .PageHeading) {
+		:not(.RowBlockColumn) > .PageHeading {
 			@include SeenEffect--fadeup();
 		}
 	}

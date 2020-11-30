@@ -27,7 +27,7 @@
 		h1.SubHeading {
 			@include WARNING__('Only use <H2/> or lower for .SubHeading');
 		}
-		.SubHeading:not(.RowBlockColumn > .SubHeading) {
+		:not(.RowBlockColumn) > .SubHeading {
 			@include SeenEffect--fadeup();
 		}
 	}
