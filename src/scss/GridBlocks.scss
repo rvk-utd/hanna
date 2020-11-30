@@ -10,7 +10,6 @@
 		display: flex;
 		flex-flow: row wrap;
 		margin-bottom: between_cols(40, 120);
-		@include SeenEffect--fadeup('> .GridBlocks__item');
 	}
 
 	.GridBlocks__item {
@@ -21,14 +20,18 @@
 		width: 100%;
 	}
 
-	// Default delay, applied to for items where n > 3
-	.GridBlocks[data-is-seen='true'] > .GridBlocks__item {
-		@include SeenEffect--delay(4 * 100ms);
-	}
+	.GridBlocks {
+		// transition specifics
+		@include SeenEffect--fadeup('> .GridBlocks__item');
+		@include SeenEffect--seen('> .GridBlocks__item') {
+			// Default delay, applied to for items where n > 3
+			@include SeenEffect--delay(4 * 100ms);
+		}
 
-	@for $i from 1 through 3 {
-		.GridBlocks[data-is-seen='true'] > .GridBlocks__item:nth-child(#{$i}) {
-			@include SeenEffect--delay($i * 100ms);
+		@for $i from 1 through 3 {
+			@include SeenEffect--seen('> .GridBlocks__item:nth-child(#{$i})') {
+				@include SeenEffect--delay($i * 100ms);
+			}
 		}
 	}
 
