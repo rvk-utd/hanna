@@ -14,7 +14,7 @@
 		align-items: center;
 		@include SeenEffect--fadeup('> .RowBlockColumn');
 		@include SeenEffect--transition('> .RowBlockColumn + .RowBlockColumn') {
-			@include SeenEffect--delay(-100ms);
+			@include SeenEffect--delay(100ms);
 		}
 	}
 	@media #{$mq-tablet_up} {

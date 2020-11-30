@@ -31,7 +31,7 @@
 
 		@for $i from 1 through 12 {
 			@include SeenEffect--seen('.ExtraLinks__item:nth-child(#{$i})') {
-				@include SeenEffect--delay($i * 50ms);
+				@include SeenEffect--delay($i * 50ms + 200ms);
 			}
 		}
 	}

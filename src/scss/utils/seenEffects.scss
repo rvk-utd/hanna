@@ -105,6 +105,6 @@
 	}
 }
 
-@mixin SeenEffect--delay($n) {
-	transition-delay: $n + 200ms;
+@mixin SeenEffect--delay($delay) {
+	transition-delay: $delay;
 }
