@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.7.21
+
+_2020-11-30_
+
 - refactor: Transition/animation timing tweaks
 - feat: Increase font-size of list items inside `*TextBlock`s
 - feat: Add utility component `BlockBreak` for flexbox hard line-breaks – as
