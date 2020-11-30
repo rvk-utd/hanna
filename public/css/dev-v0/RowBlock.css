@@ -12,17 +12,20 @@
     justify-content: space-between;
     align-items: center;
   }
-  .before-sprinkling .RowBlock, .RowBlock[data-is-seen=false] {
+  .before-sprinkling .RowBlock > .RowBlockColumn, .RowBlock[data-is-seen=false] > .RowBlockColumn {
     opacity: 0;
     transform: translateY(200px);
   }
-  .RowBlock[data-is-seen=""], .RowBlock[data-is-seen=true] {
+  .RowBlock[data-is-seen=""], .RowBlock[data-is-seen=true] > .RowBlockColumn {
     opacity: 1;
     transform: none;
   }
-  .RowBlock[data-is-seen=true] {
-    transition: all 650ms ease-in;
+  .RowBlock[data-is-seen=true] > .RowBlockColumn {
+    transition: all 500ms ease-in-out;
     transition-property: opacity, transform;
+  }
+  .RowBlock[data-is-seen=true] > .RowBlockColumn + .RowBlockColumn {
+    transition-delay: 100ms;
   }
 }
 @media screen and (min-width: 760px) {

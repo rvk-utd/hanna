@@ -1,6 +1,6 @@
 {
 	"name": "rvk-styles",
-	"version": "0.7.20",
+	"version": "0.7.21",
 	"main": "index.js",
 	"license": "MIT",
 	"private": true,
@@ -10,9 +10,9 @@
 		"publish:css": "NODE_ENV=production yarn run gulp publishCss",
 		"publish:devcss": "NODE_ENV=public_debug  yarn run gulp publishDevCss",
 		"publish:assets": "NODE_ENV=production  yarn run gulp publishAssets",
-		"publish:all": "yarn run publish:assets  &&  yarn run publish:css  &&  yarn run publish:devcss",
+		"publish:all": "yarn install  &&  yarn run publish:assets  &&  yarn run publish:css  &&  yarn run publish:devcss",
 		"format": "eslint --fix  \"*.js\" \"{src,scripts}/**/*.js\"  &&  prettier --write \"*.{json,md}\" \"{src,scripts}/**/*.{json,md,scss}\"",
-		"build": "gulp build",
+		"build": "yarn install  &&  yarn run gulp build",
 		"dev": "gulp watch"
 	},
 	"engines": {

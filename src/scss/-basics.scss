@@ -5,6 +5,7 @@
 @use 'styles/cssVariables' as *;
 @use 'utils/scssutils/normalize' as *;
 @use 'utils/scssutils/writeMediaFormatMarkers' as *;
+@use 'BlockBreak';
 
 @include normalize();
 /*! Reykjavík Design System basic CSS styles */
@@ -285,6 +286,10 @@
 		border: 1px solid $color-suld-75;
 		border-width: 1px 0;
 	}
+
+	// ---------------------------------------------------------------------------
+
+	@include BlockBreak.css();
 }
 
 // ===========================================================================

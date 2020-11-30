@@ -10,7 +10,6 @@
 @mixin css() {
 	@media screen {
 		.SubHeading {
-			@include SeenEffect--fadeup();
 			@include SubheadingStyle--large();
 			@include ComponentLayout();
 			margin-top: between_phone_netbook(40, 50);
@@ -27,6 +26,9 @@
 
 		h1.SubHeading {
 			@include WARNING__('Only use <H2/> or lower for .SubHeading');
+		}
+		:not(.RowBlockColumn) > .SubHeading {
+			@include SeenEffect--fadeup();
 		}
 	}
 }
