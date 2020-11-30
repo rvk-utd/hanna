@@ -94,10 +94,10 @@
 		"src": "https://styles.reykjavik.is/assets/illustrations/draumar.png",
 		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/draumar.png"
 	},
-	"egseþig": {
+	"egsethig": {
 		"tags": [],
-		"src": "https://styles.reykjavik.is/assets/illustrations/egseþig.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/egseþig.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/egsethig.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/egsethig.png"
 	},
 	"eldriborgari": {
 		"tags": [],
@@ -164,25 +164,25 @@
 		"src": "https://styles.reykjavik.is/assets/illustrations/flaekja.png",
 		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/flaekja.png"
 	},
-	"framkvæmdir1": {
+	"framkvaemdir1": {
 		"tags": ["theme/dependable", "islands"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/framkvæmdir1.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvæmdir1.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvaemdir1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvaemdir1.png"
 	},
-	"framkvæmdir2": {
+	"framkvaemdir2": {
 		"tags": ["theme/dependable", "islands"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/framkvæmdir2.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvæmdir2.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvaemdir2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvaemdir2.png"
 	},
-	"framkvæmdir3": {
+	"framkvaemdir3": {
 		"tags": ["theme/dependable", "islands"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/framkvæmdir3.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvæmdir3.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvaemdir3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvaemdir3.png"
 	},
-	"framkvæmdir4": {
+	"framkvaemdir4": {
 		"tags": ["theme/dependable", "islands"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/framkvæmdir4.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvæmdir4.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvaemdir4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvaemdir4.png"
 	},
 	"fundargerd1": {
 		"tags": ["theme/trustworthy", "islands"],
@@ -624,15 +624,15 @@
 		"src": "https://styles.reykjavik.is/assets/illustrations/threytt.png",
 		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/threytt.png"
 	},
-	"tolfrædi1": {
+	"tolfraedi1": {
 		"tags": ["theme/trustworthy", "islands"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/tolfrædi1.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tolfrædi1.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/tolfraedi1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tolfraedi1.png"
 	},
-	"tolfrædi2": {
+	"tolfraedi2": {
 		"tags": ["theme/trustworthy", "islands"],
-		"src": "https://styles.reykjavik.is/assets/illustrations/tolfrædi2.png",
-		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tolfrædi2.png"
+		"src": "https://styles.reykjavik.is/assets/illustrations/tolfraedi2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tolfraedi2.png"
 	},
 	"tomstundir1": {
 		"tags": ["theme/colorful", "islands"],
