@@ -7,12 +7,15 @@
 
 @media screen {
 	.RowBlock {
-		@include SeenEffect--fadeup();
 		margin-bottom: between_cols(60, 120);
 		display: flex;
 		flex-flow: column-reverse;
 		justify-content: space-between;
 		align-items: center;
+		@include SeenEffect--fadeup('> .RowBlockColumn');
+		@include SeenEffect--transition('> .RowBlockColumn + .RowBlockColumn') {
+			@include SeenEffect--delay(100ms);
+		}
 	}
 	@media #{$mq-tablet_up} {
 		.RowBlock {

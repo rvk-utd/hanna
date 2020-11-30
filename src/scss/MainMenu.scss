@@ -5,11 +5,9 @@
 @keyframes MainMenu__mega__item--fadeup {
 	0% {
 		opacity: 0;
-		transform: translateY(prem(50));
 	}
 	100% {
 		opacity: 1;
-		transform: none;
 	}
 }
 
@@ -309,7 +307,7 @@
 		display: block;
 		opacity: 0;
 		visibility: hidden;
-		transition: all 200ms ease-in;
+		transition: all 300ms ease-in-out;
 		transition-property: opacity, visibility;
 
 		position: absolute;
@@ -354,11 +352,11 @@
 	.MainMenu__megapanel--active > * > .MainMenu__mega__item {
 		display: flex;
 		align-items: flex-end;
-		animation: MainMenu__mega__item--fadeup 200ms 200ms ease-in 1 backwards;
+		animation: MainMenu__mega__item--fadeup 400ms 400ms ease-in-out 1 backwards;
 	}
 	@for $i from 2 through 12 {
 		.MainMenu__mega__item:nth-child(#{$i}) {
-			animation-delay: ($i - 1) * 100ms + 200ms;
+			animation-delay: ($i - 1) * 100ms + 400ms;
 		}
 	}
 

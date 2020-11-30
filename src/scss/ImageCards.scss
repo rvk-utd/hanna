@@ -11,11 +11,18 @@
 
 @media screen {
 	.ImageCards {
-		@include SeenEffect--fadeup();
 		--ImageCards--fallback: url('/assets/illustrations/esjan.png');
 
 		@include CardBlock();
 		margin-bottom: between_cols(60, 110);
+
+		@include SeenEffect--fadeup('.ImageCards__summary');
+		@include SeenEffect--fadein('.ImageCards__item');
+		@for $i from 1 through 12 {
+			@include SeenEffect--transition('.ImageCards__item:nth-child(#{$i})') {
+				@include SeenEffect--delay($i * 50ms + 200ms);
+			}
+		}
 	}
 
 	.ImageCards--background {

@@ -7,7 +7,6 @@
 
 @media screen {
 	.GridBlocks {
-		@include SeenEffect--fadeup();
 		display: flex;
 		flex-flow: row wrap;
 		margin-bottom: between_cols(40, 120);
@@ -19,6 +18,21 @@
 		flex-flow: column;
 		align-items: flex-start;
 		width: 100%;
+	}
+
+	.GridBlocks {
+		// transition specifics
+		@include SeenEffect--fadeup('> .GridBlocks__item');
+		@include SeenEffect--transition('> .GridBlocks__item') {
+			// Default delay, applied to for items where n > 3
+			@include SeenEffect--delay(600ms);
+		}
+
+		@for $i from 1 through 3 {
+			@include SeenEffect--transition('> .GridBlocks__item:nth-child(#{$i})') {
+				@include SeenEffect--delay($i * 100ms + 200ms);
+			}
+		}
 	}
 
 	.GridBlocks__illustration {

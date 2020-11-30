@@ -2,9 +2,11 @@
 
 @media screen {
 	.TableWrapper {
-		@include SeenEffect--fadeup();
 		position: relative;
 		overflow-x: auto;
+	}
+	.TableWrapper:not(.TextBlock *) {
+		@include SeenEffect--fadeup();
 	}
 	.TableWrapper--BasicTable--align--right {
 		@include media($mq-tablet_up) {

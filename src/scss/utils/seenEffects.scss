@@ -1,16 +1,110 @@
-@mixin SeenEffect--fadeup() {
-	.before-sprinkling &,
-	&[data-is-seen='false'] {
+@function _ensureSelector($selector) {
+	@if (str-index($selector, ':') == 1) {
+		// str-index is not zero based
+		@return $selector;
+	} @else {
+		@return #{' ' $selector};
+	}
+}
+
+@mixin Transition--short() {
+	transition: all 200ms ease-in-out;
+}
+
+@mixin Transition--medium() {
+	transition: all 400ms ease-in-out;
+}
+
+@mixin Transition--long() {
+	transition: all 500ms ease-in-out; // requested by Dr. Keli
+}
+
+@mixin Transition--properties($properties: 'opacity, transform') {
+	transition-property: #{$properties};
+}
+
+@mixin SeenEffect--unseen($childSelector: '') {
+	.before-sprinkling &#{_ensureSelector($childSelector)},
+	&[data-is-seen='false']#{_ensureSelector($childSelector)} {
+		@content;
+	}
+}
+
+@mixin SeenEffect--seen($childSelector: '') {
+	&[data-is-seen=''], // By setting data-is-seen="" a developer can opt-out of the transitioning effect.
+	&[data-is-seen='true']#{_ensureSelector($childSelector)} {
+		@content;
+		//if no @content default to opacity && transform?
+	}
+}
+
+@mixin SeenEffect--transition($childSelector: '') {
+	&[data-is-seen='true']#{_ensureSelector($childSelector)} {
+		@content;
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin SeenEffect--fadein($childSelector: '') {
+	@include SeenEffect--unseen($childSelector) {
+		opacity: 0;
+	}
+	@include SeenEffect--seen($childSelector) {
+		opacity: 1;
+	}
+	@include SeenEffect--transition($childSelector) {
+		@include Transition--long();
+		@include Transition--properties();
+	}
+}
+
+@mixin SeenEffect--fadeup($childSelector: '') {
+	@include SeenEffect--unseen($childSelector) {
 		opacity: 0;
 		transform: translateY(200px);
 	}
-	&[data-is-seen=''], // By setting data-is-seen="" a developer can opt-out of the transitioning effect.
-	&[data-is-seen='true'] {
+	@include SeenEffect--seen($childSelector) {
 		opacity: 1;
 		transform: none;
 	}
-	&[data-is-seen='true'] {
-		transition: all 650ms ease-in;
-		transition-property: opacity, transform;
+	@include SeenEffect--transition($childSelector) {
+		@include Transition--long();
+		@include Transition--properties();
 	}
+}
+
+@mixin SeenEffect--fadeleft($childSelector: '') {
+	@include SeenEffect--unseen($childSelector) {
+		opacity: 0;
+		transform: translateX(-200px);
+	}
+	@include SeenEffect--seen($childSelector) {
+		opacity: 1;
+		transform: none;
+	}
+	@include SeenEffect--transition($childSelector) {
+		@include Transition--long();
+		@include Transition--properties();
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin SeenEffect--reset($childSelector: '') {
+	@include SeenEffect--unseen($childSelector) {
+		opacity: 1;
+		transform: none;
+	}
+	@include SeenEffect--seen($childSelector) {
+		opacity: initial;
+		transform: initial;
+	}
+	@include SeenEffect--transition($childSelector) {
+		transition: none;
+	}
+}
+
+@mixin SeenEffect--delay($delay) {
+	transition-delay: $delay;
 }

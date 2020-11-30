@@ -4,12 +4,38 @@
 
 @media screen {
 	.ExtraLinks {
-		@include SeenEffect--fadeup();
 		background-color: $color-suld-25;
 		padding: between_cols(30, 90) 0;
 		margin-bottom: between_cols(60, 100);
 		@include extendBackgroundWithUnderlay();
 	}
+
+	// strictly for transition effect
+	.ExtraLinks {
+		@include SeenEffect--fadein('.ExtraLinks__item');
+		@include SeenEffect--fadeup('.ExtraLinks__title');
+		@include extendBackgroundWithUnderlay(left, after);
+
+		&::after {
+			border-left: between_phone_netbook(8, 24) solid $color-suld-25;
+		}
+
+		@include SeenEffect--transition('::after') {
+			@include Transition--long();
+			@include Transition--properties('transform');
+		}
+		@include SeenEffect--seen('::after') {
+			transform: scaleY(0);
+			transform-origin: 0 100%;
+		}
+
+		@for $i from 1 through 12 {
+			@include SeenEffect--seen('.ExtraLinks__item:nth-child(#{$i})') {
+				@include SeenEffect--delay($i * 50ms + 200ms);
+			}
+		}
+	}
+
 	.ExtraLinks::before {
 		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
 
