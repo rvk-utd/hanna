@@ -84,6 +84,7 @@
 
 	.PageFilter > .Footnote {
 		margin-top: between_cols(30, 60);
+		margin-bottom: 0;
 
 		&::after {
 			content: '';
