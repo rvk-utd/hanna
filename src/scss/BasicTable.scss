@@ -1,3 +1,7 @@
+/*!@deps
+	Footnote
+*/
+
 @use '_globals' as *;
 
 @media screen {
@@ -12,6 +16,10 @@
 		@include media($mq-tablet_up) {
 			margin-left: auto;
 			width: $var--grid-7; // tolerate containment by right-aligned TextBlock, for instance
+		}
+		+ .Footnote {
+			margin-left: auto;
+			width: $var--grid-7;
 		}
 	}
 

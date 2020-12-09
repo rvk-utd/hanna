@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: add `Footnote` component styling
 
 ## 0.7.21
 
