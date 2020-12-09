@@ -6,6 +6,7 @@
 	ButtonPrimary
 	ButtonSecondary
 	ButtonTertiary
+	Footnote
 */
 @use 'globals' as *;
 @use 'styles/font' as *;
@@ -81,30 +82,18 @@
 		width: auto;
 	}
 
-	.PageFilter__footnote {
-		width: 100%;
-		// @include BodyTextStyle--small();
-		position: relative;
+	.PageFilter > .Footnote {
 		margin-top: between_cols(30, 60);
-		padding-left: between_cols(10, 36);
-		color: $color-suld-150;
-	}
-	.PageFilter__footnote::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		margin: prem(4) 0;
-		border-left: prem(4) solid currentColor;
-	}
-	.PageFilter__footnote::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		border-top: 1px solid currentColor;
-		margin-top: between_cols(-12, -40);
+		margin-bottom: 0;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			border-top: 1px solid currentColor;
+			margin-top: between_cols(-12, -40);
+		}
 	}
 }

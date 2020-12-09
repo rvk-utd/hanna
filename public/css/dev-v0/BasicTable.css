@@ -1,3 +1,6 @@
+/*!@deps
+	Footnote
+*/
 @media screen {
   .TableWrapper {
     position: relative;
@@ -19,6 +22,12 @@
 }
 @media screen and (min-width: 760px) {
   .TableWrapper--BasicTable--align--right {
+    margin-left: auto;
+    width: var(--grid-7);
+  }
+}
+@media screen {
+  .TableWrapper--BasicTable--align--right + .Footnote {
     margin-left: auto;
     width: var(--grid-7);
   }
