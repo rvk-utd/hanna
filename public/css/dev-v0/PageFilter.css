@@ -6,6 +6,7 @@
 	ButtonPrimary
 	ButtonSecondary
 	ButtonTertiary
+	Footnote
 */
 @media screen {
   .PageFilter {
@@ -108,27 +109,11 @@
   }
 }
 @media screen {
-  .PageFilter__footnote {
-    width: 100%;
-    position: relative;
+  .PageFilter > .Footnote {
     margin-top: calc(3.2327586207% + 20.9482758621px);
-    padding-left: calc(2.8017241379% + 2.1551724138px);
-    color: #727477;
+    margin-bottom: 0;
   }
-}
-@media screen {
-  .PageFilter__footnote::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0.25rem 0;
-    border-left: 0.25rem solid currentColor;
-  }
-}
-@media screen {
-  .PageFilter__footnote::after {
+  .PageFilter > .Footnote::after {
     content: "";
     position: absolute;
     top: 0;
