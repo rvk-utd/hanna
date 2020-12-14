@@ -1,4 +1,4 @@
-@function _ensureSelector($selector) {
+@function _append($selector) {
 	@if (str-index($selector, ':') == 1) {
 		// str-index is not zero based
 		@return $selector;
@@ -6,6 +6,8 @@
 		@return #{' ' $selector};
 	}
 }
+
+// ---------------------------------------------------------------------------
 
 @mixin Transition--short() {
 	transition: all 200ms ease-in-out;
@@ -24,22 +26,22 @@
 }
 
 @mixin SeenEffect--unseen($childSelector: '') {
-	.before-sprinkling &#{_ensureSelector($childSelector)},
-	&[data-is-seen='false']#{_ensureSelector($childSelector)} {
+	.before-sprinkling &#{_append($childSelector)},
+	&[data-is-seen='false']#{_append($childSelector)} {
 		@content;
 	}
 }
 
 @mixin SeenEffect--seen($childSelector: '') {
 	&[data-is-seen=''], // By setting data-is-seen="" a developer can opt-out of the transitioning effect.
-	&[data-is-seen='true']#{_ensureSelector($childSelector)} {
+	&[data-is-seen='true']#{_append($childSelector)} {
 		@content;
 		//if no @content default to opacity && transform?
 	}
 }
 
 @mixin SeenEffect--transition($childSelector: '') {
-	&[data-is-seen='true']#{_ensureSelector($childSelector)} {
+	&[data-is-seen='true']#{_append($childSelector)} {
 		@content;
 	}
 }
