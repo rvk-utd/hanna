@@ -33,7 +33,8 @@
 }
 
 @mixin SeenEffect--seen($childSelector: '') {
-	&[data-is-seen=''], // By setting data-is-seen="" a developer can opt-out of the transitioning effect.
+	// By setting data-is-seen="" a developer can opt-out of the transitioning effect.
+	&[data-is-seen='']#{_append($childSelector)},
 	&[data-is-seen='true']#{_append($childSelector)} {
 		@content;
 		//if no @content default to opacity && transform?
