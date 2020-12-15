@@ -27,7 +27,7 @@
   }
 }
 @media screen {
-  .ImageCards[data-is-seen=""], .ImageCards[data-is-seen=true] .ImageCards__summary {
+  .ImageCards[data-is-seen=""] .ImageCards__summary, .ImageCards[data-is-seen=true] .ImageCards__summary {
     opacity: 1;
     transform: none;
   }
@@ -44,7 +44,7 @@
   }
 }
 @media screen {
-  .ImageCards[data-is-seen=""], .ImageCards[data-is-seen=true] .ImageCards__item {
+  .ImageCards[data-is-seen=""] .ImageCards__item, .ImageCards[data-is-seen=true] .ImageCards__item {
     opacity: 1;
   }
 }
