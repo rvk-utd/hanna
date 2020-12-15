@@ -23,7 +23,7 @@
   .before-sprinkling .ExtraLinks .ExtraLinks__item, .ExtraLinks[data-is-seen=false] .ExtraLinks__item {
     opacity: 0;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item, .ExtraLinks[data-is-seen=true] .ExtraLinks__item {
     opacity: 1;
   }
   .ExtraLinks[data-is-seen=true] .ExtraLinks__item {
@@ -34,7 +34,7 @@
     opacity: 0;
     transform: translateY(200px);
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__title {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__title, .ExtraLinks[data-is-seen=true] .ExtraLinks__title {
     opacity: 1;
     transform: none;
   }
@@ -58,44 +58,44 @@
     transition: all 500ms ease-in-out;
     transition-property: transform;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true]::after {
+  .ExtraLinks[data-is-seen=""]::after, .ExtraLinks[data-is-seen=true]::after {
     transform: scaleY(0);
     transform-origin: 0 100%;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(1) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(1), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(1) {
     transition-delay: 250ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(2) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(2), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(2) {
     transition-delay: 300ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(3) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(3), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(3) {
     transition-delay: 350ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(4) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(4), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(4) {
     transition-delay: 400ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(5) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(5), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(5) {
     transition-delay: 450ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(6) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(6), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(6) {
     transition-delay: 500ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(7) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(7), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(7) {
     transition-delay: 550ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(8) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(8), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(8) {
     transition-delay: 600ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(9) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(9), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(9) {
     transition-delay: 650ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(10) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(10), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(10) {
     transition-delay: 700ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(11) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(11), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(11) {
     transition-delay: 750ms;
   }
-  .ExtraLinks[data-is-seen=""], .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(12) {
+  .ExtraLinks[data-is-seen=""] .ExtraLinks__item:nth-child(12), .ExtraLinks[data-is-seen=true] .ExtraLinks__item:nth-child(12) {
     transition-delay: 800ms;
   }
 

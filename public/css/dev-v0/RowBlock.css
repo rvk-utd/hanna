@@ -16,7 +16,7 @@
     opacity: 0;
     transform: translateY(200px);
   }
-  .RowBlock[data-is-seen=""], .RowBlock[data-is-seen=true] > .RowBlockColumn {
+  .RowBlock[data-is-seen=""] > .RowBlockColumn, .RowBlock[data-is-seen=true] > .RowBlockColumn {
     opacity: 1;
     transform: none;
   }
