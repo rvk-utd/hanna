@@ -144,6 +144,10 @@
 		@include ButtonTertiaryStyle($mode: simple);
 	}
 
+	.ArticleCarouselCard__morelink:not([aria-label]) {
+		@include WARNING__('aria-label="" is missing');
+	}
+
 	.ArticleCarousel > .CarouselStepper {
 		margin-top: prem(24);
 	}
