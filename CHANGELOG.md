@@ -16,6 +16,7 @@ _2020-12-15_
 _2020-12-09_
 
 - feat: add `Footnote` component styling
+
 ## 0.7.21
 
 _2020-11-30_
