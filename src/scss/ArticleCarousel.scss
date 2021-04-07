@@ -31,7 +31,6 @@
 		}
 	}
 
-	.ArticleCarousel__track, // @deprected  Will be removed in v0.8
 	.ArticleCarousel__items {
 		display: flex;
 		flex-flow: row;
@@ -40,8 +39,8 @@
 		overflow: auto;
 	}
 
-	.ArticleCarousel__track {
-		@include WARNING__('Deprecated: use `.ArticleCarousel__items` instead');
+	.ArticleCarousel__track { // @deprecated Was removed in v0.8. Remove warning in v0.9
+		@include WARNING__('Unsupported: use `.ArticleCarousel__items` instead');
 	}
 
 	.ArticleCarouselCard {
