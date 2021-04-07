@@ -1,6 +1,8 @@
 @use '_globals' as *;
 @use 'styles/links' as *;
 @use 'styles/font' as *;
+@use '_PrimaryPanel' as PrimaryPanel;
+@use '_AuxilaryPanel' as AuxilaryPanel;
 
 @keyframes MainMenu__mega__item--fadeup {
 	0% {
@@ -25,6 +27,10 @@
 	}
 	.MainMenu__item[aria-current='true'] {
 		color: $color-faxafloi-100;
+
+		html[data-mega-panel-active] & {
+			color: $color-suld-0;
+		}
 	}
 	.MainMenu__item--home {
 		@include sr-only-content-focusable();
@@ -39,7 +45,7 @@
 		font-weight: $font-weight--bold;
 	}
 	.MainMenu__link[aria-pressed='true'] {
-		border-bottom-color: $color-faxafloi-50;
+		color: $color-suld-0;
 	}
 
 	.MainMenu__link::before {
@@ -52,6 +58,27 @@
 	}
 	.MainMenu__item--search > .MainMenu__link::before {
 		content: $icons-search;
+	}
+	.MainMenu__item--lang {
+		margin-right: prem(8);
+	}
+	.MainMenu__item--lang > .MainMenu__link {
+		padding-right: prem(8);
+		padding-left: prem(8);
+		display: inline-block;
+	}
+	.MainMenu__item--lang + .MainMenu__item--lang {
+		margin-left: prem(-8);
+
+		&:before {
+			content: '|';
+			display: inline-block;
+		}
+	}
+
+	// Make up for smaller margin on `lang` items
+	.MainMenu__item--lang + .MainMenu__item:not(.MainMenu__item--lang) {
+		margin-left: prem(12);
 	}
 }
 
@@ -68,6 +95,9 @@
 	}
 	.MainMenu {
 		position: relative;
+
+		background-color: $color-faxafloi-100;
+
 		--MainMenu--offsetLeft: #{prem(64)};
 
 		@include media('screen and (max-width: 370px)') {
@@ -143,26 +173,30 @@
 	}
 
 	html.menu-is-active .MainMenu__items {
-		padding-bottom: var(--valmundur-height);
-	}
-	html.menu-is-active .MainMenu__megas {
-		margin-top: calc(-1 * var(--valmundur-height));
-		padding-bottom: var(--valmundur-height);
+		padding-bottom: prem(40);
 	}
 
 	.MainMenu__items {
 		display: flex;
 		flex-flow: row wrap;
 		padding-top: var(--MainMenu__list--padTop, grid-units(3));
-		margin-left: var(--MainMenu--offsetLeft);
+
+		@include extendSides();
 	}
 	.MainMenu__item {
 		width: 100%;
 		font-size: px($font-size-20);
+		color: $var--menu-primary-text;
+		margin-left: var(--MainMenu--offsetLeft);
 	}
 	.MainMenu__link {
+		--link-color: var(--menu-primary-text);
+		--link-color--hover: var(--menu-primary-hover);
 		$pB: prem(8) - $link-underline-thickness;
 		padding: prem(8) 0 $pB 0;
+	}
+	.MainMenu__link[aria-pressed='true'] {
+		border-color: $color-suld-0;
 	}
 
 	.MainMenu__separator[class] {
@@ -181,34 +215,13 @@
 			translateY(var(--MainMenu__list--padTop, grid-units(-3)));
 	}
 
-	.MainMenu__megas {
-		margin-left: var(--MainMenu--offsetLeft);
-	}
-	html.menu-is-active .MainMenu__megapanel {
-		display: none;
-	}
-	html.menu-is-active .MainMenu__megapanel--active,
-	.MainMenu__megas[data-pristine='true'] > .MainMenu__megapanel--parent {
-		display: block;
+	.MainMenu__panels,
+	.MainMenu__panelsWrap {
+		flex-grow: 1;
+		display: flex;
+		flex-flow: column;
 	}
 
-	.MainMenu__megapanel {
-		padding-top: grid-units(5);
-	}
-
-	.MainMenu__mega__title {
-		@include SubheadingStyle--small;
-	}
-	html.menu-is-active .MainMenu__mega__title {
-		@include sr-only();
-	}
-	.MainMenu__mega__item {
-		margin-bottom: prem(19);
-	}
-
-	.MainMenu__mega__link {
-		background-image: none !important;
-	}
 	[aria-current='true'] .MainMenu__mega__link::before {
 		content: '';
 		float: left;
@@ -219,12 +232,12 @@
 		background-color: currentColor;
 	}
 
-	.MainMenu__mega__link__summary {
+	.MainMenu__megapanel__backtomenu {
 		display: none;
 	}
 
-	.MainMenu__megapanel__backtomenu {
-		display: none;
+	.MainMenu__item--lang + .MainMenu__item--lang {
+		margin-left: prem(-8);
 	}
 }
 
@@ -243,10 +256,6 @@
 		left: cols_pct(3, 3);
 		height: $var--Layout__header-height;
 		margin: 0 prem(-20);
-		@include media($mq-tablet) {
-			left: 220px;
-			margin: 0 between_tablet(-15, -20);
-		}
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
@@ -259,26 +268,22 @@
 
 	.MainMenu__item {
 		margin: 0 prem(10);
+
+		html.menu-is-open &,
+		html[data-mega-panel-active] & {
+			--link-color--hover: #{$color-suld-0};
+			color: fade($color-suld-25, 70%);
+		}
+	}
+
+	.MainMenu__separator ~ .MainMenu__item > .MainMenu__link {
+		--link-color: #{$color-suld-200};
+		--link-color--hover: #{$color-faxafloi-100};
 	}
 
 	.MainMenu__link {
 		$pB: prem(10) - $link-underline-thickness;
 		padding: prem(10) prem(10) $pB prem(10);
-	}
-
-	@include media($mq-tablet) {
-		.MainMenu__link {
-			padding-left: between_tablet(5, 10);
-			padding-right: between_tablet(5, 10);
-		}
-		.MainMenu__item--search > .MainMenu__link {
-			@include hideText(soft);
-			box-sizing: content-box;
-			width: 1em;
-		}
-		.MainMenu__item--search > .MainMenu__link::before {
-			margin-right: prem(40);
-		}
 	}
 
 	// ===========================================================================
@@ -296,132 +301,80 @@
 		transition-duration: 0ms;
 	}
 
-	.MainMenu__megapanel {
-		margin: between_cols(30, 60) 0;
-	}
-
-	html.before-sprinkling .MainMenu__megapanel {
-		display: none;
-	}
-	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel {
-		display: block;
-		opacity: 0;
-		visibility: hidden;
-		transition: all 300ms ease-in-out;
+	.MainMenu__panelsWrap {
+		transition: all 250ms ease-in-out;
 		transition-property: opacity, visibility;
 
+		background-color: $color-faxafloi-100;
 		position: absolute;
-		z-index: $zIndex--header;
-		top: $var--Layout__header-height;
-		left: calc(0.5 * #{$var--browser-scrollbar-width});
-		right: calc(-0.5 * #{$var--browser-scrollbar-width});
-		height: calc(100vh - #{$var--Layout__header-height});
-		margin: 0;
-		padding: between_cols(50, 150) 0;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 1;
+		height: 100vh;
 		@include extendSides();
-		background-color: $color-suld-0;
-		border-top: 1px solid $color-suld-75;
-		overflow-x: hidden;
-		overflow-y: auto;
 	}
-	.MainMenu[data-sprinkled] > * > .MainMenu__megapanel--active {
+
+	.MainMenu__panels {
+		display: grid;
+		column-gap: $var--grid-gutter;
+		grid-template-columns: repeat($grid-numCols, minmax(0, 1fr));
+
+		@include extendSides('right');
+	}
+
+	html.before-sprinkling .MainMenu__panelsWrap {
+		display: none;
+	}
+
+	.MainMenu[data-sprinkled] .MainMenu__panelsWrap {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.MainMenu[data-sprinkled] > .MainMenu__panelsWrap--active {
 		opacity: 1;
 		visibility: visible;
 	}
 
-	.MainMenu__mega__title {
-		border-top: 1px solid $color-suld-75;
-		padding-top: between_cols(30, 60);
-		margin-bottom: prem(20);
-		@include HeadingStyle--small();
-	}
-	.MainMenu[data-sprinkled] > * > * > .MainMenu__mega__title {
-		@include sr-only();
-	}
-
-	.MainMenu__mega__items {
-		display: grid;
-		grid-auto-flow: row;
-		gap: prem($grid-gutter) cols_pct(0, 1);
-		grid-template-columns: repeat(4, 1fr);
-
-		@include media($mq-tablet) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-	.MainMenu__megapanel--active > * > .MainMenu__mega__item {
-		display: flex;
-		align-items: flex-end;
-		animation: MainMenu__mega__item--fadeup 400ms 400ms ease-in-out 1 backwards;
-	}
-	@for $i from 2 through 12 {
-		.MainMenu__mega__item:nth-child(#{$i}) {
-			animation-delay: ($i - 1) * 100ms + 400ms;
-		}
-	}
-
-	.MainMenu__mega__link[class] {
-		@include LinkStyle_Reset(true);
-		width: 100%;
-		// @deprecated Remove this line in version 0.8
-		background: -500px 0 no-repeat;
-	}
-	.MainMenu__mega__link::before {
-		content: '';
-		display: block;
-		background: 0 50% / auto 100% no-repeat;
-		// fall back to `inherit` to support old background-image on the link HTML pattern
-		// @deprecated Remove `inherit` fallback in version 0.8
-		background-image: var(--menu-item-icon, inherit);
-		height: between_tablet_netbook(70, 100);
-		margin-bottom: prem(10);
-
-		@include media($mq-wide) {
-			height: px(100);
-		}
-	}
-
-	.MainMenu__mega__link__title {
-		font-size: prem($font-size-20);
-		@include setDefaultLinkVariables();
-		@include LinkStyle--basic();
-	}
-	.MainMenu__mega__link:hover .MainMenu__mega__link__title,
-	.MainMenu__mega__link:active .MainMenu__mega__link__title {
-		@include LinkStyle--hover();
-	}
-
-	.MainMenu__mega__link__summary {
-		display: block;
-		height: prem(2 * $font-base-leading);
-		font-size: inherit; // override default <small> styling
-
-		@include media($mq-tablet_netbook) {
-			height: prem(3 * $font-base-leading);
-		}
-	}
-
 	.MainMenu__megapanel__backtomenu {
 		position: fixed;
-		top: $var--Layout__header-height;
-		right: 0;
-		width: prem(50);
-		line-height: prem(50);
+		bottom: 0;
+		left: 0;
+		width: prem(137);
+		height: prem(145);
+
 		font-size: prem(16);
-		opacity: 0.5;
-		transition: all 200ms ease-in;
-		@include hideText(soft);
+
+		padding-top: prem(65);
+		padding-left: prem(32);
+		padding-bottom: prem(33);
 	}
-	.MainMenu__megapanel__backtomenu:hover,
-	.MainMenu__megapanel__backtomenu:active {
+	.MainMenu__megapanel__backtomenu:hover::after,
+	.MainMenu__megapanel__backtomenu:active::after {
 		opacity: 1;
 		transform: scale(1.2);
 	}
 
 	.MainMenu__megapanel__backtomenu::before {
 		@include icon($icons-close-thin);
+		font-size: prem(16);
 		width: 100%;
-		margin-right: 1px;
+		text-align: left;
+		margin-left: 8px;
+	}
+
+	.MainMenu__megapanel__backtomenu::after {
+		content: '';
+		transition: all 200ms ease-in-out;
+		width: 269px;
+		height: 269px;
+		border-radius: 50%;
+		background-color: $color-suld-0;
+		position: absolute;
+		top: 0;
+		left: -132px;
+		z-index: -1;
 	}
 }
 
@@ -445,6 +398,7 @@
 		display: none;
 	}
 	.MainMenu__greeting {
+		color: $var--menu-primary-text;
 		max-height: 400px;
 		margin-left: var(--MainMenu--offsetLeft);
 		max-width: prem(240);
@@ -498,3 +452,8 @@
 		@include WARNING__('Home link missing');
 	}
 }
+
+// ===========================================================================
+// Inline in order to not expose as standalone component styles
+@include PrimaryPanel.css();
+@include AuxilaryPanel.css();
