@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update styling for new `MainMenu`
 
 ## 0.7.23
 
