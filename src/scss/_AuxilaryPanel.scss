@@ -26,15 +26,10 @@
 		}
 
 		@include media($mq-Hamburger) {
-			padding-top: prem(40);
-
-			@include extendSides();
-
+			padding: prem(40) 0;
 			flex-grow: 1;
 
-			html.menu-is-active & {
-				padding-bottom: var(--valmundur-height);
-			}
+			@include extendSides();
 		}
 
 		&__title {

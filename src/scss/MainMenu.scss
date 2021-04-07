@@ -122,22 +122,6 @@
 		margin-top: -100vh;
 		overflow-x: hidden;
 		overflow-y: auto;
-
-		--valmundur-height: 197px;
-		--valmundur-width: 536px;
-
-		@include media($mq-phone) {
-			--valmundur-height: #{between_phone(150, 197)};
-		}
-		@include media('screen and (max-height: 640px)') {
-			--valmundur-height: #{between(100, 150, 480, 640, vh)};
-			@media #{$mq-phone} {
-				--valmundur-width: #{px($bp-phablet)};
-			}
-		}
-		@include media('screen and (max-height: 480px)') {
-			--valmundur-height: 0;
-		}
 	}
 	html.menu-is-closed .MainMenu,
 	html.menu-is-open .MainMenu {
@@ -149,28 +133,6 @@
 		margin-top: 0;
 	}
 
-	html.menu-is-active .MainMenu::after {
-		content: '';
-		position: fixed;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		height: 0;
-		background: white url('/assets/valmundur-a-sundi.png') 50% 0% /
-			var(--valmundur-width) auto repeat-x;
-		transition: (
-			height $swimmer-speed ease-in,
-			visibility 0ms $swimmer-speed,
-			background-size $swimmer-speed ease-in
-		);
-		visibility: hidden;
-		box-shadow: 0 -35px 15px -10px white;
-	}
-	html.menu-is-open .MainMenu::after {
-		transition-delay: 0ms;
-		visibility: visible;
-		height: var(--valmundur-height);
-	}
 
 	html.menu-is-active .MainMenu__items {
 		padding-bottom: prem(40);
