@@ -26,9 +26,14 @@
 		box-sizing: content-box;
 		width: prem(35);
 
-		& > img {
+		& > svg {
 			object-fit: cover;
+			width: prem(185);
 			margin-right: prem(21);
+		}
+
+		& > svg > .logo-text {
+			display: none;
 		}
 	}
 }
