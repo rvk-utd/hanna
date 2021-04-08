@@ -15,8 +15,14 @@
 		grid-column: 2 / span 6;
 
 		background-color: $color-faxafloi-100;
+	}
 
-		@include media($mq-Hamburger) {
+	.PrimaryPanel--active {
+		display: grid;
+	}
+
+	@include media($mq-Hamburger) {
+		.PrimaryPanel {
 			padding-bottom: prem(24);
 			padding-left: var(--MainMenu--offsetLeft);
 
@@ -27,88 +33,81 @@
 			[data-pristine='true'] & {
 				display: block;
 			}
-
-			&__summary {
-				@include sr-only();
-			}
 		}
 
-		&__item {
+		html.menu-is-active .PrimaryPanel--active {
+			display: block;
+		}
+
+		.PrimaryPanel__title,
+		.PrimaryPanel__summary {
+			@include sr-only();
+		}
+
+		.PrimaryPanel__item {
 			margin-bottom: prem(16);
-		}
-
-		@include media($mq-Topmenu) {
-			padding-top: $var--Layout__header-height;
-
-			&--twocol {
-				grid-column: span var(--menu-primary-columns);
-				column-gap: $var--grid-gutter;
-			}
-
-			&__title {
-				color: $var--menu-primary-text;
-
-				border-bottom: 1px solid fade($color-suld-0, 20%);
-
-				margin-right: cols_pct(1, 0, 5);
-				margin-bottom: prem(24);
-				padding-bottom: prem(16);
-
-				font-weight: $font-weight--bold;
-
-				grid-column: span 5;
-
-				.PrimaryPanel--twocol & {
-					grid-column: span var(--menu-primary-columns);
-					margin-right: cols_pct(1, 0, 8);
-				}
-
-				@include media($mq-Hamburger) {
-					@include sr-only();
-				}
-			}
-
-			&__items {
-				grid-column: span 4;
-				padding-right: cols_pct(1, 0, 4);
-
-				.PrimaryPanel--twocol & {
-					display: grid;
-					column-gap: $var--grid-gutter;
-					grid-column: span var(--menu-primary-columns);
-					grid-template-columns: repeat(2, minmax(0, 1fr));
-					padding-right: 0;
-				}
-			}
-
-			&__item {
-				margin-bottom: prem(24);
-
-				.PrimaryPanel--twocol & {
-					padding-right: cols_pct(1, 0, 4);
-				}
-			}
-
-			&__linkTitle {
-				font-size: prem($font-size-20);
-				line-height: prem(32);
-			}
-
-			&__summary {
-				display: block;
-				font-size: inherit; // override default <small> styling
-				font-weight: $font-weight--normal;
-			}
 		}
 	}
 
-	.PrimaryPanel--active {
-		display: grid;
+	@include media($mq-Topmenu) {
+		.PrimaryPanel {
+			padding-top: $var--Layout__header-height;
+		}
 
-		@include media($mq-Hamburger) {
-			html.menu-is-active & {
-				display: block;
+		.PrimaryPanel--twocol {
+			grid-column: span var(--menu-primary-columns);
+			column-gap: $var--grid-gutter;
+		}
+
+		.PrimaryPanel__title {
+			color: $var--menu-primary-text;
+
+			border-bottom: 1px solid fade($color-suld-0, 20%);
+
+			margin-right: cols_pct(1, 0, 5);
+			margin-bottom: prem(24);
+			padding-bottom: prem(16);
+
+			font-weight: $font-weight--bold;
+
+			grid-column: span 5;
+
+			.PrimaryPanel--twocol & {
+				grid-column: span var(--menu-primary-columns);
+				margin-right: cols_pct(1, 0, 8);
 			}
+		}
+
+		.PrimaryPanel__items {
+			grid-column: span 4;
+			padding-right: cols_pct(1, 0, 4);
+
+			.PrimaryPanel--twocol & {
+				display: grid;
+				column-gap: $var--grid-gutter;
+				grid-column: span var(--menu-primary-columns);
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				padding-right: 0;
+			}
+		}
+
+		.PrimaryPanel__item {
+			margin-bottom: prem(24);
+
+			.PrimaryPanel--twocol & {
+				padding-right: cols_pct(1, 0, 4);
+			}
+		}
+
+		.PrimaryPanel__linkTitle {
+			font-size: prem($font-size-20);
+			line-height: prem(32);
+		}
+
+		.PrimaryPanel__summary {
+			display: block;
+			font-size: inherit; // override default <small> styling
+			font-weight: $font-weight--normal;
 		}
 	}
 }

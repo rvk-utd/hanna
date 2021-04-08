@@ -9,10 +9,10 @@
 	}
 
 	.AuxiliaryPanel {
-		--link-color: var(--menu-auxilary-text);
+		--link-color: var(--menu-auxiliary-text);
 		--link-weight: $font-weight-normal;
 
-		background-color: $var--menu-auxilary-background;
+		background-color: $var--menu-auxiliary-background;
 
 		@include media($mq-Topmenu) {
 			grid-column: span 5;
@@ -31,40 +31,40 @@
 
 			@include extendSides();
 		}
+	}
 
-		&__title {
-			color: $var--menu-auxilary-text;
-			font-weight: $font-weight--bold;
+	.AuxiliaryPanel__title {
+		color: $var--menu-auxiliary-text;
+		font-weight: $font-weight--bold;
 
-			border-bottom: 1px solid fade($color-faxafloi-100, 20%);
+		border-bottom: 1px solid fade($color-faxafloi-100, 20%);
 
-			margin-right: cols_pct(1, 0, 4); //TODO:
-			margin-bottom: prem(24);
-			padding-bottom: prem(16);
+		margin-right: cols_pct(1, 0, 4); //TODO:
+		margin-bottom: prem(24);
+		padding-bottom: prem(16);
 
-			@include media($mq-Hamburger) {
-				margin-left: var(--MainMenu--offsetLeft);
-				margin-bottom: prem(8);
-				padding-bottom: prem(8);
-				margin-right: 0;
+		@include media($mq-Hamburger) {
+			margin-left: var(--MainMenu--offsetLeft);
+			margin-bottom: prem(8);
+			padding-bottom: prem(8);
+			margin-right: 0;
 
-				max-width: percentage(140/365);
-				min-width: prem(140);
-			}
+			max-width: percentage(140/365);
+			min-width: prem(140);
+		}
+	}
+
+	.AuxiliaryPanel__items {
+		@include media($mq-Hamburger) {
+			padding-left: var(--MainMenu--offsetLeft);
 		}
 
-		&__items {
-			@include media($mq-Hamburger) {
-				padding-left: var(--MainMenu--offsetLeft);
-			}
-
-			@include media($mq-Topmenu) {
-				margin-right: cols_pct(1, 0, 4);
-			}
+		@include media($mq-Topmenu) {
+			margin-right: cols_pct(1, 0, 4);
 		}
+	}
 
-		&__item {
-			margin-bottom: prem(8px);
-		}
+	.AuxiliaryPanel__item {
+		margin-bottom: prem(8px);
 	}
 }
