@@ -4,12 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - **BREAKING** target: **Hanna 0.8** markup patterns
-- `MainMenu` changes:
-  - **BREAKING** refactor: Rename `MainMenu__megapanel` to `PrimaryPanel`
-  - **BREAKING** refactor: Rename `MainMenu__megas` to `MainMenu__panels`
-  - **BREAKING** refactor: Add `MainMenu__panelsWrap` around
-    `MainMenu__panels`
-  - feat: Add `AuxiliaryPanel` to `MainMenu`
+- feat: **BREAKING** Update styling for `MainMenu` to match new design + markup.
 
 ## 0.7.23
 
