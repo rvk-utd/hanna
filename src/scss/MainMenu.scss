@@ -2,7 +2,7 @@
 @use 'styles/links' as *;
 @use 'styles/font' as *;
 @use '_PrimaryPanel' as PrimaryPanel;
-@use '_AuxilaryPanel' as AuxilaryPanel;
+@use '_AuxiliaryPanel' as AuxiliaryPanel;
 
 @keyframes MainMenu__mega__item--fadeup {
 	0% {
@@ -132,7 +132,6 @@
 		visibility: visible;
 		margin-top: 0;
 	}
-
 
 	html.menu-is-active .MainMenu__items {
 		padding-bottom: prem(40);
@@ -418,4 +417,4 @@
 // ===========================================================================
 // Inline in order to not expose as standalone component styles
 @include PrimaryPanel.css();
-@include AuxilaryPanel.css();
+@include AuxiliaryPanel.css();

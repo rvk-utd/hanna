@@ -2,13 +2,13 @@
 
 @mixin css() {
 	@include media($mq-Topmenu) {
-		.PrimaryPanel--active.PrimaryPanel--twocol ~ .AuxilaryPanel {
+		.PrimaryPanel--active.PrimaryPanel--twocol ~ .AuxiliaryPanel {
 			grid-column: span 4;
 			padding-left: cols_pct(1, 1, 4);
 		}
 	}
 
-	.AuxilaryPanel {
+	.AuxiliaryPanel {
 		--link-color: var(--menu-auxilary-text);
 		--link-weight: $font-weight-normal;
 

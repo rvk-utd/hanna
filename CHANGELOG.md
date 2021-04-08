@@ -7,14 +7,15 @@
 - `MainMenu` changes:
   - **BREAKING** refactor: Rename `MainMenu__megapanel` to `PrimaryPanel`
   - **BREAKING** refactor: Rename `MainMenu__megas` to `MainMenu__panels`
-  - **BREAKING** refactor: Add `MainMenu__panelsWrap` around `MainMenu__panels`
-  - feat: Add `AuxilaryPanel` to `MainMenu`
+  - **BREAKING** refactor: Add `MainMenu__panelsWrap` around
+    `MainMenu__panels`
+  - feat: Add `AuxiliaryPanel` to `MainMenu`
 
 ## 0.7.23
 
 _2020-12-15_
 
-- feat: allow landscape images in  `InfoHero` component
+- feat: allow landscape images in `InfoHero` component
 - fix: add missing `$childSelector` to `SeenEffect--seen`
 
 ## 0.7.22
