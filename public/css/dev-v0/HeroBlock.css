@@ -72,46 +72,6 @@
   .HeroBlock > :last-child {
     margin-bottom: 0;
   }
-
-  .HeroBlock__title:last-child,
-.HeroBlock__title + .HeroBlock__summary,
-.HeroBlock__title + .HeroBlock__buttons {
-    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
-  }
-  .HeroBlock__title:last-child::before,
-.HeroBlock__title + .HeroBlock__summary::before,
-.HeroBlock__title + .HeroBlock__buttons::before {
-    all: initial !important;
-    order: -999 !important;
-    font-family: sans-serif !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    z-index: 2 !important;
-    font-size: 12px !important;
-    line-height: 1.5em !important;
-    color: red !important;
-    background-color: rgba(255, 230, 230, 0.5) !important;
-    padding: 0 0.5em !important;
-    content: "`.HeroBlock__image` is required as of v0.5" !important;
-  }
-
-  .HeroBlock--align--right {
-    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
-  }
-  .HeroBlock--align--right::before {
-    all: initial !important;
-    order: -999 !important;
-    font-family: sans-serif !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    z-index: 2 !important;
-    font-size: 12px !important;
-    line-height: 1.5em !important;
-    color: red !important;
-    background-color: rgba(255, 230, 230, 0.5) !important;
-    padding: 0 0.5em !important;
-    content: "`--align--right` was removed in v0.5, use `PageHeader` and `TextBlock` instead" !important;
-  }
 }
 @media screen and (min-width: 480px) and (max-width: 979px) {
   .HeroBlock {
