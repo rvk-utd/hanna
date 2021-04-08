@@ -8,7 +8,10 @@
 	width: prem(182);
 	height: prem(53);
 
-	& > img {
+	& > svg,
+	& > img,
+	& > * > svg,
+	& > * > img {
 		width: 100%;
 		height: 100%;
 		display: inline-block;
@@ -26,9 +29,21 @@
 		box-sizing: content-box;
 		width: prem(35);
 
-		& > img {
+		> div {
+			display: inline-block;
+		}
+
+		& > svg,
+		& > img,
+		& > * > svg,
+		& > * > img {
 			object-fit: cover;
+			width: prem(185);
 			margin-right: prem(21);
+
+			> .logo-text {
+				display: none;
+			}
 		}
 	}
 }

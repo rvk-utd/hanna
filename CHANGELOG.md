@@ -4,11 +4,19 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.0
+
+_2021-04-08_
+
+- **BREAKING** target: **Hanna 0.8** markup patterns
+- feat: **BREAKING** Update styling for `MainMenu` to match new design + markup.
+- feat: Add new Hanna ["Illustration"](src/assets/illustrations/files.json) assets
+
 ## 0.7.23
 
 _2020-12-15_
 
-- feat: allow landscape images in  `InfoHero` component
+- feat: allow landscape images in `InfoHero` component
 - fix: add missing `$childSelector` to `SeenEffect--seen`
 
 ## 0.7.22

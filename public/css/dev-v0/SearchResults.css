@@ -64,8 +64,7 @@
   }
 }
 @media screen {
-  .SearchResults--loading,
-.SearchResults--loadingfilter > * > .SearchResults__list--loading,
+  .SearchResults--loadingfilter > * > .SearchResults__list--loading,
 .SearchResults--loadingmore > * > .SearchResults__list--loading {
     opacity: 0.5;
   }
@@ -89,8 +88,7 @@
   }
 }
 @media screen {
-  .SearchResults--loading > .SearchResults__list::before,
-.SearchResults__list--loading::before {
+  .SearchResults__list--loading::before {
     content: "";
     position: absolute;
     top: 1.25rem;

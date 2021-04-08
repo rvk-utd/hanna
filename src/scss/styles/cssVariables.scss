@@ -18,6 +18,7 @@
 			@include _gridVariables();
 			@include _fontVariables();
 			@include _LayoutHeader();
+			@include _MainMenu();
 		}
 	}
 }
@@ -204,6 +205,19 @@
 		--font-bd-l-size: #{px($font-bd-l-size)};
 		--font-bd-l-leading: #{px($font-bd-l-leading)};
 	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _MainMenu() {
+	--menu-color: #{$color-suld-200};
+	--menu-hover: #{$color-suld-100};
+	--menu-primary-background: #{$color-faxafloi-100};
+	--menu-primary-text: #{$color-suld-0};
+	--menu-primary-hover: #{$color-suld-25};
+	--menu-auxiliary-background: #{$color-suld-25};
+	--menu-auxiliary-text: #{$color-faxafloi-100};
+	--menu-auxiliary-hover: #{$color-faxafloi-150};
 }
 
 // ---------------------------------------------------------------------------

@@ -40,8 +40,7 @@
   }
 }
 @media screen {
-  .ArticleCarousel__track,
-.ArticleCarousel__items {
+  .ArticleCarousel__items {
     display: flex;
     flex-flow: row;
   }
@@ -67,7 +66,7 @@
     color: red !important;
     background-color: rgba(255, 230, 230, 0.5) !important;
     padding: 0 0.5em !important;
-    content: "Deprecated: use `.ArticleCarousel__items` instead" !important;
+    content: "Unsupported: use `.ArticleCarousel__items` instead" !important;
   }
 }
 @media screen {
@@ -287,6 +286,25 @@
     margin: -0.8125rem -1rem;
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
     border-radius: 0.5rem;
+  }
+}
+@media screen {
+  .ArticleCarouselCard__morelink:not([aria-label]) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .ArticleCarouselCard__morelink:not([aria-label])::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: 'aria-label="" is missing' !important;
   }
 }
 @media screen {

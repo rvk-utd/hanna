@@ -119,8 +119,7 @@
     transition-property: opacity, transform;
   }
 
-  .Gallery__track,
-.Gallery__items {
+  .Gallery__items {
     display: flex;
     margin-left: -1.25rem;
     margin-right: -1.25rem;
@@ -147,7 +146,7 @@
     color: red !important;
     background-color: rgba(255, 230, 230, 0.5) !important;
     padding: 0 0.5em !important;
-    content: "Deprecated: use `.Gallery__items` instead" !important;
+    content: "Unsupported: use `.Gallery__items` instead" !important;
   }
 
   .GalleryItem {
