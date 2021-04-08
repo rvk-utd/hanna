@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - **BREAKING** target: **Hanna 0.8** markup patterns
 - feat: **BREAKING** Update styling for `MainMenu` to match new design + markup.
+- feat: Add new Hanna ["Illustration"](src/assets/illustrations/files.json) assets
 
 ## 0.7.23
 
