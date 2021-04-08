@@ -21,7 +21,6 @@
 		margin-bottom: between_cols(32, 130);
 	}
 
-	.Gallery__track, // @deprected  Will be removed in v0.8
 	.Gallery__items {
 		display: flex;
 
@@ -36,8 +35,8 @@
 		overflow: auto;
 	}
 
-	.Gallerty__track {
-		@include WARNING__('Deprecated: use `.Gallery__items` instead');
+	.Gallerty__track { // @deprecated Was removed in v0.8. Remove warning in v0.9
+		@include WARNING__('Unsupported: use `.Gallery__items` instead');
 	}
 
 	// ITEM

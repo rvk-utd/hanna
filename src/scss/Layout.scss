@@ -51,6 +51,13 @@
 
 	.Layout__header__logo {
 		@include LayoutHeaderLogo();
+
+		html.menu-is-open &,
+		html[data-mega-panel-active] & {
+			--logo-fill-color: #{$color-suld-0};
+			--logo-text-color: #{$color-suld-0};
+			--logo-background-color: #{$color-faxafloi-100};
+		}
 	}
 
 	.Layout__main {
@@ -192,23 +199,6 @@
 		@include sr-only-focusable();
 	}
 }
-
-// ===========================================================================
-// BEGIN @deprecated  (remove in v0.8)
-// Styles to make the addition of .Layout__content non-breaking
-.Layout {
-	display: flex;
-	flex-flow: column nowrap;
-	padding-top: $var--Layout__header-height;
-}
-.Layout__alerts {
-	margin-top: calc(-1 * #{$var--Layout__header-height});
-	margin-bottom: $var--Layout__header-height;
-}
-.Layout__content {
-	margin-top: calc(-1 * #{$var--Layout__header-height});
-}
-// END @deprecated
 
 // ===========================================================================
 // Grid helper

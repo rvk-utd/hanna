@@ -575,6 +575,14 @@ table {
     --font-bd-s-size: 16px;
     --font-bd-s-leading: 24px;
     --Layout__header-height: 99px;
+    --menu-color: #2a2b2c;
+    --menu-hover: #c7cbd0;
+    --menu-primary-background: #0372e1;
+    --menu-primary-text: #ffffff;
+    --menu-primary-hover: #f8f8f9;
+    --menu-auxiliary-background: #f8f8f9;
+    --menu-auxiliary-text: #0372e1;
+    --menu-auxiliary-hover: #013b70;
   }
 }
 @media screen and (min-width: 1380px) {
@@ -655,7 +663,7 @@ table {
     --font-bd-l-leading: 32px;
   }
 }
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 980px) {
   :root {
     --Layout__header-height: calc(5.9677419355vw + 53.6451612903px);
   }
