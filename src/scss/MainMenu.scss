@@ -247,6 +247,10 @@
 		padding: prem(10) prem(10) $pB prem(10);
 	}
 
+	.MainMenu__item--lang::before {
+		color: $color-suld-200;
+	}
+
 	// ===========================================================================
 	//
 	// Mega Menu

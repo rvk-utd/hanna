@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: add `logo-text` class text group instead of letter path
+- fix: correct language nav item separator color
 
 ## 0.8.0
 
