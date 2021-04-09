@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.1
+
+_2021-04-09_
+
 - fix: add `logo-text` class text group instead of letter path
 - fix: correct language nav item separator color
 
