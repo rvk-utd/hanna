@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: add `logo-text` class text group instead of letter path
 
 ## 0.8.0
 
