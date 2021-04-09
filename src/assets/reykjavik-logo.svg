@@ -8,8 +8,8 @@
 	.st1{fill:var(--logo-background-color, #FFFFFF);stroke:var(--logo-background-color, #FFFFFF);stroke-width:5.8642;stroke-miterlimit:10;}
 	.st2{fill:var(--logo-fill-color, #0376E1);}
 	</style>
-	<g>
-		<path class="st0 logo-text" d="M563.9,104.2l-17.5-22.4v22.4h-13v-74h13v41.3l15.5-17h16.2l-20.6,21.9l22.4,27.9h-16V104.2z"/>
+	<g class="logo-text">
+		<path class="st0" d="M563.9,104.2l-17.5-22.4v22.4h-13v-74h13v41.3l15.5-17h16.2l-20.6,21.9l22.4,27.9h-16V104.2z"/>
 		<path class="st0" d="M514.6,47.9h-10.5l9.7-15.6H528L514.6,47.9z M504.9,54.4h13v49.8h-13V54.4z"/>
 		<path class="st0" d="M497.6,54.5l-19,49.7h-13.3l-19-49.7h13.4L472,88.8l12.2-34.3C484.2,54.5,497.6,54.5,497.6,54.5z"/>
 		<path class="st0" d="M399.3,92.5c0-10.1,7.8-15,19.5-18.2l10.5-3c0-5.4-3.7-7.7-8.1-7.7c-4.6,0-8.6,2.1-8.6,7.7h-11.9

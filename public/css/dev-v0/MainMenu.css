@@ -302,6 +302,10 @@ html.menu-is-open .MainMenu {
     padding: 0.625rem 0.625rem 0.5rem 0.625rem;
   }
 
+  .MainMenu__item--lang::before {
+    color: #2a2b2c;
+  }
+
   html[data-mega-panel-active] {
     overflow-y: hidden;
     padding-right: var(--browser-scrollbar-width, 0);
