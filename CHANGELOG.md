@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+  
+## 0.8.2
+
+_2021-04-12_
+
 - fix: Make sure `.MainMenu__panelsWrap` is higher than that of `.SiteSearchCurtain`
 - fix: Allow scrolling in `.MainMenu__panelsWrap` when content exceeds height of window
 
