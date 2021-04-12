@@ -17,7 +17,7 @@
 		@include media($mq-Topmenu) {
 			grid-column: span 5;
 
-			height: 100vh;
+			min-height: 100vh;
 
 			padding-top: $var--Layout__header-height;
 			padding-left: cols_pct(1, 1, 5);
@@ -26,12 +26,13 @@
 
 			&::after {
 				content: '';
-				margin-top: prem(40);
-				padding-top: percentage(305/143);
+
 				background: 50% 0 / auto 305px no-repeat;
 				background-image: var(--menu-auxiliary-image);
+
+				margin-top: prem(40);
 				display: block;
-				max-height: 305px;
+				height: 305px;
 				overflow: hidden;
 			}
 		}

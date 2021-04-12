@@ -322,10 +322,13 @@ html.menu-is-open .MainMenu {
     background-color: #0372e1;
     position: absolute;
     top: 0;
-    right: 0;
+    left: calc(0.5 * var(--browser-scrollbar-width, 0));
+    right: calc(-0.5 * var(--browser-scrollbar-width, 0));
     left: 0;
-    z-index: 1;
+    z-index: 3;
     height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
     margin-left: calc(50% - 50vw + 0px);
     padding-left: calc(50vw - 50% + 0px);
     margin-right: calc(50% - 50vw + 0px);
@@ -662,7 +665,7 @@ html.menu-is-open .MainMenu {
 @media screen and (min-width: 980px) {
   .AuxiliaryPanel {
     grid-column: span 5;
-    height: 100vh;
+    min-height: 100vh;
     padding-top: var(--Layout__header-height);
     padding-left: 21.6666666667%;
     margin-right: calc(50% - 50vw + 0px);
@@ -670,12 +673,11 @@ html.menu-is-open .MainMenu {
   }
   .AuxiliaryPanel::after {
     content: "";
-    margin-top: 2.5rem;
-    padding-top: 213.2867132867%;
     background: 50% 0/auto 305px no-repeat;
     background-image: var(--menu-auxiliary-image);
+    margin-top: 2.5rem;
     display: block;
-    max-height: 305px;
+    height: 305px;
     overflow: hidden;
   }
 }
