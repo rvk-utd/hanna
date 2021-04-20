@@ -349,6 +349,7 @@ html.menu-is-open .MainMenu {
   }
 
   .MainMenu[data-sprinkled] .MainMenu__panelsWrap {
+    display: block;
     opacity: 0;
     visibility: hidden;
   }
