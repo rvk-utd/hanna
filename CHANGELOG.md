@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: overwrite `before-sprinkling` rule hiding `.MainMenu__panelsWrap` with `data-sprinkled` selector
   
 ## 0.8.2
 
