@@ -17,7 +17,7 @@
 		"dev": "gulp watch"
 	},
 	"engines": {
-		"node": "^12"
+		"node": ">=12 <15"
 	},
 	"dependencies": {
 		"cssserve": "^1.1.4"
