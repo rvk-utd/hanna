@@ -37,7 +37,6 @@
 	&[data-is-seen='']#{_append($childSelector)},
 	&[data-is-seen='true']#{_append($childSelector)} {
 		@content;
-		//if no @content default to opacity && transform?
 	}
 }
 
@@ -110,4 +109,22 @@
 
 @mixin SeenEffect--delay($delay) {
 	transition-delay: $delay;
+}
+
+@mixin SeenEffect--disallowNesting() {
+	.before-sprinkling [data-is-seen] &,
+	[data-is-seen] &[data-is-seen='false'] {
+		opacity: 1;
+		transform: none;
+	}
+
+	[data-is-seen] & {
+		@include SeenEffect--seen() {
+			opacity: initial;
+			transform: initial;
+		}
+		@include SeenEffect--transition() {
+			transition: none;
+		}
+	}
 }

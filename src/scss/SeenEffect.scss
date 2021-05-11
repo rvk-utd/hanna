@@ -1,0 +1,19 @@
+@use '_globals' as *;
+
+/*!@deps
+*/
+
+// inlined by _basics.scss
+@mixin css() {
+	[data-seen-effect=''],
+	[data-seen-effect='true'],
+	[data-seen-effect='fadeup'] {
+		@include SeenEffect--fadeup();
+	}
+	[data-seen-effect='fadein'] {
+		@include SeenEffect--fadein();
+	}
+	[data-seen-effect='fadeleft'] {
+		@include SeenEffect--fadeleft();
+	}
+}

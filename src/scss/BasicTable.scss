@@ -6,12 +6,12 @@
 
 @media screen {
 	.TableWrapper {
+		@include SeenEffect--fadeup();
+		@include SeenEffect--disallowNesting();
 		position: relative;
 		overflow-x: auto;
 	}
-	.TableWrapper:not(.TextBlock *) {
-		@include SeenEffect--fadeup();
-	}
+
 	.TableWrapper--BasicTable--align--right {
 		@include media($mq-tablet_up) {
 			margin-left: auto;
