@@ -6,6 +6,7 @@
 - feat: Support generic attribute `[data-seen-effect]`
 - feat: Add placebo bundling token `SeenEffect` (provided by `-basics`)
 - fix: Suppress nested `[data-is-seen]` effects on atomic elements
+- fix: Tolerate better stray wrapper elements inside `.AccordionList`
 
 ## 0.8.3
 
