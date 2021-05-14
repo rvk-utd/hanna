@@ -18,5 +18,8 @@
 			margin-top: between_cols(0, 3 * $grid-unit);
 			margin-bottom: em(40/64);
 		}
+		.PageHeading--small {
+			@include HeadingStyle--medium();
+		}
 	}
 }

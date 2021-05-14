@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `PageHeader--small` variant
 - feat: Support generic attribute `[data-seen-effect]`
 - feat: Add placebo bundling token `SeenEffect` (provided by `-basics`)
 - fix: Suppress nested `[data-is-seen]` effects on atomic elements
