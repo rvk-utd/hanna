@@ -7,6 +7,7 @@
 - feat: Add placebo bundling token `SeenEffect` (provided by `-basics`)
 - fix: Suppress nested `[data-is-seen]` effects on atomic elements
 - fix: Tolerate better stray wrapper elements inside `.AccordionList`
+- fix: Make super long `ButtonTertiary`s to line-wrap gracefully
 
 ## 0.8.3
 
