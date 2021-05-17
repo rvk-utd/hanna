@@ -27,7 +27,8 @@
 
 @mixin SeenEffect--initial($childSelector: '') {
 	.before-sprinkling &#{_append($childSelector)},
-	&[data-is-seen='false']#{_append($childSelector)} {
+	&[data-is-seen='false']#{_append($childSelector)},
+	&[data-is-seen='true']#{_append($childSelector)} {
 		@content;
 	}
 }
