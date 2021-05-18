@@ -29,16 +29,16 @@
     transition-property: opacity, transform;
   }
   .GridBlocks[data-is-seen=true] > .GridBlocks__item {
-    transition-delay: 600ms;
+    transition-delay: 450ms;
   }
   .GridBlocks[data-is-seen=true] > .GridBlocks__item:nth-child(1) {
-    transition-delay: 300ms;
+    transition-delay: 0ms;
   }
   .GridBlocks[data-is-seen=true] > .GridBlocks__item:nth-child(2) {
-    transition-delay: 400ms;
+    transition-delay: 150ms;
   }
   .GridBlocks[data-is-seen=true] > .GridBlocks__item:nth-child(3) {
-    transition-delay: 500ms;
+    transition-delay: 300ms;
   }
 
   .GridBlocks__illustration {

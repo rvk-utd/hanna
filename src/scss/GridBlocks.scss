@@ -25,12 +25,12 @@
 		@include SeenEffect--fadeup('> .GridBlocks__item');
 		@include SeenEffect--transition('> .GridBlocks__item') {
 			// Default delay, applied to for items where n > 3
-			@include SeenEffect--delay(600ms);
+			@include SeenEffect--delay(450ms);
 		}
 
 		@for $i from 1 through 3 {
 			@include SeenEffect--transition('> .GridBlocks__item:nth-child(#{$i})') {
-				@include SeenEffect--delay($i * 100ms + 200ms);
+				@include SeenEffect--delay(($i - 1) * 150ms);
 			}
 		}
 	}

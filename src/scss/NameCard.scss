@@ -20,10 +20,11 @@
 		margin-bottom: prem(16);
 	}
 
-	.NameCard__tel {
+	.NameCard__contactinfo {
 	}
 
-	.NameCard__tel__number {
+	.NameCard__tel__number, // @deprecated (remove in v0.9)
+	.NameCard__contactinfo__item {
 		--link-color: _inherit;
 		font-size: prem($font-bd-s-size);
 		line-height: prem(19);
@@ -35,7 +36,8 @@
 		font-weight: 700;
 		margin-bottom: prem(4);
 	}
-	.NameCard__tel__number::before {
+	.NameCard__tel__number::before, // @deprecated (remove in v0.9)
+	.NameCard__contactinfo__item::before {
 		content: '';
 		float: left;
 		height: prem(2);
@@ -48,7 +50,8 @@
 	.NameCard__location {
 		margin-top: prem(8);
 	}
-	.NameCard__hours {
+	.NameCard__hours, // @deprecated (remove in v0.9)
+	.NameCard__abouttext {
 		margin-bottom: grid-units(1.5);
 	}
 
@@ -82,6 +85,7 @@
 	}
 
 	.NameCard__updated {
+		margin-left: auto;
 		align-self: flex-end;
 		font-size: prem($font-size-12);
 		margin-top: grid-units(1);
