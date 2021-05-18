@@ -4,6 +4,7 @@
 @media screen {
 	.Tabs {
 		@include SeenEffect--fadeup();
+		// @deprecated  Remove this mixin in v0.9
 		@include SeenEffect--disallowNesting();
 		display: flex;
 		flex-flow: row wrap;

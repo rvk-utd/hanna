@@ -112,6 +112,7 @@
 	transition-delay: $delay;
 }
 
+// @deprecated  Remove this mixin in v0.9
 @mixin SeenEffect--disallowNesting() {
 	.before-sprinkling [data-is-seen] &,
 	[data-is-seen] &[data-is-seen='false'] {
