@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.5
+
+_2021-05-18_
+
 - fix: Tweak seen-effects styles in minor ways
 - feat: Update `NameCards` styling to match updated HTML
 
