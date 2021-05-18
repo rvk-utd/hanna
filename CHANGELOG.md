@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Tweak seen-effects styles in minor ways
+- feat: Update `NameCards` styling to match updated HTML
 
 ## 0.8.4
 
