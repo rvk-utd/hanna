@@ -3,12 +3,17 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.4
+
+_2021-05-18_
+
 - feat: Add styling for `PageHeader--small` variant
 - feat: Support generic attribute `[data-seen-effect]`
 - feat: Add placebo bundling token `SeenEffect` (provided by `-basics`)
 - feat: Update styling of `.FooterInfo` links
 - fix: Suppress nested `[data-is-seen]` effects on atomic elements
-- fix: Tolerate better stray wrapper elements inside `.AccordionList`
+- fix: Tolerate stray wrapper elements better inside `.AccordionList`
 - fix: Super long `ButtonTertiary`s didn't line-wrap
 - fix: Missing primary-color border on `ExtraLinks` w. `startSeen`
 
