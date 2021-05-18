@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Tweak seen-effects styles in minor ways
 
 ## 0.8.4
 
