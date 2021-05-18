@@ -17,7 +17,8 @@
     margin-bottom: 1rem;
   }
 
-  .NameCard__tel__number {
+  .NameCard__tel__number,
+.NameCard__contactinfo__item {
     --link-color: _inherit;
     font-size: 1rem;
     line-height: 1.1875rem;
@@ -30,7 +31,8 @@
     margin-bottom: 0.25rem;
   }
 
-  .NameCard__tel__number::before {
+  .NameCard__tel__number::before,
+.NameCard__contactinfo__item::before {
     content: "";
     float: left;
     height: 0.125rem;
@@ -44,7 +46,8 @@
     margin-top: 0.5rem;
   }
 
-  .NameCard__hours {
+  .NameCard__hours,
+.NameCard__abouttext {
     margin-bottom: 0.75rem;
   }
 
@@ -80,6 +83,7 @@
   }
 
   .NameCard__updated {
+    margin-left: auto;
     align-self: flex-end;
     font-size: 0.75rem;
     margin-top: 0.5rem;
