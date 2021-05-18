@@ -21,7 +21,7 @@
   }
 }
 @media screen {
-  .before-sprinkling .ImageCards .ImageCards__summary, .ImageCards[data-is-seen=false] .ImageCards__summary {
+  .before-sprinkling .ImageCards .ImageCards__summary, .ImageCards[data-is-seen=false] .ImageCards__summary, .ImageCards[data-is-seen=true] .ImageCards__summary {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -39,7 +39,7 @@
   }
 }
 @media screen {
-  .before-sprinkling .ImageCards .ImageCards__item, .ImageCards[data-is-seen=false] .ImageCards__item {
+  .before-sprinkling .ImageCards .ImageCards__item, .ImageCards[data-is-seen=false] .ImageCards__item, .ImageCards[data-is-seen=true] .ImageCards__item {
     opacity: 0;
   }
 }

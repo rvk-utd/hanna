@@ -6,7 +6,7 @@
     --leftIndent: calc(3.6363636364vw + 20.3636363636px);
     --iconWidth: calc(2.7272727273vw + 15.2727272727px);
   }
-  .before-sprinkling .AccordionList, .AccordionList[data-is-seen=false] {
+  .before-sprinkling .AccordionList, .AccordionList[data-is-seen=false], .AccordionList[data-is-seen=true] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -19,16 +19,10 @@
     transition-property: opacity, transform;
   }
 }
-@media screen and (min-width: 760px) and (max-width: 1379px) {
+@media screen and (min-width: 760px) {
   .AccordionList {
-    --leftIndent: 8.6092715232%;
-    --iconWidth: 5.298013245%;
-  }
-}
-@media screen and (min-width: 1380px) {
-  .AccordionList {
-    --leftIndent: 104px;
-    --iconWidth: 64px;
+    --leftIndent: var(--grid-1-1);
+    --iconWidth: var(--grid-1);
   }
 }
 @media screen {
@@ -56,6 +50,7 @@
 }
 @media screen {
   .AccordionList__button {
+    position: relative;
     color: inherit;
     margin-left: calc(-1 * var(--leftIndent));
     padding-left: var(--leftIndent);
