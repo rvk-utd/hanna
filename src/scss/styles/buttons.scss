@@ -107,10 +107,11 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	position: relative;
 	display: inline-block;
 	width: max-content;
+	max-width: 100%;
 	vertical-align: middle;
-	white-space: nowrap;
 	line-height: prem(19);
 	font-size: prem($font-btn-size);
+	padding-left: calc(#{prem(16)} + #{$var--ButtonTertiary--dashWidth});
 	padding-right: calc(
 		#{$var--ButtonTertiary--dashWidth--hover} - #{$var--ButtonTertiary--dashWidth}
 	);
@@ -121,6 +122,9 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 
 	&::before {
 		content: '';
+		position: absolute;
+		left: 0;
+		top: prem(19/2);
 		width: $var--ButtonTertiary--dashWidth;
 		height: $var--ButtonTertiary--dashHeight;
 		display: inline-block;
@@ -128,7 +132,7 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 		margin-bottom: prem(3);
 		background-color: currentColor;
 		color: $var--ButtonTertiary--dashColor;
-		margin-right: prem(16);
+		transform: translateY(-50%);
 		transition: inherit;
 	}
 
@@ -141,6 +145,7 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	}
 
 	@include hoverActiveKeyboardFocus-selector {
+		padding-left: calc(#{prem(16)} + #{$var--ButtonTertiary--dashWidth--hover});
 		padding-right: prem(0);
 		color: $var--ButtonTertiary--color;
 		outline: 0;

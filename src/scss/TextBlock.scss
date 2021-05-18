@@ -20,9 +20,9 @@
 		@include ComponentLayout();
 		@include BodyTextStyle--large();
 		@include textContent();
-	}
-	:not(.RowBlockColumn) > .TextBlock {
+
 		@include SeenEffect--fadeup();
+		@include SeenEffect--disallowNesting();
 	}
 	.TextBlock--small {
 		@include BodyTextStyle--small();

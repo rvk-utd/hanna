@@ -16,10 +16,9 @@
 		@include SeenEffect--fadeup('.ExtraLinks__title');
 		@include extendBackgroundWithUnderlay(left, after);
 
-		&::after {
+		@include SeenEffect--initial('::after') {
 			border-left: between_phone_netbook(8, 24) solid $color-suld-25;
 		}
-
 		@include SeenEffect--transition('::after') {
 			@include Transition--long();
 			@include Transition--properties('transform');

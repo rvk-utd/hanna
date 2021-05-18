@@ -8,7 +8,7 @@
     flex-flow: column-reverse;
     margin-bottom: calc(14.0086206897% + -9.224137931px);
   }
-  .before-sprinkling .CityBlock, .CityBlock[data-is-seen=false] {
+  .before-sprinkling .CityBlock, .CityBlock[data-is-seen=false], .CityBlock[data-is-seen=true] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -129,10 +129,11 @@
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
+    max-width: 100%;
     vertical-align: middle;
-    white-space: nowrap;
     line-height: 1.1875rem;
     font-size: 1rem;
+    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth, 1rem));
     padding-right: calc( 		var(--ButtonTertiary--dashWidth--hover, 3rem) - var(--ButtonTertiary--dashWidth, 1rem) 	);
     margin-right: 0.9375rem;
     margin-bottom: 1rem;
@@ -143,6 +144,9 @@
   }
   .CityBlock__button::before {
     content: "";
+    position: absolute;
+    left: 0;
+    top: 0.59375rem;
     width: var(--ButtonTertiary--dashWidth, 1rem);
     height: var(--ButtonTertiary--dashHeight, 0.125rem);
     display: inline-block;
@@ -150,10 +154,11 @@
     margin-bottom: 0.1875rem;
     background-color: currentColor;
     color: var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
-    margin-right: 1rem;
+    transform: translateY(-50%);
     transition: inherit;
   }
   .CityBlock__button:hover, .CityBlock__button:active, .CityBlock__button[data-focus-visible-added] {
+    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth--hover, 3rem));
     padding-right: 0rem;
     color: var(--ButtonTertiary--color, _inherit);
     outline: 0;
@@ -162,6 +167,7 @@
     width: var(--ButtonTertiary--dashWidth--hover, 3rem);
   }
   .CityBlock__button:focus-visible {
+    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth--hover, 3rem));
     padding-right: 0rem;
     color: var(--ButtonTertiary--color, _inherit);
     outline: 0;

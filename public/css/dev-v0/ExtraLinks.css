@@ -20,7 +20,7 @@
   .ExtraLinks {
     position: relative;
   }
-  .before-sprinkling .ExtraLinks .ExtraLinks__item, .ExtraLinks[data-is-seen=false] .ExtraLinks__item {
+  .before-sprinkling .ExtraLinks .ExtraLinks__item, .ExtraLinks[data-is-seen=false] .ExtraLinks__item, .ExtraLinks[data-is-seen=true] .ExtraLinks__item {
     opacity: 0;
   }
   .ExtraLinks[data-is-seen=""] .ExtraLinks__item, .ExtraLinks[data-is-seen=true] .ExtraLinks__item {
@@ -30,7 +30,7 @@
     transition: all 500ms ease-in-out;
     transition-property: opacity, transform;
   }
-  .before-sprinkling .ExtraLinks .ExtraLinks__title, .ExtraLinks[data-is-seen=false] .ExtraLinks__title {
+  .before-sprinkling .ExtraLinks .ExtraLinks__title, .ExtraLinks[data-is-seen=false] .ExtraLinks__title, .ExtraLinks[data-is-seen=true] .ExtraLinks__title {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -51,7 +51,7 @@
     z-index: -1;
     background: inherit;
   }
-  .ExtraLinks::after {
+  .before-sprinkling .ExtraLinks::after, .ExtraLinks[data-is-seen=false]::after, .ExtraLinks[data-is-seen=true]::after {
     border-left: calc(1.5094339623vw + 3.1698113208px) solid #f8f8f9;
   }
   .ExtraLinks[data-is-seen=true]::after {

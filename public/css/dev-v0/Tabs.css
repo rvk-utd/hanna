@@ -7,7 +7,7 @@
     line-height: 1.5rem;
     margin: 2.5rem 0;
   }
-  .before-sprinkling .Tabs, .Tabs[data-is-seen=false] {
+  .before-sprinkling .Tabs, .Tabs[data-is-seen=false], .Tabs[data-is-seen=true] {
     opacity: 0;
     transform: translateY(200px);
   }
@@ -18,6 +18,17 @@
   .Tabs[data-is-seen=true] {
     transition: all 500ms ease-in-out;
     transition-property: opacity, transform;
+  }
+  .before-sprinkling [data-is-seen] .Tabs, [data-is-seen] .Tabs[data-is-seen=false] {
+    opacity: 1;
+    transform: none;
+  }
+  [data-is-seen] .Tabs[data-is-seen=""], [data-is-seen] .Tabs[data-is-seen=true] {
+    opacity: initial;
+    transform: initial;
+  }
+  [data-is-seen] .Tabs[data-is-seen=true] {
+    transition: none;
   }
 
   .Tabs__tab {

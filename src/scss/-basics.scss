@@ -5,7 +5,9 @@
 @use 'styles/cssVariables' as *;
 @use 'utils/scssutils/normalize' as *;
 @use 'utils/scssutils/writeMediaFormatMarkers' as *;
+
 @use 'BlockBreak';
+@use 'SeenEffect';
 
 @include normalize();
 /*! Reykjavík Design System basic CSS styles */
@@ -290,6 +292,7 @@
 	// ---------------------------------------------------------------------------
 
 	@include BlockBreak.css();
+	@include SeenEffect.css();
 }
 
 // ===========================================================================

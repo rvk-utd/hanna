@@ -77,9 +77,7 @@
 }
 @media screen {
   .FooterInfo__groupcontent a {
-    --link-color: _inherit;
-    --link-weight: _inherit;
-    --link-underline: none;
+    font-weight: 400;
   }
 }
 /*# sourceMappingURL=FooterInfo.css.map */

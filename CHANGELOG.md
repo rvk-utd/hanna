@@ -4,18 +4,34 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.4
+
+_2021-05-18_
+
+- feat: Add styling for `PageHeader--small` variant
+- feat: Support generic attribute `[data-seen-effect]`
+- feat: Add placebo bundling token `SeenEffect` (provided by `-basics`)
+- feat: Update styling of `.FooterInfo` links
+- fix: Suppress nested `[data-is-seen]` effects on atomic elements
+- fix: Tolerate stray wrapper elements better inside `.AccordionList`
+- fix: Super long `ButtonTertiary`s didn't line-wrap
+- fix: Missing primary-color border on `ExtraLinks` w. `startSeen`
+
 ## 0.8.3
 
 _2021-04-20_
 
-- fix: overwrite `before-sprinkling` rule hiding `.MainMenu__panelsWrap` with `data-sprinkled` selector
-  
+- fix: overwrite `before-sprinkling` rule hiding `.MainMenu__panelsWrap` with
+  `data-sprinkled` selector
+
 ## 0.8.2
 
 _2021-04-12_
 
-- fix: Make sure `.MainMenu__panelsWrap` is higher than that of `.SiteSearchCurtain`
-- fix: Allow scrolling in `.MainMenu__panelsWrap` when content exceeds height of window
+- fix: Make sure `.MainMenu__panelsWrap` is higher than that of
+  `.SiteSearchCurtain`
+- fix: Allow scrolling in `.MainMenu__panelsWrap` when content exceeds height
+  of window
 
 ## 0.8.1
 
@@ -29,8 +45,10 @@ _2021-04-09_
 _2021-04-08_
 
 - **BREAKING** target: **Hanna 0.8** markup patterns
-- feat: **BREAKING** Update styling for `MainMenu` to match new design + markup.
-- feat: Add new Hanna ["Illustration"](src/assets/illustrations/files.json) assets
+- feat: **BREAKING** Update styling for `MainMenu` to match new design +
+  markup.
+- feat: Add new Hanna ["Illustration"](src/assets/illustrations/files.json)
+  assets
 
 ## 0.7.23
 

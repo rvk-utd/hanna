@@ -16,7 +16,7 @@
     width: 100%;
   }
 
-  .before-sprinkling .GridBlocks > .GridBlocks__item, .GridBlocks[data-is-seen=false] > .GridBlocks__item {
+  .before-sprinkling .GridBlocks > .GridBlocks__item, .GridBlocks[data-is-seen=false] > .GridBlocks__item, .GridBlocks[data-is-seen=true] > .GridBlocks__item {
     opacity: 0;
     transform: translateY(200px);
   }

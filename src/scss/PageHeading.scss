@@ -10,13 +10,16 @@
 @mixin css() {
 	@media screen {
 		.PageHeading {
+			@include SeenEffect--fadeup();
+			@include SeenEffect--disallowNesting();
+
 			@include HeadingStyle--large();
 			@include ComponentLayout($wide: false);
 			margin-top: between_cols(0, 3 * $grid-unit);
 			margin-bottom: em(40/64);
 		}
-		:not(.RowBlockColumn) > .PageHeading {
-			@include SeenEffect--fadeup();
+		.PageHeading--small {
+			@include HeadingStyle--medium();
 		}
 	}
 }

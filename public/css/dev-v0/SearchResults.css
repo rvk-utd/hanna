@@ -249,10 +249,11 @@
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
+    max-width: 100%;
     vertical-align: middle;
-    white-space: nowrap;
     line-height: 1.1875rem;
     font-size: 1rem;
+    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth, 1rem));
     padding-right: calc( 		var(--ButtonTertiary--dashWidth--hover, 3rem) - var(--ButtonTertiary--dashWidth, 1rem) 	);
     margin-right: 0.9375rem;
     margin-bottom: 1rem;
@@ -265,6 +266,9 @@
   }
   .SearchResults__loadmore::before {
     content: "";
+    position: absolute;
+    left: 0;
+    top: 0.59375rem;
     width: var(--ButtonTertiary--dashWidth, 1rem);
     height: var(--ButtonTertiary--dashHeight, 0.125rem);
     display: inline-block;
@@ -272,7 +276,7 @@
     margin-bottom: 0.1875rem;
     background-color: currentColor;
     color: var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
-    margin-right: 1rem;
+    transform: translateY(-50%);
     transition: inherit;
   }
   .SearchResults__loadmore:active, .SearchResults__loadmore[aria-pressed=true] {
@@ -280,6 +284,7 @@
     --ButtonTertiary--dashHeight: 0.375rem;
   }
   .SearchResults__loadmore:hover, .SearchResults__loadmore:active, .SearchResults__loadmore[data-focus-visible-added] {
+    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth--hover, 3rem));
     padding-right: 0rem;
     color: var(--ButtonTertiary--color, _inherit);
     outline: 0;
@@ -288,6 +293,7 @@
     width: var(--ButtonTertiary--dashWidth--hover, 3rem);
   }
   .SearchResults__loadmore:focus-visible {
+    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth--hover, 3rem));
     padding-right: 0rem;
     color: var(--ButtonTertiary--color, _inherit);
     outline: 0;

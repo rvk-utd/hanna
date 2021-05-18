@@ -25,9 +25,10 @@
 	transition-property: #{$properties};
 }
 
-@mixin SeenEffect--unseen($childSelector: '') {
+@mixin SeenEffect--initial($childSelector: '') {
 	.before-sprinkling &#{_append($childSelector)},
-	&[data-is-seen='false']#{_append($childSelector)} {
+	&[data-is-seen='false']#{_append($childSelector)},
+	&[data-is-seen='true']#{_append($childSelector)} {
 		@content;
 	}
 }
@@ -37,7 +38,6 @@
 	&[data-is-seen='']#{_append($childSelector)},
 	&[data-is-seen='true']#{_append($childSelector)} {
 		@content;
-		//if no @content default to opacity && transform?
 	}
 }
 
@@ -50,7 +50,7 @@
 // ---------------------------------------------------------------------------
 
 @mixin SeenEffect--fadein($childSelector: '') {
-	@include SeenEffect--unseen($childSelector) {
+	@include SeenEffect--initial($childSelector) {
 		opacity: 0;
 	}
 	@include SeenEffect--seen($childSelector) {
@@ -63,7 +63,7 @@
 }
 
 @mixin SeenEffect--fadeup($childSelector: '') {
-	@include SeenEffect--unseen($childSelector) {
+	@include SeenEffect--initial($childSelector) {
 		opacity: 0;
 		transform: translateY(200px);
 	}
@@ -78,7 +78,7 @@
 }
 
 @mixin SeenEffect--fadeleft($childSelector: '') {
-	@include SeenEffect--unseen($childSelector) {
+	@include SeenEffect--initial($childSelector) {
 		opacity: 0;
 		transform: translateX(-200px);
 	}
@@ -95,7 +95,7 @@
 // ---------------------------------------------------------------------------
 
 @mixin SeenEffect--reset($childSelector: '') {
-	@include SeenEffect--unseen($childSelector) {
+	@include SeenEffect--initial($childSelector) {
 		opacity: 1;
 		transform: none;
 	}
@@ -110,4 +110,22 @@
 
 @mixin SeenEffect--delay($delay) {
 	transition-delay: $delay;
+}
+
+@mixin SeenEffect--disallowNesting() {
+	.before-sprinkling [data-is-seen] &,
+	[data-is-seen] &[data-is-seen='false'] {
+		opacity: 1;
+		transform: none;
+	}
+
+	[data-is-seen] & {
+		@include SeenEffect--seen() {
+			opacity: initial;
+			transform: initial;
+		}
+		@include SeenEffect--transition() {
+			transition: none;
+		}
+	}
 }
