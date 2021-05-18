@@ -6,6 +6,7 @@
 - feat: Add styling for `PageHeader--small` variant
 - feat: Support generic attribute `[data-seen-effect]`
 - feat: Add placebo bundling token `SeenEffect` (provided by `-basics`)
+- feat: Update styling of `.FooterInfo` links
 - fix: Suppress nested `[data-is-seen]` effects on atomic elements
 - fix: Tolerate better stray wrapper elements inside `.AccordionList`
 - fix: Super long `ButtonTertiary`s didn't line-wrap
