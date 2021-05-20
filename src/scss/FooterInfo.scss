@@ -51,10 +51,8 @@
 	.FooterInfo__grouptitle {
 		@include SubheadingStyle--small();
 		margin-bottom: prem(15);
-		color: $color-faxafloi-100;
 	}
 	.FooterInfo__groupcontent {
-		// @include BodyTextStyle--small();
 		line-height: prem(30);
 	}
 
@@ -63,7 +61,6 @@
 		margin-bottom: prem(30);
 	}
 	.FooterInfo__groupcontent a {
-		// @include LinkStyle_Reset();
 		font-weight: $font-weight--normal;
 	}
 }

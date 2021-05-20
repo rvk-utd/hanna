@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `favicon-large.png` alias of `favicon-144.png`
+- fix: Update color of `.FooterInfo` headings
 - fix: Improve color-contrast of `BreadCrumbs`
 - docs: Add simple welcome message and useful links to
   [`public/index.html`](public/index.html)
