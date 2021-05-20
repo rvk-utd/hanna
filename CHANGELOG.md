@@ -8,6 +8,7 @@
   ["formheimur"](src/assets/formheimur/files.json) assets
 - fix: Update color of `.FooterInfo` headings
 - fix: Improve color-contrast of `BreadCrumbs`
+- fix: Remove 1px rounding-inaccuracy gap between `IslandBlock` columns
 - docs: Add simple welcome message and useful links to
   [`public/index.html`](public/index.html)
 
