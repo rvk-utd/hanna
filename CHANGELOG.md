@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `favicon-large.png` alias of `favicon-144.png`
 
 ## 0.8.5
 
