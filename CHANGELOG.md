@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `favicon-large.png` alias of `favicon-144.png`
+- fix: Incorrect theme-color mapping in some
+  ["formheimur"](src/assets/formheimur/files.json) assets
 - fix: Update color of `.FooterInfo` headings
 - fix: Improve color-contrast of `BreadCrumbs`
 - docs: Add simple welcome message and useful links to

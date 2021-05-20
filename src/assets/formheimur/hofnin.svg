@@ -8,10 +8,14 @@
 
 	/* Frávik */
 	[data-color-theme='trustworthy'] .formheimur-hofnin {
-		--litur2: var(--theme-color-tertiary);
+		--litur2: white;
 		--litur3: var(--theme-color-secondary);
 	}
-	[data-color-theme='dependable'] .formheimur-hofnin,
+	[data-color-theme='dependable'] .formheimur-hofnin {
+		--litur1: var(--theme-color-tertiary);
+		--litur2: var(--theme-color-primary);
+		--litur3: var(--theme-color-secondary);
+	}
 	[data-color-theme='colorful'] .formheimur-hofnin {
 		--litur1: var(--theme-color-tertiary);
 		--litur2: var(--theme-color-primary);

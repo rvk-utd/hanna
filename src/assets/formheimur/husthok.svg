@@ -12,7 +12,7 @@
 		--litur3: var(--theme-color-secondary);
 	}
 	[data-color-theme='dependable'] .formheimur-husthok {
-		--litur1: var(--theme-color-secondary);
+		--litur1: var(--theme-color-tertiary);
 		--litur3: var(--theme-color-primary);
 	}
 	[data-color-theme='colorful'] .formheimur-husthok {
