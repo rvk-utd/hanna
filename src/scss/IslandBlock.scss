@@ -45,11 +45,23 @@
 	}
 
 	.IslandBlock__image {
-		background-color: $var--color-theme-tertiary;
+		// // Arg this bleeds around the edges of the SVG in chrome
+		// background-color: $var--color-theme-tertiary;
 		position: relative;
 		display: block;
 		overflow: hidden;
 	}
+	// NOTE: This Prevent background bleed around the edges of the SVG image in Chrome
+	.IslandBlock__image::before {
+		content: '';
+		position: absolute;
+		background-color: $var--color-theme-tertiary;
+		top: 1px;
+		right: 1px;
+		bottom: 1px;
+		left: 1px;
+	}
+
 	// TODO: Figure out what styles are needed for inlined <SVG/>s
 	.IslandBlock__image > img {
 		position: absolute;
