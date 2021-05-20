@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `favicon-large.png` alias of `favicon-144.png`
+- docs: Add simple welcome message and useful links to
+  [`public/index.html`](public/index.html)
 
 ## 0.8.5
 
