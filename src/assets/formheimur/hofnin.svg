@@ -17,8 +17,7 @@
 		--litur3: var(--theme-color-secondary);
 	}
 	[data-color-theme='colorful'] .formheimur-hofnin {
-		--litur1: var(--theme-color-tertiary);
-		--litur2: var(--theme-color-primary);
+		--litur2: var(--theme-color-tertiary);
 		--litur3: var(--theme-color-secondary);
 	}
 </style>

@@ -6,8 +6,7 @@
 	}
 
 	/* Frávik */
-	[data-color-theme='trustworthy'] .formheimur-sjorinn,
-	[data-color-theme='colorful'] .formheimur-sjorinn {
+	[data-color-theme='trustworthy'] .formheimur-sjorinn {
 		--litur2: var(--theme-color-tertiary);
 	}
 	[data-color-theme='friendly'] .formheimur-sjorinn {
@@ -16,6 +15,10 @@
 	}
 	[data-color-theme='lively'] .formheimur-sjorinn {
 		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
+	}
+	[data-color-theme='colorful'] .formheimur-sjorinn {
+		--litur1: var(--theme-color-tertiary);
 		--litur2: var(--theme-color-primary);
 	}
 </style>

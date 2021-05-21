@@ -7,8 +7,7 @@
 	}
 
 	/* Frávik */
-	[data-color-theme='dependable'] .formheimur-rolo,
-	[data-color-theme='colorful'] .formheimur-rolo {
+	[data-color-theme='dependable'] .formheimur-rolo {
 		--litur1: var(--theme-color-tertiary);
 		--litur2: var(--theme-color-primary);
 		--litur3: var(--theme-color-secondary);
@@ -17,6 +16,10 @@
 		--litur1: var(--theme-color-secondary);
 		--litur2: var(--theme-color-tertiary);
 		--litur3: var(--theme-color-primary);
+	}
+	[data-color-theme='colorful'] .formheimur-rolo {
+		--litur2: var(--theme-color-tertiary);
+		--litur3: var(--theme-color-secondary);
 	}
 </style>
 <path d="M375 0H0V271H375V0Z" fill="var(--litur1)"/>

@@ -18,7 +18,8 @@
 		--litur2: var(--theme-color-primary);
 	}
 	[data-color-theme='colorful'] .formheimur-perlan {
-		--litur2: var(--theme-color-tertiary);
+		--litur1: var(--theme-color-tertiary);
+		--litur2: var(--theme-color-primary);
 	}
 </style>
 <path d="M379,0H0v207h379V0z" fill="var(--litur2)"/>
