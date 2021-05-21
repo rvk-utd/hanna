@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update styling for `AccordionList`
 - feat: Add `favicon-large.png` alias of `favicon-144.png`
 - feat: Add global CSS varible `--link-focus-outlineColor`
 - feat: Change the default keyboard-focus outline color to `currentColor`

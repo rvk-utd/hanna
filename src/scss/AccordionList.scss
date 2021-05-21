@@ -10,6 +10,7 @@
 		@include SeenEffect--fadeup();
 		max-width: cols_px(8);
 		padding-left: var(--leftIndent);
+		margin-top: between_container(32, 56);
 
 		--leftIndent: #{between_phone_phablet(32, 48)};
 		--iconWidth: #{between_phone_phablet(24, 36)};
@@ -24,16 +25,15 @@
 	}
 
 	.AccordionList__item {
-		margin-bottom: grid-units(10);
+		margin-bottom: grid-units(7);
 	}
 	.AccordionList__item--disabled {
 		opacity: 0.5;
 	}
 
 	.AccordionList__title {
-		@include BodyTextStyle--large();
+		@include SubheadingStyle--small();
 		font-weight: $font-weight--bold;
-		color: $color-faxafloi-100;
 	}
 	.AccordionList__button {
 		position: relative;
@@ -46,10 +46,10 @@
 	}
 	.AccordionList__button:hover,
 	.AccordionList__button:active {
-		color: $color-faxafloi-150;
+		color: $color-faxafloi-100;
 	}
 	.AccordionList__button[disabled] {
-		color: $color-faxafloi-100;
+		color: inherit;
 	}
 
 	.AccordionList__button::before {
