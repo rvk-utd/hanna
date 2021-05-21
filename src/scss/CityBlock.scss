@@ -70,7 +70,7 @@
 	.CityBlock__button {
 		@include ButtonTertiaryStyle($mode: simple);
 		display: block;
-		margin-bottom: 0;
+		margin-bottom: grid-units(1);
 	}
 }
 
