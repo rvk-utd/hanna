@@ -7,6 +7,7 @@
 - feat: Add global CSS varible `--link-focus-outlineColor`
 - feat: Change the default keyboard-focus outline color to `currentColor`
 - feat: Switch primary and secondary colors in "colorful" theme
+- fix: Force-wrap super long words in `InfoHero` and `GridBlock__item` titles
 - fix: Add spacing between `.CityBlock__button`s
 - fix: Improve `MainMenu`-related keyboard focus styling
 - fix: Incorrect theme-color mapping in some

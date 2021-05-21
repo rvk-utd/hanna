@@ -63,7 +63,15 @@
 	.InfoHero__title {
 		@include HeadingStyle--large();
 		margin-bottom: px_pct(40, 5);
+		word-break: break-word;
+		overflow-wrap: break-word;
 	}
+	.InfoHero--align--left > * > .InfoHero__title {
+		@include media($mq-netbook_up) {
+			margin-right: $var--grid-1--neg;
+		}
+	}
+
 	.InfoHero__titleblurb {
 		margin-top: px_pct(-32, 5);
 		margin-bottom: px_pct(24, 5);
