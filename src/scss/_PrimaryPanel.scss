@@ -4,7 +4,6 @@
 	.PrimaryPanel {
 		--link-color: var(--menu-primary-text);
 		--link-color--hover: var(--menu-primary-hover);
-		--link-focus-outline: 3px solid var(--menu-primary-text);
 		--menu-primary-columns: 8;
 
 		grid-template-columns: repeat(var(--menu-primary-columns), minmax(0, 1fr));

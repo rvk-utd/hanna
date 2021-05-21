@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `favicon-large.png` alias of `favicon-144.png`
+- feat: Add global CSS varible `--link-focus-outlineColor`
+- feat: Change the default keyboard-focus outline color to `currentColor`
 - fix: Incorrect theme-color mapping in some
   ["formheimur"](src/assets/formheimur/files.json) assets
 - fix: Update color of `.FooterInfo` headings
