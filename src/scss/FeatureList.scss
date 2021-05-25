@@ -14,6 +14,8 @@
 		--left-offset: #{$var--grid-1};
 		padding-top: between_container(24, 64);
 		padding-bottom: between_container(32, 80);
+		margin-top: between_cols(30, 100);
+		margin-bottom: between_cols(30, 100);
 
 		@include media($mq-phone) {
 			--left-offset: #{$var--grid-0-1};

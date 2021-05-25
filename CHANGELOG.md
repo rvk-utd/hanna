@@ -18,6 +18,7 @@
 - fix: Remove 1px rounding-inaccuracy gap between `IslandBlock` columns and
   background-bleed around the SVG image
 - fix: Set default icon for `.FeatureList__feature`
+- fix: Add more margins between certain page blocks
 - docs: Add simple welcome message and useful links to
   [`public/index.html`](public/index.html)
 
