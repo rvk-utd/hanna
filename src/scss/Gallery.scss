@@ -35,7 +35,8 @@
 		overflow: auto;
 	}
 
-	.Gallerty__track { // @deprecated Was removed in v0.8. Remove warning in v0.9
+	// @deprecated Was removed in v0.8. Remove warning in v0.9
+	.Gallerty__track {
 		@include WARNING__('Unsupported: use `.Gallery__items` instead');
 	}
 

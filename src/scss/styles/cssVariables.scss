@@ -12,7 +12,8 @@
 			}
 
 			@include setDefaultLinkVariables(true);
-			--link-focus-outline: 3px solid #{$color-faxafloi-100};
+			--link-focus-outlineColor: currentColor;
+			--link-focus-outline: 3px solid currentColor;
 			--link-focus-outlineOffset: 2px;
 
 			@include _gridVariables();

@@ -16,8 +16,7 @@
 		--litur3: var(--theme-color-primary);
 	}
 	[data-color-theme='colorful'] .formheimur-kubbar {
-		--litur1: var(--theme-color-tertiary);
-		--litur2: var(--theme-color-primary);
+		--litur2: var(--theme-color-tertiary);
 		--litur3: var(--theme-color-secondary);
 	}
 </style>

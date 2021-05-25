@@ -11,8 +11,7 @@
 		--litur2: white;
 		--litur3: var(--theme-color-secondary);
 	}
-	[data-color-theme='dependable'] .formheimur-bru,
-	[data-color-theme='colorful'] .formheimur-bru {
+	[data-color-theme='dependable'] .formheimur-bru {
 		--litur1: var(--theme-color-secondary);
 		--litur2: var(--theme-color-primary);
 	}

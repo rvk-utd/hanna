@@ -52,7 +52,7 @@
     height: 1.25rem;
     line-height: 1.125rem;
     font-size: 0.75rem;
-    border: 0.0625rem solid #727477;
+    border: 0.0625rem solid #707275;
     transition: all 200ms ease-in;
     transition-property: box-shadow, border-color, background-color;
   }
@@ -68,19 +68,19 @@
 
   .Checkbox__label[class]:hover::before,
 .Checkbox__input:focus + .Checkbox__label::before {
-    border-color: #0372e1;
-    box-shadow: inset 0 0 0 2px #0372e1;
+    border-color: #0367e1;
+    box-shadow: inset 0 0 0 2px #0367e1;
   }
 
   .Checkbox__input:checked + .Checkbox__label::before {
     content: "";
     border-color: transparent;
-    background-color: #0372e1;
+    background-color: #0367e1;
     color: #ffffff;
   }
 
   .Checkbox__input:disabled + .Checkbox__label {
-    color: #727477;
+    color: #707275;
   }
 
   .Checkbox__input:disabled + .Checkbox__label::before {
@@ -189,7 +189,7 @@
     line-height: 1.125rem;
     font-size: 0.875rem;
     border-radius: 50%;
-    border: 0.0625rem solid #727477;
+    border: 0.0625rem solid #707275;
     transition: all 200ms ease-in;
     transition-property: box-shadow, border-color, background-color;
   }
@@ -205,19 +205,19 @@
 
   .Radio__label[class]:hover::before,
 .Radio__input:focus + .Radio__label::before {
-    border-color: #0372e1;
-    box-shadow: inset 0 0 0 2px #0372e1;
+    border-color: #0367e1;
+    box-shadow: inset 0 0 0 2px #0367e1;
   }
 
   .Radio__input:checked + .Radio__label::before {
     content: "";
     border-color: transparent;
-    background-color: #0372e1;
+    background-color: #0367e1;
     color: #ffffff;
   }
 
   .Radio__input:disabled + .Radio__label {
-    color: #727477;
+    color: #707275;
   }
 
   .Radio__input:disabled + .Radio__label::before {

@@ -15,6 +15,7 @@
 }
 @mixin LinkStyle--focusOutline() {
 	outline: $var--link-focus-outline;
+	outline-color: $var--link-focus-outlineColor;
 	outline-offset: $var--link-focus-outlineOffset;
 }
 

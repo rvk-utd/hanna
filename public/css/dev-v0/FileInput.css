@@ -39,7 +39,7 @@
 .FileInput__input--fake:focus + .FileInput__dropzone,
 .FileInput__dropzone.FileInput__dropzone--highlight {
     background: #f1f2f3;
-    border-color: #727477;
+    border-color: #707275;
   }
 
   .FileInput__droptext {
@@ -71,14 +71,14 @@
     line-height: 4rem;
     font-size: 1.5rem;
     color: #fff;
-    background: #0372e1;
+    background: #0367e1;
     border-radius: 50%;
   }
 
   .FileInput__droptext > strong {
     display: inline-block;
-    color: #0372e1;
-    border-bottom: 2px solid #0372e1;
+    color: #0367e1;
+    border-bottom: 2px solid #0367e1;
   }
 
   .FormField--disabled .FileInput__dropzone {
@@ -174,7 +174,7 @@
     letter-spacing: 0;
     font-size: 0.625rem;
     line-height: 1;
-    color: #0372e1;
+    color: #0367e1;
   }
   .FileInput__file-remove:hover::before, .FileInput__file-remove:focus::before {
     color: #013b70;

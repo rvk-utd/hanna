@@ -6,8 +6,7 @@
 	}
 
 	/* Frávik */
-	[data-color-theme='trustworthy'] .formheimur-perlan,
-	[data-color-theme='colorful'] .formheimur-perlan {
+	[data-color-theme='trustworthy'] .formheimur-perlan {
 		--litur1: var(--theme-color-tertiary);
 	}
 	[data-color-theme='dependable'] .formheimur-perlan {
@@ -18,8 +17,12 @@
 		--litur1: var(--theme-color-secondary);
 		--litur2: var(--theme-color-primary);
 	}
+	[data-color-theme='colorful'] .formheimur-perlan {
+		--litur1: var(--theme-color-tertiary);
+		--litur2: var(--theme-color-primary);
+	}
 </style>
-<path d="M379 0H0V207H379V0Z" fill="var(--litur2)"/>
-<path d="M189.34 91C144.49 91 107.41 124.21 101.3 167.37H45V207.72H333.69V167.37H277.39C271.28 124.21 234.2 91 189.34 91Z" fill="white"/>
-<path d="M0 207.495V280H379V262.253V207.495V207H0V207.495Z" fill="var(--litur1)"/>
+<path d="M379,0H0v207h379V0z" fill="var(--litur2)"/>
+<path d="M189.3,91c-41.2,0-75.2,30.5-80.8,70.1H56.8V208h265v-46.9h-51.7C264.6,121.5,230.5,91,189.3,91z" fill="white"/>
+<path d="M0,207.5V280h379v-17.7v-54.8V207H0V207.5z" fill="var(--litur1)"/>
 </svg>

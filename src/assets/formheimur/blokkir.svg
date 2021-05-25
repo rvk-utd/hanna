@@ -16,10 +16,6 @@
 		--litur1: var(--theme-color-tertiary);
 		--litur3: var(--theme-color-primary);
 	}
-	[data-color-theme='colorful'] .formheimur-blokkir {
-		--litur1: var(--theme-color-secondary);
-		--litur2: var(--theme-color-primary);
-	}
 </style>
 
 <path d="M375 0H0V281H375V0Z" fill="var(--litur3)"/>

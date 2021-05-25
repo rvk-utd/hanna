@@ -3,6 +3,7 @@
     display: flex;
     flex-flow: column-reverse;
     justify-content: space-between;
+    margin-top: calc(7.5431034483% + 8.8793103448px);
     margin-bottom: calc(13.6853448276% + 1.6810344828px);
   }
   .before-sprinkling .IslandBlock, .IslandBlock[data-is-seen=false], .IslandBlock[data-is-seen=true] {
@@ -137,10 +138,19 @@
   }
 
   .IslandBlock__image {
-    background-color: var(--theme-color-tertiary);
     position: relative;
     display: block;
     overflow: hidden;
+  }
+
+  .IslandBlock__image::before {
+    content: "";
+    position: absolute;
+    background-color: var(--theme-color-tertiary);
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
   }
 
   .IslandBlock__image > img {
@@ -211,7 +221,7 @@
   .IslandBlock__content,
 .IslandBlock__image {
     box-sizing: content-box;
-    width: 43.0463576159%;
+    width: 43.0794701987%;
     margin-bottom: calc(5.9267241379% + 33.4051724138px);
     min-height: calc(19.3548387097vw + 132.9032258065px);
   }

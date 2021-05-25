@@ -58,15 +58,26 @@
 		--theme-color-primary--safeish: #{color.scale(
 				$color-sund-100,
 				$saturation: 35%,
-				$lightness: -25%
+				$lightness: -27%
 			)};
 	}
 
 	[data-color-theme][data-color-theme='colorful'] {
-		--theme-color-primary: #{$color-heidmork-100};
-		--theme-color-secondary: #{$color-nautholsvik-100};
+		--theme-color-primary: #{$color-nautholsvik-100};
+		--theme-color-secondary: #{$color-heidmork-100};
 		--theme-color-tertiary: #{$color-esja-100};
 
-		--theme-color-primary--dark: #{$color-heidmork-150};
+		--theme-color-primary--text: #000000;
+		--theme-color-primary--dark: #{$color-nautholsvik-150};
+		--theme-color-primary--safe: #{color.scale(
+				$color-nautholsvik-100,
+				$saturation: 55%,
+				$lightness: -56.5%
+			)};
+		--theme-color-primary--safeish: #{color.scale(
+				$color-nautholsvik-100,
+				$saturation: 25%,
+				$lightness: -33%
+			)};
 	}
 }

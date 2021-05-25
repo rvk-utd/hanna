@@ -20,6 +20,10 @@
 		--litur2: var(--theme-color-tertiary);
 		--litur3: var(--theme-color-primary);
 	}
+	[data-color-theme='colorful'] .formheimur-fjoll {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
+	}
 </style>
 <path d="M379 273L379 0L0 0L0 273L379 273Z" fill="var(--litur3)"/>
 <path d="M379 205H0V280H379V205Z" fill="var(--litur2)"/>

@@ -140,7 +140,7 @@
     font-weight: 700;
     transition: all 200ms ease-in;
     display: block;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
   .CityBlock__button::before {
     content: "";

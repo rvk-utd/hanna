@@ -9,6 +9,7 @@
 		display: flex;
 		flex-flow: column-reverse;
 		justify-content: space-between;
+		margin-top: between_cols(30, 100);
 		margin-bottom: between_cols(40, 167);
 	}
 
@@ -45,11 +46,23 @@
 	}
 
 	.IslandBlock__image {
-		background-color: $var--color-theme-tertiary;
+		// // Arg this bleeds around the edges of the SVG in chrome
+		// background-color: $var--color-theme-tertiary;
 		position: relative;
 		display: block;
 		overflow: hidden;
 	}
+	// NOTE: This Prevent background bleed around the edges of the SVG image in Chrome
+	.IslandBlock__image::before {
+		content: '';
+		position: absolute;
+		background-color: $var--color-theme-tertiary;
+		top: 1px;
+		right: 1px;
+		bottom: 1px;
+		left: 1px;
+	}
+
 	// TODO: Figure out what styles are needed for inlined <SVG/>s
 	.IslandBlock__image > img {
 		position: absolute;
@@ -111,7 +124,8 @@
 	.IslandBlock__content,
 	.IslandBlock__image {
 		box-sizing: content-box;
-		width: cols_pct(5, 5);
+		// NOTE: ".01" part is to prevent rounding errors causing an ugly 1px gap between the columns
+		width: cols_pct(5, 5.01);
 		margin-bottom: between_cols(50, 105);
 		min-height: between_tablet_netbook(280, 400);
 

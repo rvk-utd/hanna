@@ -111,7 +111,7 @@
 }
 @media screen {
   .ArticleCarouselCard[data-color=faxafloi]::after {
-    background-color: #0372e1;
+    background-color: #0367e1;
   }
 }
 @media screen {
@@ -197,7 +197,7 @@
   .ArticleCarouselCard__date {
     font-size: 1rem;
     line-height: 1.5rem;
-    color: #727477;
+    color: #707275;
     margin-bottom: 1rem;
     display: block;
   }

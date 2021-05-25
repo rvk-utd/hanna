@@ -190,7 +190,7 @@
   .ImageCards__card {
     --link-color: _inherit;
     --link-underline: 1px solid #2a2b2c;
-    --link-underline--hover: 1px solid #0372e1;
+    --link-underline--hover: 1px solid #0367e1;
     padding-bottom: calc(1.5094339623vw + 11.1698113208px);
     display: block;
     height: 100%;
@@ -240,7 +240,7 @@
   .ImageCards__card__meta {
     font-size: 1rem;
     line-height: 1.5rem;
-    color: #727477;
+    color: #707275;
     font-weight: 400;
   }
 }

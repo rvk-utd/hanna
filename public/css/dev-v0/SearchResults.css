@@ -96,8 +96,8 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    border: 0.1875rem solid #0372e1;
-    border-color: #0372e1 transparent;
+    border: 0.1875rem solid #0367e1;
+    border-color: #0367e1 transparent;
     -webkit-animation: loadingAnimation 1000ms linear infinite;
             animation: loadingAnimation 1000ms linear infinite;
   }
@@ -350,7 +350,7 @@
 @media screen {
   .SearchResults__loadmore__count {
     font-size: 12;
-    color: #727477;
+    color: #707275;
     font-weight: 400;
     margin-left: 0.25rem;
   }
@@ -399,8 +399,8 @@
 @media screen {
   .SearchResultsHighlightItem__link:hover,
 .SearchResultsHighlightItem__link:active {
-    border-color: #0372e1;
-    box-shadow: inset 0 0 0 1px #0372e1;
+    border-color: #0367e1;
+    box-shadow: inset 0 0 0 1px #0367e1;
   }
 }
 @media screen {

@@ -20,6 +20,10 @@
 		--litur1: var(--theme-color-secondary);
 		--litur2: var(--theme-color-primary);
 	}
+	[data-color-theme='colorful'] .formheimur-esjan {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
+	}
 </style>
 
 <path d="M0.330078 270.54H375V8.19995H0.330078V270.54Z" fill="white"/>

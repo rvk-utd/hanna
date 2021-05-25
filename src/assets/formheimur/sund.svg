@@ -16,10 +16,6 @@
 		--litur1: var(--theme-color-tertiary);
 		--litur3: var(--theme-color-primary);
 	}
-	[data-color-theme='colorful'] .formheimur-sund {
-		--litur1: var(--theme-color-secondary);
-		--litur2: var(--theme-color-primary);
-	}
 </style>
 <path d="M359.309 270.47L359.309 0L0.00012207 0L0.00012207 270.47L359.309 270.47Z" fill="var(--litur3)"/>
 <path d="M157.338 30.3024H151.095V40.7106H157.338V30.3024Z" fill="white"/>

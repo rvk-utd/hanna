@@ -9,6 +9,7 @@
 	.GridBlocks {
 		display: flex;
 		flex-flow: row wrap;
+		margin-top: between_cols(30, 100);
 		margin-bottom: between_cols(40, 120);
 	}
 
@@ -47,6 +48,8 @@
 		position: relative; // as offset for the __titlelink::before hit-area
 		@include SubheadingStyle--large();
 		margin-bottom: grid-units(2);
+		word-break: break-word;
+		overflow-wrap: break-word;
 	}
 	.GridBlocks__item__titlelink {
 	}

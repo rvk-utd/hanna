@@ -4,6 +4,29 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.6
+
+_2021-05-25_
+
+- feat: Update styling for `AccordionList`
+- feat: Add `favicon-large.png` alias of `favicon-144.png`
+- feat: Add global CSS varible `--link-focus-outlineColor`
+- feat: Change the default keyboard-focus outline color to `currentColor`
+- feat: Switch primary and secondary colors in "colorful" theme
+- fix: Force-wrap super long words in `InfoHero` and `GridBlock__item` titles
+- fix: Add spacing between `.CityBlock__button`s
+- fix: Improve `MainMenu`-related keyboard focus styling
+- fix: Incorrect theme-color mapping in some
+  ["formheimur"](src/assets/formheimur/files.json) assets
+- fix: Update color of `.FooterInfo` headings
+- fix: Improve color-contrast of `BreadCrumbs`
+- fix: Remove 1px rounding-inaccuracy gap between `IslandBlock` columns and
+  background-bleed around the SVG image
+- fix: Set default icon for `.FeatureList__feature`
+- fix: Add more margins between certain page blocks
+- docs: Add simple welcome message and useful links to
+  [`public/index.html`](public/index.html)
+
 ## 0.8.5
 
 _2021-05-18_

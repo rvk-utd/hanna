@@ -3,6 +3,7 @@
   .AccordionList {
     max-width: 792px;
     padding-left: var(--leftIndent);
+    margin-top: calc(2.5862068966% + 24.7586206897px);
     --leftIndent: calc(3.6363636364vw + 20.3636363636px);
     --iconWidth: calc(2.7272727273vw + 15.2727272727px);
   }
@@ -32,7 +33,7 @@
 }
 @media screen {
   .AccordionList__item {
-    margin-bottom: 5rem;
+    margin-bottom: 3.5rem;
   }
 }
 @media screen {
@@ -42,10 +43,10 @@
 }
 @media screen {
   .AccordionList__title {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
     font-weight: 700;
-    color: #0372e1;
+    font-size: var(--font-sh-s-size);
+    line-height: var(--font-sh-s-leading);
+    font-weight: 700;
   }
 }
 @media screen {
@@ -78,12 +79,12 @@
 @media screen {
   .AccordionList__button:hover,
 .AccordionList__button:active {
-    color: #013b70;
+    color: #0367e1;
   }
 }
 @media screen {
   .AccordionList__button[disabled] {
-    color: #0372e1;
+    color: inherit;
   }
 }
 @media screen {

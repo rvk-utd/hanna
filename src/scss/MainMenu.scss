@@ -194,7 +194,7 @@
 	}
 
 	.MainMenu__megapanel__backtomenu {
-		display: none;
+		@include sr-only-focusable();
 	}
 
 	.MainMenu__item--lang + .MainMenu__item--lang {
@@ -229,17 +229,11 @@
 
 	.MainMenu__item {
 		margin: 0 prem(10);
-
-		html.menu-is-open &,
-		html[data-mega-panel-active] & {
-			--link-color--hover: #{$color-suld-0};
-			color: fade($color-suld-25, 70%);
-		}
 	}
-
-	.MainMenu__separator ~ .MainMenu__item > .MainMenu__link {
-		--link-color: #{$color-suld-200};
-		--link-color--hover: #{$color-faxafloi-100};
+	html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
+	html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
+		--link-color--hover: #{$color-suld-0};
+		color: fade($color-suld-25, 70%);
 	}
 
 	.MainMenu__link {
@@ -321,6 +315,7 @@
 		padding-top: prem(65);
 		padding-left: prem(32);
 		padding-bottom: prem(33);
+		--link-focus-outlineColor: #{$color-suld-0};
 	}
 	.MainMenu__megapanel__backtomenu:hover::after,
 	.MainMenu__megapanel__backtomenu:active::after {

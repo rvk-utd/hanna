@@ -36,7 +36,7 @@
 	*:focus[data-focus-visible-added] {
 		@content;
 	}
-	*:focus:focus-visible {
+	*:focus-visible:focus-visible {
 		@content;
 	}
 }

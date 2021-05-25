@@ -150,6 +150,7 @@ exports.watch = series([
 	parallel(
 		sassWatch,
 		imagesWatch,
+		/* Uncomment when needed */
 		// staticAssetsWatch,
 		iconfontWatch
 	),

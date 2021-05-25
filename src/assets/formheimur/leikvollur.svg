@@ -13,10 +13,6 @@
 	[data-color-theme='friendly'] .formheimur-leikvollur {
 		--litur2: var(--theme-color-tertiary);
 	}
-	[data-color-theme='colorful'] .formheimur-leikvollur {
-		--litur1: var(--theme-color-secondary);
-		--litur2: var(--theme-color-primary);
-	}
 </style>
 <path d="M375 0H0V272H375V0Z" fill="var(--litur1)"/>
 <path d="M375 193H0V210H375V193Z" fill="white"/>
