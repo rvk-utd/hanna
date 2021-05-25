@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.6
+
+_2021-05-25_
+
 - feat: Update styling for `AccordionList`
 - feat: Add `favicon-large.png` alias of `favicon-144.png`
 - feat: Add global CSS varible `--link-focus-outlineColor`
