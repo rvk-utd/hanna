@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @media screen {
   .ButtonBack {
-    --ButtonTertiary--color: #0372e1;
-    --ButtonTertiary--dashColor: #0372e1;
+    --ButtonTertiary--color: #0367e1;
+    --ButtonTertiary--dashColor: #0367e1;
     --ButtonTertiary--dashWidth: 0.75rem;
     --ButtonTertiary--dashWidth--hover: 1.375rem;
     --link-color: _inherit;

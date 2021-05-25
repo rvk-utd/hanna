@@ -2,10 +2,10 @@
 @media screen {
   .Alert {
     --Alert-background: #e0eefb;
-    --Alert-icon-color: #0372e1;
+    --Alert-icon-color: #0367e1;
     --Alert-icon: "";
-    --link-color: #0367ca;
-    --link-color-hover: #0367ca;
+    --link-color: #035eca;
+    --link-color-hover: #035eca;
     background: var(--Alert-background);
     border-radius: 0.5rem;
     position: relative;

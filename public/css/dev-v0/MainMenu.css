@@ -26,7 +26,7 @@
   }
 
   .MainMenu__item[aria-current=true] {
-    color: #0372e1;
+    color: #0367e1;
   }
   html[data-mega-panel-active] .MainMenu__item[aria-current=true] {
     color: #ffffff;
@@ -139,7 +139,7 @@
 
   .MainMenu {
     position: relative;
-    background-color: #0372e1;
+    background-color: #0367e1;
     --MainMenu--offsetLeft: 4rem;
   }
 }
@@ -258,7 +258,50 @@ html.menu-is-open .MainMenu {
 }
 @media screen and (max-width: 979px) {
   .MainMenu__megapanel__backtomenu {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    opacity: 0.00001;
+    pointer-events: none;
+    margin: -1px;
+  }
+  .MainMenu__megapanel__backtomenu:active, .MainMenu__megapanel__backtomenu:focus, .MainMenu__megapanel__backtomenu.--focus-within {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    opacity: 1;
+    pointer-events: auto;
+    margin: 0;
+    z-index: 99999;
+    font-size: 1em;
+    background: #ffffff;
+    border: 3px double 3px double var(--link-color--hover);
+    margin: 0;
+    padding: 0.2em 0.33em;
+    color: var(--link-color--hover);
+    text-shadow: none;
+    white-space: nowrap;
+  }
+  .MainMenu__megapanel__backtomenu:focus-within {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    opacity: 1;
+    pointer-events: auto;
+    margin: 0;
+    z-index: 99999;
+    font-size: 1em;
+    background: #ffffff;
+    border: 3px double 3px double var(--link-color--hover);
+    margin: 0;
+    padding: 0.2em 0.33em;
+    color: var(--link-color--hover);
+    text-shadow: none;
+    white-space: nowrap;
   }
 }
 @media screen and (max-width: 979px) {
@@ -288,14 +331,11 @@ html.menu-is-open .MainMenu {
   .MainMenu__item {
     margin: 0 0.625rem;
   }
-  html.menu-is-open .MainMenu__item, html[data-mega-panel-active] .MainMenu__item {
+
+  html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
+html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     --link-color--hover: #ffffff;
     color: rgba(248, 248, 249, 0.7);
-  }
-
-  .MainMenu__separator ~ .MainMenu__item > .MainMenu__link {
-    --link-color: #2a2b2c;
-    --link-color--hover: #0372e1;
   }
 
   .MainMenu__link {
@@ -319,7 +359,7 @@ html.menu-is-open .MainMenu {
   .MainMenu__panelsWrap {
     transition: all 250ms ease-in-out;
     transition-property: opacity, visibility;
-    background-color: #0372e1;
+    background-color: #0367e1;
     position: absolute;
     top: 0;
     left: calc(0.5 * var(--browser-scrollbar-width, 0));
@@ -369,6 +409,7 @@ html.menu-is-open .MainMenu {
     padding-top: 4.0625rem;
     padding-left: 2rem;
     padding-bottom: 2.0625rem;
+    --link-focus-outlineColor: #ffffff;
   }
 
   .MainMenu__megapanel__backtomenu:hover::after,
@@ -551,13 +592,12 @@ html.menu-is-open .MainMenu {
 .PrimaryPanel {
   --link-color: var(--menu-primary-text);
   --link-color--hover: var(--menu-primary-hover);
-  --link-focus-outline: 3px solid var(--menu-primary-text);
   --menu-primary-columns: 8;
   grid-template-columns: repeat(var(--menu-primary-columns), minmax(0, 1fr));
   align-content: flex-start;
   display: none;
   grid-column: 2/span 6;
-  background-color: #0372e1;
+  background-color: #0367e1;
 }
 
 .PrimaryPanel--active {
@@ -696,7 +736,7 @@ html.menu-is-open .MainMenu {
 .AuxiliaryPanel__title {
   color: var(--menu-auxiliary-text);
   font-weight: 700;
-  border-bottom: 1px solid rgba(3, 114, 225, 0.2);
+  border-bottom: 1px solid rgba(3, 103, 225, 0.2);
   margin-right: 17.0212765957%;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;

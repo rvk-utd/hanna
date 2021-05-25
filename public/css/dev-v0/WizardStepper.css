@@ -18,7 +18,7 @@
     position: relative;
     margin-bottom: 2.125rem;
     font-size: 0.75rem;
-    color: #727477;
+    color: #707275;
   }
 }
 @media screen and (max-width: 759px) {
@@ -69,8 +69,8 @@ button.WizardStepper__step:active {
 @media screen {
   .WizardStepper__step--done,
 .WizardStepper__step[aria-current=step] {
-    color: #0372e1;
-    --WizardStepper-ballBackground: #0372e1;
+    color: #0367e1;
+    --WizardStepper-ballBackground: #0367e1;
     --WizardStepper-ballColor: #ffffff;
     --WizardStepper-ballIcon: "";
   }
@@ -96,7 +96,7 @@ button.WizardStepper__step:active {
   .WizardStepper__step--done {
     --WizardStepper-ballBackground: #81bbf0;
     --WizardStepper-ballIcon: "";
-    --WizardStepper-lineColor: #0372e1;
+    --WizardStepper-lineColor: #0367e1;
   }
 }
 @media screen {

@@ -60,10 +60,10 @@
   }
 
   .NameCard__vacancy {
-    color: #727477;
+    color: #707275;
     margin-top: 0.5rem;
     margin-right: 0.5rem;
-    --led-color: #727477;
+    --led-color: #707275;
   }
 
   .NameCard__vacancy--vacany {
@@ -87,7 +87,7 @@
     align-self: flex-end;
     font-size: 0.75rem;
     margin-top: 0.5rem;
-    color: #727477;
+    color: #707275;
   }
 }
 /*# sourceMappingURL=NameCard.css.map */

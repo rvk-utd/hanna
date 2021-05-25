@@ -76,6 +76,13 @@
     font-size: var(--font-hd-l-size);
     line-height: var(--font-hd-l-leading);
     margin-bottom: 8.3333333333%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+@media screen and (min-width: 980px) {
+  .InfoHero--align--left > * > .InfoHero__title {
+    margin-right: var(--grid-1--neg);
   }
 }
 @media screen {
@@ -96,7 +103,7 @@
   .InfoHero__blurb {
     font-size: var(--font-bd-l-size);
     line-height: var(--font-bd-l-leading);
-    color: #727477;
+    color: #707275;
     margin-bottom: 0.5rem;
   }
 }

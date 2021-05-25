@@ -61,7 +61,6 @@
     font-size: var(--font-sh-s-size);
     line-height: var(--font-sh-s-leading);
     margin-bottom: 0.9375rem;
-    color: #0372e1;
   }
 }
 @media screen {

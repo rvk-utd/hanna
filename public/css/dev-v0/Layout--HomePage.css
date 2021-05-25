@@ -40,7 +40,7 @@
     width: 1em;
     height: 1em;
     line-height: 1em;
-    color: #0372e1;
+    color: #0367e1;
   }
 }
 @media screen {
@@ -57,7 +57,7 @@
   .Layout--HomePage .ExtraLinks__card {
     border-color: transparent;
     background-color: #ffffff;
-    --Card-lineColor: #0372e1;
+    --Card-lineColor: #0367e1;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
   }
@@ -81,7 +81,7 @@
 @media screen {
   .ExtraLinks__card:hover > .ExtraLinks__card__title,
 .ExtraLinks__card:active > .ExtraLinks__card__title {
-    color: #0372e1;
+    color: #0367e1;
   }
 }
 /*# sourceMappingURL=Layout--HomePage.css.map */
