@@ -57,6 +57,9 @@
 		padding-right: $var--grid-0-1;
 		padding-left: prem(40);
 	}
+	.FeatureList__feature:not([data-efnistakn]) {
+		--efnistakn: url('/assets/efnistakn/skipurit_01.svg');
+	}
 	.FeatureList__feature::before {
 		content: '';
 		position: absolute;

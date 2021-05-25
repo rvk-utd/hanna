@@ -17,6 +17,7 @@
 - fix: Improve color-contrast of `BreadCrumbs`
 - fix: Remove 1px rounding-inaccuracy gap between `IslandBlock` columns and
   background-bleed around the SVG image
+- fix: Set default icon for `.FeatureList__feature`
 - docs: Add simple welcome message and useful links to
   [`public/index.html`](public/index.html)
 
