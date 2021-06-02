@@ -742,6 +742,10 @@ table {
     margin-right: var(--browser-scrollbar-width, 0);
   }
 
+  body {
+    overflow-x: hidden;
+  }
+
   *:first-child {
     margin-top: 0;
   }

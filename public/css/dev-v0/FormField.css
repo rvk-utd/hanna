@@ -41,6 +41,10 @@
     left: 1rem;
     line-height: 1.5rem;
     pointer-events: none;
+    max-width: calc(100% - 1.5rem);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .FormField--empty:not(.FormField--small):not(.FormField--focused) > label.FormField__label {
