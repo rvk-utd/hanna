@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - fix: Prevent horizontal page scroll in Safari – Note: The current fix
   blocks future use of `position:sticky;`
+- fix: Prevent line-wrap of "inlined" `.FormField__label` texts
 
 ## 0.8.6
 

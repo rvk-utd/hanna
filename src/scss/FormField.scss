@@ -39,6 +39,8 @@
 		left: grid-units(2);
 		line-height: prem(24);
 		pointer-events: none;
+		max-width: calc(100% - #{grid-units(3)});
+		@include overflowEllipsis();
 	}
 	.FormField--empty:not(.FormField--small):not(.FormField--focused)
 		> label.FormField__label {
