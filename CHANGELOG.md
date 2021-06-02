@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Prevent horizontal page scroll in Safari – Note: The current fix
+  blocks future use of `position:sticky;`
 
 ## 0.8.6
 

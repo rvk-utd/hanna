@@ -93,6 +93,20 @@
 	}
 
 	body {
+		// This overflow-x rule prevents sideways scrolling in Safari –
+		// which "helpfully" ignores `overflow-x:hidden;` on `<html/>`.
+		//
+		// This, however, prevents us from using `position:sticky;`
+		// anywhere on the page. So far that has not been needed, but
+		// it's a surprising arbitrary limitation that we would love
+		// to avoid.
+		//
+		// TODO: ???
+		// The less destructive way to fix this, requires us to
+		// refactor any and all overflowing components to apply
+		// `overflow-x:hidden;` themselves. Ack!
+		//
+		overflow-x: hidden;
 	}
 
 	*:first-child {
