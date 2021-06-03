@@ -33,10 +33,6 @@
     line-height: 24px;
   }
 
-  .react-datepicker__input-container {
-    position: relative;
-  }
-
   .react-datepicker__input-container::after {
     content: "";
     display: inline-block;

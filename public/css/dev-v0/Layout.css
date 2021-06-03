@@ -79,8 +79,8 @@
 }
 @media screen and (max-width: 979px) {
   .Layout__header__logo {
-    margin: -0.625rem -1.25rem;
-    padding: 0.625rem 1.25rem;
+    margin: -0.625rem;
+    padding: 0.625rem;
     overflow: hidden;
     box-sizing: content-box;
     width: 2.1875rem;

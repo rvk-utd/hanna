@@ -23,8 +23,8 @@
 	}
 
 	@include media($mq-Hamburger) {
-		margin: prem(-10) prem(-20);
-		padding: prem(10) prem(20);
+		margin: prem(-10);
+		padding: prem(10);
 		overflow: hidden;
 		box-sizing: content-box;
 		width: prem(35);

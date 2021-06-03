@@ -21,9 +21,6 @@
 		font-size: prem(12);
 		color: $color-suld-150;
 
-		@include media($mq-phone_phablet) {
-			margin-bottom: prem(24);
-		}
 
 		&::before {
 			content: counter(step);
@@ -90,7 +87,11 @@
 
 @media #{$mq-phone_phablet} {
 	.WizardStepper__step {
-		width: prem(0);
+		width: 0;
 		overflow: hidden;
+		white-space: nowrap;
+		margin-bottom: prem(10);
+		padding-bottom: prem(25);
+
 	}
 }

@@ -49,8 +49,8 @@
 }
 @media screen and (max-width: 979px) {
   .WizardLayout__header__logo {
-    margin: -0.625rem -1.25rem;
-    padding: 0.625rem 1.25rem;
+    margin: -0.625rem;
+    padding: 0.625rem;
     overflow: hidden;
     box-sizing: content-box;
     width: 2.1875rem;
@@ -92,7 +92,7 @@
 
   .WizardLayout__stepper {
     position: fixed;
-    top: 5rem;
+    top: var(--Layout__header-height);
     left: 1rem;
     width: 1.5rem;
   }
