@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Center `DatePicker`'s icon when `.FormField__label` is visible
+- fix: Half-cropped header logo text showing in tablet/phone formats
 
 ## 0.8.7
 
