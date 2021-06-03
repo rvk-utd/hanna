@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Center `DatePicker`'s icon when `.FormField__label` is visible
 
 ## 0.8.7
 

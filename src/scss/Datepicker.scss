@@ -36,7 +36,6 @@
 	}
 
 	.react-datepicker__input-container {
-		position: relative;
 	}
 	.react-datepicker__input-container::after {
 		@include icon($icons-calendar);
