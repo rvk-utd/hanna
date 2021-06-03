@@ -20,13 +20,6 @@
     font-size: 0.75rem;
     color: #707275;
   }
-}
-@media screen and (max-width: 759px) {
-  .WizardStepper__step {
-    margin-bottom: 1.5rem;
-  }
-}
-@media screen {
   .WizardStepper__step::before {
     content: counter(step);
     counter-increment: step;
@@ -42,8 +35,6 @@
     font-weight: 700;
     text-align: center;
   }
-}
-@media screen {
   .WizardStepper__step::after {
     content: "";
     position: absolute;
@@ -53,20 +44,16 @@
     width: 0.125rem;
     background: var(--WizardStepper-lineColor);
   }
-}
-@media screen {
   .WizardStepper__step:last-child::after {
     content: none;
   }
-}
-@media screen {
+
   button.WizardStepper__step:hover,
 button.WizardStepper__step:active {
     color: var(--link-color--hover);
     text-decoration: underline;
   }
-}
-@media screen {
+
   .WizardStepper__step--done,
 .WizardStepper__step[aria-current=step] {
     color: #0367e1;
@@ -91,15 +78,13 @@ button.WizardStepper__step:active {
     content: var(--WizardStepper-ballIcon);
     font-size: 0.75rem;
   }
-}
-@media screen {
+
   .WizardStepper__step--done {
     --WizardStepper-ballBackground: #81bbf0;
     --WizardStepper-ballIcon: "";
     --WizardStepper-lineColor: #0367e1;
   }
-}
-@media screen {
+
   .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),
 .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
@@ -122,8 +107,11 @@ button.WizardStepper__step:active {
 }
 @media screen and (max-width: 759px) {
   .WizardStepper__step {
-    width: 0rem;
+    width: 0;
     overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 0.625rem;
+    padding-bottom: 1.5625rem;
   }
 }
 /*# sourceMappingURL=WizardStepper.css.map */
