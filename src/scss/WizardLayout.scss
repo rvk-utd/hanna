@@ -48,7 +48,7 @@
 
 	.WizardLayout__stepper {
 		position: fixed;
-		top: prem(80);
+		top: $var--Layout__header-height;
 		left: prem(16);
 		width: prem(24);
 	}
