@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Jaggy height+spacing of `WizardStepper__step`s on mobile 
 - fix: Center `DatePicker`'s icon when `.FormField__label` is visible
 - fix: Half-cropped header logo text showing in tablet/phone formats
 
