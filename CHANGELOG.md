@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add support for `.WizardLayout__alerts` and `.WizardLayout__content`
 
 ## 0.8.8
 
