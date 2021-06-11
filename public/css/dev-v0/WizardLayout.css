@@ -5,14 +5,38 @@
 @media screen {
   .WizardLayout {
     min-height: 100vh;
-    display: flex;
-    flex-flow: column nowrap;
-    position: relative;
     width: 100%;
     max-width: 75.5rem;
     margin: 0 auto;
+    position: relative;
   }
 
+  .WizardLayout__alerts {
+    max-height: 1000px;
+    overflow: hidden;
+    margin: 0 -0.9375rem;
+    transition: max-height 400ms ease-in;
+  }
+}
+@media screen and (min-width: 760px) {
+  .WizardLayout__alerts {
+    margin: 0;
+  }
+}
+@media screen {
+  .WizardLayout__alerts .Alert {
+    margin: 1rem 0 0 0;
+  }
+}
+@media screen {
+  .WizardLayout__content {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+  }
+}
+@media screen {
   .WizardLayout__header {
     position: relative;
     z-index: 3;
@@ -20,7 +44,8 @@
     display: flex;
     align-items: center;
   }
-
+}
+@media screen {
   .WizardLayout__header__logo {
     --link-color: _inherit;
     --link-weight: _inherit;
@@ -210,5 +235,9 @@
     top: 3.5rem;
     right: calc((100vw / 2) - (75.5rem / 2));
   }
+}
+.Layout {
+  display: flex;
+  flex-flow: column nowrap;
 }
 /*# sourceMappingURL=WizardLayout.css.map */

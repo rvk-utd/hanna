@@ -2,57 +2,57 @@
 
 @mixin HeadingStyle--xlarge() {
 	font-weight: $font-weight--bold;
-	font-size: var(--font-hd-xl-size);
-	line-height: var(--font-hd-xl-leading);
+	font-size: $var--font-hd-xl-size;
+	line-height: $var--font-hd-xl-leading;
 }
 @mixin HeadingStyle--large() {
 	font-weight: $font-weight--bold;
-	font-size: var(--font-hd-l-size);
-	line-height: var(--font-hd-l-leading);
+	font-size: $var--font-hd-l-size;
+	line-height: $var--font-hd-l-leading;
 }
 @mixin HeadingStyle--medium() {
 	font-weight: $font-weight--bold;
-	font-size: var(--font-hd-m-size);
-	line-height: var(--font-hd-m-leading);
+	font-size: $var--font-hd-m-size;
+	line-height: $var--font-hd-m-leading;
 }
 @mixin HeadingStyle--small() {
 	font-weight: $font-weight--bold;
-	font-size: var(--font-hd-s-size);
-	line-height: var(--font-hd-s-leading);
+	font-size: $var--font-hd-s-size;
+	line-height: $var--font-hd-s-leading;
 }
 
 // ---------------------------------------------------------------------------
 
 @mixin SubheadingStyle--large() {
 	font-weight: $font-weight--bold;
-	font-size: var(--font-sh-l-size);
-	line-height: var(--font-sh-l-leading);
+	font-size: $var--font-sh-l-size;
+	line-height: $var--font-sh-l-leading;
 }
 @mixin SubheadingStyle--large-thin() {
 	font-weight: $font-weight--normal;
-	font-size: var(--font-sh-l-size);
-	line-height: var(--font-sh-l-leading);
+	font-size: $var--font-sh-l-size;
+	line-height: $var--font-sh-l-leading;
 }
 @mixin SubheadingStyle--small() {
 	font-weight: $font-weight--bold;
-	font-size: var(--font-sh-s-size);
-	line-height: var(--font-sh-s-leading);
+	font-size: $var--font-sh-s-size;
+	line-height: $var--font-sh-s-leading;
 }
 
 // ---------------------------------------------------------------------------
 
 @mixin BodyTextStyle--large($leading: true) {
-	font-size: var(--font-bd-l-size);
+	font-size: $var--font-bd-l-size;
 	@if $leading {
-		line-height: var(--font-bd-l-leading);
+		line-height: $var--font-bd-l-leading;
 	}
 }
 @mixin BodyTextStyle--small($leading: true) {
 	font-size: prem($font-bd-s-size);
-	// font-size: var(--font-bd-s-size);
+	// font-size: $var--font-bd-s-size);
 	@if $leading {
 		line-height: prem($font-bd-s-leading);
-		// line-height: var(--font-bd-s-size);
+		// line-height: $var--font-bd-s-size);
 	}
 }
 

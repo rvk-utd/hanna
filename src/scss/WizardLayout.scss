@@ -6,13 +6,32 @@
 @media screen {
 	.WizardLayout {
 		min-height: 100vh;
+		width: 100%;
+		max-width: prem($grid-contentMaxWidth);
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.WizardLayout__alerts {
+		max-height: 1000px;
+		overflow: hidden;
+		margin: 0 prem(-15);
+		transition: max-height 400ms ease-in;
+
+		@include media($mq-tablet_up) {
+			margin: 0;
+		}
+	}
+	.WizardLayout__alerts .Alert {
+		margin: grid-units(2) 0 0 0;
+	}
+
+	.WizardLayout__content {
+		min-height: 100vh;
 		display: flex;
 		flex-flow: column nowrap;
 		// align-items: center;
 		position: relative;
-		width: 100%;
-		max-width: prem($grid-contentMaxWidth);
-		margin: 0 auto;
 	}
 
 	.WizardLayout__header {
@@ -119,3 +138,12 @@
 }
 
 @include WizardLayoutClose.css();
+
+// ===========================================================================
+// BEGIN @deprecated  (remove in v0.9)
+// Styles to make the addition of .WizardLayout__content non-breaking
+.Layout {
+	display: flex;
+	flex-flow: column nowrap;
+}
+// END @deprecated

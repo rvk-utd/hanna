@@ -3,8 +3,20 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.9
+
+_2021-06-11_
+
+- feat: Add component `CenterColumn` - for simple "article" text block layout
+- feat: Add support for `.WizardLayout__alerts` and `.WizardLayout__content`
+
+## 0.8.8
+
+_2021-06-03_
+
 - fix: `.WizardLayout__stepper` positioned too high on mobile
-- fix: Jaggy height+spacing of `WizardStepper__step`s on mobile 
+- fix: Jaggy height+spacing of `WizardStepper__step`s on mobile
 - fix: Center `DatePicker`'s icon when `.FormField__label` is visible
 - fix: Half-cropped header logo text showing in tablet/phone formats
 
@@ -12,8 +24,8 @@
 
 _2021-06-02_
 
-- fix: Prevent horizontal page scroll in Safari – Note: The current fix
-  blocks future use of `position:sticky;`
+- fix: Prevent horizontal page scroll in Safari – Note: The current fix blocks
+  future use of `position:sticky;`
 - fix: Prevent line-wrap of "inlined" `.FormField__label` texts
 
 ## 0.8.6
