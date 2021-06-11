@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `CenterColumn` - for simple "article" text block layout
 - feat: Add support for `.WizardLayout__alerts` and `.WizardLayout__content`
 
 ## 0.8.8

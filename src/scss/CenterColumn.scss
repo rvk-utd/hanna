@@ -1,0 +1,38 @@
+@use 'globals' as *;
+
+@media screen {
+	.CenterColumn {
+		max-width: cols_px(8);
+		margin: 0 auto;
+	}
+
+	.CenterColumn > .PageHeading,
+	.CenterColumn > .Heading,
+	.CenterColumn > .TextBlock {
+		width: auto;
+		max-width: none;
+		margin-left: 0;
+	}
+
+	// ===========================================================================
+
+	.CenterColumn > [class*='--align--'],
+	.CenterColumn > [class*='--wide'],
+	.CenterColumn > .TextBlock--labelled,
+	.CenterColumn > *:not(.TextBlock):not(.PageHeading) {
+		@include WARNING__(
+			'Only use plain `PageHeading`, `Heading`, `TextBlock`, inside .CenterColumn wrapper.',
+			$always: true
+		);
+	}
+	.CenterColumn > [class*='--align--'][class],
+	.CenterColumn > [class*='--wide'][class] {
+		@include WARNING_message__(
+			'Do not use --align-- or --wide modifiers.',
+			$always: true
+		);
+	}
+	.CenterColumn > .TextBlock--labelled[class] {
+		@include WARNING_message__('Do not use the --labelled modifier.', $always: true);
+	}
+}
