@@ -56,6 +56,7 @@
 		display: none;
 	}
 }
+
 @media #{$mq-phone_phablet} {
 	body {
 		padding-left: prem(16);
@@ -72,8 +73,10 @@
 		width: prem(24);
 	}
 }
+
 @media #{$mq-tablet_up} {
-	.WizardLayout {
+	.WizardLayout,
+	.WizardLayout__content {
 		position: static;
 	}
 	.WizardLayout__header {
