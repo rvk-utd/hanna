@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Remove experimental component `.experimental_Columnized` (not used)
 
 ## 0.8.9
 
