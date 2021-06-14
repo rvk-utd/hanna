@@ -4,6 +4,13 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.10
+
+_2021-06-14_
+
+- feat: Remove experimental component `.experimental_Columnized` (not used)
+- fix: Incorrect position of `.WizardLayoutClose` in ultra wide format
+
 ## 0.8.9
 
 _2021-06-11_
