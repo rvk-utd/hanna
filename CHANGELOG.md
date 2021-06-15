@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.11
+
+_2021-06-14_
+
 - fix: Reintroduce `.experimental_Columnized` but mark it deprecated
 
 ## 0.8.10
