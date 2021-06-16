@@ -13,7 +13,7 @@
 		"publish:all": "yarn install  &&  yarn run publish:assets  &&  yarn run publish:css  &&  yarn run publish:devcss",
 		"assets:rename-illustrations": "node scripts/renameIllustrations.js",
 		"format": "eslint --fix  \"*.js\" \"{src,scripts}/**/*.js\"  &&  prettier --write \"*.{json,md}\" \"{src,scripts}/**/*.{json,md,scss}\"",
-		"build": "yarn install  &&  yarn run gulp build",
+		"build": "yarn install  &&  NODE_ENV=production  yarn run gulp build",
 		"dev": "gulp watch"
 	},
 	"engines": {
