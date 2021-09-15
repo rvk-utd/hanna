@@ -21,18 +21,14 @@
 	.CenterColumn > .TextBlock--labelled,
 	.CenterColumn > *:not(.TextBlock):not(.PageHeading) {
 		@include WARNING__(
-			'Only use plain `PageHeading`, `Heading`, `TextBlock`, inside .CenterColumn wrapper.',
-			$always: true
+			'Only use plain `PageHeading`, `Heading`, `TextBlock`, inside .CenterColumn wrapper.'
 		);
 	}
 	.CenterColumn > [class*='--align--'][class],
 	.CenterColumn > [class*='--wide'][class] {
-		@include WARNING_message__(
-			'Do not use --align-- or --wide modifiers.',
-			$always: true
-		);
+		@include WARNING_message__('Do not use --align-- or --wide modifiers.');
 	}
 	.CenterColumn > .TextBlock--labelled[class] {
-		@include WARNING_message__('Do not use the --labelled modifier.', $always: true);
+		@include WARNING_message__('Do not use the --labelled modifier.');
 	}
 }

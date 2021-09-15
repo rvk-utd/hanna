@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Dev warning messages for `CenterColumn` appeared in prod build
 
 ## 0.8.11
 
