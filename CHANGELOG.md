@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Minor typographic fixes and upates
 - fix: Various `MainMenu` mega menu rendering issues
 - fix: Dev warning messages for `CenterColumn` appeared in prod build
 - fix: Increase `ImageCards__list` spacing in mobile format

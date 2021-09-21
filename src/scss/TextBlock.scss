@@ -38,6 +38,7 @@
 		.TextBlock--labelled {
 			--h2--marginTop: 2em;
 			--h2--marginBottom: 0.25em;
+			// --h3--marginTop: 1.25em; // <-- currently same as the default value.
 			// same as --align--right (`see layout.ComponentLayout()`)
 			margin-left: auto;
 			width: cols_pct(7);
