@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Dev warning messages for `CenterColumn` appeared in prod build
+- fix: Increase `ImageCards__list` spacing in mobile format
 
 ## 0.8.11
 
