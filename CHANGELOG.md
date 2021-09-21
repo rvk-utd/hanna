@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Increase `HeroBlock`'s min-height
+- feat: Slightly increase top-padding of `GridBlocks` items
 - fix: Minor typographic fixes and upates
 - fix: Various `MainMenu` mega menu rendering issues
 - fix: Dev warning messages for `CenterColumn` appeared in prod build
