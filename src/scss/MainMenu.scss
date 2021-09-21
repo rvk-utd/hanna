@@ -291,12 +291,14 @@
 		position: fixed;
 		top: 0;
 		bottom: 0;
-		left: calc(
-			50% + #{$var--grid-2-2} + 0.5 * #{$var--grid-gutter} -
-				(0.5 * #{$var--browser-scrollbar-width})
-		);
+		left: calc(50% + 0.5 * (#{$var--grid-gutter} + #{$var--browser-scrollbar-width}));
+		margin-left: $var--grid-2-2;
 		right: 0;
 		background-color: $var--menu-auxiliary-background;
+
+		@include media($mq-netbook) {
+			margin-left: $var--grid-2;
+		}
 	}
 
 	.MainMenu__panels {
