@@ -4,21 +4,14 @@
 	.PrimaryPanel {
 		--link-color: var(--menu-primary-text);
 		--link-color--hover: var(--menu-primary-hover);
-		--menu-primary-columns: 8;
-
-		grid-template-columns: repeat(var(--menu-primary-columns), minmax(0, 1fr));
 
 		align-content: flex-start;
 		display: none;
 
-		grid-column: 2 / span 6;
-
 		background-color: $color-faxafloi-100;
 	}
 
-	.PrimaryPanel--active {
-		display: grid;
-	}
+	// ===========================================================================
 
 	@include media($mq-Hamburger) {
 		.PrimaryPanel {
@@ -48,14 +41,24 @@
 		}
 	}
 
+	// ===========================================================================
+
 	@include media($mq-Topmenu) {
 		.PrimaryPanel {
+			--menu-primary-columns: 8;
+			grid-template-columns: repeat(var(--menu-primary-columns), minmax(0, 1fr));
+
 			padding-top: $var--Layout__header-height;
+			padding-bottom: prem(125); // clear .MainMenu__megapanel__backtomenu
+			grid-column: 2 / span 7;
+			column-gap: $var--grid-gutter;
+		}
+		.PrimaryPanel--active {
+			display: grid;
 		}
 
 		.PrimaryPanel--twocol {
 			grid-column: span var(--menu-primary-columns);
-			column-gap: $var--grid-gutter;
 		}
 
 		.PrimaryPanel__title {
@@ -70,32 +73,29 @@
 			font-weight: $font-weight--bold;
 
 			grid-column: span 5;
-
-			.PrimaryPanel--twocol & {
-				grid-column: span var(--menu-primary-columns);
-				margin-right: cols_pct(1, 0, 8);
-			}
+		}
+		.PrimaryPanel--twocol .PrimaryPanel__title {
+			grid-column: span var(--menu-primary-columns);
+			margin-right: cols_pct(1, 0, 8);
 		}
 
 		.PrimaryPanel__items {
 			grid-column: span 4;
 			padding-right: cols_pct(1, 0, 4);
-
-			.PrimaryPanel--twocol & {
-				display: grid;
-				column-gap: $var--grid-gutter;
-				grid-column: span var(--menu-primary-columns);
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-				padding-right: 0;
-			}
+		}
+		.PrimaryPanel--twocol .PrimaryPanel__items {
+			grid-column: span var(--menu-primary-columns);
+			display: grid;
+			column-gap: $var--grid-gutter;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			padding-right: 0;
 		}
 
 		.PrimaryPanel__item {
 			margin-bottom: prem(24);
-
-			.PrimaryPanel--twocol & {
-				padding-right: cols_pct(1, 0, 4);
-			}
+		}
+		.PrimaryPanel--twocol .PrimaryPanel__item {
+			padding-right: cols_pct(1, 0, 4);
 		}
 
 		.PrimaryPanel__linkTitle {
