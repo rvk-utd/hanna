@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `TableWrapper--BasicTable--fullWidth`
 - feat: Increase `HeroBlock`'s min-height
 - feat: Slightly increase top-padding of `GridBlocks` items
 - fix: Minor typographic fixes and upates
