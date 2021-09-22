@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Minor spacing corrections/tweaks
 
 ## 0.8.12 – 0.8.13
 
