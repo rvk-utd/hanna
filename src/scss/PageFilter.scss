@@ -26,6 +26,7 @@
 
 	.PageFilter--underlap {
 		margin-bottom: prem(-24);
+		z-index: -1;
 	}
 
 	.PageFilter::before {
