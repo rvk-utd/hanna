@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `VSpacer` for custom spacing between page components
 
 ## 0.8.12 – 0.8.14
 

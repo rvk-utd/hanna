@@ -1,0 +1,32 @@
+@use 'globals' as *;
+
+/*!@deps
+	TextBlock
+*/
+
+// inlined by TextBlock
+@mixin css() {
+	@media screen {
+		[class].VSpacer {
+			--VSpace: #{between_cols(40, 100)};
+			margin-top: var(--VSpace);
+		}
+		[class].VSpacer--small {
+			--VSpace: #{between_cols(30, 70)};
+		}
+		[class].VSpacer--large {
+			--VSpace: #{between_cols(50, 130)};
+		}
+		[class].VSpacer--xlarge {
+			--VSpace: #{between_cols(70, 200)};
+		}
+		br.VSpacer {
+			display: block;
+			height: 0;
+		}
+
+		.VSpacer + [class] {
+			margin-top: 0;
+		}
+	}
+}
