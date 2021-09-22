@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Introduce the new "Esja" typeface
 
 ## 0.8.12
 
