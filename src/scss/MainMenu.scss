@@ -228,7 +228,11 @@
 	}
 
 	.MainMenu__item {
-		margin: 0 prem(10);
+		--MainMenu__item-padding: #{between_Topmenu(4, 10)};
+		margin: 0 between_Topmenu(4, 10);
+	}
+	.MainMenu__item:not(.MainMenu__separator ~ *) {
+		--MainMenu__item-padding: #{prem(10)};
 	}
 	html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
 	html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
@@ -237,8 +241,8 @@
 	}
 
 	.MainMenu__link {
-		$pB: prem(10) - $link-underline-thickness;
-		padding: prem(10) prem(10) $pB prem(10);
+		padding: prem(10) var(--MainMenu__item-padding);
+		padding-bottom: prem(10) - $link-underline-thickness;
 	}
 
 	.MainMenu__item--lang::before {
@@ -268,24 +272,42 @@
 
 		position: absolute;
 		top: 0;
-		left: calc(0.5 * #{$var--browser-scrollbar-width});
-		right: calc(-0.5 * #{$var--browser-scrollbar-width});
+		bottom: 0;
 		left: 0;
+		// hide scrollbar "beneath" <body>'s overflow-x:hidden
+		right: calc(-0.5 * #{$var--browser-scrollbar-width});
 		z-index: 3;
-		height: 100vh;
+
+		margin-left: calc(50% - 50vw + 0.5 * #{$var--browser-scrollbar-width});
+		padding-left: calc(50vw - 50% - 0.5 * #{$var--browser-scrollbar-width});
+		margin-right: calc(50% - 50vw);
+		padding-right: calc(50vw - 50% + 0.5 * #{$var--browser-scrollbar-width});
 
 		overflow-x: hidden;
 		overflow-y: auto;
+	}
+	.MainMenu__panelsWrap:before {
+		content: '';
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: calc(50% + 0.5 * (#{$var--grid-gutter} + #{$var--browser-scrollbar-width}));
+		margin-left: $var--grid-2-2;
+		right: 0;
+		background-color: $var--menu-auxiliary-background;
 
-		@include extendSides();
+		@include media($mq-netbook) {
+			margin-left: $var--grid-2;
+		}
 	}
 
 	.MainMenu__panels {
+		position: relative;
+		width: 100%;
+
 		display: grid;
 		column-gap: $var--grid-gutter;
 		grid-template-columns: repeat($grid-numCols, minmax(0, 1fr));
-
-		@include extendSides('right');
 	}
 
 	html.before-sprinkling .MainMenu__panelsWrap {

@@ -106,6 +106,9 @@
 		// refactor any and all overflowing components to apply
 		// `overflow-x:hidden;` themselves. Ack!
 		//
+		// TODO: Check if setting height on body might re-enable
+		// sticky-positioning without effing up something else....
+		//
 		overflow-x: hidden;
 	}
 

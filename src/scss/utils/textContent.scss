@@ -14,9 +14,10 @@
 		&::before {
 			content: '';
 			position: absolute;
-			top: prem($grid-unit * 1.5);
+			top: calc(0.5 * var(--font-bd-l-leading));
 			left: 0;
 			width: prem($grid-unit * 2);
+			margin-top: prem(-1);
 			height: prem(2);
 			background-color: $var--color-theme-primary--safeish;
 		}
@@ -37,6 +38,9 @@
 		@include SubheadingStyle--large();
 		margin-bottom: $var--baseVerticalMargin;
 		clear: both;
+	}
+	* + h3 {
+		margin-top: var(--h3--marginTop, 1.25em);
 	}
 	h4 {
 		@include SubheadingStyle--small();

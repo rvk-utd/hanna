@@ -26,6 +26,9 @@
 		// --ButtonTertiary--dashWidth--hover: #{prem(48)};
 		--ButtonTertiary--dashHeight: #{rem(4 / $font-sh-s-size)};
 	}
+	.MiniMetrics__more::before {
+		top: calc(0.5 * var(--font-sh-s-leading));
+	}
 
 	@include media($mq-phablet_up) {
 		@supports (mask-image: url('')) {

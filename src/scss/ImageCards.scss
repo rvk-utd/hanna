@@ -49,10 +49,13 @@
 
 	.ImageCards__list {
 		@include CardList();
-		row-gap: between_phone_netbook(24, 80);
+		row-gap: between_phone_netbook(48, 80);
 		@include media($mq-wide) {
 			row-gap: prem(80);
 		}
+	}
+	.ImageCards__item {
+		// …
 	}
 
 	.ImageCards__card {
@@ -73,7 +76,7 @@
 		display: block;
 		position: relative;
 		padding-top: pct(168/272);
-		margin-bottom: between_phone_netbook(18, 24);
+		margin-bottom: between_phone_netbook(12, 24);
 	}
 	.ImageCards__image--missing {
 		$borderW: prem(12);

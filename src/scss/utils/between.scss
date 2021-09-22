@@ -21,10 +21,10 @@ $_scaleDown: $grid-contentMinWidth / $grid-contentMaxWidth;
 // ---------------------------------------------------------------------------
 
 @function between_Hamburger($from, $to) {
-	@return between_phone_phablet($from, $to);
+	@return between_phone_tablet($from, $to);
 }
 @function between_Topmenu($from, $to) {
-	@return between_tablet_netbook($from, $to);
+	@return between_netbook($from, $to);
 }
 
 // ---------------------------------------------------------------------------

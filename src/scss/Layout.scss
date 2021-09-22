@@ -2,6 +2,13 @@
 @use 'styles/header' as *;
 @use 'styles/links' as *;
 
+@mixin whiteLogo {
+	--logo-fill-color: #{$color-suld-0};
+	--logo-text-color: #{$color-suld-0};
+	--logo-background-color: #{$color-faxafloi-100};
+	--link-focus-outlineColor: #{$color-suld-0};
+}
+
 @media screen {
 	body {
 		padding: 0 $var--grid-edge;
@@ -51,20 +58,13 @@
 
 	.Layout__header__logo {
 		@include LayoutHeaderLogo();
-
-		html.menu-is-open &,
-		html[data-mega-panel-active] & {
-			--logo-fill-color: #{$color-suld-0};
-			--logo-text-color: #{$color-suld-0};
-			--logo-background-color: #{$color-faxafloi-100};
-			--link-focus-outlineColor: #{$color-suld-0};
-		}
 	}
 
 	.Layout__main {
 		padding-top: prem(50);
 		flex-grow: 1;
 		padding-bottom: prem(30);
+		min-height: 60vh;
 	}
 
 	.Layout__footer {
@@ -117,6 +117,10 @@
 		transition-delay: 0ms;
 		pointer-events: none;
 	}
+	html.menu-is-open .Layout__header__logo {
+		@include whiteLogo();
+	}
+
 	.Layout__header__logo,
 	.Layout__header__skiplink {
 		pointer-events: auto;
@@ -199,6 +203,9 @@
 	.Layout__header__skiplink {
 		@include sr-only-focusable();
 	}
+	html[data-mega-panel-active] .Layout__header__logo {
+		@include whiteLogo();
+	}
 }
 
 // ===========================================================================
@@ -208,7 +215,9 @@
 		--show-grid-lines: '';
 	}
 	.Layout:hover {
+		/**/ //
 		--show-grid-lines: initial;
+		/**/
 	}
 	.Layout::after {
 		content: var(--show-grid-lines, none);

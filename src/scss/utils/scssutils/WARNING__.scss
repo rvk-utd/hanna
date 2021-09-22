@@ -48,8 +48,8 @@ $_isDev: isDevMode();
 }
 
 @mixin WARNING_soft__($message, $pos: before, $always: false) {
-	@include WARNING__($message, soft, $pos);
+	@include WARNING__($message, soft, $pos, $always);
 }
 @mixin suppress_WARNING_soft__($pos: before, $always: false) {
-	@include suppress_WARNING__(soft, $pos);
+	@include suppress_WARNING__(soft, $pos, $always);
 }

@@ -38,10 +38,19 @@
 
 	.GridBlocks__illustration {
 		width: prem(80);
+		margin-top: prem(10);
+
+		@media #{$mq-phone} {
+			margin-top: 0;
+		}
 	}
 
-	.GridBlocks__illustration > img {
+	.GridBlocks__illustration img {
 		margin-bottom: grid-units(3);
+
+		@media #{$mq-phone_phablet} {
+			margin-bottom: grid-units(1);
+		}
 	}
 
 	.GridBlocks__item__title {

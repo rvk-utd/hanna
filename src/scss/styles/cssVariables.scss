@@ -63,6 +63,7 @@
 	--grid-10-10: #{_flexCol(10, 10)};
 	--grid-11: #{_flexCol(11)};
 	--grid-11-11: #{_flexCol(11, 11)};
+	--grid-12: #{_flexCol(12)};
 
 	--grid-gutter: var(--grid-0-1);
 	--grid-column: var(--grid-1);
@@ -99,6 +100,7 @@
 		--grid-10-10: #{cols_px(10, 10)};
 		--grid-11: #{cols_px(11)};
 		--grid-11-11: #{cols_px(11, 11)};
+		--grid-12: #{cols_px(12)};
 
 		--grid-0-1--neg: #{cols_px(0, -1)};
 		--grid-1--neg: #{cols_px(-1, 0)};

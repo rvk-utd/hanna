@@ -13,14 +13,18 @@
 		overflow-x: auto;
 	}
 
-	.TableWrapper--BasicTable--align--right {
-		@include media($mq-tablet_up) {
+	@include media($mq-tablet_up) {
+		.TableWrapper--BasicTable--align--right {
 			margin-left: auto;
 			width: $var--grid-7; // tolerate containment by right-aligned TextBlock, for instance
+
+			& + .Footnote {
+				margin-left: auto;
+				width: $var--grid-7;
+			}
 		}
-		+ .Footnote {
-			margin-left: auto;
-			width: $var--grid-7;
+		.TableWrapper--BasicTable--fullwidth {
+			width: $var--grid-12;
 		}
 	}
 
@@ -148,4 +152,10 @@
 		text-align: left;
 		white-space: normal;
 	}
+}
+
+// ===========================================================================
+
+.TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {
+	@include WARNING__('--align-right and --fullwidth should not be used together');
 }

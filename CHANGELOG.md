@@ -4,6 +4,18 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.12
+
+_2021-09-22_
+
+- feat: Add styling for `TableWrapper--BasicTable--fullWidth`
+- feat: Increase `HeroBlock`'s min-height
+- feat: Slightly increase top-padding of `GridBlocks` items
+- fix: Minor typographic fixes and upates
+- fix: Various `MainMenu` mega menu rendering issues
+- fix: Dev warning messages for `CenterColumn` appeared in prod build
+- fix: Increase `ImageCards__list` spacing in mobile format
+
 ## 0.8.11
 
 _2021-06-14_
