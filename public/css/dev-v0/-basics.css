@@ -457,19 +457,37 @@ table {
   src: url("i/icons.woff2?4f05b08bdb22bd1a3cdf9f48761604c7") format("woff2"), url("i/icons.woff?4f05b08bdb22bd1a3cdf9f48761604c7") format("woff");
 }
 @font-face {
-  font-family: "L15";
+  font-family: "Esja";
   font-weight: 400;
   font-style: normal;
   font-display: block;
-  src: url("/assets/L15-regular.woff2") format("woff2"), url("/assets/L15-regular.woff") format("woff");
+  src: url("/assets/Esja-regular.woff2") format("woff2"), url("/assets/Esja-regular.woff") format("woff");
 }
 @font-face {
-  font-family: "L15";
+  font-family: "Esja";
   font-weight: 700;
   font-style: normal;
   font-display: block;
-  src: url("/assets/L15-bold.woff2") format("woff2"), url("/assets/L15-bold.woff") format("woff");
+  src: url("/assets/Esja-bold.woff2") format("woff2"), url("/assets/Esja-bold.woff") format("woff");
 }
+/** /
+@font-face {
+	font-family: $font-family-name;
+	font-weight: $font-weight--normal;
+	font-style: italic;
+	font-display: block;
+	src: url('/assets/Esja-regularitalic.woff2') format('woff2'),
+		url('/assets/Esja-regularitalic.woff') format('woff');
+}
+@font-face {
+	font-family: $font-family-name;
+	font-weight: $font-weight--bold;
+	font-style: italic;
+	font-display: block;
+	src: url('/assets/Esja-bolditalic.woff2') format('woff2'),
+		url('/assets/Esja-bolditalic.woff') format('woff');
+}
+/**/
 :root:root,
 [data-color-theme][data-color-theme],
 [data-color-theme][data-color-theme=trustworthy] {
@@ -728,7 +746,7 @@ table {
     -moz-osx-font-smoothing: grayscale;
     background-color: #ffffff;
     color: #2a2b2c;
-    font-family: "L15", Helvetica, Arial, sans-serif;
+    font-family: "Esja", Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
