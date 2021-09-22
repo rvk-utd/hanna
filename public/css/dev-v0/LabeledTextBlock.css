@@ -61,6 +61,9 @@
     margin-bottom: var(--baseVerticalMargin);
     clear: both;
   }
+  .LabeledTextBlock__summary * + h3 {
+    margin-top: var(--h3--marginTop, 1.25em);
+  }
   .LabeledTextBlock__summary h4 {
     font-weight: 700;
     font-size: var(--font-sh-s-size);
@@ -83,9 +86,10 @@
   .LabeledTextBlock__summary ul > li::before {
     content: "";
     position: absolute;
-    top: 0.75rem;
+    top: calc(0.5 * var(--font-bd-l-leading));
     left: 0;
     width: 1rem;
+    margin-top: -0.0625rem;
     height: 0.125rem;
     background-color: var(--theme-color-primary--safeish);
   }

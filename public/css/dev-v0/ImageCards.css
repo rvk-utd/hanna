@@ -163,7 +163,7 @@
     grid-auto-flow: row;
     gap: var(--grid-gutter);
     grid-template-columns: repeat(3, var(--grid-3));
-    row-gap: calc(5.2830188679vw + 7.0943396226px);
+    row-gap: calc(3.0188679245vw + 38.3396226415px);
   }
 }
 @media screen and (max-width: 479px) {
@@ -206,7 +206,7 @@
     display: block;
     position: relative;
     padding-top: 61.7647058824%;
-    margin-bottom: calc(0.5660377358vw + 16.1886792453px);
+    margin-bottom: calc(1.1320754717vw + 8.3773584906px);
   }
 }
 @media screen {

@@ -35,11 +35,13 @@
     margin-left: auto;
     width: var(--grid-7);
   }
-}
-@media screen {
   .TableWrapper--BasicTable--align--right + .Footnote {
     margin-left: auto;
     width: var(--grid-7);
+  }
+
+  .TableWrapper--BasicTable--fullwidth {
+    width: var(--grid-12);
   }
 }
 @media screen {
@@ -182,5 +184,22 @@
     text-align: left;
     white-space: normal;
   }
+}
+.TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+}
+.TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth::before {
+  all: initial !important;
+  order: -999 !important;
+  font-family: sans-serif !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+  font-size: 12px !important;
+  line-height: 1.5em !important;
+  color: red !important;
+  background-color: rgba(255, 230, 230, 0.5) !important;
+  padding: 0 0.5em !important;
+  content: "--align-right and --fullwidth should not be used together" !important;
 }
 /*# sourceMappingURL=BasicTable.css.map */

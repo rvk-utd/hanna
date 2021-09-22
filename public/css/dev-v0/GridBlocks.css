@@ -44,12 +44,25 @@
 
   .GridBlocks__illustration {
     width: 5rem;
+    margin-top: 0.625rem;
   }
-
-  .GridBlocks__illustration > img {
+}
+@media screen and (max-width: 479px) {
+  .GridBlocks__illustration {
+    margin-top: 0;
+  }
+}
+@media screen {
+  .GridBlocks__illustration img {
     margin-bottom: 1.5rem;
   }
-
+}
+@media screen and (max-width: 759px) {
+  .GridBlocks__illustration img {
+    margin-bottom: 0.5rem;
+  }
+}
+@media screen {
   .GridBlocks__item__title {
     position: relative;
     font-weight: 700;
@@ -59,7 +72,8 @@
     word-break: break-word;
     overflow-wrap: break-word;
   }
-
+}
+@media screen {
   .GridBlocks__item__titlelink::before {
     content: "";
     position: absolute;
@@ -68,7 +82,8 @@
     width: 8.75rem;
     height: 7.75rem;
   }
-
+}
+@media screen {
   .GridBlocks__item__summary {
     margin-bottom: 1.5rem;
   }
