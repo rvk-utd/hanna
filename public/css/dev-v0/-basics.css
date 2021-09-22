@@ -558,6 +558,7 @@ table {
     --grid-10-10: calc(75.3717355992vw + -0.1299512683px);
     --grid-11: calc(80.0099962514vw + -0.1379482694px);
     --grid-11-11: calc(82.9089091591vw + -0.1429463951px);
+    --grid-12: calc(87.5471698113vw + -0.1509433962px);
     --grid-gutter: var(--grid-0-1);
     --grid-column: var(--grid-1);
     --grid-0-1--neg: calc(-2.8989129077vw + 0.0049981257px);
@@ -624,6 +625,7 @@ table {
     --grid-10-10: 1040px;
     --grid-11: 1104px;
     --grid-11-11: 1144px;
+    --grid-12: 1208px;
     --grid-0-1--neg: -40px;
     --grid-1--neg: -64px;
     --grid-column--neg: var(--grid-1--neg);
@@ -642,7 +644,7 @@ table {
     --font-sh-l-size: calc(1.3333333333vw + 13.6px);
     --font-sh-l-leading: calc(1.1111111111vw + 24.6666666667px);
     --font-sh-s-size: calc(0.4444444444vw + 17.8666666667px);
-    --font-sh-s-leading: calc(1.1111111111vw + 24.6666666667px);
+    --font-sh-s-leading: calc(0.2222222222vw + 28.9333333333px);
   }
 }
 @media screen and (min-width: 760px) and (max-width: 1379px) {
@@ -664,14 +666,14 @@ table {
     --font-sh-l-size: 32px;
     --font-sh-l-leading: 40px;
     --font-sh-s-size: 24px;
-    --font-sh-s-leading: 40px;
+    --font-sh-s-leading: 32px;
     --font-bd-l-size: 20px;
     --font-bd-l-leading: 32px;
   }
 }
 @media screen and (min-width: 980px) {
   :root {
-    --Layout__header-height: calc(5.9677419355vw + 53.6451612903px);
+    --Layout__header-height: calc(9.25vw + 8.35px);
   }
 }
 @media screen and (min-width: 1380px) {

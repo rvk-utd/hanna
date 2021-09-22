@@ -117,6 +117,10 @@
   .MiniMetrics__more--small {
     font-weight: 400;
   }
+
+  .MiniMetrics__more::before {
+    top: calc(0.5 * var(--font-sh-s-leading));
+  }
 }
 @media screen and (min-width: 480px) {
   @supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) {
