@@ -8,17 +8,17 @@
 @mixin css() {
 	@media screen {
 		[class].VSpacer {
-			--VSpace: #{between_cols(40, 100)};
-			margin-top: var(--VSpace);
+			--VSpacer__space: $var--component-vspace--medium;
+			margin-top: var(--VSpacer__space);
 		}
 		[class].VSpacer--small {
-			--VSpace: #{between_cols(30, 70)};
+			--VSpacer__space: $var--component-vspace--small;
 		}
 		[class].VSpacer--large {
-			--VSpace: #{between_cols(50, 130)};
+			--VSpacer__space: $var--component-vspace--large;
 		}
 		[class].VSpacer--xlarge {
-			--VSpace: #{between_cols(70, 200)};
+			--VSpacer__space: $var--component-vspace--xlarge;
 		}
 		br.VSpacer {
 			display: block;

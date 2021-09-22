@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `VSpacer` for custom spacing between page components
+- feat: Add CSS variables `--component-vspace--(small|medium|large|xlarge)`
 
 ## 0.8.12 – 0.8.14
 

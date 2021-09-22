@@ -16,6 +16,7 @@
 			--link-focus-outline: 3px solid currentColor;
 			--link-focus-outlineOffset: 2px;
 
+			@include _componentVSpace();
 			@include _gridVariables();
 			@include _fontVariables();
 			@include _LayoutHeader();
@@ -237,4 +238,13 @@
 	@include media($mq-wide) {
 		--Layout__header-height: #{px($max)};
 	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _componentVSpace() {
+	--component-vspace--small: #{between_cols(30, 70)};
+	--component-vspace--medium: #{between_cols(40, 100)};
+	--component-vspace--large: #{between_cols(50, 130)};
+	--component-vspace--xlarge: #{between_cols(70, 200)};
 }
