@@ -4,7 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.8.12 – 0.8.13
+## 0.8.12 – 0.8.14
 
 _2021-09-22_
 
@@ -16,6 +16,7 @@ _2021-09-22_
 - fix: Various `MainMenu` mega menu rendering issues
 - fix: Dev warning messages for `CenterColumn` appeared in prod build
 - fix: Increase `ImageCards__list` spacing in mobile format
+- fix: Minor spacing and layering corrections/tweaks
 
 ## 0.8.11
 

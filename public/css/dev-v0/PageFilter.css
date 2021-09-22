@@ -12,7 +12,7 @@
   .PageFilter {
     background-color: #f8f8f9;
     padding: calc(5.3879310345% + 14.9137931034px) 0 0 0;
-    margin-bottom: calc(9.6982758621% + 22.8448275862px);
+    margin-bottom: calc(8.4051724138% + 26.4655172414px);
     position: relative;
     display: flex;
     flex-flow: row wrap;
@@ -44,6 +44,7 @@
 
   .PageFilter--underlap {
     margin-bottom: -1.5rem;
+    z-index: -1;
   }
 
   .PageFilter::before {
