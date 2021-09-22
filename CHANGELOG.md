@@ -3,12 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Introduce the new "Esja" typeface
 
-## 0.8.12
+## 0.8.12 – 0.8.13
 
 _2021-09-22_
 
+- feat: Introduce the new "Esja" typeface
 - feat: Add styling for `TableWrapper--BasicTable--fullWidth`
 - feat: Increase `HeroBlock`'s min-height
 - feat: Slightly increase top-padding of `GridBlocks` items
