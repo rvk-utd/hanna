@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add visible underline to `FooterInfo`'s inline links
 
 ## 0.8.15
 
