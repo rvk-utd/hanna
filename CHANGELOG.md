@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.15
+
+_2021-09-23_
+
 - feat: Add component `VSpacer` for custom spacing between page components
 - feat: Add CSS variables `--component-vspace--(small|medium|large|xlarge)`
 - feat: Add CSS variables `--color-{name}-{number}`
