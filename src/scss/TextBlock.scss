@@ -8,6 +8,7 @@
 @use 'Heading';
 @use 'SubHeading';
 @use 'Sharpie';
+@use 'VSpacer';
 
 /*!@deps
 	Attention
@@ -83,3 +84,4 @@
 @include Heading.css();
 @include SubHeading.css();
 @include Sharpie.css();
+@include VSpacer.css();

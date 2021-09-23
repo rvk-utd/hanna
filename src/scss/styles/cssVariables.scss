@@ -16,10 +16,12 @@
 			--link-focus-outline: 3px solid currentColor;
 			--link-focus-outlineOffset: 2px;
 
+			@include _componentVSpace();
 			@include _gridVariables();
 			@include _fontVariables();
 			@include _LayoutHeader();
 			@include _MainMenu();
+			@include _colorVariables();
 		}
 	}
 }
@@ -237,4 +239,68 @@
 	@include media($mq-wide) {
 		--Layout__header-height: #{px($max)};
 	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _componentVSpace() {
+	--component-vspace--small: #{between_cols(30, 70)};
+	--component-vspace--medium: #{between_cols(40, 100)};
+	--component-vspace--large: #{between_cols(50, 130)};
+	--component-vspace--xlarge: #{between_cols(70, 200)};
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _colorVariables() {
+	--color-esja-50: #{$color-esja-50};
+	--color-esja-75: #{$color-esja-75};
+	--color-esja-100: #{$color-esja-100};
+	--color-esja-150: #{$color-esja-150};
+
+	--color-faxafloi-50: #{$color-faxafloi-50};
+	--color-faxafloi-75: #{$color-faxafloi-75};
+	--color-faxafloi-100: #{$color-faxafloi-100};
+	--color-faxafloi-150: #{$color-faxafloi-150};
+
+	--color-nautholsvik-50: #{$color-nautholsvik-50};
+	--color-nautholsvik-75: #{$color-nautholsvik-75};
+	--color-nautholsvik-100: #{$color-nautholsvik-100};
+	--color-nautholsvik-150: #{$color-nautholsvik-150};
+
+	--color-heidmork-50: #{$color-heidmork-50};
+	--color-heidmork-75: #{$color-heidmork-75};
+	--color-heidmork-100: #{$color-heidmork-100};
+	--color-heidmork-150: #{$color-heidmork-150};
+
+	--color-ellidarardalur-50: #{$color-ellidarardalur-50};
+	--color-ellidarardalur-75: #{$color-ellidarardalur-75};
+	--color-ellidarardalur-100: #{$color-ellidarardalur-100};
+	--color-ellidarardalur-150: #{$color-ellidarardalur-150};
+
+	--color-blafjoll-50: #{$color-blafjoll-50};
+	--color-blafjoll-75: #{$color-blafjoll-75};
+	--color-blafjoll-100: #{$color-blafjoll-100};
+	--color-blafjoll-150: #{$color-blafjoll-150};
+
+	--color-sund-50: #{$color-sund-50};
+	--color-sund-75: #{$color-sund-75};
+	--color-sund-100: #{$color-sund-100};
+	--color-sund-150: #{$color-sund-150};
+
+	--color-rokkur-50: #{$color-rokkur-50};
+	--color-rokkur-75: #{$color-rokkur-75};
+	--color-rokkur-100: #{$color-rokkur-100};
+	--color-rokkur-150: #{$color-rokkur-150};
+
+	--color-suld-0: #{$color-suld-0};
+	--color-suld-25: #{$color-suld-25};
+	--color-suld-50: #{$color-suld-50};
+	--color-suld-75: #{$color-suld-75};
+	--color-suld-100: #{$color-suld-100};
+	--color-suld-150: #{$color-suld-150};
+	--color-suld-200: #{$color-suld-200};
+
+	--color-white: #{$color-white};
+	--color-blackish: #{$color-blackish};
 }

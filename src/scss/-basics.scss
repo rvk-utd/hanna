@@ -27,16 +27,16 @@
 	font-weight: $font-weight--normal;
 	font-style: normal;
 	font-display: block;
-	src: url('/assets/Esja-regular.woff2') format('woff2'),
-		url('/assets/Esja-regular.woff') format('woff');
+	src: url('/assets/fonts/Esja/Esja-regular.woff2') format('woff2'),
+		url('/assets/fonts/Esja/Esja-regular.woff') format('woff');
 }
 @font-face {
 	font-family: $font-family-name;
 	font-weight: $font-weight--bold;
 	font-style: normal;
 	font-display: block;
-	src: url('/assets/Esja-bold.woff2') format('woff2'),
-		url('/assets/Esja-bold.woff') format('woff');
+	src: url('/assets/fonts/Esja/Esja-bold.woff2') format('woff2'),
+		url('/assets/fonts/Esja/Esja-bold.woff') format('woff');
 }
 /** /
 @font-face {
@@ -44,16 +44,16 @@
 	font-weight: $font-weight--normal;
 	font-style: italic;
 	font-display: block;
-	src: url('/assets/Esja-regularitalic.woff2') format('woff2'),
-		url('/assets/Esja-regularitalic.woff') format('woff');
+	src: url('/assets/fonts/Esja/Esja-regularitalic.woff2') format('woff2'),
+		url('/assets/fonts/Esja/Esja-regularitalic.woff') format('woff');
 }
 @font-face {
 	font-family: $font-family-name;
 	font-weight: $font-weight--bold;
 	font-style: italic;
 	font-display: block;
-	src: url('/assets/Esja-bolditalic.woff2') format('woff2'),
-		url('/assets/Esja-bolditalic.woff') format('woff');
+	src: url('/assets/fonts/Esja/Esja-bolditalic.woff2') format('woff2'),
+		url('/assets/fonts/Esja/Esja-bolditalic.woff') format('woff');
 }
 /**/
 

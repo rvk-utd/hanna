@@ -461,14 +461,14 @@ table {
   font-weight: 400;
   font-style: normal;
   font-display: block;
-  src: url("/assets/Esja-regular.woff2") format("woff2"), url("/assets/Esja-regular.woff") format("woff");
+  src: url("/assets/fonts/Esja/Esja-regular.woff2") format("woff2"), url("/assets/fonts/Esja/Esja-regular.woff") format("woff");
 }
 @font-face {
   font-family: "Esja";
   font-weight: 700;
   font-style: normal;
   font-display: block;
-  src: url("/assets/Esja-bold.woff2") format("woff2"), url("/assets/Esja-bold.woff") format("woff");
+  src: url("/assets/fonts/Esja/Esja-bold.woff2") format("woff2"), url("/assets/fonts/Esja/Esja-bold.woff") format("woff");
 }
 /** /
 @font-face {
@@ -476,16 +476,16 @@ table {
 	font-weight: $font-weight--normal;
 	font-style: italic;
 	font-display: block;
-	src: url('/assets/Esja-regularitalic.woff2') format('woff2'),
-		url('/assets/Esja-regularitalic.woff') format('woff');
+	src: url('/assets/fonts/Esja/Esja-regularitalic.woff2') format('woff2'),
+		url('/assets/fonts/Esja/Esja-regularitalic.woff') format('woff');
 }
 @font-face {
 	font-family: $font-family-name;
 	font-weight: $font-weight--bold;
 	font-style: italic;
 	font-display: block;
-	src: url('/assets/Esja-bolditalic.woff2') format('woff2'),
-		url('/assets/Esja-bolditalic.woff') format('woff');
+	src: url('/assets/fonts/Esja/Esja-bolditalic.woff2') format('woff2'),
+		url('/assets/fonts/Esja/Esja-bolditalic.woff') format('woff');
 }
 /**/
 :root:root,
@@ -551,6 +551,10 @@ table {
     --link-focus-outlineColor: currentColor;
     --link-focus-outline: 3px solid currentColor;
     --link-focus-outlineOffset: 2px;
+    --component-vspace--small: calc(4.3103448276% + 17.9310344828px);
+    --component-vspace--medium: calc(6.4655172414% + 21.8965517241px);
+    --component-vspace--large: calc(8.6206896552% + 25.8620689655px);
+    --component-vspace--xlarge: calc(14.0086206897% + 30.775862069px);
     --grid-edge: calc(5.6603773585vw + 1.8867924528px);
     --grid-edge--neg: calc(-5.6603773585vw + -1.8867924528px);
     --grid-0-1: calc(2.8989129077vw + -0.0049981257px);
@@ -608,6 +612,47 @@ table {
     --menu-auxiliary-background: #f8f8f9;
     --menu-auxiliary-text: #0367e1;
     --menu-auxiliary-hover: #013b70;
+    --color-esja-50: #e8eeff;
+    --color-esja-75: #d2ddfe;
+    --color-esja-100: #a5bbfd;
+    --color-esja-150: #525e7f;
+    --color-faxafloi-50: #c0ddf7;
+    --color-faxafloi-75: #81bbf0;
+    --color-faxafloi-100: #0367e1;
+    --color-faxafloi-150: #013b70;
+    --color-nautholsvik-50: #fff5d5;
+    --color-nautholsvik-75: #ffeaac;
+    --color-nautholsvik-100: #ffd659;
+    --color-nautholsvik-150: #806b2c;
+    --color-heidmork-50: #f5c8cb;
+    --color-heidmork-75: #ec9197;
+    --color-heidmork-100: #d8222f;
+    --color-heidmork-150: #6c1118;
+    --color-ellidarardalur-50: #c4f2d5;
+    --color-ellidarardalur-75: #89e6ab;
+    --color-ellidarardalur-100: #64d68e;
+    --color-ellidarardalur-150: #0a662b;
+    --color-blafjoll-50: #ffdbd3;
+    --color-blafjoll-75: #fab7a9;
+    --color-blafjoll-100: #f77257;
+    --color-blafjoll-150: #805737;
+    --color-sund-50: #d4f6ff;
+    --color-sund-75: #a9edff;
+    --color-sund-100: #53daff;
+    --color-sund-150: #296d80;
+    --color-rokkur-50: #ffe3ec;
+    --color-rokkur-75: #ffc6da;
+    --color-rokkur-100: #ff8db5;
+    --color-rokkur-150: #80475a;
+    --color-suld-0: #ffffff;
+    --color-suld-25: #f8f8f9;
+    --color-suld-50: #f1f2f3;
+    --color-suld-75: #e3e5e7;
+    --color-suld-100: #c7cbd0;
+    --color-suld-150: #707275;
+    --color-suld-200: #2a2b2c;
+    --color-white: #ffffff;
+    --color-blackish: #2a2b2c;
   }
 }
 @media screen and (min-width: 1380px) {

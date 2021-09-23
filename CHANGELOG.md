@@ -4,6 +4,15 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.15
+
+_2021-09-23_
+
+- feat: Add component `VSpacer` for custom spacing between page components
+- feat: Add CSS variables `--component-vspace--(small|medium|large|xlarge)`
+- feat: Add CSS variables `--color-{name}-{number}`
+- fix: Reintroduce L15 font files because older CSS versions link to them
+
 ## 0.8.12 – 0.8.14
 
 _2021-09-22_
