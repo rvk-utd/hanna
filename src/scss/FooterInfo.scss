@@ -63,4 +63,7 @@
 	.FooterInfo__groupcontent a {
 		font-weight: $font-weight--normal;
 	}
+	.FooterInfo__group:not(:last-child) > .FooterInfo__groupcontent a {
+		--link-underline: 1px dotted #{rgba($color-faxafloi-100, 0.5)};
+	}
 }

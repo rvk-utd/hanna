@@ -4,6 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.16
+
+_2021-09-24_
+
+- feat: Add visible underline to `FooterInfo`'s inline links
+
 ## 0.8.15
 
 _2021-09-23_

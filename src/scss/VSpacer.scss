@@ -12,59 +12,43 @@
 			margin-top: #{$var--component-vspace--medium};
 			margin-bottom: #{$var--component-vspace--medium};
 		}
+		.VSpacer--small[class] {
+			margin-top: #{$var--component-vspace--small};
+			margin-bottom: #{$var--component-vspace--small};
+		}
+		.VSpacer--large[class] {
+			margin-top: #{$var--component-vspace--large};
+			margin-bottom: #{$var--component-vspace--large};
+		}
+		.VSpacer--xlarge[class] {
+			margin-top: #{$var--component-vspace--xlarge};
+			margin-bottom: #{$var--component-vspace--xlarge};
+		}
 
 		.VSpacer--top--none[class] {
 			margin-top: 0;
 		}
-		.VSpacer--bottom--none[class] {
-			margin-bottom: 0;
-		}
-		// Disallow double *--none classNames
-		.VSpacer--top--none.VSpacer--bottom--none {
-			margin-top: #{$var--component-vspace--small};
-			margin-bottom: #{$var--component-vspace--small};
-			@include WARNING__(
-				"VSpacer can't be both `--top--none` and  `--bottom--none`"
-			);
-		}
-
-		.VSpacer--small[class],
 		.VSpacer--top--small[class] {
 			margin-top: #{$var--component-vspace--small};
 		}
-		.VSpacer--large[class],
 		.VSpacer--top--large[class] {
 			margin-top: #{$var--component-vspace--large};
 		}
-		.VSpacer--xlarge[class],
 		.VSpacer--top--xlarge[class] {
 			margin-top: #{$var--component-vspace--xlarge};
 		}
 
-		.VSpacer--small[class],
+		.VSpacer--bottom--none[class] {
+			margin-bottom: 0;
+		}
 		.VSpacer--bottom--small[class] {
 			margin-bottom: #{$var--component-vspace--small};
 		}
-		.VSpacer--large[class],
 		.VSpacer--bottom--large[class] {
 			margin-bottom: #{$var--component-vspace--large};
 		}
-		.VSpacer--xlarge[class],
 		.VSpacer--bottom--xlarge[class] {
 			margin-bottom: #{$var--component-vspace--xlarge};
-		}
-
-		// Warn about redundant classNames
-		[class*='VSpacer--top--'][class*='VSpacer--bottom--'] {
-			& .VSpacer--small {
-				@include WARNING__('The class-name `.VSpacer--small` is redundant');
-			}
-			& .VSpacer--large {
-				@include WARNING__('The class-name `.VSpacer--large` is redundant');
-			}
-			& .VSpacer--xlarge {
-				@include WARNING__('The class-name `.VSpacer--xlarge` is redundant');
-			}
 		}
 
 		// Drop-in (non-wrapping) <br/> variant.
@@ -76,6 +60,27 @@
 		// Drop-in spacers override the top-margin of their next component sibling
 		br.VSpacer + [class] {
 			margin-top: 0;
+		}
+
+		// Disallow double *--none classNames
+		.VSpacer--top--none.VSpacer--bottom--none {
+			margin-top: #{$var--component-vspace--small};
+			margin-bottom: #{$var--component-vspace--small};
+			@include WARNING__(
+				"VSpacer can't be both `--top--none` and  `--bottom--none`"
+			);
+		}
+		// Warn about redundant classNames
+		[class*='VSpacer--top--'][class*='VSpacer--bottom--'] {
+			& .VSpacer--small {
+				@include WARNING__('The class-name `.VSpacer--small` is redundant');
+			}
+			& .VSpacer--large {
+				@include WARNING__('The class-name `.VSpacer--large` is redundant');
+			}
+			& .VSpacer--xlarge {
+				@include WARNING__('The class-name `.VSpacer--xlarge` is redundant');
+			}
 		}
 	}
 }
