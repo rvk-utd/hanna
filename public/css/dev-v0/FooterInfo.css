@@ -79,4 +79,9 @@
     font-weight: 400;
   }
 }
+@media screen {
+  .FooterInfo__group:not(:last-child) > .FooterInfo__groupcontent a {
+    --link-underline: 1px dotted rgba(3, 103, 225, 0.5);
+  }
+}
 /*# sourceMappingURL=FooterInfo.css.map */
