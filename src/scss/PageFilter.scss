@@ -16,26 +16,26 @@
 		@include SeenEffect--fadeup();
 		background-color: $color-suld-25;
 		padding: between_cols(30, 80) 0 0 0;
-		margin-bottom: between_cols(50, 128);
+		margin-bottom: between_cols(64, 128);
 		@include extendBackgroundWithUnderlay();
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-between;
 		align-items: flex-start;
 	}
-
-	.PageFilter--underlap {
-		margin-bottom: prem(-24);
-		z-index: -1;
-	}
-
 	.PageFilter::before {
 		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
-		margin-bottom: between_cols(-20, -40);
+		margin-bottom: between_cols(-32, -64);
 		pointer-events: none;
 
 		@include media($mq-wide) {
 			border-width: prem(24);
+		}
+	}
+
+	.PageFilter--underlap {
+		@media #{$mq-tablet_up} {
+			margin-bottom: 0;
 		}
 	}
 
@@ -46,7 +46,6 @@
 	}
 	.PageFilter__summary {
 		// @include BodyTextStyle--small();
-		margin-bottom: prem(20);
 		width: 100%;
 	}
 
@@ -54,7 +53,8 @@
 		display: flex;
 		flex-flow: row wrap;
 		align-items: flex-start;
-		margin-bottom: between_cols(10, 40);
+		margin-top: prem(20);
+		margin-bottom: between_cols(0, 24);
 		width: 100%;
 		max-width: cols_px(9, 9);
 		flex-shrink: 0;
@@ -72,7 +72,8 @@
 	}
 
 	.PageFilter__buttons {
-		margin-bottom: between_cols(10, 40);
+		margin-top: prem(20);
+		margin-bottom: between_cols(0, 24);
 	}
 	.PageFilter__buttons > .ButtonTertiary:last-child,
 	.PageFilter__buttons > .ButtonPrimary:last-child {

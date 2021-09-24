@@ -4,11 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.8.16
+## 0.8.16 – 0.8.17
 
 _2021-09-24_
 
 - feat: Add visible underline to `FooterInfo`'s inline links
+- fix: Layering issues with `PageFilter--underlap`
 
 ## 0.8.15
 

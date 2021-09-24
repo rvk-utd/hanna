@@ -12,7 +12,7 @@
   .PageFilter {
     background-color: #f8f8f9;
     padding: calc(5.3879310345% + 14.9137931034px) 0 0 0;
-    margin-bottom: calc(8.4051724138% + 26.4655172414px);
+    margin-bottom: calc(6.8965517241% + 44.6896551724px);
     position: relative;
     display: flex;
     flex-flow: row wrap;
@@ -42,20 +42,20 @@
     background: inherit;
   }
 
-  .PageFilter--underlap {
-    margin-bottom: -1.5rem;
-    z-index: -1;
-  }
-
   .PageFilter::before {
     border-left: calc(1.5094339623vw + 3.1698113208px) solid var(--theme-color-primary);
-    margin-bottom: calc(-2.1551724138% + -13.9655172414px);
+    margin-bottom: calc(-3.4482758621% + -22.3448275862px);
     pointer-events: none;
   }
 }
 @media screen and (min-width: 1380px) {
   .PageFilter::before {
     border-width: 1.5rem;
+  }
+}
+@media screen and (min-width: 760px) {
+  .PageFilter--underlap {
+    margin-bottom: 0;
   }
 }
 @media screen {
@@ -69,7 +69,6 @@
 }
 @media screen {
   .PageFilter__summary {
-    margin-bottom: 1.25rem;
     width: 100%;
   }
 }
@@ -78,7 +77,8 @@
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
-    margin-bottom: calc(3.2327586207% + 0.9482758621px);
+    margin-top: 1.25rem;
+    margin-bottom: calc(2.5862068966% + -7.2413793103px);
     width: 100%;
     max-width: 936px;
     flex-shrink: 0;
@@ -99,7 +99,8 @@
 }
 @media screen {
   .PageFilter__buttons {
-    margin-bottom: calc(3.2327586207% + 0.9482758621px);
+    margin-top: 1.25rem;
+    margin-bottom: calc(2.5862068966% + -7.2413793103px);
   }
 }
 @media screen {
