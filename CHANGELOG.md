@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Layering issues with `PageFilter--underlap`
 
 ## 0.8.16
 
