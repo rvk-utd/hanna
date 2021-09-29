@@ -368,9 +368,9 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     background-color: #0367e1;
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
     right: calc(-0.5 * var(--browser-scrollbar-width, 0));
+    height: 100vh;
     z-index: 3;
     margin-left: calc(50% - 50vw + 0.5 * var(--browser-scrollbar-width, 0));
     padding-left: calc(50vw - 50% - 0.5 * var(--browser-scrollbar-width, 0));
