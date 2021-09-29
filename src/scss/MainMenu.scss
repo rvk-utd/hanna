@@ -272,10 +272,10 @@
 
 		position: absolute;
 		top: 0;
-		bottom: 0;
 		left: 0;
 		// hide scrollbar "beneath" <body>'s overflow-x:hidden
 		right: calc(-0.5 * #{$var--browser-scrollbar-width});
+		height: 100vh;
 		z-index: 3;
 
 		margin-left: calc(50% - 50vw + 0.5 * #{$var--browser-scrollbar-width});
