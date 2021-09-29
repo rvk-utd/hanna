@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add new convenience token `WizardLayout-full`
 - fix: Enable rudimentary scrolling in `MainMenu` mega panels
 
 ## 0.8.16 – 0.8.17
