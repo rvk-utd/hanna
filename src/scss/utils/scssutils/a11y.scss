@@ -1,3 +1,5 @@
+@use 'focus-selectors' as *;
+
 $_focusLink-color: #c00 !default;
 $_focusLink-borderColor: #029 !default;
 $_focusLink-border: 3px double $_focusLink-borderColor !default;
@@ -39,16 +41,16 @@ $_focusLink-dir: ltr !default; // screen-reader and rtl-friendly hiding
 ) {
 	@include sr-only();
 
-	&:active,
-	&:focus,
-	&.--focus-within {
+
+	@include keyboardFocus-selector() {
 		@include sr-only--undo();
 		@include _srFocusStyling($link, $border, $bg);
 	}
-	&:focus-within {
+	&:focus-within:not(:focus) {
 		@include sr-only--undo();
 		@include _srFocusStyling($link, $border, $bg);
 	}
+
 }
 
 @mixin sr-only-content-focusable(
