@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Set fixed width on `.ProcessOverview__item__content`
 
 ## 0.8.18
 
