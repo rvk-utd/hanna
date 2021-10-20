@@ -193,7 +193,7 @@
 	}
 
 	a[href^='tel:']:not([class]) {
-		color: inherit;
+		--link-color: _inherit;
 	}
 	a {
 		@include LinkStyle();
