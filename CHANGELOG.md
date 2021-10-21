@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `FooterBadges` for logos/badges/etc.
 - feat: New styling for `FooterInfo`
 - fix: Set fixed width on `.ProcessOverview__item__content`
 - fix: Prevent skip-to-navigation link from appearing on window resize
