@@ -28,7 +28,7 @@
 
 	label.FormField__label {
 		color: $color-suld-150;
-		font-size: prem($font-label-size);
+		font-size: $var--font-label-size;
 		font-weight: $font-weight--normal;
 		line-height: prem(14);
 		transition: all 200ms ease-in;

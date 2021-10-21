@@ -137,6 +137,9 @@
 	--font-bd-s-size: #{px($font-bd-s-size)};
 	--font-bd-s-leading: #{px($font-bd-s-leading)};
 
+	--font-label-size: #{px($font-label-size)};
+	--font-label-leading: #{px($font-label-leading)};
+
 	@include media($mq-phablet_netbook) {
 		--font-hd-xl-size: #{between_phablet_netbook(
 				$font-hd-xl-size--phone,
