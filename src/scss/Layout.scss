@@ -11,7 +11,9 @@
 
 @media screen {
 	body {
-		padding: 0 $var--grid-edge;
+		padding: 0;
+		padding-left: $var--grid-edge;
+		padding-right: $var--grid-edge--right;
 	}
 
 	.Layout {
@@ -130,7 +132,7 @@
 		@include hideText(soft);
 		@include LinkStyle_Reset(true);
 		position: fixed;
-		right: $var--grid-edge;
+		right: $var--grid-edge--right;
 		bottom: grid-units(3);
 		background-color: $color-faxafloi-100;
 		color: $color-suld-0;

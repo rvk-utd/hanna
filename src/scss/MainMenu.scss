@@ -117,7 +117,8 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		padding: 0 $var--grid-edge;
+		padding-left: $var--grid-edge;
+		padding-right: $var--grid-edge--right;
 		padding-top: $var--Layout__header-height;
 		margin-top: -100vh;
 		overflow-x: hidden;

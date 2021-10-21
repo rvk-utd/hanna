@@ -3,6 +3,8 @@
 @mixin cssVariables() {
 	@media screen {
 		:root {
+			--browser-scrollbar-width: 0px;
+
 			$gru: $grid-unit;
 			--baseVerticalMargin: #{between_phone_netbook(2 * $gru, 3 * $gru)};
 			--baseVerticalMargin-2: #{between_phone_netbook(4 * $gru, 6 * $gru)};
@@ -41,6 +43,9 @@
 			-1 * $grid-edge--phone,
 			-1 * $grid-edge--wide
 		)};
+
+	--grid-edge--right: calc(var(--grid-edge) - var(--browser-scrollbar-width));
+	--grid-edge--right--neg: calc(var(--grid-edge--neg) - var(--browser-scrollbar-width));
 
 	--grid-0-1: #{_flexCol(0, 1)};
 	--grid-1: #{_flexCol(1)};
