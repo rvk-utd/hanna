@@ -46,7 +46,7 @@
 	@include media($mq-Topmenu) {
 		.PrimaryPanel {
 			--menu-primary-columns: 8;
-			grid-template-columns: repeat(var(--menu-primary-columns), minmax(0, 1fr));
+			grid-template-columns: repeat(var(--PrimaryPanel-columns), minmax(0, 1fr));
 
 			padding-top: $var--Layout__header-height;
 			padding-bottom: prem(125); // clear .MainMenu__megapanel__backtomenu
@@ -58,7 +58,7 @@
 		}
 
 		.PrimaryPanel--twocol {
-			grid-column: span var(--menu-primary-columns);
+			grid-column: span var(--PrimaryPanel-columns);
 		}
 
 		.PrimaryPanel__title {
@@ -75,7 +75,7 @@
 			grid-column: span 5;
 		}
 		.PrimaryPanel--twocol .PrimaryPanel__title {
-			grid-column: span var(--menu-primary-columns);
+			grid-column: span var(--PrimaryPanel-columns);
 			margin-right: cols_pct(1, 0, 8);
 		}
 
@@ -84,7 +84,7 @@
 			padding-right: cols_pct(1, 0, 4);
 		}
 		.PrimaryPanel--twocol .PrimaryPanel__items {
-			grid-column: span var(--menu-primary-columns);
+			grid-column: span var(--PrimaryPanel-columns);
 			display: grid;
 			column-gap: $var--grid-gutter;
 			grid-template-columns: repeat(2, minmax(0, 1fr));

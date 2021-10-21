@@ -14,7 +14,7 @@
 		&::before {
 			content: '';
 			position: absolute;
-			top: calc(0.5 * var(--font-bd-l-leading));
+			top: calc(0.5 * #{$var--font-bd-l-leading});
 			left: 0;
 			width: prem($grid-unit * 2);
 			margin-top: prem(-1);

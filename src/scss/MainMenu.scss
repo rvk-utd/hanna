@@ -152,8 +152,8 @@
 		margin-left: var(--MainMenu--offsetLeft);
 	}
 	.MainMenu__link {
-		--link-color: var(--menu-primary-text);
-		--link-color--hover: var(--menu-primary-hover);
+		--link-color: $var--menu-primary-text;
+		--link-color--hover: $var--menu-primary-hover;
 		$pB: prem(8) - $link-underline-thickness;
 		padding: prem(8) 0 $pB 0;
 	}
