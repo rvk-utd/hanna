@@ -57,10 +57,8 @@
 		margin-bottom: between_cols(0, 24);
 		width: 100%;
 		max-width: cols_px(9, 9);
-		flex-shrink: 0;
 	}
 	.PageFilter__filters > .FormField {
-		flex-shrink: 0;
 		margin-right: $var--grid-gutter;
 		margin-bottom: prem(3 * $grid-unit);
 		// min-width: cols_pct(3, 2, 9, 9); // In FireFox the min-width becomes larger and thus only fits 2 FormFields per line.
