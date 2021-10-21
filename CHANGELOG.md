@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - fix: Set fixed width on `.ProcessOverview__item__content`
 - fix: Prevent skip-to-navigation link from appearing on window resize
+- fix: Better account for scrollbar in page layout
+- fix: Minor inaccuracies in grid/column CSS variable values
 
 ## 0.8.18
 
