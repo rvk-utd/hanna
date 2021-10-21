@@ -1,0 +1,28 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+	.ContentImage {
+		display: flex;
+		flex-flow: column;
+		margin-bottom: $var--baseVerticalMargin;
+	}
+	.ContentImage__caption {
+		order: 1;
+		background-color: $color-suld-25;
+		padding: grid-units(1) grid-units(2);
+		display: flex;
+		justify-content: space-between;
+		font-size: $var--font-label-size;
+		line-height: $var--font-label-leading;
+	}
+	.ContentImage__text {
+	}
+	.ContentImage__credit {
+		margin-left: grid-units(3);
+		color: $color-suld-150;
+		text-align: right;
+	}
+	.ContentImage__image {
+	}
+}
