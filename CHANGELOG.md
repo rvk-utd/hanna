@@ -7,6 +7,8 @@
 - feat: Add component `FooterBadges` for logos/badges/etc.
 - feat: New styling for `FooterInfo`
 - feat: Create CSS variables `--font-label-size`, `--font-label-leading`
+- feat: Add new icons `data`, `document`, `edit`, `external`
+- feat: Update icon shape `edit`
 - fix: Set fixed width on `.ProcessOverview__item__content`
 - fix: Prevent skip-to-navigation link from appearing on window resize
 - fix: Better account for scrollbar in page layout
