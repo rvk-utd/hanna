@@ -9,6 +9,7 @@
 @use 'SubHeading';
 @use 'Sharpie';
 @use 'VSpacer';
+@use 'ArticleMeta';
 
 /*!@deps
 	Attention
@@ -85,3 +86,4 @@
 @include SubHeading.css();
 @include Sharpie.css();
 @include VSpacer.css();
+@include ArticleMeta.css();
