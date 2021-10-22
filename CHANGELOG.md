@@ -3,12 +3,13 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `ContentArticle`
 - feat: Add component `RelatedLinks`
 - feat: Add component `ContentImage`
 - feat: Add component `ArticleMeta`
-- feat: Add nicer default styling for `<hr />`s
 - feat: Add component `FooterBadges` for logos/badges/etc.
 - feat: New styling for `FooterInfo`
+- feat: Add nicer default styling for `<hr />`s
 - feat: Create CSS variables `--font-label-size`, `--font-label-leading`
 - feat: Add new icons `data`, `document`, `edit`, `external`
 - feat: Update icon shape `edit`
