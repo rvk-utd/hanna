@@ -1,14 +1,14 @@
 @use 'globals' as *;
 
-@media screen {
-	.CenterColumn {
+@mixin mixin {
+	& {
 		max-width: cols_px(8);
 		margin: 0 auto;
 	}
 
-	.CenterColumn > .PageHeading,
-	.CenterColumn > .Heading,
-	.CenterColumn > .TextBlock {
+	& > .PageHeading,
+	& > .Heading,
+	& > .TextBlock {
 		width: auto;
 		max-width: none;
 		margin-left: 0;
@@ -16,20 +16,26 @@
 
 	// ===========================================================================
 
-	.CenterColumn > [class*='--align--'],
-	.CenterColumn > [class*='--wide'],
-	.CenterColumn > .TextBlock--labelled,
-	.CenterColumn
-		> *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(hr) {
+	& > [class*='--align--'],
+	& > [class*='--wide'],
+	& > .TextBlock--labelled,
+	&
+		> *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
 		@include WARNING__(
-			'Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage`, `RelatedLinks`, `ArticleMeta`, `<hr/>` inside a .CenterColumn wrapper.'
+			'Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage`, `RelatedLinks`, `ArticleMeta`, `VSpacer`, `<hr/>` inside this parent wrapper.'
 		);
 	}
-	.CenterColumn > [class*='--align--'][class],
-	.CenterColumn > [class*='--wide'][class] {
+	& > [class*='--align--'][class],
+	& > [class*='--wide'][class] {
 		@include WARNING_message__('Do not use --align-- or --wide modifiers.');
 	}
-	.CenterColumn > .TextBlock--labelled[class] {
+	& > .TextBlock--labelled[class] {
 		@include WARNING_message__('Do not use the --labelled modifier.');
+	}
+}
+
+@media screen {
+	.CenterColumn {
+		@include mixin();
 	}
 }
