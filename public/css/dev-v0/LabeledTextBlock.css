@@ -30,7 +30,6 @@
   .LabeledTextBlock__label::before {
     content: "";
     float: left;
-    flex-shrink: 0;
     margin-top: 0.7em;
     height: 0.25rem;
     background-color: var(--theme-color-primary--safeish);

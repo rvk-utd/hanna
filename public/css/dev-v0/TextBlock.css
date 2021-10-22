@@ -15,6 +15,9 @@
 	TextBlock
 */
 /*!@deps
+	TextBlock
+*/
+/*!@deps
 	Attention
 */
 @media screen {
@@ -200,7 +203,6 @@
   .TextBlock--labelled h2::before {
     content: "";
     float: left;
-    flex-shrink: 0;
     margin-top: 0.7em;
     height: 0.25rem;
     background-color: var(--theme-color-primary--safeish);
@@ -381,8 +383,8 @@
     font-size: var(--font-hd-m-size);
     line-height: var(--font-hd-m-leading);
     max-width: 584px;
-    margin-top: calc(1.8867924528vw + 33.9622641509px);
-    margin-bottom: calc(0.9433962264vw + 16.9811320755px);
+    margin-top: calc(1.9083969466vw + 33.893129771px);
+    margin-bottom: calc(0.7633587786vw + 21.5572519084px);
   }
 }
 @media screen and (min-width: 760px) {
@@ -417,10 +419,10 @@
     content: "`--align--right` can't be `--wide`" !important;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .Heading {
     margin-top: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
   }
 }
 @media screen {
@@ -462,8 +464,8 @@
     font-size: var(--font-sh-l-size);
     line-height: var(--font-sh-l-leading);
     max-width: 584px;
-    margin-top: calc(0.9433962264vw + 36.9811320755px);
-    margin-bottom: calc(0.9433962264vw + 16.9811320755px);
+    margin-top: calc(0.9541984733vw + 36.9465648855px);
+    margin-bottom: calc(0.9541984733vw + 16.9465648855px);
   }
   .before-sprinkling .SubHeading, .SubHeading[data-is-seen=false], .SubHeading[data-is-seen=true] {
     opacity: 0;
@@ -521,7 +523,7 @@
     content: "`--align--right` can't be `--wide`" !important;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .SubHeading {
     margin-top: 50px;
     margin-bottom: 30px;
@@ -730,6 +732,23 @@ div.Sharpie::before {
     background-color: rgba(255, 230, 230, 0.5) !important;
     padding: 0 0.5em !important;
     content: "The class-name `.VSpacer--xlarge` is redundant" !important;
+  }
+}
+@media screen {
+  .ArticleMeta {
+    color: #707275;
+    margin-bottom: 0.5rem;
+  }
+
+  .ArticleMeta__item:not(:last-child)::after {
+    content: " | ";
+    margin: 0 0.25em;
+    text-decoration: none;
+    color: #707275;
+  }
+
+  .ArticleMeta + .Heading {
+    margin-top: 0;
   }
 }
 /*# sourceMappingURL=TextBlock.css.map */

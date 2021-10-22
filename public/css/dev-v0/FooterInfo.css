@@ -1,58 +1,75 @@
 @media screen {
   .FooterInfo {
     flex-basis: 100%;
+    padding-top: 2rem;
   }
-
+}
+@media screen and (min-width: 760px) {
+  .FooterInfo {
+    padding-top: 8rem;
+    padding-left: var(--grid-1-1);
+  }
+}
+@media screen {
+  .FooterInfo::before {
+    content: "";
+    display: block;
+    margin: 0 auto 6rem auto;
+    background: url("/assets/reykjavik-logo-notext.svg") 50% 50% no-repeat;
+    background-size: auto 100%;
+    width: 2.1875rem;
+    height: 3.3125rem;
+  }
+}
+@media screen and (min-width: 760px) {
+  .FooterInfo::before {
+    position: absolute;
+    left: 0;
+    width: var(--grid-1);
+  }
+}
+@media screen {
   .FooterInfo__group {
-    margin-bottom: calc(1.0775862069% + 26.9827586207px);
+    margin-bottom: 4rem;
   }
 }
 @media screen and (min-width: 760px) {
   .FooterInfo__group {
     float: left;
-    width: 43.4782608696%;
-    margin-left: 5.7971014493%;
+    width: var(--grid-4);
+    margin-left: var(--grid-gutter);
   }
 }
 @media screen and (min-width: 980px) {
   .FooterInfo__group {
-    width: 24.6376811594%;
-    margin-left: 3.6231884058%;
-  }
-}
-@media screen {
-  .FooterInfo__group:first-child {
-    margin-left: 0;
+    width: var(--grid-3);
   }
 }
 @media screen {
   .FooterInfo__group[role=contactinfo] {
-    box-sizing: content-box;
     background-color: #f8f8f9;
+    padding: 4rem var(--grid-gutter);
   }
 }
 @media screen and (max-width: 759px) {
   .FooterInfo__group[role=contactinfo] {
-    margin-left: -0.9375rem;
-    margin-right: -0.9375rem;
-    padding: 0.9375rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 @media screen and (min-width: 760px) {
   .FooterInfo__group[role=contactinfo] {
-    margin-top: -3.6231884058%;
-    padding: 3.6231884058%;
+    margin-top: -4rem;
+    margin-left: 0;
+    width: var(--grid-5);
   }
 }
-@media screen and (min-width: 980px) and (max-width: 1379px) {
+@media screen and (min-width: 1368px) {
   .FooterInfo__group[role=contactinfo] {
-    width: 34.0579710145%;
-  }
-}
-@media screen and (min-width: 1380px) {
-  .FooterInfo__group[role=contactinfo] {
-    margin-left: 5.7971014493%;
-    margin-right: 5.7971014493%;
+    width: var(--grid-4);
+    margin-left: var(--grid-1-1);
   }
 }
 @media screen {
@@ -60,28 +77,42 @@
     font-weight: 700;
     font-size: var(--font-sh-s-size);
     line-height: var(--font-sh-s-leading);
-    margin-bottom: 0.9375rem;
+    margin-bottom: 1.5rem;
   }
 }
 @media screen {
-  .FooterInfo__groupcontent {
-    line-height: 1.875rem;
+  .FooterInfo__groupcontent h4 {
+    font-weight: 700;
+    font-size: var(--font-sh-s-size);
+    line-height: var(--font-sh-s-leading);
+    margin-bottom: 0.5rem;
+  }
+}
+@media screen {
+  .FooterInfo__groupcontent h4:not(:first-child) {
+    margin-top: 1.5rem;
   }
 }
 @media screen {
   .FooterInfo__groupcontent p,
-.FooterInfo__groupcontent ul {
-    margin-bottom: 1.875rem;
+.FooterInfo__groupcontent ul,
+.FooterInfo__groupcontent li {
+    margin-bottom: 1rem;
+    --current-link-color: var(--link-color);
   }
 }
 @media screen {
-  .FooterInfo__groupcontent a {
+  .FooterInfo__groupcontent a[href^="tel:"] {
+    --link-color: var(--current-link-color);
+  }
+}
+@media screen {
+  .FooterInfo__groupcontent a > small {
+    font-size: 1em;
+    display: block;
     font-weight: 400;
-  }
-}
-@media screen {
-  .FooterInfo__group:not(:last-child) > .FooterInfo__groupcontent a {
-    --link-underline: 1px dotted rgba(3, 103, 225, 0.5);
+    text-decoration: none;
+    color: #707275;
   }
 }
 /*# sourceMappingURL=FooterInfo.css.map */

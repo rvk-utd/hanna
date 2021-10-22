@@ -34,7 +34,7 @@
     background-color: var(--theme-color-primary);
     color: var(--theme-color-primary--text);
     --link-color: _inherit;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline: 1px dotted currentColor;
     --link-underline--hover: 2px solid currentColor;
     --ButtonTertiary--dashColor: currentColor;
@@ -57,7 +57,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     color: var(--ButtonTertiary--color, _inherit);
@@ -223,10 +223,10 @@
     box-sizing: content-box;
     width: 43.0794701987%;
     margin-bottom: calc(5.9267241379% + 33.4051724138px);
-    min-height: calc(19.3548387097vw + 132.9032258065px);
+    min-height: calc(19.7368421053vw + 130px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .IslandBlock__content,
 .IslandBlock__image {
     min-height: 400px;

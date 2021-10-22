@@ -18,10 +18,10 @@
     font-weight: 700;
     font-size: var(--font-hd-s-size);
     line-height: var(--font-hd-s-leading);
-    margin-bottom: calc(7.358490566vw + 16.4528301887px);
+    margin-bottom: calc(7.4427480916vw + 16.1832061069px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ProcessOverview__title {
     margin-bottom: 7.375rem;
   }
@@ -43,7 +43,6 @@
   .ProcessOverview__item__title::before {
     content: "";
     float: left;
-    flex-shrink: 0;
     margin-top: 0.7em;
     height: 0.25rem;
     background-color: var(--theme-color-primary--safeish);
@@ -65,7 +64,7 @@
     line-height: var(--font-bd-l-leading);
     position: relative;
     padding-left: 2.5rem;
-    margin-top: calc(1.5094339623vw + 59.1698113208px);
+    margin-top: calc(1.5267175573vw + 59.1145038168px);
   }
   .ProcessOverview__attention::before {
     content: "";
@@ -77,7 +76,7 @@
     bottom: 0;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ProcessOverview__attention {
     margin-top: 5rem;
   }
@@ -104,7 +103,7 @@
 
   .ProcessOverview__item__content,
 .ProcessOverview__attention {
-    max-width: 56.9536423841%;
+    width: 56.9536423841%;
     margin-left: auto;
   }
 

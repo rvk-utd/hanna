@@ -31,10 +31,10 @@
     font-weight: 700;
     font-size: var(--font-hd-m-size);
     line-height: var(--font-hd-m-leading);
-    margin-bottom: calc(3.7735849057vw + 19.9245283019px);
+    margin-bottom: calc(3.8167938931vw + 19.786259542px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ArticleCarousel__title {
     margin-bottom: 4.5rem;
   }
@@ -75,7 +75,7 @@
     border-top: 0;
     width: var(--grid-5);
     min-width: 330px;
-    padding: 1.3125rem var(--grid-column) calc(4.5283018868vw + 9.5094339623px);
+    padding: 1.3125rem var(--grid-column) calc(4.5801526718vw + 9.3435114504px);
     margin-right: var(--grid-gutter);
     position: relative;
   }
@@ -86,7 +86,7 @@
     min-width: 280px;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ArticleCarouselCard {
     padding-bottom: 4.5rem;
   }
@@ -215,7 +215,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     color: var(--ButtonTertiary--color, _inherit);

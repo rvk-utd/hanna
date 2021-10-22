@@ -1,7 +1,9 @@
 @charset "UTF-8";
 @media screen {
   body {
-    padding: 0 var(--grid-edge);
+    padding: 0;
+    padding-left: var(--grid-edge);
+    padding-right: var(--grid-edge--right);
   }
 
   .Layout {
@@ -55,7 +57,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     overflow: hidden;
@@ -110,37 +112,13 @@
   .Layout__footer {
     position: relative;
     border-top: 1px solid #e3e5e7;
-    padding-top: calc(8.6206896552% + -4.1379310345px);
-    padding-bottom: calc(5.3879310345% + 4.9137931034px);
-  }
-}
-@media screen and (min-width: 760px) {
-  .Layout__footer {
-    padding-left: 8.6092715232%;
-  }
-}
-@media screen {
-  .Layout__footer::before {
-    content: "";
-    display: block;
-    margin: 0.6875rem auto 1.8125rem auto;
-    background: url("/assets/reykjavik-logo-notext.svg") 0 0 no-repeat;
-    background-size: auto 100%;
-    width: 2.1875rem;
-    height: 3.3125rem;
-  }
-}
-@media screen and (min-width: 760px) {
-  .Layout__footer::before {
-    position: absolute;
-    left: 0;
-    background-position: 0 0;
+    padding-bottom: 2rem;
   }
 }
 @media screen and (max-width: 979px) {
   html.menu-is-open {
     overflow-y: hidden;
-    padding-right: var(--browser-scrollbar-width, 0);
+    padding-right: var(--browser-scrollbar-width);
   }
 
   .Layout__header {
@@ -176,11 +154,11 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     position: fixed;
-    right: var(--grid-edge);
+    right: var(--grid-edge--right);
     bottom: 1.5rem;
     background-color: #0367e1;
     color: #ffffff;
@@ -195,7 +173,7 @@
   html.menu-is-open .Layout__header__skiplink {
     --open-icon-color: transparent;
     --close-icon-color: _inherit;
-    margin-right: var(--browser-scrollbar-width, 0);
+    margin-right: var(--browser-scrollbar-width);
   }
 
   .Layout__header__skiplink:hover,
@@ -220,7 +198,7 @@
     letter-spacing: 0;
     width: 100%;
     margin-right: 1px;
-    content: "";
+    content: "";
     font-size: 1.5rem;
     color: var(--open-icon-color);
     transition: inherit;
@@ -265,7 +243,7 @@
     pointer-events: none;
     margin: -1px;
   }
-  .Layout__nav__closebutton:active, .Layout__nav__closebutton:focus, .Layout__nav__closebutton.--focus-within {
+  .Layout__nav__closebutton[data-focus-visible-added] {
     width: auto;
     height: auto;
     overflow: visible;
@@ -283,7 +261,25 @@
     text-shadow: none;
     white-space: nowrap;
   }
-  .Layout__nav__closebutton:focus-within {
+  .Layout__nav__closebutton:focus-visible {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    opacity: 1;
+    pointer-events: auto;
+    margin: 0;
+    z-index: 99999;
+    font-size: 1em;
+    background: #ffffff;
+    border: 3px double 3px double var(--link-color--hover);
+    margin: 0;
+    padding: 0.2em 0.33em;
+    color: var(--link-color--hover);
+    text-shadow: none;
+    white-space: nowrap;
+  }
+  .Layout__nav__closebutton:focus-within:not(:focus) {
     width: auto;
     height: auto;
     overflow: visible;
@@ -313,7 +309,7 @@
     pointer-events: none;
     margin: -1px;
   }
-  .Layout__header__skiplink:active, .Layout__header__skiplink:focus, .Layout__header__skiplink.--focus-within {
+  .Layout__header__skiplink[data-focus-visible-added] {
     width: auto;
     height: auto;
     overflow: visible;
@@ -331,7 +327,25 @@
     text-shadow: none;
     white-space: nowrap;
   }
-  .Layout__header__skiplink:focus-within {
+  .Layout__header__skiplink:focus-visible {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    opacity: 1;
+    pointer-events: auto;
+    margin: 0;
+    z-index: 99999;
+    font-size: 1em;
+    background: #ffffff;
+    border: 3px double 3px double var(--link-color--hover);
+    margin: 0;
+    padding: 0.2em 0.33em;
+    color: var(--link-color--hover);
+    text-shadow: none;
+    white-space: nowrap;
+  }
+  .Layout__header__skiplink:focus-within:not(:focus) {
     width: auto;
     height: auto;
     overflow: visible;

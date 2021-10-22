@@ -32,7 +32,7 @@
     margin-right: var(--grid-0-1--neg);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .FeatureList {
     --left-offset: var(--grid-1-1);
   }
@@ -61,14 +61,14 @@
          columns: 2;
   }
 }
-@media screen and (min-width: 760px) and (max-width: 1379px) {
+@media screen and (min-width: 760px) and (max-width: 1367px) {
   .FeatureList__list {
     width: calc(var(--grid-9-9) + 3 * var(--grid-0-1));
     -moz-columns: 3;
          columns: 3;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .FeatureList__list {
     width: var(--grid-9-9);
     -moz-columns: 3;

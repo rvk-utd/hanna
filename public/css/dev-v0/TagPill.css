@@ -5,7 +5,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     display: inline-block;
@@ -20,11 +20,11 @@
     font-size: 0.75rem;
     min-width: 4.375rem;
     margin-bottom: 1rem;
-    margin-right: calc(0.4444444444vw + 9.8666666667px);
-    padding: 0 calc(0.4444444444vw + 9.8666666667px);
+    margin-right: calc(0.4504504505vw + 9.8378378378px);
+    padding: 0 calc(0.4504504505vw + 9.8378378378px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .TagPill {
     margin-right: 16px;
     padding-left: 16px;

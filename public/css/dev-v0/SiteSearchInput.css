@@ -5,10 +5,10 @@
 @media screen {
   .SiteSearchInput {
     margin-bottom: 3.5rem;
-    --ssi-height: calc(3.0188679245vw + 54.3396226415px);
+    --ssi-height: calc(3.0534351145vw + 54.2290076336px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .SiteSearchInput {
     --ssi-height: 96px;
   }
@@ -33,11 +33,11 @@
 }
 @media screen {
   .SiteSearchInput > .FormField__input > input {
-    padding: calc(1.5094339623vw + 5.1698113208px) 0;
-    padding-left: calc(1.5094339623vw + 11.1698113208px);
+    padding: calc(1.5267175573vw + 5.1145038168px) 0;
+    padding-left: calc(1.5267175573vw + 11.1145038168px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .SiteSearchInput > .FormField__input > input {
     padding: 26px 0;
     padding-left: 32px;
@@ -69,7 +69,7 @@
 }
 @media screen {
   .SiteSearchInput__button::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
