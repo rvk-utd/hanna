@@ -3,7 +3,7 @@
 @mixin cssVariables() {
 	@media screen {
 		:root {
-			--browser-scrollbar-width: 0px;
+			--browser-scrollbar-width: 16px;
 
 			$gru: $grid-unit;
 			--baseVerticalMargin: #{between_phone_netbook(2 * $gru, 3 * $gru)};
