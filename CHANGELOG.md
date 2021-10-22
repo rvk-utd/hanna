@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `RelatedLinks`
 - feat: Add component `ContentImage`
+- feat: Add nicer default styling for `<hr />`s
 - feat: Add component `FooterBadges` for logos/badges/etc.
 - feat: New styling for `FooterInfo`
 - feat: Create CSS variables `--font-label-size`, `--font-label-leading`

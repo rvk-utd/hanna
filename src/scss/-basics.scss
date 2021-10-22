@@ -275,6 +275,15 @@
 		@include WARNING__('Lists may only contain <ll/>s');
 	}
 
+	hr {
+		display: block;
+		margin: $var--baseVerticalMargin 0;
+		padding: 0;
+		height: 1px;
+		border: 0;
+		border-top: 1px solid $color-suld-100;
+	}
+
 	fieldset {
 		padding: 0;
 		border: 0;
