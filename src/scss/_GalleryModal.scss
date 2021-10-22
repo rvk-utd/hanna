@@ -90,7 +90,7 @@
 		.GalleryModalPager__button--prev {
 			@include media($mq-netbook_up) {
 				left: 0;
-				width: var(--grid-edge);
+				width: $var--grid-edge;
 			}
 		}
 

@@ -4,6 +4,25 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.19
+
+_2021-10-22_
+
+- feat: Add component `ContentArticle`
+- feat: Add component `RelatedLinks`
+- feat: Add component `ContentImage`
+- feat: Add component `ArticleMeta`
+- feat: Add component `FooterBadges` for logos/badges/etc.
+- feat: New styling for `FooterInfo`
+- feat: Add nicer default styling for `<hr />`s
+- feat: Create CSS variables `--font-label-size`, `--font-label-leading`
+- feat: Add new icons `data`, `document`, `edit`, `external`
+- feat: Update icon shape `edit`
+- fix: Set fixed width on `.ProcessOverview__item__content`
+- fix: Prevent skip-to-navigation link from appearing on window resize
+- fix: Better account for scrollbar in page layout
+- fix: Minor inaccuracies in grid/column CSS variable values
+
 ## 0.8.18
 
 _2021-09-29_

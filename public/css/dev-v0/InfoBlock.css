@@ -12,7 +12,7 @@
   }
 
   .InfoBlock::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
@@ -32,10 +32,10 @@
     height: 1em;
     line-height: 1em;
     margin: -0.2em -0.5em;
-    font-size: calc(3.7735849057vw + 36.9245283019px);
+    font-size: calc(3.8167938931vw + 36.786259542px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .InfoBlock::before {
     font-size: 5.5625rem;
   }
@@ -97,9 +97,9 @@
     line-height: var(--font-bd-l-leading);
     position: relative;
     padding-left: 2.5rem;
-    margin-top: calc(1.5094339623vw + 59.1698113208px);
+    margin-top: calc(1.5267175573vw + 59.1145038168px);
     border-top: 1px solid #707275;
-    padding-top: calc(2.2641509434vw + 32.7547169811px);
+    padding-top: calc(2.2900763359vw + 32.6717557252px);
   }
   .InfoBlock__extrainfo::before,
 .InfoBlock__attention::before {
@@ -107,12 +107,12 @@
     background-color: var(--theme-color-primary);
     width: 0.5rem;
     position: absolute;
-    top: calc(2.2641509434vw + 32.7547169811px);
+    top: calc(2.2900763359vw + 32.6717557252px);
     left: 0;
     bottom: 0;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .InfoBlock__extrainfo,
 .InfoBlock__attention {
     margin-top: 5rem;

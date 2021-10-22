@@ -64,7 +64,7 @@
 
 	.ProcessOverview__item__content,
 	.ProcessOverview__attention {
-		max-width: cols_pct(7);
+		width: cols_pct(7);
 		margin-left: auto;
 	}
 	.ProcessOverview--narrow > * > .ProcessOverview__item__content,

@@ -1,0 +1,70 @@
+@use '_globals' as *;
+@use 'styles/links' as *;
+
+@media screen {
+	.RelatedLinks {
+		margin-bottom: $var--baseVerticalMargin;
+	}
+	.RelatedLinks__title {
+		font-size: $var--font-bd-l-size;
+		line-height: $var--font-bd-l-leading;
+		font-weight: $font-weight--bold;
+		color: $color-suld-150;
+		margin-bottom: grid-units(1);
+	}
+	.RelatedLinks__list {
+		display: flex;
+		flex-flow: row wrap;
+		margin-right: $var--grid-gutter--neg;
+	}
+	.RelatedLinks__item {
+		margin-top: grid-units(1);
+		margin-bottom: grid-units(2);
+		margin-right: $var--grid-gutter;
+		min-width: 220px;
+
+		@media #{$mq-phone_tablet} {
+			width: $var--grid-6;
+		}
+		@media #{$mq-netbook_up} {
+			width: $var--grid-4;
+		}
+	}
+	.RelatedLinks__link {
+		@include LinkStyle_Reset($hover: true);
+		position: relative;
+		display: block;
+		background-color: $color-suld-25;
+		--link-color: #{$color-faxafloi-100};
+		text-decoration: none;
+		padding: grid-units(2) grid-units(3);
+		padding-left: grid-units(7);
+		outline: 1px solid transparent;
+	}
+	.RelatedLinks__link:hover {
+		outline: 1px solid currentColor;
+	}
+	.RelatedLinks__link::before {
+		@include icon($icons-link);
+		position: absolute;
+		top: 50%;
+		left: grid-units(2);
+		font-size: grid-units(3);
+		width: 1em;
+		line-height: 1em;
+		margin-top: -0.5em;
+	}
+
+	.RelatedLinks__link[data-type='pdf']::before,
+	.RelatedLinks__link[href$='.pdf']::before,
+	.RelatedLinks__link[href*='.pdf?']::before {
+		content: $icons-file-pdf;
+	}
+	.RelatedLinks__link[data-type='document']::before {
+		content: $icons-document;
+	}
+	.RelatedLinks__link[data-type='external']::before,
+	.RelatedLinks__link[target]:not([target='_self'])::before {
+		content: $icons-external;
+	}
+}

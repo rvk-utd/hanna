@@ -8,7 +8,7 @@
 @media screen {
 	.NameCards {
 		display: grid;
-		column-gap: var(--grid-gutter);
+		column-gap: $var--grid-gutter;
 
 		@include media($mq-phablet_tablet) {
 			grid-template-columns: repeat(2, cols_pct(6));

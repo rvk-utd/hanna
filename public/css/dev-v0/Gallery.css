@@ -152,7 +152,6 @@
   .GalleryItem {
     display: flex;
     flex-flow: column-reverse;
-    margin: 0;
     padding: 0 1.25rem;
     --GalleryItem__image--max-width: 280px;
     --GalleryItem__image--max-height: 240px;
@@ -169,7 +168,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
   }

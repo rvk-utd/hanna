@@ -117,7 +117,8 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		padding: 0 $var--grid-edge;
+		padding-left: $var--grid-edge;
+		padding-right: $var--grid-edge--right;
 		padding-top: $var--Layout__header-height;
 		margin-top: -100vh;
 		overflow-x: hidden;
@@ -151,8 +152,8 @@
 		margin-left: var(--MainMenu--offsetLeft);
 	}
 	.MainMenu__link {
-		--link-color: var(--menu-primary-text);
-		--link-color--hover: var(--menu-primary-hover);
+		--link-color: $var--menu-primary-text;
+		--link-color--hover: $var--menu-primary-hover;
 		$pB: prem(8) - $link-underline-thickness;
 		padding: prem(8) 0 $pB 0;
 	}
@@ -216,7 +217,8 @@
 		right: 0;
 		left: cols_pct(3, 3);
 		height: $var--Layout__header-height;
-		margin: 0 prem(-20);
+		margin-right: between_Topmenu(-8, -20);
+		margin-left: between_Topmenu(-14, -20);
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
@@ -228,8 +230,8 @@
 	}
 
 	.MainMenu__item {
-		--MainMenu__item-padding: #{between_Topmenu(4, 10)};
 		margin: 0 between_Topmenu(4, 10);
+		--MainMenu__item-padding: #{between_Topmenu(4, 10)};
 	}
 	.MainMenu__item:not(.MainMenu__separator ~ *) {
 		--MainMenu__item-padding: #{prem(10)};

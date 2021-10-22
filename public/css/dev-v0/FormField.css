@@ -29,7 +29,7 @@
 
   label.FormField__label {
     color: #707275;
-    font-size: 0.75rem;
+    font-size: var(--font-label-size);
     font-weight: 400;
     line-height: 0.875rem;
     transition: all 200ms ease-in;
@@ -169,7 +169,7 @@
   }
   .FormField__assist::before,
 .FormField__error::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;

@@ -166,8 +166,8 @@
 	}
 	.SearchResultsItem__meta {
 		display: block;
-		font-size: prem($font-label-size);
-		line-height: prem(16);
+		font-size: $var--font-label-size;
+		line-height: $var--font-label-leading;
 		order: -1;
 		@include media($mq-tablet_up) {
 			margin-bottom: prem(16);
@@ -248,8 +248,8 @@
 
 	.SearchResultsHighlightItem__meta {
 		display: block;
-		font-size: prem($font-label-size);
-		line-height: prem(16);
+		font-size: $var--font-label-size;
+		line-height: $var--font-label-leading;
 		margin-top: prem(-16);
 		order: -1;
 		@include media($mq-tablet_up) {

@@ -56,4 +56,9 @@
 	}
 }
 
+@mixin LabelTextStyle() {
+	font-size: $var--font-label-size;
+	line-height: $var--font-label-leading;
+}
+
 // ---------------------------------------------------------------------------

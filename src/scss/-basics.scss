@@ -82,7 +82,7 @@
 
 	html {
 		min-height: 100vh;
-		min-width: 320px;
+		min-width: calc(#{$bp-phone} - #{$var--browser-scrollbar-width});
 		box-sizing: border-box;
 		overflow-x: hidden;
 		position: relative;
@@ -149,6 +149,7 @@
 	ol,
 	dl,
 	table,
+	figure,
 	blockquote {
 		margin: 0;
 	}
@@ -193,7 +194,7 @@
 	}
 
 	a[href^='tel:']:not([class]) {
-		color: inherit;
+		--link-color: _inherit;
 	}
 	a {
 		@include LinkStyle();
@@ -272,6 +273,15 @@
 	ol > :not(li),
 	ul > :not(li) {
 		@include WARNING__('Lists may only contain <ll/>s');
+	}
+
+	hr {
+		display: block;
+		margin: $var--baseVerticalMargin 0;
+		padding: 0;
+		height: 1px;
+		border: 0;
+		border-top: 1px solid $color-suld-100;
 	}
 
 	fieldset {

@@ -7,7 +7,8 @@
 	padding-bottom: $var--link-underline-offset;
 	border-bottom: $var--link-underline;
 	transition: $var--link-transition;
-	transition-property: border-color, background-color, color, text-shadow, box-shadow;
+	transition-property: border-color, background-color, color, text-shadow, box-shadow,
+		outline;
 }
 @mixin LinkStyle--hover() {
 	color: $var--link-color--hover;
@@ -39,7 +40,7 @@
 	// unless..
 	@if $hover {
 		@if $hover != noborder {
-			--link-color--hover: currentColor;
+			--link-color--hover: var(--link-color);
 		}
 		--link-underline--hover: none;
 		--link-underline-offset: 0;
@@ -50,7 +51,7 @@
 // is the same as the surrounding text color.
 @mixin LinkStyle_SameColor() {
 	--link-color: _inherit;
-	--link-color--hover: currentColor;
+	--link-color--hover: var(--link-color);
 	--link-underline: 1px dotted currentColor;
 	--link-underline--hover: 2px solid currentColor;
 	--ButtonTertiary--dashColor: currentColor; // #{$var--color-theme-primary--dark};

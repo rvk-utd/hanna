@@ -1,0 +1,23 @@
+@use '_globals' as *;
+
+@media screen {
+	.FooterBadges {
+		width: $var--grid-12;
+		clear: both;
+		border-top: 1px solid $color-suld-75;
+		display: flex;
+		flex-flow: row wrap;
+		margin: 0 grid-units(-2);
+
+		@media #{$mq-tablet_up} {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+	.FooterBadges__badge {
+		margin: grid-units(2);
+	}
+	.FooterBadges__badge img {
+		width: auto;
+	}
+}

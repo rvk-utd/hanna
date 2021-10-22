@@ -1,0 +1,1 @@
+@media screen{.FooterBadges{width:var(--grid-12);clear:both;border-top:1px solid #e3e5e7;display:flex;flex-flow:row wrap;margin:0 -1rem}}@media screen and (min-width:760px){.FooterBadges{margin-left:0;margin-right:0}}@media screen{.FooterBadges__badge{margin:1rem}}@media screen{.FooterBadges__badge img{width:auto}}

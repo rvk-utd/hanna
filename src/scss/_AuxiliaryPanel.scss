@@ -1,4 +1,5 @@
 @use '_globals' as *;
+@use 'styles/font' as *;
 
 @mixin css() {
 	.AuxiliaryPanel {
@@ -33,6 +34,7 @@
 		}
 
 		.AuxiliaryPanel__title {
+			@include SubheadingStyle--small();
 			margin-left: var(--MainMenu--offsetLeft);
 			margin-bottom: prem(8);
 			padding-bottom: prem(8);
@@ -61,7 +63,7 @@
 			content: '';
 
 			background: 50% 0 / auto 305px no-repeat;
-			background-image: var(--menu-auxiliary-image);
+			background-image: $var--menu-auxiliary-image;
 
 			margin: prem(40) 0;
 			display: block;

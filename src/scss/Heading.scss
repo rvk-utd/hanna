@@ -13,11 +13,11 @@
 			@include HeadingStyle--medium();
 			@include ComponentLayout();
 			margin-top: between_phone_netbook(40, 60);
-			margin-bottom: between_phone_netbook(20, 30);
+			margin-bottom: between_phone_netbook(24, 32);
 
 			@include media($mq-wide) {
 				margin-top: 60px;
-				margin-bottom: 30px;
+				margin-bottom: 32px;
 			}
 		}
 		.Heading--large {

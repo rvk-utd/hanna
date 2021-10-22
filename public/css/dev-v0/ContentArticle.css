@@ -1,0 +1,89 @@
+@media screen {
+  .CenterColumn {
+    max-width: 792px;
+    margin: 0 auto;
+  }
+  .CenterColumn > .PageHeading, .CenterColumn > .Heading, .CenterColumn > .TextBlock {
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+  }
+  .CenterColumn > [class*="--align--"], .CenterColumn > [class*="--wide"], .CenterColumn > .TextBlock--labelled, .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .CenterColumn > [class*="--align--"]::before, .CenterColumn > [class*="--wide"]::before, .CenterColumn > .TextBlock--labelled::before, .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr)::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage`, `RelatedLinks`, `ArticleMeta`, `VSpacer`, `<hr/>` inside this parent wrapper." !important;
+  }
+  .CenterColumn > [class*="--align--"][class]::before, .CenterColumn > [class*="--wide"][class]::before {
+    content: "Do not use --align-- or --wide modifiers." !important;
+  }
+  .CenterColumn > .TextBlock--labelled[class]::before {
+    content: "Do not use the --labelled modifier." !important;
+  }
+}
+/*!@deps
+	ArticleMeta
+	Heading
+	ContentImage
+	TextBlock
+	VSpacer
+	RelatedLinks
+*/
+@media screen {
+  .before-sprinkling .ContentArticle, .ContentArticle[data-is-seen=false], .ContentArticle[data-is-seen=true] {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  .ContentArticle[data-is-seen=""], .ContentArticle[data-is-seen=true] {
+    opacity: 1;
+    transform: none;
+  }
+  .ContentArticle[data-is-seen=true] {
+    transition: all 500ms ease-in-out;
+    transition-property: opacity, transform;
+  }
+  .ContentArticle {
+    max-width: 792px;
+    margin: 0 auto;
+  }
+  .ContentArticle > .PageHeading, .ContentArticle > .Heading, .ContentArticle > .TextBlock {
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+  }
+  .ContentArticle > [class*="--align--"], .ContentArticle > [class*="--wide"], .ContentArticle > .TextBlock--labelled, .ContentArticle > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .ContentArticle > [class*="--align--"]::before, .ContentArticle > [class*="--wide"]::before, .ContentArticle > .TextBlock--labelled::before, .ContentArticle > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr)::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage`, `RelatedLinks`, `ArticleMeta`, `VSpacer`, `<hr/>` inside this parent wrapper." !important;
+  }
+  .ContentArticle > [class*="--align--"][class]::before, .ContentArticle > [class*="--wide"][class]::before {
+    content: "Do not use --align-- or --wide modifiers." !important;
+  }
+  .ContentArticle > .TextBlock--labelled[class]::before {
+    content: "Do not use the --labelled modifier." !important;
+  }
+}
+/*# sourceMappingURL=ContentArticle.css.map */

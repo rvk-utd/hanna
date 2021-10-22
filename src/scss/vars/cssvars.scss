@@ -52,6 +52,7 @@ $var--menu-primary-hover: var(--menu-primary-hover);
 $var--menu-auxiliary-background: var(--menu-auxiliary-background);
 $var--menu-auxiliary-text: var(--menu-auxiliary-text);
 $var--menu-auxiliary-hover: var(--menu-auxiliary-hover);
+$var--menu-auxiliary-image: var(--menu-auxiliary-image);
 
 // ---------------------------------------------------------------------------
 
@@ -61,7 +62,9 @@ $var--baseVerticalMargin-2: var(--baseVerticalMargin-2);
 // ---------------------------------------------------------------------------
 
 $var--grid-edge: var(--grid-edge);
+$var--grid-edge--right: var(--grid-edge--right);
 $var--grid-edge--neg: var(--grid-edge--neg);
+$var--grid-edge--right--neg: var(--grid-edge--right--neg);
 
 $var--grid-0-1: var(--grid-0-1);
 $var--grid-1: var(--grid-1);
@@ -117,11 +120,14 @@ $var--font-bd-l-leading: var(--font-bd-l-leading);
 $var--font-bd-s-size: var(--font-bd-s-size);
 $var--font-bd-s-leading: var(--font-bd-s-leading);
 
+$var--font-label-size: var(--font-label-size);
+$var--font-label-leading: var(--font-label-leading);
+
 // ---------------------------------------------------------------------------
 
 // NOTE: This variable receives its actual value somewhere off
 // in JavaScript-land, set by `qj/getScrollbarWidth.setCSSvar()`
-$var--browser-scrollbar-width: var(--browser-scrollbar-width, 0);
+$var--browser-scrollbar-width: var(--browser-scrollbar-width);
 
 // ---------------------------------------------------------------------------
 

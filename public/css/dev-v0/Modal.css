@@ -35,7 +35,7 @@
     max-height: calc(100vh - 6.25rem);
     max-width: 792px;
     background-color: #fff;
-    padding: calc(4.7169811321vw + 4.9056603774px) calc(5.6603773585vw + 1.8867924528px);
+    padding: calc(4.7709923664vw + 4.7328244275px) calc(5.7251908397vw + 1.679389313px);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   }
 
@@ -45,7 +45,7 @@
   }
 
   .Modal--w6 {
-    padding: calc(1.8867924528vw + 13.9622641509px) calc(2.8301886792vw + 10.9433962264px);
+    padding: calc(1.9083969466vw + 13.893129771px) calc(2.8625954198vw + 10.8396946565px);
     max-width: 584px;
   }
 

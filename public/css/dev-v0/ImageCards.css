@@ -117,7 +117,7 @@
 @media screen {
   .ImageCards--background {
     background-color: #f8f8f9;
-    padding: calc(9.0566037736vw + 11.0188679245px) 0;
+    padding: calc(9.1603053435vw + 10.6870229008px) 0;
     position: relative;
   }
   .ImageCards--background::before {
@@ -131,7 +131,7 @@
     background: inherit;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ImageCards--background {
     padding: 8.5rem 0;
   }
@@ -163,7 +163,7 @@
     grid-auto-flow: row;
     gap: var(--grid-gutter);
     grid-template-columns: repeat(3, var(--grid-3));
-    row-gap: calc(3.0188679245vw + 38.3396226415px);
+    row-gap: calc(3.0534351145vw + 38.2290076336px);
   }
 }
 @media screen and (max-width: 479px) {
@@ -181,7 +181,7 @@
     grid-template-columns: repeat(2, var(--grid-4));
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ImageCards__list {
     row-gap: 5rem;
   }
@@ -191,12 +191,12 @@
     --link-color: _inherit;
     --link-underline: 1px solid #2a2b2c;
     --link-underline--hover: 1px solid #0367e1;
-    padding-bottom: calc(1.5094339623vw + 11.1698113208px);
+    padding-bottom: calc(1.5267175573vw + 11.1145038168px);
     display: block;
     height: 100%;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ImageCards__card {
     padding-bottom: 2rem;
   }
@@ -206,7 +206,7 @@
     display: block;
     position: relative;
     padding-top: 61.7647058824%;
-    margin-bottom: calc(1.1320754717vw + 8.3773584906px);
+    margin-bottom: calc(1.1450381679vw + 8.3358778626px);
   }
 }
 @media screen {

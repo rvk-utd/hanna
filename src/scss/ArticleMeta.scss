@@ -1,0 +1,27 @@
+@use 'globals' as *;
+
+/*!@deps
+	TextBlock
+*/
+
+// inlined by TextBlock
+@mixin css() {
+	@media screen {
+		.ArticleMeta {
+			// font-size: $var--font-bd-s-size;
+			// line-height: $var--font-bd-s-leading;
+			color: $color-suld-150;
+			margin-bottom: grid-units(1);
+		}
+		.ArticleMeta__item:not(:last-child)::after {
+			content: ' | ';
+			margin: 0 0.25em;
+			text-decoration: none;
+			color: $color-suld-150;
+		}
+
+		.ArticleMeta + .Heading {
+			margin-top: 0;
+		}
+	}
+}

@@ -13,7 +13,6 @@ $LabelledTitleStyle--fontSize: $font-sh-l-size;
 	&::before {
 		content: '';
 		float: left; // allows outdenting by switching parent to display: block
-		flex-shrink: 0;
 		margin-top: 0.7em;
 		height: prem(4);
 		background-color: $var--color-theme-primary--safeish;

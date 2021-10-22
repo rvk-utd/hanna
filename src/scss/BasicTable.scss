@@ -71,9 +71,11 @@
 @include media($mq-phone_tablet) {
 	.TableWrapper {
 		margin: 0 $var--grid-edge--neg;
+		margin-right: $var--grid-edge--right--neg;
 	}
 	.TableWrapper__scroller {
 		padding: 0 $var--grid-edge;
+		padding-right: $var--grid-edge--right;
 		// border-right: $var--browser-scrollbar-width solid transparent; // push away fromunder
 	}
 }

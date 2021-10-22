@@ -11,7 +11,9 @@
 
 @media screen {
 	body {
-		padding: 0 $var--grid-edge;
+		padding: 0;
+		padding-left: $var--grid-edge;
+		padding-right: $var--grid-edge--right;
 	}
 
 	.Layout {
@@ -70,28 +72,7 @@
 	.Layout__footer {
 		position: relative;
 		border-top: 1px solid $color-suld-75;
-		padding-top: between_cols(20, 100);
-		padding-bottom: between_cols(20, 70);
-
-		@include media($mq-tablet_up) {
-			padding-left: cols_pct(1, 1);
-		}
-	}
-
-	.Layout__footer::before {
-		content: '';
-		display: block;
-		margin: prem(11) auto prem(29) auto;
-		background: url($logo-notext-url) 0 0 no-repeat;
-		background-size: auto 100%;
-		width: prem(35);
-		height: prem(53);
-
-		@media #{$mq-tablet_up} {
-			position: absolute;
-			left: 0;
-			background-position: 0 0;
-		}
+		padding-bottom: grid-units(4);
 	}
 }
 
@@ -130,7 +111,7 @@
 		@include hideText(soft);
 		@include LinkStyle_Reset(true);
 		position: fixed;
-		right: $var--grid-edge;
+		right: $var--grid-edge--right;
 		bottom: grid-units(3);
 		background-color: $color-faxafloi-100;
 		color: $color-suld-0;

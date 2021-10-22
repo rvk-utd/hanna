@@ -25,16 +25,16 @@
     background-color: var(--theme-color-primary);
     color: var(--theme-color-primary--text);
     --link-color: _inherit;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline: 1px dotted currentColor;
     --link-underline--hover: 2px solid currentColor;
     --ButtonTertiary--dashColor: currentColor;
     margin: 0 var(--grid-edge--neg);
     padding: calc(3.6637931034% + 19.7413793103px) var(--grid-edge);
-    min-height: calc(14.3396226415vw + 154.1132075472px);
+    min-height: calc(14.5038167939vw + 153.5877862595px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .CityBlock__content {
     min-height: 352px;
   }
@@ -81,7 +81,7 @@
 @media screen {
   .CityBlock__summary a {
     --link-color: _inherit;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline: 1px dotted currentColor;
     --link-underline--hover: 2px solid currentColor;
     --ButtonTertiary--dashColor: currentColor;
@@ -120,7 +120,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     color: var(--ButtonTertiary--color, _inherit);
@@ -245,7 +245,7 @@
   .CityBlock--largebox > .CityBlock__content {
     margin-top: 0;
     margin-bottom: 0;
-    min-height: calc(25.6603773585vw + 317.8867924528px);
+    min-height: calc(25.9541984733vw + 316.9465648855px);
   }
 
   .CityBlock--largeimage > .CityBlock__content {
@@ -274,7 +274,7 @@
   }
 
   .CityBlock--largeimage > .CityBlock__image {
-    min-height: calc(45.2830188679vw + 255.0943396226px);
+    min-height: calc(45.8015267176vw + 253.4351145038px);
   }
 
   .CityBlock--align--left.CityBlock--largebox > .CityBlock__image,
@@ -283,7 +283,7 @@
     margin-right: var(--grid-edge--neg);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .CityBlock--largebox > .CityBlock__content {
     min-height: 672px;
   }

@@ -110,7 +110,7 @@
     background-color: var(--theme-color-primary);
     color: var(--theme-color-primary--text);
     --link-color: _inherit;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline: 1px dotted currentColor;
     --link-underline--hover: 2px solid currentColor;
     --ButtonTertiary--dashColor: currentColor;

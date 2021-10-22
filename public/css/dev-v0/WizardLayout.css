@@ -50,7 +50,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     overflow: hidden;
@@ -167,7 +167,7 @@
     min-height: 600px;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .WizardLayout__header {
     padding: 2.5rem 0.5rem 3.75rem;
   }
@@ -223,7 +223,7 @@
 @media screen and (min-width: 760px) {
   .WizardLayoutClose {
     right: 1.875rem;
-    top: calc(4.1935483871vw + -1.8709677419px);
+    top: calc(4.2763157895vw + -2.5px);
   }
 }
 @media screen and (min-width: 980px) {
@@ -231,7 +231,7 @@
     top: 3.5rem;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .WizardLayoutClose {
     top: 3.5rem;
     right: calc((100vw / 2) - (75.5rem / 2));
