@@ -20,9 +20,9 @@
 	.CenterColumn > [class*='--wide'],
 	.CenterColumn > .TextBlock--labelled,
 	.CenterColumn
-		> *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage) {
+		> *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks) {
 		@include WARNING__(
-			'Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage` inside .CenterColumn wrapper.'
+			'Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage`, `RelatedLinks` inside a .CenterColumn wrapper.'
 		);
 	}
 	.CenterColumn > [class*='--align--'][class],

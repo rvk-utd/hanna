@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `RelatedLinks`
 - feat: Add component `ContentImage`
 - feat: Add component `FooterBadges` for logos/badges/etc.
 - feat: New styling for `FooterInfo`
