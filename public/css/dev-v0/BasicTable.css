@@ -89,10 +89,12 @@
 @media screen and (max-width: 979px) {
   .TableWrapper {
     margin: 0 var(--grid-edge--neg);
+    margin-right: var(--grid-edge--right--neg);
   }
 
   .TableWrapper__scroller {
     padding: 0 var(--grid-edge);
+    padding-right: var(--grid-edge--right);
   }
 }
 @media screen {
@@ -121,7 +123,7 @@
     padding-right: 0.75rem;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .BasicTable > * > * > th,
 .BasicTable > * > * > td {
     padding: 1.5rem;
@@ -132,7 +134,7 @@
     padding-bottom: calc(1.1261261261% + 4.3963963964px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .BasicTable > thead > * > th {
     padding-bottom: 1.125rem;
   }
@@ -143,7 +145,7 @@
     padding: calc(0.6756756757% + 3.8378378378px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .BasicTable--compact > * > * > th,
 .BasicTable--compact > * > * > td {
     padding: 0.75rem;
@@ -154,7 +156,7 @@
     padding-bottom: calc(0.4504504505% + 2.5585585586px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .BasicTable--compact > thead > * > th {
     padding-bottom: 0.5rem;
   }

@@ -6,7 +6,7 @@
   .SiteSearchPage {
     position: relative;
     margin-left: auto;
-    padding-top: calc(2.2641509434vw + 56.7547169811px);
+    padding-top: calc(2.2900763359vw + 56.6717557252px);
   }
 }
 @media screen and (min-width: 980px) {
@@ -31,10 +31,10 @@
     font-weight: 700;
     font-size: var(--font-hd-m-size);
     line-height: var(--font-hd-m-leading);
-    margin-bottom: calc(1.5094339623vw + 43.1698113208px);
+    margin-bottom: calc(1.5267175573vw + 43.1145038168px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .SearchResults__title {
     margin-bottom: 4rem;
   }
@@ -116,10 +116,10 @@
 }
 @media screen {
   .SearchResultsItem {
-    margin-bottom: calc(1.5094339623vw + 43.1698113208px);
+    margin-bottom: calc(1.5267175573vw + 43.1145038168px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .SearchResultsItem {
     margin-bottom: 4rem;
   }
@@ -129,7 +129,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     display: flex;
@@ -146,9 +146,9 @@
 }
 @media screen {
   .SearchResultsItem__title {
-    --dash-width: calc(1.5094339623vw + 3.1698113208px);
-    --dash-margin: calc(1.9811320755vw + 4.6603773585px);
-    --dash-indent: calc(0.5660377358vw + 0.1886792453px);
+    --dash-width: calc(1.5267175573vw + 3.1145038168px);
+    --dash-margin: calc(2.0038167939vw + 4.5877862595px);
+    --dash-indent: calc(0.572519084vw + 0.1679389313px);
     font-weight: 700;
     font-size: var(--font-sh-l-size);
     line-height: var(--font-sh-l-leading);
@@ -156,14 +156,13 @@
     margin-bottom: var(--baseVerticalMargin);
     margin-bottom: 1rem;
     margin-left: var(--grid-column--neg);
-    margin-right: calc(-1.4150943396vw + -4.4716981132px);
-    padding-right: calc(1.5094339623vw + 3.1698113208px);
+    margin-right: calc(-1.4312977099vw + -4.4198473282px);
+    padding-right: calc(1.5267175573vw + 3.1145038168px);
     transition: padding-right 200ms ease-in;
   }
   .SearchResultsItem__title::before {
     content: "";
     float: left;
-    flex-shrink: 0;
     margin-top: 0.7em;
     height: 0.25rem;
     background-color: var(--theme-color-primary--safeish);
@@ -178,7 +177,7 @@
     margin-left: 0;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .SearchResultsItem__title {
     --dash-width: 1.5rem;
     --dash-margin: 2rem;
@@ -197,10 +196,10 @@
 .SearchResultsItem__link:focus > .SearchResultsItem__title,
 .SearchResultsItem__link:active > .SearchResultsItem__title {
     padding-right: 0;
-    --dash-width: calc(2.9245283019vw + 7.641509434px);
+    --dash-width: calc(2.9580152672vw + 7.534351145px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .SearchResultsItem__link:hover > .SearchResultsItem__title,
 .SearchResultsItem__link:focus > .SearchResultsItem__title,
 .SearchResultsItem__link:active > .SearchResultsItem__title {
@@ -210,8 +209,8 @@
 @media screen {
   .SearchResultsItem__meta {
     display: block;
-    font-size: 0.75rem;
-    line-height: 1rem;
+    font-size: var(--font-label-size);
+    line-height: var(--font-label-leading);
     order: -1;
   }
 }
@@ -240,7 +239,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     color: var(--ButtonTertiary--color, _inherit);
@@ -357,10 +356,10 @@
 }
 @media screen {
   .SearchResultsHighlightItem {
-    margin-bottom: calc(1.5094339623vw + 43.1698113208px);
+    margin-bottom: calc(1.5267175573vw + 43.1145038168px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .SearchResultsHighlightItem {
     margin-bottom: 4rem;
   }
@@ -370,7 +369,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     position: relative;
@@ -414,8 +413,8 @@
 @media screen {
   .SearchResultsHighlightItem__meta {
     display: block;
-    font-size: 0.75rem;
-    line-height: 1rem;
+    font-size: var(--font-label-size);
+    line-height: var(--font-label-leading);
     margin-top: -1rem;
     order: -1;
   }

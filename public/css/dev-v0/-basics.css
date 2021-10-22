@@ -454,7 +454,7 @@ table {
   font-weight: normal;
   font-style: normal;
   font-display: block;
-  src: url("i/icons.woff2?4f05b08bdb22bd1a3cdf9f48761604c7") format("woff2"), url("i/icons.woff?4f05b08bdb22bd1a3cdf9f48761604c7") format("woff");
+  src: url("i/icons.woff2?9ddfc259fa0ce32cc55e5a80d36766ae") format("woff2"), url("i/icons.woff?9ddfc259fa0ce32cc55e5a80d36766ae") format("woff");
 }
 @font-face {
   font-family: "Esja";
@@ -539,8 +539,9 @@ table {
 
 @media screen {
   :root {
-    --baseVerticalMargin: calc(0.7547169811vw + 13.5849056604px);
-    --baseVerticalMargin-2: calc(1.5094339623vw + 27.1698113208px);
+    --browser-scrollbar-width: 16px;
+    --baseVerticalMargin: calc(0.7633587786vw + 13.5572519084px);
+    --baseVerticalMargin-2: calc(1.5267175573vw + 27.1145038168px);
     --link-color: #0367e1;
     --link-color--hover: #0367e1;
     --link-weight: 700;
@@ -555,36 +556,38 @@ table {
     --component-vspace--medium: calc(6.4655172414% + 21.8965517241px);
     --component-vspace--large: calc(8.6206896552% + 25.8620689655px);
     --component-vspace--xlarge: calc(14.0086206897% + 30.775862069px);
-    --grid-edge: calc(5.6603773585vw + 1.8867924528px);
-    --grid-edge--neg: calc(-5.6603773585vw + -1.8867924528px);
-    --grid-0-1: calc(2.8989129077vw + -0.0049981257px);
-    --grid-1: calc(4.6382606523vw + -0.0079970011px);
-    --grid-1-1: calc(7.5371735599vw + -0.0129951268px);
-    --grid-2: calc(12.1754342122vw + -0.020992128px);
-    --grid-2-2: calc(15.0743471198vw + -0.0259902537px);
-    --grid-3: calc(19.7126077721vw + -0.0339872548px);
-    --grid-3-3: calc(22.6115206797vw + -0.0389853805px);
-    --grid-4: calc(27.249781332vw + -0.0469823816px);
-    --grid-4-4: calc(30.1486942397vw + -0.0519805073px);
-    --grid-5: calc(34.7869548919vw + -0.0599775084px);
-    --grid-5-5: calc(37.6858677996vw + -0.0649756341px);
-    --grid-6: calc(42.3241284518vw + -0.0729726353px);
-    --grid-6-6: calc(45.2230413595vw + -0.077970761px);
-    --grid-7: calc(49.8613020117vw + -0.0859677621px);
-    --grid-7-7: calc(52.7602149194vw + -0.0909658878px);
-    --grid-8: calc(57.3984755717vw + -0.0989628889px);
-    --grid-8-8: calc(60.2973884793vw + -0.1039610146px);
-    --grid-9: calc(64.9356491316vw + -0.1119580157px);
-    --grid-9-9: calc(67.8345620392vw + -0.1169561414px);
-    --grid-10: calc(72.4728226915vw + -0.1249531426px);
-    --grid-10-10: calc(75.3717355992vw + -0.1299512683px);
-    --grid-11: calc(80.0099962514vw + -0.1379482694px);
-    --grid-11-11: calc(82.9089091591vw + -0.1429463951px);
-    --grid-12: calc(87.5471698113vw + -0.1509433962px);
+    --grid-edge: calc(5.7251908397vw + 1.679389313px);
+    --grid-edge--neg: calc(-5.7251908397vw + -1.679389313px);
+    --grid-edge--right: calc(var(--grid-edge) - var(--browser-scrollbar-width));
+    --grid-edge--right--neg: calc(var(--grid-edge--neg) - var(--browser-scrollbar-width));
+    --grid-0-1: calc(2.9321065669vw + -0.1112178353px);
+    --grid-1: calc(4.6913705071vw + -0.1779485365px);
+    --grid-1-1: calc(7.623477074vw + -0.2891663718px);
+    --grid-2: calc(12.314847581vw + -0.4671149082px);
+    --grid-2-2: calc(15.2469541479vw + -0.5783327435px);
+    --grid-3: calc(19.938324655vw + -0.75628128px);
+    --grid-3-3: calc(22.8704312219vw + -0.8674991153px);
+    --grid-4: calc(27.5618017289vw + -1.0454476518px);
+    --grid-4-4: calc(30.4939082958vw + -1.1566654871px);
+    --grid-5: calc(35.1852788029vw + -1.3346140236px);
+    --grid-5-5: calc(38.1173853698vw + -1.4458318589px);
+    --grid-6: calc(42.8087558769vw + -1.6237803953px);
+    --grid-6-6: calc(45.7408624438vw + -1.7349982306px);
+    --grid-7: calc(50.4322329508vw + -1.9129467671px);
+    --grid-7-7: calc(53.3643395177vw + -2.0241646024px);
+    --grid-8: calc(58.0557100248vw + -2.2021131389px);
+    --grid-8-8: calc(60.9878165917vw + -2.3133309742px);
+    --grid-9: calc(65.6791870987vw + -2.4912795106px);
+    --grid-9-9: calc(68.6112936656vw + -2.6024973459px);
+    --grid-10: calc(73.3026641727vw + -2.7804458824px);
+    --grid-10-10: calc(76.2347707396vw + -2.8916637177px);
+    --grid-11: calc(80.9261412467vw + -3.0696122542px);
+    --grid-11-11: calc(83.8582478136vw + -3.1808300895px);
+    --grid-12: calc(88.5496183206vw + -3.358778626px);
     --grid-gutter: var(--grid-0-1);
     --grid-column: var(--grid-1);
-    --grid-0-1--neg: calc(-2.8989129077vw + 0.0049981257px);
-    --grid-1--neg: calc(-4.6382606523vw + 0.0079970011px);
+    --grid-0-1--neg: calc(-2.9321065669vw + 0.1112178353px);
+    --grid-1--neg: calc(-4.6913705071vw + 0.1779485365px);
     --grid-gutter--neg: var(--grid-0-1--neg);
     --grid-column--neg: var(--grid-1--neg);
     --font-hd-xl-size: 40px;
@@ -603,6 +606,8 @@ table {
     --font-bd-l-leading: 24px;
     --font-bd-s-size: 16px;
     --font-bd-s-leading: 24px;
+    --font-label-size: 12px;
+    --font-label-leading: 16px;
     --Layout__header-height: 99px;
     --menu-color: #2a2b2c;
     --menu-hover: #c7cbd0;
@@ -612,6 +617,7 @@ table {
     --menu-auxiliary-background: #f8f8f9;
     --menu-auxiliary-text: #0367e1;
     --menu-auxiliary-hover: #013b70;
+    --menu-auxiliary-image: none;
     --color-esja-50: #e8eeff;
     --color-esja-75: #d2ddfe;
     --color-esja-100: #a5bbfd;
@@ -655,13 +661,13 @@ table {
     --color-blackish: #2a2b2c;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   :root {
     --baseVerticalMargin: 24px;
     --baseVerticalMargin-2: 48px;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   :root {
     --grid-edge: 80px;
     --grid-edge--neg: -80px;
@@ -694,29 +700,29 @@ table {
     --grid-column--neg: var(--grid-1--neg);
   }
 }
-@media screen and (min-width: 480px) and (max-width: 1379px) {
+@media screen and (min-width: 480px) and (max-width: 1367px) {
   :root {
-    --font-hd-xl-size: calc(3.5555555556vw + 22.9333333333px);
-    --font-hd-xl-leading: calc(4.4444444444vw + 28.6666666667px);
-    --font-hd-l-size: calc(3.5555555556vw + 14.9333333333px);
-    --font-hd-l-leading: calc(4.4444444444vw + 18.6666666667px);
-    --font-hd-m-size: calc(2.6666666667vw + 11.2px);
-    --font-hd-m-leading: calc(2.2222222222vw + 29.3333333333px);
-    --font-hd-s-size: calc(2.2222222222vw + 9.3333333333px);
-    --font-hd-s-leading: calc(2.2222222222vw + 19.3333333333px);
-    --font-sh-l-size: calc(1.3333333333vw + 13.6px);
-    --font-sh-l-leading: calc(1.1111111111vw + 24.6666666667px);
-    --font-sh-s-size: calc(0.4444444444vw + 17.8666666667px);
-    --font-sh-s-leading: calc(0.2222222222vw + 28.9333333333px);
+    --font-hd-xl-size: calc(3.6036036036vw + 22.7027027027px);
+    --font-hd-xl-leading: calc(4.5045045045vw + 28.3783783784px);
+    --font-hd-l-size: calc(3.6036036036vw + 14.7027027027px);
+    --font-hd-l-leading: calc(4.5045045045vw + 18.3783783784px);
+    --font-hd-m-size: calc(2.7027027027vw + 11.027027027px);
+    --font-hd-m-leading: calc(2.2522522523vw + 29.1891891892px);
+    --font-hd-s-size: calc(2.2522522523vw + 9.1891891892px);
+    --font-hd-s-leading: calc(2.2522522523vw + 19.1891891892px);
+    --font-sh-l-size: calc(1.3513513514vw + 13.5135135135px);
+    --font-sh-l-leading: calc(1.1261261261vw + 24.5945945946px);
+    --font-sh-s-size: calc(0.4504504505vw + 17.8378378378px);
+    --font-sh-s-leading: calc(0.2252252252vw + 28.9189189189px);
   }
 }
-@media screen and (min-width: 760px) and (max-width: 1379px) {
+@media screen and (min-width: 760px) and (max-width: 1367px) {
   :root {
-    --font-bd-l-size: calc(0.6451612903vw + 11.0967741935px);
-    --font-bd-l-leading: calc(1.2903225806vw + 14.1935483871px);
+    --font-bd-l-size: calc(0.6578947368vw + 11px);
+    --font-bd-l-leading: calc(1.3157894737vw + 14px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   :root {
     --font-hd-xl-size: 72px;
     --font-hd-xl-leading: 90px;
@@ -736,10 +742,10 @@ table {
 }
 @media screen and (min-width: 980px) {
   :root {
-    --Layout__header-height: calc(9.25vw + 8.35px);
+    --Layout__header-height: calc(9.5360824742vw + 5.5463917526px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   :root {
     --Layout__header-height: 136px;
   }
@@ -783,7 +789,7 @@ table {
 
   html {
     min-height: 100vh;
-    min-width: 320px;
+    min-width: calc(320 - var(--browser-scrollbar-width));
     box-sizing: border-box;
     overflow-x: hidden;
     position: relative;
@@ -804,7 +810,7 @@ table {
 
   html.modal-open {
     overflow: hidden;
-    margin-right: var(--browser-scrollbar-width, 0);
+    margin-right: var(--browser-scrollbar-width);
   }
 
   body {
@@ -830,6 +836,7 @@ ul,
 ol,
 dl,
 table,
+figure,
 blockquote {
     margin: 0;
   }
@@ -896,7 +903,7 @@ td {
   }
 
   a[href^="tel:"]:not([class]) {
-    color: inherit;
+    --link-color: _inherit;
   }
 
   a {
@@ -906,7 +913,7 @@ td {
     padding-bottom: var(--link-underline-offset);
     border-bottom: var(--link-underline);
     transition: var(--link-transition);
-    transition-property: border-color, background-color, color, text-shadow, box-shadow;
+    transition-property: border-color, background-color, color, text-shadow, box-shadow, outline;
   }
   a:hover, a:active {
     color: var(--link-color--hover);
@@ -1065,6 +1072,15 @@ ul > :not(li)::before {
     background-color: rgba(255, 230, 230, 0.5) !important;
     padding: 0 0.5em !important;
     content: "Lists may only contain <ll/>s" !important;
+  }
+
+  hr {
+    display: block;
+    margin: var(--baseVerticalMargin) 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #c7cbd0;
   }
 
   fieldset {
@@ -1256,12 +1272,12 @@ tbody > * > td {
     content: "tablet";
   }
 }
-@media screen and (min-width: 980px) and (max-width: 1379px) {
+@media screen and (min-width: 980px) and (max-width: 1367px) {
   #mediaformat::after {
     content: "netbook";
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   #mediaformat::after {
     content: "wide";
   }

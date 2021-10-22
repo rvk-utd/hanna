@@ -1,0 +1,31 @@
+@media screen {
+  .ContentImage {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: var(--baseVerticalMargin);
+  }
+
+  .ContentImage__caption {
+    order: 1;
+    font-size: var(--font-label-size);
+    line-height: var(--font-label-leading);
+    background-color: #f8f8f9;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .ContentImage__text {
+    flex-basis: auto;
+    flex-shrink: 2;
+  }
+
+  .ContentImage__credit {
+    color: #707275;
+    text-align: right;
+    flex-basis: auto;
+    margin-left: auto;
+    flex-shrink: 1;
+  }
+}
+/*# sourceMappingURL=ContentImage.css.map */

@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@media screen {
+  .RelatedLinks {
+    margin-bottom: var(--baseVerticalMargin);
+  }
+
+  .RelatedLinks__title {
+    font-size: var(--font-bd-l-size);
+    line-height: var(--font-bd-l-leading);
+    font-weight: 700;
+    color: #707275;
+    margin-bottom: 0.5rem;
+  }
+
+  .RelatedLinks__list {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: var(--grid-gutter--neg);
+  }
+
+  .RelatedLinks__item {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    margin-right: var(--grid-gutter);
+    min-width: 220px;
+  }
+}
+@media screen and (max-width: 979px) {
+  .RelatedLinks__item {
+    width: var(--grid-6);
+  }
+}
+@media screen and (min-width: 980px) {
+  .RelatedLinks__item {
+    width: var(--grid-4);
+  }
+}
+@media screen {
+  .RelatedLinks__link {
+    --link-color: _inherit;
+    --link-weight: _inherit;
+    --link-underline: none;
+    --link-color--hover: var(--link-color);
+    --link-underline--hover: none;
+    --link-underline-offset: 0;
+    position: relative;
+    display: block;
+    background-color: #f8f8f9;
+    --link-color: #0367e1;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    padding-left: 3.5rem;
+    outline: 1px solid transparent;
+  }
+}
+@media screen {
+  .RelatedLinks__link:hover {
+    outline: 1px solid currentColor;
+  }
+}
+@media screen {
+  .RelatedLinks__link::before {
+    content: "";
+    display: inline-block;
+    text-indent: 0;
+    text-align: center;
+    vertical-align: top;
+    font-family: "icons", Arial, Helvetica, sans-serif;
+    speak: none;
+    font-weight: normal;
+    font-style: normal;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    font-size: 1.5rem;
+    width: 1em;
+    line-height: 1em;
+    margin-top: -0.5em;
+  }
+}
+@media screen {
+  .RelatedLinks__link[data-type=pdf]::before,
+.RelatedLinks__link[href$=".pdf"]::before,
+.RelatedLinks__link[href*=".pdf?"]::before {
+    content: "";
+  }
+}
+@media screen {
+  .RelatedLinks__link[data-type=document]::before {
+    content: "";
+  }
+}
+@media screen {
+  .RelatedLinks__link[data-type=external]::before,
+.RelatedLinks__link[target]:not([target=_self])::before {
+    content: "";
+  }
+}
+/*# sourceMappingURL=RelatedLinks.css.map */

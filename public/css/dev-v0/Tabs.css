@@ -35,17 +35,17 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     white-space: nowrap;
     border-bottom: 4px solid #f1f2f3;
     margin-bottom: -4px;
     color: #2a2b2c;
-    padding: calc(1.6163793103% + 0.474137931px) calc(2.358490566vw + 7.4528301887px);
+    padding: calc(1.6163793103% + 0.474137931px) calc(2.3854961832vw + 7.3664122137px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .Tabs__tab {
     padding-left: 40px;
     padding-right: 40px;

@@ -3,7 +3,7 @@
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;
-    --link-color--hover: currentColor;
+    --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
     white-space: nowrap;
@@ -24,12 +24,12 @@
     width: -moz-max-content;
     width: max-content;
     max-width: 100%;
-    min-width: calc(16.0377358491vw + 48.679245283px);
+    min-width: calc(16.2213740458vw + 48.0916030534px);
     font-size: 1rem;
     font-weight: 700;
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ButtonPrimary {
     min-width: 270px;
   }
@@ -95,10 +95,10 @@
     line-height: 2.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    min-width: calc(9.4339622642vw + 39.8113207547px);
+    min-width: calc(9.5419847328vw + 39.465648855px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ButtonPrimary--small {
     min-width: 170px;
   }

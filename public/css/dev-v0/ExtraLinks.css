@@ -52,7 +52,7 @@
     background: inherit;
   }
   .before-sprinkling .ExtraLinks::after, .ExtraLinks[data-is-seen=false]::after, .ExtraLinks[data-is-seen=true]::after {
-    border-left: calc(1.5094339623vw + 3.1698113208px) solid #f8f8f9;
+    border-left: calc(1.5267175573vw + 3.1145038168px) solid #f8f8f9;
   }
   .ExtraLinks[data-is-seen=true]::after {
     transition: all 500ms ease-in-out;
@@ -100,10 +100,10 @@
   }
 
   .ExtraLinks::before {
-    border-left: calc(1.5094339623vw + 3.1698113208px) solid var(--theme-color-primary);
+    border-left: calc(1.5267175573vw + 3.1145038168px) solid var(--theme-color-primary);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ExtraLinks::before {
     border-width: 1.5rem;
   }
@@ -115,10 +115,10 @@
     font-size: var(--font-hd-s-size);
     line-height: var(--font-hd-s-leading);
     margin-bottom: var(--baseVerticalMargin);
-    margin-bottom: calc(3.1132075472vw + 14.0377358491px);
+    margin-bottom: calc(3.1488549618vw + 13.9236641221px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ExtraLinks__title {
     margin-bottom: 57px;
   }
@@ -200,12 +200,12 @@
     background-color: #f1f2f3;
     padding-right: 5.298013245%;
     padding-left: 8.6092715232%;
-    margin-top: calc(4.7169811321vw + 24.9056603774px);
-    padding-top: calc(3.0188679245vw + 22.3396226415px);
-    padding-bottom: calc(4.7169811321vw + 64.9056603774px);
+    margin-top: calc(4.7709923664vw + 24.7328244275px);
+    padding-top: calc(3.0534351145vw + 22.2290076336px);
+    padding-bottom: calc(4.7709923664vw + 64.7328244275px);
   }
 }
-@media screen and (min-width: 1380px) {
+@media screen and (min-width: 1368px) {
   .ExtraLinks__related {
     margin-top: 5.625rem;
     padding-top: 4rem;
@@ -222,7 +222,7 @@
     font-weight: 700;
     font-size: var(--font-hd-s-size);
     line-height: var(--font-hd-s-leading);
-    margin-bottom: calc(3.1132075472vw + 10.0377358491px);
+    margin-bottom: calc(3.1488549618vw + 9.9236641221px);
   }
 }
 @media screen {
@@ -262,17 +262,17 @@
 }
 @media screen {
   .ExtraLinks__related__link--text::before {
-    content: "";
+    content: "";
   }
 }
 @media screen {
   .ExtraLinks__related__link--pdf::before {
-    content: "";
+    content: "";
   }
 }
 @media screen {
   .ExtraLinks__related__link--link::before {
-    content: "";
+    content: "";
   }
 }
 @media screen and (min-width: 760px) {
