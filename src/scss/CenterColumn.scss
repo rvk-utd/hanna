@@ -19,9 +19,10 @@
 	.CenterColumn > [class*='--align--'],
 	.CenterColumn > [class*='--wide'],
 	.CenterColumn > .TextBlock--labelled,
-	.CenterColumn > *:not(.TextBlock):not(.PageHeading) {
+	.CenterColumn
+		> *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage) {
 		@include WARNING__(
-			'Only use plain `PageHeading`, `Heading`, `TextBlock`, inside .CenterColumn wrapper.'
+			'Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage` inside .CenterColumn wrapper.'
 		);
 	}
 	.CenterColumn > [class*='--align--'][class],

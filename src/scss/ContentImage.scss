@@ -9,19 +9,23 @@
 	}
 	.ContentImage__caption {
 		order: 1;
+		font-size: $var--font-label-size;
+		line-height: $var--font-label-leading;
 		background-color: $color-suld-25;
 		padding: grid-units(1) grid-units(2);
 		display: flex;
-		justify-content: space-between;
-		font-size: $var--font-label-size;
-		line-height: $var--font-label-leading;
+		align-items: flex-start;
 	}
 	.ContentImage__text {
+		flex-basis: auto;
+		flex-shrink: 2; // the __credit content tends to be shorter so lets prioritize shrinking the __text
 	}
 	.ContentImage__credit {
-		margin-left: grid-units(3);
 		color: $color-suld-150;
 		text-align: right;
+		flex-basis: auto;
+		margin-left: auto;
+		flex-shrink: 1;
 	}
 	.ContentImage__image {
 	}
