@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.19
+
+_2021-10-22_
+
 - feat: Add component `ContentArticle`
 - feat: Add component `RelatedLinks`
 - feat: Add component `ContentImage`
