@@ -3,13 +3,13 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Too narrow multi-column MainMenu "mega" panels
 
-## 0.8.20
+## 0.8.20 – 0.8.21
 
 _2021-10-26_
 
 - feat: Add component `ContactBubble`
+- fix: Too narrow multi-column MainMenu "mega" panels
 
 ## 0.8.19
 
