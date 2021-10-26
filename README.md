@@ -64,17 +64,12 @@ https://localhost:4000/bundle/dev-v0?m=-basics,Layout-full,HeroBlock
 
 ## Development
 
-Start the SCSS build and image compression task:
+Start the SCSS build and image compression task, alongside a dev server (port
+`4000` by default):
 
 ```sh
 yarn install
 yarn run dev
-```
-
-In a second terminal start the dev server
-
-```sh
-yarn run dev:server
 ```
 
 The dev server has both HTTP and bundler caching turned off, which allows you
