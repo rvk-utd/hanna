@@ -169,7 +169,7 @@
   }
   .FormField__assist::before,
 .FormField__error::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
@@ -216,7 +216,7 @@
 }
 @media screen {
   .Selectbox > .FormField__input::after {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;

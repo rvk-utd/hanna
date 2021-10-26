@@ -67,11 +67,11 @@
   }
 
   .ShareButtons__link--facebook::before {
-    content: "";
+    content: "";
   }
 
   .ShareButtons__link--twitter::before {
-    content: "";
+    content: "";
   }
 
   .ShareButtons__link--linkedin::before {

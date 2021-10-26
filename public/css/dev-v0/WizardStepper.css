@@ -59,7 +59,7 @@ button.WizardStepper__step:active {
     color: #0367e1;
     --WizardStepper-ballBackground: #0367e1;
     --WizardStepper-ballColor: #ffffff;
-    --WizardStepper-ballIcon: "";
+    --WizardStepper-ballIcon: "";
   }
   .WizardStepper__step--done::before,
 .WizardStepper__step[aria-current=step]::before {
@@ -81,7 +81,7 @@ button.WizardStepper__step:active {
 
   .WizardStepper__step--done {
     --WizardStepper-ballBackground: #81bbf0;
-    --WizardStepper-ballIcon: "";
+    --WizardStepper-ballIcon: "";
     --WizardStepper-lineColor: #0367e1;
   }
 

@@ -3,7 +3,7 @@
   .Alert {
     --Alert-background: #e0eefb;
     --Alert-icon-color: #0367e1;
-    --Alert-icon: "";
+    --Alert-icon: "";
     --link-color: #035eca;
     --link-color-hover: #035eca;
     background: var(--Alert-background);
@@ -90,21 +90,21 @@
 .Alert--error {
     --Alert-background: #fae4e5;
     --Alert-icon-color: #d8222f;
-    --Alert-icon: "";
+    --Alert-icon: "";
   }
 }
 @media screen {
   .Alert--warning {
     --Alert-background: #fff5d5;
     --Alert-icon-color: #d5b34a;
-    --Alert-icon: "";
+    --Alert-icon: "";
   }
 }
 @media screen {
   .Alert--success {
     --Alert-background: #dcf7e6;
     --Alert-icon-color: #46b16d;
-    --Alert-icon: "";
+    --Alert-icon: "";
   }
 }
 @media screen {
@@ -177,7 +177,7 @@
 }
 @media screen {
   .Alert__close::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
