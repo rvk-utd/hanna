@@ -45,7 +45,7 @@
 
 	@include media($mq-Topmenu) {
 		.PrimaryPanel {
-			--menu-primary-columns: 8;
+			--PrimaryPanel-columns: 8;
 			grid-template-columns: repeat(var(--PrimaryPanel-columns), minmax(0, 1fr));
 
 			padding-top: $var--Layout__header-height;
