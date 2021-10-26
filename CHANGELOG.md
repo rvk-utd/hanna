@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Too narrow multi-column MainMenu "mega" panels
 
 ## 0.8.20
 
