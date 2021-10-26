@@ -82,7 +82,7 @@
   }
 
   .CheckboxButton__input:checked + .CheckboxButton__label::before {
-    content: "";
+    content: "";
     border-color: transparent;
     background-color: #0367e1;
     color: #ffffff;
@@ -217,7 +217,7 @@
   }
 
   .RadioButton__input:checked + .RadioButton__label::before {
-    content: "";
+    content: "";
     border-color: transparent;
     background-color: #0367e1;
     color: #ffffff;

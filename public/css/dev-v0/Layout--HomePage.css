@@ -22,7 +22,7 @@
 }
 @media screen {
   .ScrollCTA::after {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
