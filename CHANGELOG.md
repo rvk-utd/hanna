@@ -4,6 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.20
+
+_2021-10-26_
+
+- feat: Add component `ContactBubble`
+
 ## 0.8.19
 
 _2021-10-22_
