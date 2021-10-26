@@ -389,13 +389,13 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     position: absolute;
     top: 0;
     left: 0;
-    right: calc(-0.5 * var(--browser-scrollbar-width));
+    right: 0;
     height: 100vh;
     z-index: 3;
-    margin-left: calc(50% - 50vw + 0.5 * var(--browser-scrollbar-width));
-    padding-left: calc(50vw - 50% - 0.5 * var(--browser-scrollbar-width));
-    margin-right: calc(50% - 50vw);
-    padding-right: calc(50vw - 50% + 0.5 * var(--browser-scrollbar-width));
+    margin-left: calc(50% - 50vw + 0px);
+    padding-left: calc(50vw - 50% + 0px);
+    margin-right: calc(50% - 50vw + 0px);
+    padding-right: calc(50vw - 50% + 0px);
     overflow-x: hidden;
     overflow-y: auto;
   }
