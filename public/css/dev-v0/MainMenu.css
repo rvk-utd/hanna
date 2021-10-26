@@ -103,11 +103,11 @@
   }
 
   .MainMenu__item--mypages > .MainMenu__link::before {
-    content: "";
+    content: "";
   }
 
   .MainMenu__item--search > .MainMenu__link::before {
-    content: "";
+    content: "";
   }
 
   .MainMenu__item--lang {
@@ -467,7 +467,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
 }
 @media screen and (min-width: 980px) {
   .MainMenu__megapanel__backtomenu::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
