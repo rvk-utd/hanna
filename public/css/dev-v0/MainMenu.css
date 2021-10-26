@@ -680,7 +680,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
 }
 @media screen and (min-width: 980px) {
   .PrimaryPanel {
-    --menu-primary-columns: 8;
+    --PrimaryPanel-columns: 8;
     grid-template-columns: repeat(var(--PrimaryPanel-columns), minmax(0, 1fr));
     padding-top: var(--Layout__header-height);
     padding-bottom: 7.8125rem;
