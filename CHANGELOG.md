@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Minor right-shift of `MainMenu` mega-panel curtain
 
 ## 0.8.20 – 0.8.21
 
