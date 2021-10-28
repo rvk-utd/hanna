@@ -79,9 +79,9 @@
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
-	html.menu-is-open {
+	html.menu-is-open > body {
 		overflow-y: hidden;
-		padding-right: $var--browser-scrollbar-width;
+		padding-right: $var--grid-edge;
 	}
 
 	.Layout__header {
@@ -191,6 +191,8 @@
 
 // ===========================================================================
 // Grid helper
+// ===========================================================================
+
 @if (getEnv('NODE_ENV') == '') {
 	body:hover {
 		--show-grid-lines: '';

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- refactor: Simplify html/body overflow/scrolling for X-browser support
 
 ## 0.8.20 – 0.8.22
 

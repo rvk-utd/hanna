@@ -84,7 +84,7 @@
 		min-height: 100vh;
 		min-width: calc(#{$bp-phone} - #{$var--browser-scrollbar-width});
 		box-sizing: border-box;
-		overflow-x: hidden;
+		overflow: hidden; // rely on body
 		position: relative;
 
 		// "Fix" nasty/smudgy font rendering on mac
@@ -105,9 +105,9 @@
 		quotes: '„' '“' '‚' '‘';
 	}
 
-	html.modal-open {
+	html.modal-open > body {
 		overflow: hidden;
-		margin-right: $var--browser-scrollbar-width;
+		margin-right: $var--grid-edge;
 	}
 
 	body {
@@ -128,6 +128,8 @@
 		// sticky-positioning without effing up something else....
 		//
 		overflow-x: hidden;
+		overflow-y: scroll;
+		height: 100vh;
 	}
 
 	*:first-child {
