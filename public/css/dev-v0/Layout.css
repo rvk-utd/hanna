@@ -116,9 +116,9 @@
   }
 }
 @media screen and (max-width: 979px) {
-  html.menu-is-open {
+  html.menu-is-open > body {
     overflow-y: hidden;
-    padding-right: var(--browser-scrollbar-width);
+    padding-right: var(--grid-edge);
   }
 
   .Layout__header {
