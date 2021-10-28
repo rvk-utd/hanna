@@ -4,6 +4,14 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.23
+
+_2021-10-28_
+
+- fix: `.WizardLayout__alerts` was too wide
+- fix: `.WizardLayout__stepper` fixed positioning overlapped alerts
+- refactor: Simplify html/body overflow/scrolling for X-browser support
+
 ## 0.8.20 – 0.8.22
 
 _2021-10-26_

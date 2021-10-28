@@ -15,7 +15,7 @@
 	.WizardLayout__alerts {
 		max-height: 1000px;
 		overflow: hidden;
-		margin: 0 prem(-15);
+		margin: 0 prem(-10);
 		transition: max-height 400ms ease-in;
 
 		@include media($mq-tablet_up) {
@@ -60,23 +60,24 @@
 @media #{$mq-phone_phablet} {
 	body {
 		padding-left: prem(16);
-		padding-right: prem(16);
+		padding-right: calc(#{prem(16)} - #{$var--browser-scrollbar-width});
 	}
 	.WizardLayout__wrap {
 		padding-left: prem(48);
 	}
 
 	.WizardLayout__stepper {
-		position: fixed;
-		top: $var--Layout__header-height;
-		left: prem(16);
+		float: left;
+		position: sticky;
+		top: prem(16);
+		padding-top: prem(8);
+		margin-left: prem(-40);
 		width: prem(24);
 	}
 }
 
 @media #{$mq-tablet_up} {
-	.WizardLayout,
-	.WizardLayout__content {
+	.WizardLayout {
 		position: static;
 	}
 	.WizardLayout__header {
@@ -84,8 +85,13 @@
 		padding-right: prem(16);
 	}
 
+	.WizardLayout__alerts {
+		margin-left: prem(8);
+		max-width: cols_px(9, 9);
+	}
+
 	.WizardLayout__wrap {
-		width: cols_pct(10);
+		width: $var--grid-10;
 		display: flex;
 		padding-left: prem(16);
 	}

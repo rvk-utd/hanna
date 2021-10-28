@@ -21,7 +21,6 @@
 		font-size: prem(12);
 		color: $color-suld-150;
 
-
 		&::before {
 			content: counter(step);
 			counter-increment: step;
@@ -92,6 +91,5 @@
 		white-space: nowrap;
 		margin-bottom: prem(10);
 		padding-bottom: prem(25);
-
 	}
 }

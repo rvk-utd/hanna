@@ -791,7 +791,7 @@ table {
     min-height: 100vh;
     min-width: calc(320 - var(--browser-scrollbar-width));
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -808,13 +808,15 @@ table {
     quotes: "„" "“" "‚" "‘";
   }
 
-  html.modal-open {
+  html.modal-open > body {
     overflow: hidden;
-    margin-right: var(--browser-scrollbar-width);
+    margin-right: var(--grid-edge);
   }
 
   body {
     overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
   }
 
   *:first-child {
