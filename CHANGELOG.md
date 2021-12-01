@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Font size for `ContentImage__credit`
 
 ## 0.8.23
 

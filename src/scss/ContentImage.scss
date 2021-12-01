@@ -21,6 +21,7 @@
 		flex-shrink: 2; // the __credit content tends to be shorter so lets prioritize shrinking the __text
 	}
 	.ContentImage__credit {
+		font-size: 1em;
 		color: $color-suld-150;
 		text-align: right;
 		flex-basis: auto;
