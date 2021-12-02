@@ -3,6 +3,10 @@
 @media screen {
 	.IframeBlock {
 		margin-bottom: prem(30); // like BasicTable (need reconsidering)
+
+		// width/min-width hack recommended by https://github.com/davidjbradshaw/iframe-resizer-react
+		width: 1px;
+		min-width: 100%;
 	}
 	.IframeBlock--compact {
 		margin-bottom: 0;
@@ -13,7 +17,7 @@
 	.IframeBlock--align--right {
 		@include media($mq-tablet_up) {
 			margin-left: auto;
-			width: $var--grid-7; // tolerate containment by right-aligned TextBlock, for instance
+			min-width: $var--grid-7; // tolerate containment by right-aligned TextBlock, for instance
 		}
 	}
 }

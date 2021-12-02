@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Allow auto-adjusting height of non-fixed `IframeBlock`s — using
+  `iframe-resizer`
 - fix: Font size for `ContentImage__credit`
 
 ## 0.8.23
