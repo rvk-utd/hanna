@@ -21,6 +21,7 @@
   }
 
   .ContentImage__credit {
+    font-size: 1em;
     color: #707275;
     text-align: right;
     flex-basis: auto;
