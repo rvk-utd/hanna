@@ -1,6 +1,8 @@
 @media screen {
   .IframeBlock {
     margin-bottom: 1.875rem;
+    width: 1px;
+    min-width: 100%;
   }
 
   .IframeBlock--compact {
@@ -14,7 +16,7 @@
 @media screen and (min-width: 760px) {
   .IframeBlock--align--right {
     margin-left: auto;
-    width: var(--grid-7);
+    min-width: var(--grid-7);
   }
 }
 /*# sourceMappingURL=IframeBlock.css.map */

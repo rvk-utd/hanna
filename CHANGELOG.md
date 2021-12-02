@@ -4,6 +4,14 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.24
+
+_2021-12-02_
+
+- feat: Allow auto-adjusting height of non-fixed `IframeBlock`s — using
+  `iframe-resizer`
+- fix: Font size for `ContentImage__credit`
+
 ## 0.8.23
 
 _2021-10-28_
@@ -109,7 +117,7 @@ _2021-06-03_
 
 _2021-06-02_
 
-- fix: Prevent horizontal page scroll in Safari – Note: The current fix blocks
+- fix: Prevent horizontal page scroll in Safari — Note: The current fix blocks
   future use of `position:sticky;`
 - fix: Prevent line-wrap of "inlined" `.FormField__label` texts
 
@@ -208,7 +216,7 @@ _2020-11-30_
 
 - refactor: Transition/animation timing tweaks
 - feat: Increase font-size of list items inside `*TextBlock`s
-- feat: Add utility component `BlockBreak` for flexbox hard line-breaks – as
+- feat: Add utility component `BlockBreak` for flexbox hard line-breaks — as
   [using `<br/>` is unreliable](https://stackoverflow.com/a/45143493)
 
 ## 0.7.20
@@ -224,7 +232,7 @@ _2020-11-25_
 
 _2020-11-24_
 
-- feat: Normalize transition durations and timing-functions – to use only
+- feat: Normalize transition durations and timing-functions — to use only
   `200`, `400` or `650ms` and `ease-in`
 
 ## 0.7.18
@@ -265,7 +273,7 @@ _2020-11-11_
 
 _2020-11-05_
 
-- feat: Improve styling for `SearchResults` – support `__loadmore` and new
+- feat: Improve styling for `SearchResults` — support `__loadmore` and new
   `--loading*` styles
 - feat: Add icons to `.ExtraLinks__related__link--{type}` links
 - feat: Order `GalleryItems` left-to-right
@@ -284,7 +292,7 @@ _2020-11-05_
 
 _2020-10-28_
 
-- feat: Add white background and outline around Reykjavík's logo shape – to
+- feat: Add white background and outline around Reykjavík's logo shape — to
   make it more resilent to overlapping other content
 - feat: Styling for `.Layout__nav` and `MainMenu` toggling on small screens
 - fix: Improve `ArticleCarousel` + `Gallery` mobile and unscripted styling
@@ -314,7 +322,7 @@ _2020-10-16_
 - feat: Tweak styling of `.ImageCards__image--missing` fallback
 - feat: Add custom `.ScrollCTA` styling on `.Layout--HomePage`
 - fix: Tweak vertical spacing between components
-- fix: Rename `sund_*` efnistákn SVG files – Token names remain unchanged and
+- fix: Rename `sund_*` efnistákn SVG files — Token names remain unchanged and
   old SVG files remain, but are unlisted.
 - fix: Tweak fadeout transition for `.Alert--closable`
 
@@ -358,10 +366,10 @@ _2020-09-30_
 
 _2020-09-30_
 
-- feat: Add new `Bling` SVG assets – `box-medium`, `bowl-medium`,
+- feat: Add new `Bling` SVG assets — `box-medium`, `bowl-medium`,
   `circle-xlarge`, `loops-small`, `arrow-right-large`
 - feat: Add component `MiniMetrics`
-- feat: Rename `Gallery` and `ArticleCarousel`'s `__track` to `__items` – Flag
+- feat: Rename `Gallery` and `ArticleCarousel`'s `__track` to `__items` — Flag
   the old `__track` class-name as deprecated
 - feat: Tweak `Gallery`'s styling and match updated markup
 - fix: Minor styling fixes for `MainMenu`, `CityBlock`
@@ -377,7 +385,7 @@ _2020-09-25_
 
 _2020-09-24_
 
-- feat: Support `--menu-item-icon` on `.MainMenu__mega__links` – deprecate
+- feat: Support `--menu-item-icon` on `.MainMenu__mega__links` — deprecate
   inlined `background-image` style
 - fix Add top-border on open `MainMenu` mega panels
 - fix: Hide word "Reykjavík" appearing in `.Layout__header__logo`
@@ -429,7 +437,7 @@ _2020-09-09_
 
 - **BREAKING** target: **Hanna 0.6** markup patterns
 - **BREAKING** feat: Add `.LabeledTextBlock--wide`, replacing `--left`
-- **BREAKING** feat: Simplify `TextBlock` – remove support for
+- **BREAKING** feat: Simplify `TextBlock` — remove support for
   `.TextBlock--largetext` modifier and `.TextBlock__title`
 - feat: Add `.TextBlock--small` option for smaller font-size
 - feat: Add component `Gallery`
@@ -675,7 +683,7 @@ _2020-04-03_
 - fix: Stop `a.Button*`s expanding to full width
 - feat: Publish a `dev-v0` CSS version - with debug and error messages for
   developers writing templates/markup
-- docs: Document the bundler URLs – `v{N}`, `dev-v{N}` vs `dev`
+- docs: Document the bundler URLs — `v{N}`, `dev-v{N}` vs `dev`
 - docs: Dump this CHANGELOG on the server as `/changelog.txt`
 
 ## 0.2.0
@@ -691,6 +699,6 @@ _2020-03-30_
 
 _2020-03-20_
 
-- First version – Includes: `-basics`, `Layout`, `FooterInfo`, `Layout-full`
+- First version — Includes: `-basics`, `Layout`, `FooterInfo`, `Layout-full`
   conveniConvenience tokens, like `ButtonPrimary`, , should have no styles
   themselves`ButtonTertiary`, `Tabs`, `PageTitleBlock`

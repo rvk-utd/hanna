@@ -145,6 +145,7 @@
 			max-width: prem(375);
 		}
 	}
+
 	.ContactBubble__wrapper > .ContactBubble {
 		@include media($mq-phone) {
 			position: fixed;
@@ -171,6 +172,20 @@
 		opacity: 0;
 		visibility: hidden;
 	}
+
+	@include media($mq-phone) {
+		.ContactBubble::after {
+			content: '';
+			display: block;
+			height: 0;
+			margin-top: grid-units(8);
+			padding-top: percentage(300/610);
+			background: url('i/ContactBubble/illustration.png') 50% 50% / 100% auto
+				no-repeat;
+			max-width: 500px;
+		}
+	}
+
 	.ContactBubble__title {
 		@include media($mq-phone) {
 			@include HeadingStyle--large();

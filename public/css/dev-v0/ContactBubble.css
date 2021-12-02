@@ -267,6 +267,17 @@
   }
 }
 @media screen and (max-width: 479px) {
+  .ContactBubble::after {
+    content: "";
+    display: block;
+    height: 0;
+    margin-top: 4rem;
+    padding-top: 49.1803278689%;
+    background: url("i/ContactBubble/illustration.png") 50% 50%/100% auto no-repeat;
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 479px) {
   .ContactBubble__title {
     font-weight: 700;
     font-size: var(--font-hd-l-size);
