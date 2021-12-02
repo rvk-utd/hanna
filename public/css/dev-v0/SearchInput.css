@@ -8,7 +8,7 @@
   }
 
   .SearchInput > .FormField__input::after {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
@@ -65,7 +65,7 @@
   }
 
   .SearchInput__button::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;

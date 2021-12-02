@@ -240,7 +240,7 @@
 }
 @media screen {
   .ExtraLinks__related__link::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
@@ -262,17 +262,17 @@
 }
 @media screen {
   .ExtraLinks__related__link--text::before {
-    content: "";
+    content: "";
   }
 }
 @media screen {
   .ExtraLinks__related__link--pdf::before {
-    content: "";
+    content: "";
   }
 }
 @media screen {
   .ExtraLinks__related__link--link::before {
-    content: "";
+    content: "";
   }
 }
 @media screen and (min-width: 760px) {
