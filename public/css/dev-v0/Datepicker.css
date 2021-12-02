@@ -160,7 +160,7 @@
     width: 1.5rem;
   }
   .react-datepicker__navigation::after {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
@@ -223,7 +223,7 @@
     content: none;
   }
   [class].react-datepicker__navigation--years::after {
-    content: "";
+    content: "";
     color: #707275;
   }
   [class].react-datepicker__navigation--years:hover::after, [class].react-datepicker__navigation--years:focus::after {
@@ -231,7 +231,7 @@
   }
 
   [class].react-datepicker__navigation--years-upcoming::after {
-    content: "";
+    content: "";
   }
 
   .react-datepicker__month .react-datepicker__month-text {
@@ -424,7 +424,7 @@
   .react-datepicker__year-read-view--down-arrow::before,
 .react-datepicker__month-read-view--down-arrow::before,
 .react-datepicker__month-year-read-view--down-arrow::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;
