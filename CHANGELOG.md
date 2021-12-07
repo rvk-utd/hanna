@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.25
+
+_2021-12-07_
+
 - fix: Remove extra spacing above `.Layout__footer`
 
 ## 0.8.24
