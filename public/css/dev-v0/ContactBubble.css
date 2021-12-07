@@ -20,10 +20,6 @@
     visibility: hidden;
   }
 
-  .Layout__nav {
-    min-height: 2000px;
-  }
-
   .ContactBubble__openbtn {
     position: absolute;
     z-index: 1;
