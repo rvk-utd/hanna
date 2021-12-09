@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.26
+
+_2021-12-09_
+
 - fix: Extend `--fullwidth` `BasicTables` inside right-aligned text blocks
   leftwards
 
