@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Extend `--fullwidth` `BasicTables` inside right-aligned text blocks
+  leftwards
 
 ## 0.8.25
 
