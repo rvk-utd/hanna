@@ -43,6 +43,16 @@
   .TableWrapper--BasicTable--fullwidth {
     width: var(--grid-12);
   }
+
+  .TextBlock--labelled .TableWrapper--BasicTable--fullwidth,
+.TextBlock--align--right .TableWrapper--BasicTable--fullwidth,
+.LabeledTextBlock--wide .TableWrapper--BasicTable--fullwidth {
+    margin-left: calc(-1 * var(--grid-5-5));
+  }
+
+  .LabeledTextBlock .TableWrapper--BasicTable--fullwidth {
+    margin-left: calc(-1 * var(--grid-6-6));
+  }
 }
 @media screen {
   .TableWrapper > table,
