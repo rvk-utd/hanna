@@ -22,12 +22,30 @@
 		margin-bottom: prem(8px);
 	}
 
+	.AuxiliaryPanel__image {
+		position: relative;
+		min-height: prem(115);
+	}
+
+	.AuxiliaryPanel__image  span {
+		display: block;
+		background-image: url(i/ContactBubble/mynd.svg);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		min-height: prem(115);
+	}
+
 	// ===========================================================================
 
 	@include media($mq-Hamburger) {
 		.AuxiliaryPanel {
-			background-color: $var--menu-auxiliary-background;
-			padding: prem(40) 0;
+			background-color: white;
+			padding-top: prem(40);
 			flex-grow: 1;
 
 			@include extendSides();
@@ -46,6 +64,7 @@
 
 		.AuxiliaryPanel__items {
 			padding-left: var(--MainMenu--offsetLeft);
+			padding-bottom: prem(32);
 		}
 	}
 
