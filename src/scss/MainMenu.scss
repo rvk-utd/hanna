@@ -123,6 +123,7 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 	}
+
 	html.menu-is-closed .MainMenu,
 	html.menu-is-open .MainMenu {
 		transition: (margin-top $menu-speed 0ms ease-in-out, visibility 0ms $menu-speed);
@@ -131,6 +132,18 @@
 		transition-delay: 0ms;
 		visibility: visible;
 		margin-top: 0;
+	}
+
+	html.menu-is-closed .MainMenu .AuxiliaryPanel__image {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 300ms, opacity 300ms;
+	}
+
+	html.menu-is-open .MainMenu .AuxiliaryPanel__image {
+		visibility: visible;
+		opacity: 1;
+		transition: visibility 600ms linear 0s, opacity 2.8s;
 	}
 
 	.MainMenu__items {
