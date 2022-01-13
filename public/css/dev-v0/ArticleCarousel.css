@@ -163,6 +163,7 @@
     position: relative;
     padding-top: 85.2272727273%;
     display: block;
+    margin-bottom: 2rem;
   }
 }
 @media screen {
@@ -173,7 +174,7 @@
 @media screen {
   .ArticleCarouselCard__illustration > img {
     position: absolute;
-    top: 0;
+    top: 1rem;
     left: var(--grid-column--neg);
     left: var(--grid-column--neg);
     right: var(--grid-column--neg);
@@ -183,6 +184,13 @@
        object-fit: contain;
     -o-object-position: center;
        object-position: center;
+  }
+}
+@media screen {
+  .ArticleCarouselCard__illustration--photo > img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    top: 0;
   }
 }
 @media screen {
@@ -198,7 +206,7 @@
     font-size: 1rem;
     line-height: 1.5rem;
     color: #707275;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     display: block;
   }
 }
