@@ -39,7 +39,8 @@
 		overflow: auto;
 	}
 
-	.ArticleCarousel__track { // @deprecated Was removed in v0.8. Remove warning in v0.9
+	.ArticleCarousel__track {
+		// @deprecated Was removed in v0.8. Remove warning in v0.9
 		@include WARNING__('Unsupported: use `.ArticleCarousel__items` instead');
 	}
 
@@ -103,6 +104,10 @@
 		position: relative;
 		padding-top: percentage(300/ ($grid-column * 3 + 4 * $grid-gutter));
 		display: block;
+		margin-bottom: grid-units(4);
+	}
+	.ArticleCarouselCard__illustration--photo {
+		// photograp variant
 	}
 	.ArticleCarouselCard__illustration--missing {
 		background-color: $color-suld-25;
@@ -110,7 +115,7 @@
 
 	.ArticleCarouselCard__illustration > img {
 		position: absolute;
-		top: 0;
+		top: grid-units(2);
 		left: $var--grid-column--neg;
 		left: $var--grid-column--neg;
 		right: $var--grid-column--neg;
@@ -119,16 +124,20 @@
 		object-fit: contain;
 		object-position: center;
 	}
+	.ArticleCarouselCard__illustration--photo > img {
+		object-fit: cover;
+		top: 0;
+	}
 
 	.ArticleCarouselCard__title {
 		@include SubheadingStyle--large();
-		margin-bottom: prem(32);
+		margin-bottom: grid-units(4);
 	}
 
 	.ArticleCarouselCard__date {
 		@include BodyTextStyle--small();
 		color: $color-suld-150;
-		margin-bottom: prem(16);
+		margin-bottom: grid-units(4);
 		display: block;
 	}
 
