@@ -153,6 +153,11 @@
 
 		@include extendSides();
 	}
+	.MainMenu__items.MainMenu__items--greetingHack {
+		padding-top: var(--MainMenu__list--padTop, grid-units(3));
+		padding-bottom: var(--MainMenu__list--padTop, grid-units(3));
+	}
+
 	.MainMenu__item {
 		width: 100%;
 		font-size: px($font-size-20);
@@ -226,6 +231,11 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
+	}
+
+	.MainMenu__switcher a {
+		@include LinkStyle();
+		--link-color: _inherit;
 	}
 
 	.MainMenu__separator[class] {
