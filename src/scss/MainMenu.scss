@@ -236,6 +236,7 @@
 	.MainMenu__switcher a {
 		@include LinkStyle();
 		--link-color: _inherit;
+		padding-bottom: 0.5rem;
 	}
 
 	.MainMenu__separator[class] {
