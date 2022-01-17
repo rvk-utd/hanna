@@ -48,7 +48,13 @@
 		object-fit: contain;
 		object-position: 50% 31%;
 	}
-
+	.InfoHero__wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+	.InfoHero__head {
+		display: flex;
+	}
 	.InfoHero__content {
 		margin-top: between_cols(20, 120);
 		@include media($mq-tablet_up) {
@@ -62,7 +68,7 @@
 
 	.InfoHero__title {
 		@include HeadingStyle--large();
-		margin-bottom: px_pct(40, 5);
+		margin-bottom: 0;
 		word-break: break-word;
 		overflow-wrap: break-word;
 	}
