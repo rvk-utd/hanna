@@ -184,8 +184,17 @@ html.menu-is-open .MainMenu {
   }
 }
 @media screen and (max-width: 979px) {
-  html.menu-is-active .MainMenu__items {
-    padding-bottom: 2.5rem;
+  html.menu-is-closed .MainMenu .AuxiliaryPanel__image {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+  }
+}
+@media screen and (max-width: 979px) {
+  html.menu-is-open .MainMenu .AuxiliaryPanel__image {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 600ms linear 0s, opacity 2.8s;
   }
 }
 @media screen and (max-width: 979px) {
@@ -197,6 +206,12 @@ html.menu-is-open .MainMenu {
     padding-left: calc(50vw - 50% + 0px);
     margin-right: calc(50% - 50vw + 0px);
     padding-right: calc(50vw - 50% + 0px);
+  }
+}
+@media screen and (max-width: 979px) {
+  .MainMenu__items.MainMenu__items--greetingHack {
+    padding-top: var(--MainMenu__list--padTop, 1.5rem);
+    padding-bottom: var(--MainMenu__list--padTop, 1.5rem);
   }
 }
 @media screen and (max-width: 979px) {
@@ -228,13 +243,9 @@ html.menu-is-open .MainMenu {
 }
 @media screen and (max-width: 979px) {
   .MainMenu__separator ~ .MainMenu__item {
-    width: auto;
     order: -1;
-    font-size: 12px;
-    margin-left: 1rem;
     margin-bottom: 0;
-    margin-top: calc(-0.5 * var(--Layout__header-height));
-    transform: translateY(-50%) translateY(var(--MainMenu__list--padTop, -1.5rem));
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 979px) {
@@ -243,6 +254,7 @@ html.menu-is-open .MainMenu {
     flex-grow: 1;
     display: flex;
     flex-flow: column;
+    position: relative;
   }
 }
 @media screen and (max-width: 979px) {
@@ -340,6 +352,22 @@ html.menu-is-open .MainMenu {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+
+  .MainMenu__switcher a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: var(--link-weight);
+    padding-bottom: var(--link-underline-offset);
+    border-bottom: var(--link-underline);
+    transition: var(--link-transition);
+    transition-property: border-color, background-color, color, text-shadow, box-shadow, outline;
+    --link-color: _inherit;
+    padding-bottom: 0.5rem;
+  }
+  .MainMenu__switcher a:hover, .MainMenu__switcher a:active {
+    color: var(--link-color--hover);
+    border-bottom: var(--link-underline--hover);
   }
 
   .MainMenu__separator[class] {
@@ -503,11 +531,6 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   .MainMenu[class][class] {
     display: flex;
     flex-flow: column;
-  }
-
-  .MainMenu__items--greetingHack[class][class] {
-    order: -1;
-    padding-bottom: 0;
   }
 
   .MainMenu:not([data-sprinkled]) > .MainMenu__greeting {
@@ -762,10 +785,27 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   margin-bottom: 0.5rem;
 }
 
+.AuxiliaryPanel__image {
+  min-height: 7.1875rem;
+}
+
+.AuxiliaryPanel__image span {
+  display: block;
+  background-image: url(i/ContactBubble/mynd.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 7.1875rem;
+}
+
 @media screen and (max-width: 979px) {
   .AuxiliaryPanel {
-    background-color: var(--menu-auxiliary-background);
-    padding: 2.5rem 0;
+    background-color: white;
+    padding-top: 2.5rem;
     flex-grow: 1;
     margin-left: calc(50% - 50vw + 0px);
     padding-left: calc(50vw - 50% + 0px);
@@ -787,6 +827,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
 
   .AuxiliaryPanel__items {
     padding-left: var(--MainMenu--offsetLeft);
+    padding-bottom: 2rem;
   }
 }
 @media screen and (min-width: 980px) {

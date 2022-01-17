@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @media screen {
   body {
     padding: 0;
@@ -36,8 +35,8 @@
     min-height: 100vh;
     display: flex;
     flex-flow: column nowrap;
-    position: relative;
     padding-top: var(--Layout__header-height);
+    position: relative;
   }
 }
 @media screen {
@@ -48,6 +47,7 @@
     right: 0;
     z-index: 100;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: var(--Layout__header-height);
   }
@@ -85,7 +85,6 @@
     padding: 0.625rem;
     overflow: hidden;
     box-sizing: content-box;
-    width: 2.1875rem;
   }
   .Layout__header__logo > div {
     display: inline-block;
@@ -93,11 +92,7 @@
   .Layout__header__logo > svg, .Layout__header__logo > img, .Layout__header__logo > * > svg, .Layout__header__logo > * > img {
     -o-object-fit: cover;
        object-fit: cover;
-    width: 11.5625rem;
     margin-right: 1.3125rem;
-  }
-  .Layout__header__logo > svg > .logo-text, .Layout__header__logo > img > .logo-text, .Layout__header__logo > * > svg > .logo-text, .Layout__header__logo > * > img > .logo-text {
-    display: none;
   }
 }
 @media screen {
@@ -126,12 +121,11 @@
     transition: left 400ms 0ms ease-in;
   }
 
+  .Layout__alerts .Alert--info {
+    display: none;
+  }
+
   html.menu-is-open .Layout__header {
-    position: fixed;
-    top: 0;
-    left: 0.5rem;
-    right: 0;
-    padding-left: var(--grid-edge);
     transition-delay: 0ms;
     pointer-events: none;
   }
@@ -157,60 +151,37 @@
     --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
-    position: fixed;
-    right: var(--grid-edge--right);
-    bottom: 1.5rem;
-    background-color: #0367e1;
-    color: #ffffff;
+    position: relative;
+    color: transparent;
+    background-color: transparent;
     width: 3rem;
     height: 3rem;
     line-height: 3rem;
     transition-duration: 200ms;
-    --open-icon-color: _inherit;
-    --close-icon-color: transparent;
   }
 
-  html.menu-is-open .Layout__header__skiplink {
-    --open-icon-color: transparent;
-    --close-icon-color: _inherit;
-    margin-right: var(--browser-scrollbar-width);
+  .Layout__header__skiplink::before {
+    content: url(i/ContactBubble/mobile-menu.svg);
+    display: block;
+    width: 2.5rem;
+    height: 100%;
+    margin-top: 0.3rem;
+    position: relative;
   }
 
-  .Layout__header__skiplink:hover,
-.Layout__header__skiplink:active {
-    background-color: #013b70;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  .menu-is-open .Layout__header__skiplink::before {
+    content: none;
   }
 
-  .Layout__header__skiplink::before,
-.Layout__header__skiplink::after {
-    display: inline-block;
-    text-indent: 0;
-    text-align: center;
-    vertical-align: top;
-    font-family: "icons", Arial, Helvetica, sans-serif;
-    speak: none;
-    font-weight: normal;
-    font-style: normal;
-    white-space: nowrap;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0;
-    width: 100%;
-    margin-right: 1px;
-    content: "";
-    font-size: 1.5rem;
-    color: var(--open-icon-color);
-    transition: inherit;
-  }
-
-  .Layout__header__skiplink::after {
+  .menu-is-open .Layout__header__skiplink::after {
+    content: url(i/ContactBubble/close.svg);
+    display: block;
+    width: 2.5rem;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    content: "";
-    font-size: 1.25rem;
-    color: var(--close-icon-color);
+    margin-top: 0.4rem;
   }
 
   html.menu-is-active .Layout__nav::before {
