@@ -33,7 +33,7 @@
     padding-left: var(--grid-edge);
     box-sizing: content-box;
     width: 48.3443708609%;
-    padding-top: 73.6754966887%;
+    padding-top: 57.119205298%;
   }
 }
 @media screen {
@@ -55,8 +55,19 @@
   }
 }
 @media screen {
+  .InfoHero__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen {
+  .InfoHero__head {
+    display: flex;
+  }
+}
+@media screen {
   .InfoHero__content {
-    margin-top: calc(10.775862069% + -10.1724137931px);
+    margin-top: calc(2.1551724138% + 13.9655172414px);
   }
 }
 @media screen and (min-width: 760px) {
@@ -75,7 +86,7 @@
     font-weight: 700;
     font-size: var(--font-hd-l-size);
     line-height: var(--font-hd-l-leading);
-    margin-bottom: 8.3333333333%;
+    margin-bottom: 0;
     word-break: break-word;
     overflow-wrap: break-word;
   }
