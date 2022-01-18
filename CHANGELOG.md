@@ -3,6 +3,12 @@
 ## Upcoming...
 - ... <!-- Add new lines here. -->
 
+## 0.8.30
+
+_2022-01-18_
+
+- feat: Fixed position of the title
+
 ## 0.8.29
 
 _2022-01-18_
