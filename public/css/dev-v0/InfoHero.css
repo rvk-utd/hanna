@@ -61,11 +61,6 @@
   }
 }
 @media screen {
-  .InfoHero__head {
-    display: flex;
-  }
-}
-@media screen {
   .InfoHero__content {
     margin-top: calc(2.1551724138% + 13.9655172414px);
   }
