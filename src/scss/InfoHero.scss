@@ -32,7 +32,7 @@
 			padding-left: $var--grid-edge;
 			box-sizing: content-box;
 			width: cols_pct(6);
-			padding-top: px_pct(890);
+			padding-top: px_pct(690);
 		}
 	}
 
@@ -56,7 +56,7 @@
 		display: flex;
 	}
 	.InfoHero__content {
-		margin-top: between_cols(20, 120);
+		margin-top: between_cols(20, 40);
 		@include media($mq-tablet_up) {
 			width: cols_pct(6);
 			margin-bottom: px_pct(170);
