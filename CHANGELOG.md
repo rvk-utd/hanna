@@ -3,6 +3,13 @@
 ## Upcoming...
 - ... <!-- Add new lines here. -->
 
+## 0.8.29
+
+_2022-01-18_
+
+- feat: Chanched info hero title
+
+
 ## 0.8.28
 
 _2022-01-17_
