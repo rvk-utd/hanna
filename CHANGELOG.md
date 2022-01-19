@@ -3,6 +3,12 @@
 ## Upcoming...
 - ... <!-- Add new lines here. -->
 
+## 0.8.31
+
+_2022-01-19_
+
+- changed styles of tables
+
 ## 0.8.30
 
 _2022-01-18_

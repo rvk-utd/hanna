@@ -29,13 +29,36 @@
   [data-is-seen] .TableWrapper[data-is-seen=true] {
     transition: none;
   }
+
+  .TableWrapper__footnote div:before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    position: relative;
+    margin-right: 24px;
+    transform: translateY(4px);
+    background-color: #707275;
+  }
+
+  .TableWrapper__footnote div {
+    color: #707275;
+  }
+
+  .TableWrapper--BasicTable--fullwidth .BasicTable {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 760px) {
   .TableWrapper--BasicTable--align--right {
     margin-left: auto;
     width: var(--grid-7);
   }
-  .TableWrapper--BasicTable--align--right + .Footnote {
+  .TableWrapper--BasicTable--align--right .BasicTable {
+    width: 100%;
+  }
+
+  .paragraph-alignment-right .TableWrapper__footnote {
     margin-left: auto;
     width: var(--grid-7);
   }
@@ -97,6 +120,10 @@
   }
 }
 @media screen and (max-width: 979px) {
+  .BasicTable {
+    width: 100%;
+  }
+
   .TableWrapper {
     margin: 0 var(--grid-edge--neg);
     margin-right: var(--grid-edge--right--neg);
@@ -108,11 +135,6 @@
   }
 }
 @media screen {
-  .BasicTable,
-.TableWrapper--BasicTable > table {
-    min-width: 100%;
-  }
-
   .BasicTable,
 .TableWrapper--BasicTable {
     margin-bottom: 1.875rem;
