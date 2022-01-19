@@ -12,20 +12,40 @@
 		position: relative;
 		overflow-x: auto;
 	}
+	.TableWrapper__footnote div:before {
+		content: '';
+		display: inline-block;
+		width: 4px;
+		height: 18px;
+		position: relative;
+		margin-right: 24px;
+		transform: translateY(4px);
+		background-color: $color-suld-150;
+	}
+	.TableWrapper__footnote div {
+		color: $color-suld-150;
+	}
+
+	.TableWrapper--BasicTable--fullwidth .BasicTable {
+		width: 100%;
+	}
 
 	@include media($mq-tablet_up) {
 		.TableWrapper--BasicTable--align--right {
 			margin-left: auto;
 			width: $var--grid-7; // tolerate containment by right-aligned TextBlock, for instance
-
-			& + .Footnote {
-				margin-left: auto;
-				width: $var--grid-7;
+			.BasicTable {
+				width: 100%;
 			}
+		}
+		.paragraph-alignment-right .TableWrapper__footnote {
+			margin-left: auto;
+			width: $var--grid-7;
 		}
 		.TableWrapper--BasicTable--fullwidth {
 			width: $var--grid-12;
 		}
+
 
 		.TextBlock--labelled .TableWrapper--BasicTable--fullwidth,
 		.TextBlock--align--right .TableWrapper--BasicTable--fullwidth,
@@ -78,6 +98,9 @@
 	}
 }
 @include media($mq-phone_tablet) {
+	.BasicTable {
+		width: 100%;
+	}
 	.TableWrapper {
 		margin: 0 $var--grid-edge--neg;
 		margin-right: $var--grid-edge--right--neg;
@@ -92,10 +115,6 @@
 // ===========================================================================
 
 @media screen {
-	.BasicTable,
-	.TableWrapper--BasicTable > table {
-		min-width: 100%;
-	}
 	.BasicTable,
 	.TableWrapper--BasicTable {
 		margin-bottom: prem(30);
