@@ -21,22 +21,6 @@
 	.AuxiliaryPanel__item {
 		margin-bottom: prem(8px);
 	}
-	.AuxiliaryPanel__image {
-		min-height: 7.1875rem;
-	}
-
-	.AuxiliaryPanel__image  span {
-		display: block;
-		background-image: url(i/ContactBubble/mynd.svg);
-		background-repeat: no-repeat;
-		background-size: 100%;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		min-height: prem(115);
-	}
 
 	// ===========================================================================
 
@@ -64,6 +48,36 @@
 			padding-left: var(--MainMenu--offsetLeft);
 			padding-bottom: prem(32);
 		}
+		.AuxiliaryPanel__image {
+			min-height: 7.1875rem;
+		}
+		.AuxiliaryPanel__image  span {
+			display: block;
+			background-image: url(i/ContactBubble/mynd.svg);
+			background-repeat: no-repeat;
+			background-size: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			min-height: prem(115);
+		}
+	}
+
+	@include media($mq-phablet_up) {
+		.AuxiliaryPanel__image {
+			min-height: 10.1875rem;
+		}
+		.AuxiliaryPanel__image  span {
+			min-height: 9.1875rem;
+		}
+	}
+	@include media($mq-tablet_up) {
+		.AuxiliaryPanel__image,
+		.AuxiliaryPanel__image  span {
+			min-height: 12.1875rem;
+		}
 	}
 
 	// ===========================================================================
@@ -90,6 +104,9 @@
 
 		.AuxiliaryPanel__items {
 			margin-right: cols_pct(1, 0, 4);
+		}
+		.AuxiliaryPanel__image {
+			display: none;
 		}
 	}
 }
