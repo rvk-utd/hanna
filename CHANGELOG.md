@@ -3,6 +3,12 @@
 ## Upcoming...
 - ... <!-- Add new lines here. -->
 
+## 0.8.32
+
+_2022-01-20_
+
+- added responsive styles for mobile menu
+
 ## 0.8.31
 
 _2022-01-19_
