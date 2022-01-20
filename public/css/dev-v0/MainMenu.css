@@ -785,23 +785,6 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   margin-bottom: 0.5rem;
 }
 
-.AuxiliaryPanel__image {
-  min-height: 7.1875rem;
-}
-
-.AuxiliaryPanel__image span {
-  display: block;
-  background-image: url(i/ContactBubble/mynd.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  min-height: 7.1875rem;
-}
-
 @media screen and (max-width: 979px) {
   .AuxiliaryPanel {
     background-color: white;
@@ -829,6 +812,38 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     padding-left: var(--MainMenu--offsetLeft);
     padding-bottom: 2rem;
   }
+
+  .AuxiliaryPanel__image {
+    min-height: 7.1875rem;
+  }
+
+  .AuxiliaryPanel__image span {
+    display: block;
+    background-image: url(i/ContactBubble/mynd.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 7.1875rem;
+  }
+}
+@media screen and (min-width: 480px) {
+  .AuxiliaryPanel__image {
+    min-height: 10.1875rem;
+  }
+
+  .AuxiliaryPanel__image span {
+    min-height: 9.1875rem;
+  }
+}
+@media screen and (min-width: 760px) {
+  .AuxiliaryPanel__image,
+.AuxiliaryPanel__image span {
+    min-height: 12.1875rem;
+  }
 }
 @media screen and (min-width: 980px) {
   .AuxiliaryPanel {
@@ -849,6 +864,10 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
 
   .AuxiliaryPanel__items {
     margin-right: 17.0212765957%;
+  }
+
+  .AuxiliaryPanel__image {
+    display: none;
   }
 }
 /*# sourceMappingURL=MainMenu.css.map */

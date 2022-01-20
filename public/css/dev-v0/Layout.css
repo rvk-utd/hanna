@@ -121,7 +121,7 @@
     transition: left 400ms 0ms ease-in;
   }
 
-  .Layout__alerts .Alert--info {
+  .Layout__alerts .Alert {
     display: none;
   }
 
