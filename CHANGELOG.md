@@ -3,6 +3,12 @@
 ## Upcoming...
 - ... <!-- Add new lines here. -->
 
+## 0.8.33
+
+_2022-01-28_
+
+- added styles for bubble button
+
 ## 0.8.32
 
 _2022-01-20_
