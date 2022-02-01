@@ -45,7 +45,7 @@
 		)};
 
 	--grid-edge--right: calc(var(--grid-edge) - var(--browser-scrollbar-width));
-	--grid-edge--right--neg: calc(var(--grid-edge--neg) - var(--browser-scrollbar-width));
+	--grid-edge--right--neg: calc(var(--grid-edge--neg) + var(--browser-scrollbar-width));
 
 	--grid-0-1: #{_flexCol(0, 1)};
 	--grid-1: #{_flexCol(1)};

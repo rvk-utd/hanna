@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Correct value for CSS token `--grid-edge--right--neg`
 - fix: Tweak `MainMenu` mobile styles
 
 ## 0.8.33
