@@ -134,18 +134,6 @@
 		margin-top: 0;
 	}
 
-	html.menu-is-closed .MainMenu .AuxiliaryPanel__image {
-		visibility: hidden;
-		opacity: 0;
-		transition: visibility 0s linear 300ms, opacity 300ms;
-	}
-
-	html.menu-is-open .MainMenu .AuxiliaryPanel__image {
-		visibility: visible;
-		opacity: 1;
-		transition: visibility 600ms linear 0s, opacity 2.8s;
-	}
-
 	.MainMenu__items {
 		display: flex;
 		flex-flow: row wrap;

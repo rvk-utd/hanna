@@ -26,7 +26,7 @@
 
 	@include media($mq-Hamburger) {
 		.AuxiliaryPanel {
-			background-color: white;
+			background-color: $var--menu-auxiliary-background;
 			padding-top: prem(40);
 			flex-grow: 1;
 
@@ -46,37 +46,28 @@
 
 		.AuxiliaryPanel__items {
 			padding-left: var(--MainMenu--offsetLeft);
-			padding-bottom: prem(32);
+			margin-bottom: grid-units(4);
 		}
-		.AuxiliaryPanel__image {
-			min-height: 7.1875rem;
-		}
-		.AuxiliaryPanel__image  span {
-			display: block;
-			background-image: url(i/ContactBubble/mynd.svg);
-			background-repeat: no-repeat;
-			background-size: 100%;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			width: 100%;
-			min-height: prem(115);
-		}
-	}
 
-	@include media($mq-phablet_up) {
-		.AuxiliaryPanel__image {
-			min-height: 10.1875rem;
+		.AuxiliaryPanel::after {
+			content: '';
+
+			background: 50% 100% / 100% auto no-repeat;
+			background-image: url(i/ContactBubble/mynd.svg);
+
+			display: block;
+			padding-top: percentage(115 / 325);
 		}
-		.AuxiliaryPanel__image  span {
-			min-height: 9.1875rem;
+
+		html.menu-is-open .AuxiliaryPanel::after {
+			transition: visibility 600ms 0s linear, opacity 2.8s;
 		}
-	}
-	@include media($mq-tablet_up) {
-		.AuxiliaryPanel__image,
-		.AuxiliaryPanel__image  span {
-			min-height: 12.1875rem;
+		html.menu-is-closed .AuxiliaryPanel::after {
+			visibility: hidden;
+			opacity: 0;
+		}
+		html.menu-is-closed .AuxiliaryPanel::after {
+			transition: visibility 0s 300ms linear, opacity 300ms;
 		}
 	}
 
@@ -99,14 +90,10 @@
 			margin: prem(40) 0;
 			display: block;
 			height: 305px;
-			overflow: hidden;
 		}
 
 		.AuxiliaryPanel__items {
 			margin-right: cols_pct(1, 0, 4);
-		}
-		.AuxiliaryPanel__image {
-			display: none;
 		}
 	}
 }
