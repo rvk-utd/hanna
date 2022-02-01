@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Simplify mobile MainMenu illustration styles
+- fix: Tweak `MainMenu` mobile styles
 
 ## 0.8.33
 

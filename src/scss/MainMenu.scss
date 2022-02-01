@@ -117,11 +117,12 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		padding: 0 $var--grid-edge;
+		padding-left: $var--grid-edge;
+		padding-right: $var--grid-edge--right;
 		padding-top: $var--Layout__header-height;
 		margin-top: -100vh;
 		overflow-x: hidden;
-		overflow-y: auto;
+		overflow-y: scroll;
 	}
 
 	html.menu-is-closed .MainMenu,
@@ -139,7 +140,10 @@
 		flex-flow: row wrap;
 		padding-top: var(--MainMenu__list--padTop, grid-units(3));
 
-		@include extendSides();
+		margin-left: $var--grid-edge--neg;
+		margin-right: $var--grid-edge--right--neg;
+		padding-left: $var--grid-edge;
+		padding-right: $var--grid-edge--right;
 	}
 	.MainMenu__items.MainMenu__items--greetingHack {
 		padding-top: var(--MainMenu__list--padTop, grid-units(3));
