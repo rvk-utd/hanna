@@ -123,6 +123,7 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 	}
+
 	html.menu-is-closed .MainMenu,
 	html.menu-is-open .MainMenu {
 		transition: (margin-top $menu-speed 0ms ease-in-out, visibility 0ms $menu-speed);
@@ -133,8 +134,16 @@
 		margin-top: 0;
 	}
 
-	html.menu-is-active .MainMenu__items {
-		padding-bottom: prem(40);
+	html.menu-is-closed .MainMenu .AuxiliaryPanel__image {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 300ms, opacity 300ms;
+	}
+
+	html.menu-is-open .MainMenu .AuxiliaryPanel__image {
+		visibility: visible;
+		opacity: 1;
+		transition: visibility 600ms linear 0s, opacity 2.8s;
 	}
 
 	.MainMenu__items {
@@ -144,6 +153,11 @@
 
 		@include extendSides();
 	}
+	.MainMenu__items.MainMenu__items--greetingHack {
+		padding-top: var(--MainMenu__list--padTop, grid-units(3));
+		padding-bottom: var(--MainMenu__list--padTop, grid-units(3));
+	}
+
 	.MainMenu__item {
 		width: 100%;
 		font-size: px($font-size-20);
@@ -166,14 +180,9 @@
 		order: -1;
 	}
 	.MainMenu__separator ~ .MainMenu__item {
-		width: auto;
 		order: -1;
-		font-size: px($font-size-12);
-		margin-left: grid-units(2);
 		margin-bottom: 0;
-		margin-top: calc(-0.5 * #{$var--Layout__header-height});
-		transform: translateY(-50%)
-			translateY(var(--MainMenu__list--padTop, grid-units(-3)));
+		font-size: prem(16);
 	}
 
 	.MainMenu__panels,
@@ -181,6 +190,7 @@
 		flex-grow: 1;
 		display: flex;
 		flex-flow: column;
+		position: relative;
 	}
 
 	[aria-current='true'] .MainMenu__mega__link::before {
@@ -221,6 +231,12 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
+	}
+
+	.MainMenu__switcher a {
+		@include LinkStyle();
+		--link-color: _inherit;
+		padding-bottom: 0.5rem;
 	}
 
 	.MainMenu__separator[class] {
@@ -374,10 +390,6 @@
 	.MainMenu[class][class] {
 		display: flex;
 		flex-flow: column;
-	}
-	.MainMenu__items--greetingHack[class][class] {
-		order: -1;
-		padding-bottom: 0;
 	}
 
 	.MainMenu:not([data-sprinkled]) > .MainMenu__greeting {

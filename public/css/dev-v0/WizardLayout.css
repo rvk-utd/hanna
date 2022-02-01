@@ -78,7 +78,6 @@
     padding: 0.625rem;
     overflow: hidden;
     box-sizing: content-box;
-    width: 2.1875rem;
   }
   .WizardLayout__header__logo > div {
     display: inline-block;
@@ -86,11 +85,7 @@
   .WizardLayout__header__logo > svg, .WizardLayout__header__logo > img, .WizardLayout__header__logo > * > svg, .WizardLayout__header__logo > * > img {
     -o-object-fit: cover;
        object-fit: cover;
-    width: 11.5625rem;
     margin-right: 1.3125rem;
-  }
-  .WizardLayout__header__logo > svg > .logo-text, .WizardLayout__header__logo > img > .logo-text, .WizardLayout__header__logo > * > svg > .logo-text, .WizardLayout__header__logo > * > img > .logo-text {
-    display: none;
   }
 }
 @media screen {

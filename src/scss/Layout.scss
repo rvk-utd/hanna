@@ -42,9 +42,8 @@
 		min-height: 100vh;
 		display: flex;
 		flex-flow: column nowrap;
-		// align-items: center;
-		position: relative;
 		padding-top: $var--Layout__header-height;
+		position: relative;
 	}
 
 	.Layout__header {
@@ -54,6 +53,7 @@
 		right: 0;
 		z-index: $zIndex--header;
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
 		height: $var--Layout__header-height;
 	}
@@ -89,12 +89,11 @@
 		transition: left 400ms 0ms ease-in;
 	}
 
+	.Layout__alerts .Alert {
+		display: none;
+	}
+
 	html.menu-is-open .Layout__header {
-		position: fixed;
-		top: 0;
-		left: grid-units(1);
-		right: 0;
-		padding-left: $var--grid-edge;
 		transition-delay: 0ms;
 		pointer-events: none;
 	}
@@ -110,47 +109,37 @@
 	.Layout__header__skiplink[class] {
 		@include hideText(soft);
 		@include LinkStyle_Reset(true);
-		position: fixed;
-		right: $var--grid-edge--right;
-		bottom: grid-units(3);
-		background-color: $color-faxafloi-100;
-		color: $color-suld-0;
+		position: relative;
+		color: transparent;
+		background-color: transparent;
 		width: prem(48);
 		height: prem(48);
 		line-height: prem(48);
 		transition-duration: 200ms;
-		--open-icon-color: _inherit;
-		--close-icon-color: transparent;
-	}
-	html.menu-is-open .Layout__header__skiplink {
-		--open-icon-color: transparent;
-		--close-icon-color: _inherit;
-		margin-right: $var--browser-scrollbar-width;
 	}
 
-	.Layout__header__skiplink:hover,
-	.Layout__header__skiplink:active {
-		background-color: $color-faxafloi-150;
-		box-shadow: 0 0 15px rgba(#000, 0.2);
+	.Layout__header__skiplink::before {
+		content: url(i/ContactBubble/mobile-menu.svg);
+		display: block;
+		width: 2.5rem;
+		height: 100%;
+		margin-top: 0.3rem;
+		position: relative;
 	}
 
-	.Layout__header__skiplink::before,
-	.Layout__header__skiplink::after {
-		@include icon();
-		width: 100%;
-		margin-right: 1px;
-		content: $icons-menu;
-		font-size: prem(24);
-		color: var(--open-icon-color);
-		transition: inherit;
+	.menu-is-open .Layout__header__skiplink::before {
+		content: none;
 	}
-	.Layout__header__skiplink::after {
+
+	.menu-is-open .Layout__header__skiplink::after {
+		content: url(i/ContactBubble/close.svg);
+		display: block;
+		width: 2.5rem;
+		height: 100%;
 		position: absolute;
 		top: 0;
 		left: 0;
-		content: $icons-close;
-		font-size: prem(20);
-		color: var(--close-icon-color);
+		margin-top: 0.4rem;
 	}
 
 	// Page content fadeout during menu open

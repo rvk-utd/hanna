@@ -27,7 +27,6 @@
 		padding: prem(10);
 		overflow: hidden;
 		box-sizing: content-box;
-		width: prem(35);
 
 		> div {
 			display: inline-block;
@@ -38,12 +37,7 @@
 		& > * > svg,
 		& > * > img {
 			object-fit: cover;
-			width: prem(185);
 			margin-right: prem(21);
-
-			> .logo-text {
-				display: none;
-			}
 		}
 	}
 }
