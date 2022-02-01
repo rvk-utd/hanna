@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.27
+
+_2022-01-13_
+
 - feat: Add styling for `.ArticleCarouselCard__illustration--photo`
 
 ## 0.8.26
