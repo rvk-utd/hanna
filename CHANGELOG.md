@@ -1,6 +1,7 @@
 # Change Log
 
 ## Upcoming...
+
 - ... <!-- Add new lines here. -->
 
 ## 0.8.33
@@ -21,28 +22,18 @@ _2022-01-19_
 
 - changed styles of tables
 
-## 0.8.30
+## 0.8.29 — 0.8.30
 
 _2022-01-18_
 
 - feat: Fixed position of the title
-
-## 0.8.29
-
-_2022-01-18_
-
 - feat: Chanched info hero title
-
 
 ## 0.8.28
 
 _2022-01-17_
 
 - feat: Add language selector to menu
-
-## 0.8.27
-
-- ... <!-- Add new lines here. -->
 
 ## 0.8.27
 
