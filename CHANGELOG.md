@@ -3,26 +3,27 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Revert global hiding of `Layout`-level `Alert` banners on small screens
 - fix: Correct value for CSS token `--grid-edge--right--neg`
 - fix: Tweak `MainMenu` mobile styles
 
-## 0.8.33
+## 0.8.33 – 0.8.33
 
 _2022-01-28_
 
-- added styles for bubble button
+- feat: added styles for bubble button
 
 ## 0.8.32
 
 _2022-01-20_
 
-- added responsive styles for mobile menu
+- feat: added responsive styles for mobile menu
 
 ## 0.8.31
 
 _2022-01-19_
 
-- changed styles of tables
+- feat: changed styles of tables
 
 ## 0.8.29 — 0.8.30
 

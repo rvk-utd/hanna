@@ -89,10 +89,6 @@
 		transition: left 400ms 0ms ease-in;
 	}
 
-	.Layout__alerts .Alert {
-		display: none;
-	}
-
 	html.menu-is-open .Layout__header {
 		transition-delay: 0ms;
 		pointer-events: none;
