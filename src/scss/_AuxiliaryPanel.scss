@@ -60,8 +60,8 @@
 			left: 0;
 			right: 0;
 
-			background: 50% 100% / contain no-repeat;
-			background-image: url(i/ContactBubble/mynd.svg);
+			background: 50% 100% / contain repeat-x;
+			background-image: url('/assets/valmundur-a-sundi.png');
 			mix-blend-mode: multiply;
 
 			padding-top: percentage(115 / 325);
