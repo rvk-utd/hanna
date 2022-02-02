@@ -106,36 +106,46 @@
 		@include hideText(soft);
 		@include LinkStyle_Reset(true);
 		position: relative;
-		color: transparent;
-		background-color: transparent;
-		width: prem(48);
-		height: prem(48);
-		line-height: prem(48);
+		color: $color-faxafloi-100;
+		width: grid-units(6);
+		height: grid-units(6);
+		line-height: grid-units(6);
+		margin-right: grid-units(-1);
 		transition-duration: 200ms;
+		--open-icon-color: _inherit;
+		--close-icon-color: transparent;
+	}
+	html.menu-is-open .Layout__header__skiplink {
+		color: $color-suld-0;
+		--open-icon-color: transparent;
+		--close-icon-color: _inherit;
+		// margin-right: $var--browser-scrollbar-width;
+	}
+	.Layout__header__skiplink:hover,
+	.Layout__header__skiplink:active {
+		text-shadow: 0 0 15px rgba(#000, 0.2);
+	}
+
+	.Layout__header__skiplink::before,
+	.Layout__header__skiplink::after {
+		@include icon();
+		width: 100%;
+		margin-right: 1px;
+		transition: inherit;
 	}
 
 	.Layout__header__skiplink::before {
-		content: url(i/ContactBubble/mobile-menu.svg);
-		display: block;
-		width: 2.5rem;
-		height: 100%;
-		margin-top: 0.3rem;
-		position: relative;
+		content: $icons-menu;
+		font-size: prem(29);
+		color: var(--open-icon-color);
 	}
-
-	.menu-is-open .Layout__header__skiplink::before {
-		content: none;
-	}
-
-	.menu-is-open .Layout__header__skiplink::after {
-		content: url(i/ContactBubble/close.svg);
-		display: block;
-		width: 2.5rem;
-		height: 100%;
+	.Layout__header__skiplink::after {
 		position: absolute;
 		top: 0;
 		left: 0;
-		margin-top: 0.4rem;
+		content: $icons-close-thin;
+		font-size: prem(26);
+		color: var(--close-icon-color);
 	}
 
 	// Page content fadeout during menu open
