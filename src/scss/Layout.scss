@@ -123,7 +123,7 @@
 	}
 	.Layout__header__skiplink:hover,
 	.Layout__header__skiplink:active {
-		text-shadow: 0 0 15px rgba(#000, 0.2);
+		text-shadow: 0 0 prem(8) rgba(#000, 0.2);
 	}
 
 	.Layout__header__skiplink::before,
