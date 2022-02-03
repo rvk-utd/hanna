@@ -376,12 +376,17 @@
 
 // ===========================================================================
 // MainMenu "Greeting"
+// @deprecated  Remove this block of styles in v0.9
 // ===========================================================================
 
 @include media($mq-Hamburger) {
 	.MainMenu[class][class] {
 		display: flex;
 		flex-flow: column;
+	}
+	.MainMenu__items--greetingHack[class][class] {
+		order: -1;
+		padding-bottom: 0;
 	}
 
 	.MainMenu:not([data-sprinkled]) > .MainMenu__greeting {
