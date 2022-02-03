@@ -145,10 +145,6 @@
 		padding-left: $var--grid-edge;
 		padding-right: $var--grid-edge--right;
 	}
-	.MainMenu__items.MainMenu__items--greetingHack {
-		padding-top: var(--MainMenu__list--padTop, grid-units(3));
-		padding-bottom: var(--MainMenu__list--padTop, grid-units(3));
-	}
 
 	.MainMenu__item {
 		width: 100%;
@@ -369,58 +365,6 @@
 		top: 0;
 		left: -132px;
 		z-index: -1;
-	}
-}
-
-// ...
-
-// ===========================================================================
-// MainMenu "Greeting"
-// @deprecated  Remove this block of styles in v0.9
-// ===========================================================================
-
-@include media($mq-Hamburger) {
-	.MainMenu[class][class] {
-		display: flex;
-		flex-flow: column;
-	}
-	.MainMenu__items--greetingHack[class][class] {
-		order: -1;
-		padding-bottom: 0;
-	}
-
-	.MainMenu:not([data-sprinkled]) > .MainMenu__greeting {
-		display: none;
-	}
-	.MainMenu__greeting {
-		color: $var--menu-primary-text;
-		max-height: 400px;
-		margin-left: var(--MainMenu--offsetLeft);
-		max-width: prem(240);
-	}
-	.MainMenu__greeting[hidden] {
-		display: block;
-		visibility: hidden;
-		opacity: 0;
-		max-height: 0;
-		overflow: hidden;
-		transition: (
-			opacity 200ms 200ms,
-			max-height 200ms 0ms ease-in-out,
-			visibility 0ms (200ms + 200ms)
-		);
-	}
-	.MainMenu__greeting > h3 {
-		@include SubheadingStyle--small();
-		margin-bottom: grid-units(2);
-	}
-	.MainMenu__greeting > p {
-		padding-bottom: grid-units(2);
-	}
-}
-@include media($mq-Topmenu) {
-	.MainMenu__greeting {
-		display: none;
 	}
 }
 

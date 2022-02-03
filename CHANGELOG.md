@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Flag `.MainMenu__greeting` as deprecated
+- feat: Remove support for never-used `MainMenu__greeting` message
 - fix: Revert global hiding of `Layout`-level `Alert` banners on small screens
 - fix: Tweak styling of mobile menu button (`.Layout__header__skiplink`)
 - fix: Correct value for CSS token `--grid-edge--right--neg`
