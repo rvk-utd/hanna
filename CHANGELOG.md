@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Improve mobile `MainMenu` and `Layout__header` styling
 - feat: Remove support for never-used `MainMenu__greeting` message
 - fix: Revert global hiding of `Layout`-level `Alert` banners on small screens
 - fix: Tweak styling of mobile menu button (`.Layout__header__skiplink`)

@@ -5,6 +5,7 @@
 @mixin whiteLogo {
 	--logo-fill-color: #{$color-suld-0};
 	--logo-text-color: #{$color-suld-0};
+	--logo-transition-delay: 0ms;
 	--logo-background-color: #{$color-faxafloi-100};
 	--link-focus-outlineColor: #{$color-suld-0};
 }
@@ -77,6 +78,8 @@
 }
 
 // ===========================================================================
+//  Mobile
+// ===========================================================================
 
 @media #{$mq-Hamburger} {
 	html.menu-is-open > body {
@@ -85,21 +88,21 @@
 	}
 
 	.Layout__header {
-		width: 100%;
-		transition: left 400ms 0ms ease-in;
+		--logo-transition: 400ms var(--logo-transition-delay, 100ms) ease-in;
+		position: absolute;
+		top: 0;
+		left: $var--grid-edge--neg;
+		right: $var--grid-edge--right--neg;
+		padding-left: $var--grid-edge;
+		padding-right: $var--grid-edge--right;
+		transition: all 200ms 100ms ease-in;
 	}
-
 	html.menu-is-open .Layout__header {
-		transition-delay: 0ms;
-		pointer-events: none;
-	}
-	html.menu-is-open .Layout__header__logo {
 		@include whiteLogo();
-	}
-
-	.Layout__header__logo,
-	.Layout__header__skiplink {
-		pointer-events: auto;
+		background-color: $color-faxafloi-100;
+		transition-duration: 300ms;
+		transition-delay: 0ms;
+		box-shadow: 0 grid-units(1) grid-units(3) $color-faxafloi-100;
 	}
 
 	.Layout__header__skiplink[class] {
@@ -173,6 +176,8 @@
 	}
 }
 
+// ===========================================================================
+//  Desktop
 // ===========================================================================
 
 @media #{$mq-Topmenu} {

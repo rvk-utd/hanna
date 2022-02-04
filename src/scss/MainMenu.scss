@@ -19,20 +19,7 @@
 	.MainMenu__title {
 		display: none; // ok if aria-label/aria-labelledby is used!
 	}
-	.MainMenu__items {
-	}
-	.MainMenu__item {
-		color: $color-suld-200;
-		white-space: nowrap;
-	}
-	.MainMenu__item[aria-current='true'] {
-		color: $color-faxafloi-100;
-
-		html[data-mega-panel-active] & {
-			color: $color-suld-0;
-		}
-	}
-	.MainMenu__item--home {
+	.MainMenu__item--home[class] {
 		@include sr-only-content-focusable();
 	}
 
@@ -43,9 +30,6 @@
 		display: block;
 		width: max-content;
 		font-weight: $font-weight--bold;
-	}
-	.MainMenu__link[aria-pressed='true'] {
-		color: $color-suld-0;
 	}
 
 	.MainMenu__link::before {
@@ -59,31 +43,12 @@
 	.MainMenu__item--search > .MainMenu__link::before {
 		content: $icons-search;
 	}
-	.MainMenu__item--lang {
-		margin-right: prem(8);
-	}
-	.MainMenu__item--lang > .MainMenu__link {
-		padding-right: prem(8);
-		padding-left: prem(8);
-		display: inline-block;
-	}
-	.MainMenu__item--lang + .MainMenu__item--lang {
-		margin-left: prem(-8);
-
-		&:before {
-			content: '|';
-			display: inline-block;
-		}
-	}
-
-	// Make up for smaller margin on `lang` items
-	.MainMenu__item--lang + .MainMenu__item:not(.MainMenu__item--lang) {
-		margin-left: prem(12);
-	}
 }
 
 // ===========================================================================
-
+//
+// Mobile menu
+//
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
@@ -98,13 +63,14 @@
 
 		background-color: $color-faxafloi-100;
 
-		--MainMenu--offsetLeft: #{prem(64)};
+		--MainMenu--offsetLeft: #{grid-units(4)};
+		--MainMenu__list--padTop: #{grid-units(2)};
 
 		@include media('screen and (max-width: 370px)') {
-			--MainMenu--offsetLeft: #{prem(16)};
+			--MainMenu--offsetLeft: #{grid-units(2)};
 		}
 		@include media('screen and (max-height: 640px)') {
-			--MainMenu__list--padTop: 0px;
+			--MainMenu__list--padTop: 0;
 		}
 	}
 
@@ -138,25 +104,25 @@
 	.MainMenu__items {
 		display: flex;
 		flex-flow: row wrap;
-		padding-top: var(--MainMenu__list--padTop, grid-units(3));
+		padding-top: var(--MainMenu__list--padTop);
+		padding-bottom: grid-units(3);
 
 		margin-left: $var--grid-edge--neg;
 		margin-right: $var--grid-edge--right--neg;
-		padding-left: $var--grid-edge;
+		padding-left: calc(#{$var--grid-edge} + var(--MainMenu--offsetLeft));
 		padding-right: $var--grid-edge--right;
 	}
 
 	.MainMenu__item {
+		@include BodyTextStyle--large();
 		width: 100%;
-		font-size: px($font-size-20);
 		color: $var--menu-primary-text;
-		margin-left: var(--MainMenu--offsetLeft);
+		margin-bottom: grid-units(2);
 	}
 	.MainMenu__link {
 		--link-color: $var--menu-primary-text;
 		--link-color--hover: $var--menu-primary-hover;
-		$pB: prem(8) - $link-underline-thickness;
-		padding: prem(8) 0 $pB 0;
+		margin-bottom: calc(-1 * #{$var--link-underline--thickness});
 	}
 	.MainMenu__link[aria-pressed='true'] {
 		border-color: $color-suld-0;
@@ -164,13 +130,23 @@
 
 	.MainMenu__separator[class] {
 		display: block;
-		margin-left: auto;
-		order: -1;
+		width: 100%; // because of flex
+		height: grid-units(2);
 	}
+
 	.MainMenu__separator ~ .MainMenu__item {
-		order: -1;
-		margin-bottom: 0;
-		font-size: prem(16);
+		@include BodyTextStyle--small();
+	}
+
+	.MainMenu__item--lang {
+		width: auto;
+		margin-right: grid-units(2);
+	}
+	.MainMenu__item--lang + .MainMenu__item--lang::before {
+		content: '|';
+		float: left;
+		color: $color-faxafloi-75;
+		margin-right: grid-units(2);
 	}
 
 	.MainMenu__panels,
@@ -194,14 +170,12 @@
 	.MainMenu__megapanel__backtomenu {
 		@include sr-only-focusable();
 	}
-
-	.MainMenu__item--lang + .MainMenu__item--lang {
-		margin-left: prem(-8);
-	}
 }
 
 // ===========================================================================
-
+//
+// Desktop Menu
+//
 // ===========================================================================
 
 @media #{$mq-Topmenu} {
@@ -221,10 +195,18 @@
 		align-items: center;
 	}
 
-	.MainMenu__switcher a {
-		@include LinkStyle();
-		--link-color: _inherit;
-		padding-bottom: 0.5rem;
+	.MainMenu__item {
+		color: $color-suld-200;
+		white-space: nowrap;
+		margin: 0 between_Topmenu(4, 10);
+		--MainMenu__item-padding: #{between_Topmenu(4, 10)};
+	}
+	.MainMenu__item[aria-current='true'] {
+		color: $color-faxafloi-100;
+
+		html[data-mega-panel-active] & {
+			color: $color-suld-0;
+		}
 	}
 
 	.MainMenu__separator[class] {
@@ -232,10 +214,6 @@
 		margin-left: auto;
 	}
 
-	.MainMenu__item {
-		margin: 0 between_Topmenu(4, 10);
-		--MainMenu__item-padding: #{between_Topmenu(4, 10)};
-	}
 	.MainMenu__item:not(.MainMenu__separator ~ *) {
 		--MainMenu__item-padding: #{prem(10)};
 	}
@@ -247,10 +225,26 @@
 
 	.MainMenu__link {
 		padding: prem(10) var(--MainMenu__item-padding);
-		padding-bottom: prem(10) - $link-underline-thickness;
+		padding-bottom: calc(#{prem(10)} - #{$var--link-underline--thickness});
+	}
+	.MainMenu__link[aria-pressed='true'] {
+		color: $color-suld-0;
 	}
 
-	.MainMenu__item--lang::before {
+	.MainMenu__item--lang {
+		margin-right: prem(8);
+	}
+	.MainMenu__item--lang > .MainMenu__link {
+		padding-right: prem(8);
+		padding-left: prem(8);
+		display: inline-block;
+	}
+	.MainMenu__item--lang + .MainMenu__item--lang {
+		margin-left: prem(-8);
+	}
+	.MainMenu__item--lang + .MainMenu__item--lang::before {
+		content: '|';
+		display: inline-block;
 		color: $color-suld-200;
 	}
 

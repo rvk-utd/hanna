@@ -2,46 +2,46 @@
 @use 'styles/font' as *;
 
 @mixin css() {
-	.AuxiliaryPanel {
-		--link-color: var(--menu-auxiliary-text);
-		--link-weight: $font-weight-normal;
+	@media screen {
+		.AuxiliaryPanel {
+			--link-color: var(--menu-auxiliary-text);
+			--link-weight: $font-weight-normal;
+		}
+
+		.AuxiliaryPanel__title {
+			color: $var--menu-auxiliary-text;
+			font-weight: $font-weight--bold;
+
+			border-bottom: 1px solid fade($color-faxafloi-100, 20%);
+
+			margin-right: cols_pct(1, 0, 4); //TODO:
+			margin-bottom: grid-units(3);
+			padding-bottom: grid-units(2);
+		}
 	}
 
-	.AuxiliaryPanel__title {
-		color: $var--menu-auxiliary-text;
-		font-weight: $font-weight--bold;
-
-		border-bottom: 1px solid fade($color-faxafloi-100, 20%);
-
-		margin-right: cols_pct(1, 0, 4); //TODO:
-		margin-bottom: prem(24);
-		padding-bottom: prem(16);
-	}
-
-	.AuxiliaryPanel__item {
-		margin-bottom: prem(8px);
-	}
+	// ===========================================================================
 
 	// ===========================================================================
 
 	@include media($mq-Hamburger) {
 		.AuxiliaryPanel {
+			position: relative;
 			background-color: $var--menu-auxiliary-background;
-			padding-top: prem(40);
+			padding-top: grid-units(4);
 			padding-bottom: percentage(125 / 325);
 			flex-grow: 1;
 
 			margin-left: $var--grid-edge--neg;
 			margin-right: $var--grid-edge--right--neg;
-			padding-left: $var--grid-edge;
+			padding-left: calc(#{$var--grid-edge} + var(--MainMenu--offsetLeft));
 			padding-right: $var--grid-edge--right;
 		}
 
 		.AuxiliaryPanel__title {
 			@include SubheadingStyle--small();
-			margin-left: var(--MainMenu--offsetLeft);
-			margin-bottom: prem(8);
-			padding-bottom: prem(8);
+			padding-bottom: grid-units(1);
+			margin-bottom: grid-units(2);
 			margin-right: 0;
 
 			max-width: percentage(140/365);
@@ -49,8 +49,10 @@
 		}
 
 		.AuxiliaryPanel__items {
-			padding-left: var(--MainMenu--offsetLeft);
 			margin-bottom: grid-units(4);
+		}
+		.AuxiliaryPanel__item {
+			margin-bottom: grid-units(1.5);
 		}
 
 		.AuxiliaryPanel::after {
@@ -79,6 +81,8 @@
 
 	// ===========================================================================
 
+	// ===========================================================================
+
 	@include media($mq-Topmenu) {
 		.AuxiliaryPanel {
 			grid-column: span 4;
@@ -100,6 +104,9 @@
 
 		.AuxiliaryPanel__items {
 			margin-right: cols_pct(1, 0, 4);
+		}
+		.AuxiliaryPanel__item {
+			margin-bottom: prem(8px);
 		}
 	}
 }
