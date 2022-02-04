@@ -132,8 +132,8 @@
 	--font-sh-s-size: #{px($font-sh-s-size--phone)};
 	--font-sh-s-leading: #{px($font-sh-s-leading--phone)};
 
-	--font-bd-l-size: #{px($font-bd-s-size)};
-	--font-bd-l-leading: #{px($font-bd-s-leading)};
+	--font-bd-l-size: #{px($font-bd-l-size)};
+	--font-bd-l-leading: #{px($font-bd-l-leading)};
 	--font-bd-s-size: #{px($font-bd-s-size)};
 	--font-bd-s-leading: #{px($font-bd-s-leading)};
 
@@ -192,14 +192,6 @@
 			)};
 	}
 
-	@include media($mq-tablet_netbook) {
-		--font-bd-l-size: #{between_tablet_netbook($font-bd-s-size, $font-bd-l-size)};
-		--font-bd-l-leading: #{between_tablet_netbook(
-				$font-bd-s-leading,
-				$font-bd-l-leading
-			)};
-	}
-
 	@include media($mq-wide) {
 		--font-hd-xl-size: #{px($font-hd-xl-size)};
 		--font-hd-xl-leading: #{px($font-hd-xl-leading)};
@@ -214,9 +206,6 @@
 		--font-sh-l-leading: #{px($font-sh-l-leading)};
 		--font-sh-s-size: #{px($font-sh-s-size)};
 		--font-sh-s-leading: #{px($font-sh-s-leading)};
-
-		--font-bd-l-size: #{px($font-bd-l-size)};
-		--font-bd-l-leading: #{px($font-bd-l-leading)};
 	}
 }
 

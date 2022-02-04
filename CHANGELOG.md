@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Improve mobile `MainMenu` and `Layout__header` styling
 - feat: Remove support for never-used `MainMenu__greeting` message
+- feat: Make `--font-bd-l-size` and `--font-bd-l-size` non-scaling
 - fix: Revert global hiding of `Layout`-level `Alert` banners on small screens
 - fix: Tweak styling of mobile menu button (`.Layout__header__skiplink`)
 - fix: Correct value for CSS token `--grid-edge--right--neg`

@@ -48,11 +48,9 @@
 	}
 }
 @mixin BodyTextStyle--small($leading: true) {
-	font-size: prem($font-bd-s-size);
-	// font-size: $var--font-bd-s-size);
+	font-size: $var--font-bd-s-size;
 	@if $leading {
-		line-height: prem($font-bd-s-leading);
-		// line-height: $var--font-bd-s-size);
+		line-height: $var--font-bd-s-size;
 	}
 }
 
