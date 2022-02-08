@@ -182,8 +182,8 @@
     margin-bottom: 0.5rem;
   }
   .ExtraLinks__card__summary {
-    font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 @media screen {
