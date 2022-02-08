@@ -55,7 +55,7 @@
 	$menu-speed: 400ms;
 	$swimmer-speed: 400ms;
 
-	html.before-sprinkling .MainMenu {
+	html.before-sprinkling .MainMenu:not([data-sprinkled]) {
 		display: none;
 	}
 	.MainMenu {
@@ -69,14 +69,12 @@
 		@include media('screen and (max-width: 370px)') {
 			--MainMenu--offsetLeft: #{grid-units(2)};
 		}
-		@include media('screen and (max-height: 640px)') {
-			--MainMenu__list--padTop: 0;
-		}
+		// @include media('screen and (max-height: 640px)') {
+		// 	--MainMenu__list--padTop: #{grid-units(2)};
+		// }
 	}
 
 	html.menu-is-active .MainMenu {
-		display: block;
-		visibility: hidden;
 		position: fixed;
 		z-index: $zIndex--header - 1;
 		top: 0;
@@ -86,18 +84,26 @@
 		padding-left: $var--grid-edge;
 		padding-right: $var--grid-edge--right;
 		padding-top: $var--Layout__header-height;
-		margin-top: -100vh;
 		overflow-x: hidden;
 		overflow-y: scroll;
+
+		transition: (
+			margin-top $menu-speed 0ms ease-in-out,
+			opacity $menu-speed 0ms,
+			visibility 0ms $menu-speed
+		);
 	}
 
-	html.menu-is-closed .MainMenu,
-	html.menu-is-open .MainMenu {
-		transition: (margin-top $menu-speed 0ms ease-in-out, visibility 0ms $menu-speed);
+	html.menu-is-closed .MainMenu {
+		visibility: hidden;
+		opacity: 0;
+		margin-top: -100vh;
 	}
 	html.menu-is-open .MainMenu {
 		transition-delay: 0ms;
+
 		visibility: visible;
+		opacity: 1;
 		margin-top: 0;
 	}
 
@@ -140,13 +146,16 @@
 
 	.MainMenu__item--lang {
 		width: auto;
-		margin-right: grid-units(2);
+		padding-right: grid-units(2);
+	}
+	.MainMenu__item--lang + .MainMenu__item--lang {
+		padding-left: grid-units(2);
 	}
 	.MainMenu__item--lang + .MainMenu__item--lang::before {
 		content: '|';
 		float: left;
 		color: $color-faxafloi-75;
-		margin-right: grid-units(2);
+		margin-left: calc(#{grid-units(-2)} - 0.2em);
 	}
 
 	.MainMenu__panels,
@@ -263,27 +272,18 @@
 		transition-duration: 0ms;
 	}
 
+	html.before-sprinkling *:not([data-sprinkled]) > .MainMenu__panelsWrap {
+		display: none;
+	}
+
 	.MainMenu__panelsWrap {
-		transition: all 250ms ease-in-out;
-		transition-property: opacity, visibility;
-
 		background-color: $color-faxafloi-100;
-
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 100vh;
-		z-index: 3;
-
 		@include extendSides();
-
-		overflow-x: hidden;
-		overflow-y: auto;
+		position: relative;
 	}
 	.MainMenu__panelsWrap:before {
 		content: '';
-		position: fixed;
+		position: absolute;
 		top: 0;
 		bottom: 0;
 		left: calc(50% + 0.5 * (#{$var--grid-gutter} + #{$var--browser-scrollbar-width}));
@@ -296,6 +296,32 @@
 		}
 	}
 
+	[data-sprinkled] > .MainMenu__panelsWrap {
+		opacity: 0;
+		visibility: hidden;
+
+		transition: all 250ms ease-in-out;
+		transition-property: opacity, visibility;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100vh;
+		z-index: 3;
+
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	[data-sprinkled] > .MainMenu__panelsWrap--active {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	[data-sprinkled] > .MainMenu__panelsWrap:before {
+		position: fixed;
+	}
+
 	.MainMenu__panels {
 		position: relative;
 		width: 100%;
@@ -305,20 +331,7 @@
 		grid-template-columns: repeat($grid-numCols, minmax(0, 1fr));
 	}
 
-	html.before-sprinkling .MainMenu__panelsWrap {
-		display: none;
-	}
-
-	.MainMenu[data-sprinkled] .MainMenu__panelsWrap {
-		display: block;
-		opacity: 0;
-		visibility: hidden;
-	}
-
-	.MainMenu[data-sprinkled] > .MainMenu__panelsWrap--active {
-		opacity: 1;
-		visibility: visible;
-	}
+	// -------------------------------------
 
 	.MainMenu__megapanel__backtomenu {
 		position: fixed;

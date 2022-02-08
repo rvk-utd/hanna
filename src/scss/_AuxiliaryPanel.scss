@@ -35,7 +35,7 @@
 			margin-left: $var--grid-edge--neg;
 			margin-right: $var--grid-edge--right--neg;
 			padding-left: calc(#{$var--grid-edge} + var(--MainMenu--offsetLeft));
-			padding-right: $var--grid-edge--right;
+			padding-right: calc(#{$var--grid-edge--right} + var(--MainMenu--offsetLeft));
 		}
 
 		.AuxiliaryPanel__title {

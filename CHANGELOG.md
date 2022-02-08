@@ -10,6 +10,7 @@
 - fix: Tweak styling of mobile menu button (`.Layout__header__skiplink`)
 - fix: Correct value for CSS token `--grid-edge--right--neg`
 - fix: Tweak `MainMenu` mobile styles
+- fix: Improve `MainMenu` display in "no script" situations
 
 ## 0.8.33 – 0.8.33
 

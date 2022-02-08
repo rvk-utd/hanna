@@ -100,7 +100,7 @@
 		padding-left: $var--grid-edge;
 		padding-right: $var--grid-edge--right;
 
-		transition: all 200ms 100ms ease-in;
+		transition: all 200ms ease-in;
 		transition-property: background-color, box-shadow;
 	}
 	html.menu-is-open .Layout__header {
@@ -111,8 +111,7 @@
 		right: $var--browser-scrollbar-width;
 
 		background-color: $color-faxafloi-100;
-		transition-duration: 300ms;
-		transition-delay: 0ms;
+		transition-duration: 400ms;
 		box-shadow: 0 grid-units(5) grid-units(3) grid-units(-4) $color-faxafloi-100;
 	}
 

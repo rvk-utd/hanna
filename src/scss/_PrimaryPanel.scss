@@ -1,14 +1,24 @@
 @use '_globals' as *;
+@use 'styles/font' as *;
 
 @mixin css() {
 	.PrimaryPanel {
 		--link-color: var(--menu-primary-text);
 		--link-color--hover: var(--menu-primary-hover);
 
-		align-content: flex-start;
-		display: none;
-
 		background-color: $color-faxafloi-100;
+		color: $var--menu-primary-text;
+	}
+	.PrimaryPanel__title {
+		font-weight: $font-weight--bold;
+		border-bottom: 1px solid $color-suld-75;
+
+		margin-bottom: grid-units(3);
+		padding-bottom: grid-units(2);
+	}
+
+	.MainMenu[data-sprinkled] .PrimaryPanel:not(.PrimaryPanel--active) {
+		display: none;
 	}
 
 	// ===========================================================================
@@ -17,27 +27,22 @@
 		.PrimaryPanel {
 			padding-bottom: prem(24);
 			padding-left: var(--MainMenu--offsetLeft);
-
-			html.menu-is-active & {
-				display: none;
-			}
-
-			[data-pristine='true'] & {
-				display: block;
-			}
+			padding-right: var(--MainMenu--offsetLeft);
 		}
 
-		html.menu-is-active .PrimaryPanel--active {
-			display: block;
+		.PrimaryPanel__title {
+			@include SubheadingStyle--small();
 		}
 
-		.PrimaryPanel__title,
-		.PrimaryPanel__summary {
-			@include sr-only();
-		}
+		// .MainMenu[data-sprinkled] .PrimaryPanel__title {
+		// 	@include sr-only();
+		// }
 
 		.PrimaryPanel__item {
 			margin-bottom: prem(16);
+		}
+		.PrimaryPanel__summary {
+			@include sr-only();
 		}
 	}
 
@@ -46,6 +51,8 @@
 	@include media($mq-Topmenu) {
 		.PrimaryPanel {
 			--PrimaryPanel-columns: 8;
+			display: grid;
+			align-content: flex-start;
 			grid-template-columns: repeat(var(--PrimaryPanel-columns), minmax(0, 1fr));
 
 			padding-top: $var--Layout__header-height;
@@ -54,7 +61,6 @@
 			column-gap: $var--grid-gutter;
 		}
 		.PrimaryPanel--active {
-			display: grid;
 		}
 
 		.PrimaryPanel--twocol {
@@ -62,16 +68,7 @@
 		}
 
 		.PrimaryPanel__title {
-			color: $var--menu-primary-text;
-
-			border-bottom: 1px solid fade($color-suld-0, 20%);
-
 			margin-right: cols_pct(1, 0, 5);
-			margin-bottom: prem(24);
-			padding-bottom: prem(16);
-
-			font-weight: $font-weight--bold;
-
 			grid-column: span 5;
 		}
 		.PrimaryPanel--twocol .PrimaryPanel__title {
@@ -92,15 +89,14 @@
 		}
 
 		.PrimaryPanel__item {
-			margin-bottom: prem(24);
+			margin-bottom: grid-units(3);
 		}
 		.PrimaryPanel--twocol .PrimaryPanel__item {
 			padding-right: cols_pct(1, 0, 4);
 		}
 
 		.PrimaryPanel__linkTitle {
-			font-size: prem($font-size-20);
-			line-height: prem(32);
+			@include BodyTextStyle--large();
 		}
 
 		.PrimaryPanel__summary {
