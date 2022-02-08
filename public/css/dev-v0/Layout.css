@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @media screen {
   body {
     padding: 0;
@@ -90,6 +91,7 @@
     display: inline-block;
   }
   .Layout__header__logo > svg, .Layout__header__logo > img, .Layout__header__logo > * > svg, .Layout__header__logo > * > img {
+    width: 11.5625rem;
     -o-object-fit: cover;
        object-fit: cover;
     margin-right: 1.3125rem;
@@ -116,30 +118,35 @@
     padding-right: var(--grid-edge);
   }
 
-  .Layout__header {
-    width: 100%;
-    transition: left 400ms 0ms ease-in;
+  html.menu-is-open .Layout__alerts {
+    max-height: 0;
   }
 
-  .Layout__alerts .Alert {
-    display: none;
+  .Layout__header {
+    --logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
+    position: absolute;
+    top: 0;
+    left: var(--grid-edge--neg);
+    right: var(--grid-edge--right--neg);
+    padding-left: var(--grid-edge);
+    padding-right: var(--grid-edge--right);
+    transition: all 200ms ease-in;
+    transition-property: background-color, box-shadow;
   }
 
   html.menu-is-open .Layout__header {
-    transition-delay: 0ms;
-    pointer-events: none;
-  }
-
-  html.menu-is-open .Layout__header__logo {
     --logo-fill-color: #ffffff;
     --logo-text-color: #ffffff;
+    --logo-transition-delay: 0ms;
     --logo-background-color: #0367e1;
     --link-focus-outlineColor: #ffffff;
-  }
-
-  .Layout__header__logo,
-.Layout__header__skiplink {
-    pointer-events: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: var(--browser-scrollbar-width);
+    background-color: #0367e1;
+    transition-duration: 400ms;
+    box-shadow: 0 2.5rem 1.5rem -2rem #0367e1;
   }
 
   .Layout__header__skiplink[class] {
@@ -152,36 +159,59 @@
     --link-underline--hover: none;
     --link-underline-offset: 0;
     position: relative;
-    color: transparent;
-    background-color: transparent;
+    color: #0367e1;
     width: 3rem;
     height: 3rem;
     line-height: 3rem;
+    margin-right: -0.5rem;
     transition-duration: 200ms;
+    --open-icon-color: _inherit;
+    --close-icon-color: transparent;
+  }
+
+  html.menu-is-open .Layout__header__skiplink {
+    color: #ffffff;
+    --open-icon-color: transparent;
+    --close-icon-color: _inherit;
+  }
+
+  .Layout__header__skiplink:hover,
+.Layout__header__skiplink:active {
+    text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
+
+  .Layout__header__skiplink::before,
+.Layout__header__skiplink::after {
+    display: inline-block;
+    text-indent: 0;
+    text-align: center;
+    vertical-align: top;
+    font-family: "icons", Arial, Helvetica, sans-serif;
+    speak: none;
+    font-weight: normal;
+    font-style: normal;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
+    width: 100%;
+    margin-right: 1px;
+    transition: inherit;
   }
 
   .Layout__header__skiplink::before {
-    content: url(i/ContactBubble/mobile-menu.svg);
-    display: block;
-    width: 2.5rem;
-    height: 100%;
-    margin-top: 0.3rem;
-    position: relative;
+    content: "";
+    font-size: 1.8125rem;
+    color: var(--open-icon-color);
   }
 
-  .menu-is-open .Layout__header__skiplink::before {
-    content: none;
-  }
-
-  .menu-is-open .Layout__header__skiplink::after {
-    content: url(i/ContactBubble/close.svg);
-    display: block;
-    width: 2.5rem;
-    height: 100%;
+  .Layout__header__skiplink::after {
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 0.4rem;
+    content: "";
+    font-size: 1.625rem;
+    color: var(--close-icon-color);
   }
 
   html.menu-is-active .Layout__nav::before {
@@ -338,6 +368,7 @@
   html[data-mega-panel-active] .Layout__header__logo {
     --logo-fill-color: #ffffff;
     --logo-text-color: #ffffff;
+    --logo-transition-delay: 0ms;
     --logo-background-color: #0367e1;
     --link-focus-outlineColor: #ffffff;
   }
