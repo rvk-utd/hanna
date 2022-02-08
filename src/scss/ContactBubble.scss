@@ -10,7 +10,7 @@
 		bottom: 0;
 		right: $var--grid-edge--right;
 		left: $var--grid-edge;
-		z-index: 101;
+		z-index: $zIndex--header;
 		max-width: prem($grid-contentMaxWidth);
 		margin: 0 auto;
 		transition: all 600ms ease-in-out;

@@ -2,42 +2,46 @@
 @use 'styles/font' as *;
 
 @mixin css() {
-	.AuxiliaryPanel {
-		--link-color: var(--menu-auxiliary-text);
-		--link-weight: $font-weight-normal;
+	@media screen {
+		.AuxiliaryPanel {
+			--link-color: var(--menu-auxiliary-text);
+			--link-weight: $font-weight-normal;
+		}
+
+		.AuxiliaryPanel__title {
+			color: $var--menu-auxiliary-text;
+			font-weight: $font-weight--bold;
+
+			border-bottom: 1px solid fade($color-faxafloi-100, 20%);
+
+			margin-right: cols_pct(1, 0, 4); //TODO:
+			margin-bottom: grid-units(3);
+			padding-bottom: grid-units(2);
+		}
 	}
 
-	.AuxiliaryPanel__title {
-		color: $var--menu-auxiliary-text;
-		font-weight: $font-weight--bold;
-
-		border-bottom: 1px solid fade($color-faxafloi-100, 20%);
-
-		margin-right: cols_pct(1, 0, 4); //TODO:
-		margin-bottom: prem(24);
-		padding-bottom: prem(16);
-	}
-
-	.AuxiliaryPanel__item {
-		margin-bottom: prem(8px);
-	}
+	// ===========================================================================
 
 	// ===========================================================================
 
 	@include media($mq-Hamburger) {
 		.AuxiliaryPanel {
-			background-color: white;
-			padding-top: prem(40);
+			position: relative;
+			background-color: $var--menu-auxiliary-background;
+			padding-top: grid-units(4);
+			padding-bottom: percentage(125 / 325);
 			flex-grow: 1;
 
-			@include extendSides();
+			margin-left: $var--grid-edge--neg;
+			margin-right: $var--grid-edge--right--neg;
+			padding-left: calc(#{$var--grid-edge} + var(--MainMenu--offsetLeft));
+			padding-right: calc(#{$var--grid-edge--right} + var(--MainMenu--offsetLeft));
 		}
 
 		.AuxiliaryPanel__title {
 			@include SubheadingStyle--small();
-			margin-left: var(--MainMenu--offsetLeft);
-			margin-bottom: prem(8);
-			padding-bottom: prem(8);
+			padding-bottom: grid-units(1);
+			margin-bottom: grid-units(2);
 			margin-right: 0;
 
 			max-width: percentage(140/365);
@@ -45,40 +49,37 @@
 		}
 
 		.AuxiliaryPanel__items {
-			padding-left: var(--MainMenu--offsetLeft);
-			padding-bottom: prem(32);
+			margin-bottom: grid-units(4);
 		}
-		.AuxiliaryPanel__image {
-			min-height: 7.1875rem;
+		.AuxiliaryPanel__item {
+			margin-bottom: grid-units(1.5);
 		}
-		.AuxiliaryPanel__image  span {
-			display: block;
-			background-image: url(i/ContactBubble/mynd.svg);
-			background-repeat: no-repeat;
-			background-size: 100%;
+
+		.AuxiliaryPanel::after {
+			content: '';
 			position: absolute;
 			bottom: 0;
 			left: 0;
 			right: 0;
-			width: 100%;
-			min-height: prem(115);
+
+			background: 50% 100% / contain repeat-x;
+			background-image: url('/assets/valmundur-a-sundi.png');
+			mix-blend-mode: multiply;
+
+			padding-top: percentage(115 / 325);
+		}
+
+		html.menu-is-open .AuxiliaryPanel::after {
+			transition: visibility 0s 1200ms linear, opacity 300ms;
+		}
+		html.menu-is-closed .AuxiliaryPanel::after {
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0s 300ms linear, opacity 300ms;
 		}
 	}
 
-	@include media($mq-phablet_up) {
-		.AuxiliaryPanel__image {
-			min-height: 10.1875rem;
-		}
-		.AuxiliaryPanel__image  span {
-			min-height: 9.1875rem;
-		}
-	}
-	@include media($mq-tablet_up) {
-		.AuxiliaryPanel__image,
-		.AuxiliaryPanel__image  span {
-			min-height: 12.1875rem;
-		}
-	}
+	// ===========================================================================
 
 	// ===========================================================================
 
@@ -99,14 +100,13 @@
 			margin: prem(40) 0;
 			display: block;
 			height: 305px;
-			overflow: hidden;
 		}
 
 		.AuxiliaryPanel__items {
 			margin-right: cols_pct(1, 0, 4);
 		}
-		.AuxiliaryPanel__image {
-			display: none;
+		.AuxiliaryPanel__item {
+			margin-bottom: prem(8px);
 		}
 	}
 }

@@ -36,8 +36,14 @@
 		& > img,
 		& > * > svg,
 		& > * > img {
+			width: prem(185);
 			object-fit: cover;
 			margin-right: prem(21);
 		}
+
+		// // Hide the text layer within the logo
+		// svg .logo-text {
+		// 	display: none;
+		// }
 	}
 }

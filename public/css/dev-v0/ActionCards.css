@@ -97,8 +97,8 @@
     margin-bottom: 0.5rem;
   }
   .ActionCards__card__summary {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-size);
   }
 }
 @media screen {

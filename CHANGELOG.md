@@ -1,38 +1,46 @@
 # Change Log
 
 ## Upcoming...
+
 - ... <!-- Add new lines here. -->
+
+## 0.8.34
+
+_2022-02-08_
+
+- feat: Improve mobile `MainMenu` and `Layout__header` styling
+- feat: Remove support for never-used `MainMenu__greeting` message
+- feat: Make `--font-bd-l-size` and `--font-bd-l-size` non-scaling
+- fix: Revert global hiding of `Layout`-level `Alert` banners on small screens
+- fix: Tweak styling of mobile menu button (`.Layout__header__skiplink`)
+- fix: Correct value for CSS token `--grid-edge--right--neg`
+- fix: Tweak `MainMenu` mobile styles
+- fix: Improve `MainMenu` display in "no script" situations
 
 ## 0.8.33
 
 _2022-01-28_
 
-- added styles for bubble button
+- feat: added styles for bubble button
 
 ## 0.8.32
 
 _2022-01-20_
 
-- added responsive styles for mobile menu
+- feat: added responsive styles for mobile menu
 
 ## 0.8.31
 
 _2022-01-19_
 
-- changed styles of tables
+- feat: changed styles of tables
 
-## 0.8.30
+## 0.8.29 — 0.8.30
 
 _2022-01-18_
 
 - feat: Fixed position of the title
-
-## 0.8.29
-
-_2022-01-18_
-
 - feat: Chanched info hero title
-
 
 ## 0.8.28
 
@@ -42,7 +50,8 @@ _2022-01-17_
 
 ## 0.8.27
 
-- ... <!-- Add new lines here. -->
+_2022-01-13_
+
 - feat: Add styling for `.ArticleCarouselCard__illustration--photo`
 
 ## 0.8.26

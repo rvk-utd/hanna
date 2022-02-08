@@ -14,14 +14,13 @@ $var--color-theme-primary--safeish: var(--theme-color-primary--safeish);
 
 // ---------------------------------------------------------------------------
 
-$link-underline-thickness: 2rem / 16;
-
 @mixin setDefaultLinkVariables($all: false) {
 	--link-color: #{$color-faxafloi-100};
 	--link-color--hover: #{$color-faxafloi-100};
 	--link-weight: #{$font-weight--bold};
-	--link-underline: #{$link-underline-thickness} solid transparent;
-	--link-underline--hover: #{$link-underline-thickness} solid currentColor;
+	--link-underline-thickness: #{2rem / 16};
+	--link-underline: var(--link-underline-thickness) solid transparent;
+	--link-underline--hover: var(--link-underline-thickness) solid currentColor;
 	--link-underline-offset: 0.15em;
 	@if $all {
 		--link-transition: 200ms ease-in;
@@ -32,6 +31,7 @@ $var--link-color: var(--link-color);
 $var--link-color--hover: var(--link-color--hover);
 $var--link-weight: var(--link-weight);
 $var--link-underline: var(--link-underline);
+$var--link-underline--thickness: var(--link-underline--thickness);
 $var--link-underline--hover: var(--link-underline--hover);
 $var--link-underline-offset: var(--link-underline-offset);
 $var--link-transition: var(--link-transition);

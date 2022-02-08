@@ -2,8 +2,10 @@
 	"ttl_static": 600,
 	"ttl_bundle": 600,
 
-	"proxied": true,
 	"cacheRefreshToken": null,
+
+	"proxied": true,
+
 	"sslKeyPath": null,
 	"sslCert": null,
 	"sslPrivkey": null
