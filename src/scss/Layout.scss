@@ -88,7 +88,7 @@
 	}
 
 	.Layout__header {
-		--logo-transition: 400ms var(--logo-transition-delay, 100ms) ease-in;
+		--logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
 		position: absolute;
 		top: 0;
 		left: $var--grid-edge--neg;

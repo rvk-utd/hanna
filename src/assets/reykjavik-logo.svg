@@ -4,9 +4,21 @@
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 579.9 168.4" style="enable-background:new 0 0 579.9 168.4;" xml:space="preserve">
 	<style type="text/css">
-	.st0{fill:var(--logo-text-color, #3D3F3E); transition: all var(--logo-transition); }
-	.st1{fill:var(--logo-background-color, #FFFFFF);stroke:var(--logo-background-color, #FFFFFF);stroke-width:5.8642;stroke-miterlimit:10;  transition: all var(--logo-transition);}
-	.st2{fill:var(--logo-fill-color, #0376E1); transition: all var(--logo-transition);}
+	.st0 {
+		fill: var(--logo-text-color, #3D3F3E);
+		transition: all var(--logo-transition);
+	}
+	.st1 {
+		fill: var(--logo-background-color, #FFFFFF);
+		stroke: var(--logo-background-color, #FFFFFF);
+		stroke-width: 5.8642;
+		stroke-miterlimit: 10;
+		transition: all var(--logo-transition);
+	}
+	.st2 {
+		fill: var(--logo-fill-color, #0376E1);
+		 transition: all var(--logo-transition);
+	}
 	</style>
 	<g class="logo-text">
 		<path class="st0" d="M563.9,104.2l-17.5-22.4v22.4h-13v-74h13v41.3l15.5-17h16.2l-20.6,21.9l22.4,27.9h-16V104.2z"/>
