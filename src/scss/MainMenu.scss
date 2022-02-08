@@ -94,6 +94,7 @@
 		);
 	}
 
+	html.menu-is-active:not(.menu-is-open) .MainMenu, // @deprecated (.menu-is-closed is always set now) Remove this selector in v0.9
 	html.menu-is-closed .MainMenu {
 		visibility: hidden;
 		opacity: 0;
