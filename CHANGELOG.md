@@ -3,11 +3,6 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-
-## 0.8.34
-
-_2022-02-08_
-
 - feat: Improve mobile `MainMenu` and `Layout__header` styling
 - feat: Remove support for never-used `MainMenu__greeting` message
 - feat: Make `--font-bd-l-size` and `--font-bd-l-size` non-scaling
@@ -17,7 +12,7 @@ _2022-02-08_
 - fix: Tweak `MainMenu` mobile styles
 - fix: Improve `MainMenu` display in "no script" situations
 
-## 0.8.33
+## 0.8.33 – 0.8.33
 
 _2022-01-28_
 

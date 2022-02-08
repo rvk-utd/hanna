@@ -83,7 +83,6 @@
     display: inline-block;
   }
   .WizardLayout__header__logo > svg, .WizardLayout__header__logo > img, .WizardLayout__header__logo > * > svg, .WizardLayout__header__logo > * > img {
-    width: 11.5625rem;
     -o-object-fit: cover;
        object-fit: cover;
     margin-right: 1.3125rem;
@@ -194,8 +193,8 @@
 }
 @media screen {
   .WizardLayoutClose {
-    font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    font-size: 1rem;
+    line-height: 1.5rem;
     position: absolute;
     z-index: 5;
     right: 0;
