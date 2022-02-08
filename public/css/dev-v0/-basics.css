@@ -454,7 +454,7 @@ table {
   font-weight: normal;
   font-style: normal;
   font-display: block;
-  src: url("i/icons.woff2?9da2bb3399ba8dba680fc4480f3226c5") format("woff2"), url("i/icons.woff?9da2bb3399ba8dba680fc4480f3226c5") format("woff");
+  src: url("i/icons.woff2?4c9b35458c50f79e163d894cb747db57") format("woff2"), url("i/icons.woff?4c9b35458c50f79e163d894cb747db57") format("woff");
 }
 @font-face {
   font-family: "Esja";
@@ -545,8 +545,9 @@ table {
     --link-color: #0367e1;
     --link-color--hover: #0367e1;
     --link-weight: 700;
-    --link-underline: 0.125rem solid transparent;
-    --link-underline--hover: 0.125rem solid currentColor;
+    --link-underline-thickness: 2rem/16;
+    --link-underline: var(--link-underline-thickness) solid transparent;
+    --link-underline--hover: var(--link-underline-thickness) solid currentColor;
     --link-underline-offset: 0.15em;
     --link-transition: 200ms ease-in;
     --link-focus-outlineColor: currentColor;
@@ -559,7 +560,7 @@ table {
     --grid-edge: calc(5.7251908397vw + 1.679389313px);
     --grid-edge--neg: calc(-5.7251908397vw + -1.679389313px);
     --grid-edge--right: calc(var(--grid-edge) - var(--browser-scrollbar-width));
-    --grid-edge--right--neg: calc(var(--grid-edge--neg) - var(--browser-scrollbar-width));
+    --grid-edge--right--neg: calc(var(--grid-edge--neg) + var(--browser-scrollbar-width));
     --grid-0-1: calc(2.9321065669vw + -0.1112178353px);
     --grid-1: calc(4.6913705071vw + -0.1779485365px);
     --grid-1-1: calc(7.623477074vw + -0.2891663718px);
@@ -602,8 +603,8 @@ table {
     --font-sh-l-leading: 30px;
     --font-sh-s-size: 20px;
     --font-sh-s-leading: 30px;
-    --font-bd-l-size: 16px;
-    --font-bd-l-leading: 24px;
+    --font-bd-l-size: 20px;
+    --font-bd-l-leading: 32px;
     --font-bd-s-size: 16px;
     --font-bd-s-leading: 24px;
     --font-label-size: 12px;
@@ -716,12 +717,6 @@ table {
     --font-sh-s-leading: calc(0.2252252252vw + 28.9189189189px);
   }
 }
-@media screen and (min-width: 760px) and (max-width: 1367px) {
-  :root {
-    --font-bd-l-size: calc(0.6578947368vw + 11px);
-    --font-bd-l-leading: calc(1.3157894737vw + 14px);
-  }
-}
 @media screen and (min-width: 1368px) {
   :root {
     --font-hd-xl-size: 72px;
@@ -736,8 +731,6 @@ table {
     --font-sh-l-leading: 40px;
     --font-sh-s-size: 24px;
     --font-sh-s-leading: 32px;
-    --font-bd-l-size: 20px;
-    --font-bd-l-leading: 32px;
   }
 }
 @media screen and (min-width: 980px) {
@@ -1118,8 +1111,8 @@ ul > :not(li)::before {
   }
 
   table {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-size);
     border-collapse: collapse;
     margin-bottom: var(--baseVerticalMargin);
   }
