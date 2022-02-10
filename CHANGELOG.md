@@ -4,10 +4,16 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.8.35
+## 0.8.35 – 0.8.36
 
 _2022-02-10_
 
+- feat: Add more design-token CSS Variables — focusing on `font`-shorthand
+  values, basic font properties and some `--space-*` units.
+- docs: Add thumbnail views for
+  ['illustrations'](https://styles.reykjavik.is/assets/illustrations),
+  ['efnistakn'](https://styles.reykjavik.is/assets/efnistakn),
+  ['formheimur'](https://styles.reykjavik.is/assets/formheimur)
 - fix: Regression of line-height of various "BodyText Small" elements
 
 ## 0.8.34

@@ -276,25 +276,21 @@
 }
 @media screen and (max-width: 479px) {
   .ContactBubble__title {
-    font-weight: 700;
-    font-size: var(--font-hd-l-size);
-    line-height: var(--font-hd-l-leading);
+    font: var(--font-hd-l);
     max-width: 9em;
     margin-bottom: calc(12.0481927711vh + -33.8313253012px);
   }
 }
 @media screen and (min-width: 480px) {
   .ContactBubble__title {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     font-weight: 700;
     margin-bottom: 1.5rem;
   }
 }
 @media screen {
   .ContactBubble__list {
-    font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-leading);
+    font: var(--font-bd-s);
     border-top: 1px solid #f1f2f3;
     font-weight: 700;
   }
@@ -338,8 +334,7 @@
 }
 @media screen {
   .ContactBubble__link > small {
-    font-size: var(--font-label-size);
-    line-height: var(--font-label-leading);
+    font: var(--font-label);
     font-weight: 400;
     display: block;
     color: #2a2b2c;

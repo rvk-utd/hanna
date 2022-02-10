@@ -31,8 +31,7 @@
 		background-color: $color-suld-0;
 		display: block;
 		position: relative;
-		font-size: px($font-base-size);
-		line-height: px($font-base-leading);
+		font: $var--font-base;
 	}
 
 	.react-datepicker__input-container {
@@ -373,8 +372,8 @@
 		visibility: visible !important; // override inline `visibility: hidden`
 		text-transform: capitalize;
 		color: $color-suld-0;
-		font-size: prem($font-size-20);
-		font-weight: $font-weight--bold;
+		font: $var--font-bd-l;
+		font-weight: $var--font-weight--bold;
 	}
 
 	.react-datepicker__year-read-view--down-arrow,

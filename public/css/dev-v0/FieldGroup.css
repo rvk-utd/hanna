@@ -4,9 +4,7 @@
   }
 
   .FieldGroup__legend {
-    font-weight: 700;
-    font-size: var(--font-sh-l-size);
-    line-height: var(--font-sh-l-leading);
+    font: var(--font-sh-l);
     margin-bottom: 1.25rem;
   }
 }

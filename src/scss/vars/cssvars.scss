@@ -2,6 +2,47 @@
 @use 'font' as *;
 
 // ---------------------------------------------------------------------------
+$var--color-esja-50: var(--color-esja-50);
+$var--color-esja-75: var(--color-esja-75);
+$var--color-esja-100: var(--color-esja-100);
+$var--color-esja-150: var(--color-esja-150);
+$var--color-faxafloi-50: var(--color-faxafloi-50);
+$var--color-faxafloi-75: var(--color-faxafloi-75);
+$var--color-faxafloi-100: var(--color-faxafloi-100);
+$var--color-faxafloi-150: var(--color-faxafloi-150);
+$var--color-nautholsvik-50: var(--color-nautholsvik-50);
+$var--color-nautholsvik-75: var(--color-nautholsvik-75);
+$var--color-nautholsvik-100: var(--color-nautholsvik-100);
+$var--color-nautholsvik-150: var(--color-nautholsvik-150);
+$var--color-heidmork-50: var(--color-heidmork-50);
+$var--color-heidmork-75: var(--color-heidmork-75);
+$var--color-heidmork-100: var(--color-heidmork-100);
+$var--color-heidmork-150: var(--color-heidmork-150);
+$var--color-ellidarardalur-50: var(--color-ellidarardalur-50);
+$var--color-ellidarardalur-75: var(--color-ellidarardalur-75);
+$var--color-ellidarardalur-100: var(--color-ellidarardalur-100);
+$var--color-ellidarardalur-150: var(--color-ellidarardalur-150);
+$var--color-blafjoll-50: var(--color-blafjoll-50);
+$var--color-blafjoll-75: var(--color-blafjoll-75);
+$var--color-blafjoll-100: var(--color-blafjoll-100);
+$var--color-blafjoll-150: var(--color-blafjoll-150);
+$var--color-sund-50: var(--color-sund-50);
+$var--color-sund-75: var(--color-sund-75);
+$var--color-sund-100: var(--color-sund-100);
+$var--color-sund-150: var(--color-sund-150);
+$var--color-rokkur-50: var(--color-rokkur-50);
+$var--color-rokkur-75: var(--color-rokkur-75);
+$var--color-rokkur-100: var(--color-rokkur-100);
+$var--color-rokkur-150: var(--color-rokkur-150);
+$var--color-suld-0: var(--color-suld-0);
+$var--color-suld-25: var(--color-suld-25);
+$var--color-suld-50: var(--color-suld-50);
+$var--color-suld-75: var(--color-suld-75);
+$var--color-suld-100: var(--color-suld-100);
+$var--color-suld-150: var(--color-suld-150);
+$var--color-suld-200: var(--color-suld-200);
+$var--color-white: var(--color-white);
+$var--color-blackish: var(--color-blackish);
 
 $var--color-theme-primary: var(--theme-color-primary);
 $var--color-theme-secondary: var(--theme-color-secondary);
@@ -101,6 +142,25 @@ $var--grid-column--neg: var(--grid-column--neg);
 
 // ---------------------------------------------------------------------------
 
+$var--font-family: var(--font-family);
+$var--font-weight--normal: var(--font-weight--normal);
+$var--font-weight--bold: var(--font-weight--bold);
+$var--font-base-size: var(--font-base-size);
+$var--font-base-leading: var(--font-base-leading);
+
+$var--font-base: var(--font-base);
+
+$var--font-hd-xl: var(--font-hd-xl);
+$var--font-hd-l: var(--font-hd-l);
+$var--font-hd-m: var(--font-hd-m);
+$var--font-hd-s: var(--font-hd-s);
+$var--font-sh-l: var(--font-sh-l);
+$var--font-sh-l-thin: var(--font-sh-l-thin);
+$var--font-sh-s: var(--font-sh-s);
+$var--font-bd-l: var(--font-bd-l);
+$var--font-bd-s: var(--font-bd-s);
+$var--font-label: var(--font-label);
+
 $var--font-hd-xl-size: var(--font-hd-xl-size);
 $var--font-hd-xl-leading: var(--font-hd-xl-leading);
 $var--font-hd-l-size: var(--font-hd-l-size);
@@ -134,6 +194,24 @@ $var--browser-scrollbar-width: var(--browser-scrollbar-width);
 $var--Layout__header-height: var(--Layout__header-height);
 
 // ---------------------------------------------------------------------------
+
+$var--space-1: var(--space-1);
+$var--space-2: var(--space-2);
+$var--space-3: var(--space-3);
+$var--space-4: var(--space-4);
+$var--space-5: var(--space-5);
+
+$var--space-0_5: var(--space-0_5);
+$var--space-1_5: var(--space-1_5);
+
+$var--space-1--neg: var(--space-1--neg);
+$var--space-2--neg: var(--space-2--neg);
+$var--space-3--neg: var(--space-3--neg);
+$var--space-4--neg: var(--space-4--neg);
+$var--space-5--neg: var(--space-5--neg);
+
+$var--space-0_5--neg: var(--space-0_5--neg);
+$var--space-1_5--neg: var(--space-1_5--neg);
 
 $var--component-vspace--small: var(--component-vspace--small);
 $var--component-vspace--medium: var(--component-vspace--medium);

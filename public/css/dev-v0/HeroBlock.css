@@ -23,9 +23,7 @@
   }
 
   .HeroBlock__title {
-    font-weight: 700;
-    font-size: var(--font-hd-l-size);
-    line-height: var(--font-hd-l-leading);
+    font: var(--font-hd-l);
     margin-bottom: 0.625em;
   }
 
@@ -38,8 +36,7 @@
   }
 
   .HeroBlock__summary {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     margin-bottom: 2em;
   }
 

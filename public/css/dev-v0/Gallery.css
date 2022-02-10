@@ -57,9 +57,7 @@
 @media screen {
   .GalleryModalItem__caption {
     margin-bottom: 1rem;
-    font-weight: 700;
-    font-size: var(--font-sh-s-size);
-    line-height: var(--font-sh-s-leading);
+    font: var(--font-sh-s);
   }
 }
 @media screen {

@@ -74,17 +74,13 @@
 }
 @media screen {
   .FooterInfo__grouptitle {
-    font-weight: 700;
-    font-size: var(--font-sh-s-size);
-    line-height: var(--font-sh-s-leading);
+    font: var(--font-sh-s);
     margin-bottom: 1.5rem;
   }
 }
 @media screen {
   .FooterInfo__groupcontent h4 {
-    font-weight: 700;
-    font-size: var(--font-sh-s-size);
-    line-height: var(--font-sh-s-leading);
+    font: var(--font-sh-s);
     margin-bottom: 0.5rem;
   }
 }

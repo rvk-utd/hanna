@@ -31,9 +31,7 @@
 @media screen {
   .ActionCards__title {
     grid-area: title;
-    font-weight: 700;
-    font-size: var(--font-hd-s-size);
-    line-height: var(--font-hd-s-leading);
+    font: var(--font-hd-s);
     margin-bottom: var(--baseVerticalMargin);
   }
 }
@@ -91,14 +89,12 @@
     display: block;
   }
   .ActionCards__card__title {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     font-weight: 700;
     margin-bottom: 0.5rem;
   }
   .ActionCards__card__summary {
-    font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-leading);
+    font: var(--font-bd-s);
   }
 }
 @media screen {

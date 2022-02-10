@@ -10,9 +10,7 @@
   }
 
   .MiniMetrics__text {
-    font-weight: 700;
-    font-size: var(--font-hd-xl-size);
-    line-height: var(--font-hd-xl-leading);
+    font: var(--font-hd-xl);
     display: block;
     margin-bottom: 0.5555555556em;
     max-width: 896px;
@@ -41,9 +39,7 @@
     margin-bottom: 1rem;
     font-weight: 700;
     transition: all 200ms ease-in;
-    font-weight: 700;
-    font-size: var(--font-sh-s-size);
-    line-height: var(--font-sh-s-leading);
+    font: var(--font-sh-s);
     --ButtonTertiary--dashWidth: 1rem;
     --ButtonTertiary--dashHeight: 0.1666666667rem;
   }
