@@ -18,8 +18,8 @@
 			--link-focus-outline: 3px solid currentColor;
 			--link-focus-outlineOffset: 2px;
 
-			@include _componentVSpace();
 			@include _gridVariables();
+			@include _miscSpaces();
 			@include _fontVariables();
 			@include _LayoutHeader();
 			@include _MainMenu();
@@ -118,6 +118,34 @@
 // ---------------------------------------------------------------------------
 
 @mixin _fontVariables() {
+	--font-family: #{$font-family};
+	--font-weight--normal: #{$font-weight--normal};
+	--font-weight--bold: #{$font-weight--bold};
+
+	--font-base-size: #{$font-base-size};
+	--font-base-leading: #{$font-base-leading};
+
+	--font-base: var(--font-base-size) / var(--font-base-leading) var(--font-family);
+
+	--font-hd-xl: var(--font-weight--bold) var(--font-hd-xl-size) /
+		var(--font-hd-xl-leading) var(--font-family);
+	--font-hd-l: var(--font-weight--bold) var(--font-hd-l-size) / var(--font-hd-l-leading)
+		var(--font-family);
+	--font-hd-m: var(--font-weight--bold) var(--font-hd-m-size) / var(--font-hd-m-leading)
+		var(--font-family);
+	--font-hd-s: var(--font-weight--bold) var(--font-hd-s-size) / var(--font-hd-s-leading)
+		var(--font-family);
+	--font-sh-l: var(--font-weight--bold) var(--font-sh-l-size) / var(--font-sh-l-leading)
+		var(--font-family);
+	--font-sh-l-thin: var(--font-sh-l-size) / var(--font-sh-l-leading) var(--font-family);
+	--font-sh-s: var(--font-weight--bold) var(--font-sh-s-size) / var(--font-sh-s-leading)
+		var(--font-family);
+	--font-bd-l: var(--font-bd-l-size) / var(--font-bd-l-leading) var(--font-family);
+	--font-bd-s: var(--font-bd-s-size) / var(--font-bd-s-leading) var(--font-family);
+	--font-label: var(--font-label-size) / var(--font-label-leading) var(--font-family);
+
+	// ---------------------------------------------------------------------------
+
 	--font-hd-xl-size: #{px($font-hd-xl-size--phone)};
 	--font-hd-xl-leading: #{px($font-hd-xl-leading--phone)};
 	--font-hd-l-size: #{px($font-hd-l-size--phone)};
@@ -241,7 +269,25 @@
 
 // ---------------------------------------------------------------------------
 
-@mixin _componentVSpace() {
+@mixin _miscSpaces() {
+	--space-1: #{grid-units(1)};
+	--space-2: #{grid-units(2)};
+	--space-3: #{grid-units(3)};
+	--space-4: #{grid-units(4)};
+	--space-5: #{grid-units(5)};
+
+	--space-0_5: #{grid-units(0.5)};
+	--space-1_5: #{grid-units(1.5)};
+
+	--space-1--neg: #{grid-units(-1)};
+	--space-2--neg: #{grid-units(-2)};
+	--space-3--neg: #{grid-units(-3)};
+	--space-4--neg: #{grid-units(-4)};
+	--space-5--neg: #{grid-units(-5)};
+
+	--space-0_5--neg: #{grid-units(-0.5)};
+	--space-1_5--neg: #{grid-units(-1.5)};
+
 	--component-vspace--small: #{between_cols(30, 70)};
 	--component-vspace--medium: #{between_cols(40, 100)};
 	--component-vspace--large: #{between_cols(50, 130)};

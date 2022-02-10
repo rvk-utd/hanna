@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add more design-token CSS Variables — focusing on `font`-shorthand
+  values, basic font properties and some `--space-*` units.
 
 ## 0.8.35
 
