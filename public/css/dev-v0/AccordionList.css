@@ -43,9 +43,7 @@
 }
 @media screen {
   .AccordionList__title {
-    font-weight: 700;
-    font-size: var(--font-sh-s-size);
-    line-height: var(--font-sh-s-leading);
+    font: var(--font-sh-s);
     font-weight: 700;
   }
 }
@@ -125,8 +123,7 @@
 }
 @media screen {
   .AccordionList__content {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     transition: all 200ms ease-in;
     transition-property: opacity, visibility, max-height, padding-top;
     overflow: hidden;

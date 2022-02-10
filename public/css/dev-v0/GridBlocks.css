@@ -65,9 +65,7 @@
 @media screen {
   .GridBlocks__item__title {
     position: relative;
-    font-weight: 700;
-    font-size: var(--font-sh-l-size);
-    line-height: var(--font-sh-l-leading);
+    font: var(--font-sh-l);
     margin-bottom: 1rem;
     word-break: break-word;
     overflow-wrap: break-word;

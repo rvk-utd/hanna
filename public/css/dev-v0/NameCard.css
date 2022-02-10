@@ -11,8 +11,7 @@
 
   .NameCard__name {
     width: 100%;
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     font-weight: 700;
     margin-bottom: 1rem;
   }

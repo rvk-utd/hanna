@@ -28,9 +28,7 @@
   }
 
   .ArticleCarousel__title {
-    font-weight: 700;
-    font-size: var(--font-hd-m-size);
-    line-height: var(--font-hd-m-leading);
+    font: var(--font-hd-m);
     margin-bottom: calc(3.8167938931vw + 19.786259542px);
   }
 }
@@ -195,16 +193,13 @@
 }
 @media screen {
   .ArticleCarouselCard__title {
-    font-weight: 700;
-    font-size: var(--font-sh-l-size);
-    line-height: var(--font-sh-l-leading);
+    font: var(--font-sh-l);
     margin-bottom: 2rem;
   }
 }
 @media screen {
   .ArticleCarouselCard__date {
-    font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-leading);
+    font: var(--font-bd-s);
     color: #707275;
     margin-bottom: 2rem;
     display: block;
@@ -212,8 +207,7 @@
 }
 @media screen {
   .ArticleCarouselCard__summary {
-    font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-leading);
+    font: var(--font-bd-s);
     margin-bottom: 1.5rem;
   }
 }

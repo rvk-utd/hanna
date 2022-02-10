@@ -15,9 +15,7 @@
   }
 
   .ProcessOverview__title {
-    font-weight: 700;
-    font-size: var(--font-hd-s-size);
-    line-height: var(--font-hd-s-leading);
+    font: var(--font-hd-s);
     margin-bottom: calc(7.4427480916vw + 16.1832061069px);
   }
 }
@@ -34,9 +32,7 @@
 }
 @media screen {
   .ProcessOverview__item__title {
-    font-weight: 700;
-    font-size: var(--font-sh-l-size);
-    line-height: var(--font-sh-l-leading);
+    font: var(--font-sh-l);
     display: flex;
     margin-bottom: var(--baseVerticalMargin);
   }
@@ -54,14 +50,12 @@
 }
 @media screen {
   .ProcessOverview__item__content {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
   }
 }
 @media screen {
   .ProcessOverview__attention {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     position: relative;
     padding-left: 2.5rem;
     margin-top: calc(1.5267175573vw + 59.1145038168px);

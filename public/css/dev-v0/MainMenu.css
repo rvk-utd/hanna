@@ -157,8 +157,7 @@ html.menu-is-closed .MainMenu {
 }
 @media screen and (max-width: 979px) {
   .MainMenu__item {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     width: 100%;
     color: var(--menu-primary-text);
     margin-bottom: 1rem;
@@ -185,8 +184,7 @@ html.menu-is-closed .MainMenu {
 }
 @media screen and (max-width: 979px) {
   .MainMenu__separator ~ .MainMenu__item {
-    font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-leading);
+    font: var(--font-bd-s);
   }
 }
 @media screen and (max-width: 979px) {
@@ -616,9 +614,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   }
 
   .PrimaryPanel__title {
-    font-weight: 700;
-    font-size: var(--font-sh-s-size);
-    line-height: var(--font-sh-s-leading);
+    font: var(--font-sh-s);
   }
 
   .PrimaryPanel__item {
@@ -686,8 +682,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   }
 
   .PrimaryPanel__linkTitle {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
   }
 
   .PrimaryPanel__summary {
@@ -725,9 +720,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   }
 
   .AuxiliaryPanel__title {
-    font-weight: 700;
-    font-size: var(--font-sh-s-size);
-    line-height: var(--font-sh-s-leading);
+    font: var(--font-sh-s);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
     margin-right: 0;

@@ -30,8 +30,7 @@
 
   .SiteSearchAutocomplete__item {
     padding: 1rem 2.8125rem 1rem 2rem;
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
   }
 
   .SiteSearchAutocomplete__item--highlighted {

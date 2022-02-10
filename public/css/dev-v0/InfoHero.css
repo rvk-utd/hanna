@@ -78,9 +78,7 @@
 }
 @media screen {
   .InfoHero__title {
-    font-weight: 700;
-    font-size: var(--font-hd-l-size);
-    line-height: var(--font-hd-l-leading);
+    font: var(--font-hd-l);
     margin-bottom: 0;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -99,16 +97,13 @@
 }
 @media screen {
   .InfoHero__subtitle {
-    font-weight: 700;
-    font-size: var(--font-sh-l-size);
-    line-height: var(--font-sh-l-leading);
+    font: var(--font-sh-l);
     margin-bottom: 0.5rem;
   }
 }
 @media screen {
   .InfoHero__blurb {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     color: #707275;
     margin-bottom: 0.5rem;
   }

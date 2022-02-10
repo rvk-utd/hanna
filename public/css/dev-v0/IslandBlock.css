@@ -41,15 +41,12 @@
   }
 
   .IslandBlock__title {
-    font-weight: 700;
-    font-size: var(--font-hd-s-size);
-    line-height: var(--font-hd-s-leading);
+    font: var(--font-hd-s);
     margin-bottom: 1.5rem;
   }
 
   .IslandBlock__summary {
-    font-size: var(--font-bd-l-size);
-    line-height: var(--font-bd-l-leading);
+    font: var(--font-bd-l);
     margin-bottom: 2rem;
   }
 

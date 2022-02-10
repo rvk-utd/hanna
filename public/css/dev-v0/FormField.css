@@ -255,8 +255,7 @@
 }
 @media screen {
   .TextInput--multiline > .FormField__input {
-    font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-leading);
+    font: var(--font-bd-s);
     height: 6.5rem;
     padding-top: 1.3125rem;
     padding-bottom: 0.5625rem;
