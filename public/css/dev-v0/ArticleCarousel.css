@@ -204,7 +204,7 @@
 @media screen {
   .ArticleCarouselCard__date {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
     color: #707275;
     margin-bottom: 2rem;
     display: block;
@@ -213,7 +213,7 @@
 @media screen {
   .ArticleCarouselCard__summary {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
     margin-bottom: 1.5rem;
   }
 }

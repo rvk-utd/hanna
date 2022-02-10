@@ -195,7 +195,7 @@
 @media screen {
   .WizardLayoutClose {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
     position: absolute;
     z-index: 5;
     right: 0;

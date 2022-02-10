@@ -186,7 +186,7 @@ html.menu-is-closed .MainMenu {
 @media screen and (max-width: 979px) {
   .MainMenu__separator ~ .MainMenu__item {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
   }
 }
 @media screen and (max-width: 979px) {

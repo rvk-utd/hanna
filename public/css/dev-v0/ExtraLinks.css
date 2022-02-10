@@ -183,7 +183,7 @@
   }
   .ExtraLinks__card__summary {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
   }
 }
 @media screen {
