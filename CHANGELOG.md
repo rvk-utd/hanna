@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Improve Contact bubble visibility over elements with same background color.
 
 ## 0.8.35 – 0.8.36
 
