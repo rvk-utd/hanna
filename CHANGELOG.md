@@ -5,6 +5,10 @@
 - ... <!-- Add new lines here. -->
 - feat: Add more design-token CSS Variables — focusing on `font`-shorthand
   values, basic font properties and some `--space-*` units.
+- docs: Add thumbnail views for
+  ['illustrations'](https://styles.reykjavik.is/assets/illustrations),
+  ['efnistakn'](https://styles.reykjavik.is/assets/efnistakn),
+  ['formheimur'](https://styles.reykjavik.is/assets/formheimur)
 
 ## 0.8.35
 
