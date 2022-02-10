@@ -294,7 +294,7 @@
 @media screen {
   .ContactBubble__list {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
     border-top: 1px solid #f1f2f3;
     font-weight: 700;
   }

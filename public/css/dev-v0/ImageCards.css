@@ -239,7 +239,7 @@
 @media screen {
   .ImageCards__card__meta {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
     color: #707275;
     font-weight: 400;
   }

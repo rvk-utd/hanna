@@ -1112,7 +1112,7 @@ ul > :not(li)::before {
 
   table {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
     border-collapse: collapse;
     margin-bottom: var(--baseVerticalMargin);
   }

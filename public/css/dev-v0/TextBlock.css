@@ -190,7 +190,7 @@
 @media screen {
   .TextBlock--small {
     font-size: var(--font-bd-s-size);
-    line-height: var(--font-bd-s-size);
+    line-height: var(--font-bd-s-leading);
   }
 }
 @media screen {
