@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="is">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Illustrations – thumbnails</title>
+		<link href="/assets/favicon.png" rel="shortcut icon" />
+		<link
+			rel="stylesheet"
+			href="https://styles.reykjavik.is/bundle/v0.8?m=-basics,Layout,PageHeading,TextBlock"
+		/>
+		<link rel="stylesheet" href="/assets/ThumbnailGrid.css" />
+	</head>
+
+	<body>
+		<div class="Layout">
+			<div class="Layout__content">
+				<div class="Layout__header">
+					<a class="Layout__header__logo" href="/">
+						<picture>
+							<img src="/assets/reykjavik-logo.svg" alt="" loading="lazy" />
+						</picture>
+						Reykjavík
+					</a>
+				</div>
+				<div class="Layout__main">
+					<h1 class="PageHeading">Illustrations</h1>
+					<div class="TextBlock">
+						<a href="/assets/illustrations/files.json">files.json</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="module">
+			const mainElm = document.querySelector('.Layout__main');
+			const link = mainElm.querySelector('a[href$=".json"]');
+			fetch(link.href)
+				.then((res) => {
+					if (!res.ok) {
+						throw new Error('Not Found');
+					}
+					return res.json();
+				})
+				.then((illustrations) => {
+					mainElm.insertAdjacentHTML(
+						'beforeend',
+						`
+							<ul class="ThumbnailGrid">
+								${Object.entries(illustrations)
+									.map(
+										([name, asset]) => `
+										<li class="ThumbnailGrid__item">
+											<strong class="ThumbnailGrid__label">${name}</strong>
+											<img class="ThumbnailGrid__image" src="${asset.thumb}" alt="${name}">
+											${
+												asset.tags.length
+													? `
+														<span class="ThumbnailGrid__tags">${asset.tags.join(', ')}</span>
+													`
+													: ''
+											}
+										</li>
+									`
+									)
+									.join('')}
+							</ul>
+						`
+					);
+				})
+				.catch((e) => {
+					mainElm.insertAdjacentHTML(
+						'beforeend',
+						`
+							<h1 class="PageHeading">Eeek!</h1>
+							<div class="TextBlock">
+								<p>${e.message}</p>
+							</div>
+						`
+					);
+				});
+		</script>
+	</body>
+</html>
