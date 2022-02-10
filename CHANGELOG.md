@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Regression of line-height of various "BodyText Small" elements
 
 ## 0.8.34
 

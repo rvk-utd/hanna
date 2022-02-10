@@ -50,7 +50,7 @@
 @mixin BodyTextStyle--small($leading: true) {
 	font-size: $var--font-bd-s-size;
 	@if $leading {
-		line-height: $var--font-bd-s-size;
+		line-height: $var--font-bd-s-leading;
 	}
 }
 
