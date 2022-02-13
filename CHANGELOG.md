@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Improve Contact bubble visibility over elements with same background color.
+- feat: Add border around `ContactBubble`'s open button.
 
 ## 0.8.35 – 0.8.36
 
