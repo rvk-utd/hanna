@@ -376,6 +376,18 @@
 	}
 }
 
+@media #{$mq-wide} {
+	.MainMenu__items {
+		margin-right: -20px;
+		margin-left: -20px;
+	}
+	.MainMenu__item {
+		margin-right: 10px;
+		margin-left: 10px;
+		--MainMenu__item-padding: 10px;
+	}
+}
+
 // ===========================================================================
 //
 // Markup Warnings
