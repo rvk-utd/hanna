@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.37
+
+_2022-02-15_
+
 - feat: Add border around `ContactBubble`'s open button.
 - fix: Minor breakages in MainMenu and some newly added CSS variables
 
