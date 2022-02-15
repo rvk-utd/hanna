@@ -122,8 +122,8 @@
 	--font-weight--normal: #{$font-weight--normal};
 	--font-weight--bold: #{$font-weight--bold};
 
-	--font-base-size: #{$font-base-size};
-	--font-base-leading: #{$font-base-leading};
+	--font-base-size: #{px($font-base-size)};
+	--font-base-leading: #{px($font-base-leading)};
 
 	--font-base: var(--font-base-size) / var(--font-base-leading) var(--font-family);
 
