@@ -94,10 +94,8 @@
 		background-color: $color-suld-0;
 		color: $color-suld-200;
 
-		font-family: $font-family;
+		font: $var--font-base;
 		font-weight: 400;
-		font-size: px($font-base-size);
-		line-height: px($font-base-leading);
 		// quotes: auto; // Doesn't work in most browsers yet... See: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes#Browser_compatibility
 		quotes: '“' '”' '‘' '’'; // English style as "normal-looking" fallback
 	}
