@@ -167,7 +167,7 @@ html.menu-is-closed .MainMenu {
   .MainMenu__link {
     --link-color: $var--menu-primary-text;
     --link-color--hover: $var--menu-primary-hover;
-    margin-bottom: calc(-1 * var(--link-underline--thickness));
+    margin-bottom: calc(-1 * var(--link-underline-thickness));
   }
 }
 @media screen and (max-width: 979px) {
@@ -338,7 +338,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
 
   .MainMenu__link {
     padding: 0.625rem var(--MainMenu__item-padding);
-    padding-bottom: calc(0.625rem - var(--link-underline--thickness));
+    padding-bottom: calc(0.625rem - var(--link-underline-thickness));
   }
 
   .MainMenu__link[aria-pressed=true] {
@@ -448,7 +448,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     left: 0;
     width: 8.5625rem;
     height: 9.0625rem;
-    font-size: 1rem;
+    color: var(--color-suld-200);
     padding-top: 4.0625rem;
     padding-left: 2rem;
     padding-bottom: 2.0625rem;
@@ -495,6 +495,18 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     top: 0;
     left: -132px;
     z-index: -1;
+  }
+}
+@media screen and (min-width: 1368px) {
+  .MainMenu__items {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+
+  .MainMenu__item {
+    margin-right: 10px;
+    margin-left: 10px;
+    --MainMenu__item-padding: 10px;
   }
 }
 @media screen {
