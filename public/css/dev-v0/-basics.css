@@ -608,8 +608,8 @@ table {
     --font-family: Esja, Helvetica, Arial, sans-serif;
     --font-weight--normal: 400;
     --font-weight--bold: 700;
-    --font-base-size: 16;
-    --font-base-leading: 24;
+    --font-base-size: 16px;
+    --font-base-leading: 24px;
     --font-base: var(--font-base-size) / var(--font-base-leading) var(--font-family);
     --font-hd-xl: var(--font-weight--bold) var(--font-hd-xl-size) /
     	var(--font-hd-xl-leading) var(--font-family);
@@ -826,10 +826,8 @@ table {
     -moz-osx-font-smoothing: grayscale;
     background-color: #ffffff;
     color: #2a2b2c;
-    font-family: "Esja", Helvetica, Arial, sans-serif;
+    font: var(--font-base);
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
     quotes: "“" "”" "‘" "’";
   }
 
