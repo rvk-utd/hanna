@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add border around `ContactBubble`'s open button.
+- fix: Minor breakages in MainMenu and some newly added CSS variables
 
 ## 0.8.35 – 0.8.36
 
