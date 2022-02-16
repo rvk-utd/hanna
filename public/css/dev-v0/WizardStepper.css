@@ -85,11 +85,11 @@ button.WizardStepper__step:active {
     --WizardStepper-lineColor: #0367e1;
   }
 
-  .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),
+  :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),
 .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step])::before,
+  :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step])::before,
 .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step])::before {
     all: initial !important;
     order: -999 !important;
