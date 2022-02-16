@@ -64,13 +64,13 @@ $var--color-theme-primary--safeish: var(--theme-color-primary--safeish);
 // ---------------------------------------------------------------------------
 
 @mixin setDefaultLinkVariables($all: false) {
-	--link-color: #{$color-faxafloi-100};
-	--link-color--hover: #{$color-faxafloi-100};
-	--link-weight: #{$font-weight--bold};
+	--link-color: var(--color-faxafloi-100);
+	--link-color--hover: var(--color-faxafloi-100);
+	--link-weight: var(--font-weight--bold);
 	--link-underline-thickness: #{2rem / 16};
 	--link-underline: var(--link-underline-thickness) solid transparent;
 	--link-underline--hover: var(--link-underline-thickness) solid currentColor;
-	--link-underline-offset: 0.15em;
+	--link-underline-offset: 0.15em; // 2.4px
 	@if $all {
 		--link-transition: 200ms ease-in;
 	}

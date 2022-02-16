@@ -13,12 +13,14 @@
 
 			--browser-scrollbar-width: 16px;
 
-			$gru: $grid-unit;
-			--baseVerticalMargin: #{between_phone_netbook(2 * $gru, 3 * $gru)};
-			--baseVerticalMargin-2: #{between_phone_netbook(4 * $gru, 6 * $gru)};
+			--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+			--baseVerticalMargin-2: #{between_phone_netbook(
+					4 * $grid-unit,
+					6 * $grid-unit
+				)};
 			@include media($mq-wide) {
-				--baseVerticalMargin: #{px(3 * $gru)};
-				--baseVerticalMargin-2: #{px(6 * $gru)};
+				--baseVerticalMargin: #{px(3 * $grid-unit)};
+				--baseVerticalMargin-2: #{px(6 * $grid-unit)};
 			}
 
 			@include setDefaultLinkVariables(true);
