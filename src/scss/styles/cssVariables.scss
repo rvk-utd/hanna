@@ -28,6 +28,7 @@
 			--link-focus-outline: 3px solid currentColor;
 			--link-focus-outlineOffset: 2px;
 
+			@include _zIndex();
 			@include _gridVariables();
 			@include _miscSpaces();
 			@include _fontVariables();
@@ -123,6 +124,17 @@
 		--grid-1--neg: #{cols_px(-1, 0)};
 		--grid-column--neg: var(--grid-1--neg);
 	}
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _zIndex() {
+	--zindex--Bling: -10;
+	--zindex--Bling--overlay: 2;
+	--zindex--modal: 1000;
+	--zindex--header: 100;
+	--zindex--overlay: 10;
+	--zindex--sr-only: 99999;
 }
 
 // ---------------------------------------------------------------------------
@@ -251,13 +263,15 @@
 
 @mixin _MainMenu() {
 	--menu-color: #{$color-suld-200};
-	--menu-hover: #{$color-suld-100};
+	--menu-color--hover: #{$color-suld-100};
+
 	--menu-primary-background: #{$color-faxafloi-100};
 	--menu-primary-text: #{$color-suld-0};
-	--menu-primary-hover: #{$color-suld-25};
+	--menu-primary-text--hover: #{$color-suld-25};
+
 	--menu-auxiliary-background: #{$color-suld-25};
 	--menu-auxiliary-text: #{$color-faxafloi-100};
-	--menu-auxiliary-hover: #{$color-faxafloi-150};
+	--menu-auxiliary-text--hover: #{$color-faxafloi-150};
 	--menu-auxiliary-image: none;
 }
 

@@ -5,6 +5,7 @@ $_focusLink-borderColor: #029 !default;
 $_focusLink-border: 3px double $_focusLink-borderColor !default;
 $_focusLink-background: #fff !default;
 $_focusLink-dir: ltr !default; // screen-reader and rtl-friendly hiding
+$_focusLink-zindex: 9999 !default;
 
 // ---------------------------------------------------------------------------
 
@@ -41,7 +42,6 @@ $_focusLink-dir: ltr !default; // screen-reader and rtl-friendly hiding
 ) {
 	@include sr-only();
 
-
 	@include keyboardFocus-selector() {
 		@include sr-only--undo();
 		@include _srFocusStyling($link, $border, $bg);
@@ -50,7 +50,6 @@ $_focusLink-dir: ltr !default; // screen-reader and rtl-friendly hiding
 		@include sr-only--undo();
 		@include _srFocusStyling($link, $border, $bg);
 	}
-
 }
 
 @mixin sr-only-content-focusable(
@@ -81,7 +80,7 @@ $_focusLink-dir: ltr !default; // screen-reader and rtl-friendly hiding
 	}
 }
 @mixin sr-offscreen--undo($dir: ltr) {
-	z-index: 99999;
+	z-index: $_focusLink-zindex;
 	@if ($dir == ltr) {
 		right: auto;
 	} @else {
@@ -100,7 +99,7 @@ $_focusLink-dir: ltr !default; // screen-reader and rtl-friendly hiding
 // ---------------------------------------------------------------------------
 
 @mixin _srFocusStyling($link, $border, $bg) {
-	z-index: 99999;
+	z-index: $_focusLink-zindex;
 	font-size: 1em;
 	background: $bg;
 	border: $border;

@@ -4,6 +4,7 @@
 	$_focusLink-color: $var--link-color--hover,
 	$_focusLink-borderColor: 3px double $var--link-color--hover,
 	$_focusLink-background: $color-suld-0,
+	$_focusLink-zindex: $var--zindex--sr-only,
 );
 @forward 'scssutils/icons';
 @forward 'scssutils/focus-selectors';

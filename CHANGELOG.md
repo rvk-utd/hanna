@@ -3,7 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add `--bp-w-*` CSS variables
+- feat: Add CSS variables `--zindex--*`
+- feat: Add CSS variables `--bp-w-*` (breakpoint widths)
 
 ## 0.8.38
 

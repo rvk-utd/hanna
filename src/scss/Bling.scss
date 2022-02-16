@@ -15,7 +15,7 @@
 		left: 0;
 		right: 0;
 		width: 100%;
-		z-index: $zIndex--Bling;
+		z-index: $var--zindex--Bling;
 		pointer-events: none;
 		--bling-color-a: #{$var--theme-color-tertiary}; // Default to --color--tertiary
 		--bling-color-b: #{$var--theme-color-secondary}; // Default to --color--tertiary
@@ -126,6 +126,6 @@
 	// ---------------------------------------------------------------------------
 
 	.Bling--overlay {
-		z-index: $zIndex--Bling--overlay;
+		z-index: $var--zindex--Bling--overlay;
 	}
 }

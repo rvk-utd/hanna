@@ -52,7 +52,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: $zIndex--header;
+		z-index: $var--zindex--header;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -165,7 +165,7 @@
 	html.menu-is-active .Layout__nav::before {
 		content: '';
 		position: fixed;
-		z-index: $zIndex--header - 1;
+		z-index: calc(#{$var--zindex--header} - 1);
 		top: 0;
 		bottom: 0;
 		right: 0;
@@ -216,7 +216,7 @@
 		content: var(--show-grid-lines, none);
 		pointer-events: none;
 		position: absolute;
-		z-index: $zIndex--modal + 100;
+		z-index: calc(#{$var--zindex--modal} + 100);
 		top: 0;
 		bottom: 0;
 		left: 0;

@@ -7,7 +7,7 @@
 @media screen {
 	.SiteSearchCurtain {
 		position: relative;
-		z-index: 2;
+		z-index: $var--zindex--overlay;
 	}
 
 	@include media($mq-tablet_up) {
