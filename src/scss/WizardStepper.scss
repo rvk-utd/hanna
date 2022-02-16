@@ -77,7 +77,8 @@
 
 	// ---------------------------------------------------------------------------
 
-	.WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current='step']),
+	:not(.WizardStepper--preview)
+		> .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current='step']),
 	.WizardStepper__step--done
 		+ .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current='step']) {
 		@include WARNING__('You forgot aria-current="step".');

@@ -4,6 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.38
+
+_2022-02-16_
+
+- feat: Support `.WizardStepper--preview`
+
 ## 0.8.37
 
 _2022-02-15_
