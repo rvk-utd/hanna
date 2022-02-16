@@ -1,6 +1,14 @@
 @use 'colors' as *;
 @use 'font' as *;
 
+$var--bp-w-phone: var(--bp-w-phone);
+$var--bp-w-phablet: var(--bp-w-phablet);
+$var--bp-w-tablet: var(--bp-w-tablet);
+$var--bp-w-netbook: var(--bp-w-netbook);
+$var--bp-w-wide: var(--bp-w-wide);
+
+$var--bp-w-Hamburger: var(--bp-w-Hamburger);
+
 // ---------------------------------------------------------------------------
 $var--color-esja-50: var(--color-esja-50);
 $var--color-esja-75: var(--color-esja-75);

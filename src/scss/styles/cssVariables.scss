@@ -3,6 +3,14 @@
 @mixin cssVariables() {
 	@media screen {
 		:root {
+			--bp-w-phone: #{$bp-phone}; // mjórra en 320px er ekki supported
+			--bp-w-phablet: #{$bp-phablet};
+			--bp-w-tablet: #{$bp-tablet};
+			--bp-w-netbook: #{$bp-netbook};
+			--bp-w-wide: #{$bp-wide}8;
+
+			--bp-w-Hamburger: var(--bp-w-netbook);
+
 			--browser-scrollbar-width: 16px;
 
 			$gru: $grid-unit;
