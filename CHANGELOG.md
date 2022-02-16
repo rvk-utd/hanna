@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support `.WizardStepper--preview`
 
 ## 0.8.37
 
