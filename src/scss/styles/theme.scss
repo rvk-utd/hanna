@@ -5,32 +5,32 @@
 	:root:root,
 	[data-color-theme][data-color-theme],
 	[data-color-theme][data-color-theme='trustworthy'] {
-		--theme-color-primary: #{$color-faxafloi-100};
-		--theme-color-secondary: #{$color-sund-100};
-		--theme-color-tertiary: #{$color-ellidarardalur-100};
+		--theme-color-primary: var(--color-faxafloi-100);
+		--theme-color-secondary: var(--color-sund-100);
+		--theme-color-tertiary: var(--color-ellidarardalur-100);
 
-		--theme-color-primary--text: #{$color-suld-0};
-		--theme-color-primary--dark: #{$color-faxafloi-150};
+		--theme-color-primary--text: var(--color-white);
+		--theme-color-primary--dark: var(--color-faxafloi-150);
 		--theme-color-primary--safe: var(--theme-color-primary);
 		// safe to use for ButtonTertiary borders, etc.
 		--theme-color-primary--safeish: var(--theme-color-primary);
 	}
 
 	[data-color-theme][data-color-theme='dependable'] {
-		--theme-color-primary: #{$color-faxafloi-100};
-		--theme-color-secondary: #{$color-nautholsvik-100};
-		--theme-color-tertiary: #{$color-sund-100};
+		--theme-color-primary: var(--color-faxafloi-100);
+		--theme-color-secondary: var(--color-nautholsvik-100);
+		--theme-color-tertiary: var(--color-sund-100);
 
-		--theme-color-primary--dark: #{$color-faxafloi-150};
+		--theme-color-primary--dark: var(--color-faxafloi-150);
 	}
 
 	[data-color-theme][data-color-theme='friendly'] {
-		--theme-color-primary: #{$color-ellidarardalur-100};
-		--theme-color-secondary: #{$color-rokkur-100};
-		--theme-color-tertiary: #{$color-nautholsvik-100};
+		--theme-color-primary: var(--color-ellidarardalur-100);
+		--theme-color-secondary: var(--color-rokkur-100);
+		--theme-color-tertiary: var(--color-nautholsvik-100);
 
-		--theme-color-primary--text: #000000;
-		--theme-color-primary--dark: #{$color-ellidarardalur-150};
+		--theme-color-primary--text: var(--color-blackish);
+		--theme-color-primary--dark: var(--color-ellidarardalur-150);
 		--theme-color-primary--safe: #{color.scale(
 				$color-ellidarardalur-100,
 				$saturation: 55%,
@@ -44,12 +44,12 @@
 	}
 
 	[data-color-theme][data-color-theme='lively'] {
-		--theme-color-primary: #{$color-sund-100};
-		--theme-color-secondary: #{$color-blafjoll-100};
-		--theme-color-tertiary: #{$color-nautholsvik-100};
+		--theme-color-primary: var(--color-sund-100);
+		--theme-color-secondary: var(--color-blafjoll-100);
+		--theme-color-tertiary: var(--color-nautholsvik-100);
 
-		--theme-color-primary--text: #000000;
-		--theme-color-primary--dark: #{$color-sund-150};
+		--theme-color-primary--text: var(--color-blackish);
+		--theme-color-primary--dark: var(--color-sund-150);
 		--theme-color-primary--safe: #{color.scale(
 				$color-sund-100,
 				$saturation: 55%,
@@ -63,12 +63,12 @@
 	}
 
 	[data-color-theme][data-color-theme='colorful'] {
-		--theme-color-primary: #{$color-nautholsvik-100};
-		--theme-color-secondary: #{$color-heidmork-100};
-		--theme-color-tertiary: #{$color-esja-100};
+		--theme-color-primary: var(--color-nautholsvik-100);
+		--theme-color-secondary: var(--color-heidmork-100);
+		--theme-color-tertiary: var(--color-esja-100);
 
-		--theme-color-primary--text: #000000;
-		--theme-color-primary--dark: #{$color-nautholsvik-150};
+		--theme-color-primary--text: var(--color-blackish);
+		--theme-color-primary--dark: var(--color-nautholsvik-150);
 		--theme-color-primary--safe: #{color.scale(
 				$color-nautholsvik-100,
 				$saturation: 55%,
