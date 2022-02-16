@@ -18,8 +18,8 @@
 			padding: between_cols(30, 80) $var--grid-edge;
 		}
 		.RowBlockColumn--background--primary {
-			background-color: $var--color-theme-primary;
-			color: $var--color-theme-primary--text;
+			background-color: $var--theme-color-primary;
+			color: $var--theme-color-primary--text;
 			@include LinkStyle_SameColor();
 		}
 	}

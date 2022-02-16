@@ -36,7 +36,7 @@
 	}
 
 	.ExtraLinks::before {
-		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
+		border-left: between_phone_netbook(8, 24) solid $var--theme-color-primary;
 
 		@include media($mq-wide) {
 			border-width: prem(24);
@@ -65,8 +65,8 @@
 	.ExtraLinks__card:hover,
 	.ExtraLinks__card:active {
 		border-color: transparent;
-		background-color: $var--color-theme-primary;
-		color: $var--color-theme-primary--text;
+		background-color: $var--theme-color-primary;
+		color: $var--theme-color-primary--text;
 		outline: none;
 	}
 

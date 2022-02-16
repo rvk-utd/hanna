@@ -31,12 +31,12 @@
 	}
 	.Tabs__tab:hover,
 	.Tabs__tab:active {
-		border-bottom: 4px solid $var--color-theme-primary--safeish;
+		border-bottom: 4px solid $var--theme-color-primary--safeish;
 	}
 
 	.Tabs__tab[data-active='true'],
 	.Tabs__tab[aria-pressed='true'] {
-		border-bottom-color: $var--color-theme-primary--safeish;
+		border-bottom-color: $var--theme-color-primary--safeish;
 	}
 
 	.Tabs__tab__badge {

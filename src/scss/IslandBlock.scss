@@ -23,8 +23,8 @@
 		background-color: $color-suld-25;
 	}
 	.IslandBlock__content:last-child {
-		background-color: $var--color-theme-primary;
-		color: $var--color-theme-primary--text;
+		background-color: $var--theme-color-primary;
+		color: $var--theme-color-primary--text;
 		@include LinkStyle_SameColor();
 	}
 
@@ -47,7 +47,7 @@
 
 	.IslandBlock__image {
 		// // Arg this bleeds around the edges of the SVG in chrome
-		// background-color: $var--color-theme-tertiary;
+		// background-color: $var--theme-color-tertiary;
 		position: relative;
 		display: block;
 		overflow: hidden;
@@ -56,7 +56,7 @@
 	.IslandBlock__image::before {
 		content: '';
 		position: absolute;
-		background-color: $var--color-theme-tertiary;
+		background-color: $var--theme-color-tertiary;
 		top: 1px;
 		right: 1px;
 		bottom: 1px;

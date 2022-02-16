@@ -24,7 +24,7 @@
 		align-items: flex-start;
 	}
 	.PageFilter::before {
-		border-left: between_phone_netbook(8, 24) solid $var--color-theme-primary;
+		border-left: between_phone_netbook(8, 24) solid $var--theme-color-primary;
 		margin-bottom: between_cols(-32, -64);
 		pointer-events: none;
 

@@ -15,7 +15,7 @@
 	}
 	.InfoBlock::before {
 		@include icon($icons-fatchevron-up);
-		color: $var--color-theme-secondary;
+		color: $var--theme-color-secondary;
 		position: absolute;
 		right: 0;
 		width: 1em;
@@ -58,7 +58,7 @@
 	.InfoBlock__item::before {
 		content: '';
 		display: inline-block;
-		background-color: $var--color-theme-primary--safeish;
+		background-color: $var--theme-color-primary--safeish;
 		margin-right: grid-units(2);
 		width: prem(12);
 		height: prem(4);

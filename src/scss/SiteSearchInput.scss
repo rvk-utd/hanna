@@ -45,14 +45,14 @@
 		margin: prem(-1);
 		width: var(--ssi-height);
 		height: var(--ssi-height);
-		background-color: $var--color-theme-primary;
+		background-color: $var--theme-color-primary;
 		border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
-		color: $var--color-theme-primary--text;
+		color: $var--theme-color-primary--text;
 	}
 	.SiteSearchInput__button:hover,
 	.SiteSearchInput__button:focus,
 	.SiteSearchInput__button:active {
-		background-color: $var--color-theme-primary--dark;
+		background-color: $var--theme-color-primary--dark;
 		color: $color-suld-0;
 	}
 	.SiteSearchInput__button::before {

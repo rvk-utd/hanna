@@ -49,7 +49,7 @@
 
 		.GalleryModalPager__button,
 		.GalleryModal__closebutton {
-			color: $var--color-theme-primary;
+			color: $var--theme-color-primary;
 
 			&::before {
 				@include icon($icons-arrow-left);

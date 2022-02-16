@@ -14,7 +14,7 @@
 
 	&::before {
 		content: '';
-		background-color: $var--color-theme-primary;
+		background-color: $var--theme-color-primary;
 		width: grid-units(1);
 		position: absolute;
 		top: if($border, between_phone_netbook(40, 64), 0);

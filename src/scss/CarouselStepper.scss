@@ -42,7 +42,7 @@
 	}
 
 	.CarouselStepper__button[aria-pressed='true'] {
-		background: $var--color-theme-primary;
+		background: $var--theme-color-primary;
 		transform: none;
 	}
 }

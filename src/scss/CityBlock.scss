@@ -16,8 +16,8 @@
 		margin-bottom: between_cols(30, 20 * $grid-unit);
 	}
 	.CityBlock__content {
-		background-color: $var--color-theme-primary;
-		color: $var--color-theme-primary--text;
+		background-color: $var--theme-color-primary;
+		color: $var--theme-color-primary--text;
 		@include LinkStyle_SameColor();
 
 		margin: 0 $var--grid-edge--neg;
