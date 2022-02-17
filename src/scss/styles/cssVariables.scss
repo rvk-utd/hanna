@@ -6,7 +6,7 @@
 			--bp-w-phone: #{$bp-phone}; // mjórra en 320px er ekki supported
 			--bp-w-phablet: #{$bp-phablet};
 			--bp-w-tablet: #{$bp-tablet};
-			--bp-w-netbook: #{$bp-netbook};
+			--bp-w-netbook: #{$bp-netbook}; // iPad á hlið
 			--bp-w-wide: #{$bp-wide}8;
 
 			--bp-w-Hamburger: var(--bp-w-netbook);
@@ -129,12 +129,12 @@
 // ---------------------------------------------------------------------------
 
 @mixin _zIndex() {
-	--zindex--Bling: -10;
-	--zindex--Bling--overlay: 2;
+	--zindex--sr-only: 99999; // A11y keyboard/focus layer
 	--zindex--modal: 1000;
 	--zindex--header: 100;
 	--zindex--overlay: 10;
-	--zindex--sr-only: 99999;
+	--zindex--Bling--overlay: 2;
+	--zindex--Bling: -10;
 }
 
 // ---------------------------------------------------------------------------
@@ -146,6 +146,8 @@
 
 	--font-base-size: #{px($font-base-size)};
 	--font-base-leading: #{px($font-base-leading)};
+
+	// ---------------------------------------------------------------------------
 
 	--font-base: var(--font-base-size) / var(--font-base-leading) var(--font-family);
 
