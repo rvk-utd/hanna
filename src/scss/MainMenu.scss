@@ -26,7 +26,6 @@
 	.MainMenu__link {
 		@include buttonReset();
 		@include LinkStyle();
-		--link-color: _inherit;
 		display: block;
 		width: max-content;
 		font-weight: $font-weight--bold;
@@ -61,7 +60,7 @@
 	.MainMenu {
 		position: relative;
 
-		background-color: $color-faxafloi-100;
+		background-color: #{$var--MainMenu-background};
 
 		--MainMenu--offsetLeft: #{grid-units(4)};
 		--MainMenu__list--padTop: #{grid-units(2)};
@@ -109,6 +108,10 @@
 	}
 
 	.MainMenu__items {
+		color: $var--color-suld-0;
+		--link-color: _inherit;
+		--link-color--hover: #{$var--color-suld-25};
+
 		display: flex;
 		flex-flow: row wrap;
 		padding-top: var(--MainMenu__list--padTop);
@@ -123,12 +126,9 @@
 	.MainMenu__item {
 		@include BodyTextStyle--large();
 		width: 100%;
-		color: $var--menu-primary-text;
 		margin-bottom: grid-units(2);
 	}
 	.MainMenu__link {
-		--link-color: $var--menu-primary-text;
-		--link-color--hover: $var--menu-primary-hover;
 		margin-bottom: calc(-1 * #{$var--link-underline--thickness});
 	}
 	.MainMenu__link[aria-pressed='true'] {
@@ -192,6 +192,8 @@
 	.MainMenu {
 	}
 	.MainMenu__items {
+		--link-color: _inherit;
+		--link-color--hover: #{$var--MainMenu-accentcolor};
 		position: absolute;
 		z-index: calc(#{$var--zindex--header} - 3);
 		top: 0;
@@ -290,7 +292,7 @@
 		left: calc(50% + 0.5 * (#{$var--grid-gutter} + #{$var--browser-scrollbar-width}));
 		margin-left: $var--grid-2-2;
 		right: 0;
-		background-color: $var--menu-auxiliary-background;
+		background-color: $var--color-suld-25;
 
 		@include media($mq-netbook) {
 			margin-left: $var--grid-2;

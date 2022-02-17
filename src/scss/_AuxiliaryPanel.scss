@@ -4,15 +4,16 @@
 @mixin css() {
 	@media screen {
 		.AuxiliaryPanel {
-			--link-color: var(--menu-auxiliary-text);
+			color: $var--MainMenu-accentcolor;
+			--link-color: _inherit;
+			--link-color--hover: #{$var--MainMenu-accentcolor};
 			--link-weight: $font-weight-normal;
 		}
 
 		.AuxiliaryPanel__title {
-			color: $var--menu-auxiliary-text;
 			font-weight: $font-weight--bold;
 
-			border-bottom: 1px solid fade($color-faxafloi-100, 20%);
+			border-bottom: 1px solid $color-suld-100;
 
 			margin-right: cols_pct(1, 0, 4); //TODO:
 			margin-bottom: grid-units(3);
@@ -27,7 +28,7 @@
 	@include media($mq-Hamburger) {
 		.AuxiliaryPanel {
 			position: relative;
-			background-color: $var--menu-auxiliary-background;
+			background-color: $var--color-suld-25;
 			padding-top: grid-units(4);
 			padding-bottom: percentage(125 / 325);
 			flex-grow: 1;
@@ -95,7 +96,7 @@
 			content: '';
 
 			background: 50% 0 / auto 305px no-repeat;
-			background-image: $var--menu-auxiliary-image;
+			background-image: var(--MainMenu-auxiliary-image);
 
 			margin: prem(40) 0;
 			display: block;

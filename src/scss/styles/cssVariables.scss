@@ -262,17 +262,8 @@
 // ---------------------------------------------------------------------------
 
 @mixin _MainMenu() {
-	--menu-color: #{$color-suld-200};
-	--menu-color--hover: #{$color-suld-100};
-
-	--menu-primary-background: #{$color-faxafloi-100};
-	--menu-primary-text: #{$color-suld-0};
-	--menu-primary-text--hover: #{$color-suld-25};
-
-	--menu-auxiliary-background: #{$color-suld-25};
-	--menu-auxiliary-text: #{$color-faxafloi-100};
-	--menu-auxiliary-text--hover: #{$color-faxafloi-150};
-	--menu-auxiliary-image: none;
+	--MainMenu-accentcolor: var(--color-faxafloi-100);
+	--MainMenu-background: var(--color-faxafloi-100);
 }
 
 // ---------------------------------------------------------------------------
