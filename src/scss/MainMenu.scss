@@ -195,7 +195,7 @@
 		--link-color: _inherit;
 		--link-color--hover: #{$var--MainMenu-accentcolor};
 		position: absolute;
-		z-index: calc(#{$var--zindex--header} - 3);
+		z-index: $var--zindex--header;
 		top: 0;
 		right: 0;
 		left: cols_pct(3, 3);
