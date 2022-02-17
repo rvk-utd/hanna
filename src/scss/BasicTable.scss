@@ -46,7 +46,6 @@
 			width: $var--grid-12;
 		}
 
-
 		.TextBlock--labelled .TableWrapper--BasicTable--fullwidth,
 		.TextBlock--align--right .TableWrapper--BasicTable--fullwidth,
 		.LabeledTextBlock--wide .TableWrapper--BasicTable--fullwidth {
@@ -102,12 +101,12 @@
 		width: 100%;
 	}
 	.TableWrapper {
-		margin: 0 $var--grid-edge--neg;
-		margin-right: $var--grid-edge--right--neg;
+		margin: 0 $var--grid-margin--neg;
+		margin-right: $var--grid-margin--right--neg;
 	}
 	.TableWrapper__scroller {
-		padding: 0 $var--grid-edge;
-		padding-right: $var--grid-edge--right;
+		padding: 0 $var--grid-margin;
+		padding-right: $var--grid-margin--right;
 		// border-right: $var--browser-scrollbar-width solid transparent; // push away fromunder
 	}
 }

@@ -13,8 +13,8 @@
 @media screen {
 	body {
 		padding: 0;
-		padding-left: $var--grid-edge;
-		padding-right: $var--grid-edge--right;
+		padding-left: $var--grid-margin;
+		padding-right: $var--grid-margin--right;
 	}
 
 	.Layout {
@@ -84,7 +84,7 @@
 @media #{$mq-Hamburger} {
 	html.menu-is-open > body {
 		overflow-y: hidden;
-		padding-right: $var--grid-edge;
+		padding-right: $var--grid-margin;
 	}
 
 	html.menu-is-open .Layout__alerts {
@@ -95,10 +95,10 @@
 		--logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
 		position: absolute;
 		top: 0;
-		left: $var--grid-edge--neg;
-		right: $var--grid-edge--right--neg;
-		padding-left: $var--grid-edge;
-		padding-right: $var--grid-edge--right;
+		left: $var--grid-margin--neg;
+		right: $var--grid-margin--right--neg;
+		padding-left: $var--grid-margin;
+		padding-right: $var--grid-margin--right;
 
 		transition: all 200ms ease-in;
 		transition-property: background-color, box-shadow;

@@ -49,14 +49,23 @@
 }
 
 @mixin _gridVariables() {
-	--grid-edge: #{between_phone_netbook($grid-edge--phone, $grid-edge--wide)};
-	--grid-edge--neg: #{between_phone_netbook(
-			-1 * $grid-edge--phone,
-			-1 * $grid-edge--wide
+	--grid-margin: #{between_phone_netbook($grid-margin--phone, $grid-margin--wide)};
+	--grid-margin--neg: #{between_phone_netbook(
+			-1 * $grid-margin--phone,
+			-1 * $grid-margin--wide
 		)};
 
-	--grid-edge--right: calc(var(--grid-edge) - var(--browser-scrollbar-width));
-	--grid-edge--right--neg: calc(var(--grid-edge--neg) + var(--browser-scrollbar-width));
+	--grid-margin--right: calc(var(--grid-margin) - var(--browser-scrollbar-width));
+	--grid-margin--right--neg: calc(
+		var(--grid-margin--neg) + var(--browser-scrollbar-width)
+	);
+
+	// @deprecated (Remove in v0.9)
+	--grid-edge: var(--grid-margin);
+	--grid-edge--neg: var(--grid-margin--neg);
+	--grid-edge--right: var(--grid-margin--right);
+	--grid-edge--right--neg: var(--grid-margin--right--neg);
+	// END: deprecation
 
 	--grid-0-1: #{_flexCol(0, 1)};
 	--grid-1: #{_flexCol(1)};
@@ -92,8 +101,8 @@
 	--grid-column--neg: var(--grid-1--neg);
 
 	@include media($mq-wide) {
-		--grid-edge: #{px($grid-edge--wide)};
-		--grid-edge--neg: #{px(-1 * $grid-edge--wide)};
+		--grid-margin: #{px($grid-margin--wide)};
+		--grid-margin--neg: #{px(-1 * $grid-margin--wide)};
 
 		--grid-0-1: #{cols_px(0, 1)};
 		--grid-1: #{cols_px(1)};

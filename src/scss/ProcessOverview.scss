@@ -6,8 +6,8 @@
 @media screen {
 	.ProcessOverview {
 		background-color: $color-suld-25;
-		margin: 0 $var--grid-edge--neg;
-		padding: 0 $var--grid-edge;
+		margin: 0 $var--grid-margin--neg;
+		padding: 0 $var--grid-margin;
 		// @include extendBackgroundWithUnderlay(); // <-- this could be used also
 		margin-bottom: between_cols(30, 120);
 		padding-top: between_cols(50, 120);

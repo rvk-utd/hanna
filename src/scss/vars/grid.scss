@@ -6,11 +6,11 @@ $grid-gutter: 40;
 $grid-column: 64;
 $grid-numCols: 12;
 
-$grid-edge--phone: 20;
-$grid-edge--wide: 80;
+$grid-margin--phone: 20;
+$grid-margin--wide: 80;
 
 $grid-contentMaxWidth: $grid-column * $grid-numCols + $grid-gutter * ($grid-numCols - 1);
-$grid-contentMinWidth: $bp-phone - 2 * $grid-edge--phone;
+$grid-contentMinWidth: $bp-phone - 2 * $grid-margin--phone;
 
-$grid-contentMaxWidth--outer: $grid-contentMaxWidth + 2 * $grid-edge--wide;
+$grid-contentMaxWidth--outer: $grid-contentMaxWidth + 2 * $grid-margin--wide;
 $grid-contentMinWidth--outer: $bp-phone;

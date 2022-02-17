@@ -20,8 +20,8 @@
 		color: $var--theme-color-primary--text;
 		@include LinkStyle_SameColor();
 
-		margin: 0 $var--grid-edge--neg;
-		padding: between_cols(30, $grid-column) $var--grid-edge;
+		margin: 0 $var--grid-margin--neg;
+		padding: between_cols(30, $grid-column) $var--grid-margin;
 
 		$minH: 480 - 2 * $grid-column;
 
@@ -84,7 +84,7 @@
 	}
 	.CityBlock--largebox > .CityBlock__image,
 	.CityBlock--largeimage > .CityBlock__image {
-		margin: 0 $var--grid-edge--neg;
+		margin: 0 $var--grid-margin--neg;
 		height: between_phone_phablet(200, 300);
 	}
 	.CityBlock--largebox > .CityBlock__image > img {
@@ -117,8 +117,8 @@ $largeimage-minH: 880;
 		margin: cols_pct(0, 1) 0;
 		margin-left: auto;
 		padding-left: cols_pct(0, 1);
-		margin-right: $var--grid-edge--neg;
-		padding-right: $var--grid-edge;
+		margin-right: $var--grid-margin--neg;
+		padding-right: $var--grid-margin;
 	}
 	.CityBlock--largebox > .CityBlock__content {
 		margin-top: 0;
@@ -134,8 +134,8 @@ $largeimage-minH: 880;
 	.CityBlock--align--left > .CityBlock__content {
 		margin-right: auto;
 		padding-right: cols_pct(0, 1);
-		margin-left: $var--grid-edge--neg;
-		padding-left: $var--grid-edge;
+		margin-left: $var--grid-margin--neg;
+		padding-left: $var--grid-margin;
 	}
 
 	.CityBlock__image {
@@ -146,8 +146,8 @@ $largeimage-minH: 880;
 	.CityBlock--largeimage > .CityBlock__image {
 		width: cols_pct(6);
 		box-sizing: content-box;
-		margin-left: $var--grid-edge--neg;
-		padding-left: $var--grid-edge;
+		margin-left: $var--grid-margin--neg;
+		padding-left: $var--grid-margin;
 	}
 	.CityBlock--largeimage > .CityBlock__image {
 		min-height: between_phone_netbook(400, $largeimage-minH);
@@ -155,7 +155,7 @@ $largeimage-minH: 880;
 	.CityBlock--align--left.CityBlock--largebox > .CityBlock__image,
 	.CityBlock--align--left.CityBlock--largeimage > .CityBlock__image {
 		margin-left: auto;
-		margin-right: $var--grid-edge--neg;
+		margin-right: $var--grid-margin--neg;
 	}
 }
 

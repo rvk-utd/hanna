@@ -33,10 +33,12 @@
 			padding-bottom: percentage(125 / 325);
 			flex-grow: 1;
 
-			margin-left: $var--grid-edge--neg;
-			margin-right: $var--grid-edge--right--neg;
-			padding-left: calc(#{$var--grid-edge} + var(--MainMenu--offsetLeft));
-			padding-right: calc(#{$var--grid-edge--right} + var(--MainMenu--offsetLeft));
+			margin-left: $var--grid-margin--neg;
+			margin-right: $var--grid-margin--right--neg;
+			padding-left: calc(#{$var--grid-margin} + var(--MainMenu--offsetLeft));
+			padding-right: calc(
+				#{$var--grid-margin--right} + var(--MainMenu--offsetLeft)
+			);
 		}
 
 		.AuxiliaryPanel__title {

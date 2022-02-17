@@ -25,11 +25,11 @@
 
 	.InfoHero__image {
 		position: relative;
-		margin: 0 $var--grid-edge--neg;
+		margin: 0 $var--grid-margin--neg;
 		padding-top: 75%;
 
 		@include media($mq-tablet_up) {
-			padding-left: $var--grid-edge;
+			padding-left: $var--grid-margin;
 			box-sizing: content-box;
 			width: cols_pct(6);
 			padding-top: px_pct(690);

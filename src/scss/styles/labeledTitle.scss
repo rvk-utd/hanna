@@ -33,7 +33,7 @@ $LabelledTitleStyle--fontSize: $font-sh-l-size;
 	display: block;
 	position: relative;
 	width: cols_pct(4, 4);
-	--dash-width: calc(#{(36 / 80)} * #{$var--grid-edge});
+	--dash-width: calc(#{(36 / 80)} * #{$var--grid-margin});
 	--dash-margin: 0;
-	--dash-indent: #{$var--grid-edge--neg};
+	--dash-indent: #{$var--grid-margin--neg};
 }

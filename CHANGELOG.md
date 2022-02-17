@@ -7,6 +7,7 @@
   - feat: Rename/simplify `--MainMenu-(background|accentcolor)`
   - feat: Add `--zindex--*`
   - feat: Add `--bp-w-*` (breakpoint widths)
+  - feat: Rename `--grid-margin*` (deprecate `--grid-edge*`)
 - fix: Add back default link :hover underline
 
 ## 0.8.38
