@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add CSS variables `--zindex--*`
 - feat: Add CSS variables `--bp-w-*` (breakpoint widths)
+- fix: Add back default link :hover underline
 
 ## 0.8.38
 
