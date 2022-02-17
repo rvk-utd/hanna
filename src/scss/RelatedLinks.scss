@@ -55,16 +55,23 @@
 		margin-top: -0.5em;
 	}
 
-	.RelatedLinks__link[data-type='pdf']::before,
+	.RelatedLinks__link[target]::before {
+		content: $icons-external;
+	}
+	// exclude taget="_self" without increasing selector specificity
+	.RelatedLinks__link:not([target='_self'])::before {
+		content: $icons-link;
+	}
+
 	.RelatedLinks__link[href$='.pdf']::before,
-	.RelatedLinks__link[href*='.pdf?']::before {
+	.RelatedLinks__link[href*='.pdf?']::before,
+	.RelatedLinks__link[data-type='pdf']::before {
 		content: $icons-file-pdf;
 	}
 	.RelatedLinks__link[data-type='document']::before {
 		content: $icons-document;
 	}
-	.RelatedLinks__link[data-type='external']::before,
-	.RelatedLinks__link[target]:not([target='_self'])::before {
+	.RelatedLinks__link[data-type='external']::before {
 		content: $icons-external;
 	}
 }
