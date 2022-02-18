@@ -61,7 +61,7 @@
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
-    font-weight: 700;
+    font-weight: var(--font-weight--bold);
   }
   .MainMenu__link:hover, .MainMenu__link:active {
     color: var(--link-color--hover);
@@ -171,7 +171,7 @@ html.menu-is-closed .MainMenu {
 }
 @media screen and (max-width: 979px) {
   .MainMenu__link[aria-pressed=true] {
-    border-color: #ffffff;
+    border-color: var(--color-suld-0);
   }
 }
 @media screen and (max-width: 979px) {
@@ -201,7 +201,7 @@ html.menu-is-closed .MainMenu {
   .MainMenu__item--lang + .MainMenu__item--lang::before {
     content: "|";
     float: left;
-    color: #81bbf0;
+    color: var(--color-faxafloi-75);
     margin-left: calc(-1rem - 0.2em);
   }
 }
@@ -307,88 +307,117 @@ html.menu-is-closed .MainMenu {
     justify-content: flex-end;
     align-items: center;
   }
-
+}
+@media screen and (min-width: 1368px) {
+  .MainMenu__items {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-width: 980px) {
   .MainMenu__item {
-    color: #2a2b2c;
+    color: var(--color-suld-200);
     white-space: nowrap;
     margin: 0 calc(1.5463917526vw + -11.1546391753px);
     --MainMenu__item-padding: calc(1.5463917526vw + -11.1546391753px);
   }
-
+}
+@media screen and (min-width: 1368px) {
+  .MainMenu__item {
+    margin-right: 10px;
+    margin-left: 10px;
+    --MainMenu__item-padding: 10px;
+  }
+}
+@media screen and (min-width: 980px) {
   .MainMenu__item[aria-current=true] {
-    color: #0367e1;
+    color: var(--color-faxafloi-100);
   }
   html[data-mega-panel-active] .MainMenu__item[aria-current=true] {
-    color: #ffffff;
+    color: var(--color-suld-0);
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__separator[class] {
     display: block;
     margin-left: auto;
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__item:not(.MainMenu__separator ~ *) {
     --MainMenu__item-padding: 0.625rem;
   }
-
+}
+@media screen and (min-width: 980px) {
   html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
 html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
-    --link-color--hover: #ffffff;
+    --link-color--hover: var(--color-suld-0);
     color: rgba(248, 248, 249, 0.7);
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__link {
     padding: 0.625rem var(--MainMenu__item-padding);
     padding-bottom: calc(0.625rem - var(--link-underline-thickness));
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__link[aria-pressed=true] {
-    color: #ffffff;
+    color: var(--color-suld-0);
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__item--lang {
     margin-right: 0.5rem;
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__item--lang > .MainMenu__link {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
     display: inline-block;
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__item--lang + .MainMenu__item--lang {
     margin-left: -0.5rem;
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__item--lang + .MainMenu__item--lang::before {
     content: "|";
     display: inline-block;
-    color: #2a2b2c;
+    color: var(--color-suld-200);
   }
-
+}
+@media screen and (min-width: 980px) {
   html[data-mega-panel-active] > body {
     overflow-y: hidden;
     padding-right: var(--grid-margin);
   }
-
+}
+@media screen and (min-width: 980px) {
   html[data-mega-panel-active] .Layout__alerts {
     max-height: 0;
     transition-duration: 0ms;
   }
-
+}
+@media screen and (min-width: 980px) {
   html.before-sprinkling *:not([data-sprinkled]) > .MainMenu__panelsWrap {
     display: none;
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__panelsWrap {
-    background-color: #0367e1;
+    background-color: var(--color-faxafloi-100);
     margin-left: calc(50% - 50vw + 0px);
     padding-left: calc(50vw - 50% + 0px);
     margin-right: calc(50% - 50vw + 0px);
     padding-right: calc(50vw - 50% + 0px);
     position: relative;
   }
-
+}
+@media screen and (min-width: 980px) {
   .MainMenu__panelsWrap:before {
     content: "";
     position: absolute;
@@ -453,7 +482,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     padding-top: 4.0625rem;
     padding-left: 2rem;
     padding-bottom: 2.0625rem;
-    --link-focus-outlineColor: #ffffff;
+    --link-focus-outlineColor: var(--color-suld-0);
   }
 }
 @media screen and (min-width: 980px) {
@@ -491,23 +520,11 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     width: 269px;
     height: 269px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: var(--color-suld-0);
     position: absolute;
     top: 0;
     left: -132px;
     z-index: -1;
-  }
-}
-@media screen and (min-width: 1368px) {
-  .MainMenu__items {
-    margin-right: -20px;
-    margin-left: -20px;
-  }
-
-  .MainMenu__item {
-    margin-right: 10px;
-    margin-left: 10px;
-    --MainMenu__item-padding: 10px;
   }
 }
 @media screen {

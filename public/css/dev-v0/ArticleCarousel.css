@@ -69,7 +69,7 @@
 }
 @media screen {
   .ArticleCarouselCard {
-    border: 2px solid #e3e5e7;
+    border: 2px solid var(--color-suld-75);
     border-top: 0;
     width: var(--grid-5);
     min-width: 330px;
@@ -109,42 +109,42 @@
 }
 @media screen {
   .ArticleCarouselCard[data-color=faxafloi]::after {
-    background-color: #0367e1;
+    background-color: var(--color-faxafloi-100);
   }
 }
 @media screen {
   .ArticleCarouselCard[data-color=nautholsvik]::after {
-    background-color: #ffd659;
+    background-color: var(--color-nautholsvik-100);
   }
 }
 @media screen {
   .ArticleCarouselCard[data-color=heidmork]::after {
-    background-color: #d8222f;
+    background-color: var(--color-heidmork-100);
   }
 }
 @media screen {
   .ArticleCarouselCard[data-color=ellidarardalur]::after {
-    background-color: #64d68e;
+    background-color: var(--color-ellidarardalur-100);
   }
 }
 @media screen {
   .ArticleCarouselCard[data-color=blafjoll]::after {
-    background-color: #f77257;
+    background-color: var(--color-blafjoll-100);
   }
 }
 @media screen {
   .ArticleCarouselCard[data-color=sund]::after {
-    background-color: #53daff;
+    background-color: var(--color-sund-100);
   }
 }
 @media screen {
   .ArticleCarouselCard[data-color=rokkur]::after {
-    background-color: #ff8db5;
+    background-color: var(--color-rokkur-100);
   }
 }
 @media screen {
   .ArticleCarouselCard[data-color=suld]::after {
-    background-color: #c7cbd0;
+    background-color: var(--color-suld-100);
   }
 }
 @media screen {
@@ -161,12 +161,13 @@
     position: relative;
     padding-top: 85.2272727273%;
     display: block;
+    margin: 0 -1px;
     margin-bottom: 2rem;
   }
 }
 @media screen {
   .ArticleCarouselCard__illustration--missing {
-    background-color: #f8f8f9;
+    background-color: var(--color-suld-25);
   }
 }
 @media screen {
@@ -200,7 +201,7 @@
 @media screen {
   .ArticleCarouselCard__date {
     font: var(--font-bd-s);
-    color: #707275;
+    color: var(--color-suld-150);
     margin-bottom: 2rem;
     display: block;
   }
