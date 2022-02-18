@@ -45,7 +45,7 @@
 	}
 
 	.ArticleCarouselCard {
-		border: 2px solid $color-suld-75;
+		border: 2px solid $var--color-suld-75;
 		border-top: 0;
 		width: $var--grid-5;
 		min-width: 330px;
@@ -81,18 +81,18 @@
 
 	// Prefer `data-color` over `data-color-theme`
 	$colors: (
-		'faxafloi': $color-faxafloi-100,
-		'nautholsvik': $color-nautholsvik-100,
-		'heidmork': $color-heidmork-100,
-		'ellidarardalur': $color-ellidarardalur-100,
-		'blafjoll': $color-blafjoll-100,
-		'sund': $color-sund-100,
-		'rokkur': $color-rokkur-100,
-		'suld': $color-suld-100,
+		'faxafloi': $var--color-faxafloi-100,
+		'nautholsvik': $var--color-nautholsvik-100,
+		'heidmork': $var--color-heidmork-100,
+		'ellidarardalur': $var--color-ellidarardalur-100,
+		'blafjoll': $var--color-blafjoll-100,
+		'sund': $var--color-sund-100,
+		'rokkur': $var--color-rokkur-100,
+		'suld': $var--color-suld-100,
 	);
-	@each $colorName, $color in $colors {
+	@each $colorName, $colorVar in $colors {
 		.ArticleCarouselCard[data-color='#{$colorName}']::after {
-			background-color: $color;
+			background-color: $colorVar;
 		}
 	}
 
@@ -111,7 +111,7 @@
 		// photograp variant
 	}
 	.ArticleCarouselCard__illustration--missing {
-		background-color: $color-suld-25;
+		background-color: $var--color-suld-25;
 	}
 
 	.ArticleCarouselCard__illustration > img {
@@ -137,7 +137,7 @@
 
 	.ArticleCarouselCard__date {
 		@include BodyTextStyle--small();
-		color: $color-suld-150;
+		color: $var--color-suld-150;
 		margin-bottom: grid-units(4);
 		display: block;
 	}
