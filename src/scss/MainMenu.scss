@@ -28,7 +28,7 @@
 		@include LinkStyle();
 		display: block;
 		width: max-content;
-		font-weight: $font-weight--bold;
+		font-weight: $var--font-weight--bold;
 	}
 
 	.MainMenu__link::before {
@@ -132,7 +132,7 @@
 		margin-bottom: calc(-1 * #{$var--link-underline--thickness});
 	}
 	.MainMenu__link[aria-pressed='true'] {
-		border-color: $color-suld-0;
+		border-color: $var--color-suld-0;
 	}
 
 	.MainMenu__separator[class] {
@@ -155,7 +155,7 @@
 	.MainMenu__item--lang + .MainMenu__item--lang::before {
 		content: '|';
 		float: left;
-		color: $color-faxafloi-75;
+		color: $var--color-faxafloi-75;
 		margin-left: calc(#{grid-units(-2)} - 0.2em);
 	}
 
@@ -205,19 +205,31 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
+
+		@include media($mq-wide) {
+			margin-right: -20px;
+			margin-left: -20px;
+		}
 	}
 
 	.MainMenu__item {
-		color: $color-suld-200;
+		color: $var--color-suld-200;
 		white-space: nowrap;
 		margin: 0 between_Topmenu(4, 10);
 		--MainMenu__item-padding: #{between_Topmenu(4, 10)};
+
+		@include media($mq-wide) {
+			margin-right: 10px;
+			margin-left: 10px;
+			--MainMenu__item-padding: 10px;
+		}
 	}
+
 	.MainMenu__item[aria-current='true'] {
-		color: $color-faxafloi-100;
+		color: $var--color-faxafloi-100;
 
 		html[data-mega-panel-active] & {
-			color: $color-suld-0;
+			color: $var--color-suld-0;
 		}
 	}
 
@@ -231,7 +243,7 @@
 	}
 	html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
 	html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
-		--link-color--hover: #{$color-suld-0};
+		--link-color--hover: #{$var--color-suld-0};
 		color: fade($color-suld-25, 70%);
 	}
 
@@ -240,7 +252,7 @@
 		padding-bottom: calc(#{prem(10)} - #{$var--link-underline--thickness});
 	}
 	.MainMenu__link[aria-pressed='true'] {
-		color: $color-suld-0;
+		color: $var--color-suld-0;
 	}
 
 	.MainMenu__item--lang {
@@ -257,7 +269,7 @@
 	.MainMenu__item--lang + .MainMenu__item--lang::before {
 		content: '|';
 		display: inline-block;
-		color: $color-suld-200;
+		color: $var--color-suld-200;
 	}
 
 	// ===========================================================================
@@ -280,7 +292,7 @@
 	}
 
 	.MainMenu__panelsWrap {
-		background-color: $color-faxafloi-100;
+		background-color: $var--color-faxafloi-100;
 		@include extendSides();
 		position: relative;
 	}
@@ -348,7 +360,7 @@
 		padding-top: prem(65);
 		padding-left: prem(32);
 		padding-bottom: prem(33);
-		--link-focus-outlineColor: #{$color-suld-0};
+		--link-focus-outlineColor: #{$var--color-suld-0};
 	}
 	.MainMenu__megapanel__backtomenu:hover::after,
 	.MainMenu__megapanel__backtomenu:active::after {
@@ -370,23 +382,11 @@
 		width: 269px;
 		height: 269px;
 		border-radius: 50%;
-		background-color: $color-suld-0;
+		background-color: $var--color-suld-0;
 		position: absolute;
 		top: 0;
 		left: -132px;
 		z-index: -1;
-	}
-}
-
-@media #{$mq-wide} {
-	.MainMenu__items {
-		margin-right: -20px;
-		margin-left: -20px;
-	}
-	.MainMenu__item {
-		margin-right: 10px;
-		margin-left: 10px;
-		--MainMenu__item-padding: 10px;
 	}
 }
 
