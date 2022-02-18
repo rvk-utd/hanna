@@ -25,10 +25,10 @@
 		top: 0;
 		bottom: 0;
 		@if $dir != right {
-			left: $var--grid-edge--neg;
+			left: $var--grid-margin--neg;
 		}
 		@if $dir != left {
-			right: $var--grid-edge--neg;
+			right: $var--grid-margin--neg;
 		}
 		z-index: -1;
 		background: inherit;

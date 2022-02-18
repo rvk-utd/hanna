@@ -14,12 +14,12 @@
 		.RowBlockColumn--background {
 			background-color: $color-suld-25;
 			box-sizing: content-box;
-			margin: 0 $var--grid-edge--neg;
-			padding: between_cols(30, 80) $var--grid-edge;
+			margin: 0 $var--grid-margin--neg;
+			padding: between_cols(30, 80) $var--grid-margin;
 		}
 		.RowBlockColumn--background--primary {
-			background-color: $var--color-theme-primary;
-			color: $var--color-theme-primary--text;
+			background-color: $var--theme-color-primary;
+			color: $var--theme-color-primary--text;
 			@include LinkStyle_SameColor();
 		}
 	}

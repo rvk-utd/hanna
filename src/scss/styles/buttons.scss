@@ -4,7 +4,7 @@
 @mixin _FocusedFrame(
 	$frameOffset,
 	$borderRadius,
-	$borderColor: $var--color-theme-primary,
+	$borderColor: $var--theme-color-primary,
 	$borderWidth: prem(2),
 	$borderStyle: solid
 ) {
@@ -23,7 +23,7 @@
 	}
 }
 
-@mixin ButtonStyle($frameOffset: prem(-4), $color: $var--color-theme-primary--text) {
+@mixin ButtonStyle($frameOffset: prem(-4), $color: $var--theme-color-primary--text) {
 	@include LinkStyle_Reset(true);
 
 	$borderRadius: prem(3);
@@ -34,7 +34,7 @@
 	vertical-align: middle;
 
 	color: $color;
-	background-color: $var--color-theme-primary;
+	background-color: $var--theme-color-primary;
 	display: inline-block;
 	line-height: prem(56);
 	padding: 0 prem(20);
@@ -63,7 +63,7 @@
 	&:active,
 	&[aria-pressed='true'] {
 		text-decoration: none;
-		background-color: $var--color-theme-primary--dark;
+		background-color: $var--theme-color-primary--dark;
 		color: $color-suld-0;
 	}
 	@include _FocusedFrame($frameOffset, $borderRadius);
@@ -71,7 +71,7 @@
 	&[disabled],
 	&[aria-disabled='true'] {
 		box-shadow: none;
-		background-color: $var--color-theme-primary;
+		background-color: $var--theme-color-primary;
 		opacity: 0.3;
 	}
 
@@ -90,7 +90,7 @@
 $var--ButtonTertiary--color: var(--ButtonTertiary--color, _inherit);
 $var--ButtonTertiary--dashColor: var(
 	--ButtonTertiary--dashColor,
-	$var--color-theme-primary--safeish
+	$var--theme-color-primary--safeish
 );
 $var--ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth, prem(16));
 $var--ButtonTertiary--dashWidth--hover: var(--ButtonTertiary--dashWidth--hover, prem(48));

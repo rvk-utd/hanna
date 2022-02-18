@@ -102,8 +102,8 @@
   .RowBlockColumn--background {
     background-color: #f8f8f9;
     box-sizing: content-box;
-    margin: 0 var(--grid-edge--neg);
-    padding: calc(5.3879310345% + 14.9137931034px) var(--grid-edge);
+    margin: 0 var(--grid-margin--neg);
+    padding: calc(5.3879310345% + 14.9137931034px) var(--grid-margin);
   }
 
   .RowBlockColumn--background--primary {

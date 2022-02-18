@@ -145,9 +145,9 @@
     display: block;
     position: relative;
     width: 34.4370860927%;
-    --dash-width: calc(0.45 * var(--grid-edge));
+    --dash-width: calc(0.45 * var(--grid-margin));
     --dash-margin: 0;
-    --dash-indent: var(--grid-edge--neg);
+    --dash-indent: var(--grid-margin--neg);
   }
 
   .LabeledTextBlock__summary {

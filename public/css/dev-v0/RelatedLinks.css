@@ -83,9 +83,19 @@
   }
 }
 @media screen {
-  .RelatedLinks__link[data-type=pdf]::before,
-.RelatedLinks__link[href$=".pdf"]::before,
-.RelatedLinks__link[href*=".pdf?"]::before {
+  .RelatedLinks__link[target]::before {
+    content: "";
+  }
+}
+@media screen {
+  .RelatedLinks__link:not([target=_self])::before {
+    content: "";
+  }
+}
+@media screen {
+  .RelatedLinks__link[href$=".pdf"]::before,
+.RelatedLinks__link[href*=".pdf?"]::before,
+.RelatedLinks__link[data-type=pdf]::before {
     content: "";
   }
 }
@@ -95,8 +105,7 @@
   }
 }
 @media screen {
-  .RelatedLinks__link[data-type=external]::before,
-.RelatedLinks__link[target]:not([target=_self])::before {
+  .RelatedLinks__link[data-type=external]::before {
     content: "";
   }
 }

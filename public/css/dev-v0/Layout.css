@@ -2,8 +2,8 @@
 @media screen {
   body {
     padding: 0;
-    padding-left: var(--grid-edge);
-    padding-right: var(--grid-edge--right);
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin--right);
   }
 
   .Layout {
@@ -46,7 +46,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: var(--zindex--header);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,7 +115,7 @@
 @media screen and (max-width: 979px) {
   html.menu-is-open > body {
     overflow-y: hidden;
-    padding-right: var(--grid-edge);
+    padding-right: var(--grid-margin);
   }
 
   html.menu-is-open .Layout__alerts {
@@ -126,10 +126,10 @@
     --logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
     position: absolute;
     top: 0;
-    left: var(--grid-edge--neg);
-    right: var(--grid-edge--right--neg);
-    padding-left: var(--grid-edge);
-    padding-right: var(--grid-edge--right);
+    left: var(--grid-margin--neg);
+    right: var(--grid-margin--right--neg);
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin--right);
     transition: all 200ms ease-in;
     transition-property: background-color, box-shadow;
   }
@@ -217,7 +217,7 @@
   html.menu-is-active .Layout__nav::before {
     content: "";
     position: fixed;
-    z-index: 99;
+    z-index: calc(var(--zindex--header) - 1);
     top: 0;
     bottom: 0;
     right: 0;
@@ -252,7 +252,7 @@
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -270,7 +270,7 @@
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -288,7 +288,7 @@
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -318,7 +318,7 @@
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -336,7 +336,7 @@
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -354,7 +354,7 @@
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);

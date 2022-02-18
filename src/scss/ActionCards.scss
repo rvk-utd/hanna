@@ -20,7 +20,7 @@
 	}
 	.ActionCards__card:hover,
 	.ActionCards__card:active {
-		--Card-lineColor: #{$var--color-theme-primary--safeish};
-		border: 1px solid $var--color-theme-primary--safeish;
+		--Card-lineColor: #{$var--theme-color-primary--safeish};
+		border: 1px solid $var--theme-color-primary--safeish;
 	}
 }

@@ -59,7 +59,7 @@
 
 	// The popper
 	.react-datepicker-popper {
-		z-index: $zIndex--overlay;
+		z-index: $var--zindex--overlay;
 		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 	}
 

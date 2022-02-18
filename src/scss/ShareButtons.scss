@@ -16,14 +16,14 @@
 		width: 35px;
 		height: 35px;
 		border-radius: 50%;
-		background-color: $var--color-theme-primary;
-		color: $var--color-theme-primary--text;
+		background-color: $var--theme-color-primary;
+		color: $var--theme-color-primary--text;
 		position: relative;
 		display: inline-block;
 	}
 	.ShareButtons__link:hover,
 	.ShareButtons__link:active {
-		background-color: $var--color-theme-primary--dark;
+		background-color: $var--theme-color-primary--dark;
 		color: $color-suld-0;
 	}
 

@@ -10,7 +10,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    z-index: -10;
+    z-index: var(--zindex--Bling);
     pointer-events: none;
     --bling-color-a: var(--theme-color-tertiary);
     --bling-color-b: var(--theme-color-secondary);
@@ -103,7 +103,7 @@
   }
 
   .Bling--overlay {
-    z-index: 2;
+    z-index: var(--zindex--Bling--overlay);
   }
 }
 /*# sourceMappingURL=Bling.css.map */

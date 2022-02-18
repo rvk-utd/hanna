@@ -3,19 +3,19 @@
 
 @media screen {
 	.ButtonSecondary {
-		@include ButtonStyle(prem(-5), $var--color-theme-primary--safe);
+		@include ButtonStyle(prem(-5), $var--theme-color-primary--safe);
 		font-weight: $font-weight--normal;
 		background-color: $color-suld-0;
-		border: 1px solid $var--color-theme-primary;
+		border: 1px solid $var--theme-color-primary;
 
 		&:hover,
 		&:active {
-			border: 1px solid $var--color-theme-primary;
+			border: 1px solid $var--theme-color-primary;
 		}
 		&:active,
 		&[aria-pressed] {
 			background-color: $color-suld-50;
-			color: $var--color-theme-primary--safe;
+			color: $var--theme-color-primary--safe;
 		}
 		&[disabled],
 		&[aria-disabled='true'] {

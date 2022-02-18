@@ -3,11 +3,11 @@
 
 @mixin css() {
 	.PrimaryPanel {
-		--link-color: var(--menu-primary-text);
-		--link-color--hover: var(--menu-primary-hover);
+		color: $var--color-suld-0;
+		--link-color: _inherit;
+		--link-color--hover: #{$var--color-suld-25};
 
-		background-color: $color-faxafloi-100;
-		color: $var--menu-primary-text;
+		background-color: #{$var--MainMenu-background};
 	}
 	.PrimaryPanel__title {
 		font-weight: $font-weight--bold;

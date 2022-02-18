@@ -6,7 +6,7 @@
 		margin: $var--baseVerticalMargin-2 0;
 
 		@include BodyTextStyle--large();
-		border-left: grid-units(1) solid $var--color-theme-primary;
+		border-left: grid-units(1) solid $var--theme-color-primary;
 		padding-left: calc(0.5 * #{$var--grid-column});
 		padding-right: $var--grid-column;
 	}

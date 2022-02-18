@@ -3,14 +3,24 @@
 @mixin cssVariables() {
 	@media screen {
 		:root {
+			--bp-w-phone: #{$bp-phone}; // mjórra en 320px er ekki supported
+			--bp-w-phablet: #{$bp-phablet};
+			--bp-w-tablet: #{$bp-tablet};
+			--bp-w-netbook: #{$bp-netbook}; // iPad á hlið
+			--bp-w-wide: #{$bp-wide}8;
+
+			--bp-w-Hamburger: var(--bp-w-netbook);
+
 			--browser-scrollbar-width: 16px;
 
-			$gru: $grid-unit;
-			--baseVerticalMargin: #{between_phone_netbook(2 * $gru, 3 * $gru)};
-			--baseVerticalMargin-2: #{between_phone_netbook(4 * $gru, 6 * $gru)};
+			--baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+			--baseVerticalMargin-2: #{between_phone_netbook(
+					4 * $grid-unit,
+					6 * $grid-unit
+				)};
 			@include media($mq-wide) {
-				--baseVerticalMargin: #{px(3 * $gru)};
-				--baseVerticalMargin-2: #{px(6 * $gru)};
+				--baseVerticalMargin: #{px(3 * $grid-unit)};
+				--baseVerticalMargin-2: #{px(6 * $grid-unit)};
 			}
 
 			@include setDefaultLinkVariables(true);
@@ -18,6 +28,7 @@
 			--link-focus-outline: 3px solid currentColor;
 			--link-focus-outlineOffset: 2px;
 
+			@include _zIndex();
 			@include _gridVariables();
 			@include _miscSpaces();
 			@include _fontVariables();
@@ -38,14 +49,23 @@
 }
 
 @mixin _gridVariables() {
-	--grid-edge: #{between_phone_netbook($grid-edge--phone, $grid-edge--wide)};
-	--grid-edge--neg: #{between_phone_netbook(
-			-1 * $grid-edge--phone,
-			-1 * $grid-edge--wide
+	--grid-margin: #{between_phone_netbook($grid-margin--phone, $grid-margin--wide)};
+	--grid-margin--neg: #{between_phone_netbook(
+			-1 * $grid-margin--phone,
+			-1 * $grid-margin--wide
 		)};
 
-	--grid-edge--right: calc(var(--grid-edge) - var(--browser-scrollbar-width));
-	--grid-edge--right--neg: calc(var(--grid-edge--neg) + var(--browser-scrollbar-width));
+	--grid-margin--right: calc(var(--grid-margin) - var(--browser-scrollbar-width));
+	--grid-margin--right--neg: calc(
+		var(--grid-margin--neg) + var(--browser-scrollbar-width)
+	);
+
+	// @deprecated (Remove in v0.9)
+	--grid-edge: var(--grid-margin);
+	--grid-edge--neg: var(--grid-margin--neg);
+	--grid-edge--right: var(--grid-margin--right);
+	--grid-edge--right--neg: var(--grid-margin--right--neg);
+	// END: deprecation
 
 	--grid-0-1: #{_flexCol(0, 1)};
 	--grid-1: #{_flexCol(1)};
@@ -81,8 +101,8 @@
 	--grid-column--neg: var(--grid-1--neg);
 
 	@include media($mq-wide) {
-		--grid-edge: #{px($grid-edge--wide)};
-		--grid-edge--neg: #{px(-1 * $grid-edge--wide)};
+		--grid-margin: #{px($grid-margin--wide)};
+		--grid-margin--neg: #{px(-1 * $grid-margin--wide)};
 
 		--grid-0-1: #{cols_px(0, 1)};
 		--grid-1: #{cols_px(1)};
@@ -117,6 +137,17 @@
 
 // ---------------------------------------------------------------------------
 
+@mixin _zIndex() {
+	--zindex--sr-only: 99999; // A11y keyboard/focus layer
+	--zindex--modal: 1000;
+	--zindex--header: 100;
+	--zindex--overlay: 10;
+	--zindex--Bling--overlay: 2;
+	--zindex--Bling: -10;
+}
+
+// ---------------------------------------------------------------------------
+
 @mixin _fontVariables() {
 	--font-family: #{$font-family};
 	--font-weight--normal: #{$font-weight--normal};
@@ -124,6 +155,8 @@
 
 	--font-base-size: #{px($font-base-size)};
 	--font-base-leading: #{px($font-base-leading)};
+
+	// ---------------------------------------------------------------------------
 
 	--font-base: var(--font-base-size) / var(--font-base-leading) var(--font-family);
 
@@ -240,21 +273,14 @@
 // ---------------------------------------------------------------------------
 
 @mixin _MainMenu() {
-	--menu-color: #{$color-suld-200};
-	--menu-hover: #{$color-suld-100};
-	--menu-primary-background: #{$color-faxafloi-100};
-	--menu-primary-text: #{$color-suld-0};
-	--menu-primary-hover: #{$color-suld-25};
-	--menu-auxiliary-background: #{$color-suld-25};
-	--menu-auxiliary-text: #{$color-faxafloi-100};
-	--menu-auxiliary-hover: #{$color-faxafloi-150};
-	--menu-auxiliary-image: none;
+	--MainMenu-accentcolor: var(--color-faxafloi-100);
+	--MainMenu-background: var(--color-faxafloi-100);
 }
 
 // ---------------------------------------------------------------------------
 
 @mixin _LayoutHeader() {
-	$min: 99;
+	$min: 96;
 	$max: 136;
 
 	--Layout__header-height: #{px($min)};

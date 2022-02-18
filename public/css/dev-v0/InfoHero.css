@@ -24,13 +24,13 @@
 @media screen {
   .InfoHero__image {
     position: relative;
-    margin: 0 var(--grid-edge--neg);
+    margin: 0 var(--grid-margin--neg);
     padding-top: 75%;
   }
 }
 @media screen and (min-width: 760px) {
   .InfoHero__image {
-    padding-left: var(--grid-edge);
+    padding-left: var(--grid-margin);
     box-sizing: content-box;
     width: 48.3443708609%;
     padding-top: 57.119205298%;

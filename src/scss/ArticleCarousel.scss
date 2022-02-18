@@ -19,7 +19,7 @@
 	.ArticleCarousel {
 		@include SeenEffect--fadeup();
 		margin-bottom: between_cols(40, 130);
-		--globalPrimary: #{$var--color-theme-primary--safeish};
+		--globalPrimary: #{$var--theme-color-primary--safeish};
 	}
 
 	.ArticleCarousel__title {
@@ -72,7 +72,7 @@
 		content: '';
 		display: block;
 		height: prem(21);
-		background-color: $var--color-theme-primary;
+		background-color: $var--theme-color-primary;
 		position: absolute;
 		top: 0;
 		right: -2px;

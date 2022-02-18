@@ -8,9 +8,9 @@
 		pointer-events: none;
 		position: fixed;
 		bottom: 0;
-		right: $var--grid-edge--right;
-		left: $var--grid-edge;
-		z-index: $zIndex--header;
+		right: $var--grid-margin--right;
+		left: $var--grid-margin;
+		z-index: calc(#{$var--zindex--header} - 3);
 		max-width: prem($grid-contentMaxWidth);
 		margin: 0 auto;
 		transition: all 600ms ease-in-out;
@@ -101,7 +101,7 @@
 		.ContactBubble__closebtn {
 			position: fixed;
 			top: calc(0.5 * #{$var--Layout__header-height});
-			right: $var--grid-edge--right;
+			right: $var--grid-margin--right;
 			@include hideText(soft);
 			margin: grid-units(-4) grid-units(-1);
 			width: grid-units(6);

@@ -1,6 +1,14 @@
 @use 'colors' as *;
 @use 'font' as *;
 
+$var--bp-w-phone: var(--bp-w-phone);
+$var--bp-w-phablet: var(--bp-w-phablet);
+$var--bp-w-tablet: var(--bp-w-tablet);
+$var--bp-w-netbook: var(--bp-w-netbook);
+$var--bp-w-wide: var(--bp-w-wide);
+
+$var--bp-w-Hamburger: var(--bp-w-Hamburger);
+
 // ---------------------------------------------------------------------------
 $var--color-esja-50: var(--color-esja-50);
 $var--color-esja-75: var(--color-esja-75);
@@ -44,25 +52,26 @@ $var--color-suld-200: var(--color-suld-200);
 $var--color-white: var(--color-white);
 $var--color-blackish: var(--color-blackish);
 
-$var--color-theme-primary: var(--theme-color-primary);
-$var--color-theme-secondary: var(--theme-color-secondary);
-$var--color-theme-tertiary: var(--theme-color-tertiary);
+$var--theme-color-primary: var(--theme-color-primary);
+$var--theme-color-secondary: var(--theme-color-secondary);
+$var--theme-color-tertiary: var(--theme-color-tertiary);
 
-$var--color-theme-primary--text: var(--theme-color-primary--text);
-$var--color-theme-primary--dark: var(--theme-color-primary--dark);
-$var--color-theme-primary--safe: var(--theme-color-primary--safe);
-$var--color-theme-primary--safeish: var(--theme-color-primary--safeish);
+$var--theme-color-primary--text: var(--theme-color-primary--text);
+$var--theme-color-primary--dark: var(--theme-color-primary--dark);
+$var--theme-color-primary--safe: var(--theme-color-primary--safe);
+$var--theme-color-primary--safeish: var(--theme-color-primary--safeish);
 
 // ---------------------------------------------------------------------------
 
 @mixin setDefaultLinkVariables($all: false) {
-	--link-color: #{$color-faxafloi-100};
-	--link-color--hover: #{$color-faxafloi-100};
-	--link-weight: #{$font-weight--bold};
-	--link-underline-thickness: #{2rem / 16};
+	--link-color: var(--color-faxafloi-100);
+	--link-color--hover: var(--color-faxafloi-100);
+	--link-weight: var(--font-weight--bold);
+	$thickness: 2rem / 16;
+	--link-underline-thickness: #{$thickness};
 	--link-underline: var(--link-underline-thickness) solid transparent;
 	--link-underline--hover: var(--link-underline-thickness) solid currentColor;
-	--link-underline-offset: 0.15em;
+	--link-underline-offset: 0.15em; // 2.4px
 	@if $all {
 		--link-transition: 200ms ease-in;
 	}
@@ -83,17 +92,8 @@ $var--link-focus-outlineOffset: var(--link-focus-outlineOffset);
 
 // ---------------------------------------------------------------------------
 
-$var--menu-color: var(--menu-color);
-$var--menu-hover: var(--menu-hover);
-
-$var--menu-primary-background: var(--menu-primary-background);
-$var--menu-primary-text: var(--menu-primary-text);
-$var--menu-primary-hover: var(--menu-primary-hover);
-
-$var--menu-auxiliary-background: var(--menu-auxiliary-background);
-$var--menu-auxiliary-text: var(--menu-auxiliary-text);
-$var--menu-auxiliary-hover: var(--menu-auxiliary-hover);
-$var--menu-auxiliary-image: var(--menu-auxiliary-image);
+$var--MainMenu-accentcolor: var(--MainMenu-accentcolor);
+$var--MainMenu-background: var(--MainMenu-background);
 
 // ---------------------------------------------------------------------------
 
@@ -102,10 +102,10 @@ $var--baseVerticalMargin-2: var(--baseVerticalMargin-2);
 
 // ---------------------------------------------------------------------------
 
-$var--grid-edge: var(--grid-edge);
-$var--grid-edge--right: var(--grid-edge--right);
-$var--grid-edge--neg: var(--grid-edge--neg);
-$var--grid-edge--right--neg: var(--grid-edge--right--neg);
+$var--grid-margin: var(--grid-margin);
+$var--grid-margin--right: var(--grid-margin--right);
+$var--grid-margin--neg: var(--grid-margin--neg);
+$var--grid-margin--right--neg: var(--grid-margin--right--neg);
 
 $var--grid-0-1: var(--grid-0-1);
 $var--grid-1: var(--grid-1);
@@ -192,6 +192,13 @@ $var--browser-scrollbar-width: var(--browser-scrollbar-width);
 // ---------------------------------------------------------------------------
 
 $var--Layout__header-height: var(--Layout__header-height);
+
+$var--zindex--Bling: var(--zindex--Bling);
+$var--zindex--Bling--overlay: var(--zindex--Bling--overlay);
+$var--zindex--modal: var(--zindex--modal);
+$var--zindex--header: var(--zindex--header);
+$var--zindex--overlay: var(--zindex--overlay);
+$var--zindex--sr-only: var(--zindex--sr-only);
 
 // ---------------------------------------------------------------------------
 

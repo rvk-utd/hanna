@@ -8,7 +8,7 @@
 			display: flex;
 			background: $color-suld-0;
 			position: fixed;
-			z-index: $zIndex--modal;
+			z-index: $var--zindex--modal;
 			top: 0;
 			right: 0;
 			left: 0;
@@ -35,7 +35,7 @@
 			flex-flow: column;
 			align-items: center;
 
-			padding: between_cols(72, 104) $var--grid-edge;
+			padding: between_cols(72, 104) $var--grid-margin;
 
 			@include media($mq-netbook_up) {
 				flex-flow: row;
@@ -49,7 +49,7 @@
 
 		.GalleryModalPager__button,
 		.GalleryModal__closebutton {
-			color: $var--color-theme-primary;
+			color: $var--theme-color-primary;
 
 			&::before {
 				@include icon($icons-arrow-left);
@@ -79,7 +79,7 @@
 			}
 		}
 		.GalleryModalPager__button--next {
-			right: $var--grid-edge;
+			right: $var--grid-margin;
 		}
 		.GalleryModalPager__button--next::before {
 			content: $icons-arrow-right;
@@ -90,7 +90,7 @@
 		.GalleryModalPager__button--prev {
 			@include media($mq-netbook_up) {
 				left: 0;
-				width: $var--grid-edge;
+				width: $var--grid-margin;
 			}
 		}
 
@@ -98,7 +98,7 @@
 			position: absolute;
 			z-index: 1;
 			top: $var--grid-column;
-			left: $var--grid-edge;
+			left: $var--grid-margin;
 			font-weight: $font-weight--bold;
 		}
 		.GalleryModal__closebutton::before {

@@ -29,8 +29,8 @@
     --link-underline: 1px dotted currentColor;
     --link-underline--hover: 2px solid currentColor;
     --ButtonTertiary--dashColor: currentColor;
-    margin: 0 var(--grid-edge--neg);
-    padding: calc(3.6637931034% + 19.7413793103px) var(--grid-edge);
+    margin: 0 var(--grid-margin--neg);
+    padding: calc(3.6637931034% + 19.7413793103px) var(--grid-margin);
     min-height: calc(14.5038167939vw + 153.5877862595px);
   }
 }
@@ -207,7 +207,7 @@
 
   .CityBlock--largebox > .CityBlock__image,
 .CityBlock--largeimage > .CityBlock__image {
-    margin: 0 var(--grid-edge--neg);
+    margin: 0 var(--grid-margin--neg);
     height: calc(22.7272727273vw + 127.2727272727px);
   }
 
@@ -235,8 +235,8 @@
     margin: 3.3112582781% 0;
     margin-left: auto;
     padding-left: 3.3112582781%;
-    margin-right: var(--grid-edge--neg);
-    padding-right: var(--grid-edge);
+    margin-right: var(--grid-margin--neg);
+    padding-right: var(--grid-margin);
   }
 
   .CityBlock--largebox > .CityBlock__content {
@@ -253,8 +253,8 @@
   .CityBlock--align--left > .CityBlock__content {
     margin-right: auto;
     padding-right: 3.3112582781%;
-    margin-left: var(--grid-edge--neg);
-    padding-left: var(--grid-edge);
+    margin-left: var(--grid-margin--neg);
+    padding-left: var(--grid-margin);
   }
 
   .CityBlock__image {
@@ -266,8 +266,8 @@
 .CityBlock--largeimage > .CityBlock__image {
     width: 48.3443708609%;
     box-sizing: content-box;
-    margin-left: var(--grid-edge--neg);
-    padding-left: var(--grid-edge);
+    margin-left: var(--grid-margin--neg);
+    padding-left: var(--grid-margin);
   }
 
   .CityBlock--largeimage > .CityBlock__image {
@@ -277,7 +277,7 @@
   .CityBlock--align--left.CityBlock--largebox > .CityBlock__image,
 .CityBlock--align--left.CityBlock--largeimage > .CityBlock__image {
     margin-left: auto;
-    margin-right: var(--grid-edge--neg);
+    margin-right: var(--grid-margin--neg);
   }
 }
 @media screen and (min-width: 1368px) {

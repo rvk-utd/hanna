@@ -30,7 +30,7 @@
 .MainMenu__item--home[class] button:focus {
     position: absolute;
     right: -9999px;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -57,7 +57,6 @@
     border-bottom: var(--link-underline);
     transition: var(--link-transition);
     transition-property: border-color, background-color, color, text-shadow, box-shadow, outline;
-    --link-color: _inherit;
     display: block;
     width: -webkit-max-content;
     width: -moz-max-content;
@@ -101,7 +100,7 @@
 
   .MainMenu {
     position: relative;
-    background-color: #0367e1;
+    background-color: var(--MainMenu-background);
     --MainMenu--offsetLeft: 2rem;
     --MainMenu__list--padTop: 1rem;
   }
@@ -114,13 +113,13 @@
 @media screen and (max-width: 979px) {
   html.menu-is-active .MainMenu {
     position: fixed;
-    z-index: 99;
+    z-index: calc(var(--zindex--header) - 1);
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    padding-left: var(--grid-edge);
-    padding-right: var(--grid-edge--right);
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin--right);
     padding-top: var(--Layout__header-height);
     overflow-x: hidden;
     overflow-y: scroll;
@@ -145,28 +144,28 @@ html.menu-is-closed .MainMenu {
 }
 @media screen and (max-width: 979px) {
   .MainMenu__items {
+    color: var(--color-suld-0);
+    --link-color: _inherit;
+    --link-color--hover: var(--color-suld-25);
     display: flex;
     flex-flow: row wrap;
     padding-top: var(--MainMenu__list--padTop);
     padding-bottom: 1.5rem;
-    margin-left: var(--grid-edge--neg);
-    margin-right: var(--grid-edge--right--neg);
-    padding-left: calc(var(--grid-edge) + var(--MainMenu--offsetLeft));
-    padding-right: var(--grid-edge--right);
+    margin-left: var(--grid-margin--neg);
+    margin-right: var(--grid-margin--right--neg);
+    padding-left: calc(var(--grid-margin) + var(--MainMenu--offsetLeft));
+    padding-right: var(--grid-margin--right);
   }
 }
 @media screen and (max-width: 979px) {
   .MainMenu__item {
     font: var(--font-bd-l);
     width: 100%;
-    color: var(--menu-primary-text);
     margin-bottom: 1rem;
   }
 }
 @media screen and (max-width: 979px) {
   .MainMenu__link {
-    --link-color: $var--menu-primary-text;
-    --link-color--hover: $var--menu-primary-hover;
     margin-bottom: calc(-1 * var(--link-underline-thickness));
   }
 }
@@ -245,7 +244,7 @@ html.menu-is-closed .MainMenu {
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -263,7 +262,7 @@ html.menu-is-closed .MainMenu {
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -281,7 +280,7 @@ html.menu-is-closed .MainMenu {
     opacity: 1;
     pointer-events: auto;
     margin: 0;
-    z-index: 99999;
+    z-index: var(--zindex--sr-only);
     font-size: 1em;
     background: #ffffff;
     border: 3px double 3px double var(--link-color--hover);
@@ -294,8 +293,10 @@ html.menu-is-closed .MainMenu {
 }
 @media screen and (min-width: 980px) {
   .MainMenu__items {
+    --link-color: _inherit;
+    --link-color--hover: var(--MainMenu-accentcolor);
     position: absolute;
-    z-index: 100;
+    z-index: var(--zindex--header);
     top: 0;
     right: 0;
     left: 25.8278145695%;
@@ -367,7 +368,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
 
   html[data-mega-panel-active] > body {
     overflow-y: hidden;
-    padding-right: var(--grid-edge);
+    padding-right: var(--grid-margin);
   }
 
   html[data-mega-panel-active] .Layout__alerts {
@@ -396,7 +397,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     left: calc(50% + 0.5 * (var(--grid-gutter) + var(--browser-scrollbar-width)));
     margin-left: var(--grid-2-2);
     right: 0;
-    background-color: var(--menu-auxiliary-background);
+    background-color: var(--color-suld-25);
   }
 }
 @media screen and (min-width: 980px) and (max-width: 1367px) {
@@ -415,7 +416,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     left: 0;
     right: 0;
     height: 100vh;
-    z-index: 3;
+    z-index: calc(var(--zindex--header) - 1);
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -601,10 +602,10 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   }
 }
 .PrimaryPanel {
-  --link-color: var(--menu-primary-text);
-  --link-color--hover: var(--menu-primary-hover);
-  background-color: #0367e1;
-  color: var(--menu-primary-text);
+  color: var(--color-suld-0);
+  --link-color: _inherit;
+  --link-color--hover: var(--color-suld-25);
+  background-color: var(--MainMenu-background);
 }
 
 .PrimaryPanel__title {
@@ -705,14 +706,15 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
 }
 @media screen {
   .AuxiliaryPanel {
-    --link-color: var(--menu-auxiliary-text);
+    color: var(--MainMenu-accentcolor);
+    --link-color: _inherit;
+    --link-color--hover: var(--MainMenu-accentcolor);
     --link-weight: $font-weight-normal;
   }
 
   .AuxiliaryPanel__title {
-    color: var(--menu-auxiliary-text);
     font-weight: 700;
-    border-bottom: 1px solid rgba(3, 103, 225, 0.2);
+    border-bottom: 1px solid #c7cbd0;
     margin-right: 17.0212765957%;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
@@ -721,14 +723,14 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
 @media screen and (max-width: 979px) {
   .AuxiliaryPanel {
     position: relative;
-    background-color: var(--menu-auxiliary-background);
+    background-color: var(--color-suld-25);
     padding-top: 2rem;
     padding-bottom: 38.4615384615%;
     flex-grow: 1;
-    margin-left: var(--grid-edge--neg);
-    margin-right: var(--grid-edge--right--neg);
-    padding-left: calc(var(--grid-edge) + var(--MainMenu--offsetLeft));
-    padding-right: calc(var(--grid-edge--right) + var(--MainMenu--offsetLeft));
+    margin-left: var(--grid-margin--neg);
+    margin-right: var(--grid-margin--right--neg);
+    padding-left: calc(var(--grid-margin) + var(--MainMenu--offsetLeft));
+    padding-right: calc( 				var(--grid-margin--right) + var(--MainMenu--offsetLeft) 			);
   }
 
   .AuxiliaryPanel__title {
@@ -780,7 +782,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   .AuxiliaryPanel::after {
     content: "";
     background: 50% 0/auto 305px no-repeat;
-    background-image: var(--menu-auxiliary-image);
+    background-image: var(--MainMenu-auxiliary-image);
     margin: 2.5rem 0;
     display: block;
     height: 305px;

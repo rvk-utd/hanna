@@ -36,7 +36,7 @@
 
 	.WizardLayout__header {
 		position: relative;
-		z-index: 3;
+		z-index: 3; // ??? $var--zindex--header ???
 		height: $var--Layout__header-height;
 		display: flex;
 		align-items: center;

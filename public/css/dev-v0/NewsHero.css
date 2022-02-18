@@ -87,8 +87,8 @@
 }
 @media screen and (min-width: 480px) {
   .NewsHero__image {
-    margin-right: var(--grid-edge--neg);
-    padding-right: var(--grid-edge);
+    margin-right: var(--grid-margin--neg);
+    padding-right: var(--grid-margin);
     box-sizing: content-box;
     width: 43.0463576159%;
     padding-top: 53.3112582781%;

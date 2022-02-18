@@ -26,7 +26,6 @@
 	.MainMenu__link {
 		@include buttonReset();
 		@include LinkStyle();
-		--link-color: _inherit;
 		display: block;
 		width: max-content;
 		font-weight: $font-weight--bold;
@@ -61,7 +60,7 @@
 	.MainMenu {
 		position: relative;
 
-		background-color: $color-faxafloi-100;
+		background-color: #{$var--MainMenu-background};
 
 		--MainMenu--offsetLeft: #{grid-units(4)};
 		--MainMenu__list--padTop: #{grid-units(2)};
@@ -76,13 +75,13 @@
 
 	html.menu-is-active .MainMenu {
 		position: fixed;
-		z-index: $zIndex--header - 1;
+		z-index: calc(#{$var--zindex--header} - 1);
 		top: 0;
 		bottom: 0;
 		left: 0;
 		right: 0;
-		padding-left: $var--grid-edge;
-		padding-right: $var--grid-edge--right;
+		padding-left: $var--grid-margin;
+		padding-right: $var--grid-margin--right;
 		padding-top: $var--Layout__header-height;
 		overflow-x: hidden;
 		overflow-y: scroll;
@@ -109,26 +108,27 @@
 	}
 
 	.MainMenu__items {
+		color: $var--color-suld-0;
+		--link-color: _inherit;
+		--link-color--hover: #{$var--color-suld-25};
+
 		display: flex;
 		flex-flow: row wrap;
 		padding-top: var(--MainMenu__list--padTop);
 		padding-bottom: grid-units(3);
 
-		margin-left: $var--grid-edge--neg;
-		margin-right: $var--grid-edge--right--neg;
-		padding-left: calc(#{$var--grid-edge} + var(--MainMenu--offsetLeft));
-		padding-right: $var--grid-edge--right;
+		margin-left: $var--grid-margin--neg;
+		margin-right: $var--grid-margin--right--neg;
+		padding-left: calc(#{$var--grid-margin} + var(--MainMenu--offsetLeft));
+		padding-right: $var--grid-margin--right;
 	}
 
 	.MainMenu__item {
 		@include BodyTextStyle--large();
 		width: 100%;
-		color: $var--menu-primary-text;
 		margin-bottom: grid-units(2);
 	}
 	.MainMenu__link {
-		--link-color: $var--menu-primary-text;
-		--link-color--hover: $var--menu-primary-hover;
 		margin-bottom: calc(-1 * #{$var--link-underline--thickness});
 	}
 	.MainMenu__link[aria-pressed='true'] {
@@ -192,8 +192,10 @@
 	.MainMenu {
 	}
 	.MainMenu__items {
+		--link-color: _inherit;
+		--link-color--hover: #{$var--MainMenu-accentcolor};
 		position: absolute;
-		z-index: $zIndex--header;
+		z-index: $var--zindex--header;
 		top: 0;
 		right: 0;
 		left: cols_pct(3, 3);
@@ -266,7 +268,7 @@
 
 	html[data-mega-panel-active] > body {
 		overflow-y: hidden;
-		padding-right: $var--grid-edge;
+		padding-right: $var--grid-margin;
 	}
 	html[data-mega-panel-active] .Layout__alerts {
 		max-height: 0;
@@ -290,7 +292,7 @@
 		left: calc(50% + 0.5 * (#{$var--grid-gutter} + #{$var--browser-scrollbar-width}));
 		margin-left: $var--grid-2-2;
 		right: 0;
-		background-color: $var--menu-auxiliary-background;
+		background-color: $var--color-suld-25;
 
 		@include media($mq-netbook) {
 			margin-left: $var--grid-2;
@@ -309,7 +311,7 @@
 		left: 0;
 		right: 0;
 		height: 100vh;
-		z-index: 3;
+		z-index: calc(#{$var--zindex--header} - 1);
 
 		overflow-x: hidden;
 		overflow-y: auto;

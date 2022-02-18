@@ -15,10 +15,10 @@
 		left: 0;
 		right: 0;
 		width: 100%;
-		z-index: $zIndex--Bling;
+		z-index: $var--zindex--Bling;
 		pointer-events: none;
-		--bling-color-a: #{$var--color-theme-tertiary}; // Default to --color--tertiary
-		--bling-color-b: #{$var--color-theme-secondary}; // Default to --color--tertiary
+		--bling-color-a: #{$var--theme-color-tertiary}; // Default to --color--tertiary
+		--bling-color-b: #{$var--theme-color-secondary}; // Default to --color--tertiary
 		--bling-width: 0;
 		--bling-offset: 0;
 		// --bling-offset-ish: ;
@@ -37,16 +37,16 @@
 	// ---------------------------------------------------------------------------
 
 	// .Bling--color--tertiary {
-	// 	--bling-color-a: #{$var--color-theme-tertiary};
-	// 	--bling-color-b: #{$var--color-theme-secondary};
+	// 	--bling-color-a: #{$var--theme-color-tertiary};
+	// 	--bling-color-b: #{$var--theme-color-secondary};
 	// }
 	.Bling--color--secondary {
-		--bling-color-a: #{$var--color-theme-secondary};
-		--bling-color-b: #{$var--color-theme-tertiary};
+		--bling-color-a: #{$var--theme-color-secondary};
+		--bling-color-b: #{$var--theme-color-tertiary};
 	}
 	.Bling--color--primary {
-		--bling-color-a: #{$var--color-theme-primary};
-		--bling-color-b: #{$var--color-theme-secondary};
+		--bling-color-a: #{$var--theme-color-primary};
+		--bling-color-b: #{$var--theme-color-secondary};
 	}
 
 	// ---------------------------------------------------------------------------
@@ -126,6 +126,6 @@
 	// ---------------------------------------------------------------------------
 
 	.Bling--overlay {
-		z-index: $zIndex--Bling--overlay;
+		z-index: $var--zindex--Bling--overlay;
 	}
 }
