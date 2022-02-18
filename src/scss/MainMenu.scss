@@ -205,6 +205,11 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
+
+		@include media($mq-wide) {
+			margin-right: -20px;
+			margin-left: -20px;
+		}
 	}
 
 	.MainMenu__item {
@@ -212,7 +217,14 @@
 		white-space: nowrap;
 		margin: 0 between_Topmenu(4, 10);
 		--MainMenu__item-padding: #{between_Topmenu(4, 10)};
+
+		@include media($mq-wide) {
+			margin-right: 10px;
+			margin-left: 10px;
+			--MainMenu__item-padding: 10px;
+		}
 	}
+
 	.MainMenu__item[aria-current='true'] {
 		color: $color-faxafloi-100;
 
@@ -375,18 +387,6 @@
 		top: 0;
 		left: -132px;
 		z-index: -1;
-	}
-}
-
-@media #{$mq-wide} {
-	.MainMenu__items {
-		margin-right: -20px;
-		margin-left: -20px;
-	}
-	.MainMenu__item {
-		margin-right: 10px;
-		margin-left: 10px;
-		--MainMenu__item-padding: 10px;
 	}
 }
 
