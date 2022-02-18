@@ -3,8 +3,6 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Add :hover styling for `.ContactBubble__openbtn`
-- fix: Make `.ArticleCarouselCard__illustration` overlap card border
 
 ## 0.8.39
 
@@ -15,6 +13,8 @@ _2022-02-18_
   - feat: Add `--zindex--*`
   - feat: Add `--bp-w-*` (breakpoint widths)
   - feat: Rename `--grid-margin*` (deprecate `--grid-edge*`)
+- fix: Add :hover styling for `.ContactBubble__openbtn`
+- fix: Make `.ArticleCarouselCard__illustration` overlap card border
 - fix: Prevent over-applying 'external' icon on `RelatedLinks__link`
 - fix: Add back default link :hover underline
 
