@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.39
+
+_2022-02-18_
+
 - feat: CSS variables:
   - feat: Rename/simplify `--MainMenu-(background|accentcolor)`
   - feat: Add `--zindex--*`
