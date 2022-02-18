@@ -1,8 +1,8 @@
 @media screen {
   .ProcessOverview {
     background-color: #f8f8f9;
-    margin: 0 var(--grid-edge--neg);
-    padding: 0 var(--grid-edge);
+    margin: 0 var(--grid-margin--neg);
+    padding: 0 var(--grid-margin);
     margin-bottom: calc(9.6982758621% + 2.8448275862px);
     padding-top: calc(7.5431034483% + 28.8793103448px);
     padding-bottom: calc(15.3017241379% + 7.1551724138px);
@@ -85,9 +85,9 @@
     display: block;
     position: relative;
     width: 34.4370860927%;
-    --dash-width: calc(0.45 * var(--grid-edge));
+    --dash-width: calc(0.45 * var(--grid-margin));
     --dash-margin: 0;
-    --dash-indent: var(--grid-edge--neg);
+    --dash-indent: var(--grid-margin--neg);
   }
 
   .ProcessOverview--narrow > * > .ProcessOverview__item__title {

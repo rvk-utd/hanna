@@ -22,8 +22,8 @@
   .IslandBlock__image,
 .IslandBlock__content {
     display: block;
-    margin: 0 var(--grid-edge--neg);
-    padding: calc(10.775862069% + -10.1724137931px) var(--grid-edge);
+    margin: 0 var(--grid-margin--neg);
+    padding: calc(10.775862069% + -10.1724137931px) var(--grid-margin);
   }
 
   .IslandBlock__content {
@@ -179,8 +179,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: var(--grid-edge--neg);
-    right: var(--grid-edge--neg);
+    left: var(--grid-margin--neg);
+    right: var(--grid-margin--neg);
     z-index: -1;
     background: inherit;
   }

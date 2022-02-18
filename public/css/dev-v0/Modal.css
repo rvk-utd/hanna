@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: var(--zindex--modal);
     min-height: 100vh;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.5);
