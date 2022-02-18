@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Make `.ArticleCarouselCard__illustration` overlap card border
 
 ## 0.8.39
 
