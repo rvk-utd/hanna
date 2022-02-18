@@ -56,6 +56,12 @@
 			padding-right: grid-units(3);
 		}
 	}
+	.ContactBubble__openbtn:hover {
+		color: $var--color-faxafloi-150;
+		border-color: $var--color-suld-100;
+		background-color: $var--color-suld-50;
+	}
+
 	.ContactBubble__openbtn[aria-expanded='true'] {
 		@include media($mq-phone) {
 			opacity: 0;

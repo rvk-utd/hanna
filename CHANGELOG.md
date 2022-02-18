@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Add :hover styling for `.ContactBubble__openbtn`
 - fix: Make `.ArticleCarouselCard__illustration` overlap card border
 
 ## 0.8.39
