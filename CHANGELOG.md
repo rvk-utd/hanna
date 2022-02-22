@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `TextButton`
 - feat: Make `ButtonPrimary` and `ButtonSecondary` more compact by default
 - feat: Add styling for `.ButtonPrimary--wide` and `.ButtonSecondary--wide`
 - feat: Make `ButtonTertiary` and `ButtonBack` less jiggly on :hover
