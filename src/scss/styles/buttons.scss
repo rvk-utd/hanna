@@ -205,7 +205,7 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
 		}
 	}
 	@if $mode == normal {
-		--small & {
+		&--small {
 			--ButtonTertiary--dashSpace: #{$var--ButtonTertiary--small--dashSpace};
 			// font-weight: 400;
 		}
