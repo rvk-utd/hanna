@@ -26,8 +26,10 @@
 
 // reset <button> styles for easier custom styling
 @mixin textContent() {
+	font: $var--font-bd-l;
+
 	h2 {
-		@include HeadingStyle--small();
+		font: $var--font-hd-s;
 		margin-bottom: var(--h2--marginBottom, $var--baseVerticalMargin);
 		clear: both;
 	}
@@ -35,7 +37,7 @@
 		margin-top: var(--h2--marginTop, 1.5em);
 	}
 	h3 {
-		@include SubheadingStyle--large();
+		font: $var--font-sh-l;
 		margin-bottom: $var--baseVerticalMargin;
 		clear: both;
 	}
@@ -43,7 +45,7 @@
 		margin-top: var(--h3--marginTop, 1.25em);
 	}
 	h4 {
-		@include SubheadingStyle--small();
+		font: $var--font-sh-s;
 		margin-bottom: $var--baseVerticalMargin;
 	}
 	p {

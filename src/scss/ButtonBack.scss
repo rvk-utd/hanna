@@ -9,7 +9,7 @@
 		--ButtonTertiary--dashWidth--hover: #{prem(22)};
 
 		@include ButtonTertiaryStyle($mode: disabledOnly);
-		font-size: prem($font-size-12);
+		font-size: $var--font-label-size;
 	}
 
 	.ButtonBack::before {

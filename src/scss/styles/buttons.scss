@@ -169,7 +169,7 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	@if $mode == normal or $mode == disabledOnly {
 		&[disabled],
 		&[aria-disabled='true'] {
-			--ButtonTertiary--dashColor: #{$var--ButtonTertiary--color};
+			--ButtonTertiary--dashColor: currentColor;
 			opacity: 0.5;
 			pointer-events: none;
 		}

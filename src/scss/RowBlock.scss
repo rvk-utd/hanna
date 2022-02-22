@@ -7,7 +7,7 @@
 
 @media screen {
 	.RowBlock {
-		margin-bottom: between_cols(60, 120);
+		margin-bottom: $var--component-vspace--large;
 		display: flex;
 		flex-flow: column-reverse;
 		justify-content: space-between;

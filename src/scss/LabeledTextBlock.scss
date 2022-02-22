@@ -19,7 +19,6 @@
 	}
 
 	.LabeledTextBlock__summary {
-		@include BodyTextStyle--large();
 		@include textContent();
 	}
 	.LabeledTextBlock__summary > .ButtonTertiary {
