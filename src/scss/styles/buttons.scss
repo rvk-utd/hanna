@@ -102,6 +102,9 @@
 			padding-right: 24px;
 		}
 	}
+	&--small#{&}--wide {
+		@include WARNING__('Variants --small and --wide do NOT mix.');
+	}
 }
 
 :root {
