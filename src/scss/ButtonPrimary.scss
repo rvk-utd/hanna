@@ -4,6 +4,5 @@
 @media screen {
 	.ButtonPrimary {
 		@include ButtonStyle();
-		font-weight: $font-weight--bold;
 	}
 }

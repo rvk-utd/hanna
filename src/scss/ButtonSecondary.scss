@@ -4,8 +4,8 @@
 @media screen {
 	.ButtonSecondary {
 		@include ButtonStyle(prem(-5), $var--theme-color-primary--safe);
-		font-weight: $font-weight--normal;
 		background-color: $color-suld-0;
+		--Button--border: 1px;
 		border: 1px solid $var--theme-color-primary;
 
 		&:hover,

@@ -5,8 +5,9 @@
 	.ButtonBack {
 		--ButtonTertiary--color: #{$color-faxafloi-100};
 		--ButtonTertiary--dashColor: #{$color-faxafloi-100};
-		--ButtonTertiary--dashWidth: #{prem(12)};
-		--ButtonTertiary--dashWidth--hover: #{prem(22)};
+		--ButtonTertiary--dashWidth: #{$var--space-1_5};
+		--ButtonTertiary--hover--dashWidth: #{$var--space-3};
+		--ButtonTertiary--dashSpace: #{$var--space-1_5};
 
 		@include ButtonTertiaryStyle($mode: disabledOnly);
 		font-size: $var--font-label-size;

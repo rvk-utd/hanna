@@ -3,6 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make `ButtonPrimary` and `ButtonSecondary` more compact by default
+- feat: Add styling for `.ButtonPrimary--wide` and `.ButtonSecondary--wide`
+- feat: Make `ButtonTertiary` and `ButtonBack` less jiggly on :hover
+- feat: Spit and polish various `Button*` styles
 
 ## 0.8.39
 
@@ -29,7 +33,7 @@ _2022-02-16_
 _2022-02-15_
 
 - feat: Add border around `ContactBubble`'s open button.
-- fix: Minor breakages in MainMenu and some newly added CSS variables
+- fix: Minor breakages in `MainMenu` and some newly added CSS variables
 
 ## 0.8.35 – 0.8.36
 

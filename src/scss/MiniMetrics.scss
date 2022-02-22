@@ -23,7 +23,7 @@
 		@include ButtonTertiaryStyle();
 		@include SubheadingStyle--small();
 		--ButtonTertiary--dashWidth: #{rem(24 / $font-sh-s-size)};
-		// --ButtonTertiary--dashWidth--hover: #{prem(48)};
+		// --ButtonTertiary--hover--dashWidth: #{prem(48)};
 		--ButtonTertiary--dashHeight: #{rem(4 / $font-sh-s-size)};
 	}
 	.MiniMetrics__more::before {
