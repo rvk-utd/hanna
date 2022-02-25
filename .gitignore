@@ -1,11 +1,14 @@
-/_TEMP
-/.rpt2_cache
-/node_modules
-/dist
+## Deps and build results
+node_modules
 /__tests
-/yarn-error.log
 /public/css/dev/
 /public/css/*/*.css.map
 /src/scss/vars/icons.scss
 
+## Misc notes and stuff...
 /assets-originals
+
+## Junk
+.DS_Store
+/yarn-error.log
+/.rpt2_cache
