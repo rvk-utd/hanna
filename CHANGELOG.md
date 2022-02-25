@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update styling of `NameCard` and add support for new markup options
 - feat: Add component `TextButton`
 - feat: Make `ButtonPrimary` and `ButtonSecondary` more compact by default
 - feat: Add styling for `.ButtonPrimary--wide` and `.ButtonSecondary--wide`
@@ -364,7 +365,7 @@ _2020-11-18_
   for the homepage
 - feat: Add styling for `.SearchResultsHighlightItem` with images
 - feat: Tweak styling of `.SearchResultsItem__meta`
-- feat: Change `.Attention` styling - deprecate `--strong variant`
+- feat: Change `.Attention` styling - deprecate `--strong` variant
 - fix: Prevent site-wide `Alert` cutoff on mobile screen-sizes
 
 ## 0.7.13 – 0.7.14
