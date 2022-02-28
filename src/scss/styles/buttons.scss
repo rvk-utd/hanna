@@ -121,6 +121,7 @@
 	--ButtonTertiary--hover--dashWidth: #{$var--space-4};
 	--ButtonTertiary--dashSpace: #{$var--space-2};
 	--ButtonTertiary--dashHeight: 2px;
+	--ButtonTertiary--marginRight: #{between_phone_netbook(16, 24)};
 }
 $var--ButtonTertiary--color: var(--ButtonTertiary--color);
 $var--ButtonTertiary--dashColor: var(--ButtonTertiary--dashColor);
@@ -147,13 +148,13 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
 	padding-right: calc(
 		#{$var--ButtonTertiary--hover--dashWidth} - #{$var--ButtonTertiary--dashWidth}
 	);
-	margin-right: between_phone_netbook(16, 24);
+	margin-right: var(--ButtonTertiary--marginRight);
 	margin-bottom: $var--space-1;
 	font-weight: 700;
 	transition: all 100ms ease-in;
 
 	@include media($mq-wide) {
-		margin-right: 24px;
+		--ButtonTertiary--marginRight: 24px;
 	}
 
 	&::before {

@@ -29,14 +29,17 @@
 		margin-bottom: $var--space-2;
 		display: flex;
 		flex-flow: row wrap;
+		margin-right: $var--space-1--neg;
 	}
 	span.NameCard__contactinfo__item {
 		@include ButtonTertiaryStyle($static: true);
+		margin-right: $var--space-1;
 	}
 	.NameCard__tel__number, // @deprecated (remove in v0.9)
 	a.NameCard__contactinfo__item,
 	button.NameCard__contactinfo__item {
 		@include ButtonTertiaryStyle();
+		margin-right: $var--space-1;
 	}
 
 	.NameCard__location,
