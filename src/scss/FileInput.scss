@@ -25,15 +25,15 @@
 	}
 
 	.FileInput__dropzone {
-		background: fade($color-suld-50, 22%);
-		border: 1px dashed $color-suld-100;
+		background: $var--color-suld-25;
+		border: 2px dashed $var--color-suld-100;
 		padding: prem(20);
 		transition: all 200ms ease-in;
 		transition-property: background-color, border-color;
 		cursor: pointer;
 		margin-bottom: prem(20);
 		text-align: center;
-		color: $color-suld-200;
+		color: $var--color-suld-200;
 		position: relative;
 	}
 
@@ -41,14 +41,14 @@
 	.FileInput__dropzone:focus,
 	.FileInput__input--fake:focus + .FileInput__dropzone,
 	.FileInput__dropzone.FileInput__dropzone--highlight {
-		background: $color-suld-50;
-		border-color: $color-suld-150;
+		border-color: $var--color-suld-150;
+		background: $var--color-suld-50;
 	}
 
 	.FileInput__droptext {
 		position: relative;
 		text-align: center;
-		color: $color-suld-200;
+		color: $var--color-suld-200;
 		padding-top: prem(80);
 		margin: 0;
 
@@ -62,36 +62,36 @@
 			line-height: prem(64);
 			font-size: prem(24);
 			color: #fff;
-			background: $color-faxafloi-100;
+			background: $var--color-faxafloi-100;
 			border-radius: 50%;
 		}
 	}
 
 	.FileInput__droptext > strong {
 		display: inline-block;
-		color: $color-faxafloi-100;
-		border-bottom: 2px solid $color-faxafloi-100;
+		color: $var--color-faxafloi-100;
+		border-bottom: 2px solid $var--color-faxafloi-100;
 	}
 
 	// disabled
 	.FormField--disabled .FileInput__dropzone {
-		background: fade($color-suld-50, 10%);
-		border: 1px dashed $color-suld-50;
+		border-color: $var--color-suld-75;
+		background: $var--color-suld-0;
 		cursor: default;
 	}
 	.FormField--disabled .FileInput__droptext,
 	.FormField--disabled .FileInput__droptext > strong {
-		color: $color-suld-100;
+		color: $var--color-suld-100;
 		border: none;
 	}
 	.FormField--disabled .FileInput__droptext::before {
-		background: $color-suld-100;
+		background: $var--color-suld-100;
 	}
 
 	//invalid
 	.FormField--invalid .FileInput__dropzone {
-		background: fade($color-heidmork-100, 10%);
-		border: 1px dashed $color-heidmork-100;
+		background: fade($var--color-heidmork-100, 10%);
+		border-color: $var--color-heidmork-100;
 	}
 
 	.FileInput__filelist {
@@ -148,12 +148,12 @@
 			@include icon($icons-close);
 			font-size: prem(10);
 			line-height: 1;
-			color: $color-faxafloi-100;
+			color: $var--color-faxafloi-100;
 		}
 
 		&:hover::before,
 		&:focus::before {
-			color: $color-faxafloi-150;
+			color: $var--color-faxafloi-150;
 		}
 	}
 }

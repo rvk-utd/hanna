@@ -15,9 +15,9 @@
 		top: 100%;
 		left: 0;
 		right: 0;
-		padding: 0 prem(32);
-		background: $color-suld-0;
-		border: 1px solid $color-suld-75;
+		padding: 0 $var--space-4;
+		background: $var--color-suld-0;
+		border: $var--border-default;
 
 		height: 0;
 		opacity: 0;
@@ -29,7 +29,7 @@
 	.SiteSearchAutocomplete__container--open {
 		height: auto;
 		opacity: 1;
-		padding: prem(32) 0;
+		padding: $var--space-4 0;
 	}
 
 	.SiteSearchAutocomplete__item {
@@ -40,14 +40,14 @@
 	.SiteSearchAutocomplete__item--highlighted {
 		position: relative;
 		cursor: pointer;
-		color: $color-faxafloi-100;
-		background-color: $color-suld-25;
+		color: $var--color-faxafloi-100;
+		background-color: $var--color-suld-25;
 	}
 	.SiteSearchAutocomplete__item--highlighted::after {
 		@include icon($icons-search);
-		color: $color-suld-100;
+		color: $var--color-suld-100;
 		float: right;
-		margin-left: prem(20);
+		margin-left: $var--space-2;
 		font-size: prem(16);
 	}
 }

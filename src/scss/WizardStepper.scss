@@ -5,9 +5,9 @@
 		counter-reset: step;
 	}
 	.WizardStepper__step {
-		--WizardStepper-ballBackground: #{$color-suld-50};
-		--WizardStepper-ballColor: #{$color-suld-100};
-		--WizardStepper-lineColor: #{$color-suld-75};
+		--WizardStepper-ballBackground: #{$var--color-suld-50};
+		--WizardStepper-ballColor: #{$var--color-suld-100};
+		--WizardStepper-lineColor: #{$var--color-suld-75};
 
 		display: block;
 		line-height: 1.35;
@@ -19,7 +19,7 @@
 		position: relative;
 		margin-bottom: prem(34);
 		font-size: prem(12);
-		color: $color-suld-150;
+		color: $var--color-suld-150;
 
 		&::before {
 			content: counter(step);
@@ -58,9 +58,9 @@
 
 	.WizardStepper__step--done,
 	.WizardStepper__step[aria-current='step'] {
-		color: $color-faxafloi-100;
-		--WizardStepper-ballBackground: #{$color-faxafloi-100};
-		--WizardStepper-ballColor: #{$color-suld-0};
+		color: $var--color-faxafloi-100;
+		--WizardStepper-ballBackground: #{$var--color-faxafloi-100};
+		--WizardStepper-ballColor: #{$var--color-suld-0};
 		--WizardStepper-ballIcon: '#{$icons-pen}';
 
 		&::before {
@@ -70,9 +70,9 @@
 		}
 	}
 	.WizardStepper__step--done {
-		--WizardStepper-ballBackground: #{$color-faxafloi-75};
+		--WizardStepper-ballBackground: #{$var--color-faxafloi-75};
 		--WizardStepper-ballIcon: '#{$icons-checkmark}';
-		--WizardStepper-lineColor: #{$color-faxafloi-100};
+		--WizardStepper-lineColor: #{$var--color-faxafloi-100};
 	}
 
 	// ---------------------------------------------------------------------------

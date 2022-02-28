@@ -91,8 +91,8 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
-		background-color: $color-suld-0;
-		color: $color-suld-200;
+		background-color: $var--color-suld-0;
+		color: $var--color-suld-200;
 
 		font: $var--font-base;
 		font-weight: 400;
@@ -267,7 +267,7 @@
 		padding: 0;
 		height: 1px;
 		border: 0;
-		border-top: 1px solid $color-suld-100;
+		border-top: 1px solid $var--color-suld-100;
 	}
 
 	fieldset {
@@ -300,7 +300,7 @@
 		text-align: left;
 		vertical-align: top;
 		padding: prem(1 * $grid-unit) prem(2 * $grid-unit);
-		color: $color-suld-150;
+		color: $var--color-suld-150;
 		font-weight: $font-weight--normal;
 
 		&:first-child {
@@ -316,7 +316,7 @@
 	}
 	tbody > * > th,
 	tbody > * > td {
-		border: 1px solid $color-suld-75;
+		border: $var--border-default;
 		border-width: 1px 0;
 	}
 
@@ -340,13 +340,13 @@
 		left: 0;
 		bottom: 0;
 		z-index: 99999;
-		background: $color-ellidarardalur-50;
+		background: $var--color-ellidarardalur-50;
 		box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.1), 0 0 3px 0 rgba(57, 103, 76, 0.4);
 		padding: 0.75rem;
 	}
 	.local-tasks ul {
 		display: flex;
-		border-bottom: 1px solid $color-suld-100;
+		border-bottom: 1px solid $var--color-suld-100;
 	}
 	.local-tasks li {
 		margin-bottom: -1px;
@@ -354,16 +354,16 @@
 	.local-tasks li a {
 		font-weight: 400;
 		display: block;
-		color: $color-suld-150;
+		color: $var--color-suld-150;
 		padding: 0.5rem 1rem;
 		border: 1px solid transparent;
 		border-top-left-radius: 0.25rem;
 		border-top-right-radius: 0.25rem;
 	}
 	.local-tasks li a.is-active {
-		color: $color-suld-200;
-		background-color: $color-suld-0;
-		border-color: $color-suld-100 $color-suld-100 $color-suld-0;
+		color: $var--color-suld-200;
+		background-color: $var--color-suld-0;
+		border-color: $var--color-suld-100 $var--color-suld-100 $var--color-suld-0;
 	}
 }
 // ===========================================================================

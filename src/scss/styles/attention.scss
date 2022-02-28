@@ -8,7 +8,7 @@
 
 	margin-top: between_phone_netbook(64, 80);
 	@if $border {
-		border-top: 1px solid $color-suld-150;
+		border-top: $var--border-dark;
 		padding-top: between_phone_netbook(40, 64);
 	}
 

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add CSS variable `--border-default`
 
 ## 0.8.40
 

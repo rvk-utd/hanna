@@ -15,8 +15,8 @@
 	}
 	.ActionCards__card {
 		@include Card();
-		border: 1px solid $color-suld-75;
-		--link-color--hover: #{$color-suld-200};
+		--link-color--hover: #{$var--color-suld-200};
+		border: $var--border-default;
 	}
 	.ActionCards__card:hover,
 	.ActionCards__card:active {

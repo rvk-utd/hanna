@@ -4,7 +4,7 @@
 
 @media screen {
 	.NameCard {
-		border: 1px solid $color-suld-100;
+		border: $var--border-default;
 		padding: $var--space-3;
 		display: flex;
 		flex-flow: column;

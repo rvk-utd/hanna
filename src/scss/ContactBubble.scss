@@ -38,7 +38,7 @@
 		background-color: $var--color-suld-25;
 		color: $var--color-faxafloi-100;
 		border-radius: grid-units(4.5);
-		border: 1px solid $var--color-suld-75;
+		border: $var--border-default;
 		height: grid-units(3);
 		line-height: grid-units(3);
 		padding: grid-units(3) 0;
@@ -147,6 +147,7 @@
 
 		@include media($mq-phablet_up) {
 			max-width: prem(375);
+			border: $var--border-default;
 		}
 	}
 

@@ -20,10 +20,10 @@
 		position: relative;
 		margin-right: 24px;
 		transform: translateY(4px);
-		background-color: $color-suld-150;
+		background-color: $var--color-suld-150;
 	}
 	.TableWrapper__footnote div {
-		color: $color-suld-150;
+		color: $var--color-suld-150;
 	}
 
 	.TableWrapper--BasicTable--fullwidth .BasicTable {
@@ -162,7 +162,7 @@
 
 	.BasicTable > tfoot > * > th,
 	.BasicTable > tfoot > * > td {
-		border-top: 2px solid $color-suld-100;
+		border-top: 2px solid $var--color-suld-100;
 		border-bottom: 0;
 		font-weight: $font-weight--bold;
 	}

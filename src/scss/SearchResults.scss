@@ -87,8 +87,8 @@
 		height: prem(48);
 
 		border-radius: 50%;
-		border: prem(3) solid $color-faxafloi-100;
-		border-color: $color-faxafloi-100 transparent;
+		border: prem(3) solid $var--color-faxafloi-100;
+		border-color: $var--color-faxafloi-100 transparent;
 		animation: loadingAnimation 1000ms linear infinite;
 	}
 
@@ -226,7 +226,7 @@
 		flex-flow: column;
 		padding: $var--grid-1;
 		min-height: $var--grid-4;
-		border: 1px solid $color-suld-75;
+		border: $var--border-default;
 		margin: 0 $var--grid-1--neg;
 
 		@include media($mq-tablet_up) {
