@@ -26,12 +26,14 @@
 	"home": "",
 	"info": "",
 	"link": "",
-	"menu": "",
-	"pen": "",
-	"radioball": "",
-	"search": "",
-	"text": "",
-	"twitter": "",
-	"user": "",
-	"warning": ""
+	"location": "",
+	"menu": "",
+	"pen": "",
+	"radioball": "",
+	"search": "",
+	"text": "",
+	"time": "",
+	"twitter": "",
+	"user": "",
+	"warning": ""
 }

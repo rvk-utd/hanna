@@ -6,7 +6,7 @@
 */
 @media screen {
   .RowBlock {
-    margin-bottom: calc(6.4655172414% + 41.8965517241px);
+    margin-bottom: var(--component-vspace--large);
     display: flex;
     flex-flow: column-reverse;
     justify-content: space-between;

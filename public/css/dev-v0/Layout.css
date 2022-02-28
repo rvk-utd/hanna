@@ -200,8 +200,8 @@
   }
 
   .Layout__header__skiplink::before {
-    content: "";
-    font-size: 1.8125rem;
+    content: "";
+    font-size: 2.125rem;
     color: var(--open-icon-color);
   }
 
