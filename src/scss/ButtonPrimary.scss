@@ -4,6 +4,10 @@
 @media screen {
 	.ButtonPrimary {
 		@include ButtonStyle();
-		font-weight: $font-weight--bold;
+
+		&--destructive {
+			--Button--backgroundColor: #{$var--color-heidmork-100};
+			--Button--backgroundColor--active: #{$var--color-heidmork-150};
+		}
 	}
 }

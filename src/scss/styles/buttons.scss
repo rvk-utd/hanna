@@ -4,7 +4,7 @@
 @mixin _FocusedFrame(
 	$frameOffset,
 	$borderRadius,
-	$borderColor: $var--theme-color-primary,
+	$borderColor: var(--Button--borderColor),
 	$borderWidth: prem(2),
 	$borderStyle: solid
 ) {
@@ -23,8 +23,14 @@
 	}
 }
 
-@mixin ButtonStyle($frameOffset: prem(-4), $color: $var--theme-color-primary--text) {
+@mixin ButtonStyle($frameOffset: prem(-4)) {
 	@include LinkStyle_Reset(true);
+	--Button--color: #{$var--theme-color-primary--text};
+	--Button--backgroundColor: #{$var--theme-color-primary};
+	--Button--backgroundColor--active: #{$var--theme-color-primary--dark};
+	--Button--border: 0px;
+	--Button--borderColor: var(--Button--backgroundColor);
+	--Button--height: #{prem(56)};
 
 	$borderRadius: prem(3);
 	// @include buttonReset(); // <-- This is NOT needed as `-basics` has global button reset
@@ -33,73 +39,99 @@
 	white-space: nowrap;
 	vertical-align: middle;
 
-	color: $color;
-	background-color: $var--theme-color-primary;
+	color: var(--Button--color);
+	background-color: var(--Button--backgroundColor);
 	display: inline-block;
-	line-height: prem(56);
-	padding: 0 prem(20);
-	margin-right: prem(30);
+	line-height: calc(var(--Button--height) - 2 * var(--Button--border));
+	margin-right: between_phone_netbook(16, 32);
 	margin-bottom: prem(16);
 	text-align: center;
 	border-radius: $borderRadius;
 	position: relative;
 	transition: all 200ms ease-in;
 	transition-property: border-color, background-color, color, text-shadow, box-shadow;
+	padding: 0 between_phone_netbook(24, 32);
 	width: max-content;
 	max-width: 100%;
-	min-width: between_phone_netbook(100, 270);
+	min-width: between_phone_netbook(80, 128);
 	font-size: prem($font-btn-size);
+	font-weight: $font-weight--bold;
 
 	@media #{$mq-wide} {
-		min-width: 270px;
+		min-width: 128px;
+		padding-left: 32px;
+		padding-right: 32px;
+		margin-right: 32px;
 	}
 
 	@include hoverActiveKeyboardFocus-selector {
 		outline: 0;
 		text-decoration: none;
-		box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
-		color: $color;
+		// box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
+		box-shadow: 0 prem(8) prem(16) rgba(black, 0.15);
+		color: var(--Button--color);
 	}
 	&:active,
 	&[aria-pressed='true'] {
 		text-decoration: none;
-		background-color: $var--theme-color-primary--dark;
-		color: $color-suld-0;
+		background-color: var(--Button--backgroundColor--active);
+		color: var(--Button--color);
 	}
 	@include _FocusedFrame($frameOffset, $borderRadius);
 
 	&[disabled],
 	&[aria-disabled='true'] {
 		box-shadow: none;
-		background-color: $var--theme-color-primary;
 		opacity: 0.3;
 	}
 
+	&--wide {
+		min-width: between_tablet_netbook(275, 312);
+
+		@media #{$mq-phone_phablet} {
+			width: 100%;
+		}
+		@media #{$mq-wide} {
+			min-width: 312px;
+		}
+	}
 	&--small {
-		line-height: prem(40);
-		padding-left: prem(16);
-		padding-right: prem(16);
-		min-width: between_phone_netbook(70, 170);
+		--Button--height: #{prem(40)};
+		padding-left: between_phone_netbook(16, 24);
+		padding-right: between_phone_netbook(16, 24);
 
 		@media #{$mq-wide} {
-			min-width: 170px;
+			padding-left: 24px;
+			padding-right: 24px;
 		}
+	}
+	&--small#{&}--wide {
+		@include WARNING__('Variants --small and --wide do NOT mix.');
 	}
 }
 
-$var--ButtonTertiary--color: var(--ButtonTertiary--color, _inherit);
-$var--ButtonTertiary--dashColor: var(
-	--ButtonTertiary--dashColor,
-	$var--theme-color-primary--safeish
-);
-$var--ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth, prem(16));
-$var--ButtonTertiary--dashWidth--hover: var(--ButtonTertiary--dashWidth--hover, prem(48));
-$var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
+// ===========================================================================
 
-@mixin ButtonTertiaryStyle($mode: normal) {
+// ===========================================================================
+
+:root {
+	--ButtonTertiary--color: _inherit;
+	--ButtonTertiary--dashColor: #{$var--theme-color-primary--safeish};
+	--ButtonTertiary--dashWidth: #{$var--space-2};
+	--ButtonTertiary--hover--dashWidth: #{$var--space-4};
+	--ButtonTertiary--dashSpace: #{$var--space-2};
+	--ButtonTertiary--dashHeight: 2px;
+	--ButtonTertiary--marginRight: #{between_phone_netbook(16, 24)};
+}
+$var--ButtonTertiary--color: var(--ButtonTertiary--color);
+$var--ButtonTertiary--dashColor: var(--ButtonTertiary--dashColor);
+$var--ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth);
+$var--ButtonTertiary--hover--dashWidth: var(--ButtonTertiary--hover--dashWidth);
+$var--ButtonTertiary--dashSpace: var(--ButtonTertiary--dashSpace);
+$var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
+
+@mixin ButtonTertiaryStyle($static: false) {
 	$borderRadius: prem(8);
-	$dashWidth: prem(16);
-	$dashWidth--hover: prem(48);
 
 	@include LinkStyle_Reset(true);
 
@@ -109,74 +141,71 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight, prem(2));
 	width: max-content;
 	max-width: 100%;
 	vertical-align: middle;
-	line-height: prem(19);
-	font-size: prem($font-btn-size);
-	padding-left: calc(#{prem(16)} + #{$var--ButtonTertiary--dashWidth});
-	padding-right: calc(
-		#{$var--ButtonTertiary--dashWidth--hover} - #{$var--ButtonTertiary--dashWidth}
+	font: $var--font-base;
+	padding-left: calc(
+		#{$var--ButtonTertiary--dashSpace} + #{$var--ButtonTertiary--dashWidth}
 	);
-	margin-right: prem(15);
-	margin-bottom: prem(16);
+	padding-right: calc(
+		#{$var--ButtonTertiary--hover--dashWidth} - #{$var--ButtonTertiary--dashWidth}
+	);
+	margin-right: var(--ButtonTertiary--marginRight);
+	margin-bottom: $var--space-1;
 	font-weight: 700;
-	transition: all 200ms ease-in;
+	transition: all 100ms ease-in;
+
+	@include media($mq-wide) {
+		--ButtonTertiary--marginRight: 24px;
+	}
 
 	&::before {
 		content: '';
 		position: absolute;
 		left: 0;
-		top: prem(19/2);
+		top: 50%;
 		width: $var--ButtonTertiary--dashWidth;
 		height: $var--ButtonTertiary--dashHeight;
 		display: inline-block;
 		vertical-align: middle;
-		margin-bottom: prem(3);
 		background-color: currentColor;
 		color: $var--ButtonTertiary--dashColor;
 		transform: translateY(-50%);
 		transition: inherit;
 	}
 
-	@if $mode == normal {
-		&:active,
-		&[aria-pressed='true'] {
-			--ButtonTertiary--dashColor: _inherit;
-			--ButtonTertiary--dashHeight: #{prem(6)};
-		}
-	}
+	@if not $static {
+		@include hoverActiveKeyboardFocus-selector {
+			padding-left: calc(
+				#{$var--ButtonTertiary--dashSpace} + #{$var--ButtonTertiary--hover--dashWidth}
+			);
+			padding-right: prem(0);
+			color: $var--ButtonTertiary--color;
+			outline: 0;
 
-	@include hoverActiveKeyboardFocus-selector {
-		padding-left: calc(#{prem(16)} + #{$var--ButtonTertiary--dashWidth--hover});
-		padding-right: prem(0);
-		color: $var--ButtonTertiary--color;
-		outline: 0;
-
-		&::before {
-			width: $var--ButtonTertiary--dashWidth--hover;
+			&::before {
+				width: $var--ButtonTertiary--hover--dashWidth;
+			}
 		}
-	}
-	&:active::before {
-		width: $var--ButtonTertiary--dashWidth;
-	}
 
-	@include _FocusedFrame(
-		prem(-13) prem(-16),
-		prem(8),
-		$var--ButtonTertiary--dashColor,
-		prem(1),
-		dotted
-	);
+		&:active::before {
+			width: $var--ButtonTertiary--dashWidth;
+		}
 
-	@if $mode == normal or $mode == disabledOnly {
-		&[disabled],
-		&[aria-disabled='true'] {
-			--ButtonTertiary--dashColor: #{$var--ButtonTertiary--color};
-			opacity: 0.5;
-			pointer-events: none;
-		}
+		@include _FocusedFrame(
+			prem(-13) prem(-16),
+			prem(8),
+			$var--ButtonTertiary--dashColor,
+			prem(1),
+			dotted
+		);
 	}
-	@if $mode == normal {
-		&--small {
-			font-weight: 400;
-		}
+}
+
+@mixin ButtonTertiaryStyle--disabled() {
+	&[disabled],
+	&[aria-disabled='true'] {
+		--ButtonTertiary--dashColor: currentColor;
+		--ButtonTertiary--color: _inherit;
+		opacity: 0.5;
+		pointer-events: none;
 	}
 }

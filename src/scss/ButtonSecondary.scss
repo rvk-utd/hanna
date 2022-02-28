@@ -3,24 +3,27 @@
 
 @media screen {
 	.ButtonSecondary {
-		@include ButtonStyle(prem(-5), $var--theme-color-primary--safe);
-		font-weight: $font-weight--normal;
-		background-color: $color-suld-0;
-		border: 1px solid $var--theme-color-primary;
+		@include ButtonStyle(prem(-5));
+		--Button--color: #{$var--theme-color-primary--safe};
+		--Button--backgroundColor: #{$var--color-suld-0};
+		--Button--backgroundColor--active: #{$var--color-suld-50};
+		--Button--border: 1px;
+		--Button--borderColor: #{$var--theme-color-primary};
 
+		&,
 		&:hover,
 		&:active {
-			border: 1px solid $var--theme-color-primary;
+			border: var(--Button--border) solid var(--Button--borderColor);
 		}
-		&:active,
-		&[aria-pressed] {
-			background-color: $color-suld-50;
-			color: $var--theme-color-primary--safe;
-		}
+
 		&[disabled],
 		&[aria-disabled='true'] {
-			background-color: $color-suld-0;
-			opacity: 0.5;
+			// opacity: 0.5;
+		}
+
+		&--destructive[class] {
+			--Button--color: #{$var--color-heidmork-100};
+			--Button--borderColor: var(--Button--color);
 		}
 	}
 }

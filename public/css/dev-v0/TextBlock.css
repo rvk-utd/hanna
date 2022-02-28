@@ -184,6 +184,16 @@
   .TextBlock--small {
     font: var(--font-bd-s);
   }
+  .TextBlock--small h2 {
+    font: var(--font-sh-l);
+  }
+  .TextBlock--small h3 {
+    font: var(--font-sh-s);
+  }
+  .TextBlock--small h4 {
+    font: var(--font-bd-l);
+    font-weight: var(--font-weight--bold);
+  }
 }
 @media screen {
   .TextBlock--labelled h2 {

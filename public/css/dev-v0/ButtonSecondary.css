@@ -1,3 +1,13 @@
+:root {
+  --ButtonTertiary--color: _inherit;
+  --ButtonTertiary--dashColor: var(--theme-color-primary--safeish);
+  --ButtonTertiary--dashWidth: var(--space-2);
+  --ButtonTertiary--hover--dashWidth: var(--space-4);
+  --ButtonTertiary--dashSpace: var(--space-2);
+  --ButtonTertiary--dashHeight: 2px;
+  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+}
+
 @media screen {
   .ButtonSecondary {
     --link-color: _inherit;
@@ -6,57 +16,69 @@
     --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
+    --Button--color: var(--theme-color-primary--text);
+    --Button--backgroundColor: var(--theme-color-primary);
+    --Button--backgroundColor--active: var(--theme-color-primary--dark);
+    --Button--border: 0px;
+    --Button--borderColor: var(--Button--backgroundColor);
+    --Button--height: 3.5rem;
     white-space: nowrap;
     vertical-align: middle;
-    color: var(--theme-color-primary--safe);
-    background-color: var(--theme-color-primary);
+    color: var(--Button--color);
+    background-color: var(--Button--backgroundColor);
     display: inline-block;
-    line-height: 3.5rem;
-    padding: 0 1.25rem;
-    margin-right: 1.875rem;
+    line-height: calc(var(--Button--height) - 2 * var(--Button--border));
+    margin-right: calc(1.5267175573vw + 11.1145038168px);
     margin-bottom: 1rem;
     text-align: center;
     border-radius: 0.1875rem;
     position: relative;
     transition: all 200ms ease-in;
     transition-property: border-color, background-color, color, text-shadow, box-shadow;
+    padding: 0 calc(0.7633587786vw + 21.5572519084px);
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
     max-width: 100%;
-    min-width: calc(16.2213740458vw + 48.0916030534px);
+    min-width: calc(4.5801526718vw + 65.3435114504px);
     font-size: 1rem;
-    font-weight: 400;
-    background-color: #ffffff;
-    border: 1px solid var(--theme-color-primary);
+    font-weight: 700;
+    --Button--color: var(--theme-color-primary--safe);
+    --Button--backgroundColor: var(--color-suld-0);
+    --Button--backgroundColor--active: var(--color-suld-50);
+    --Button--border: 1px;
+    --Button--borderColor: var(--theme-color-primary);
   }
 }
 @media screen and (min-width: 1368px) {
   .ButtonSecondary {
-    min-width: 270px;
+    min-width: 128px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-right: 32px;
   }
 }
 @media screen {
   .ButtonSecondary:hover, .ButtonSecondary:active, .ButtonSecondary[data-focus-visible-added] {
     outline: 0;
     text-decoration: none;
-    box-shadow: 0 0.75rem 1rem rgba(0, 0, 0, 0.09);
-    color: var(--theme-color-primary--safe);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    color: var(--Button--color);
   }
 }
 @media screen {
   .ButtonSecondary:focus-visible {
     outline: 0;
     text-decoration: none;
-    box-shadow: 0 0.75rem 1rem rgba(0, 0, 0, 0.09);
-    color: var(--theme-color-primary--safe);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    color: var(--Button--color);
   }
 }
 @media screen {
   .ButtonSecondary:active, .ButtonSecondary[aria-pressed=true] {
     text-decoration: none;
-    background-color: var(--theme-color-primary--dark);
-    color: #ffffff;
+    background-color: var(--Button--backgroundColor--active);
+    color: var(--Button--color);
   }
 }
 @media screen {
@@ -68,7 +90,7 @@
     bottom: 0;
     left: 0;
     margin: -0.3125rem;
-    border: 0.125rem solid var(--theme-color-primary);
+    border: 0.125rem solid var(--Button--borderColor);
     border-radius: 0.1875rem;
   }
 }
@@ -81,45 +103,72 @@
     bottom: 0;
     left: 0;
     margin: -0.3125rem;
-    border: 0.125rem solid var(--theme-color-primary);
+    border: 0.125rem solid var(--Button--borderColor);
     border-radius: 0.1875rem;
   }
 }
 @media screen {
   .ButtonSecondary[disabled], .ButtonSecondary[aria-disabled=true] {
     box-shadow: none;
-    background-color: var(--theme-color-primary);
     opacity: 0.3;
   }
 }
 @media screen {
+  .ButtonSecondary--wide {
+    min-width: calc(6.0855263158vw + 228.75px);
+  }
+}
+@media screen and (max-width: 759px) {
+  .ButtonSecondary--wide {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1368px) {
+  .ButtonSecondary--wide {
+    min-width: 312px;
+  }
+}
+@media screen {
   .ButtonSecondary--small {
-    line-height: 2.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    min-width: calc(9.5419847328vw + 39.465648855px);
+    --Button--height: 2.5rem;
+    padding-left: calc(0.7633587786vw + 13.5572519084px);
+    padding-right: calc(0.7633587786vw + 13.5572519084px);
   }
 }
 @media screen and (min-width: 1368px) {
   .ButtonSecondary--small {
-    min-width: 170px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 @media screen {
-  .ButtonSecondary:hover, .ButtonSecondary:active {
-    border: 1px solid var(--theme-color-primary);
+  .ButtonSecondary--small.ButtonSecondary--wide {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  .ButtonSecondary--small.ButtonSecondary--wide::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Variants --small and --wide do NOT mix." !important;
   }
 }
 @media screen {
-  .ButtonSecondary:active, .ButtonSecondary[aria-pressed] {
-    background-color: #f1f2f3;
-    color: var(--theme-color-primary--safe);
+  .ButtonSecondary, .ButtonSecondary:hover, .ButtonSecondary:active {
+    border: var(--Button--border) solid var(--Button--borderColor);
   }
 }
 @media screen {
-  .ButtonSecondary[disabled], .ButtonSecondary[aria-disabled=true] {
-    background-color: #ffffff;
-    opacity: 0.5;
+  .ButtonSecondary--destructive[class] {
+    --Button--color: var(--color-heidmork-100);
+    --Button--borderColor: var(--Button--color);
   }
 }
 /*# sourceMappingURL=ButtonSecondary.css.map */

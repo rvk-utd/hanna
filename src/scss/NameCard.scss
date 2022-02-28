@@ -1,94 +1,120 @@
 @use 'globals' as *;
-@use 'styles/font.scss' as *;
+@use 'styles/font' as *;
+@use 'styles/buttons' as *;
 
 @media screen {
 	.NameCard {
 		border: 1px solid $color-suld-100;
-		padding: prem(32) prem(24);
+		padding: $var--space-3;
 		display: flex;
 		flex-flow: column;
-		min-height: prem(268);
+		min-height: prem(230);
 		// for standalone-display
 		max-width: cols_px(4);
+		flex-grow: 1;
 		margin-bottom: $var--grid-gutter;
+	}
+	.NameCard > :last-child {
+		margin-bottom: 0;
 	}
 
 	.NameCard__name {
 		width: 100%;
-		@include BodyTextStyle--large();
+		font: $var--font-bd-l;
 		font-weight: $font-weight--bold;
-		margin-bottom: prem(16);
+		margin-bottom: $var--space-1;
 	}
 
 	.NameCard__contactinfo {
+		margin-bottom: $var--space-2;
+		display: flex;
+		flex-flow: row wrap;
+		margin-right: $var--space-1--neg;
 	}
-
+	span.NameCard__contactinfo__item {
+		@include ButtonTertiaryStyle($static: true);
+		margin-right: $var--space-1;
+	}
 	.NameCard__tel__number, // @deprecated (remove in v0.9)
-	.NameCard__contactinfo__item {
-		--link-color: _inherit;
-		font-size: prem($font-bd-s-size);
-		line-height: prem(19);
-		font-weight: $font-weight--bold;
-		align-items: center;
-		display: inline-flex;
-		margin-left: prem(32);
-		margin-right: prem(24);
-		font-weight: 700;
-		margin-bottom: prem(4);
-	}
-	.NameCard__tel__number::before, // @deprecated (remove in v0.9)
-	.NameCard__contactinfo__item::before {
-		content: '';
-		float: left;
-		height: prem(2);
-		background-color: $color-sund-100;
-		margin-left: prem(-32);
-		width: prem(16);
-		margin-right: prem(16);
+	a.NameCard__contactinfo__item,
+	button.NameCard__contactinfo__item {
+		@include ButtonTertiaryStyle();
+		margin-right: $var--space-1;
 	}
 
-	.NameCard__location {
-		margin-top: prem(8);
+	.NameCard__location,
+	.NameCard__hours {
+		margin-bottom: $var--space-1;
+		padding-left: $var--space-4;
 	}
-	.NameCard__hours, // @deprecated (remove in v0.9)
+	.NameCard__location:before,
+	.NameCard__hours::before {
+		@include icon($icons-location);
+		float: left;
+		margin-left: calc(-1 * #{$var--space-4});
+		width: $var--space-3;
+		color: $var--color-suld-150;
+	}
+	.NameCard__hours:before {
+		content: $icons-time;
+	}
+
 	.NameCard__abouttext {
-		margin-bottom: grid-units(1.5);
+		margin-bottom: $var--space-1;
+	}
+	.NameCard__location + .NameCard__abouttext,
+	.NameCard__hours + .NameCard__abouttext {
+		margin-top: $var--space-2;
 	}
 
 	.NameCard__meta {
 		margin-top: auto;
+		padding-top: $var--space-1;
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-between;
 		align-items: flex-end;
 	}
 
-	.NameCard__vacancy {
+	.NameCard__vacancy, // @deprecated (remove in v0.9)
+	.NameCard__availability {
 		color: $color-suld-150;
-		margin-top: grid-units(1);
-		margin-right: grid-units(1);
 		--led-color: #{$color-suld-150};
+		margin-top: $var--space-1;
+		margin-right: $var--space-2;
 	}
-	.NameCard__vacancy--vacany {
+	.NameCard__vacancy--vacany, // @deprecated (remove in v0.9)
+	.NameCard__availability--available {
 		color: $color-suld-200;
 		--led-color: #{$color-ellidarardalur-100};
 	}
-	.NameCard__vacancy::before {
+	.NameCard__vacancy::before, // @deprecated (remove in v0.9)
+	.NameCard__availability::before {
 		content: '';
 		display: inline-block;
 		vertical-align: middle;
 		width: prem(8);
 		height: prem(8);
-		margin-right: prem(9);
+		margin-right: $var--space-1;
 		border-radius: 50%;
 		background-color: var(--led-color);
 	}
 
 	.NameCard__updated {
+		font: $var--font-label;
+		color: $var--color-suld-150;
 		margin-left: auto;
 		align-self: flex-end;
-		font-size: prem($font-size-12);
-		margin-top: grid-units(1);
-		color: $color-suld-150;
+		margin-top: $var--space-1;
+	}
+}
+
+.NameCard__location,
+.NameCard__hours,
+.NameCard__aboutText {
+	p,
+	div,
+	ul {
+		@include WARNING__('Only use simple, inline HTML element inside this field.');
 	}
 }

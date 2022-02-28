@@ -97,7 +97,7 @@
   .Alert--warning {
     --Alert-background: #fff5d5;
     --Alert-icon-color: #d5b34a;
-    --Alert-icon: "";
+    --Alert-icon: "";
   }
 }
 @media screen {

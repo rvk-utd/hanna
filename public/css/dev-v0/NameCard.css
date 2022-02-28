@@ -1,92 +1,343 @@
+@charset "UTF-8";
+:root {
+  --ButtonTertiary--color: _inherit;
+  --ButtonTertiary--dashColor: var(--theme-color-primary--safeish);
+  --ButtonTertiary--dashWidth: var(--space-2);
+  --ButtonTertiary--hover--dashWidth: var(--space-4);
+  --ButtonTertiary--dashSpace: var(--space-2);
+  --ButtonTertiary--dashHeight: 2px;
+  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+}
+
 @media screen {
   .NameCard {
     border: 1px solid #c7cbd0;
-    padding: 2rem 1.5rem;
+    padding: var(--space-3);
     display: flex;
     flex-flow: column;
-    min-height: 16.75rem;
+    min-height: 14.375rem;
     max-width: 376px;
+    flex-grow: 1;
     margin-bottom: var(--grid-gutter);
+  }
+
+  .NameCard > :last-child {
+    margin-bottom: 0;
   }
 
   .NameCard__name {
     width: 100%;
     font: var(--font-bd-l);
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-1);
   }
 
-  .NameCard__tel__number,
-.NameCard__contactinfo__item {
+  .NameCard__contactinfo {
+    margin-bottom: var(--space-2);
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: var(--space-1--neg);
+  }
+
+  span.NameCard__contactinfo__item {
     --link-color: _inherit;
-    font-size: 1rem;
-    line-height: 1.1875rem;
+    --link-weight: _inherit;
+    --link-underline: none;
+    --link-color--hover: var(--link-color);
+    --link-underline--hover: none;
+    --link-underline-offset: 0;
+    color: var(--ButtonTertiary--color);
+    position: relative;
+    display: inline-block;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    max-width: 100%;
+    vertical-align: middle;
+    font: var(--font-base);
+    padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
+    padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
+    margin-right: var(--ButtonTertiary--marginRight);
+    margin-bottom: var(--space-1);
     font-weight: 700;
-    align-items: center;
-    display: inline-flex;
-    margin-left: 2rem;
-    margin-right: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
+    transition: all 100ms ease-in;
+    margin-right: var(--space-1);
   }
-
-  .NameCard__tel__number::before,
-.NameCard__contactinfo__item::before {
+}
+@media screen and (min-width: 1368px) {
+  span.NameCard__contactinfo__item {
+    --ButtonTertiary--marginRight: 24px;
+  }
+}
+@media screen {
+  span.NameCard__contactinfo__item::before {
     content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: var(--ButtonTertiary--dashWidth);
+    height: var(--ButtonTertiary--dashHeight);
+    display: inline-block;
+    vertical-align: middle;
+    background-color: currentColor;
+    color: var(--ButtonTertiary--dashColor);
+    transform: translateY(-50%);
+    transition: inherit;
+  }
+}
+@media screen {
+  .NameCard__tel__number,
+a.NameCard__contactinfo__item,
+button.NameCard__contactinfo__item {
+    --link-color: _inherit;
+    --link-weight: _inherit;
+    --link-underline: none;
+    --link-color--hover: var(--link-color);
+    --link-underline--hover: none;
+    --link-underline-offset: 0;
+    color: var(--ButtonTertiary--color);
+    position: relative;
+    display: inline-block;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    max-width: 100%;
+    vertical-align: middle;
+    font: var(--font-base);
+    padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
+    padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
+    margin-right: var(--ButtonTertiary--marginRight);
+    margin-bottom: var(--space-1);
+    font-weight: 700;
+    transition: all 100ms ease-in;
+    margin-right: var(--space-1);
+  }
+}
+@media screen and (min-width: 1368px) {
+  .NameCard__tel__number,
+a.NameCard__contactinfo__item,
+button.NameCard__contactinfo__item {
+    --ButtonTertiary--marginRight: 24px;
+  }
+}
+@media screen {
+  .NameCard__tel__number::before,
+a.NameCard__contactinfo__item::before,
+button.NameCard__contactinfo__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: var(--ButtonTertiary--dashWidth);
+    height: var(--ButtonTertiary--dashHeight);
+    display: inline-block;
+    vertical-align: middle;
+    background-color: currentColor;
+    color: var(--ButtonTertiary--dashColor);
+    transform: translateY(-50%);
+    transition: inherit;
+  }
+}
+@media screen {
+  .NameCard__tel__number:hover, .NameCard__tel__number:active, .NameCard__tel__number[data-focus-visible-added],
+a.NameCard__contactinfo__item:hover,
+a.NameCard__contactinfo__item:active,
+a.NameCard__contactinfo__item[data-focus-visible-added],
+button.NameCard__contactinfo__item:hover,
+button.NameCard__contactinfo__item:active,
+button.NameCard__contactinfo__item[data-focus-visible-added] {
+    padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
+    padding-right: 0rem;
+    color: var(--ButtonTertiary--color);
+    outline: 0;
+  }
+  .NameCard__tel__number:hover::before, .NameCard__tel__number:active::before, .NameCard__tel__number[data-focus-visible-added]::before,
+a.NameCard__contactinfo__item:hover::before,
+a.NameCard__contactinfo__item:active::before,
+a.NameCard__contactinfo__item[data-focus-visible-added]::before,
+button.NameCard__contactinfo__item:hover::before,
+button.NameCard__contactinfo__item:active::before,
+button.NameCard__contactinfo__item[data-focus-visible-added]::before {
+    width: var(--ButtonTertiary--hover--dashWidth);
+  }
+}
+@media screen {
+  .NameCard__tel__number:focus-visible,
+a.NameCard__contactinfo__item:focus-visible,
+button.NameCard__contactinfo__item:focus-visible {
+    padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
+    padding-right: 0rem;
+    color: var(--ButtonTertiary--color);
+    outline: 0;
+  }
+  .NameCard__tel__number:focus-visible::before,
+a.NameCard__contactinfo__item:focus-visible::before,
+button.NameCard__contactinfo__item:focus-visible::before {
+    width: var(--ButtonTertiary--hover--dashWidth);
+  }
+}
+@media screen {
+  .NameCard__tel__number:active::before,
+a.NameCard__contactinfo__item:active::before,
+button.NameCard__contactinfo__item:active::before {
+    width: var(--ButtonTertiary--dashWidth);
+  }
+}
+@media screen {
+  .NameCard__tel__number[data-focus-visible-added]::after,
+a.NameCard__contactinfo__item[data-focus-visible-added]::after,
+button.NameCard__contactinfo__item[data-focus-visible-added]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -0.8125rem -1rem;
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
+    border-radius: 0.5rem;
+  }
+}
+@media screen {
+  .NameCard__tel__number:focus-visible::after,
+a.NameCard__contactinfo__item:focus-visible::after,
+button.NameCard__contactinfo__item:focus-visible::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -0.8125rem -1rem;
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
+    border-radius: 0.5rem;
+  }
+}
+@media screen {
+  .NameCard__location,
+.NameCard__hours {
+    margin-bottom: var(--space-1);
+    padding-left: var(--space-4);
+  }
+}
+@media screen {
+  .NameCard__location:before,
+.NameCard__hours::before {
+    content: "";
+    display: inline-block;
+    text-indent: 0;
+    text-align: center;
+    vertical-align: top;
+    font-family: "icons", Arial, Helvetica, sans-serif;
+    speak: none;
+    font-weight: normal;
+    font-style: normal;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
     float: left;
-    height: 0.125rem;
-    background-color: #53daff;
-    margin-left: -2rem;
-    width: 1rem;
-    margin-right: 1rem;
+    margin-left: calc(-1 * var(--space-4));
+    width: var(--space-3);
+    color: var(--color-suld-150);
   }
-
-  .NameCard__location {
-    margin-top: 0.5rem;
+}
+@media screen {
+  .NameCard__hours:before {
+    content: "";
   }
-
-  .NameCard__hours,
-.NameCard__abouttext {
-    margin-bottom: 0.75rem;
+}
+@media screen {
+  .NameCard__abouttext {
+    margin-bottom: var(--space-1);
   }
-
+}
+@media screen {
+  .NameCard__location + .NameCard__abouttext,
+.NameCard__hours + .NameCard__abouttext {
+    margin-top: var(--space-2);
+  }
+}
+@media screen {
   .NameCard__meta {
     margin-top: auto;
+    padding-top: var(--space-1);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-end;
   }
-
-  .NameCard__vacancy {
+}
+@media screen {
+  .NameCard__vacancy,
+.NameCard__availability {
     color: #707275;
-    margin-top: 0.5rem;
-    margin-right: 0.5rem;
     --led-color: #707275;
+    margin-top: var(--space-1);
+    margin-right: var(--space-2);
   }
-
-  .NameCard__vacancy--vacany {
+}
+@media screen {
+  .NameCard__vacancy--vacany,
+.NameCard__availability--available {
     color: #2a2b2c;
     --led-color: #64d68e;
   }
-
-  .NameCard__vacancy::before {
+}
+@media screen {
+  .NameCard__vacancy::before,
+.NameCard__availability::before {
     content: "";
     display: inline-block;
     vertical-align: middle;
     width: 0.5rem;
     height: 0.5rem;
-    margin-right: 0.5625rem;
+    margin-right: var(--space-1);
     border-radius: 50%;
     background-color: var(--led-color);
   }
-
+}
+@media screen {
   .NameCard__updated {
+    font: var(--font-label);
+    color: var(--color-suld-150);
     margin-left: auto;
     align-self: flex-end;
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-    color: #707275;
+    margin-top: var(--space-1);
   }
+}
+.NameCard__location p,
+.NameCard__location div,
+.NameCard__location ul,
+.NameCard__hours p,
+.NameCard__hours div,
+.NameCard__hours ul,
+.NameCard__aboutText p,
+.NameCard__aboutText div,
+.NameCard__aboutText ul {
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+}
+.NameCard__location p::before,
+.NameCard__location div::before,
+.NameCard__location ul::before,
+.NameCard__hours p::before,
+.NameCard__hours div::before,
+.NameCard__hours ul::before,
+.NameCard__aboutText p::before,
+.NameCard__aboutText div::before,
+.NameCard__aboutText ul::before {
+  all: initial !important;
+  order: -999 !important;
+  font-family: sans-serif !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+  font-size: 12px !important;
+  line-height: 1.5em !important;
+  color: red !important;
+  background-color: rgba(255, 230, 230, 0.5) !important;
+  padding: 0 0.5em !important;
+  content: "Only use simple, inline HTML -moz-element inside this field." !important;
+  content: "Only use simple, inline HTML element inside this field." !important;
 }
 /*# sourceMappingURL=NameCard.css.map */

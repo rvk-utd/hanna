@@ -1,3 +1,13 @@
+:root {
+  --ButtonTertiary--color: _inherit;
+  --ButtonTertiary--dashColor: var(--theme-color-primary--safeish);
+  --ButtonTertiary--dashWidth: var(--space-2);
+  --ButtonTertiary--hover--dashWidth: var(--space-4);
+  --ButtonTertiary--dashSpace: var(--space-2);
+  --ButtonTertiary--dashHeight: 2px;
+  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+}
+
 /*!@deps
 	CarouselStepper
 */
@@ -221,7 +231,7 @@
     --link-color--hover: var(--link-color);
     --link-underline--hover: none;
     --link-underline-offset: 0;
-    color: var(--ButtonTertiary--color, _inherit);
+    color: var(--ButtonTertiary--color);
     position: relative;
     display: inline-block;
     width: -webkit-max-content;
@@ -229,51 +239,64 @@
     width: max-content;
     max-width: 100%;
     vertical-align: middle;
-    line-height: 1.1875rem;
-    font-size: 1rem;
-    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth, 1rem));
-    padding-right: calc( 		var(--ButtonTertiary--dashWidth--hover, 3rem) - var(--ButtonTertiary--dashWidth, 1rem) 	);
-    margin-right: 0.9375rem;
-    margin-bottom: 1rem;
+    font: var(--font-base);
+    padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
+    padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
+    margin-right: var(--ButtonTertiary--marginRight);
+    margin-bottom: var(--space-1);
     font-weight: 700;
-    transition: all 200ms ease-in;
+    transition: all 100ms ease-in;
   }
+}
+@media screen and (min-width: 1368px) {
+  .ArticleCarouselCard__morelink {
+    --ButtonTertiary--marginRight: 24px;
+  }
+}
+@media screen {
   .ArticleCarouselCard__morelink::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.59375rem;
-    width: var(--ButtonTertiary--dashWidth, 1rem);
-    height: var(--ButtonTertiary--dashHeight, 0.125rem);
+    top: 50%;
+    width: var(--ButtonTertiary--dashWidth);
+    height: var(--ButtonTertiary--dashHeight);
     display: inline-block;
     vertical-align: middle;
-    margin-bottom: 0.1875rem;
     background-color: currentColor;
-    color: var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    color: var(--ButtonTertiary--dashColor);
     transform: translateY(-50%);
     transition: inherit;
   }
+}
+@media screen {
   .ArticleCarouselCard__morelink:hover, .ArticleCarouselCard__morelink:active, .ArticleCarouselCard__morelink[data-focus-visible-added] {
-    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth--hover, 3rem));
+    padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
-    color: var(--ButtonTertiary--color, _inherit);
+    color: var(--ButtonTertiary--color);
     outline: 0;
   }
   .ArticleCarouselCard__morelink:hover::before, .ArticleCarouselCard__morelink:active::before, .ArticleCarouselCard__morelink[data-focus-visible-added]::before {
-    width: var(--ButtonTertiary--dashWidth--hover, 3rem);
+    width: var(--ButtonTertiary--hover--dashWidth);
   }
+}
+@media screen {
   .ArticleCarouselCard__morelink:focus-visible {
-    padding-left: calc(1rem + var(--ButtonTertiary--dashWidth--hover, 3rem));
+    padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
-    color: var(--ButtonTertiary--color, _inherit);
+    color: var(--ButtonTertiary--color);
     outline: 0;
   }
   .ArticleCarouselCard__morelink:focus-visible::before {
-    width: var(--ButtonTertiary--dashWidth--hover, 3rem);
+    width: var(--ButtonTertiary--hover--dashWidth);
   }
+}
+@media screen {
   .ArticleCarouselCard__morelink:active::before {
-    width: var(--ButtonTertiary--dashWidth, 1rem);
+    width: var(--ButtonTertiary--dashWidth);
   }
+}
+@media screen {
   .ArticleCarouselCard__morelink[data-focus-visible-added]::after {
     content: "";
     position: absolute;
@@ -282,9 +305,11 @@
     bottom: 0;
     left: 0;
     margin: -0.8125rem -1rem;
-    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
+}
+@media screen {
   .ArticleCarouselCard__morelink:focus-visible::after {
     content: "";
     position: absolute;
@@ -293,7 +318,7 @@
     bottom: 0;
     left: 0;
     margin: -0.8125rem -1rem;
-    border: 0.0625rem dotted var(--ButtonTertiary--dashColor, var(--theme-color-primary--safeish));
+    border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
 }

@@ -86,11 +86,11 @@
   }
 
   .MainMenu__item--mypages > .MainMenu__link::before {
-    content: "";
+    content: "";
   }
 
   .MainMenu__item--search > .MainMenu__link::before {
-    content: "";
+    content: "";
   }
 }
 @media screen and (max-width: 979px) {

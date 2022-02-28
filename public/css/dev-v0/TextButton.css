@@ -1,0 +1,16 @@
+@media screen {
+  .TextButton {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: var(--link-weight);
+    padding-bottom: var(--link-underline-offset);
+    border-bottom: var(--link-underline);
+    transition: var(--link-transition);
+    transition-property: border-color, background-color, color, text-shadow, box-shadow, outline;
+  }
+  .TextButton:hover, .TextButton:active {
+    color: var(--link-color--hover);
+    border-bottom: var(--link-underline--hover);
+  }
+}
+/*# sourceMappingURL=TextButton.css.map */

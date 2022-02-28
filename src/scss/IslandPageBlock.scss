@@ -49,7 +49,7 @@
 	.IslandPageBlock__buttons {
 	}
 	.IslandPageBlock__button {
-		@include ButtonTertiaryStyle($mode: simple);
+		@include ButtonTertiaryStyle();
 		display: block;
 	}
 }
