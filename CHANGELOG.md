@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.40
+
+_2022-02-28_
+
 - feat: Update styling of `NameCard` and add support for new markup options
 - feat: Add component `TextButton`
 - feat: Add styling for `--destructive` buttons
