@@ -150,7 +150,7 @@
 	.ArticleCarouselCard__morelink {
 		--ButtonTertiary--dashColor: var(--globalPrimary);
 
-		@include ButtonTertiaryStyle($mode: simple);
+		@include ButtonTertiaryStyle();
 	}
 
 	.ArticleCarouselCard__morelink:not([aria-label]) {

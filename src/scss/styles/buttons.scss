@@ -4,7 +4,7 @@
 @mixin _FocusedFrame(
 	$frameOffset,
 	$borderRadius,
-	$borderColor: $var--theme-color-primary,
+	$borderColor: var(--Button--borderColor),
 	$borderWidth: prem(2),
 	$borderStyle: solid
 ) {
@@ -23,9 +23,13 @@
 	}
 }
 
-@mixin ButtonStyle($frameOffset: prem(-4), $color: $var--theme-color-primary--text) {
+@mixin ButtonStyle($frameOffset: prem(-4)) {
 	@include LinkStyle_Reset(true);
+	--Button--color: #{$var--theme-color-primary--text};
+	--Button--backgroundColor: #{$var--theme-color-primary};
+	--Button--backgroundColor--active: #{$var--theme-color-primary--dark};
 	--Button--border: 0px;
+	--Button--borderColor: var(--Button--backgroundColor);
 	--Button--height: #{prem(56)};
 
 	$borderRadius: prem(3);
@@ -35,8 +39,8 @@
 	white-space: nowrap;
 	vertical-align: middle;
 
-	color: $color;
-	background-color: $var--theme-color-primary;
+	color: var(--Button--color);
+	background-color: var(--Button--backgroundColor);
 	display: inline-block;
 	line-height: calc(var(--Button--height) - 2 * var(--Button--border));
 	margin-right: between_phone_netbook(16, 32);
@@ -65,20 +69,19 @@
 		text-decoration: none;
 		// box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
 		box-shadow: 0 prem(8) prem(16) rgba(black, 0.15);
-		color: $color;
+		color: var(--Button--color);
 	}
 	&:active,
 	&[aria-pressed='true'] {
 		text-decoration: none;
-		background-color: $var--theme-color-primary--dark;
-		color: $color-suld-0;
+		background-color: var(--Button--backgroundColor--active);
+		color: var(--Button--color);
 	}
 	@include _FocusedFrame($frameOffset, $borderRadius);
 
 	&[disabled],
 	&[aria-disabled='true'] {
 		box-shadow: none;
-		background-color: $var--theme-color-primary;
 		opacity: 0.3;
 	}
 
@@ -107,13 +110,16 @@
 	}
 }
 
+// ===========================================================================
+
+// ===========================================================================
+
 :root {
 	--ButtonTertiary--color: _inherit;
 	--ButtonTertiary--dashColor: #{$var--theme-color-primary--safeish};
 	--ButtonTertiary--dashWidth: #{$var--space-2};
 	--ButtonTertiary--hover--dashWidth: #{$var--space-4};
 	--ButtonTertiary--dashSpace: #{$var--space-2};
-	--ButtonTertiary--small--dashSpace: #{$var--space-1};
 	--ButtonTertiary--dashHeight: 2px;
 }
 $var--ButtonTertiary--color: var(--ButtonTertiary--color);
@@ -121,10 +127,9 @@ $var--ButtonTertiary--dashColor: var(--ButtonTertiary--dashColor);
 $var--ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth);
 $var--ButtonTertiary--hover--dashWidth: var(--ButtonTertiary--hover--dashWidth);
 $var--ButtonTertiary--dashSpace: var(--ButtonTertiary--dashSpace);
-$var--ButtonTertiary--small--dashSpace: var(--ButtonTertiary--small--dashSpace);
 $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
 
-@mixin ButtonTertiaryStyle($mode: normal, $static: false) {
+@mixin ButtonTertiaryStyle($static: false) {
 	$borderRadius: prem(8);
 
 	@include LinkStyle_Reset(true);
@@ -167,14 +172,6 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
 	}
 
 	@if not $static {
-		@if $mode == normal {
-			&:active,
-			&[aria-pressed='true'] {
-				--ButtonTertiary--dashColor: _inherit;
-				--ButtonTertiary--dashHeight: #{prem(6)};
-			}
-		}
-
 		@include hoverActiveKeyboardFocus-selector {
 			padding-left: calc(
 				#{$var--ButtonTertiary--dashSpace} + #{$var--ButtonTertiary--hover--dashWidth}
@@ -187,6 +184,7 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
 				width: $var--ButtonTertiary--hover--dashWidth;
 			}
 		}
+
 		&:active::before {
 			width: $var--ButtonTertiary--dashWidth;
 		}
@@ -198,20 +196,15 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
 			prem(1),
 			dotted
 		);
+	}
+}
 
-		@if $mode == normal or $mode == disabledOnly {
-			&[disabled],
-			&[aria-disabled='true'] {
-				--ButtonTertiary--dashColor: currentColor;
-				opacity: 0.5;
-				pointer-events: none;
-			}
-		}
-		@if $mode == normal {
-			&--small {
-				--ButtonTertiary--dashSpace: #{$var--ButtonTertiary--small--dashSpace};
-				// font-weight: 400;
-			}
-		}
+@mixin ButtonTertiaryStyle--disabled() {
+	&[disabled],
+	&[aria-disabled='true'] {
+		--ButtonTertiary--dashColor: currentColor;
+		--ButtonTertiary--color: _inherit;
+		opacity: 0.5;
+		pointer-events: none;
 	}
 }

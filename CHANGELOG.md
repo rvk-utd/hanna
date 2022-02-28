@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Update styling of `NameCard` and add support for new markup options
 - feat: Add component `TextButton`
+- feat: Add styling for `--destructive` buttons
 - feat: Make `ButtonPrimary` and `ButtonSecondary` more compact by default
 - feat: Add styling for `.ButtonPrimary--wide` and `.ButtonSecondary--wide`
 - feat: Make `ButtonTertiary` and `ButtonBack` less jiggly on :hover

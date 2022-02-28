@@ -4,5 +4,26 @@
 @media screen {
 	.ButtonTertiary {
 		@include ButtonTertiaryStyle();
+
+		&:active,
+		&[aria-pressed='true'] {
+			--ButtonTertiary--dashColor: _inherit;
+			--ButtonTertiary--dashHeight: #{prem(6)};
+
+			// &.ButtonTertiary--destructive {
+			// 	--ButtonTertiary--color: #{$var--color-heidmork-150};
+			// }
+		}
+
+		&--small {
+			--ButtonTertiary--dashSpace: #{$var--space-1};
+			// font-weight: 400;
+		}
+		&--destructive {
+			--ButtonTertiary--color: #{$var--color-heidmork-100};
+			--ButtonTertiary--dashColor: currentColor;
+		}
+
+		@include ButtonTertiaryStyle--disabled();
 	}
 }

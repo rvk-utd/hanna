@@ -68,7 +68,7 @@
 		margin-top: auto;
 	}
 	.CityBlock__button {
-		@include ButtonTertiaryStyle($mode: simple);
+		@include ButtonTertiaryStyle();
 		display: block;
 		margin-bottom: grid-units(1);
 	}

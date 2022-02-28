@@ -9,7 +9,8 @@
 		--ButtonTertiary--hover--dashWidth: #{$var--space-3};
 		--ButtonTertiary--dashSpace: #{$var--space-1_5};
 
-		@include ButtonTertiaryStyle($mode: disabledOnly);
+		@include ButtonTertiaryStyle();
+		@include ButtonTertiaryStyle--disabled();
 		font-size: $var--font-label-size;
 	}
 
