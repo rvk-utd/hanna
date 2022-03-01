@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Style `.IslandPageBlock--background--(gray|secondary)` variants
 - feat: Add CSS variable `--border-default`
 
 ## 0.8.40
@@ -16,7 +17,6 @@ _2022-02-28_
 - feat: Add styling for `.ButtonPrimary--wide` and `.ButtonSecondary--wide`
 - feat: Make `ButtonTertiary` and `ButtonBack` less jiggly on :hover
 - feat: Spit and polish various `Button*` styles
-- feat: Add optional background to IslandPageBlock
 
 ## 0.8.39
 
