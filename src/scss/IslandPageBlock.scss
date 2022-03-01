@@ -64,10 +64,6 @@
 		background-color: $var--color-suld-25;
 	}
 	.IslandPageBlock--background--secondary {
-		background-color: transparent;
-	}
-	.IslandPageBlock--background--secondary::before {
-		background-color: $var--theme-color-secondary;
-		opacity: 0.1;
+		background-color: $var--theme-color-secondary-25;
 	}
 }
