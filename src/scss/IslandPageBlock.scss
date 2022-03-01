@@ -51,51 +51,18 @@
 	}
 
 	// Background variant. ------------------------------------------------------
-	.IslandPageBlock.HasBackground {
+
+	.IslandPageBlock--background--gray,
+	.IslandPageBlock--background--secondary {
 		@include extendBackgroundWithUnderlay();
 		padding: between_cols(30, 48) 0;
-		background-color: $color-suld-25;
+		background-color: $var--color-suld-25;
 	}
-	.IslandPageBlock.Sidebar--left::before {
-		border-left: between_phone_netbook(8, 24) solid $var--theme-color-primary;
+	.IslandPageBlock--background--secondary {
+		background-color: transparent;
 	}
-	.IslandPageBlock.Sidebar--right::before {
-		border-right: between_phone_netbook(8, 24) solid $var--theme-color-primary;
-	}
-	.IslandPageBlock.Sidebar--right::before,
-	.IslandPageBlock.Sidebar--right::before {
-		@include media($mq-wide) {
-			border-width: prem(24);
-		}		
-	}
-	.HasBackground .IslandPageBlock__image {
-		margin: 0;
-
-		@media #{$mq-tablet_up} {
-			width: cols_pct(5);
-		}
-	}
-	@media #{$mq-tablet_up} {
-		.HasBackground .IslandPageBlock__title {
-			position: relative;
-			
-			&::before {
-				content: '';
-				position: absolute;
-				left: 1.8em * -1;
-				top: 0.6em;
-				width: 1.2em;
-				height: prem(4);
-				display: inline-block;
-				color: $var--theme-color-primary;
-				background-color: currentColor;
-			}
-		}
-		.IslandPageBlock--align--left.Sidebar--left .IslandPageBlock__title {
-			&::before {
-				left: 1.2em * -1;
-				width: 0.9em;
-			}
-		}
+	.IslandPageBlock--background--secondary::before {
+		background-color: $var--theme-color-secondary;
+		opacity: 0.1;
 	}
 }
