@@ -45,11 +45,24 @@
 		@include BodyTextStyle--large();
 		margin-bottom: grid-units(4);
 	}
-
-	.IslandPageBlock__buttons {
-	}
 	.IslandPageBlock__button {
 		@include ButtonTertiaryStyle();
 		display: block;
+	}
+
+	// Background variant. ------------------------------------------------------
+
+	.IslandPageBlock--background--gray,
+	.IslandPageBlock--background--secondary {
+		@include extendBackgroundWithUnderlay();
+		padding: between_cols(30, 48) 0;
+		background-color: $var--color-suld-25;
+	}
+	.IslandPageBlock--background--secondary {
+		background-color: transparent;
+	}
+	.IslandPageBlock--background--secondary::before {
+		background-color: $var--theme-color-secondary;
+		opacity: 0.1;
 	}
 }
