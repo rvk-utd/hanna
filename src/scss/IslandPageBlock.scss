@@ -22,34 +22,48 @@
 	}
 
 	.IslandPageBlock__content {
-		padding: grid-units(2) 0;
+		padding: $var--space-2 0;
 
 		@media #{$mq-tablet_up} {
-			width: cols_pct(6);
+			width: $var--grid-6;
 		}
 	}
 	.IslandPageBlock__image {
-		margin: 0 cols_pct(0, -1);
+		margin: 0 $var--grid-0-1--neg;
 
+		@include media($mq-phone_phablet) {
+			max-width: 400px;
+			align-self: flex-start;
+			margin-bottom: $var--space-2;
+		}
 		@media #{$mq-tablet_up} {
-			width: cols_pct(6, 7);
+			width: calc(#{$var--grid-6-6} + #{$var--grid-0-1});
 		}
 	}
 
 	.IslandPageBlock__title {
 		@include HeadingStyle--small();
-		margin-bottom: grid-units(3);
+		margin-bottom: $var--space-3;
 	}
 
 	.IslandPageBlock__summary {
 		@include BodyTextStyle--large();
-		margin-bottom: grid-units(4);
-	}
-
-	.IslandPageBlock__buttons {
+		margin-bottom: $var--space-3;
 	}
 	.IslandPageBlock__button {
 		@include ButtonTertiaryStyle();
 		display: block;
+	}
+
+	// Background variant. ------------------------------------------------------
+
+	.IslandPageBlock--background--gray,
+	.IslandPageBlock--background--secondary {
+		@include extendBackgroundWithUnderlay();
+		padding: between_cols(30, 48) 0;
+		background-color: $var--color-suld-25;
+	}
+	.IslandPageBlock--background--secondary {
+		background-color: $var--theme-color-secondary-25;
 	}
 }

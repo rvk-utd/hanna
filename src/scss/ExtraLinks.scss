@@ -60,7 +60,7 @@
 
 	.ExtraLinks__card {
 		@include Card();
-		border: 1px solid $color-suld-75;
+		border: $var--border-default;
 	}
 	.ExtraLinks__card:hover,
 	.ExtraLinks__card:active {

@@ -70,8 +70,8 @@
     padding: 1.5rem 1.5rem 2rem 1.5rem;
     min-height: 10.5rem;
     height: 100%;
-    border: 1px solid #e3e5e7;
-    --link-color--hover: #2a2b2c;
+    --link-color--hover: var(--color-suld-200);
+    border: var(--border-default);
   }
   .ActionCards__card::after {
     content: "";

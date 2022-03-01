@@ -41,25 +41,25 @@
 		} @else {
 			font-size: prem(12);
 		}
-		border: prem(1) solid $color-suld-150;
+		border: $var--border-dark;
 		transition: all 200ms ease-in;
 		transition-property: box-shadow, border-color, background-color;
 	}
 
 	// Invalid
 	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label {
-		color: $color-heidmork-150;
+		color: $var--color-heidmork-150;
 	}
 	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label::before,
 	.#{$BEM}__input[aria-invalid='true']:checked + .#{$BEM}__label::before {
-		border-color: $color-heidmork-100;
+		border-color: $var--color-heidmork-100;
 	}
 
 	// Focus + Hover
 	.#{$BEM}__label[class]:hover::before,
 	.#{$BEM}__input:focus + .#{$BEM}__label::before {
-		border-color: $color-faxafloi-100;
-		box-shadow: inset 0 0 0 2px $color-faxafloi-100;
+		border-color: $var--color-faxafloi-100;
+		box-shadow: inset 0 0 0 2px $var--color-faxafloi-100;
 	}
 
 	// Checked
@@ -70,25 +70,25 @@
 			content: $icons-checkmark;
 		}
 		border-color: transparent;
-		background-color: $color-faxafloi-100;
-		color: $color-suld-0;
+		background-color: $var--color-faxafloi-100;
+		color: $var--color-suld-0;
 	}
 
 	// Disabled
 	.#{$BEM}__input:disabled + .#{$BEM}__label {
-		color: $color-suld-150;
+		color: $var--color-suld-150;
 	}
 	.#{$BEM}__input:disabled + .#{$BEM}__label::before {
-		border-color: $color-suld-100;
-		background-color: $color-suld-50;
-		color: $color-suld-100;
+		border-color: $var--color-suld-100;
+		background-color: $var--color-suld-50;
+		color: $var--color-suld-100;
 		box-shadow: none;
 	}
 	// Disabled + Checked
 	@if $radio {
 		.#{$BEM}__input:disabled:checked + .#{$BEM}__label::before {
-			background-color: $color-suld-100;
-			color: $color-suld-50;
+			background-color: $var--color-suld-100;
+			color: $var--color-suld-50;
 		}
 	}
 
@@ -141,7 +141,7 @@
 		padding: prem(22) prem(20) prem(20) prem(24);
 		padding-right: prem(46);
 		position: relative;
-		border: prem(1) solid $color-suld-100;
+		border: prem(1) solid $var--color-suld-100;
 		transition: all 200ms ease-in;
 		transition-property: box-shadow, color, border-color, background-color;
 	}
@@ -160,7 +160,7 @@
 		} @else {
 			font-size: prem(8);
 		}
-		border: prem(1) solid $color-suld-150;
+		border: $var--border-dark;
 		transition: all 200ms ease-in;
 		transition-property: box-shadow, color, border-color, background-color;
 	}
@@ -170,25 +170,25 @@
 		display: block;
 		font-size: prem(12);
 		font-weight: 400;
-		color: $color-blackish;
+		color: $var--color-blackish;
 	}
 
 	// Focus + Hover
 	.#{$BEM}__label:hover,
 	.#{$BEM}__input:focus + .#{$BEM}__label {
-		border-color: $color-faxafloi-100;
-		box-shadow: inset 0 0 0 2px $color-faxafloi-100;
+		border-color: $var--color-faxafloi-100;
+		box-shadow: inset 0 0 0 2px $var--color-faxafloi-100;
 	}
 
 	.#{$BEM}__label:hover::before,
 	.#{$BEM}__input:focus + .#{$BEM}__label::before {
-		border-color: $color-faxafloi-100;
+		border-color: $var--color-faxafloi-100;
 	}
 
 	// Checked
 	.#{$BEM}__input:checked + .#{$BEM}__label {
-		color: $color-faxafloi-100;
-		border-color: $color-faxafloi-100;
+		color: $var--color-faxafloi-100;
+		border-color: $var--color-faxafloi-100;
 	}
 	.#{$BEM}__input:checked + .#{$BEM}__label::before {
 		@if $radio {
@@ -197,29 +197,29 @@
 			content: $icons-checkmark;
 		}
 		border-color: transparent;
-		background-color: $color-faxafloi-100;
-		color: $color-suld-0;
+		background-color: $var--color-faxafloi-100;
+		color: $var--color-suld-0;
 	}
 
 	// Invalid
 	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label {
-		color: $color-heidmork-100;
-		border-color: $color-heidmork-100;
+		color: $var--color-heidmork-100;
+		border-color: $var--color-heidmork-100;
 	}
 
 	// Disabled
 	.#{$BEM}__input:disabled + .#{$BEM}__label {
-		color: $color-suld-150;
-		border-color: $color-suld-100;
+		color: $var--color-suld-150;
+		border-color: $var--color-suld-100;
 		box-shadow: none;
 	}
 	.#{$BEM}__input:disabled + .#{$BEM}__label > small {
-		color: $color-suld-150;
+		color: $var--color-suld-150;
 	}
 	.#{$BEM}__input:disabled + .#{$BEM}__label::before {
-		border-color: $color-suld-100;
-		background-color: $color-suld-50;
-		color: $color-suld-100;
+		border-color: $var--color-suld-100;
+		background-color: $var--color-suld-50;
+		color: $var--color-suld-100;
 		box-shadow: none;
 	}
 	// Disabled + Checked
@@ -231,7 +231,7 @@
 	// __error
 	@if (not $radio) {
 		.#{$BEM}__error {
-			color: $color-heidmork-150;
+			color: $var--color-heidmork-150;
 			padding-left: prem(36);
 		}
 	}
@@ -252,8 +252,8 @@ $InputField-paddingH: grid-units(2);
 	position: relative;
 	display: flex;
 	width: 100%;
-	background-color: $color-suld-0;
-	color: $color-suld-200;
+	background-color: $var--color-suld-0;
+	color: $var--color-suld-200;
 	border: prem(1) solid var(--input-border-color);
 	transition: all 400ms ease-in;
 	transition-property: color, border-color, box-shadow, background-color;
@@ -275,36 +275,36 @@ $InputField-paddingH: grid-units(2);
 }
 
 @mixin InputField--placeholder() {
-	color: $color-suld-150;
+	color: $var--color-suld-150;
 }
 @mixin InputField--filled() {
-	--input-border-color: #{$color-faxafloi-100};
+	--input-border-color: #{$var--color-faxafloi-100};
 }
 @mixin InputField--invalid() {
-	--input-border-color: #{$color-heidmork-100};
-	color: $color-heidmork-100;
+	--input-border-color: #{$var--color-heidmork-100};
+	color: $var--color-heidmork-100;
 }
 @mixin InputField--focused() {
-	--input-border-color: #{$color-faxafloi-100};
-	color: $color-suld-200;
+	--input-border-color: #{$var--color-faxafloi-100};
+	color: $var--color-suld-200;
 	box-shadow: inset 0 0 0 1px var(--input-border-color);
 	outline: 0;
 }
 @mixin InputField--disabled() {
-	--input-border-color: #{$color-suld-100};
-	background-color: $color-suld-50;
-	color: $color-suld-100;
+	--input-border-color: #{$var--color-suld-100};
+	background-color: $var--color-suld-50;
+	color: $var--color-suld-100;
 	cursor: not-allowed;
 }
 @mixin InputField--readonly() {
-	--input-border-color: #{$color-suld-100};
-	background-color: $color-suld-50;
+	--input-border-color: #{$var--color-suld-100};
+	background-color: $var--color-suld-50;
 }
 
 // ---------------------------------------------------------------------------
 
 @mixin FormField__error($paddingLeft: grid-units(2), $marginTop: prem(9)) {
-	color: $color-heidmork-100;
+	color: $var--color-heidmork-100;
 	font-size: prem($font-size-12);
 	line-height: prem(14);
 	padding-left: $paddingLeft;

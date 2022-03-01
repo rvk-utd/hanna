@@ -134,34 +134,42 @@
     --Layout__header-height: 96px;
     --MainMenu-accentcolor: var(--color-faxafloi-100);
     --MainMenu-background: var(--color-faxafloi-100);
+    --color-esja-25: #f4f7ff;
     --color-esja-50: #e8eeff;
     --color-esja-75: #d2ddfe;
     --color-esja-100: #a5bbfd;
     --color-esja-150: #525e7f;
+    --color-faxafloi-25: #e0eefb;
     --color-faxafloi-50: #c0ddf7;
     --color-faxafloi-75: #81bbf0;
     --color-faxafloi-100: #0367e1;
     --color-faxafloi-150: #013b70;
+    --color-nautholsvik-25: #fffaea;
     --color-nautholsvik-50: #fff5d5;
     --color-nautholsvik-75: #ffeaac;
     --color-nautholsvik-100: #ffd659;
     --color-nautholsvik-150: #806b2c;
+    --color-heidmork-25: #fae4e5;
     --color-heidmork-50: #f5c8cb;
     --color-heidmork-75: #ec9197;
     --color-heidmork-100: #d8222f;
     --color-heidmork-150: #6c1118;
+    --color-ellidarardalur-25: #e2f9ea;
     --color-ellidarardalur-50: #c4f2d5;
     --color-ellidarardalur-75: #89e6ab;
     --color-ellidarardalur-100: #64d68e;
     --color-ellidarardalur-150: #0a662b;
+    --color-blafjoll-25: #ffede9;
     --color-blafjoll-50: #ffdbd3;
     --color-blafjoll-75: #fab7a9;
     --color-blafjoll-100: #f77257;
     --color-blafjoll-150: #805737;
+    --color-sund-25: #eafbff;
     --color-sund-50: #d4f6ff;
     --color-sund-75: #a9edff;
     --color-sund-100: #53daff;
     --color-sund-150: #296d80;
+    --color-rokkur-25: #fff1f6;
     --color-rokkur-50: #ffe3ec;
     --color-rokkur-75: #ffc6da;
     --color-rokkur-100: #ff8db5;
@@ -175,6 +183,8 @@
     --color-suld-200: #2a2b2c;
     --color-white: #ffffff;
     --color-blackish: #2a2b2c;
+    --border-default: 1px solid var(--color-suld-75);
+    --border-dark: 1px solid var(--color-suld-150);
   }
 }
 @media screen and (min-width: 1368px) {
@@ -262,8 +272,17 @@
 [data-color-theme][data-color-theme],
 [data-color-theme][data-color-theme=trustworthy] {
   --theme-color-primary: var(--color-faxafloi-100);
+  --theme-color-primary-75: var(--color-faxafloi-75);
+  --theme-color-primary-50: var(--color-faxafloi-50);
+  --theme-color-primary-25: var(--color-faxafloi-25);
   --theme-color-secondary: var(--color-sund-100);
+  --theme-color-secondary-75: var(--color-sund-75);
+  --theme-color-secondary-50: var(--color-sund-50);
+  --theme-color-secondary-25: var(--color-sund-25);
   --theme-color-tertiary: var(--color-ellidarardalur-100);
+  --theme-color-tertiary-75: var(--color-ellidarardalur-75);
+  --theme-color-tertiary-50: var(--color-ellidarardalur-50);
+  --theme-color-tertiary-25: var(--color-ellidarardalur-25);
   --theme-color-primary--text: var(--color-white);
   --theme-color-primary--dark: var(--color-faxafloi-150);
   --theme-color-primary--safe: var(--theme-color-primary);
@@ -272,15 +291,33 @@
 
 [data-color-theme][data-color-theme=dependable] {
   --theme-color-primary: var(--color-faxafloi-100);
+  --theme-color-primary-75: var(--color-faxafloi-75);
+  --theme-color-primary-50: var(--color-faxafloi-50);
+  --theme-color-primary-25: var(--color-faxafloi-25);
   --theme-color-secondary: var(--color-nautholsvik-100);
+  --theme-color-secondary-75: var(--color-nautholsvik-75);
+  --theme-color-secondary-50: var(--color-nautholsvik-50);
+  --theme-color-secondary-25: var(--color-nautholsvik-25);
   --theme-color-tertiary: var(--color-sund-100);
+  --theme-color-tertiary-75: var(--color-sund-75);
+  --theme-color-tertiary-50: var(--color-sund-50);
+  --theme-color-tertiary-25: var(--color-sund-25);
   --theme-color-primary--dark: var(--color-faxafloi-150);
 }
 
 [data-color-theme][data-color-theme=friendly] {
   --theme-color-primary: var(--color-ellidarardalur-100);
+  --theme-color-primary-75: var(--color-ellidarardalur-75);
+  --theme-color-primary-50: var(--color-ellidarardalur-50);
+  --theme-color-primary-25: var(--color-ellidarardalur-25);
   --theme-color-secondary: var(--color-rokkur-100);
+  --theme-color-secondary-75: var(--color-rokkur-75);
+  --theme-color-secondary-50: var(--color-rokkur-50);
+  --theme-color-secondary-25: var(--color-rokkur-25);
   --theme-color-tertiary: var(--color-nautholsvik-100);
+  --theme-color-tertiary-75: var(--color-nautholsvik-75);
+  --theme-color-tertiary-50: var(--color-nautholsvik-50);
+  --theme-color-tertiary-25: var(--color-nautholsvik-25);
   --theme-color-primary--text: var(--color-blackish);
   --theme-color-primary--dark: var(--color-ellidarardalur-150);
   --theme-color-primary--safe: #0e893b;
@@ -289,8 +326,17 @@
 
 [data-color-theme][data-color-theme=lively] {
   --theme-color-primary: var(--color-sund-100);
+  --theme-color-primary-75: var(--color-sund-75);
+  --theme-color-primary-50: var(--color-sund-50);
+  --theme-color-primary-25: var(--color-sund-25);
   --theme-color-secondary: var(--color-blafjoll-100);
+  --theme-color-secondary-75: var(--color-blafjoll-75);
+  --theme-color-secondary-50: var(--color-blafjoll-50);
+  --theme-color-secondary-25: var(--color-blafjoll-25);
   --theme-color-tertiary: var(--color-nautholsvik-100);
+  --theme-color-tertiary-75: var(--color-nautholsvik-75);
+  --theme-color-tertiary-50: var(--color-nautholsvik-50);
+  --theme-color-tertiary-25: var(--color-nautholsvik-25);
   --theme-color-primary--text: var(--color-blackish);
   --theme-color-primary--dark: var(--color-sund-150);
   --theme-color-primary--safe: #007fa2;
@@ -299,8 +345,17 @@
 
 [data-color-theme][data-color-theme=colorful] {
   --theme-color-primary: var(--color-nautholsvik-100);
+  --theme-color-primary-75: var(--color-nautholsvik-75);
+  --theme-color-primary-50: var(--color-nautholsvik-50);
+  --theme-color-primary-25: var(--color-nautholsvik-25);
   --theme-color-secondary: var(--color-heidmork-100);
+  --theme-color-secondary-75: var(--color-heidmork-75);
+  --theme-color-secondary-50: var(--color-heidmork-50);
+  --theme-color-secondary-25: var(--color-heidmork-25);
   --theme-color-tertiary: var(--color-esja-100);
+  --theme-color-tertiary-75: var(--color-esja-75);
+  --theme-color-tertiary-50: var(--color-esja-50);
+  --theme-color-tertiary-25: var(--color-esja-25);
   --theme-color-primary--text: var(--color-blackish);
   --theme-color-primary--dark: var(--color-nautholsvik-150);
   --theme-color-primary--safe: #967100;
@@ -835,8 +890,8 @@ table {
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #ffffff;
-    color: #2a2b2c;
+    background-color: var(--color-suld-0);
+    color: var(--color-suld-200);
     font: var(--font-base);
     font-weight: 400;
     quotes: "“" "”" "‘" "’";
@@ -1120,7 +1175,7 @@ ul > :not(li)::before {
     padding: 0;
     height: 1px;
     border: 0;
-    border-top: 1px solid #c7cbd0;
+    border-top: 1px solid var(--color-suld-100);
   }
 
   fieldset {
@@ -1170,7 +1225,7 @@ td {
     text-align: left;
     vertical-align: top;
     padding: 0.5rem 1rem;
-    color: #707275;
+    color: var(--color-suld-150);
     font-weight: 400;
   }
   th:first-child,
@@ -1189,7 +1244,7 @@ td:last-child {
 
   tbody > * > th,
 tbody > * > td {
-    border: 1px solid #e3e5e7;
+    border: var(--border-default);
     border-width: 1px 0;
   }
 
@@ -1266,14 +1321,14 @@ tbody > * > td {
     left: 0;
     bottom: 0;
     z-index: 99999;
-    background: #c4f2d5;
+    background: var(--color-ellidarardalur-50);
     box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.1), 0 0 3px 0 rgba(57, 103, 76, 0.4);
     padding: 0.75rem;
   }
 
   .local-tasks ul {
     display: flex;
-    border-bottom: 1px solid #c7cbd0;
+    border-bottom: 1px solid var(--color-suld-100);
   }
 
   .local-tasks li {
@@ -1283,7 +1338,7 @@ tbody > * > td {
   .local-tasks li a {
     font-weight: 400;
     display: block;
-    color: #707275;
+    color: var(--color-suld-150);
     padding: 0.5rem 1rem;
     border: 1px solid transparent;
     border-top-left-radius: 0.25rem;
@@ -1291,9 +1346,9 @@ tbody > * > td {
   }
 
   .local-tasks li a.is-active {
-    color: #2a2b2c;
-    background-color: #ffffff;
-    border-color: #c7cbd0 #c7cbd0 #ffffff;
+    color: var(--color-suld-200);
+    background-color: var(--color-suld-0);
+    border-color: var(--color-suld-100) var(--color-suld-100) var(--color-suld-0);
   }
 }
 @media screen and (max-width: 479px) {

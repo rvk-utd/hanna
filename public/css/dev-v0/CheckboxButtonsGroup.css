@@ -27,7 +27,7 @@
     padding: 1.375rem 1.25rem 1.25rem 1.5rem;
     padding-right: 2.875rem;
     position: relative;
-    border: 0.0625rem solid #c7cbd0;
+    border: 0.0625rem solid var(--color-suld-100);
     transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
@@ -53,7 +53,7 @@
     height: 0.75rem;
     line-height: 0.625rem;
     font-size: 0.5rem;
-    border: 0.0625rem solid #707275;
+    border: var(--border-dark);
     transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
@@ -62,56 +62,56 @@
     display: block;
     font-size: 0.75rem;
     font-weight: 400;
-    color: #2a2b2c;
+    color: var(--color-blackish);
   }
 
   .CheckboxButton__label:hover,
 .CheckboxButton__input:focus + .CheckboxButton__label {
-    border-color: #0367e1;
-    box-shadow: inset 0 0 0 2px #0367e1;
+    border-color: var(--color-faxafloi-100);
+    box-shadow: inset 0 0 0 2px var(--color-faxafloi-100);
   }
 
   .CheckboxButton__label:hover::before,
 .CheckboxButton__input:focus + .CheckboxButton__label::before {
-    border-color: #0367e1;
+    border-color: var(--color-faxafloi-100);
   }
 
   .CheckboxButton__input:checked + .CheckboxButton__label {
-    color: #0367e1;
-    border-color: #0367e1;
+    color: var(--color-faxafloi-100);
+    border-color: var(--color-faxafloi-100);
   }
 
   .CheckboxButton__input:checked + .CheckboxButton__label::before {
     content: "";
     border-color: transparent;
-    background-color: #0367e1;
-    color: #ffffff;
+    background-color: var(--color-faxafloi-100);
+    color: var(--color-suld-0);
   }
 
   .CheckboxButton__input[aria-invalid=true] + .CheckboxButton__label {
-    color: #d8222f;
-    border-color: #d8222f;
+    color: var(--color-heidmork-100);
+    border-color: var(--color-heidmork-100);
   }
 
   .CheckboxButton__input:disabled + .CheckboxButton__label {
-    color: #707275;
-    border-color: #c7cbd0;
+    color: var(--color-suld-150);
+    border-color: var(--color-suld-100);
     box-shadow: none;
   }
 
   .CheckboxButton__input:disabled + .CheckboxButton__label > small {
-    color: #707275;
+    color: var(--color-suld-150);
   }
 
   .CheckboxButton__input:disabled + .CheckboxButton__label::before {
-    border-color: #c7cbd0;
-    background-color: #f1f2f3;
-    color: #c7cbd0;
+    border-color: var(--color-suld-100);
+    background-color: var(--color-suld-50);
+    color: var(--color-suld-100);
     box-shadow: none;
   }
 
   .CheckboxButton__error {
-    color: #6c1118;
+    color: var(--color-heidmork-150);
     padding-left: 2.25rem;
   }
 
@@ -161,7 +161,7 @@
     padding: 1.375rem 1.25rem 1.25rem 1.5rem;
     padding-right: 2.875rem;
     position: relative;
-    border: 0.0625rem solid #c7cbd0;
+    border: 0.0625rem solid var(--color-suld-100);
     transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
@@ -188,7 +188,7 @@
     line-height: 0.625rem;
     font-size: 0.625rem;
     border-radius: 50%;
-    border: 0.0625rem solid #707275;
+    border: var(--border-dark);
     transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
@@ -197,51 +197,51 @@
     display: block;
     font-size: 0.75rem;
     font-weight: 400;
-    color: #2a2b2c;
+    color: var(--color-blackish);
   }
 
   .RadioButton__label:hover,
 .RadioButton__input:focus + .RadioButton__label {
-    border-color: #0367e1;
-    box-shadow: inset 0 0 0 2px #0367e1;
+    border-color: var(--color-faxafloi-100);
+    box-shadow: inset 0 0 0 2px var(--color-faxafloi-100);
   }
 
   .RadioButton__label:hover::before,
 .RadioButton__input:focus + .RadioButton__label::before {
-    border-color: #0367e1;
+    border-color: var(--color-faxafloi-100);
   }
 
   .RadioButton__input:checked + .RadioButton__label {
-    color: #0367e1;
-    border-color: #0367e1;
+    color: var(--color-faxafloi-100);
+    border-color: var(--color-faxafloi-100);
   }
 
   .RadioButton__input:checked + .RadioButton__label::before {
     content: "";
     border-color: transparent;
-    background-color: #0367e1;
-    color: #ffffff;
+    background-color: var(--color-faxafloi-100);
+    color: var(--color-suld-0);
   }
 
   .RadioButton__input[aria-invalid=true] + .RadioButton__label {
-    color: #d8222f;
-    border-color: #d8222f;
+    color: var(--color-heidmork-100);
+    border-color: var(--color-heidmork-100);
   }
 
   .RadioButton__input:disabled + .RadioButton__label {
-    color: #707275;
-    border-color: #c7cbd0;
+    color: var(--color-suld-150);
+    border-color: var(--color-suld-100);
     box-shadow: none;
   }
 
   .RadioButton__input:disabled + .RadioButton__label > small {
-    color: #707275;
+    color: var(--color-suld-150);
   }
 
   .RadioButton__input:disabled + .RadioButton__label::before {
-    border-color: #c7cbd0;
-    background-color: #f1f2f3;
-    color: #c7cbd0;
+    border-color: var(--color-suld-100);
+    background-color: var(--color-suld-50);
+    color: var(--color-suld-100);
     box-shadow: none;
   }
 

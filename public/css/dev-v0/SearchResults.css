@@ -102,8 +102,8 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    border: 0.1875rem solid #0367e1;
-    border-color: #0367e1 transparent;
+    border: 0.1875rem solid var(--color-faxafloi-100);
+    border-color: var(--color-faxafloi-100) transparent;
     -webkit-animation: loadingAnimation 1000ms linear infinite;
             animation: loadingAnimation 1000ms linear infinite;
   }
@@ -384,7 +384,7 @@
     flex-flow: column;
     padding: var(--grid-1);
     min-height: var(--grid-4);
-    border: 1px solid #e3e5e7;
+    border: var(--border-default);
     margin: 0 var(--grid-1--neg);
   }
 }

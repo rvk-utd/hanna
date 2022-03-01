@@ -53,8 +53,19 @@ $var--color-white: var(--color-white);
 $var--color-blackish: var(--color-blackish);
 
 $var--theme-color-primary: var(--theme-color-primary);
+$var--theme-color-primary-75: var(--theme-color-primary-75);
+$var--theme-color-primary-50: var(--theme-color-primary-50);
+$var--theme-color-primary-25: var(--theme-color-primary-25);
+
 $var--theme-color-secondary: var(--theme-color-secondary);
+$var--theme-color-secondary-75: var(--theme-color-secondary-75);
+$var--theme-color-secondary-50: var(--theme-color-secondary-50);
+$var--theme-color-secondary-25: var(--theme-color-secondary-25);
+
 $var--theme-color-tertiary: var(--theme-color-tertiary);
+$var--theme-color-tertiary-75: var(--theme-color-tertiary-75);
+$var--theme-color-tertiary-50: var(--theme-color-tertiary-50);
+$var--theme-color-tertiary-25: var(--theme-color-tertiary-25);
 
 $var--theme-color-primary--text: var(--theme-color-primary--text);
 $var--theme-color-primary--dark: var(--theme-color-primary--dark);
@@ -224,3 +235,8 @@ $var--component-vspace--small: var(--component-vspace--small);
 $var--component-vspace--medium: var(--component-vspace--medium);
 $var--component-vspace--large: var(--component-vspace--large);
 $var--component-vspace--xlarge: var(--component-vspace--xlarge);
+
+// ---------------------------------------------------------------------------
+
+$var--border-default: var(--border-default);
+$var--border-dark: var(--border-dark);

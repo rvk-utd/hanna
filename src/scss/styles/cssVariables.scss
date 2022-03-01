@@ -35,6 +35,7 @@
 			@include _LayoutHeader();
 			@include _MainMenu();
 			@include _colorVariables();
+			@include _bordersAndEffects();
 		}
 	}
 }
@@ -323,41 +324,49 @@
 // ---------------------------------------------------------------------------
 
 @mixin _colorVariables() {
+	--color-esja-25: #{$color-esja-25};
 	--color-esja-50: #{$color-esja-50};
 	--color-esja-75: #{$color-esja-75};
 	--color-esja-100: #{$color-esja-100};
 	--color-esja-150: #{$color-esja-150};
 
+	--color-faxafloi-25: #{$color-faxafloi-25};
 	--color-faxafloi-50: #{$color-faxafloi-50};
 	--color-faxafloi-75: #{$color-faxafloi-75};
 	--color-faxafloi-100: #{$color-faxafloi-100};
 	--color-faxafloi-150: #{$color-faxafloi-150};
 
+	--color-nautholsvik-25: #{$color-nautholsvik-25};
 	--color-nautholsvik-50: #{$color-nautholsvik-50};
 	--color-nautholsvik-75: #{$color-nautholsvik-75};
 	--color-nautholsvik-100: #{$color-nautholsvik-100};
 	--color-nautholsvik-150: #{$color-nautholsvik-150};
 
+	--color-heidmork-25: #{$color-heidmork-25};
 	--color-heidmork-50: #{$color-heidmork-50};
 	--color-heidmork-75: #{$color-heidmork-75};
 	--color-heidmork-100: #{$color-heidmork-100};
 	--color-heidmork-150: #{$color-heidmork-150};
 
+	--color-ellidarardalur-25: #{$color-ellidarardalur-25};
 	--color-ellidarardalur-50: #{$color-ellidarardalur-50};
 	--color-ellidarardalur-75: #{$color-ellidarardalur-75};
 	--color-ellidarardalur-100: #{$color-ellidarardalur-100};
 	--color-ellidarardalur-150: #{$color-ellidarardalur-150};
 
+	--color-blafjoll-25: #{$color-blafjoll-25};
 	--color-blafjoll-50: #{$color-blafjoll-50};
 	--color-blafjoll-75: #{$color-blafjoll-75};
 	--color-blafjoll-100: #{$color-blafjoll-100};
 	--color-blafjoll-150: #{$color-blafjoll-150};
 
+	--color-sund-25: #{$color-sund-25};
 	--color-sund-50: #{$color-sund-50};
 	--color-sund-75: #{$color-sund-75};
 	--color-sund-100: #{$color-sund-100};
 	--color-sund-150: #{$color-sund-150};
 
+	--color-rokkur-25: #{$color-rokkur-25};
 	--color-rokkur-50: #{$color-rokkur-50};
 	--color-rokkur-75: #{$color-rokkur-75};
 	--color-rokkur-100: #{$color-rokkur-100};
@@ -373,4 +382,11 @@
 
 	--color-white: #{$color-white};
 	--color-blackish: #{$color-blackish};
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _bordersAndEffects() {
+	--border-default: 1px solid #{$var--color-suld-75};
+	--border-dark: 1px solid #{$var--color-suld-150};
 }

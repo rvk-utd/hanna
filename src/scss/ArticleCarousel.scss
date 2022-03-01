@@ -45,7 +45,8 @@
 	}
 
 	.ArticleCarouselCard {
-		border: 2px solid $var--color-suld-75;
+		border: $var--border-default;
+		border-width: 2px;
 		border-top: 0;
 		width: $var--grid-5;
 		min-width: 330px;
