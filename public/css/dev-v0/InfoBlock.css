@@ -94,7 +94,7 @@
     position: relative;
     padding-left: 2.5rem;
     margin-top: calc(1.5267175573vw + 59.1145038168px);
-    border-top: 1px solid #707275;
+    border-top: var(--border-dark);
     padding-top: calc(2.2900763359vw + 32.6717557252px);
   }
   .InfoBlock__extrainfo::before,

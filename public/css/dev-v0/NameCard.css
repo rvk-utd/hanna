@@ -11,7 +11,7 @@
 
 @media screen {
   .NameCard {
-    border: 1px solid #c7cbd0;
+    border: var(--border-default);
     padding: var(--space-3);
     display: flex;
     flex-flow: column;

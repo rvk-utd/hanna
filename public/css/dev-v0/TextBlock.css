@@ -722,7 +722,7 @@ div.Sharpie::before {
 }
 @media screen {
   .ArticleMeta {
-    color: #707275;
+    color: var(--color-suld-150);
     margin-bottom: 0.5rem;
   }
 
@@ -730,7 +730,7 @@ div.Sharpie::before {
     content: " | ";
     margin: 0 0.25em;
     text-decoration: none;
-    color: #707275;
+    color: var(--color-suld-150);
   }
 
   .ArticleMeta + .Heading {

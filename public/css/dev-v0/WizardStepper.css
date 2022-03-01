@@ -5,9 +5,9 @@
   }
 
   .WizardStepper__step {
-    --WizardStepper-ballBackground: #f1f2f3;
-    --WizardStepper-ballColor: #c7cbd0;
-    --WizardStepper-lineColor: #e3e5e7;
+    --WizardStepper-ballBackground: var(--color-suld-50);
+    --WizardStepper-ballColor: var(--color-suld-100);
+    --WizardStepper-lineColor: var(--color-suld-75);
     display: block;
     line-height: 1.35;
     padding: 0.75rem 0;
@@ -18,7 +18,7 @@
     position: relative;
     margin-bottom: 2.125rem;
     font-size: 0.75rem;
-    color: #707275;
+    color: var(--color-suld-150);
   }
   .WizardStepper__step::before {
     content: counter(step);
@@ -56,9 +56,9 @@ button.WizardStepper__step:active {
 
   .WizardStepper__step--done,
 .WizardStepper__step[aria-current=step] {
-    color: #0367e1;
-    --WizardStepper-ballBackground: #0367e1;
-    --WizardStepper-ballColor: #ffffff;
+    color: var(--color-faxafloi-100);
+    --WizardStepper-ballBackground: var(--color-faxafloi-100);
+    --WizardStepper-ballColor: var(--color-suld-0);
     --WizardStepper-ballIcon: "";
   }
   .WizardStepper__step--done::before,
@@ -80,9 +80,9 @@ button.WizardStepper__step:active {
   }
 
   .WizardStepper__step--done {
-    --WizardStepper-ballBackground: #81bbf0;
+    --WizardStepper-ballBackground: var(--color-faxafloi-75);
     --WizardStepper-ballIcon: "";
-    --WizardStepper-lineColor: #0367e1;
+    --WizardStepper-lineColor: var(--color-faxafloi-100);
   }
 
   :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),

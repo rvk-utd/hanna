@@ -38,11 +38,11 @@
     position: relative;
     margin-right: 24px;
     transform: translateY(4px);
-    background-color: #707275;
+    background-color: var(--color-suld-150);
   }
 
   .TableWrapper__footnote div {
-    color: #707275;
+    color: var(--color-suld-150);
   }
 
   .TableWrapper--BasicTable--fullwidth .BasicTable {
@@ -196,7 +196,7 @@
 @media screen {
   .BasicTable > tfoot > * > th,
 .BasicTable > tfoot > * > td {
-    border-top: 2px solid #c7cbd0;
+    border-top: 2px solid var(--color-suld-100);
     border-bottom: 0;
     font-weight: 700;
   }
