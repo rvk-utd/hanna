@@ -90,7 +90,7 @@
 
 	//invalid
 	.FormField--invalid .FileInput__dropzone {
-		background: fade($var--color-heidmork-100, 10%);
+		background: fade($color-heidmork-100, 10%);
 		border-color: $var--color-heidmork-100;
 	}
 
