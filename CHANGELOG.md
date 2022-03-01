@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.41
+
+_2022-03-01_
+
 - feat: Style `.IslandPageBlock--background--(gray|secondary)` variants
 - feat: Add CSS variable `--border-default`
 
