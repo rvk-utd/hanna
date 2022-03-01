@@ -31,6 +31,11 @@
 	.IslandPageBlock__image {
 		margin: 0 $var--grid-0-1--neg;
 
+		@include media($mq-phone_phablet) {
+			max-width: 400px;
+			align-self: flex-start;
+			margin-bottom: $var--space-2;
+		}
 		@media #{$mq-tablet_up} {
 			width: calc(#{$var--grid-6-6} + #{$var--grid-0-1});
 		}
