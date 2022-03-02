@@ -1,6 +1,10 @@
 @use 'globals' as *;
 @use 'styles/buttons' as *;
 
+/*!@deps
+	Icon
+*/
+
 @media screen {
 	.ButtonSecondary {
 		@include ButtonStyle(prem(-5));

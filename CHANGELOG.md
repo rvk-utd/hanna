@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `--go--(back|forward)` variants for
+  `Button(Primary|Secondary|Tertiary)`
 
 ## 0.8.41
 

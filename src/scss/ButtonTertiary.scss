@@ -5,6 +5,17 @@
 	.ButtonTertiary {
 		@include ButtonTertiaryStyle();
 
+		&--go--back {
+			// float: left;
+		}
+		&--go--back::before {
+			@include icon($icons-arrow-left-long);
+			background: 0;
+			height: auto;
+			font-size: 0.75em;
+			overflow: hidden;
+		}
+
 		&:active,
 		&[aria-pressed='true'] {
 			--ButtonTertiary--dashColor: _inherit;
@@ -25,5 +36,17 @@
 		}
 
 		@include ButtonTertiaryStyle--disabled();
+
+		// ---------------------------------------------------------------------------
+
+		&[data-icon] {
+			@include WARNING__('No icons on `ButtonTertiary`');
+		}
+		&--go--forward#{&}--destructive {
+			@include WARNING__('`--destructive` and `--go--(back|forward)` do NOT mix');
+		}
+		&--go--forward {
+			@include WARNING__('`--go--forward` not supported on `ButtonTertiary`');
+		}
 	}
 }
