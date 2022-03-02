@@ -36,6 +36,7 @@
 			@include _MainMenu();
 			@include _colorVariables();
 			@include _bordersAndEffects();
+			@include _buttons();
 		}
 	}
 }
@@ -389,4 +390,15 @@
 @mixin _bordersAndEffects() {
 	--border-default: 1px solid #{$var--color-suld-75};
 	--border-dark: 1px solid #{$var--color-suld-150};
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _buttons() {
+	--Button--gapH: #{between_phone_netbook(16, 32)};
+	--Button--gapV: #{prem(16)};
+
+	@media #{$mq-wide} {
+		--Button--gapH: 32px;
+	}
 }

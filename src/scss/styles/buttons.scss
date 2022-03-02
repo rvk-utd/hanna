@@ -31,8 +31,6 @@
 	--Button--border: 0px;
 	--Button--borderColor: var(--Button--backgroundColor);
 	--Button--height: #{prem(56)};
-	--Button--gapH: #{between_phone_netbook(16, 32)};
-	--Button--gapV: prem(16);
 	--Button--iconOutdent: #{$var--space-1--neg};
 	--Button--iconSpace: #{$var--space-1_5};
 
@@ -47,8 +45,8 @@
 	background-color: var(--Button--backgroundColor);
 	display: inline-block;
 	line-height: calc(var(--Button--height) - 2 * var(--Button--border));
-	margin-right: var(--Button--gapH);
-	margin-bottom: prem(16);
+	margin-right: $var--Button--gapH;
+	margin-bottom: $var--Button--gapV;
 	text-align: center;
 	border-radius: $borderRadius;
 	position: relative;
@@ -65,7 +63,6 @@
 		min-width: 128px;
 		padding-left: 32px;
 		padding-right: 32px;
-		--Button--gapH: 32px;
 	}
 
 	@include hoverActiveKeyboardFocus-selector {
@@ -113,7 +110,7 @@
 	}
 
 	&--go--back {
-		order: -10;
+		order: -0;
 	}
 	&--go--back::before {
 		@include icon($icons-arrow-left);
@@ -122,6 +119,7 @@
 	}
 	&--go--forward {
 		order: 10;
+		margin-left: auto;
 	}
 	&--go--forward::after {
 		@include icon($icons-arrow-right);
