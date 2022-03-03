@@ -185,6 +185,8 @@
     --color-blackish: #2a2b2c;
     --border-default: 1px solid var(--color-suld-75);
     --border-dark: 1px solid var(--color-suld-150);
+    --Button--gapH: calc(1.5267175573vw + 11.1145038168px);
+    --Button--gapV: 1rem;
   }
 }
 @media screen and (min-width: 1368px) {
@@ -266,6 +268,11 @@
 @media screen and (min-width: 1368px) {
   :root {
     --Layout__header-height: 136px;
+  }
+}
+@media screen and (min-width: 1368px) {
+  :root {
+    --Button--gapH: 32px;
   }
 }
 :root:root,
@@ -367,7 +374,7 @@
   font-weight: normal;
   font-style: normal;
   font-display: block;
-  src: url("i/icons.woff2?86853e7afbec0bdf18747841a5469b8d") format("woff2"), url("i/icons.woff?86853e7afbec0bdf18747841a5469b8d") format("woff");
+  src: url("i/icons.woff2?357e60448d483d93d450c9a9ca5d44e8") format("woff2"), url("i/icons.woff?357e60448d483d93d450c9a9ca5d44e8") format("woff");
 }
 @font-face {
   font-family: "Esja";

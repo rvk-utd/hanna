@@ -1,0 +1,102 @@
+.ButtonBar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-right: calc(-1 * var(--Button--gapH));
+}
+
+.ButtonBar > * {
+  margin-right: var(--Button--gapH);
+}
+
+.ButtonBar[class] > * {
+  margin-bottom: var(--Button--gapV);
+}
+
+.ButtonBar > .ButtonBar {
+  margin: 0;
+}
+
+.ButtonBar > .ButtonBar__split {
+  width: 0;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+@media screen and (max-width: 759px) {
+  .ButtonBar > .ButtonBar__split {
+    width: 100%;
+  }
+}
+
+:not(.ButtonBar) > .ButtonBar__split {
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+}
+:not(.ButtonBar) > .ButtonBar__split::before {
+  all: initial !important;
+  order: -999 !important;
+  font-family: sans-serif !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+  font-size: 12px !important;
+  line-height: 1.5em !important;
+  color: red !important;
+  background-color: rgba(255, 230, 230, 0.5) !important;
+  padding: 0 0.5em !important;
+  content: "`.ButtonBar__step` must be direct child of `.ButtonBar`" !important;
+}
+
+.ButtonBar > br {
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+}
+.ButtonBar > br::before {
+  all: initial !important;
+  order: -999 !important;
+  font-family: sans-serif !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+  font-size: 12px !important;
+  line-height: 1.5em !important;
+  color: red !important;
+  background-color: rgba(255, 230, 230, 0.5) !important;
+  padding: 0 0.5em !important;
+  content: "No `<br/>` children in `.ButtonBar`" !important;
+}
+
+.ButtonBar > hr {
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+}
+.ButtonBar > hr::before {
+  all: initial !important;
+  order: -999 !important;
+  font-family: sans-serif !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+  font-size: 12px !important;
+  line-height: 1.5em !important;
+  color: red !important;
+  background-color: rgba(255, 230, 230, 0.5) !important;
+  padding: 0 0.5em !important;
+  content: "No `<hr/>` children in `.ButtonBar`" !important;
+}
+
+.ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *) {
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+}
+.ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *)::before {
+  all: initial !important;
+  order: -999 !important;
+  font-family: sans-serif !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+  font-size: 12px !important;
+  line-height: 1.5em !important;
+  color: red !important;
+  background-color: rgba(255, 230, 230, 0.5) !important;
+  padding: 0 0.5em !important;
+  content: "`.ButtonBar` should contain Buttons" !important;
+}
+/*# sourceMappingURL=ButtonBar.css.map */
