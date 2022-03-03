@@ -1,0 +1,45 @@
+@use 'globals' as *;
+
+.ButtonBar {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	margin-right: calc(-1 * #{$var--Button--gapH});
+}
+.ButtonBar > * {
+	margin-right: $var--Button--gapH;
+}
+.ButtonBar[class] > * {
+	margin-bottom: $var--Button--gapV;
+}
+
+.ButtonBar > .ButtonBar {
+	margin: 0;
+}
+
+.ButtonBar > .ButtonBar__split {
+	width: 0;
+	margin: 0 auto;
+	flex-grow: 1;
+
+	@media #{$mq-phone_phablet} {
+		width: 100%;
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+:not(.ButtonBar) > .ButtonBar__split {
+	@include WARNING__('`.ButtonBar__step` must be direct child of `.ButtonBar`');
+}
+.ButtonBar > br {
+	@include WARNING__('No `<br/>` children in `.ButtonBar`');
+}
+.ButtonBar > hr {
+	@include WARNING__('No `<hr/>` children in `.ButtonBar`');
+}
+.ButtonBar
+	> :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary
+		~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *) {
+	@include WARNING__('`.ButtonBar` should contain Buttons');
+}
