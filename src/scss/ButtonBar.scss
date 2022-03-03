@@ -32,8 +32,8 @@
 :not(.ButtonBar) > .ButtonBar__split {
 	@include WARNING__('`.ButtonBar__step` must be direct child of `.ButtonBar`');
 }
-.ButtonBar > br {
-	@include WARNING__('No `<br/>` children in `.ButtonBar`');
+.ButtonBar > br:not(.ButtonBar__split) {
+	@include WARNING__('No plain `<br/>` children in `.ButtonBar`');
 }
 .ButtonBar > hr {
 	@include WARNING__('No `<hr/>` children in `.ButtonBar`');
