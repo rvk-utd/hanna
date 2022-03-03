@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.42
+
+_2022-03-03_
+
 - feat: Add styling for `.ButtonBar`
 - feat: Add styling for `--go--(back|forward)` variants for
   `Button(Primary|Secondary|Tertiary)`
