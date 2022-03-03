@@ -43,13 +43,13 @@
   color: red !important;
   background-color: rgba(255, 230, 230, 0.5) !important;
   padding: 0 0.5em !important;
-  content: "`.ButtonBar__step` must be direct child of `.ButtonBar`" !important;
+  content: "`.ButtonBar__split` must be direct child of `.ButtonBar`" !important;
 }
 
-.ButtonBar > br:not(.ButtonBar__split) {
+.ButtonBar > br {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
-.ButtonBar > br:not(.ButtonBar__split)::before {
+.ButtonBar > br::before {
   all: initial !important;
   order: -999 !important;
   font-family: sans-serif !important;
@@ -61,7 +61,7 @@
   color: red !important;
   background-color: rgba(255, 230, 230, 0.5) !important;
   padding: 0 0.5em !important;
-  content: "No plain `<br/>` children in `.ButtonBar`" !important;
+  content: "No `<br/>` children in `.ButtonBar`" !important;
 }
 
 .ButtonBar > hr {
