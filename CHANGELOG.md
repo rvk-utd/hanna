@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add new `Bling` SVG asset — `waves-vertical-medium`
 
 ## 0.8.42
 
