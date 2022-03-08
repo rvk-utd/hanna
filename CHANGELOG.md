@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add new `Bling` SVG asset — `waves-vertical-medium`
+- fix: Prevent layout jump when `Modal` opens
 
 ## 0.8.42
 

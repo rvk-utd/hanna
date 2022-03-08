@@ -59,9 +59,11 @@
 
 @media #{$mq-phone_phablet} {
 	body {
-		padding-left: prem(16);
-		padding-right: calc(#{prem(16)} - #{$var--browser-scrollbar-width});
+		--grid--margin: #{$var--space-2};
+		padding-left: $var--grid-margin;
+		padding-right: $var--grid-margin--right;
 	}
+
 	.WizardLayout__wrap {
 		padding-left: prem(48);
 	}
