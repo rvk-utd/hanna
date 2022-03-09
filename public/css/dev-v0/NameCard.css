@@ -306,15 +306,15 @@ button.NameCard__contactinfo__item:focus-visible::after {
     margin-top: var(--space-1);
   }
 }
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__location p,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__location div,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__location ul,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__hours p,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__hours div,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__hours ul,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__aboutText p,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__aboutText div,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__aboutText ul {
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__location p,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__location div,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__location ul,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__hours p,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__hours div,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__hours ul,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__aboutText p,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__aboutText div,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__aboutText ul {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
 html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__location p::before,

@@ -528,7 +528,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu:not(nav) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu:not(nav) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu:not(nav)::before {
@@ -546,7 +546,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     content: "Please use <nav/>" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu:not([aria-label]):not([aria-labelledby]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu:not([aria-label]):not([aria-labelledby]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu:not([aria-label]):not([aria-labelledby])::before {
@@ -564,7 +564,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     content: "Please add `aria-label` or `aria-labelledby`" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu[aria-labelledby] > .MainMenu__title:not([id])::before {
@@ -582,7 +582,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     content: "Please add `id` attribute" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu__list:first-child {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu__list:first-child {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu__list:first-child::before {
@@ -600,7 +600,7 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     content: "`.MainMenu__title` missing" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu__item:first-child:not(.MainMenu__item--home) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu__item:first-child:not(.MainMenu__item--home) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu__item:first-child:not(.MainMenu__item--home)::before {

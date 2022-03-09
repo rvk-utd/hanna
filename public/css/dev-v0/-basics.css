@@ -938,12 +938,12 @@ blockquote {
     margin: 0;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p ul,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p ol,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p div,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p p,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p dl,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p blockquote {
+  html:not([data-disable-css-warnings-with-abandon=true]) p ul,
+html:not([data-disable-css-warnings-with-abandon=true]) p ol,
+html:not([data-disable-css-warnings-with-abandon=true]) p div,
+html:not([data-disable-css-warnings-with-abandon=true]) p p,
+html:not([data-disable-css-warnings-with-abandon=true]) p dl,
+html:not([data-disable-css-warnings-with-abandon=true]) p blockquote {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) p ul::before,
@@ -1017,8 +1017,8 @@ td {
     border-bottom: var(--link-underline--hover);
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) a[href="#"],
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) a:not([href]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) a[href="#"],
+html:not([data-disable-css-warnings-with-abandon=true]) a:not([href]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) a[href="#"]::before,
@@ -1037,7 +1037,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) a:not([href])::before {
     content: "Use <button/> instead" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) button[href] {
+  html:not([data-disable-css-warnings-with-abandon=true]) button[href] {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) button[href]::before {
@@ -1133,7 +1133,7 @@ ol[data-oltype=i] > li::before {
     content: counter(ol, upper-roman) ". ";
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(ul):not(ol) > li {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(ul):not(ol) > li {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) :not(ul):not(ol) > li::before {
@@ -1151,9 +1151,9 @@ ol[data-oltype=i] > li::before {
     content: "<li/> must be inside <ol/> or <ul/>" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) ol > :not(li),
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) ul > :not(li),
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) menu > :not(li) {
+  html:not([data-disable-css-warnings-with-abandon=true]) ol > :not(li),
+html:not([data-disable-css-warnings-with-abandon=true]) ul > :not(li),
+html:not([data-disable-css-warnings-with-abandon=true]) menu > :not(li) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) ol > :not(li)::before,
@@ -1192,7 +1192,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) menu > :not(li)::before 
     float: left;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(fieldset) > legend {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(fieldset) > legend {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) :not(fieldset) > legend::before {

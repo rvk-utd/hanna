@@ -48,7 +48,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical)::after {
@@ -67,7 +67,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Alert:not([role=alert]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Alert:not([role=alert]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .Alert:not([role=alert])::after {

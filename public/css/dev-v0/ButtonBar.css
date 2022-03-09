@@ -32,7 +32,7 @@
   }
 }
 
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(.ButtonBar) > .ButtonBar__split {
+html:not([data-disable-css-warnings-with-abandon=true]) :not(.ButtonBar) > .ButtonBar__split {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
 html:not([data-disable-css-warnings-with-abandon=true]) :not(.ButtonBar) > .ButtonBar__split::before {
@@ -50,7 +50,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) :not(.ButtonBar) > .Butt
   content: "`.ButtonBar__split` must be direct child of `.ButtonBar`" !important;
 }
 
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonBar > br {
+html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > br {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
 html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > br::before {
@@ -68,7 +68,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > br::before 
   content: "No `<br/>` children in `.ButtonBar`" !important;
 }
 
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonBar > hr {
+html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > hr {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
 html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > hr::before {
@@ -86,7 +86,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > hr::before 
   content: "No `<hr/>` children in `.ButtonBar`" !important;
 }
 
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *) {
+html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *) {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
 html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *)::before {

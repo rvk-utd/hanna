@@ -81,7 +81,7 @@
     font-size: 0.3125rem;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .BreadCrumbs__item:last-child:not([aria-current=true]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs__item:last-child:not([aria-current=true]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs__item:last-child:not([aria-current=true])::before {
@@ -99,7 +99,7 @@
     content: 'You forgot aria-current="true"' !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .BreadCrumbs:not(nav) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs:not(nav) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs:not(nav)::before {
@@ -117,7 +117,7 @@
     content: "Please use <nav/>" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .BreadCrumbs:not([aria-label]):not([aria-labelledby]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs:not([aria-label]):not([aria-labelledby]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs:not([aria-label]):not([aria-labelledby])::before {
@@ -135,7 +135,7 @@
     content: "Please add `aria-label` or `aria-labelledby`" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .BreadCrumbs[aria-labelledby] > .BreadCrumbs__title:not([id]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs[aria-labelledby] > .BreadCrumbs__title:not([id]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs[aria-labelledby] > .BreadCrumbs__title:not([id])::before {

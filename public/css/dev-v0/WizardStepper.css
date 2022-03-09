@@ -85,8 +85,8 @@ button.WizardStepper__step:active {
     --WizardStepper-lineColor: var(--color-faxafloi-100);
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),
+html:not([data-disable-css-warnings-with-abandon=true]) .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step])::before,

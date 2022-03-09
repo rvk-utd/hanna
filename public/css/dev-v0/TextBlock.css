@@ -42,7 +42,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock--align--right.TextBlock--wide {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--align--right.TextBlock--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--align--right.TextBlock--wide::before {
@@ -234,7 +234,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock--small.TextBlock--labelled {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--small.TextBlock--labelled {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--small.TextBlock--labelled::before {
@@ -253,7 +253,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock--wide.TextBlock--labelled {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--wide.TextBlock--labelled {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--wide.TextBlock--labelled::before {
@@ -272,7 +272,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock--largetext {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--largetext {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--largetext::before {
@@ -291,7 +291,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock__title {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock__title {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock__title::before {
@@ -310,8 +310,8 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock .PageHeading,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock .SubHeading {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .PageHeading,
+html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .PageHeading::before,
@@ -395,7 +395,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading::
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Heading--align--right.Heading--wide {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Heading--align--right.Heading--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .Heading--align--right.Heading--wide::before {
@@ -430,7 +430,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading::
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) h1.Heading {
+  html:not([data-disable-css-warnings-with-abandon=true]) h1.Heading {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) h1.Heading::before {
@@ -493,7 +493,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading::
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .SubHeading--align--right.SubHeading--wide {
+  html:not([data-disable-css-warnings-with-abandon=true]) .SubHeading--align--right.SubHeading--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .SubHeading--align--right.SubHeading--wide::before {
@@ -523,7 +523,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading::
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) h1.SubHeading {
+  html:not([data-disable-css-warnings-with-abandon=true]) h1.SubHeading {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) h1.SubHeading::before {
@@ -549,11 +549,11 @@ li.Sharpie,
 div.Sharpie {
     color: inherit;
   }
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p.Sharpie,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) ol.Sharpie,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) ul.Sharpie,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) li.Sharpie,
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) div.Sharpie {
+  html:not([data-disable-css-warnings-with-abandon=true]) p.Sharpie,
+html:not([data-disable-css-warnings-with-abandon=true]) ol.Sharpie,
+html:not([data-disable-css-warnings-with-abandon=true]) ul.Sharpie,
+html:not([data-disable-css-warnings-with-abandon=true]) li.Sharpie,
+html:not([data-disable-css-warnings-with-abandon=true]) div.Sharpie {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) p.Sharpie::before,
@@ -650,7 +650,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) div.Sharpie::before {
     margin-top: var(--component-vspace--small);
     margin-bottom: var(--component-vspace--small);
   }
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .VSpacer--top--none.VSpacer--bottom--none {
+  html:not([data-disable-css-warnings-with-abandon=true]) .VSpacer--top--none.VSpacer--bottom--none {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .VSpacer--top--none.VSpacer--bottom--none::before {
@@ -668,7 +668,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) div.Sharpie::before {
     content: "VSpacer can't be both `--top--none` and  `--bottom--none`" !important;
   }
 
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--small {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--small {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--small::before {
@@ -685,7 +685,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) div.Sharpie::before {
     padding: 0 0.5em !important;
     content: "The class-name `.VSpacer--small` is redundant" !important;
   }
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--large {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--large {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--large::before {
@@ -702,7 +702,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) div.Sharpie::before {
     padding: 0 0.5em !important;
     content: "The class-name `.VSpacer--large` is redundant" !important;
   }
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--xlarge {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--xlarge {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--xlarge::before {

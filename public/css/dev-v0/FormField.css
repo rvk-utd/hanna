@@ -185,8 +185,8 @@
     margin-right: 0.5rem;
     font-size: 0.625rem;
   }
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .FormField__assist:not([id]),
-html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .FormField__error:not([id]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .FormField__assist:not([id]),
+html:not([data-disable-css-warnings-with-abandon=true]) .FormField__error:not([id]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .FormField__assist:not([id])::after,
