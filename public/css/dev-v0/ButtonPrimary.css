@@ -27,8 +27,8 @@
     --Button--border: 0px;
     --Button--borderColor: var(--Button--backgroundColor);
     --Button--height: 3.5rem;
-    --Button--iconOutdent: var(--space-1--neg);
-    --Button--iconSpace: var(--space-1_5);
+    --Button--iconOutdent: var(--space-0_5--neg);
+    --Button--iconSpace: var(--space-1);
     white-space: nowrap;
     vertical-align: middle;
     color: var(--Button--color);

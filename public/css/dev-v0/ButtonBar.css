@@ -5,6 +5,10 @@
   margin-right: calc(-1 * var(--Button--gapH));
 }
 
+.ButtonBar--align--right {
+  justify-content: flex-end;
+}
+
 .ButtonBar > * {
   margin-right: var(--Button--gapH);
 }

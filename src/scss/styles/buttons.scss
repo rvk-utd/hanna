@@ -31,8 +31,8 @@
 	--Button--border: 0px;
 	--Button--borderColor: var(--Button--backgroundColor);
 	--Button--height: #{prem(56)};
-	--Button--iconOutdent: #{$var--space-1--neg};
-	--Button--iconSpace: #{$var--space-1_5};
+	--Button--iconOutdent: #{$var--space-0_5--neg};
+	--Button--iconSpace: #{$var--space-1};
 
 	$borderRadius: prem(3);
 	// @include buttonReset(); // <-- This is NOT needed as `-basics` has global button reset

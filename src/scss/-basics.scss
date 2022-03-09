@@ -103,11 +103,6 @@
 		quotes: '„' '“' '‚' '‘';
 	}
 
-	html.modal-open > body {
-		overflow: hidden;
-		margin-right: $var--grid-margin;
-	}
-
 	body {
 		// Placing the overflow rule on the <body> prevents sideways scrolling
 		// in Safari – which "helpfully" ignores `overflow-x:hidden;` on `<html>`.

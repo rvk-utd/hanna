@@ -1,6 +1,10 @@
 @use 'globals' as *;
 
 @media screen {
+	html.modal-open > body {
+		overflow: hidden;
+		--grid-margin--right: #{$var--grid-margin};
+	}
 	html.modal-open .Modal {
 		overflow-y: auto;
 	}
@@ -52,6 +56,9 @@
 	}
 	.Modal--w10 {
 		max-width: cols_px(10);
+	}
+
+	.Modal__closebutton {
 	}
 
 	.Modal__closebutton {
