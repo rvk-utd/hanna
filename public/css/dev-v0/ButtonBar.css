@@ -32,10 +32,10 @@
   }
 }
 
-:not(.ButtonBar) > .ButtonBar__split {
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(.ButtonBar) > .ButtonBar__split {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
-:not(.ButtonBar) > .ButtonBar__split::before {
+html:not([data-disable-css-warnings-with-abandon=true]) :not(.ButtonBar) > .ButtonBar__split::before {
   all: initial !important;
   order: -999 !important;
   font-family: sans-serif !important;
@@ -50,10 +50,10 @@
   content: "`.ButtonBar__split` must be direct child of `.ButtonBar`" !important;
 }
 
-.ButtonBar > br {
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonBar > br {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
-.ButtonBar > br::before {
+html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > br::before {
   all: initial !important;
   order: -999 !important;
   font-family: sans-serif !important;
@@ -68,10 +68,10 @@
   content: "No `<br/>` children in `.ButtonBar`" !important;
 }
 
-.ButtonBar > hr {
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonBar > hr {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
-.ButtonBar > hr::before {
+html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > hr::before {
   all: initial !important;
   order: -999 !important;
   font-family: sans-serif !important;
@@ -86,10 +86,10 @@
   content: "No `<hr/>` children in `.ButtonBar`" !important;
 }
 
-.ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *) {
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *) {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
-.ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *)::before {
+html:not([data-disable-css-warnings-with-abandon=true]) .ButtonBar > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *)::before {
   all: initial !important;
   order: -999 !important;
   font-family: sans-serif !important;

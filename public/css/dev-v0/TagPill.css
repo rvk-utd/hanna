@@ -40,14 +40,14 @@ button.TagPill:hover {
   }
 }
 @media screen {
-  .TagPill[disabled],
-.TagPill[aria-disabled],
-.TagPill[aria-pressed] {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TagPill[disabled],
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TagPill[aria-disabled],
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TagPill[aria-pressed] {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .TagPill[disabled]::before,
-.TagPill[aria-disabled]::before,
-.TagPill[aria-pressed]::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[disabled]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-disabled]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-pressed]::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

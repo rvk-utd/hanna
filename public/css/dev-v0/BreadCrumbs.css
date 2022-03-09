@@ -81,10 +81,10 @@
     font-size: 0.3125rem;
   }
 
-  .BreadCrumbs__item:last-child:not([aria-current=true]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .BreadCrumbs__item:last-child:not([aria-current=true]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .BreadCrumbs__item:last-child:not([aria-current=true])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs__item:last-child:not([aria-current=true])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -99,10 +99,10 @@
     content: 'You forgot aria-current="true"' !important;
   }
 
-  .BreadCrumbs:not(nav) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .BreadCrumbs:not(nav) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .BreadCrumbs:not(nav)::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs:not(nav)::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -117,10 +117,10 @@
     content: "Please use <nav/>" !important;
   }
 
-  .BreadCrumbs:not([aria-label]):not([aria-labelledby]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .BreadCrumbs:not([aria-label]):not([aria-labelledby]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .BreadCrumbs:not([aria-label]):not([aria-labelledby])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs:not([aria-label]):not([aria-labelledby])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -135,10 +135,10 @@
     content: "Please add `aria-label` or `aria-labelledby`" !important;
   }
 
-  .BreadCrumbs[aria-labelledby] > .BreadCrumbs__title:not([id]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .BreadCrumbs[aria-labelledby] > .BreadCrumbs__title:not([id]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .BreadCrumbs[aria-labelledby] > .BreadCrumbs__title:not([id])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .BreadCrumbs[aria-labelledby] > .BreadCrumbs__title:not([id])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

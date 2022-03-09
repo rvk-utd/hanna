@@ -163,10 +163,10 @@
   }
 }
 @media screen {
-  .ButtonTertiary[data-icon] {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonTertiary[data-icon] {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .ButtonTertiary[data-icon]::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary[data-icon]::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -182,10 +182,10 @@
   }
 }
 @media screen {
-  .ButtonTertiary--go--back.ButtonTertiary--destructive {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonTertiary--go--back.ButtonTertiary--destructive {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .ButtonTertiary--go--back.ButtonTertiary--destructive::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary--go--back.ButtonTertiary--destructive::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -201,10 +201,10 @@
   }
 }
 @media screen {
-  .ButtonTertiary--go--forward {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonTertiary--go--forward {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .ButtonTertiary--go--forward::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary--go--forward::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

@@ -35,10 +35,10 @@
   .RowBlockColumn--background .Illustration {
     z-index: 1;
   }
-  .RowBlockColumn--background .Illustration {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .RowBlockColumn--background .Illustration {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .RowBlockColumn--background .Illustration::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RowBlockColumn--background .Illustration::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

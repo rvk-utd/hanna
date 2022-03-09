@@ -5,10 +5,11 @@ $_isDev: isDevMode();
 		$color: if($mode == soft, orange, red);
 		$hover: if($mode == soft, ':hover', '');
 
-		&#{$hover} {
+		html:not([data-disable-css-warnings-with-abandon-with-abandon='true'])
+			&#{$hover} {
 			box-shadow: 0 0 0 1px rgba($color, 0.5) !important;
 		}
-		&#{$hover}::#{$pos} {
+		html:not([data-disable-css-warnings-with-abandon='true']) &#{$hover}::#{$pos} {
 			all: initial !important;
 			order: -999 !important;
 			font-family: sans-serif !important;
@@ -28,10 +29,10 @@ $_isDev: isDevMode();
 	@if ($_isDev or $always) {
 		$hover: if($mode == soft, ':hover', '');
 
-		&#{$hover} {
+		html:not([data-disable-css-warnings-with-abandon='true']) &#{$hover} {
 			box-shadow: none !important;
 		}
-		&#{$hover}::#{$pos} {
+		html:not([data-disable-css-warnings-with-abandon='true']) &#{$hover}::#{$pos} {
 			content: none !important;
 		}
 	}
@@ -41,7 +42,7 @@ $_isDev: isDevMode();
 	@if ($_isDev or $always) {
 		$hover: if($mode == soft, ':hover', '');
 
-		&#{$hover}::#{$pos} {
+		html:not([data-disable-css-warnings-with-abandon='true']) &#{$hover}::#{$pos} {
 			content: $message !important;
 		}
 	}

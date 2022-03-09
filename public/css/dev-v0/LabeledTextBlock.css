@@ -111,10 +111,10 @@
     margin-top: var(--baseVerticalMargin);
   }
 
-  .LabeledTextBlock--left {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .LabeledTextBlock--left {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .LabeledTextBlock--left::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .LabeledTextBlock--left::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

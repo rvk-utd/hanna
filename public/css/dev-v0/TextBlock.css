@@ -42,10 +42,10 @@
   }
 }
 @media screen {
-  .TextBlock--align--right.TextBlock--wide {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock--align--right.TextBlock--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .TextBlock--align--right.TextBlock--wide::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--align--right.TextBlock--wide::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -234,10 +234,10 @@
   }
 }
 @media screen {
-  .TextBlock--small.TextBlock--labelled {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock--small.TextBlock--labelled {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .TextBlock--small.TextBlock--labelled::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--small.TextBlock--labelled::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -253,10 +253,10 @@
   }
 }
 @media screen {
-  .TextBlock--wide.TextBlock--labelled {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock--wide.TextBlock--labelled {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .TextBlock--wide.TextBlock--labelled::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--wide.TextBlock--labelled::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -272,10 +272,10 @@
   }
 }
 @media screen {
-  .TextBlock--largetext {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock--largetext {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .TextBlock--largetext::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock--largetext::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -291,10 +291,10 @@
   }
 }
 @media screen {
-  .TextBlock__title {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock__title {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .TextBlock__title::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock__title::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -310,12 +310,12 @@
   }
 }
 @media screen {
-  .TextBlock .PageHeading,
-.TextBlock .SubHeading {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock .PageHeading,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .TextBlock .SubHeading {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .TextBlock .PageHeading::before,
-.TextBlock .SubHeading::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .PageHeading::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -395,10 +395,10 @@
   }
 }
 @media screen {
-  .Heading--align--right.Heading--wide {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Heading--align--right.Heading--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .Heading--align--right.Heading--wide::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Heading--align--right.Heading--wide::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -430,10 +430,10 @@
   }
 }
 @media screen {
-  h1.Heading {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) h1.Heading {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  h1.Heading::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) h1.Heading::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -493,10 +493,10 @@
   }
 }
 @media screen {
-  .SubHeading--align--right.SubHeading--wide {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .SubHeading--align--right.SubHeading--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .SubHeading--align--right.SubHeading--wide::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .SubHeading--align--right.SubHeading--wide::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -523,10 +523,10 @@
   }
 }
 @media screen {
-  h1.SubHeading {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) h1.SubHeading {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  h1.SubHeading::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) h1.SubHeading::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -549,18 +549,18 @@ li.Sharpie,
 div.Sharpie {
     color: inherit;
   }
-  p.Sharpie,
-ol.Sharpie,
-ul.Sharpie,
-li.Sharpie,
-div.Sharpie {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p.Sharpie,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) ol.Sharpie,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) ul.Sharpie,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) li.Sharpie,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) div.Sharpie {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  p.Sharpie::before,
-ol.Sharpie::before,
-ul.Sharpie::before,
-li.Sharpie::before,
-div.Sharpie::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) p.Sharpie::before,
+html:not([data-disable-css-warnings-with-abandon=true]) ol.Sharpie::before,
+html:not([data-disable-css-warnings-with-abandon=true]) ul.Sharpie::before,
+html:not([data-disable-css-warnings-with-abandon=true]) li.Sharpie::before,
+html:not([data-disable-css-warnings-with-abandon=true]) div.Sharpie::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -650,10 +650,10 @@ div.Sharpie::before {
     margin-top: var(--component-vspace--small);
     margin-bottom: var(--component-vspace--small);
   }
-  .VSpacer--top--none.VSpacer--bottom--none {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .VSpacer--top--none.VSpacer--bottom--none {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .VSpacer--top--none.VSpacer--bottom--none::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .VSpacer--top--none.VSpacer--bottom--none::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -668,10 +668,10 @@ div.Sharpie::before {
     content: "VSpacer can't be both `--top--none` and  `--bottom--none`" !important;
   }
 
-  [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--small {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--small {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--small::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--small::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -685,10 +685,10 @@ div.Sharpie::before {
     padding: 0 0.5em !important;
     content: "The class-name `.VSpacer--small` is redundant" !important;
   }
-  [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--large {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--large {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--large::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--large::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -702,10 +702,10 @@ div.Sharpie::before {
     padding: 0 0.5em !important;
     content: "The class-name `.VSpacer--large` is redundant" !important;
   }
-  [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--xlarge {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--xlarge {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--xlarge::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class*=VSpacer--top--][class*=VSpacer--bottom--] .VSpacer--xlarge::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

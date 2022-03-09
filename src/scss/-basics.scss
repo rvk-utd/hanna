@@ -252,8 +252,9 @@
 		@include WARNING__('<li/> must be inside <ol/> or <ul/>');
 	}
 	ol > :not(li),
-	ul > :not(li) {
-		@include WARNING__('Lists may only contain <ll/>s');
+	ul > :not(li),
+	menu > :not(li) {
+		@include WARNING__('Lists may only contain <li/>s');
 	}
 
 	hr {

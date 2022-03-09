@@ -59,10 +59,10 @@
   }
 }
 @media screen {
-  .ArticleCarousel__track {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ArticleCarousel__track {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .ArticleCarousel__track::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ArticleCarousel__track::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -324,10 +324,10 @@
   }
 }
 @media screen {
-  .ArticleCarouselCard__morelink:not([aria-label]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ArticleCarouselCard__morelink:not([aria-label]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .ArticleCarouselCard__morelink:not([aria-label])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ArticleCarouselCard__morelink:not([aria-label])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

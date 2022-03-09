@@ -212,10 +212,10 @@
     margin-left: auto;
     margin-right: auto;
   }
-  [class].react-datepicker__navigation--years {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class].react-datepicker__navigation--years {
     box-shadow: none !important;
   }
-  [class].react-datepicker__navigation--years::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class].react-datepicker__navigation--years::before {
     content: none !important;
   }
   [class].react-datepicker__navigation--years::before {
