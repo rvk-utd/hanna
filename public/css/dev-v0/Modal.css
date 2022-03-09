@@ -1,5 +1,10 @@
 @charset "UTF-8";
 @media screen {
+  html.modal-open > body {
+    overflow: hidden;
+    --grid-margin--right: var(--grid-margin);
+  }
+
   html.modal-open .Modal {
     overflow-y: auto;
   }

@@ -908,11 +908,6 @@ table {
     quotes: "„" "“" "‚" "‘";
   }
 
-  html.modal-open > body {
-    overflow: hidden;
-    margin-right: var(--grid-margin);
-  }
-
   body {
     overflow-x: hidden;
     overflow-y: scroll;

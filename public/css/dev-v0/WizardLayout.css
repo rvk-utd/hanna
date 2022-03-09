@@ -103,8 +103,9 @@
 }
 @media screen and (max-width: 759px) {
   body {
-    padding-left: 1rem;
-    padding-right: calc(1rem - var(--browser-scrollbar-width));
+    --grid--margin: var(--space-2);
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin--right);
   }
 
   .WizardLayout__wrap {

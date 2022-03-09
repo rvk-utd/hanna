@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @media screen {
   body {
-    padding: 0;
     padding-left: var(--grid-margin);
     padding-right: var(--grid-margin--right);
   }
