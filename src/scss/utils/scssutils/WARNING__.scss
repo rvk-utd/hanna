@@ -5,8 +5,7 @@ $_isDev: isDevMode();
 		$color: if($mode == soft, orange, red);
 		$hover: if($mode == soft, ':hover', '');
 
-		html:not([data-disable-css-warnings-with-abandon-with-abandon='true'])
-			&#{$hover} {
+		html:not([data-disable-css-warnings-with-abandon='true']) &#{$hover} {
 			box-shadow: 0 0 0 1px rgba($color, 0.5) !important;
 		}
 		html:not([data-disable-css-warnings-with-abandon='true']) &#{$hover}::#{$pos} {
