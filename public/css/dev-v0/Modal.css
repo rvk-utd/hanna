@@ -49,6 +49,16 @@
     opacity: 0;
   }
 
+  .Modal__blings {
+    position: absolute;
+    right: 0;
+    left: 728px;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.35);
+  }
+
   .Modal--w6 {
     padding: calc(1.9083969466vw + 13.893129771px) calc(2.8625954198vw + 10.8396946565px);
     max-width: 584px;

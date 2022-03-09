@@ -38,10 +38,10 @@
   }
 }
 @media screen {
-  .RowBlock > .RowBlockColumn:nth-child(n+3) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .RowBlock > .RowBlockColumn:nth-child(n+3) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .RowBlock > .RowBlockColumn:nth-child(n+3)::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > .RowBlockColumn:nth-child(n+3)::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -57,10 +57,10 @@
   }
 }
 @media screen {
-  .RowBlock > .RowBlockColumn:first-child:last-child {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .RowBlock > .RowBlockColumn:first-child:last-child {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .RowBlock > .RowBlockColumn:first-child:last-child::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > .RowBlockColumn:first-child:last-child::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -76,10 +76,10 @@
   }
 }
 @media screen {
-  .RowBlock > :not(.RowBlockColumn) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .RowBlock > :not(.RowBlockColumn) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .RowBlock > :not(.RowBlockColumn)::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > :not(.RowBlockColumn)::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -147,10 +147,10 @@
   }
 }
 @media screen {
-  :not(.RowBlock) > .RowBlockColumn {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(.RowBlock) > .RowBlockColumn {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  :not(.RowBlock) > .RowBlockColumn::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(.RowBlock) > .RowBlockColumn::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

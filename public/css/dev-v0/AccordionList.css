@@ -56,10 +56,10 @@
   }
 }
 @media screen {
-  button.AccordionList__button:not([aria-controls]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) button.AccordionList__button:not([aria-controls]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  button.AccordionList__button:not([aria-controls])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) button.AccordionList__button:not([aria-controls])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

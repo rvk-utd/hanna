@@ -129,10 +129,10 @@
     overflow: auto;
   }
 
-  .Gallerty__track {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Gallerty__track {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .Gallerty__track::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Gallerty__track::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

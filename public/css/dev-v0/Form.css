@@ -17,10 +17,10 @@
   }
 }
 @media screen {
-  .Form--align--right.Form--wide {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Form--align--right.Form--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .Form--align--right.Form--wide::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Form--align--right.Form--wide::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

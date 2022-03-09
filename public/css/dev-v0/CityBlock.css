@@ -95,14 +95,14 @@
   }
 }
 @media screen {
-  .CityBlock__summary li,
-.CityBlock__summary [class],
-.CityBlock__summary blockquote {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CityBlock__summary li,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CityBlock__summary [class],
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CityBlock__summary blockquote {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .CityBlock__summary li::before,
-.CityBlock__summary [class]::before,
-.CityBlock__summary blockquote::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .CityBlock__summary li::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .CityBlock__summary [class]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .CityBlock__summary blockquote::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

@@ -306,26 +306,26 @@ button.NameCard__contactinfo__item:focus-visible::after {
     margin-top: var(--space-1);
   }
 }
-.NameCard__location p,
-.NameCard__location div,
-.NameCard__location ul,
-.NameCard__hours p,
-.NameCard__hours div,
-.NameCard__hours ul,
-.NameCard__aboutText p,
-.NameCard__aboutText div,
-.NameCard__aboutText ul {
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__location p,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__location div,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__location ul,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__hours p,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__hours div,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__hours ul,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__aboutText p,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__aboutText div,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .NameCard__aboutText ul {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
 }
-.NameCard__location p::before,
-.NameCard__location div::before,
-.NameCard__location ul::before,
-.NameCard__hours p::before,
-.NameCard__hours div::before,
-.NameCard__hours ul::before,
-.NameCard__aboutText p::before,
-.NameCard__aboutText div::before,
-.NameCard__aboutText ul::before {
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__location p::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__location div::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__location ul::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__hours p::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__hours div::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__hours ul::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__aboutText p::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__aboutText div::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__aboutText ul::before {
   all: initial !important;
   order: -999 !important;
   font-family: sans-serif !important;

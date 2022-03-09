@@ -40,14 +40,14 @@
     margin-bottom: 2em;
   }
 
-  .HeroBlock__summary li,
-.HeroBlock__summary [class],
-.HeroBlock__summary blockquote {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .HeroBlock__summary li,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .HeroBlock__summary [class],
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .HeroBlock__summary blockquote {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .HeroBlock__summary li::before,
-.HeroBlock__summary [class]::before,
-.HeroBlock__summary blockquote::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary li::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary [class]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary blockquote::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

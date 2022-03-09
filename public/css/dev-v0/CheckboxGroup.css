@@ -114,10 +114,10 @@
     margin-right: 0.5rem;
     font-size: 0.625rem;
   }
-  .Checkbox__error:not([id]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Checkbox__error:not([id]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .Checkbox__error:not([id])::after {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Checkbox__error:not([id])::after {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

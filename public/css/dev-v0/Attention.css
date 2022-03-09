@@ -7,10 +7,10 @@
     padding-right: var(--grid-column);
   }
 
-  .Attention--strong {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Attention--strong {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .Attention--strong::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Attention--strong::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

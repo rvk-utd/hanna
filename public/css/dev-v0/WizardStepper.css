@@ -85,12 +85,12 @@ button.WizardStepper__step:active {
     --WizardStepper-lineColor: var(--color-faxafloi-100);
   }
 
-  :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),
-.WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step])::before,
-.WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step])::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

@@ -6,10 +6,10 @@
     -moz-column-gap: 5.0505050505%;
          column-gap: 5.0505050505%;
   }
-  [class].experimental_Columnized {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) [class].experimental_Columnized {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  [class].experimental_Columnized::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) [class].experimental_Columnized::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

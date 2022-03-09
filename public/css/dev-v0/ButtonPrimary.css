@@ -201,10 +201,10 @@
   }
 }
 @media screen {
-  .ButtonPrimary--small.ButtonPrimary--wide {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonPrimary--small.ButtonPrimary--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .ButtonPrimary--small.ButtonPrimary--wide::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonPrimary--small.ButtonPrimary--wide::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -220,10 +220,10 @@
   }
 }
 @media screen {
-  .ButtonPrimary--go--back[data-icon], .ButtonPrimary--go--forward[data-icon] {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonPrimary--go--back[data-icon], html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonPrimary--go--forward[data-icon] {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .ButtonPrimary--go--back[data-icon]::before, .ButtonPrimary--go--forward[data-icon]::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonPrimary--go--back[data-icon]::before, html:not([data-disable-css-warnings-with-abandon=true]) .ButtonPrimary--go--forward[data-icon]::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -239,10 +239,10 @@
   }
 }
 @media screen {
-  .ButtonPrimary--go-back.ButtonPrimary--destructive, .ButtonPrimary--go--forward.ButtonPrimary--destructive {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonPrimary--go-back.ButtonPrimary--destructive, html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonPrimary--go--forward.ButtonPrimary--destructive {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .ButtonPrimary--go-back.ButtonPrimary--destructive::before, .ButtonPrimary--go--forward.ButtonPrimary--destructive::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonPrimary--go-back.ButtonPrimary--destructive::before, html:not([data-disable-css-warnings-with-abandon=true]) .ButtonPrimary--go--forward.ButtonPrimary--destructive::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

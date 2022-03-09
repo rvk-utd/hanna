@@ -528,10 +528,10 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
   }
 }
 @media screen {
-  .MainMenu:not(nav) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu:not(nav) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .MainMenu:not(nav)::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu:not(nav)::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -546,10 +546,10 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     content: "Please use <nav/>" !important;
   }
 
-  .MainMenu:not([aria-label]):not([aria-labelledby]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu:not([aria-label]):not([aria-labelledby]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .MainMenu:not([aria-label]):not([aria-labelledby])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu:not([aria-label]):not([aria-labelledby])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -564,10 +564,10 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     content: "Please add `aria-label` or `aria-labelledby`" !important;
   }
 
-  .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .MainMenu[aria-labelledby] > .MainMenu__title:not([id])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu[aria-labelledby] > .MainMenu__title:not([id])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -582,10 +582,10 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     content: "Please add `id` attribute" !important;
   }
 
-  .MainMenu__list:first-child {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu__list:first-child {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .MainMenu__list:first-child::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu__list:first-child::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -600,10 +600,10 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     content: "`.MainMenu__title` missing" !important;
   }
 
-  .MainMenu__item:first-child:not(.MainMenu__item--home) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .MainMenu__item:first-child:not(.MainMenu__item--home) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .MainMenu__item:first-child:not(.MainMenu__item--home)::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .MainMenu__item:first-child:not(.MainMenu__item--home)::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

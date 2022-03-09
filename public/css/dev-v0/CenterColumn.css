@@ -8,10 +8,10 @@
     max-width: none;
     margin-left: 0;
   }
-  .CenterColumn > [class*="--align--"], .CenterColumn > [class*="--wide"], .CenterColumn > .TextBlock--labelled, .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CenterColumn > [class*="--align--"], html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CenterColumn > [class*="--wide"], html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CenterColumn > .TextBlock--labelled, html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .CenterColumn > [class*="--align--"]::before, .CenterColumn > [class*="--wide"]::before, .CenterColumn > .TextBlock--labelled::before, .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr)::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > [class*="--align--"]::before, html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > [class*="--wide"]::before, html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > .TextBlock--labelled::before, html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr)::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -25,10 +25,10 @@
     padding: 0 0.5em !important;
     content: "Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage`, `RelatedLinks`, `ArticleMeta`, `VSpacer`, `<hr/>` inside this parent wrapper." !important;
   }
-  .CenterColumn > [class*="--align--"][class]::before, .CenterColumn > [class*="--wide"][class]::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > [class*="--align--"][class]::before, html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > [class*="--wide"][class]::before {
     content: "Do not use --align-- or --wide modifiers." !important;
   }
-  .CenterColumn > .TextBlock--labelled[class]::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > .TextBlock--labelled[class]::before {
     content: "Do not use the --labelled modifier." !important;
   }
 }

@@ -48,10 +48,10 @@
   }
 }
 @media screen {
-  .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical)::after {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical)::after {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -67,10 +67,10 @@
   }
 }
 @media screen {
-  .Alert:not([role=alert]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .Alert:not([role=alert]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  .Alert:not([role=alert])::after {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Alert:not([role=alert])::after {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;

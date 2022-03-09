@@ -938,20 +938,20 @@ blockquote {
     margin: 0;
   }
 
-  p ul,
-p ol,
-p div,
-p p,
-p dl,
-p blockquote {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p ul,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p ol,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p div,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p p,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p dl,
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) p blockquote {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  p ul::before,
-p ol::before,
-p div::before,
-p p::before,
-p dl::before,
-p blockquote::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) p ul::before,
+html:not([data-disable-css-warnings-with-abandon=true]) p ol::before,
+html:not([data-disable-css-warnings-with-abandon=true]) p div::before,
+html:not([data-disable-css-warnings-with-abandon=true]) p p::before,
+html:not([data-disable-css-warnings-with-abandon=true]) p dl::before,
+html:not([data-disable-css-warnings-with-abandon=true]) p blockquote::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -1017,12 +1017,12 @@ td {
     border-bottom: var(--link-underline--hover);
   }
 
-  a[href="#"],
-a:not([href]) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) a[href="#"],
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) a:not([href]) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  a[href="#"]::before,
-a:not([href])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) a[href="#"]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) a:not([href])::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -1037,10 +1037,10 @@ a:not([href])::before {
     content: "Use <button/> instead" !important;
   }
 
-  button[href] {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) button[href] {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  button[href]::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) button[href]::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -1133,10 +1133,10 @@ ol[data-oltype=i] > li::before {
     content: counter(ol, upper-roman) ". ";
   }
 
-  :not(ul):not(ol) > li {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(ul):not(ol) > li {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  :not(ul):not(ol) > li::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(ul):not(ol) > li::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -1151,12 +1151,14 @@ ol[data-oltype=i] > li::before {
     content: "<li/> must be inside <ol/> or <ul/>" !important;
   }
 
-  ol > :not(li),
-ul > :not(li) {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) ol > :not(li),
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) ul > :not(li),
+html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) menu > :not(li) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  ol > :not(li)::before,
-ul > :not(li)::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) ol > :not(li)::before,
+html:not([data-disable-css-warnings-with-abandon=true]) ul > :not(li)::before,
+html:not([data-disable-css-warnings-with-abandon=true]) menu > :not(li)::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -1168,7 +1170,7 @@ ul > :not(li)::before {
     color: red !important;
     background-color: rgba(255, 230, 230, 0.5) !important;
     padding: 0 0.5em !important;
-    content: "Lists may only contain <ll/>s" !important;
+    content: "Lists may only contain <li/>s" !important;
   }
 
   hr {
@@ -1190,10 +1192,10 @@ ul > :not(li)::before {
     float: left;
   }
 
-  :not(fieldset) > legend {
+  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(fieldset) > legend {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  :not(fieldset) > legend::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(fieldset) > legend::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
