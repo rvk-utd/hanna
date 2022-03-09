@@ -8,7 +8,7 @@
     max-width: none;
     margin-left: 0;
   }
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CenterColumn > [class*="--align--"], html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CenterColumn > [class*="--wide"], html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CenterColumn > .TextBlock--labelled, html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > [class*="--align--"], html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > [class*="--wide"], html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > .TextBlock--labelled, html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > [class*="--align--"]::before, html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > [class*="--wide"]::before, html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > .TextBlock--labelled::before, html:not([data-disable-css-warnings-with-abandon=true]) .CenterColumn > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr)::before {
@@ -62,7 +62,7 @@
     max-width: none;
     margin-left: 0;
   }
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ContentArticle > [class*="--align--"], html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ContentArticle > [class*="--wide"], html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ContentArticle > .TextBlock--labelled, html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ContentArticle > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ContentArticle > [class*="--align--"], html:not([data-disable-css-warnings-with-abandon=true]) .ContentArticle > [class*="--wide"], html:not([data-disable-css-warnings-with-abandon=true]) .ContentArticle > .TextBlock--labelled, html:not([data-disable-css-warnings-with-abandon=true]) .ContentArticle > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .ContentArticle > [class*="--align--"]::before, html:not([data-disable-css-warnings-with-abandon=true]) .ContentArticle > [class*="--wide"]::before, html:not([data-disable-css-warnings-with-abandon=true]) .ContentArticle > .TextBlock--labelled::before, html:not([data-disable-css-warnings-with-abandon=true]) .ContentArticle > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr)::before {

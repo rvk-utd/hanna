@@ -163,7 +163,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonTertiary[data-icon] {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary[data-icon] {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary[data-icon]::before {
@@ -182,7 +182,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonTertiary--go--back.ButtonTertiary--destructive {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary--go--back.ButtonTertiary--destructive {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary--go--back.ButtonTertiary--destructive::before {
@@ -201,7 +201,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonTertiary--go--forward {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary--go--forward {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .ButtonTertiary--go--forward::before {

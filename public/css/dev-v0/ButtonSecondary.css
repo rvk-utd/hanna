@@ -206,7 +206,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonSecondary--small.ButtonSecondary--wide {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--small.ButtonSecondary--wide {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--small.ButtonSecondary--wide::before {
@@ -225,7 +225,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonSecondary--go--back[data-icon], html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonSecondary--go--forward[data-icon] {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--go--back[data-icon], html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--go--forward[data-icon] {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--go--back[data-icon]::before, html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--go--forward[data-icon]::before {
@@ -244,7 +244,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonSecondary--go-back.ButtonSecondary--destructive, html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .ButtonSecondary--go--forward.ButtonSecondary--destructive {
+  html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--go-back.ButtonSecondary--destructive, html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--go--forward.ButtonSecondary--destructive {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--go-back.ButtonSecondary--destructive::before, html:not([data-disable-css-warnings-with-abandon=true]) .ButtonSecondary--go--forward.ButtonSecondary--destructive::before {

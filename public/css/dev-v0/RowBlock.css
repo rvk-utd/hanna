@@ -38,7 +38,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .RowBlock > .RowBlockColumn:nth-child(n+3) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > .RowBlockColumn:nth-child(n+3) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > .RowBlockColumn:nth-child(n+3)::before {
@@ -57,7 +57,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .RowBlock > .RowBlockColumn:first-child:last-child {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > .RowBlockColumn:first-child:last-child {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > .RowBlockColumn:first-child:last-child::before {
@@ -76,7 +76,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) .RowBlock > :not(.RowBlockColumn) {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > :not(.RowBlockColumn) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .RowBlock > :not(.RowBlockColumn)::before {
@@ -147,7 +147,7 @@
   }
 }
 @media screen {
-  html:not([data-disable-css-warnings-with-abandon-with-abandon=true]) :not(.RowBlock) > .RowBlockColumn {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(.RowBlock) > .RowBlockColumn {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) :not(.RowBlock) > .RowBlockColumn::before {
