@@ -7,7 +7,11 @@
 }
 
 @media #{$mq-tablet_up} {
-	$toPct: 100% / $grid-contentMaxWidth;
+	$baseW: $grid-contentMaxWidth;
+
+	:root {
+		--Bling--baseWidth: #{$var--grid-12};
+	}
 
 	.Bling {
 		display: block; // override default hidden state
@@ -27,7 +31,7 @@
 
 	.Bling > svg {
 		transform: translate(-50%, -50%); // Default to --vertical--center
-		width: calc(var(--bling-width) * #{$toPct});
+		width: calc(var(--bling-width) / #{$baseW} * var(--Bling--baseWidth));
 		height: auto;
 		display: block;
 		position: relative;
@@ -53,11 +57,13 @@
 
 	.Bling--align--left > svg,
 	.Bling--align--right > svg {
-		left: calc(var(--bling-offset) * #{$toPct});
+		left: calc(var(--bling-offset) / #{$baseW} * var(--Bling--baseWidth));
 	}
 	.Bling--align--left-ish > svg,
 	.Bling--align--right-ish > svg {
-		left: calc(var(--bling-offset-ish, var(--bling-offset)) * #{$toPct});
+		left: calc(
+			var(--bling-offset-ish, var(--bling-offset)) / #{$baseW} * var(--Bling--baseWidth)
+		);
 		@if isDevMode() {
 			// prettier-ignore
 			--notDefined--bling-offset-ish: var(--bling-offset-ish, );
@@ -73,7 +79,9 @@
 			--bling-offset-center,
 			var(--bling-offset-ish, var(--bling-offset))
 		);
-		left: calc(var(--postcss-calc-bug-workaround) * #{$toPct});
+		left: calc(
+			var(--postcss-calc-bug-workaround) / #{$baseW} * var(--Bling--baseWidth)
+		);
 		@if isDevMode() {
 			// prettier-ignore
 			--notDefined--bling-offset-center: var(--bling-offset-center, );
