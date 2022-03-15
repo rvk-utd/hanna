@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add new `Bling` SVG asset — `circle-waves-vertical`
 - fix: Make Bling sizing more resilient to different sized containers
 
 ## 0.8.43

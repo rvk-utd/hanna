@@ -1,0 +1,13 @@
+<svg viewBox="0 0 220 599" xmlns="http://www.w3.org/2000/svg"
+	style="
+		--bling-width: 220;
+		--bling-offset: 46;
+		--bling-offset-ish: 150;
+		--bling-offset-center: 500;
+	"
+>
+	<circle cx="64" cy="64" r="64"
+		fill="var(--bling-color-a, #f3f4f5)"/>
+	<path d="M171.677 527.902L220 455.727L219.82 455.726L171.677 384.628L220 312.453L171.677 241.355L220 169L147.246 169L100 241.355L147.246 312.453L100 384.628L147.246 455.727L100 527.902L147.246 599H219.82L171.677 527.902Z"
+		fill="var(--bling-color-b, #ebeced)"/>
+</svg>
