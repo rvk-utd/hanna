@@ -23,7 +23,8 @@
 	}
 	.#{$BEM}__label {
 		display: inline-block;
-		padding: prem(8) 0;
+		font: $var--font-button;
+		padding: $var--space-1 0;
 		padding-left: prem(36);
 		position: relative;
 	}
@@ -36,28 +37,32 @@
 		height: prem(20);
 		line-height: prem(18);
 		@if $radio {
-			font-size: prem(14);
 			border-radius: 50%;
+			font-size: prem(14);
 		} @else {
 			font-size: prem(12);
 		}
-		border: $var--border-dark;
+		border: prem(1) solid $var--color-suld-100;
 		transition: all 200ms ease-in;
-		transition-property: box-shadow, border-color, background-color;
+		transition-property: box-shadow, border-color, background-color, outline;
+		outline: 0 solid transparent;
 	}
 
 	// Invalid
 	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label {
-		color: $var--color-heidmork-150;
+		color: $var--color-heidmork-100;
 	}
-	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label::before,
-	.#{$BEM}__input[aria-invalid='true']:checked + .#{$BEM}__label::before {
+	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label::before {
 		border-color: $var--color-heidmork-100;
 	}
 
-	// Focus + Hover
-	.#{$BEM}__label[class]:hover::before,
-	.#{$BEM}__input:focus + .#{$BEM}__label::before {
+	// Focus/Hover
+	.#{$BEM}__label[class][class]:hover,
+	.#{$BEM}__input[class]:focus + .#{$BEM}__label {
+		color: $color-suld-200;
+	}
+	.#{$BEM}__label[class][class]:hover::before,
+	.#{$BEM}__input[class]:focus + .#{$BEM}__label::before {
 		border-color: $var--color-faxafloi-100;
 		box-shadow: inset 0 0 0 2px $var--color-faxafloi-100;
 	}
@@ -73,16 +78,29 @@
 		background-color: $var--color-faxafloi-100;
 		color: $var--color-suld-0;
 	}
+	// Checked + Invalid
+	.#{$BEM}__input[aria-invalid='true']:checked + .#{$BEM}__label::before {
+		background-color: $var--color-heidmork-100;
+	}
+
+	// Checked + Focus/Hover
+	.#{$BEM}__input:checked + .#{$BEM}__label:hover::before,
+	.#{$BEM}__input:checked:focus + .#{$BEM}__label::before {
+		background-color: $var--color-faxafloi-100;
+		outline: prem(1) solid $var--color-faxafloi-100;
+		outline-offset: prem(1);
+	}
 
 	// Disabled
-	.#{$BEM}__input:disabled + .#{$BEM}__label {
+	.#{$BEM}__input[class]:disabled + .#{$BEM}__label {
 		color: $var--color-suld-150;
 	}
-	.#{$BEM}__input:disabled + .#{$BEM}__label::before {
+	.#{$BEM}__input[class]:disabled + .#{$BEM}__label::before {
 		border-color: $var--color-suld-100;
 		background-color: $var--color-suld-50;
 		color: $var--color-suld-100;
 		box-shadow: none;
+		outline: 0;
 	}
 	// Disabled + Checked
 	@if $radio {
@@ -104,73 +122,68 @@
 
 @mixin TogglerButtonsGroup($BEM) {
 	.#{$BEM} > .FormField__options {
-		margin: 0 prem(-15) prem(-9);
-		display: flex;
-		flex-flow: row wrap;
+		@include media($mq-phablet_up) {
+			margin-right: $var--grid-0-1--neg;
+			display: flex;
+			flex-flow: row wrap;
+		}
 	}
 	.#{$BEM} > * > .FormField__options__item {
-		margin-left: prem(15);
-		margin-right: prem(15);
-		margin-bottom: prem(30);
-	}
-	.#{$BEM}--slim > * > .FormField__options__item > label {
-		padding: prem(10) prem(36) prem(10) prem(20);
-		border-radius: prem(3);
-	}
+		margin-bottom: $var--space-2;
 
-	$mar: prem(30);
-	@media #{$mq-tablet_up} {
-		.#{$BEM}--2col > * > .FormField__options__item {
-			width: calc(50% - #{$mar});
+		@include media($mq-phablet_up) {
+			margin-bottom: $var--grid-0-1;
+			margin-right: $var--grid-0-1;
+			width: $var--grid-6;
 		}
-		.#{$BEM}--3col > * > .FormField__options__item {
-			width: calc(33.333% - #{$mar});
+		@include media($mq-netbook) {
+			width: $var--grid-4;
 		}
+		@include media($mq-wide) {
+			width: $var--grid-3;
+		}
+	}
+	.#{$BEM}--slim {
+		@include WARNING__('Deprecated: .' + $BEM + '--slim is no longer supported');
+	}
+	.#{$BEM}--2col {
+		@include WARNING__('Deprecated: .' + $BEM + '--2col is no longer supported');
+	}
+	.#{$BEM}--3col {
+		@include WARNING__('Deprecated: .' + $BEM + '--3col is no longer supported');
 	}
 }
 
 @mixin TogglerButtonsKnob($BEM, $radio: ($BEM==RadioButton)) {
-	.#{$BEM}__input {
-		@include sr-only();
-	}
+	@include TogglerKnob($BEM, $radio);
+
 	.#{$BEM}__label {
-		font-weight: 700;
-		font-size: prem(16);
-		display: inline-block;
+		font-weight: $var--font-weight--bold;
 		width: 100%;
-		padding: prem(22) prem(20) prem(20) prem(24);
-		padding-right: prem(46);
-		position: relative;
+		height: 100%;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		padding: $var--space-3;
+		padding: auto;
+		padding-left: prem(60);
 		border: prem(1) solid $var--color-suld-100;
 		transition: all 200ms ease-in;
 		transition-property: box-shadow, color, border-color, background-color;
 	}
-
-	.#{$BEM}__label::before {
-		@include icon('');
-		position: absolute;
-		top: prem(8);
-		right: prem(8);
-		width: prem(12);
-		height: prem(12);
-		line-height: prem(10);
-		@if $radio {
-			font-size: prem(10);
-			border-radius: 50%;
-		} @else {
-			font-size: prem(8);
-		}
-		border: $var--border-dark;
-		transition: all 200ms ease-in;
-		transition-property: box-shadow, color, border-color, background-color;
+	.#{$BEM}__label > small {
+		margin-top: $var--space-0_5;
+		display: block;
+		font: $var--font-label;
+		font-weight: $var--font-weight--normal;
 	}
 
-	// smalltext
-	.#{$BEM}__label > small {
-		display: block;
-		font-size: prem(12);
-		font-weight: 400;
-		color: $var--color-blackish;
+	.#{$BEM}__label::before {
+		position: absolute;
+		top: 50%;
+		left: $var--space-3;
+		margin-top: prem(-10);
+		margin-left: 0;
 	}
 
 	// Focus + Hover
@@ -180,52 +193,21 @@
 		box-shadow: inset 0 0 0 2px $var--color-faxafloi-100;
 	}
 
-	.#{$BEM}__label:hover::before,
-	.#{$BEM}__input:focus + .#{$BEM}__label::before {
-		border-color: $var--color-faxafloi-100;
-	}
-
-	// Checked
-	.#{$BEM}__input:checked + .#{$BEM}__label {
-		color: $var--color-faxafloi-100;
-		border-color: $var--color-faxafloi-100;
-	}
-	.#{$BEM}__input:checked + .#{$BEM}__label::before {
-		@if $radio {
-			content: $icons-radioball;
-		} @else {
-			content: $icons-checkmark;
-		}
-		border-color: transparent;
-		background-color: $var--color-faxafloi-100;
-		color: $var--color-suld-0;
-	}
-
-	// Invalid
-	.#{$BEM}__input[aria-invalid='true'] + .#{$BEM}__label {
-		color: $var--color-heidmork-100;
-		border-color: $var--color-heidmork-100;
+	// Checked + Focus/Hover
+	.#{$BEM}__input:checked + .#{$BEM}__label:hover::before,
+	.#{$BEM}__input:checked:focus + .#{$BEM}__label::before {
+		outline: 0;
 	}
 
 	// Disabled
 	.#{$BEM}__input:disabled + .#{$BEM}__label {
 		color: $var--color-suld-150;
 		border-color: $var--color-suld-100;
+		background-color: $var--color-suld-50;
 		box-shadow: none;
 	}
 	.#{$BEM}__input:disabled + .#{$BEM}__label > small {
 		color: $var--color-suld-150;
-	}
-	.#{$BEM}__input:disabled + .#{$BEM}__label::before {
-		border-color: $var--color-suld-100;
-		background-color: $var--color-suld-50;
-		color: $var--color-suld-100;
-		box-shadow: none;
-	}
-	// Disabled + Checked
-	@if $radio {
-		.#{$BEM}__input:disabled:checked + .#{$BEM}__label::before {
-		}
 	}
 
 	// __error
@@ -236,6 +218,8 @@
 		}
 	}
 }
+
+// ===========================================================================
 
 // ===========================================================================
 
@@ -287,7 +271,7 @@ $InputField-paddingH: grid-units(2);
 @mixin InputField--focused() {
 	--input-border-color: #{$var--color-faxafloi-100};
 	color: $var--color-suld-200;
-	box-shadow: inset 0 0 0 1px var(--input-border-color);
+	box-shadow: inset 0 0 0 prem(1) var(--input-border-color);
 	outline: 0;
 }
 @mixin InputField--disabled() {

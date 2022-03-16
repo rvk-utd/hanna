@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add CSS variables `--font-button`, `--font-button-(size|leading)`
+- feat: Update styling for `.Checkbox`, `.Radio`, `.CheckboxButtonsGroup` and
+  `.CheckboxButtonsGroup`
 - feat: Add styling for `.Attention--small`
 - feat: Add styling for `.Modal__blings` container
 - feat: Change styling of `.Modal` to match newer design
