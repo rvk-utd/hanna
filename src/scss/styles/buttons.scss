@@ -44,6 +44,8 @@
 	color: var(--Button--color);
 	background-color: var(--Button--backgroundColor);
 	display: inline-block;
+	font: $var--font-button;
+	font-weight: $font-weight--bold;
 	line-height: calc(var(--Button--height) - 2 * var(--Button--border));
 	margin-right: $var--Button--gapH;
 	margin-bottom: $var--Button--gapV;
@@ -56,8 +58,6 @@
 	width: max-content;
 	max-width: 100%;
 	min-width: between_phone_netbook(80, 128);
-	font-size: prem($font-btn-size);
-	font-weight: $font-weight--bold;
 
 	@media #{$mq-wide} {
 		min-width: 128px;

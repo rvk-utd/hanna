@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add CSS variables `--font-button`, `--font-button-(size|leading)`
 - feat: Add styling for `.Attention--small`
 - feat: Add styling for `.Modal__blings` container
 - feat: Change styling of `.Modal` to match newer design
@@ -88,7 +89,7 @@ _2022-02-08_
 
 - feat: Improve mobile `MainMenu` and `Layout__header` styling
 - feat: Remove support for never-used `MainMenu__greeting` message
-- feat: Make `--font-bd-l-size` and `--font-bd-l-size` non-scaling
+- feat: Make `--font-bd-l-size` and `--font-bd-l-leading` non-scaling
 - fix: Revert global hiding of `Layout`-level `Alert` banners on small screens
 - fix: Tweak styling of mobile menu button (`.Layout__header__skiplink`)
 - fix: Correct value for CSS token `--grid-edge--right--neg`
