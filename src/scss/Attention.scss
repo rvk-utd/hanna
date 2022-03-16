@@ -31,6 +31,9 @@
 		// margin-bottom: $var--baseVerticalMargin;
 		margin-bottom: 0;
 	}
+	.Attention:first-child {
+		margin-top: 0;
+	}
 	.Attention > p {
 		margin-bottom: $var--baseVerticalMargin;
 	}
