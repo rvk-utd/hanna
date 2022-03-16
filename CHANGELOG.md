@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.Attention--small`
 - feat: Add styling for `.Modal__blings` container
 - feat: Change styling of `.Modal` to match newer design
 - feat: Add new `Bling` SVG asset — `circle-waves-vertical`
