@@ -3,10 +3,22 @@
     margin: var(--baseVerticalMargin-2) 0;
     font: var(--font-bd-l);
     border-left: 0.5rem solid var(--theme-color-primary);
-    padding-left: calc(0.5 * var(--grid-column));
+    padding-left: var(--space-4);
     padding-right: var(--grid-column);
   }
 
+  .Attention--small {
+    font: var(--font-bd-s);
+    padding-left: var(--space-3);
+  }
+}
+@media screen and (max-width: 759px) {
+  .Attention {
+    padding-left: var(--space-2);
+    padding-right: 0;
+  }
+}
+@media screen {
   html:not([data-disable-css-warnings-with-abandon=true]) .Attention--strong {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
@@ -24,15 +36,23 @@
     padding: 0 0.5em !important;
     content: "Deprecated: `.Attention--strong` is no longer supported" !important;
   }
-
+}
+@media screen {
   .Attention:last-child {
     margin-bottom: 0;
   }
-
+}
+@media screen {
+  .Attention:first-child {
+    margin-top: 0;
+  }
+}
+@media screen {
   .Attention > p {
     margin-bottom: var(--baseVerticalMargin);
   }
-
+}
+@media screen {
   .Attention > p:last-child {
     margin-bottom: 0;
   }

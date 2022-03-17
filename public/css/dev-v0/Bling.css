@@ -4,6 +4,10 @@
   }
 }
 @media screen and (min-width: 760px) {
+  :root {
+    --Bling--baseWidth: var(--grid-12);
+  }
+
   .Bling {
     display: block;
     position: absolute;
@@ -20,7 +24,7 @@
 
   .Bling > svg {
     transform: translate(-50%, -50%);
-    width: calc(var(--bling-width) * 0.082781457%);
+    width: calc(var(--bling-width) / 1208 * var(--Bling--baseWidth));
     height: auto;
     display: block;
     position: relative;
@@ -39,12 +43,12 @@
 
   .Bling--align--left > svg,
 .Bling--align--right > svg {
-    left: calc(var(--bling-offset) * 0.082781457%);
+    left: calc(var(--bling-offset) / 1208 * var(--Bling--baseWidth));
   }
 
   .Bling--align--left-ish > svg,
 .Bling--align--right-ish > svg {
-    left: calc(var(--bling-offset-ish, var(--bling-offset)) * 0.082781457%);
+    left: calc( 			var(--bling-offset-ish, var(--bling-offset)) / 1208 * var(--Bling--baseWidth) 		);
     --notDefined--bling-offset-ish: var(--bling-offset-ish, );
     outline: var(--notDefined--bling-offset-ish) 10px dashed rgba(255, 0, 0, 0.25);
   }
@@ -55,7 +59,7 @@
     	--bling-offset-center,
     	var(--bling-offset-ish, var(--bling-offset))
     );
-    left: calc(var(--postcss-calc-bug-workaround) * 0.082781457%);
+    left: calc( 			var(--postcss-calc-bug-workaround) / 1208 * var(--Bling--baseWidth) 		);
     --notDefined--bling-offset-center: var(--bling-offset-center, );
     outline: var(--notDefined--bling-offset-center) 10px dashed rgba(255, 0, 0, 0.25);
   }

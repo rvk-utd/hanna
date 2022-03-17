@@ -177,6 +177,7 @@
 		var(--font-family);
 	--font-bd-l: var(--font-bd-l-size) / var(--font-bd-l-leading) var(--font-family);
 	--font-bd-s: var(--font-bd-s-size) / var(--font-bd-s-leading) var(--font-family);
+	--font-button: var(--font-button-size) / var(--font-button-leading) var(--font-family);
 	--font-label: var(--font-label-size) / var(--font-label-leading) var(--font-family);
 
 	// ---------------------------------------------------------------------------
@@ -199,6 +200,9 @@
 	--font-bd-l-leading: #{px($font-bd-l-leading)};
 	--font-bd-s-size: #{px($font-bd-s-size)};
 	--font-bd-s-leading: #{px($font-bd-s-leading)};
+
+	--font-button-size: #{px($font-button-size)};
+	--font-button-leading: #{px($font-button-leading)};
 
 	--font-label-size: #{px($font-label-size)};
 	--font-label-leading: #{px($font-label-leading)};

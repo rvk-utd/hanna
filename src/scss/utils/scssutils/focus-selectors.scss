@@ -18,8 +18,8 @@
 	}
 }
 
-// If you already set a universal (old-school) :focus style and you want to revert/hide those styles in
-// for mouse focus in supporting browsers
+// If you already set a universal (old-school) :focus style and
+// you want to revert/hide those styles in supporting browsers
 @mixin nonKeyboardFocus-selector() {
 	[data-js-focus-visible] &:focus:not([data-focus-visible-added]) {
 		@content;
