@@ -20,16 +20,11 @@
   }
 
   .CheckboxButton__label {
-    font-weight: 700;
-    font-size: 1rem;
     display: inline-block;
-    width: 100%;
-    padding: 1.375rem 1.25rem 1.25rem 1.5rem;
-    padding-right: 2.875rem;
+    font: var(--font-button);
+    padding: var(--space-1) 0;
+    padding-left: 2.25rem;
     position: relative;
-    border: 0.0625rem solid var(--color-suld-100);
-    transition: all 200ms ease-in;
-    transition-property: box-shadow, color, border-color, background-color;
   }
 
   .CheckboxButton__label::before {
@@ -46,39 +41,36 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 0.75rem;
-    height: 0.75rem;
-    line-height: 0.625rem;
-    font-size: 0.5rem;
-    border: var(--border-dark);
-    transition: all 200ms ease-in;
-    transition-property: box-shadow, color, border-color, background-color;
-  }
-
-  .CheckboxButton__label > small {
-    display: block;
+    float: left;
+    margin-top: 0.125rem;
+    margin-left: -2.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    line-height: 1.125rem;
     font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--color-blackish);
+    border: 0.0625rem solid var(--color-suld-100);
+    transition: all 200ms ease-in;
+    transition-property: box-shadow, border-color, background-color, outline;
+    outline: 0 solid transparent;
   }
 
-  .CheckboxButton__label:hover,
-.CheckboxButton__input:focus + .CheckboxButton__label {
+  .CheckboxButton__input[aria-invalid=true] + .CheckboxButton__label {
+    color: var(--color-heidmork-100);
+  }
+
+  .CheckboxButton__input[aria-invalid=true] + .CheckboxButton__label::before {
+    border-color: var(--color-heidmork-100);
+  }
+
+  .CheckboxButton__label[class][class]:hover,
+.CheckboxButton__input[class]:focus + .CheckboxButton__label {
+    color: #2a2b2c;
+  }
+
+  .CheckboxButton__label[class][class]:hover::before,
+.CheckboxButton__input[class]:focus + .CheckboxButton__label::before {
     border-color: var(--color-faxafloi-100);
     box-shadow: inset 0 0 0 2px var(--color-faxafloi-100);
-  }
-
-  .CheckboxButton__label:hover::before,
-.CheckboxButton__input:focus + .CheckboxButton__label::before {
-    border-color: var(--color-faxafloi-100);
-  }
-
-  .CheckboxButton__input:checked + .CheckboxButton__label {
-    color: var(--color-faxafloi-100);
-    border-color: var(--color-faxafloi-100);
   }
 
   .CheckboxButton__input:checked + .CheckboxButton__label::before {
@@ -88,14 +80,116 @@
     color: var(--color-suld-0);
   }
 
-  .CheckboxButton__input[aria-invalid=true] + .CheckboxButton__label {
+  .CheckboxButton__input[aria-invalid=true]:checked + .CheckboxButton__label::before {
+    background-color: var(--color-heidmork-100);
+  }
+
+  .CheckboxButton__input:checked + .CheckboxButton__label:hover::before,
+.CheckboxButton__input:checked:focus + .CheckboxButton__label::before {
+    background-color: var(--color-faxafloi-100);
+    outline: 0.0625rem solid var(--color-faxafloi-100);
+    outline-offset: 0.0625rem;
+  }
+
+  .CheckboxButton__input[class]:disabled + .CheckboxButton__label {
+    color: var(--color-suld-150);
+  }
+
+  .CheckboxButton__input[class]:disabled + .CheckboxButton__label::before {
+    border-color: var(--color-suld-100);
+    background-color: var(--color-suld-50);
+    color: var(--color-suld-100);
+    box-shadow: none;
+    outline: 0;
+  }
+
+  .CheckboxButton__error {
     color: var(--color-heidmork-100);
-    border-color: var(--color-heidmork-100);
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+    padding-left: 2.25rem;
+    margin-top: 0;
+  }
+  .CheckboxButton__error::before {
+    content: "";
+    display: inline-block;
+    text-indent: 0;
+    text-align: center;
+    vertical-align: top;
+    font-family: "icons", Arial, Helvetica, sans-serif;
+    speak: none;
+    font-weight: normal;
+    font-style: normal;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
+    margin-right: 0.5rem;
+    font-size: 0.625rem;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .CheckboxButton__error:not([id]) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .CheckboxButton__error:not([id])::after {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "should have id atribute to match input[aria-describedby]" !important;
+  }
+
+  .CheckboxButton__label {
+    font-weight: var(--font-weight--bold);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: var(--space-3);
+    padding: auto;
+    padding-left: 3.75rem;
+    border: 0.0625rem solid var(--color-suld-100);
+    transition: all 200ms ease-in;
+    transition-property: box-shadow, color, border-color, background-color;
+  }
+
+  .CheckboxButton__label > small {
+    margin-top: var(--space-0_5);
+    display: block;
+    font: var(--font-label);
+    font-weight: var(--font-weight--normal);
+  }
+
+  .CheckboxButton__label::before {
+    position: absolute;
+    top: 50%;
+    left: var(--space-3);
+    margin-top: -0.625rem;
+    margin-left: 0;
+  }
+
+  .CheckboxButton__label:hover,
+.CheckboxButton__input:focus + .CheckboxButton__label {
+    border-color: var(--color-faxafloi-100);
+    box-shadow: inset 0 0 0 2px var(--color-faxafloi-100);
+  }
+
+  .CheckboxButton__input:checked + .CheckboxButton__label:hover::before,
+.CheckboxButton__input:checked:focus + .CheckboxButton__label::before {
+    outline: 0;
   }
 
   .CheckboxButton__input:disabled + .CheckboxButton__label {
     color: var(--color-suld-150);
     border-color: var(--color-suld-100);
+    background-color: var(--color-suld-50);
     box-shadow: none;
   }
 
@@ -103,42 +197,95 @@
     color: var(--color-suld-150);
   }
 
-  .CheckboxButton__input:disabled + .CheckboxButton__label::before {
-    border-color: var(--color-suld-100);
-    background-color: var(--color-suld-50);
-    color: var(--color-suld-100);
-    box-shadow: none;
-  }
-
   .CheckboxButton__error {
     color: var(--color-heidmork-150);
     padding-left: 2.25rem;
   }
-
+}
+@media screen and (min-width: 480px) {
   .CheckboxButtonsGroup > .FormField__options {
-    margin: 0 -0.9375rem -0.5625rem;
+    margin-right: var(--grid-0-1--neg);
     display: flex;
     flex-flow: row wrap;
   }
-
+}
+@media screen {
   .CheckboxButtonsGroup > * > .FormField__options__item {
-    margin-left: 0.9375rem;
-    margin-right: 0.9375rem;
-    margin-bottom: 1.875rem;
-  }
-
-  .CheckboxButtonsGroup--slim > * > .FormField__options__item > label {
-    padding: 0.625rem 2.25rem 0.625rem 1.25rem;
-    border-radius: 0.1875rem;
+    margin-bottom: var(--space-2);
   }
 }
-@media screen and (min-width: 760px) {
-  .CheckboxButtonsGroup--2col > * > .FormField__options__item {
-    width: calc(50% - 1.875rem);
+@media screen and (min-width: 480px) {
+  .CheckboxButtonsGroup > * > .FormField__options__item {
+    margin-bottom: var(--grid-0-1);
+    margin-right: var(--grid-0-1);
+    width: var(--grid-6);
   }
-
-  .CheckboxButtonsGroup--3col > * > .FormField__options__item {
-    width: calc(33.333% - 1.875rem);
+}
+@media screen and (min-width: 980px) and (max-width: 1367px) {
+  .CheckboxButtonsGroup > * > .FormField__options__item {
+    width: var(--grid-4);
+  }
+}
+@media screen and (min-width: 1368px) {
+  .CheckboxButtonsGroup > * > .FormField__options__item {
+    width: var(--grid-3);
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .CheckboxButtonsGroup--slim {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .CheckboxButtonsGroup--slim::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Deprecated: .CheckboxButtonsGroup--slim is no longer supported" !important;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .CheckboxButtonsGroup--2col {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .CheckboxButtonsGroup--2col::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Deprecated: .CheckboxButtonsGroup--2col is no longer supported" !important;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .CheckboxButtonsGroup--3col {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .CheckboxButtonsGroup--3col::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Deprecated: .CheckboxButtonsGroup--3col is no longer supported" !important;
   }
 }
 @media screen {
@@ -154,16 +301,11 @@
   }
 
   .RadioButton__label {
-    font-weight: 700;
-    font-size: 1rem;
     display: inline-block;
-    width: 100%;
-    padding: 1.375rem 1.25rem 1.25rem 1.5rem;
-    padding-right: 2.875rem;
+    font: var(--font-button);
+    padding: var(--space-1) 0;
+    padding-left: 2.25rem;
     position: relative;
-    border: 0.0625rem solid var(--color-suld-100);
-    transition: all 200ms ease-in;
-    transition-property: box-shadow, color, border-color, background-color;
   }
 
   .RadioButton__label::before {
@@ -180,40 +322,37 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 0.75rem;
-    height: 0.75rem;
-    line-height: 0.625rem;
-    font-size: 0.625rem;
+    float: left;
+    margin-top: 0.125rem;
+    margin-left: -2.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    line-height: 1.125rem;
     border-radius: 50%;
-    border: var(--border-dark);
+    font-size: 0.875rem;
+    border: 0.0625rem solid var(--color-suld-100);
     transition: all 200ms ease-in;
-    transition-property: box-shadow, color, border-color, background-color;
+    transition-property: box-shadow, border-color, background-color, outline;
+    outline: 0 solid transparent;
   }
 
-  .RadioButton__label > small {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--color-blackish);
+  .RadioButton__input[aria-invalid=true] + .RadioButton__label {
+    color: var(--color-heidmork-100);
   }
 
-  .RadioButton__label:hover,
-.RadioButton__input:focus + .RadioButton__label {
+  .RadioButton__input[aria-invalid=true] + .RadioButton__label::before {
+    border-color: var(--color-heidmork-100);
+  }
+
+  .RadioButton__label[class][class]:hover,
+.RadioButton__input[class]:focus + .RadioButton__label {
+    color: #2a2b2c;
+  }
+
+  .RadioButton__label[class][class]:hover::before,
+.RadioButton__input[class]:focus + .RadioButton__label::before {
     border-color: var(--color-faxafloi-100);
     box-shadow: inset 0 0 0 2px var(--color-faxafloi-100);
-  }
-
-  .RadioButton__label:hover::before,
-.RadioButton__input:focus + .RadioButton__label::before {
-    border-color: var(--color-faxafloi-100);
-  }
-
-  .RadioButton__input:checked + .RadioButton__label {
-    color: var(--color-faxafloi-100);
-    border-color: var(--color-faxafloi-100);
   }
 
   .RadioButton__input:checked + .RadioButton__label::before {
@@ -223,52 +362,170 @@
     color: var(--color-suld-0);
   }
 
-  .RadioButton__input[aria-invalid=true] + .RadioButton__label {
-    color: var(--color-heidmork-100);
-    border-color: var(--color-heidmork-100);
+  .RadioButton__input[aria-invalid=true]:checked + .RadioButton__label::before {
+    background-color: var(--color-heidmork-100);
+  }
+
+  .RadioButton__input:checked + .RadioButton__label:hover::before,
+.RadioButton__input:checked:focus + .RadioButton__label::before {
+    background-color: var(--color-faxafloi-100);
+    outline: 0.0625rem solid var(--color-faxafloi-100);
+    outline-offset: 0.0625rem;
+  }
+
+  .RadioButton__input[class]:disabled + .RadioButton__label {
+    color: var(--color-suld-150);
+  }
+
+  .RadioButton__input[class]:disabled + .RadioButton__label::before {
+    border-color: var(--color-suld-100);
+    background-color: var(--color-suld-50);
+    color: var(--color-suld-100);
+    box-shadow: none;
+    outline: 0;
+  }
+
+  .RadioButton__input:disabled:checked + .RadioButton__label::before {
+    background-color: var(--color-suld-100);
+    color: var(--color-suld-50);
+  }
+
+  .RadioButton__label {
+    font-weight: var(--font-weight--bold);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: var(--space-3);
+    padding: auto;
+    padding-left: 3.75rem;
+    border: 0.0625rem solid var(--color-suld-100);
+    transition: all 200ms ease-in;
+    transition-property: box-shadow, color, border-color, background-color;
+  }
+
+  .RadioButton__label > small {
+    margin-top: var(--space-0_5);
+    display: block;
+    font: var(--font-label);
+    font-weight: var(--font-weight--normal);
+  }
+
+  .RadioButton__label::before {
+    position: absolute;
+    top: 50%;
+    left: var(--space-3);
+    margin-top: -0.625rem;
+    margin-left: 0;
+  }
+
+  .RadioButton__label:hover,
+.RadioButton__input:focus + .RadioButton__label {
+    border-color: var(--color-faxafloi-100);
+    box-shadow: inset 0 0 0 2px var(--color-faxafloi-100);
+  }
+
+  .RadioButton__input:checked + .RadioButton__label:hover::before,
+.RadioButton__input:checked:focus + .RadioButton__label::before {
+    outline: 0;
   }
 
   .RadioButton__input:disabled + .RadioButton__label {
     color: var(--color-suld-150);
     border-color: var(--color-suld-100);
+    background-color: var(--color-suld-50);
     box-shadow: none;
   }
 
   .RadioButton__input:disabled + .RadioButton__label > small {
     color: var(--color-suld-150);
   }
-
-  .RadioButton__input:disabled + .RadioButton__label::before {
-    border-color: var(--color-suld-100);
-    background-color: var(--color-suld-50);
-    color: var(--color-suld-100);
-    box-shadow: none;
-  }
-
+}
+@media screen and (min-width: 480px) {
   .RadioButtonsGroup > .FormField__options {
-    margin: 0 -0.9375rem -0.5625rem;
+    margin-right: var(--grid-0-1--neg);
     display: flex;
     flex-flow: row wrap;
   }
-
+}
+@media screen {
   .RadioButtonsGroup > * > .FormField__options__item {
-    margin-left: 0.9375rem;
-    margin-right: 0.9375rem;
-    margin-bottom: 1.875rem;
-  }
-
-  .RadioButtonsGroup--slim > * > .FormField__options__item > label {
-    padding: 0.625rem 2.25rem 0.625rem 1.25rem;
-    border-radius: 0.1875rem;
+    margin-bottom: var(--space-2);
   }
 }
-@media screen and (min-width: 760px) {
-  .RadioButtonsGroup--2col > * > .FormField__options__item {
-    width: calc(50% - 1.875rem);
+@media screen and (min-width: 480px) {
+  .RadioButtonsGroup > * > .FormField__options__item {
+    margin-bottom: var(--grid-0-1);
+    margin-right: var(--grid-0-1);
+    width: var(--grid-6);
   }
-
-  .RadioButtonsGroup--3col > * > .FormField__options__item {
-    width: calc(33.333% - 1.875rem);
+}
+@media screen and (min-width: 980px) and (max-width: 1367px) {
+  .RadioButtonsGroup > * > .FormField__options__item {
+    width: var(--grid-4);
+  }
+}
+@media screen and (min-width: 1368px) {
+  .RadioButtonsGroup > * > .FormField__options__item {
+    width: var(--grid-3);
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RadioButtonsGroup--slim {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .RadioButtonsGroup--slim::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Deprecated: .RadioButtonsGroup--slim is no longer supported" !important;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RadioButtonsGroup--2col {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .RadioButtonsGroup--2col::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Deprecated: .RadioButtonsGroup--2col is no longer supported" !important;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .RadioButtonsGroup--3col {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .RadioButtonsGroup--3col::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Deprecated: .RadioButtonsGroup--3col is no longer supported" !important;
   }
 }
 /*# sourceMappingURL=CheckboxButtonsGroup.css.map */

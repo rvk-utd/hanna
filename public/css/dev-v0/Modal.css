@@ -5,73 +5,139 @@
     --grid-margin--right: var(--grid-margin);
   }
 
-  html.modal-open .Modal {
-    overflow-y: auto;
-  }
-
   .Modalwrapper {
     position: fixed;
+    z-index: var(--zindex--modal);
     top: 0;
     left: 0;
     right: 0;
-    z-index: var(--zindex--modal);
-    min-height: 100vh;
-    overflow: hidden;
+    bottom: 0;
+    overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.5);
+    padding: calc(7.6335877863vw + -4.427480916px) 0;
     transition: all 200ms ease-in;
     transition-property: opacity, visibility;
   }
-
+}
+@media screen and (min-width: 1368px) {
+  .Modalwrapper {
+    padding: 6.25rem 0;
+  }
+}
+@media screen {
   [hidden].Modalwrapper {
     display: block;
     visibility: hidden;
     opacity: 0;
   }
-
+}
+@media screen {
   .Modal {
-    transform: translateY(0);
-    transition: all 200ms ease-in;
-    position: absolute;
-    top: 3.125rem;
-    left: 1rem;
-    right: 1rem;
-    margin: 0 auto 20px;
-    width: 95%;
-    max-height: calc(100vh - 6.25rem);
     max-width: 792px;
+    --Modal--paddingV: var(--grid-1);
+    --Modal--paddingH: var(--grid-1);
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: var(--Modal--paddingV) var(--Modal--paddingH);
     background-color: #fff;
-    padding: calc(4.7709923664vw + 4.7328244275px) calc(5.7251908397vw + 1.679389313px);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    transition: all 200ms ease-in;
+    transform: translateY(0);
+    opacity: 1;
   }
-
+}
+@media screen {
   [hidden].Modalwrapper > .Modal {
     transform: translateY(-25%);
     opacity: 0;
   }
-
+}
+@media screen {
   .Modal--w6 {
-    padding: calc(1.9083969466vw + 13.893129771px) calc(2.8625954198vw + 10.8396946565px);
     max-width: 584px;
   }
-
+}
+@media screen and (min-width: 760px) {
+  .Modal--w6 {
+    --Modal--paddingH: var(--grid-0-1);
+  }
+}
+@media screen {
   .Modal--w8 {
     max-width: 792px;
   }
-
+}
+@media screen {
   .Modal--w10 {
     max-width: 1000px;
   }
-
+}
+@media screen and (min-width: 980px) {
+  .Modal--w10 {
+    --Modal--paddingH: var(--grid-1-1);
+  }
+}
+@media screen {
+  .Modal > :first-child {
+    margin-top: 0;
+  }
+}
+@media screen {
+  .Modal__blings {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: var(--Modal--paddingV) calc(0.5 * var(--Modal--paddingH));
+    pointer-events: none;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Modal__blings > :not(.Bling) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .Modal__blings > :not(.Bling)::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Only place .Bling content inside .Modal__blings" !important;
+  }
+}
+@media screen {
   .Modal__closebutton {
+    overflow: hidden;
+    white-space: nowrap;
     display: block;
     position: absolute;
     z-index: 5;
-    top: 0.3125rem;
-    right: 0.625rem;
-    padding: 0.625rem;
-    font-size: 0.875rem;
+    top: var(--grid-1);
+    right: var(--grid-1);
+    color: #2a2b2c;
+    font-size: calc(2.6717557252vw + 27.4503816794px);
+    margin: -0.4em;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    transition: all 150ms ease-in;
   }
-
+}
+@media screen and (min-width: 1368px) {
+  .Modal__closebutton {
+    font-size: 64px;
+  }
+}
+@media screen {
   .Modal__closebutton::before {
     content: "";
     display: inline-block;
@@ -86,22 +152,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.625rem;
-    font-size: 1rem;
-    color: #707275;
+    font-size: 0.40625em;
+    width: 100%;
+    margin-right: 1px;
   }
 }
-@media screen and (min-width: 980px) {
-  .Modal {
-    padding: 4.375rem 5rem;
-    top: 6.25rem;
-    max-height: calc(100vh - 12.5rem);
-  }
-
-  .Modal--w6 {
-    padding: 2.5rem 3.125rem;
+@media screen {
+  .Modal__closebutton:hover {
+    transform: scale(1.2);
   }
 }
 /*# sourceMappingURL=Modal.css.map */

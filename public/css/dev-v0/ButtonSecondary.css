@@ -34,6 +34,8 @@
     color: var(--Button--color);
     background-color: var(--Button--backgroundColor);
     display: inline-block;
+    font: var(--font-button);
+    font-weight: 700;
     line-height: calc(var(--Button--height) - 2 * var(--Button--border));
     margin-right: var(--Button--gapH);
     margin-bottom: var(--Button--gapV);
@@ -48,8 +50,6 @@
     width: max-content;
     max-width: 100%;
     min-width: calc(4.5801526718vw + 65.3435114504px);
-    font-size: 1rem;
-    font-weight: 700;
     --Button--color: var(--theme-color-primary--safe);
     --Button--backgroundColor: var(--color-suld-0);
     --Button--backgroundColor--active: var(--color-suld-50);
