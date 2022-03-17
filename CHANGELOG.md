@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Rise `max-height` of `.AccordionList__content`
 
 ## 0.8.44 – 0.8.45
 
