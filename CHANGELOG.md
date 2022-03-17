@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.44
+
+_2022-03-17_
+
 - feat: Add CSS variables `--font-button`, `--font-button-(size|leading)`
 - feat: Update styling for `.Checkbox`, `.Radio`, `.CheckboxButtonsGroup` and
   `.CheckboxButtonsGroup`
