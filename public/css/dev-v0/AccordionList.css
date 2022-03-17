@@ -128,7 +128,7 @@
     transition-property: opacity, visibility, max-height, padding-top;
     overflow: hidden;
     padding-top: 2rem;
-    max-height: 3000px;
+    max-height: 4000px;
     opacity: 1;
   }
 }
