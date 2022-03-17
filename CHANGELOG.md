@@ -4,7 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.8.44 – 0.8.45
+## 0.8.44 – 0.8.46
 
 _2022-03-17_
 
@@ -16,6 +16,7 @@ _2022-03-17_
 - feat: Change styling of `.Modal` to match newer design
 - feat: Add new `Bling` SVG asset — `circle-waves-vertical`
 - fix: Make Bling sizing more resilient to different sized containers
+- fix: Increase `max-height` of `.AccordionList__content`
 
 ## 0.8.43
 
