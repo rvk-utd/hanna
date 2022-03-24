@@ -1,0 +1,51 @@
+@use 'globals' as *;
+
+.Skeleton {
+	--Skeleton--gap: 3;
+	--Skeleton--height: 1;
+	--Skeleton--lineHeight: var(--line-height, 1.5em);
+	position: relative;
+	display: block;
+	height: calc(var(--Skeleton--height) * var(--Skeleton--lineHeight));
+	background-color: $var--color-suld-200;
+	opacity: 0.03;
+}
+@for $i from 2 through 20 {
+	.Skeleton--height--#{$i} {
+		--Skeleton--height: #{$i};
+	}
+}
+@for $i from 1 through 5 {
+	.Skeleton--gap--#{$i} {
+		--Skeleton--gap: #{$i};
+	}
+}
+.Skeleton + .Skeleton {
+	margin-top: calc(var(--Skeleton--gap) * #{$var--space-1});
+}
+
+.Skeleton--text {
+	background: none;
+}
+.Skeleton--text::before,
+.Skeleton--text::after {
+	content: '';
+	display: block;
+	height: calc(calc(var(--Skeleton--height, 1) - 1) * var(--Skeleton--lineHeight));
+	$sp: 15%;
+	background-image: linear-gradient(
+		180deg,
+		transparent $sp,
+		$var--color-suld-200 $sp,
+		$var--color-suld-200 (100% - $sp),
+		transparent (100% - $sp)
+	);
+	background-size: 100% var(--Skeleton--lineHeight);
+	background-repeat: repeat-y;
+}
+.Skeleton--text::after {
+	height: var(--Skeleton--lineHeight);
+}
+.Skeleton--text[class*='Skeleton--height--']:not(.Skeleton--height--1)::after {
+	width: 35%;
+}

@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.Tabs--vertical`
+- feat: Add experimental styling for `.Skeleton`
 
 ## 0.8.44 – 0.8.46
 
