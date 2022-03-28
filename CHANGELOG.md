@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support `<svg/>` as an `<img/>` alternative in `.FooterBadges__badge`
 
 ## 0.8.47
 

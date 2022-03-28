@@ -17,7 +17,8 @@
 	.FooterBadges__badge {
 		margin: grid-units(2);
 	}
-	.FooterBadges__badge img {
+	.FooterBadges__badge img,
+	.FooterBadges__badge svg {
 		width: auto;
 	}
 }
