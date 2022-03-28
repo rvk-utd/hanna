@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `/assets/reykjavik-logo.png` — with `--small` (x0.5) and `--large`
+  (x2) variants
 - feat: Add styling for `.Tabs--vertical`
 - feat: Add experimental styling for `.Skeleton`
 
