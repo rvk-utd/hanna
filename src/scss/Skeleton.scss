@@ -45,6 +45,7 @@
 }
 .Skeleton--text::after {
 	height: var(--Skeleton--lineHeight);
+	width: 70%;
 }
 .Skeleton--text[class*='Skeleton--height--']:not(.Skeleton--height--1)::after {
 	width: 35%;
