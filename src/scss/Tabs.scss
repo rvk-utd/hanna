@@ -3,35 +3,45 @@
 
 @media screen {
 	.Tabs {
+		--Tabs--borderWidth: 2px;
+		--Tabs__tab--borderWidth: 4px;
 		@include SeenEffect--fadeup();
 		// @deprecated  Remove this mixin in v0.9
 		@include SeenEffect--disallowNesting();
 		display: flex;
 		flex-flow: row wrap;
-		border-bottom: 4px solid $color-suld-50;
-		font-weight: $font-weight--bold;
-		line-height: prem(24);
+		border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
+		font: $var--font-base;
+		font-weight: $var--font-weight--bold;
 		margin: prem(40) 0;
+	}
+	.Tabs::after {
+		content: '';
+		width: 100%;
+		height: var(--Tabs--borderWidth);
+		background-color: $var--color-suld-50;
 	}
 
 	.Tabs__tab {
 		@include LinkStyle_Reset(true);
 		white-space: nowrap;
-		border-bottom: 4px solid $color-suld-50;
-		margin-bottom: -4px;
-		color: $color-suld-200;
+		border-bottom: var(--Tabs__tab--borderWidth) solid $var--color-suld-50;
+		margin-bottom: calc(-1 * var(--Tabs__tab--borderWidth));
+		color: $var--color-suld-200;
+		position: relative;
+		z-index: 1; // overlap subTabs
+
 		// NOTE: left/right paddings must *NOT* be %-based because
 		// it triggers a Chrome bug that collapses the width of <button/> flex-items
 		// ARGH!...  --Már @ 2020-10-28
-		padding: between_cols(5, 20) between_phone_netbook(15, 40);
+		padding: between_phone_netbook(10, 20) between_phone_netbook(15, 40);
 		@include media($mq-wide) {
-			padding-left: 40px;
-			padding-right: 40px;
+			padding: 20px 40px;
 		}
 	}
 	.Tabs__tab:hover,
 	.Tabs__tab:active {
-		border-bottom: 4px solid $var--theme-color-primary--safeish;
+		border-bottom-color: $var--theme-color-primary--safeish;
 	}
 
 	.Tabs__tab[data-active='true'],
@@ -40,14 +50,90 @@
 	}
 
 	.Tabs__tab__badge {
-		font-size: $font-size-12;
-		color: $color-suld-150;
-		font-weight: $font-weight--normal;
+		font: $var--font-label;
+		font-weight: $var--font-weight--normal;
+		color: $var--color-suld-150;
 		margin-left: prem(4);
 		margin-right: prem(-8);
 	}
 
 	.before-sprinkling .TabPanel:not([data-sprinkled]) {
 		display: none;
+	}
+
+	.Tabs > .Tabs {
+		--Tabs__tab--borderWidth: 2px;
+		margin: 0;
+		width: 100%;
+		border-bottom: 0;
+	}
+	.Tabs > .Tabs::after {
+		content: none;
+	}
+	.Tabs:not(.Tabs--vertical) > .Tabs {
+		border-top: var(--Tabs--borderWidth) solid $var--color-suld-50;
+		order: 1;
+	}
+	.Tabs > * > .Tabs__tab {
+		font-weight: $var--font-weight--normal;
+		padding-top: prem(10);
+		padding-bottom: prem(10);
+	}
+
+	// ===========================================================================
+
+	.Tabs--vertical {
+		--Tabs--borderWidth: 2px;
+		--Tabs__tab--borderWidth: 2px;
+		max-width: cols_px(3);
+		border-bottom: 0;
+		position: sticky;
+		top: 0;
+		max-height: 100vh;
+		overflow-y: auto;
+		flex-direction: column;
+	}
+	.Tabs--vertical::after {
+		content: none;
+	}
+	.Tabs--vertical > .Tabs {
+		--Tabs--borderWidth: 2px;
+		--Tabs__tab--borderWidth: 2px;
+		border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
+		flex-direction: column;
+	}
+
+	.Tabs--vertical .Tabs__tab {
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: $var--space-2 $var--space-1;
+
+		@include keyboardFocus-selector() {
+			outline-offset: -3px;
+		}
+	}
+	.Tabs--vertical > * > .Tabs__tab {
+		padding-left: $var--space-3;
+		padding-top: $var--space-1;
+		padding-bottom: $var--space-1;
+	}
+
+	.Tabs--vertical .Tabs__tab[data-active='true'] ~ .Tabs__tab,
+	.Tabs--vertical .Tabs__tab[aria-pressed='true'] ~ .Tabs__tab {
+		order: 1;
+	}
+
+	.Tabs > *:not(.Tabs__tab):not(.Tabs) {
+		@include WARNING__('Only .Tabs__tab or `.Tabs` are allowed here');
+	}
+	.Tabs > .Tabs:not(:last-child) {
+		@include WARNING__('Nested .Tabs must be :last-child');
+	}
+	.Tabs--vertical > .Tabs--vertical {
+		@include WARNING__('.Tabs--vertical not supported as sub-Tabs');
+	}
+	.Tabs > .Tabs > .Tabs {
+		@include WARNING__('For the love of god, DO NOT nest your already nested .Tabs');
 	}
 }

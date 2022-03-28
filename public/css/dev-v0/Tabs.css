@@ -1,10 +1,12 @@
 @media screen {
   .Tabs {
+    --Tabs--borderWidth: 2px;
+    --Tabs__tab--borderWidth: 4px;
     display: flex;
     flex-flow: row wrap;
-    border-bottom: 4px solid #f1f2f3;
-    font-weight: 700;
-    line-height: 1.5rem;
+    border-bottom: var(--Tabs--borderWidth) solid var(--color-suld-50);
+    font: var(--font-base);
+    font-weight: var(--font-weight--bold);
     margin: 2.5rem 0;
   }
   .before-sprinkling .Tabs, .Tabs[data-is-seen=false], .Tabs[data-is-seen=true] {
@@ -31,6 +33,13 @@
     transition: none;
   }
 
+  .Tabs::after {
+    content: "";
+    width: 100%;
+    height: var(--Tabs--borderWidth);
+    background-color: var(--color-suld-50);
+  }
+
   .Tabs__tab {
     --link-color: _inherit;
     --link-weight: _inherit;
@@ -39,22 +48,23 @@
     --link-underline--hover: none;
     --link-underline-offset: 0;
     white-space: nowrap;
-    border-bottom: 4px solid #f1f2f3;
-    margin-bottom: -4px;
-    color: #2a2b2c;
-    padding: calc(1.6163793103% + 0.474137931px) calc(2.3854961832vw + 7.3664122137px);
+    border-bottom: var(--Tabs__tab--borderWidth) solid var(--color-suld-50);
+    margin-bottom: calc(-1 * var(--Tabs__tab--borderWidth));
+    color: var(--color-suld-200);
+    position: relative;
+    z-index: 1;
+    padding: calc(0.9541984733vw + 6.9465648855px) calc(2.3854961832vw + 7.3664122137px);
   }
 }
 @media screen and (min-width: 1368px) {
   .Tabs__tab {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 20px 40px;
   }
 }
 @media screen {
   .Tabs__tab:hover,
 .Tabs__tab:active {
-    border-bottom: 4px solid var(--theme-color-primary--safeish);
+    border-bottom-color: var(--theme-color-primary--safeish);
   }
 }
 @media screen {
@@ -65,9 +75,9 @@
 }
 @media screen {
   .Tabs__tab__badge {
-    font-size: 12;
-    color: #707275;
-    font-weight: 400;
+    font: var(--font-label);
+    font-weight: var(--font-weight--normal);
+    color: var(--color-suld-150);
     margin-left: 0.25rem;
     margin-right: -0.5rem;
   }
@@ -75,6 +85,162 @@
 @media screen {
   .before-sprinkling .TabPanel:not([data-sprinkled]) {
     display: none;
+  }
+}
+@media screen {
+  .Tabs > .Tabs {
+    --Tabs__tab--borderWidth: 2px;
+    margin: 0;
+    width: 100%;
+    border-bottom: 0;
+  }
+}
+@media screen {
+  .Tabs > .Tabs::after {
+    content: none;
+  }
+}
+@media screen {
+  .Tabs:not(.Tabs--vertical) > .Tabs {
+    border-top: var(--Tabs--borderWidth) solid var(--color-suld-50);
+    order: 1;
+  }
+}
+@media screen {
+  .Tabs > * > .Tabs__tab {
+    font-weight: var(--font-weight--normal);
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
+}
+@media screen {
+  .Tabs--vertical {
+    --Tabs--borderWidth: 2px;
+    --Tabs__tab--borderWidth: 2px;
+    max-width: 272px;
+    border-bottom: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+    flex-direction: column;
+  }
+}
+@media screen {
+  .Tabs--vertical::after {
+    content: none;
+  }
+}
+@media screen {
+  .Tabs--vertical > .Tabs {
+    --Tabs--borderWidth: 2px;
+    --Tabs__tab--borderWidth: 2px;
+    border-bottom: var(--Tabs--borderWidth) solid var(--color-suld-50);
+    flex-direction: column;
+  }
+}
+@media screen {
+  .Tabs--vertical .Tabs__tab {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: var(--space-2) var(--space-1);
+  }
+  .Tabs--vertical .Tabs__tab[data-focus-visible-added] {
+    outline-offset: -3px;
+  }
+  .Tabs--vertical .Tabs__tab:focus-visible {
+    outline-offset: -3px;
+  }
+}
+@media screen {
+  .Tabs--vertical > * > .Tabs__tab {
+    padding-left: var(--space-3);
+    padding-top: var(--space-1);
+    padding-bottom: var(--space-1);
+  }
+}
+@media screen {
+  .Tabs--vertical .Tabs__tab[data-active=true] ~ .Tabs__tab,
+.Tabs--vertical .Tabs__tab[aria-pressed=true] ~ .Tabs__tab {
+    order: 1;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Tabs > *:not(.Tabs__tab):not(.Tabs) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .Tabs > *:not(.Tabs__tab):not(.Tabs)::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Only .Tabs__tab or `.Tabs` are allowed here" !important;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Tabs > .Tabs:not(:last-child) {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .Tabs > .Tabs:not(:last-child)::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Nested .Tabs must be :last-child" !important;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Tabs--vertical > .Tabs--vertical {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .Tabs--vertical > .Tabs--vertical::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: ".Tabs--vertical not supported as sub-Tabs" !important;
+  }
+}
+@media screen {
+  html:not([data-disable-css-warnings-with-abandon=true]) .Tabs > .Tabs > .Tabs {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .Tabs > .Tabs > .Tabs::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "For the love of god, DO NOT nest your already nested .Tabs" !important;
   }
 }
 /*# sourceMappingURL=Tabs.css.map */
