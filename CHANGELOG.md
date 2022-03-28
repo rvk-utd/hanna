@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.47
+
+_2022-03-28_
+
 - feat: Add `/assets/reykjavik-logo.png` — with `--small` (x0.5) and `--large`
   (x2) variants
 - feat: Add styling for `.Tabs--vertical`
