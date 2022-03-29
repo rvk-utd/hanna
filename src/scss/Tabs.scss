@@ -88,6 +88,8 @@
 	.Tabs--vertical {
 		--Tabs--borderWidth: 2px;
 		--Tabs__tab--borderWidth: 2px;
+		float: left; // default layout behavior
+		width: 100%;
 		max-width: cols_px(3);
 		border-bottom: 0;
 		position: sticky;
