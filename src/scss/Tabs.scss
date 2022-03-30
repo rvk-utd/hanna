@@ -60,6 +60,13 @@
 	.before-sprinkling .TabPanel:not([data-sprinkled]) {
 		display: none;
 	}
+	.TabPanel {
+		@include keyboardFocus-selector() {
+			outline-color: $var--color-suld-100;
+			outline-style: dotted;
+			outline-offset: $var--space-1;
+		}
+	}
 
 	// Nested/sub-tabs
 
