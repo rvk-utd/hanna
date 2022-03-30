@@ -90,13 +90,17 @@
 		--Tabs__tab--borderWidth: 2px;
 		float: left; // default layout behavior
 		width: 100%;
+		margin-top: 0;
 		max-width: cols_px(3);
 		border-bottom: 0;
-		position: sticky;
-		top: 0;
-		max-height: 100vh;
-		overflow-y: auto;
 		flex-direction: column;
+
+		@include media($mq-tablet_up) {
+			position: sticky;
+			top: 0;
+			max-height: 100vh;
+			overflow-y: auto;
+		}
 	}
 	.Tabs--vertical::after {
 		content: none;

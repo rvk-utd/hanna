@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Make `.Tabs--vertical` float left by default
+- feat: Make `.Tabs--vertical` float left by default + non-sticky in mobile
 - feat: Support `<svg/>` as an `<img/>` alternative in `.FooterBadges__badge`
 - fix: Remove incorrect indenting of `.FooterBadges`
 
