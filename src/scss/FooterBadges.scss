@@ -4,18 +4,22 @@
 	.FooterBadges {
 		width: $var--grid-12;
 		clear: both;
-		border-top: 1px solid $color-suld-75;
 		display: flex;
 		flex-flow: row wrap;
-		margin: 0 grid-units(-2);
+		margin: 0 $var--space-2--neg;
+	}
+	.FooterBadges::before {
+		content: '';
+		width: 100%;
+		border-top: $var--border-default;
 
-		@media #{$mq-tablet_up} {
-			margin-left: 0;
-			margin-right: 0;
+		@include media($mq-tablet_up) {
+			margin: 0 $var--space-2;
 		}
 	}
+
 	.FooterBadges__badge {
-		margin: grid-units(2);
+		margin: $var--space-2;
 	}
 	.FooterBadges__badge img,
 	.FooterBadges__badge svg {
