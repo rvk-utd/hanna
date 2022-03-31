@@ -24,6 +24,7 @@
   .TextBlock {
     position: relative;
     margin-bottom: calc(1.0775862069% + 16.9827586207px);
+    width: 100%;
     max-width: 584px;
     font: var(--font-bd-l);
   }
@@ -333,6 +334,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading::
 @media screen {
   .PageHeading {
     font: var(--font-hd-l);
+    width: 100%;
     max-width: 584px;
     margin-top: calc(2.5862068966% + -7.2413793103px);
     margin-bottom: 0.625em;
@@ -376,6 +378,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading::
 @media screen {
   .Heading {
     font: var(--font-hd-m);
+    width: 100%;
     max-width: 584px;
     margin-top: calc(1.9083969466vw + 33.893129771px);
     margin-bottom: calc(0.7633587786vw + 21.5572519084px);
@@ -451,6 +454,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .TextBlock .SubHeading::
 @media screen {
   .SubHeading {
     font: var(--font-sh-l);
+    width: 100%;
     max-width: 584px;
     margin-top: calc(0.9541984733vw + 36.9465648855px);
     margin-bottom: calc(0.9541984733vw + 16.9465648855px);

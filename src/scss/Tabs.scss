@@ -13,7 +13,7 @@
 		border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
 		font: $var--font-base;
 		font-weight: $var--font-weight--bold;
-		margin: prem(40) 0;
+		margin: $var--space-5 0;
 	}
 	.Tabs::after {
 		content: '';
@@ -53,13 +53,22 @@
 		font: $var--font-label;
 		font-weight: $var--font-weight--normal;
 		color: $var--color-suld-150;
-		margin-left: prem(4);
-		margin-right: prem(-8);
+		margin-left: $var--space-0_5;
+		margin-right: $var--space-1--neg;
 	}
 
 	.before-sprinkling .TabPanel:not([data-sprinkled]) {
 		display: none;
 	}
+	.TabPanel {
+		@include keyboardFocus-selector() {
+			outline-color: $var--color-suld-100;
+			outline-style: dotted;
+			outline-offset: $var--space-1;
+		}
+	}
+
+	// Nested/sub-tabs
 
 	.Tabs > .Tabs {
 		--Tabs__tab--borderWidth: 2px;
@@ -81,26 +90,27 @@
 	}
 
 	// ===========================================================================
+	// Overrides for --vertical
 
 	.Tabs--vertical {
 		--Tabs--borderWidth: 2px;
 		--Tabs__tab--borderWidth: 2px;
+		float: left; // default layout behavior
+		width: 100%;
+		margin-top: 0;
 		max-width: cols_px(3);
 		border-bottom: 0;
-		position: sticky;
-		top: 0;
-		max-height: 100vh;
-		overflow-y: auto;
 		flex-direction: column;
+
+		@include media($mq-tablet_up) {
+			position: sticky;
+			top: 0;
+			max-height: 100vh;
+			overflow-y: auto;
+		}
 	}
 	.Tabs--vertical::after {
 		content: none;
-	}
-	.Tabs--vertical > .Tabs {
-		--Tabs--borderWidth: 2px;
-		--Tabs__tab--borderWidth: 2px;
-		border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
-		flex-direction: column;
 	}
 
 	.Tabs--vertical .Tabs__tab {
@@ -112,6 +122,15 @@
 		@include keyboardFocus-selector() {
 			outline-offset: -3px;
 		}
+	}
+
+	// Nested/sub-tabs
+
+	.Tabs--vertical > .Tabs {
+		--Tabs--borderWidth: 2px;
+		--Tabs__tab--borderWidth: 2px;
+		border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
+		flex-direction: column;
 	}
 	.Tabs--vertical > * > .Tabs__tab {
 		padding-left: $var--space-3;

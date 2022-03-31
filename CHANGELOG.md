@@ -4,6 +4,14 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.48
+
+_2022-03-31_
+
+- feat: Make `.Tabs--vertical` float left by default + non-sticky in mobile
+- feat: Support `<svg/>` as an `<img/>` alternative in `.FooterBadges__badge`
+- fix: Remove incorrect indenting of `.FooterBadges`
+
 ## 0.8.47
 
 _2022-03-28_

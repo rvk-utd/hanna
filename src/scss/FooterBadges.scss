@@ -2,22 +2,29 @@
 
 @media screen {
 	.FooterBadges {
-		width: $var--grid-12;
+		--FooterBadges--indenting: #{$var--space-2--neg};
+		min-width: 100%;
 		clear: both;
-		border-top: 1px solid $color-suld-75;
 		display: flex;
 		flex-flow: row wrap;
-		margin: 0 grid-units(-2);
+		margin: 0 var(--FooterBadges--indenting);
 
-		@media #{$mq-tablet_up} {
-			margin-left: 0;
-			margin-right: 0;
+		@include media($mq-netbook_up) {
+			--FooterBadges--indenting: 0px;
 		}
 	}
-	.FooterBadges__badge {
-		margin: grid-units(2);
+	.FooterBadges::before {
+		content: '';
+		border-top: $var--border-default;
+		width: calc(100% + 2 * var(--FooterBadges--indenting));
+		margin: 0 auto;
 	}
-	.FooterBadges__badge img {
+
+	.FooterBadges__badge {
+		margin: $var--space-2;
+	}
+	.FooterBadges__badge img,
+	.FooterBadges__badge svg {
 		width: auto;
 	}
 }
