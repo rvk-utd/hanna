@@ -1,5 +1,6 @@
 @media screen {
   .Form {
+    width: 100%;
     max-width: 584px;
   }
 }

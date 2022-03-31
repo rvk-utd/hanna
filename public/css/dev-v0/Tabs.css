@@ -7,7 +7,7 @@
     border-bottom: var(--Tabs--borderWidth) solid var(--color-suld-50);
     font: var(--font-base);
     font-weight: var(--font-weight--bold);
-    margin: 2.5rem 0;
+    margin: var(--space-5) 0;
   }
   .before-sprinkling .Tabs, .Tabs[data-is-seen=false], .Tabs[data-is-seen=true] {
     opacity: 0;
@@ -78,13 +78,25 @@
     font: var(--font-label);
     font-weight: var(--font-weight--normal);
     color: var(--color-suld-150);
-    margin-left: 0.25rem;
-    margin-right: -0.5rem;
+    margin-left: var(--space-0_5);
+    margin-right: var(--space-1--neg);
   }
 }
 @media screen {
   .before-sprinkling .TabPanel:not([data-sprinkled]) {
     display: none;
+  }
+}
+@media screen {
+  .TabPanel[data-focus-visible-added] {
+    outline-color: var(--color-suld-100);
+    outline-style: dotted;
+    outline-offset: var(--space-1);
+  }
+  .TabPanel:focus-visible {
+    outline-color: var(--color-suld-100);
+    outline-style: dotted;
+    outline-offset: var(--space-1);
   }
 }
 @media screen {
@@ -117,27 +129,26 @@
   .Tabs--vertical {
     --Tabs--borderWidth: 2px;
     --Tabs__tab--borderWidth: 2px;
+    float: left;
+    width: 100%;
+    margin-top: 0;
     max-width: 272px;
     border-bottom: 0;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 760px) {
+  .Tabs--vertical {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     max-height: 100vh;
     overflow-y: auto;
-    flex-direction: column;
   }
 }
 @media screen {
   .Tabs--vertical::after {
     content: none;
-  }
-}
-@media screen {
-  .Tabs--vertical > .Tabs {
-    --Tabs--borderWidth: 2px;
-    --Tabs__tab--borderWidth: 2px;
-    border-bottom: var(--Tabs--borderWidth) solid var(--color-suld-50);
-    flex-direction: column;
   }
 }
 @media screen {
@@ -152,6 +163,14 @@
   }
   .Tabs--vertical .Tabs__tab:focus-visible {
     outline-offset: -3px;
+  }
+}
+@media screen {
+  .Tabs--vertical > .Tabs {
+    --Tabs--borderWidth: 2px;
+    --Tabs__tab--borderWidth: 2px;
+    border-bottom: var(--Tabs--borderWidth) solid var(--color-suld-50);
+    flex-direction: column;
   }
 }
 @media screen {
