@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Update non-wrapping `VSpacer` styling (deprecate old `br` selectors)
 
 ## 0.8.48
 
