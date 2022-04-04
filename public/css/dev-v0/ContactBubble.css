@@ -339,6 +339,7 @@
 @media screen {
   .ContactBubble__link {
     display: block;
+    color: var(--link-color);
   }
 }
 @media screen {

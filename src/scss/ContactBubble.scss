@@ -233,6 +233,7 @@
 
 	.ContactBubble__link {
 		display: block;
+		color: $var--link-color;
 	}
 	.ContactBubble__link > small {
 		@include LabelTextStyle();

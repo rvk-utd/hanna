@@ -589,6 +589,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) div.Sharpie::before {
 }
 @media screen {
   .VSpacer[class] {
+    margin: 0;
     margin-top: var(--component-vspace--medium);
     margin-bottom: var(--component-vspace--medium);
   }
@@ -640,13 +641,16 @@ html:not([data-disable-css-warnings-with-abandon=true]) div.Sharpie::before {
     margin-bottom: var(--component-vspace--xlarge);
   }
 
-  br.VSpacer[class] {
+  br.VSpacer[class],
+hr.VSpacer[class] {
     display: block;
     height: 0;
+    border: 0;
     margin-bottom: 0;
   }
 
-  br.VSpacer + [class] {
+  br.VSpacer + [class],
+hr.VSpacer + [class] {
     margin-top: 0;
   }
 

@@ -4,6 +4,13 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.49
+
+_2022-04-04_
+
+- feat: Add styling for `button.ContactBubble__link`
+- fix: Update non-wrapping `VSpacer` styling (deprecate old `br` selectors)
+
 ## 0.8.48
 
 _2022-03-31_
