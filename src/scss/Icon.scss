@@ -6,6 +6,8 @@
 		// from ancestral `data-icon=""` attributes
 		--Icon: none;
 
+		--Icon--size: inherit;
+
 		// Add `--Icon--enabled: initial;`
 		// to elements where you want to opt-in
 		// to allow icons on ::before
@@ -14,7 +16,8 @@
 	[data-icon]::before {
 		@include icon();
 		// prettier-ignore
-		content: var(--Icon--enabled, var(--Icon)) ;
+		content: var(--Icon--enabled, var(--Icon));
+		font-size: var(--Icon--size);
 		margin-right: $var--space-1;
 	}
 
@@ -25,6 +28,8 @@
 		// from ancestral `data-icon-after=""` attributes
 		--Icon-after: none;
 
+		--Icon-after--size: inherit;
+
 		// Add `--Icon-after--enabled: initial;`
 		// to elements where you want to opt-in
 		// to allow icons on ::after
@@ -33,7 +38,8 @@
 	[data-icon-after]::after {
 		@include icon();
 		// prettier-ignore
-		content: var(--Icon-after--enabled, var(--Icon-after)) ;
+		content: var(--Icon-after--enabled, var(--Icon-after));
+		font-size: var(--Icon-after--size);
 		margin-left: $var--space-1_5;
 	}
 
