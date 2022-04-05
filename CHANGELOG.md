@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add styling for `.TagPill--large`
 - feat: Add styling for `.TagPill__remove` and `.TagPill__button`
+- feat: Unify all "close" icons into one SVG, deprecate "close-thin" icon
 
 ## 0.8.49
 

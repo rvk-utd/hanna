@@ -369,7 +369,7 @@
 	}
 
 	.MainMenu__megapanel__backtomenu::before {
-		@include icon($icons-close-thin);
+		@include icon($icons-close);
 		font-size: prem(16);
 		width: 100%;
 		text-align: left;

@@ -53,7 +53,7 @@
 	}
 
 	.AccordionList__button::before {
-		@include icon($icons-close-thin);
+		@include icon($icons-close);
 
 		position: absolute;
 		left: 0;
