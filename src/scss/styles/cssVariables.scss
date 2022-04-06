@@ -353,11 +353,18 @@
 	--color-heidmork-100: #{$color-heidmork-100};
 	--color-heidmork-150: #{$color-heidmork-150};
 
-	--color-ellidarardalur-25: #{$color-ellidarardalur-25};
-	--color-ellidarardalur-50: #{$color-ellidarardalur-50};
-	--color-ellidarardalur-75: #{$color-ellidarardalur-75};
-	--color-ellidarardalur-100: #{$color-ellidarardalur-100};
-	--color-ellidarardalur-150: #{$color-ellidarardalur-150};
+	--color-ellidaardalur-25: #{$color-ellidaardalur-25};
+	--color-ellidaardalur-50: #{$color-ellidaardalur-50};
+	--color-ellidaardalur-75: #{$color-ellidaardalur-75};
+	--color-ellidaardalur-100: #{$color-ellidaardalur-100};
+	--color-ellidaardalur-150: #{$color-ellidaardalur-150};
+
+	// @deprecated This was a typo (Will be removed in version v0.9)
+	--color-ellidarardalur-25: var(--color-ellidaardalur-25);
+	--color-ellidarardalur-50: var(--color-ellidaardalur-50);
+	--color-ellidarardalur-75: var(--color-ellidaardalur-75);
+	--color-ellidarardalur-100: var(--color-ellidaardalur-100);
+	--color-ellidarardalur-150: var(--color-ellidaardalur-150);
 
 	--color-blafjoll-25: #{$color-blafjoll-25};
 	--color-blafjoll-50: #{$color-blafjoll-50};

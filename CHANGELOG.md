@@ -6,6 +6,10 @@
 - feat: Add styling for `.TagPill--large`
 - feat: Add styling for `.TagPill__remove` and `.TagPill__button`
 - feat: Unify all "close" icons into one SVG, deprecate "close-thin" icon
+- fix: Add CSS variables `--color-ellidaardalur-*` — deprecate mis-spelled
+  `--color-ellidarardalur-*`
+- fix: Add `.ArticleCarouselCard[data-color]` value `ellidaardalur` —
+  deprecate mis-spelled `ellidarardalur`
 
 ## 0.8.49
 
