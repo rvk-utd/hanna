@@ -407,7 +407,7 @@
 
 @mixin _buttons() {
 	--Button--gapH: #{between_phone_netbook(16, 32)};
-	--Button--gapV: #{prem(16)};
+	--Button--gapV: #{$var--space-2};
 
 	@media #{$mq-wide} {
 		--Button--gapH: 32px;
