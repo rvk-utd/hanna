@@ -1,29 +1,7 @@
 @use '../globals' as *;
 @use './links' as *;
 
-@mixin _FocusedFrame(
-	$frameOffset,
-	$borderRadius,
-	$borderColor: var(--Button--borderColor),
-	$borderWidth: prem(2),
-	$borderStyle: solid
-) {
-	@include keyboardFocus-selector {
-		&::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			margin: $frameOffset;
-			border: $borderWidth $borderStyle $borderColor;
-			border-radius: $borderRadius;
-		}
-	}
-}
-
-@mixin ButtonStyle($frameOffset: prem(-4)) {
+@mixin ButtonStyle() {
 	@include LinkStyle_Reset(true);
 	--Button--color: #{$var--theme-color-primary--text};
 	--Button--backgroundColor: #{$var--theme-color-primary};
@@ -78,7 +56,10 @@
 		background-color: var(--Button--backgroundColor--active);
 		color: var(--Button--color);
 	}
-	@include _FocusedFrame($frameOffset, $borderRadius);
+	@include keyboardFocus-selector {
+		outline: prem(2) solid var(--Button--borderColor);
+		outline-offset: prem(2);
+	}
 
 	&[disabled],
 	&[aria-disabled='true'] {
@@ -110,7 +91,7 @@
 	}
 
 	&--go--back {
-		order: -0;
+		order: -10;
 	}
 	&--go--back::before {
 		@include icon($icons-arrow-left);
@@ -231,13 +212,19 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
 			width: $var--ButtonTertiary--dashWidth;
 		}
 
-		@include _FocusedFrame(
-			prem(-13) prem(-16),
-			prem(8),
-			$var--ButtonTertiary--dashColor,
-			prem(1),
-			dotted
-		);
+		@include keyboardFocus-selector {
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: prem(-13) prem(-16);
+				border: prem(1) dotted $var--ButtonTertiary--dashColor;
+				border-radius: prem(8);
+			}
+		}
 	}
 }
 

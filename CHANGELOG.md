@@ -7,6 +7,7 @@
 - feat: Add styling for `.TagPill--large`
 - feat: Add styling for `.TagPill__remove` and `.TagPill__button`
 - feat: Unify all "close" icons into one SVG, deprecate "close-thin" icon
+- fix: Keyboard focus killing the arrow icon on all `.*--go--forward` buttons
 - fix: Add CSS variables `--color-ellidaardalur-*` — deprecate mis-spelled
   `--color-ellidarardalur-*`
 - fix: Add `.ArticleCarouselCard[data-color]` value `ellidaardalur` —
