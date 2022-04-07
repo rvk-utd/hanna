@@ -4,10 +4,11 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.8.50
+## 0.8.50 — 0.8.51
 
 _2022-04-07_
 
+- feat: Update "active" styling of `.Tags--vertical`
 - feat: Add styling for `.TagPill--color--*`
 - feat: Add styling for `.TagPill--large`
 - feat: Add styling for `.TagPill__remove` and `.TagPill__button`
