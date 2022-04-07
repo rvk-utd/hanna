@@ -6,7 +6,12 @@
   --ButtonTertiary--hover--dashWidth: var(--space-4);
   --ButtonTertiary--dashSpace: var(--space-2);
   --ButtonTertiary--dashHeight: 2px;
-  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+  --ButtonTertiary--gapH: calc(0.7633587786vw + 13.5572519084px);
+}
+@media screen and (min-width: 1368px) {
+  :root {
+    --ButtonTertiary--gapH: 24px;
+  }
 }
 
 @media screen {
@@ -33,19 +38,12 @@
     font: var(--font-base);
     padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
     padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
-    margin-right: var(--ButtonTertiary--marginRight);
+    margin-right: var(--ButtonTertiary--gapH);
     margin-bottom: var(--space-1);
     font-weight: 700;
     transition: all 100ms ease-in;
     font-size: var(--font-label-size);
   }
-}
-@media screen and (min-width: 1368px) {
-  .ButtonBack {
-    --ButtonTertiary--marginRight: 24px;
-  }
-}
-@media screen {
   .ButtonBack::before {
     content: "";
     position: absolute;
@@ -60,8 +58,6 @@
     transform: translateY(-50%);
     transition: inherit;
   }
-}
-@media screen {
   .ButtonBack:hover, .ButtonBack:active, .ButtonBack[data-focus-visible-added] {
     padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
@@ -71,8 +67,6 @@
   .ButtonBack:hover::before, .ButtonBack:active::before, .ButtonBack[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .ButtonBack:focus-visible {
     padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
@@ -82,13 +76,9 @@
   .ButtonBack:focus-visible::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .ButtonBack:active::before {
     width: var(--ButtonTertiary--dashWidth);
   }
-}
-@media screen {
   .ButtonBack[data-focus-visible-added]::after {
     content: "";
     position: absolute;
@@ -100,8 +90,6 @@
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
-}
-@media screen {
   .ButtonBack:focus-visible::after {
     content: "";
     position: absolute;
@@ -113,16 +101,13 @@
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
-}
-@media screen {
   .ButtonBack[disabled], .ButtonBack[aria-disabled=true] {
     --ButtonTertiary--dashColor: currentColor;
     --ButtonTertiary--color: _inherit;
     opacity: 0.5;
     pointer-events: none;
   }
-}
-@media screen {
+
   .ButtonBack::before {
     content: "";
     display: inline-block;

@@ -6,7 +6,12 @@
   --ButtonTertiary--hover--dashWidth: var(--space-4);
   --ButtonTertiary--dashSpace: var(--space-2);
   --ButtonTertiary--dashHeight: 2px;
-  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+  --ButtonTertiary--gapH: calc(0.7633587786vw + 13.5572519084px);
+}
+@media screen and (min-width: 1368px) {
+  :root {
+    --ButtonTertiary--gapH: 24px;
+  }
 }
 
 /*!@deps
@@ -88,29 +93,15 @@
   }
 }
 @media screen {
-  .ButtonSecondary[data-focus-visible-added]::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: -0.3125rem;
-    border: 0.125rem solid var(--Button--borderColor);
-    border-radius: 0.1875rem;
+  .ButtonSecondary[data-focus-visible-added] {
+    outline: 0.125rem solid var(--Button--borderColor);
+    outline-offset: 0.125rem;
   }
 }
 @media screen {
-  .ButtonSecondary:focus-visible::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: -0.3125rem;
-    border: 0.125rem solid var(--Button--borderColor);
-    border-radius: 0.1875rem;
+  .ButtonSecondary:focus-visible {
+    outline: 0.125rem solid var(--Button--borderColor);
+    outline-offset: 0.125rem;
   }
 }
 @media screen {
@@ -151,7 +142,7 @@
 }
 @media screen {
   .ButtonSecondary--go--back {
-    order: 0;
+    order: -10;
   }
 }
 @media screen {

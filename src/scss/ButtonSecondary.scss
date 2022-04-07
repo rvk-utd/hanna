@@ -8,7 +8,7 @@
 
 @media screen {
 	.ButtonSecondary {
-		@include ButtonStyle(prem(-5));
+		@include ButtonStyle();
 		--Button--color: #{$var--theme-color-primary--safe};
 		--Button--backgroundColor: #{$var--color-suld-0};
 		--Button--backgroundColor--active: #{$var--color-suld-50};

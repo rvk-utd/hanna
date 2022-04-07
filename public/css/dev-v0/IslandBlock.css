@@ -5,7 +5,12 @@
   --ButtonTertiary--hover--dashWidth: var(--space-4);
   --ButtonTertiary--dashSpace: var(--space-2);
   --ButtonTertiary--dashHeight: 2px;
-  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+  --ButtonTertiary--gapH: calc(0.7633587786vw + 13.5572519084px);
+}
+@media screen and (min-width: 1368px) {
+  :root {
+    --ButtonTertiary--gapH: 24px;
+  }
 }
 
 @media screen {
@@ -78,19 +83,12 @@
     font: var(--font-base);
     padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
     padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
-    margin-right: var(--ButtonTertiary--marginRight);
+    margin-right: var(--ButtonTertiary--gapH);
     margin-bottom: var(--space-1);
     font-weight: 700;
     transition: all 100ms ease-in;
     display: block;
   }
-}
-@media screen and (min-width: 1368px) {
-  .IslandBlock__button {
-    --ButtonTertiary--marginRight: 24px;
-  }
-}
-@media screen {
   .IslandBlock__button::before {
     content: "";
     position: absolute;
@@ -105,8 +103,6 @@
     transform: translateY(-50%);
     transition: inherit;
   }
-}
-@media screen {
   .IslandBlock__button:hover, .IslandBlock__button:active, .IslandBlock__button[data-focus-visible-added] {
     padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
@@ -116,8 +112,6 @@
   .IslandBlock__button:hover::before, .IslandBlock__button:active::before, .IslandBlock__button[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .IslandBlock__button:focus-visible {
     padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
@@ -127,13 +121,9 @@
   .IslandBlock__button:focus-visible::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .IslandBlock__button:active::before {
     width: var(--ButtonTertiary--dashWidth);
   }
-}
-@media screen {
   .IslandBlock__button[data-focus-visible-added]::after {
     content: "";
     position: absolute;
@@ -145,8 +135,6 @@
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
-}
-@media screen {
   .IslandBlock__button:focus-visible::after {
     content: "";
     position: absolute;
@@ -158,15 +146,13 @@
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
-}
-@media screen {
+
   .IslandBlock__image {
     position: relative;
     display: block;
     overflow: hidden;
   }
-}
-@media screen {
+
   .IslandBlock__image::before {
     content: "";
     position: absolute;
@@ -176,8 +162,7 @@
     bottom: 1px;
     left: 1px;
   }
-}
-@media screen {
+
   .IslandBlock__image > img {
     position: absolute;
     top: 0;
@@ -187,8 +172,7 @@
     -o-object-fit: cover;
        object-fit: cover;
   }
-}
-@media screen {
+
   .IslandBlock__image > svg {
     position: absolute;
     top: 50%;

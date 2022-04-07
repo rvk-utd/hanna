@@ -26,11 +26,6 @@
   margin: 0 auto;
   flex-grow: 1;
 }
-@media screen and (max-width: 759px) {
-  .ButtonBar > .ButtonBar__split {
-    width: 100%;
-  }
-}
 
 html:not([data-disable-css-warnings-with-abandon=true]) :not(.ButtonBar) > .ButtonBar__split {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;

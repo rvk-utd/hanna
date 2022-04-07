@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!@deps
 */
 @media screen {
@@ -12,42 +13,143 @@
     white-space: nowrap;
     vertical-align: middle;
     text-decoration: none;
-    background-color: #e3e5e7;
-    color: #2a2b2c;
-    height: 1.875rem;
-    line-height: 1.875rem;
-    border-radius: 0.9375rem;
-    font-size: 0.75rem;
-    min-width: 4.375rem;
-    margin-bottom: 1rem;
-    margin-right: calc(0.4504504505vw + 9.8378378378px);
-    padding: 0 calc(0.4504504505vw + 9.8378378378px);
+    position: relative;
+    transition: none;
+    --TagPill--background: var(--color-suld-50);
+    --TagPill--background--hover: var(--color-suld-150);
+    background-color: var(--TagPill--background);
+    color: var(--color-suld-200);
+    border-radius: var(--space-0_5);
+    text-align: center;
+    --TagPill--height: var(--space-3);
+    height: var(--TagPill--height);
+    line-height: var(--TagPill--height);
+    font-size: var(--font-label-size);
+    font-weight: var(--font-weight--bold);
+    box-sizing: content-box;
+    min-width: var(--space-5);
+    padding: 0 var(--space-1);
+    margin-bottom: var(--space-2);
+    margin-right: var(--space-2);
   }
-}
-@media screen and (min-width: 1368px) {
-  .TagPill {
-    margin-right: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
+
+  .TagPill--large {
+    --TagPill--height: calc(var(--space-3) + var(--space-0_5));
+    font-size: var(--font-button-size);
+    font-weight: var(--font-weight--normal);
   }
-}
-@media screen {
+
+  .TagPill--color--green {
+    --TagPill--background: var(--color-ellidaardalur-50);
+    --TagPill--background--hover: var(--color-ellidaardalur-150);
+  }
+
+  .TagPill--color--yellow {
+    --TagPill--background: var(--color-nautholsvik-50);
+    --TagPill--background--hover: var(--color-nautholsvik-150);
+  }
+
+  .TagPill--color--orange {
+    --TagPill--background: var(--color-blafjoll-50);
+    --TagPill--background--hover: var(--color-blafjoll-150);
+  }
+
+  .TagPill--color--red {
+    --TagPill--background: var(--color-heidmork-50);
+    --TagPill--background--hover: var(--color-heidmork-150);
+  }
+
+  .TagPill__button {
+    transition: inherit;
+    display: block;
+    margin: 0 var(--space-1--neg);
+    padding-left: var(--space-1);
+    padding-right: calc(var(--space-1_5) + 1em);
+    border-radius: var(--space-0_5);
+  }
+
+  .TagPill__remove {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: content-box;
+    width: 1em;
+    padding-left: var(--space-0_5);
+    padding-right: var(--space-1);
+    margin-right: var(--space-1--neg);
+    border-radius: var(--space-0_5);
+    float: right;
+    position: relative;
+  }
+
+  button.TagPill__remove:hover {
+    margin-left: var(--space-0_5--neg);
+    padding-left: var(--space-1);
+    background-color: var(--TagPill--background--hover);
+    color: var(--color-suld-0);
+  }
+
+  .TagPill__button + .TagPill__remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+  }
+
+  .TagPill__button:hover + .TagPill__remove,
+.TagPill__button:active + .TagPill__remove {
+    opacity: 0.33;
+    background-color: var(--TagPill--background--hover);
+    color: var(--color-suld-0);
+  }
+
+  .TagPill__remove::before {
+    content: "";
+    display: inline-block;
+    text-indent: 0;
+    text-align: center;
+    vertical-align: top;
+    font-family: "icons", Arial, Helvetica, sans-serif;
+    speak: none;
+    font-weight: normal;
+    font-style: normal;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
+    font-size: 0.75em;
+    width: 100%;
+    margin-right: 2em;
+  }
+
   a.TagPill:hover,
 a.TagPill:active,
-button.TagPill:hover {
-    background-color: #707275;
-    color: #ffffff;
+button.TagPill:hover,
+.TagPill__button:hover,
+.TagPill__button:active {
+    background-color: var(--TagPill--background--hover);
+    color: var(--color-suld-0);
   }
-}
-@media screen {
+
   html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[disabled],
 html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-disabled],
-html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-pressed] {
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-pressed],
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__button[disabled],
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__button[aria-disabled],
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__button[aria-pressed],
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__remove[disabled],
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__remove[aria-disabled],
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__remove[aria-pressed] {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
   html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[disabled]::before,
 html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-disabled]::before,
-html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-pressed]::before {
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-pressed]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__button[disabled]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__button[aria-disabled]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__button[aria-pressed]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__remove[disabled]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__remove[aria-disabled]::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .TagPill__remove[aria-pressed]::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -59,7 +161,7 @@ html:not([data-disable-css-warnings-with-abandon=true]) .TagPill[aria-pressed]::
     color: red !important;
     background-color: rgba(255, 230, 230, 0.5) !important;
     padding: 0 0.5em !important;
-    content: "Undefined state" !important;
+    content: ".TagPill buttons/links can not be disabled" !important;
   }
 }
 /*# sourceMappingURL=TagPill.css.map */

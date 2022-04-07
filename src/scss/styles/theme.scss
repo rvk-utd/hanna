@@ -15,10 +15,10 @@
 		--theme-color-secondary-50: var(--color-sund-50);
 		--theme-color-secondary-25: var(--color-sund-25);
 
-		--theme-color-tertiary: var(--color-ellidarardalur-100);
-		--theme-color-tertiary-75: var(--color-ellidarardalur-75);
-		--theme-color-tertiary-50: var(--color-ellidarardalur-50);
-		--theme-color-tertiary-25: var(--color-ellidarardalur-25);
+		--theme-color-tertiary: var(--color-ellidaardalur-100);
+		--theme-color-tertiary-75: var(--color-ellidaardalur-75);
+		--theme-color-tertiary-50: var(--color-ellidaardalur-50);
+		--theme-color-tertiary-25: var(--color-ellidaardalur-25);
 
 		--theme-color-primary--text: var(--color-white);
 		--theme-color-primary--dark: var(--color-faxafloi-150);
@@ -47,10 +47,10 @@
 	}
 
 	[data-color-theme][data-color-theme='friendly'] {
-		--theme-color-primary: var(--color-ellidarardalur-100);
-		--theme-color-primary-75: var(--color-ellidarardalur-75);
-		--theme-color-primary-50: var(--color-ellidarardalur-50);
-		--theme-color-primary-25: var(--color-ellidarardalur-25);
+		--theme-color-primary: var(--color-ellidaardalur-100);
+		--theme-color-primary-75: var(--color-ellidaardalur-75);
+		--theme-color-primary-50: var(--color-ellidaardalur-50);
+		--theme-color-primary-25: var(--color-ellidaardalur-25);
 
 		--theme-color-secondary: var(--color-rokkur-100);
 		--theme-color-secondary-75: var(--color-rokkur-75);
@@ -63,14 +63,14 @@
 		--theme-color-tertiary-25: var(--color-nautholsvik-25);
 
 		--theme-color-primary--text: var(--color-blackish);
-		--theme-color-primary--dark: var(--color-ellidarardalur-150);
+		--theme-color-primary--dark: var(--color-ellidaardalur-150);
 		--theme-color-primary--safe: #{color.scale(
-				$color-ellidarardalur-100,
+				$color-ellidaardalur-100,
 				$saturation: 55%,
 				$lightness: -52%
 			)};
 		--theme-color-primary--safeish: #{color.scale(
-				$color-ellidarardalur-100,
+				$color-ellidaardalur-100,
 				$saturation: 35%,
 				$lightness: -25%
 			)};

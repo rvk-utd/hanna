@@ -1,7 +1,8 @@
-/*!@deps
-*/
 @use 'globals' as *;
 @use 'styles/links' as *;
+
+/*!@deps
+*/
 
 @media screen {
 	.TagPill {
@@ -11,35 +12,115 @@
 		white-space: nowrap;
 		vertical-align: middle;
 		text-decoration: none;
+		position: relative;
 
-		background-color: $color-suld-75;
-		color: $color-suld-200;
-		height: prem(30);
-		line-height: prem(30);
-		border-radius: prem(15);
-		font-size: prem(12);
-		min-width: prem(70);
-		margin-bottom: prem(16);
-		margin-right: between_phablet_netbook(12, 16);
-		padding: 0 between_phablet_netbook(12, 16);
+		transition: none;
 
-		@include media($mq-wide) {
-			margin-right: px(16);
-			padding-left: px(16);
-			padding-right: px(16);
-		}
+		--TagPill--background: #{$var--color-suld-50};
+		--TagPill--background--hover: #{$var--color-suld-150};
+		background-color: var(--TagPill--background);
+		color: $var--color-suld-200;
+		border-radius: $var--space-0_5;
+		text-align: center;
+		--TagPill--height: #{$var--space-3};
+		height: var(--TagPill--height);
+		line-height: var(--TagPill--height);
+		font-size: $var--font-label-size;
+		font-weight: $var--font-weight--bold;
+
+		box-sizing: content-box;
+		min-width: $var--space-5;
+		padding: 0 $var--space-1;
+
+		margin-bottom: $var--space-2;
+		margin-right: $var--space-2;
+	}
+	.TagPill--large {
+		--TagPill--height: calc(#{$var--space-3} + #{$var--space-0_5});
+		font-size: $var--font-button-size;
+		font-weight: $var--font-weight--normal;
+	}
+	.TagPill--color--green {
+		--TagPill--background: #{$var--color-ellidaardalur-50};
+		--TagPill--background--hover: #{$var--color-ellidaardalur-150};
+	}
+	.TagPill--color--yellow {
+		--TagPill--background: #{$var--color-nautholsvik-50};
+		--TagPill--background--hover: #{$var--color-nautholsvik-150};
+	}
+	.TagPill--color--orange {
+		--TagPill--background: #{$var--color-blafjoll-50};
+		--TagPill--background--hover: #{$var--color-blafjoll-150};
+	}
+	.TagPill--color--red {
+		--TagPill--background: #{$var--color-heidmork-50};
+		--TagPill--background--hover: #{$var--color-heidmork-150};
+	}
+
+	.TagPill__button {
+		transition: inherit;
+		display: block;
+		margin: 0 $var--space-1--neg;
+		padding-left: $var--space-1;
+		padding-right: calc(#{$var--space-1_5} + 1em);
+		border-radius: $var--space-0_5;
+	}
+
+	.TagPill__remove {
+		@include hideText(soft);
+		box-sizing: content-box;
+		width: 1em;
+		padding-left: $var--space-0_5;
+		padding-right: $var--space-1;
+		margin-right: $var--space-1--neg;
+		border-radius: $var--space-0_5;
+		float: right;
+		position: relative;
+	}
+	button.TagPill__remove:hover {
+		margin-left: $var--space-0_5--neg;
+		padding-left: $var--space-1;
+		background-color: var(--TagPill--background--hover);
+		color: $var--color-suld-0;
+	}
+	.TagPill__button + .TagPill__remove {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+	}
+	.TagPill__button:hover + .TagPill__remove,
+	.TagPill__button:active + .TagPill__remove {
+		opacity: 0.33;
+		background-color: var(--TagPill--background--hover);
+		color: $var--color-suld-0;
+	}
+
+	.TagPill__remove::before {
+		@include icon($icons-close);
+		font-size: em(12/16);
+		width: 100%;
+		margin-right: 2em;
 	}
 
 	a.TagPill:hover,
 	a.TagPill:active,
-	button.TagPill:hover {
-		background-color: $color-suld-150;
-		color: $color-suld-0;
+	button.TagPill:hover,
+	.TagPill__button:hover,
+	.TagPill__button:active {
+		background-color: var(--TagPill--background--hover);
+		color: $var--color-suld-0;
 	}
 
 	.TagPill[disabled],
 	.TagPill[aria-disabled],
-	.TagPill[aria-pressed] {
-		@include WARNING__('Undefined state');
+	.TagPill[aria-pressed],
+	.TagPill__button[disabled],
+	.TagPill__button[aria-disabled],
+	.TagPill__button[aria-pressed],
+	.TagPill__remove[disabled],
+	.TagPill__remove[aria-disabled],
+	.TagPill__remove[aria-pressed] {
+		@include WARNING__('.TagPill buttons/links can not be disabled');
 	}
 }

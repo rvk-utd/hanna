@@ -62,12 +62,8 @@
 		--Alert-icon: '#{$icons-warning}';
 	}
 	.Alert--success {
-		--Alert-background: #{mix($color-ellidarardalur-50, white, 60%)}; // a11y hax
-		--Alert-icon-color: #{mix(
-				$color-ellidarardalur-100,
-				$color-ellidarardalur-150,
-				67%
-			)};
+		--Alert-background: #{mix($color-ellidaardalur-50, white, 60%)}; // a11y hax
+		--Alert-icon-color: #{mix($color-ellidaardalur-100, $color-ellidaardalur-150, 67%)};
 		--Alert-icon: '#{$icons-checkmark}';
 	}
 

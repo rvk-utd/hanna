@@ -5,7 +5,12 @@
   --ButtonTertiary--hover--dashWidth: var(--space-4);
   --ButtonTertiary--dashSpace: var(--space-2);
   --ButtonTertiary--dashHeight: 2px;
-  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+  --ButtonTertiary--gapH: calc(0.7633587786vw + 13.5572519084px);
+}
+@media screen and (min-width: 1368px) {
+  :root {
+    --ButtonTertiary--gapH: 24px;
+  }
 }
 
 /*!@deps
@@ -134,8 +139,8 @@
   }
 }
 @media screen {
-  .ArticleCarouselCard[data-color=ellidarardalur]::after {
-    background-color: var(--color-ellidarardalur-100);
+  .ArticleCarouselCard[data-color=ellidaardalur]::after {
+    background-color: var(--color-ellidaardalur-100);
   }
 }
 @media screen {
@@ -243,18 +248,11 @@
     font: var(--font-base);
     padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
     padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
-    margin-right: var(--ButtonTertiary--marginRight);
+    margin-right: var(--ButtonTertiary--gapH);
     margin-bottom: var(--space-1);
     font-weight: 700;
     transition: all 100ms ease-in;
   }
-}
-@media screen and (min-width: 1368px) {
-  .ArticleCarouselCard__morelink {
-    --ButtonTertiary--marginRight: 24px;
-  }
-}
-@media screen {
   .ArticleCarouselCard__morelink::before {
     content: "";
     position: absolute;
@@ -269,8 +267,6 @@
     transform: translateY(-50%);
     transition: inherit;
   }
-}
-@media screen {
   .ArticleCarouselCard__morelink:hover, .ArticleCarouselCard__morelink:active, .ArticleCarouselCard__morelink[data-focus-visible-added] {
     padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
@@ -280,8 +276,6 @@
   .ArticleCarouselCard__morelink:hover::before, .ArticleCarouselCard__morelink:active::before, .ArticleCarouselCard__morelink[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .ArticleCarouselCard__morelink:focus-visible {
     padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
@@ -291,13 +285,9 @@
   .ArticleCarouselCard__morelink:focus-visible::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .ArticleCarouselCard__morelink:active::before {
     width: var(--ButtonTertiary--dashWidth);
   }
-}
-@media screen {
   .ArticleCarouselCard__morelink[data-focus-visible-added]::after {
     content: "";
     position: absolute;
@@ -309,8 +299,6 @@
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
-}
-@media screen {
   .ArticleCarouselCard__morelink:focus-visible::after {
     content: "";
     position: absolute;

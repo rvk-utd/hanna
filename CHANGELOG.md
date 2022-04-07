@@ -4,6 +4,21 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.8.50
+
+_2022-04-07_
+
+- feat: Add styling for `.TagPill--color--*`
+- feat: Add styling for `.TagPill--large`
+- feat: Add styling for `.TagPill__remove` and `.TagPill__button`
+- feat: Unify all "close" icons into one SVG, deprecate "close-thin" icon
+- fix: Improve wrapping of `.ButtonBar` contents in mobile viewport sizes
+- fix: Keyboard focus killing the arrow icon on all `.*--go--forward` buttons
+- fix: Add CSS variables `--color-ellidaardalur-*` — deprecate mis-spelled
+  `--color-ellidarardalur-*`
+- fix: Add `.ArticleCarouselCard[data-color]` value `ellidaardalur` —
+  deprecate mis-spelled `ellidarardalur`
+
 ## 0.8.49
 
 _2022-04-04_
