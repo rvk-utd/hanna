@@ -157,11 +157,16 @@
     --color-heidmork-75: #ec9197;
     --color-heidmork-100: #d8222f;
     --color-heidmork-150: #6c1118;
-    --color-ellidarardalur-25: #e2f9ea;
-    --color-ellidarardalur-50: #c4f2d5;
-    --color-ellidarardalur-75: #89e6ab;
-    --color-ellidarardalur-100: #64d68e;
-    --color-ellidarardalur-150: #0a662b;
+    --color-ellidaardalur-25: #e2f9ea;
+    --color-ellidaardalur-50: #c4f2d5;
+    --color-ellidaardalur-75: #89e6ab;
+    --color-ellidaardalur-100: #64d68e;
+    --color-ellidaardalur-150: #0a662b;
+    --color-ellidarardalur-25: var(--color-ellidaardalur-25);
+    --color-ellidarardalur-50: var(--color-ellidaardalur-50);
+    --color-ellidarardalur-75: var(--color-ellidaardalur-75);
+    --color-ellidarardalur-100: var(--color-ellidaardalur-100);
+    --color-ellidarardalur-150: var(--color-ellidaardalur-150);
     --color-blafjoll-25: #ffede9;
     --color-blafjoll-50: #ffdbd3;
     --color-blafjoll-75: #fab7a9;
@@ -189,7 +194,7 @@
     --border-default: 1px solid var(--color-suld-75);
     --border-dark: 1px solid var(--color-suld-150);
     --Button--gapH: calc(1.5267175573vw + 11.1145038168px);
-    --Button--gapV: 1rem;
+    --Button--gapV: var(--space-2);
   }
 }
 @media screen and (min-width: 1368px) {
@@ -289,10 +294,10 @@
   --theme-color-secondary-75: var(--color-sund-75);
   --theme-color-secondary-50: var(--color-sund-50);
   --theme-color-secondary-25: var(--color-sund-25);
-  --theme-color-tertiary: var(--color-ellidarardalur-100);
-  --theme-color-tertiary-75: var(--color-ellidarardalur-75);
-  --theme-color-tertiary-50: var(--color-ellidarardalur-50);
-  --theme-color-tertiary-25: var(--color-ellidarardalur-25);
+  --theme-color-tertiary: var(--color-ellidaardalur-100);
+  --theme-color-tertiary-75: var(--color-ellidaardalur-75);
+  --theme-color-tertiary-50: var(--color-ellidaardalur-50);
+  --theme-color-tertiary-25: var(--color-ellidaardalur-25);
   --theme-color-primary--text: var(--color-white);
   --theme-color-primary--dark: var(--color-faxafloi-150);
   --theme-color-primary--safe: var(--theme-color-primary);
@@ -316,10 +321,10 @@
 }
 
 [data-color-theme][data-color-theme=friendly] {
-  --theme-color-primary: var(--color-ellidarardalur-100);
-  --theme-color-primary-75: var(--color-ellidarardalur-75);
-  --theme-color-primary-50: var(--color-ellidarardalur-50);
-  --theme-color-primary-25: var(--color-ellidarardalur-25);
+  --theme-color-primary: var(--color-ellidaardalur-100);
+  --theme-color-primary-75: var(--color-ellidaardalur-75);
+  --theme-color-primary-50: var(--color-ellidaardalur-50);
+  --theme-color-primary-25: var(--color-ellidaardalur-25);
   --theme-color-secondary: var(--color-rokkur-100);
   --theme-color-secondary-75: var(--color-rokkur-75);
   --theme-color-secondary-50: var(--color-rokkur-50);
@@ -329,7 +334,7 @@
   --theme-color-tertiary-50: var(--color-nautholsvik-50);
   --theme-color-tertiary-25: var(--color-nautholsvik-25);
   --theme-color-primary--text: var(--color-blackish);
-  --theme-color-primary--dark: var(--color-ellidarardalur-150);
+  --theme-color-primary--dark: var(--color-ellidaardalur-150);
   --theme-color-primary--safe: #0e893b;
   --theme-color-primary--safeish: #20cb5f;
 }
@@ -377,7 +382,7 @@
   font-weight: normal;
   font-style: normal;
   font-display: block;
-  src: url("i/icons.woff2?357e60448d483d93d450c9a9ca5d44e8") format("woff2"), url("i/icons.woff?357e60448d483d93d450c9a9ca5d44e8") format("woff");
+  src: url("i/icons.woff2?1ae51504a5c87af0816ad3d69e515458") format("woff2"), url("i/icons.woff?1ae51504a5c87af0816ad3d69e515458") format("woff");
 }
 @font-face {
   font-family: "Esja";
@@ -1328,7 +1333,7 @@ tbody > * > td {
     left: 0;
     bottom: 0;
     z-index: 99999;
-    background: var(--color-ellidarardalur-50);
+    background: var(--color-ellidaardalur-50);
     box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.1), 0 0 3px 0 rgba(57, 103, 76, 0.4);
     padding: 0.75rem;
   }

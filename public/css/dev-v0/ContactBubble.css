@@ -100,7 +100,7 @@
 }
 @media screen {
   .ContactBubble__openbtn::after {
-    content: "";
+    content: "";
     opacity: 0;
     font-size: 1.625rem;
   }
@@ -140,7 +140,7 @@
   }
 
   .ContactBubble__closebtn::before {
-    content: "";
+    content: "";
     display: inline-block;
     text-indent: 0;
     text-align: center;

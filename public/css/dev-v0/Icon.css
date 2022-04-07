@@ -2,6 +2,7 @@
 @media screen {
   [data-icon] {
     --Icon: none;
+    --Icon--size: inherit;
     --Icon--enabled: none;
   }
 
@@ -19,11 +20,13 @@
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
     content: var(--Icon--enabled, var(--Icon));
+    font-size: var(--Icon--size);
     margin-right: var(--space-1);
   }
 
   [data-icon-after] {
     --Icon-after: none;
+    --Icon-after--size: inherit;
     --Icon-after--enabled: none;
   }
 
@@ -41,6 +44,7 @@
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
     content: var(--Icon-after--enabled, var(--Icon-after));
+    font-size: var(--Icon-after--size);
     margin-left: var(--space-1_5);
   }
 

@@ -5,7 +5,12 @@
   --ButtonTertiary--hover--dashWidth: var(--space-4);
   --ButtonTertiary--dashSpace: var(--space-2);
   --ButtonTertiary--dashHeight: 2px;
-  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+  --ButtonTertiary--gapH: calc(0.7633587786vw + 13.5572519084px);
+}
+@media screen and (min-width: 1368px) {
+  :root {
+    --ButtonTertiary--gapH: 24px;
+  }
 }
 
 /*!@deps
@@ -257,7 +262,7 @@
     font: var(--font-base);
     padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
     padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
-    margin-right: var(--ButtonTertiary--marginRight);
+    margin-right: var(--ButtonTertiary--gapH);
     margin-bottom: var(--space-1);
     font-weight: 700;
     transition: all 100ms ease-in;
@@ -266,13 +271,6 @@
     border-width: 3.125rem 18.75rem;
     margin: 0 auto;
   }
-}
-@media screen and (min-width: 1368px) {
-  .SearchResults__loadmore {
-    --ButtonTertiary--marginRight: 24px;
-  }
-}
-@media screen {
   .SearchResults__loadmore::before {
     content: "";
     position: absolute;
@@ -287,8 +285,6 @@
     transform: translateY(-50%);
     transition: inherit;
   }
-}
-@media screen {
   .SearchResults__loadmore:hover, .SearchResults__loadmore:active, .SearchResults__loadmore[data-focus-visible-added] {
     padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
@@ -298,8 +294,6 @@
   .SearchResults__loadmore:hover::before, .SearchResults__loadmore:active::before, .SearchResults__loadmore[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .SearchResults__loadmore:focus-visible {
     padding-left: calc( 				var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--hover--dashWidth) 			);
     padding-right: 0rem;
@@ -309,13 +303,9 @@
   .SearchResults__loadmore:focus-visible::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .SearchResults__loadmore:active::before {
     width: var(--ButtonTertiary--dashWidth);
   }
-}
-@media screen {
   .SearchResults__loadmore[data-focus-visible-added]::after {
     content: "";
     position: absolute;
@@ -327,8 +317,6 @@
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
-}
-@media screen {
   .SearchResults__loadmore:focus-visible::after {
     content: "";
     position: absolute;

@@ -6,7 +6,12 @@
   --ButtonTertiary--hover--dashWidth: var(--space-4);
   --ButtonTertiary--dashSpace: var(--space-2);
   --ButtonTertiary--dashHeight: 2px;
-  --ButtonTertiary--marginRight: calc(0.7633587786vw + 13.5572519084px);
+  --ButtonTertiary--gapH: calc(0.7633587786vw + 13.5572519084px);
+}
+@media screen and (min-width: 1368px) {
+  :root {
+    --ButtonTertiary--gapH: 24px;
+  }
 }
 
 @media screen {
@@ -57,19 +62,12 @@
     font: var(--font-base);
     padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
     padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
-    margin-right: var(--ButtonTertiary--marginRight);
+    margin-right: var(--ButtonTertiary--gapH);
     margin-bottom: var(--space-1);
     font-weight: 700;
     transition: all 100ms ease-in;
     margin-right: var(--space-1);
   }
-}
-@media screen and (min-width: 1368px) {
-  span.NameCard__contactinfo__item {
-    --ButtonTertiary--marginRight: 24px;
-  }
-}
-@media screen {
   span.NameCard__contactinfo__item::before {
     content: "";
     position: absolute;
@@ -84,8 +82,7 @@
     transform: translateY(-50%);
     transition: inherit;
   }
-}
-@media screen {
+
   .NameCard__tel__number,
 a.NameCard__contactinfo__item,
 button.NameCard__contactinfo__item {
@@ -106,21 +103,12 @@ button.NameCard__contactinfo__item {
     font: var(--font-base);
     padding-left: calc( 		var(--ButtonTertiary--dashSpace) + var(--ButtonTertiary--dashWidth) 	);
     padding-right: calc( 		var(--ButtonTertiary--hover--dashWidth) - var(--ButtonTertiary--dashWidth) 	);
-    margin-right: var(--ButtonTertiary--marginRight);
+    margin-right: var(--ButtonTertiary--gapH);
     margin-bottom: var(--space-1);
     font-weight: 700;
     transition: all 100ms ease-in;
     margin-right: var(--space-1);
   }
-}
-@media screen and (min-width: 1368px) {
-  .NameCard__tel__number,
-a.NameCard__contactinfo__item,
-button.NameCard__contactinfo__item {
-    --ButtonTertiary--marginRight: 24px;
-  }
-}
-@media screen {
   .NameCard__tel__number::before,
 a.NameCard__contactinfo__item::before,
 button.NameCard__contactinfo__item::before {
@@ -137,8 +125,6 @@ button.NameCard__contactinfo__item::before {
     transform: translateY(-50%);
     transition: inherit;
   }
-}
-@media screen {
   .NameCard__tel__number:hover, .NameCard__tel__number:active, .NameCard__tel__number[data-focus-visible-added],
 a.NameCard__contactinfo__item:hover,
 a.NameCard__contactinfo__item:active,
@@ -160,8 +146,6 @@ button.NameCard__contactinfo__item:active::before,
 button.NameCard__contactinfo__item[data-focus-visible-added]::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .NameCard__tel__number:focus-visible,
 a.NameCard__contactinfo__item:focus-visible,
 button.NameCard__contactinfo__item:focus-visible {
@@ -175,15 +159,11 @@ a.NameCard__contactinfo__item:focus-visible::before,
 button.NameCard__contactinfo__item:focus-visible::before {
     width: var(--ButtonTertiary--hover--dashWidth);
   }
-}
-@media screen {
   .NameCard__tel__number:active::before,
 a.NameCard__contactinfo__item:active::before,
 button.NameCard__contactinfo__item:active::before {
     width: var(--ButtonTertiary--dashWidth);
   }
-}
-@media screen {
   .NameCard__tel__number[data-focus-visible-added]::after,
 a.NameCard__contactinfo__item[data-focus-visible-added]::after,
 button.NameCard__contactinfo__item[data-focus-visible-added]::after {
@@ -197,8 +177,6 @@ button.NameCard__contactinfo__item[data-focus-visible-added]::after {
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
-}
-@media screen {
   .NameCard__tel__number:focus-visible::after,
 a.NameCard__contactinfo__item:focus-visible::after,
 button.NameCard__contactinfo__item:focus-visible::after {
@@ -212,15 +190,13 @@ button.NameCard__contactinfo__item:focus-visible::after {
     border: 0.0625rem dotted var(--ButtonTertiary--dashColor);
     border-radius: 0.5rem;
   }
-}
-@media screen {
+
   .NameCard__location,
 .NameCard__hours {
     margin-bottom: var(--space-1);
     padding-left: var(--space-4);
   }
-}
-@media screen {
+
   .NameCard__location:before,
 .NameCard__hours::before {
     content: "";
@@ -241,24 +217,20 @@ button.NameCard__contactinfo__item:focus-visible::after {
     width: var(--space-3);
     color: var(--color-suld-150);
   }
-}
-@media screen {
+
   .NameCard__hours:before {
     content: "";
   }
-}
-@media screen {
+
   .NameCard__abouttext {
     margin-bottom: var(--space-1);
   }
-}
-@media screen {
+
   .NameCard__location + .NameCard__abouttext,
 .NameCard__hours + .NameCard__abouttext {
     margin-top: var(--space-2);
   }
-}
-@media screen {
+
   .NameCard__meta {
     margin-top: auto;
     padding-top: var(--space-1);
@@ -267,8 +239,7 @@ button.NameCard__contactinfo__item:focus-visible::after {
     justify-content: space-between;
     align-items: flex-end;
   }
-}
-@media screen {
+
   .NameCard__vacancy,
 .NameCard__availability {
     color: #707275;
@@ -276,15 +247,13 @@ button.NameCard__contactinfo__item:focus-visible::after {
     margin-top: var(--space-1);
     margin-right: var(--space-2);
   }
-}
-@media screen {
+
   .NameCard__vacancy--vacany,
 .NameCard__availability--available {
     color: #2a2b2c;
     --led-color: #64d68e;
   }
-}
-@media screen {
+
   .NameCard__vacancy::before,
 .NameCard__availability::before {
     content: "";
@@ -296,8 +265,7 @@ button.NameCard__contactinfo__item:focus-visible::after {
     border-radius: 50%;
     background-color: var(--led-color);
   }
-}
-@media screen {
+
   .NameCard__updated {
     font: var(--font-label);
     color: var(--color-suld-150);
