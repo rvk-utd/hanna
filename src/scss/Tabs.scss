@@ -40,10 +40,7 @@
 		}
 	}
 	.Tabs__tab:hover,
-	.Tabs__tab:active {
-		border-bottom-color: $var--theme-color-primary--safeish;
-	}
-
+	.Tabs__tab:active,
 	.Tabs__tab[data-active='true'],
 	.Tabs__tab[aria-pressed='true'] {
 		border-bottom-color: $var--theme-color-primary--safeish;
@@ -92,7 +89,7 @@
 	// ===========================================================================
 	// Overrides for --vertical
 
-	.Tabs--vertical {
+	.Tabs--vertical[class] {
 		--Tabs--borderWidth: 2px;
 		--Tabs__tab--borderWidth: 2px;
 		float: left; // default layout behavior
@@ -118,30 +115,55 @@
 		width: 100%;
 		margin: 0;
 		padding: $var--space-2 $var--space-1;
+		padding-left: $var--space-1_5;
 
 		@include keyboardFocus-selector() {
 			outline-offset: -3px;
 		}
 	}
+	.Tabs--vertical .Tabs__tab::before {
+		content: var(--Tabs__tab__before);
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		margin: calc(-1 * var(--Tabs--borderWidth)) 0;
+		width: 4px;
+		background-color: $var--theme-color-primary--safeish;
+	}
+	.Tabs--vertical .Tabs__tab:hover,
+	.Tabs--vertical .Tabs__tab:active,
+	.Tabs--vertical .Tabs__tab[data-active='true'],
+	.Tabs--vertical .Tabs__tab[aria-pressed='true'] {
+		--Tabs__tab__before: '';
+		border-bottom-color: $var--color-suld-50;
+	}
+	.Tabs--vertical .Tabs__tab[data-active='true'],
+	.Tabs--vertical .Tabs__tab[aria-pressed='true'] {
+		font-weight: $var--font-weight--bold;
+	}
 
 	// Nested/sub-tabs
 
 	.Tabs--vertical > .Tabs {
-		--Tabs--borderWidth: 2px;
-		--Tabs__tab--borderWidth: 2px;
 		border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
+		padding-left: $var--space-1_5;
 		flex-direction: column;
 	}
 	.Tabs--vertical > * > .Tabs__tab {
-		padding-left: $var--space-3;
 		padding-top: $var--space-1;
 		padding-bottom: $var--space-1;
+	}
+	.Tabs--vertical > * > .Tabs__tab:last-child {
+		border-bottom: 0;
 	}
 
 	.Tabs--vertical .Tabs__tab[data-active='true'] ~ .Tabs__tab,
 	.Tabs--vertical .Tabs__tab[aria-pressed='true'] ~ .Tabs__tab {
 		order: 1;
 	}
+
+	// ---------------------------------------------------------------------------
 
 	.Tabs > *:not(.Tabs__tab):not(.Tabs) {
 		@include WARNING__('Only .Tabs__tab or `.Tabs` are allowed here');
