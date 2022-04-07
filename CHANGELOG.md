@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update "active" styling of `.Tags--vertical`
 
 ## 0.8.50
 
