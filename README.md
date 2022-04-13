@@ -36,7 +36,7 @@ for details.)
 
 ### Get CSS bundles
 
-The saerver's "bundle" API works like this:
+The server's "bundle" API works like this:
 
 ```
 https://[HOSTNAME_AND_PORT]/bundle/[VERSION_FOLDER]?m=[CSS_TOKEN1,CSS_TOKEN2]
