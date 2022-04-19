@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["dom", "esnext"],
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "newLine": "LF",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitThis": false,
+    "noUncheckedIndexedAccess": true,
+
+    "isolatedModules": true,
+
+    "paths": {
+      "@reykjavik/hanna-css/*": ["./modules/hanna-css/src/lib/*"],
+      "@reykjavik/hanna-icons/*": ["./modules/hanna-icons/src/lib/*"],
+      "@hugsmidjan_is/hanna-react/*": ["./modules/hanna-react/src/*"],
+      "@hugsmidjan_is/hanna-sprinkles/*": ["./modules/hanna-sprinkles/src/lib/*"],
+      "@reykjavik/hanna-utils/*": ["./modules/hanna-utils/src/*"]
+    }
+  },
+
+  "exclude": ["node_modules", "**/dist", "**/__tests"]
+  // Include all *.ts(x) files in the project.
+  // "include": ["**"]
+}
