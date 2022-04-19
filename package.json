@@ -17,15 +17,15 @@
 		"build": "yarn install  &&  NODE_ENV=production  yarn run gulp build"
 	},
 	"engines": {
-		"node": ">=12 <15"
+		"node": ">=14 <17"
 	},
 	"dependencies": {
 		"cssserve": "^1.4.1"
 	},
 	"devDependencies": {
-		"@hugsmidjan/gulp-iconfont": "^0.3.2",
-		"@hugsmidjan/gulp-images": "^0.1.8",
-		"@hugsmidjan/gulp-sass": "^0.1.2",
+		"@hugsmidjan/gulp-iconfont": "^0.4.0",
+		"@hugsmidjan/gulp-images": "^0.2.1",
+		"@hugsmidjan/gulp-sass": "^0.2.0",
 		"@hugsmidjan/hxmstyle": "^3.1.0",
 		"browser-sync": "^2.26.12",
 		"concurrently": "^6.3.0",
@@ -39,7 +39,7 @@
 		"onchange": "^6.1.0",
 		"ospec": "^4.0.1",
 		"prettier": "^2.1.2",
-		"sass": "^1.26.10"
+		"sass": "~1.32"
 	},
 	"browserslist": [
 		"defaults"
