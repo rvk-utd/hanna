@@ -1,4 +1,5 @@
 {
+	"staticFolder": "public/",
 	"proxied": true,
 	"sslKeyPath": null,
 	"ttl_static": 0,

@@ -1,4 +1,6 @@
 {
+	"staticFolder": "public/",
+
 	"ttl_static": 600,
 	"ttl_bundle": 600,
 
