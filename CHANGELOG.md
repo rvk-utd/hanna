@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.52
+
+_2022-04-20_
+
 - feat: Add low-level component `Carousel`
 - feat: Support more flexible/complex `.WizardStepper__step` patterns
 - fix: `.ContactBubble` menu underlapping `.Layout__header` in desktop
