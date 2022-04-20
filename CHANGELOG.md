@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Extends `ContactBubble`'s "mobile" mode to `phablet` sizes only
 
 ## 0.8.52
 
