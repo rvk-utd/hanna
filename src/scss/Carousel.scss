@@ -8,6 +8,14 @@ html.before-sprinkling[class] > .Carousel__items {
 	overflow: visible;
 }
 
+.Carousel__items {
+	display: flex;
+	flex-flow: row;
+}
+.Carousel:not([data-sprinkled]) > .Carousel__items {
+	overflow: auto;
+}
+
 // ---------------------------------------------------------------------------
 
 @include CarouselStepper.css();
