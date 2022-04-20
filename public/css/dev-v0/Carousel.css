@@ -1,0 +1,51 @@
+/*!@deps
+	Carousel
+*/
+html.before-sprinkling .Carousel:not([data-sprinkled]) {
+  padding-bottom: var(--CarouselStepper--height);
+}
+
+html.before-sprinkling[class] > .Carousel__items {
+  overflow: visible;
+}
+
+:root {
+  --CarouselStepper--height: var(--space-4);
+}
+
+.CarouselStepper {
+  margin: 0 var(--space-0_5--neg);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  align-items: flex-end;
+  padding-top: var(--space-1);
+  height: var(--CarouselStepper--height);
+}
+
+.CarouselStepper__button {
+  flex: none;
+  position: relative;
+  width: var(--space-1);
+  height: 100%;
+  margin: 0 var(--space-0_5);
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 150%;
+  background: var(--theme-color-primary-50);
+  transform: scaleY(0.6666666667);
+  transform-origin: bottom center;
+  transition: transform 200ms ease-in;
+}
+
+.CarouselStepper__button:hover {
+  background: #707275;
+  transform: scaleY(0.8333333333);
+}
+
+.CarouselStepper__button[aria-pressed=true] {
+  background: var(--theme-color-primary);
+  transform: none;
+}
+/*# sourceMappingURL=Carousel.css.map */

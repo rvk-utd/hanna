@@ -5,9 +5,11 @@
   }
 
   .WizardStepper__step {
-    --WizardStepper-ballBackground: var(--color-suld-50);
-    --WizardStepper-ballColor: var(--color-suld-100);
-    --WizardStepper-lineColor: var(--color-suld-75);
+    --WizardStepper-ballBackground: var(--color-faxafloi-75);
+    --WizardStepper-ballColor: var(--color-suld-0);
+    --WizardStepper-ballIcon: "";
+    --WizardStepper-lineColor: var(--color-faxafloi-100);
+    color: var(--color-faxafloi-100);
     display: block;
     line-height: 1.35;
     padding: 0.75rem 0;
@@ -18,7 +20,6 @@
     position: relative;
     margin-bottom: 2.125rem;
     font-size: 0.75rem;
-    color: var(--color-suld-150);
   }
   .WizardStepper__step::before {
     content: counter(step);
@@ -48,19 +49,25 @@
     content: none;
   }
 
-  button.WizardStepper__step:hover,
-button.WizardStepper__step:active {
-    color: var(--link-color--hover);
-    text-decoration: underline;
+  .WizardStepper--preview > .WizardStepper__step,
+[aria-current=step] ~ .WizardStepper__step {
+    --WizardStepper-ballBackground: var(--color-suld-50);
+    --WizardStepper-ballColor: var(--color-suld-100);
+    --WizardStepper-lineColor: var(--color-suld-75);
+    color: var(--color-suld-150);
   }
 
-  .WizardStepper__step--done,
-.WizardStepper__step[aria-current=step] {
-    color: var(--color-faxafloi-100);
-    --WizardStepper-ballBackground: var(--color-faxafloi-100);
-    --WizardStepper-ballColor: var(--color-suld-0);
-    --WizardStepper-ballIcon: "";
+  .WizardStepper--preview > .WizardStepper__step--done,
+[aria-current=step] ~ .WizardStepper__step--done {
+    --WizardStepper-ballColor: var(--color-suld-150);
   }
+
+  .WizardStepper__step[aria-current=step] {
+    --WizardStepper-ballBackground: var(--color-faxafloi-100);
+    --WizardStepper-ballIcon: "";
+    --WizardStepper-lineColor: var(--color-suld-75);
+  }
+
   .WizardStepper__step--done::before,
 .WizardStepper__step[aria-current=step]::before {
     display: inline-block;
@@ -79,18 +86,16 @@ button.WizardStepper__step:active {
     font-size: 0.75rem;
   }
 
-  .WizardStepper__step--done {
-    --WizardStepper-ballBackground: var(--color-faxafloi-75);
-    --WizardStepper-ballIcon: "";
-    --WizardStepper-lineColor: var(--color-faxafloi-100);
+  button.WizardStepper__step:hover,
+button.WizardStepper__step:active {
+    color: var(--link-color--hover);
+    text-decoration: underline;
   }
 
-  html:not([data-disable-css-warnings-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step]),
-html:not([data-disable-css-warnings-with-abandon=true]) .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step]) {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:last-child:not([aria-current=step]):not([aria-current=step] ~ *) {
     box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
   }
-  html:not([data-disable-css-warnings-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:first-child:not(.WizardStepper__step--done):not([aria-current=step])::before,
-html:not([data-disable-css-warnings-with-abandon=true]) .WizardStepper__step--done + .WizardStepper__step:not(.WizardStepper__step--done):not([aria-current=step])::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) :not(.WizardStepper--preview) > .WizardStepper__step:last-child:not([aria-current=step]):not([aria-current=step] ~ *)::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -103,6 +108,24 @@ html:not([data-disable-css-warnings-with-abandon=true]) .WizardStepper__step--do
     background-color: rgba(255, 230, 230, 0.5) !important;
     padding: 0 0.5em !important;
     content: 'You forgot aria-current="step".' !important;
+  }
+
+  html:not([data-disable-css-warnings-with-abandon=true]) .WizardStepper--preview > .WizardStepper__step[aria-current=step] {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  }
+  html:not([data-disable-css-warnings-with-abandon=true]) .WizardStepper--preview > .WizardStepper__step[aria-current=step]::before {
+    all: initial !important;
+    order: -999 !important;
+    font-family: sans-serif !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    font-size: 12px !important;
+    line-height: 1.5em !important;
+    color: red !important;
+    background-color: rgba(255, 230, 230, 0.5) !important;
+    padding: 0 0.5em !important;
+    content: "Remove the `--preview` modifier on parent" !important;
   }
 }
 @media screen and (max-width: 759px) {
