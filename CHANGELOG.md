@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support more flexible/complex `.WizardStepper__step` patterns
 - fix: `.ContactBubble` menu underlapping `.Layout__header` in desktop
 
 ## 0.8.50 — 0.8.51
