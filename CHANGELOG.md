@@ -3,12 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Extends `ContactBubble`'s "mobile" mode to `phablet` sizes only
 
-## 0.8.52
+## 0.8.52 — 0.8.53
 
 _2022-04-20_
 
+- feat: Extends `ContactBubble`'s "mobile" mode to `phablet` sizes only
 - feat: Add low-level component `Carousel`
 - feat: Support more flexible/complex `.WizardStepper__step` patterns
 - fix: `.ContactBubble` menu underlapping `.Layout__header` in desktop
