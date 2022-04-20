@@ -305,7 +305,6 @@ html:not([data-disable-css-warnings-with-abandon=true]) .NameCard__aboutText ul:
   color: red !important;
   background-color: rgba(255, 230, 230, 0.5) !important;
   padding: 0 0.5em !important;
-  content: "Only use simple, inline HTML -moz-element inside this field." !important;
   content: "Only use simple, inline HTML element inside this field." !important;
 }
 /*# sourceMappingURL=NameCard.css.map */

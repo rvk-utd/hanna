@@ -4,13 +4,13 @@
 @use '_GalleryModal' as GalleryModal;
 
 /*!@deps
-	CarouselStepper
+	Carousel
 */
 
 @media screen {
+	// TODO: Refactor to a mixin from Carousel.scss
 	html.before-sprinkling .Gallery:not([data-sprinkled]) {
-		// fake space for the CarouselStepper
-		padding-bottom: prem(24 + 8);
+		padding-bottom: var(--CarouselStepper--height);
 	}
 	html.before-sprinkling[class] > .Gallery__items {
 		overflow: visible;

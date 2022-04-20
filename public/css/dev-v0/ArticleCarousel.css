@@ -14,11 +14,11 @@
 }
 
 /*!@deps
-	CarouselStepper
+	Carousel
 */
 @media screen {
   html.before-sprinkling .ArticleCarousel:not([data-sprinkled]) {
-    padding-bottom: 2rem;
+    padding-bottom: var(--CarouselStepper--height);
   }
 
   html.before-sprinkling[class] > .ArticleCarousel__items {
@@ -27,7 +27,6 @@
 
   .ArticleCarousel {
     margin-bottom: calc(9.6982758621% + 12.8448275862px);
-    --globalPrimary: var(--theme-color-primary--safeish);
   }
   .before-sprinkling .ArticleCarousel, .ArticleCarousel[data-is-seen=false], .ArticleCarousel[data-is-seen=true] {
     opacity: 0;
@@ -230,7 +229,6 @@
 }
 @media screen {
   .ArticleCarouselCard__morelink {
-    --ButtonTertiary--dashColor: var(--globalPrimary);
     --link-color: _inherit;
     --link-weight: _inherit;
     --link-underline: none;

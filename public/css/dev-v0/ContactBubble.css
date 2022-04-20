@@ -11,16 +11,24 @@
     margin: 0 auto;
     transition: all 600ms ease-in-out;
   }
-
+}
+@media screen and (min-width: 980px) {
+  .ContactBubble__wrapper {
+    z-index: var(--zindex--header);
+  }
+}
+@media screen {
   html.before-sprinkling .ContactBubble__wrapper:not([data-show]) {
     display: none;
   }
-
+}
+@media screen {
   .ContactBubble__wrapper[data-show=false] {
     opacity: 0;
     visibility: hidden;
   }
-
+}
+@media screen {
   .ContactBubble__openbtn {
     position: absolute;
     z-index: 1;

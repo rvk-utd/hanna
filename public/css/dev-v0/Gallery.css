@@ -90,11 +90,11 @@
   }
 }
 /*!@deps
-	CarouselStepper
+	Carousel
 */
 @media screen {
   html.before-sprinkling .Gallery:not([data-sprinkled]) {
-    padding-bottom: 2rem;
+    padding-bottom: var(--CarouselStepper--height);
   }
 
   html.before-sprinkling[class] > .Gallery__items {

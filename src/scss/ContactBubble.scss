@@ -14,6 +14,10 @@
 		max-width: prem($grid-contentMaxWidth);
 		margin: 0 auto;
 		transition: all 600ms ease-in-out;
+
+		@include media($mq-Topmenu) {
+			z-index: $var--zindex--header;
+		}
 	}
 	html.before-sprinkling .ContactBubble__wrapper:not([data-show]) {
 		display: none;
