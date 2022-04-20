@@ -1,15 +1,23 @@
 @use '_globals' as *;
 
-@media screen {
-	$margin: prem(4);
+/*!@deps
+	Carousel
+*/
+
+@mixin css() {
+	:root {
+		--CarouselStepper--height: #{$var--space-4};
+	}
+
+	// ---------------------------------------------------------------------------
 
 	.CarouselStepper {
-		margin: 0 -$margin;
+		margin: 0 $var--space-0_5--neg;
 		width: max-content;
 		display: flex;
 		align-items: flex-end;
-		padding-top: prem(8);
-		height: prem(24 + 8);
+		padding-top: $var--space-1;
+		height: var(--CarouselStepper--height);
 	}
 
 	.CarouselStepper__button {
@@ -17,23 +25,21 @@
 
 		position: relative;
 
-		width: 8px;
+		width: $var--space-1;
 		height: 100%;
 
-		margin: 0 $margin;
+		margin: 0 $var--space-0_5;
 
 		overflow: hidden;
 		white-space: nowrap;
+		text-indent: 150%;
 
-		// should be variable for theming??
-		background: $color-faxafloi-50;
+		background: $var--theme-color-primary-50;
 
 		transform: scaleY((16/24));
 		transform-origin: bottom center;
 
 		transition: transform 200ms ease-in;
-
-		text-indent: 9px;
 	}
 
 	.CarouselStepper__button:hover {

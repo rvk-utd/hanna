@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add low-level component `Carousel`
 - feat: Support more flexible/complex `.WizardStepper__step` patterns
 - fix: `.ContactBubble` menu underlapping `.Layout__header` in desktop
 
