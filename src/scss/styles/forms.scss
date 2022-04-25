@@ -259,6 +259,7 @@ $InputField-paddingH: grid-units(2);
 
 @mixin InputField--placeholder() {
 	color: $var--color-suld-150;
+	opacity: 1; // override browser default styling
 }
 @mixin InputField--filled() {
 	--input-border-color: #{$var--color-faxafloi-100};
