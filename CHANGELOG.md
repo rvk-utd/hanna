@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Float `.FormField__label__reqstar` to the left
 - fix: Remove browser-default opacity off `.FormField`'s `::placholder`
 
 ## 0.8.52 — 0.8.53
