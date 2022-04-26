@@ -12,6 +12,9 @@ html.before-sprinkling[class] > .Carousel__items {
 	display: flex;
 	flex-flow: row;
 }
+.Carousel__items > * {
+	margin-right: $var--space-3;
+}
 .Carousel:not([data-sprinkled]) > .Carousel__items {
 	overflow: auto;
 }
