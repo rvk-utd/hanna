@@ -204,15 +204,15 @@
 // ===========================================================================
 
 @if (getEnv('NODE_ENV') == '') {
-	body:hover {
+	html[data-grid-overlay] body:hover {
 		--show-grid-lines: '';
 	}
-	.Layout:hover {
+	html[data-grid-overlay] .Layout:hover {
 		/**/ //
 		--show-grid-lines: initial;
 		/**/
 	}
-	.Layout::after {
+	html[data-grid-overlay] .Layout::after {
 		content: var(--show-grid-lines, none);
 		pointer-events: none;
 		position: absolute;
