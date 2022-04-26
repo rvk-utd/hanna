@@ -135,6 +135,11 @@ html.menu-is-closed .MainMenu {
   }
 }
 @media screen and (max-width: 979px) {
+  html.menu-is-open {
+    --Layout__header-backgroundColor: var(--color-faxafloi-100);
+  }
+}
+@media screen and (max-width: 979px) {
   html.menu-is-open .MainMenu {
     transition-delay: 0ms;
     visibility: visible;
@@ -813,4 +818,3 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     margin-bottom: 0.5rem;
   }
 }
-/*# sourceMappingURL=MainMenu.css.map */

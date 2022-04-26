@@ -14,6 +14,10 @@ html.before-sprinkling[class] > .Carousel__items {
   flex-flow: row;
 }
 
+.Carousel__items > * {
+  margin-right: var(--space-3);
+}
+
 .Carousel:not([data-sprinkled]) > .Carousel__items {
   overflow: auto;
 }
@@ -57,4 +61,3 @@ html.before-sprinkling[class] > .Carousel__items {
   background: var(--theme-color-primary);
   transform: none;
 }
-/*# sourceMappingURL=Carousel.css.map */

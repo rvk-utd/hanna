@@ -135,6 +135,7 @@
     --font-label-size: 12px;
     --font-label-leading: 16px;
     --Layout__header-height: 96px;
+    --Layout__header-backgroundColor: transparent;
     --MainMenu-accentcolor: var(--color-faxafloi-100);
     --MainMenu-background: var(--color-faxafloi-100);
     --color-esja-25: #f4f7ff;
@@ -1408,4 +1409,3 @@ tbody > * > td {
   margin: auto !important;
   pointer-events: none !important;
 }
-/*# sourceMappingURL=-basics.css.map */

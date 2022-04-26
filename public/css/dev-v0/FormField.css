@@ -65,8 +65,8 @@
 
   .FormField__label__reqstar {
     border-bottom: none;
-    float: right;
-    margin-left: 0.25em;
+    float: left;
+    margin-right: 0.15em;
   }
 
   .FormField__input {
@@ -100,15 +100,18 @@
 
   .FormField__input::-moz-placeholder {
     color: var(--color-suld-150);
+    opacity: 1;
   }
 
   .FormField__input:-ms-input-placeholder {
     color: var(--color-suld-150);
+    opacity: 1;
   }
 
   .FormField--empty > .FormField__input,
 .FormField__input::placeholder {
     color: var(--color-suld-150);
+    opacity: 1;
   }
 
   .FormField--filled > .FormField__input {
@@ -321,4 +324,3 @@ html:not([data-disable-css-warnings-with-abandon=true]) .FormField__error:not([i
     height: 19rem;
   }
 }
-/*# sourceMappingURL=FormField.css.map */

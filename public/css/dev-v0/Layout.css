@@ -50,6 +50,7 @@
     justify-content: space-between;
     align-items: center;
     height: var(--Layout__header-height);
+    background-color: var(--Layout__header-backgroundColor);
   }
 }
 @media screen {
@@ -129,6 +130,7 @@
     right: var(--grid-margin--right--neg);
     padding-left: var(--grid-margin);
     padding-right: var(--grid-margin--right);
+    box-shadow: 0 0 0.33em 0.33em var(--Layout__header-backgroundColor);
     transition: all 200ms ease-in;
     transition-property: background-color, box-shadow;
   }
@@ -143,9 +145,8 @@
     top: 0;
     left: 0;
     right: var(--browser-scrollbar-width);
-    background-color: #0367e1;
     transition-duration: 400ms;
-    box-shadow: 0 2.5rem 1.5rem -2rem #0367e1;
+    --Layout__header-backgroundColor: var(--color-faxafloi-100);
   }
 
   .Layout__header__skiplink[class] {
@@ -394,4 +395,3 @@ body:hover {
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.04) 0, rgba(0, 0, 0, 0.04) 61.5384615385%, rgba(255, 255, 255, 0.06) 61.5384615385%, rgba(255, 255, 255, 0.06) 100%);
   background-size: 8.6092715232% 100%;
 }
-/*# sourceMappingURL=Layout.css.map */
