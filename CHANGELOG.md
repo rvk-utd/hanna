@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.54
+
+_2022-04-26_
+
 - feat: Add css variable `--Layout__header-backgroundColor`
 - feat: Add some default spacing to `.Carousel__items` children
 - feat: Float `.FormField__label__reqstar` to the left
