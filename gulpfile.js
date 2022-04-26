@@ -49,7 +49,7 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 	// glob: ['*.{scss,sass}']
 	// watchGlob: ['*/**/*.{scss,sass}'],
 	sassOptions: { functions: sassFunctions },
-	sourcemaps: isProd ? false : '.',
+	sourcemaps: false,
 	minify: isProd,
 });
 

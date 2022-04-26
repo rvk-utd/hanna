@@ -2,7 +2,6 @@
 node_modules
 /__tests
 /public/css/dev/
-/public/css/*/*.css.map
 /src/scss/vars/icons.scss
 
 ## Misc notes and stuff...
