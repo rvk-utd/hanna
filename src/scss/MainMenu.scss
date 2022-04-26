@@ -99,6 +99,9 @@
 		opacity: 0;
 		margin-top: -100vh;
 	}
+	html.menu-is-open {
+		--Layout__header-backgroundColor: #{$var--color-faxafloi-100};
+	}
 	html.menu-is-open .MainMenu {
 		transition-delay: 0ms;
 

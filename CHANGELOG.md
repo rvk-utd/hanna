@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add css variable `--Layout__header-backgroundColor`
 - feat: Add some default spacing to `.Carousel__items` children
 - feat: Float `.FormField__label__reqstar` to the left
 - fix: Remove browser-default opacity off `.FormField`'s `::placholder`

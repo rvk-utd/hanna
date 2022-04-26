@@ -290,6 +290,7 @@
 	$max: 136;
 
 	--Layout__header-height: #{px($min)};
+	--Layout__header-backgroundColor: transparent;
 
 	@include media($mq-Topmenu) {
 		--Layout__header-height: #{between_Topmenu($min, $max)};

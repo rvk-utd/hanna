@@ -56,6 +56,7 @@
 		justify-content: space-between;
 		align-items: center;
 		height: $var--Layout__header-height;
+		background-color: $var--Layout__header-backgroundColor;
 	}
 
 	.Layout__header__logo {
@@ -77,7 +78,7 @@
 }
 
 // ===========================================================================
-//  Mobile
+//  Mobile / Hamburger
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
@@ -98,6 +99,7 @@
 		right: $var--grid-margin--right--neg;
 		padding-left: $var--grid-margin;
 		padding-right: $var--grid-margin--right;
+		box-shadow: 0 0 0.33em 0.33em $var--Layout__header-backgroundColor;
 
 		transition: all 200ms ease-in;
 		transition-property: background-color, box-shadow;
@@ -109,9 +111,8 @@
 		left: 0;
 		right: $var--browser-scrollbar-width;
 
-		background-color: $color-faxafloi-100;
 		transition-duration: 400ms;
-		box-shadow: 0 grid-units(5) grid-units(3) grid-units(-4) $color-faxafloi-100;
+		--Layout__header-backgroundColor: #{$var--color-faxafloi-100};
 	}
 
 	.Layout__header__skiplink[class] {
