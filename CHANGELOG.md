@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add css variables `--space--(6|7|8|9)`
 
 ## 0.8.54
 

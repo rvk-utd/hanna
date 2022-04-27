@@ -51,7 +51,7 @@
 	.NameCard__hours::before {
 		@include icon($icons-location);
 		float: left;
-		margin-left: calc(-1 * #{$var--space-4});
+		margin-left: $var--space-4--neg;
 		width: $var--space-3;
 		color: $var--color-suld-150;
 	}
