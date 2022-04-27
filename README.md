@@ -5,3 +5,7 @@ Hanna design system, together in one happy monorepo.
 
 **NOTE:** This repo uses `yarn workspaces` so it won't make much sense to use
 `npm`.
+
+---
+
+See [README-old.md](README-old.md) for more, slightly outdated, info.
