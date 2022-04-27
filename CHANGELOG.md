@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.55
+
+_2022-04-27_
+
 - feat: Add css variables `--space--(6|7|8|9)`
 - fix: Buggy styling of `ContactBubble`'s open state in mobile
 
