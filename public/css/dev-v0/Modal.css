@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @media screen {
   html.modal-open > body {
-    overflow: hidden;
-    --grid-margin--right: var(--grid-margin);
+    overflow-y: hidden;
+    padding-right: var(--grid-margin);
   }
 
   .Modalwrapper {

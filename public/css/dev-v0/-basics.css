@@ -78,6 +78,10 @@
     --space-3: 1.5rem;
     --space-4: 2rem;
     --space-5: 2.5rem;
+    --space-6: 3rem;
+    --space-7: 3.5rem;
+    --space-8: 4rem;
+    --space-9: 4.5rem;
     --space-0_5: 0.25rem;
     --space-1_5: 0.75rem;
     --space-1--neg: -0.5rem;
@@ -85,6 +89,10 @@
     --space-3--neg: -1.5rem;
     --space-4--neg: -2rem;
     --space-5--neg: -2.5rem;
+    --space-6--neg: -3rem;
+    --space-7--neg: -3.5rem;
+    --space-8--neg: -4rem;
+    --space-9--neg: -4.5rem;
     --space-0_5--neg: -0.25rem;
     --space-1_5--neg: -0.75rem;
     --component-vspace--small: calc(4.3103448276% + 17.9310344828px);

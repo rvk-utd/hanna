@@ -400,8 +400,6 @@ html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
     overflow-y: hidden;
     padding-right: var(--grid-margin);
   }
-}
-@media screen and (min-width: 980px) {
   html[data-mega-panel-active] .Layout__alerts {
     max-height: 0;
     transition-duration: 0ms;

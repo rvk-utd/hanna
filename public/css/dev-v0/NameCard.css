@@ -213,7 +213,7 @@ button.NameCard__contactinfo__item:focus-visible::after {
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
     float: left;
-    margin-left: calc(-1 * var(--space-4));
+    margin-left: var(--space-4--neg);
     width: var(--space-3);
     color: var(--color-suld-150);
   }

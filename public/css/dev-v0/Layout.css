@@ -42,15 +42,25 @@
 @media screen {
   .Layout__header {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     z-index: var(--zindex--header);
+    top: 0;
+    left: var(--grid-margin--neg);
+    right: var(--grid-margin--right--neg);
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin--right);
+    margin: 0 auto;
+    max-width: 1368;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: var(--Layout__header-height);
     background-color: var(--Layout__header-backgroundColor);
+    pointer-events: none;
+  }
+}
+@media screen {
+  .Layout__header > * {
+    pointer-events: auto;
   }
 }
 @media screen {
@@ -113,26 +123,25 @@
   }
 }
 @media screen and (max-width: 979px) {
+  .Layout__header {
+    --logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
+    box-shadow: 0 0 0.33em 0.33em var(--Layout__header-backgroundColor);
+    transition: all 200ms ease-in;
+    transition-property: background-color, box-shadow;
+  }
+
   html.menu-is-open > body {
     overflow-y: hidden;
     padding-right: var(--grid-margin);
   }
-
   html.menu-is-open .Layout__alerts {
     max-height: 0;
   }
-
-  .Layout__header {
-    --logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
-    position: absolute;
+  html.menu-is-open .Layout__header {
+    position: fixed;
     top: 0;
-    left: var(--grid-margin--neg);
-    right: var(--grid-margin--right--neg);
-    padding-left: var(--grid-margin);
-    padding-right: var(--grid-margin--right);
-    box-shadow: 0 0 0.33em 0.33em var(--Layout__header-backgroundColor);
-    transition: all 200ms ease-in;
-    transition-property: background-color, box-shadow;
+    left: 0;
+    right: var(--browser-scrollbar-width);
   }
 
   html.menu-is-open .Layout__header {
@@ -141,10 +150,6 @@
     --logo-transition-delay: 0ms;
     --logo-background-color: #0367e1;
     --link-focus-outlineColor: #ffffff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: var(--browser-scrollbar-width);
     transition-duration: 400ms;
     --Layout__header-backgroundColor: var(--color-faxafloi-100);
   }
@@ -373,17 +378,17 @@
     --link-focus-outlineColor: #ffffff;
   }
 }
-body:hover {
+html[data-grid-overlay] body:hover {
   --show-grid-lines: "";
 }
 
-.Layout:hover {
+html[data-grid-overlay] .Layout:hover {
   /**/
   --show-grid-lines: initial;
   /**/
 }
 
-.Layout::after {
+html[data-grid-overlay] .Layout::after {
   content: var(--show-grid-lines, none);
   pointer-events: none;
   position: absolute;
