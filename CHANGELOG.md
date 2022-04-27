@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add css variables `--space--(6|7|8|9)`
+- fix: Buggy styling of `ContactBubble`'s open state in mobile
 
 ## 0.8.54
 

@@ -1,6 +1,7 @@
 @use '_globals' as *;
 @use 'styles/links' as *;
 @use 'styles/font' as *;
+@use 'styles/header' as *;
 @use '_PrimaryPanel' as PrimaryPanel;
 @use '_AuxiliaryPanel' as AuxiliaryPanel;
 
@@ -194,6 +195,7 @@
 @media #{$mq-Topmenu} {
 	.MainMenu {
 	}
+
 	.MainMenu__items {
 		--link-color: _inherit;
 		--link-color--hover: #{$var--MainMenu-accentcolor};
@@ -281,13 +283,8 @@
 	//
 	// ===========================================================================
 
-	html[data-mega-panel-active] > body {
-		overflow-y: hidden;
-		padding-right: $var--grid-margin;
-	}
-	html[data-mega-panel-active] .Layout__alerts {
-		max-height: 0;
-		transition-duration: 0ms;
+	html[data-mega-panel-active] {
+		@include freezeScroll($immediate: true);
 	}
 
 	html.before-sprinkling *:not([data-sprinkled]) > .MainMenu__panelsWrap {

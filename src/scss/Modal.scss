@@ -1,9 +1,9 @@
 @use 'globals' as *;
+@use 'styles/header' as *;
 
 @media screen {
-	html.modal-open > body {
-		overflow: hidden;
-		--grid-margin--right: #{$var--grid-margin};
+	html.modal-open {
+		@include freezeScroll($hideAlerts: false);
 	}
 
 	.Modalwrapper {

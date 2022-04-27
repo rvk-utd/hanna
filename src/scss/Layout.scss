@@ -48,15 +48,24 @@
 
 	.Layout__header {
 		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
 		z-index: $var--zindex--header;
+		top: 0;
+		left: $var--grid-margin--neg;
+		right: $var--grid-margin--right--neg;
+		padding-left: $var--grid-margin;
+		padding-right: $var--grid-margin--right;
+		margin: 0 auto;
+		max-width: $grid-contentMaxWidth--outer;
+
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		height: $var--Layout__header-height;
 		background-color: $var--Layout__header-backgroundColor;
+		pointer-events: none;
+	}
+	.Layout__header > * {
+		pointer-events: auto;
 	}
 
 	.Layout__header__logo {
@@ -82,35 +91,18 @@
 // ===========================================================================
 
 @media #{$mq-Hamburger} {
-	html.menu-is-open > body {
-		overflow-y: hidden;
-		padding-right: $var--grid-margin;
-	}
-
-	html.menu-is-open .Layout__alerts {
-		max-height: 0;
-	}
-
 	.Layout__header {
 		--logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
-		position: absolute;
-		top: 0;
-		left: $var--grid-margin--neg;
-		right: $var--grid-margin--right--neg;
-		padding-left: $var--grid-margin;
-		padding-right: $var--grid-margin--right;
 		box-shadow: 0 0 0.33em 0.33em $var--Layout__header-backgroundColor;
 
 		transition: all 200ms ease-in;
 		transition-property: background-color, box-shadow;
 	}
+	html.menu-is-open {
+		@include freezeScroll($fixHeader: true);
+	}
 	html.menu-is-open .Layout__header {
 		@include whiteLogo();
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: $var--browser-scrollbar-width;
-
 		transition-duration: 400ms;
 		--Layout__header-backgroundColor: #{$var--color-faxafloi-100};
 	}
