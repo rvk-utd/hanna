@@ -2,3 +2,4 @@
 
 # Custom hack
 git config --local include.path ../.gitconfig
+command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n"; }
