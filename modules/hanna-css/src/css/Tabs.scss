@@ -116,6 +116,7 @@
     margin: 0;
     padding: $var--space-2 $var--space-1;
     padding-left: $var--space-1_5;
+    white-space: normal;
 
     @include keyboardFocus-selector() {
       outline-offset: -3px;
