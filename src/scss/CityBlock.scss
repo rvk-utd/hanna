@@ -58,10 +58,9 @@
 	.CityBlock__summary a {
 		@include LinkStyle_SameColor();
 	}
-	.CityBlock__summary li, // Captures ul, ol
-	.CityBlock__summary [class],
+	.CityBlock__summary li:not([class]), // Captures ul, ol
 	.CityBlock__summary blockquote {
-		@include WARNING__('Use simple markup only');
+		@include WARNING_soft__('Use simple markup only');
 	}
 
 	.CityBlock--largebox > * > .CityBlock__buttons {

@@ -29,10 +29,9 @@
 		margin-bottom: em(40/20);
 	}
 
-	.HeroBlock__summary li, // ul, ol
-	.HeroBlock__summary [class],
+	.HeroBlock__summary li:not([class]), // Captures ul, ol
 	.HeroBlock__summary blockquote {
-		@include WARNING__('Use simple markup only');
+		@include WARNING_soft__('Use simple markup only');
 	}
 
 	.HeroBlock__summary > p {
