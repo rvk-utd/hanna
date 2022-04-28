@@ -40,14 +40,12 @@
     margin-bottom: 2em;
   }
 
-  html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary li,
-html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary [class],
-html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary blockquote {
-    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5) !important;
+  html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary li:not([class]):hover,
+html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary blockquote:hover {
+    box-shadow: 0 0 0 1px rgba(255, 165, 0, 0.5) !important;
   }
-  html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary li::before,
-html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary [class]::before,
-html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary blockquote::before {
+  html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary li:not([class]):hover::before,
+html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary blockquote:hover::before {
     all: initial !important;
     order: -999 !important;
     font-family: sans-serif !important;
@@ -56,8 +54,8 @@ html:not([data-disable-css-warnings-with-abandon=true]) .HeroBlock__summary bloc
     z-index: 2 !important;
     font-size: 12px !important;
     line-height: 1.5em !important;
-    color: red !important;
-    background-color: rgba(255, 230, 230, 0.5) !important;
+    color: orange !important;
+    background-color: rgba(255, 246, 230, 0.5) !important;
     padding: 0 0.5em !important;
     content: "Use simple markup only" !important;
   }
