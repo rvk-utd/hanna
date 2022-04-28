@@ -12,6 +12,10 @@ then run:
 yarn install
 ```
 
+This sets up all the neccessary githooks, configures git, and initializes the
+git submodule containing the static
+[style-server](https://styles.reykjavik.is) assets.
+
 The repo is configured to use git LFS (Large File Storage). Make sure to
 [download and install `git-lfs`](https://git-lfs.github.com/) before you start
 working.
