@@ -3,6 +3,8 @@
 @mixin cssVariables() {
   @media screen {
     :root {
+      --cssVersion: '#{getCssVersion()}';
+
       --bp-w-phone: #{$bp-phone}; // mjórra en 320px er ekki supported
       --bp-w-phablet: #{$bp-phablet};
       --bp-w-tablet: #{$bp-tablet};

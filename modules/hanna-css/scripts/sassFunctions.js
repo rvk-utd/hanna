@@ -39,6 +39,11 @@ module.exports = {
 
   'isDevMode()': () => bool(process.env.NODE_ENV !== 'production'),
 
+  'getCssVersion()': () => {
+    const { cssVersion } = require('../package-server.json');
+    return str(cssVersion);
+  },
+
   'fileChecksum($file)': (file) => {
     assertString(file);
     let ret = '';

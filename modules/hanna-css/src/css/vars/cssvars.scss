@@ -1,6 +1,8 @@
 @use 'colors' as *;
 @use 'font' as *;
 
+$var--cssVersion: var(--cssVersion);
+
 $var--bp-w-phone: var(--bp-w-phone);
 $var--bp-w-phablet: var(--bp-w-phablet);
 $var--bp-w-tablet: var(--bp-w-tablet);
