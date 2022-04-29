@@ -13,22 +13,29 @@ o.spec('makeVariables helper', () => {
 });
 
 o.spec('cssVars', () => {
-  const expectedTokens = [
-    'bp_w_phone',
-    'bp_w_phablet',
-    'bp_w_tablet',
-    'bp_w_netbook',
-    'bp_w_wide',
-    'bp_w_Hamburger',
-  ];
+  type CSSVarToken = keyof typeof cssVars;
+  const expectedTokens: Record<CSSVarToken, true> = {
+    bp_w_phone: true,
+    bp_w_phablet: true,
+    bp_w_tablet: true,
+    bp_w_netbook: true,
+    bp_w_wide: true,
+    bp_w_Hamburger: true,
+  };
 
   o('exposes known CSS variable tokens', () => {
-    expectedTokens.forEach((token) => {
-      o(token in cssVars).equals(true)(`including "${token}"`);
+    Object.keys(expectedTokens).forEach((token) => {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      if (cssVars[token as CSSVarToken] === undefined) {
+        o(token).equals('true')(`missing: "${token}"`);
+      }
     });
-    o(Object.keys(cssVars).length).equals(expectedTokens.length)(
-      'number of variable tokens is correct'
-    );
+    Object.keys(cssVars).forEach((token) => {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      if (expectedTokens[token as CSSVarToken] === undefined) {
+        o(token).equals('true')(`extra: "${token}"`);
+      }
+    });
   });
 });
 
