@@ -1,0 +1,25 @@
+@use 'globals' as *;
+
+/*!@deps
+	TextBlock
+*/
+
+// inlined by TextBlock
+@mixin css() {
+  @media screen {
+    p.Sharpie,
+    ol.Sharpie,
+    ul.Sharpie,
+    li.Sharpie,
+    div.Sharpie {
+      color: inherit;
+      @include WARNING__('Only use `Sharpie` on inline elements');
+    }
+    .Sharpie--green {
+      color: $color-ellidaardalur-150;
+    }
+    .Sharpie--red {
+      color: $color-heidmork-100;
+    }
+  }
+}

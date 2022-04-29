@@ -1,0 +1,27 @@
+{
+  "name": "hanna-style-server",
+  "cssVersion": "0.8.55",
+  "version": "0.0.0",
+  "author": "Reykjavík (http://www.reykjavik.is)",
+  "contributors": [
+    "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
+    "Kári Yngvason <kari@hugsmidjan.is>",
+    "Már Örlygsson <mar.orlygsson@reykjavik.is>",
+    "Már Örlygsson <mar@hugsmidjan.is>",
+    "Valur Sverrisson <valur@hugsmidjan.is>"
+  ],
+  "repository": "ssh://git@github.com:rvk-utd/hanna-styles.git",
+  "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/hanna-css",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production  yarn run cssserve --config cssserve-prod.json",
+    "start:dev": "yarn run cssserve --config cssserve-dev.json"
+  },
+  "dependencies": {
+    "cssserve": "^1.4.1"
+  }
+}

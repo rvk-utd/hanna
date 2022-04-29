@@ -1,0 +1,41 @@
+@use 'globals' as *;
+
+@mixin mixin {
+  & {
+    max-width: cols_px(8);
+    margin: 0 auto;
+  }
+
+  & > .PageHeading,
+  & > .Heading,
+  & > .TextBlock {
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  // ===========================================================================
+
+  & > [class*='--align--'],
+  & > [class*='--wide'],
+  & > .TextBlock--labelled,
+  &
+    > *:not(.TextBlock):not(.PageHeading):not(.SubHeading):not(.Heading):not(.ContentImage):not(.RelatedLinks):not(.ArticleMeta):not(.VSpacer):not(hr) {
+    @include WARNING__(
+      'Only use plain `PageHeading`, `Heading`, `Subheading`, `TextBlock`, `ContentImage`, `RelatedLinks`, `ArticleMeta`, `VSpacer`, `<hr/>` inside this parent wrapper.'
+    );
+  }
+  & > [class*='--align--'][class],
+  & > [class*='--wide'][class] {
+    @include WARNING_message__('Do not use --align-- or --wide modifiers.');
+  }
+  & > .TextBlock--labelled[class] {
+    @include WARNING_message__('Do not use the --labelled modifier.');
+  }
+}
+
+@media screen {
+  .CenterColumn {
+    @include mixin();
+  }
+}

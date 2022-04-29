@@ -1,0 +1,802 @@
+{
+	"allirsaman1": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/allirsaman1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/allirsaman1b.png"
+	},
+	"allirsaman1b": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/allirsaman1b.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/allirsaman1b.png"
+	},
+	"atvinna1": {
+		"tags": ["theme/colorful", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/atvinna1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/atvinna1.png"
+	},
+	"atvinna2": {
+		"tags": ["theme/colorful", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/atvinna2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/atvinna2.png"
+	},
+	"atvinna3": {
+		"tags": ["theme/colorful", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/atvinna3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/atvinna3.png"
+	},
+	"baekurlestur": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/baekurlestur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/baekurlestur.png"
+	},
+	"bekkur": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/bekkur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/bekkur.png"
+	},
+	"borgarstjori1": {
+		"tags": ["theme/dependable", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/borgarstjori1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/borgarstjori1.png"
+	},
+	"borgarstjori2": {
+		"tags": ["theme/dependable", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/borgarstjori2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/borgarstjori2.png"
+	},
+	"borgarstjori4": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/borgarstjori4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/borgarstjori4.png"
+	},
+	"borgarstjori3": {
+		"tags": ["theme/dependable", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/borgarstjori3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/borgarstjori3.png"
+	},
+	"born1": {
+		"tags": ["theme/lively", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/born1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/born1.png"
+	},
+	"born2": {
+		"tags": ["theme/lively", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/born2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/born2.png"
+	},
+	"born3": {
+		"tags": ["theme/lively", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/born3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/born3.png"
+	},
+	"born4": {
+		"tags": ["theme/lively", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/born4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/born4.png"
+	},
+	"breidholt": {
+		"tags": ["theme/lively", "hverfi"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/breidholt.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/breidholt.png"
+	},
+	"breyting": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/breyting.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/breyting.png"
+	},
+	"byggingar1": {
+		"tags": ["theme/dependable"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/byggingar1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/byggingar1.png"
+	},
+	"draumar": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/draumar.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/draumar.png"
+	},
+	"egsethig": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/egsethig.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/egsethig.png"
+	},
+	"eldriborgari": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/eldriborgari.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/eldriborgari.png"
+	},
+	"esjan": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/esjan.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/esjan.png"
+	},
+	"ferdalag": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/ferdalag.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/ferdalag.png"
+	},
+	"fjarhagsadstod": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarhagsadstod.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarhagsadstod.png"
+	},
+	"reikningur1": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/reikningur1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/reikningur1.png"
+	},
+	"fjarmal1": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarmal1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarmal1.png"
+	},
+	"fjarmal2": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarmal2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarmal2.png"
+	},
+	"fjarmal3": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarmal3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarmal3.png"
+	},
+	"fjarmal4": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjarmal4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjarmal4.png"
+	},
+	"fjolbreytni": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjolbreytni.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjolbreytni.png"
+	},
+	"fjolmenning": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjolmenning.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjolmenning.png"
+	},
+	"fjolskylda": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fjolskylda.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fjolskylda.png"
+	},
+	"flaekja": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/flaekja.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/flaekja.png"
+	},
+	"framkvaemdir1": {
+		"tags": ["theme/dependable", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvaemdir1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvaemdir1.png"
+	},
+	"framkvaemdir2": {
+		"tags": ["theme/dependable", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvaemdir2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvaemdir2.png"
+	},
+	"framkvaemdir3": {
+		"tags": ["theme/dependable", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvaemdir3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvaemdir3.png"
+	},
+	"framkvaemdir4": {
+		"tags": ["theme/dependable", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/framkvaemdir4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/framkvaemdir4.png"
+	},
+	"fundargerd1": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fundargerd1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fundargerd1.png"
+	},
+	"fundur": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/fundur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/fundur.png"
+	},
+	"gaes": {
+		"tags": ["theme/lively", "animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/gaes.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/gaes.png"
+	},
+	"gaman": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/gaman.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/gaman.png"
+	},
+	"haelisleitendur": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haelisleitendur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haelisleitendur.png"
+	},
+	"hanna-benda": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-benda.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-benda.png"
+	},
+	"hanna-gjuggiborg": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-gjuggiborg.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-gjuggiborg.png"
+	},
+	"hanna-god_spurning": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-god_spurning.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-god_spurning.png"
+	},
+	"hanna-hae": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-hae.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-hae.png"
+	},
+	"hanna-hahaha": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-hahaha.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-hahaha.png"
+	},
+	"hanna-hissa": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-hissa.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-hissa.png"
+	},
+	"hanna-hugsi": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-hugsi.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-hugsi.png"
+	},
+	"hanna-vandro": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-vandro.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-vandro.png"
+	},
+	"hanna-veitiggi": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hanna-veitiggi.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hanna-veitiggi.png"
+	},
+	"haus2": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haus2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haus2.png"
+	},
+	"haus3": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haus3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haus3.png"
+	},
+	"haus4": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haus4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haus4.png"
+	},
+	"haus5": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haus5.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haus5.png"
+	},
+	"haus6": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haus6.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haus6.png"
+	},
+	"haus7": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haus7.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haus7.png"
+	},
+	"haus8": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haus8.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haus8.png"
+	},
+	"haus9": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/haus9.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/haus9.png"
+	},
+	"arstid_haust": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_haust.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_haust.png"
+	},
+	"hjalpastad": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hjalpastad.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hjalpastad.png"
+	},
+	"hopur": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hopur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hopur.png"
+	},
+	"hopur2": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hopur2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hopur2.png"
+	},
+	"hopur3": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hopur3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hopur3.png"
+	},
+	"hroki": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hroki.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hroki.png"
+	},
+	"hundar": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/hundar.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/hundar.png"
+	},
+	"ingolfur": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/ingolfur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/ingolfur.png"
+	},
+	"jafnvaegi": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/jafnvaegi.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/jafnvaegi.png"
+	},
+	"kanina": {
+		"tags": ["theme/lively", "animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/kanina.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/kanina.png"
+	},
+	"katur": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/katur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/katur.png"
+	},
+	"kettir": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/kettir.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/kettir.png"
+	},
+	"kisa": {
+		"tags": ["theme/lively", "animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/kisa.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/kisa.png"
+	},
+	"kjotsupa": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/kjotsupa.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/kjotsupa.png"
+	},
+	"kongulo": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/kongulo.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/kongulo.png"
+	},
+	"kort": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/kort.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/kort.png"
+	},
+	"kreist": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/kreist.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/kreist.png"
+	},
+	"krofuganga": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/krofuganga.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/krofuganga.png"
+	},
+	"landslag": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/landslag.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/landslag.png"
+	},
+	"laugardalur": {
+		"tags": ["theme/lively", "hverfi"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/laugardalur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/laugardalur.png"
+	},
+	"leikur_ibuar": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/leikur_ibuar.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/leikur_ibuar.png"
+	},
+	"leikur": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/leikur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/leikur.png"
+	},
+	"logga": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/logga.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/logga.png"
+	},
+	"logogregla": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/logogregla.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/logogregla.png"
+	},
+	"maelt": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/maelt.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/maelt.png"
+	},
+	"matur1": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/matur1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/matur1.png"
+	},
+	"mavar": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/mavar.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/mavar.png"
+	},
+	"midbaer": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/midbaer.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/midbaer.png"
+	},
+	"minarsidur": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/minarsidur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/minarsidur.png"
+	},
+	"mismunur": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/mismunur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/mismunur.png"
+	},
+	"naering": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/naering.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/naering.png"
+	},
+	"nam_lestur": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/nam_lestur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/nam_lestur.png"
+	},
+	"nattura": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/nattura.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/nattura.png"
+	},
+	"ofurfjolskylda": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/ofurfjolskylda.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/ofurfjolskylda.png"
+	},
+	"oliprik": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/oliprik.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/oliprik.png"
+	},
+	"ond": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/ond.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/ond.png"
+	},
+	"peningar": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/peningar.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/peningar.png"
+	},
+	"postit": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/postit.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/postit.png"
+	},
+	"pulsa": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/pulsa.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/pulsa.png"
+	},
+	"rad1": {
+		"tags": ["theme/friendly", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/rad1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/rad1.png"
+	},
+	"rad2": {
+		"tags": ["theme/friendly", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/rad2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/rad2.png"
+	},
+	"rad3": {
+		"tags": ["theme/friendly", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/rad3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/rad3.png"
+	},
+	"raekta": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/raekta.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/raekta.png"
+	},
+	"rafskuta": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/rafskuta.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/rafskuta.png"
+	},
+	"reikningur1b": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/reikningur1b.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/reikningur1b.png"
+	},
+	"ruslabill": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/ruslabill.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/ruslabill.png"
+	},
+	"svanurkisa": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/svanurkisa.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/svanurkisa.png"
+	},
+	"svanurkisa-b": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/svanurkisa-b.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/svanurkisa-b.png"
+	},
+	"samstarf": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/samstarf.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/samstarf.png"
+	},
+	"samvinna1": {
+		"tags": ["theme/dependable"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/samvinna1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/samvinna1.png"
+	},
+	"samvinna2": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/samvinna2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/samvinna2.png"
+	},
+	"samvinna3": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/samvinna3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/samvinna3.png"
+	},
+	"samvinna4": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/samvinna4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/samvinna4.png"
+	},
+	"sjor": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/sjor.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/sjor.png"
+	},
+	"skipurit": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/skipurit.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/skipurit.png"
+	},
+	"skokk": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/skokk.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/skokk.png"
+	},
+	"skordyr": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/skordyr.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/skordyr.png"
+	},
+	"skrifstofa": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/skrifstofa.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/skrifstofa.png"
+	},
+	"skrifstofa2": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/skrifstofa2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/skrifstofa2.png"
+	},
+	"skrudganga": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/skrudganga.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/skrudganga.png"
+	},
+	"stakthus": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/stakthus.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/stakthus.png"
+	},
+	"sterkur": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/sterkur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/sterkur.png"
+	},
+	"stofnun": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/stofnun.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/stofnun.png"
+	},
+	"stress": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/stress.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/stress.png"
+	},
+	"stud": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/stud.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/stud.png"
+	},
+	"arstid_sumar": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_sumar.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_sumar.png"
+	},
+	"sund1": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/sund1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/sund1.png"
+	},
+	"sund2": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/sund2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/sund2.png"
+	},
+	"svanurond": {
+		"tags": ["animals"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/svanurond.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/svanurond.png"
+	},
+	"svid1": {
+		"tags": ["theme/lively", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/svid1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/svid1.png"
+	},
+	"svid2": {
+		"tags": ["theme/lively", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/svid2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/svid2.png"
+	},
+	"sybbin": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/sybbin.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/sybbin.png"
+	},
+	"tholendur_hjalp": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/tholendur_hjalp.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tholendur_hjalp.png"
+	},
+	"threytt": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/threytt.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/threytt.png"
+	},
+	"tolfraedi1": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/tolfraedi1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tolfraedi1.png"
+	},
+	"tolfraedi2": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/tolfraedi2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tolfraedi2.png"
+	},
+	"tomstundir1": {
+		"tags": ["theme/colorful", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/tomstundir1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tomstundir1.png"
+	},
+	"tomstundir2": {
+		"tags": ["theme/colorful", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/tomstundir2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tomstundir2.png"
+	},
+	"tomstundir3": {
+		"tags": ["theme/colorful", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/tomstundir3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tomstundir3.png"
+	},
+	"tomstundir4": {
+		"tags": ["theme/colorful", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/tomstundir4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tomstundir4.png"
+	},
+	"tonlist": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/tonlist.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/tonlist.png"
+	},
+	"umhverfi1": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/umhverfi1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/umhverfi1.png"
+	},
+	"umhverfi2": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/umhverfi2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/umhverfi2.png"
+	},
+	"umhverfi3": {
+		"tags": ["theme/trustworthy", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/umhverfi3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/umhverfi3.png"
+	},
+	"utgefidefni": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/utgefidefni.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/utgefidefni.png"
+	},
+	"utivinna": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/utivinna.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/utivinna.png"
+	},
+	"velferd1": {
+		"tags": ["theme/friendly", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/velferd1.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/velferd1.png"
+	},
+	"velferd2": {
+		"tags": ["theme/friendly", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/velferd2.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/velferd2.png"
+	},
+	"velferd3": {
+		"tags": ["theme/friendly", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/velferd3.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/velferd3.png"
+	},
+	"velferd4": {
+		"tags": ["theme/friendly", "islands"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/velferd4.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/velferd4.png"
+	},
+	"verlsa": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/verlsa.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/verlsa.png"
+	},
+	"vesturbaer": {
+		"tags": ["theme/lively", "hverfi"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/vesturbaer.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/vesturbaer.png"
+	},
+	"arstid_vetur": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_vetur.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_vetur.png"
+	},
+	"vinir": {
+		"tags": [],
+		"src": "https://styles.reykjavik.is/assets/illustrations/vinir.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/vinir.png"
+	},
+	"vinna": {
+		"tags": ["theme/lively"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/vinna.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/vinna.png"
+	},
+	"arstid_vor": {
+		"tags": ["theme/friendly"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/arstid_vor.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/arstid_vor.png"
+	},
+	"forsida": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida.png"
+	},
+	"forsida-17juni": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-17juni.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-17juni.png"
+	},
+	"forsida-blidvidri": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-blidvidri.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-blidvidri.png"
+	},
+	"forsida-rigning": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-rigning.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-rigning.png"
+	},
+	"forsida-snjor": {
+		"tags": ["frontpage"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-snjor.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-snjor.png"
+	}
+}

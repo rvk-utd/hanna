@@ -1,0 +1,16 @@
+@use '_globals' as *;
+@use 'styles/forms';
+
+/*!@deps
+	CheckboxGroup
+*/
+
+// inlined by CheckboxGroup
+@mixin css() {
+  @media screen {
+    @include forms.TogglerKnob(Checkbox);
+    .Checkbox:not(.FormField__options__item) {
+      margin-bottom: grid-units(3);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<svg width="379" height="280" viewBox="0 0 379 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="formheimur-perlan">
+<style>
+	.formheimur-perlan {
+		--litur1: var(--theme-color-primary, #dcddde);
+		--litur2: var(--theme-color-secondary, #ebeced);
+	}
+
+	/* Frávik */
+	[data-color-theme='trustworthy'] .formheimur-perlan {
+		--litur1: var(--theme-color-tertiary);
+	}
+	[data-color-theme='dependable'] .formheimur-perlan {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-tertiary);
+	}
+	[data-color-theme='lively'] .formheimur-perlan {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
+	}
+	[data-color-theme='colorful'] .formheimur-perlan {
+		--litur1: var(--theme-color-tertiary);
+		--litur2: var(--theme-color-primary);
+	}
+</style>
+<path d="M379,0H0v207h379V0z" fill="var(--litur2)"/>
+<path d="M189.3,91c-41.2,0-75.2,30.5-80.8,70.1H56.8V208h265v-46.9h-51.7C264.6,121.5,230.5,91,189.3,91z" fill="white"/>
+<path d="M0,207.5V280h379v-17.7v-54.8V207H0V207.5z" fill="var(--litur1)"/>
+</svg>

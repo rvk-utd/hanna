@@ -1,0 +1,108 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/links' as *;
+@use 'styles/cards' as *;
+
+// NOTE: include ButtonTertiary because they might be commonly used with `ImageCards`
+
+/*!@deps
+	ButtonTertiary
+*/
+
+@media screen {
+  .ImageCards {
+    --ImageCards--fallback: url('/assets/illustrations/esjan.png');
+
+    @include CardBlock();
+    margin-bottom: between_cols(60, 110);
+
+    @include SeenEffect--fadeup('.ImageCards__summary');
+    @include SeenEffect--fadein('.ImageCards__item');
+    @for $i from 1 through 12 {
+      @include SeenEffect--transition('.ImageCards__item:nth-child(#{$i})') {
+        @include SeenEffect--delay($i * 50ms + 200ms);
+      }
+    }
+  }
+
+  .ImageCards--background {
+    background-color: $color-suld-25;
+    padding: between_phone_netbook(40, 136) 0;
+    @include extendBackgroundWithUnderlay();
+    @include media($mq-wide) {
+      padding: prem(136) 0;
+    }
+  }
+
+  .ImageCards__title {
+    @include CardListTitle();
+  }
+
+  .ImageCards__title,
+  .ImageCards__summary {
+    margin-bottom: $var--baseVerticalMargin;
+  }
+
+  .ImageCards__summary > .ImageCards__title {
+    margin-bottom: prem(16);
+  }
+
+  .ImageCards__list {
+    @include CardList();
+    row-gap: between_phone_netbook(48, 80);
+    @include media($mq-wide) {
+      row-gap: prem(80);
+    }
+  }
+  .ImageCards__item {
+    // …
+  }
+
+  .ImageCards__card {
+    --link-color: _inherit;
+    --link-underline: 1px solid #{$color-suld-200};
+    --link-underline--hover: 1px solid #{$color-faxafloi-100};
+
+    padding-bottom: between_phone_netbook(16, 32);
+    display: block;
+    height: 100%;
+
+    @include media($mq-wide) {
+      padding-bottom: prem(32);
+    }
+  }
+
+  .ImageCards__image {
+    display: block;
+    position: relative;
+    padding-top: pct(168/272);
+    margin-bottom: between_phone_netbook(12, 24);
+  }
+  .ImageCards__image--missing {
+    $borderW: prem(12);
+    border: $borderW solid transparent;
+    padding-top: calc(#{pct(168/272)} - #{2 * $borderW});
+    background: var(--ImageCards--fallback) 50% 50% / contain no-repeat;
+  }
+
+  .ImageCards__image > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ImageCards__card__title {
+    margin-bottom: grid-units(1);
+    display: block;
+    @include SubheadingStyle--small();
+  }
+
+  .ImageCards__card__meta {
+    @include BodyTextStyle--small();
+    color: $color-suld-150;
+    font-weight: 400;
+  }
+}

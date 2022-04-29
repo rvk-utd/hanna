@@ -1,0 +1,161 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+@use 'styles/buttons' as *;
+@use 'styles/links' as *;
+
+/*!@deps
+	Carousel
+*/
+
+@media screen {
+  // TODO: Refactor to a mixin from Carousel.scss
+  html.before-sprinkling .ArticleCarousel:not([data-sprinkled]) {
+    padding-bottom: var(--CarouselStepper--height);
+  }
+  html.before-sprinkling[class] > .ArticleCarousel__items {
+    overflow: visible;
+  }
+
+  .ArticleCarousel {
+    @include SeenEffect--fadeup();
+    margin-bottom: between_cols(40, 130);
+  }
+
+  .ArticleCarousel__title {
+    @include HeadingStyle--medium();
+    margin-bottom: between_phone_netbook(32, 72);
+
+    @include media($mq-wide) {
+      margin-bottom: prem(72);
+    }
+  }
+
+  .ArticleCarousel__items {
+    display: flex;
+    flex-flow: row;
+  }
+  .ArticleCarousel:not([data-sprinkled]) > .ArticleCarousel__items {
+    overflow: auto;
+  }
+
+  .ArticleCarousel__track {
+    // @deprecated Was removed in v0.8. Remove warning in v0.9
+    @include WARNING__('Unsupported: use `.ArticleCarousel__items` instead');
+  }
+
+  .ArticleCarouselCard {
+    border: $var--border-default;
+    border-width: 2px;
+    border-top: 0;
+    width: $var--grid-5;
+    min-width: 330px;
+
+    padding: prem(21) $var--grid-column between_phone_netbook(24, 72);
+    margin-right: $var--grid-gutter;
+    position: relative;
+
+    @include media($mq-phone) {
+      width: $var--grid-9-9;
+      min-width: 280px;
+    }
+    @include media($mq-wide) {
+      padding-bottom: prem(72);
+    }
+  }
+
+  .ArticleCarouselCard::before {
+    content: '';
+    display: block;
+  }
+
+  .ArticleCarouselCard::after {
+    content: '';
+    display: block;
+    height: prem(21);
+    background-color: $var--theme-color-primary;
+    position: absolute;
+    top: 0;
+    right: -2px;
+    left: -2px;
+  }
+
+  // Prefer `data-color` over `data-color-theme`
+  $colors: (
+    'faxafloi': $var--color-faxafloi-100,
+    'nautholsvik': $var--color-nautholsvik-100,
+    'heidmork': $var--color-heidmork-100,
+    'ellidaardalur': $var--color-ellidaardalur-100,
+    'blafjoll': $var--color-blafjoll-100,
+    'sund': $var--color-sund-100,
+    'rokkur': $var--color-rokkur-100,
+    'suld': $var--color-suld-100,
+  );
+  @each $colorName, $colorVar in $colors {
+    .ArticleCarouselCard[data-color='#{$colorName}']::after {
+      background-color: $colorVar;
+    }
+  }
+
+  .ArticleCarouselCard__link {
+    @include LinkStyle_Reset(noborder);
+  }
+
+  .ArticleCarouselCard__illustration {
+    position: relative;
+    padding-top: percentage(300/ ($grid-column * 3 + 4 * $grid-gutter));
+    display: block;
+    margin: 0 -1px;
+    margin-bottom: grid-units(4);
+  }
+  .ArticleCarouselCard__illustration--photo {
+    // photograp variant
+  }
+  .ArticleCarouselCard__illustration--missing {
+    background-color: $var--color-suld-25;
+  }
+
+  .ArticleCarouselCard__illustration > img {
+    position: absolute;
+    top: grid-units(2);
+    left: $var--grid-column--neg;
+    left: $var--grid-column--neg;
+    right: $var--grid-column--neg;
+    width: calc(100% + #{$var--grid-column} + #{$var--grid-column});
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  .ArticleCarouselCard__illustration--photo > img {
+    object-fit: cover;
+    top: 0;
+  }
+
+  .ArticleCarouselCard__title {
+    @include SubheadingStyle--large();
+    margin-bottom: grid-units(4);
+  }
+
+  .ArticleCarouselCard__date {
+    @include BodyTextStyle--small();
+    color: $var--color-suld-150;
+    margin-bottom: grid-units(4);
+    display: block;
+  }
+
+  .ArticleCarouselCard__summary {
+    @include BodyTextStyle--small();
+    margin-bottom: prem(24);
+  }
+
+  .ArticleCarouselCard__morelink {
+    @include ButtonTertiaryStyle();
+  }
+
+  .ArticleCarouselCard__morelink:not([aria-label]) {
+    @include WARNING__('aria-label="" is missing');
+  }
+
+  .ArticleCarousel > .CarouselStepper {
+    margin-top: prem(24);
+  }
+}

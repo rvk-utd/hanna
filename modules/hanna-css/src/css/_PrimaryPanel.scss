@@ -1,0 +1,108 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@mixin css() {
+  .PrimaryPanel {
+    color: $var--color-suld-0;
+    --link-color: _inherit;
+    --link-color--hover: #{$var--color-suld-25};
+
+    background-color: #{$var--MainMenu-background};
+  }
+  .PrimaryPanel__title {
+    font-weight: $font-weight--bold;
+    border-bottom: 1px solid $color-suld-75;
+
+    margin-bottom: grid-units(3);
+    padding-bottom: grid-units(2);
+  }
+
+  .MainMenu[data-sprinkled] .PrimaryPanel:not(.PrimaryPanel--active) {
+    display: none;
+  }
+
+  // ===========================================================================
+
+  @include media($mq-Hamburger) {
+    .PrimaryPanel {
+      padding-bottom: prem(24);
+      padding-left: var(--MainMenu--offsetLeft);
+      padding-right: var(--MainMenu--offsetLeft);
+    }
+
+    .PrimaryPanel__title {
+      @include SubheadingStyle--small();
+    }
+
+    // .MainMenu[data-sprinkled] .PrimaryPanel__title {
+    // 	@include sr-only();
+    // }
+
+    .PrimaryPanel__item {
+      margin-bottom: prem(16);
+    }
+    .PrimaryPanel__summary {
+      @include sr-only();
+    }
+  }
+
+  // ===========================================================================
+
+  @include media($mq-Topmenu) {
+    .PrimaryPanel {
+      --PrimaryPanel-columns: 8;
+      display: grid;
+      align-content: flex-start;
+      grid-template-columns: repeat(var(--PrimaryPanel-columns), minmax(0, 1fr));
+
+      padding-top: $var--Layout__header-height;
+      padding-bottom: prem(125); // clear .MainMenu__megapanel__backtomenu
+      grid-column: 2 / span 7;
+      column-gap: $var--grid-gutter;
+    }
+    .PrimaryPanel--active {
+    }
+
+    .PrimaryPanel--twocol {
+      grid-column: span var(--PrimaryPanel-columns);
+    }
+
+    .PrimaryPanel__title {
+      margin-right: cols_pct(1, 0, 5);
+      grid-column: span 5;
+    }
+    .PrimaryPanel--twocol .PrimaryPanel__title {
+      grid-column: span var(--PrimaryPanel-columns);
+      margin-right: cols_pct(1, 0, 8);
+    }
+
+    .PrimaryPanel__items {
+      grid-column: span 4;
+      padding-right: cols_pct(1, 0, 4);
+    }
+    .PrimaryPanel--twocol .PrimaryPanel__items {
+      grid-column: span var(--PrimaryPanel-columns);
+      display: grid;
+      column-gap: $var--grid-gutter;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding-right: 0;
+    }
+
+    .PrimaryPanel__item {
+      margin-bottom: grid-units(3);
+    }
+    .PrimaryPanel--twocol .PrimaryPanel__item {
+      padding-right: cols_pct(1, 0, 4);
+    }
+
+    .PrimaryPanel__linkTitle {
+      @include BodyTextStyle--large();
+    }
+
+    .PrimaryPanel__summary {
+      display: block;
+      font-size: inherit; // override default <small> styling
+      font-weight: $font-weight--normal;
+    }
+  }
+}

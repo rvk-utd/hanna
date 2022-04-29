@@ -1,0 +1,57 @@
+{
+  "name": "@hugsmidjan_is/hanna-css",
+  "version": "0.0.0",
+  "author": "Reykjavík (http://www.reykjavik.is)",
+  "contributors": [
+    "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
+    "Kári Yngvason <kari@hugsmidjan.is>",
+    "Már Örlygsson <mar.orlygsson@reykjavik.is>",
+    "Már Örlygsson <mar@hugsmidjan.is>",
+    "Valur Sverrisson <valur@hugsmidjan.is>"
+  ],
+  "repository": "ssh://git@github.com:rvk-utd/hanna.git",
+  "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/hanna-css/README.md",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "es-in-css": "^0.3.0"
+  },
+  "main": "index.js",
+  "module": "index.mjs",
+  "engines": {
+    "node": "16"
+  },
+  "npm_lib_package_json": {
+    "engines": {
+      "node": ">=14"
+    }
+  },
+  "scripts": {
+    "assets:rename-illustrations": "node scripts/renameIllustrations.js",
+    "build:npmlib": "yarn install  &&  yarn run -T tsc --noEmit  &&  NODE_ENV=production  node build.js --onlyLib  &&  yarn run test",
+    "build:css": "yarn install  &&  yarn run -T tsc --noEmit  &&  NODE_ENV=production  node build.js  &&  yarn run test",
+    "build": "yarn run build:css  &&  NODE_ENV=production  yarn run gulp build",
+    "dev:server": "NODE_ENV=development  yarn run cssserve --config cssserve-dev.json",
+    "dev": "yarn install  &&  yarn run -T concurrently -k \"sleep 4 && tsc --noEmit --watch --preserveWatchOutput\"  \"node build.js --dev\"  \"sleep 3 && yarn run gulp watch\"  \"yarn run dev:server\" \"yarn run test:dev\"",
+    "prepublishOnly": "echo \"\nRun 'yarn run publishdist' to publish this package\n\n\"  && exit 1",
+    "publish:server": "yarn install  &&  yarn run publish:assets  &&  yarn run publish:css  &&  yarn run publish:devcss",
+    "publish:assets": "NODE_ENV=production  yarn run gulp publishAssets",
+    "publish:css": "yarn run build:css  &&  NODE_ENV=production  yarn run gulp publishCss",
+    "publish:devcss": "yarn install  &&  node build.js  &&  yarn run gulp publishDevCss",
+    "publish:npmlib": "yarn run build:npmlib  &&  cd _npm-lib  &&  yarn npm publish",
+    "start": "NODE_ENV=production  yarn run cssserve --config style-server/cssserve-prod.json",
+    "test:dev": "sleep 1  &&  (yarn run test || true)  &&  yarn run test:watch",
+    "test:watch": "yarn run -T onchange '__tests/**/*.tests--*.js' -f add -f change -- yarn run -T ospec '{{file}}'",
+    "test": "yarn run -T ospec \"__tests/**/*.tests--*.js\""
+  },
+  "devDependencies": {
+    "@hugsmidjan/gulp-iconfont": "^0.4.0",
+    "@hugsmidjan/gulp-images": "^0.2.2",
+    "@hugsmidjan/gulp-sass": "^0.2.0",
+    "@types/md5-file": "^5",
+    "cssserve": "^1.4.1",
+    "gulp": "^4.0.2",
+    "md5-file": "^5.0.0",
+    "sass": "~1.32"
+  }
+}

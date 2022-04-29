@@ -1,0 +1,163 @@
+@use 'globals' as *;
+
+@media screen {
+  [data-icon] {
+    // Reset icon name to prevent accidental bubbling
+    // from ancestral `data-icon=""` attributes
+    --Icon: none;
+
+    --Icon--size: inherit;
+
+    // Add `--Icon--enabled: initial;`
+    // to elements where you want to opt-in
+    // to allow icons on ::before
+    --Icon--enabled: none;
+  }
+  [data-icon]::before {
+    @include icon();
+    // prettier-ignore
+    content: var(--Icon--enabled, var(--Icon));
+    font-size: var(--Icon--size);
+    margin-right: $var--space-1;
+  }
+
+  // ---------------------------------------------------------------------------
+
+  [data-icon-after] {
+    // Reset icon name to prevent accidental bubbling
+    // from ancestral `data-icon-after=""` attributes
+    --Icon-after: none;
+
+    --Icon-after--size: inherit;
+
+    // Add `--Icon-after--enabled: initial;`
+    // to elements where you want to opt-in
+    // to allow icons on ::after
+    --Icon-after--enabled: none;
+  }
+  [data-icon-after]::after {
+    @include icon();
+    // prettier-ignore
+    content: var(--Icon-after--enabled, var(--Icon-after));
+    font-size: var(--Icon-after--size);
+    margin-left: $var--space-1_5;
+  }
+
+  // ===========================================================================
+
+  // ===========================================================================
+
+  // TODO: When in JavaScript-land, use loops!
+  [data-icon='calendar'] {
+    --Icon: '#{$icons-calendar}';
+  }
+  [data-icon='chat'] {
+    --Icon: '#{$icons-chat}';
+  }
+  [data-icon='checkmark'] {
+    --Icon: '#{$icons-checkmark}';
+  }
+  [data-icon='close'] {
+    --Icon: '#{$icons-close}';
+  }
+  [data-icon='data'] {
+    --Icon: '#{$icons-data}';
+  }
+  [data-icon='document'] {
+    --Icon: '#{$icons-document}';
+  }
+  [data-icon='edit'] {
+    --Icon: '#{$icons-edit}';
+  }
+  [data-icon='external'] {
+    --Icon: '#{$icons-external}';
+  }
+  [data-icon='file-pdf'] {
+    --Icon: '#{$icons-file-pdf}';
+  }
+  [data-icon='home'] {
+    --Icon: '#{$icons-home}';
+  }
+  [data-icon='info'] {
+    --Icon: '#{$icons-info}';
+  }
+  [data-icon='link'] {
+    --Icon: '#{$icons-link}';
+  }
+  [data-icon='location'] {
+    --Icon: '#{$icons-location}';
+  }
+  [data-icon='pen'] {
+    --Icon: '#{$icons-pen}';
+  }
+  [data-icon='search'] {
+    --Icon: '#{$icons-search}';
+  }
+  [data-icon='text'] {
+    --Icon: '#{$icons-text}';
+  }
+  [data-icon='time'] {
+    --Icon: '#{$icons-time}';
+  }
+  [data-icon='user'] {
+    --Icon: '#{$icons-user}';
+  }
+
+  // ---------------------------------------------------------------------------
+
+  // TODO: When in JavaScript-land, use loops!
+  [data-icon-after='calendar'] {
+    --Icon-after: '#{$icons-calendar}';
+  }
+  [data-icon-after='chat'] {
+    --Icon-after: '#{$icons-chat}';
+  }
+  [data-icon-after='checkmark'] {
+    --Icon-after: '#{$icons-checkmark}';
+  }
+  [data-icon-after='close'] {
+    --Icon-after: '#{$icons-close}';
+  }
+  [data-icon-after='data'] {
+    --Icon-after: '#{$icons-data}';
+  }
+  [data-icon-after='document'] {
+    --Icon-after: '#{$icons-document}';
+  }
+  [data-icon-after='edit'] {
+    --Icon-after: '#{$icons-edit}';
+  }
+  [data-icon-after='external'] {
+    --Icon-after: '#{$icons-external}';
+  }
+  [data-icon-after='file-pdf'] {
+    --Icon-after: '#{$icons-file-pdf}';
+  }
+  [data-icon-after='home'] {
+    --Icon-after: '#{$icons-home}';
+  }
+  [data-icon-after='info'] {
+    --Icon-after: '#{$icons-info}';
+  }
+  [data-icon-after='link'] {
+    --Icon-after: '#{$icons-link}';
+  }
+  [data-icon-after='location'] {
+    --Icon-after: '#{$icons-location}';
+  }
+  [data-icon-after='pen'] {
+    --Icon-after: '#{$icons-pen}';
+  }
+  [data-icon-after='search'] {
+    --Icon-after: '#{$icons-search}';
+  }
+  [data-icon-after='text'] {
+    --Icon-after: '#{$icons-text}';
+  }
+  [data-icon-after='time'] {
+    --Icon-after: '#{$icons-time}';
+  }
+  [data-icon-after='user'] {
+    --Icon-after: '#{$icons-user}';
+  }
+}

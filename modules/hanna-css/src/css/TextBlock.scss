@@ -1,0 +1,99 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+@use 'styles/componentLayout' as *;
+@use 'styles/labeledTitle' as *;
+@use 'utils/textContent' as *;
+
+@use 'PageHeading';
+@use 'Heading';
+@use 'SubHeading';
+@use 'Sharpie';
+@use 'VSpacer';
+@use 'ArticleMeta';
+
+/*!@deps
+	Attention
+*/
+
+@media screen {
+  .TextBlock {
+    position: relative;
+    margin-bottom: between_cols(20, 30);
+    @include ComponentLayout();
+    @include textContent();
+
+    @include SeenEffect--fadeup();
+    // @deprecated  Remove this mixin in v0.9
+    @include SeenEffect--disallowNesting();
+  }
+  .TextBlock--small {
+    font: $var--font-bd-s;
+
+    h2 {
+      font: $var--font-sh-l;
+    }
+    h3 {
+      font: $var--font-sh-s;
+    }
+    h4 {
+      font: $var--font-bd-l;
+      font-weight: $var--font-weight--bold;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+
+  .TextBlock--labelled h2 {
+    @include LabeledTitleStyle--basics($margin: false);
+  }
+  @include media($mq-tablet_up) {
+    .TextBlock--labelled {
+      --h2--marginTop: 2em;
+      --h2--marginBottom: 0.25em;
+      // --h3--marginTop: 1.25em; // <-- currently same as the default value.
+      // same as --align--right (`see layout.ComponentLayout()`)
+      margin-left: auto;
+      width: cols_pct(7);
+    }
+    .TextBlock--labelled h2 {
+      @include LabeledTitleStyle--outdented();
+      width: auto;
+      height: 0;
+      margin-left: cols_pct(-5, -5, 7);
+      padding-right: cols_pct(8, 7, 7);
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+
+  .TextBlock--small.TextBlock--labelled {
+    @include WARNING__("`--small` can't be `--labelled`");
+  }
+  .TextBlock--wide.TextBlock--labelled {
+    @include WARNING__("`--wide` can't be `--labelled`");
+  }
+
+  // ---------------------------------------------------------------------------
+
+  .TextBlock--largetext {
+    @include WARNING__('`--largetext` is Outdated. TextBlock is "large" by default');
+  }
+  .TextBlock__title {
+    @include WARNING__('`__title` is Outdated. Use PageHeading/SubHeading');
+  }
+  .TextBlock .PageHeading,
+  .TextBlock .SubHeading {
+    @include WARNING__('Should NOT be used inside TextBlock');
+  }
+}
+
+// ===========================================================================
+
+// Inline the most common text atom components
+// for better compression and loading speed
+@include PageHeading.css();
+@include Heading.css();
+@include SubHeading.css();
+@include Sharpie.css();
+@include VSpacer.css();
+@include ArticleMeta.css();

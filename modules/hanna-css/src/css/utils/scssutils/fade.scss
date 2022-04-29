@@ -1,0 +1,3 @@
+@function fade($color, $opacity) {
+  @return scale-color($color, $alpha: ($opacity - 100%));
+}

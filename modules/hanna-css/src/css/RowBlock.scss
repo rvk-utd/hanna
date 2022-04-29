@@ -1,0 +1,46 @@
+@use 'globals' as *;
+@use 'RowBlockColumn';
+
+/*!@deps
+	RowBlockColumn
+*/
+
+@media screen {
+  .RowBlock {
+    margin-bottom: $var--component-vspace--large;
+    display: flex;
+    flex-flow: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    @include SeenEffect--fadeup('> .RowBlockColumn');
+    @include SeenEffect--transition('> .RowBlockColumn + .RowBlockColumn') {
+      @include SeenEffect--delay(100ms);
+    }
+  }
+  @media #{$mq-tablet_up} {
+    .RowBlock {
+      flex-flow: row;
+    }
+    .RowBlock--align--right {
+      flex-flow: row-reverse;
+    }
+  }
+
+  // ===========================================================================
+
+  .RowBlock > .RowBlockColumn:nth-child(n + 3) {
+    @include WARNING__('Only two `RowBlockColumn`s allowed here');
+  }
+  .RowBlock > .RowBlockColumn:first-child:last-child {
+    @include WARNING__('Two `RowBlockColumn`s are required');
+  }
+  .RowBlock > :not(.RowBlockColumn) {
+    @include WARNING__('Only `RowBlockColumn`s allowed here');
+  }
+}
+
+// ===========================================================================
+
+// Inline conjoined component for better
+// compression and loading speed
+@include RowBlockColumn.css();

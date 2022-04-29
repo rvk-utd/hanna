@@ -1,0 +1,43 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@media screen {
+  .Attention {
+    margin: $var--baseVerticalMargin-2 0;
+
+    font: $var--font-bd-l;
+    border-left: grid-units(1) solid $var--theme-color-primary;
+    padding-left: $var--space-4;
+    padding-right: $var--grid-column;
+  }
+  .Attention--small {
+    font: $var--font-bd-s;
+    padding-left: $var--space-3;
+  }
+
+  @include media($mq-phone_phablet) {
+    .Attention {
+      padding-left: $var--space-2;
+      padding-right: 0;
+    }
+  }
+  .Attention--strong {
+    @include WARNING__('Deprecated: `.Attention--strong` is no longer supported');
+    // color: var(--Attention-text-color, $color-heidmork-100);
+    // font-weight: $font-weight--bold;
+  }
+
+  .Attention:last-child {
+    // margin-bottom: $var--baseVerticalMargin;
+    margin-bottom: 0;
+  }
+  .Attention:first-child {
+    margin-top: 0;
+  }
+  .Attention > p {
+    margin-bottom: $var--baseVerticalMargin;
+  }
+  .Attention > p:last-child {
+    margin-bottom: 0;
+  }
+}

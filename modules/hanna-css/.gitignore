@@ -1,0 +1,13 @@
+## Deps and build results
+node_modules
+/__tests
+/_npm-lib
+
+/src/css/vars/$$*$$-*.css.js
+/src/css/vars/$$*$$-*.scss.js
+
+/src/lib/iconfont.ts
+/src/css/vars/icons.scss
+
+## Misc notes and stuff...
+/assets-originals

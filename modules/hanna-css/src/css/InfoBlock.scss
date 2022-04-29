@@ -1,0 +1,79 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/attention' as *;
+
+@media screen {
+  .InfoBlock {
+    background-color: $color-suld-25;
+    padding: between_cols(40, 120) cols_pct(1, 1);
+    padding-left: $var--grid-margin;
+    margin-left: $var--grid-margin--neg;
+    box-sizing: content-box;
+    position: relative;
+    max-width: cols_px(10);
+    margin-bottom: prem(64);
+  }
+  .InfoBlock::before {
+    @include icon($icons-fatchevron-up);
+    color: $var--theme-color-secondary;
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    margin: -0.2em -0.5em;
+    font-size: between_phone_netbook(49, 89);
+
+    @include media($mq-wide) {
+      font-size: prem(89);
+    }
+  }
+
+  .InfoBlock__title {
+    @include HeadingStyle--small();
+    margin-bottom: prem(20);
+  }
+
+  .InfoBlock__subtitle {
+    @include BodyTextStyle--large();
+
+    @include media($mq-tablet_up) {
+      width: cols_pct(5);
+      min-width: 350px;
+    }
+  }
+
+  .InfoBlock__items {
+    margin-top: between_cols(35, 64, 10);
+
+    @include media($mq-tablet_up) {
+      column-count: 2;
+      column-gap: prem(45);
+    }
+  }
+  .InfoBlock__item {
+    padding-left: prem(28);
+    margin-bottom: prem(16);
+  }
+  .InfoBlock__item::before {
+    content: '';
+    display: inline-block;
+    background-color: $var--theme-color-primary--safeish;
+    margin-right: grid-units(2);
+    width: prem(12);
+    height: prem(4);
+    margin-left: prem(-28);
+  }
+
+  .InfoBlock__extrainfo,
+  .InfoBlock__attention {
+    @include AttentionStyle();
+  }
+
+  .InfoBlock__extrainfo {
+    padding-left: 0;
+  }
+  .InfoBlock__extrainfo::before {
+    content: none;
+  }
+}

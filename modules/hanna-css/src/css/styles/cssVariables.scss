@@ -1,0 +1,406 @@
+@use 'globals' as *;
+
+@mixin cssVariables() {
+  @media screen {
+    :root {
+      --bp-w-phone: #{$bp-phone}; // mjórra en 320px er ekki supported
+      --bp-w-phablet: #{$bp-phablet};
+      --bp-w-tablet: #{$bp-tablet};
+      --bp-w-netbook: #{$bp-netbook}; // iPad á hlið
+      --bp-w-wide: #{$bp-wide}8;
+
+      --bp-w-Hamburger: var(--bp-w-netbook);
+
+      --browser-scrollbar-width: 16px;
+
+      --baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+      --baseVerticalMargin-2: #{between_phone_netbook(4 * $grid-unit, 6 * $grid-unit)};
+      @include media($mq-wide) {
+        --baseVerticalMargin: #{px(3 * $grid-unit)};
+        --baseVerticalMargin-2: #{px(6 * $grid-unit)};
+      }
+
+      @include setDefaultLinkVariables(true);
+      --link-focus-outlineColor: currentColor;
+      --link-focus-outline: 3px solid currentColor;
+      --link-focus-outlineOffset: 2px;
+
+      @include _zIndex();
+      @include _gridVariables();
+      @include _miscSpaces();
+      @include _fontVariables();
+      @include _LayoutHeader();
+      @include _MainMenu();
+      @include _colorVariables();
+      @include _bordersAndEffects();
+      @include _buttons();
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+@function _flexCol($cols, $gutters: $cols - 1) {
+  $f: cols_pct($cols, $gutters) / 100%;
+  $from: $f * $grid-contentMinWidth;
+  $to: $f * $grid-contentMaxWidth;
+  @return between_phone_netbook($from, $to);
+}
+
+@mixin _gridVariables() {
+  --grid-margin: #{between_phone_netbook($grid-margin--phone, $grid-margin--wide)};
+  --grid-margin--neg: #{between_phone_netbook(
+      -1 * $grid-margin--phone,
+      -1 * $grid-margin--wide
+    )};
+
+  --grid-margin--right: calc(var(--grid-margin) - var(--browser-scrollbar-width));
+  --grid-margin--right--neg: calc(
+    var(--grid-margin--neg) + var(--browser-scrollbar-width)
+  );
+
+  // @deprecated (Remove in v0.9)
+  --grid-edge: var(--grid-margin);
+  --grid-edge--neg: var(--grid-margin--neg);
+  --grid-edge--right: var(--grid-margin--right);
+  --grid-edge--right--neg: var(--grid-margin--right--neg);
+  // END: deprecation
+
+  --grid-0-1: #{_flexCol(0, 1)};
+  --grid-1: #{_flexCol(1)};
+  --grid-1-1: #{_flexCol(1, 1)};
+  --grid-2: #{_flexCol(2)};
+  --grid-2-2: #{_flexCol(2, 2)};
+  --grid-3: #{_flexCol(3)};
+  --grid-3-3: #{_flexCol(3, 3)};
+  --grid-4: #{_flexCol(4)};
+  --grid-4-4: #{_flexCol(4, 4)};
+  --grid-5: #{_flexCol(5)};
+  --grid-5-5: #{_flexCol(5, 5)};
+  --grid-6: #{_flexCol(6)};
+  --grid-6-6: #{_flexCol(6, 6)};
+  --grid-7: #{_flexCol(7)};
+  --grid-7-7: #{_flexCol(7, 7)};
+  --grid-8: #{_flexCol(8)};
+  --grid-8-8: #{_flexCol(8, 8)};
+  --grid-9: #{_flexCol(9)};
+  --grid-9-9: #{_flexCol(9, 9)};
+  --grid-10: #{_flexCol(10)};
+  --grid-10-10: #{_flexCol(10, 10)};
+  --grid-11: #{_flexCol(11)};
+  --grid-11-11: #{_flexCol(11, 11)};
+  --grid-12: #{_flexCol(12)};
+
+  --grid-gutter: var(--grid-0-1);
+  --grid-column: var(--grid-1);
+
+  --grid-0-1--neg: #{_flexCol(0, -1)};
+  --grid-1--neg: #{_flexCol(-1, 0)};
+  --grid-gutter--neg: var(--grid-0-1--neg);
+  --grid-column--neg: var(--grid-1--neg);
+
+  @include media($mq-wide) {
+    --grid-margin: #{px($grid-margin--wide)};
+    --grid-margin--neg: #{px(-1 * $grid-margin--wide)};
+
+    --grid-0-1: #{cols_px(0, 1)};
+    --grid-1: #{cols_px(1)};
+    --grid-1-1: #{cols_px(1, 1)};
+    --grid-2: #{cols_px(2)};
+    --grid-2-2: #{cols_px(2, 2)};
+    --grid-3: #{cols_px(3)};
+    --grid-3-3: #{cols_px(3, 3)};
+    --grid-4: #{cols_px(4)};
+    --grid-4-4: #{cols_px(4, 4)};
+    --grid-5: #{cols_px(5)};
+    --grid-5-5: #{cols_px(5, 5)};
+    --grid-6: #{cols_px(6)};
+    --grid-6-6: #{cols_px(6, 6)};
+    --grid-7: #{cols_px(7)};
+    --grid-7-7: #{cols_px(7, 7)};
+    --grid-8: #{cols_px(8)};
+    --grid-8-8: #{cols_px(8, 8)};
+    --grid-9: #{cols_px(9)};
+    --grid-9-9: #{cols_px(9, 9)};
+    --grid-10: #{cols_px(10)};
+    --grid-10-10: #{cols_px(10, 10)};
+    --grid-11: #{cols_px(11)};
+    --grid-11-11: #{cols_px(11, 11)};
+    --grid-12: #{cols_px(12)};
+
+    --grid-0-1--neg: #{cols_px(0, -1)};
+    --grid-1--neg: #{cols_px(-1, 0)};
+    --grid-column--neg: var(--grid-1--neg);
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _zIndex() {
+  --zindex--sr-only: 99999; // A11y keyboard/focus layer
+  --zindex--modal: 1000;
+  --zindex--header: 100;
+  --zindex--overlay: 10;
+  --zindex--Bling--overlay: 2;
+  --zindex--Bling: -10;
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _fontVariables() {
+  --font-family: #{$font-family};
+  --font-weight--normal: #{$font-weight--normal};
+  --font-weight--bold: #{$font-weight--bold};
+
+  --font-base-size: #{px($font-base-size)};
+  --font-base-leading: #{px($font-base-leading)};
+
+  // ---------------------------------------------------------------------------
+
+  --font-base: var(--font-base-size) / var(--font-base-leading) var(--font-family);
+
+  --font-hd-xl: var(--font-weight--bold) var(--font-hd-xl-size) /
+    var(--font-hd-xl-leading) var(--font-family);
+  --font-hd-l: var(--font-weight--bold) var(--font-hd-l-size) / var(--font-hd-l-leading)
+    var(--font-family);
+  --font-hd-m: var(--font-weight--bold) var(--font-hd-m-size) / var(--font-hd-m-leading)
+    var(--font-family);
+  --font-hd-s: var(--font-weight--bold) var(--font-hd-s-size) / var(--font-hd-s-leading)
+    var(--font-family);
+  --font-sh-l: var(--font-weight--bold) var(--font-sh-l-size) / var(--font-sh-l-leading)
+    var(--font-family);
+  --font-sh-l-thin: var(--font-sh-l-size) / var(--font-sh-l-leading) var(--font-family);
+  --font-sh-s: var(--font-weight--bold) var(--font-sh-s-size) / var(--font-sh-s-leading)
+    var(--font-family);
+  --font-bd-l: var(--font-bd-l-size) / var(--font-bd-l-leading) var(--font-family);
+  --font-bd-s: var(--font-bd-s-size) / var(--font-bd-s-leading) var(--font-family);
+  --font-button: var(--font-button-size) / var(--font-button-leading) var(--font-family);
+  --font-label: var(--font-label-size) / var(--font-label-leading) var(--font-family);
+
+  // ---------------------------------------------------------------------------
+
+  --font-hd-xl-size: #{px($font-hd-xl-size--phone)};
+  --font-hd-xl-leading: #{px($font-hd-xl-leading--phone)};
+  --font-hd-l-size: #{px($font-hd-l-size--phone)};
+  --font-hd-l-leading: #{px($font-hd-l-leading--phone)};
+  --font-hd-m-size: #{px($font-hd-m-size--phone)};
+  --font-hd-m-leading: #{px($font-hd-m-leading--phone)};
+  --font-hd-s-size: #{px($font-hd-s-size--phone)};
+  --font-hd-s-leading: #{px($font-hd-s-leading--phone)};
+
+  --font-sh-l-size: #{px($font-sh-l-size--phone)};
+  --font-sh-l-leading: #{px($font-sh-l-leading--phone)};
+  --font-sh-s-size: #{px($font-sh-s-size--phone)};
+  --font-sh-s-leading: #{px($font-sh-s-leading--phone)};
+
+  --font-bd-l-size: #{px($font-bd-l-size)};
+  --font-bd-l-leading: #{px($font-bd-l-leading)};
+  --font-bd-s-size: #{px($font-bd-s-size)};
+  --font-bd-s-leading: #{px($font-bd-s-leading)};
+
+  --font-button-size: #{px($font-button-size)};
+  --font-button-leading: #{px($font-button-leading)};
+
+  --font-label-size: #{px($font-label-size)};
+  --font-label-leading: #{px($font-label-leading)};
+
+  @include media($mq-phablet_netbook) {
+    --font-hd-xl-size: #{between_phablet_netbook(
+        $font-hd-xl-size--phone,
+        $font-hd-xl-size
+      )};
+    --font-hd-xl-leading: #{between_phablet_netbook(
+        $font-hd-xl-leading--phone,
+        $font-hd-xl-leading
+      )};
+    --font-hd-l-size: #{between_phablet_netbook($font-hd-l-size--phone, $font-hd-l-size)};
+    --font-hd-l-leading: #{between_phablet_netbook(
+        $font-hd-l-leading--phone,
+        $font-hd-l-leading
+      )};
+    --font-hd-m-size: #{between_phablet_netbook($font-hd-m-size--phone, $font-hd-m-size)};
+    --font-hd-m-leading: #{between_phablet_netbook(
+        $font-hd-m-leading--phone,
+        $font-hd-m-leading
+      )};
+    --font-hd-s-size: #{between_phablet_netbook($font-hd-s-size--phone, $font-hd-s-size)};
+    --font-hd-s-leading: #{between_phablet_netbook(
+        $font-hd-s-leading--phone,
+        $font-hd-s-leading
+      )};
+
+    --font-sh-l-size: #{between_phablet_netbook($font-sh-l-size--phone, $font-sh-l-size)};
+    --font-sh-l-leading: #{between_phablet_netbook(
+        $font-sh-l-leading--phone,
+        $font-sh-l-leading
+      )};
+    --font-sh-s-size: #{between_phablet_netbook($font-sh-s-size--phone, $font-sh-s-size)};
+    --font-sh-s-leading: #{between_phablet_netbook(
+        $font-sh-s-leading--phone,
+        $font-sh-s-leading
+      )};
+  }
+
+  @include media($mq-wide) {
+    --font-hd-xl-size: #{px($font-hd-xl-size)};
+    --font-hd-xl-leading: #{px($font-hd-xl-leading)};
+    --font-hd-l-size: #{px($font-hd-l-size)};
+    --font-hd-l-leading: #{px($font-hd-l-leading)};
+    --font-hd-m-size: #{px($font-hd-m-size)};
+    --font-hd-m-leading: #{px($font-hd-m-leading)};
+    --font-hd-s-size: #{px($font-hd-s-size)};
+    --font-hd-s-leading: #{px($font-hd-s-leading)};
+
+    --font-sh-l-size: #{px($font-sh-l-size)};
+    --font-sh-l-leading: #{px($font-sh-l-leading)};
+    --font-sh-s-size: #{px($font-sh-s-size)};
+    --font-sh-s-leading: #{px($font-sh-s-leading)};
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _MainMenu() {
+  --MainMenu-accentcolor: var(--color-faxafloi-100);
+  --MainMenu-background: var(--color-faxafloi-100);
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _LayoutHeader() {
+  $min: 96;
+  $max: 136;
+
+  --Layout__header-height: #{px($min)};
+  --Layout__header-backgroundColor: transparent;
+
+  @include media($mq-Topmenu) {
+    --Layout__header-height: #{between_Topmenu($min, $max)};
+  }
+  @include media($mq-wide) {
+    --Layout__header-height: #{px($max)};
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _miscSpaces() {
+  --space-1: #{grid-units(1)};
+  --space-2: #{grid-units(2)};
+  --space-3: #{grid-units(3)};
+  --space-4: #{grid-units(4)};
+  --space-5: #{grid-units(5)};
+  --space-6: #{grid-units(6)};
+  --space-7: #{grid-units(7)};
+  --space-8: #{grid-units(8)};
+  --space-9: #{grid-units(9)};
+
+  --space-0_5: #{grid-units(0.5)};
+  --space-1_5: #{grid-units(1.5)};
+
+  --space-1--neg: #{grid-units(-1)};
+  --space-2--neg: #{grid-units(-2)};
+  --space-3--neg: #{grid-units(-3)};
+  --space-4--neg: #{grid-units(-4)};
+  --space-5--neg: #{grid-units(-5)};
+  --space-6--neg: #{grid-units(-6)};
+  --space-7--neg: #{grid-units(-7)};
+  --space-8--neg: #{grid-units(-8)};
+  --space-9--neg: #{grid-units(-9)};
+
+  --space-0_5--neg: #{grid-units(-0.5)};
+  --space-1_5--neg: #{grid-units(-1.5)};
+
+  --component-vspace--small: #{between_cols(30, 70)};
+  --component-vspace--medium: #{between_cols(40, 100)};
+  --component-vspace--large: #{between_cols(50, 130)};
+  --component-vspace--xlarge: #{between_cols(70, 200)};
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _colorVariables() {
+  --color-esja-25: #{$color-esja-25};
+  --color-esja-50: #{$color-esja-50};
+  --color-esja-75: #{$color-esja-75};
+  --color-esja-100: #{$color-esja-100};
+  --color-esja-150: #{$color-esja-150};
+
+  --color-faxafloi-25: #{$color-faxafloi-25};
+  --color-faxafloi-50: #{$color-faxafloi-50};
+  --color-faxafloi-75: #{$color-faxafloi-75};
+  --color-faxafloi-100: #{$color-faxafloi-100};
+  --color-faxafloi-150: #{$color-faxafloi-150};
+
+  --color-nautholsvik-25: #{$color-nautholsvik-25};
+  --color-nautholsvik-50: #{$color-nautholsvik-50};
+  --color-nautholsvik-75: #{$color-nautholsvik-75};
+  --color-nautholsvik-100: #{$color-nautholsvik-100};
+  --color-nautholsvik-150: #{$color-nautholsvik-150};
+
+  --color-heidmork-25: #{$color-heidmork-25};
+  --color-heidmork-50: #{$color-heidmork-50};
+  --color-heidmork-75: #{$color-heidmork-75};
+  --color-heidmork-100: #{$color-heidmork-100};
+  --color-heidmork-150: #{$color-heidmork-150};
+
+  --color-ellidaardalur-25: #{$color-ellidaardalur-25};
+  --color-ellidaardalur-50: #{$color-ellidaardalur-50};
+  --color-ellidaardalur-75: #{$color-ellidaardalur-75};
+  --color-ellidaardalur-100: #{$color-ellidaardalur-100};
+  --color-ellidaardalur-150: #{$color-ellidaardalur-150};
+
+  // @deprecated This was a typo (Will be removed in version v0.9)
+  --color-ellidarardalur-25: var(--color-ellidaardalur-25);
+  --color-ellidarardalur-50: var(--color-ellidaardalur-50);
+  --color-ellidarardalur-75: var(--color-ellidaardalur-75);
+  --color-ellidarardalur-100: var(--color-ellidaardalur-100);
+  --color-ellidarardalur-150: var(--color-ellidaardalur-150);
+
+  --color-blafjoll-25: #{$color-blafjoll-25};
+  --color-blafjoll-50: #{$color-blafjoll-50};
+  --color-blafjoll-75: #{$color-blafjoll-75};
+  --color-blafjoll-100: #{$color-blafjoll-100};
+  --color-blafjoll-150: #{$color-blafjoll-150};
+
+  --color-sund-25: #{$color-sund-25};
+  --color-sund-50: #{$color-sund-50};
+  --color-sund-75: #{$color-sund-75};
+  --color-sund-100: #{$color-sund-100};
+  --color-sund-150: #{$color-sund-150};
+
+  --color-rokkur-25: #{$color-rokkur-25};
+  --color-rokkur-50: #{$color-rokkur-50};
+  --color-rokkur-75: #{$color-rokkur-75};
+  --color-rokkur-100: #{$color-rokkur-100};
+  --color-rokkur-150: #{$color-rokkur-150};
+
+  --color-suld-0: #{$color-suld-0};
+  --color-suld-25: #{$color-suld-25};
+  --color-suld-50: #{$color-suld-50};
+  --color-suld-75: #{$color-suld-75};
+  --color-suld-100: #{$color-suld-100};
+  --color-suld-150: #{$color-suld-150};
+  --color-suld-200: #{$color-suld-200};
+
+  --color-white: #{$color-white};
+  --color-blackish: #{$color-blackish};
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _bordersAndEffects() {
+  --border-default: 1px solid #{$var--color-suld-75};
+  --border-dark: 1px solid #{$var--color-suld-150};
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _buttons() {
+  --Button--gapH: #{between_phone_netbook(16, 32)};
+  --Button--gapV: #{$var--space-2};
+
+  @media #{$mq-wide} {
+    --Button--gapH: 32px;
+  }
+}

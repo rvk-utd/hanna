@@ -1,0 +1,32 @@
+<svg width="379" height="280" viewBox="0 0 379 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="formheimur-fjoll">
+<style>
+	.formheimur-fjoll {
+		--litur1: var(--theme-color-primary, #dcddde);
+		--litur2: var(--theme-color-secondary, #ebeced);
+		--litur3: var(--theme-color-tertiary, #f3f4f5);
+	}
+
+	/* Frávik */
+	[data-color-theme='trustworthy'] .formheimur-fjoll {
+		--litur2: var(--theme-color-tertiary);
+		--litur3: var(--theme-color-secondary);
+	}
+	[data-color-theme='friendly'] .formheimur-fjoll {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
+	}
+	[data-color-theme='lively'] .formheimur-fjoll {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-tertiary);
+		--litur3: var(--theme-color-primary);
+	}
+	[data-color-theme='colorful'] .formheimur-fjoll {
+		--litur1: var(--theme-color-secondary);
+		--litur2: var(--theme-color-primary);
+	}
+</style>
+<path d="M379 273L379 0L0 0L0 273L379 273Z" fill="var(--litur3)"/>
+<path d="M379 205H0V280H379V205Z" fill="var(--litur2)"/>
+<path d="M181 205H67L124 114L181 205Z" fill="var(--litur1)"/>
+<path d="M233 205H164L198 149L233 205Z" fill="var(--litur1)"/>
+</svg>

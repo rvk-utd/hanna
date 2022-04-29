@@ -1,0 +1,18 @@
+@use 'globals' as *;
+@use 'styles/buttons' as *;
+
+/*!@deps
+	Icon
+	ButtonBar
+*/
+
+@media screen {
+  .ButtonPrimary {
+    @include ButtonStyle();
+
+    &--destructive {
+      --Button--backgroundColor: #{$var--color-heidmork-100};
+      --Button--backgroundColor--active: #{$var--color-heidmork-150};
+    }
+  }
+}

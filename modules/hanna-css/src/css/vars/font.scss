@@ -1,0 +1,66 @@
+$font-family-name: 'Esja';
+
+$font-family: $font-family-name, Helvetica, Arial, sans-serif;
+$font-weight--normal: 400;
+$font-weight--bold: 700;
+
+$font-base-size: 16;
+$font-base-leading: 24;
+
+// ---------------------------------------------------------------------------
+// headings
+
+$font-hd-xl-size: 72;
+$font-hd-xl-leading: 90;
+$font-hd-xl-size--phone: 40;
+$font-hd-xl-leading--phone: 50;
+
+$font-hd-l-size: 64;
+$font-hd-l-leading: 80;
+$font-hd-l-size--phone: 32;
+$font-hd-l-leading--phone: 40;
+
+$font-hd-m-size: 48;
+$font-hd-m-leading: 60;
+$font-hd-m-size--phone: 24;
+$font-hd-m-leading--phone: 40;
+
+$font-hd-s-size: 40;
+$font-hd-s-leading: 50;
+$font-hd-s-size--phone: 20;
+$font-hd-s-leading--phone: 30;
+
+// ---------------------------------------------------------------------------
+// subheadings
+
+$font-sh-l-size: 32;
+$font-sh-l-leading: 40;
+$font-sh-l-size--phone: 20;
+$font-sh-l-leading--phone: 30;
+
+$font-sh-s-size: 24;
+$font-sh-s-leading: 32;
+$font-sh-s-size--phone: 20;
+$font-sh-s-leading--phone: 30;
+
+// ---------------------------------------------------------------------------
+// body text
+
+$font-bd-l-size: 20;
+$font-bd-l-leading: 32;
+
+$font-bd-s-size: $font-base-size;
+$font-bd-s-leading: $font-base-leading;
+
+// ---------------------------------------------------------------------------
+// buttons and labels
+
+$font-button-size: 16;
+$font-button-leading: 20;
+
+$font-label-size: 12;
+$font-label-leading: 16;
+
+// ---------------------------------------------------------------------------
+// Non-semantic font-sizes
+$font-size-12: 12;

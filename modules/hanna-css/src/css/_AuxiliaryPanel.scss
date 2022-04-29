@@ -1,0 +1,113 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+@mixin css() {
+  @media screen {
+    .AuxiliaryPanel {
+      color: $var--MainMenu-accentcolor;
+      --link-color: _inherit;
+      --link-color--hover: #{$var--MainMenu-accentcolor};
+      --link-weight: $font-weight-normal;
+    }
+
+    .AuxiliaryPanel__title {
+      font-weight: $font-weight--bold;
+
+      border-bottom: 1px solid $color-suld-100;
+
+      margin-right: cols_pct(1, 0, 4); //TODO:
+      margin-bottom: grid-units(3);
+      padding-bottom: grid-units(2);
+    }
+  }
+
+  // ===========================================================================
+
+  // ===========================================================================
+
+  @include media($mq-Hamburger) {
+    .AuxiliaryPanel {
+      position: relative;
+      background-color: $var--color-suld-25;
+      padding-top: grid-units(4);
+      padding-bottom: percentage(125 / 325);
+      flex-grow: 1;
+
+      margin-left: $var--grid-margin--neg;
+      margin-right: $var--grid-margin--right--neg;
+      padding-left: calc(#{$var--grid-margin} + var(--MainMenu--offsetLeft));
+      padding-right: calc(#{$var--grid-margin--right} + var(--MainMenu--offsetLeft));
+    }
+
+    .AuxiliaryPanel__title {
+      @include SubheadingStyle--small();
+      padding-bottom: grid-units(1);
+      margin-bottom: grid-units(2);
+      margin-right: 0;
+
+      max-width: percentage(140/365);
+      min-width: prem(140);
+    }
+
+    .AuxiliaryPanel__items {
+      margin-bottom: grid-units(4);
+    }
+    .AuxiliaryPanel__item {
+      margin-bottom: grid-units(1.5);
+    }
+
+    .AuxiliaryPanel::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      background: 50% 100% / contain repeat-x;
+      background-image: url('/assets/valmundur-a-sundi.png');
+      mix-blend-mode: multiply;
+
+      padding-top: percentage(115 / 325);
+    }
+
+    html.menu-is-open .AuxiliaryPanel::after {
+      transition: visibility 0s 1200ms linear, opacity 300ms;
+    }
+    html.menu-is-closed .AuxiliaryPanel::after {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 300ms linear, opacity 300ms;
+    }
+  }
+
+  // ===========================================================================
+
+  // ===========================================================================
+
+  @include media($mq-Topmenu) {
+    .AuxiliaryPanel {
+      grid-column: span 4;
+
+      padding-top: $var--Layout__header-height;
+      padding-left: $var--grid-1-1;
+    }
+
+    .AuxiliaryPanel::after {
+      content: '';
+
+      background: 50% 0 / auto 305px no-repeat;
+      background-image: var(--MainMenu-auxiliary-image);
+
+      margin: prem(40) 0;
+      display: block;
+      height: 305px;
+    }
+
+    .AuxiliaryPanel__items {
+      margin-right: cols_pct(1, 0, 4);
+    }
+    .AuxiliaryPanel__item {
+      margin-bottom: prem(8px);
+    }
+  }
+}

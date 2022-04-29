@@ -1,0 +1,78 @@
+@use 'globals' as *;
+@use 'styles/buttons' as *;
+@use 'styles/font' as *;
+
+@media screen {
+  .MiniMetrics {
+    position: relative;
+    margin-top: between_cols(60, 240);
+    margin-bottom: between_cols(60, 290);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    min-height: cols_px(3);
+  }
+
+  .MiniMetrics__text {
+    @include HeadingStyle--xlarge();
+    display: block;
+    margin-bottom: em(40 / $font-hd-xl-size);
+    max-width: cols_px(9);
+  }
+  .MiniMetrics__more {
+    @include ButtonTertiaryStyle();
+    @include SubheadingStyle--small();
+    --ButtonTertiary--dashWidth: #{rem(24 / $font-sh-s-size)};
+    // --ButtonTertiary--hover--dashWidth: #{prem(48)};
+    --ButtonTertiary--dashHeight: #{rem(4 / $font-sh-s-size)};
+  }
+  .MiniMetrics__more::before {
+    top: calc(0.5 * #{$var--font-sh-s-leading});
+  }
+
+  @include media($mq-phablet_up) {
+    @supports (mask-image: url('')) {
+      .MiniMetrics::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        bottom: 50%;
+        margin-bottom: px_pct(125);
+        right: 0;
+        width: px_pct(127);
+        padding-top: px_pct(127);
+        // background-color: $var--theme-color-secondary;
+        background-color: $color-rokkur-100;
+        mask-image: url('/assets/bling/circle-small.svg');
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+      }
+      .MiniMetrics::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        bottom: 50%;
+        left: 50%;
+        margin-bottom: px_pct(-95);
+        width: px_pct(3 * 275);
+        padding-top: px_pct(232);
+        // background-color: $var--theme-color-tertiary;
+        background-color: $color-esja-100;
+        mask-image: url('/assets/bling/waves-medium.svg');
+        mask-size: 133.33% auto;
+        mask-position: 0% 50%;
+        mask-repeat: no-repeat;
+      }
+    }
+  }
+  @include media($mq-phablet) {
+    .MiniMetrics::before {
+      content: none;
+    }
+    .MiniMetrics::after {
+      left: 360px;
+      width: 440px;
+      padding-top: 125px;
+    }
+  }
+}

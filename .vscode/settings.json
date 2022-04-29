@@ -3,6 +3,7 @@
   "editor.formatOnSave": true,
   "search.exclude": {
     "**/.yarn": true,
-    "**/.pnp.*": true
+    "**/.pnp.*": true,
+    "style-server/*": true
   }
 }

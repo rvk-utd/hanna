@@ -1,0 +1,105 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+@use 'styles/links' as *;
+@use '_GalleryModal' as GalleryModal;
+
+/*!@deps
+	Carousel
+*/
+
+@media screen {
+  // TODO: Refactor to a mixin from Carousel.scss
+  html.before-sprinkling .Gallery:not([data-sprinkled]) {
+    padding-bottom: var(--CarouselStepper--height);
+  }
+  html.before-sprinkling[class] > .Gallery__items {
+    overflow: visible;
+  }
+
+  .Gallery {
+    @include SeenEffect--fadeup();
+    margin-bottom: between_cols(32, 130);
+  }
+
+  .Gallery__items {
+    display: flex;
+
+    margin-left: -(prem($grid-gutter / 2));
+    margin-right: -(prem($grid-gutter / 2));
+
+    will-change: transform;
+
+    transition: transform 200ms ease-in;
+  }
+  .Gallery:not([data-sprinkled]) .Gallery__items {
+    overflow: auto;
+  }
+
+  // @deprecated Was removed in v0.8. Remove warning in v0.9
+  .Gallerty__track {
+    @include WARNING__('Unsupported: use `.Gallery__items` instead');
+  }
+
+  // ITEM
+  .GalleryItem {
+    // <figure>
+    display: flex;
+    flex-flow: column-reverse;
+
+    padding: 0 prem($grid-gutter / 2);
+
+    --GalleryItem__image--max-width: 280px;
+    --GalleryItem__image--max-height: 240px;
+
+    @include media($mq-tablet_up) {
+      --GalleryItem__image--max-width: #{$var--grid-5};
+      // min-width: $var--grid-3;
+      --GalleryItem__image--max-height: #{$var--grid-4};
+    }
+  }
+
+  .GalleryItem__button {
+    @include LinkStyle_Reset(true);
+  }
+
+  .GalleryItem__button,
+	// Image has no __button (link)
+	.GalleryItem > .GalleryItem__image {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    height: var(--GalleryItem__image--max-height);
+  }
+
+  .GalleryItem__image > img {
+    display: block;
+    margin-top: auto;
+    max-width: var(--GalleryItem__image--max-width);
+    max-height: var(--GalleryItem__image--max-height);
+  }
+
+  .GalleryItem__caption {
+    @include BodyTextStyle--large($leading: false);
+    $leading: 1.25em;
+    line-height: $leading;
+
+    width: 0;
+    min-width: 100%;
+    max-height: 3 * $leading;
+
+    margin-top: prem(8);
+    margin-bottom: auto;
+  }
+
+  .GalleryItem__description {
+    display: none;
+  }
+
+  .Gallery > .CarouselStepper {
+    // Add custom styling here....
+  }
+}
+
+// ===========================================================================
+// Inline in order to not expose as standalone component styles
+@include GalleryModal.css();

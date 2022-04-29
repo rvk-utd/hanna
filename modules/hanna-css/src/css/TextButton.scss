@@ -1,0 +1,8 @@
+@use 'globals' as *;
+@use 'styles/links' as *;
+
+@media screen {
+  .TextButton {
+    @include LinkStyle();
+  }
+}

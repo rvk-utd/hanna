@@ -1,0 +1,64 @@
+@use '_globals' as *;
+
+/*!@deps
+	FormField
+*/
+
+@media screen {
+  .SiteSearchInput {
+    margin-bottom: grid-units(7);
+    // Changes as evident in the "Frontpage" Figma document
+    // --input-border-color: #{$color-suld-75};
+    // --input-border-radius: 0;
+    --ssi-height: #{between_phone_netbook(64, 96)};
+    @include media($mq-wide) {
+      --ssi-height: 96px;
+    }
+  }
+  .SiteSearchInput > .FormField__label {
+    @include sr-only();
+  }
+
+  .SiteSearchInput > .FormField__input {
+    padding: 0 var(--ssi-height) 0 0;
+    height: auto;
+  }
+  .SiteSearchInput > .FormField__input > input {
+    padding: between_phone_netbook(10, 26) 0;
+    padding-left: between_phone_netbook(16, 32);
+
+    @include media($mq-wide) {
+      padding: 26px 0;
+      padding-left: 32px;
+    }
+  }
+
+  // .SiteSearchInput__input {
+  // }
+
+  .SiteSearchInput__button {
+    @include hideText(soft);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: prem(-1);
+    width: var(--ssi-height);
+    height: var(--ssi-height);
+    background-color: $var--theme-color-primary;
+    border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
+    color: $var--theme-color-primary--text;
+  }
+  .SiteSearchInput__button:hover,
+  .SiteSearchInput__button:focus,
+  .SiteSearchInput__button:active {
+    background-color: $var--theme-color-primary--dark;
+    color: $color-suld-0;
+  }
+  .SiteSearchInput__button::before {
+    @include icon($icons-search);
+    width: 100%;
+    margin-right: 1px;
+    font-size: rem(32/20);
+  }
+}

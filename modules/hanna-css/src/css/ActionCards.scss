@@ -1,0 +1,26 @@
+@use 'globals' as *;
+@use 'styles/cards' as *;
+
+@media screen {
+  .ActionCards {
+    @include SeenEffect--fadeup();
+    @include CardBlock();
+    margin-bottom: between_cols(60, 100);
+  }
+  .ActionCards__title {
+    @include CardListTitle();
+  }
+  .ActionCards__list {
+    @include CardList();
+  }
+  .ActionCards__card {
+    @include Card();
+    --link-color--hover: #{$var--color-suld-200};
+    border: $var--border-default;
+  }
+  .ActionCards__card:hover,
+  .ActionCards__card:active {
+    --Card-lineColor: #{$var--theme-color-primary--safeish};
+    border: 1px solid $var--theme-color-primary--safeish;
+  }
+}

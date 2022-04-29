@@ -1,0 +1,310 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/links' as *;
+@use 'styles/header' as *;
+
+@media screen {
+  $_mq-Fullscreen: $mq-phone_phablet;
+  $_mq-Popup: $mq-tablet_up;
+
+  // Script-only wrapper element
+  .ContactBubble__wrapper {
+    pointer-events: none;
+    position: fixed;
+    bottom: 0;
+    right: $var--grid-margin--right;
+    left: $var--grid-margin;
+    max-width: prem($grid-contentMaxWidth);
+    margin: 0 auto;
+    transition: all 600ms ease-in-out;
+
+    @include media($_mq-Fullscreen) {
+      z-index: calc(#{$var--zindex--header} - 1);
+    }
+    @include media($_mq-Popup) {
+      z-index: calc(#{$var--zindex--header} + 5);
+    }
+  }
+
+  html.before-sprinkling .ContactBubble__wrapper:not([data-show]) {
+    display: none;
+  }
+  html.menu-is-open .ContactBubble__wrapper,
+  .ContactBubble__wrapper[data-show='false'] {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .ContactBubble__wrapper[data-show='true'] {
+  }
+
+  @include media($_mq-Fullscreen) {
+    // [data-freeze-scroll]
+    // Env tweaks (side-effects)
+    html[data-contact-bubble] {
+      @include freezeScroll($hideSkiplink: true, $fixHeader: true);
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+
+  // Script-only button
+  .ContactBubble__openbtn {
+    position: absolute;
+    right: $var--space-1;
+    bottom: $var--space-3;
+    pointer-events: auto;
+    box-sizing: content-box;
+    font-size: $var--font-bd-l-size;
+    font-weight: $var--font-weight--bold;
+    background-color: $var--color-suld-25;
+    color: $var--color-faxafloi-100;
+    border-radius: grid-units(4.5);
+    border: $var--border-default;
+    height: $var--space-3;
+    line-height: $var--space-3;
+    padding: $var--space-3 0;
+    padding-left: $var--space-9;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @include media($_mq-Popup) {
+      right: $var--space-2--neg;
+      bottom: 4vh;
+      bottom: min(4vh, #{$var--space-5});
+      width: auto;
+      transition: all 300ms ease-in-out;
+      max-width: 20em;
+      padding-right: grid-units(3);
+    }
+  }
+  .ContactBubble__openbtn:hover {
+    color: $var--color-faxafloi-150;
+    border-color: $var--color-suld-100;
+    background-color: $var--color-suld-50;
+  }
+
+  .ContactBubble__openbtn[aria-expanded='true'] {
+    @include media($_mq-Fullscreen) {
+      opacity: 0;
+    }
+    @include media($_mq-Popup) {
+      max-width: 0;
+      padding-right: 0;
+    }
+  }
+
+  .ContactBubble__openbtn::before,
+  .ContactBubble__openbtn::after {
+    @include icon($icons-chat);
+    position: absolute;
+    top: 50%;
+    font-size: prem(40);
+    left: grid-units(2);
+    margin-top: -0.5em;
+    width: grid-units(5);
+    height: 1em;
+    line-height: 1em;
+    transition: opacity 200ms ease-in;
+  }
+  .ContactBubble__openbtn::after {
+    content: $icons-close;
+    opacity: 0;
+    font-size: prem(26);
+  }
+
+  .ContactBubble__openbtn[aria-expanded='true']::before {
+    opacity: 0;
+    transition-delay: 200ms;
+    transition-duration: 200ms;
+  }
+  .ContactBubble__openbtn[aria-expanded='true']::after {
+    opacity: 1;
+    transition-delay: 200ms;
+    transition-duration: 200ms;
+  }
+
+  // ---------------------------------------------------------------------------
+
+  html.before-sprinkling .ContactBubble:not([data-sprinkled]) {
+    display: none;
+  }
+  .ContactBubble {
+    pointer-events: auto;
+    background-color: $var--color-suld-25;
+    padding: grid-units(4);
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+    transition-property: opacity, visibility;
+
+    @include media($_mq-Popup) {
+      max-width: prem(375);
+      border: $var--border-default;
+    }
+  }
+
+  .ContactBubble__wrapper > .ContactBubble {
+    // .ContactBubble[data-sprinkled] {
+    @include media($_mq-Fullscreen) {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      // right: calc(-1 * #{$var--browser-scrollbar-width});
+      left: 0;
+      // overflow-y: scroll;
+      overflow: auto;
+      padding-top: $var--Layout__header-height;
+      // …
+    }
+    @include media($_mq-Popup) {
+      overflow: auto;
+      position: absolute;
+      right: grid-units(-2);
+
+      --bottomOffset: calc(4vh + 11 * #{$var--space-1});
+      bottom: var(--bottomOffset);
+      max-height: calc(100vh - var(--bottomOffset));
+
+      --bottomOffsetMin: calc(min(4vh, #{$var--space-5}) + 11 * #{$var--space-1});
+      bottom: var(--bottomOffsetMin);
+      max-height: calc(100vh - var(--bottomOffsetMin));
+    }
+  }
+
+  .ContactBubble[hidden] {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @include media($_mq-Fullscreen) {
+    // underlay for .Layout__header
+    .ContactBubble::before {
+      @include LayoutHeaderUnderlay($var--color-suld-25);
+    }
+    .ContactBubble::after {
+      content: '';
+      display: block;
+      height: 0;
+      margin-top: $var--space-8;
+      padding-top: percentage(300/610);
+      background: url('i/ContactBubble/illustration.png') 50% 50% / 100% auto no-repeat;
+      max-width: 500px;
+    }
+  }
+
+  .ContactBubble__title {
+    @include media($_mq-Fullscreen) {
+      @include HeadingStyle--large();
+      max-width: 9em; // Makes for nice line-wrap in the text "Hvað getum við \n gert fyrir þig?"
+      margin-bottom: between(3 * $grid-unit, 8 * $grid-unit, 480, 812, 'vh');
+      margin-bottom: min(
+        #{$var--space-8},
+        #{between(3 * $grid-unit, 8 * $grid-unit, 480, 812, 'vh')}
+      );
+    }
+    @include media($_mq-Popup) {
+      @include BodyTextStyle--large();
+      font-weight: $var--font-weight--bold;
+      margin-bottom: grid-units(3);
+    }
+  }
+  .ContactBubble__list {
+    @include BodyTextStyle--small();
+    border-top: 1px solid $var--color-suld-50;
+    font-weight: $var--font-weight--bold;
+  }
+  .ContactBubble__item {
+    box-sizing: content-box;
+    padding: grid-units(2) grid-units(4);
+    padding-left: grid-units(7);
+    min-height: calc(#{$var--font-bd-s-leading} + #{$var--font-label-leading});
+    border-bottom: 1px solid $var--color-suld-50;
+    --link-underline: none;
+    --link-underline--hover: none;
+    --ContactBubble--type--icon: none;
+  }
+  .ContactBubble__item--type--suggestions {
+    --ContactBubble--type--icon: url(i/ContactBubble/paperplane.svg);
+  }
+  .ContactBubble__item--type--phone {
+    --ContactBubble--type--icon: url(i/ContactBubble/phone.svg);
+  }
+  .ContactBubble__item--type--faq {
+    --ContactBubble--type--icon: url(i/ContactBubble/faq.svg);
+  }
+  .ContactBubble__item--type--livechat {
+    --ContactBubble--type--icon: url(i/ContactBubble/chat.svg);
+  }
+
+  .ContactBubble__link {
+    display: block;
+    color: $var--link-color;
+  }
+  .ContactBubble__link > small {
+    @include LabelTextStyle();
+    font-weight: $var--font-weight--normal;
+    display: block;
+    color: $var--color-suld-200;
+    text-decoration: none;
+    transition: inherit;
+  }
+  .ContactBubble__link:hover > small {
+    color: inherit;
+  }
+
+  .ContactBubble__link::before {
+    content: '';
+    background-color: $var--color-suld-100;
+    width: grid-units(4);
+    height: grid-units(3.5);
+    line-height: grid-units(3.5);
+    float: left;
+    margin-left: grid-units(-6);
+    vertical-align: top;
+    mask-image: var(--ContactBubble--type--icon);
+    mask-size: auto 100%;
+    mask-position: 0% 50%;
+    mask-repeat: no-repeat;
+    transition: inherit;
+  }
+  .ContactBubble__link:hover::before {
+    background-color: currentColor;
+  }
+
+  // ---------------------------------------------------------------------------
+
+  // Script-only button
+  @include media($_mq-Fullscreen) {
+    .ContactBubble__closebtn {
+      position: fixed;
+      z-index: 1;
+      top: calc(0.5 * #{$var--Layout__header-height});
+      right: $var--grid-margin--right;
+      @include hideText(soft);
+      margin: $var--space-3--neg $var--space-0_5;
+      width: $var--space-6;
+      height: $var--space-6;
+      line-height: $var--space-6;
+      color: $var--color-faxafloi-100;
+      transition: all 200ms ease-in-out;
+    }
+    .ContactBubble__closebtn:hover {
+      color: inherit;
+      transform: scale(1.15);
+    }
+    .ContactBubble__closebtn::before {
+      @include icon($icons-close);
+      font-size: prem(26);
+      width: 100%;
+      margin-right: 1px;
+    }
+  }
+
+  @include media($_mq-Popup) {
+    .ContactBubble__closebtn {
+      @include sr-only-focusable();
+    }
+  }
+}

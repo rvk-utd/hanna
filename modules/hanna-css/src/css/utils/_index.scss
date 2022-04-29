@@ -1,0 +1,36 @@
+@forward 'scssutils';
+@forward 'between';
+@forward 'seenEffects';
+
+// ---------------------------------------------------------------------------
+
+@use '../vars' as *;
+@use 'between' as *;
+@use 'scssutils/media' as *;
+
+@function prem($px) {
+  @return rem($px / 16);
+}
+
+@function grid-units($units: 1) {
+  @return prem($grid-unit * $units);
+}
+
+@mixin extendBackgroundWithUnderlay($dir: both, $pseudo: before) {
+  position: relative;
+
+  &::#{$pseudo} {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    @if $dir != right {
+      left: $var--grid-margin--neg;
+    }
+    @if $dir != left {
+      right: $var--grid-margin--neg;
+    }
+    z-index: -1;
+    background: inherit;
+  }
+}

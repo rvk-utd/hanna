@@ -1,0 +1,13 @@
+<svg viewBox="0 0 120 429" xmlns="http://www.w3.org/2000/svg"
+	style="
+		--bling-width: 120;
+		--bling-offset: 0;
+		--bling-offset-ish: 125;
+		--bling-offset-center: 500;
+	"
+>
+	<path d="M120 429H47L0 358L47 286L0 215L47 143L0 72L47 0H120L71 72L120
+		143L71 215L120 286L71 358L120 429Z"
+		fill="var(--bling-color-a, #f3f4f5)"/>
+</svg>
+

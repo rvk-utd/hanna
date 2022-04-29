@@ -1,0 +1,24 @@
+@use '_globals' as *;
+@use 'CarouselStepper';
+
+html.before-sprinkling .Carousel:not([data-sprinkled]) {
+  padding-bottom: var(--CarouselStepper--height);
+}
+html.before-sprinkling[class] > .Carousel__items {
+  overflow: visible;
+}
+
+.Carousel__items {
+  display: flex;
+  flex-flow: row;
+}
+.Carousel__items > * {
+  margin-right: $var--space-3;
+}
+.Carousel:not([data-sprinkled]) > .Carousel__items {
+  overflow: auto;
+}
+
+// ---------------------------------------------------------------------------
+
+@include CarouselStepper.css();

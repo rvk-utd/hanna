@@ -1,0 +1,78 @@
+@use 'globals' as *;
+@use 'styles/attention' as *;
+@use 'styles/font' as *;
+@use 'styles/labeledTitle' as *;
+
+@media screen {
+  .ProcessOverview {
+    background-color: $color-suld-25;
+    margin: 0 $var--grid-margin--neg;
+    padding: 0 $var--grid-margin;
+    // @include extendBackgroundWithUnderlay(); // <-- this could be used also
+    margin-bottom: between_cols(30, 120);
+    padding-top: between_cols(50, 120);
+    padding-bottom: between_cols(50, 192);
+  }
+  .ProcessOverview--transparent {
+    background: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .ProcessOverview__title {
+    @include HeadingStyle--small();
+    margin-bottom: between_phone_netbook(40, 118);
+
+    @include media($mq-wide) {
+      margin-bottom: prem(118);
+    }
+  }
+
+  .ProcessOverview__item {
+    margin-bottom: grid-units(10);
+    position: relative;
+  }
+
+  .ProcessOverview__item__title {
+    @include LabeledTitleStyle--basics();
+  }
+
+  .ProcessOverview__item__content {
+    @include BodyTextStyle--large();
+  }
+
+  .ProcessOverview__attention {
+    @include AttentionStyle(false);
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+@media #{$mq-tablet_up} {
+  .ProcessOverview__item {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  :not(.ProcessOverview--narrow) > * > .ProcessOverview__item__title {
+    @include LabeledTitleStyle--outdented();
+  }
+  .ProcessOverview--narrow > * > .ProcessOverview__item__title {
+    width: cols_pct(3);
+    --dash-margin: #{$var--grid-gutter};
+  }
+
+  .ProcessOverview__item__content,
+  .ProcessOverview__attention {
+    width: cols_pct(7);
+    margin-left: auto;
+  }
+  .ProcessOverview--narrow > * > .ProcessOverview__item__content,
+  .ProcessOverview--narrow > .ProcessOverview__attention {
+    margin-right: cols_pct(2, 2);
+  }
+
+  .ProcessOverview__attention {
+    padding-right: cols_pct(1);
+  }
+}

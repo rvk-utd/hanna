@@ -1,0 +1,14 @@
+$_opposites: (
+  top: bottom,
+  bottom: top,
+  left: right,
+  right: left,
+);
+
+@function opposite($dir) {
+  @return map-get($_opposites, $dir);
+}
+
+@function isVertical($dir) {
+  @return $dir==top or $dir==bottom;
+}

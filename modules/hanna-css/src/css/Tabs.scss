@@ -1,0 +1,180 @@
+@use '_globals' as *;
+@use './styles/links' as *;
+
+@media screen {
+  .Tabs {
+    --Tabs--borderWidth: 2px;
+    --Tabs__tab--borderWidth: 4px;
+    @include SeenEffect--fadeup();
+    // @deprecated  Remove this mixin in v0.9
+    @include SeenEffect--disallowNesting();
+    display: flex;
+    flex-flow: row wrap;
+    border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
+    font: $var--font-base;
+    font-weight: $var--font-weight--bold;
+    margin: $var--space-5 0;
+  }
+  .Tabs::after {
+    content: '';
+    width: 100%;
+    height: var(--Tabs--borderWidth);
+    background-color: $var--color-suld-50;
+  }
+
+  .Tabs__tab {
+    @include LinkStyle_Reset(true);
+    white-space: nowrap;
+    border-bottom: var(--Tabs__tab--borderWidth) solid $var--color-suld-50;
+    margin-bottom: calc(-1 * var(--Tabs__tab--borderWidth));
+    color: $var--color-suld-200;
+    position: relative;
+    z-index: 1; // overlap subTabs
+
+    // NOTE: left/right paddings must *NOT* be %-based because
+    // it triggers a Chrome bug that collapses the width of <button/> flex-items
+    // ARGH!...  --Már @ 2020-10-28
+    padding: between_phone_netbook(10, 20) between_phone_netbook(15, 40);
+    @include media($mq-wide) {
+      padding: 20px 40px;
+    }
+  }
+  .Tabs__tab:hover,
+  .Tabs__tab:active,
+  .Tabs__tab[data-active='true'],
+  .Tabs__tab[aria-pressed='true'] {
+    border-bottom-color: $var--theme-color-primary--safeish;
+  }
+
+  .Tabs__tab__badge {
+    font: $var--font-label;
+    font-weight: $var--font-weight--normal;
+    color: $var--color-suld-150;
+    margin-left: $var--space-0_5;
+    margin-right: $var--space-1--neg;
+  }
+
+  .before-sprinkling .TabPanel:not([data-sprinkled]) {
+    display: none;
+  }
+  .TabPanel {
+    @include keyboardFocus-selector() {
+      outline-color: $var--color-suld-100;
+      outline-style: dotted;
+      outline-offset: $var--space-1;
+    }
+  }
+
+  // Nested/sub-tabs
+
+  .Tabs > .Tabs {
+    --Tabs__tab--borderWidth: 2px;
+    margin: 0;
+    width: 100%;
+    border-bottom: 0;
+  }
+  .Tabs > .Tabs::after {
+    content: none;
+  }
+  .Tabs:not(.Tabs--vertical) > .Tabs {
+    border-top: var(--Tabs--borderWidth) solid $var--color-suld-50;
+    order: 1;
+  }
+  .Tabs > * > .Tabs__tab {
+    font-weight: $var--font-weight--normal;
+    padding-top: prem(10);
+    padding-bottom: prem(10);
+  }
+
+  // ===========================================================================
+  // Overrides for --vertical
+
+  .Tabs--vertical[class] {
+    --Tabs--borderWidth: 2px;
+    --Tabs__tab--borderWidth: 2px;
+    float: left; // default layout behavior
+    width: 100%;
+    margin-top: 0;
+    max-width: cols_px(3);
+    border-bottom: 0;
+    flex-direction: column;
+
+    @include media($mq-tablet_up) {
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+  }
+  .Tabs--vertical::after {
+    content: none;
+  }
+
+  .Tabs--vertical .Tabs__tab {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: $var--space-2 $var--space-1;
+    padding-left: $var--space-1_5;
+
+    @include keyboardFocus-selector() {
+      outline-offset: -3px;
+    }
+  }
+  .Tabs--vertical .Tabs__tab::before {
+    content: var(--Tabs__tab__before);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: calc(-1 * var(--Tabs--borderWidth)) 0;
+    width: 4px;
+    background-color: $var--theme-color-primary--safeish;
+  }
+  .Tabs--vertical .Tabs__tab:hover,
+  .Tabs--vertical .Tabs__tab:active,
+  .Tabs--vertical .Tabs__tab[data-active='true'],
+  .Tabs--vertical .Tabs__tab[aria-pressed='true'] {
+    --Tabs__tab__before: '';
+    border-bottom-color: $var--color-suld-50;
+  }
+  .Tabs--vertical .Tabs__tab[data-active='true'],
+  .Tabs--vertical .Tabs__tab[aria-pressed='true'] {
+    font-weight: $var--font-weight--bold;
+  }
+
+  // Nested/sub-tabs
+
+  .Tabs--vertical > .Tabs {
+    border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
+    padding-left: $var--space-1_5;
+    flex-direction: column;
+  }
+  .Tabs--vertical > * > .Tabs__tab {
+    padding-top: $var--space-1;
+    padding-bottom: $var--space-1;
+  }
+  .Tabs--vertical > * > .Tabs__tab:last-child {
+    border-bottom: 0;
+  }
+
+  .Tabs--vertical .Tabs__tab[data-active='true'] ~ .Tabs__tab,
+  .Tabs--vertical .Tabs__tab[aria-pressed='true'] ~ .Tabs__tab {
+    order: 1;
+  }
+
+  // ---------------------------------------------------------------------------
+
+  .Tabs > *:not(.Tabs__tab):not(.Tabs) {
+    @include WARNING__('Only .Tabs__tab or `.Tabs` are allowed here');
+  }
+  .Tabs > .Tabs:not(:last-child) {
+    @include WARNING__('Nested .Tabs must be :last-child');
+  }
+  .Tabs--vertical > .Tabs--vertical {
+    @include WARNING__('.Tabs--vertical not supported as sub-Tabs');
+  }
+  .Tabs > .Tabs > .Tabs {
+    @include WARNING__('For the love of god, DO NOT nest your already nested .Tabs');
+  }
+}

@@ -1,0 +1,20 @@
+@use '_globals' as *;
+@use 'styles/forms';
+@use 'RadioGroup';
+@use 'Checkbox';
+
+/*!@deps
+	FormField
+
+	Checkbox
+*/
+
+@include Checkbox.css();
+
+@media screen {
+  @include forms.TogglerGroup(CheckboxGroup);
+}
+
+// ===========================================================================
+// Inline for better compression and loading speed
+@include RadioGroup.css();

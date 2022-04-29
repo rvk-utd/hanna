@@ -1,0 +1,58 @@
+@use '../globals' as *;
+
+@mixin LinkStyle--basic() {
+  text-decoration: none;
+  color: $var--link-color;
+  font-weight: $var--link-weight;
+  padding-bottom: $var--link-underline-offset;
+  border-bottom: $var--link-underline;
+  transition: $var--link-transition;
+  transition-property: border-color, background-color, color, text-shadow, box-shadow,
+    outline;
+}
+@mixin LinkStyle--hover() {
+  color: $var--link-color--hover;
+  border-bottom: $var--link-underline--hover;
+}
+@mixin LinkStyle--focusOutline() {
+  outline: $var--link-focus-outline;
+  outline-color: $var--link-focus-outlineColor;
+  outline-offset: $var--link-focus-outlineOffset;
+}
+
+@mixin LinkStyle() {
+  @include LinkStyle--basic();
+
+  &:hover,
+  &:active {
+    @include LinkStyle--hover();
+  }
+}
+
+// Use this where you need to use anchor tags
+// That shouldn't look like text-links
+@mixin LinkStyle_Reset($hover: false) {
+  --link-color: _inherit;
+  --link-weight: _inherit;
+  --link-underline: none;
+  // NOTE: This intentionally doesn't reset the :hover style
+
+  // unless..
+  @if $hover {
+    @if $hover != noborder {
+      --link-color--hover: var(--link-color);
+    }
+    --link-underline--hover: none;
+    --link-underline-offset: 0;
+  }
+}
+
+// Use this where the local link color
+// is the same as the surrounding text color.
+@mixin LinkStyle_SameColor() {
+  --link-color: _inherit;
+  --link-color--hover: var(--link-color);
+  --link-underline: 1px dotted currentColor;
+  --link-underline--hover: 2px solid currentColor;
+  --ButtonTertiary--dashColor: currentColor; // #{$var--theme-color-primary--dark};
+}

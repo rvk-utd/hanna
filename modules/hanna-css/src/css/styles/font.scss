@@ -1,0 +1,49 @@
+@use '../_globals' as *;
+
+@mixin HeadingStyle--xlarge() {
+  font: $var--font-hd-xl;
+}
+@mixin HeadingStyle--large() {
+  font: $var--font-hd-l;
+}
+@mixin HeadingStyle--medium() {
+  font: $var--font-hd-m;
+}
+@mixin HeadingStyle--small() {
+  font: $var--font-hd-s;
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin SubheadingStyle--large() {
+  font: $var--font-sh-l;
+}
+@mixin SubheadingStyle--large-thin() {
+  font: $var--font-sh-l-thin;
+}
+@mixin SubheadingStyle--small() {
+  font: $var--font-sh-s;
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin BodyTextStyle--large($leading: true) {
+  @if $leading {
+    font: $var--font-bd-l;
+  } @else {
+    font-size: $var--font-bd-l-size;
+  }
+}
+@mixin BodyTextStyle--small($leading: true) {
+  @if $leading {
+    font: $var--font-bd-s;
+  } @else {
+    font-size: $var--font-bd-s-size;
+  }
+}
+
+@mixin LabelTextStyle() {
+  font: $var--font-label;
+}
+
+// ---------------------------------------------------------------------------

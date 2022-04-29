@@ -1,0 +1,53 @@
+@use '_globals' as *;
+@use 'styles/font' as *;
+
+/*!@deps
+	SiteSearchInput
+*/
+
+@media screen {
+  .SiteSearchAutocomplete {
+    position: relative;
+  }
+  .SiteSearchAutocomplete__container {
+    position: absolute;
+    z-index: $var--zindex--overlay;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0 $var--space-4;
+    background: $var--color-suld-0;
+    border: $var--border-default;
+
+    height: 0;
+    opacity: 0;
+    transition: all 200ms ease-in;
+    transition-property: height, opacity;
+    overflow: hidden;
+  }
+
+  .SiteSearchAutocomplete__container--open {
+    height: auto;
+    opacity: 1;
+    padding: $var--space-4 0;
+  }
+
+  .SiteSearchAutocomplete__item {
+    padding: prem(16) prem(45) prem(16) prem(32);
+    @include BodyTextStyle--large();
+  }
+
+  .SiteSearchAutocomplete__item--highlighted {
+    position: relative;
+    cursor: pointer;
+    color: $var--color-faxafloi-100;
+    background-color: $var--color-suld-25;
+  }
+  .SiteSearchAutocomplete__item--highlighted::after {
+    @include icon($icons-search);
+    color: $var--color-suld-100;
+    float: right;
+    margin-left: $var--space-2;
+    font-size: prem(16);
+  }
+}

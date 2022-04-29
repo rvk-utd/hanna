@@ -1,0 +1,26 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/componentLayout' as *;
+
+/*!@deps
+	TextBlock
+*/
+
+// inlined by TextBlock
+@mixin css() {
+  @media screen {
+    .PageHeading {
+      @include SeenEffect--fadeup();
+      // @deprecated  Remove this mixin in v0.9
+      @include SeenEffect--disallowNesting();
+
+      @include HeadingStyle--large();
+      @include ComponentLayout($wide: false);
+      margin-top: between_cols(0, 3 * $grid-unit);
+      margin-bottom: em(40/64);
+    }
+    .PageHeading--small {
+      @include HeadingStyle--medium();
+    }
+  }
+}

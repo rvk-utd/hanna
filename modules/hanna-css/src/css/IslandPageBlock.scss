@@ -1,0 +1,69 @@
+@use 'globals' as *;
+@use 'styles/font' as *;
+@use 'styles/buttons' as *;
+@use 'styles/links' as *;
+
+@media screen {
+  .IslandPageBlock {
+    @include SeenEffect--fadeup();
+    margin-bottom: between_cols(40, 133);
+    display: flex;
+    flex-flow: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media #{$mq-tablet_up} {
+    .IslandPageBlock {
+      flex-flow: row;
+    }
+    .IslandPageBlock--align--right {
+      flex-flow: row-reverse;
+    }
+  }
+
+  .IslandPageBlock__content {
+    padding: $var--space-2 0;
+
+    @media #{$mq-tablet_up} {
+      width: $var--grid-6;
+    }
+  }
+  .IslandPageBlock__image {
+    margin: 0 $var--grid-0-1--neg;
+
+    @include media($mq-phone_phablet) {
+      max-width: 400px;
+      align-self: flex-start;
+      margin-bottom: $var--space-2;
+    }
+    @media #{$mq-tablet_up} {
+      width: calc(#{$var--grid-6-6} + #{$var--grid-0-1});
+    }
+  }
+
+  .IslandPageBlock__title {
+    @include HeadingStyle--small();
+    margin-bottom: $var--space-3;
+  }
+
+  .IslandPageBlock__summary {
+    @include BodyTextStyle--large();
+    margin-bottom: $var--space-3;
+  }
+  .IslandPageBlock__button {
+    @include ButtonTertiaryStyle();
+    display: block;
+  }
+
+  // Background variant. ------------------------------------------------------
+
+  .IslandPageBlock--background--gray,
+  .IslandPageBlock--background--secondary {
+    @include extendBackgroundWithUnderlay();
+    padding: between_cols(30, 48) 0;
+    background-color: $var--color-suld-25;
+  }
+  .IslandPageBlock--background--secondary {
+    background-color: $var--theme-color-secondary-25;
+  }
+}

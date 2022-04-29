@@ -1,0 +1,18 @@
+/* This is used in mypages microservices list */
+
+@use '_globals' as *;
+
+// @deprecated  Remove this module in v0.9
+@media #{$mq-tablet_up} {
+  [class].experimental_Columnized {
+    column-count: 2;
+    column-gap: cols_pct(0, 1, 8);
+
+    @include WARNING__(
+      'Deprecated: `.experimental_Columnized` will be removed in next version'
+    );
+  }
+  [class].experimental_Columnized li {
+    break-inside: avoid;
+  }
+}

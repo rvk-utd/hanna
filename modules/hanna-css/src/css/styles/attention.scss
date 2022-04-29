@@ -1,0 +1,36 @@
+@use '../globals' as *;
+@use 'font' as *;
+
+@mixin AttentionStyle($border: true) {
+  @include BodyTextStyle--large();
+  position: relative;
+  padding-left: grid-units(5);
+
+  margin-top: between_phone_netbook(64, 80);
+  @if $border {
+    border-top: $var--border-dark;
+    padding-top: between_phone_netbook(40, 64);
+  }
+
+  &::before {
+    content: '';
+    background-color: $var--theme-color-primary;
+    width: grid-units(1);
+    position: absolute;
+    top: if($border, between_phone_netbook(40, 64), 0);
+    left: 0;
+    bottom: 0;
+  }
+
+  @include media($mq-wide) {
+    margin-top: grid-units(10);
+
+    @if $border {
+      padding-top: grid-units(8);
+
+      &::before {
+        top: grid-units(8);
+      }
+    }
+  }
+}

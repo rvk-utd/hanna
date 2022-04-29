@@ -1,0 +1,75 @@
+@use '../globals' as *;
+@use 'font' as *;
+@use 'links' as *;
+
+@mixin CardBlock() {
+  @include media($mq-tablet_up) {
+    display: grid;
+    column-gap: $var--grid-gutter;
+    grid-template: 'title list' / $var--grid-3 $var--grid-9;
+  }
+  @include media($mq-tablet) {
+    grid-template-columns: $var--grid-4 $var--grid-8;
+  }
+}
+
+@mixin CardListTitle() {
+  grid-area: title;
+  @include HeadingStyle--small();
+  margin-bottom: $var--baseVerticalMargin;
+}
+
+@mixin CardList($cols: 3) {
+  grid-area: list;
+  display: grid;
+  grid-auto-flow: row;
+  gap: $var--grid-gutter;
+  grid-template-columns: repeat($cols, $var--grid-3);
+
+  @include media($mq-phone) {
+    grid-template-columns: 100%;
+  }
+  @include media($mq-phablet) {
+    grid-template-columns: repeat(2, $var--grid-6);
+  }
+  @include media($mq-tablet) {
+    grid-template-columns: repeat($cols - 1, $var--grid-4);
+  }
+}
+
+@mixin Card() {
+  @include LinkStyle_Reset(noborder);
+  display: block;
+  padding: prem(24) prem(24) prem(32) prem(24);
+  min-height: prem(168);
+  height: 100%;
+
+  &::after {
+    content: '';
+    display: block;
+    width: grid-units(5);
+    height: prem(2);
+    background: var(--Card-lineColor, currentColor);
+    margin-top: grid-units(2);
+    transition: width 200ms ease-in;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &__title,
+  &__summary {
+    display: block;
+  }
+
+  &__title {
+    @include BodyTextStyle--large();
+    font-weight: 700;
+    margin-bottom: prem(8);
+  }
+
+  &__summary {
+    @include BodyTextStyle--small();
+  }
+}

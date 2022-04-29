@@ -1,0 +1,34 @@
+@use 'globals' as *;
+@use 'styles/buttons' as *;
+
+/*!@deps
+	Icon
+	ButtonBar
+*/
+
+@media screen {
+  .ButtonSecondary {
+    @include ButtonStyle();
+    --Button--color: #{$var--theme-color-primary--safe};
+    --Button--backgroundColor: #{$var--color-suld-0};
+    --Button--backgroundColor--active: #{$var--color-suld-50};
+    --Button--border: 1px;
+    --Button--borderColor: #{$var--theme-color-primary};
+
+    &,
+    &:hover,
+    &:active {
+      border: var(--Button--border) solid var(--Button--borderColor);
+    }
+
+    &[disabled],
+    &[aria-disabled='true'] {
+      // opacity: 0.5;
+    }
+
+    &--destructive[class] {
+      --Button--color: #{$var--color-heidmork-100};
+      --Button--borderColor: var(--Button--color);
+    }
+  }
+}

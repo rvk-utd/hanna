@@ -1,0 +1,50 @@
+@use 'globals' as *;
+@use 'styles/links' as *;
+
+/*!@deps
+	RowBlockColumn
+*/
+
+@media screen {
+  .Illustration {
+    display: block;
+    margin: 0 $var--grid-gutter--neg;
+    margin-bottom: $var--grid-1;
+  }
+}
+
+@media #{$mq-phone_phablet} {
+  .Illustration > img {
+    max-width: 500px;
+    // margin: auto; // looks better left-aligned
+  }
+}
+
+@media #{$mq-tablet_up} {
+  .Illustration {
+    z-index: -1;
+    margin: $var--grid-gutter--neg;
+    position: relative;
+    padding-top: 67%;
+    min-height: 100%;
+  }
+  .Illustration > img {
+    pointer-events: initial;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+}
+
+// ===========================================================================
+
+@media screen {
+  .RowBlockColumn--background .Illustration {
+    @include WARNING__('Do not use inside `.RowBlockColumn--background`');
+    @if isDevMode() {
+      z-index: 1;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use 'globals' as *;
+@use 'styles/cards' as *;
+
+/*!@deps
+	NameCard
+*/
+
+@media screen {
+  .NameCards {
+    display: grid;
+    column-gap: $var--grid-gutter;
+
+    @include media($mq-phablet_tablet) {
+      grid-template-columns: repeat(2, cols_pct(6));
+    }
+    @include media($mq-netbook_up) {
+      grid-template-columns: repeat(3, cols_pct(4));
+    }
+  }
+}

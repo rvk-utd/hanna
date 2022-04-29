@@ -1,0 +1,26 @@
+@use 'globals' as *;
+@use 'styles/buttons' as *;
+
+@media screen {
+  .ButtonBack {
+    --ButtonTertiary--color: #{$color-faxafloi-100};
+    --ButtonTertiary--dashColor: #{$color-faxafloi-100};
+    --ButtonTertiary--dashWidth: #{$var--space-1_5};
+    --ButtonTertiary--hover--dashWidth: #{$var--space-3};
+    --ButtonTertiary--dashSpace: #{$var--space-1_5};
+
+    @include ButtonTertiaryStyle();
+    @include ButtonTertiaryStyle--disabled();
+    font-size: $var--font-label-size;
+  }
+
+  .ButtonBack::before {
+    @include icon($icons-arrow-left-long);
+    background: 0;
+    height: auto;
+    margin-right: prem(8);
+    margin-bottom: 0;
+    font-size: prem(9);
+    overflow: hidden;
+  }
+}

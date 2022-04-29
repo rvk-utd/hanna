@@ -1,0 +1,23 @@
+@use '../_globals' as *;
+
+@mixin ComponentLayout($wide: true) {
+  width: 100%; // in flex box contexts this improves mobile rendering
+  max-width: cols_px(6);
+
+  &--align--right {
+    @include media($mq-tablet_up) {
+      margin-left: auto;
+      max-width: none;
+      width: cols_pct(7);
+    }
+  }
+  @if $wide {
+    &--wide {
+      margin-left: 0; // Enforce that --wide and --align--right don't mix
+      max-width: cols_px(8);
+    }
+    &--align--right#{&}--wide {
+      @include WARNING__("`--align--right` can't be `--wide`");
+    }
+  }
+}
