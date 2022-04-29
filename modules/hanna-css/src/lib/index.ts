@@ -1,6 +1,8 @@
 import type { VariableStyles, VariableValue } from 'es-in-css';
 import { makeVariables as _makeVariables } from 'es-in-css';
 
+import { cssVersion } from '../../package-server.json';
+
 export * from 'es-in-css';
 
 export const makeVariables = <T extends string>(
@@ -12,6 +14,12 @@ export const makeVariables = <T extends string>(
     toCSSName: (name) => name.replace(/_/g, '-').replace(/\$/g, '_'),
   });
 makeVariables.join = _makeVariables.join;
+
+// ---------------------------------------------------------------------------
+
+const $env = makeVariables({
+  cssVersion,
+});
 
 // Starting breakpoints **including* $grid-margin--*
 const bp = {
@@ -33,6 +41,7 @@ const $bp = makeVariables({
 });
 
 const vars = makeVariables.join(
+  $env,
   $bp,
   makeVariables({
     bp_w_Hamburger: $bp.vars.bp_w_netbook,

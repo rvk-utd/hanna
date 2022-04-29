@@ -21,6 +21,7 @@ o.spec('cssVars', () => {
     bp_w_netbook: true,
     bp_w_wide: true,
     bp_w_Hamburger: true,
+    cssVersion: true,
   };
 
   o('exposes known CSS variable tokens', () => {
