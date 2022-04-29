@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Custom hack
+git config --local include.path ../.gitconfig

@@ -13,6 +13,7 @@ const {
   cssVersion,
   sourceFolder,
   publicFolder,
+  serverFolder,
   devDistCssFolder,
   publishCssFolder,
   publishDevCssFolder,
@@ -68,11 +69,17 @@ const [sassBuild, sassWatch] = sassTaskFactory({
 });
 
 const makeGitCommitTask = (folder) => (done) => {
+  const folderLocalName = folder.substr(serverFolder.length);
+  const folderPrettyName = folder.substr(publicFolder.length);
   try {
     execSync(
-      `git reset  &&  ` +
-        `git add ${folder}  &&  ` +
-        `git commit -m "publish: ${folder.substr(publicFolder.length)}"`
+      [
+        `cd ${serverFolder}`,
+        `git reset`,
+        `git add ${folderLocalName}`,
+        `git commit -m "publish: ${folderPrettyName}"`,
+        `git reset --hard`,
+      ].join('  &&  ')
     );
   } catch (error) {
     console.error(error.stdout.toString());
@@ -82,11 +89,23 @@ const makeGitCommitTask = (folder) => (done) => {
 
 // ===========================================================================
 
+const updateDistFolder = (done) => {
+  execSync(
+    [
+      `cd ${serverFolder}`,
+      `git checkout style-server`,
+      `cd -`,
+      `git submodule update --remote --rebase`,
+    ].join(' && ')
+  );
+  done();
+};
+
 const copyToCssFolder = () => {
   if (existsSync(publishCssFolder)) {
     throw new Error('Publishing folder already exists.');
   }
-  execSync('ospec scripts/prepublish.tests.js');
+  execSync(`yarn run -T ospec scripts/prepublish.tests.js`);
 
   return src(devDistCssFolder + '**/*', { base: devDistCssFolder }).pipe(
     dest(publishCssFolder)
@@ -117,18 +136,21 @@ const buildAssets = series(cleanupAssets, staticAssetsCompress);
 // -------------------------
 
 exports.publishCss = series(
+  updateDistFolder,
   buildCss,
   () => cssVersion.startsWith('v0.') && del([publishCssFolder], { force: true }), // NOTE: only do this before v1.0
   copyToCssFolder,
   commitCssToGit
 );
+
 exports.publishDevCss = series(
+  updateDistFolder,
   buildCss,
   cleanupPublicDevCss,
   copyToDevCssFolder,
   commitDevCssToGit
 );
-exports.publishAssets = series(buildAssets, commitAssetsToGit);
+exports.publishAssets = series(updateDistFolder, buildAssets, commitAssetsToGit);
 
 // -------------------------
 

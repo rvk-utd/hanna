@@ -1,0 +1,4 @@
+[submodule "style-server"]
+	path = style-server
+	url = git@github.com:rvk-utd/hanna-styles.git
+	branch = style-server

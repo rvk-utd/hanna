@@ -60,7 +60,6 @@ const exit1 = (err) => {
 
 const testsDir = '__tests/';
 const outdirLib = '_npm-lib/';
-const outdirServer = serverFolder;
 const outdirCss = devDistCssFolder;
 
 const baseOpts = {
@@ -162,18 +161,6 @@ if (opts.onlyLib) {
 //
 // ---------------------------------------------------------------------------
 // Build CSS/SCSS files
-
-execSync(
-  [
-    `rm -rf ${outdirCss}`,
-    `mkdir ${outdirCss}`,
-    `cp package-server.json ${outdirServer}package.json`,
-    `cp README-server.md ${outdirServer}README.md`,
-    `cp CHANGELOG-server.md ${outdirServer}CHANGELOG.md`,
-  ].join(' && ')
-);
-
-// -------------------
 
 const toCSSSources = (res) =>
   res.outputFiles

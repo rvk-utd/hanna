@@ -19,7 +19,7 @@
     "format:eslint": "eslint --fix  \"*.{js,ts,tsx}\"  \"modules/*/*.{js,ts,tsx}\" \"modules/*/src/**/*.{js,ts,tsx}\"",
     "format:prettier": "prettier --write \"*.{json,md}\"  \"modules/*/*.{json,md}\" \"modules/*/src/**/*.{json,md,html}\"",
     "format": "yarn run format:eslint \n yarn run format:prettier",
-    "postinstall": "husky install"
+    "postinstall": "sh .husky/post-clone  &&  yarn run husky install"
   },
   "devDependencies": {
     "@hugsmidjan/hxmstyle": "^6.0.0",
