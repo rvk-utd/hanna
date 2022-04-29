@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.56
+
+_2022-04-29_
+
 - feat: Add CSS variable `--cssVersion`
 - fix: Allow line-wrapping of vertical `Tabs` labels
 
