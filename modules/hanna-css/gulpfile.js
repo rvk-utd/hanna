@@ -77,7 +77,7 @@ const makeGitCommitTask = (folder) => (done) => {
         `cd ${serverFolder}`,
         `git reset`,
         `git add ${folderLocalName}`,
-        `git commit -m "publish: ${folderPrettyName}"`,
+        `git commit -m "build: ${folderPrettyName}"`,
         `git reset --hard`,
       ].join('  &&  ')
     );
