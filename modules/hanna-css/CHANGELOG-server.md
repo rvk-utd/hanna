@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Botched update of iframe-resizer script
 
 ## 0.8.56
 
