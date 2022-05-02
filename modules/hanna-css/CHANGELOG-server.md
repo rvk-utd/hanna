@@ -3,14 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Botched update of iframe-resizer script
 
-## 0.8.56
+## 0.8.56 — 0.8.57
 
 _2022-04-29_
 
 - feat: Add CSS variable `--cssVersion`
 - fix: Allow line-wrapping of vertical `Tabs` labels
+- fix: Botched update of iframe-resizer script
 
 ## 0.8.55
 
