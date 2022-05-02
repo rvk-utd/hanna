@@ -4,7 +4,9 @@
 command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n"; exit 2; }
 git lfs pre-push "$@"
 
-# Do foreach because `git push --recurse-submodules=on-demand`
-# somehow doesn't seem to work as advertised.  Needs further testing.
-# (https://git-scm.com/book/en/v2/Git-Tools-Submodules)
-git submodule foreach 'git push'
+if [ -e "style-server/package.json" ]; then
+  cd style-server
+  git checkout style-server
+  git push
+  cd -
+fi
