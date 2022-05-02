@@ -4,6 +4,8 @@ const pkg = require('./package-server.json');
 
 execSync(
   [
+    `git submodule update --init`,
+
     `cd ${serverFolder}`,
     `git checkout style-server`,
     `cd -`,

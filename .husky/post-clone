@@ -2,5 +2,11 @@
 
 # Custom hack
 git config --local include.path ../.gitconfig
-git submodule update --init
+
 command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n"; }
+if [ ! -e "style-server/package.json" ]; then
+    echo "INFO:\nThis repo contains a git submodule inside the '/style-server' folder"
+    echo "It contains all the static built assets/files of the Hanna style-server (https://styles.reykjavik.is)."
+    echo "If you want to browse those files run \`git submodule update --init\`"
+    echo "(Note: All build scripts run this command automatically, so don't stress about it.)"
+fi

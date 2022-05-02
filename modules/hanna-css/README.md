@@ -3,7 +3,8 @@
 This module builds (publishes) two separate, yet related assets:
 
 1. The npm package `@reykjavik/hanna-css`
-2. Git submodule `hanna-styles` which contains the setup for the server
+2. Git [submodule `hanna-styles`](https://github.com/rvk-utd/hanna-styles)
+   which contains the setup for the server
    [styles.reykjavik.is](https://styles.reykjavik.is)
 
 ## Development

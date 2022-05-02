@@ -92,9 +92,12 @@ const makeGitCommitTask = (folder) => (done) => {
 const updateDistFolder = (done) => {
   execSync(
     [
+      `git submodule update --init`,
+
       `cd ${serverFolder}`,
       `git checkout style-server`,
       `cd -`,
+
       `git submodule update --remote --rebase`,
     ].join(' && ')
   );
