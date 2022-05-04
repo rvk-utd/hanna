@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `TextBlock--align-right`'s max width should not be `%` based
 
 ## 0.8.56 — 0.8.57
 

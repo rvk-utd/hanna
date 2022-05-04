@@ -8,7 +8,7 @@
     @include media($mq-tablet_up) {
       margin-left: auto;
       max-width: none;
-      width: cols_pct(7);
+      width: cols_px(7);
     }
   }
   @if $wide {
