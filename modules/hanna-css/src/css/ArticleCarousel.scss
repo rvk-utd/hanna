@@ -12,9 +12,6 @@
   html.before-sprinkling .ArticleCarousel:not([data-sprinkled]) {
     padding-bottom: var(--CarouselStepper--height);
   }
-  html.before-sprinkling[class] > .ArticleCarousel__items {
-    overflow: visible;
-  }
 
   .ArticleCarousel {
     @include SeenEffect--fadeup();
