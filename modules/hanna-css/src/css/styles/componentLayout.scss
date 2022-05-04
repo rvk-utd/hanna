@@ -8,7 +8,7 @@
     @include media($mq-tablet_up) {
       margin-left: auto;
       max-width: none;
-      width: cols_px(7);
+      width: $var--grid-7;
     }
   }
   @if $wide {
