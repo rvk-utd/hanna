@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.58
+
+_2022-05-04_
+
 - fix: `TextBlock--align-right`'s max-width should not be `%` based
 - fix: Add default `position:relative` layout reset to `Carousel`
 
