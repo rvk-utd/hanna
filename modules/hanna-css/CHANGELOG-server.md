@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update styling of `.Tabs--vertical`
 
 ## 0.8.58 — 0.8.59
 
