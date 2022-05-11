@@ -112,7 +112,7 @@ $largeimage-minH: 880;
     display: flex;
     flex-flow: column;
     box-sizing: content-box;
-    width: between(300, cols_px(5, 3), $min: $bp-tablet);
+    width: between(300, cols_px(5, 3), $bp-tablet, $grid-contentMaxWidth, '%');
     margin: cols_pct(0, 1) 0;
     margin-left: auto;
     padding-left: cols_pct(0, 1);
