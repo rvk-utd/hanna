@@ -1,4 +1,3 @@
-@use 'colors' as *;
 @use 'font' as *;
 
 $var--cssVersion: var(--cssVersion);
@@ -83,20 +82,6 @@ $var--theme-color-primary--safe: var(--theme-color-primary--safe);
 $var--theme-color-primary--safeish: var(--theme-color-primary--safeish);
 
 // ---------------------------------------------------------------------------
-
-@mixin setDefaultLinkVariables($all: false) {
-  --link-color: var(--color-faxafloi-100);
-  --link-color--hover: var(--color-faxafloi-100);
-  --link-weight: var(--font-weight--bold);
-  $thickness: 2rem / 16;
-  --link-underline-thickness: #{$thickness};
-  --link-underline: var(--link-underline-thickness) solid transparent;
-  --link-underline--hover: var(--link-underline-thickness) solid currentColor;
-  --link-underline-offset: 0.15em; // 2.4px
-  @if $all {
-    --link-transition: 200ms ease-in;
-  }
-}
 
 $var--link-color: var(--link-color);
 $var--link-color--hover: var(--link-color--hover);

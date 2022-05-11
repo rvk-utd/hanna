@@ -1,7 +1,6 @@
 @use '_globals' as *;
 @use 'styles/font' as *;
 @use 'styles/links' as *;
-@use 'styles/theme' as *;
 @use 'styles/cssVariables' as *;
 @use 'utils/scssutils/normalize' as *;
 @use 'utils/scssutils/writeMediaFormatMarkers' as *;
@@ -11,7 +10,6 @@
 
 /*! Reykjavík Design System basic CSS styles */
 @include cssVariables();
-@include theme();
 
 @font-face {
   font-family: $iconfont-name;

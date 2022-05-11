@@ -1,9 +1,11 @@
+@use 'sass:color';
 @use 'globals' as *;
 
 @mixin cssVariables() {
   @media screen {
     :root {
       --cssVersion: '#{getCssVersion()}';
+      --browser-scrollbar-width: 16px;
 
       --bp-w-phone: #{$bp-phone}; // mjórra en 320px er ekki supported
       --bp-w-phablet: #{$bp-phablet};
@@ -13,20 +15,7 @@
 
       --bp-w-Hamburger: var(--bp-w-netbook);
 
-      --browser-scrollbar-width: 16px;
-
-      --baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
-      --baseVerticalMargin-2: #{between_phone_netbook(4 * $grid-unit, 6 * $grid-unit)};
-      @include media($mq-wide) {
-        --baseVerticalMargin: #{px(3 * $grid-unit)};
-        --baseVerticalMargin-2: #{px(6 * $grid-unit)};
-      }
-
-      @include setDefaultLinkVariables(true);
-      --link-focus-outlineColor: currentColor;
-      --link-focus-outline: 3px solid currentColor;
-      --link-focus-outlineOffset: 2px;
-
+      @include _linkVariables();
       @include _zIndex();
       @include _gridVariables();
       @include _miscSpaces();
@@ -37,7 +26,27 @@
       @include _bordersAndEffects();
       @include _buttons();
     }
+    @include _themeVariables();
   }
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _linkVariables() {
+  --link-color: var(--color-faxafloi-100);
+  --link-color--hover: var(--color-faxafloi-100);
+  --link-weight: var(--font-weight--bold);
+
+  --link-underline-thickness: #{rem(2/16)};
+  --link-underline: var(--link-underline-thickness) solid transparent;
+  --link-underline--hover: var(--link-underline-thickness) solid currentColor;
+  --link-underline-offset: 0.15em; // 2.4px
+
+  --link-transition: 200ms ease-in;
+
+  --link-focus-outlineColor: currentColor;
+  --link-focus-outline: 3px solid currentColor;
+  --link-focus-outlineOffset: 2px;
 }
 
 // ---------------------------------------------------------------------------
@@ -150,6 +159,13 @@
 // ---------------------------------------------------------------------------
 
 @mixin _fontVariables() {
+  --baseVerticalMargin: #{between_phone_netbook(2 * $grid-unit, 3 * $grid-unit)};
+  --baseVerticalMargin-2: #{between_phone_netbook(4 * $grid-unit, 6 * $grid-unit)};
+  @include media($mq-wide) {
+    --baseVerticalMargin: #{px(3 * $grid-unit)};
+    --baseVerticalMargin-2: #{px(6 * $grid-unit)};
+  }
+
   --font-family: #{$font-family};
   --font-weight--normal: #{$font-weight--normal};
   --font-weight--bold: #{$font-weight--bold};
@@ -404,5 +420,145 @@
 
   @media #{$mq-wide} {
     --Button--gapH: 32px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+@mixin _themeVariables() {
+  @at-root {
+    :root:root,
+    [data-color-theme][data-color-theme],
+    [data-color-theme][data-color-theme='trustworthy'] {
+      --theme-color-primary: var(--color-faxafloi-100);
+      --theme-color-primary-75: var(--color-faxafloi-75);
+      --theme-color-primary-50: var(--color-faxafloi-50);
+      --theme-color-primary-25: var(--color-faxafloi-25);
+
+      --theme-color-secondary: var(--color-sund-100);
+      --theme-color-secondary-75: var(--color-sund-75);
+      --theme-color-secondary-50: var(--color-sund-50);
+      --theme-color-secondary-25: var(--color-sund-25);
+
+      --theme-color-tertiary: var(--color-ellidaardalur-100);
+      --theme-color-tertiary-75: var(--color-ellidaardalur-75);
+      --theme-color-tertiary-50: var(--color-ellidaardalur-50);
+      --theme-color-tertiary-25: var(--color-ellidaardalur-25);
+
+      --theme-color-primary--text: var(--color-white);
+      --theme-color-primary--dark: var(--color-faxafloi-150);
+      --theme-color-primary--safe: var(--theme-color-primary);
+      // safe to use for ButtonTertiary borders, etc.
+      --theme-color-primary--safeish: var(--theme-color-primary);
+    }
+
+    [data-color-theme][data-color-theme='dependable'] {
+      --theme-color-primary: var(--color-faxafloi-100);
+      --theme-color-primary-75: var(--color-faxafloi-75);
+      --theme-color-primary-50: var(--color-faxafloi-50);
+      --theme-color-primary-25: var(--color-faxafloi-25);
+
+      --theme-color-secondary: var(--color-nautholsvik-100);
+      --theme-color-secondary-75: var(--color-nautholsvik-75);
+      --theme-color-secondary-50: var(--color-nautholsvik-50);
+      --theme-color-secondary-25: var(--color-nautholsvik-25);
+
+      --theme-color-tertiary: var(--color-sund-100);
+      --theme-color-tertiary-75: var(--color-sund-75);
+      --theme-color-tertiary-50: var(--color-sund-50);
+      --theme-color-tertiary-25: var(--color-sund-25);
+
+      --theme-color-primary--dark: var(--color-faxafloi-150);
+    }
+
+    [data-color-theme][data-color-theme='friendly'] {
+      --theme-color-primary: var(--color-ellidaardalur-100);
+      --theme-color-primary-75: var(--color-ellidaardalur-75);
+      --theme-color-primary-50: var(--color-ellidaardalur-50);
+      --theme-color-primary-25: var(--color-ellidaardalur-25);
+
+      --theme-color-secondary: var(--color-rokkur-100);
+      --theme-color-secondary-75: var(--color-rokkur-75);
+      --theme-color-secondary-50: var(--color-rokkur-50);
+      --theme-color-secondary-25: var(--color-rokkur-25);
+
+      --theme-color-tertiary: var(--color-nautholsvik-100);
+      --theme-color-tertiary-75: var(--color-nautholsvik-75);
+      --theme-color-tertiary-50: var(--color-nautholsvik-50);
+      --theme-color-tertiary-25: var(--color-nautholsvik-25);
+
+      --theme-color-primary--text: var(--color-blackish);
+      --theme-color-primary--dark: var(--color-ellidaardalur-150);
+      --theme-color-primary--safe: #{color.scale(
+          $color-ellidaardalur-100,
+          $saturation: 55%,
+          $lightness: -52%
+        )};
+      --theme-color-primary--safeish: #{color.scale(
+          $color-ellidaardalur-100,
+          $saturation: 35%,
+          $lightness: -25%
+        )};
+    }
+
+    [data-color-theme][data-color-theme='lively'] {
+      --theme-color-primary: var(--color-sund-100);
+      --theme-color-primary-75: var(--color-sund-75);
+      --theme-color-primary-50: var(--color-sund-50);
+      --theme-color-primary-25: var(--color-sund-25);
+
+      --theme-color-secondary: var(--color-blafjoll-100);
+      --theme-color-secondary-75: var(--color-blafjoll-75);
+      --theme-color-secondary-50: var(--color-blafjoll-50);
+      --theme-color-secondary-25: var(--color-blafjoll-25);
+
+      --theme-color-tertiary: var(--color-nautholsvik-100);
+      --theme-color-tertiary-75: var(--color-nautholsvik-75);
+      --theme-color-tertiary-50: var(--color-nautholsvik-50);
+      --theme-color-tertiary-25: var(--color-nautholsvik-25);
+
+      --theme-color-primary--text: var(--color-blackish);
+      --theme-color-primary--dark: var(--color-sund-150);
+      --theme-color-primary--safe: #{color.scale(
+          $color-sund-100,
+          $saturation: 55%,
+          $lightness: -52%
+        )};
+      --theme-color-primary--safeish: #{color.scale(
+          $color-sund-100,
+          $saturation: 35%,
+          $lightness: -27%
+        )};
+    }
+
+    [data-color-theme][data-color-theme='colorful'] {
+      --theme-color-primary: var(--color-nautholsvik-100);
+      --theme-color-primary-75: var(--color-nautholsvik-75);
+      --theme-color-primary-50: var(--color-nautholsvik-50);
+      --theme-color-primary-25: var(--color-nautholsvik-25);
+
+      --theme-color-secondary: var(--color-heidmork-100);
+      --theme-color-secondary-75: var(--color-heidmork-75);
+      --theme-color-secondary-50: var(--color-heidmork-50);
+      --theme-color-secondary-25: var(--color-heidmork-25);
+
+      --theme-color-tertiary: var(--color-esja-100);
+      --theme-color-tertiary-75: var(--color-esja-75);
+      --theme-color-tertiary-50: var(--color-esja-50);
+      --theme-color-tertiary-25: var(--color-esja-25);
+
+      --theme-color-primary--text: var(--color-blackish);
+      --theme-color-primary--dark: var(--color-nautholsvik-150);
+      --theme-color-primary--safe: #{color.scale(
+          $color-nautholsvik-100,
+          $saturation: 55%,
+          $lightness: -56.5%
+        )};
+      --theme-color-primary--safeish: #{color.scale(
+          $color-nautholsvik-100,
+          $saturation: 25%,
+          $lightness: -33%
+        )};
+    }
   }
 }
