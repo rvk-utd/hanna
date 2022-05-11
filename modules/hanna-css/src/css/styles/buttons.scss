@@ -13,7 +13,6 @@
   --Button--iconSpace: #{$var--space-1};
 
   $borderRadius: prem(3);
-  // @include buttonReset(); // <-- This is NOT needed as `-basics` has global button reset
 
   // normalize links
   white-space: nowrap;

@@ -25,7 +25,6 @@
   }
 
   .MainMenu__link {
-    @include buttonReset();
     @include LinkStyle();
     display: block;
     width: max-content;
