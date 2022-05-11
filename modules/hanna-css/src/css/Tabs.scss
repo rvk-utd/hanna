@@ -11,7 +11,7 @@
     display: flex;
     flex-flow: row wrap;
     border-bottom: var(--Tabs--borderWidth) solid $var--color-suld-50;
-    font: $var--font-base;
+    font: $var--font-button;
     font-weight: $var--font-weight--bold;
     margin: $var--space-5 0;
   }
@@ -34,9 +34,9 @@
     // NOTE: left/right paddings must *NOT* be %-based because
     // it triggers a Chrome bug that collapses the width of <button/> flex-items
     // ARGH!...  --Már @ 2020-10-28
-    padding: between_phone_netbook(10, 20) between_phone_netbook(15, 40);
+    padding: between_phone_netbook(12, 24) between_phone_netbook(15, 40);
     @include media($mq-wide) {
-      padding: 20px 40px;
+      padding: 24px 40px;
     }
   }
   .Tabs__tab:hover,
@@ -121,6 +121,9 @@
       outline-offset: -3px;
     }
   }
+  .Tabs--vertical > .Tabs__tab {
+    margin-top: $var--space-0_5;
+  }
 
   // Nested/sub-tabs
 
@@ -128,8 +131,7 @@
     flex-direction: column;
   }
   .Tabs--vertical > * > .Tabs__tab {
-    padding-top: $var--space-1;
-    padding-bottom: $var--space-1;
+    padding: $var--space-1_5 $var--space-1;
     padding-left: $var--space-2;
   }
   .Tabs--vertical > * > .Tabs__tab:hover,
