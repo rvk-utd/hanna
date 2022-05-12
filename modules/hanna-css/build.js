@@ -149,7 +149,7 @@ const buildLib = (format, extraCfg) =>
     ...extraCfg,
   });
 
-buildLib('esm', { plugins: [dtsPlugin({ outDir: outdirLib })] }).catch(exit1);
+buildLib('esm', { plugins: [dtsPlugin({ outDir: outdirLib + 'types/' })] }).catch(exit1);
 buildLib('cjs').catch(exit1);
 
 // ---------------------------------------------------------------------------
@@ -196,6 +196,7 @@ esbuild
     },
   })
   .then(cssCompile)
+  // FIXME: cleanup temporary .js files on error
   .catch(exit1);
 
 // -------------------
@@ -224,4 +225,5 @@ esbuild
     write: false,
   })
   .then(scssCompile)
+  // FIXME: cleanup temporary .js files on error
   .catch(exit1);

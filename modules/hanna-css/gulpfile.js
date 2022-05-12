@@ -46,7 +46,11 @@ const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
   // glob: 'iconfont/*.svg',
   onGlyps: (glyphs) => {
     const icons = Object.fromEntries(
-      glyphs.map(({ name, unicode }) => [name, unicode[0]])
+      glyphs.map(({ name, unicode }) => [
+        // Map "-" in filenames to underscores for easier use as JavaScript props
+        name.replace(/-/g, '_'),
+        unicode[0],
+      ])
     );
     writeFileSync(
       sourceFolder + '/lib/iconfont.ts',

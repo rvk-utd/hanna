@@ -131,7 +131,7 @@ __metadata:
     "@hugsmidjan/gulp-sass": ^0.2.0
     "@types/md5-file": ^5
     cssserve: ^1.4.1
-    es-in-css: ^0.3.0
+    es-in-css: ^0.4.0
     gulp: ^4.0.2
     md5-file: ^5.0.0
     sass: ~1.32
@@ -2908,9 +2908,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-in-css@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "es-in-css@npm:0.3.0"
+"es-in-css@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "es-in-css@npm:0.4.0"
   dependencies:
     "@types/color": ^3.0.3
     "@types/color-name": ^1.1.1
@@ -2927,7 +2927,7 @@ __metadata:
     postcss-scss: ^4.0.3
   bin:
     es-in-css: bin/cli.js
-  checksum: 7a91c13714ef8bf2a21dbaf5d278ec78e1d8c960288125797896c913133404f9be5bf23220e33af98868213481bd0fd8943a7f57c68206bbe9f67eda1e43f69c
+  checksum: 7e3e454379810584eb9a667bff4c51f950fe9975ccaaf9a012d6e9abc14479fca5e06c882fc93634c97a01efbbe75d0e0ff31c371aa200c776b64b708721cb6d
   languageName: node
   linkType: hard
 

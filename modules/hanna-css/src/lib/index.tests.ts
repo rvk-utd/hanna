@@ -1,49 +1,67 @@
-import { px } from 'es-in-css';
+import * as esincss from 'es-in-css';
 import o from 'ospec';
 
-import { cssVars, makeVariables } from './index';
+import * as lib from './index';
+import { compareKeys } from './test-utils';
 
-o.spec('makeVariables helper', () => {
-  o('works', () => {
-    o(makeVariables({ foo: px(2) }).vars.foo()).equals('var(--foo)');
-    o(makeVariables({ a$b_c: px(2) }).vars.a$b_c()).equals('var(--a_b-c)')(
-      'maps "_" to "\'" and "$" to "_"'
+type ExpectedExports = Exclude<keyof typeof lib, keyof typeof esincss>;
+
+o.spec('hanna-css lib', () => {
+  o('exports the correct tokens', () => {
+    const expectedTokens: Record<ExpectedExports, true> = {
+      /* breakpints.ts */
+      mq: true,
+      breakpoints_raw: true,
+
+      /* colors.ts */
+      colors_raw: true,
+
+      /* cssutils.ts */
+      buildVariables: true,
+      isDevMode: true,
+
+      /* cssvars.ts */
+      cssVars: true,
+      cssVarOverride: true,
+
+      /* fonts.ts */
+      font_raw: true,
+
+      /* grid.ts */
+      grid_raw: true,
+
+      /* icons.ts */
+      iconStyle: true,
+      characters: true,
+      iconfont_raw: true,
+
+      /* themes.ts */
+      colorThemes: true,
+
+      /* WARNING__.ts */
+      WARNING__: true,
+      WARNING_message__: true,
+      // suppress_WARNING__: true,
+      WARNING_soft__: true,
+      // suppress_WARNING_soft__: true,
+    };
+
+    compareKeys(
+      lib,
+      expectedTokens,
+      // Ignoring re-exported tokens from es-in-css.
+      esincss
     );
   });
 });
 
-o.spec('cssVars', () => {
-  type CSSVarToken = keyof typeof cssVars;
-  const expectedTokens: Record<CSSVarToken, true> = {
-    bp_w_phone: true,
-    bp_w_phablet: true,
-    bp_w_tablet: true,
-    bp_w_netbook: true,
-    bp_w_wide: true,
-    bp_w_Hamburger: true,
-    cssVersion: true,
-  };
+/* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
+// Also check exported types. (Ignoring re-exported types from es-in-css.)
+import type {
+  // colors.ts
+  HannaColorTheme,
 
-  o('exposes known CSS variable tokens', () => {
-    Object.keys(expectedTokens).forEach((token) => {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      if (cssVars[token as CSSVarToken] === undefined) {
-        o(token).equals('true')(`missing: "${token}"`);
-      }
-    });
-    Object.keys(cssVars).forEach((token) => {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      if (expectedTokens[token as CSSVarToken] === undefined) {
-        o(token).equals('true')(`extra: "${token}"`);
-      }
-    });
-  });
-});
-
-// ---------------------------------------------------------------------------
-// Ensure expected types as exported
-// (Skip checking for all the types re-exported from es-in-css)
-
-/* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first */
-import type { RawCssString, RawCssVarString } from './index';
-/* eslint-enisable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts */
+  // cssvars.ts
+  HannaCssVarToken,
+} from './index';
+/* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */

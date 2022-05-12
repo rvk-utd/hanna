@@ -14,10 +14,11 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "es-in-css": "^0.3.0"
+    "es-in-css": "^0.4.0"
   },
   "main": "index.js",
   "module": "index.mjs",
+  "types": "types/index.d.ts",
   "engines": {
     "node": "16"
   },

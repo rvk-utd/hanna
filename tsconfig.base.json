@@ -18,7 +18,7 @@
     "isolatedModules": true,
 
     "paths": {
-      "@reykjavik/hanna-css/*": ["./modules/hanna-css/src/lib/*"],
+      "@reykjavik/hanna-css": ["./modules/hanna-css/src/lib"],
       "@reykjavik/hanna-icons/*": ["./modules/hanna-icons/src/lib/*"],
       "@hugsmidjan_is/hanna-react/*": ["./modules/hanna-react/src/*"],
       "@hugsmidjan_is/hanna-sprinkles/*": ["./modules/hanna-sprinkles/src/lib/*"],

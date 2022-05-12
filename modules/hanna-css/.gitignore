@@ -8,6 +8,7 @@ node_modules
 
 /src/lib/iconfont.ts
 /src/css/vars/icons.scss
+/src/css/vars/cssvars.scss
 
 ## Misc notes and stuff...
 /assets-originals
