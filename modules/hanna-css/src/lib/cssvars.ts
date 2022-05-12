@@ -9,6 +9,7 @@ import { buildVariables } from './cssutils';
 import { fontVarDeclarations, fontVars } from './font';
 import { grid } from './grid';
 import { gridVarDeclarations, gridVars } from './gridVars';
+import { iconVarDeclarations, iconVars } from './icons';
 import { linkVarDeclarations, linkVars } from './links';
 import { themeVarDeclarations, themeVars } from './themes';
 
@@ -179,7 +180,8 @@ const hannaVars = buildVariables.join(
   zIndexVars,
   spaceVars,
   borderEffectVars,
-  buttonVars
+  buttonVars,
+  iconVars
 );
 
 export const cssVars = hannaVars.vars;
@@ -199,6 +201,7 @@ export const cssVarDeclarations = [
   fontVarDeclarations,
   borderEffectVarDeclarations,
   buttonVarDeclarations,
+  iconVarDeclarations,
 ].join('');
 
 export type HannaCssVarToken = keyof typeof cssVars;

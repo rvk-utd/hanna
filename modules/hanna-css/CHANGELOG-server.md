@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add CSS variables `--icon--*` for iconfont characters
 
 ## 0.8.62
 
