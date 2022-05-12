@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add CSS variables `--icon--*` for iconfont characters
+- feat: Add styling for `.Checkbox__label__reqstar`
 
 ## 0.8.62
 
