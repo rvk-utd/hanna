@@ -21,10 +21,12 @@
     position: relative;
     margin-bottom: prem(34);
     font-size: prem(12);
+    // NOTE: Counter increment must not be on the ::before because of
+    // this browser bug: https://bugs.chromium.org/p/chromium/issues/detail?id=487515
+    counter-increment: step;
 
     &::before {
       content: counter(step);
-      counter-increment: step;
       width: prem(24);
       line-height: prem(24);
       position: absolute;

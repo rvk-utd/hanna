@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Chrome counter-increment bug in `WizardStepper`
 
 ## 0.8.60 — 0.8.61
 
