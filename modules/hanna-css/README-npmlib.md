@@ -228,14 +228,17 @@ components you use on your page(s).
 ```js
 import { isDevMode } from '@reykjavik/hanna-css';
 
-const componentsUsed = [
+const cssTokens = [
   '-basics', // The required base style reset
-  'Layout--full',
+  'Layout',
   'HeroBlock',
+  'TextInput',
+  'Selectbox',
+  'ButtonPrimary',
   // etc…
 ];
 
-getCssBundleUrl(componentsUsed);
+const cssUrl = getCssBundleUrl(cssTokens);
 ```
 
 NOTE: You need to remember to explicitly include the `-basics` token — unless
@@ -259,7 +262,7 @@ Use this option if you, for some reason, wish/need to pin your CSS files to a
 specific version folder.
 
 ```js
-getCssBundleUrl('-basics,Layout,HeroBlock', { version: 'v0.8.20' });
+const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.8.20' });
 ```
 
 **`CssBundleOpts.testingServer?: string`**
