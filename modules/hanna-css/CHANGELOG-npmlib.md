@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.1.0
+
+_2022-05-13_
+
 - feat: Initial release with basic features
   - CSS variable helper: `cssVars` object, and a `cssVarOverride` method and a
   - Lower-level variable builder `buildVarialbes`
@@ -12,11 +17,3 @@
   - Markup warning mixins: `WARNING__`, `WARNING_soft__`, `WARNING_message__`
   - Raw design constants: `colors_raw`, `font_raw`, `grid_raw`,
     `iconfont_raw`, `breakpoints_raw`
-
-<!--
-
-## 0.1.0
-
-_2022-04-??_
-
--->

@@ -122,22 +122,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hugsmidjan_is/hanna-css@workspace:modules/hanna-css":
-  version: 0.0.0-use.local
-  resolution: "@hugsmidjan_is/hanna-css@workspace:modules/hanna-css"
-  dependencies:
-    "@hugsmidjan/gulp-iconfont": ^0.4.0
-    "@hugsmidjan/gulp-images": ^0.2.2
-    "@hugsmidjan/gulp-sass": ^0.2.0
-    "@types/md5-file": ^5
-    cssserve: ^1.4.1
-    es-in-css: ^0.4.0
-    gulp: ^4.0.2
-    md5-file: ^5.0.0
-    sass: ~1.32
-  languageName: unknown
-  linkType: soft
-
 "@humanwhocodes/config-array@npm:^0.9.2":
   version: 0.9.3
   resolution: "@humanwhocodes/config-array@npm:0.9.3"
@@ -222,6 +206,22 @@ __metadata:
   checksum: 1388777b507b0c592d53f41b9d182e1a8de7763bc625fc07999b8edbc22325f074e5b3ec90af79c89d6987fdb2325bc66d59f483258543c14a43661621f841b0
   languageName: node
   linkType: hard
+
+"@reykjavik/hanna-css@workspace:modules/hanna-css":
+  version: 0.0.0-use.local
+  resolution: "@reykjavik/hanna-css@workspace:modules/hanna-css"
+  dependencies:
+    "@hugsmidjan/gulp-iconfont": ^0.4.0
+    "@hugsmidjan/gulp-images": ^0.2.2
+    "@hugsmidjan/gulp-sass": ^0.2.0
+    "@types/md5-file": ^5
+    cssserve: ^1.4.1
+    es-in-css: ^0.4.0
+    gulp: ^4.0.2
+    md5-file: ^5.0.0
+    sass: ~1.32
+  languageName: unknown
+  linkType: soft
 
 "@sindresorhus/is@npm:^0.7.0":
   version: 0.7.0
