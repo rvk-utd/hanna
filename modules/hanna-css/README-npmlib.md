@@ -23,6 +23,10 @@ yarn add --dev @reykjavik/hanna-css
   - [`mq`](#mq)
 - [Hanna CSS Env](#hanna-css-env)
   - [`isDevMode`](#isdevmode)
+  - [`getCssBundleUrl`](#getcssbundleurl)
+    - [Type `CssBundleOpts`](#type-cssbundleopts)
+  - [`styleServerUrl`](#styleserverurl)
+  - [`cssVersion`](#cssversion)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
   - [`WARNING_soft__`](#warning_soft__)
@@ -209,6 +213,78 @@ css`
   }
 `;
 ```
+
+### `getCssBundleUrl`
+
+**Syntax:**
+`getCssBundleUrl(cssTokens: string | Array<string>, options?: CssBundleOpts): string`
+
+This methods generates a URL to load a correctly versioned CSS bundle from the
+[Hanna Style Server](https://github.com/rvk-utd/hanna-styles).
+
+You must pass a list of `cssTokens` corresponding to the Hanna design
+components you use on your page(s).
+
+```js
+import { isDevMode } from '@reykjavik/hanna-css';
+
+const componentsUsed = [
+  '-basics', // The required base style reset
+  'Layout--full',
+  'HeroBlock',
+  // etc…
+];
+
+getCssBundleUrl(componentsUsed);
+```
+
+NOTE: You need to remember to explicitly include the `-basics` token — unless
+you're incrementally adding single CSS tokens after the fact.
+
+However, because of how CSS cascade works, it's **strongly recommended** to
+try and maintain (and update in-place) a single CSS
+`<link rel="stylesheet" href="..." />` URL, instead of requesting multiple CSS
+bundles.
+
+Multiple bundles usuallly work, but may occasionally fail in unpredictable
+ways.
+
+#### Type `CssBundleOpts`
+
+**`CssBundleOpts.version?: string`**
+
+The default is always the most recent major version of the Hanna CSS files.
+
+Use this option if you, for some reason, wish/need to pin your CSS files to a
+specific version folder.
+
+```js
+getCssBundleUrl('-basics,Layout,HeroBlock', { version: 'v0.8.20' });
+```
+
+**`CssBundleOpts.testingServer?: string`**
+
+Default: [`styleServerUrl`](#styleserverurl)
+
+Use this option if you need to load the CSS bundles from a custom style-server
+instance, during testing/staging/etc.
+
+### `styleServerUrl`
+
+**Syntax:** `styleServerUrl: "https://styles.reykjavik.is"`
+
+The root URL of the Hanna Style Server. This URL is useful when building links
+linking to assets, etc, and is used internally by
+[`getCssBundleUrl()`](#getcssbundleurl)
+
+### `cssVersion`
+
+**Syntax:** `cssVersion: string`
+
+The current version of the Hanna style-server CSS files this version of
+`@reyjkjavik/hanna-css` package targets.
+
+Primary use is for debugging/informational purposes.
 
 ## Markup Warning Helpers
 

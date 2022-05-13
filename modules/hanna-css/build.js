@@ -74,10 +74,6 @@ const baseOpts = {
     ...Object.keys(rootPkg.devDependencies || {}),
   ],
   watch: opts.dev,
-  define: {
-    // Set this variable to signify when
-    'process.env.NPM_PUB': JSON.stringify(process.env.NPM_PUB),
-  },
 };
 
 // ---------------------------------------------------------------------------
@@ -146,6 +142,9 @@ const buildLib = (format, extraCfg) =>
     entryPoints: ['src/lib/index.ts'],
     outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
     outdir: outdirLib,
+    define: {
+      'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths
+    },
     ...extraCfg,
   });
 

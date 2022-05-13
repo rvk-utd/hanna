@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add method `getCssBundleUrl`
+- feat: Add constants `styleServerUrl` and `hannaCssVersion`
 
 ## 0.1.0
 
