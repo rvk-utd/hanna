@@ -267,16 +267,16 @@ The `WARNING_*` misins accept an options object a their second argument.
 
 **`WarningOpts.pos?: 'before' | 'after'`**
 
-Controls into which pseudo-element the `message` content is rendered.
+Default: `'before'`
 
-(Default: `'before'`)
+Controls into which pseudo-element the `message` content is rendered.
 
 **`WarningOpts.always?: boolean`**
 
+Default: `false`
+
 Optionally make the warning messages visible in production builds also. A
 drastic measure reserved for highly unusual situations.
-
-(Default: `false`)
 
 ## Raw Design Constants
 
