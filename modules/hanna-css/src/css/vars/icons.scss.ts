@@ -1,4 +1,4 @@
-import iconfonttokens from '../../lib/iconfont';
+import iconfonttokens from '../../lib/iconfonttokens';
 
 const iconVariables =
   Object.entries(iconfonttokens)

@@ -1,6 +1,6 @@
 import o from 'ospec';
 
-import { cssVarOverride, cssVars, HannaCssVarToken } from './cssvars';
+import { HannaCssVarToken, hannaVarOverride, hannaVars } from './hannavars';
 import { compareKeys } from './test-utils';
 
 o.spec('cssVars', () => {
@@ -271,12 +271,12 @@ o.spec('cssVars', () => {
       theme_color_primary__safeish: true,
     };
 
-    compareKeys(cssVars, expectedTokens);
+    compareKeys(hannaVars, expectedTokens);
   });
 });
 
 o.spec('hannaVarOverride', () => {
   o('is an exported function', () => {
-    o(cssVarOverride({ cssVersion: 'hello' })).equals('--cssVersion: hello;\n');
+    o(hannaVarOverride({ cssVersion: 'hello' })).equals('--cssVersion: hello;\n');
   });
 });

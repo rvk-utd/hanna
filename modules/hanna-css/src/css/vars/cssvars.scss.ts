@@ -1,7 +1,7 @@
-import { cssVars } from '../../lib/cssvars';
+import { hannaVars } from '../../lib/hannavars';
 
 const scssCssVariables =
-  Object.values(cssVars)
+  Object.values(hannaVars)
     .map((printer) => `$var${printer.cssName}: ${printer};`)
     .join('\n') + '\n';
 

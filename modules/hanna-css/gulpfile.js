@@ -53,7 +53,7 @@ const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
       ])
     );
     writeFileSync(
-      sourceFolder + '/lib/iconfont.ts',
+      sourceFolder + '/lib/iconfonttokens.ts',
       `` +
         `// This file is auto-generated. DO NOT EDIT!\n` +
         `\n` +

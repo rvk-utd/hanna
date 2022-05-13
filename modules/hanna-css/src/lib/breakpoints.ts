@@ -1,7 +1,5 @@
 import { RawMediaQuery } from 'es-in-css';
 
-import { buildVariables } from './cssutils';
-
 // Starting breakpoints **including* $grid-margin--*
 export const bp = {
   wide: 1368, // $grid-margin--wide: 80;
@@ -68,22 +66,3 @@ export const baseMQs: Array<keyof typeof mq> = [
   'netbook',
   'wide',
 ];
-
-export const breakpointVars = buildVariables([
-  'bp_w_phone',
-  'bp_w_phablet',
-  'bp_w_tablet',
-  'bp_w_netbook',
-  'bp_w_wide',
-  'bp_w_Hamburger',
-]);
-
-export const breakpointVarDeclarations = breakpointVars.declare({
-  bp_w_phone: bp.phone, // Widths below 320px are not supported
-  bp_w_phablet: bp.phablet,
-  bp_w_tablet: bp.tablet,
-  bp_w_netbook: bp.netbook, // iPad in landscape orientation
-  bp_w_wide: bp.wide,
-
-  bp_w_Hamburger: breakpointVars.vars.bp_w_netbook,
-});

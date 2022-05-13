@@ -1,6 +1,6 @@
 import { css, VariablePrinter } from 'es-in-css';
 
-import iconfonttokens from './iconfont';
+import iconfonttokens from './iconfonttokens';
 
 // ---------------------------------------------------------------------------
 
@@ -113,11 +113,3 @@ export const iconfont_raw = {
     ])
   ) as Record<TrimmedIconName, string>,
 };
-
-// ---------------------------------------------------------------------------
-
-export const iconVars = buildVariables(
-  Object.keys(iconfonttokens) as Array<keyof typeof iconfonttokens>
-);
-
-const iconVarDeclarations = iconVars.declare(iconfonttokens);

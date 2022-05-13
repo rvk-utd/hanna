@@ -20,9 +20,9 @@ o.spec('hanna-css lib', () => {
       buildVariables: true,
       isDevMode: true,
 
-      /* cssvars.ts */
-      cssVars: true,
-      cssVarOverride: true,
+      /* hannavars.ts */
+      hannaVars: true,
+      hannaVarOverride: true,
 
       /* fonts.ts */
       font_raw: true,
