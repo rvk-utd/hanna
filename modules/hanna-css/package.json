@@ -35,7 +35,7 @@
     "dev:server": "NODE_ENV=development  yarn run cssserve --config cssserve-dev.json",
     "dev": "yarn install  &&  yarn run -T concurrently -k \"sleep 4 && tsc --noEmit --watch --preserveWatchOutput\"  \"node build.js --dev\"  \"sleep 3 && yarn run gulp watch\"  \"yarn run dev:server\" \"yarn run test:dev\"",
     "prepublishOnly": "echo \"\nRun 'yarn run publishdist' to publish this package\n\n\"  && exit 1",
-    "publish:npmlib": "yarn run build:npmlib  &&  cd _npm-lib  &&  yarn npm publish",
+    "publish:npmlib": "yarn run build:npmlib  &&  cd _npm-lib  &&  npm publish",
     "publish:server": "yarn install  &&  yarn run publish:server:assets  &&  yarn run publish:server:css",
     "publish:server:assets": "NODE_ENV=production  yarn run gulp publishAssets",
     "publish:server:css": "yarn run publish:server:css:dev  &&  yarn run publish:server:css:prod  &&  yarn run publish:server:release",
