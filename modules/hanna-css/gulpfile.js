@@ -48,7 +48,7 @@ const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
     const icons = Object.fromEntries(
       glyphs.map(({ name, unicode }) => [
         // Map "-" in filenames to underscores for easier use as JavaScript props
-        name.replace(/-/g, '_'),
+        'icon__' + name.replace(/-/g, '_'),
         unicode[0],
       ])
     );

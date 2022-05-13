@@ -1,7 +1,6 @@
 import { css, VariablePrinter } from 'es-in-css';
 
-import { buildVariables } from './cssutils';
-import iconfontChars from './iconfont';
+import iconfonttokens from './iconfont';
 
 // ---------------------------------------------------------------------------
 
@@ -101,19 +100,24 @@ export const characters = {
 
 // ---------------------------------------------------------------------------
 
+type TrimmedIconName = keyof typeof iconfonttokens extends `icon__${infer ShortName}`
+  ? ShortName
+  : never;
+
 export const iconfont_raw = {
   name: iconfontName,
-  chars: iconfontChars,
+  chars: Object.fromEntries(
+    Object.entries(iconfonttokens).map(([name, char]) => [
+      name.replace(/^icon__/, ''),
+      char,
+    ])
+  ) as Record<TrimmedIconName, string>,
 };
 
-// ===========================================================================
-
-const _iconfontCSSVarMap = Object.fromEntries(
-  Object.entries(iconfontChars).map(([name, char]) => [`icon__${name}`, char])
-) as Record<`icon__${keyof typeof iconfontChars}`, string>;
+// ---------------------------------------------------------------------------
 
 export const iconVars = buildVariables(
-  Object.keys(_iconfontCSSVarMap) as Array<keyof typeof _iconfontCSSVarMap>
+  Object.keys(iconfonttokens) as Array<keyof typeof iconfonttokens>
 );
 
-export const iconVarDeclarations = iconVars.declare(_iconfontCSSVarMap);
+const iconVarDeclarations = iconVars.declare(iconfonttokens);
