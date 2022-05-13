@@ -93,7 +93,7 @@
 
   // Disabled
   .#{$BEM}__input[class]:disabled + .#{$BEM}__label {
-    color: $var--color-suld-150;
+    opacity: 0.5;
   }
   .#{$BEM}__input[class]:disabled + .#{$BEM}__label::before {
     border-color: $var--color-suld-100;
@@ -204,6 +204,7 @@
     border-color: $var--color-suld-100;
     background-color: $var--color-suld-50;
     box-shadow: none;
+    opacity: 0.5;
   }
   .#{$BEM}__input:disabled + .#{$BEM}__label > small {
     color: $var--color-suld-150;
@@ -277,7 +278,7 @@ $InputField-paddingH: grid-units(2);
 @mixin InputField--disabled() {
   --input-border-color: #{$var--color-suld-100};
   background-color: $var--color-suld-50;
-  color: $var--color-suld-100;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 @mixin InputField--readonly() {

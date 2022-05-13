@@ -23,7 +23,7 @@
     align-self: flex-start;
   }
   .FormField--disabled > .FormField__label {
-    color: $color-suld-100;
+    opacity: 0.5;
   }
 
   label.FormField__label {
