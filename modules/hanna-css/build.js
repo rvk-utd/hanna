@@ -154,76 +154,74 @@ buildLib('cjs').catch(exit1);
 
 // ---------------------------------------------------------------------------
 
-if (opts.onlyLib) {
-  process.exit();
+if (!opts.onlyLib) {
+  //
+  // ---------------------------------------------------------------------------
+  // Build CSS/SCSS files
+
+  const toCSSSources = (res) =>
+    res.outputFiles
+      .filter(newFile)
+      .map((res) => ({ fileName: res.path, content: res.text }));
+
+  const cssCompile = (results) =>
+    compileCSSFromJS(toCSSSources(results), {
+      outbase: 'src/css',
+      outdir: outdirCss,
+      redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
+      minify: process.env.NODE_ENV === 'production',
+      prettify: process.env.NODE_ENV !== 'production',
+    });
+
+  esbuild
+    .build({
+      ...baseOpts,
+      entryPoints: glob('src/css/**/*.css.ts'),
+      entryNames: '[dir]/$$[hash]$$-[name]',
+      outbase: 'src/css',
+      outdir: 'src/css',
+      write: false,
+      watch: opts.dev && {
+        onRebuild: (error, results) => {
+          if (!error) {
+            cssCompile(results);
+          }
+        },
+      },
+      define: {
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      },
+    })
+    .then(cssCompile)
+    // FIXME: cleanup temporary .js files on error
+    .catch(exit1);
+
+  // -------------------
+
+  const scssCompile = (results) =>
+    compileCSSFromJS(toCSSSources(results), {
+      ext: 'scss',
+      redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
+      banner: '// This file is auto-generated. DO NOT EDIT!\n',
+    });
+
+  esbuild
+    .build({
+      ...baseOpts,
+      entryPoints: glob('src/css/**/*.scss.ts'),
+      entryNames: '[dir]/$$[hash]$$-[name]',
+      outbase: 'src/css',
+      outdir: 'src/css',
+      watch: opts.dev && {
+        onRebuild: (error, results) => {
+          if (!error) {
+            return scssCompile(results);
+          }
+        },
+      },
+      write: false,
+    })
+    .then(scssCompile)
+    // FIXME: cleanup temporary .js files on error
+    .catch(exit1);
 }
-
-//
-// ---------------------------------------------------------------------------
-// Build CSS/SCSS files
-
-const toCSSSources = (res) =>
-  res.outputFiles
-    .filter(newFile)
-    .map((res) => ({ fileName: res.path, content: res.text }));
-
-const cssCompile = (results) =>
-  compileCSSFromJS(toCSSSources(results), {
-    outbase: 'src/css',
-    outdir: outdirCss,
-    redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
-    minify: process.env.NODE_ENV === 'production',
-    prettify: process.env.NODE_ENV !== 'production',
-  });
-
-esbuild
-  .build({
-    ...baseOpts,
-    entryPoints: glob('src/css/**/*.css.ts'),
-    entryNames: '[dir]/$$[hash]$$-[name]',
-    outbase: 'src/css',
-    outdir: 'src/css',
-    write: false,
-    watch: opts.dev && {
-      onRebuild: (error, results) => {
-        if (!error) {
-          cssCompile(results);
-        }
-      },
-    },
-    define: {
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-    },
-  })
-  .then(cssCompile)
-  // FIXME: cleanup temporary .js files on error
-  .catch(exit1);
-
-// -------------------
-
-const scssCompile = (results) =>
-  compileCSSFromJS(toCSSSources(results), {
-    ext: 'scss',
-    redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
-    banner: '// This file is auto-generated. DO NOT EDIT!\n',
-  });
-
-esbuild
-  .build({
-    ...baseOpts,
-    entryPoints: glob('src/css/**/*.scss.ts'),
-    entryNames: '[dir]/$$[hash]$$-[name]',
-    outbase: 'src/css',
-    outdir: 'src/css',
-    watch: opts.dev && {
-      onRebuild: (error, results) => {
-        if (!error) {
-          return scssCompile(results);
-        }
-      },
-    },
-    write: false,
-  })
-  .then(scssCompile)
-  // FIXME: cleanup temporary .js files on error
-  .catch(exit1);
