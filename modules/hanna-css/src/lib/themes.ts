@@ -1,9 +1,9 @@
-export const colorThemes = [
-  'trustworthy',
-  'dependable',
-  'friendly',
-  'lively',
-  'colorful',
-] as const;
+export const colorThemes = {
+  trustworthy: 'trustworthy',
+  dependable: 'dependable',
+  friendly: 'friendly',
+  lively: 'lively',
+  colorful: 'colorful',
+} as const;
 
-export type HannaColorTheme = typeof colorThemes[number];
+export type HannaColorTheme = keyof typeof colorThemes;

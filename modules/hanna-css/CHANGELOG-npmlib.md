@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Change `colorThemes` constant to a
+  `Record<string, string>`
 - feat: Add constant `colorFamilies`, and type `ColorFamily`
 
 ## 0.1.1
