@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add constant `colorFamilies`, and type `ColorFamily`
 
 ## 0.1.1
 

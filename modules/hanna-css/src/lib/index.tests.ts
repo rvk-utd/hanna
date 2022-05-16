@@ -15,6 +15,7 @@ o.spec('hanna-css lib', () => {
 
       /* colors.ts */
       colors_raw: true,
+      colorFamilies: true,
 
       /* cssutils.ts */
       buildVariables: true,
@@ -62,9 +63,12 @@ o.spec('hanna-css lib', () => {
 // Also check exported types. (Ignoring re-exported types from es-in-css.)
 import type {
   // colors.ts
-  HannaColorTheme,
+  ColorFamily,
 
   // cssvars.ts
   HannaCssVarToken,
+
+  // themes.ts
+  HannaColorTheme,
 } from './index';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */

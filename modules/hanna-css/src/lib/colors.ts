@@ -64,3 +64,19 @@ export const colors = {
 };
 colors.white = colors.suld_0;
 colors.blackish = colors.suld_200;
+
+// ---------------------------------------------------------------------------
+
+export const colorFamilies = {
+  esja: 'esja',
+  faxafloi: 'faxafloi',
+  nautholsvik: 'nautholsvik',
+  heidmork: 'heidmork',
+  ellidaardalur: 'ellidaardalur',
+  blafjoll: 'blafjoll',
+  sund: 'sund',
+  rokkur: 'rokkur',
+  suld: 'suld',
+} as const;
+
+export type ColorFamily = keyof typeof colorFamilies;
