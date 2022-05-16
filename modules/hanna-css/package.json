@@ -53,6 +53,7 @@
     "@hugsmidjan/gulp-sass": "^0.2.0",
     "@types/md5-file": "^5",
     "cssserve": "^1.4.1",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "md5-file": "^5.0.0",
     "sass": "~1.32"

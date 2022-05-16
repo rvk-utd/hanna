@@ -1,4 +1,4 @@
-# Hanna
+# Hanna for Developers
 
 Here are all the main developer resources (libraries/tools/documentation) for
 Hanna design system, together in one happy monorepo.
@@ -22,4 +22,4 @@ working.
 
 ---
 
-See [README-old.md](README-old.md) for more, slightly outdated, info.
+See [README-old.md](README-old.md) for more, yet somewhat outdated, info.
