@@ -14,6 +14,7 @@ Design System.
   - [public/assets/](#publicassets)
   - [public/css/](#publiccss)
 - [CSS Versioning](#css-versioning)
+- [Updating the CSS and Assets](#updating-the-css-and-assets)
 
 <!-- prettier-ignore-end -->
 
@@ -85,9 +86,10 @@ The contents of those folders should generally never change — Only new
 The only exception to this immutability rule are any obviously named
 testing/dev folders, like `public/css/dev-v1/` or such.
 
-**NOTE:** The development CSS build task builds into a folder called
-`public/css/dev/`. This folder is for local-development only and is **not**
-pushed to the live server.
+**NOTE:** The development [CSS build tasks](#updating-the-css-and-assets) will
+build into a transient folder called `public/css/dev/`. This folder is for
+local-development only and is **not pushed** to any live server (including
+staging).
 
 ## CSS Versioning
 
@@ -103,3 +105,8 @@ problems arise that call for pinning a minor version temporarily.
 [SemVer](https://semver.org/spec/v2.0.0.html) dictates that all "minor"
 versions `< 1.0.0` qualify as major/breaking. Instead always pin to a specific
 minor version like so `/bundle/v0.8`)
+
+## Updating the CSS and Assets
+
+The CSS files and other assets are built from sources stored in the main
+[Hanna monorepo](https://github.com/rvk-utd/hanna).
