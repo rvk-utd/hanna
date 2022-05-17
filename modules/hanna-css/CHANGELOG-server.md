@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.Modal__blings__inner` wrapper — allow minor styling
+  regression with older markup pattern
+- fix: Allow content (date-pickers, etc.) to overflow `.Modal`
 - feat: Tweak styling of disabled `FormField`s, `Checkbox`es and `Radio`
   buttons
 
