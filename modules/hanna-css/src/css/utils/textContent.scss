@@ -7,19 +7,19 @@
   margin-bottom: $var--baseVerticalMargin;
 
   > li {
-    margin-bottom: prem($grid-unit * 2);
+    margin-bottom: $var--space-2;
     position: relative;
-    padding-left: prem($grid-unit * 4);
+    padding-left: $var--space-4;
 
     &::before {
-      content: '';
-      position: absolute;
-      top: calc(0.5 * #{$var--font-bd-l-leading});
+      content: ' ';
+      float: left;
+      margin-left: $var--space-4--neg;
       left: 0;
-      width: prem($grid-unit * 2);
+      width: $var--space-2;
+      border-top: prem(2) solid $var--theme-color-primary--safeish;
       margin-top: prem(-1);
-      height: prem(2);
-      background-color: $var--theme-color-primary--safeish;
+      transform: translateY(50%);
     }
   }
 }
