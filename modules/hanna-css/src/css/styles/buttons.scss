@@ -136,6 +136,7 @@
 // ===========================================================================
 
 :root {
+  --ButtonTertiary--height: calc(#{$var--font-button-leading} + 4px);
   --ButtonTertiary--color: _inherit;
   --ButtonTertiary--dashColor: #{$var--theme-color-primary--safeish};
   --ButtonTertiary--dashWidth: #{$var--space-2};
@@ -148,6 +149,7 @@
     --ButtonTertiary--gapH: 24px;
   }
 }
+$var--ButtonTertiary--height: var(--ButtonTertiary--height);
 $var--ButtonTertiary--color: var(--ButtonTertiary--color);
 $var--ButtonTertiary--dashColor: var(--ButtonTertiary--dashColor);
 $var--ButtonTertiary--dashWidth: var(--ButtonTertiary--dashWidth);

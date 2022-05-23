@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add CSS variable `--ButtonTertiary--height`
 - feat: Add styling for `.Modal__blings__inner` wrapper — allow minor styling
   regression with older markup pattern
 - fix: Use "button" leading for all `.ButtonTertiary` stylings, add padding
