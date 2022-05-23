@@ -157,8 +157,6 @@ $var--ButtonTertiary--dashHeight: var(--ButtonTertiary--dashHeight);
 $var--ButtonTertiary--gapH: var(--ButtonTertiary--gapH);
 
 @mixin ButtonTertiaryStyle($static: false) {
-  $borderRadius: prem(8);
-
   @include LinkStyle_Reset(true);
 
   color: $var--ButtonTertiary--color;
@@ -195,35 +193,39 @@ $var--ButtonTertiary--gapH: var(--ButtonTertiary--gapH);
   }
 
   @if not $static {
-    @include hoverActiveKeyboardFocus-selector {
-      padding-left: calc(
-        #{$var--ButtonTertiary--dashSpace} + #{$var--ButtonTertiary--hover--dashWidth}
-      );
-      padding-right: prem(0);
-      color: $var--ButtonTertiary--color;
-      outline: 0;
+    @include ButtonTertiaryStyle--hoverFocus();
+  }
+}
 
-      &::before {
-        width: $var--ButtonTertiary--hover--dashWidth;
-      }
+@mixin ButtonTertiaryStyle--hoverFocus() {
+  @include hoverActiveKeyboardFocus-selector {
+    padding-left: calc(
+      #{$var--ButtonTertiary--dashSpace} + #{$var--ButtonTertiary--hover--dashWidth}
+    );
+    padding-right: prem(0);
+    color: $var--ButtonTertiary--color;
+    outline: 0;
+
+    &::before {
+      width: $var--ButtonTertiary--hover--dashWidth;
     }
+  }
 
-    &:active::before {
-      width: $var--ButtonTertiary--dashWidth;
-    }
+  &:active::before {
+    width: $var--ButtonTertiary--dashWidth;
+  }
 
-    @include keyboardFocus-selector {
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: prem(-13) prem(-16);
-        border: prem(1) dotted $var--ButtonTertiary--dashColor;
-        border-radius: prem(8);
-      }
+  @include keyboardFocus-selector {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: prem(-13) prem(-16);
+      border: prem(1) dotted $var--ButtonTertiary--dashColor;
+      border-radius: prem(8);
     }
   }
 }
