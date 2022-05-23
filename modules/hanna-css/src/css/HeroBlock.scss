@@ -61,6 +61,7 @@
     position: relative;
     padding-right: cols_pct(6, 6);
     min-height: prem(420);
+    z-index: 0; // scope the *__image underlap
   }
 
   .HeroBlock__image {
