@@ -78,7 +78,7 @@ execSync(
     `cp CHANGELOG-npmlib.md ${outdirLib}CHANGELOG.md`,
   ].join(' && ')
 );
-makePackageJson(outdirLib);
+makePackageJson(pkg, outdirLib);
 
 // -------------------
 
