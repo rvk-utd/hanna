@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.64
+
+_2022-05-23_
+
 - feat: Add CSS variable `--ButtonTertiary--height`
 - feat: Add components `PullQuote`, `BlockQuote`
 - feat: Update text content `blockquote` styling (in `TextBlock`, etc.)
