@@ -2,59 +2,19 @@ const { execSync } = require('child_process');
 const { compileCSSFromJS } = require('es-in-css/compiler');
 const esbuild = require('esbuild');
 const { dtsPlugin } = require('esbuild-plugin-d.ts');
-const { writeFileSync } = require('fs');
 const { sync: glob } = require('glob');
 
 const rootPkg = require('../../package.json');
 
-const { devDistCssFolder, serverFolder } = require('./scripts/config');
+const { devDistCssFolder } = require('./scripts/config');
 const pkg = require('./package.json');
-const { writeFile, access, mkdir } = require('fs/promises');
-const { dirname } = require('path');
-
-// ---------------------------------------------------------------------------
-
-const makePackageJson = (outdir) => {
-  const pkgOverloads = pkg.npm_lib_package_json;
-  const newPkg = { ...pkg };
-  delete newPkg.npm_lib_package_json;
-
-  delete newPkg.scripts;
-  delete newPkg.hxmstyle;
-  delete newPkg.private;
-  delete newPkg.devDependencies;
-  Object.assign(newPkg, pkgOverloads);
-
-  writeFileSync(outdir + 'package.json', JSON.stringify(newPkg, null, '\t'));
-};
-
-// ===========================================================================
-
-const opts = process.argv.slice(2).reduce(
-  /* <Record<string,unknown>> */ (map, arg) => {
-    const [key, value] = arg.replace(/^-+/, '').split('=');
-    map[key] = value == null ? true : value;
-    return map;
-  },
-  {}
-);
-
-// ---------------------------------------------------------------------------
-
-const fileMem = {};
-const newFile = ({ path }) => {
-  if (path in fileMem) {
-    return false;
-  }
-  fileMem[path] = true;
-  return true;
-};
-
-const exit1 = (err) => {
-  console.error(err);
-
-  process.exit(1);
-};
+const {
+  makePackageJson,
+  opts,
+  writeOnlyAffected,
+  exit1,
+  isNewFile,
+} = require('../../build-utils');
 
 // ---------------------------------------------------------------------------
 
@@ -92,14 +52,6 @@ execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
 
 // -------------------
 
-const writeTestFiles = (res) =>
-  res.outputFiles.filter(newFile).forEach((res) => {
-    const targetDir = dirname(res.path);
-    return access(targetDir)
-      .catch(() => mkdir(targetDir, { recursive: true }))
-      .then(() => writeFile(res.path, res.text));
-  });
-
 esbuild
   .build({
     ...baseOpts,
@@ -107,15 +59,11 @@ esbuild
     entryNames: '[dir]/[name]--[hash]',
     write: false,
     watch: opts.dev && {
-      onRebuild: (err, results) => {
-        if (!err) {
-          writeTestFiles(results);
-        }
-      },
+      onRebuild: (err, results) => writeOnlyAffected(results, err),
     },
     outdir: testsDir,
   })
-  .then(writeTestFiles)
+  .then(writeOnlyAffected)
   .catch(exit1);
 
 //
@@ -160,7 +108,7 @@ if (!opts.onlyLib) {
 
   const toCSSSources = (res) =>
     res.outputFiles
-      .filter(newFile)
+      .filter(isNewFile)
       .map((res) => ({ fileName: res.path, content: res.text }));
 
   const cssCompile = (results) =>

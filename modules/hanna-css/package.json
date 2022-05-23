@@ -19,13 +19,13 @@
   "main": "index.js",
   "module": "index.mjs",
   "types": "types/index.d.ts",
-  "engines": {
-    "node": "16"
-  },
   "npm_lib_package_json": {
     "engines": {
       "node": ">=14"
     }
+  },
+  "engines": {
+    "node": "16"
   },
   "scripts": {
     "assets:rename-illustrations": "node scripts/renameIllustrations.js",
