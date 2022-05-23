@@ -24,6 +24,32 @@
   }
 }
 
+// ---------------------------------------------------------------------------
+
+@mixin pullQuoteContainerStyle() {
+  --Quote--line: 2px solid #{$var--theme-color-primary};
+  --Quote--indent: 0;
+  max-width: calc(#{cols_px(8)} - var(--Quote--indent));
+  padding-top: $var--space-5;
+  margin-left: var(--Quote--indent);
+  position: relative;
+
+  &::before {
+    content: $quotes-upper99;
+    color: $var--theme-color-primary;
+    font-size: prem(72);
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    left: 2px;
+    text-align: center;
+    width: 0.6em;
+    margin-left: -0.3em;
+  }
+}
+
+// ---------------------------------------------------------------------------
+
 // reset <button> styles for easier custom styling
 @mixin textContent() {
   font: $var--font-bd-l;
@@ -61,18 +87,30 @@
   li ul {
     margin-bottom: 0;
   }
-  blockquote {
-    padding: prem($grid-unit * 4);
-    margin-bottom: $var--baseVerticalMargin;
+  // blockquote:not([class]), // Too strict??
+  blockquote:not(.BlockQuote__quote):not(.PullQuote__quote) {
+    @include pullQuoteContainerStyle();
+    font: $var--font-bd-s;
     position: relative;
+    margin-bottom: $var--space-4;
+    padding-left: calc(#{$var--space-2} + 2px);
 
-    &::before {
-      content: '”';
-      font-size: prem(64);
-      position: absolute;
-      top: prem($grid-unit * 4);
-      left: prem($grid-unit * 0);
+    @include media($mq-phablet_up) {
+      padding-left: calc(#{$var--space-3} + 2px);
+      --Quote--indent: #{$var--space-2};
     }
+  }
+  blockquote:not(.BlockQuote__quote):not(.PullQuote__quote)::after {
+    content: '';
+    position: absolute;
+    border-left: var(--Quote--line);
+    top: $var--space-5;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+  }
+  blockquote:not(.BlockQuote__quote):not(.PullQuote__quote) > *:last-child {
+    margin-bottom: 0;
   }
 
   > :last-child {
