@@ -24,35 +24,35 @@
     // NOTE: Counter increment must not be on the ::before because of
     // this browser bug: https://bugs.chromium.org/p/chromium/issues/detail?id=487515
     counter-increment: step;
-
-    &::before {
-      content: counter(step);
-      width: prem(24);
-      line-height: prem(24);
-      position: absolute;
-      top: prem(8);
-      left: prem(8);
-      background: var(--WizardStepper-ballBackground);
-      border-radius: 50%;
-      color: var(--WizardStepper-ballColor);
-      font-size: prem(14);
-      font-weight: $font-weight--bold;
-      text-align: center;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: prem(38);
-      bottom: prem(-24);
-      left: prem(19);
-      width: prem(2);
-      background: var(--WizardStepper-lineColor);
-    }
-    &:last-child::after {
-      content: none;
-    }
   }
+  .WizardStepper__step::before {
+    content: counter(step);
+    width: prem(24);
+    line-height: prem(24);
+    position: absolute;
+    top: prem(8);
+    left: prem(8);
+    background: var(--WizardStepper-ballBackground);
+    border-radius: 50%;
+    color: var(--WizardStepper-ballColor);
+    font-size: prem(14);
+    font-weight: $font-weight--bold;
+    text-align: center;
+  }
+
+  .WizardStepper__step::after {
+    content: '';
+    position: absolute;
+    top: prem(38);
+    bottom: prem(-24);
+    left: prem(19);
+    width: prem(2);
+    background: var(--WizardStepper-lineColor);
+  }
+  .WizardStepper__step:last-child::after {
+    content: none;
+  }
+
   .WizardStepper--preview > .WizardStepper__step,
   [aria-current='step'] ~ .WizardStepper__step {
     --WizardStepper-ballBackground: #{$var--color-suld-50};
