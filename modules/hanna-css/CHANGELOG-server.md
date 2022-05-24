@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.WizardStepper__step--neutral`
 
 ## 0.8.64
 

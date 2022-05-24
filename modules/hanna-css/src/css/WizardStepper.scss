@@ -53,6 +53,14 @@
     content: none;
   }
 
+  .WizardStepper__step--neutral {
+    counter-increment: none;
+  }
+  .WizardStepper__step--neutral::before {
+    content: $char-bullet-disc;
+    font-size: prem(20);
+  }
+
   .WizardStepper--preview > .WizardStepper__step,
   [aria-current='step'] ~ .WizardStepper__step {
     --WizardStepper-ballBackground: #{$var--color-suld-50};
