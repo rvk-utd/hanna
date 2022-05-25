@@ -2,9 +2,10 @@
 @use 'styles/font' as *;
 @use 'styles/buttons' as *;
 @use 'styles/links' as *;
+@use 'styles/AbstractCarousel';
 
 /*!@deps
-	Carousel
+Carousel
 */
 
 @media screen {
@@ -27,17 +28,23 @@
     }
   }
 
+  .ArticleCarousel__itemlist {
+    @include AbstractCarousel.itemsScrollSnapStyles();
+  }
+
+  // @deprecated  (Remove in v0.9)
   .ArticleCarousel__items {
+    @include WARNING__('Unsupported: use `.ArticleCarousel__itemlist` instead');
     display: flex;
     flex-flow: row;
   }
+  // @deprecated  (Remove in v0.9)
   .ArticleCarousel:not([data-sprinkled]) > .ArticleCarousel__items {
     overflow: auto;
   }
-
+  // @deprecated  (Remove in v0.9)
   .ArticleCarousel__track {
-    // @deprecated Was removed in v0.8. Remove warning in v0.9
-    @include WARNING__('Unsupported: use `.ArticleCarousel__items` instead');
+    @include WARNING__('Unsupported: use `.ArticleCarousel__itemlist` instead');
   }
 
   .ArticleCarouselCard {

@@ -2,6 +2,7 @@
 @use 'styles/font' as *;
 @use 'styles/links' as *;
 @use '_GalleryModal' as GalleryModal;
+@use 'styles/AbstractCarousel';
 
 /*!@deps
 	Carousel
@@ -18,6 +19,11 @@
     margin-bottom: between_cols(32, 130);
   }
 
+  .Gallery__itemlist {
+    @include AbstractCarousel.itemsScrollSnapStyles();
+  }
+
+  // @deprecated  (Remove in v0.9)
   .Gallery__items {
     display: flex;
 
@@ -28,22 +34,29 @@
 
     transition: transform 200ms ease-in;
   }
+  // @deprecated  (Remove in v0.9)
   .Gallery:not([data-sprinkled]) .Gallery__items {
     overflow: auto;
   }
-
-  // @deprecated Was removed in v0.8. Remove warning in v0.9
+  // @deprecated  (Remove in v0.9)
+  .Gallery__items > .GalleryItem {
+    padding: 0 prem($grid-gutter / 2);
+  }
+  // @deprecated  (Remove in v0.9)
   .Gallerty__track {
     @include WARNING__('Unsupported: use `.Gallery__items` instead');
   }
 
-  // ITEM
+  // ---------------------------------------------------------------------------
+  // _GalleryItem
+  // ---------------------------------------------------------------------------
+
   .GalleryItem {
     // <figure>
     display: flex;
     flex-flow: column-reverse;
 
-    padding: 0 prem($grid-gutter / 2);
+    padding-right: $var--grid-gutter;
 
     --GalleryItem__image--max-width: 280px;
     --GalleryItem__image--max-height: 240px;

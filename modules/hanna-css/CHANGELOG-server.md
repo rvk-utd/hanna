@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Use `scroll-snap` styling for all `Carousel`-related components — Add
+  styling for the new `__itemlist` wrapper. Flag the old `__items` wrapper as
+  deprecated.
 - feat: Add styling for `.WizardStepper__step--neutral`
 
 ## 0.8.64
