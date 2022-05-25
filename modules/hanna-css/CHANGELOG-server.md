@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.65
+
+_2022-05-25_
+
 - feat: Use `scroll-snap` styling for all `Carousel`-related components — Add
   styling for the new `__itemlist` wrapper. Flag the old `__items` wrapper as
   deprecated.
