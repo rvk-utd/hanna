@@ -194,7 +194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reykjavik/hanna-css@workspace:^, @reykjavik/hanna-css@workspace:modules/hanna-css":
+"@reykjavik/hanna-css@^0.2.0, @reykjavik/hanna-css@workspace:modules/hanna-css":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-css@workspace:modules/hanna-css"
   dependencies:
@@ -216,7 +216,7 @@ __metadata:
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
     "@hugsmidjan/qj": ^4.10.2
-    "@reykjavik/hanna-css": "workspace:^"
+    "@reykjavik/hanna-css": ^0.2.0
     focus-visible: ^5.2.0
     formatchange: ^1.8.1
   languageName: unknown
