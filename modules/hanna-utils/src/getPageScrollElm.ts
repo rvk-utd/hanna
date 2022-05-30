@@ -1,6 +1,11 @@
 /**
- * Returns the one of `<html/>` or `<body/>` which seems to be
- * responsible for "scrolling the page". Prefers `<body />`.
+ * Returns the outermost scrollable element (as defined by the active CSS) —
+ * either `<html/>` or `<body/>`.
+ *
+ * Prefers `<body />` if both are scrollable.
+ *
+ * Use this helper when you want to reliably scroll the whole page.
+ *
  */
 export const getPageScrollElm = (customWindow: Window = window) => {
   const { body, documentElement } = customWindow.document;

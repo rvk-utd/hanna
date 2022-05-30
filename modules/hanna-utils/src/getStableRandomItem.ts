@@ -4,6 +4,14 @@ const stupidStableRandom = (seed: string) =>
     42
   );
 
+/**
+ * Returns a pseudo random item from a collection of `items` (array or record),
+ * based on a given `seed` key/id. The function always returns the same item for
+ * a given collection and `seed`.
+ *
+ * You might want to use this helper inside React components to get a stable
+ * randomness, without having to resort to hooks.
+ */
 export const getStableRandomItem = <T>(
   items: ReadonlyArray<T> | Record<string, T>,
   seed: string
