@@ -19,6 +19,7 @@ yarn add --dev @reykjavik/hanna-css
   - [`buildVariables`](#buildvariables)
 - [Helpful Constants](#helpful-constants)
   - [`colorThemes`](#colorthemes)
+  - [`colorFamilies`](#colorfamilies)
   - [`characters`](#characters)
   - [`mq`](#mq)
 - [Hanna CSS Env](#hanna-css-env)
@@ -149,13 +150,30 @@ css`
 
 ### `colorThemes`
 
-Array containing the names of the Hanna color themes.
+Object containing the names of the Hanna color themes.
 
-```js
+```ts
 import { colorThemes } from '@reykjavik/hanna-css';
+import type { HannaColorTheme } from '@reykjavik/hanna-css';
 
-coknsole.log(colorThemes[0]);
+const themeName: HannaColorTheme = Object.keys(colorThemes)[0];
+
+coknsole.log(themeName);
 // "trustworthy"
+```
+
+### `colorFamilies`
+
+Object containing the names of the Hanna color themes.
+
+```ts
+import { colorFamilies } from '@reykjavik/hanna-css';
+import type { ColorFamily } from '@reykjavik/hanna-css';
+
+const familyName: ColorFamily = Object.keys(colorFamilies)[0];
+
+coknsole.log(familyName);
+// "esja"
 ```
 
 ### `characters`
