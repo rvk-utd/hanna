@@ -1,7 +1,7 @@
 import o from 'ospec';
 
 import { HannaCssVarToken, hannaVarOverride, hannaVars } from './hannavars';
-import { compareKeys } from './test-utils';
+import { compareKeys } from 'hanna-test-utils';
 
 o.spec('cssVars', () => {
   o('exposes known CSS variable tokens', () => {

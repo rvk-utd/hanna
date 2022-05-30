@@ -2,7 +2,7 @@ import * as esincss from 'es-in-css';
 import o from 'ospec';
 
 import * as lib from './index';
-import { compareKeys } from './test-utils';
+import { compareKeys } from 'hanna-test-utils';
 
 type ExpectedExports = Exclude<keyof typeof lib, keyof typeof esincss>;
 

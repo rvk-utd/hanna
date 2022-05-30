@@ -6,11 +6,11 @@ export const compareKeys = (
   alsoAllowed: Record<string, unknown> = {}
 ) => {
   Object.keys(expected).forEach((token) => {
-    o(input[token]).notEquals(undefined)(`missing: "${token}"`);
+    o(token in input).equals(true)(`missing: "${token}"`);
   });
   Object.keys(input).forEach((token) => {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (expected[token] === undefined && alsoAllowed[token] === undefined) {
+    if (!(token in expected) && !(token in alsoAllowed)) {
       o(true).equals(false)(`unexpected: "${token}"`);
     }
   });
