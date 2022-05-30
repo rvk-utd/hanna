@@ -32,20 +32,6 @@ const testsDir = '__tests/';
 const distDir = '_npm-lib/';
 const srcDir = 'src/';
 
-const baseOpts = {
-  bundle: true,
-  platform: 'node',
-  target: ['node16'],
-  format: 'cjs',
-  external: [
-    ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.devDependencies || {}),
-    ...Object.keys(rootPkg.dependencies || {}),
-    ...Object.keys(rootPkg.devDependencies || {}),
-  ],
-  watch: opts.dev,
-};
-
 //
 // ---------------------------------------------------------------------------
 // Build Unit Tests
@@ -56,8 +42,14 @@ execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
 
 esbuild
   .build({
-    ...baseOpts,
     bundle: true,
+    external: [
+      ...Object.keys(pkg.dependencies || {}),
+      ...Object.keys(pkg.devDependencies || {}),
+      ...Object.keys(rootPkg.dependencies || {}),
+      ...Object.keys(rootPkg.devDependencies || {}),
+    ],
+    format: 'cjs',
     platform: 'node',
     target: ['node16'],
     entryPoints: glob(srcDir + '**/*.tests.{js,ts,tsx}'),
@@ -75,14 +67,6 @@ esbuild
 // ---------------------------------------------------------------------------
 // Build Library
 
-const libEntries = [
-  'index.ts',
-  'focus-visible.ts',
-  'shareButtonsUtils.ts',
-  'i18n.ts',
-  'assets.ts',
-].map((fileName) => srcDir + fileName);
-
 execSync(
   [
     `rm -rf ${distDir}`,
@@ -92,8 +76,8 @@ execSync(
   ].join(' && ')
 );
 makePackageJson(pkg, distDir, {
-  exports: libEntries.reduce((exports, file) => {
-    const token = file.slice(srcDir.length).replace(/\.tsx?$/, '');
+  exports: glob('*.{ts,tsx}', { cwd: srcDir }).reduce((exports, file) => {
+    const token = file.replace(/\.tsx?$/, '');
     exports[token] = {
       import: token + '.mjs',
       require: token + '.js',
@@ -106,15 +90,17 @@ makePackageJson(pkg, distDir, {
 
 const buildLib = (format, extraCfg) =>
   esbuild.build({
-    ...baseOpts,
-    platform: 'node',
+    bundle: false,
     format,
-    entryPoints: libEntries,
+    platform: 'node',
+    target: ['node16'],
+    entryPoints: glob(`${srcDir}**/*.{ts,tsx}`),
     outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
     outdir: distDir,
     define: {
       'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths
     },
+    watch: opts.dev,
     ...extraCfg,
   });
 
