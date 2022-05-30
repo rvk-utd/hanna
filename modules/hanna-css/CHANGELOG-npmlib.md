@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.0
+
+_2022-05-30_
+
 - **BREAKING** feat: Change `colorThemes` constant to a
   `Record<string, string>`
 - feat: Add constant `colorFamilies`, and type `ColorFamily`
