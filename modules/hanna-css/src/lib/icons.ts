@@ -1,3 +1,4 @@
+import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { css, VariablePrinter } from 'es-in-css';
 
 import iconfonttokens from './iconfonttokens';
@@ -104,12 +105,12 @@ type TrimmedIconName = keyof typeof iconfonttokens extends `icon__${infer ShortN
   ? ShortName
   : never;
 
-export const iconfont_raw = {
+export const iconfont_raw: { name: string; chars: Record<TrimmedIconName, string> } = {
   name: iconfontName,
-  chars: Object.fromEntries(
-    Object.entries(iconfonttokens).map(([name, char]) => [
-      name.replace(/^icon__/, ''),
+  chars: ObjectFromEntries(
+    ObjectEntries(iconfonttokens).map(([name, char]) => [
+      name.replace(/^icon__/, '') as TrimmedIconName,
       char,
     ])
-  ) as Record<TrimmedIconName, string>,
+  ),
 };

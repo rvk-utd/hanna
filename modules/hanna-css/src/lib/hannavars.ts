@@ -1,3 +1,5 @@
+import { ObjectKeys } from '@reykjavik/hanna-utils';
+
 import { buildVariables } from './cssutils';
 import iconfonttokens from './iconfonttokens';
 
@@ -286,9 +288,7 @@ export const buttonVars = buildVariables(['Button__gapH', 'Button__gapV']);
 
 // ---------------------------------------------------------------------------
 
-export const iconVars = buildVariables(
-  Object.keys(iconfonttokens) as Array<keyof typeof iconfonttokens>
-);
+export const iconVars = buildVariables(ObjectKeys(iconfonttokens));
 
 // ---------------------------------------------------------------------------
 
