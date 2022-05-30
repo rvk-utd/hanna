@@ -14,8 +14,8 @@ yarn add --dev @reykjavik/hanna-css
 
 - [Generic CSS helpers](#generic-css-helpers)
 - [Hanna CSS Variables](#hanna-css-variables)
-  - [`cssVars`](#cssvars)
-  - [`cssVarOverride`](#cssvaroverride)
+  - [`hannaVars`](#hannavars)
+  - [`hannaVarOverride`](#hannavaroverride)
   - [`buildVariables`](#buildvariables)
 - [Helpful Constants](#helpful-constants)
   - [`colorThemes`](#colorthemes)
@@ -57,20 +57,20 @@ your own.
 The values of those variables are declared as part of the
 [Hanna `-basics` CSS](https://styles.reykjavik.is/bundle/v0.8?m=-basics).
 
-### `cssVars`
+### `hannaVars`
 
-**Syntax:** `cssVars: Record<HannaCssVarToken, VariablePrinter>`
+**Syntax:** `hannaVars: Record<HannaCssVarToken, VariablePrinter>`
 
 Type-safe collection of CSS variables for use in your CSS code.
 
 ```js
-import { cssVars, css } from '@reykjavik/hanna-css';
+import { hannaVars, css } from '@reykjavik/hanna-css';
 
 css`
   .SomeComponent {
-    background-color: ${cssVars.theme_color_primary};
-    font: ${cssVars.font_hd_s};
-    max-width: ${cssVars.grid_6};
+    background-color: ${hannaVars.theme_color_primary};
+    font: ${hannaVars.font_hd_s};
+    max-width: ${hannaVars.grid_6};
   }
 `;
 /*`
@@ -82,7 +82,7 @@ css`
 `*/
 ```
 
-### `cssVarOverride`
+### `hannaVarOverride`
 
 **Syntax:** See
 [`es-in-css` — `VariableStyles.override`](https://www.npmjs.com/package/es-in-css#variablestylesoverride)
@@ -91,11 +91,11 @@ This function provides a type-safe way to write local overrides for the Hanna
 CSS variables. _Use sparingly, with caution!_
 
 ```js
-import { cssVarOverride, css } from '@reykjavik/hanna-css';
+import { hannaVarOverride, css } from '@reykjavik/hanna-css';
 
 css`
   .SomeComponent {
-    ${cssVarOverride({
+    ${hannaVarOverride({
       color_faxafloi_100: `red`,
     })}
   }
@@ -369,7 +369,7 @@ For that this library exports some helpful objects.
 import {
   breakpoints_raw,
   colors_raw,
-  fonts_raw,
+  font_raw,
   grid_raw,
   iconfont_raw,
 } from '@reykjavik/hanna-css';
