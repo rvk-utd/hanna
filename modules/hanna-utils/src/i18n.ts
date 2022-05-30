@@ -1,4 +1,4 @@
-import { ObjectKeys } from './ObjectHelpers';
+import { ObjectKeys } from './_/ObjectHelpers';
 
 const langMissing = <T extends Record<string, unknown>>(
   lang: string,
