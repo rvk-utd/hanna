@@ -1,112 +1,10 @@
 import { styleServerUrl } from '@reykjavik/hanna-css';
 
-// Based on "https://styles.reykjavik.is/assets/efnistakn/files.json"
-export const efnistakn = [
-  'bygging_01',
-  'download_01',
-  'dyrahald_01',
-  'ferdalag_01',
-  'fjarmal_01',
-  'fjarmal_02',
-  'fjarmal_03',
-  'fjarmal_04',
-  'fjarmal_05',
-  'fjarmal_06',
-  'flottafolk_01',
-  'fylgigogn_01',
-  'fylgigogn_02',
-  'fylgigogn_03',
-  'gogn_01',
-  'gogn_02',
-  'gogn_03',
-  'gogn_04',
-  'handaband_01',
-  'husnaedisvandi_01',
-  'hvad_01',
-  'hvar_01',
-  'hvar_02',
-  'hvenaer_01',
-  'hver_01',
-  'mannfolk_01',
-  'samband_01',
-  'senda_01',
-  'senda_02',
-  'skipurit_01',
-  'skipurit_02',
-  'skoli_01',
-  'skoli_02',
-  'skoli_03',
-  'stadur_01',
-  'stofnun_01',
-  'stofnun_02',
-  'sund_barnalaug',
-  'sund_eimbad',
-  'sund_heiturpottur',
-  'sund_kaldurpottur',
-  'sund_metralaug',
-  'sund_sauna',
-  'sund_sundfot',
-  'sund_utiklefi',
-  'timi_01',
-  'tomstundir_01',
-  'tonlist_01',
-  'tonlist_02',
-  'tonlist_03',
-  'tonlist_04',
-  'umsokn_01',
-  'umsokn_02',
-  'upload_01',
-  'velferd_01',
-  'velferd_02',
-  'velferd_03',
-  'verdlaun_01',
-  'verdlaun_02',
-  'wifi',
-] as const;
-export type Efnistakn = typeof efnistakn[number];
+// ---------------------------------------------------------------------------
 
-// Based on "https://styles.reykjavik.is/assets/efnistakn/menu/files.json"
-export const efnistakn_menu = [
-  'menu/borgarstjori',
-  'menu/borgarstjorn',
-  'menu/bygg_framkv',
-  'menu/fjarmal',
-  'menu/fundargerdir',
-  'menu/itrottir_aftreying',
-  'menu/log_reglugerdir',
-  'menu/mannaudur',
-  'menu/menning',
-  'menu/rad_nefndir',
-  'menu/skipulag',
-  'menu/skolar_fristund',
-  'menu/svid_deildir',
-  'menu/umhverfi_samgongur',
-  'menu/velferd_fjolskylda',
-] as const;
-export type Efnistakn_Menu = typeof efnistakn_menu[number];
-
-// Based on "https://styles.reykjavik.is/assets/formheimur/files.json"
-export const formheimur = [
-  'blokkir',
-  'bru',
-  'esjan',
-  'fjoll',
-  'folk',
-  'gogn',
-  'gotur',
-  'hofnin',
-  'husthok',
-  'kubbar',
-  'leikvollur',
-  'perlan',
-  'radhusid',
-  'rolo',
-  'sjorinn',
-  'sund',
-] as const;
-export type Formheimur = typeof formheimur[number];
-
-// Based on "https://styles.reykjavik.is/assets/illustrations/files.json"
+/**
+ * Based on "https://styles.reykjavik.is/assets/illustrations/files.json"
+ */
 export const illustrations = [
   'allirsaman1',
   'allirsaman1b',
@@ -159,8 +57,8 @@ export const illustrations = [
   'gaman',
   'haelisleitendur',
   'hanna-benda',
-  'hanna-god_spurning',
   'hanna-gjuggiborg',
+  'hanna-god_spurning',
   'hanna-hae',
   'hanna-hahaha',
   'hanna-hissa',
@@ -270,23 +168,107 @@ export const illustrations = [
   'vinir',
   'vinna',
 ] as const;
-export type Illustrations = typeof illustrations[number];
+export type Illustration = typeof illustrations[number];
 
-export const auxiliary_menu_images: Array<Illustrations> = [
-  'hanna-veitiggi',
-  'hanna-vandro',
-  'hanna-hugsi',
-  'hanna-hissa',
-  'hanna-hahaha',
-  'hanna-hae',
-  'hanna-god_spurning',
-  'hanna-gjuggiborg',
-  'hanna-benda',
-];
+// ---------------------------------------------------------------------------
 
-export type Auxilary_MenuImages = typeof auxiliary_menu_images[number];
+/**
+ * Based on "https://styles.reykjavik.is/assets/efnistakn/files.json"
+ */
+export const efnistakn = [
+  'bygging_01',
+  'download_01',
+  'dyrahald_01',
+  'ferdalag_01',
+  'fjarmal_01',
+  'fjarmal_02',
+  'fjarmal_03',
+  'fjarmal_04',
+  'fjarmal_05',
+  'fjarmal_06',
+  'flottafolk_01',
+  'fylgigogn_01',
+  'fylgigogn_02',
+  'fylgigogn_03',
+  'gogn_01',
+  'gogn_02',
+  'gogn_03',
+  'gogn_04',
+  'handaband_01',
+  'husnaedisvandi_01',
+  'hvad_01',
+  'hvar_01',
+  'hvar_02',
+  'hvenaer_01',
+  'hver_01',
+  'mannfolk_01',
+  'samband_01',
+  'senda_01',
+  'senda_02',
+  'skipurit_01',
+  'skipurit_02',
+  'skoli_01',
+  'skoli_02',
+  'skoli_03',
+  'stadur_01',
+  'stofnun_01',
+  'stofnun_02',
+  'sund_barnalaug',
+  'sund_eimbad',
+  'sund_heiturpottur',
+  'sund_kaldurpottur',
+  'sund_metralaug',
+  'sund_sauna',
+  'sund_sundfot',
+  'sund_utiklefi',
+  'timi_01',
+  'tomstundir_01',
+  'tonlist_01',
+  'tonlist_02',
+  'tonlist_03',
+  'tonlist_04',
+  'umsokn_01',
+  'umsokn_02',
+  'upload_01',
+  'velferd_01',
+  'velferd_02',
+  'velferd_03',
+  'verdlaun_01',
+  'verdlaun_02',
+  'wifi',
+] as const;
+export type Efnistakn = typeof efnistakn[number];
 
-// Based on "https://styles.reykjavik.is/assets/bling/files.json"
+// ---------------------------------------------------------------------------
+
+/**
+ * Based on "https://styles.reykjavik.is/assets/formheimur/files.json"
+ */
+export const formheimur = [
+  'blokkir',
+  'bru',
+  'esjan',
+  'fjoll',
+  'folk',
+  'gogn',
+  'gotur',
+  'hofnin',
+  'husthok',
+  'kubbar',
+  'leikvollur',
+  'perlan',
+  'radhusid',
+  'rolo',
+  'sjorinn',
+  'sund',
+] as const;
+export type Formheimur = typeof formheimur[number];
+
+// ---------------------------------------------------------------------------
+
+/**
+ * Based on "https://styles.reykjavik.is/assets/bling/files.json"
+ */
 export const blingTypes = [
   'arrow-right-large',
   'bowl-medium',
@@ -309,17 +291,17 @@ export const blingTypes = [
   'box-triangle',
   'box-bowl',
 ] as const;
-export type BlingTypes = typeof blingTypes[number];
+export type BlingType = typeof blingTypes[number];
 
-// ---------------------------------------------------------------------------
+// ===========================================================================
 
 export const getAssetUrl = (file: string): string => styleServerUrl + '/assets/' + file;
 
-export const getEfnistaknUrl = (icon: Efnistakn | Efnistakn_Menu): string =>
+export const getIllustrationUrl = (illustration: Illustration): string =>
+  getAssetUrl('illustrations/' + illustration + '.png');
+export const getEfnistaknUrl = (icon: Efnistakn): string =>
   getAssetUrl('efnistakn/' + icon + '.svg');
 export const getFormheimurUrl = (shapes: Formheimur): string =>
   getAssetUrl('formheimur/' + shapes + '.svg');
-export const getIllustrationUrl = (illustration: Illustrations): string =>
-  getAssetUrl('illustrations/' + illustration + '.png');
-export const getBlingUrl = (blingType: BlingTypes): string =>
+export const getBlingUrl = (blingType: BlingType): string =>
   getAssetUrl('bling/' + blingType + '.svg');
