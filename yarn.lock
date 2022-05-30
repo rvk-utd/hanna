@@ -122,6 +122,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hugsmidjan/qj@npm:^4.10.2":
+  version: 4.10.2
+  resolution: "@hugsmidjan/qj@npm:4.10.2"
+  checksum: 273dfcf351bcb081bf5e7fd8c37bf29e5c48098ba0b882697bd653f261d9e37d4528a054422ca9f42c0e18ea3965a70ef3e51f2d0be6ca4f444968092737cfa3
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.9.2":
   version: 0.9.5
   resolution: "@humanwhocodes/config-array@npm:0.9.5"
@@ -187,7 +194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reykjavik/hanna-css@workspace:modules/hanna-css":
+"@reykjavik/hanna-css@workspace:^, @reykjavik/hanna-css@workspace:modules/hanna-css":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-css@workspace:modules/hanna-css"
   dependencies:
@@ -201,6 +208,17 @@ __metadata:
     gulp: ^4.0.2
     md5-file: ^5.0.0
     sass: ~1.32
+  languageName: unknown
+  linkType: soft
+
+"@reykjavik/hanna-utils@workspace:modules/hanna-utils":
+  version: 0.0.0-use.local
+  resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
+  dependencies:
+    "@hugsmidjan/qj": ^4.10.2
+    "@reykjavik/hanna-css": "workspace:^"
+    focus-visible: ^5.2.0
+    formatchange: ^1.8.1
   languageName: unknown
   linkType: soft
 
@@ -4125,6 +4143,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"focus-visible@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "focus-visible@npm:5.2.0"
+  checksum: 876f646ef453680d3d34e9f9b23961527ffd5ccaed8690f423d4fbfa37ff023d98a490972bc1387850e37ec2e44958c81f6096ef95b67462e5c4b5404cf1dbb9
+  languageName: node
+  linkType: hard
+
 "for-in@npm:^1.0.1, for-in@npm:^1.0.2":
   version: 1.0.2
   resolution: "for-in@npm:1.0.2"
@@ -4149,6 +4174,13 @@ __metadata:
     combined-stream: ^1.0.8
     mime-types: ^2.1.12
   checksum: 01135bf8675f9d5c61ff18e2e2932f719ca4de964e3be90ef4c36aacfc7b9cb2fceb5eca0b7e0190e3383fe51c5b37f4cb80b62ca06a99aaabfcfd6ac7c9328c
+  languageName: node
+  linkType: hard
+
+"formatchange@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "formatchange@npm:1.8.1"
+  checksum: 6e2a23b5c649a3b6539f18a84d1cc3279b12dae00c784970e3f27688d23b9a6040c741a8b60f9fb15150f015da7f5f8a7078cc25bea6ad76c3511281d8155482
   languageName: node
   linkType: hard
 
@@ -4941,6 +4973,12 @@ __metadata:
   checksum: 6732ae5440857e34b9ae910dc4389d6c16b3f0166277d03ac04a6c6239a138ce4f1c0e0534bdfed077e67d6c3fe3ea05bfd20f09ca0ed97ef138edbe0840afa7
   languageName: node
   linkType: hard
+
+"hanna-test-utils@workspace:modules/test-utils":
+  version: 0.0.0-use.local
+  resolution: "hanna-test-utils@workspace:modules/test-utils"
+  languageName: unknown
+  linkType: soft
 
 "hanna@workspace:.":
   version: 0.0.0-use.local

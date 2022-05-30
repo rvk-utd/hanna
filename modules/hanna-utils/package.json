@@ -1,0 +1,39 @@
+{
+  "name": "@reykjavik/hanna-utils",
+  "version": "0.1.0",
+  "author": "Reykjavík (http://www.reykjavik.is)",
+  "contributors": [
+    "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
+    "Kári Yngvason <kari@hugsmidjan.is>",
+    "Már Örlygsson <mar.orlygsson@reykjavik.is>",
+    "Már Örlygsson <mar@hugsmidjan.is>",
+    "Valur Sverrisson <valur@hugsmidjan.is>"
+  ],
+  "repository": "ssh://git@github.com:rvk-utd/hanna.git",
+  "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/hanna-utils/README.md",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "@hugsmidjan/qj": "^4.10.2",
+    "@reykjavik/hanna-css": "workspace:^",
+    "focus-visible": "^5.2.0",
+    "formatchange": "^1.8.1"
+  },
+  "npm_lib_package_json": {
+    "engines": {
+      "node": ">=10"
+    }
+  },
+  "engines": {
+    "node": "16"
+  },
+  "scripts": {
+    "publish:lib": "yarn run build  &&  cd dist  &&  npm publish",
+    "prepublishOnly": "echo \"\nRun 'yarn run publishdist' to publish this package\n\n\"  && exit 1",
+    "build": "yarn install  &&  yarn run -T tsc --noEmit  &&  node build.mjs  &&  yarn run test",
+    "dev": "yarn install  &&  yarn run -T concurrently \"tsc --noEmit --watch --preserveWatchOutput\"  \"node build.mjs --dev\"  \"yarn run test:dev\"",
+    "test:dev": "sleep 1  &&  (yarn run test || true)  &&  yarn run test:watch",
+    "test:watch": "yarn run -T onchange '__tests/**/*.tests--*.js' -f add -f change -- yarn run -T ospec '{{file}}'",
+    "test": "yarn run -T ospec \"__tests/**/*.tests--*.js\""
+  }
+}
