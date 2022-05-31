@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Change mouse cursor on `Carousel`-related component itemlist elements
 
 ## 0.8.65
 
