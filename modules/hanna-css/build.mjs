@@ -1,20 +1,26 @@
-const { execSync } = require('child_process');
-const { compileCSSFromJS } = require('es-in-css/compiler');
-const esbuild = require('esbuild');
-const { dtsPlugin } = require('esbuild-plugin-d.ts');
-const { sync: glob } = require('glob');
+/* eslint-env es2022 */
+import { execSync } from 'child_process';
+import { compileCSSFromJS } from 'es-in-css/compiler.js';
+import esbuild from 'esbuild';
+import { dtsPlugin } from 'esbuild-plugin-d.ts';
+import { readFile } from 'fs/promises';
+import globPkg from 'glob';
 
-const rootPkg = require('../../package.json');
-
-const { devDistCssFolder } = require('./scripts/config');
-const pkg = require('./package.json');
-const {
+import {
+  exit1,
+  isNewFile,
   makePackageJson,
   opts,
   writeOnlyAffected,
-  exit1,
-  isNewFile,
-} = require('../../build-utils');
+} from '../../build-utils.mjs';
+
+import { devDistCssFolder } from './scripts/config.js';
+
+const glob = globPkg.sync;
+
+const [rootPkg, pkg] = (
+  await Promise.all([readFile('../../package.json'), readFile('./package.json')])
+).map((str) => JSON.parse(str));
 
 // ---------------------------------------------------------------------------
 

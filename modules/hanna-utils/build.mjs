@@ -5,7 +5,7 @@ import { dtsPlugin } from 'esbuild-plugin-d.ts';
 import { readFile } from 'fs/promises';
 import globPkg from 'glob';
 
-import { exit1, makePackageJson, opts, writeOnlyAffected } from '../../build-utils.js';
+import { exit1, makePackageJson, opts, writeOnlyAffected } from '../../build-utils.mjs';
 
 const glob = globPkg.sync;
 

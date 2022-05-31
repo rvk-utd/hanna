@@ -1,6 +1,10 @@
-const { execSync } = require('child_process');
-const { serverFolder } = require('./scripts/config');
-const pkg = require('./package-server.json');
+/* eslint-env es2022 */
+import { execSync } from 'child_process';
+import { readFile } from 'fs/promises';
+
+import { serverFolder } from './scripts/config.js';
+
+const pkg = JSON.parse(await readFile('./package-server.json'));
 
 execSync(
   [
