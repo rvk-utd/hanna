@@ -33,6 +33,14 @@ const testsDir = '__tests/';
 const distDir = '_npm-lib/';
 const srcDir = 'src/';
 
+const allDeps = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.devDependencies || {}),
+  ...Object.keys(rootPkg.dependencies || {}),
+  ...Object.keys(rootPkg.devDependencies || {}),
+];
+const externalDeps = allDeps.filter((name) => !name.startsWith('@reykjavik/hanna-'));
+
 //
 // ---------------------------------------------------------------------------
 // Build Unit Tests
@@ -44,12 +52,7 @@ execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
 esbuild
   .build({
     bundle: true,
-    external: [
-      ...Object.keys(pkg.dependencies || {}),
-      ...Object.keys(pkg.devDependencies || {}),
-      ...Object.keys(rootPkg.dependencies || {}),
-      ...Object.keys(rootPkg.devDependencies || {}),
-    ],
+    external: externalDeps,
     format: 'cjs',
     platform: 'node',
     target: ['node16'],

@@ -33,14 +33,15 @@ const baseOpts = {
   platform: 'node',
   target: ['node16'],
   format: 'cjs',
-  external: [
-    ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.devDependencies || {}),
-    ...Object.keys(rootPkg.dependencies || {}),
-    ...Object.keys(rootPkg.devDependencies || {}),
-  ],
   watch: opts.dev,
 };
+const allDeps = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.devDependencies || {}),
+  ...Object.keys(rootPkg.dependencies || {}),
+  ...Object.keys(rootPkg.devDependencies || {}),
+];
+const externalDeps = allDeps.filter((name) => !name.startsWith('@reykjavik/hanna-'));
 
 // ---------------------------------------------------------------------------
 // Always start by building the iconfont
@@ -61,6 +62,7 @@ execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
 esbuild
   .build({
     ...baseOpts,
+    external: externalDeps,
     entryPoints: glob('src/**/*.tests.ts'),
     entryNames: '[dir]/[name]--[hash]',
     write: false,
@@ -91,6 +93,7 @@ makePackageJson(pkg, outdirLib);
 const buildLib = (format, extraCfg) =>
   esbuild.build({
     ...baseOpts,
+    external: allDeps,
     platform: 'node',
     format,
     entryPoints: ['src/lib/index.ts'],
@@ -129,6 +132,7 @@ if (!opts.onlyLib) {
   esbuild
     .build({
       ...baseOpts,
+      external: externalDeps,
       entryPoints: glob('src/css/**/*.css.ts'),
       entryNames: '[dir]/$$[hash]$$-[name]',
       outbase: 'src/css',
@@ -161,6 +165,7 @@ if (!opts.onlyLib) {
   esbuild
     .build({
       ...baseOpts,
+      external: externalDeps,
       entryPoints: glob('src/css/**/*.scss.ts'),
       entryNames: '[dir]/$$[hash]$$-[name]',
       outbase: 'src/css',
