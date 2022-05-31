@@ -1,3 +1,4 @@
+/* eslint-env es2022 */
 import { execSync } from 'child_process';
 import esbuild from 'esbuild';
 import { dtsPlugin } from 'esbuild-plugin-d.ts';
@@ -6,7 +7,7 @@ import globPkg from 'glob';
 
 import { exit1, makePackageJson, opts, writeOnlyAffected } from '../../build-utils.js';
 
-const { sync: glob } = globPkg;
+const glob = globPkg.sync;
 
 const [rootPkg, pkg] = (
   await Promise.all([readFile('../../package.json'), readFile('./package.json')])

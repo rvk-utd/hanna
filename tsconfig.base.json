@@ -28,7 +28,7 @@
     }
   },
 
-  "exclude": ["node_modules", "**/_npm-lib", "**/__tests"]
   // Include all *.ts(x) files in the project.
-  // "include": ["**"]
+  // "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "**/_npm-lib", "**/__tests"]
 }

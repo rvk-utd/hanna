@@ -12,7 +12,6 @@
  * // focusElement(document.querySelector('.TextBlock a'));
  * ```
  */
-
 export const focusElement = (
   target: string | HTMLElement
 ): ReturnType<typeof setTimeout> =>
