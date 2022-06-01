@@ -1,6 +1,6 @@
 /* eslint-env es2022 */
 import { execSync } from 'child_process';
-import { compileCSSFromJS } from 'es-in-css/compiler.js';
+import { compileCSSFromJS } from 'es-in-css/compiler';
 import esbuild from 'esbuild';
 import { dtsPlugin } from 'esbuild-plugin-d.ts';
 import { readFile } from 'fs/promises';
