@@ -83,6 +83,8 @@
     border: $borderW solid transparent;
     padding-top: calc(#{pct(168/272)} - #{2 * $borderW});
     background: var(--ImageCards--fallback) 50% 50% / contain no-repeat;
+    // Temporary fix. FIXME: Remove this next line when you see this next
+    background: url(url('/assets/illustrations/svid1.png')) 50% 50% / contain no-repeat;
   }
 
   .ImageCards__image > img {
