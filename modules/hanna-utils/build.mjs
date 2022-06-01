@@ -80,14 +80,19 @@ execSync(
   ].join(' && ')
 );
 makePackageJson(pkg, distDir, {
-  exports: glob('*.{ts,tsx}', { cwd: srcDir }).reduce((exports, file) => {
-    const token = file.replace(/\.tsx?$/, '');
-    exports[token] = {
-      import: token + '.mjs',
-      require: token + '.js',
-    };
-    return exports;
-  }, {}),
+  exports: glob('*.{ts,tsx}', { cwd: srcDir, ignore: '*.tests.{ts,tsx}' }).reduce(
+    (exports, file) => {
+      let token = file.replace(/\.tsx?$/, '');
+      token = token === 'index' ? '.' : token;
+      exports[token] = {
+        // types: `./${token}.d.ts`,
+        import: `./${token}.mjs`,
+        require: `./${token}.js`,
+      };
+      return exports;
+    },
+    {}
+  ),
 });
 
 // -------------------
@@ -98,7 +103,7 @@ const buildLib = (format, extraCfg) =>
     format,
     platform: 'node',
     target: ['node16'],
-    entryPoints: glob(`${srcDir}**/*.{ts,tsx}`),
+    entryPoints: glob(`${srcDir}**/*.{ts,tsx}`, { ignore: '*.tests.{ts,tsx}' }),
     outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
     outdir: distDir,
     define: {
