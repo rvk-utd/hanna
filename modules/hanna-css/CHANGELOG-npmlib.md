@@ -3,7 +3,13 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Ugrade to `es-in-css@0.5` which changes how `VariablePrinter`s work
+
+## 0.3.0
+
+_2022-06-01_
+
+- **BREAKING** feat: Ugrade to `es-in-css@0.5` which changes how
+  `VariablePrinter`s work
 
 ## 0.2.0
 
