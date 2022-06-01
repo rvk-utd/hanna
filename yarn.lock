@@ -194,30 +194,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reykjavik/hanna-css@^0.2.0, @reykjavik/hanna-css@workspace:modules/hanna-css":
+"@reykjavik/hanna-css@^0.3.0, @reykjavik/hanna-css@workspace:modules/hanna-css":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-css@workspace:modules/hanna-css"
   dependencies:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
     "@hugsmidjan/gulp-sass": ^0.2.0
-    "@reykjavik/hanna-utils": ^0.1.0
+    "@reykjavik/hanna-utils": ^0.1.3
     "@types/md5-file": ^5
     cssserve: ^1.4.1
     del: ^6.0.0
-    es-in-css: ^0.4.0
+    es-in-css: ^0.5.0
     gulp: ^4.0.2
     md5-file: ^5.0.0
     sass: ~1.32
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-utils@^0.1.0, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
+"@reykjavik/hanna-utils@^0.1.3, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
     "@hugsmidjan/qj": ^4.10.2
-    "@reykjavik/hanna-css": ^0.2.0
+    "@reykjavik/hanna-css": ^0.3.0
     focus-visible: ^5.2.0
     formatchange: ^1.8.1
   languageName: unknown
@@ -2840,9 +2840,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-in-css@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "es-in-css@npm:0.4.0"
+"es-in-css@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "es-in-css@npm:0.5.0"
   dependencies:
     "@types/color": ^3.0.3
     "@types/color-name": ^1.1.1
@@ -2859,7 +2859,7 @@ __metadata:
     postcss-scss: ^4.0.3
   bin:
     es-in-css: bin/cli.js
-  checksum: 7e3e454379810584eb9a667bff4c51f950fe9975ccaaf9a012d6e9abc14479fca5e06c882fc93634c97a01efbbe75d0e0ff31c371aa200c776b64b708721cb6d
+  checksum: e1cc5b11f24b57e951a41cc5e78d6c5659d45e894379cda113aac138103792e7ccc63bb3bf2ef5a730353efcd6418dfe29326cddd790300e44a1eb8455e563be
   languageName: node
   linkType: hard
 
