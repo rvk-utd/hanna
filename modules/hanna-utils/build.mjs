@@ -82,12 +82,12 @@ execSync(
 makePackageJson(pkg, distDir, {
   exports: glob('*.{ts,tsx}', { cwd: srcDir, ignore: '*.tests.{ts,tsx}' }).reduce(
     (exports, file) => {
-      let token = file.replace(/\.tsx?$/, '');
-      token = token === 'index' ? '.' : token;
-      exports[token] = {
-        // types: `./${token}.d.ts`,
-        import: `./${token}.mjs`,
-        require: `./${token}.js`,
+      const token = './' + file.replace(/\.tsx?$/, '');
+      const expToken = token === './index' ? '.' : token;
+      exports[expToken] = {
+        // types: token + '.d.ts',
+        import: token + '.mjs',
+        require: token + '.js',
       };
       return exports;
     },
