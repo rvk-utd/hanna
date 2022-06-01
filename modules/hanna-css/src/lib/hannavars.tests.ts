@@ -1,4 +1,4 @@
-import { compareKeys } from 'hanna-test-utils';
+import { compareKeys } from 'hanna-test-helpers';
 import o from 'ospec';
 
 import { HannaCssVarToken, hannaVarOverride, hannaVars } from './hannavars';

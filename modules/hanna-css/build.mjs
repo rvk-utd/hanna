@@ -12,7 +12,7 @@ import {
   makePackageJson,
   opts,
   writeOnlyAffected,
-} from '../../build-utils.mjs';
+} from '../../build-helpers.mjs';
 
 import { devDistCssFolder } from './scripts/config.js';
 

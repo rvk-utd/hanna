@@ -1,5 +1,5 @@
 import * as esincss from 'es-in-css';
-import { compareKeys } from 'hanna-test-utils';
+import { compareKeys } from 'hanna-test-helpers';
 import o from 'ospec';
 
 import * as lib from './index';

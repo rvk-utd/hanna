@@ -4975,9 +4975,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hanna-test-utils@workspace:modules/test-utils":
+"hanna-test-helpers@workspace:modules/test-helpers":
   version: 0.0.0-use.local
-  resolution: "hanna-test-utils@workspace:modules/test-utils"
+  resolution: "hanna-test-helpers@workspace:modules/test-helpers"
   languageName: unknown
   linkType: soft
 

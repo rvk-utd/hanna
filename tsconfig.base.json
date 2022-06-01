@@ -24,7 +24,7 @@
       // "@hugsmidjan_is/hanna-sprinkles/*": ["./modules/hanna-sprinkles/src/lib/*"],
       "@reykjavik/hanna-utils": ["./modules/hanna-utils/src"],
       "@reykjavik/hanna-utils/*": ["./modules/hanna-utils/src/*"],
-      "hanna-test-utils": ["./modules/test-utils/"]
+      "hanna-test-helpers": ["./modules/test-helpers/"]
     }
   },
 
