@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@reykjavik/hanna-utils": "^0.1.3",
-    "es-in-css": "^0.5.2"
+    "es-in-css": "^0.5.3"
   },
   "main": "index.js",
   "module": "index.mjs",
