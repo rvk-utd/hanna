@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Correct broken `*.d.ts` files
 
 ## 0.3.0 — 0.3.2
 

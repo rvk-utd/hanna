@@ -105,7 +105,7 @@ type TrimmedIconName = keyof typeof iconfonttokens extends `icon__${infer ShortN
   ? ShortName
   : never;
 
-export const iconfont_raw: { name: string; chars: Record<TrimmedIconName, string> } = {
+export const iconfont_raw = {
   name: iconfontName,
   chars: ObjectFromEntries(
     ObjectEntries(iconfonttokens).map(([name, char]) => [

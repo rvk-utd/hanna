@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./_temp-types"
+  },
+  "include": ["src/lib/**/*.ts"],
+  "exclude": ["src/lib/**/*.tests.ts"]
+}

@@ -1,7 +1,6 @@
 /* eslint-env es2022 */
 import { execSync } from 'child_process';
 import esbuild from 'esbuild';
-import { dtsPlugin } from 'esbuild-plugin-d.ts';
 import { readFile } from 'fs/promises';
 import globPkg from 'glob';
 
@@ -82,12 +81,12 @@ execSync(
 makePackageJson(pkg, distDir, {
   exports: glob('*.{ts,tsx}', { cwd: srcDir, ignore: '*.tests.{ts,tsx}' }).reduce(
     (exports, file) => {
-      const token = './' + file.replace(/\.tsx?$/, '');
-      const expToken = token === './index' ? '.' : token;
+      const token = file.replace(/\.tsx?$/, '');
+      const expToken = token === 'index' ? '.' : token;
       exports[expToken] = {
-        // types: token + '.d.ts',
-        import: token + '.mjs',
-        require: token + '.js',
+        types: `./types/${token}.d.ts`,
+        import: `./${token}.mjs`,
+        require: `./${token}.js`,
       };
       return exports;
     },
@@ -113,5 +112,13 @@ const buildLib = (format, extraCfg) =>
     ...extraCfg,
   });
 
-buildLib('esm', { plugins: [dtsPlugin({ outDir: distDir })] }).catch(exit1);
+buildLib('esm').catch(exit1);
 buildLib('cjs').catch(exit1);
+
+execSync(
+  [
+    `yarn run -T tsc --project tsconfig.lib.json`,
+    `cp -R _temp-types/hanna-utils/src ${distDir}types`,
+    `rm -rf _temp-types`,
+  ].join(' && ')
+);

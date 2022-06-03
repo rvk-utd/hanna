@@ -5,6 +5,7 @@ node_modules/
 /modules/*/__tests
 /modules/*/dist
 /modules/*/_npm-lib
+/modules/*/_temp-types
 
 
 # --------------------------------------------------------------------

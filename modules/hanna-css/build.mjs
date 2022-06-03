@@ -2,7 +2,6 @@
 import { execSync } from 'child_process';
 import { compileCSSFromJS } from 'es-in-css/compiler';
 import esbuild from 'esbuild';
-import { dtsPlugin } from 'esbuild-plugin-d.ts';
 import { readFile } from 'fs/promises';
 import globPkg from 'glob';
 
@@ -109,8 +108,18 @@ const buildLib = (format, extraCfg) =>
     ...extraCfg,
   });
 
-buildLib('esm', { plugins: [dtsPlugin({ outDir: outdirLib + 'types/' })] }).catch(exit1);
+buildLib('esm').catch(exit1);
 buildLib('cjs').catch(exit1);
+
+if (opts.onlyLib && !opts.dev) {
+  execSync(
+    [
+      `yarn run -T tsc --project tsconfig.lib.json`,
+      `cp -R _temp-types/hanna-css/src/lib ${outdirLib}types`,
+      `rm -rf _temp-types`,
+    ].join(' && ')
+  );
+}
 
 // ---------------------------------------------------------------------------
 
