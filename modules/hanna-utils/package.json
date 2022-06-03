@@ -21,7 +21,7 @@
   },
   "npm_lib_package_json": {
     "engines": {
-      "node": ">=10"
+      "node": ">=16"
     }
   },
   "engines": {

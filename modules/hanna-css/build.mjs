@@ -82,8 +82,8 @@ execSync(
   [
     `rm -rf ${outdirLib}`,
     `mkdir ${outdirLib}`,
-    `cp README-npmlib.md ${outdirLib}README.md`,
-    `cp CHANGELOG-npmlib.md ${outdirLib}CHANGELOG.md`,
+    `cp README-lib.md ${outdirLib}README.md`,
+    `cp CHANGELOG-lib.md ${outdirLib}CHANGELOG.md`,
   ].join(' && ')
 );
 makePackageJson(pkg, outdirLib);

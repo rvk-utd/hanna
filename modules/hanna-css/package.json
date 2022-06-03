@@ -22,7 +22,7 @@
   "types": "types/index.d.ts",
   "npm_lib_package_json": {
     "engines": {
-      "node": ">=14"
+      "node": ">=16"
     }
   },
   "engines": {
@@ -30,13 +30,13 @@
   },
   "scripts": {
     "assets:rename-illustrations": "node scripts/renameIllustrations.js",
-    "build:npmlib": "yarn install  &&  yarn run -T tsc --noEmit  &&  NODE_ENV=production  node build.mjs --onlyLib  &&  yarn run test",
+    "build:lib": "yarn install  &&  yarn run -T tsc --noEmit  &&  NODE_ENV=production  node build.mjs --onlyLib  &&  yarn run test",
     "build:css": "yarn install  &&  yarn run -T tsc --noEmit  &&  NODE_ENV=production  node build.mjs  &&  yarn run test",
     "build": "yarn run build:css  &&  NODE_ENV=production  yarn run gulp build",
     "dev:server": "NODE_ENV=development  yarn run cssserve --config cssserve-dev.json",
     "dev": "yarn install  &&  yarn run -T concurrently -k \"sleep 4 && tsc --noEmit --watch --preserveWatchOutput\"  \"node build.mjs --dev\"  \"sleep 3 && yarn run gulp watch\"  \"yarn run dev:server\" \"yarn run test:dev\"",
     "prepublishOnly": "echo \"\nRun 'yarn run publishdist' to publish this package\n\n\"  && exit 1",
-    "publish:lib": "yarn run build:npmlib  &&  cd _npm-lib  &&  npm publish",
+    "publish:lib": "yarn run build:lib  &&  cd _npm-lib  &&  npm publish",
     "publish:server": "yarn install  &&  yarn run publish:server:assets  &&  yarn run publish:server:css",
     "publish:server:assets": "NODE_ENV=production  yarn run gulp publishAssets",
     "publish:server:css": "yarn run publish:server:css:dev  &&  yarn run publish:server:css:prod  &&  yarn run publish:server:release",
