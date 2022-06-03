@@ -108,9 +108,12 @@ You might want to use this helper inside React components to get a stable
 randomness, without having to resort to hooks.
 
 ```ts
-import { getPageScrollElm } from '@reykjavik/hanna-utils';
+import { getStableRandomItem } from '@reykjavik/hanna-utils';
+import { blingTypes } from '@reykjavik/hanna-utils/assets';
 
-getPageScrollElm().scrollTo(0, 1200);
+// ...inside a component
+
+const randomBling = getStableRandomItem(blingTypes, props.newsHeadline);
 ```
 
 <!--

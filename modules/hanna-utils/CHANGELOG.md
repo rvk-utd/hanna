@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Correct code-example in README
 
 ## 0.1.0 — 0.1.3
 
