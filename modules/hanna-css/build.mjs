@@ -86,7 +86,11 @@ execSync(
     `cp CHANGELOG-lib.md ${outdirLib}CHANGELOG.md`,
   ].join(' && ')
 );
-makePackageJson(pkg, outdirLib);
+makePackageJson(pkg, outdirLib, {
+  types: 'types/index.d.ts',
+  main: 'index.js',
+  module: 'index.mjs',
+});
 
 // -------------------
 
