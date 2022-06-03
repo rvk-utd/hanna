@@ -5,7 +5,26 @@ system.
 
 <!-- prettier-ignore-start -->
 
-- [Utilities](#utilities)
+- [Misc Utilities](#misc-utilities)
+  - [`getSVGtext`](#getsvgtext)
+  - [`formatMonitor`](#formatmonitor)
+  - [`printDate`](#printdate)
+  - [`getPageScrollElm`](#getpagescrollelm)
+  - [`getStableRandomItem`](#getstablerandomitem)
+- [Asset helpers](#asset-helpers)
+  - [Illustrations](#illustrations)
+  - [Efnistákn Icons](#efnistákn-icons)
+  - [Formheimur Shapes](#formheimur-shapes)
+  - [Bling Shapes](#bling-shapes)
+  - [Misc. Style Server Assets](#misc-style-server-assets)
+- [Social Media Sharing](#social-media-sharing)
+- [Polyfills / A11y](#polyfills--a11y)
+  - [`focus-visible` polyfill](#focus-visible-polyfill)
+- [TypeScript helpers](#typescript-helpers)
+  - [`notNully`](#notnully)
+  - [`ObjectKeys(object)`, `ObjectEntries(object)`, `ObjectFromEntries()`](#objectkeysobject-objectentriesobject-objectfromentries)
+  - [Type `OpenRecord`](#type-openrecord)
+  - [Type `OpenStringMap`](#type-openstringmap)
 
 <!-- prettier-ignore-end -->
 
