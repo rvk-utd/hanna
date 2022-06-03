@@ -22,7 +22,7 @@ system.
   - [`focus-visible` polyfill](#focus-visible-polyfill)
 - [TypeScript helpers](#typescript-helpers)
   - [`notNully`](#notnully)
-  - [`ObjectKeys(object)`, `ObjectEntries(object)`, `ObjectFromEntries()`](#objectkeysobject-objectentriesobject-objectfromentries)
+  - [`ObjectKeys`, `ObjectEntries`, `ObjectFromEntries`](#objectkeys-objectentries-objectfromentries)
   - [Type `OpenRecord`](#type-openrecord)
   - [Type `OpenStringMap`](#type-openstringmap)
 
@@ -280,7 +280,7 @@ notNully('hi'); // false
 
 Simple type-guarding filter function to weed out `null`y values from an array.
 
-### `ObjectKeys(object)`, `ObjectEntries(object)`, `ObjectFromEntries()`
+### `ObjectKeys`, `ObjectEntries`, `ObjectFromEntries`
 
 Nicer, more type-aware aliases for the native `Object.keys`, `Object.entries`
 and `Object.fromEntries`.
