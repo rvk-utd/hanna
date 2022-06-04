@@ -1,0 +1,12 @@
+{% set classes = [
+	'MainMenu__item',
+	menuitem_class,
+] %}
+
+<li {{ attributes.setAttribute('class', classes) }}>
+	{% include "@storybook/Buttons/Button.twig" with {
+		button_class: 'MainMenu__link',
+		button_url: menuitem_link,
+		button_text: menuitem_label
+	}%}
+</li>

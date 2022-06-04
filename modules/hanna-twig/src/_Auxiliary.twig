@@ -1,0 +1,19 @@
+{% set auxiliaryAttributes = create_attribute() %}
+{%  set imageStyle =  imageUrl ? '--menu-auxiliary-image: url("' ~ imageUrl ~ '");' %}
+<li {{ auxiliaryAttributes.setAttribute('style', imageStyle) }}
+	class="AuxiliaryPanel"
+	id={{ 'MegaMenu:' ~ id }}
+}
+>
+<h3 class="AuxiliaryPanel__title">{{ title }}</h3>
+<ul class="AuxiliaryPanel__items">
+	{% for item in items %}
+		{% set target = item['new_tab'] ? '_blank' : '_self' %}
+		<li id={{ item['id'] }} class="AuxiliaryPanel__item" aria-current="">
+			<a href="{{ item['href'] }}" target="{{ target }}" className="AuxiliaryPanel__link">
+				{{ item['label'] }}
+			</a>
+		</li>
+	{% endfor %}
+</ul>
+</li>

@@ -1,0 +1,71 @@
+{{ attach_library('storybook/MainMenu') }}
+{% set hasMegaPanels = false %}
+<nav class="MainMenu" aria-label="{{ menu_title }}">
+	<h2 class="MainMenu__title">{{ menu_title }}</h2>
+
+	<ul class="MainMenu__items">
+		{% if menu_frontLink %}
+			{{ menu_frontLink }}
+		{% endif %}
+
+		{% for item in menu_items %}
+			{% set link = item['nav_item_link'].toString() is empty ? '#MegaMenu:' ~ (item['nav_item_id'] ? item['nav_item_id'] : item['nav_item_text']) : item['nav_item_link'] %}
+			{% if item['nav_megamenu']|length and not hasMegaPanels %}
+				{% set hasMegaPanels = true %}
+			{% endif %}
+			{% set extraClass = item['nav_item_extraclass'] ? ' MainMenu__item--' ~ item['nav_item_extraclass'] %}
+			{% set ariaCurrent = item['nav_active_trail'] ? ' aria-current="true"' %}
+			<li class="MainMenu__item{{ extraClass }}"{{ ariaCurrent }}>
+				<a class="MainMenu__link" href="{{ link }}" aria-label="{{ item['nav_item_text'] }}">
+					{{ item['nav_item_text'] }}
+				</a>
+			</li>
+		{% endfor %}
+
+		{% if menu_separator %}
+			{{ menu_separator }}
+		{% endif %}
+
+		{% if menu_language == "en" %}
+			<li class="MainMenu__item MainMenu__item--lang"><a href="{{ menu_language_link }}" class="MainMenu__link" aria-label="Íslenska" title="Íslenska" lang="is">IS</a></li>
+		{% else %}
+			<li class="MainMenu__item MainMenu__item--lang"><a href="{{ menu_language_link }}" class="MainMenu__link" aria-label="English" title="English" lang="en">EN</a></li>
+		{% endif %}
+
+		{% if menu_extraLinks %}
+			{{ menu_extraLinks }}
+		{% endif %}
+	</ul>
+
+	{% if hasMegaPanels %}
+		<div class="MainMenu__panelsWrap">
+			<ul class="MainMenu__panels">
+				{% for item in menu_items %}
+					{% if item['nav_megamenu']|length %}
+						{% set parentClass = item['nav_active_trail'] ? ' PrimaryPanel--parent' %}
+						{% set panelTwoCols = item['nav_megamenu']|length  > 5 ? ' PrimaryPanel--twocol' %}
+						{% set panelId = 'MegaMenu:' ~ (item['nav_item_id'] ? item['nav_item_id'] : item['nav_item_text']) %}
+						<li class="PrimaryPanel  {{ parentClass }} {{ panelTwoCols }}" id="{{ panelId }}">
+							<h3 class="PrimaryPanel__title">{{ item['nav_item_text'] }}</h3>
+							<ul class="PrimaryPanel__items">
+								{% for child in item['nav_megamenu'] %}
+									{% set ariaCurrent = item['nav_active_trail'] ? ' aria-current="true"' %}
+									<li	class="PrimaryPanel__item"{{ ariaCurrent }}>
+										<a
+											class="PrimaryPanel__link" {{ attributes.removeAttribute('class') }}
+											href="{{ child['nav_item_link'] }}"
+										>
+											<span class="PrimaryPanel__linkTitle">{{ child['nav_item_text'] }}</span>
+											<small class="PrimaryPanel__summary">{{ child['nav_item_summary'] }}</small>
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+				{% endfor %}
+				{% include "@storybook/nav/_Auxiliary.twig" with menu_auxiliarPanel %}
+				</ul>
+		</div>
+	{% endif %}
+</nav>

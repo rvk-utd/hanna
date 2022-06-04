@@ -1,0 +1,5 @@
+{% if button %}
+  <button data-active="{{active_status}}" class="Tabs__tab">{{ tab_text }}</button>
+{% else %}
+  <a href="{{ tab_link }}" data-active="{{active_status}}" class="Tabs__tab">{{ tab_text }}</a>
+{% endif %}

@@ -1,0 +1,23 @@
+{{ attach_library('storybook/IslandBlock') }}
+
+{%
+	set classes = [
+	'IslandBlock',
+	IslandBlock_alignment == 'right' ? 'IslandBlock--align--right',
+	IslandBlock_alignment == 'left' ? 'IslandBlock--align--left',
+]
+%}
+
+<div {{ attributes.setAttribute('class', classes) }}>
+	{% block contextual %}{% endblock contextual %}
+
+	{% for contentItem in IslandBlock_content %}
+		{{ contentItem }}
+	{% endfor %}
+
+	{% if IslandBlock_image %}
+		<picture class="IslandBlock__image">
+			{{ IslandBlock_image }}
+		</picture>
+	{% endif %}
+</div>

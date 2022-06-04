@@ -1,0 +1,13 @@
+
+ {% set rowColClasses = [
+	'RowBlockColumn',
+	narrow ? ' RowBlockColumn--narrow',
+	background_primary ? ' RowBlockColumn--background RowBlockColumn--background--primary',
+	background and not background_primary ? ' RowBlockColumn--background',
+] %}
+
+<div class="{{ rowColClasses|join('') }}">
+	{% block col_children %}
+		{{ col_children_content }}	
+	{% endblock col_children %}
+</div>

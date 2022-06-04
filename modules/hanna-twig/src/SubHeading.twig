@@ -1,0 +1,7 @@
+{{ attach_library('storybook/SubHeading') }}
+
+{% set layoutClass = align is defined and align == 'right' ? ' SubHeading--align--right' : wide is defined and wide ? ' SubHeading--wide'  %}
+{% set Tag = tag == 'h3' ? 'h3' : 'h2' %}
+{% set variantClass = size == 'small' ? ' SubHeading--small' %}
+
+<{{Tag}} class="SubHeading{{ variantClass ~ layoutClass }}">{{ title }}</{{Tag}}>

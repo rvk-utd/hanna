@@ -1,0 +1,11 @@
+{{ attach_library('storybook/NameCards') }}
+
+{% set classes = [
+	'Namecards'
+] %}
+
+<div class="NameCards">
+	{% for row in rows %}
+			{{- row.content -}}
+	{% endfor %}
+</div>

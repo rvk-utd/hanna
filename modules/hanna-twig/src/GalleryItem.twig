@@ -1,0 +1,19 @@
+
+<figure class="GalleryItem">
+  {% if figcaption %}
+    <figcaption class="GalleryItem__caption">{{ figcaption }}</figcaption>
+  {% endif %}
+  <a
+    class="GalleryItem__button"
+    href="{{ image_url }}"
+  >
+    <picture class="GalleryItem__image">
+      {{ image }}
+    </picture>
+  </a>
+  {% if description %}
+    <div class="GalleryItem__description">
+      {{ description }}
+    </div>  
+  {% endif %}
+</figure>

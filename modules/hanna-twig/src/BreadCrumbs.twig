@@ -1,0 +1,19 @@
+{{ attach_library('storybook/BreadCrumbs') }}
+
+<nav class="BreadCrumbs" aria-label="{{ BreadCrumbs_title }}">
+	<span class="BreadCrumbs__title">{{ BreadCrumbs_title }}:</span>
+	{% for item in BreadCrumbs_items %}
+		<a
+			class="BreadCrumbs__item"
+			href="{{ item['url'] }}"
+			{%  if loop.last %}
+				aria-current="true"
+			{% endif %}
+		>
+			{{ item['text'] }}
+		</a>
+		{% if not loop.last %}
+			<span class="BreadCrumbs__separator" aria-label="">&gt;</span>
+		{% endif %}
+	{% endfor %}
+</nav>

@@ -1,0 +1,9 @@
+{{ attach_library('storybook/BasicTable') }}
+{% set alignClass = right is defined and right ? ' TableWrapper--BasicTable--align--right' %}
+{% set fullWidthClass = fullWidth is defined and fullWidth and not alignClass ? ' TableWrapper--BasicTable--fullwidth' %}
+
+<div class="TableWrapper TableWrapper--BasicTable{{ alignClass ~ fullWidthClass }}">
+	{% block BasicTable %}
+		{{content}}
+	{% endblock %}
+</div>

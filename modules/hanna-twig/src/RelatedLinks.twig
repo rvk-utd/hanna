@@ -1,0 +1,21 @@
+<div class="CenterColumn">
+	<div class="RelatedLinks">
+		{% if title %}
+			<h3 class="RelatedLinks__title">{{ title }}</h3>
+		{% endif %}
+		<ul class="RelatedLinks__list">
+			{% for item in items %}
+				<li class="RelatedLinks__item">
+					<a
+						class="RelatedLinks__link"
+						href="{{ item.href }}"
+						target="{{item.target | default('_self')}}"
+						data-type="{{ item.dataype }}"
+					>
+						{{ item.label }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

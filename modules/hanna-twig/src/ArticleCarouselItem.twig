@@ -1,0 +1,25 @@
+{% set photoClass = (isPhoto is defined and isPhoto) ? ' ArticleCarouselCard__illustration--photo' %}
+{# `color` is optional.
+	One of: 'esja' | 'faxafloi' | 'nautholsvik' | 'heidmork' | 'ellidaardalur' | 'blafjoll' | 'sund' | 'rokkur' | 'suld';
+#}
+{% set colorAttr = color is defined and color ? ' data-color="' ~ color ~ '"' %}
+
+{# `theme` is also optional and only used if no `color` is set .
+	One of: 'trustworthy' | 'dependable' | 'friendly' | 'lively' | 'colorful'
+#}
+{% set colorThemeAttr = not (color is defined and color) and theme is defined and theme ? ' data-color-theme="' ~ theme ~ '"' %}
+{% set targetValue = target ? '_blank' : '_self' %}
+
+<div class="ArticleCarouselCard"{{ colorAttr|raw }}{{ colorThemeAttr|raw }}>
+	<a class="ArticleCarouselCard__link" target="{{ targetValue }}" href={{ image_link }}>
+		<picture class="ArticleCarouselCard__illustration{{ photoClass }}">
+			{{ image }}
+		</picture>
+		<h3 class="ArticleCarouselCard__title">{{ title }}</h3>
+	</a>
+	<span class="ArticleCarouselCard__date">{{ date }}</span>
+	<div class="ArticleCarouselCard__summary">
+		{{ card_summary }}
+	</div>
+	{{ link }}
+</div>

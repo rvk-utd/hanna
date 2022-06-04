@@ -1,0 +1,14 @@
+{#
+	NOTE: `type` is OPTIONAL prop – one of: 'text' | 'pdf' | 'link'
+#}
+{% set typeClass = type is defined ? 'ExtraLinks__related__link--' ~ type %}
+{% set targetValue = target ? '_blank' : '_self' %}
+{% if type == "pdf" or type == "text" %}
+	{% set is_file = true %}
+{% endif %}
+
+<li class="ExtraLinks__related__item">
+	<a class="ExtraLinks__related__link {{typeClass}}"  target="{{ targetValue }}" href="{{ url }}">
+		{{ title }}
+	</a>
+</li>

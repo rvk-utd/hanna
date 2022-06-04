@@ -1,0 +1,43 @@
+{#
+  @file Image Cards.
+#}
+
+{{ attach_library('storybook/ImageCards') }}
+
+{% set classes = [
+  'ImageCards',
+  background ? 'ImageCards--background',
+] %}
+
+{% set fallbackStyleAttr = fallback_image_url is defined and fallback_image_url ?
+		'--ImageCards--fallback: url(' ~ fallback_image_url ~ ');'
+%}
+
+<div{{ attributes.addClass(classes).setAttribute('style', fallbackStyleAttr) }}>
+  {% if more_link %}
+    <div class="ImageCards__summary">
+      {% if image_cards_title %}
+        <h2 class="ImageCards__title">{{ image_cards_title }}</h2>
+      {% endif %}
+
+      {{ more_link }}
+    </div>
+  {% else %}
+    {% if image_cards_title %}
+      <h2 class="ImageCards__title">{{ image_cards_title }}</h2>
+    {% endif %}
+  {% endif %}
+
+  {# list.attributes is available only when attribute defined in views settings. #}
+  {% if list.attributes %}
+    <ul{{ list.attributes.addClass('ImageCards__list') }}>
+  {% else %}
+    <ul class="ImageCards__list">
+  {% endif %}
+    {% for row in rows %}
+      <li{{ row.attributes.addClass('ImageCards__item') }}>
+        {{- row.content -}}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

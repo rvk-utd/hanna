@@ -1,0 +1,10 @@
+{% spaceless %}
+  {% if attributes %}
+    <button {{ attributes.addClass('ButtonPrimary') }}>
+  {% else %}
+    <button class="ButtonPrimary" type="button">
+  {% endif %}
+
+    {{ button_text }}
+  </button>
+{% endspaceless %}

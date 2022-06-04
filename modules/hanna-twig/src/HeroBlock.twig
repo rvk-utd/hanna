@@ -1,0 +1,20 @@
+{{ attach_library('storybook/HeroBlock') }}
+
+<div {{ attributes.setAttribute('class', 'HeroBlock').removeAttribute('data-alignment') }}>
+  <h1 class="HeroBlock__title">{{ heroblock_title }}</h1>
+  {% if heroblock_image is not empty %}
+    <picture class="HeroBlock__image">
+      {{ heroblock_image }}
+    </picture>
+  {% endif %}
+  {% if heroblock_summary %}
+    <div class="HeroBlock__summary">
+      {{ heroblock_summary }}
+    </div>
+  {% endif %}
+  {% if heroblock_links %}
+    <div class="HeroBlock__buttons">
+      {{ heroblock_links }}
+    </div>
+  {% endif %}
+</div>

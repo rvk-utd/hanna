@@ -1,0 +1,52 @@
+{{ attach_library('storybook/ContentImage') }}
+{# TODO: Set up dynamic content #}
+{# NOTE: Don't forget to run window.Hanna.loadSprinkle('ContactBubble') #}
+
+{# TODO: Make alwaysShow configurable #}
+{% set alwaysShowAttr = true ? ' data-always-show="true"' %}
+
+
+<div class="ContactBubble"{{ alwaysShowAttr|raw }}>
+  <h2 class="ContactBubble__title">Hvað getum við gert fyrir þig?</h2>
+
+  <ul class="ContactBubble__list">
+    <li class="ContactBubble__item ContactBubble__item--type--suggestions">
+      <a
+        class="ContactBubble__link"
+        href="https://abendingar.reykjavik.is/"
+        target="_blank"
+      >
+        Ábendingar
+        <small>Sendu okkur línu</small>
+      </a>
+    </li>
+    <li class="ContactBubble__item ContactBubble__item--type--livechat">
+      <a
+        class="ContactBubble__link"
+        href="#"
+        target="_self"
+      >
+        Netspjall
+        <small>Opið virka daga kl. 8:30–16:00</small>
+      </a>
+    </li>
+    <li class="ContactBubble__item ContactBubble__item--type--faq">
+      <a class="ContactBubble__link" href="/spurt-og-svarad">
+        Spurt og svarað
+        <small>Algengar spurningar og svör</small>
+      </a>
+    </li>
+    <li class="ContactBubble__item ContactBubble__item--type--phone">
+      <a class="ContactBubble__link" href="tel:+3544111111">
+        Þjónustuver 411 1111
+        <small>Opið virka daga kl. 8:30–16:00</small>
+      </a>
+    </li>
+    <li class="ContactBubble__item ContactBubble__item--type--suggestions">
+      <a class="ContactBubble__link" href="mailto:upplysingar@reykjavik.is">
+        upplysingar@reykjavik.is
+        <small>Sendu okkur línu</small>
+      </a>
+    </li>
+  </ul>
+</div>

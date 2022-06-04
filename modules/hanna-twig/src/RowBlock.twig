@@ -1,0 +1,13 @@
+
+{% set rowBlockClasses = [
+	'RowBlock',
+	right ? ' RowBlock--align--right',
+	modifier ? ' RowBlock--' ~ modifier,
+	custom_class ? ' ' ~ custom_class,
+] %}
+
+<div class="{{ rowBlockClasses|join('') }}">
+	{% block block_children %}
+		{{ block_children_content }}	
+	{% endblock block_children %}
+</div>

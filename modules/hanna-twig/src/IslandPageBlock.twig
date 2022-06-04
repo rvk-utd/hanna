@@ -1,0 +1,35 @@
+{{ attach_library('storybook/IslandPageBlock') }}
+
+{%
+	set classes = [
+    'IslandPageBlock',
+    IslandPageBlock_alignment == 'image_right' ? 'IslandPageBlock--align--left',
+    IslandPageBlock_alignment == 'image_left' ? 'IslandPageBlock--align--right',
+    IslandPageBlock_background  == 'gray' ? 'IslandPageBlock--background--gray',
+    IslandPageBlock_background  == 'secondary' ?'IslandPageBlock--background--secondary',
+  ]
+%}
+
+<div {{ attributes.addClass(classes) }}>
+  {% block contextual %}{% endblock contextual %}
+
+  <div class="IslandPageBlock__content">
+    <h2 class="IslandPageBlock__title">
+      {{ IslandPageBlock_title }}
+    </h2>
+
+    <div class="IslandPageBlock__summary">
+      {{ IslandPageBlock_summary }}
+    </div>
+
+    {% if IslandPageBlock_buttons %}
+      <div class="IslandPageBlock__buttons">
+        {{ IslandPageBlock_buttons }}
+      </div>
+    {% endif %}
+  </div>
+
+  <picture class="IslandPageBlock__image">
+    {{ IslandPageBlock_image }}
+  </picture>
+</div>

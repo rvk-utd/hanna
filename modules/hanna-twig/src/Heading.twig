@@ -1,0 +1,7 @@
+{{ attach_library('storybook/Heading') }}
+
+{% set layoutClass = align is defined and align == 'right' ? ' Heading--align--right' : wide is defined and wide ? ' Heading--wide'  %}
+{% set Tag = tag == 'h3' ? 'h3' : 'h2' %}
+{% set variantClass = size == 'small' ? ' Heading--small' : size == 'large' ? ' Heading--large' %}
+
+<{{Tag}} class="Heading{{ variantClass ~ layoutClass }}">{{ title }}</{{Tag}}>

@@ -1,0 +1,6 @@
+{{ attach_library('storybook/AccordionList') }}
+<div class="AccordionList{{ fullwidth ? ' AccordionList--wide' }}">
+	{% for item in AccordionListItems%}
+		{{ item }}
+	{% endfor %}
+</div>

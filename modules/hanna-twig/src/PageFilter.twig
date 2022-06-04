@@ -1,0 +1,22 @@
+{% set underlapClass = underlap is defined and underlap ? ' PageFilter--underlap' %}
+
+<div class="PageFilter{{ underlapClass }}">
+  {% if title %}
+    <h2 class="PageFilter__title">{{ title }}</h2>
+  {% endif %}
+
+  {% if summary %}
+    <div class="PageFilter__summary">
+      {{ summary }}
+    </div>
+  {% endif %}
+
+  <div class="PageFilter__filters">
+    {{ filters }}
+  </div>
+
+  <div class="PageFilter__buttons">
+    {{ submit }}
+		{{ reset }}
+  </div>
+</div>

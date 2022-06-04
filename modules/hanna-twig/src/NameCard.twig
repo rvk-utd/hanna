@@ -1,0 +1,37 @@
+{%  set availability_classes = [
+	"NameCard__availability",
+	available ? "NameCard__availability--available"
+	]
+%}
+
+{% set availability_label  = available ? 'Laus pláss': 'Ekki laus pláss'%}
+
+
+<div class="NameCard">
+	<div class="NameCard__name">{{ name }}</div>
+	<p class="NameCard__contactinfo">
+    {# FIXME:
+      The phone variable must be filtered to remove names and other non-digit
+      characters before it gets dumped into the href="" attribute.
+
+      Also: Consider splitting the phone value on "/", or some other token(s),
+      and render multiple phone numbers/email addresses.
+      See tons of exmples of real use-cases: https://reykjavik.is/allir-dagforeldrar
+    #}
+		<a class="NameCard__contactinfo__item" href="tel:{{ phone }}">{{ phone }}</a>
+	</p>
+	<p class="NameCard__location">{{ address }}, {{ postalcode }}</p>
+  {% if body %}
+    <p class="NameCard__hours">{{ body }}</p>
+  {% endif %}
+	{# NOTE:
+    Conditionally render this field if there's more "misc" text available
+    {% if misc %}
+      <p class="NameCard__abouttext">{{ misc }}</p>
+    {% endif %}
+  #}
+	<div class="NameCard__meta">
+		<span {{ attributes.addClass(availability_classes) }}>{{ availability_label }}</span>
+		<span class="NameCard__updated">Uppfært síðast {{ updated }}</span>
+	</div>
+</div>

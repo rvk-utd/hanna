@@ -1,0 +1,26 @@
+{#
+  Labeled Text Block Paragraph!
+
+  textblock_title: String: The title of the  paragraph.
+  textblock_summary: String: The summary of the  paragraph.
+  textblock_button_link: String: The button link
+  textblock_alignmet: String: center|left
+#}
+{{ attach_library('storybook/LabeledTextBlock') }}
+
+{%
+	set classes = [
+		'LabeledTextBlock',
+		textblock_alignmet == 'left' ? 'LabeledTextBlock--wide',
+	]
+%}
+<div {{ attributes.setAttribute('class', classes).removeAttribute('data-alignment') }}>
+	<h2 class="LabeledTextBlock__label">{{ textblock_title }}</h2>
+	{% if textblock_summary  %}
+		<div class="LabeledTextBlock__summary">
+			{{ textblock_summary }}
+			{% if textblock_links %}
+				{{ textblock_links }}
+			{% endif %}
+	{% endif %}
+</div>

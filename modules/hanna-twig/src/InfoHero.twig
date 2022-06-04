@@ -1,0 +1,114 @@
+{{ attach_library('storybook/InfoHero') }}
+{{ attach_library('reykjavik/hanna-info-hero') }}
+{%
+	set image_classes = [
+		'InfoHero__image',
+		image is empty?  'InfoHero__image--missing'
+	]
+%}
+
+{% set alignment = component_align is defined and component_align == 'left' ? 'left' : 'right' %}
+{% set layoutClass = alignment == 'left' ? ' InfoHero--align--left' :' InfoHero--align--right' %}
+
+	<div class="InfoHero__wrapper">
+		<div class="InfoHero__head">
+			<h1 class="InfoHero__title">{{ name }}</h1>
+		</div>
+
+		<div class="InfoHero{{ layoutClass }}">
+			<div class="InfoHero__content">
+				<div class="InfoHero__subtitle">{{ jobtitle }}</div>
+				{% if blurb %}
+					<div class="InfoHero__blurb">{{ blurb }}</div>
+				{% endif %}
+				{% if buttons or email %}
+					<div class="InfoHero__buttons">
+						{% if buttons %}
+							{{ buttons }}
+						{% endif %}
+						{% if email %}
+							<a class="ButtonTertiary ButtonTertiary--email" href="mailto:{{ email }}">
+								{{ email }}
+							</a>
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+
+			{% if image %}
+				<picture {{ attributes.setAttribute('class', image_classes) }} >
+					{{ image }}
+				</picture>
+			{% else %}
+				<div {{ attributes.setAttribute('class', image_classes) }}></div>
+			{% endif %}
+
+
+			{% set textSide = alignment %}
+			{% set imageSide = textSide == "right" ? "left" : "right" %}
+
+			{% if bling_type is not defined or bling_type == "waves" %}
+				<div
+					class="Bling
+				Bling--align--{{textSide}}
+				Bling--vertical--up
+				Bling--parent--bottom
+				Bling--color--primary"
+					data-bling-type="waves-medium"
+				></div>
+			{% endif %}
+			{% if bling_type == "sunny-waves" %}
+				<div
+					class="Bling
+				Bling--align--{{textSide}}
+				Bling--vertical--up
+				Bling--parent--bottom"
+					data-bling-type="waves-medium"
+				></div>
+				<div
+					class="Bling
+				Bling--align--{{imageSide}}-center
+				Bling--vertical--down-ish
+				Bling--parent--top
+				Bling--color--secondary"
+					data-bling-type="circle-medium"
+				></div>
+			{% endif %}
+			{% if bling_type == "triangles" %}
+				<div
+					class="Bling
+				Bling--align--{{textSide}}-center
+				Bling--vertical--up
+				Bling--parent--bottom"
+					data-bling-type="triangle-large"
+				></div>
+				<div
+					class="Bling
+				Bling--align--{{imageSide}}
+				Bling--vertical--down-ish
+				Bling--parent--top-ish
+				Bling--color--secondary
+				Bling--overlay"
+					data-bling-type="triangle-small"
+				></div>
+			{% endif %}
+			{% if bling_type == "circles" %}
+				<div
+					class="Bling
+				Bling--align--{{textSide}}
+				Bling--vertical--down
+				Bling--parent--top"
+					data-bling-type="circle-large"
+				></div>
+				<div
+					class="Bling
+				Bling--align--{{imageSide}}
+				Bling--vertical--up-ish
+				Bling--parent--bottom-ish
+				Bling--color--secondary
+				Bling--overlay"
+					data-bling-type="circle-small"
+				></div>
+			{% endif %}
+		</div>
+	</div>

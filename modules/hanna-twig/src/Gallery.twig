@@ -1,0 +1,10 @@
+{{ attach_library('storybook/Gallery') }}
+
+<div {{ attributes.addClass('Gallery') }}>
+  {% block contextual %}{% endblock contextual %}
+
+  <div class="Gallery__items">
+    {{ gallery_items }}
+  </div>
+
+</div>

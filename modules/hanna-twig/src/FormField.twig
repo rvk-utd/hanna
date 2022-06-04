@@ -1,0 +1,12 @@
+{% if attributes %}
+  <div {{ attributes.addClass('FormField', classes) }}>
+{% else %}
+  <div class="FormField {{ field_type }}">
+{% endif %}
+
+  {% if label %}
+    {{ label }}
+  {% endif %}
+
+  {% block form_input %}{% endblock form_input %}
+</div>

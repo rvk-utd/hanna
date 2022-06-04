@@ -1,0 +1,36 @@
+{{ attach_library('storybook/CityBlock') }}
+
+{%
+	set classes = [
+	'CityBlock',
+	cityblock_alignment == 'image_right' ? 'CityBlock--align--left' : 'CityBlock--align--right',
+	cityblock_image_type is not empty?  'CityBlock--' ~ cityblock_image_type
+]
+%}
+<div {{ attributes.setAttribute('class', classes) }}>
+	<div class="CityBlock__content">
+		<h2 class="CityBlock__title">
+			{{ cityblock_title }}
+		</h2>
+		{% if cityblock_summary %}
+			<div class="CityBlock__summary">
+				<p>
+					{{ cityblock_summary }}
+				</p>
+			</div>
+		{% endif %}
+
+		{% if  cityblock_buttons  %}
+			<div class="CityBlock__buttons">
+				{% for link in cityblock_buttons %}
+					<a class="CityBlock__button" href="{{ link['link'] }}">{{ link['label'] }}</a>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+	{% if cityblock_image %}
+		<picture class="CityBlock__image">
+			{{ cityblock_image }}
+		</picture>
+	{% endif %}
+</div>

@@ -1,0 +1,19 @@
+{{ attach_library('storybook/ProcessOverview') }}
+
+{# FIXME: hook this up # }
+{%
+	set transparentClass = transparent != false ? ' ProcessOverview--transparent' : ''
+	set narrowClass = narrow != false ? ' ProcessOverview--narrow' : '',
+%}
+{##}
+<div class="ProcessOverview{{transparentClass}}{{narrowClass}}">
+	<h2 class="ProcessOverview__title">{{ processStepper_title }}</h2>
+	{% if processStepper_steps %}
+		{{ processStepper_steps }}
+	{% endif %}
+	{% if processStepper_attention %}
+		<div class="ProcessOverview__attention">
+			{{ processStepper_attention }}
+		</div>
+	{% endif %}
+</div>

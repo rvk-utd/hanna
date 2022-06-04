@@ -1,0 +1,37 @@
+{#
+  Grid  Paragraph!
+
+  grid_title: String: The title of the  paragraph.
+  grid_summary: String: The summary of the  paragraph.
+  grid_image: String: The image  of the  paragraph.
+  grid_links: String: The links
+  grid_columns: String: two|three
+#}
+{{ attach_library('storybook/GridBlocks') }}
+
+<div class="GridBlocks__item">
+	<picture class="GridBlocks__illustration">
+		{{ grid_image }}
+	</picture>
+	<div class="GridBlocks__textwrap">
+		{% if grid_link_title %}
+			<a  href="{{ grid_link_title.0['#url'] }}">
+			<h3 class="GridBlocks__item__title">{{ grid_title }}</h3>
+			</a>
+		{% else %}
+			<h3 class="GridBlocks__item__title">{{ grid_title }}</h3>
+		{% endif %}
+		<div class="GridBlocks__item__summary">
+			{{ grid_summary }}
+		</div>
+		{% if grid_links %}
+			<ul class="GridBlocks__links">
+				{% for link in grid_links %}
+					<li class="GridBlocks__link">
+						<a class="ButtonTertiary" href="{{ link['#url'] }}">{{link['#title']}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
+</div>

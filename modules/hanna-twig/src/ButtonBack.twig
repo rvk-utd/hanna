@@ -1,0 +1,18 @@
+{% if buttonBack_type == 'link' %}
+	<a
+		class="ButtonBack"
+		href="{{ buttonBack_url }}"
+	>
+		{{ buttonBack_text }}
+	</a>
+{% endif %}
+
+{% if buttonBack_type == 'button' %}
+	<button
+		class="ButtonBack"
+		type="button"
+		{% if buttonBack_disabled %} disabled="" {% endif %}
+	>
+		{{ buttonBack_text }}
+	</button>
+{% endif %}

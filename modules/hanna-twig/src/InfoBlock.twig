@@ -1,0 +1,25 @@
+{{ attach_library('storybook/InfoBlock') }}
+
+{%
+	set classes = [
+	infoBlock_type is not empty ? 'InfoBlock__' ~ infoBlock_type
+]
+%}
+
+<div class="InfoBlock">
+	<h2 class="InfoBlock__title">{{ infoBlock_title }}</h2>
+	{% if infoBlock_subtitle %}
+		<div class="InfoBlock__subtitle">
+			{{ infoBlock_subtitle }}
+		</div>
+	{% endif %}
+	{% if infoBlock_list %}
+		{{ infoBlock_list }}
+	{% endif %}
+	{% if infoBlock_type is not empty and  infoBlock_attention_extra%}
+		<div {{ attributes.setAttribute('class', classes) }}>
+			{{ infoBlock_attention_extra }}
+		</div>
+	{% endif %}
+
+</div>

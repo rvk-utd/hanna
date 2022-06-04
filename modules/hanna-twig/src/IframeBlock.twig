@@ -1,0 +1,22 @@
+{{ attach_library('storybook/IframeBlock') }}
+{% set framedClass = framed is defined and framed ? ' IframeBlock--framed' %}
+{% set compactClass = noMargins is defined and noMargins ? ' IframeBlock--compact' %}
+{% set alignClass = right is defined and right ? ' IframeBlock--align--right' %}
+{% set heightVal = height is defined and height ? height %}
+{% set widthVal = width is defined and width ? width : '' %}
+
+<iframe
+	title="{{ title }}"
+	class="IframeBlock{{ framedClass ~ alignClass ~ compactClass }}"
+	src="{{ src }}"
+	scrolling="{{ scrolling }}"
+	width="{{ widthVal }}"
+	{#
+		If height **IS NOT** set, then Hanna.loadSprinkle('IframeBlock')
+		will initialize iframe-resizer to set the height automatically.
+
+		If height **IS** set then the iframe is considered to have a
+		fixed height
+	#}
+	height="{{ heightVal }}"
+></iframe>

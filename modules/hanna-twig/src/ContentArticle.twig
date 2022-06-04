@@ -1,0 +1,49 @@
+{{ attach_library('storybook/ContentArticle') }}
+
+{% if image %}
+	{% set topImage %}
+		{% include "@storybook/ContentImage/ContentImage.twig" with{
+			text: imageText,
+			credit: imageCredit,
+			image: image,
+		}%}
+	{% endset %}
+{% endif %}
+
+{% set contentText %}
+	{{ topImage }}
+	{{ summary }}
+{% endset %}
+
+<div class="ContentArticle">
+	{% include "@storybook/ArticleMeta/ArticleMeta.twig" with {
+		items: articleMeta
+	}%}
+
+	{% include "@storybook/Heading/Heading.twig" with {
+		title: label
+	}%}
+	
+	{% include "@storybook/TextBlock/TextBlock.twig" with {
+		content: contentText
+	}%}
+	
+	{% if relatedItems is defined %}
+		{% include "@storybook/VSpacer/VSpacer.twig" with {
+			size: 'true',
+			small: 'small',
+			content: '<hr/>'
+		}%}
+
+		{% include "@storybook/RelatedLinks/RelatedLinks.twig" with {
+			title: relatedItems|length > 0 ? "Tengt efni" : '',
+			items: relatedItems
+		}%}
+	{% endif %}
+
+	{% include "@storybook/VSpacer/VSpacer.twig" with {
+		size: 'true',
+		small: 'small',
+		content: ''
+	}%}
+</div>

@@ -1,0 +1,26 @@
+{{ attach_library('storybook/ExtraLinks') }}
+
+{% set classes = [ 
+	'ExtraLinks', 
+	extraLinks_type == 'bottom' ? 'ExtraLinks--related',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+	{# Main section with boxes. #}
+	<div class="ExtraLinks__main">
+		<h2 class="ExtraLinks__title">{{extraLinks_main_title}}</h2>
+		{% if extraLinks_content %}
+		<ul class="ExtraLinks__list">
+			{{ extraLinks_content }}
+		</ul>
+		{% endif %}
+	</div>
+
+	{# Additional section with links. #}
+	{% if extraLinks_type == 'bottom' %}
+		<div class="ExtraLinks__related">
+		<h3 class="ExtraLinks__related__title">{{ extraLinks_bottom_title }}</h3>
+		{{ extraLinks_related_list }}
+	</div>
+	{% endif %}
+</div>

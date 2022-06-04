@@ -1,0 +1,50 @@
+{#
+/**
+ * Available variables:
+ * - page: page object from drupal
+ * - siteName: Drupal site name,
+ * - siteLogo: Drupal selected logo,
+ * - skipLinkLabel: Skip link label string.,
+ * - isMenuActive: True if menu it is active, FALSE in other case.,
+ * - closeMenuLabel: String for menu close label.,
+ * - logoLink: Url for logo link.,
+*/
+#}
+{{ attach_library('storybook/Layout') }}
+{{ attach_library('storybook/Alert') }}
+{{ attach_library('storybook/BasicTable') }}
+
+<div class="Layout">
+	<div class="Layout__alerts" role="alert">
+		{{ pageHeader }}
+		<div id="sidewidealerts"></div>
+	</div>
+	<div class="Layout__content">
+		<div class="Layout__header" role="banner">
+			<a class="Layout__header__logo" href="{{ logoLink ? logoLink : '/' }}">
+				<img src={{ siteLogo }} alt="{{ siteName }}"/>
+				{{siteName}}
+			</a>
+			<a class="Layout__header__skiplink" href="#pagenav" aria-label="{{skipLinkLabel}}">
+				{{skipLinkLabel}}
+			</a>
+		</div>
+		<div class="Layout__main" role="main">
+			{{ page.content }}
+		</div>
+		<div class="Layout__nav" id="pagenav" role="navigation">
+			{{ page.breadcrumb }}
+			{% include '@reykjavik/layout/header.html.twig' %}
+			{{ page.secondary_menu }}
+			{% if isMenuActive %}
+				<button class="Layout__nav__closebutton" aria-label="{{closeMenuLabel}}">
+					{{closeMenuLabel}}
+				</button>
+			{% endif %}
+		</div>
+		<div class="Layout__footer" role="complementary">
+			{% include '@reykjavik/layout/footer.html.twig' %}
+			{% include "@storybook/Footer/FooterBadges.twig" %}
+		</div>
+	</div>
+</div>

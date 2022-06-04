@@ -1,0 +1,24 @@
+{# 
+  @file Action card list.
+#}
+
+{{ attach_library('storybook/ActionCards') }}
+
+<div{{ attributes.addClass('ActionCards') }}>
+  {% if cards_title %}
+    <h2 class="ActionCards__title">{{ cards_title }}</h2>
+  {% endif %}
+  
+  {# list.attributes is available only when attribute defined in views settings. #}
+  {% if list.attributes %}
+    <ul{{ list.attributes.addClass('ActionCards__list') }}>
+  {% else %}
+    <ul class="ActionCards__list">
+  {% endif %}
+    {% for row in rows %}
+      <li{{ row.attributes.addClass('ActionCards__item') }}>
+        {{- row.content -}}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

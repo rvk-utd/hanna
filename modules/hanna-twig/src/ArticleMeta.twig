@@ -1,0 +1,9 @@
+<div class="ArticleMeta">
+	{%for item in items %}
+		{% if item.href is defined %}
+			<a class="ArticleMeta__item" href="{{ item.href }}">{{ item.label }}</a>
+		{% else %}
+			<span class="ArticleMeta__item"> {{ item.label }} </span>
+		{% endif %}
+	{% endfor %}
+</div>

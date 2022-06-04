@@ -1,0 +1,18 @@
+{% set classes = [
+	'TextBlock',
+	labelled ? ' TextBlock--labelled',
+	right or labelled ? ' TextBlock--align--right',
+	wide and not right ? ' TextBlock--wide',
+	small and not labelled ? ' TextBlock--small',
+] %}
+
+{% if attributes %}
+	<div{{ attributes.addClass(classes) }}>
+{% else %}
+	<div class="{{ classes|join('') }}">
+{% endif %}
+
+	{% block content %}
+		{{ content }}
+	{% endblock %}
+</div>

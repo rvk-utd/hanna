@@ -1,0 +1,67 @@
+{#
+	This component accepts four OPTIONAL parameters:
+
+	* `content` which gets wrapped in a <div class="VSpacer">...</div>. Otherwise a <br class="VSpacer" /> is rendered
+
+	* `size` 'small' | 'large' | 'xlarge'
+		Sets both top and bottom margins (only top margin in non-wrapping <br /> mode)
+
+	* `top` 'none' | 'small' | 'large' | 'xlarge'
+		Sets top margin (only in wrapper mode)
+
+	* `bottom` 'none' | 'small' | 'large' | 'xlarge'
+		Sets top margin (only in wrapper mode)
+
+
+	NOTES:
+	* `top` and `bottom` should not be both set to 'none' at the same time.
+	* `top` and `bottom` are ignored in non-wrapping (`<br/>`) mode
+
+#}
+
+{% set isWrapper = content is defined and content %}
+
+{% set topVal
+		= not isWrapper or top is not defined ? ''
+		: top == 'small' or top == 'large' or top == 'xlarge' or top == 'none' ? top
+%}
+{% set bottomVal
+		= not isWrapper or bottom is not defined ? ''
+		: bottom == 'small' or bottom == 'large' or bottom == 'xlarge' or bottom == 'none' ? bottom
+%}
+{% set sizeVal
+		= size is not defined or (topVal and bottomVal) ? ''
+		: small == 'small' or small == 'large' or small == 'xlarge' ? small
+%}
+
+{# collapse effectively-duplicate class modifiers #}
+{% if topVal == bottomVal and top !='none' and not sizeVal %}
+	{% set sizeVal = topVal %}
+	{% set topVal = '' %}
+	{% set bottomVal = '' %}
+{% endif %}
+{% if sizeVal %}
+	{% if sizeVal == topVal %}
+		{% set sizeVal = topVal %}
+		{% set topVal = '' %}
+	{% endif %}
+	{% if sizeVal == bottomVal %}
+		{% set sizeVal = bottomVal %}
+		{% set bottomVal = '' %}
+	{% endif %}
+{% endif %}
+
+
+{% set sizeClass = sizeVal ? ' VSpacer--' ~ sizeVal %}
+{% set topClass = topVal ? ' VSpacer--top--' ~ topVal %}
+{% set bottomClass = bottomVal ? ' VSpacer--bottom--' ~ bottomVal %}
+
+
+{% if isWrapper %}
+	<div class="VSpacer{{ sizeClass ~ topClass ~ bottomClass }}">
+		{{ content|raw }}
+	</div>
+{% else %}
+	<br class="VSpacer{{ sizeClass }}" />
+{% endif %}
+

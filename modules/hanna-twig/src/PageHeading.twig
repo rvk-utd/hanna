@@ -1,0 +1,10 @@
+{{ attach_library('storybook/PageHeading') }}
+
+{% set layoutClass = align is defined and align == 'right' ? ' PageHeading--align--right' %}
+{% set Tag = tag=='h2' ? 'h2' : 'h1' %}
+{%  set sizeClass = size=='small' ?  ' PageHeading--small' %}
+{{ title_prefix }}
+{% if title %}
+  <{{Tag}}{{ title_attributes.addClass('PageHeading' ~ layoutClass ~ sizeClass ) }}>{{ title }}</{{Tag}}>
+{% endif %}
+{{ title_suffix }}

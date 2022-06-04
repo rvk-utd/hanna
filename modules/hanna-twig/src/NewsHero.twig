@@ -1,0 +1,91 @@
+{{ attach_library('storybook/NewsHero') }}
+{{ attach_library('reykjavik/hanna-news-hero') }}
+{% set news_hero_attributes = create_attribute() %}
+
+{% set container_classes = [
+  'NewsHero',
+  image ? '' : 'NewsHero--align--right',
+]%}
+
+<div {{ news_hero_attributes.addClass(container_classes) }}>
+  <div class="NewsHero__content">
+    <h1 class="NewsHero__title">{{ title }}</h1>
+    <span class="NewsHero__meta">{{ date }}</span>
+    <div class="NewsHero__summary">{{ summary }}</div>
+    {{ share_buttons }}
+  </div>
+
+  {% if image %}
+    <picture class="NewsHero__image">
+      {{ image }}
+    </picture>
+	{% elseif bling_type == 'interesting' %}
+		<div
+			class="Bling
+				Bling--align--left
+				Bling--parent--center"
+			data-bling-type="circle-xlarge"
+		></div>
+		<div
+			class="Bling
+				Bling--align--left-ish
+				Bling--vertical--down-ish
+				Bling--color--secondary
+				Bling--parent--center"
+			data-bling-type="loops-small"
+		></div>
+	{% elseif bling_type == 'snake' %}
+		<div
+			class="Bling
+				Bling--align--left
+				Bling--vertical--down
+				Bling--parent--top"
+			data-bling-type="snake-large"
+		></div>
+	{% elseif bling_type == 'pentagon' %}
+		<div
+			class="Bling
+				Bling--align--left
+				Bling--parent--center"
+			data-bling-type="pentagon-large"
+		></div>
+	{% elseif bling_type == 'dome' %}
+		<div
+			class="Bling
+				Bling--align--left-ish
+				Bling--vertical--down
+				Bling--parent--top"
+			data-bling-type="dome-large"
+		></div>
+	{% elseif bling_type == 'balls-small' %}
+		<div
+			class="Bling
+				Bling--align--left
+				Bling--parent--center"
+			data-bling-type="circle-large"
+		></div>
+		<div
+			class="Bling
+				Bling--align--right
+				Bling--vertical--down
+				Bling--color--secondary
+				Bling--parent--bottom"
+			data-bling-type="circle-small"
+		></div>
+	{% elseif bling_type == 'balls-large' %}
+		<div
+			class="Bling
+				Bling--align--left
+				Bling--vertical--up
+				Bling--parent--bottom"
+			data-bling-type="halfcircle-down-large"
+		></div>
+		<div
+			class="Bling
+				Bling--align--left-center
+				Bling--color--secondary
+				Bling--parent--bottom"
+			data-bling-type="circle-medium"
+		></div>
+	{% endif %}
+</div>

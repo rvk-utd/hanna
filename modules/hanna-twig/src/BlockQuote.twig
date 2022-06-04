@@ -1,0 +1,12 @@
+<figure className="BlockQuote">
+  <blockquote className="BlockQuote__quote">{{quote}}</blockquote>
+{% if by %}
+  <figcaption className="BlockQuote__by">
+    {% if byHref %}
+      <a href="{{byHref}}">{{by}}</a>
+    {% else %}
+      <span>{{by}}</span>
+    {% endif %}
+  </figcaption>
+{% endif %}
+</figure>

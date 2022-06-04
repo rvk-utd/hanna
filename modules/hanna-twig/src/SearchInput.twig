@@ -1,0 +1,16 @@
+{{ attach_library('storybook/SearchInput') }}
+{%
+	set classes = [
+	'FormField',
+	'SearchInput',
+]
+%}
+<div {{ attributes.setAttribute('class', classes) }}>
+	<label class="FormField__label" for="{{ id }}">{{ label }}</label>
+	<div class="FormField__input">
+		<input class="SearchInput__input" id="{{ id }}" name="{{ name }}" value=""/>
+		{% if buttonLabel %}
+			<button class="SearchInput__button" type="{{ buttonType ? buttonType : 'button' }}" title="{{ buttonLabel }}">{{ buttonLabel }}</button>
+		{% endif %}
+	</div>
+</div>

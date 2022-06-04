@@ -1,0 +1,10 @@
+{#
+  @file Action card.
+#}
+
+<a class="ActionCards__card" href="{{ url }}">
+	<span class="ActionCards__card__title">{{ title }}</span>
+	{% if summary %}
+		<span class="ActionCards__card__summary">{{ summary }}</span>
+	{% endif %}
+</a>

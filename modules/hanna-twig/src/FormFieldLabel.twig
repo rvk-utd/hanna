@@ -1,0 +1,7 @@
+{% if attributes %}
+  <label {{ attributes.addClass('FormField__label', classes) }}>
+{% else %}
+  <label class="FormField__label" for="{{ label_for }}">
+{% endif %}
+  {{ label_text}}
+</label>

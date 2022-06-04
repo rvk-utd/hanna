@@ -1,0 +1,11 @@
+{% if attributes %}
+	<li {{attributes.addClass('ExtraLinks__item')}}>
+{% else %}
+	<li class="ExtraLinks__item">
+{% endif %}
+	{{ content.contextual_links }}
+	<a class="ExtraLinks__card" href="{{ url }}">
+		<span class="ExtraLinks__card__title">{{ title }}</span>
+		<span class="ExtraLinks__card__summary">{{ summary }} </span>
+	</a>
+</li>
