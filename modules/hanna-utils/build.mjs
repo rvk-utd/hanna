@@ -82,7 +82,7 @@ makePackageJson(pkg, distDir, {
   exports: glob('*.{ts,tsx}', { cwd: srcDir, ignore: '*.tests.{ts,tsx}' }).reduce(
     (exports, file) => {
       const token = file.replace(/\.tsx?$/, '');
-      const expToken = token === 'index' ? '.' : token;
+      const expToken = token === 'index' ? '.' : `./${token}`;
       exports[expToken] = {
         types: `./types/${token}.d.ts`,
         import: `./${token}.mjs`,

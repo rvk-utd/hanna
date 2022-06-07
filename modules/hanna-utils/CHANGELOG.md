@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Mangled pkg.exports tokens
 
 ## 0.1.4
 
