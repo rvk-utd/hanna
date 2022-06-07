@@ -87,7 +87,7 @@ execSync(
 );
 makePackageJson(pkg, outdirLib, {
   types: 'types/index.d.ts',
-  main: 'index.js',
+  main: 'index.cjs',
   module: 'index.mjs',
 });
 
@@ -100,7 +100,7 @@ const buildLib = (format) =>
     platform: 'node',
     format,
     entryPoints: ['src/lib/index.ts'],
-    outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
+    outExtension: { '.js': format === 'esm' ? '.mjs' : '.cjs' },
     outdir: outdirLib,
     define: {
       'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths

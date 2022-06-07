@@ -86,7 +86,7 @@ makePackageJson(pkg, distDir, {
       exports[expToken] = {
         types: `./types/${token}.d.ts`,
         import: `./${token}.mjs`,
-        require: `./${token}.js`,
+        require: `./${token}.cjs`,
       };
       return exports;
     },
@@ -104,7 +104,7 @@ const buildLib = (format) =>
     mainFields: ['module', 'main'],
     target: ['node16'],
     entryPoints: glob(`${srcDir}**/*.{ts,tsx}`, { ignore: '*.tests.{ts,tsx}' }),
-    outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
+    outExtension: { '.js': format === 'esm' ? '.mjs' : '.cjs' },
     outdir: distDir,
     define: {
       'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths
