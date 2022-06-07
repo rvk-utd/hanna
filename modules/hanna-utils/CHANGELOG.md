@@ -3,11 +3,16 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.1.5
+
+_2022-06-30_
+
 - fix: Mangled pkg.exports tokens
 
 ## 0.1.4
 
-_2022-05-30_
+_2022-06-03_
 
 - fix: Correct code-example in README, and update `*.d.ts` files
 
