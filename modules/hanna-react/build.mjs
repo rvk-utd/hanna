@@ -79,14 +79,15 @@ execSync(
   ].join(' && ')
 );
 makePackageJson(pkg, distDir, {
+  type: 'module',
   exports: glob('*.{ts,tsx}', { cwd: srcDir, ignore: '*.tests.{ts,tsx}' }).reduce(
     (exports, file) => {
       const token = file.replace(/\.tsx?$/, '');
       const expToken = token === 'index' ? '.' : `./${token}`;
       exports[expToken] = {
-        types: `./types/${token}.d.ts`,
-        import: `./lib/${token}.mjs`,
-        require: `./lib/${token}.cjs`,
+        // types: `./${token}.d.ts`,
+        import: `./${token}.mjs`,
+        require: `./${token}.cjs`,
       };
       return exports;
     },
@@ -103,9 +104,9 @@ const buildLib = (format) =>
     platform: 'node',
     mainFields: ['module', 'main'],
     target: ['node16'],
-    entryPoints: glob(`${srcDir}**/*.{ts,tsx}`, { ignore: '*.tests.{ts,tsx}' }),
+    entryPoints: glob(`${srcDir}**/*.{ts,tsx}`, { ignore: '**/*.tests.{ts,tsx}' }),
     outExtension: { '.js': format === 'esm' ? '.mjs' : '.cjs' },
-    outdir: `${distDir}lib`,
+    outdir: `${distDir}`,
     define: {
       'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths
     },
@@ -120,7 +121,7 @@ if (!opts.dev) {
   execSync(
     [
       `yarn run -T tsc --project tsconfig.lib.json`,
-      `cp -R _temp-types/hanna-react/src ${distDir}types`,
+      `cp -R _temp-types/hanna-react/src/* ${distDir}`,
       `rm -rf _temp-types`,
     ].join(' && ')
   );

@@ -86,9 +86,14 @@ execSync(
   ].join(' && ')
 );
 makePackageJson(pkg, outdirLib, {
-  types: 'types/index.d.ts',
-  main: 'index.cjs',
-  module: 'index.mjs',
+  type: 'module',
+  exports: {
+    '.': {
+      importtypes: `./index.d.ts`,
+      import: `./index.mjs`,
+      require: `./index.cjs`,
+    },
+  },
 });
 
 // -------------------
@@ -114,7 +119,7 @@ if (opts.onlyLib && !opts.dev) {
   execSync(
     [
       `yarn run -T tsc --project tsconfig.lib.json`,
-      `cp -R _temp-types/hanna-css/src/lib ${outdirLib}types`,
+      `cp -R _temp-types/hanna-css/src/lib/* ${outdirLib}`,
       `rm -rf _temp-types`,
     ].join(' && ')
   );
