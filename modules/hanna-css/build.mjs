@@ -93,7 +93,7 @@ makePackageJson(pkg, outdirLib, {
 
 // -------------------
 
-const buildLib = (format, extraCfg) =>
+const buildLib = (format) =>
   esbuild.build({
     ...baseOpts,
     external: allDeps,
@@ -105,7 +105,6 @@ const buildLib = (format, extraCfg) =>
     define: {
       'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths
     },
-    ...extraCfg,
   });
 
 buildLib('esm').catch(exit1);

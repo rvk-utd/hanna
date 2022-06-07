@@ -96,11 +96,12 @@ makePackageJson(pkg, distDir, {
 
 // -------------------
 
-const buildLib = (format, extraCfg) =>
+const buildLib = (format) =>
   esbuild.build({
     bundle: false,
     format,
     platform: 'node',
+    mainFields: ['module', 'main'],
     target: ['node16'],
     entryPoints: glob(`${srcDir}**/*.{ts,tsx}`, { ignore: '*.tests.{ts,tsx}' }),
     outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
@@ -109,16 +110,17 @@ const buildLib = (format, extraCfg) =>
       'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths
     },
     watch: opts.dev,
-    ...extraCfg,
   });
 
 buildLib('esm').catch(exit1);
 buildLib('cjs').catch(exit1);
 
-execSync(
-  [
-    `yarn run -T tsc --project tsconfig.lib.json`,
-    `cp -R _temp-types/hanna-utils/src ${distDir}types`,
-    `rm -rf _temp-types`,
-  ].join(' && ')
-);
+if (!opts.dev) {
+  execSync(
+    [
+      `yarn run -T tsc --project tsconfig.lib.json`,
+      `cp -R _temp-types/hanna-utils/src ${distDir}types`,
+      `rm -rf _temp-types`,
+    ].join(' && ')
+  );
+}
