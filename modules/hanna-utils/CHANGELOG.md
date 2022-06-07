@@ -4,9 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.1.5
+## 0.1.5 – 0.1.6
 
-_2022-06-30_
+_2022-06-07_
 
 - fix: Mangled pkg.exports tokens
 
