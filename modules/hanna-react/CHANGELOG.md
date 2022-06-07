@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.53
+
+_2022-06-07_
+
 - **IMPORTANT** feat: Rename package to `@reykjavik/hanna-react` — this means
   `@hugsmidjan_is/hanna-react` will not receive any more updates. The library
   is otherwise the same, with the same compatibility.
