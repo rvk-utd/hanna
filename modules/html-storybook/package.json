@@ -1,0 +1,44 @@
+{
+  "name": "hanna-html-storybook",
+  "version": "0.8",
+  "author": "Reykjavík (http://www.reykjavik.is)",
+  "contributors": [
+    "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
+    "Kári Yngvason <kari@hugsmidjan.is>",
+    "Már Örlygsson <mar.orlygsson@reykjavik.is>",
+    "Már Örlygsson <mar@hugsmidjan.is>",
+    "Valur Sverrisson <valur@hugsmidjan.is>"
+  ],
+  "repository": "ssh://git@github.com:rvk-utd/hanna.git",
+  "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/html-storybook/README.md",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": "16"
+  },
+  "scripts": {
+    "dev": "yarn && start-storybook -p 6006 -c .storybook",
+    "start": "yarn && NODE_ENV=production node .storybook/storybook-standalone.ts"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@hugsmidjan/qj": "^4.10.2",
+    "@reykjavik/hanna-css": "^0.3.3",
+    "@reykjavik/hanna-react": "^0.10.55",
+    "@storybook/addon-knobs": "^5.3.14",
+    "@storybook/addon-viewport": "^5.3.17",
+    "@storybook/addons": "^5.3.14",
+    "@storybook/preset-typescript": "^2.1.0",
+    "@storybook/react": "^5.3.14",
+    "@storybook/theming": "^5.3.14",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.8",
+    "@whitespace/storybook-addon-html": "^1.2.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-react-app": "^9.1.1",
+    "fork-ts-checker-webpack-plugin": "^4.1.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.1",
+    "ts-loader": "^6.2.2"
+  }
+}

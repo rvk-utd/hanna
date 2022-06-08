@@ -1,0 +1,17 @@
+<style>
+	#storybook-panel-root .simplebar-content button[title='Hide addons'] {
+		display: none !important;
+	}
+
+	.simplebar-mask button[title^='Change the size']::before {
+		content: 'Viewport:  ';
+		font-size: 0.8em;
+	}
+
+	.simplebar-mask button[title='Go full screen'],
+	.simplebar-mask button[title='Zoom in'],
+	.simplebar-mask button[title='Zoom out'],
+	.simplebar-mask button[title='Reset zoom'] {
+		display: none !important;
+	}
+</style>
