@@ -1952,15 +1952,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hugsmidjan/react@npm:^0.4.16":
-  version: 0.4.16
-  resolution: "@hugsmidjan/react@npm:0.4.16"
+"@hugsmidjan/react@npm:^0.4.17":
+  version: 0.4.17
+  resolution: "@hugsmidjan/react@npm:0.4.17"
   dependencies:
     "@hugsmidjan/qj": ^4.1.1
   peerDependencies:
     react: ">=16.8 <19"
     react-dom: ">=16.8 <19"
-  checksum: 7d4579b51c9eeae0009477e382a15de57c7e7fa3469460833f263c89b6a9b686adddca757876a7d58695d2edc6d2166d253c27c2c543bb7a480b9416b7ec2d52
+  checksum: 1dcfc93e0713149e50dbdc6f26f361e1ae4e1f9f3a3e96bbc7479c962219b3c1b5b47abebdb589ea886b9ad358c049c16845d83b25f337ac735cd4ccce16c34f
   languageName: node
   linkType: hard
 
@@ -2166,7 +2166,7 @@ __metadata:
   dependencies:
     "@hugsmidjan/gulp-rollup": ^0.8.0
     "@hugsmidjan/qj": ^4.10.2
-    "@hugsmidjan/react": ^0.4.16
+    "@hugsmidjan/react": ^0.4.17
     "@reykjavik/hanna-css": ^0.3.3
     "@reykjavik/hanna-utils": ^0.1.6
     "@types/react": 16

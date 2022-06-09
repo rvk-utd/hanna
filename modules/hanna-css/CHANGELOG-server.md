@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Change mouse cursor on `Carousel`-related component itemlist elements
+- fix: Add `-basics` styling for `<optgroup/>` elements
 
 ## 0.8.65
 

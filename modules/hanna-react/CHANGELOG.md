@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add optional `group` prop to `SelectboxOptions` items
 
 ## 0.10.53 – 0.10.55
 
