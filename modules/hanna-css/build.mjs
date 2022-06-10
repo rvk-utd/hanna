@@ -17,9 +17,10 @@ import { devDistCssFolder } from './scripts/config.js';
 
 const glob = globPkg.sync;
 
-const [rootPkg, pkg] = (
-  await Promise.all([readFile('../../package.json'), readFile('./package.json')])
-).map((str) => JSON.parse(str));
+const [rootPkg, pkg] = await Promise.all([
+  readFile('../../package.json').then((str) => JSON.parse(str)),
+  readFile('./package.json').then((str) => JSON.parse(str)),
+]);
 
 // ---------------------------------------------------------------------------
 
@@ -91,7 +92,7 @@ makePackageJson(pkg, outdirLib, {
     '.': {
       importtypes: `./index.d.ts`,
       import: `./index.mjs`,
-      require: `./index.cjs`,
+      require: `./index.js`,
     },
   },
 });
@@ -105,7 +106,7 @@ const buildLib = (format) =>
     platform: 'node',
     format,
     entryPoints: ['src/lib/index.ts'],
-    outExtension: { '.js': format === 'esm' ? '.mjs' : '.cjs' },
+    outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
     outdir: outdirLib,
     define: {
       'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths

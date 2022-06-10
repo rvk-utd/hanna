@@ -16,8 +16,8 @@
     "modules/*"
   ],
   "scripts": {
-    "lint": "eslint \"*.{js,ts,tsx}\" \"modules/*/src/**/*.{js,ts,tsx}\"",
-    "format:eslint": "eslint --fix  \"*.{js,ts,tsx}\"  \"modules/*/*.{js,ts,tsx}\" \"modules/*/src/**/*.{js,ts,tsx}\"",
+    "lint": "eslint \"*.{mjs,js,ts,tsx}\" \"modules/*/src/**/*.{mjs,js,ts,tsx}\"",
+    "format:eslint": "eslint --fix  \"*.{mjs,js,ts,tsx}\"  \"modules/*/*.{mjs,js,ts,tsx}\" \"modules/*/src/**/*.{mjs,js,ts,tsx}\"",
     "format:prettier": "prettier --write \"*.{json,md}\"  \"modules/*/*.{json,md}\" \"modules/*/src/**/*.{json,md,html}\"",
     "format": "yarn run format:eslint \n yarn run format:prettier",
     "postinstall": "sh .husky/post-clone  &&  yarn run husky install"

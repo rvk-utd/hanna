@@ -8,9 +8,10 @@ import { exit1, makePackageJson, opts, writeOnlyAffected } from '../../build-hel
 
 const glob = globPkg.sync;
 
-const [rootPkg, pkg] = (
-  await Promise.all([readFile('../../package.json'), readFile('./package.json')])
-).map((str) => JSON.parse(str));
+const [rootPkg, pkg] = await Promise.all([
+  readFile('../../package.json').then((str) => JSON.parse(str)),
+  readFile('./package.json').then((str) => JSON.parse(str)),
+]);
 
 // // Copied over from the old build-configs.js
 // const ignoreGlobs = {
@@ -87,7 +88,7 @@ makePackageJson(pkg, distDir, {
       exports[expToken] = {
         // types: `./${token}.d.ts`,
         import: `./${token}.mjs`,
-        require: `./${token}.cjs`,
+        require: `./${token}.js`,
       };
       return exports;
     },
@@ -105,7 +106,7 @@ const buildLib = (format) =>
     mainFields: ['module', 'main'],
     target: ['node16'],
     entryPoints: glob(`${srcDir}**/*.{ts,tsx}`, { ignore: '**/*.tests.{ts,tsx}' }),
-    outExtension: { '.js': format === 'esm' ? '.mjs' : '.cjs' },
+    outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
     outdir: `${distDir}`,
     define: {
       'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths
