@@ -140,6 +140,24 @@ const MainMenu = (props: MainMenuProps) => {
 
   const hasActivePanel = !!activePanel;
 
+  const menuItems = useMemo(
+    () =>
+      props.items.map((item) => {
+        if (item === '---') {
+          return item;
+        }
+        const href = item.href;
+        const controlsId =
+          item.controlsId || (href && /^#/.test(href) && href.slice(1)) || undefined;
+        return {
+          ...item,
+          controlsId,
+          megaPanel: controlsId && megaPanels.find((panel) => panel.id === controlsId),
+        };
+      }),
+    [props.items, megaPanels]
+  );
+
   useEffect(() => {
     setActivePanel(findActivePanel(megaPanels, props.activePanelId));
   }, [props.activePanelId, megaPanels, setActivePanel]);
@@ -169,23 +187,9 @@ const MainMenu = (props: MainMenuProps) => {
     };
   }, [hasActivePanel, setActivePanel]);
 
-  const menuItems = useMemo(
-    () =>
-      props.items.map((item) => {
-        if (item === '---') {
-          return item;
-        }
-        const href = item.href;
-        const controlsId =
-          item.controlsId || (href && /^#/.test(href) && href.slice(1)) || undefined;
-        return {
-          ...item,
-          controlsId,
-          megaPanel: controlsId && megaPanels.find((panel) => panel.id === controlsId),
-        };
-      }),
-    [props.items, megaPanels]
-  );
+  if (menuItems.length === 0) {
+    return null;
+  }
 
   return (
     <nav
