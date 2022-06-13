@@ -65,18 +65,9 @@ const Image = (props: ImageProps & _ImageProps) => {
     ) : null;
   }
 
-  if (inline) {
-    if (inlineSvg && inlineSvg.imageSrc === imageSrc) {
-      return (
-        <span
-          className={className}
-          dangerouslySetInnerHTML={{ __html: inlineSvg.code }}
-        />
-      );
-    }
-    if (!inlineSvg && process.env.NPM_PUB) {
-      return <span className={className} />;
-    }
+  if (inline && inlineSvg) {
+    const __html = inlineSvg.imageSrc === imageSrc ? inlineSvg.code : '';
+    return <span className={className} dangerouslySetInnerHTML={{ __html }} />;
   }
 
   return (
