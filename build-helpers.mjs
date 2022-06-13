@@ -46,7 +46,7 @@ export const makePackageJson = (pkg, outdir, extras) => {
 // ---------------------------------------------------------------------------
 
 const fileMem = {};
-const isNewFile = ({ path }) => {
+export const isNewFile = ({ path }) => {
   if (path in fileMem) {
     return false;
   }
@@ -73,7 +73,7 @@ const [pkg, rootPkg] = await Promise.all([
   readFile('../../package.json').then((str) => JSON.parse(str)),
 ]);
 
-const externalDeps = [
+export const externalDeps = [
   ...Object.keys(pkg.dependencies || {}),
   ...Object.keys(pkg.devDependencies || {}),
   ...Object.keys(rootPkg.dependencies || {}),
@@ -128,6 +128,7 @@ export const buildNpmLib = (libName, custom) => {
     src = srcDir,
     cpCmds = [`cp README.md  CHANGELOG.md ${distDir}`],
     entryGlobs = [`*.{ts,tsx}`],
+    sideEffects = false,
   } = custom || {};
 
   const entryPoints = entryGlobs.flatMap((entryGlob) =>
@@ -144,6 +145,7 @@ export const buildNpmLib = (libName, custom) => {
     writeFile(`${distDir}/esm/package.json`, JSON.stringify({ type: 'module' }));
 
     makePackageJson(pkg, distDir, {
+      sideEffects,
       exports: entryPoints.reduce((exports, file) => {
         const token = file.replace(/\.tsx?$/, '');
         const expToken = token === 'index' ? '.' : `./${token}`;

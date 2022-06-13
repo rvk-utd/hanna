@@ -1,6 +1,5 @@
 import { css, em, px, rem } from 'es-in-css';
 
-import { cssVersion } from '../../../package-server.json';
 import {
   between_cols,
   between_phablet_netbook,
@@ -28,6 +27,7 @@ import {
   zIndexVars,
 } from '../../lib/hannavars';
 import iconfonttokens from '../../lib/iconfonttokens';
+import { cssVersion } from '../../lib/style-server-info';
 
 const _c = colorVars.vars;
 const _g = gridVars.vars;

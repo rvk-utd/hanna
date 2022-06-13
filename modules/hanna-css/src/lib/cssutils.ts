@@ -1,10 +1,10 @@
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
-import { cssVersion as _cssVersion } from '../../package-server.json';
+import { cssVersion } from './style-server-info';
 
 // ---------------------------------------------------------------------------
 
-export const cssVersion: string = _cssVersion;
+export { cssVersion };
 export const isDevMode = process.env.NODE_ENV !== 'production';
 
 // ---------------------------------------------------------------------------
@@ -28,9 +28,9 @@ buildVariables.join = makeVariables.join;
 
 const cssCurrentVersionFolder =
   process.env.NODE_ENV === 'production'
-    ? 'v' + (_cssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0]
+    ? 'v' + (cssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0]
     : process.env.NPM_PUB
-    ? 'dev-v' + (_cssVersion.match(/^\d+/) || [''])[0]
+    ? 'dev-v' + (cssVersion.match(/^\d+/) || [''])[0]
     : 'dev';
 
 export const styleServerUrl =

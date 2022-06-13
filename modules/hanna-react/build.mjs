@@ -1,4 +1,6 @@
 import { buildNpmLib, buildTests } from '../../build-helpers.mjs';
 
 buildTests();
-buildNpmLib('react');
+buildNpmLib('react', {
+  sideEffects: ['**/focus-visible.js'],
+});
