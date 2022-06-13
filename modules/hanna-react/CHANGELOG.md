@@ -19,7 +19,7 @@ _2022-06-07_
   `@reykjavik/hanna-utils/assets`)
 - feat(ts): Export `AuxiliaryPanelIllustrations` from `MainMenu`
 
-## 0.10.50 — 0.10.52
+## 0.10.50 – 0.10.52
 
 _2022-05-31_
 
@@ -62,7 +62,7 @@ _2022-05-12_
 
 - feat: Add optional prop `reqText` on `Checkbox`
 
-## 0.10.44 — 0.10.45
+## 0.10.44 – 0.10.45
 
 _2022-05-04_
 
@@ -83,7 +83,7 @@ _2022-04-27_
 - feat: `ContactBubble` toggling sets `html[data-contact-bubble]` styling flag
 - fix: Bundle missing dragging/animation library
 
-## 0.10.40 — 0.10.41
+## 0.10.40 – 0.10.41
 
 _2022-04-20_
 
@@ -142,7 +142,7 @@ _2022-03-22_
   browser (or React) snap value to something unexpected because of mismatching
   value and/or options.
 
-## 0.10.32 — 0.10.34
+## 0.10.32 – 0.10.34
 
 _2022-03-21_
 
@@ -242,7 +242,7 @@ _2022-02-15_
 
 - fix: `SiteSearchCurtain` not triggering with Preact
 
-## 0.10.19 — 0.10.20
+## 0.10.19 – 0.10.20
 
 _2022-02-08_
 

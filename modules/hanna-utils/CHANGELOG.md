@@ -17,7 +17,7 @@ _2022-06-03_
 
 - fix: Correct code-example in README, and update `*.d.ts` files
 
-## 0.1.0 — 0.1.3
+## 0.1.0 – 0.1.3
 
 _2022-05-30_
 
