@@ -17,7 +17,7 @@
     "@hugsmidjan/qj": "^4.10.2",
     "@hugsmidjan/react": "^0.4.17",
     "@reykjavik/hanna-css": "^0.3.3",
-    "@reykjavik/hanna-utils": "^0.1.6",
+    "@reykjavik/hanna-utils": "^0.1.7",
     "@types/react": "16",
     "@types/react-autosuggest": "^10.1.0",
     "@types/react-datepicker": "^3.0.2",
