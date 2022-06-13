@@ -148,7 +148,7 @@ export const buildNpmLib = (libName, custom) => {
         const token = file.replace(/\.tsx?$/, '');
         const expToken = token === 'index' ? '.' : `./${token}`;
         exports[expToken] = {
-          import: `./esm/${token}.mjs`,
+          import: `./esm/${token}.js`,
           require: `./${token}.js`,
         };
         return exports;
@@ -165,6 +165,7 @@ export const buildNpmLib = (libName, custom) => {
           module,
           target: 'ES2015',
           declaration: true,
+          jsx: 'react',
           outDir: `${distDir}/temp`,
         },
         include: entryPoints.map((file) => `${src}/${file}`),
