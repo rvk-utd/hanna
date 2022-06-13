@@ -4,7 +4,7 @@
 node_modules/
 /modules/*/__tests
 /modules/*/_npm-lib
-/modules/*/_temp-types
+/modules/*/tsconfig.build.*.json
 
 
 # --------------------------------------------------------------------

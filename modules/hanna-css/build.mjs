@@ -5,13 +5,7 @@ import esbuild from 'esbuild';
 import { readFile } from 'fs/promises';
 import globPkg from 'glob';
 
-import {
-  exit1,
-  isNewFile,
-  makePackageJson,
-  opts,
-  writeOnlyAffected,
-} from '../../build-helpers.mjs';
+import { buildNpmLib, buildTests, exit1, isNewFile, opts } from '../../build-helpers.mjs';
 
 import { devDistCssFolder } from './scripts/config.js';
 
@@ -24,9 +18,7 @@ const [rootPkg, pkg] = await Promise.all([
 
 // ---------------------------------------------------------------------------
 
-const testsDir = '__tests/';
-const outdirLib = '_npm-lib/';
-const outdirCss = devDistCssFolder;
+const distDir = '_npm-lib';
 
 const baseOpts = {
   bundle: true,
@@ -47,84 +39,30 @@ const externalDeps = allDeps.filter((name) => !name.startsWith('@reykjavik/hanna
 // Always start by building the iconfont
 
 if (!opts.onlyLib) {
-  execSync(`rm -rf ${outdirCss}  &&  mkdir ${outdirCss}`);
+  execSync(`rm -rf ${devDistCssFolder}  &&  mkdir ${devDistCssFolder}`);
 }
 execSync(`yarn run gulp iconfont`);
 
 //
 // ---------------------------------------------------------------------------
-// Build Unit Tests
+// Build Unit Tests and NPM library
 
-execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
-
-// -------------------
-
-esbuild
-  .build({
-    ...baseOpts,
-    external: externalDeps,
-    entryPoints: glob('src/**/*.tests.ts'),
-    entryNames: '[dir]/[name]--[hash]',
-    write: false,
-    watch: opts.dev && {
-      onRebuild: (err, results) => writeOnlyAffected(results, err),
-    },
-    outdir: testsDir,
-  })
-  .then(writeOnlyAffected)
-  .catch(exit1);
-
-//
-// ---------------------------------------------------------------------------
-// Build Library
-
-execSync(
-  [
-    `rm -rf ${outdirLib}`,
-    `mkdir ${outdirLib}`,
-    `cp README-lib.md ${outdirLib}README.md`,
-    `cp CHANGELOG-lib.md ${outdirLib}CHANGELOG.md`,
-  ].join(' && ')
-);
-makePackageJson(pkg, outdirLib, {
-  type: 'module',
-  exports: {
-    '.': {
-      importtypes: `./index.d.ts`,
-      import: `./index.mjs`,
-      require: `./index.js`,
-    },
-  },
+buildTests();
+buildNpmLib('css', {
+  src: 'src/lib',
+  cpCmds: [
+    `cp README-lib.md ${distDir}/README.md`,
+    `cp CHANGELOG-lib.md ${distDir}/CHANGELOG.md`,
+  ],
+  entryGlobs: ['index.ts'],
 });
-
-// -------------------
-
-const buildLib = (format) =>
-  esbuild.build({
-    ...baseOpts,
-    external: allDeps,
-    platform: 'node',
-    format,
-    entryPoints: ['src/lib/index.ts'],
-    outExtension: format === 'esm' ? { '.js': '.mjs' } : undefined,
-    outdir: outdirLib,
-    define: {
-      'process.env.NPM_PUB': JSON.stringify(true), // strips out all local-dev-only code paths
-    },
+// poor man's tsc replace-string plugin
+['.', 'esm'].forEach((folder) => {
+  const fileName = `${distDir}/${folder}/cssutils.js`;
+  readFile(fileName).then((contents) => {
+    contents.toString().replace(/process\.env\.NPM_PUB/g, 'true');
   });
-
-buildLib('esm').catch(exit1);
-buildLib('cjs').catch(exit1);
-
-if (opts.onlyLib && !opts.dev) {
-  execSync(
-    [
-      `yarn run -T tsc --project tsconfig.lib.json`,
-      `cp -R _temp-types/hanna-css/src/lib/* ${outdirLib}`,
-      `rm -rf _temp-types`,
-    ].join(' && ')
-  );
-}
+});
 
 // ---------------------------------------------------------------------------
 
@@ -141,7 +79,7 @@ if (!opts.onlyLib) {
   const cssCompile = (results) =>
     compileCSSFromJS(toCSSSources(results), {
       outbase: 'src/css',
-      outdir: outdirCss,
+      outdir: devDistCssFolder,
       redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
       minify: process.env.NODE_ENV === 'production',
       prettify: process.env.NODE_ENV !== 'production',

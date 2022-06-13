@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Problems in CJS and ESM, dual module file-structure
 
 ## 0.1.5 – 0.1.6
 

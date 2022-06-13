@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: `MainMenu` returns `null` instead of rendering an empty menu
 - feat: Add optional `group` prop to `SelectboxOptions` items
+- fix: Problems in CJS and ESM, dual module file-structure
 
 ## 0.10.53 – 0.10.55
 
