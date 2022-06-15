@@ -8,6 +8,7 @@ import globPkg from 'glob';
 import {
   buildNpmLib,
   buildTests,
+  distDir,
   exit1,
   externalDeps,
   isNewFile,
@@ -20,8 +21,6 @@ import { devDistCssFolder } from './scripts/config.js';
 const glob = globPkg.sync;
 
 // ---------------------------------------------------------------------------
-
-const distDir = '_npm-lib';
 
 const baseOpts = {
   bundle: true,
@@ -69,13 +68,16 @@ buildNpmLib('css', {
   ],
   entryGlobs: ['index.ts'],
 });
-// poor man's tsc replace-string plugin
-['.', 'esm'].forEach((folder) => {
-  const fileName = `${distDir}/${folder}/cssutils.js`;
-  readFile(fileName).then((contents) => {
-    contents.toString().replace(/process\.env\.NPM_PUB/g, 'true');
+
+if (!opts.dev) {
+  // poor man's tsc replace-string plugin
+  ['.', 'esm'].forEach((folder) => {
+    const fileName = `${distDir}/${folder}/cssutils.js`;
+    readFile(fileName).then((contents) => {
+      contents.toString().replace(/process\.env\.NPM_PUB/g, 'true');
+    });
   });
-});
+}
 
 // ---------------------------------------------------------------------------
 
