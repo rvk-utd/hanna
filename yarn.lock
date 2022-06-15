@@ -2151,9 +2151,9 @@ __metadata:
     "@hugsmidjan/gulp-sass": ^0.2.0
     "@reykjavik/hanna-utils": ^0.1.7
     "@types/md5-file": ^5
-    cssserve: ^1.4.1
+    cssserve: ^1.5.0
     del: ^6.0.0
-    es-in-css: ^0.5.4
+    es-in-css: ^0.5.5
     gulp: ^4.0.2
     md5-file: ^5.0.0
     sass: ~1.32
@@ -7025,9 +7025,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssserve@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "cssserve@npm:1.4.1"
+"cssserve@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "cssserve@npm:1.5.0"
   dependencies:
     compression: ^1.7.4
     fastify: ^2.12.0
@@ -7039,7 +7039,7 @@ __metadata:
     rc: ^1.2.8
   bin:
     cssserve: server.js
-  checksum: 8e895da3f0355f6b7e1fe35095be5622222062e09cc15004726421d34cb789d502facb98028870237a17d76dc39dd37d75a05d09caf18a6667448f0c4e0baf9b
+  checksum: 8691b07d9fca129de2ee0936cb988d775e07c27698f7420bf9c291a867f71565f8ad5cee3e6841ea0186c17a7f448e5b05b2dcc12710615044890a6415582808
   languageName: node
   linkType: hard
 
@@ -7985,9 +7985,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-in-css@npm:^0.5.4":
-  version: 0.5.4
-  resolution: "es-in-css@npm:0.5.4"
+"es-in-css@npm:^0.5.5":
+  version: 0.5.5
+  resolution: "es-in-css@npm:0.5.5"
   dependencies:
     "@types/color": ^3.0.3
     "@types/color-name": ^1.1.1
@@ -8003,8 +8003,8 @@ __metadata:
     postcss-nested: ^5.0.6
     postcss-scss: ^4.0.3
   bin:
-    es-in-css: bin/cli.js
-  checksum: 73ef7c8ff46e985616214ec3aff96f4478c65ed510bc1876901e5d40a47ffa60a250afe376b36eaf444ef5cd9837f897fdc45d4b7cdfc6effddf6c8432ee06a0
+    es-in-css: cjs/bin/cli.js
+  checksum: 53a3d3c77af5dbbfec33c08d01185f0ec91d82fcefd28bb29a62e4745812b7eb2b38269ef926d96442a5cc8dd418836feb7608b425fa0a170b5208f7c1aee87a
   languageName: node
   linkType: hard
 

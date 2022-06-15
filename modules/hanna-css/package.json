@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@reykjavik/hanna-utils": "^0.1.7",
-    "es-in-css": "^0.5.4"
+    "es-in-css": "^0.5.5"
   },
   "npm_lib_package_json": {
     "engines": {
@@ -50,7 +50,7 @@
     "@hugsmidjan/gulp-images": "^0.2.2",
     "@hugsmidjan/gulp-sass": "^0.2.0",
     "@types/md5-file": "^5",
-    "cssserve": "^1.4.1",
+    "cssserve": "^1.5.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "md5-file": "^5.0.0",
