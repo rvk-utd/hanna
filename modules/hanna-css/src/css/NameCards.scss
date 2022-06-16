@@ -11,10 +11,10 @@
     column-gap: $var--grid-gutter;
 
     @include media($mq-phablet_tablet) {
-      grid-template-columns: repeat(2, cols_pct(6));
+      grid-template-columns: repeat(auto-fill, cols_pct(6));
     }
     @include media($mq-netbook_up) {
-      grid-template-columns: repeat(3, cols_pct(4));
+      grid-template-columns: repeat(auto-fill, cols_pct(4));
     }
   }
 }

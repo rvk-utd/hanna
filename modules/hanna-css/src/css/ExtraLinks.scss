@@ -55,7 +55,7 @@
     }
   }
   .ExtraLinks__list {
-    @include CardList($cols: 4);
+    @include CardList();
   }
 
   .ExtraLinks__card {
