@@ -68,7 +68,7 @@ export type SeenEffectType = keyof typeof effects;
 
 export type EffectProp = {
   /** Should the component appear instantly, and not transition-in once seen */
-  effectType?: SeenEffectType;
+  effectType?: SeenEffectType | 'none';
 };
 
 /** Asserts that a prop value is a SeenEffectType and returns undefined otherwise */
@@ -76,7 +76,8 @@ export const assertEffectType = (maybeType?: string): SeenEffectType | undefined
   maybeType && maybeType in effects ? (maybeType as SeenEffectType) : undefined;
 
 export const getEffectAttr = (maybeType?: string) => ({
-  'data-seen-effect': assertEffectType(maybeType) || '',
+  'data-seen-effect':
+    maybeType === 'none' ? undefined : assertEffectType(maybeType) || '',
 });
 
 // ---------------------------------------------------------------------------
