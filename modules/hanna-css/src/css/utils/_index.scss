@@ -34,3 +34,15 @@
     background: inherit;
   }
 }
+
+// Hack to generate an extra selector block to stop cssnano
+// from destructively merging adjacent properties – e.g. when
+// providing a fallback value for older browsers.
+//
+// Remove as soon as this issue has been resolved:
+// https://github.com/cssnano/cssnano/issues/897
+@mixin avoidCssnanoMerging() {
+  & {
+    @content;
+  }
+}

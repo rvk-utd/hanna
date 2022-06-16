@@ -26,11 +26,12 @@
   }
 
   .ImageCards--background {
-    background-color: $color-suld-25;
-    padding: between_phone_netbook(40, 136) 0;
     @include extendBackgroundWithUnderlay();
-    @include media($mq-wide) {
-      padding: prem(136) 0;
+    background-color: $color-suld-25;
+
+    padding: 100px 0;
+    @include avoidCssnanoMerging() {
+      padding: MIN(#{between_phone_netbook(40, 136)}, 136px) 0;
     }
   }
 
@@ -49,11 +50,13 @@
 
   .ImageCards__list {
     @include CardList();
-    row-gap: between_phone_netbook(48, 80);
-    @include media($mq-wide) {
-      row-gap: prem(80);
+
+    row-gap: 60px;
+    @include avoidCssnanoMerging() {
+      row-gap: MIN(#{between_phone_netbook(48, 80)}, 80px);
     }
   }
+
   .ImageCards__item {
     // …
   }
@@ -63,12 +66,11 @@
     --link-underline: 1px solid #{$color-suld-200};
     --link-underline--hover: 1px solid #{$color-faxafloi-100};
 
-    padding-bottom: between_phone_netbook(16, 32);
     display: block;
     height: 100%;
-
-    @include media($mq-wide) {
-      padding-bottom: prem(32);
+    padding-bottom: $var--space-3;
+    @include avoidCssnanoMerging() {
+      padding-bottom: MIN(#{between_phone_netbook(16, 32)}, #{$var--space-4});
     }
   }
 
@@ -76,7 +78,10 @@
     display: block;
     position: relative;
     padding-top: pct(168/272);
-    margin-bottom: between_phone_netbook(12, 24);
+    margin-bottom: $var--space-2;
+    @include avoidCssnanoMerging() {
+      margin-bottom: MIN(#{between_phone_netbook(12, 24)}, #{$var--space-3});
+    }
   }
   .ImageCards__image--missing {
     $borderW: prem(12);
@@ -95,14 +100,14 @@
   }
 
   .ImageCards__card__title {
-    margin-bottom: grid-units(1);
+    margin-bottom: $var--space-1;
+    font: $var--font-sh-s;
     display: block;
-    @include SubheadingStyle--small();
   }
 
   .ImageCards__card__meta {
-    @include BodyTextStyle--small();
-    color: $color-suld-150;
-    font-weight: 400;
+    font: $var--font-bd-s;
+    color: $var--color-suld-150;
+    font-weight: $var--font-weight--normal;
   }
 }
