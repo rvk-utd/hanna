@@ -6,7 +6,7 @@ import { ComponentLayoutProps } from './constants';
 const sizes = {
   small: 'small',
   /** Default value */
-  normal: 'normal',
+  normal: '',
   large: 'large',
 } as const;
 type HeadingSize = keyof typeof sizes;
