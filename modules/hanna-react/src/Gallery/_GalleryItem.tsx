@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
-import Button from '../_abstract/Button';
-import Image, { ImageProps } from '../_abstract/Image';
+import Button from '../_abstract/_Button';
+import Image, { ImageProps } from '../_abstract/_Image';
 
 import GalleryModalContext from './_GalleryModalContext';
 

@@ -3,8 +3,8 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
-import Image, { ImageProps } from '../_abstract/Image';
-import { Link } from '../_abstract/Link';
+import Image, { ImageProps } from '../_abstract/_Image';
+import { Link } from '../_abstract/_Link';
 import { colorFamilies, ColorFamily, themeOptions } from '../constants';
 
 export type ArticleCarouselImageProps = ImageProps & { photo?: boolean };

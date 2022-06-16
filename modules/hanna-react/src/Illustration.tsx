@@ -4,7 +4,7 @@ import {
   Illustration as IllustrationName,
 } from '@reykjavik/hanna-utils/assets';
 
-import Image, { ImageProps } from './_abstract/Image';
+import Image, { ImageProps } from './_abstract/_Image';
 
 type IllustrationProps = { children?: undefined } & (
   | { type: IllustrationName; image?: undefined }

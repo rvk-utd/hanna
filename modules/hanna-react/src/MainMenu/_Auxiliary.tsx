@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 
-import { Link } from '../_abstract/Link';
+import { Link } from '../_abstract/_Link';
 import type { MegaMenuPanel } from '../MainMenu';
 
 // ---------------------------------------------------------------------------

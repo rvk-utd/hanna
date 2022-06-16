@@ -2,9 +2,9 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import Blings, { BlingComboProps } from './_abstract/_Blings';
+import { ButtonProps } from './_abstract/_Button';
+import Image, { ImageProps } from './_abstract/_Image';
 import breakOnNL from './_abstract/breakOnNL';
-import { ButtonProps } from './_abstract/Button';
-import Image, { ImageProps } from './_abstract/Image';
 import ButtonTertiary from './ButtonTertiary';
 import { Alignment, aligns } from './constants';
 

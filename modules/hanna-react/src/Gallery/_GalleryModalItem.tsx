@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Image from '../_abstract/Image';
+import Image from '../_abstract/_Image';
 
 import { GalleryItemProps } from './_GalleryItem';
 

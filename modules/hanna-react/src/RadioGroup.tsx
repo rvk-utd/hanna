@@ -4,8 +4,8 @@ import TogglerGroupField, {
   TogglerGroupFieldOption,
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
-} from './_abstract/TogglerGroupField';
-import TogglerInput, { TogglerInputProps } from './_abstract/TogglerInput';
+} from './_abstract/_TogglerGroupField';
+import TogglerInput, { TogglerInputProps } from './_abstract/_TogglerInput';
 
 export type RadioGroupProps = TogglerGroupFieldProps & {
   layout?: 'inline';

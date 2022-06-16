@@ -1,5 +1,5 @@
-export type { LinkRenderer } from '../_abstract/Link';
-export { setLinkRenderer } from '../_abstract/Link';
+export type { LinkRenderer } from '../_abstract/_Link';
+export { setLinkRenderer } from '../_abstract/_Link';
 
 // ---------------------------------------------------------------------------
 

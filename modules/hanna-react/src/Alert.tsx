@@ -10,7 +10,7 @@ import { SSRSupport, useIsBrowserSide, useOnMount } from '@hugsmidjan/react/hook
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import Button from './_abstract/Button';
+import Button from './_abstract/_Button';
 import { isPreact } from './utils/env';
 
 // FIXME: Eventually import from @reykjavik/hanna-styles/constants

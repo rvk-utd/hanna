@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { ButtonProps } from './_abstract/Button';
+import { ButtonProps } from './_abstract/_Button';
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 import ButtonTertiary from './ButtonTertiary';
 

@@ -8,8 +8,8 @@ import TogglerGroup, {
   TogglerGroupOption,
   TogglerGroupOptions,
   TogglerGroupProps,
-} from './TogglerGroup';
-import { TogglerInputProps } from './TogglerInput';
+} from './_TogglerGroup';
+import { TogglerInputProps } from './_TogglerInput';
 
 export type TogglerGroupFieldProps = {
   className?: string;

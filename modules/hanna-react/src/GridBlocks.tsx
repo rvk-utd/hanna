@@ -2,9 +2,9 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { Efnistakn, getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 
-import { ButtonProps } from './_abstract/Button';
-import Image, { ImageProps } from './_abstract/Image';
-import { Link } from './_abstract/Link';
+import { ButtonProps } from './_abstract/_Button';
+import Image, { ImageProps } from './_abstract/_Image';
+import { Link } from './_abstract/_Link';
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 import ButtonTertiary from './ButtonTertiary';
 

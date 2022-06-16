@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import Button, { ButtonProps } from './_abstract/Button';
+import Button, { ButtonProps } from './_abstract/_Button';
 
 const colors = {
   normal: '',

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { Link } from './Link';
+import { Link } from './_Link';
 
 export type QuoteProps = {
   children: ReactNode;

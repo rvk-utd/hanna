@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import { Link } from './_abstract/Link';
+import { Link } from './_abstract/_Link';
 
 export type ArticleMetaItem = {
   label: string;

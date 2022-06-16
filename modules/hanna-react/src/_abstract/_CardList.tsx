@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactElement, ReactNode } from 'react';
 
-import Button from './Button';
-import Image, { ImageProps } from './Image';
+import Button from './_Button';
+import Image, { ImageProps } from './_Image';
 
 type Bem = {
   bem: string;

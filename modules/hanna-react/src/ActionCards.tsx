@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CardList, TextCardListProps } from './_abstract/CardList';
+import { CardList, TextCardListProps } from './_abstract/_CardList';
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
 export type ActionCardsProps = TextCardListProps & SeenProp;

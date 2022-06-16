@@ -3,7 +3,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
 import Blings, { BlingComboProps } from './_abstract/_Blings';
-import Image, { ImageProps } from './_abstract/Image';
+import Image, { ImageProps } from './_abstract/_Image';
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 import ShareButtons from './ShareButtons';
 

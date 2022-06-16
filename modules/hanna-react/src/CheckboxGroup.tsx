@@ -4,7 +4,7 @@ import TogglerGroupField, {
   TogglerGroupFieldOption,
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
-} from './_abstract/TogglerGroupField';
+} from './_abstract/_TogglerGroupField';
 import Checkbox from './Checkbox';
 
 export type CheckboxGroupProps = TogglerGroupFieldProps & {

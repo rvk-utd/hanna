@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import Button, { ButtonProps } from './_abstract/Button';
+import Button, { ButtonProps } from './_abstract/_Button';
 
 export type TextButtonProps = ButtonProps & { disabled?: never };
 

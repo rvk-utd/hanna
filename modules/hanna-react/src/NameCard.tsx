@@ -2,8 +2,8 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
+import Button from './_abstract/_Button';
 import breakOnNL from './_abstract/breakOnNL';
-import Button from './_abstract/Button';
 
 const formatDate = (date: Date | string) => {
   return typeof date === 'string'

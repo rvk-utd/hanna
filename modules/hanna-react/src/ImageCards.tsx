@@ -5,7 +5,7 @@ import {
   CardList,
   ImageCardListProps,
   ImageCardProps as ICP,
-} from './_abstract/CardList';
+} from './_abstract/_CardList';
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
 export type ImageCardProps = ICP;

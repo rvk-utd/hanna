@@ -5,7 +5,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { getPageScrollElm } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { Link } from './_abstract/Link';
+import { Link } from './_abstract/_Link';
 
 export type ContactBubbleI18n = {
   lang?: string;

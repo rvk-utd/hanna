@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from './_abstract/Link';
+import { Link } from './_abstract/_Link';
 
 const types = {
   external: 1,

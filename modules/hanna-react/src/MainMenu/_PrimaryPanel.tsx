@@ -1,7 +1,7 @@
 import React, { RefObject } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { Link } from '../_abstract/Link';
+import { Link } from '../_abstract/_Link';
 import { MainMenuI18n, MegaMenuPanel } from '../MainMenu';
 
 type PrimaryPanelProps = {

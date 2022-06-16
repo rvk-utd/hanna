@@ -3,7 +3,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { FormFieldInputProps } from '../FormField';
 
-import { TogglerInputProps } from './TogglerInput';
+import { TogglerInputProps } from './_TogglerInput';
 
 export type TogglerGroupOption = {
   value: string;

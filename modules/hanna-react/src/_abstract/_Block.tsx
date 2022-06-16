@@ -4,8 +4,8 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from '../utils/seenEffect';
 
-import Button, { ButtonProps } from './Button';
-import Image, { ImageProps } from './Image';
+import Button, { ButtonProps } from './_Button';
+import Image, { ImageProps } from './_Image';
 
 export type BlockItem = {
   title: string;
