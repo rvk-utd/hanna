@@ -21,13 +21,10 @@
 
   .NewsHero--align--right .NewsHero__content {
     margin-left: auto;
+    width: 100%;
 
-    @include media($mq-phablet_up) {
+    @include media($mq-tablet_up) {
       width: cols_pct(7);
-    }
-
-    @include media($mq-phone_phablet) {
-      width: 100%;
     }
   }
 
@@ -47,9 +44,8 @@
   }
 
   .NewsHero__meta {
-    font-size: prem($font-size-12);
+    font: $var--font-label;
     color: $color-suld-150;
-    line-height: em(16 / $font-size-12);
     order: -1;
   }
 
