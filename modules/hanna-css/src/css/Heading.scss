@@ -27,6 +27,12 @@
       @include HeadingStyle--small();
     }
 
+    .Heading a {
+      --link-color: _inherit;
+      --link-underline: none;
+      --link-underline--hover: none;
+    }
+
     h1.Heading {
       @include WARNING__('Only use <H2/> or lower for .Heading');
     }

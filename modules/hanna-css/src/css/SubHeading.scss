@@ -28,6 +28,12 @@
       @include SubheadingStyle--small();
     }
 
+    .SubHeading a {
+      --link-color: _inherit;
+      --link-underline: none;
+      --link-underline--hover: none;
+    }
+
     h1.SubHeading {
       @include WARNING__('Only use <H2/> or lower for .SubHeading');
     }
