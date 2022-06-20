@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { useGetSVGtext } from '../utils/useGetSVGtext';
@@ -8,25 +8,27 @@ export type Source = {
   media: string;
 };
 
-export type ImageProps = {
+export type ImagePropsLinked = {
   altText?: string;
-} & (
-  | {
-      sources?: Array<Source>;
-      /** The default image source to (lazy) load */
-      src?: string;
-      /** Eagerly-loaded placeholder/thunbnail to use until a `sources` item has been picked.  */
-      preloadSrc?: string;
-      inline?: false;
-    }
-  | {
-      /** Should the image be fetched and inlined as <svg/> */
-      inline: true;
-      src: string;
-      sources?: undefined;
-      preloadSrc?: undefined;
-    }
-);
+  sources?: Array<Source>;
+  /** The default image source to (lazy) load */
+  src?: string;
+  /** Eagerly-loaded placeholder/thunbnail to use until a `sources` item has been picked.  */
+  preloadSrc?: string;
+  inline?: false;
+  focalPoint?: string;
+};
+export type ImagePropsInlinedSvg = {
+  altText?: string;
+  /** Should the image be fetched and inlined as <svg/> */
+  inline: true;
+  src: string;
+  sources?: undefined;
+  preloadSrc?: undefined;
+  focalPoint?: undefined;
+};
+
+export type ImageProps = ImagePropsLinked | ImagePropsInlinedSvg;
 
 type _ImageProps = {
   /** container className */
@@ -49,6 +51,7 @@ const Image = (props: ImageProps & _ImageProps) => {
     className,
     inline,
     placeholder,
+    focalPoint,
   } = props;
   const _src = (sources.length && preloadSrc) || src;
   const imageSrc =
@@ -71,7 +74,10 @@ const Image = (props: ImageProps & _ImageProps) => {
   }
 
   return (
-    <picture className={className}>
+    <picture
+      className={className}
+      style={focalPoint ? ({ '--focalPoint': focalPoint } as CSSProperties) : undefined}
+    >
       {' '}
       {sources.map((source, i) => (
         <>

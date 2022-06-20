@@ -146,6 +146,9 @@
     font-style: normal;
   }
 
+  img {
+    object-position: var(--focalPoint);
+  }
   img,
   video {
     width: 100%;

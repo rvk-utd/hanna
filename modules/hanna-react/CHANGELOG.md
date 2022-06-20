@@ -7,6 +7,7 @@
 - feat: Add component `BgBox` for gray background wrapping
 - feat: Add prop `small` to `ArticleMeta`
 - fix: Suppress redundant className `.Heading--normal`
+- feat: Add prop `focalPoint` to all `ImageProps`
 
 ## 0.10.56 – 0.10.58
 
