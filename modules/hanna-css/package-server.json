@@ -15,7 +15,8 @@
   "private": true,
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=14",
+    "yarn": ">=1.22"
   },
   "scripts": {
     "start": "NODE_ENV=production  yarn run cssserve --config cssserve-prod.json",

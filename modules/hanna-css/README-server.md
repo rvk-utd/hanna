@@ -9,7 +9,7 @@ Design System.
 
 <!-- prettier-ignore-start -->
 - [Run the server](#run-the-server)
-  - [Get CSS bundles](#get-css-bundles)
+- [Get CSS bundles](#get-css-bundles)
 - [The public/ folder](#the-public-folder)
   - [public/assets/](#publicassets)
   - [public/css/](#publiccss)
@@ -22,19 +22,26 @@ Design System.
 
 ## Run the server
 
+System requirements:
+
+- `node >= 16`
+- `yarn >= 1.22`
+
 ```sh
-yarn install --production
-yarn run start
+git clone -b master git@github.com:rvk-utd/hanna-styles.git style-server
+cd style-server
 ```
 
-The `start` script runs a `cssserve` which can be configured in a variety of
-ways, including a `--config file` argument, CLI `--args`, via `.cssservec`
-file in the project root or parent folder, as well as some environment
-variables. (See
-[`cssserve`'s documentation](https://github.com/hugsmidjan/cssserve#configuration)
-for details.)
+```sh
+> yarn install --production
+> yarn run start
+```
 
-### Get CSS bundles
+See `cssserve`'s
+documentation](https://github.com/hugsmidjan/cssserve#configuration) for
+details, on how to configure the server.
+
+## Get CSS bundles
 
 The server's "bundle" API works like this:
 
