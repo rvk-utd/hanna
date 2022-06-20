@@ -1,4 +1,6 @@
-<div class="ArticleMeta">
+{% set smallClass = small is defined and small ? ' ArticleMeta--small' %}
+
+<div class="ArticleMeta{{smallClass}}">
 	{%for item in items %}
 		{% if item.href is defined %}
 			<a class="ArticleMeta__item" href="{{ item.href }}">{{ item.label }}</a>

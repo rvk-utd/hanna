@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { Link } from './_abstract/_Link';
 
@@ -9,17 +10,18 @@ export type ArticleMetaItem = {
 
 export type ArticleMetaProps = {
   items: Array<ArticleMetaItem>;
+  small?: boolean;
 };
 
 const ArticleMeta = (props: ArticleMetaProps) => {
-  const { items } = props;
+  const { items, small } = props;
 
   if (items.length === 0) {
     return null;
   }
 
   return (
-    <div className="ArticleMeta">
+    <div className={getBemClass('ArticleMeta', small && 'small')}>
       {items.map(({ label, href }, i) => (
         <Fragment key={i}>
           {href == null ? (

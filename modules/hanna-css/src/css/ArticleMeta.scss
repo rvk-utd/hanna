@@ -8,10 +8,12 @@
 @mixin css() {
   @media screen {
     .ArticleMeta {
-      // font-size: $var--font-bd-s-size;
-      // line-height: $var--font-bd-s-leading;
+      font: $var--font-bd-s;
       color: $var--color-suld-150;
-      margin-bottom: grid-units(1);
+      margin-bottom: $var--space-1;
+    }
+    .ArticleMeta--small {
+      font: $var--font-label;
     }
     .ArticleMeta__item:not(:last-child)::after {
       content: ' | ';
