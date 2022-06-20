@@ -44,6 +44,7 @@ const customStyles = css`
       margin-left: ${hannaVars.grid_margin__neg};
       width: calc(${hannaVars.grid_5_5} + ${hannaVars.grid_margin});
       padding-top: 50%;
+      height: auto;
     }
     .NewsListTopItem__content {
       width: ${hannaVars.grid_6_6};
