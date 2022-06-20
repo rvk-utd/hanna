@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.3.4
+
+_2022-06-20_
+
 - fix: Export `targetCssVersion`, deprecate older `cssVersion`
 
 ## 0.3.2 – 0.3.3
