@@ -48,7 +48,12 @@ const WizardLayout = (props: WizardLayoutProps) => {
         <div className="WizardLayout__header" role="banner">
           <Link className="WizardLayout__header__logo" href={logoLink}>
             {' '}
-            <Image inline={true} src={getAssetUrl('reykjavik-logo.svg')} /> {siteName}{' '}
+            <Image
+              className={undefined}
+              inline={true}
+              src={getAssetUrl('reykjavik-logo.svg')}
+            />{' '}
+            {siteName}{' '}
           </Link>{' '}
         </div>
         <div className="WizardLayout__wrap">

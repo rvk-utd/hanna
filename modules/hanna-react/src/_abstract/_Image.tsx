@@ -30,7 +30,7 @@ export type ImageProps = {
 
 type _ImageProps = {
   /** container className */
-  className?: string;
+  className: string | undefined;
   /** Controls if the container is rendered when image is missing/undefined.
    * (With a `--missing` className modifier added.)
    *

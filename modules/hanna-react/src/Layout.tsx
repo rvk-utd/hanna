@@ -93,7 +93,12 @@ const Layout = (props: LayoutProps) => {
         <div className="Layout__header" role="banner">
           <Link className="Layout__header__logo" href={logoLink}>
             {' '}
-            <Image inline={true} src={getAssetUrl('reykjavik-logo.svg')} /> {siteName}{' '}
+            <Image
+              className={undefined}
+              inline={true}
+              src={getAssetUrl('reykjavik-logo.svg')}
+            />{' '}
+            {siteName}{' '}
           </Link>{' '}
           {navChildren && (
             <Link
