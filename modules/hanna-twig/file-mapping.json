@@ -1,4 +1,8 @@
 {
+  "src/components/ArticleCard.twig": "modules/hanna-twig/src/ArticleCard.twig",
+  "src/components/ArticleCards.twig": "modules/hanna-twig/src/ArticleCards.twig",
+  "src/components/Picture.twig": "modules/hanna-twig/src/Picture.twig",
+  "src/components/BgBox.twig": "modules/hanna-twig/src/BgBox.twig",
   "src/components/AccordionList/AccordionList.twig": "modules/hanna-twig/src/AccordionList.twig",
   "src/components/AccordionList/AccordionListItem.twig": "modules/hanna-twig/src/ActionCard.twig",
   "src/components/ActionCards/ActionCard.twig": "modules/hanna-twig/src/AccordionListItem.twig",
