@@ -30,7 +30,7 @@ execSync(
 
     // local commit
     `cd -`,
-    `git add ./*-server.* ${serverFolder}`,
+    `git add ./*-server.* ./src/**/style-server-info.ts ${serverFolder}`,
     `git commit -m "release(css): v${pkg.cssVersion}"`,
   ].join(' && ')
 );
