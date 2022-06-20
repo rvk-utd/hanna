@@ -22,6 +22,7 @@ o.spec('hanna-css lib', () => {
       isDevMode: true,
       getCssBundleUrl: true,
       cssVersion: true,
+      targetCssVersion: true,
       styleServerUrl: true,
 
       /* hannavars.ts */

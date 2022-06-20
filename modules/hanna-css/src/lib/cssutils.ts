@@ -1,11 +1,16 @@
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
-import { cssVersion } from './style-server-info';
+import { cssVersion as fullCssVersion } from './style-server-info';
 
 // ---------------------------------------------------------------------------
 
-export { cssVersion };
 export const isDevMode = process.env.NODE_ENV !== 'production';
+
+export const targetCssVersion =
+  (fullCssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0] || '';
+
+/** @deprecated use `targetCssVersion` instead.  (Will be removed in v0.4) */
+export const cssVersion = targetCssVersion;
 
 // ---------------------------------------------------------------------------
 
@@ -28,10 +33,10 @@ buildVariables.join = makeVariables.join;
 
 const cssCurrentVersionFolder =
   process.env.NODE_ENV === 'production'
-    ? 'v' + (cssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0]
+    ? 'v' + targetCssVersion
     : process.env.NPM_PUB
-    ? 'dev-v' + (cssVersion.match(/^\d+/) || [''])[0]
-    : 'dev';
+    ? 'dev-v' + targetCssVersion.replace(/\.+/, '') // only the MAJOR version
+    : 'dev'; // Use "live" compilation results during local dev.
 
 export const styleServerUrl =
   process.env.NPM_PUB || process.env.NODE_ENV === 'production'
