@@ -90,8 +90,8 @@ export const buildTests = () => {
       format: 'cjs',
       platform: 'node',
       target: ['node16'],
-      entryPoints: glob.sync(`${srcDir}**/*.tests.{js,ts,tsx}`),
-      entryNames: '[dir]/[name]--[hash]',
+      entryPoints: glob.sync(`${srcDir}/**/*.tests.{js,ts,tsx}`),
+      entryNames: '[dir]/[hash]__[name]',
       write: false,
       watch: opts.dev && {
         onRebuild: (err, results) => writeOnlyAffected(results, err),

@@ -60,6 +60,7 @@ execSync(`yarn run gulp iconfont`);
 // Build Unit Tests and NPM library
 
 buildTests();
+
 buildNpmLib('css', {
   src: 'src/lib',
   cpCmds: [
