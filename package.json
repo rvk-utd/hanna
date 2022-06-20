@@ -1,6 +1,6 @@
 {
   "name": "hanna",
-  "version": "0.8.26",
+  "version": "0.8.27",
   "description": "Monorepo for all code related to development tooling for Hanna (Reykjavík's design system)",
   "repository": "ssh://git@github.com:rvk-utd/hanna-components.git",
   "author": "Reykjavík (http://www.reykjavik.is",
