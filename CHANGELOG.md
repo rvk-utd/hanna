@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `ArticleCards`
+- feat: Add component `Picture`
 - feat: Add component `BgBox`
 - feat: Add variant `--small` to `ArticleMeta`
 

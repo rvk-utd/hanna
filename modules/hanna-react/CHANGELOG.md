@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `ArticleCards`
+- feat: Add component `Picture`
 - feat: Add component `BgBox` for gray background wrapping
 - feat: Add prop `small` to `ArticleMeta`
 - fix: Suppress redundant className `.Heading--normal`

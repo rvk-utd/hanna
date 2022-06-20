@@ -1,0 +1,11 @@
+{{ attach_library('storybook/BgBox') }}
+
+{# TODO:
+  Add props for sourceset and img.src/.alt etc. etc.
+ #}
+
+{% set containClass = contain is defined and contain ? ' Picture--contain' %}
+
+<picture class="Picture{{containClass}}">
+<img />
+</picture>

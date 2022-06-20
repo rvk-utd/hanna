@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `ArticleCards`
+- feat: Add component `Picture`
 - feat: Add component `BgBox`
 - feat: Disable link color + underline inside `.Heading` and `.SubHeading`
 - feat: Change mouse cursor on `Carousel`-related component itemlist elements
