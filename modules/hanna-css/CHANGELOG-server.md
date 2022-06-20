@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.66
+
+_2022-06-20_
+
 - feat: Add component `ArticleCards`
 - feat: Add component `Picture`
 - feat: Add component `BgBox`
