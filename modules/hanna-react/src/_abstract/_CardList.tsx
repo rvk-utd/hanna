@@ -57,6 +57,7 @@ export type TextCardListProps = CardListProps<TextCardProps>;
 type _CardListProps = CardListProps<BaseCardProps> & {
   bemPrefix: string;
   children?: ReactNode;
+  standalone?: boolean;
 };
 
 export const CardList = (props: _CardListProps) => {
@@ -72,9 +73,11 @@ export const CardList = (props: _CardListProps) => {
 
   const TitleTag = titleTag;
 
-  const fallbackImage = (imgPlaceholder !== true && imgPlaceholder) || undefined;
-  const fallbackImageStyle = fallbackImage
-    ? ({ '--ImageCards--fallback': `url("${fallbackImage}")` } as CSSProperties)
+  const fallbackImageUrl = (imgPlaceholder !== true && imgPlaceholder) || undefined;
+  const fallbackImageStyle = fallbackImageUrl
+    ? ({
+        ['--' + bemPrefix + '--fallback']: `url("${fallbackImageUrl}")`,
+      } as CSSProperties)
     : undefined;
 
   return (
@@ -87,7 +90,10 @@ export const CardList = (props: _CardListProps) => {
       ) : (
         title && <TitleTag className={bemPrefix + '__title'}>{title}</TitleTag>
       )}
-      <ul className={bemPrefix + '__list'} style={fallbackImageStyle}>
+      <ul
+        className={bemPrefix + (props.standalone ? '' : '__list')}
+        style={fallbackImageStyle}
+      >
         {cards.map((card, i) => (
           <li key={i} className={bemPrefix + '__item'}>
             <Card {...card} bem={bemPrefix} imgPlaceholder={!!imgPlaceholder} />

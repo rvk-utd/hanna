@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `ArticleCards`
 - feat: Add component `BgBox` for gray background wrapping
 - fix: Suppress redundant className `.Heading--normal`
 

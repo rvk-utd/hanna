@@ -1,0 +1,21 @@
+{#
+  @file Image card.
+#}
+
+{% if attributes %}
+  <a{{ attributes.addclass('ArticleCards__card').setAttribute('href', url) }}>
+{% else %}
+  <a class="ArticleCards__card" href="{{ url }}">
+{% endif %}
+
+{% if image %}
+  <picture class="ArticleCards__image">
+    {{ image }}
+  </picture>
+{% else %}
+  <div class="ArticleCards__image ArticleCards__image--missing"></div>
+{% endif %}
+
+	<span class="ArticleCards__card__title">{{ title }}</span>
+	<span class="ArticleCards__card__meta">{{ meta }}</span>
+</a>

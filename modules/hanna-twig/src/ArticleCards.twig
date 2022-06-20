@@ -1,0 +1,17 @@
+{#
+  @file Article Cards.
+#}
+
+{{ attach_library('storybook/ArticleCards') }}
+
+{% set fallbackStyleAttr = fallback_image_url is defined and fallback_image_url ?
+		'--ArticleCards--fallback: url(' ~ fallback_image_url ~ ');'
+%}
+
+<ul{{ attributes.addClass('ArticleCards').setAttribute('style', fallbackStyleAttr) }}>
+  {% for row in rows %}
+    <li{{ row.attributes.addClass('ArticleCards__item') }}>
+      {{- row.content -}}
+    </li>
+  {% endfor %}
+</ul>
