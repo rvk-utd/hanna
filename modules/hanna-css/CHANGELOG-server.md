@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `BgBox`
 - feat: Disable link color + underline inside `.Heading` and `.SubHeading`
 - feat: Change mouse cursor on `Carousel`-related component itemlist elements
 - fix: Add `-basics` styling for `<optgroup/>` elements

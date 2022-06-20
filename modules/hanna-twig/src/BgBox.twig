@@ -1,0 +1,14 @@
+{{ attach_library('storybook/BgBox') }}
+
+{% set seenEffectAttr = seenEffect is not defined ?
+    ? ' data-seen-effect=""'
+    : seenEffect != "none"
+		? ' data-seen-effect="' ~ seenEffect ~ '"'
+    : ''
+%}
+
+<div class="BgBox"{{ seenEffectAttr|raw }}>
+	{% block content %}
+		{{ content }}
+	{% endblock %}
+</div>
