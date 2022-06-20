@@ -33,8 +33,8 @@ cd style-server
 ```
 
 ```sh
-> yarn install --production
-> yarn run start
+yarn install --production
+yarn run start
 ```
 
 See `cssserve`'s
