@@ -15,6 +15,9 @@
     .ArticleMeta--small {
       font: $var--font-label;
     }
+    .ArticleMeta__item {
+      display: inline-block;
+    }
     .ArticleMeta__item:not(:last-child)::after {
       content: ' | ';
       margin: 0 0.25em;
