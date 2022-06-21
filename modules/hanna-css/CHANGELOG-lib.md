@@ -3,12 +3,13 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Invalid `cssCurrentVersionFolder` in dev mode
 
 ## 0.3.5
 
 _2022-06-21_
 
-- fix: Localhost styleServerUrl in dev mode
+- fix: Localhost `styleServerUrl` in dev mode
 
 ## 0.3.4
 

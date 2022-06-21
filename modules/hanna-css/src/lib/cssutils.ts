@@ -35,7 +35,7 @@ const cssCurrentVersionFolder =
   process.env.NODE_ENV === 'production'
     ? 'v' + targetCssVersion
     : process.env.NPM_PUB
-    ? 'dev-v' + targetCssVersion.replace(/\.+/, '') // only the MAJOR version
+    ? 'dev-v' + targetCssVersion.replace(/\..+/, '') // only the MAJOR version
     : 'dev'; // Use "live" compilation results during local dev.
 
 export const styleServerUrl =
