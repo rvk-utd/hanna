@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Localhost styleServerUrl in dev mode
 
 ## 0.3.4
 

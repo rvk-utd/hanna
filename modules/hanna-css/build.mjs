@@ -74,9 +74,9 @@ if (!opts.dev) {
   // poor man's tsc replace-string plugin
   ['.', 'esm'].forEach((folder) => {
     const fileName = `${distDir}/${folder}/cssutils.js`;
-    readFile(fileName).then((contents) => {
-      contents.toString().replace(/process\.env\.NPM_PUB/g, 'true');
-    });
+    readFile(fileName)
+      .then((contents) => contents.toString().replace(/process\.env\.NPM_PUB/g, 'true'))
+      .then((content) => writeFile(fileName, content));
   });
 }
 
