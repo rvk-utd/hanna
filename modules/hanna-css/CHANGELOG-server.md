@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.67
+
+_2022-06-21_
+
 - feat: Update styling of dates/result meta texts inside `SearchResults`
 - feat: Add inline fill and stoke attributes for `reykjavik-logo*.svg` files
 - feat: Add `/assets/favicon-288.png`
