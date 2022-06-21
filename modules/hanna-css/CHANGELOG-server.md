@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update styling of dates/result meta texts inside `SearchResults`
 
 ## 0.8.66
 
