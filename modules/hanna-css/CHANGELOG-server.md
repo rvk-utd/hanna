@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Update styling of dates/result meta texts inside `SearchResults`
+- feat: Add inline fill and stoke attributes for `reykjavik-logo*.svg` files
 
 ## 0.8.66
 
