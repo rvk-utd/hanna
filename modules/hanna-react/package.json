@@ -18,10 +18,10 @@
     "@hugsmidjan/react": "^0.4.17",
     "@reykjavik/hanna-css": "^0.3.3",
     "@reykjavik/hanna-utils": "^0.1.7",
-    "@types/react": "16",
+    "@types/react": "^17.0.24",
     "@types/react-autosuggest": "^10.1.0",
     "@types/react-datepicker": "^3.0.2",
-    "@types/react-dom": "16",
+    "@types/react-dom": "^17.0.9",
     "@types/react-transition-group": "^4.4.0",
     "iframe-resizer-react": "^1.1.0",
     "react-autosuggest": "^10.1.0",
@@ -48,14 +48,14 @@
     "build": "yarn install  &&  node build.mjs  &&  yarn run test",
     "dev": "yarn install  &&  yarn run -T concurrently \"node build.mjs --dev\"  \"yarn run test:dev\"",
     "test:dev": "sleep 1  &&  (yarn run test || true)  &&  yarn run test:watch",
-    "test:watch": "yarn run -T onchange '__tests/**/*.tests.js' -f add -f change -- yarn run test",
+    "test:watch": "yarn run -T onchange '__tests/**/*.tests.js' -f add -f change -- yarn run -T ospec '{{file}}'",
     "test": "yarn run -T ospec \"__tests/**/*.tests.js\""
   },
   "devDependencies": {
     "@hugsmidjan/gulp-rollup": "^0.8.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "react": "16",
-    "react-dom": "16"
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   }
 }
