@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES2015",
     "lib": ["dom", "esnext"],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "importHelpers": true,
     "newLine": "LF",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
