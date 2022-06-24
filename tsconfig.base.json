@@ -13,6 +13,7 @@
     "strict": true,
     "noImplicitThis": false,
     "noUncheckedIndexedAccess": true,
+    "jsx": "react",
 
     "isolatedModules": true,
 
