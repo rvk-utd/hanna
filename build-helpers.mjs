@@ -140,34 +140,33 @@ export const buildNpmLib = (libName, custom) => {
       throw new Error('`libName` argument is required');
     }
     execSync(
-      [`rm -rf ${distDir}`, `mkdir ${distDir} ${distDir}/esm`].concat(cpCmds).join(' && ')
+      [`rm -rf ${distDir}`, `mkdir ${distDir}`].concat(cpCmds).join(' && ')
+      // [`rm -rf ${distDir}`, `mkdir ${distDir} ${distDir}/esm`].concat(cpCmds).join(' && ')
     );
-    writeFile(`${distDir}/esm/package.json`, JSON.stringify({ type: 'module' }));
+    // writeFile(`${distDir}/esm/package.json`, JSON.stringify({ type: 'module' }));
 
     makePackageJson(pkg, distDir, {
       sideEffects,
-      exports: entryPoints.reduce((exports, file) => {
-        const token = file.replace(/\.tsx?$/, '');
-        const expToken = token === 'index' ? '.' : `./${token}`;
-        exports[expToken] = {
-          import: `./esm/${token}.js`,
-          require: `./${token}.js`,
-        };
-        return exports;
-      }, {}),
+      // exports: entryPoints.reduce((exports, file) => {
+      //   const token = file.replace(/\.tsx?$/, '');
+      //   const expToken = token === 'index' ? '.' : `./${token}`;
+      //   exports[expToken] = {
+      //     import: `./esm/${token}.js`,
+      //     require: `./${token}.js`,
+      //   };
+      //   return exports;
+      // }, {}),
     });
 
     // -------
     [
       { name: 'cjs', module: 'commonjs' },
-      { name: 'esm', module: 'esnext' },
+      // { name: 'esm', module: 'esnext' },
     ].forEach(({ name, module }) => {
       tscBuild(`lib-${name}`, {
         compilerOptions: {
           module,
-          target: 'ES2015',
           declaration: true,
-          jsx: 'react',
           outDir: `${distDir}/temp`,
         },
         include: entryPoints.map((file) => `${src}/${file}`),

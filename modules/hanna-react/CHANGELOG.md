@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - fix: Add missing prop `checkOrigin` on `IframeBlock` (default: `false`)
 - fix: Suppot "uncontrolled" use of `CheckboxGroup`, `RadioGroup`, et al.
+- fix: Change build to only export CommonJS
 
 ## 0.10.59
 
