@@ -30,15 +30,15 @@ export const exit1 = (err) => {
 // ---------------------------------------------------------------------------
 
 export const makePackageJson = (pkg, outdir, extras) => {
-  const pkgOverloads = pkg.npm_lib_package_json;
   const newPkg = { ...pkg };
-  delete newPkg.npm_lib_package_json;
+  const { publishConfig } = newPkg;
+  delete newPkg.publishConfig;
 
   delete newPkg.scripts;
   delete newPkg.hxmstyle;
   delete newPkg.private;
   delete newPkg.devDependencies;
-  Object.assign(newPkg, pkgOverloads, extras);
+  Object.assign(newPkg, publishConfig, extras);
 
   writeFileSync(outdir + '/package.json', JSON.stringify(newPkg, null, '\t'));
 };

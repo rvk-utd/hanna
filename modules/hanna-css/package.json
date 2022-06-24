@@ -17,7 +17,7 @@
     "@reykjavik/hanna-utils": "^0.1.7",
     "es-in-css": "^0.5.5"
   },
-  "npm_lib_package_json": {
+  "publishConfig": {
     "engines": {
       "node": ">=16"
     }

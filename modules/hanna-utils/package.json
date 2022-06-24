@@ -19,7 +19,7 @@
     "focus-visible": "^5.2.0",
     "formatchange": "^1.8.1"
   },
-  "npm_lib_package_json": {
+  "publishConfig": {
     "engines": {
       "node": ">=16"
     }

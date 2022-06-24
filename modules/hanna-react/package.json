@@ -30,7 +30,7 @@
     "react-intersection-observer": "^8.30.1",
     "react-transition-group": "^4.4.1"
   },
-  "npm_lib_package_json": {
+  "publishConfig": {
     "engines": {
       "node": ">=16"
     },
