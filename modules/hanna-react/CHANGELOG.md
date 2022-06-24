@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Suppot "uncontrolled" use of `CheckboxGroup`, `RadioGroup`, et al.
 
 ## 0.10.59
 

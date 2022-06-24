@@ -58,7 +58,7 @@ const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     options,
     inputProps = {},
   } = props;
-  const values = props.value || [];
+  const values = props.value;
 
   return (
     <ul
@@ -75,7 +75,8 @@ const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
             : disabled && typeof disabled !== 'boolean'
             ? disabled.includes(i)
             : disabled;
-        const isChecked = values.includes(option.value);
+        const isChecked = values && values.includes(option.value);
+
         return (
           <Toggler
             key={i}
@@ -91,7 +92,9 @@ const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
                     const { value } = option;
                     const checked = e.currentTarget.checked;
                     inputProps.onChange && inputProps.onChange(e);
-                    const selectedValues = values.filter((val) => val !== value);
+                    const selectedValues = values
+                      ? values.filter((val) => val !== value)
+                      : [];
                     if (checked) {
                       selectedValues.push(value);
                     }
