@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.60
+
+_2022-06-24_
+
 - fix: Add missing prop `checkOrigin` on `IframeBlock` (default: `false`)
 - fix: Suppot "uncontrolled" use of `CheckboxGroup`, `RadioGroup`, et al.
 - fix: Change build to only export CommonJS
