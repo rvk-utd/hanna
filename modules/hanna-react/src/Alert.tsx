@@ -13,7 +13,7 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 import Button from './_abstract/_Button';
 import { isPreact } from './utils/env';
 
-// FIXME: Eventually import from @reykjavik/hanna-styles/constants
+// FIXME: Eventually import from @reykjavik/hanna-css
 const AlertCloseTransitionDuration = 400;
 
 const useAutoClosing = (autoClose: number) => {
@@ -127,7 +127,7 @@ const Alert = (props: AlertProps) => {
     (event?: MouseEvent) => {
       const ret =
         onClose &&
-        // @ts-expect-error  (@deprecated `event` parameter will be removed in v0.9)
+        // @ts-expect-error  (@deprecated `event` parameter will be removed in v0.11)
         onClose(event);
 
       if (ret !== false) {

@@ -213,6 +213,7 @@ _2022-03-09_
 
 - feat: Add props `autoClose` and `onClosed` to `Alert` — use `onClosed` when
   removing the Alert from the DOM
+- feat: Deprecate the `event` argument for `Alert`'s `onClose` callback
 - feat: Add prop `align?: 'right'` to `ButtonBar`
 - fix: Make `FileInput` image previews (thumbnails) more resilient overall
 - fix: Plug memory-leaks caused by `FileInput` image thumbnails.
