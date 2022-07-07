@@ -69,8 +69,13 @@
 
   // ---------------------------------------------------------------------------
 
+  // // NOTE: This className is only used to signal to hanna-sprinkles that
+  // // a .Alert__close button should be injected
+  // .Alert--closable {}
+
   $closing-duration: 400ms;
-  .Alert--closable {
+
+  .Alert {
     $ease-out-quartic: cubic-bezier(0.165, 0.84, 0.44, 1);
     transition: all $closing-duration 0ms;
     transition-timing-function: ease-in, $ease-out-quartic, ease-in, ease-in, ease-in-out;
@@ -84,7 +89,7 @@
       padding-right: prem(48);
     }
   }
-  .Alert--closable[hidden][hidden] {
+  .Alert[hidden][hidden] {
     display: block; // override default :hidden styling
     transition-delay: 0ms 0ms $closing-duration 0ms;
     opacity: 0;
@@ -96,7 +101,7 @@
     visibility: hidden;
   }
 
-  .Alert--closable[hidden][hidden]::before {
+  .Alert[hidden][hidden]::before {
     transition: opacity 200ms ease-in;
     opacity: 0;
   }

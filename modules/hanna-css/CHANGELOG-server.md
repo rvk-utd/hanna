@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Auto-closing `Alert`s should have CSS transition also
 
 ## 0.8.67
 
