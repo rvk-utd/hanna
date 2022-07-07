@@ -1,4 +1,7 @@
 {
-  "extends": "../../tsconfig.base.json"
-  // "compilerOptions": {}
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // somehow setting this is "../../tsconfig.base.json" doesn't work
+    "jsx": "react"
+  }
 }
