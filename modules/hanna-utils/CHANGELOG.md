@@ -4,9 +4,15 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.1.10
+
+_2022-07-07_
+
+- fix: Change build to only export CommonJS
+
 ## 0.1.7 – 0.1.9
 
-_2022-06-013_
+_2022-06-13_
 
 - fix: Problems in CJS and ESM, dual module file-structure
 
