@@ -111,7 +111,7 @@ const Alert = (props: AlertProps) => {
     ssr,
     onClosed,
   } = props;
-  const autoClose = props.autoClose && props.autoClose > 0 ? props.autoClose : 0;
+  const autoClose = Math.max(props.autoClose || 0, 0);
 
   const closing = useRef<ReturnType<typeof setTimeout>>();
   const [open, setOpen] = useState(!!ssr);
