@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 
+- fix: Change build to only export CommonJS
+
 ## 0.3.5 – 0.3.6
 
 _2022-06-21_
