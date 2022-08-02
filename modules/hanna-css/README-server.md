@@ -37,9 +37,13 @@ yarn install --production
 yarn run start
 ```
 
+This starts a HTTP server with the config specified in
+[cssserve-prod.json](./cssserve-prod.json).
+
 See `cssserve`'s
 documentation](https://github.com/hugsmidjan/cssserve#configuration) for
-details, on how to configure the server.
+details, on how to configure the server further, and/or override certain
+options.
 
 ## Get CSS bundles
 
