@@ -17,9 +17,9 @@
     "node": "16"
   },
   "scripts": {
-    "dev": "yarn && start-storybook -p 6006 -c .storybook",
-    "build": "NODE_ENV=production node .storybook/storybook-standalone.ts",
-    "publish": "yarn run build"
+    "dev": "yarn && start-storybook -p 6006 -c storybook",
+    "build": "NODE_ENV=production node storybook/storybook-standalone.mjs",
+    "publish": "yarn run build  &&  node build-release.mjs"
   },
   "dependencies": {
     "@babel/core": "^7.8.4",
