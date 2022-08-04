@@ -13,8 +13,9 @@ yarn install
 ```
 
 This sets up all the neccessary githooks, configures git, and displays
-notification explaining the submodule containing the
-[style-server](https://styles.reykjavik.is) assets.
+notification explaining the git submodules containing the various server
+setups/assets. (I.e. [style-server](https://styles.reykjavik.is) and
+[HTML storybook](https://storybook.reykjavik.is)).
 
 The repo is configured to use git LFS (Large File Storage). Make sure to
 [download and install `git-lfs`](https://git-lfs.github.com/) before you start

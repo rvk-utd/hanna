@@ -2,3 +2,7 @@
 	path = style-server
 	url = git@github.com:rvk-utd/hanna-styles.git
 	branch = style-server
+[submodule "servers/docs"]
+	path = servers/docs
+	url = git@github.com:rvk-utd/hanna-server-docs.git
+	branch = main
