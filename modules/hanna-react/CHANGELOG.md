@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add mouse-cursor scroll controls for `Carousel`-related components —
+  Remove mousewheel hijacking behavior.
 
 ## 0.10.60
 

@@ -1,12 +1,13 @@
 import React, {
   CSSProperties,
-  MouseEvent,
   ReactElement,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react';
 import A from '@hugsmidjan/qj/A';
+import debounce from '@hugsmidjan/qj/debounce';
 import focusElm from '@hugsmidjan/qj/focusElm';
 import throttle from '@hugsmidjan/qj/throttle';
 import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
@@ -18,26 +19,6 @@ import CarouselStepper from '../CarouselStepper';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect';
 
 // ---------------------------------------------------------------------------
-// BEGIN: Scroll capture
-//
-// Convert vertical mouse-wheel scroll into horizontal scroll.
-
-type CarouselListElm = HTMLDivElement & {
-  /**
-   * Signals that the element has seen deltaX during the current WheelEvent stream
-   *
-   * Reset on mouseleave
-   */
-  $hasXDeltaed?: boolean;
-  /**
-   * Storage for the timeout that cancels the current "scroll capture" session
-   * and resets the element's `style.scrollSnapType`.
-   */
-  $timeout?: number | ReturnType<typeof setTimeout>;
-};
-
-const WHEEL_AMPLIFIER = 3;
-const WHEEL_HIJACK_TIMEOUT_MS = 667;
 
 const scrollXBy = (elm: HTMLElement, deltaX: number) => {
   const left = elm.scrollLeft + deltaX;
@@ -50,63 +31,6 @@ const scrollXBy = (elm: HTMLElement, deltaX: number) => {
   // while Firefox is more smooth. Haven't found a way around that.
 };
 
-const exitWheelHijack = (elm: CarouselListElm) => () => {
-  elm.style.scrollSnapType = '';
-  const lastElmOffset = elm.lastElementChild
-    ? (elm.lastElementChild as HTMLElement).offsetLeft
-    : 0;
-  // trigger one last scroll event, to make sure the element's
-  // `style.scrollSnapType`'s behavior kicks in.
-  // Otherwise the list may stay stuck in an over-scrolled state —
-  // off to the right.
-  scrollXBy(elm, Math.min(0, lastElmOffset - elm.scrollLeft));
-};
-
-const handleMouseWheel = (e: WheelEvent) => {
-  const elm = e.currentTarget as CarouselListElm;
-
-  if (e.deltaX || elm.$hasXDeltaed) {
-    elm.$hasXDeltaed = true;
-    exitWheelHijack(elm);
-    return;
-  }
-
-  if (e.deltaY && !e.deltaX) {
-    if (e.deltaY < 0) {
-      // Stop scroll-capture when list is at left-edge
-      if (elm.scrollLeft < 50) {
-        return;
-      }
-    } else {
-      // Stop scroll-capture when list is beyond left edge of last list item
-      if (
-        elm.scrollLeft >
-        (elm.lastElementChild ? (elm.lastElementChild as HTMLElement).offsetLeft : 0)
-      ) {
-        exitWheelHijack(elm);
-        return;
-      }
-    }
-
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    // Disable `scroll-snap-style` because otherwise
-    // small-scale elm.scrollTo() calls have no effect
-    elm.style.scrollSnapType = 'initial';
-    scrollXBy(elm, e.deltaY * WHEEL_AMPLIFIER);
-    clearTimeout(elm.$timeout as number);
-    elm.$timeout = setTimeout(exitWheelHijack(elm), WHEEL_HIJACK_TIMEOUT_MS);
-  }
-};
-
-const handleMouseLeave = (e: MouseEvent) => {
-  const elm = e.currentTarget as CarouselListElm;
-  exitWheelHijack(elm);
-  elm.$hasXDeltaed = undefined;
-};
-
-// END: Scroll capture
 // ---------------------------------------------------------------------------
 
 export type CarouselProps<
@@ -165,9 +89,10 @@ const AbstractCarousel = <
   const [activeItem, setActiveItem] = useState(0);
   const isBrowser = useIsBrowserSide(ssr);
 
-  // update on activeItem state change
+  // Since listElm gets unmounted and remounted based on isBrowser, we
+  // wait for isBrowser is true before setting scroll and resize events.
+  const listElm = isBrowser && listRef.current;
   useEffect(() => {
-    const listElm = listRef.current;
     if (!listElm) {
       return;
     }
@@ -193,30 +118,61 @@ const AbstractCarousel = <
 
     calcLeftOffset();
 
-    listElm.addEventListener('wheel', handleMouseWheel);
     listElm.addEventListener('scroll', calcActiveItem, { passive: true });
     window.addEventListener('resize', calcLeftOffset, { passive: true });
     return () => {
-      listElm.removeEventListener('wheel', handleMouseWheel);
       listElm.removeEventListener('scroll', calcActiveItem);
       window.removeEventListener('resize', calcLeftOffset);
     };
-  }, []);
+  }, [listElm]);
 
   const scrollToItem = (newActive: number) => {
-    setActiveItem(newActive);
     const listElm = listRef.current!;
     const newItem = listElm.children[newActive] as HTMLElement | undefined;
-
-    listElm.scrollTo(newItem ? newItem.offsetLeft : 0, 0);
+    if (!newItem) {
+      return;
+    }
+    setActiveItem(newActive);
+    listElm.scrollLeft = newItem.offsetLeft || 1;
     setTimeout(() => focusElm(newItem), 500);
   };
+
+  const { delayedScrollLeft, delayedScrollRight } = useMemo(() => {
+    const delayedScrollLeft = debounce((currentActive: number) => {
+      scrollToItem(currentActive - 1);
+      setTimeout(() => delayedScrollLeft(currentActive - 1), 0);
+    }, 1000);
+    const delayedScrollRight = debounce((currentActive: number) => {
+      scrollToItem(currentActive + 1);
+      setTimeout(() => delayedScrollRight(currentActive + 1), 0);
+    }, 1000);
+    return { delayedScrollLeft, delayedScrollRight };
+  }, []);
 
   const [outerRef] = useSeenEffect(startSeen);
 
   if (!itemCount) {
     return null;
   }
+
+  const itemList = (
+    <div
+      className={bem + '__itemlist'}
+      style={
+        leftOffset
+          ? ({ '--Carousel--leftOffset': `${leftOffset}px` } as CSSProperties)
+          : undefined
+      }
+      data-scroll-snapping={leftOffset ? 'true' : undefined}
+      ref={listRef}
+    >
+      {children ||
+        items.map((item, i) => (
+          // @ts-expect-error  (Can't be arsed...)
+          <Component key={i} {...ComponentProps} {...item} />
+        ))}
+    </div>
+  );
 
   return (
     <div
@@ -225,23 +181,33 @@ const AbstractCarousel = <
       data-sprinkled={isBrowser}
     >
       {title && <h2 className={bem + '__title'}>{title}</h2>}
-      <div
-        className={bem + '__itemlist'}
-        style={
-          leftOffset
-            ? ({ '--Carousel--leftOffset': `${leftOffset}px` } as CSSProperties)
-            : undefined
-        }
-        data-scroll-snapping={leftOffset ? 'true' : undefined}
-        onMouseLeave={handleMouseLeave}
-        ref={listRef}
-      >
-        {children ||
-          items.map((item, i) => (
-            // @ts-expect-error  (Can't be arsed...)
-            <Component key={i} {...ComponentProps} {...item} />
-          ))}
-      </div>
+
+      {isBrowser ? (
+        <div className={bem + '__itemlist-wrapper'}>
+          {itemList}
+          <div
+            className={bem + '__itemlist-goLeft'}
+            onClick={() => {
+              delayedScrollLeft.cancel();
+              scrollToItem(activeItem - 1);
+            }}
+            onMouseOver={() => delayedScrollLeft(activeItem)}
+            onMouseOut={() => delayedScrollLeft.cancel()}
+          />
+          <div
+            className={bem + '__itemlist-goRight'}
+            onClick={() => {
+              delayedScrollRight.cancel();
+              scrollToItem(activeItem + 1);
+            }}
+            onMouseOver={() => delayedScrollRight(activeItem)}
+            onMouseOut={() => delayedScrollRight.cancel()}
+          />
+        </div>
+      ) : (
+        itemList
+      )}
+
       {isBrowser && (
         <CarouselStepper
           itemCount={itemCount}
