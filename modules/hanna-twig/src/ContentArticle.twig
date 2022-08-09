@@ -23,11 +23,11 @@
 	{% include "@storybook/Heading/Heading.twig" with {
 		title: label
 	}%}
-	
+
 	{% include "@storybook/TextBlock/TextBlock.twig" with {
 		content: contentText
 	}%}
-	
+
 	{% if relatedItems is defined %}
 		{% include "@storybook/VSpacer/VSpacer.twig" with {
 			size: 'true',
@@ -36,7 +36,7 @@
 		}%}
 
 		{% include "@storybook/RelatedLinks/RelatedLinks.twig" with {
-			title: relatedItems|length > 0 ? "Tengt efni" : '',
+			title: relatedItems|length > 0 ? ('Related material'|trans) : '',
 			items: relatedItems
 		}%}
 	{% endif %}

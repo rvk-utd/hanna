@@ -33,6 +33,17 @@
 						{% endif %}
 					</div>
 				{% endif %}
+				{% if subButtons %}
+					{% for label, buttons in subButtons %}
+						<div class="VSpacer VSpacer--top--small"></div>
+						{% if buttons|trim is not empty %}
+							<div class="InfoHero__subtitle">{{ label }}</div>
+							<div class="InfoHero__buttons">
+								{{ buttons }}
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
 			</div>
 
 			{% if image %}
