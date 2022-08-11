@@ -31,15 +31,20 @@ buildVariables.join = makeVariables.join;
 
 // ---------------------------------------------------------------------------
 
+// Add this workaround for remix_run as it's build script
+// does not allow string replacing process.env.* build variables
+// See: https://github.com/remix-run/remix/discussions/3541
+declare const _NPM_PUB_: boolean;
+
 const cssCurrentVersionFolder =
   process.env.NODE_ENV === 'production'
     ? 'v' + targetCssVersion
-    : process.env.NPM_PUB
+    : typeof _NPM_PUB_ !== 'undefined'
     ? 'dev-v' + targetCssVersion.replace(/\..+/, '') // only the MAJOR version
     : 'dev'; // Use "live" compilation results during local dev.
 
 export const styleServerUrl =
-  process.env.NPM_PUB || process.env.NODE_ENV === 'production'
+  typeof _NPM_PUB_ !== 'undefined' || process.env.NODE_ENV === 'production'
     ? 'https://styles.reykjavik.is'
     : 'http://localhost:4000';
 

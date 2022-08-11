@@ -1,4 +1,4 @@
-import { compareKeys } from 'hanna-test-helpers';
+import { reportMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
 import { HannaCssVarToken, hannaVarOverride, hannaVars } from './hannavars';
@@ -271,7 +271,7 @@ o.spec('cssVars', () => {
       theme_color_primary__safeish: true,
     };
 
-    compareKeys(hannaVars, expectedTokens);
+    reportMismatch(hannaVars, expectedTokens);
   });
 });
 

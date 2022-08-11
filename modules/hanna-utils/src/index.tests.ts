@@ -1,5 +1,5 @@
 import * as esincss from 'es-in-css';
-import { compareKeys } from 'hanna-test-helpers';
+import { reportMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
 import * as lib from './index';
@@ -38,7 +38,7 @@ o.spec('hanna-css lib', () => {
       /* types.d.ts */
     };
 
-    compareKeys(
+    reportMismatch(
       lib,
       expectedTokens,
       // Ignoring re-exported tokens from es-in-css.

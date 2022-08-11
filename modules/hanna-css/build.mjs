@@ -75,7 +75,9 @@ if (!opts.dev) {
   ['.' /* , 'esm' */].forEach((folder) => {
     const fileName = `${distDir}/${folder}/cssutils.js`;
     readFile(fileName)
-      .then((contents) => contents.toString().replace(/process\.env\.NPM_PUB/g, 'true'))
+      .then((contents) =>
+        contents.toString().replaceAll(`typeof _NPM_PUB_ !== 'undefined'`, 'true')
+      )
       .then((content) => writeFile(fileName, content));
   });
 }
