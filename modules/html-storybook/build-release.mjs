@@ -5,6 +5,8 @@ import { exit } from 'process';
 import {
   htmlDocsFolder,
   htmlVersion,
+  htmlVersionFolder,
+  rootFolder,
   serverFolder,
   tempDistFolder,
 } from './build-config.mjs';
@@ -24,9 +26,9 @@ execSync(
     `git submodule update --remote --rebase`,
 
     // update submodule files
-    `rm -rf ${htmlDocsFolder + htmlVersion}`,
+    `rm -rf ${htmlDocsFolder + htmlVersionFolder}`,
     `cp -R ${tempDistFolder} ${htmlDocsFolder}latest`,
-    `mv ${tempDistFolder} ${htmlDocsFolder + htmlVersion}`,
+    `mv ${tempDistFolder} ${htmlDocsFolder + htmlVersionFolder}`,
 
     // submodule commit
     `cd ${serverFolder}`,
@@ -37,7 +39,7 @@ execSync(
 
     // local commit
     `cd -`,
-    `git add ${serverFolder}`,
-    `git commit -m "release(html-storybook): v${htmlVersion}"`,
+    `git add ${rootFolder}package.json ${rootFolder}CHANGELOG.md ${serverFolder}`,
+    `git commit -m "release(html): v${htmlVersion}"`,
   ].join(' && ')
 );
