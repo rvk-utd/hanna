@@ -24,6 +24,7 @@ _2022-06-20_
 - feat: Add prop `small` to `ArticleMeta`
 - fix: Suppress redundant className `.Heading--normal`
 - feat: Add prop `focalPoint` to all `ImageProps`
+- feat: Add `EffectProp.effectType` prop value `none` for opting out
 
 ## 0.10.56 – 0.10.58
 
