@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add mouse-cursor scroll controls for `Carousel`-related components —
   Remove mousewheel hijacking behavior.
+- fix: `startSeen` hiding components with `html.before-sprinkling` present
 
 ## 0.10.60
 

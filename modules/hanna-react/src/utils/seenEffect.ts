@@ -46,11 +46,9 @@ export const getObserver = (target: Element, callback?: (target: Element) => voi
   }
   target.setAttribute(dataAttr, 'false');
   observer.observe(target);
-  return () => observer.unobserve(target);
-};
 
-export const seenEffectOptOut = (target: Element, setFlag = true) => {
-  setFlag ? target.setAttribute(dataAttr, '') : target.removeAttribute(dataAttr);
+  // return teardown/unmount effect
+  return () => observer.unobserve(target);
 };
 
 getObserver.DATA_ATTR_NAME = DATA_ATTR_NAME;
@@ -72,12 +70,12 @@ export type EffectProp = {
 };
 
 /** Asserts that a prop value is a SeenEffectType and returns undefined otherwise */
-export const assertEffectType = (maybeType?: string): SeenEffectType | undefined =>
+export const ensureEffectType = (maybeType?: string): SeenEffectType | undefined =>
   maybeType && maybeType in effects ? (maybeType as SeenEffectType) : undefined;
 
 export const getEffectAttr = (maybeType?: string) => ({
   'data-seen-effect':
-    maybeType === 'none' ? undefined : assertEffectType(maybeType) || '',
+    maybeType === 'none' ? undefined : ensureEffectType(maybeType) || '',
 });
 
 // ---------------------------------------------------------------------------
@@ -93,7 +91,7 @@ export const useSeenEffect = <E extends Element = HTMLDivElement>(
   /** Bring Your Own RefObject */
   customRef?: RefObject<E>
 ): [
-  // elementRef: RefObject<E> | undefined,
+  // elementRef: RefObject<E>,
   // isSeen: true | undefined
   /* Storybook's Typescript compiler can't handle labelled tuples ATM :-(
 		Prolly something to do with https://www.npmjs.com/package/fork-ts-checker-webpack-plugin
@@ -101,20 +99,23 @@ export const useSeenEffect = <E extends Element = HTMLDivElement>(
   RefObject<E> | undefined,
   true | undefined
 ] => {
+  const _startSeen = startSeen || undefined; // normalize
+  const [isSeen, setSeen] = useState(_startSeen);
+
   const localRef = useRef<E>(null);
-  const [isSeen, setSeen] = useState<true | undefined>(startSeen || undefined);
-
-  const ref = !startSeen && (customRef || localRef);
+  const ref = customRef || localRef;
   useEffect(() => {
-    setSeen(startSeen || undefined);
-    if (ref && ref.current) {
-      // NOTE: Given that `ref` is defined, then
-      // `startSeen` is implicily `false | undefined` at
-      // this point.
-      seenEffectOptOut(ref.current, false);
-      return getObserver(ref.current, () => setSeen(true));
+    setSeen(_startSeen);
+    const refElm = ref.current;
+    if (refElm) {
+      if (_startSeen) {
+        refElm.setAttribute(dataAttr, '');
+      } else {
+        refElm.removeAttribute(dataAttr);
+        return getObserver(refElm, () => setSeen(true));
+      }
     }
-  }, [ref, startSeen]);
+  }, [_startSeen, ref]);
 
-  return [ref || undefined, isSeen];
+  return [ref, isSeen];
 };
