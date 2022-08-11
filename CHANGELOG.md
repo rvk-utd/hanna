@@ -3,7 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add mouse-cursor scroll controls for `Carousel`-related components
+
+## 0.8.28
+
+_2022-08-11_
+
+- feat: Add scripted mouse scroll controls for `Carousel`-related components
 
 ## 0.8.27
 
