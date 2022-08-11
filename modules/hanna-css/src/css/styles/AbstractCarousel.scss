@@ -27,24 +27,46 @@
   &-goRight,
   &-goLeft {
     position: absolute;
-    width: max(calc(0.33 * var(--paddingLeft)), #{$var--grid-margin}, 40px);
+    width: 3rem;
+    @include avoidCssnanoMerging() {
+      width: MAX(calc(0.4 * var(--paddingLeft)), calc(1.2 * #{$var--grid-margin}), 2rem);
+    }
     top: -0.67rem;
     bottom: -0.67rem;
     cursor: pointer;
-    background-image: linear-gradient(-90deg, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
+    background-image: linear-gradient(
+      -90deg,
+      rgba(#fff, 1) 0%,
+      rgba(#fff, 0.5) 67%,
+      rgba(#fff, 0) 100%
+    );
     display: none;
     opacity: 0;
+    transition: opacity $var--link-transition;
+    // outline: 1px dashed rgba(black, 0.4);
   }
   :hover > &-goRight,
   :hover > &-goLeft {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     opacity: 0.0001;
   }
-
   &-goRight:hover,
   &-goLeft:hover {
     opacity: 1;
   }
+
+  &-goRight::before,
+  &-goLeft::before {
+    @include icon();
+    content: $icons-chevron-right;
+    font-size: 2.5rem;
+    margin-right: 0.5rem;
+    color: $var--color-suld-150;
+    text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
+  }
+
   &-goRight {
     cursor: e-resize;
     right: calc(-1 * var(--paddingLeft) + #{$var--browser-scrollbar-width});
