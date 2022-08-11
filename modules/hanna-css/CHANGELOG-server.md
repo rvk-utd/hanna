@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.68
+
+_2022-08-11_
+
 - feat: Add styling for `Carousel`-related mouse-cursor controls
 - fix: Auto-closing `Alert`s should have CSS transition also
 
