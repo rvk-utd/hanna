@@ -9,7 +9,6 @@
   .AccordionList {
     @include SeenEffect--fadeup();
     max-width: cols_px(8);
-    padding-left: var(--leftIndent);
     margin-top: between_container(32, 56);
 
     --leftIndent: #{between_phone_phablet(32, 48)};
@@ -34,6 +33,7 @@
   .AccordionList__title {
     @include SubheadingStyle--small();
     font-weight: $font-weight--bold;
+    padding-left: var(--leftIndent);
   }
   .AccordionList__button {
     position: relative;
@@ -79,6 +79,7 @@
     transition: all 200ms ease-in;
     transition-property: opacity, visibility, max-height, padding-top;
     overflow: hidden;
+    margin-left: var(--leftIndent);
     padding-top: grid-units(4);
     max-height: 4000px; // DECIDE: is this enough?
     opacity: 1;
