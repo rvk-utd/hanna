@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Spacing in `HeroBlock` on smaller viewports
 
 ## 0.8.68
 
