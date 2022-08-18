@@ -5,6 +5,7 @@
     "**/.yarn": true,
     "**/.pnp.*": true,
     "style-server/*": true,
-    "servers/docs/*": true
+    "servers/docs/*": true,
+    "modules/visual-tests/tests/**/*.png": true
   }
 }

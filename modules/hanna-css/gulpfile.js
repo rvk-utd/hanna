@@ -108,6 +108,13 @@ const updateDistFolder = (done) => {
   done();
 };
 
+const gulpExec = (cmd) => (done) => {
+  execSync(cmd);
+  done();
+};
+
+const visuallyTest = gulpExec(`yarn workspace hanna-visual-tests run test`);
+
 const copyToCssFolder = () => {
   if (existsSync(publishCssFolder)) {
     throw new Error('Publishing folder already exists.');
@@ -144,7 +151,8 @@ const buildAssets = series(cleanupAssets, staticAssetsCompress);
 
 exports.publishCss = series(
   updateDistFolder,
-  buildCss,
+  gulpExec(`yarn run build:css`),
+  // visuallyTest, // NOTE: Visual tests test the dev-css
   () => cssVersion.startsWith('v0.') && del([publishCssFolder], { force: true }), // NOTE: only do this before v1.0
   copyToCssFolder,
   commitCssToGit
@@ -152,18 +160,27 @@ exports.publishCss = series(
 
 exports.publishDevCss = series(
   updateDistFolder,
-  buildCss,
+  gulpExec(`yarn run build:css:dev`),
+  visuallyTest,
   cleanupPublicDevCss,
   copyToDevCssFolder,
   commitDevCssToGit
 );
-exports.publishAssets = series(updateDistFolder, buildAssets, commitAssetsToGit);
+exports.publishAssets = series(
+  updateDistFolder,
+  buildAssets,
+  visuallyTest,
+  commitAssetsToGit
+);
 
 // -------------------------
 
+exports.buildCss = buildCss;
+exports.buildAssets = buildAssets;
+
 exports.iconfont = iconfontBundle;
 
-exports.build = parallel(buildAssets, buildCss);
+exports.buildAll = parallel(buildAssets, buildCss);
 
 exports.watch = series([
   // buildAssets

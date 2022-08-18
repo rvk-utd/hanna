@@ -1,0 +1,23 @@
+import React from 'react';
+import type { MetaFunction } from '@remix-run/node';
+import ComponentToTest from '@reykjavik/hanna-react/ComponentToTest';
+
+import { Minimal } from '../../layout/Minimal';
+import type { TestingInfo } from '../../testingInfo';
+import { autoTitle } from '../../utils/meta';
+
+export const meta: MetaFunction = autoTitle;
+
+// // Use `handle` if you're using multiple Hanna compnents
+// export const handle = { cssTokens: [], };
+
+export default function () {
+  return (
+    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
+    <Minimal>
+      <ComponentToTest />
+    </Minimal>
+  );
+}
+
+export const testing: TestingInfo = {};

@@ -1,0 +1,41 @@
+{
+  "name": "hanna-visual-tests",
+  "version": "0.8",
+  "private": true,
+  "author": "Reykjavík (http://www.reykjavik.is)",
+  "contributors": [
+    "Már Örlygsson <mar.orlygsson@reykjavik.is>"
+  ],
+  "repository": "ssh://git@github.com:rvk-utd/hanna.git",
+  "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/visual-tests/README.md",
+  "license": "MIT",
+  "scripts": {
+    "webserver:build": "yarn run remix build",
+    "webserver:dev": "PORT=7357  yarn run remix dev",
+    "webserver:start": "PORT=7357  yarn run remix-serve _remix-build",
+    "webserver:testingmode": "NODE_ENV=development yarn run webserver:build  &&  yarn run webserver:start",
+    "test": "npx playwright test"
+  },
+  "dependencies": {
+    "@remix-run/node": "^1.6.8",
+    "@remix-run/react": "^1.6.8",
+    "@remix-run/serve": "^1.6.8",
+    "@reykjavik/hanna-css": "^0.3.6",
+    "@reykjavik/hanna-react": "^0.10.59",
+    "@reykjavik/hanna-utils": "^0.1.9",
+    "glob": "^8.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.24.2",
+    "@remix-run/dev": "^1.6.8",
+    "@remix-run/eslint-config": "^1.6.8",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "sideEffects": false
+}
