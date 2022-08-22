@@ -17,7 +17,10 @@ export type FileInputProps = {
   showFileSize?: boolean;
   showImagePreviews?: boolean;
   removeFileText: string;
-  onFilesUpdated?: (files: Array<File>) => void;
+  onFilesUpdated?: (
+    files: Array<File>,
+    diff: { deleted?: Array<File>; added?: Array<File> }
+  ) => void;
   name?: string;
   value?: ReadonlyArray<File>;
 } & FormFieldWrappingProps;
@@ -160,24 +163,36 @@ const FileInput = (props: FileInputProps) => {
 
   const removeFile = (name: string): void => {
     if (fileInput.current) {
+      const deleted: Array<File> = [];
       const newFileList = files.filter((file) => {
         if (file.name !== name) {
           return true;
         }
+        deleted.push(file);
         releasePreview(file);
+        return false;
       });
       fileInput.current.files = arrayToFileList(newFileList);
-      onFilesUpdated(newFileList);
+      onFilesUpdated(newFileList, { deleted });
     }
   };
 
-  const addFiles = (filelist: Array<File>): void => {
+  const addFiles = (added: Array<File>): void => {
     if (fileInput.current) {
-      const newFileList = dropzoneProps.multiple
-        ? dedupeFilesArray(files.concat(filelist))
-        : filelist;
+      const deleted: Array<File> = [];
+      const retained: Array<File> = [];
+      const oldFiles = dropzoneProps.multiple ? files : [];
+      oldFiles.forEach((oldFile) => {
+        if (added.find(({ name }) => name === oldFile.name)) {
+          deleted.push(oldFile);
+        } else {
+          retained.push(oldFile);
+        }
+      });
+      const newFileList = retained.concat(added);
       fileInput.current.files = arrayToFileList(newFileList);
-      onFilesUpdated(newFileList);
+      const diff = deleted.length ? { added, deleted } : { added };
+      onFilesUpdated(newFileList, diff);
     }
 
     if (inputRef.current) {

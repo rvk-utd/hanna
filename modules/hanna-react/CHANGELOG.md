@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `diff` object to `FileInput`'s `onFilesUpdated` callback signature
 
 ## 0.10.61
 
