@@ -18,7 +18,9 @@ export type FileInputProps = {
   showImagePreviews?: boolean;
   removeFileText: string;
   onFilesUpdated?: (
+    /** Updated, full list of Files. */
     files: Array<File>,
+    /** Information about which Files were added or removed during with this update. */
     diff: { deleted?: Array<File>; added?: Array<File> }
   ) => void;
   name?: string;
