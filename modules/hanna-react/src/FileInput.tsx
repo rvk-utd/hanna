@@ -62,20 +62,6 @@ const arrayToFileList = (arr: Array<File>) => {
   return fileList.files;
 };
 
-const dedupeFilesArray = (files: Array<File>) => {
-  const newArray: Array<File> = [];
-  const found: Record<string, true> = {};
-  files.forEach((file) => {
-    if (!(file.name in found)) {
-      newArray.push(file);
-      found[file.name] = true;
-    } else {
-      releasePreview(file);
-    }
-  });
-  return newArray;
-};
-
 const formatBytes = (bytes: number, decimals = 2) => {
   if (bytes === 0) {
     return '0 Bytes';
