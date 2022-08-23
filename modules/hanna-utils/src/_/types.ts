@@ -25,6 +25,8 @@
  */
 export type OpenRecord<T extends string, V> = Record<T, V> & Record<string, V>;
 
+// ---------------------------------------------------------------------------
+
 /**
  * A variant of `OpenRecord` for cases where you're mapping `Keys` to themselves.
  * It allows for shorter/simpler type signature.
@@ -61,6 +63,8 @@ export type OpenRecord<T extends string, V> = Record<T, V> & Record<string, V>;
 export type OpenStringMap<T extends string, V = T> = Record<T, T | V> &
   Record<string, T | V>;
 
+// ---------------------------------------------------------------------------
+
 /**
  * Type hack to resolve a cleaner result from ´Pick´ and ´Omit´ operations
  *
@@ -68,3 +72,60 @@ export type OpenStringMap<T extends string, V = T> = Record<T, T | V> &
  * https://effectivetypescript.com/2022/02/25/gentips-4-display/
  */
 export type Resolve<T> = T extends Function ? T : { [K in keyof T]: T[K] };
+
+// ---------------------------------------------------------------------------
+
+/**
+ * Return A with the unique keys of B as optionally undefined
+ *
+ * Example:
+ *
+ * ```ts
+ * type MyProps = AllowKeys<
+ *   { type: 'profit', gain: number },
+ *   { type: 'loss', loss: number, panic: boolean }
+ * >;
+ * ```
+ *
+ * is the same as:
+ *
+ * ```ts
+ * type MyProps =
+ *   { type: 'profit', gain: number, loss?: never, panic?: never };
+ * ```
+ */
+export type AllowKeys<A, B> = Resolve<A & { [Key in Exclude<keyof B, keyof A>]?: never }>;
+
+// ---------------------------------------------------------------------------
+
+/**
+ * Allow either type, but define the keys from the other type as optionally undefined.
+ *
+ * Example:
+ *
+ * ```ts
+ * type MyProps = EitherObj<
+ *   { type: 'profit', gain: number },
+ *   { type: 'loss', loss: number }
+ *   { type: 'even', panic: boolean }
+ * >;
+ * ```
+ *
+ * is the same as:
+ *
+ * ```ts
+ * type MyProps =
+ *   | { type: 'profit', gain: number, loss?: never, panic?: never },
+ *   | { type: 'loss', loss: number, gain?: never, panic?: never };
+ *   | { type: 'even', panic: boolean, loss?: never, gain?: never };
+ * ```
+ */
+export type EitherObj<A, B, C = boolean, D = boolean> = C extends boolean
+  ? AllowKeys<A, B> | AllowKeys<B, A>
+  : D extends boolean
+  ? AllowKeys<A, B & C> | AllowKeys<B, A & C> | AllowKeys<C, A & B>
+  :
+      | AllowKeys<A, B & C & D>
+      | AllowKeys<B, A & C & D>
+      | AllowKeys<C, A & B & D>
+      | AllowKeys<D, A & B & C>;

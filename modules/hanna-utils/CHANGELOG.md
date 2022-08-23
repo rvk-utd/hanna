@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat(ts): Add utility types `AllowKeys`, `EitherObj`
 
 ## 0.1.10
 

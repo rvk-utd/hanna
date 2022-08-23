@@ -71,6 +71,8 @@ import type {
   OpenRecord,
   OpenStringMap,
   Resolve,
+  AllowKeys,
+  EitherObj,
 } from './index';
 import { tree } from 'gulp';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
