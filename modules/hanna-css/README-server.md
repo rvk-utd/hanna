@@ -40,9 +40,9 @@ yarn run start
 This starts a HTTP server with the config specified in
 [cssserve-prod.json](./cssserve-prod.json).
 
-See `cssserve`'s
-documentation](https://github.com/hugsmidjan/cssserve#configuration) for
-details, on how to configure the server further, and/or override certain
+See
+[`cssserve`'s documentation](https://github.com/hugsmidjan/cssserve#configuration)
+for details, on how to configure the server further, and/or override certain
 options.
 
 ## Get CSS bundles
@@ -94,8 +94,8 @@ images, font-files, etc.
 The contents of those folders should generally never change — Only new
 (semantically-versioned) folders should be added.
 
-The only exception to this immutability rule are any obviously named
-testing/dev folders, like `public/css/dev-v1/` or such.
+The only exception to this immutability rule are any folders with an obvious
+testing/dev name prefix, like `public/css/dev-v1/` or such.
 
 **NOTE:** The development [CSS build tasks](#updating-the-css-and-assets) will
 build into a transient folder called `public/css/dev/`. This folder is for
@@ -115,7 +115,7 @@ problems arise that call for pinning a minor version temporarily.
 (The only exception is `v0` which should never be used, since
 [SemVer](https://semver.org/spec/v2.0.0.html) dictates that all "minor"
 versions `< 1.0.0` qualify as major/breaking. Instead always pin to a specific
-minor version like so `/bundle/v0.8`)
+minor `0.*` version. (Like so `/bundle/v0.8`.)
 
 ## Updating the CSS and Assets
 
