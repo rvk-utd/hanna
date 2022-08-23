@@ -26,7 +26,9 @@
 export type OpenRecord<T extends string, V> = Record<T, V> & Record<string, V>;
 
 /**
- * A variant of `OpenRecord` for cases where you're mapping `Keys` to themselves. It allows for shorter/simpler type signature. The second `Value` parameter is unioned to `Keys`
+ * A variant of `OpenRecord` for cases where you're mapping `Keys` to themselves.
+ * It allows for shorter/simpler type signature.
+ * The second `Value` parameter is unioned to `Keys`
  *
  * ```ts
  * import type { OpenStringMap } from '@reykjavik/hanna-utils';

@@ -20,7 +20,15 @@ export type FileInputProps = {
   onFilesUpdated?: (
     /** Updated, full list of Files. */
     files: Array<File>,
-    /** Information about which Files were added or removed during with this update. */
+    /** Information about which Files were added or removed during with this update.
+     *
+     * NOTE: When a diff contains both added and deleted files, this indicates a
+     * name-conflict occurred — i.e. one of the added files has a name that
+     * existed in the old file list.
+     * In such cases the deletion is more implicit than explicit, and depending
+     * on the circumstances, you MIGHT wish to either warn the user, rename
+     * one of the files, instead of overwriting/deleting the older file, etc.
+     */
     diff: { deleted?: Array<File>; added?: Array<File> }
   ) => void;
   name?: string;
