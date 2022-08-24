@@ -2,9 +2,6 @@ import { expect, test } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { compareKeys } from 'hanna-test-helpers';
 
-import { testing as AccordionList__test } from '../src/routes/test/AccordionList';
-import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
-import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import type { TestFnArgs, TestingInfo } from '../src/testingInfo';
 import { getTestListSync } from '../src/utils/tests.server';
 
@@ -28,6 +25,12 @@ type TestPageLabel = keyof typeof testPagePaths;
 
 // ---------------------------------------------------------------------------
 
+/* eslint-disable import/first */
+import { testing as AccordionList__test } from '../src/routes/test/AccordionList';
+import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
+import { testing as TagPill__test } from '../src/routes/test/TagPill';
+/* eslint-enable import/first */
+
 /**
  * Manually maintained list of test pages and their exported `testing`
  * info — which may contain some tweaks to the test, or additional
@@ -38,8 +41,8 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   // to this record, and the keys must match up with those of `testPagePaths`.
   // BTW, the "All tests are accounted for" @meta test (below) errors if
   // you forgot something.
-  HeroBlock: HeroBlock__test,
   AccordionList: AccordionList__test,
+  HeroBlock: HeroBlock__test,
   TagPill: TagPill__test,
 };
 // ---------------------------------------------------------------------------

@@ -114,6 +114,8 @@ export default function () {
   );
 }
 
+// ---------------------------------------------------------------------------
+
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
     for await (const id of [
