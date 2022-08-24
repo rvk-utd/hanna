@@ -50,7 +50,10 @@ const TagPill = (props: TagPillProps) => {
     removable &&
     isStatic &&
     !onRemove &&
-    console.warn('static (non-button) `TagPill`s must not be removable');
+    console.warn(
+      'Removable static (non-button) `TagPill`s ' +
+        'must have an `onRemove` handler defined'
+    );
 
   const modifiers = [modifier, large && 'large', colors[color]];
   const removeBtn = removable && (
@@ -65,7 +68,7 @@ const TagPill = (props: TagPillProps) => {
   );
 
   return isStatic ? (
-    <span className={getBemClass('TagPill', modifiers)}>
+    <span className={getBemClass('TagPill', modifiers)} {...buttonProps}>
       {label} {removeBtn}
     </span>
   ) : onRemove ? (
