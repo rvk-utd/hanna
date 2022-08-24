@@ -139,16 +139,6 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
       ...urls,
     };
   });
-  changes.forEach((change, i) => {
-    const prev = changes[i - 1];
-    const next = changes[i + 1];
-    if (prev) {
-      change.prevId = prev.id;
-    }
-    if (next) {
-      change.nextId = next.id;
-    }
-  });
   changes.sort((a, b) => {
     if (a.testName !== b.testName) {
       return a.testName > b.testName ? 1 : -1;
@@ -160,6 +150,16 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
       return a.project > b.project ? 1 : -1;
     }
     return 0;
+  });
+  changes.forEach((change, i) => {
+    const prev = changes[i - 1];
+    const next = changes[i + 1];
+    if (prev) {
+      change.prevId = prev.id;
+    }
+    if (next) {
+      change.nextId = next.id;
+    }
   });
   return changes;
 };
@@ -238,7 +238,7 @@ export const updateScreenshotsFor = async (id: string, action: 'accept' | 'rejec
       execSync(`rm -f ${bugFlagFile}`);
     } else {
       execSync(`touch ${bugFlagFile}`);
-      execSync(`rm ${snapshotsFile}`);
+      execSync(`rm -f ${snapshotsFile}`);
     }
   } else {
     if (action === 'accept') {
