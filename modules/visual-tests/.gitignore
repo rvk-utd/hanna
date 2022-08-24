@@ -1,10 +1,10 @@
 ## Remix-related
 /.cache
 /_remix-build
-/_remix-public/build
+/public/build
 .env
 
 ## Playwright-related
-/_playwright-results
-/_playwright-report
+/public/test-results
+/public/report
 /playwright/.cache
