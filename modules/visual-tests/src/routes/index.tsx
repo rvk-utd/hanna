@@ -49,6 +49,10 @@ export default function Index() {
         // startSeen
       />
 
+      <TextBlock>
+        <Link to="/review">Review VRT results</Link>
+      </TextBlock>
+
       <AccordionList
         items={[
           {

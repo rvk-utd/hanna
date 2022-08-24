@@ -57,6 +57,12 @@ export default css`
   .ReviewShot__actionbutton:hover:not(span) {
     border-color: ${vars.color_suld_150};
   }
+  .ReviewShot__actionbutton:disabled {
+    /* background-color: ${vars.color_suld_50}; */
+    opacity: 0.33;
+    pointer-events: none;
+  }
+
   .ReviewShot__actionbutton--accept {
     background-color: ${vars.color_ellidaardalur_50};
   }
@@ -82,6 +88,8 @@ export default css`
     position: relative;
     cursor: zoom-in;
     text-align: center;
+    padding: ${vars.space_1$5} 0;
+    margin-top: ${vars.space_1$5__neg};
   }
   .ReviewShot__shots[data-mode='difference'] {
   }
@@ -94,8 +102,10 @@ export default css`
     cursor: zoom-out;
     width: 100vw;
     overflow-x: auto;
-    margin: 0 calc(50% - 50vw);
-    padding: 1px calc(50vw - 50%);
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
   }
   .ReviewShot__shots[data-zoomed]::after {
     content: '';
@@ -104,6 +114,7 @@ export default css`
 
   .ReviewShot__shot {
     outline: ${vars.border_default};
+    outline-offset: ${vars.space_1};
     width: auto;
     max-width: 100%;
     object-fit: scale-down;
@@ -132,7 +143,7 @@ export default css`
 
   .ReviewShot__primed {
     position: fixed;
-    top: 33%;
+    top: 25%;
     left: 50%;
     background-color: ${vars.color_suld_50};
     border: ${vars.border_dark};

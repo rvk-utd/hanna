@@ -4,6 +4,7 @@ import { compareKeys } from 'hanna-test-helpers';
 
 import { testing as AccordionList__test } from '../src/routes/test/AccordionList';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
+import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import type { TestFnArgs, TestingInfo } from '../src/testingInfo';
 import { getTestListSync } from '../src/utils/tests.server';
 
@@ -39,6 +40,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   // you forgot something.
   HeroBlock: HeroBlock__test,
   AccordionList: AccordionList__test,
+  TagPill: TagPill__test,
 };
 // ---------------------------------------------------------------------------
 
@@ -76,7 +78,7 @@ allComponentTests.forEach(([name, testInfo]) => {
     testName + tagStr + '-',
     async ({ page, context, browserName, isMobile, hasTouch }) => {
       const pageScreenshot = makeSnapPageScreeshot(page, testName);
-      const localScreenshot = makeSnapLocalScreeshot(testName);
+      const localScreenshot = makeSnapLocalScreeshot(page, testName);
 
       const args: TestFnArgs = {
         page,

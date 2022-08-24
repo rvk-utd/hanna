@@ -7,6 +7,7 @@ import {
   redirect,
 } from '@remix-run/node';
 import { Link, useCatch, useLoaderData } from '@remix-run/react';
+import Layout from '@reykjavik/hanna-react/Layout';
 import PageHeading from '@reykjavik/hanna-react/PageHeading';
 import TextBlock from '@reykjavik/hanna-react/TextBlock';
 
@@ -76,12 +77,12 @@ export const CatchBoundary = () => {
   const cought = useCatch();
 
   return (
-    <Minimal>
+    <Layout>
       <PageHeading small>{cought.statusText}</PageHeading>
       <TextBlock>
         <p>{cought.data}</p>
       </TextBlock>
-    </Minimal>
+    </Layout>
   );
 };
 
@@ -93,7 +94,9 @@ export default function () {
   return (
     <Minimal>
       <PageHeading small startSeen>
-        {change.testName} – {change.label} ({change.project})
+        {change.testName} <small>({change.project})</small>
+        <br />
+        {change.label || ' '}
       </PageHeading>
       <p>
         <Link to="./..">List of changes</Link>

@@ -1,4 +1,5 @@
 import type {
+  ElementHandle,
   Expect,
   Locator,
   LocatorScreenshotOptions,
@@ -71,12 +72,12 @@ export type TestFnArgs = Pick<
   expect: Expect;
 
   /**
-   * Sugar function to snap a screenshot of a single element locator
-   * and gives it a nicely formatted, labelled filename
+   * Sugar function to snap a screenshot of a single elementHandle
+   * or locator and gives it a nicely formatted, labelled filename
    */
   localScreenshot: (
     /** Locator for the Element to snap screenshot of */
-    locator: Locator,
+    locator: Locator | ElementHandle,
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
     opts?: LocatorScreenshotOptions

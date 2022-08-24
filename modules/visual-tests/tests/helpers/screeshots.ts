@@ -23,9 +23,19 @@ const toFileName = (testName: string, label: string) =>
 // ---------------------------------------------------------------------------
 
 export const makeSnapLocalScreeshot =
-  (testName: string): TestFnArgs['localScreenshot'] =>
-  (locator, label, opts) =>
-    expect(locator).toHaveScreenshot(toFileName(testName, label), opts);
+  (page: Page, testName: string): TestFnArgs['localScreenshot'] =>
+  async (locator, label, opts) => {
+    if ('waitForElementState' in locator) {
+      const id = await locator.evaluate((elm: HTMLElement) => {
+        if (!elm.id) {
+          elm.id = 'foo' + Date.now() + Math.random();
+        }
+        return elm.id;
+      });
+      locator = page.locator('#' + id);
+    }
+    return expect(locator).toHaveScreenshot(toFileName(testName, label), opts);
+  };
 
 // ---------------------------------------------------------------------------
 

@@ -98,7 +98,7 @@ const useReviewState = (change: Changeset) => {
           primeout = setTimeout(() => {
             resetPrimed();
             lastKey = '';
-          }, 1000);
+          }, 1250);
         }
         return;
       }
@@ -134,7 +134,7 @@ export type ReviewShotProps = {
 };
 
 export const ReviewShot = (props: ReviewShotProps) => {
-  const { actualUrl, expectedUrl, diffUrl, nextId, prevId } = props.change;
+  const { actualUrl, expectedUrl, diffUrl, nextId, prevId, confirmedBug } = props.change;
   const { isNew, mode, toDiffMode, toggleMode, wrappeRref, primed, zoomed, toggleZoom } =
     useReviewState(props.change);
 
@@ -154,6 +154,11 @@ export const ReviewShot = (props: ReviewShotProps) => {
               {capitalize(mode)}
             </TagPill>
           )}{' '}
+          {confirmedBug && (
+            <TagPill color="red" large>
+              Bug!
+            </TagPill>
+          )}
           {!isNew && (
             <button
               className="ReviewShot__modebutton ReviewShot__modebutton--diff"
@@ -186,6 +191,7 @@ export const ReviewShot = (props: ReviewShotProps) => {
             className="ReviewShot__actionbutton ReviewShot__actionbutton--reject"
             name="action"
             value="reject"
+            disabled={confirmedBug}
           >
             <strong>R</strong>eject
           </button>{' '}

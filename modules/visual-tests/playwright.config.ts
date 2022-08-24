@@ -74,8 +74,8 @@ const config: PlaywrightTestConfig = {
     },
 
     ...ObjectEntries({
-      wide: { width: 1600, height: 500 },
-      netbook: { width: 1100, height: 500 },
+      wide: { width: 1600, height: 300 },
+      netbook: { width: 1100, height: 300 },
     }).flatMap(
       ([label, viewport]): Array<ProjectCfg> => [
         {

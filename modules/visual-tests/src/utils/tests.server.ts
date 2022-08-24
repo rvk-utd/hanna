@@ -149,6 +149,18 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
       change.nextId = next.id;
     }
   });
+  changes.sort((a, b) => {
+    if (a.testName !== b.testName) {
+      return a.testName > b.testName ? 1 : -1;
+    }
+    if (a.label !== b.label) {
+      return a.label > b.label ? 1 : -1;
+    }
+    if (a.project !== a.project) {
+      return a.project > b.project ? 1 : -1;
+    }
+    return 0;
+  });
   return changes;
 };
 
@@ -223,9 +235,10 @@ export const updateScreenshotsFor = async (id: string, action: 'accept' | 'rejec
   if (isNew) {
     if (action === 'accept') {
       execSync(`mv ${actualFile} ${snapshotsFile}`);
+      execSync(`rm -f ${bugFlagFile}`);
     } else {
-      execSync(`rm ${snapshotsFile}`);
       execSync(`touch ${bugFlagFile}`);
+      execSync(`rm ${snapshotsFile}`);
     }
   } else {
     if (action === 'accept') {

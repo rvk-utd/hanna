@@ -16,12 +16,16 @@ export default css`
   .ChangesList {
   }
   .ChangesList__item {
-    margin-bottom: ${vars.space_1};
+    padding-top: ${vars.space_1};
+    padding-bottom: ${vars.space_0$5};
   }
   .ChangesList__item--bug {
     ${hannaVarOverride({
       link_color: vars.color_suld_150,
     })};
+  }
+  .ChangesList__item--namechange:not(:first-child) {
+    border-top: ${vars.border_default};
   }
   .ChangesList__item .TagPill {
     margin-bottom: 0;
@@ -31,16 +35,19 @@ export default css`
     flex-flow: row wrap;
     border: 0;
   }
-  .ChangesList__name {
+  .ChangesList__label {
     border-bottom: ${vars.link_underline};
   }
-  .ChangesList__item--bug .ChangesList__name {
+  .ChangesList__item--bug .ChangesList__label {
     text-decoration: line-through;
   }
-  .ChangesList__name:not(:last-child) {
+  .ChangesList__item:not(.ChangesList__item--namechange):not(:hover) .ChangesList__name {
+    opacity: 0.3;
+  }
+  .ChangesList__label:not(:last-child) {
     margin-right: ${vars.space_2};
   }
-  :hover > .ChangesList__name {
+  :hover > .ChangesList__label {
     border-bottom: ${vars.link_underline__hover};
   }
   .ChangesList__project {
