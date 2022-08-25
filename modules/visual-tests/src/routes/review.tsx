@@ -8,25 +8,30 @@ import SeenEffect from '@reykjavik/hanna-react/SeenEffect';
 import TagPill from '@reykjavik/hanna-react/TagPill';
 import TextBlock from '@reykjavik/hanna-react/TextBlock';
 
-import { doesReportExists, getChangesToReview } from '../utils/tests.server';
+import { getChangesToReview, getReportDate } from '../utils/tests.server';
 
 import styles from './review.css';
+
+const formatDate = (timestamp: number) =>
+  new Date(timestamp).toISOString().substring(0, 16).replace('T', ' at ');
 
 // ---------------------------------------------------------------------------
 
 export type LoaderData = {
   changed: Awaited<ReturnType<typeof getChangesToReview>>;
-  reportExists: boolean;
+  reportCreatedDate: number | undefined;
 };
 
 export const loader: LoaderFunction = async () => {
-  const changed = await getChangesToReview();
-  const reportExists = doesReportExists();
+  const [changed, reportCreatedDate] = await Promise.all([
+    getChangesToReview(),
+    getReportDate(),
+  ]);
 
   const TTL = 10;
 
   return json<LoaderData>(
-    { changed, reportExists },
+    { changed, reportCreatedDate },
     {
       headers: {
         'Cache-Control': `public, max-age=${TTL}, immutable`,
@@ -53,15 +58,16 @@ export const handle = {
 // ---------------------------------------------------------------------------
 
 export default function () {
-  const { changed, reportExists } = useLoaderData<LoaderData>();
+  const { changed, reportCreatedDate } = useLoaderData<LoaderData>();
 
   return (
     <Layout>
       <PageHeading small>Review Changed Screenshots</PageHeading>
       <SeenEffect>
-        {reportExists && (
+        {reportCreatedDate && (
           <p className="ReviewReport">
-            <a href="/report/index.html">View Playwright report</a>
+            <a href="/report/index.html">View Playwright report</a>{' '}
+            <span>— (Created on {formatDate(reportCreatedDate)})</span>
           </p>
         )}
         {changed.length ? (
@@ -115,7 +121,7 @@ export default function () {
             <p>
               <strong>No reviewable changes found.</strong>
             </p>
-            {reportExists ? (
+            {reportCreatedDate ? (
               <p>
                 If you just ran <code>yarn run test</code>, then this is good news.
               </p>

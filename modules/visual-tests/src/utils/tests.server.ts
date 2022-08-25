@@ -1,6 +1,7 @@
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { execSync } from 'child_process';
 import { existsSync, statSync } from 'fs';
+import { stat } from 'fs/promises';
 import type { IOptions as GlobOptions } from 'glob';
 
 import { LABEL_SPLIT, NAME_SPLIT } from '../../tests/helpers/screeshots';
@@ -269,4 +270,7 @@ export const updateScreenshotsFor = async (id: string, action: 'accept' | 'rejec
 
 // ---------------------------------------------------------------------------
 
-export const doesReportExists = () => existsSync('public/report/index.html');
+export const getReportDate = () =>
+  stat('public/report/index.html')
+    .then((stat) => stat.mtime.getTime())
+    .catch(() => undefined);
