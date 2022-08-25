@@ -107,7 +107,7 @@
   }
 
   .Alert__close {
-    @include LinkStyle_Reset(false);
+    @include LinkStyle_Reset(true);
     @include hideText(soft);
     position: absolute;
     top: prem(3);

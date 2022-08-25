@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Hover styling on `a.Alert__close` links
 - fix: Spacing in `HeroBlock` on smaller viewports
 
 ## 0.8.68
