@@ -27,6 +27,7 @@ type TestPageLabel = keyof typeof testPagePaths;
 
 /* eslint-disable import/first */
 import { testing as AccordionList__test } from '../src/routes/test/AccordionList';
+import { testing as Alert__test } from '../src/routes/test/Alert';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
@@ -43,6 +44,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   // BTW, the "All tests are accounted for" @meta test (below) errors if
   // you forgot something.
   AccordionList: AccordionList__test,
+  Alert: Alert__test,
   FooterInfo: FooterInfo__test,
   HeroBlock: HeroBlock__test,
   TagPill: TagPill__test,

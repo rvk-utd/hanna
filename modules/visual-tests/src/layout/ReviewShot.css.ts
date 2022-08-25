@@ -58,7 +58,6 @@ export default css`
     border-color: ${vars.color_suld_150};
   }
   .ReviewShot__actionbutton:disabled {
-    /* background-color: ${vars.color_suld_50}; */
     opacity: 0.33;
     pointer-events: none;
   }

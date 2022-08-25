@@ -1,6 +1,6 @@
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { execSync } from 'child_process';
-import { existsSync } from 'fs';
+import { existsSync, statSync } from 'fs';
 import type { IOptions as GlobOptions } from 'glob';
 
 import { LABEL_SPLIT, NAME_SPLIT } from '../../tests/helpers/screeshots';
@@ -51,7 +51,9 @@ export type Changeset = {
   actualUrl: string;
   expectedUrl?: string;
   diffUrl?: string;
+
   confirmedBug?: true;
+  confirmedOk?: true;
 };
 
 /*
@@ -92,32 +94,44 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
     console.warn(`Can't find folder "${cwd}"`);
     return [];
   }
-  const fileList = await globP('*/*.{png,bug}', { cwd });
+  const fileList = await globP('*/*.{png,bug,ok}', { cwd });
   const filesByTest: Record<
     string,
     Pick<
       Changeset,
-      `${'actual' | 'expected' | 'diff'}Url` | 'actualPath' | 'confirmedBug'
+      | `${'actual' | 'expected' | 'diff'}Url`
+      | 'actualPath'
+      | 'confirmedBug'
+      | 'confirmedOk'
     >
   > = {};
-  fileList.forEach((fileName) => {
-    const m = fileName.match(`(.+)${NAME_SPLIT}-(actual|expected|diff).(png|bug)$`);
-    if (m) {
-      const key = m[1] as string;
-      const group =
-        filesByTest[key] || (filesByTest[key] = { actualPath: '', actualUrl: '' });
+  let timestamp = 0;
 
-      if (m[3] === 'bug') {
-        group.confirmedBug = true;
-        return;
-      }
-
-      const type = m[2] as 'actual' | 'expected' | 'diff';
-      if (type === 'actual') {
-        group.actualPath = fileName;
-      }
-      group[`${type}Url`] = '/' + resultsFolder + fileName;
+  fileList.forEach((fileName, i) => {
+    const m = fileName.match(`(.+)${NAME_SPLIT}-(actual|expected|diff)\\.(png|bug|ok)$`);
+    if (!m) {
+      return;
     }
+    if (!timestamp) {
+      timestamp = statSync(cwd + fileName).mtime.getTime();
+    }
+
+    const key = m[1] as string;
+    const group =
+      filesByTest[key] || (filesByTest[key] = { actualPath: '', actualUrl: '' });
+
+    const ext = m[3] as 'png' | 'bug' | 'ok';
+    if (ext !== 'png') {
+      const flag = ext === 'ok' ? 'confirmedOk' : 'confirmedBug';
+      group[flag] = true;
+      return;
+    }
+
+    const type = m[2] as 'actual' | 'expected' | 'diff';
+    if (type === 'actual') {
+      group.actualPath = fileName;
+    }
+    group[`${type}Url`] = '/' + resultsFolder + fileName + '?t=' + timestamp;
   });
   const changes = ObjectEntries(filesByTest).map(([testPath, urls]): Changeset => {
     const [folder = '', filename = ''] = testPath.split('/');
@@ -230,24 +244,21 @@ export const updateScreenshotsFor = async (id: string, action: 'accept' | 'rejec
   const isNew = !change.expectedUrl;
   const actualFile = publicFolder + resultsFolder + actualPath;
   const bugFlagFile = actualFile.replace(/.png$/, '.bug');
+  const okFlagFile = actualFile.replace(/.png$/, '.ok');
   const snapshotsFile = getSnapshotFilePath(change);
 
-  if (isNew) {
-    if (action === 'accept') {
-      execSync(`mv ${actualFile} ${snapshotsFile}`);
-      execSync(`rm -f ${bugFlagFile}`);
-    } else {
-      execSync(`touch ${bugFlagFile}`);
-      execSync(`rm -f ${snapshotsFile}`);
-    }
+  if (action === 'accept') {
+    execSync(`rm -f ${bugFlagFile}`);
+    execSync(`touch ${okFlagFile}`);
+    execSync(`cp ${actualFile} ${snapshotsFile}`);
   } else {
-    if (action === 'accept') {
-      const expectedFile = actualFile.replace(/-actual.png$/, '-expected.png');
-      const diffFile = actualFile.replace(/-actual.png$/, '-diff.png');
-      execSync(`mv ${actualFile} ${snapshotsFile}`);
-      execSync(`rm -f ${expectedFile} ${diffFile} ${bugFlagFile}`);
+    execSync(`rm -f ${okFlagFile}`);
+    execSync(`touch ${bugFlagFile}`);
+    if (isNew) {
+      execSync(`rm -f ${snapshotsFile}`);
     } else {
-      execSync(`touch ${bugFlagFile}`);
+      const expectedFile = actualFile.replace(/-actual.png$/, '-expected.png');
+      execSync(`cp ${expectedFile} ${snapshotsFile}`);
     }
   }
 

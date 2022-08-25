@@ -19,6 +19,7 @@ export default css`
     padding-top: ${vars.space_1};
     padding-bottom: ${vars.space_0$5};
   }
+  .ChangesList__item--ok,
   .ChangesList__item--bug {
     ${hannaVarOverride({
       link_color: vars.color_suld_150,
@@ -38,6 +39,7 @@ export default css`
   .ChangesList__label {
     border-bottom: ${vars.link_underline};
   }
+  .ChangesList__item--ok .ChangesList__label,
   .ChangesList__item--bug .ChangesList__label {
     text-decoration: line-through;
   }

@@ -92,9 +92,14 @@ export default function () {
   const { change } = useLoaderData<LoaderData>();
 
   return (
-    <Minimal>
+    <Minimal key={change.id}>
       <PageHeading small startSeen>
-        {change.testName} <small>({change.project})</small>
+        {change.testName}{' '}
+        <small>
+          <small>
+            {' '}({change.project})
+          </small>
+        </small>
         <br />
         {change.label || ' '}
       </PageHeading>

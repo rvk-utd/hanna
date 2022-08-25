@@ -88,11 +88,15 @@ const useReviewState = (change: Changeset) => {
         return;
       }
       if (key === 'A' || key === 'R') {
+        const action = key === 'A' ? 'accept' : 'reject';
+        const submitButton = wrappeRref.current?.querySelector<HTMLButtonElement>(
+          `.ReviewShot__actionbutton--${action}:not(:disabled)`
+        );
+        if (!submitButton) {
+          return;
+        }
         if (doublePress) {
-          const action = key === 'A' ? 'accept' : 'reject';
-          wrappeRref.current
-            ?.querySelector<HTMLButtonElement>(`.ReviewShot__actionbutton--${action}`)
-            ?.click();
+          submitButton.click();
         } else {
           setPrimed({ on: true, letter: key });
           primeout = setTimeout(() => {
@@ -134,7 +138,8 @@ export type ReviewShotProps = {
 };
 
 export const ReviewShot = (props: ReviewShotProps) => {
-  const { actualUrl, expectedUrl, diffUrl, nextId, prevId, confirmedBug } = props.change;
+  const { actualUrl, expectedUrl, diffUrl, nextId, prevId, confirmedBug, confirmedOk } =
+    props.change;
   const { isNew, mode, toDiffMode, toggleMode, wrappeRref, primed, zoomed, toggleZoom } =
     useReviewState(props.change);
 
@@ -156,7 +161,12 @@ export const ReviewShot = (props: ReviewShotProps) => {
           )}{' '}
           {confirmedBug && (
             <TagPill color="red" large>
-              Bug!
+              ❌ Bug!
+            </TagPill>
+          )}
+          {confirmedOk && (
+            <TagPill color="green" large>
+              ✅ OK!
             </TagPill>
           )}
           {!isNew && (
@@ -183,6 +193,7 @@ export const ReviewShot = (props: ReviewShotProps) => {
             className="ReviewShot__actionbutton ReviewShot__actionbutton--accept"
             name="action"
             value="accept"
+            disabled={confirmedOk}
           >
             <strong>A</strong>ccept
           </button>{' '}

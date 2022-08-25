@@ -57,7 +57,7 @@ export default function () {
 
   return (
     <Layout>
-      <PageHeading>Review Changed Screenshots</PageHeading>
+      <PageHeading small>Review Changed Screenshots</PageHeading>
       <SeenEffect>
         {reportExists && (
           <p className="ReviewReport">
@@ -67,10 +67,20 @@ export default function () {
         {changed.length ? (
           <ul className="ChangesList">
             {changed.map(
-              ({ id, testName, label, project, expectedUrl, confirmedBug }, i) => {
+              (
+                { id, testName, label, project, expectedUrl, confirmedBug, confirmedOk },
+                i
+              ) => {
                 const tagLabel =
-                  (expectedUrl ? 'Change' : 'New') + (confirmedBug ? ' (Bug!)' : '');
-                const tagColor = confirmedBug ? 'red' : expectedUrl ? 'yellow' : 'green';
+                  (confirmedBug ? '❌ ' : '') +
+                  (confirmedOk ? '✅ ' : '') +
+                  (expectedUrl ? 'Change' : 'New');
+                const tagColor =
+                  confirmedBug || confirmedOk
+                    ? undefined
+                    : expectedUrl
+                    ? 'yellow'
+                    : 'green';
 
                 const lastItem = changed[i - 1];
                 const nameChange =
@@ -82,6 +92,7 @@ export default function () {
                     className={
                       'ChangesList__item' +
                       (confirmedBug ? ' ChangesList__item--bug' : '') +
+                      (confirmedOk ? ' ChangesList__item--ok' : '') +
                       (nameChange ? ' ChangesList__item--namechange' : '')
                     }
                   >
