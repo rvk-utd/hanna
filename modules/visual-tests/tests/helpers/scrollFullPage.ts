@@ -13,7 +13,7 @@ import type { Page } from '@playwright/test';
 export const scrollFullPage = async (page: Page, intervalMs = 70) => {
   await page.evaluate(async (intervalMs) => {
     await new Promise<void>((resolve) => {
-      const timer = setInterval(() => {
+      const scroll = () => {
         // NOTE: This `getPageScrollElm` helper is snuck into the global scope by src/root.tsx
         const scrollElm = window.getPageScrollElm();
         const scrollPosBefore = scrollElm.scrollTop;
@@ -23,10 +23,13 @@ export const scrollFullPage = async (page: Page, intervalMs = 70) => {
           behavior: 'instant',
         });
         if (scrollPosBefore >= scrollElm.scrollTop) {
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           clearInterval(timer);
           resolve();
         }
-      }, intervalMs);
+      };
+      const timer = setInterval(scroll, intervalMs);
+      scroll();
     });
   }, intervalMs);
 };

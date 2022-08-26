@@ -22,6 +22,52 @@ const toFileName = (testName: string, label: string) =>
 
 // ---------------------------------------------------------------------------
 
+const getPageScrollHeight = (page: Page) =>
+  page.evaluate(() => {
+    // NOTE: This `getPageScrollElm` helper is snuck into the global scope by src/root.tsx
+    return window.getPageScrollElm().scrollHeight;
+  });
+
+// ---------------------------------------------------------------------------
+
+export const expandViewport = async (page: Page) => {
+  // start by scrolling the page all the way to the bottom to trigger
+  // lazy-loading and other events.
+  await scrollFullPage(page);
+
+  const viewportSize = page.viewportSize() || { width: 0, height: 0 };
+  const viewportWidth = viewportSize.width;
+  expect(viewportWidth > 0, 'Panic! Viewport not defined or zero-sized').toBe(true);
+
+  const scrollHeight = await getPageScrollHeight(page);
+
+  if (viewportSize.height !== scrollHeight) {
+    await page.setViewportSize({
+      width: viewportWidth,
+      height: scrollHeight,
+    });
+  }
+
+  /*
+      iPhone (at least) sometimes seems to need this double-check
+      when dealing with lazy-loaded `<img/>`s — regardless of gradual
+      full page scroll and given any amount of `waitForTimeout()`s.
+
+      (No idea what causes it. To reproduce: render a test page with
+      10 or so `HeroBlock`s  — Már@2022-08)
+    */
+
+  const scrollHeightAfter = await getPageScrollHeight(page);
+  if (scrollHeightAfter !== scrollHeight) {
+    await page.setViewportSize({
+      width: viewportWidth,
+      height: scrollHeightAfter,
+    });
+  }
+};
+
+// ---------------------------------------------------------------------------
+
 export const makeSnapLocalScreeshot =
   (page: Page, testName: string): TestFnArgs['localScreenshot'] =>
   async (locator, label, opts) => {
@@ -38,12 +84,6 @@ export const makeSnapLocalScreeshot =
   };
 
 // ---------------------------------------------------------------------------
-
-const getPageScrollHeight = (page: Page) =>
-  page.evaluate(() => {
-    // NOTE: This `getPageScrollElm` helper is snuck into the global scope by src/root.tsx
-    return window.getPageScrollElm().scrollHeight;
-  });
 
 /**
  * Factory function that generates a pageScreenshot convenience function
@@ -62,36 +102,7 @@ export const makeSnapPageScreeshot = (
   const snapPageScreenShot = async (label: string, opts?: PageScreenshotOptions) => {
     snaps += 1;
 
-    // start by scrolling the page all the way to the bottom to trigger
-    // lazy-loading and other events.
-    await scrollFullPage(page);
-
-    const viewportWidth = page.viewportSize()?.width || 0;
-    expect(viewportWidth > 0, 'Panic! Viewport not defined or zero-sized').toBe(true);
-
-    const scrollHeight = await getPageScrollHeight(page);
-
-    await page.setViewportSize({
-      width: viewportWidth,
-      height: scrollHeight,
-    });
-
-    /*
-      iPhone (at least) sometimes seems to need this double-check
-      when dealing with lazy-loaded `<img/>`s — regardless of gradual
-      full page scroll and given any amount of `waitForTimeout()`s.
-
-      (No idea what causes it. To reproduce: render a test page with
-      10 or so `HeroBlock`s  — Már@2022-08)
-    */
-
-    const scrollHeightAfter = await getPageScrollHeight(page);
-    if (scrollHeightAfter !== scrollHeight) {
-      await page.setViewportSize({
-        width: viewportWidth,
-        height: scrollHeightAfter,
-      });
-    }
+    await expandViewport(page);
 
     await expect(page).toHaveScreenshot(toFileName(testName, label), {
       fullPage: true,

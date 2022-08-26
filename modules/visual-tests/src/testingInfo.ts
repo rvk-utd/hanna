@@ -95,6 +95,16 @@ export type TestFnArgs = Pick<
     label: string,
     opts?: PageScreenshotOptions
   ) => Promise<void>;
+
+  /**
+   * Takes care of resizing the viewport to prevent <body>-element
+   * from overflowing (and thus cropping screenshot images).
+   *
+   * Rarely needed, except before snapping `localScreenshot`s of
+   * newly added/displayed elements near the bottom of the page,
+   * or during the `prep` step.
+   */
+  expandViewport: () => Promise<void>;
 };
 
 // ---------------------------------------------------------------------------

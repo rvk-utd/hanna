@@ -6,6 +6,7 @@ import type { TestFnArgs, TestingInfo } from '../src/testingInfo';
 import { getTestListSync } from '../src/utils/tests.server';
 
 import {
+  expandViewport,
   makeSnapLocalScreeshot,
   makeSnapPageScreeshot,
   NAME_SPLIT,
@@ -95,6 +96,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         hasTouch,
         expect,
         localScreenshot,
+        expandViewport: () => expandViewport(page),
 
         pageScreenshot,
       };
@@ -104,9 +106,13 @@ allComponentTests.forEach(([name, testInfo]) => {
       if (testInfo.prep) {
         await testInfo.prep(args);
       }
-      if (pageScreenshot.callCount() === 0 && !testInfo.skipScreenshot) {
+
+      if (testInfo.skipScreenshot) {
+        await expandViewport(page);
+      } else if (pageScreenshot.callCount() === 0) {
         await pageScreenshot('');
       }
+
       if (testInfo.extras) {
         await testInfo.extras(args);
       }
