@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import React from 'react';
+import { useScrollbarWidthCSSVar } from '@reykjavik/hanna-react/utils/useScrollbarWidthCSSVar';
 
 const roles = {
   main: 'main',
@@ -17,6 +18,7 @@ export type MinimalProps = {
  * for use by visual testing pages.
  */
 export const Minimal = (props: MinimalProps) => {
+  useScrollbarWidthCSSVar();
   const slot = props.slot || 'main';
   return (
     <div className="Layout">
