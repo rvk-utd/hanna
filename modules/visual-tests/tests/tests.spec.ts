@@ -29,6 +29,7 @@ type TestPageLabel = keyof typeof testPagePaths;
 /* eslint-disable import/first */
 import { testing as AccordionList__test } from '../src/routes/test/AccordionList';
 import { testing as Alert__test } from '../src/routes/test/Alert';
+import { testing as ArticleCarousel__test } from '../src/routes/test/ArticleCarousel';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
@@ -46,6 +47,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   // you forgot something.
   AccordionList: AccordionList__test,
   Alert: Alert__test,
+  ArticleCarousel: ArticleCarousel__test,
   FooterInfo: FooterInfo__test,
   HeroBlock: HeroBlock__test,
   TagPill: TagPill__test,
