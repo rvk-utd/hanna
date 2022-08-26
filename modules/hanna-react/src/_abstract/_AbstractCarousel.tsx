@@ -185,24 +185,28 @@ const AbstractCarousel = <
       {isBrowser ? (
         <div className={bem + '__itemlist-wrapper'}>
           {itemList}
-          <div
-            className={bem + '__itemlist-goLeft'}
-            onClick={() => {
-              delayedScrollLeft.cancel();
-              scrollToItem(activeItem - 1);
-            }}
-            onMouseOver={() => delayedScrollLeft(activeItem)}
-            onMouseOut={() => delayedScrollLeft.cancel()}
-          />
-          <div
-            className={bem + '__itemlist-goRight'}
-            onClick={() => {
-              delayedScrollRight.cancel();
-              scrollToItem(activeItem + 1);
-            }}
-            onMouseOver={() => delayedScrollRight(activeItem)}
-            onMouseOut={() => delayedScrollRight.cancel()}
-          />
+          {activeItem > 0 && (
+            <div
+              className={bem + '__itemlist-goLeft'}
+              onClick={() => {
+                delayedScrollLeft.cancel();
+                scrollToItem(activeItem - 1);
+              }}
+              onMouseOver={() => delayedScrollLeft(activeItem)}
+              onMouseOut={() => delayedScrollLeft.cancel()}
+            />
+          )}
+          {activeItem < itemCount - 1 && (
+            <div
+              className={bem + '__itemlist-goRight'}
+              onClick={() => {
+                delayedScrollRight.cancel();
+                scrollToItem(activeItem + 1);
+              }}
+              onMouseOver={() => delayedScrollRight(activeItem)}
+              onMouseOut={() => delayedScrollRight.cancel()}
+            />
+          )}
         </div>
       ) : (
         itemList

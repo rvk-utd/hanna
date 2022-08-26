@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Hide `Carousel` mouse-cursor scroll controls at start/end positions
 - fix: Pass `id` and other HTML props to static (span) `TagPill`s
 
 ## 0.10.62
