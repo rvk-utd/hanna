@@ -9,10 +9,14 @@ changes.
 All test pages MUST export a `testing` token of the type
 [`TestingInfo`](src/testingInfo.ts). (The minimal being `{}`.)
 
-By default the test runner just loads the page, scrolls to the bottom, snaps a
-full-page screenshot, and then exists. But the `testing` token allows
+By default the test runner just loads the page with, scrolls to the bottom,
+snaps a full-page screenshot, and then exists. But the `testing` token allows
 individual pages to specify custom testing behavior. (See:
 [`testingInfo.ts`](src/testingInfo.ts) for details.)
+
+**NOTE:** The test runner loads the pages with the query-string
+`?noAnimation`, which injects `!important` style rules that sets
+`scroll-behavior:auto` and disables CSS `transition`s.
 
 ## Running the Tests
 

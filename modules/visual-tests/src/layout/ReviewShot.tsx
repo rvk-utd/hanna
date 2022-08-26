@@ -79,13 +79,15 @@ const useReviewState = (change: Changeset) => {
       clearTimeout(primeout);
       resetPrimed();
 
-      if (key === 'D') {
-        toDiffMode();
-        return;
-      }
-      if (key === 'F') {
-        toggleMode();
-        return;
+      if (!isNew) {
+        if (key === 'D') {
+          toDiffMode();
+          return;
+        }
+        if (key === 'F') {
+          toggleMode();
+          return;
+        }
       }
       if (key === 'A' || key === 'R') {
         const action = key === 'A' ? 'accept' : 'reject';
@@ -106,11 +108,12 @@ const useReviewState = (change: Changeset) => {
         }
         return;
       }
-      if (key === 'N' || key === 'P') {
-        const dir = key === 'N' ? 'next' : 'prev';
+      if (key === 'N' || key === 'P' || key === 'J' || key === 'K') {
+        const dir = key === 'N' || key === 'J' ? 'next' : 'prev';
         wrappeRref.current
           ?.querySelector<HTMLAnchorElement>('.ReviewShot__actionbutton--goto--' + dir)
           ?.click();
+        return;
       }
     };
     document.addEventListener('keyup', shortcuts);

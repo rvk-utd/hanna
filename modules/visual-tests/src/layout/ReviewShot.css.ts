@@ -113,7 +113,8 @@ export default css`
 
   .ReviewShot__shot {
     outline: ${vars.border_default};
-    outline-offset: ${vars.space_1};
+    /* outline-offset: ${vars.space_1}; */
+    outline-width: ${vars.space_1};
     width: auto;
     max-width: 100%;
     object-fit: scale-down;
@@ -132,9 +133,8 @@ export default css`
   }
   [data-mode='difference'] > .ReviewShot__shot--actual {
     position: absolute;
-    top: 0;
     opacity: 0.5;
-    box-shadow: 0 1000px 0 500px white;
+    box-shadow: 0 1000px 0 1020px white;
   }
   [data-mode='difference'] > .ReviewShot__shot--expected {
     margin-bottom: 500px;

@@ -99,7 +99,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         pageScreenshot,
       };
 
-      await page.goto(testPagePaths[name] || '/');
+      await page.goto((testPagePaths[name] || '/') + '?noAnimation');
 
       if (testInfo.prep) {
         await testInfo.prep(args);

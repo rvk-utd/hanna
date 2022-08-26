@@ -7,8 +7,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useSearchParams,
 } from '@remix-run/react';
-import { getCssBundleUrl } from '@reykjavik/hanna-css';
+import { css, getCssBundleUrl } from '@reykjavik/hanna-css';
 import { getPageScrollElm as _getPageScrollElm } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
@@ -62,6 +63,7 @@ const noFlickerSnippet = `
 
 export default function App() {
   const cssTokens = useGetCssTokens();
+  const [q] = useSearchParams();
 
   // NOTE: Hacky injection of a utility function into the page's global scope,
   // in order to make life easier for tests/tests.spec.ts
@@ -79,6 +81,16 @@ export default function App() {
           href={getCssBundleUrl(cssTokens, { testingServer: 'http://localhost:4000' })}
         />
         <Links />
+        {q.get('noAnimation') != null && (
+          <style>{css`
+            * {
+              scroll-behavior: auto !important;
+              transition: none !important;
+              transition-delay: 0ms !important;
+              transition-duration: 0ms !important;
+            }
+          `}</style>
+        )}
       </head>
       <body>
         <Outlet />
