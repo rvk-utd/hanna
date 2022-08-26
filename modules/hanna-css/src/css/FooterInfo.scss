@@ -48,10 +48,10 @@
     padding: grid-units(8) $var--grid-gutter;
 
     @media #{$mq-phone_phablet} {
-      margin-left: grid-units(-4);
-      margin-right: grid-units(-4);
-      padding-left: grid-units(4);
-      padding-right: grid-units(4);
+      margin-left: $var--grid-margin--neg;
+      margin-right: $var--grid-margin--right--neg;
+      padding-left: $var--grid-margin;
+      padding-right: $var--grid-margin--right;
     }
 
     @media #{$mq-tablet_up} {
