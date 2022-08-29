@@ -14,7 +14,7 @@
     "webserver:dev": "PORT=7357  yarn run remix dev",
     "webserver:start": "PORT=7357  yarn run remix-serve _remix-build",
     "webserver:testingmode": "NODE_ENV=development yarn run webserver:build  &&  yarn run webserver:start",
-    "test": "npx playwright test  || (yarn run webserver:dev & (sleep 1.5 && open http://localhost:7357/review))"
+    "test": "npx playwright test  || (yarn run webserver:dev & (sleep 1.5 && open http://localhost:7357/review))  &&  (exit 1)"
   },
   "dependencies": {
     "@remix-run/node": "^1.6.8",
