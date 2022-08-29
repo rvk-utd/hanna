@@ -3,16 +3,21 @@ import { useDropzone } from 'react-dropzone'; // https://react-dropzone.js.org/#
 import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
+import {
+  addPreview,
+  CustomFile,
+  formatBytes,
+  getFileListUpdate,
+  releasePreview,
+} from './FileInput/FileInput.utils';
 import FormField, { FormFieldWrappingProps } from './FormField';
 
-type CustomFile = { preview?: string } & File;
-
-type dropzonePropsProps = {
+type DropzonePropsProps = {
   accept?: string; // 'image/*'
   multiple?: boolean;
 };
 export type FileInputProps = {
-  dropzoneProps: dropzonePropsProps;
+  dropzoneProps: DropzonePropsProps;
   dropzoneText: string | JSX.Element;
   showFileSize?: boolean;
   showImagePreviews?: boolean;
@@ -41,43 +46,12 @@ type FileInputWrapper = {
   readonly onFilesUpdated: Event;
 } & HTMLDivElement;
 
-/**
- * Attaches a `preview` prop to file objects that don't already have a `preview` key defined
- *
- * The preview's value is either a data URI (for image-type files) or `undefined`
- */
-const addPreview = (file: CustomFile) => {
-  if (!('preview' in file)) {
-    file.preview = file.type.includes('image/') ? URL.createObjectURL(file) : undefined;
-  }
-};
-
-/**
- * Revokes `preview` data URIs to avoid memory leaks
- *
- * (See: https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL)
- */
-const releasePreview = (file: CustomFile) => {
-  file.preview && URL.revokeObjectURL(file.preview);
-  delete file.preview;
-};
-
-const arrayToFileList = (arr: Array<File>) => {
+const arrayToFileList = (arr: Array<File>): FileList => {
   const fileList = new DataTransfer();
   arr.forEach((item) => {
     fileList.items.add(item);
   });
   return fileList.files;
-};
-
-const formatBytes = (bytes: number, decimals = 2) => {
-  if (bytes === 0) {
-    return '0 Bytes';
-  }
-  const k = 1024;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i];
 };
 
 const FileInput = (props: FileInputProps) => {
@@ -175,20 +149,9 @@ const FileInput = (props: FileInputProps) => {
 
   const addFiles = (added: Array<File>): void => {
     if (fileInput.current) {
-      const deleted: Array<File> = [];
-      const retained: Array<File> = [];
-      const oldFiles = dropzoneProps.multiple ? files : [];
-      oldFiles.forEach((oldFile) => {
-        if (added.find(({ name }) => name === oldFile.name)) {
-          deleted.push(oldFile);
-        } else {
-          retained.push(oldFile);
-        }
-      });
-      const newFileList = retained.concat(added);
-      fileInput.current.files = arrayToFileList(newFileList);
-      const diff = deleted.length ? { added, deleted } : { added };
-      onFilesUpdated(newFileList, diff);
+      const { fileList, diff } = getFileListUpdate(files, added, !dropzoneProps.multiple);
+      fileInput.current.files = arrayToFileList(fileList);
+      onFilesUpdated(fileList, diff);
     }
 
     if (inputRef.current) {
