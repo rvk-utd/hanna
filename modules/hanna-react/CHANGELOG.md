@@ -3,17 +3,17 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Changes to `FileInput`
-  - feat: Add prop `FileList` to suppress (`false`) or customize its rendering
-  - feat: Add props `multiple`, `accept`
-  - fix: Make `dropZoneProps` optional, as originally indented
-  - feat: Deprecate prop `dropzoneProps`
 
-## 0.10.63
+## 0.10.63 – 0.10.64
 
 _2022-08-29_
 
-- fix: `FileInput` in single-file mode doesn't report deleted files on add
+- feat: Changes to `FileInput`
+  - feat: Add prop `FileList` to suppress (`false`) or customize its rendering
+  - feat: Add props `multiple`, `accept`
+  - feat: Deprecate prop `dropzoneProps`
+  - fix: report deleted when adding files in single-file mode
+  - fix: Make `dropZoneProps` optional, as originally indented
 - fix: Hide `Carousel` mouse-cursor scroll controls at start/end positions
 - fix: Pass `id` and other HTML props to static (span) `TagPill`s
 
