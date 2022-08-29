@@ -52,7 +52,7 @@ export const getFileListUpdate = (
    */
   replaceMode: boolean
 ) => {
-  const deleted: Array<File> = [];
+  const deleted: Array<File> = replaceMode ? oldFileList : [];
   const retained: Array<File> = [];
   if (!replaceMode) {
     oldFileList.forEach((oldFile) => {
