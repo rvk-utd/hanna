@@ -103,7 +103,7 @@ export default function () {
                     }
                   >
                     <Link to={id} className="ChangesList__link">
-                      <TagPill color={tagColor}>{tagLabel}</TagPill>
+                      <TagPill color={tagColor}>{tagLabel}</TagPill>{' '}
                       <span className="ChangesList__label">
                         <span className="ChangesList__name">
                           {testName + ' – ' + label}
