@@ -3,10 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Re-populate `FileInput`'s file input on `value` prop change
-- feat: Explicitly skip rendering of unnamed `FileInput`'s input element
 
-## 0.10.63 – 0.10.64
+## 0.10.63 – 0.10.65
 
 _2022-08-29_
 
@@ -16,6 +14,8 @@ _2022-08-29_
   - feat: Deprecate prop `dropzoneProps`
   - fix: report deleted when adding files in single-file mode
   - fix: Make `dropZoneProps` optional, as originally indented
+  - fix: Re-populate the file input on `value` prop change
+  - feat: Explicitly skip rendering input element when `name` is missing
 - fix: Hide `Carousel` mouse-cursor scroll controls at start/end positions
 - fix: Pass `id` and other HTML props to static (span) `TagPill`s
 
