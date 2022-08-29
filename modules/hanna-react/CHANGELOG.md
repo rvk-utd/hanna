@@ -3,7 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: FileInput in single-file mode doesn't report deleted files on add
+
+## 0.10.63
+
+_2022-08-29_
+
+- fix: `FileInput` in single-file mode doesn't report deleted files on add
 - fix: Hide `Carousel` mouse-cursor scroll controls at start/end positions
 - fix: Pass `id` and other HTML props to static (span) `TagPill`s
 
