@@ -10,7 +10,7 @@ import type { Page } from '@playwright/test';
  * Pass a larger `intervalMs` for pages with effects that
  * require a certain delay to trigger.
  */
-export const scrollFullPage = async (page: Page, intervalMs = 70) => {
+export const scrollFullPage = async (page: Page, intervalMs = 150) => {
   await page.evaluate(async (intervalMs) => {
     await new Promise<void>((resolve) => {
       const scroll = () => {
@@ -28,6 +28,7 @@ export const scrollFullPage = async (page: Page, intervalMs = 70) => {
           resolve();
         }
       };
+
       const timer = setInterval(scroll, intervalMs);
       scroll();
     });
