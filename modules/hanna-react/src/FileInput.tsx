@@ -153,35 +153,34 @@ const FileInput = (props: FileInputProps) => {
   }, [files]);
 
   const removeFile = (removeTarget: string | File): void => {
-    if (fileInput.current) {
-      const deleted: Array<File> = [];
-      const targetName =
-        typeof removeTarget !== 'string' ? removeTarget.name : removeTarget;
+    const deleted: Array<File> = [];
+    const targetName =
+      typeof removeTarget !== 'string' ? removeTarget.name : removeTarget;
 
-      const newFileList = files.filter((file) => {
-        if (file.name !== targetName) {
-          return true;
-        }
-        deleted.push(file);
-        releasePreview(file);
-        return false;
-      });
-      fileInput.current.files = arrayToFileList(newFileList);
-      onFilesUpdated(newFileList, { deleted });
+    const fileList = files.filter((file) => {
+      if (file.name !== targetName) {
+        return true;
+      }
+      deleted.push(file);
+      releasePreview(file);
+      return false;
+    });
+    if (fileInput.current) {
+      fileInput.current.files = arrayToFileList(fileList);
     }
+    onFilesUpdated(fileList, { deleted });
   };
 
   const addFiles = (added: Array<File>): void => {
+    const { fileList, diff } = getFileListUpdate(files, added, !multiple);
     if (fileInput.current) {
-      const { fileList, diff } = getFileListUpdate(files, added, !multiple);
       fileInput.current.files = arrayToFileList(fileList);
-      onFilesUpdated(fileList, diff);
     }
-
     if (inputRef.current) {
       // Empty on every add
       inputRef.current.files = arrayToFileList([]);
     }
+    onFilesUpdated(fileList, diff);
   };
 
   return (
@@ -200,17 +199,26 @@ const FileInput = (props: FileInputProps) => {
       renderInput={(className, inputProps /* , addFocusProps */) => {
         return (
           <div className={className.control} ref={fileInputWrapper}>
+            {
+              // Explicitly skip rendering of input element if no
+              // name prop is provided. This is implicitly what the
+              // browser does on form submit.
+              // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name
+              inputElementProps.name ? (
+                <input
+                  className="FileInput__input"
+                  name={inputElementProps.name}
+                  id={domid}
+                  ref={fileInput}
+                  type="file"
+                  style={{ display: 'none' }}
+                  multiple={multiple || undefined}
+                  required={inputProps.required} // ??? Bad idea ?? Scream test!!
+                />
+              ) : null
+            }
             <input
-              className="FileInput__input"
-              name={inputElementProps.name}
-              id={domid}
-              ref={fileInput}
-              type="file"
-              style={{ display: 'none' }}
-              multiple={multiple || undefined}
-              required={inputProps.required} // ??? Bad idea ?? Scream test!!
-            />{' '}
-            <input
+              // fa
               className="FileInput__input--fake"
               {...getInputProps()}
               tabIndex={undefined}

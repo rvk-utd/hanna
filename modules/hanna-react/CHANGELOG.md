@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Re-populate `FileInput`'s file input on `value` prop change
+- feat: Explicitly skip rendering of unnamed `FileInput`'s input element
 
 ## 0.10.63 – 0.10.64
 
