@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@hugsmidjan/qj": "^4.10.2",
-    "@reykjavik/hanna-css": "^0.3.3",
+    "@reykjavik/hanna-css": "^0.3.7",
     "focus-visible": "^5.2.0",
     "formatchange": "^1.8.1"
   },
