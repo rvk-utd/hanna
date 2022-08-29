@@ -22,7 +22,7 @@
     "@remix-run/serve": "^1.6.8",
     "@reykjavik/hanna-css": "^0.3.7",
     "@reykjavik/hanna-react": "^0.10.59",
-    "@reykjavik/hanna-utils": "^0.1.9",
+    "@reykjavik/hanna-utils": "^0.1.11",
     "glob": "^8.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.1.11
+
+_2022-07-29_
+
 - feat(ts): Add utility types `AllowKeys`, `EitherObj`
 
 ## 0.1.10

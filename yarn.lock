@@ -2495,14 +2495,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reykjavik/hanna-css@^0.3.3, @reykjavik/hanna-css@^0.3.6, @reykjavik/hanna-css@workspace:modules/hanna-css":
+"@reykjavik/hanna-css@^0.3.7, @reykjavik/hanna-css@workspace:modules/hanna-css":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-css@workspace:modules/hanna-css"
   dependencies:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
     "@hugsmidjan/gulp-sass": ^0.2.0
-    "@reykjavik/hanna-utils": ^0.1.7
+    "@reykjavik/hanna-utils": ^0.1.11
     "@types/md5-file": ^5
     cssserve: ^1.5.0
     del: ^6.0.0
@@ -2520,8 +2520,8 @@ __metadata:
     "@hugsmidjan/gulp-rollup": ^0.8.0
     "@hugsmidjan/qj": ^4.10.2
     "@hugsmidjan/react": ^0.4.17
-    "@reykjavik/hanna-css": ^0.3.3
-    "@reykjavik/hanna-utils": ^0.1.7
+    "@reykjavik/hanna-css": ^0.3.7
+    "@reykjavik/hanna-utils": ^0.1.11
     "@types/react": ^17.0.24
     "@types/react-autosuggest": ^10.1.0
     "@types/react-datepicker": ^3.0.2
@@ -2540,12 +2540,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-utils@^0.1.7, @reykjavik/hanna-utils@^0.1.9, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
+"@reykjavik/hanna-utils@^0.1.11, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
     "@hugsmidjan/qj": ^4.10.2
-    "@reykjavik/hanna-css": ^0.3.3
+    "@reykjavik/hanna-css": ^0.3.7
     focus-visible: ^5.2.0
     formatchange: ^1.8.1
   languageName: unknown
@@ -12140,7 +12140,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.8.4
     "@hugsmidjan/qj": ^4.10.2
-    "@reykjavik/hanna-css": ^0.3.3
+    "@reykjavik/hanna-css": ^0.3.7
     "@reykjavik/hanna-react": ^0.10.55
     "@storybook/addon-knobs": ^5.3.14
     "@storybook/addon-viewport": ^5.3.17
@@ -12176,9 +12176,9 @@ __metadata:
     "@remix-run/node": ^1.6.8
     "@remix-run/react": ^1.6.8
     "@remix-run/serve": ^1.6.8
-    "@reykjavik/hanna-css": ^0.3.6
+    "@reykjavik/hanna-css": ^0.3.7
     "@reykjavik/hanna-react": ^0.10.59
-    "@reykjavik/hanna-utils": ^0.1.9
+    "@reykjavik/hanna-utils": ^0.1.11
     "@types/react": ^17.0.24
     "@types/react-dom": ^17.0.9
     glob: ^8.0.3
