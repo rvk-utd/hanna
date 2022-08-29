@@ -1,6 +1,6 @@
 import o from 'ospec';
 
-import { getFileListUpdate } from './FileInput.utils';
+import { getFileListUpdate } from './_FileInput.utils';
 
 o.spec('getFileListUpdate', () => {
   class MockFile {

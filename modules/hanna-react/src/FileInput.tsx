@@ -9,7 +9,8 @@ import {
   formatBytes,
   getFileListUpdate,
   releasePreview,
-} from './FileInput/FileInput.utils';
+} from './FileInput/_FileInput.utils';
+import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList';
 import FormField, { FormFieldWrappingProps } from './FormField';
 
 export type FileInputProps = {
@@ -29,7 +30,7 @@ export type FileInputProps = {
   removeFileText: string;
   showFileSize?: boolean;
   showImagePreviews?: boolean;
-  removeFileText: string;
+  FileList?: false | ((props: FileListProps) => JSX.Element | null);
   onFilesUpdated?: (
     /** Updated, full list of Files. */
     files: Array<File>,
@@ -84,6 +85,7 @@ const FileInput = (props: FileInputProps) => {
     errorMessage,
     required,
     reqText,
+    FileList = DefaultFileList,
     onFilesUpdated = () => undefined,
     showFileSize,
     showImagePreviews,
@@ -147,11 +149,14 @@ const FileInput = (props: FileInputProps) => {
     [files]
   );
 
-  const removeFile = (name: string): void => {
+  const removeFile = (removeTarget: string | File): void => {
     if (fileInput.current) {
       const deleted: Array<File> = [];
+      const targetName =
+        typeof removeTarget !== 'string' ? removeTarget.name : removeTarget;
+
       const newFileList = files.filter((file) => {
-        if (file.name !== name) {
+        if (file.name !== targetName) {
           return true;
         }
         deleted.push(file);
@@ -175,32 +180,6 @@ const FileInput = (props: FileInputProps) => {
       inputRef.current.files = arrayToFileList([]);
     }
   };
-
-  const filesList: Array<JSX.Element> = files.map((file) => (
-    <li key={file.name} className="FileInput__file">
-      <button
-        className="FileInput__file-remove"
-        type="button"
-        onClick={() => removeFile(file.name)}
-        aria-label={removeFileText}
-      >
-        {removeFileText}
-      </button>
-      <span className="FileInput__fileinfo">
-        {showImagePreviews && file.preview && (
-          <>
-            <span className="FileInput__preview">
-              <img src={file.preview} />
-            </span>{' '}
-          </>
-        )}
-        <span className="FileInput__filename">{file.name}</span>
-        {showFileSize && (
-          <small className="FileInput__filesize"> - ({formatBytes(file.size)})</small>
-        )}
-      </span>
-    </li>
-  ));
 
   return (
     <FormField
@@ -244,7 +223,18 @@ const FileInput = (props: FileInputProps) => {
             >
               <p className="FileInput__droptext">{dropzoneText}</p>
             </div>
-            {filesList.length ? <ul className="FileInput__filelist">{filesList}</ul> : ''}
+            {FileList && (
+              <FileList
+                {...{
+                  files,
+                  showFileSize,
+                  showImagePreviews,
+                  removeFileText,
+                  removeFile,
+                  formatBytes,
+                }}
+              />
+            )}
           </div>
         );
       }}

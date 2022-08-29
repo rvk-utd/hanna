@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Changes to `FileInput`
+  - feat: Add prop `FileList` to suppress (`false`) or customize its rendering
   - feat: Add props `multiple`, `accept`
   - fix: Make `dropZoneProps` optional, as originally indented
   - feat: Deprecate prop `dropzoneProps`
