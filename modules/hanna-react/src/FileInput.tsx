@@ -12,13 +12,21 @@ import {
 } from './FileInput/FileInput.utils';
 import FormField, { FormFieldWrappingProps } from './FormField';
 
-type DropzonePropsProps = {
-  accept?: string; // 'image/*'
-  multiple?: boolean;
-};
 export type FileInputProps = {
-  dropzoneProps: DropzonePropsProps;
+  /**
+   * Flags if the input should accept multiple, or just a single file at a time.
+   *
+   * Default: `true`
+   */
+  multiple?: boolean;
+  /**
+   * Accepted file mime type(s).
+   *
+   * Default: no restrictions.
+   */
+  accept?: string | Array<string>;
   dropzoneText: string | JSX.Element;
+  removeFileText: string;
   showFileSize?: boolean;
   showImagePreviews?: boolean;
   removeFileText: string;
@@ -38,6 +46,11 @@ export type FileInputProps = {
   ) => void;
   name?: string;
   value?: ReadonlyArray<File>;
+
+  /**
+   * @deprecated Use props `multiple`, `accept` instead  (Will be removed in v0.11)
+   */
+  dropzoneProps?: { accept?: string; multiple?: boolean };
 } & FormFieldWrappingProps;
 // // Do we need more props from this type?
 // & Omit<JSX.IntrinsicElements['input'], 'name' | 'value'>
@@ -61,6 +74,8 @@ const FileInput = (props: FileInputProps) => {
     label,
     hideLabel,
     dropzoneProps = { multiple: true },
+    multiple = dropzoneProps.multiple,
+    accept,
     dropzoneText,
     removeFileText,
     assistText,
@@ -116,7 +131,8 @@ const FileInput = (props: FileInputProps) => {
       // console.log(isDragReject);
       setIsHover(true);
     },
-    ...dropzoneProps,
+    multiple,
+    accept,
   });
 
   // Add previews on incoming files
@@ -149,7 +165,7 @@ const FileInput = (props: FileInputProps) => {
 
   const addFiles = (added: Array<File>): void => {
     if (fileInput.current) {
-      const { fileList, diff } = getFileListUpdate(files, added, !dropzoneProps.multiple);
+      const { fileList, diff } = getFileListUpdate(files, added, !multiple);
       fileInput.current.files = arrayToFileList(fileList);
       onFilesUpdated(fileList, diff);
     }
@@ -188,7 +204,7 @@ const FileInput = (props: FileInputProps) => {
 
   return (
     <FormField
-      className={getBemClass('FileInput', [dropzoneProps.multiple && 'multi'], className)}
+      className={getBemClass('FileInput', [multiple && 'multi'], className)}
       label={label}
       id={domid + '-fake'}
       LabelTag="h4"
@@ -209,7 +225,7 @@ const FileInput = (props: FileInputProps) => {
               ref={fileInput}
               type="file"
               style={{ display: 'none' }}
-              multiple={dropzoneProps.multiple || undefined}
+              multiple={multiple || undefined}
               required={inputProps.required} // ??? Bad idea ?? Scream test!!
             />{' '}
             <input
@@ -217,7 +233,7 @@ const FileInput = (props: FileInputProps) => {
               {...getInputProps()}
               tabIndex={undefined}
               style={undefined}
-              multiple={dropzoneProps.multiple || undefined}
+              multiple={multiple || undefined}
               {...inputProps}
               required={undefined}
             />{' '}

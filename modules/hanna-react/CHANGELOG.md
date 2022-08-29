@@ -3,6 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Changes to `FileInput`
+  - feat: Add props `multiple`, `accept`
+  - fix: Make `dropZoneProps` optional, as originally indented
+  - feat: Deprecate prop `dropzoneProps`
 
 ## 0.10.63
 

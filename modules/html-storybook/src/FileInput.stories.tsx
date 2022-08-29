@@ -34,7 +34,8 @@ export const _FileInput: StoryComponent = () => {
       name="files"
       value={files}
       onFilesUpdated={setFiles}
-      dropzoneProps={{ multiple: allowMultipleFiles, accept: allowedFileTypes }}
+      multiple={allowMultipleFiles}
+      accept={allowedFileTypes}
       dropzoneText={
         <>
           Dragðu gögn hingað eða <strong>bættu</strong> þeim við.
