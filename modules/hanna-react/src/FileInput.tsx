@@ -106,7 +106,8 @@ const FileInput = (props: FileInputProps) => {
         addPreview(file as CustomFile);
         return file;
       });
-      addFiles(acceptedFiles); // eslint-disable-line
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+      addFiles(acceptedFiles);
       setIsHover(false);
     },
     onDropRejected: (rejectedFiles: Array<File>) => {
@@ -137,17 +138,19 @@ const FileInput = (props: FileInputProps) => {
     accept,
   });
 
-  // Add previews on incoming files
+  // Synchronoyusly add previews on incoming files
   // (NOTE: `addPreview` ignores files that already have preview.)
   files.forEach(addPreview);
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    if (fileInput.current) {
+      fileInput.current.files = arrayToFileList(files);
+    }
+    return () => {
       // Make sure to revoke the data uris on unmount to avoid memory leaks
       files.forEach(releasePreview);
-    },
-    [files]
-  );
+    };
+  }, [files]);
 
   const removeFile = (removeTarget: string | File): void => {
     if (fileInput.current) {

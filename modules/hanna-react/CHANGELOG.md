@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Re-populate `FileInput`'s file input on `value` prop change
 
 ## 0.10.63 – 0.10.64
 
