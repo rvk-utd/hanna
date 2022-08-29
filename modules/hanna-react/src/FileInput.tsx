@@ -204,6 +204,8 @@ const FileInput = (props: FileInputProps) => {
               // name prop is provided. This is implicitly what the
               // browser does on form submit.
               // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name
+              // In such cases we assume the application controls the upload/submit
+              // behavior separately outside of this component.
               inputElementProps.name ? (
                 <input
                   className="FileInput__input"
@@ -218,7 +220,8 @@ const FileInput = (props: FileInputProps) => {
               ) : null
             }
             <input
-              // fa
+              // fake input exclusively used to capture clicks and file drops.
+              // it's contents are wiped on every "add" action.
               className="FileInput__input--fake"
               {...getInputProps()}
               tabIndex={undefined}
