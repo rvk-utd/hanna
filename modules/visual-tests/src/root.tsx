@@ -65,17 +65,24 @@ export default function App() {
   const cssTokens = useGetCssTokens();
   const [q] = useSearchParams();
 
-  // NOTE: Hacky injection of a utility function into the page's global scope,
-  // in order to make life easier for tests/tests.spec.ts
-  if (typeof window !== 'undefined') {
-    window.getPageScrollElm = _getPageScrollElm;
-  }
+  // if (typeof window !== 'undefined') {
+  //   window.getPageScrollElm = _getPageScrollElm;
+  // }
 
   return (
     <html lang="en">
       <head>
         <Meta />
-        <script dangerouslySetInnerHTML={{ __html: noFlickerSnippet }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              noFlickerSnippet +
+              // NOTE: Hacky injection of a utility function into the page's global scope,
+              // in order to make life easier for tests/tests.spec.ts
+              ';\nwindow.getPageScrollElm = ' +
+              _getPageScrollElm.toString(),
+          }}
+        />
         <link
           rel="stylesheet"
           href={getCssBundleUrl(cssTokens, { testingServer: 'http://localhost:4000' })}
