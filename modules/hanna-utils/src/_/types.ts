@@ -76,48 +76,53 @@ export type Resolve<T> = T extends Function ? T : { [K in keyof T]: T[K] };
 // ---------------------------------------------------------------------------
 
 /**
- * Return A with the unique keys of B as optionally undefined
+ * Return `A` with the unique keys of `B` as optionally `undefined`.
  *
  * Example:
  *
  * ```ts
- * type MyProps = AllowKeys<
- *   { type: 'profit', gain: number },
- *   { type: 'loss', loss: number, panic: boolean }
- * >;
+ * type A = { type: 'profit'; gain: number };
+ * type B = { type: 'loss'; loss: number; panic: boolean };
+ *
+ * type MyProps = AllowKeys<A, B>;
  * ```
  *
- * is the same as:
+ * is equivalent to:
  *
  * ```ts
  * type MyProps =
  *   { type: 'profit', gain: number, loss?: never, panic?: never };
  * ```
+ *
+ * NOTE: This type helper is used by `EitherObj<A,B,…>` type.
  */
 export type AllowKeys<A, B> = Resolve<A & { [Key in Exclude<keyof B, keyof A>]?: never }>;
 
 // ---------------------------------------------------------------------------
 
 /**
- * Allow either type, but define the keys from the other type as optionally undefined.
+ * Allow any one of its input types, but accept the keys
+ * from the other type(s) as optionally `undefined`.
  *
- * Example:
+ * The `EitherObj` accepts between 2 and 4 type parameters.
+ *
+ * Example with three inputs: `A`, `B` and `C`:
  *
  * ```ts
- * type MyProps = EitherObj<
- *   { type: 'profit', gain: number },
- *   { type: 'loss', loss: number }
- *   { type: 'even', panic: boolean }
- * >;
+ * type A { type: 'profit', gain: number },
+ * type B { type: 'loss', loss: number }
+ * type C { type: 'even', panic: boolean }
+ *
+ * type MyProps = EitherObj<A, B, C>;
  * ```
  *
- * is the same as:
+ * is equivalent to:
  *
  * ```ts
  * type MyProps =
- *   | { type: 'profit', gain: number, loss?: never, panic?: never },
- *   | { type: 'loss', loss: number, gain?: never, panic?: never };
- *   | { type: 'even', panic: boolean, loss?: never, gain?: never };
+ *   | { type: 'profit'; gain: number; loss?: never; panic?: never }
+ *   | { type: 'loss'; gain?: never; loss: number; panic?: never }
+ *   | { type: 'even'; gain?: never; loss?: never; panic: boolean };
  * ```
  */
 export type EitherObj<A, B, C = boolean, D = boolean> = C extends boolean

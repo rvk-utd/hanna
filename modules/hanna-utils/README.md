@@ -25,6 +25,8 @@ system.
   - [`ObjectKeys`, `ObjectEntries`, `ObjectFromEntries`](#objectkeys-objectentries-objectfromentries)
   - [Type `OpenRecord`](#type-openrecord)
   - [Type `OpenStringMap`](#type-openstringmap)
+  - [Type `AllowKeys`](#type-allowkeys)
+  - [Type `EitherObj`](#type-eitherobj)
 
 <!-- prettier-ignore-end -->
 
@@ -354,4 +356,49 @@ const aligns2: OpenStringMap<AlignVariant, ''> = {
 const alignValue = aligns[props.align || 'default'] || aligns.default;
 ```
 
-###
+### Type `AllowKeys`
+
+Return `A` with the unique keys of `B` as optionally `undefined`.
+
+Example:
+
+```ts
+type A = { type: 'profit'; gain: number };
+type B = { type: 'loss'; loss: number; panic: boolean };
+
+type MyProps = AllowKeys<A, B>;
+```
+
+is equivalent to:
+
+```ts
+type MyProps = { type: 'profit'; gain: number; loss?: never; panic?: never };
+```
+
+NOTE: This type helper is used by `EitherObj<A,B,…>` type.
+
+### Type `EitherObj`
+
+Allow any one of its input types, but accept the keys from the other type(s)
+as optionally `undefined`.
+
+The `EitherObj` accepts between 2 and 4 type parameters.
+
+Example with three inputs: `A`, `B` and `C`:
+
+```ts
+type A { type: 'profit', gain: number },
+type B { type: 'loss', loss: number }
+type C { type: 'even', panic: boolean }
+
+type MyProps = EitherObj<A, B, C>;
+```
+
+is equivalent to:
+
+```ts
+type MyProps =
+  | { type: 'profit'; gain: number; loss?: never; panic?: never }
+  | { type: 'loss'; gain?: never; loss: number; panic?: never }
+  | { type: 'even'; gain?: never; loss?: never; panic: boolean };
+```
