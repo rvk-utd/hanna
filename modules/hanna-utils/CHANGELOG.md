@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add string helper `capitalize`
 
 ## 0.1.11
 

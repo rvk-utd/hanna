@@ -11,6 +11,7 @@ system.
   - [`printDate`](#printdate)
   - [`getPageScrollElm`](#getpagescrollelm)
   - [`getStableRandomItem`](#getstablerandomitem)
+  - [`capitalize`](#capitalize)
 - [Asset helpers](#asset-helpers)
   - [Illustrations](#illustrations)
   - [Efnistákn Icons](#efnistákn-icons)
@@ -135,6 +136,23 @@ import { blingTypes } from '@reykjavik/hanna-utils/assets';
 // ...inside a component
 
 const randomBling = getStableRandomItem(blingTypes, props.newsHeadline);
+```
+
+### `capitalize`
+
+**Syntax:**
+`capitalize<Str extends string>(str: Str, locale?: string): Capitalize<Str>`
+
+Simple 'foo bar' --> 'Foo bar' mapper.
+
+Default locale: `"IS"` (effectively same as `"EN"` and vanilla
+`toUpperCase()`)
+
+```ts
+import { capitalize } from '@reykjavik/hanna-utils';
+
+capitalize('hello world'); // "Hello world"
+capitalize('istanbul', 'TR'); // "İstanbul"
 ```
 
 <!--

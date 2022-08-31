@@ -31,6 +31,7 @@ o.spec('hanna-css lib', () => {
 
       /* misc.ts */
       notNully: true,
+      capitalize: true,
 
       /* printDate.ts */
       printDate: true,
