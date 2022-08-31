@@ -252,7 +252,7 @@ Until proper documentation is ready, see
 [shareButtonsUtils.ts](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-utils/src/shareButtonsUtils.ts)
 (and
 [ShareButtons.tsx](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-react/src/ShareButtons.tsx)
-for an usage example in `hanna-react`).
+for an example of how it's used in `hanna-react`).
 
 ## Polyfills / A11y
 
@@ -272,15 +272,17 @@ import '@reykjavik/hanna-utils/focus-visible';
 
 ### `notNully`
 
+**Syntax:** `notNully(value: unknown): value is NonNullable<V>`
+
+Simple type-guarding filter function that helps filter out `null`y (i.e.
+`null` and `undefined`) values from an array in a type-aware way.
+
 ```ts
 import { notNully } from '@reykjavik/hanna-utils';
 
-notNully('hi'); // false
+const mixed = ['hi', null, undefined, ''];
+const strings: Array<string> = mixed.filter(notNully);
 ```
-
-**Syntax:** `notNully(value: unknown): value is NonNullable<V>`
-
-Simple type-guarding filter function to weed out `null`y values from an array.
 
 ### `ObjectKeys`, `ObjectEntries`, `ObjectFromEntries`
 
