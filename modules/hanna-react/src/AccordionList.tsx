@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { SSRSupport, useDomid, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
@@ -27,10 +27,13 @@ type _ALItemProps = {
 };
 
 const AccordionListItem = (props: AccordionListItemProps & _ALItemProps) => {
-  const { title, content, id, disabled = false, defaultOpen, ssr } = props;
+  const { title, content, id, disabled = false, ssr } = props;
 
-  const [open, setOpen] = useState(defaultOpen);
-  useEffect(() => setOpen(defaultOpen), [defaultOpen]);
+  // TODO: Add controlled state support to this component, and then switch
+  // to usw the hooks exported from `utils/useMixecControlState.ts`
+  const [open, setOpen] = useState(props.defaultOpen);
+  const defaultOpen = useRef(props.defaultOpen);
+
   const domid = useDomid();
   const isBrowser = useIsBrowserSide(ssr);
   const itemDisabled = (isBrowser && disabled) || !content;
@@ -39,7 +42,7 @@ const AccordionListItem = (props: AccordionListItemProps & _ALItemProps) => {
     <div
       className={getBemClass('AccordionList__item', [itemDisabled && 'disabled'])}
       id={id}
-      data-start-open={defaultOpen || undefined}
+      data-start-open={defaultOpen.current}
       data-sprinkled={isBrowser}
     >
       <h3 className="AccordionList__title">
