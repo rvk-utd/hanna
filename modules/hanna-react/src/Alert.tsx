@@ -31,13 +31,10 @@ const useAutoClosing = (autoClose: number) => {
       onMouseLeave: thaw,
       onFocus: freeze,
       onBlur: thaw,
-
-      ...(isPreact
-        ? {
-            onfocusin: (e: FocusEvent) => e.currentTarget !== e.target && freeze(),
-            onfocusout: (e: FocusEvent) => e.currentTarget !== e.target && thaw(),
-          }
-        : undefined),
+      ...(isPreact && {
+        onfocusin: (e: FocusEvent) => e.currentTarget !== e.target && freeze(),
+        onfocusout: (e: FocusEvent) => e.currentTarget !== e.target && thaw(),
+      }),
     },
   };
 };
