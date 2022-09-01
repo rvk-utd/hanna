@@ -3,8 +3,13 @@
 The official React components for Hanna – Reykjavík's design-system
 
 ```
-npm install --save @reykjavik/hanna-react
+yarn add @reykjavik/hanna-react
 ```
+
+Components aim to be framework-agnostic and avoid unneccessary local state –
+always preferring "controlled" use.
+
+(See [README-conventions.md](./README-conventions.md) for more info.)
 
 ## Versioning
 
@@ -12,7 +17,7 @@ This module always targets the most recent version of the Hanna markup
 patterns (currently **Hanna 0.8**).
 
 <!--
-	NOTE:
+	**NOTE:**
 	If need arises we may decide to branch the repo and publish separate
 	legacy modules (i.e. `@reykjavik/hanna_1-react`) that provide active
 	long-term-support for older major-versions of Hanna's markup patterns.
@@ -32,7 +37,7 @@ version, you'll find the appropriate package version in the
 ## CSS
 
 Each component is paired with a CSS file that can be loaded via the Hanna CSS
-server – https://styles.reykjavik.is/
+server – <https://styles.reykjavik.is>
 
 If your project uses `<Layout/>`, `<HeroBlock/>`, `<TextInput/>`,
 `<Selectbox/>` and `<ButtonPrimary/>` you can load the required CSS by linking
