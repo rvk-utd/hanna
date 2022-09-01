@@ -132,7 +132,10 @@ export const buildNpmLib = (libName, custom) => {
   } = custom || {};
 
   const entryPoints = entryGlobs.flatMap((entryGlob) =>
-    glob.sync(entryGlob, { cwd: src, ignore: '**/*.tests.{ts,tsx}' })
+    glob.sync(entryGlob, {
+      cwd: src,
+      ignore: ['**/*.{tests,privates}.{ts,tsx}', '**/_*'],
+    })
   );
 
   if (!opts.dev) {
