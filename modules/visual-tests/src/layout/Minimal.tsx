@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import React from 'react';
-import { useScrollbarWidthCSSVar } from '@reykjavik/hanna-react/utils/useScrollbarWidthCSSVar';
+import { useScrollbarWidthCSSVar } from '@reykjavik/hanna-react/utils';
 
 const roles = {
   main: 'main',

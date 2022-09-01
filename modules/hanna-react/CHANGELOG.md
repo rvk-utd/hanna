@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `utils` hook `useScrollbarWidthCSSVar`
 - fix: Stop hard-resetting `AccordionList`'s state on `defaultOpen` changes
 
 ## 0.10.63 – 0.10.65
