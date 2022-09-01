@@ -71,7 +71,7 @@ export type OpenStringMap<T extends string, V = T> = Record<T, T | V> &
  * For more info, see:
  * https://effectivetypescript.com/2022/02/25/gentips-4-display/
  */
-export type Resolve<T> = T extends Function ? T : { [K in keyof T]: T[K] };
+export type Resolve<T> = { [K in keyof T]: T[K] };
 
 // ---------------------------------------------------------------------------
 
