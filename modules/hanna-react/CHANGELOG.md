@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `utils` hook `useDidChange`
+- feat: Add `utils` hook `useMixedControlState`
 - feat: Add `utils` hook `useScrollbarWidthCSSVar`
 - fix: Stop hard-resetting `AccordionList`'s state on `defaultOpen` changes
 
