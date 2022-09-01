@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.1.12
+
+_2022-09-01_
+
 - feat: Add string helper `capitalize`
 
 ## 0.1.11
