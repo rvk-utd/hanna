@@ -1,25 +1,145 @@
 # Conventions / Design patterns
 
-## Initial props for stateful components
+<!-- prettier-ignore-start -->
 
-If a component maintains a `foo` state, but accepts an initial value _that
-does not change_, then name that prop `defaultFoo`.
+- [Always use named exports](#always-use-named-exports)
+- [Be presentational and framework-agnostic](#be-presentational-and-framework-agnostic)
+  - [Default props for stateful/uncontrolled components](#default-props-for-statefuluncontrolled-components)
+  - [But I want default, yet resettable state](#but-i-want-default-yet-resettable-state)
+- [Abstract components and private modules.](#abstract-components-and-private-modules)
+- [Class-name prop patterns](#class-name-prop-patterns)
+- [Prefer props over nested components](#prefer-props-over-nested-components)
+- [Private sub-compoenent names](#private-sub-compoenent-names)
+- [Play nice with Preact.js](#play-nice-with-preactjs)
+<!-- prettier-ignore-end -->
 
-Then force updates to `defaultFoo` by bumping the component's `key` prop.
+## Always use named exports
 
-If the component should also be able to accept live (controlled) `foo` values,
-then pass those via a plain `foo` prop, and in those cases make sure to
-completely ignore the local state values and not update them.
+For the sake of consistency and ease of use:
 
-A bit like what React recommends with native `<input/>` and `<select/>`
-elements.
+- all modules should export named exports. This also includes React component
+  files.
+
+- Single-purpose modules (like most React component modules) should be named
+  exactly like their main export, like so:
+
+```ts
+// ✅ Good
+import { MyComponent } from './MyComponent';
+import { useMyHook } from './utils/useMyHook';
+// ❌ Bad
+import { myMapper } from './utils/mymapper'; // case mismatch
+import { myHelperFn } from './utils/myHelperFunction'; // naming mismatch
+import MyOtherComponent from './MyOtherComponent'; // no default exports
+```
+
+**NOTE:** Earlier versions of the Hanna codebase used default exports for
+components. Evidence of this remains in many places, but should be regarded as
+outdated/deprecated practice.
+
+## Be presentational and framework-agnostic
+
+Components should strive to be relatively stateless, and completely
+framework-agnostic.
+
+Stateless (controlled) components are usually easier to reason about, and
+easier to customize. However, they sometimes require a bit more up-front
+effort (external `useState()`s, etc.)
+
+If you want to write a component that hooks into not just React a specific
+framework or state-management library that you're commonly using (let say
+Next.js) then you should publish that compnent as part of a new library (e.g.
+`@reykjavik/hanna-nextjs`).
+
+This new library can become a new module in this monorepo and declares
+`@reykjavik/hanna-react` as a dependency.
+
+### Default props for stateful/uncontrolled components
+
+In cases where you decide an internal (uncontrolled) state is required (or
+helpful), then try to follow the pattern that React promotes with native
+`<input/>` and `<select/>` elements.
+
+If a component maintains an internal `foo` state, but accepts an initial value
+_that should not override the internal state on change_, then name that prop
+`defaultFoo`.
+
+If you need to force-reset the internal state of the component (for a changed
+`defaultFoo` value to take effect), then bump the component's `key` prop.
+
+If the component should **also** be able to accept live (controlled) `foo`
+values, then make use of the
+[`useMixedControlState` hook](src/utils/useMixedControlState.ts), which is
+specifically designed to help "Keep It Simple and Sane" in such cases.
+
+```tsx
+import React, { FC, ReactNode } from 'react';
+import { useMixedControlState } from './utils';
+// import { useMixedControlState } from '@reykjavik/hanna-react/utils';
+
+type FooBarProps = {
+  visible?: boolean;
+  onChange?: (newVisible: boolean) => void;
+  defaultVisible?: boolean;
+};
+
+export const FooBar: FC<FooBarProps> = (props) => {
+  const [visible, setVisible] = useMixedControlState(props, 'visible', true);
+
+  const handleToggle = () => {
+    props.onChange?.(!visible);
+    setVisible(!visible);
+  };
+  return (
+    <div>
+      <button onClick={handleToggle}>Toggle</button>
+      <div hidden={!visible}>{props.children}</div>
+    </div>
+  );
+};
+```
+
+### But I want default, yet resettable state
+
+If you want an component which is effectively uncontrolled, but resets/changes
+its internal state whenever a certain prop value changes.
+
+In such cases refrain from calling the controlling prop `defaultSomething`.
+
+Instead call it whatever you'd call a normal controlled state prop, then use
+an internal useState and the [`useDidChange` hook](src/utils/useDidChange.ts)
+to reset it whenever the prop changes.
+
+```tsx
+import { useDidChange } from './utils';
+// import { useDidChange } from '@reykjavik/hanna-react/utils';
+
+// inside your component/hook
+const [visible, setVisible] = useState(props.visible);
+if (useDidChange(props.visible)) {
+  setVisible(props.visible);
+}
+```
+
+## Abstract components and private modules.
+
+If you create "abstract" components that are only to be consumed by other
+components you should locate them inside the folder
+[src/abstract](src/abstract). (Example:
+[abstract/\_Button](src/abstract/_Button.tsx))
+
+If the components are "private", single-purpose sub-components, either place
+them inline with their parent component, or extract them to another module
+file with a file-name ending with `.privates.{ts,tsx}`, or starting with a
+`_`.
 
 ## Class-name prop patterns
 
-Generally first-class Design System components should not accept too many
-className or modifier classes.
+**Public facing Design System components should generally not accept direct
+className or modifier class values.** Instead use semantic props, which in
+turn set the appropriate classNames.
 
-Abstract (private) components should use this pattern, however:
+Abstract (private) components should, however, use this pattern:
 
 ```ts
 type Falsy = undefined | null | false | 0;
@@ -38,16 +158,6 @@ type BemProps = {
 } & BemPropsModifier;
 ```
 
-## Abstract components and private modules.
-
-If you create "abstract" components that are only to be consumed by other
-components (like, for example [\_abstract/Button](src/_abstract/Button.tsx))
-you should locate them inside the folder [src/\_abstract](src/_abstract).
-
-If the components are "private", single-purpose sub-components, either place
-them inline with their parent component, or extract them to a sibling module
-file with the ending `.privates.{ts,tsx}`.
-
 ## Prefer props over nested components
 
 As a rule of thumb, when an exported component renders a list of sub-items of
@@ -61,7 +171,7 @@ a fixed/predictable type, use an array-prop pattern over JSX children.
 
 **DON'T: ❌**
 
-```js
+```tsx
 <MyMenu title="Menu label">
   {menuItemPropsArray.map((menuItemProps, i) => {
     <MyMenuItem key={i} {...menuItemProps} />;
@@ -75,7 +185,7 @@ accidental mistakes and invalid component nesting.
 If the item-level component needs to be configurable, you can add an optional
 `ItemComponent` prop, like so:
 
-```js
+```tsx
 <MyMenu
   title="Menu label"
   items={menuItemPropArray}
@@ -89,13 +199,12 @@ sub-items are somewhat unpredictable. (Example: `<ButtonBar />`.)
 ## Private sub-compoenent names
 
 If you refactor a component into "private" sub-components, then those
-components should also follow the general rule of Component Names reflecting
-their (default) BEM class-name.
+components should be named to reflect their BEM class-name.
 
 Contrived example:
 
-```ts
-const MyList = (props: { items: Array<string> }) => (
+```tsx
+export const MyList = (props: { items: Array<string> }) => (
   <ul className="MyList">
     {props.items.map((item, i) => (
       <MyList__item key="i" item={item} />
@@ -103,5 +212,34 @@ const MyList = (props: { items: Array<string> }) => (
     ))}
   </ul>
 );
-export default MyList;
+```
+
+## Play nice with Preact.js
+
+Preact is a lovely, lightweight React-compatible (mostly) library, and
+Hanna-react should try and support it.
+
+This mostly consists of not relying on `focus` and `blur` events bubbling (a
+non-standard behavior "helpfully" patched in by React), without also adding
+`onfocusin` and `onfocusout` props for Preact.
+
+BTW, hanna-react has an `isPreact` utility flag that you can use for this
+purpose.
+
+```tsx
+import { isPreact } from './utils/env';
+// ...
+
+<div
+  className="MyComponent"
+  onFocus={focusHandler}
+  onBlur={blurHandler}
+  // (Sneak this in as Preact does not bubble `FocusEvent`s)
+  {...(isPreact && {
+    onfocusin: focusHandler,
+    onfocusout: blurHandler,
+  })}
+>
+  {/* Children which initiate focus/blur events */}
+</div>;
 ```
