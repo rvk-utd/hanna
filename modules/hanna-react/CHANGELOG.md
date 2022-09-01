@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.66
+
+_2022-09-01_
+
 - feat: Add `utils` hook `useDidChange`
 - feat: Add `utils` hook `useMixedControlState`
 - feat: Add `utils` hook `useScrollbarWidthCSSVar`
