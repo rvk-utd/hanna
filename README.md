@@ -17,6 +17,8 @@ The contents of the servers are stored in their own git repositories
 these repos are set up as git submodules in this monorepo, and build scripts
 push static build-results into them.
 
+**Chapters below:**
+
 <!-- prettier-ignore-start -->
 
 - [Modules in This Repo](#modules-in-this-repo)
@@ -26,7 +28,7 @@ push static build-results into them.
 
 ## Modules in This Repo
 
-Code Libraries:
+**Code Libraries:**
 
 - **[`hanna-css`](modules/hanna-css/)**
 
@@ -46,12 +48,12 @@ Code Libraries:
     [@reykjavik/hanna-react](https://www.npmjs.com/package/@reykjavik/hanna-react).
 
 - **[`hanna-utils`](modules/hanna-utils/)**
-  - A collection of functions and constants that are helpful when using the
-    Hanna design system.
+  - A collection of vanilla JavaScript functions and constants that are
+    helpful when using the Hanna design system.
   - Published as the npm package
     [@reykjavik/hanna-utils](https://www.npmjs.com/package/@reykjavik/hanna-utils).
 
-WIP Code Libraries:
+**WIP Code Libraries:**
 
 - **[`hanna-sprinkles`](modules/hanna-sprinkles/)**
 
@@ -74,7 +76,7 @@ WIP Code Libraries:
       allow use with WordPress, etc.
     - Published as the **????** package **?????**.
 
-Documentation:
+**Documentation:**
 
 - **[`html-storybook`](modules/html-storybook/)**
 
@@ -87,9 +89,10 @@ Documentation:
      (Builds into `/servers/docs/html/${version}`, a part of the submodule repo
     [hanna-server-docs](https://github.com/rvk-utd/hanna-server-docs).)
 
-- More coming...
+- **More coming…**
+  - …including storybook for `hanna-react`.
 
-Oh So Meta:
+**Oh, So Meta:**
 
 - **[`visual-tests`](modules/visual-tests/)**
 
@@ -124,14 +127,23 @@ Oh So Meta:
     the versioning train and must be as (minor-version) backwards compatible
     as possible.
   - Be library agnostic. We like React, but if you need and like
-    Vue/Svelte/etc. we welcome your PR.
+    Vue/Svelte/etc. we welcome your PR. (Just imagine,
+    `yarn add @reykjavik/hanna-svelte` would be **so** cool.)
   - Be framework agnostic. Today we may like Next.js, but tomorrow always
     brings new things.
 - Scale gracefully in size.
   - Payloads for tiny pages should be tiny. The "kitchen sink" should always
-    be optional.
-  - Make it easy to silently (and unceremoniously) drop use of certain
-    components
+    be optional **and opt-in**.
+  - Make it cheap to add new components.
+  - Make it easy to silently (and unceremoniously!) drop use of certain
+    components, while maintaining legacy support (until next major version
+    bump).
+- Prefer opionionated, prescriptive components
+  - Flexible low-level styling components are nice and should be on offer too,
+    but on a tight leash.
+  - Prefer tightly controlled vocabularies over open-ended values.
+  - CSS custom properties (a.k.a. CSS variables) are our primary medium for
+    design-tokens
 
 ## Setup / Contribution
 

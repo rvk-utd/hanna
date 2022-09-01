@@ -1,14 +1,18 @@
 # Conventions / Design patterns
 
+**Chapters below:**
+
 <!-- prettier-ignore-start -->
 
 - [Always use named exports](#always-use-named-exports)
 - [Be presentational and framework-agnostic](#be-presentational-and-framework-agnostic)
   - [Default props for stateful/uncontrolled components](#default-props-for-statefuluncontrolled-components)
-  - [But I want default, yet resettable state](#but-i-want-default-yet-resettable-state)
+  - [But I want a default, yet resettable state](#but-i-want-a-default-yet-resettable-state)
 - [Abstract components and private modules.](#abstract-components-and-private-modules)
 - [Class-name prop patterns](#class-name-prop-patterns)
 - [Prefer props over nested components](#prefer-props-over-nested-components)
+- [Exposing/Extending raw HTML (JSX.IntrinsicElements) props](#exposingextending-raw-html-jsxintrinsicelements-props)
+- [Public sub-components](#public-sub-components)
 - [Private sub-compoenent names](#private-sub-compoenent-names)
 - [Play nice with Preact.js](#play-nice-with-preactjs)
 <!-- prettier-ignore-end -->
@@ -56,6 +60,9 @@ This new library can become a new module in this monorepo and declares
 
 ### Default props for stateful/uncontrolled components
 
+**IMPORTANT:** Make sure you understand the concept of
+[controlled vs. uncontrolled components in React](https://www.google.com/search?q=react+controlled+vs+uncontrolled+components)
+
 In cases where you decide an internal (uncontrolled) state is required (or
 helpful), then try to follow the pattern that React promotes with native
 `<input/>` and `<select/>` elements.
@@ -99,10 +106,10 @@ export const FooBar: FC<FooBarProps> = (props) => {
 };
 ```
 
-### But I want default, yet resettable state
+### But I want a default, yet resettable state
 
-If you want an component which is effectively uncontrolled, but resets/changes
-its internal state whenever a certain prop value changes.
+If you want to make a component which is effectively uncontrolled, but
+resets/changes its internal state whenever a certain prop value changes.
 
 In such cases refrain from calling the controlling prop `defaultSomething`.
 
@@ -169,7 +176,7 @@ a fixed/predictable type, use an array-prop pattern over JSX children.
 <MyMenu title="Menu label" items={menuItemPropArray} />
 ```
 
-**DON'T: ❌**
+**AVOID: 🕳**
 
 ```tsx
 <MyMenu title="Menu label">
@@ -195,6 +202,56 @@ If the item-level component needs to be configurable, you can add an optional
 
 Of course there are sensible exceptions to this rule, especially when the
 sub-items are somewhat unpredictable. (Example: `<ButtonBar />`.)
+
+## Exposing/Extending raw HTML (JSX.IntrinsicElements) props
+
+In some cases you want to allow the developers using your component to pass
+miscellanious HTML attributes (e.g. `aria-*`, native `on*` handlers, etc.)
+without you having to enumerate every single one.
+
+In such cases add an explicitly named prop for that. (Something along the
+lines of `htmlProps`/`inputProps`/`buttonProps`/etc.) Avoid the temptation to
+
+**DO: ✅**
+
+```ts
+type KnobProps = {
+  shape: 'square' | 'circle' | 'triangle';
+  onClick: () => void;
+  htmlProps: Omit<JSX.IntrinsicElements['button'], 'type' | 'onClick'>;
+};
+```
+
+This way your users get very clear image of what props your component offers,
+and don't get mired in dozens and dozens of alphabetically sorted HTML
+attribute names. (As a bonus, you also avoid having to do expensive
+destructuring `...rest` properties inside your component source.)
+
+**DON'T: ❌**
+
+```ts
+type KnobProps = Omit<JSX.IntrinsicElements['button'], 'type' | 'onClick'> & {
+  shape: 'square' | 'circle' | 'triangle';
+  onClick: () => void;
+};
+```
+
+This was an early mistake with many of the form-input and button-related
+hanna-react components, and changing it to use a
+`inputProps`/`buttonProps`/`htmlProps` prop instead, is one of the planned
+breaking changes for a future MAJOR release.
+
+## Public sub-components
+
+If a component has a (tight-)coupled sub-component, and if it doesn't matter
+too much if it doesn't get tree-shaken during bundling, then just added as a
+property to the parent component.
+
+Example: `<ButtonBar />` exposes [`<ButtonBar.Split/>`](src/ButtonBar.tsx)
+
+Note however, how `ButtonBar` also exports `ButtonBar__split` to aid
+IntelliSense discovery, but marks it `@deprecated` and points to
+`ButtonBar.Split` instead.
 
 ## Private sub-compoenent names
 

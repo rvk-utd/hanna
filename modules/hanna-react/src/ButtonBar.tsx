@@ -15,6 +15,7 @@ export const ButtonBar = (props: ButtonBarProps) => {
   );
 };
 
+/** A Splitter token to use directly inside <ButtonBar/> wrappers */
 ButtonBar.Split = () => <span className="ButtonBar__split" />;
 
 /**

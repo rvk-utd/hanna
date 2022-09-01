@@ -1,7 +1,12 @@
 # @reykjavik/hanna-utils
 
-A collection of helpful functions and constants when using the Hanna design
-system.
+A collection of vanilla JavaScript functions and constants, that tend to be
+helpful when working with (or within) the Hanna design system.
+
+This library is also a core dependency of most other packages in this repo,
+including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
+
+**Table of Contents:**
 
 <!-- prettier-ignore-start -->
 
