@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import { SSRSupport, useIsBrowserSide, useOnMount } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { EitherObj } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import Button from './_abstract/_Button';
@@ -72,30 +73,29 @@ export type AlertProps = {
   texts?: AlertI18n;
   lang?: string;
   ssr?: SSRSupport;
-} & (
-  | {
-      /** Seconds until the Alert auto-closes.
-       *
-       * Mosueover and keyboard focus resets the timer.
-       */
-      autoClose: number;
-      /** Return `false` to prevent the alert from closing. */
-      onClose?: () => void | boolean;
-      /** Callback that fires when the alert has closed/transitoned out */
-      onClosed: () => void;
-    }
-  | {
-      autoClose?: never;
-      /**
-       * @deprecated This signature with the `event` argument will be removed in hanna-react v0.9
-       *
-       * Return `false` to prevent the alert from closing
-       */
-      onClose?(event: MouseEvent): void | boolean;
-      /** Callback that fires after the alert has closed/transitoned out */
-      onClosed?(): void;
-    }
-);
+} & EitherObj<
+  {
+    /** Seconds until the Alert auto-closes.
+     *
+     * Mosueover and keyboard focus resets the timer.
+     */
+    autoClose: number;
+    /** Return `false` to prevent the alert from closing. */
+    onClose?: () => void | boolean;
+    /** Callback that fires when the alert has closed/transitoned out */
+    onClosed: () => void;
+  },
+  {
+    /**
+     * @deprecated This signature with the `event` argument will be removed in hanna-react v0.9
+     *
+     * Return `false` to prevent the alert from closing
+     */
+    onClose?(event: MouseEvent): void | boolean;
+    /** Callback that fires after the alert has closed/transitoned out */
+    onClosed?(): void;
+  }
+>;
 
 const Alert = (props: AlertProps) => {
   const {

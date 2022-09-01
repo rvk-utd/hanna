@@ -1,13 +1,11 @@
 import React, { ReactNode } from 'react';
 import { useIsBrowserSide } from '@hugsmidjan/react/hooks';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 type HiddenTigerProps = {
   style?: React.CSSProperties;
   serverSide?: ReactNode | (() => ReactNode);
-} & (
-  | { clientSide: ReactNode | (() => ReactNode); children?: never }
-  | { clientSide?: never; children: ReactNode }
-);
+} & EitherObj<{ clientSide: ReactNode | (() => ReactNode) }, { children: ReactNode }>;
 
 const HiddenTiger = (props: HiddenTigerProps) => {
   const { children, style, serverSide, clientSide } = props;

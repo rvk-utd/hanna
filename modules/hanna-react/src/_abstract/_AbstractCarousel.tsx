@@ -13,7 +13,7 @@ import throttle from '@hugsmidjan/qj/throttle';
 import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import { BemProps } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { notNully } from '@reykjavik/hanna-utils';
+import { EitherObj, notNully } from '@reykjavik/hanna-utils';
 
 import CarouselStepper from '../CarouselStepper';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect';
@@ -42,20 +42,14 @@ export type CarouselProps<
 
   /** @deprecated Ingored because never used (Will be removed in v0.11) */
   scrollRight?: boolean;
-} & (
-  | {
-      children?: never;
-      items: Array<I>;
-      Component: (props: P extends undefined ? I : I & P) => ReactElement | null;
-      ComponentProps?: P;
-    }
-  | {
-      children: Array<ReactElement>;
-      items?: never;
-      Component?: never;
-      ComponentProps?: never;
-    }
-) &
+} & EitherObj<
+  {
+    items: Array<I>;
+    Component: (props: P extends undefined ? I : I & P) => ReactElement | null;
+    ComponentProps?: P;
+  },
+  { children: Array<ReactElement> }
+> &
   SeenProp;
 
 type AbstractCarouselProps<

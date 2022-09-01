@@ -3,6 +3,7 @@ import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import { BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { HannaColorTheme } from '@reykjavik/hanna-css';
+import { EitherObj } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
@@ -48,16 +49,7 @@ type LayoutProps = {
 
   texts?: LayoutI18n;
   lang?: string;
-} & (
-  | {
-      mainChildren: ReactNode;
-      children?: never;
-    }
-  | {
-      mainChildren?: never;
-      children: ReactNode;
-    }
-);
+} & EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
 
 const Layout = (props: LayoutProps) => {
   useScrollbarWidthCSSVar();

@@ -1,5 +1,6 @@
 import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 import Footnote from './Footnote';
@@ -10,16 +11,7 @@ export type PageFilterProps = {
   footnote?: React.ReactNode;
   buttonRow?: React.ReactNode;
   underlap?: boolean;
-} & (
-  | {
-      filters: React.ReactNode;
-      children?: never;
-    }
-  | {
-      filters?: never;
-      children: React.ReactNode;
-    }
-) &
+} & EitherObj<{ filters: React.ReactNode }, { children: React.ReactNode }> &
   SeenProp;
 
 const PageFilter = (props: PageFilterProps) => {

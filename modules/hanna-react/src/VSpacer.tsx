@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 const sizes = {
   none: 'none',
@@ -19,19 +20,17 @@ const hasChildren = (children?: ReactNode): true | undefined =>
 const normalizeProp = (value: VSpacerSize | undefined, exclude?: string) =>
   value && value !== exclude ? sizes[value] : undefined;
 
-export type VSpacerProps =
-  | {
-      children?: never;
-      size?: VSpacerSizePos;
-      top?: never;
-      bottom?: never;
-    }
-  | {
-      children: ReactNode;
-      size?: VSpacerSizePos;
-      top?: VSpacerSize;
-      bottom?: VSpacerSize;
-    };
+export type VSpacerProps = EitherObj<
+  {
+    size?: VSpacerSizePos;
+  },
+  {
+    children: ReactNode;
+    size?: VSpacerSizePos;
+    top?: VSpacerSize;
+    bottom?: VSpacerSize;
+  }
+>;
 
 const VSpacer = (props: VSpacerProps) => {
   const { size, top, bottom, children } = props;

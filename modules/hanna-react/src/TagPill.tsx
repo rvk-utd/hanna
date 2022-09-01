@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import Button, { ButtonProps } from './_abstract/_Button';
 
@@ -16,20 +17,17 @@ export type TagPillProps = ButtonProps & {
   children?: ReactNode;
   large?: boolean;
   color?: TagPillColor;
-} & (
-    | {
-        removable?: false;
-        onRemove?: never;
-        removeLabel?: never;
-        removeLabelLong?: never;
-      }
-    | {
-        removable: true;
-        onRemove?: () => void;
-        removeLabel?: string;
-        removeLabelLong?: string;
-      }
-  );
+} & EitherObj<
+    {
+      removable?: false;
+    },
+    {
+      removable: true;
+      onRemove?: () => void;
+      removeLabel?: string;
+      removeLabelLong?: string;
+    }
+  >;
 
 const TagPill = (props: TagPillProps) => {
   const {

@@ -1,5 +1,6 @@
 import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { EitherObj } from '@reykjavik/hanna-utils';
 import IframeResizer, { ResizerOptions } from 'iframe-resizer-react';
 
 export type IframeBlockProps = {
@@ -7,20 +8,18 @@ export type IframeBlockProps = {
   framed?: boolean;
   compact?: boolean;
   align?: 'right';
-} & (
-  | {
-      /** Default: `'auto'` ... which initializes "iframe-resizer" script */
-      height?: 'auto';
-      scrolling?: never;
-      /** Default: `false` ... Set to `true` for same-site only, or provide array of allowed domain-names */
-      checkOrigin?: ResizerOptions['checkOrigin'];
-    }
-  | {
-      height: number;
-      scrolling?: boolean | 'no' | 'yes';
-      checkOrigin?: never;
-    }
-);
+} & EitherObj<
+  {
+    /** Default: `'auto'` ... which initializes "iframe-resizer" script */
+    height?: 'auto';
+    /** Default: `false` ... Set to `true` for same-site only, or provide array of allowed domain-names */
+    checkOrigin?: ResizerOptions['checkOrigin'];
+  },
+  {
+    height: number;
+    scrolling?: boolean | 'no' | 'yes';
+  }
+>;
 
 /**
  * When `height` is undefined or "auto", then Add the following code-snipped to the iframed page:

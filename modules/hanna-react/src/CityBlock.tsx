@@ -1,4 +1,5 @@
 import React from 'react';
+import { EitherObj } from '@reykjavik/hanna-utils';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
 import Block, { BlockItem } from './_abstract/_Block';
@@ -11,15 +12,11 @@ const types = {
   largeimage: true,
 };
 
-type CityBlockImageProps =
-  | { illustration: Illustration; image?: never }
-  | { image: ImageProps; illustration?: never };
-
 export type CityBlockProps = {
   align?: Alignment;
   type?: keyof typeof types;
   content: BlockItem;
-} & CityBlockImageProps &
+} & EitherObj<{ illustration: Illustration }, { image: ImageProps }> &
   SeenProp;
 
 const CityBlock = (props: CityBlockProps) => {
