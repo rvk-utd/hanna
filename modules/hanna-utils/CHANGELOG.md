@@ -7,7 +7,7 @@
 
 ## 0.1.11
 
-_2022-07-29_
+_2022-08-29_
 
 - feat(ts): Add utility types `AllowKeys`, `EitherObj`
 
