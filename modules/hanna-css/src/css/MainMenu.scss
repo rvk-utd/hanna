@@ -139,7 +139,6 @@
   }
 
   .MainMenu__separator[class] {
-    display: block;
     width: 100%; // because of flex
     height: grid-units(2);
   }
@@ -238,7 +237,6 @@
   }
 
   .MainMenu__separator[class] {
-    display: block;
     margin-left: auto;
   }
 

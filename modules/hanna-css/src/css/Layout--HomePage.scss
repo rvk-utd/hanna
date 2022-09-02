@@ -19,7 +19,7 @@
     font-weight: $font-weight--bold;
 
     @include media($mq-tablet_up) {
-      display: block !important;
+      display: block;
     }
   }
   .ScrollCTA::after {
