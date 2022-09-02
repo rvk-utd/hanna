@@ -1,11 +1,18 @@
 # Hanna CSS Styles module
 
-This module builds (publishes) two separate, yet related assets:
+This module publishes two separate, yet tightly related assets:
 
-1. The npm package `@reykjavik/hanna-css`
-2. Git [submodule `hanna-styles`](https://github.com/rvk-utd/hanna-styles)
-   which contains the setup for the server
-   [styles.reykjavik.is](https://styles.reykjavik.is)
+1. CSS files and related (typo)graphic assets to
+   [styles.reykjavik.is](https://styles.reykjavik.is).  
+   (Builds into `/style-server/public/css/v${version}`, a part of the
+   submodule repo [hanna-styles](https://github.com/rvk-utd/hanna-styles).)
+2. The npm package `@reykjavik/hanna-css` — a CSS authoring helper library
+   written in TypeScript
+
+For more information on either of these, refer to
+
+- [README-server.md](./README-server.md) – for the CSS files and asset server
+- [README-lib.md](./README-lib.md) - for `@reykjavik/hanna-css`
 
 ## Development
 

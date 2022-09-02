@@ -5,7 +5,7 @@ Design System.
 
 ---
 
-**Chapters:**
+**Table of Contents:**
 
 <!-- prettier-ignore-start -->
 - [Run the server](#run-the-server)

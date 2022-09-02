@@ -3,15 +3,23 @@
 TypeScript helpers for developers writing custom CSS additions for Hanna-based
 designs.
 
-It provides a convenient helper for using hanna's CSS custom properties
-(a.k.a. "CSS variables"), and a few useful functions (a.k.a. mixins) to boot.
+It provides a convenient helper objects for using hanna's CSS variables design
+tokens, and several useful functions (a.k.a. mixins) to boot.
+
+Developers using CSS-in-JS libraries, such as
+[styled-components](https://styled-components.com/) or
+[emotion](https://emotion.sh/docs/introduction), will find this library quite
+useful.
 
 ```sh
 yarn add --dev @reykjavik/hanna-css
 ```
 
+**Table of Contents:**
+
 <!-- prettier-ignore-start -->
 
+- [Why TypeScript Instead of SASS?](#why-typescript-instead-of-sass)
 - [Generic CSS helpers](#generic-css-helpers)
 - [Hanna CSS Variables](#hanna-css-variables)
   - [`hannaVars`](#hannavars)
@@ -38,11 +46,39 @@ yarn add --dev @reykjavik/hanna-css
 
 <!-- prettier-ignore-end -->
 
+## Why TypeScript Instead of SASS?
+
+**TL;DR:** TypeScript provides better developer ergonomics – both internally
+in this monorepo and outside it, and is a more future-proof technology than
+SASS.
+
+SASS has been almost an industry standard tool for templating CSS code for
+over a decade now. Yet it provides poor developer experience with lackluster
+editor integrations, idiosyncratic syntax, extremely limited feature set,
+publishing and consuming libraries is hard, etc…
+
+The web development community has been steadily moving on to other, more
+nimble technologies — either more vanilla "text/css" authoring,
+class-name-based reverse compilers like Tailwind, or various CSS-in-JS
+solutions.
+
+This package provides supportive tooling for this last group, but offers also
+a new lightweight alternative: to author CSS using JavaScript as a templating
+engine … and then simply `writeFile` the resulting string to static file, use
+an
+[es-to-css compiler](https://github.com/maranomynet/es-in-css#compilation-api),
+or stream it directly to the browser.
+
+However, if SASS remains your thing you might still use this library to
+programmatically generate \*.scss files with SASS variables, etc. and then
+consume those files as part of your SASS compilation.
+
 ## Generic CSS helpers
 
-For convenience, `@reykjavik/hanna-css` re-exports all types and helper
-methods (excluding the CSS "compiler") from the
-[`es-in-css` library](https://www.npmjs.com/package/es-in-css).
+For convenience, `@reykjavik/hanna-css` re-exports **all** types and helper
+methods from the
+[`es-in-css` library](https://www.npmjs.com/package/es-in-css) (excluding the
+JS-to-CSS "compiler").
 
 Please refer to the
 [`es-in-css` documentation](https://www.npmjs.com/package/es-in-css) for more
