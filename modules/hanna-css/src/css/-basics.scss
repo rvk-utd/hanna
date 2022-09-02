@@ -65,8 +65,7 @@
     flex-shrink: 0;
     box-sizing: border-box;
   }
-  [hidden][hidden],
-  [aria-hidden][aria-hidden='true'] {
+  [hidden][hidden] {
     display: none;
   }
 
