@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Delay on `.MainMenu`'s `.AuxiliaryPanel` menu image in mobile
 
 ## 0.8.69
 

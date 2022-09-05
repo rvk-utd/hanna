@@ -71,7 +71,7 @@
     }
 
     html.menu-is-open .AuxiliaryPanel::after {
-      transition: visibility 0s 1200ms linear, opacity 300ms;
+      transition: visibility 0s linear, opacity 600ms 200ms;
     }
     html.menu-is-closed .AuxiliaryPanel::after {
       visibility: hidden;
