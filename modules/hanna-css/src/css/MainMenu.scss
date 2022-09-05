@@ -403,6 +403,9 @@
   .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
     @include WARNING__('Please add `id` attribute');
   }
+  .MainMenu__separator:not(.MainMenu__items > *) {
+    @include WARNING__('Separators must be child of ul.MainMenu__items');
+  }
   .MainMenu__list:first-child {
     @include WARNING__('`.MainMenu__title` missing');
   }
