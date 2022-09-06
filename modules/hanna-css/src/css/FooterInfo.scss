@@ -7,7 +7,8 @@
     flex-basis: 100%;
     padding-top: $var--space-4;
 
-    @include media($mq-tablet_up) {
+    @media #{$mq-tablet_up} {
+      @include afterClear();
       padding-top: calc(2 * #{$var--space-8});
       padding-left: $var--grid-1-1;
     }
