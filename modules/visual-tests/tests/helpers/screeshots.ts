@@ -3,8 +3,6 @@ import { expect } from '@playwright/test';
 
 import type { TestFnArgs } from '../../src/testingInfo';
 
-import { scrollFullPage } from './scrollFullPage';
-
 // NOTE: using greek letter "ι" to make a stable splitter ("-ι-")
 // between different portions of the screenshot filename, because
 // PlayWright's (mostly unducoumented, it seems) file-name normalization
@@ -31,38 +29,17 @@ const getPageScrollHeight = (page: Page) =>
 // ---------------------------------------------------------------------------
 
 export const expandViewport = async (page: Page) => {
-  // start by scrolling the page all the way to the bottom to trigger
-  // lazy-loading and other events.
-  await scrollFullPage(page);
-
-  const viewportSize = page.viewportSize() || { width: 0, height: 0 };
-  const viewportWidth = viewportSize.width;
+  const viewportSize = () => page.viewportSize() || { width: 0, height: 0 };
+  const viewportWidth = viewportSize().width;
   expect(viewportWidth > 0, 'Panic! Viewport not defined or zero-sized').toBe(true);
-
-  const scrollHeight = await getPageScrollHeight(page);
-
-  if (viewportSize.height !== scrollHeight) {
+  let scrollHeight = await getPageScrollHeight(page);
+  while (viewportSize().height !== scrollHeight) {
+    // eslint-disable-next-line no-await-in-loop
     await page.setViewportSize({
       width: viewportWidth,
       height: scrollHeight,
     });
-  }
-
-  /*
-      iPhone (at least) sometimes seems to need this double-check
-      when dealing with lazy-loaded `<img/>`s — regardless of gradual
-      full page scroll and given any amount of `waitForTimeout()`s.
-
-      (No idea what causes it. To reproduce: render a test page with
-      10 or so `HeroBlock`s  — Már@2022-08)
-    */
-
-  const scrollHeightAfter = await getPageScrollHeight(page);
-  if (scrollHeightAfter !== scrollHeight) {
-    await page.setViewportSize({
-      width: viewportWidth,
-      height: scrollHeightAfter,
-    });
+    scrollHeight = await getPageScrollHeight(page);
   }
 };
 

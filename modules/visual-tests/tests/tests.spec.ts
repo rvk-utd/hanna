@@ -116,6 +116,7 @@ allComponentTests.forEach(([name, testInfo]) => {
       await page.goto((testPagePaths[name] || '/') + '?noAnimation');
 
       if (testInfo.prep) {
+        await expandViewport(page);
         await testInfo.prep(args);
       }
 

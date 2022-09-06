@@ -91,7 +91,7 @@ export default function () {
 
 export const testing: TestingInfo = {
   prep: async ({ page }) => {
-    await page.locator('img[alt="Photo, landscape"] >> nth=0').hover();
+    await page.locator('.ArticleCarouselCard__illustration >> nth=0').hover();
   },
   extras: async ({ page, localScreenshot }) => {
     const carousel = page.locator('.ArticleCarousel >> nth=0');
