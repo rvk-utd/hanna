@@ -128,8 +128,10 @@ export default css`
   .ReviewShot__shot--diff {
   }
   .ReviewShot__shot--actual {
+    outline-color: ${vars.color_heidmork_25};
   }
   .ReviewShot__shot--expected {
+    outline-color: ${vars.color_ellidaardalur_25};
   }
   [data-mode='difference'] > .ReviewShot__shot--actual {
     position: absolute;
