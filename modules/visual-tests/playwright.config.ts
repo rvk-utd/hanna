@@ -1,7 +1,7 @@
 import { devices, PlaywrightTestConfig, selectors } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 
-import { TestTag } from './src/testingInfo';
+import { ProjectName, TestTag } from './src/testingInfo';
 import { TAG_PREFIX } from './tests/helpers/screeshots';
 
 const closestEngine = () => ({
@@ -21,7 +21,11 @@ const tagREs: Record<TestTag, RegExp> = ObjectFromEntries(
       'firefox_wide',
       'firefox_netbook',
       'chrome',
+      'chrome_wide',
+      'chrome_netbook',
       'safari',
+      'safari_wide',
+      'safari_netbook',
       'ipad',
       'iphone',
     ] /*  as Array<TestTag> */ as const
@@ -31,7 +35,65 @@ const tagREs: Record<TestTag, RegExp> = ObjectFromEntries(
   })
 );
 
-type ProjectCfg = NonNullable<PlaywrightTestConfig['projects']>[0];
+type ProjectCfg = NonNullable<PlaywrightTestConfig['projects']>[0] & {
+  name: ProjectName;
+};
+
+const projects: Array<ProjectCfg> = [
+  {
+    name: 'meta',
+    // use: { browserName: 'chromium' },
+    grep: tagREs.meta,
+  },
+
+  ...ObjectEntries({
+    wide: { width: 1600, height: 300 },
+    netbook: { width: 1100, height: 300 },
+  }).flatMap(
+    ([label, viewport]): Array<ProjectCfg> => [
+      {
+        name: `firefox_${label}`,
+        // use desktop firefox
+        use: {
+          ...devices['Desktop Firefox'],
+          viewport,
+        },
+        grep: [tagREs.firefox, tagREs[`firefox_${label}`]],
+      },
+      {
+        name: `chrome_${label}`,
+        use: {
+          ...devices['Desktop Chrome'],
+          viewport,
+        },
+        grep: [tagREs.chrome, tagREs[`chrome_${label}`]],
+      },
+      {
+        name: `safari_${label}`,
+        use: {
+          ...devices['Desktop Safari'],
+          viewport,
+        },
+        grep: [tagREs.safari, tagREs[`safari_${label}`]],
+      },
+    ]
+  ),
+
+  {
+    name: 'ipad',
+    use: { ...devices['iPad (gen 7)'] },
+    grep: [tagREs.ipad],
+  },
+  {
+    name: 'iphone',
+    use: { ...devices['iPhone 12'] },
+    grep: [tagREs.iphone],
+  },
+
+  /* Test against branded browsers. */
+  // { name: 'Microsoft Edge', use: { channel: 'msedge' } },
+  // { name: 'Google Chrome', use: { channel: 'chrome' } },
+];
 
 /**
  * Read environment variables from file.
@@ -77,61 +139,7 @@ const config: PlaywrightTestConfig = {
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'meta',
-      // use: { browserName: 'chromium' },
-      grep: tagREs.meta,
-    },
-
-    ...ObjectEntries({
-      wide: { width: 1600, height: 300 },
-      netbook: { width: 1100, height: 300 },
-    }).flatMap(
-      ([label, viewport]): Array<ProjectCfg> => [
-        {
-          name: 'firefox-' + label,
-          // use desktop firefox
-          use: {
-            ...devices['Desktop Firefox'],
-            viewport,
-          },
-          grep: [tagREs.firefox, tagREs[`firefox_${label}`]],
-        },
-        {
-          name: 'chromium-' + label,
-          use: {
-            ...devices['Desktop Chrome'],
-            viewport,
-          },
-          grep: [tagREs.chrome],
-        },
-        {
-          name: 'webkit-' + label,
-          use: {
-            ...devices['Desktop Safari'],
-            viewport,
-          },
-          grep: [tagREs.safari],
-        },
-      ]
-    ),
-
-    {
-      name: 'ipad',
-      use: { ...devices['iPad (gen 7)'] },
-      grep: [tagREs.ipad],
-    },
-    {
-      name: 'iphone',
-      use: { ...devices['iPhone 12'] },
-      grep: [tagREs.iphone],
-    },
-
-    /* Test against branded browsers. */
-    // { name: 'Microsoft Edge', use: { channel: 'msedge' } },
-    // { name: 'Google Chrome', use: { channel: 'chrome' } },
-  ],
+  projects,
 
   /* Run your local dev server before starting the tests */
   webServer: [

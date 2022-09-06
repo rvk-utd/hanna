@@ -2,7 +2,13 @@ import { expect, test } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { compareKeys } from 'hanna-test-helpers';
 
-import type { TestFnArgs, TestInfoObj, TestingInfo, TestTag } from '../src/testingInfo';
+import type {
+  ProjectName,
+  TestFnArgs,
+  TestInfoObj,
+  TestingInfo,
+  TestTag,
+} from '../src/testingInfo';
 import { getTestListSync } from '../src/utils/tests.server';
 
 import {
@@ -96,7 +102,7 @@ allComponentTests.forEach(([name, testInfo]) => {
 
   test(
     testName + tagStr + '-',
-    async ({ page, context, browserName, isMobile, hasTouch }) => {
+    async ({ page, context, browserName, isMobile, hasTouch }, { project }) => {
       const pageScreenshot = makeSnapPageScreeshot(page, testName);
       const localScreenshot = makeSnapLocalScreeshot(page, testName);
 
@@ -107,6 +113,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         isMobile,
         hasTouch,
         expect,
+        project: project.name as ProjectName,
         localScreenshot,
         expandViewport: () => expandViewport(page),
 

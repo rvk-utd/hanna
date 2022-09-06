@@ -73,6 +73,9 @@ export type TestFnArgs = Pick<
   Parameters<Parameters<typeof test>[1]>[0],
   'page' | 'context' | 'browserName' | 'isMobile' | 'hasTouch'
 > & {
+  /** Name of the currently running project */
+  project: ProjectName;
+
   /** Re-expot of PlayWright's expect function. */
   expect: Expect;
 
@@ -114,12 +117,15 @@ export type TestFnArgs = Pick<
 
 // ---------------------------------------------------------------------------
 
-export type TestTag =
+export type ProjectName =
   | 'meta'
-  | 'firefox'
   | 'firefox_wide'
   | 'firefox_netbook'
-  | 'chrome'
-  | 'safari'
+  | 'chrome_wide'
+  | 'chrome_netbook'
+  | 'safari_wide'
+  | 'safari_netbook'
   | 'ipad'
   | 'iphone';
+
+export type TestTag = ProjectName | 'firefox' | 'chrome' | 'safari';
