@@ -28,16 +28,7 @@ export const loader: LoaderFunction = async () => {
     getReportDate(),
   ]);
 
-  const TTL = 10;
-
-  return json<LoaderData>(
-    { changed, reportCreatedDate },
-    {
-      headers: {
-        'Cache-Control': `public, max-age=${TTL}, immutable`,
-      },
-    }
-  );
+  return json<LoaderData>({ changed, reportCreatedDate });
 };
 
 // ---------------------------------------------------------------------------
