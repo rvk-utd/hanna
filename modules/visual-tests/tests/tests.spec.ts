@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { compareKeys } from 'hanna-test-helpers';
 
-import type { TestFnArgs, TestingInfo } from '../src/testingInfo';
+import type { TestFnArgs, TestInfoObj, TestingInfo, TestTag } from '../src/testingInfo';
 import { getTestListSync } from '../src/utils/tests.server';
 
 import {
@@ -54,19 +54,29 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
 };
 // ---------------------------------------------------------------------------
 
+const DEFAULT_TAGS: Array<TestTag> = ['firefox', 'ipad', 'iphone'];
+
+type NormalizedTestInfoObj = Omit<TestInfoObj, 'skipTags' | 'addTags'>;
+
 const normalizeTestInfos = (tests: Record<string, TestingInfo>) =>
   ObjectEntries(tests).flatMap(([name, testInfo]) => {
     if (!Array.isArray(testInfo)) {
       testInfo = [testInfo];
     }
     return testInfo.map((testInfo, i) => {
-      const { label, tags } = testInfo;
+      const { label, skipTags, addTags } = testInfo;
       if (i > 0 && !label) {
         testInfo.label = String(i + 1);
       }
-      testInfo.tags = tags || [];
-
-      return [name, testInfo] as const;
+      let tags = testInfo.tags || DEFAULT_TAGS;
+      if (skipTags) {
+        tags = tags.filter((tag) => !skipTags.includes(tag));
+      }
+      if (addTags) {
+        tags = tags.concat(addTags.filter((tag) => !tags.includes(tag)));
+      }
+      testInfo.tags = tags;
+      return [name, testInfo as NormalizedTestInfoObj] as const;
     });
   });
 

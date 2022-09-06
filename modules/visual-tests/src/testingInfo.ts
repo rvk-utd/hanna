@@ -59,7 +59,12 @@ export type TestInfoObj = {
    */
   extras?: (args: TestFnArgs) => Promise<void>;
 
+  /** Only run this test for these specific projects */
   tags?: Array<TestTag>;
+  /** Skip these projects from the deault list of projects */
+  skipTags?: Array<TestTag>;
+  /** Add these projects to the deault list of projects */
+  addTags?: Array<TestTag>;
 };
 
 // ---------------------------------------------------------------------------
@@ -109,4 +114,12 @@ export type TestFnArgs = Pick<
 
 // ---------------------------------------------------------------------------
 
-export type TestTag = 'meta' | `${'only' | 'also'}-${'chrome' | 'safari'}`;
+export type TestTag =
+  | 'meta'
+  | 'firefox'
+  | 'firefox_wide'
+  | 'firefox_netbook'
+  | 'chrome'
+  | 'safari'
+  | 'ipad'
+  | 'iphone';

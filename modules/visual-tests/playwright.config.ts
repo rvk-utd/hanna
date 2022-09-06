@@ -13,12 +13,23 @@ const closestEngine = () => ({
 });
 selectors.register('closest', closestEngine, { contentScript: true });
 
-const tagRes: Record<TestTag, RegExp> = ObjectFromEntries(
-  (['meta', 'only-chrome', 'also-chrome', 'only-safari', 'also-safari'] as const).map(
-    (name) => [name, new RegExp(TAG_PREFIX + name)]
-  )
+const tagREs: Record<TestTag, RegExp> = ObjectFromEntries(
+  (
+    [
+      'meta',
+      'firefox',
+      'firefox_wide',
+      'firefox_netbook',
+      'chrome',
+      'safari',
+      'ipad',
+      'iphone',
+    ] /*  as Array<TestTag> */ as const
+  ).map((name) => {
+    const re = new RegExp(TAG_PREFIX + name.replace(/_/g, '-'));
+    return [name, re];
+  })
 );
-const grepInvert = [tagRes.meta, tagRes['only-chrome'], tagRes['only-safari']];
 
 type ProjectCfg = NonNullable<PlaywrightTestConfig['projects']>[0];
 
@@ -70,7 +81,7 @@ const config: PlaywrightTestConfig = {
     {
       name: 'meta',
       // use: { browserName: 'chromium' },
-      grep: [tagRes.meta],
+      grep: tagREs.meta,
     },
 
     ...ObjectEntries({
@@ -85,7 +96,7 @@ const config: PlaywrightTestConfig = {
             ...devices['Desktop Firefox'],
             viewport,
           },
-          grepInvert,
+          grep: [tagREs.firefox, tagREs[`firefox_${label}`]],
         },
         {
           name: 'chromium-' + label,
@@ -93,7 +104,7 @@ const config: PlaywrightTestConfig = {
             ...devices['Desktop Chrome'],
             viewport,
           },
-          grep: [tagRes['also-chrome'], tagRes['only-chrome']],
+          grep: [tagREs.chrome],
         },
         {
           name: 'webkit-' + label,
@@ -101,7 +112,7 @@ const config: PlaywrightTestConfig = {
             ...devices['Desktop Safari'],
             viewport,
           },
-          grep: [tagRes['also-safari'], tagRes['only-safari']],
+          grep: [tagREs.safari],
         },
       ]
     ),
@@ -109,12 +120,12 @@ const config: PlaywrightTestConfig = {
     {
       name: 'ipad',
       use: { ...devices['iPad (gen 7)'] },
-      grepInvert,
+      grep: [tagREs.ipad],
     },
     {
       name: 'iphone',
       use: { ...devices['iPhone 12'] },
-      grepInvert,
+      grep: [tagREs.iphone],
     },
 
     /* Test against branded browsers. */
