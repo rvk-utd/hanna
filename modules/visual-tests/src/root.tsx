@@ -100,7 +100,9 @@ export default function App() {
         )}
       </head>
       <body>
-        <Outlet />
+        <div id="bodyinner">
+          <Outlet />
+        </div>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

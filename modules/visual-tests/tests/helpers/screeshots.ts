@@ -23,7 +23,7 @@ const toFileName = (testName: string, label: string) =>
 const getPageScrollHeight = (page: Page) =>
   page.evaluate(() => {
     // NOTE: This `getPageScrollElm` helper is snuck into the global scope by src/root.tsx
-    return window.getPageScrollElm().scrollHeight;
+    return document.querySelector('#bodyinner')!.clientHeight;
   });
 
 // ---------------------------------------------------------------------------
@@ -34,12 +34,14 @@ export const expandViewport = async (page: Page) => {
   expect(viewportWidth > 0, 'Panic! Viewport not defined or zero-sized').toBe(true);
   let scrollHeight = await getPageScrollHeight(page);
   while (viewportSize().height !== scrollHeight) {
-    // eslint-disable-next-line no-await-in-loop
+    /* eslint-disable no-await-in-loop */
     await page.setViewportSize({
       width: viewportWidth,
       height: scrollHeight,
     });
+    await page.waitForTimeout(300);
     scrollHeight = await getPageScrollHeight(page);
+    /* eslint-enable no-await-in-loop */
   }
 };
 
