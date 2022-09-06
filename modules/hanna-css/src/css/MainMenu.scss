@@ -59,6 +59,8 @@
   }
   .MainMenu {
     position: relative;
+    display: flex;
+    flex-flow: column;
 
     background-color: #{$var--MainMenu-background};
 

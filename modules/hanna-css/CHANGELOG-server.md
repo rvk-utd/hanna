@@ -3,7 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Delay on `.MainMenu`'s `.AuxiliaryPanel` menu image in mobile
+- fix: Delay on `.MainMenu`'s auxilliary menu image in mobile
+- fix: Height of `MainMenu`'s auxilliary menu on small-yet-tall screens
 
 ## 0.8.69
 
