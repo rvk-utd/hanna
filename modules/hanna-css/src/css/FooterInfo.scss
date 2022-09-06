@@ -5,17 +5,17 @@
 @media screen {
   .FooterInfo {
     flex-basis: 100%;
-    padding-top: grid-units(4);
+    padding-top: $var--space-4;
 
     @include media($mq-tablet_up) {
-      padding-top: grid-units(16);
+      padding-top: calc(2 * #{$var--space-8});
       padding-left: $var--grid-1-1;
     }
   }
   .FooterInfo::before {
     content: '';
     display: block;
-    margin: 0 auto grid-units(12) auto;
+    margin: 0 auto calc(2 * #{$var--space-6}) auto;
     background: url($logo-notext-url) 50% 50% no-repeat;
     background-size: auto 100%;
     width: prem(35);
@@ -30,7 +30,7 @@
   }
 
   .FooterInfo__group {
-    margin-bottom: grid-units(8);
+    margin-bottom: $var--space-8;
 
     @media #{$mq-tablet_up} {
       float: left;
@@ -45,7 +45,7 @@
   // .FooterInfo__group[role='contactinfo'] {
   .FooterInfo__group[role='contactinfo'] {
     background-color: $color-suld-25;
-    padding: grid-units(8) $var--grid-gutter;
+    padding: $var--space-8 $var--grid-gutter;
 
     @media #{$mq-phone_phablet} {
       margin-left: $var--grid-margin--neg;
@@ -55,7 +55,7 @@
     }
 
     @media #{$mq-tablet_up} {
-      margin-top: grid-units(-8);
+      margin-top: $var--space-8--neg;
       margin-left: 0;
       width: $var--grid-5;
     }
@@ -68,24 +68,24 @@
   }
 
   .FooterInfo__grouptitle {
-    @include SubheadingStyle--small();
-    margin-bottom: grid-units(3);
+    font: $var--font-sh-s;
+    margin-bottom: $var--space-3;
   }
   .FooterInfo__groupcontent {
   }
 
   .FooterInfo__groupcontent h4 {
-    @include SubheadingStyle--small();
-    margin-bottom: grid-units(1);
+    font: $var--font-sh-s;
+    margin-bottom: $var--space-1;
   }
   .FooterInfo__groupcontent h4:not(:first-child) {
-    margin-top: grid-units(3);
+    margin-top: $var--space-3;
   }
 
   .FooterInfo__groupcontent p,
   .FooterInfo__groupcontent ul,
   .FooterInfo__groupcontent li {
-    margin-bottom: grid-units(2);
+    margin-bottom: $var--space-2;
     --current-link-color: #{$var--link-color};
   }
 
