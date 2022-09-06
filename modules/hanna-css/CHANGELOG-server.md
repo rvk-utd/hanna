@@ -3,8 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Delay on `.MainMenu`'s auxilliary menu image in mobile
-- fix: Height of `MainMenu`'s auxilliary menu on small-yet-tall screens
+- fix: Delay on `.MainMenu`'s auxiliary menu image in mobile
+- fix: Height of `MainMenu`'s auxiliary menu on small-yet-tall screens
+- fix: Display `.MainMenu`'s auxiliary menu image on wider screens
 
 ## 0.8.69
 
