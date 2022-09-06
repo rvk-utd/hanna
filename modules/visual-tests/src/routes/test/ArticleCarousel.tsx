@@ -93,7 +93,6 @@ export const testing: TestingInfo = {
   prep: async ({ page }) => {
     await page.locator('img[alt="Photo, landscape"] >> nth=0').hover();
   },
-  skipScreenshot: true,
   extras: async ({ page, localScreenshot }) => {
     const carousel = page.locator('.ArticleCarousel >> nth=0');
     const itemlist = carousel.locator('.ArticleCarousel__itemlist');
