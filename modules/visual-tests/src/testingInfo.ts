@@ -83,13 +83,13 @@ export type TestFnArgs = Pick<
    * Sugar function to snap a screenshot of a single elementHandle
    * or locator and gives it a nicely formatted, labelled filename
    */
-  localScreenshot: (
+  localScreenshot(
     /** Locator for the Element to snap screenshot of */
     locator: Locator | ElementHandle,
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
-    opts?: LocatorScreenshotOptions
-  ) => Promise<void>;
+    opts?: LocatorScreenshotOptions & { margin: true | number }
+  ): Promise<void>;
 
   /**
    * Sugar function to snap a full-page screenshot, with a nicely
@@ -98,11 +98,11 @@ export type TestFnArgs = Pick<
    * Takes care of resizing the viewport to prevent <body>-element
    * from overflowing (and thus cropping the image).
    */
-  pageScreenshot: (
+  pageScreenshot(
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
     opts?: PageScreenshotOptions
-  ) => Promise<void>;
+  ): Promise<void>;
 
   /**
    * Takes care of resizing the viewport to prevent <body>-element
@@ -112,7 +112,15 @@ export type TestFnArgs = Pick<
    * newly added/displayed elements near the bottom of the page,
    * or during the `prep` step.
    */
-  expandViewport: () => Promise<void>;
+  expandViewport(minHeight?: number): Promise<void>;
+
+  /**
+   * Sugar method for page.setViewPortSize with nicer defaults
+   */
+  setViewportSize(minHeight: number): Promise<void>;
+  setViewportSize(
+    opts: { width: number; height?: number } | { width?: number; height: number }
+  ): Promise<void>;
 };
 
 // ---------------------------------------------------------------------------

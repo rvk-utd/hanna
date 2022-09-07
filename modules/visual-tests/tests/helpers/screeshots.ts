@@ -24,30 +24,52 @@ const toFileName = (testName: string, label: string) =>
 
 const getPageScrollHeight = (page: Page) =>
   page.evaluate(() => {
-    // NOTE: This `getPageScrollElm` helper is snuck into the global scope by src/root.tsx
     return document.querySelector('#bodyinner')!.clientHeight;
+    // NOTE: This `getPageScrollElm` helper is snuck into the global scope by src/root.tsx
+    // return window.getPageScrollElm().clientHeight;
   });
 
 // ---------------------------------------------------------------------------
 
-export const expandViewport = async (page: Page) => {
-  const viewportSize = () => page.viewportSize() || { width: 0, height: 0 };
-  const viewportWidth = viewportSize().width;
-  expect(viewportWidth > 0, 'Panic! Viewport not defined or zero-sized').toBe(true);
-  let scrollHeight = await getPageScrollHeight(page);
-  while (viewportSize().height !== scrollHeight) {
-    /* eslint-disable no-await-in-loop */
-    await page.setViewportSize({
-      width: viewportWidth,
-      height: scrollHeight,
+export const setViewportSize =
+  (page: Page): TestFnArgs['setViewportSize'] =>
+  (heightOrObj) => {
+    const vp = page.viewportSize() || { width: 0, height: 0 };
+
+    expect(vp.width > 0, 'Panic! Viewport not defined or zero-sized').toBe(true);
+
+    const targ = typeof heightOrObj === 'number' ? { height: heightOrObj } : heightOrObj;
+
+    return page.setViewportSize({
+      width: Math.round(targ.width || vp.width),
+      height: Math.round(targ.height || vp.height),
     });
-    await page.waitForTimeout(300);
-    scrollHeight = await getPageScrollHeight(page);
-    /* eslint-enable no-await-in-loop */
-  }
-};
+  };
 
 // ---------------------------------------------------------------------------
+
+export const expandViewport =
+  (page: Page) =>
+  async (minHeight = 0) => {
+    if (minHeight) {
+      await setViewportSize(page)(minHeight);
+    }
+
+    const viewportSize = () => page.viewportSize() || { width: 0, height: 0 };
+
+    let scrollHeight = await getPageScrollHeight(page);
+    while (viewportSize().height < scrollHeight) {
+      /* eslint-disable no-await-in-loop */
+      await setViewportSize(page)(scrollHeight);
+      await page.waitForTimeout(300);
+      scrollHeight = await getPageScrollHeight(page);
+      /* eslint-enable no-await-in-loop */
+    }
+  };
+
+// ---------------------------------------------------------------------------
+
+const DEFAULT_MARGIN = 15;
 
 export const makeSnapLocalScreeshot =
   (page: Page, testName: string): TestFnArgs['localScreenshot'] =>
@@ -60,6 +82,33 @@ export const makeSnapLocalScreeshot =
         return elm.id;
       });
       locator = page.locator('#' + id);
+    }
+    const marginOpt = (opts || {}).margin || 0;
+    const margin = Math.max(0, marginOpt === true ? DEFAULT_MARGIN : marginOpt);
+    if (marginOpt && margin) {
+      // const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
+      // const x = Math.max(0, rect.x - margin);
+      // const y = Math.max(0, rect.y - margin);
+      // const viewport = page.viewportSize() || { width: 0, height: 0 };
+      // const width = Math.min(rect.width + Math.min(x, margin) + margin, viewport.width);
+      // const height = Math.min(
+      //   rect.height + Math.min(y, margin) + margin,
+      //   viewport.height
+      // );
+      // return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
+      //   ...opts,
+      //   clip: { x, y, width, height },
+      // });
+      const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
+      return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
+        ...opts,
+        clip: {
+          x: rect.x - margin,
+          y: rect.y - margin,
+          width: rect.width + 2 * margin,
+          height: rect.height + 2 * margin,
+        },
+      });
     }
     return expectSoft(locator).toHaveScreenshot(toFileName(testName, label), opts);
   };
@@ -83,7 +132,7 @@ export const makeSnapPageScreeshot = (
   const snapPageScreenShot = async (label: string, opts?: PageScreenshotOptions) => {
     snaps += 1;
 
-    await expandViewport(page);
+    await expandViewport(page)();
 
     await expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
       fullPage: true,

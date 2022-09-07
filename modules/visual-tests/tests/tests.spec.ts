@@ -12,10 +12,11 @@ import type {
 import { getTestListSync } from '../src/utils/tests.server';
 
 import {
-  expandViewport,
+  expandViewport as _expandViewport,
   makeSnapLocalScreeshot,
   makeSnapPageScreeshot,
   NAME_SPLIT,
+  setViewportSize as _setViewportSize,
   TAG_PREFIX,
 } from './helpers/screeshots';
 
@@ -113,6 +114,8 @@ allComponentTests.forEach(([name, testInfo]) => {
     async ({ page, context, browserName, isMobile, hasTouch }, { project }) => {
       const pageScreenshot = makeSnapPageScreeshot(page, testName);
       const localScreenshot = makeSnapLocalScreeshot(page, testName);
+      const expandViewport = _expandViewport(page);
+      const setViewportSize = _setViewportSize(page);
 
       const args: TestFnArgs = {
         page,
@@ -123,7 +126,8 @@ allComponentTests.forEach(([name, testInfo]) => {
         expect: expect.soft,
         project: project.name as ProjectName,
         localScreenshot,
-        expandViewport: () => expandViewport(page),
+        expandViewport,
+        setViewportSize,
 
         pageScreenshot,
       };
@@ -131,12 +135,12 @@ allComponentTests.forEach(([name, testInfo]) => {
       await page.goto(testPagePath + '?noAnimation');
 
       if (testInfo.prep) {
-        await expandViewport(page);
+        await expandViewport();
         await testInfo.prep(args);
       }
 
       if (testInfo.skipScreenshot) {
-        await expandViewport(page);
+        await expandViewport();
       } else if (pageScreenshot.callCount() === 0) {
         await pageScreenshot('');
       }
