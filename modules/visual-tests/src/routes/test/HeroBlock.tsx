@@ -3,6 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
 import HeroBlock from '@reykjavik/hanna-react/HeroBlock';
 
+import { illustr } from '../../dummyData';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../testingInfo';
 import { autoTitle } from '../../utils/meta';
@@ -32,9 +33,10 @@ export default function () {
         }
         primaryButton={{ href: '', label: 'Primary Button Prop' }}
         secondaryButton={{ href: '', label: 'Secondary Button Prop' }}
-        illustration="gaes"
+        image={illustr.tall}
         startSeen
       />
+
       <HeroBlock
         title="You Are My Hero, but Your Title Is Uncomfortably Long!"
         summary={
@@ -48,14 +50,14 @@ export default function () {
             {'\n'} … and no buttons.
           </p>
         }
-        illustration="atvinna1"
+        image={illustr.short}
         startSeen
       />
 
       <HeroBlock
         title="Super short"
         summary="Vender gests kämmen vewänthardis wehrdsen onderpasje moose"
-        illustration="stress"
+        image={illustr.tall}
         startSeen
       />
     </Minimal>

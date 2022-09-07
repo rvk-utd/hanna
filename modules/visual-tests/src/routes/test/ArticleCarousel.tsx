@@ -4,13 +4,14 @@ import ArticleCarousel, {
   ArticleCarouselProps,
 } from '@reykjavik/hanna-react/ArticleCarousel';
 
+import { illustr, photo } from '../../dummyData';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 const items: ArticleCarouselProps['items'] = [
   {
-    illustration: 'tomstundir3',
+    image: illustr.short,
     theme: 'colorful',
     date: '30. mar 2020',
     title: 'Item Number One',
@@ -19,8 +20,7 @@ const items: ArticleCarouselProps['items'] = [
   },
   {
     image: {
-      src: '/media/photo-landscape.png',
-      altText: 'Photo, landscape',
+      ...photo.landscape,
       photo: true,
     },
     color: 'ellidaardalur',
@@ -30,7 +30,7 @@ const items: ArticleCarouselProps['items'] = [
     href: '/',
   },
   {
-    illustration: 'borgarstjori2',
+    image: illustr.tall,
     date: '20. feb 2021',
     title: 'This is the third item',
     summary:
@@ -38,7 +38,7 @@ const items: ArticleCarouselProps['items'] = [
     href: '/',
   },
   {
-    illustration: 'born2',
+    image: illustr.medium,
     color: 'sund',
     date: '20. feb 2021',
     title: 'Item Number Four',
@@ -47,7 +47,7 @@ const items: ArticleCarouselProps['items'] = [
     href: '/',
   },
   {
-    illustration: 'atvinna2',
+    image: illustr.tall,
     color: 'nautholsvik',
     date: '30. mar 2020',
     title: 'Item Number Five',
@@ -56,7 +56,7 @@ const items: ArticleCarouselProps['items'] = [
     href: '/',
   },
   {
-    illustration: 'velferd1',
+    image: illustr.short,
     color: 'ellidaardalur',
     date: '20. feb 2021',
     title: 'Borgarlínan',
