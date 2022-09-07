@@ -56,10 +56,12 @@ const useReviewState = (change: Changeset) => {
   const isLoading = useTransition().state !== 'idle';
   const [mode, setMode] = useState<Mode>(isNew ? 'actual' : 'difference');
   const [zoomed, setZoom] = useState<true | undefined>();
+  const [transp, setTransp] = useState<true | undefined>();
   const [primed, setPrimed] = useState({ on: false, letter: '' });
   const resetPrimed = () =>
     setPrimed((state) => (state.on ? { ...state, on: false } : state));
   const toggleZoom = () => setZoom((zoomed) => !zoomed || undefined);
+  const toggleTransp = () => setTransp((transp) => !transp || undefined);
   const toDiffMode = () => setMode('difference');
   const toggleMode = () =>
     setMode((prevMode) => (prevMode === 'actual' ? 'expected' : 'actual'));
@@ -71,6 +73,7 @@ const useReviewState = (change: Changeset) => {
     }
     let lastKey = '';
     let primeout: ReturnType<typeof setTimeout>;
+    // eslint-disable-next-line complexity
     const shortcuts = (e: KeyboardEvent) => {
       const key = e.key.toUpperCase();
       const doublePress = key === lastKey;
@@ -85,6 +88,10 @@ const useReviewState = (change: Changeset) => {
         }
         if (key === 'F') {
           toggleMode();
+          return;
+        }
+        if (key === 'T') {
+          toggleTransp();
           return;
         }
       }
@@ -130,6 +137,8 @@ const useReviewState = (change: Changeset) => {
     primed,
     zoomed,
     toggleZoom,
+    transp,
+    toggleTransp,
   };
 };
 
@@ -142,8 +151,18 @@ export type ReviewShotProps = {
 export const ReviewShot = (props: ReviewShotProps) => {
   const { actualUrl, expectedUrl, diffUrl, nextId, prevId, confirmedBug, confirmedOk } =
     props.change;
-  const { isNew, mode, toDiffMode, toggleMode, wrappeRref, primed, zoomed, toggleZoom } =
-    useReviewState(props.change);
+  const {
+    isNew,
+    mode,
+    toDiffMode,
+    toggleMode,
+    wrappeRref,
+    primed,
+    zoomed,
+    toggleZoom,
+    transp,
+    // toggleTransp,
+  } = useReviewState(props.change);
 
   const showImg = getImgShowFlags(props.change, mode);
   const primedAction = ({ A: 'accept', R: 'reject' } as const)[primed.letter];
@@ -216,6 +235,7 @@ export const ReviewShot = (props: ReviewShotProps) => {
         className="ReviewShot__shots"
         data-mode={mode}
         data-zoomed={zoomed}
+        data-transp={transp}
         onClick={toggleZoom}
       >
         {showImg.diff && (

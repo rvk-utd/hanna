@@ -96,6 +96,7 @@ export default css`
   }
   .ReviewShot__shots[data-mode='expected'] {
   }
+
   .ReviewShot__shots[data-zoomed] {
     display: flex;
     cursor: zoom-out;
@@ -118,10 +119,15 @@ export default css`
     width: auto;
     max-width: 100%;
     object-fit: scale-down;
+    background: repeating-conic-gradient(#eee 0% 25%, transparent 0% 50%) 50% / 16px 16px;
   }
   [data-zoomed] > .ReviewShot__shot {
     max-width: none;
   }
+  [data-transp] > .ReviewShot__shot {
+    background: none;
+  }
+
   .ReviewShot__shot:not(:first-child) {
   }
 
