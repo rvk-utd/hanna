@@ -13,6 +13,8 @@ export const LABEL_SPLIT = '-ιι-';
 
 export const TAG_PREFIX = ' 🏷';
 
+const expectSoft = expect.soft;
+
 // ---------------------------------------------------------------------------
 
 const toFileName = (testName: string, label: string) =>
@@ -59,7 +61,7 @@ export const makeSnapLocalScreeshot =
       });
       locator = page.locator('#' + id);
     }
-    return expect(locator).toHaveScreenshot(toFileName(testName, label), opts);
+    return expectSoft(locator).toHaveScreenshot(toFileName(testName, label), opts);
   };
 
 // ---------------------------------------------------------------------------
@@ -83,7 +85,7 @@ export const makeSnapPageScreeshot = (
 
     await expandViewport(page);
 
-    await expect(page).toHaveScreenshot(toFileName(testName, label), {
+    await expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
       fullPage: true,
       ...opts,
     });

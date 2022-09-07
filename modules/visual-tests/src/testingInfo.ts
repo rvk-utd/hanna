@@ -76,8 +76,8 @@ export type TestFnArgs = Pick<
   /** Name of the currently running project */
   project: ProjectName;
 
-  /** Re-expot of PlayWright's expect function. */
-  expect: Expect;
+  /** Re-export of PlayWright's expect.soft function. */
+  expect: Expect['soft'];
 
   /**
    * Sugar function to snap a screenshot of a single elementHandle

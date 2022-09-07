@@ -1,7 +1,7 @@
 import React from 'react';
 import type { LinksFunction, LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
-import { Link, useLoaderData } from '@remix-run/react';
+import { Link, useLoaderData, useSearchParams } from '@remix-run/react';
 import Layout from '@reykjavik/hanna-react/Layout';
 import PageHeading from '@reykjavik/hanna-react/PageHeading';
 import SeenEffect from '@reykjavik/hanna-react/SeenEffect';
@@ -50,6 +50,9 @@ export const handle = {
 
 export default function () {
   const { changed, reportCreatedDate } = useLoaderData<LoaderData>();
+  const [q] = useSearchParams();
+
+  const reportUrl = `/report/index.html?t=${reportCreatedDate}`;
 
   return (
     <Layout>
@@ -57,7 +60,7 @@ export default function () {
       <SeenEffect>
         {reportCreatedDate && (
           <p className="ReviewReport">
-            <a href="/report/index.html">View Playwright report</a>{' '}
+            <a href={reportUrl}>View Playwright report</a>{' '}
             <span>— (Created on {formatDate(reportCreatedDate)})</span>
           </p>
         )}
@@ -112,13 +115,18 @@ export default function () {
             <p>
               <strong>No reviewable changes found.</strong>
             </p>
-            {reportCreatedDate ? (
+            {!reportCreatedDate ? (
               <p>
-                If you just ran <code>yarn run test</code>, then this is good news.
+                Run <code>yarn run test</code> to generate a report
+              </p>
+            ) : q.get('errored') != null ? (
+              <p>
+                ...but there were still some errors.{' '}
+                <a href={reportUrl}>View Playwright report</a>
               </p>
             ) : (
               <p>
-                Run <code>yarn run test</code> to generate a report
+                If you just ran <code>yarn run test</code>, then this is good news.
               </p>
             )}
           </TextBlock>

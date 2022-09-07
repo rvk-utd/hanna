@@ -19,6 +19,8 @@ import {
   TAG_PREFIX,
 } from './helpers/screeshots';
 
+const expectSoft = expect.soft;
+
 // ---------------------------------------------------------------------------
 
 /**
@@ -90,8 +92,8 @@ const normalizeTestInfos = (tests: Record<string, TestingInfo>) =>
 
 test(`All tests are accounted for ${TAG_PREFIX}meta`, () => {
   const { missing, unexpected } = compareKeys(testingInfos, testPagePaths);
-  missing.forEach((token) => expect(null).toBe(token));
-  unexpected.forEach((token) => expect(token).toBe(undefined));
+  missing.forEach((token) => expectSoft(null).toBe(token));
+  unexpected.forEach((token) => expectSoft(token).toBe(undefined));
 });
 
 const allComponentTests = normalizeTestInfos(testingInfos);
@@ -99,6 +101,12 @@ const allComponentTests = normalizeTestInfos(testingInfos);
 allComponentTests.forEach(([name, testInfo]) => {
   const testName = name + (testInfo.label ? NAME_SPLIT + testInfo.label : '');
   const tagStr = testInfo.tags?.length ? TAG_PREFIX + testInfo.tags.join(TAG_PREFIX) : '';
+
+  const testPagePath = testPagePaths[name];
+  if (!testPagePath) {
+    console.info(`Skipping test for 'name' as it has no \`testPagePath\` defined`);
+    return;
+  }
 
   test(
     testName + tagStr + '-',
@@ -112,7 +120,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         browserName,
         isMobile,
         hasTouch,
-        expect,
+        expect: expect.soft,
         project: project.name as ProjectName,
         localScreenshot,
         expandViewport: () => expandViewport(page),
@@ -120,7 +128,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         pageScreenshot,
       };
 
-      await page.goto((testPagePaths[name] || '/') + '?noAnimation');
+      await page.goto(testPagePath + '?noAnimation');
 
       if (testInfo.prep) {
         await expandViewport(page);
