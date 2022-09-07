@@ -24,7 +24,9 @@ push static build-results into them.
 - [Modules in This Repo](#modules-in-this-repo)
 - [Overall Design Principles](#overall-design-principles)
 - [Setup / Contribution](#setup--contribution)
-<!-- prettier-ignore-end -->
+  - [System requirements](#system-requirements)
+  - [Installation](#installation)
+  <!-- prettier-ignore-end -->
 
 ## Modules in This Repo
 
@@ -81,9 +83,8 @@ push static build-results into them.
 - **[`html-storybook`](modules/html-storybook/)**
 
   - Documents the framework-/tech-agnostic HTML patterns (class-names, etc.)
-    behind every Hanna component. (Uses the
-    [hanna-react](/modules/hanna-react) components to render the HTML
-    exmaples.)
+    behind every Hanna component. (Uses the [hanna-react](modules/hanna-react)
+    components to render the HTML exmaples.)
   - Publishes to
     [hanna-docs.reykjavik.is](https://hanna-docs.reykjavik.is/html).  
      (Builds into `/servers/docs/html/${version}`, a part of the submodule repo
@@ -100,7 +101,7 @@ push static build-results into them.
     current CSS renders the HTML.
   - Automatically run before publishing new versions of
     [hanna-react](modules/hanna-react/) and the CSS from
-    [hanna-css](/modules/hanna-css/)
+    [hanna-css](modules/hanna-css/)
 
 - **[`test-helpers`](modules/test-helpers/)**
   - Some resuable helper functions for various testing situations across
@@ -147,13 +148,21 @@ push static build-results into them.
 
 ## Setup / Contribution
 
-System requirements:
+### System requirements
+
+Before you start (or even clone this repo) make sure you have the following
+software installed:
 
 - `node >= 16`
 - `yarn >= 1.22`
 - `git >= 2.30`
 - `git-lfs >= 3.2` ([Git Large File Storage](https://git-lfs.github.com/) for
   VRT screenshots, and graphic asset sources)
+
+NOTE: The visual regression test suite has some
+[additional system requirements](modules/visual-tests/README.md#system-requirements).
+
+### Installation
 
 Once the above software is installed, clone this repo and run:
 
