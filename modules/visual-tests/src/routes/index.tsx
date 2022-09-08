@@ -46,10 +46,10 @@ export default function Index() {
           </p>
         }
         illustration="fundur"
-        // startSeen
+        startSeen
       />
 
-      <TextBlock>
+      <TextBlock startSeen>
         <Link to="/review">Review VRT results</Link>
       </TextBlock>
 
@@ -70,7 +70,7 @@ export default function Index() {
             ),
           },
         ]}
-        // startSeen
+        startSeen
         defaultOpen={[0]}
       />
     </Layout>
