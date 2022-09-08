@@ -1,17 +1,13 @@
-import { devices, PlaywrightTestConfig, selectors } from '@playwright/test';
+import { devices, PlaywrightTestConfig } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 
 import { ProjectName, TestTag } from './src/testingInfo';
 import { TAG_PREFIX } from './tests/helpers/screeshots';
+import { registerCustomSelectorsEngines } from './tests/helpers/selectorEngines';
 
-const closestEngine = () => ({
-  query: (root: HTMLElement, selector: string) => root.closest(selector),
-  queryAll: (root: HTMLElement, selector: string) => {
-    const closest = root.closest(selector);
-    return closest ? [closest] : [];
-  },
-});
-selectors.register('closest', closestEngine, { contentScript: true });
+registerCustomSelectorsEngines();
+
+// ---------------------------------------------------------------------------
 
 const tagREs: Record<TestTag, RegExp> = ObjectFromEntries(
   (
