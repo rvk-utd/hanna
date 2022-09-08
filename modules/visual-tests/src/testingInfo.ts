@@ -65,6 +65,9 @@ export type TestInfoObj = {
   skipTags?: Array<TestTag>;
   /** Add these projects to the deault list of projects */
   addTags?: Array<TestTag>;
+
+  /** Set to true if you want to skip running all other tests */
+  __DEV_FOCUS__?: boolean;
 };
 
 // ---------------------------------------------------------------------------

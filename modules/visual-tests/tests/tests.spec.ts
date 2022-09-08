@@ -111,7 +111,9 @@ allComponentTests.forEach(([name, testInfo]) => {
     return;
   }
 
-  test(
+  const testFn = testInfo.__DEV_FOCUS__ ? test.only : test;
+
+  testFn(
     testName + tagStr + '-',
     async ({ page, context, browserName, isMobile, hasTouch }, { project }) => {
       const pageScreenshot = makeSnapPageScreeshot(page, testName);
