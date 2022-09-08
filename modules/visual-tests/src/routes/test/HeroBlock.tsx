@@ -3,9 +3,9 @@ import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
 import HeroBlock from '@reykjavik/hanna-react/HeroBlock';
 
-import { illustr } from '../../dummyData';
 import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../testingInfo';
+import { illustr } from '../../test-helpers/dummyData';
+import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 export const meta: MetaFunction = autoTitle;

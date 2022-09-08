@@ -1,6 +1,6 @@
 import { expect, Page } from '@playwright/test';
 
-import { TestFnArgs } from '../../src/testingInfo';
+import { TestFnArgs } from '../../src/test-helpers/testingInfo';
 
 import { getPageScrollHeight } from './scrolling';
 

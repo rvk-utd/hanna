@@ -9,7 +9,7 @@ import MainMenu, {
 } from '@reykjavik/hanna-react/MainMenu';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
-import type { TestingInfo } from '../../testingInfo';
+import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 export const mainMenuItems: MainMenuItemList = [

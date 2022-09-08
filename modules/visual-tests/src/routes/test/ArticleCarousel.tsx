@@ -4,9 +4,9 @@ import ArticleCarousel, {
   ArticleCarouselProps,
 } from '@reykjavik/hanna-react/ArticleCarousel';
 
-import { illustr, photo } from '../../dummyData';
 import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../testingInfo';
+import { illustr, photo } from '../../test-helpers/dummyData';
+import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 const items: ArticleCarouselProps['items'] = [

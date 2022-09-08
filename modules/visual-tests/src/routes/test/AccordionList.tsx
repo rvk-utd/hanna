@@ -3,7 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import AccordionList from '@reykjavik/hanna-react/AccordionList';
 
 import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../testingInfo';
+import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 const makeItems = () => [

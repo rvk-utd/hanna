@@ -8,7 +8,7 @@ import type {
   TestInfoObj,
   TestingInfo,
   TestTag,
-} from '../src/testingInfo';
+} from '../src/test-helpers/testingInfo';
 import { getTestListSync } from '../src/utils/tests.server';
 
 import {
@@ -132,10 +132,9 @@ allComponentTests.forEach(([name, testInfo]) => {
         expect: expect.soft,
         project: project.name as ProjectName,
         localScreenshot,
+        pageScreenshot,
         expandViewport,
         setViewportSize,
-
-        pageScreenshot,
       };
 
       await page.goto(testPagePath + '?noAnimation');

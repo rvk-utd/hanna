@@ -3,7 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import TagPill from '@reykjavik/hanna-react/TagPill';
 
 import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../testingInfo';
+import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 const handler = () => alert('closing');

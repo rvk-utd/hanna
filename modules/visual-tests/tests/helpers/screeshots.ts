@@ -1,7 +1,7 @@
 import type { Page, PageScreenshotOptions } from '@playwright/test';
 import { expect } from '@playwright/test';
 
-import type { TestFnArgs } from '../../src/testingInfo';
+import type { TestFnArgs } from '../../src/test-helpers/testingInfo';
 
 import { expandViewport } from './viewport';
 
