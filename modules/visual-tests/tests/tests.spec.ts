@@ -140,13 +140,21 @@ allComponentTests.forEach(([name, testInfo]) => {
 
       await page.goto(testPagePath + '?noAnimation');
 
+      let expanded = false;
       if (testInfo.prep) {
+        expanded = true;
         await expandViewport();
         await testInfo.prep(args);
+      } else if (testInfo.initialHover) {
+        expanded = true;
+        await expandViewport();
+        await page.locator(testInfo.initialHover).hover();
       }
 
       if (testInfo.skipScreenshot) {
-        await expandViewport();
+        if (!expanded) {
+          await expandViewport();
+        }
       } else if (pageScreenshot.callCount() === 0) {
         await pageScreenshot('');
       }

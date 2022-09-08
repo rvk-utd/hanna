@@ -48,6 +48,14 @@ export type TestInfoObj = {
   prep?: (args: TestFnArgs) => Promise<void>;
 
   /**
+   * Playwright locator selector for the element which should be hovered
+   * before the default screenshot is snapped.
+   *
+   * **NOTE:** If a `prep` action is also defined, this option is ignored.
+   */
+  initialHover?: string;
+
+  /**
    * Skips the automatic pageScreenshot that gets snapped if the
    * prep function didn't snap any.
    */

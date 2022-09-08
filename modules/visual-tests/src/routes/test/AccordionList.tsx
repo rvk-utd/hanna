@@ -60,9 +60,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  prep: async ({ page }) => {
-    await page.locator('.AccordionList__button >> nth=0').hover();
-  },
+  initialHover: '.AccordionList__button >> nth=0',
   extras: async ({ page, localScreenshot }) => {
     const disabledButton = await page.locator('.AccordionList__button[disabled]').first();
     await disabledButton.hover();

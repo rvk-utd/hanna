@@ -55,9 +55,7 @@ export default function () {
 // ---------------------------------------------------------------------------
 
 export const testing: TestingInfo = {
-  prep: async ({ page }) => {
-    await page.locator('a#hover-me').hover();
-  },
+  initialHover: 'a#hover-me',
   extras: async ({ page, localScreenshot }) => {
     const closeLink = page.locator('.Alert--success a.Alert__close >> nth=0');
     await closeLink.hover();

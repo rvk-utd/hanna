@@ -120,9 +120,7 @@ export const testing: TestingInfo = [
   {
     label: 'topmenu',
     tags: ['firefox'],
-    prep: async ({ page }) => {
-      await page.locator('.MainMenu__link:text("Stjórnkerfið")').hover();
-    },
+    initialHover: '.MainMenu__link:text("Stjórnkerfið")',
     extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
       // open a mega menu panel
       await page.locator('.MainMenu__link:text("Mannlíf")').click();
