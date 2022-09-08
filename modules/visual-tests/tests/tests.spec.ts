@@ -12,13 +12,15 @@ import type {
 import { getTestListSync } from '../src/utils/tests.server';
 
 import {
-  expandViewport as _expandViewport,
   makeSnapLocalScreeshot,
   makeSnapPageScreeshot,
   NAME_SPLIT,
-  setViewportSize as _setViewportSize,
   TAG_PREFIX,
 } from './helpers/screeshots';
+import {
+  expandViewport as _expandViewport,
+  setViewportSize as _setViewportSize,
+} from './helpers/viewport';
 
 const expectSoft = expect.soft;
 

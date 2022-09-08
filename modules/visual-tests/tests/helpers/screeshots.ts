@@ -3,6 +3,8 @@ import { expect } from '@playwright/test';
 
 import type { TestFnArgs } from '../../src/testingInfo';
 
+import { expandViewport } from './viewport';
+
 // NOTE: using greek letter "ι" to make a stable splitter ("-ι-")
 // between different portions of the screenshot filename, because
 // PlayWright's (mostly unducoumented, it seems) file-name normalization
@@ -19,53 +21,6 @@ const expectSoft = expect.soft;
 
 const toFileName = (testName: string, label: string) =>
   `${testName}${label && LABEL_SPLIT + label}${NAME_SPLIT}.png`;
-
-// ---------------------------------------------------------------------------
-
-const getPageScrollHeight = (page: Page) =>
-  page.evaluate(() => {
-    return document.querySelector('#bodyinner')!.clientHeight;
-    // NOTE: This `getPageScrollElm` helper is snuck into the global scope by src/root.tsx
-    // return window.getPageScrollElm().clientHeight;
-  });
-
-// ---------------------------------------------------------------------------
-
-export const setViewportSize =
-  (page: Page): TestFnArgs['setViewportSize'] =>
-  (heightOrObj) => {
-    const vp = page.viewportSize() || { width: 0, height: 0 };
-
-    expect(vp.width > 0, 'Panic! Viewport not defined or zero-sized').toBe(true);
-
-    const targ = typeof heightOrObj === 'number' ? { height: heightOrObj } : heightOrObj;
-
-    return page.setViewportSize({
-      width: Math.round(targ.width || vp.width),
-      height: Math.round(targ.height || vp.height),
-    });
-  };
-
-// ---------------------------------------------------------------------------
-
-export const expandViewport =
-  (page: Page) =>
-  async (minHeight = 0) => {
-    if (minHeight) {
-      await setViewportSize(page)(minHeight);
-    }
-
-    const viewportSize = () => page.viewportSize() || { width: 0, height: 0 };
-
-    let scrollHeight = await getPageScrollHeight(page);
-    while (viewportSize().height < scrollHeight) {
-      /* eslint-disable no-await-in-loop */
-      await setViewportSize(page)(scrollHeight);
-      await page.waitForTimeout(300);
-      scrollHeight = await getPageScrollHeight(page);
-      /* eslint-enable no-await-in-loop */
-    }
-  };
 
 // ---------------------------------------------------------------------------
 
