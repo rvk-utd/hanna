@@ -100,6 +100,8 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
 
+// ---------------------------------------------------------------------------
+
 export default function () {
   const showAux = showAuxSignal.use(true);
 
@@ -118,6 +120,8 @@ export default function () {
     </Layout>
   );
 }
+
+// ---------------------------------------------------------------------------
 
 export const testing: TestingInfo = [
   {
