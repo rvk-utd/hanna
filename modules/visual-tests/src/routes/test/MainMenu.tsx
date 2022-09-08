@@ -9,8 +9,11 @@ import MainMenu, {
 } from '@reykjavik/hanna-react/MainMenu';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
+import { makeSignalBridge } from '../../test-helpers/makeSignalBridge';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+
+const showAuxSignal = makeSignalBridge<true | undefined>();
 
 export const mainMenuItems: MainMenuItemList = [
   {
@@ -98,6 +101,8 @@ export const meta: MetaFunction = autoTitle;
 // export const handle = { cssTokens: [], };
 
 export default function () {
+  const showAux = showAuxSignal.use(true);
+
   return (
     <Layout
       navChildren={
@@ -105,8 +110,7 @@ export default function () {
           title="Aðalvalmynd"
           items={mainMenuItems}
           megaPanels={megaMenuPanels}
-          // TODO: Toggle this bit and screenshot it. Try signals
-          auxiliaryPanel={auxiliaryPanel}
+          auxiliaryPanel={showAux.value && auxiliaryPanel}
         />
       }
     >
@@ -142,6 +146,10 @@ export const testing: TestingInfo = [
       await setViewportSize(menuScrollHeight + 100);
       await activePanel.locator('.PrimaryPanel__link:has-text("item 3")').hover();
       await pageScreenshot('megamenu');
+
+      await showAuxSignal.send(page, undefined);
+      await pageScreenshot('megamenu-no-aux');
+      await showAuxSignal.send(page, true);
 
       // test auxiliary menu link hover styling
       const auxPanel = page.locator('.AuxiliaryPanel__items');
@@ -194,6 +202,10 @@ export const testing: TestingInfo = [
       await setViewportSize(menuScrollHeight + 100);
       await activePanel.locator('.PrimaryPanel__link:has-text("item 3")').hover();
       await pageScreenshot('menu-open');
+
+      await showAuxSignal.send(page, undefined);
+      await pageScreenshot('menu-open-no-aux');
+      await showAuxSignal.send(page, true);
 
       // test auxiliary menu link hover styling
       const auxPanel = page.locator('.AuxiliaryPanel__items');
