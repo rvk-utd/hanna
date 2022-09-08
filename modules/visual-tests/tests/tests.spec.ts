@@ -43,6 +43,7 @@ import { testing as Alert__test } from '../src/routes/test/Alert';
 import { testing as ArticleCarousel__test } from '../src/routes/test/ArticleCarousel';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
+import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 /* eslint-enable import/first */
 
@@ -61,6 +62,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   ArticleCarousel: ArticleCarousel__test,
   FooterInfo: FooterInfo__test,
   HeroBlock: HeroBlock__test,
+  MainMenu: MainMenu__test,
   TagPill: TagPill__test,
 };
 // ---------------------------------------------------------------------------
