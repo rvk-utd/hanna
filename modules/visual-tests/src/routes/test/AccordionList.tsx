@@ -66,8 +66,7 @@ export const testing: TestingInfo = {
     await disabledButton.hover();
     await localScreenshot(
       disabledButton.locator('closest=.AccordionList__item'),
-      'disabled-item-hover',
-      {}
+      'disabled-item-hover'
     );
   },
 };

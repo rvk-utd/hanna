@@ -27,8 +27,7 @@ declare global {
   // `.toString()`ed source and re-evaluating it with `new Function()`
   // have failed.
   //
-  // eslint-disable-next-line no-var
-  var getPageScrollElm: typeof _getPageScrollElm;
+  var getPageScrollElm: typeof _getPageScrollElm; // eslint-disable-line no-var
 }
 
 // ---------------------------------------------------------------------------
