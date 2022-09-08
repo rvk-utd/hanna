@@ -159,7 +159,6 @@ export const testing: TestingInfo = [
   },
 
   {
-    __DEV_FOCUS__: true,
     label: 'hamburger',
     tags: ['iphone', 'ipad'],
     extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
