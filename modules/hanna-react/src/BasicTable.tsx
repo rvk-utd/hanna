@@ -5,7 +5,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
-type BasicTableProps = {
+export type BasicTableProps = {
   compact?: boolean;
   type?: 'text' | 'number';
   children?: undefined;
