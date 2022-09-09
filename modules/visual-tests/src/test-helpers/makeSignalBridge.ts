@@ -19,7 +19,8 @@ declare global {
  * **NOTE:** This is usually not needed, and the sanest way to test
  * multiple states/variations of Hanna components is usually to click buttons
  * like a normal Playwright tester person, and/or just render multiple
- * instances of them and snap one big screenshot of the whole mess.
+ * differently configured instances of the components and snap one big
+ * screenshot of the whole mess.
  */
 type SignalBridge<T> = {
   /** A react hoook function that sets up (and returns) the Signal */
@@ -29,19 +30,20 @@ type SignalBridge<T> = {
 };
 
 /**
- * A state updating mechanism that brideges the gap from Playwright to a
- * participating test webpage written in React.
+ * Set up a state updating mechanism that brideges the gap from Playwright
+ * to a participating test webpage written in React.
  */
 export const makeSignalBridge = <T = unknown>(id: string): SignalBridge<T> => {
   const useBridgedSignal: SignalBridge<T>['use'] = (initialValue) => {
     const signal = useSignal(initialValue);
     useEffect(
       () => {
+        // Ensure window.__signals exists.
         const __signals = (window.__signals = window.__signals || {});
         if (__signals[id]) {
           throw new Error(
             `window.__signals[${JSON.stringify(id)}] is already defined.` +
-              `Please use a unique "id" for your brided signals.`
+              `Please use a unique "id" for your bridged signals.`
           );
         }
         __signals[id] = signal;
@@ -49,6 +51,7 @@ export const makeSignalBridge = <T = unknown>(id: string): SignalBridge<T> => {
         return () => {
           const { __signals } = window;
           if (__signals) {
+            // Cleanup all the things!
             delete __signals[id];
             if (Object.keys(__signals).length === 0) {
               delete window.__signals;
@@ -56,7 +59,9 @@ export const makeSignalBridge = <T = unknown>(id: string): SignalBridge<T> => {
           }
         };
       },
-      [] // eslint-disable-line react-hooks/exhaustive-deps
+      // NOTE: Signal containers returned by `useSignal` never change.
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      []
     );
     return signal;
   };
@@ -73,6 +78,8 @@ export const makeSignalBridge = <T = unknown>(id: string): SignalBridge<T> => {
               window.__signals![id]!.value = value;
               setTimeout(resolve, 100);
             } catch (err) {
+              // We really want the test to knoow if the signalling failed
+              // for some reason.
               reject(err);
             }
           }),
