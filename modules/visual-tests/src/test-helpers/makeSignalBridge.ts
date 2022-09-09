@@ -5,29 +5,51 @@ import { type Signal, useSignal } from '@preact/signals-react';
 declare global {
   /**
    * Used as a temporary Global storage for communication signals between
-   * React test-page components and Playwright tests
+   * Playwright tests and React test-page components
    */
   var __signals: undefined | Record<string, Signal>; // eslint-disable-line no-var
 }
 
-let _count = 1;
+/**
+ * A `SignalBridge` contains a coupled pair of methods:
+ * Firstly a React hoook "use" function that sets up (and returns) a Signal
+ * value-store, and secondly a Playwright-ready function that "send"s an
+ * updated Signal value to the Page being tested.
+ *
+ * **NOTE:** This is usually not needed, and the sanest way to test
+ * multiple states/variations of Hanna components is usually to click buttons
+ * like a normal Playwright tester person, and/or just render multiple
+ * instances of them and snap one big screenshot of the whole mess.
+ */
+type SignalBridge<T> = {
+  /** A react hoook function that sets up (and returns) the Signal */
+  use(initialValue: T): Signal<T>;
+  /** Updates the Signal's value in/on the target Page */
+  send(page: Page, value: T): Promise<void>;
+};
 
 /**
- * Makes a
+ * A state updating mechanism that brideges the gap from Playwright to a
+ * participating test webpage written in React.
  */
-export const makeSignalBridge = <T = unknown>() => {
-  const name = 'signal_' + _count++;
-  const useBridgedSignal = (initialValue: T) => {
+export const makeSignalBridge = <T = unknown>(id: string): SignalBridge<T> => {
+  const useBridgedSignal: SignalBridge<T>['use'] = (initialValue) => {
     const signal = useSignal(initialValue);
     useEffect(
       () => {
         const __signals = (window.__signals = window.__signals || {});
-        __signals[name] = signal;
+        if (__signals[id]) {
+          throw new Error(
+            `window.__signals[${JSON.stringify(id)}] is already defined.` +
+              `Please use a unique "id" for your brided signals.`
+          );
+        }
+        __signals[id] = signal;
 
         return () => {
           const { __signals } = window;
           if (__signals) {
-            delete __signals[name];
+            delete __signals[id];
             if (Object.keys(__signals).length === 0) {
               delete window.__signals;
             }
@@ -42,19 +64,19 @@ export const makeSignalBridge = <T = unknown>() => {
   return {
     use: useBridgedSignal,
 
-    send: (page: Page, value: T) =>
+    send: (page, value) =>
       page.evaluate(
-        ([name, value]) =>
-          new Promise<void>((resolve, reject) => {
+        ([id, value]) =>
+          new Promise((resolve, reject) => {
             try {
               // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-              window.__signals![name]!.value = value;
+              window.__signals![id]!.value = value;
               setTimeout(resolve, 100);
             } catch (err) {
               reject(err);
             }
           }),
-        [name, value] as const
+        [id, value] as const
       ),
   };
 };

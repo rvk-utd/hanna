@@ -13,7 +13,7 @@ import { makeSignalBridge } from '../../test-helpers/makeSignalBridge';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
-const showAuxSignal = makeSignalBridge<true | undefined>();
+const showAuxSignal = makeSignalBridge<true | undefined>('auxSignal');
 
 export const mainMenuItems: MainMenuItemList = [
   {
