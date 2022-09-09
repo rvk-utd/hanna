@@ -39,12 +39,24 @@ type TestPageLabel = keyof typeof testPagePaths;
 
 /* eslint-disable import/first */
 import { testing as AccordionList__test } from '../src/routes/test/AccordionList';
+import { testing as ActionCards__test } from '../src/routes/test/ActionCards';
 import { testing as Alert__test } from '../src/routes/test/Alert';
 import { testing as ArticleCarousel__test } from '../src/routes/test/ArticleCarousel';
+import { testing as ArticleMeta__test } from '../src/routes/test/ArticleMeta';
+import { testing as Attention__test } from '../src/routes/test/Attention';
+import { testing as BasicTable__test } from '../src/routes/test/BasicTable';
+import { testing as BgBox__test } from '../src/routes/test/BgBox';
+import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote';
+import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
+import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
 import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
+import { testing as NameCards__test } from '../src/routes/test/NameCards';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
+
+
+
 /* eslint-enable import/first */
 
 /**
@@ -58,12 +70,23 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   // BTW, the "All tests are accounted for" @meta test (below) errors if
   // you forgot something.
   AccordionList: AccordionList__test,
+  ActionCards: ActionCards__test,
   Alert: Alert__test,
   ArticleCarousel: ArticleCarousel__test,
+  ArticleMeta: ArticleMeta__test,
+  Attention: Attention__test,
+  BasicTable: BasicTable__test,
+  BgBox: BgBox__test,
+  BlockQuote: BlockQuote__test,
+  ButtonBack: ButtonBack__test,
+  ExtraLinks: ExtraLinks__test,
   FooterInfo: FooterInfo__test,
   HeroBlock: HeroBlock__test,
   MainMenu: MainMenu__test,
+  NameCards: NameCards__test,
   TagPill: TagPill__test,
+
+
 };
 // ---------------------------------------------------------------------------
 
@@ -113,7 +136,7 @@ allComponentTests.forEach(([name, testInfo]) => {
     return;
   }
 
-  const testFn = testInfo.__DEV_FOCUS__ ? test.only : test;
+ const testFn = testInfo.__DEV_FOCUS__ ? test.only : test;
 
   testFn(
     testName + tagStr + '-',
