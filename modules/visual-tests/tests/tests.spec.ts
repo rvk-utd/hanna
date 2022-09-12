@@ -156,6 +156,10 @@ allComponentTests.forEach(([name, testInfo]) => {
 
       await page.goto(testPagePath + '?noAnimation');
 
+      if (browserName === 'webkit') {
+        await page.waitForTimeout(300);
+      }
+
       let expanded = false;
       if (testInfo.prep) {
         expanded = true;

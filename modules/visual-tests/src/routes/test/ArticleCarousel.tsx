@@ -96,6 +96,7 @@ export const testing: TestingInfo = {
     const itemlist = carousel.locator('.ArticleCarousel__itemlist');
 
     await carousel.locator('.CarouselStepper__button >> nth=2').click();
+    await page.waitForTimeout(100);
 
     await itemlist.hover();
 

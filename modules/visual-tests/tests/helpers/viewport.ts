@@ -8,17 +8,18 @@ import { getPageScrollHeight } from './scrolling';
 
 export const setViewportSize =
   (page: Page): TestFnArgs['setViewportSize'] =>
-  (heightOrObj) => {
+  async (heightOrObj) => {
     const vp = page.viewportSize() || { width: 0, height: 0 };
 
     expect(vp.width > 0, 'Panic! Viewport not defined or zero-sized').toBe(true);
 
     const targ = typeof heightOrObj === 'number' ? { height: heightOrObj } : heightOrObj;
 
-    return page.setViewportSize({
+    await page.setViewportSize({
       width: Math.round(targ.width || vp.width),
       height: Math.round(targ.height || vp.height),
     });
+    await page.waitForTimeout(100);
   };
 // ---------------------------------------------------------------------------
 
@@ -32,10 +33,10 @@ export const expandViewport =
     const viewportSize = () => page.viewportSize() || { width: 0, height: 0 };
 
     let scrollHeight = await getPageScrollHeight(page);
-    while (viewportSize().height < scrollHeight) {
+    while (viewportSize().height !== scrollHeight && viewportSize().height > minHeight) {
       /* eslint-disable no-await-in-loop */
       await setViewportSize(page)(scrollHeight);
-      await page.waitForTimeout(300);
+      await page.waitForTimeout(200);
       scrollHeight = await getPageScrollHeight(page);
       /* eslint-enable no-await-in-loop */
     }

@@ -131,6 +131,7 @@ export const testing: TestingInfo = [
     extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
       // open a mega menu panel
       await page.locator('.MainMenu__link:text("Mannlíf")').click();
+      await page.waitForTimeout(100);
       const activePanel = page.locator('.PrimaryPanel--active');
 
       // NOTE: .MainMenu__panelsWrap is the effective page-scroll-container when MainMenu "mega" panel is opn
@@ -144,6 +145,7 @@ export const testing: TestingInfo = [
 
       // test megamenu scroll-overflow bottom-scrolled on unusually short viewports
       await scrollContainer.evaluate((elm) => elm.scrollBy(0, elm.scrollHeight));
+      await page.waitForTimeout(100);
       await pageScreenshot('megamenu-scrolled');
 
       // resize viewport to more than the minimum required height.
@@ -191,6 +193,7 @@ export const testing: TestingInfo = [
 
       // open the sub-menu
       await page.locator('.MainMenu__link:text("Mannlíf")').click();
+      await page.waitForTimeout(100);
       await page.mouse.move(0, 0);
 
       // test megamenu scroll-overflow bottom-scrolled
@@ -199,6 +202,7 @@ export const testing: TestingInfo = [
         // if we scroll by an obscenely large amount, like say 10_000
         elm.scrollBy(0, elm.scrollHeight);
       });
+      await page.waitForTimeout(100);
       await pageScreenshot('menu-open-scrolled');
 
       // resize viewport to more than the minimum required height.
