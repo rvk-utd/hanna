@@ -5,16 +5,19 @@ import {
   CardList,
   CardListSummaryProps,
   ImageCardListProps,
-  ImageCardProps as ICP,
+  ImageCardProps as _ImageCardProps,
 } from './_abstract/_CardList';
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
-export type ImageCardProps = ICP;
+/** @deprecated Use `ImageCard` instead.  (Will be removed in v0.11) */
+export type ImageCardProps = _ImageCardProps;
 
-type _ImageCardProps = ImageCardListProps &
+export type ImageCardsItemProps = _ImageCardProps;
+
+export type ImageCardsProps = ImageCardListProps &
   CardListSummaryProps & { background?: boolean } & SeenProp;
 
-const ImageCards = (props: _ImageCardProps) => {
+const ImageCards = (props: ImageCardsProps) => {
   const { background, startSeen, ...cardListProps } = props;
   const [ref] = useSeenEffect(startSeen);
 

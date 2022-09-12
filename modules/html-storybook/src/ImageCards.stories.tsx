@@ -25,9 +25,7 @@ export const _ImageCards: StoryComponent = () => {
   return (
     <ImageCards
       title={title && 'Image Cards'}
-      summaryElement={
-        summary ? <ButtonTertiary href="">Sjá yfirlit</ButtonTertiary> : undefined
-      }
+      summaryElement={summary && <ButtonTertiary href="">Sjá yfirlit</ButtonTertiary>}
       background={background}
       cards={imageCards}
       imgPlaceholder={imgPlaceholder}

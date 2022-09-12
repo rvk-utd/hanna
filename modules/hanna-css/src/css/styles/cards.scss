@@ -15,8 +15,8 @@
 
 @mixin CardListTitle() {
   grid-area: title;
-  @include HeadingStyle--small();
   margin-bottom: $var--baseVerticalMargin;
+  font: $var--font-hd-s;
 }
 
 @mixin CardList() {

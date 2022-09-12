@@ -38,14 +38,12 @@
   .ImageCards__title {
     @include CardListTitle();
   }
-
-  .ImageCards__title,
   .ImageCards__summary {
+    grid-area: title;
     margin-bottom: $var--baseVerticalMargin;
   }
-
   .ImageCards__summary > .ImageCards__title {
-    margin-bottom: prem(16);
+    margin-bottom: $var--space-2;
   }
 
   .ImageCards__list {
