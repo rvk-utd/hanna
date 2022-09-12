@@ -9,11 +9,11 @@ import MainMenu, {
 } from '@reykjavik/hanna-react/MainMenu';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
-import { makeSignalBridge } from '../../test-helpers/makeSignalBridge';
+import { makeStateBridge } from '../../test-helpers/makeStateBridge';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
-const showAuxSignal = makeSignalBridge<true | undefined>('auxSignal');
+const showAuxState = makeStateBridge<true | undefined>('showAux');
 
 export const mainMenuItems: MainMenuItemList = [
   {
@@ -103,7 +103,7 @@ export const meta: MetaFunction = autoTitle;
 // ---------------------------------------------------------------------------
 
 export default function () {
-  const showAux = showAuxSignal.use(true);
+  const [showAux] = showAuxState.use(true);
 
   return (
     <Layout
@@ -112,7 +112,7 @@ export default function () {
           title="Aðalvalmynd"
           items={mainMenuItems}
           megaPanels={megaMenuPanels}
-          auxiliaryPanel={showAux.value && auxiliaryPanel}
+          auxiliaryPanel={showAux && auxiliaryPanel}
         />
       }
     >
@@ -151,9 +151,9 @@ export const testing: TestingInfo = [
       await activePanel.locator('.PrimaryPanel__link:has-text("item 3")').hover();
       await pageScreenshot('megamenu');
 
-      await showAuxSignal.send(page, undefined);
+      await showAuxState.send(page, undefined);
       await pageScreenshot('megamenu-no-aux');
-      await showAuxSignal.send(page, true);
+      await showAuxState.send(page, true);
 
       // test auxiliary menu link hover styling
       const auxPanel = page.locator('.AuxiliaryPanel__items');
@@ -207,9 +207,9 @@ export const testing: TestingInfo = [
       await activePanel.locator('.PrimaryPanel__link:has-text("item 3")').hover();
       await pageScreenshot('menu-open');
 
-      await showAuxSignal.send(page, undefined);
+      await showAuxState.send(page, undefined);
       await pageScreenshot('menu-open-no-aux');
-      await showAuxSignal.send(page, true);
+      await showAuxState.send(page, true);
 
       // test auxiliary menu link hover styling
       const auxPanel = page.locator('.AuxiliaryPanel__items');

@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Page } from '@playwright/test';
-import { type Signal, useSignal } from '@preact/signals-react';
 
 declare global {
   /**
-   * Used as a temporary Global storage for communication signals between
+   * Used as a temporary Global storage for communication state values between
    * Playwright tests and React test-page components
    */
-  var __signals: undefined | Record<string, Signal>; // eslint-disable-line no-var
+  var __state: undefined | Record<string, Dispatch<SetStateAction<any>>>; // eslint-disable-line no-var
 }
 
 /**
- * A `SignalBridge` contains a coupled pair of methods:
+ * A `StateBridge` contains a coupled pair of methods:
  * Firstly a React hoook "use" function that sets up (and returns) a Signal
  * value-store, and secondly a Playwright-ready function that "send"s an
  * updated Signal value to the Page being tested.
@@ -22,39 +21,39 @@ declare global {
  * differently configured instances of the components and snap one big
  * screenshot of the whole mess.
  */
-type SignalBridge<T> = {
+type StateBridge<T> = {
   /** A react hoook function that sets up (and returns) the Signal */
-  use(initialValue: T): Signal<T>;
+  use(initialValue: T): [value: T, setValue: Dispatch<SetStateAction<T>>];
   /** Updates the Signal's value in/on the target Page */
-  send(page: Page, value: T): Promise<void>;
+  send(page: Page, value: T | ((prevValue: T) => T)): Promise<void>;
 };
 
 /**
  * Set up a state updating mechanism that brideges the gap from Playwright
  * to a participating test webpage written in React.
  */
-export const makeSignalBridge = <T = unknown>(id: string): SignalBridge<T> => {
-  const useBridgedSignal: SignalBridge<T>['use'] = (initialValue) => {
-    const signal = useSignal(initialValue);
+export const makeStateBridge = <T = unknown>(id: string): StateBridge<T> => {
+  const useBridgedState: StateBridge<T>['use'] = (initialValue) => {
+    const [value, setValue] = useState(initialValue);
     useEffect(
       () => {
-        // Ensure window.__signals exists.
-        const __signals = (window.__signals = window.__signals || {});
-        if (__signals[id]) {
+        // Ensure window.__state exists.
+        const __state = (window.__state = window.__state || {});
+        if (__state[id]) {
           throw new Error(
-            `window.__signals[${JSON.stringify(id)}] is already defined.` +
+            `window.__state[${JSON.stringify(id)}] is already defined.` +
               `Please use a unique "id" for your bridged signals.`
           );
         }
-        __signals[id] = signal;
+        __state[id] = setValue;
 
         return () => {
-          const { __signals } = window;
-          if (__signals) {
+          const { __state } = window;
+          if (__state) {
             // Cleanup all the things!
-            delete __signals[id];
-            if (Object.keys(__signals).length === 0) {
-              delete window.__signals;
+            delete __state[id];
+            if (Object.keys(__state).length === 0) {
+              delete window.__state;
             }
           }
         };
@@ -63,11 +62,11 @@ export const makeSignalBridge = <T = unknown>(id: string): SignalBridge<T> => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       []
     );
-    return signal;
+    return [value, setValue];
   };
 
   return {
-    use: useBridgedSignal,
+    use: useBridgedState,
 
     send: (page, value) =>
       page.evaluate(
@@ -75,7 +74,7 @@ export const makeSignalBridge = <T = unknown>(id: string): SignalBridge<T> => {
           new Promise((resolve, reject) => {
             try {
               // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-              window.__signals![id]!.value = value;
+              window.__state![id]!(value);
               setTimeout(resolve, 100);
             } catch (err) {
               // We really want the test to knoow if the signalling failed

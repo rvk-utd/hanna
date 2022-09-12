@@ -55,8 +55,6 @@ import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
 import { testing as NameCards__test } from '../src/routes/test/NameCards';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 
-
-
 /* eslint-enable import/first */
 
 /**
@@ -85,8 +83,6 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   MainMenu: MainMenu__test,
   NameCards: NameCards__test,
   TagPill: TagPill__test,
-
-
 };
 // ---------------------------------------------------------------------------
 
@@ -136,7 +132,7 @@ allComponentTests.forEach(([name, testInfo]) => {
     return;
   }
 
- const testFn = testInfo.__DEV_FOCUS__ ? test.only : test;
+  const testFn = testInfo.__DEV_FOCUS__ ? test.only : test;
 
   testFn(
     testName + tagStr + '-',
