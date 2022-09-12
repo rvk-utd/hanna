@@ -98,7 +98,7 @@ export default function App() {
           `}</style>
         )}
       </head>
-      <body>
+      <body data-color-theme="friendly">
         <div id="bodyinner">
           <Outlet />
         </div>
