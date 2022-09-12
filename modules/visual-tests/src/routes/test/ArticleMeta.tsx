@@ -35,7 +35,5 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  prep: async ({ page }) => {
-    await page.locator('a:text("Hover Test")').hover();
-  },
+  initialHover: 'a:text("Hover Test")',
 };

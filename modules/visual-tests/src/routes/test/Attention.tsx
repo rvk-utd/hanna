@@ -3,6 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import Attention from '@reykjavik/hanna-react/Attention';
 
 import { Minimal } from '../../layout/Minimal';
+import { loremRT } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -15,25 +16,12 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <Attention>
-        Please note that - <a href="">Bein útsending frá fundi borgarstjórnar</a> í
-        Ráðhúsi Reykjavíkur hefst kl. 14:00. Please note that -{' '}
-        <a href="">Bein útsending frá fundi borgarstjórnar</a> í Ráðhúsi Reykjavíkur hefst
-        kl. 14:00
-      </Attention>
-      {'\n\n'}
-      <Attention small>
-        Please note that - <a href="">Bein útsending frá fundi borgarstjórnar</a> í
-        Ráðhúsi Reykjavíkur hefst kl. 14:00. Please note that -{' '}
-        <a href="">Bein útsending frá fundi borgarstjórnar</a> í Ráðhúsi Reykjavíkur hefst
-        kl. 14:00.
-      </Attention>
+      <Attention>{loremRT.long(true)}</Attention>
+      <Attention small>{loremRT.long(true)}</Attention>
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  prep: async ({ page }) => {
-    await page.locator('a >> nth=0').hover();
-  },
+  initialHover: 'a >> nth=0',
 };

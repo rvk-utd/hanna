@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import ButtonBack from '@reykjavik/hanna-react/ButtonBack';
 
@@ -15,12 +15,12 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <ButtonBack>Button Back</ButtonBack>
-      <ButtonBack disabled>Disabled</ButtonBack>
+      <ButtonBack>Back button</ButtonBack>
+      <ButtonBack disabled>Disabled button</ButtonBack>
       <br />
-      <ButtonBack href="">Link Back</ButtonBack>{' '}
+      <ButtonBack href="">Back link</ButtonBack>{' '}
       <ButtonBack aria-disabled="true" href="">
-        Link Back
+        Disabled link
       </ButtonBack>{' '}
     </Minimal>
   );
@@ -28,13 +28,21 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
-    const backButton = page.locator('.ButtonBack >> nth=0');
-    const linkBackButton = page.locator('.ButtonBack >> nth=2');
+    const backButton = page.locator('.ButtonBack:text("Back button")');
+    const backLink = page.locator('.ButtonBack:text("Back link")');
+    const disabledBackButton = page.locator('.ButtonBack:text("Disabled button")');
+    const disabledBackLink = page.locator('.ButtonBack:text("Disabled link")');
 
     await backButton.hover();
-    await localScreenshot(backButton, 'button-back-hover');
+    await localScreenshot(backButton, 'button-hover');
 
-    await linkBackButton.hover();
-    await localScreenshot(linkBackButton, 'link-back-hover');
+    await backLink.hover();
+    await localScreenshot(backLink, 'link-hover');
+
+    await disabledBackButton.hover({ force: true });
+    await localScreenshot(disabledBackButton, 'button-disabled-hover');
+
+    await disabledBackLink.hover({ force: true });
+    await localScreenshot(disabledBackLink, 'link-disabled-hover');
   },
 };

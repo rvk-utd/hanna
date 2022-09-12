@@ -3,6 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import BlockQuote from '@reykjavik/hanna-react/BlockQuote';
 
 import { Minimal } from '../../layout/Minimal';
+import { lorem, loremRT } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -15,34 +16,26 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <BlockQuote>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quam voluptas
-        necessitatibus in beatae distinctio cum!
-      </BlockQuote>
+      <BlockQuote>{loremRT.medium(true)}</BlockQuote>
       <BlockQuote by="Jón Jónsson">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>{loremRT.short()}</p>
         <ul>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Explicabo quam voluptas necessitatibus in beatae distinctio cum!</li>
+          <li>{lorem.tiny}</li>
+          <li>{lorem.short}</li>
         </ul>
-        <p>Explicabo quam voluptas necessitatibus in beatae distinctio cum!</p>
+        <p>{lorem.short}</p>
         <ol>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Explicabo quam voluptas necessitatibus in beatae distinctio cum!</li>
+          <li>{lorem.short}</li>
+          <li>{lorem.tiny}</li>
         </ol>
       </BlockQuote>
-      <BlockQuote by="Jón Jónsson ehf" byHref="about:blank">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quam voluptas
-          necessitatibus in beatae distinctio cum!
-        </p>
+      <BlockQuote by="Jón Jónsson" byHref="about:blank">
+        <p>{lorem.medium}</p>
       </BlockQuote>
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  prep: async ({ page }) => {
-    await page.locator('a').hover();
-  },
+  initialHover: '.BlockQuote__by > a',
 };

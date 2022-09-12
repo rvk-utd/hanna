@@ -63,7 +63,7 @@ export const testing: TestingInfo = {
   initialHover: '.AccordionList__button >> nth=0',
   extras: async ({ page, localScreenshot }) => {
     const disabledButton = await page.locator('.AccordionList__button[disabled]').first();
-    await disabledButton.hover();
+    await disabledButton.hover({ force: true });
     await localScreenshot(
       disabledButton.locator('closest=.AccordionList__item'),
       'disabled-item-hover'

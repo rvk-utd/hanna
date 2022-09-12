@@ -1,8 +1,10 @@
+import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
+import NameCards from '@reykjavik/hanna-react/NameCards';
+
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
-import NameCards from '@reykjavik/hanna-react/NameCards';
 
 export const meta: MetaFunction = autoTitle;
 
@@ -59,9 +61,5 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  prep: async ({ page }) => {
-    await page
-      .locator('.NameCard__contactinfo__item[href="mailto:aogj@gmail.com"]')
-      .hover();
-  },
+  initialHover: '.NameCard__contactinfo__item[href="mailto:aogj@gmail.com"]',
 };

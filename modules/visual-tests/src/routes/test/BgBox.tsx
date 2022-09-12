@@ -3,6 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import BgBox from '@reykjavik/hanna-react/BgBox';
 
 import { Minimal } from '../../layout/Minimal';
+import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -16,7 +17,7 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <BgBox>
-        <p>Some content that needs a "background box".</p>
+        <p>{lorem.medium}</p>
       </BgBox>
     </Minimal>
   );
