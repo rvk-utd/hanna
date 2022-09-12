@@ -236,6 +236,7 @@ $var--ButtonTertiary--gapH: var(--ButtonTertiary--gapH);
 @mixin ButtonTertiaryStyle--disabled() {
   &[disabled],
   &[aria-disabled='true'] {
+    --ButtonTertiary--hover--dashWidth: #{$var--ButtonTertiary--dashWidth};
     --ButtonTertiary--dashColor: currentColor;
     --ButtonTertiary--color: _inherit;
     opacity: 0.5;
