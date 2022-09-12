@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `summaryElement` to `ActionCards`
+- feat(ts): Export `ActionCardsItemProps` type
 - fix(ts): Make `PullQuote` & `BlockQuote`'s `by` prop required for `byHref`
 - fix(ts): Export `BasicTableProps`
 - fix(ts): Remove accidentally exposed props on several `*Cards` components —

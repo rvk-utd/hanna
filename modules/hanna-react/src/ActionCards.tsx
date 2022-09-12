@@ -1,9 +1,16 @@
 import React from 'react';
 
-import { CardList, TextCardListProps } from './_abstract/_CardList';
+import {
+  CardList,
+  CardListSummaryProps,
+  TextCardListProps,
+  TextCardProps,
+} from './_abstract/_CardList';
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
-export type ActionCardsProps = TextCardListProps & SeenProp;
+export type ActionCardsProps = TextCardListProps & CardListSummaryProps & SeenProp;
+
+export type ActionCardsItemProps = TextCardProps;
 
 const ActionCards = (props: ActionCardsProps) => {
   const [ref] = useSeenEffect(props.startSeen);

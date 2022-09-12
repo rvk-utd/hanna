@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.ActionCards__summary`
 - fix: Delay on `.MainMenu`'s auxiliary menu image in mobile
 - fix: Height of `MainMenu`'s auxiliary menu on small-yet-tall screens
 - fix: Display `.MainMenu`'s auxiliary menu image on wider screens

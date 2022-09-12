@@ -10,6 +10,14 @@
   .ActionCards__title {
     @include CardListTitle();
   }
+  .ActionCards__summary {
+    grid-area: title;
+    margin-bottom: $var--baseVerticalMargin;
+  }
+  .ActionCards__summary > .ImageCards__title {
+    margin-bottom: $var--space-2;
+  }
+
   .ActionCards__list {
     @include CardList();
   }
