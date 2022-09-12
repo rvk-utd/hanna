@@ -98,7 +98,14 @@ export default function App() {
           `}</style>
         )}
       </head>
-      <body data-color-theme="friendly">
+      <body
+        // NOTE: Here we set non-default color theme to stress test
+        // component-colors.
+        // (Most Figma designs show the default "trustworthy" theme,
+        // so by running these tests with another theme, we're more likely
+        // to catch accidental hard-coding of color types in the CSS)
+        data-color-theme="friendly"
+      >
         <div id="bodyinner">
           <Outlet />
         </div>
