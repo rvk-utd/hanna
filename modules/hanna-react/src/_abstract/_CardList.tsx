@@ -1,4 +1,5 @@
 import React, { CSSProperties, ReactElement, ReactNode } from 'react';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import Button from './_Button';
 import Image, { ImageProps } from './_Image';
@@ -10,24 +11,21 @@ type Bem = {
 type BaseCardProps = {
   title: string;
   href: string;
-  imgPlaceholder?: boolean;
 };
 
 export type ImageCardProps = BaseCardProps & {
   meta?: string;
   image?: ImageProps;
+  imgPlaceholder?: boolean;
 };
 
 export type TextCardProps = BaseCardProps & {
   summary?: string;
 };
 
-const Card = (props: (ImageCardProps | TextCardProps) & Bem) => {
-  const { bem, href, title, imgPlaceholder } = props;
+const Card = (props: EitherObj<ImageCardProps, TextCardProps> & Bem) => {
+  const { bem, href, title, imgPlaceholder, image, meta, summary } = props;
   const cardClass = `${bem}__card`;
-  const image = 'image' in props && props.image;
-  const meta = 'meta' in props && props.meta;
-  const summary = 'summary' in props && props.summary;
 
   return (
     <>
@@ -47,18 +45,24 @@ const Card = (props: (ImageCardProps | TextCardProps) & Bem) => {
 export type CardListProps<T> = {
   cards: Array<T>;
   title?: string | undefined;
-  summaryElement?: ReactElement;
   titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'p';
+};
+
+export type CardListSummaryProps = {
+  summaryElement?: ReactElement;
+};
+
+export type ImageCardListProps = CardListProps<ImageCardProps> & {
   imgPlaceholder?: boolean | string;
 };
-export type ImageCardListProps = CardListProps<ImageCardProps>;
 export type TextCardListProps = CardListProps<TextCardProps>;
 
-type _CardListProps = CardListProps<BaseCardProps> & {
-  bemPrefix: string;
-  children?: ReactNode;
-  standalone?: boolean;
-};
+type _CardListProps = EitherObj<ImageCardListProps, TextCardListProps> &
+  CardListSummaryProps & {
+    bemPrefix: string;
+    children?: ReactNode;
+    standalone?: boolean;
+  };
 
 export const CardList = (props: _CardListProps) => {
   const {

@@ -3,6 +3,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import {
   CardList,
+  CardListSummaryProps,
   ImageCardListProps,
   ImageCardProps as ICP,
 } from './_abstract/_CardList';
@@ -10,7 +11,8 @@ import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
 export type ImageCardProps = ICP;
 
-type _ImageCardProps = ImageCardListProps & { background?: boolean } & SeenProp;
+type _ImageCardProps = ImageCardListProps &
+  CardListSummaryProps & { background?: boolean } & SeenProp;
 
 const ImageCards = (props: _ImageCardProps) => {
   const { background, startSeen, ...cardListProps } = props;

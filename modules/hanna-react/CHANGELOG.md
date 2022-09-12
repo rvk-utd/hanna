@@ -5,6 +5,9 @@
 - ... <!-- Add new lines here. -->
 - fix(ts): Make `PullQuote` & `BlockQuote`'s `by` prop required for `byHref`
 - fix(ts): Export `BasicTableProps`
+- fix(ts): Remove accidentally exposed props on several `*Cards` components —
+  these props were never supported and were either a no-op, or resulted in
+  unstyled garbage.
 
 ## 0.10.66
 
