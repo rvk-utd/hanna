@@ -1,12 +1,11 @@
 import React, { ReactNode } from 'react';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { Link } from './_Link';
 
 export type QuoteProps = {
   children: ReactNode;
-  by?: string | JSX.Element;
-  byHref?: string;
-};
+} & EitherObj<object, { by: string | JSX.Element; byHref?: string }>;
 
 export const _Quote = (props: { bem: string } & QuoteProps) => {
   const { bem, children, by, byHref } = props;

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix(ts): Make `PullQuote` & `BlockQuote`'s `by` prop required for `byHref`
 - fix(ts): Export `BasicTableProps`
 
 ## 0.10.66
