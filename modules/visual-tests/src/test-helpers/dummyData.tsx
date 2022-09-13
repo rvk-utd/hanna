@@ -71,3 +71,14 @@ export const loremRT = {
     </Fragment>
   ),
 };
+
+export const efnistakn = [
+  'bygging_01',
+  'download_01',
+  'dyrahald_01',
+  'ferdalag_01',
+  'tonlist_01',
+  'tonlist_02',
+  'tonlist_03',
+] as const;
+export type Efnistakn = typeof efnistakn[number];
