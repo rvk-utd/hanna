@@ -1,10 +1,11 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import CityBlock, { CityBlockProps } from '@reykjavik/hanna-react/CityBlock';
+
 import { Minimal } from '../../layout/Minimal';
+import { illustr, lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
-import { lorem, illustr, photo } from '../../test-helpers/dummyData';
 
 export const meta: MetaFunction = autoTitle;
 

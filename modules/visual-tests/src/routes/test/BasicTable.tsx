@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import BasicTable, { BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
-import range from '@hugsmidjan/qj/range';
+
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
@@ -12,7 +12,7 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
 const simpleContent: Pick<BasicTableProps, 'cols' | 'thead' | 'tbody' | 'startSeen'> = {
-  //cols: [{ number: true }, {}, {}, { tel: true }, { number: true }, {}],
+  cols: [{ number: true }, {}, {}, { tel: true }, { number: true }, {}],
   thead: [['Erindi nr.', 'Lýsing', 'Sent dags. / kl', 'Sími', 'Gjald', 'Staða máls']],
   tbody: [
     [
@@ -114,7 +114,9 @@ const extraContent: Pick<BasicTableProps, 'cols' | 'thead' | 'tbody' | 'startSee
       'Í vinnslu',
     ],
   ],
+  startSeen: true,
 };
+
 const tFoot: BasicTableProps['tfoot'] = [
   [
     { value: 'Samtals:', number: false, colSpan: 4 },
@@ -136,10 +138,7 @@ export default function () {
   );
 }
 
-// TODO: Make scroll work!
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
-
   extras: async ({ page, pageScreenshot }) => {
     const compactTable = page.locator('.BasicTable >> nth=3');
     // Scroll to end - right, and take a screenshot
