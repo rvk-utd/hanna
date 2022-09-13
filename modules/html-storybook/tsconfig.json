@@ -3,5 +3,6 @@
   "compilerOptions": {
     // somehow setting this is "../../tsconfig.base.json" doesn't work
     "jsx": "react"
-  }
+  },
+  "include": ["../**/*.ts", "../**/*.tsx"]
 }
