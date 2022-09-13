@@ -80,9 +80,9 @@ methods from the
 [`es-in-css` library](https://www.npmjs.com/package/es-in-css) (excluding the
 JS-to-CSS "compiler").
 
-Please refer to the
+**Please refer to the
 [`es-in-css` documentation](https://www.npmjs.com/package/es-in-css) for more
-info.
+info.**
 
 ## Hanna CSS Variables
 
@@ -328,7 +328,7 @@ instance, during testing/staging/etc.
 
 ### `styleServerUrl`
 
-**Syntax:** `styleServerUrl: "https://styles.reykjavik.is"`
+**Syntax:** `styleServerUrl: string`
 
 The root URL of the Hanna Style Server. This URL is useful when building links
 linking to assets, etc, and is used internally by
@@ -396,13 +396,13 @@ warning style applied.
 
 ### Type `WarningOpts`
 
-The `WARNING_*` misins accept an options object a their second argument.
+The `WARNING_*` mixins accept an options object as their second argument.
 
 **`WarningOpts.pos?: 'before' | 'after'`**
 
 Default: `'before'`
 
-Controls into which pseudo-element the `message` content is rendered.
+Controls into which ::pseudo-element the `message` content is rendered.
 
 **`WarningOpts.always?: boolean`**
 
