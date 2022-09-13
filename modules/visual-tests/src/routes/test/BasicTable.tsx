@@ -128,28 +128,27 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <BasicTable {...simpleContent} />
-      <BasicTable {...simpleContent} compact />
       <BasicTable {...simpleContent} tfoot={tFoot} />
       <BasicTable {...simpleContent} tfoot={tFoot} compact />
       <BasicTable {...extraContent} align="right" />
-      <BasicTable {...simpleContent} caption="I am caption" fullWidth />
+      <BasicTable {...simpleContent} caption="Table with caption" fullWidth />
     </Minimal>
   );
 }
 
 // TODO: Make scroll work!
 export const testing: TestingInfo = {
-  //__DEV_FOCUS__: true,
+  __DEV_FOCUS__: true,
 
-  extras: async ({ page, localScreenshot, pageScreenshot }) => {
-    const compactTable = page.locator('.TableWrapper--BasicTable--align--right');
-    // Find compact and take a screenshot
-    await localScreenshot(compactTable, 'compactTable');
+  extras: async ({ page, pageScreenshot }) => {
+    const compactTable = page.locator('.BasicTable >> nth=3');
     // Scroll to end - right, and take a screenshot
     const scrollContainer = compactTable.locator('scrollContainer=');
-    //const tableScrollWidth = await scrollContainer.evaluate((elm) => elm.scrollWidth);
-    // FIX: Scroll
-    //await scrollContainer.evaluate((elm) => elm.scrollBy(1000, 0));
-    await localScreenshot(compactTable, 'scroll-right');
+    // test compact table scroll-right
+    await scrollContainer.evaluate((elm) => {
+      elm.scrollBy(elm.scrollWidth, 0);
+    });
+    await page.waitForTimeout(100);
+    await pageScreenshot('compactTable-scrolled-right');
   },
 };

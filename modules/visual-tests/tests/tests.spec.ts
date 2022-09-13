@@ -44,12 +44,20 @@ import { testing as Alert__test } from '../src/routes/test/Alert';
 import { testing as ArticleCarousel__test } from '../src/routes/test/ArticleCarousel';
 import { testing as ArticleMeta__test } from '../src/routes/test/ArticleMeta';
 import { testing as Attention__test } from '../src/routes/test/Attention';
+import { testing as BasicTable__test } from '../src/routes/test/BasicTable';
 import { testing as BgBox__test } from '../src/routes/test/BgBox';
 import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote';
 import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
+import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
+import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble';
 import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
+import { testing as Gallery__test } from '../src/routes/test/Gallery';
+import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
+import { testing as ImageCards__test } from '../src/routes/test/ImageCards';
+import { testing as InfoBlock__test } from '../src/routes/test/InfoBlock';
+import { testing as InfoHero__test } from '../src/routes/test/InfoHero';
 import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
 import { testing as NameCards__test } from '../src/routes/test/NameCards';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
@@ -72,12 +80,20 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   ArticleCarousel: ArticleCarousel__test,
   ArticleMeta: ArticleMeta__test,
   Attention: Attention__test,
+  BasicTable: BasicTable__test,
   BgBox: BgBox__test,
   BlockQuote: BlockQuote__test,
   ButtonBack: ButtonBack__test,
+  CityBlock: CityBlock__test,
+  ContactBubble: ContactBubble__test,
   ExtraLinks: ExtraLinks__test,
   FooterInfo: FooterInfo__test,
+  Gallery: Gallery__test,
+  GridBlocks: GridBlocks__test,
   HeroBlock: HeroBlock__test,
+  ImageCards: ImageCards__test,
+  InfoBlock: InfoBlock__test,
+  InfoHero: InfoHero__test,
   MainMenu: MainMenu__test,
   NameCards: NameCards__test,
   TagPill: TagPill__test,
@@ -155,10 +171,6 @@ allComponentTests.forEach(([name, testInfo]) => {
       };
 
       await page.goto(testPagePath + '?noAnimation');
-
-      if (browserName === 'webkit') {
-        await page.waitForTimeout(300);
-      }
 
       let expanded = false;
       if (testInfo.prep) {
