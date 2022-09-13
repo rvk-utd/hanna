@@ -7,8 +7,9 @@
 - feat(ts): Export `ActionCardsItemProps` type
 - feat(ts): Export `ImageCardsProps`, `ImageCardsItemProps`, deprecate
   `ImageCardProps`
+- feat(ts): Export `SelectboxOptionList`, deprecate `SelectboxOptions`
+- fix(ts): Export omitted types `BasicTableProps` and `SelectboxOption`
 - fix(ts): Make `PullQuote` & `BlockQuote`'s `by` prop required for `byHref`
-- fix(ts): Export `BasicTableProps`
 - fix(ts): Remove accidentally exposed props on several `*Cards` components —
   these props were never supported and were either a no-op, or resulted in
   unstyled garbage.
