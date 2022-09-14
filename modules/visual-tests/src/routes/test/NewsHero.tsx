@@ -42,6 +42,5 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
   initialHover: '.ShareButtons__link--facebook >> nth = 0',
 };

@@ -63,6 +63,7 @@ import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
 import { testing as MiniMetrics__test } from '../src/routes/test/MiniMetrics';
 import { testing as NameCards__test } from '../src/routes/test/NameCards';
 import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
+import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 
 /* eslint-enable import/first */
@@ -102,6 +103,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   MiniMetrics: MiniMetrics__test,
   NameCards: NameCards__test,
   NewsHero: NewsHero__test,
+  ProcessOverview: ProcessOverview__test,
   TagPill: TagPill__test,
 };
 // ---------------------------------------------------------------------------
