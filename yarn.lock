@@ -2513,7 +2513,7 @@ __metadata:
     "@types/md5-file": ^5
     cssserve: ^1.5.0
     del: ^6.0.0
-    es-in-css: ^0.5.5
+    es-in-css: ^0.5.7
     gulp: ^4.0.2
     md5-file: ^5.0.0
     sass: ~1.32
@@ -8979,9 +8979,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-in-css@npm:^0.5.5":
-  version: 0.5.5
-  resolution: "es-in-css@npm:0.5.5"
+"es-in-css@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "es-in-css@npm:0.5.7"
   dependencies:
     "@types/color": ^3.0.3
     "@types/color-name": ^1.1.1
@@ -8998,7 +8998,7 @@ __metadata:
     postcss-scss: ^4.0.3
   bin:
     es-in-css: cjs/bin/cli.js
-  checksum: 53a3d3c77af5dbbfec33c08d01185f0ec91d82fcefd28bb29a62e4745812b7eb2b38269ef926d96442a5cc8dd418836feb7608b425fa0a170b5208f7c1aee87a
+  checksum: 90e2e85605ba4e7be31d0c5e1ae3dcc2e6fab96068a1b78a64a39929cc80e12dde1c1adf67e6efaeef7b7f9a2227d7f6fa205c27b5c9f680d630d2a4cf6d8300
   languageName: node
   linkType: hard
 
