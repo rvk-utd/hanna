@@ -1,19 +1,18 @@
+// @ts-check
 /* eslint-env es2022 */
 import { exec as execAsync, execSync } from 'child_process';
 import esbuild from 'esbuild';
-import { writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { access, mkdir, readFile, writeFile } from 'fs/promises';
 import glob from 'glob';
 import { dirname } from 'path';
 
-export const opts = process.argv.slice(2).reduce(
-  /* <Record<string,unknown>> */ (map, arg) => {
-    const [key, value] = arg.replace(/^-+/, '').split('=');
-    map[key] = value == null ? true : value;
-    return map;
-  },
-  {}
-);
+/** @type {Record<string,unknown>} */
+export const opts = process.argv.slice(2).reduce((map, arg) => {
+  const [key, value] = arg.replace(/^-+/, '').split('=');
+  map[key] = value == null ? true : value;
+  return map;
+}, {});
 
 export const testsDir = '__tests';
 export const distDir = '_npm-lib';
@@ -29,7 +28,11 @@ export const exit1 = (err) => {
 
 // ---------------------------------------------------------------------------
 
-export const makePackageJson = (pkg, outdir, extras) => {
+const makePackageJson = (
+  /** @type {Record<string, unknown>} */ pkg,
+  /** @type {string} */ outDir,
+  /** @type {Record<string, unknown> | undefined} */ extraFields
+) => {
   const newPkg = { ...pkg };
   const { publishConfig } = newPkg;
   delete newPkg.publishConfig;
@@ -38,9 +41,9 @@ export const makePackageJson = (pkg, outdir, extras) => {
   delete newPkg.hxmstyle;
   delete newPkg.private;
   delete newPkg.devDependencies;
-  Object.assign(newPkg, publishConfig, extras);
+  Object.assign(newPkg, publishConfig, extraFields);
 
-  writeFileSync(outdir + '/package.json', JSON.stringify(newPkg, null, '\t'));
+  writeFileSync(outDir + '/package.json', JSON.stringify(newPkg, null, '\t'));
 };
 
 // ---------------------------------------------------------------------------
@@ -69,8 +72,8 @@ const writeOnlyAffected = (res, err) => {
 // ---------------------------------------------------------------------------
 
 const [pkg, rootPkg] = await Promise.all([
-  readFile('./package.json').then((str) => JSON.parse(str)),
-  readFile('../../package.json').then((str) => JSON.parse(str)),
+  readFile('./package.json').then((str) => JSON.parse(str.toString())),
+  readFile('../../package.json').then((str) => JSON.parse(str.toString())),
 ]);
 
 export const externalDeps = [
@@ -93,7 +96,7 @@ export const buildTests = () => {
       entryPoints: glob.sync(`${srcDir}/**/*.tests.{js,ts,tsx}`),
       entryNames: '[dir]/[hash]__[name]',
       write: false,
-      watch: opts.dev && {
+      watch: !!opts.dev && {
         onRebuild: (err, results) => writeOnlyAffected(results, err),
       },
       outdir: testsDir,
@@ -104,7 +107,12 @@ export const buildTests = () => {
 
 // ---------------------------------------------------------------------------
 
-const tscBuild = (name, config, watch) => {
+/** @typedef {{ compilerOptions: Record<string, unknown>; include: string[]; exlude?: string[] }}  TSConfig */
+const tscBuild = (
+  /** @type {string} */ name,
+  /** @type {TSConfig | undefined} */ config,
+  /** @type {boolean | undefined} */ watch
+) => {
   const cfgFile = `tsconfig.build.${name}.json`;
   writeFileSync(
     cfgFile,
@@ -123,6 +131,33 @@ const tscBuild = (name, config, watch) => {
 
 // ---------------------------------------------------------------------------
 
+const addReferenePathsToIndex = (
+  /** @type {Array<string>} */ entryPoints,
+  /** @type {string} */ distFolder
+) => {
+  const dtsify = (tsFilePath) => tsFilePath.replace(/\.(tsx?)$/, '.d.$1');
+  const indexTsFile = entryPoints.find((filePath) =>
+    /(?:^|\/)index.tsx?$/.test(filePath)
+  );
+
+  if (indexTsFile) {
+    const extraEntryPaths = entryPoints
+      .filter((filePath) => filePath !== indexTsFile)
+      .map(dtsify)
+      .map((declFile) => `/// <reference path="./${declFile}" />`);
+    if (extraEntryPaths.length > 0) {
+      const indexDeclFile = `${distFolder}/${dtsify(indexTsFile)}`;
+      const indexDecls =
+        extraEntryPaths.join('\n') + `\n\n` + readFileSync(indexDeclFile);
+      writeFileSync(indexDeclFile, indexDecls);
+    }
+  }
+};
+
+// ---------------------------------------------------------------------------
+
+/** @typedef {{ src?: string, cpCmds?: Array<string>, entryGlobs?: Array<string>, sideEffects?: boolean }}  BuildOpts */
+/** @type {(libName: string, custom?: BuildOpts) => void} */
 export const buildNpmLib = (libName, custom) => {
   const {
     src = srcDir,
@@ -166,20 +201,24 @@ export const buildNpmLib = (libName, custom) => {
       { name: 'cjs', module: 'commonjs' },
       // { name: 'esm', module: 'esnext' },
     ].forEach(({ name, module }) => {
+      const tempOutDir = `${distDir}/temp`;
+      const tempLibRoot = `${tempOutDir}/hanna-${libName}/${src}`;
       tscBuild(`lib-${name}`, {
         compilerOptions: {
           module,
           declaration: true,
-          outDir: `${distDir}/temp`,
+          outDir: tempOutDir,
         },
         include: entryPoints.map((file) => `${src}/${file}`),
-        exclude: [],
       });
+      addReferenePathsToIndex(entryPoints, tempLibRoot);
+
       const rootDir = module === 'esnext' ? 'esm' : '.';
       execSync(
         [
-          `mv ${distDir}/temp/hanna-${libName}/${src}/* ${distDir}/${rootDir}`,
-          `rm -rf ${distDir}/temp`,
+          `mv ${tempLibRoot}/* ${distDir}/${rootDir}`,
+          `rm -rf ${tempOutDir}`,
+          // …
         ].join(' && ')
       );
     });

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- chore(ts): Add reference paths for better Intellisense sub module discovery
 
 ## 0.1.12
 

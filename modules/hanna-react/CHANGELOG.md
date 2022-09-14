@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- chore(ts): Add reference paths for better Intellisense sub module discovery
 - feat: Add prop `summaryElement` to `ActionCards`
 - feat(ts): Export `ActionCardsItemProps` type
 - feat(ts): Export `ImageCardsProps`, `ImageCardsItemProps`, deprecate
