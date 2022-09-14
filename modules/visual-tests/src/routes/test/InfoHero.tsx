@@ -1,9 +1,10 @@
 import React from 'react';
+import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
 import InfoHero, { InfoHeroProps } from '@reykjavik/hanna-react/InfoHero';
 
 import { Minimal } from '../../layout/Minimal';
-import { photo } from '../../test-helpers/dummyData';
+import { lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -11,18 +12,19 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
+
 const cityCouncilContent: InfoHeroProps = {
-  title: 'Dagur B. Eggertsson',
-  subTitle: 'Borgarstjóri',
-  blurb: 'Samfylkingin',
+  title: 'Lorem Ipsum',
+  subTitle: 'Lorem ipsum dolor sit amet,',
+  // blurb: 'Foo bar',
 };
 
 const buttonProps = [
-  { href: '', label: 'Fjárhagslegir hagsmunir' },
-  { href: '', label: 'Dagur á Facebook' },
+  { href: '', label: 'Lorem Ipsum' },
+  { href: '', label: 'Leebur deroor iehroom,' },
   {
-    href: 'mailto:borgarstjori@reykjavik.is',
-    label: 'borgarstjori@reykjavik.is',
+    href: '',
+    label: 'Foo bar',
   },
 ];
 export default function () {
@@ -30,20 +32,23 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <InfoHero
-        {...cityCouncilContent}
+        title={'Lorem Ipsum'}
+        subTitle={'Lorem ipsum dolor sit amet'}
         image={photo.portrait}
         align="left"
-        buttons={buttonProps}
-        blingType={'waves'}
+        blurb="Foo bar"
       />
       <InfoHero
-        {...cityCouncilContent}
+        title={'Lorem Ipsum'}
+        subTitle={'Lörem ipsum dolor sit amet, dedeeshka duu.'}
         image={photo.landscape}
-        buttons={buttonProps}
+        buttons={buttonProps.slice(0, 2)}
         blingType={'sunny-waves'}
+        blurb="Foo bar"
       />
       <InfoHero
-        {...cityCouncilContent}
+        title={'Lörem ipsum dolor sit amet.'}
+        subTitle={'Lorem ipsum dolor sit amet'}
         image={photo.landscape}
         buttons={buttonProps}
         blingType={'triangles'}
