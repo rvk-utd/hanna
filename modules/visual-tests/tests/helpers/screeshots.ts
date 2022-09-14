@@ -81,16 +81,26 @@ export const makeSnapLocalScreeshot =
  */
 export const makeSnapPageScreeshot = (
   page: Page,
-  testName: string
+  testName: string,
+  factoryOpts: { clipViewport?: boolean } = {}
 ): TestFnArgs['pageScreenshot'] & { callCount(): number } => {
   let snaps = 0;
-  const snapPageScreenShot = async (label: string, opts?: PageScreenshotOptions) => {
+  const snapPageScreenShot = async (
+    label: string,
+    opts?: PageScreenshotOptions & { clipViewport?: boolean }
+  ) => {
     snaps += 1;
 
     await expandViewport(page)();
 
+    const clipViewport =
+      ((opts && opts.clipViewport) ?? factoryOpts.clipViewport) || undefined;
+
     await expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
       fullPage: true,
+      // `Bling`s and a few other components willfully expand outside the viewport
+      // and we don't want those to
+      clip: clipViewport && { x: 0, y: 0, ...page.viewportSize()! },
       ...opts,
     });
   };

@@ -56,6 +56,14 @@ export type TestInfoObj = {
   initialHover?: string;
 
   /**
+   * Sets the default value for `pageScreenshot()`'s clipvViewport option
+   *
+   * Use this for pages where you know you need to ignore elements
+   * (e.g. `Bling` elements) that extend off-screen.
+   */
+  clipViewport?: boolean;
+
+  /**
    * Skips the automatic pageScreenshot that gets snapped if the
    * prep function didn't snap any.
    */
@@ -112,7 +120,7 @@ export type TestFnArgs = Pick<
   pageScreenshot(
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
-    opts?: PageScreenshotOptions
+    opts?: PageScreenshotOptions & { clipViewport?: boolean }
   ): Promise<void>;
 
   /**

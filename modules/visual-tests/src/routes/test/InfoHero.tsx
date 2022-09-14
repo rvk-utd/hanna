@@ -53,6 +53,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
   initialHover: '.ButtonTertiary:has-text("Fjárhagslegir hagsmunir") >> nth=0',
+  clipViewport: true,
 };

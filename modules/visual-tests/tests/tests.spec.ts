@@ -151,7 +151,9 @@ allComponentTests.forEach(([name, testInfo]) => {
   testFn(
     testName + tagStr + '-',
     async ({ page, context, browserName, isMobile, hasTouch }, { project }) => {
-      const pageScreenshot = makeSnapPageScreeshot(page, testName);
+      const pageScreenshot = makeSnapPageScreeshot(page, testName, {
+        clipViewport: testInfo.clipViewport,
+      });
       const localScreenshot = makeSnapLocalScreeshot(page, testName);
       const expandViewport = _expandViewport(page);
       const setViewportSize = _setViewportSize(page);
