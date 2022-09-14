@@ -9,5 +9,5 @@
     // Remix takes care of building everything in `remix build`.
     "noEmit": true
   },
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "../**/*.ts", "../**/*.tsx"]
+  "include": ["remix.env.d.ts", "../**/*.ts", "../**/*.tsx"]
 }
