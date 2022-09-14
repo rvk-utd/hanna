@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import IslandBlock, { IslandBlockProps } from '@reykjavik/hanna-react/IslandBlock';
 
@@ -55,15 +55,14 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {testCombos.map((props, i) => (
-        <React.Fragment key={i}>
+        <Fragment key={i}>
           <IslandBlock {...props} startSeen />
-          {'\n\n'}
-        </React.Fragment>
+        </Fragment>
       ))}
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  initialHover: 'IslandBlock__button',
+  initialHover: '.IslandBlock__button >> nth=0',
 };

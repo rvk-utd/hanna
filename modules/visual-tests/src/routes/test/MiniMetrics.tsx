@@ -16,8 +16,8 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <MiniMetrics
-        text="78% nemanda upplifðu gleði 2019"
-        moreButton={{ href: '', label: 'Skoða mælaborðið' }}
+        text="Leebur deroor iehroom, bork bork börk! "
+        moreButton={{ href: '', label: 'Label text' }}
         startSeen
       />
     </Minimal>
