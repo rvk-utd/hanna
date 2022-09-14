@@ -100,7 +100,12 @@ export const CardList = (props: _CardListProps) => {
       >
         {cards.map((card, i) => (
           <li key={i} className={bemPrefix + '__item'}>
-            <Card {...card} bem={bemPrefix} imgPlaceholder={!!imgPlaceholder} />
+            <Card
+              /* Assert as `ImageCardProps` to silence the imgPlaceholder false-positive */
+              {...(card as ImageCardProps)}
+              bem={bemPrefix}
+              imgPlaceholder={!!imgPlaceholder}
+            />
           </li>
         ))}
       </ul>
