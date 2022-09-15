@@ -15,21 +15,21 @@ export const photo = {
 // ---------------------------------------------------------------------------
 
 export const lorem = {
-  tiny: 'Leebur deroor iehroom, bork bork börk! Enim ad minim chokolat moose.',
+  tiny: 'Leebur deroor iehroom, bork bork börk! Enim ad minim chokolat moose. ',
   short:
     'Yöva gäta stahrt sömwaer. Ut enim ad minim venäm, letsi börk ifder ' +
-    'svensk og latin makinen dehr graek.',
+    'svensk og latin makinen dehr graek. ',
   medium:
     'Vender gests kämmen vewänthärdis wehrdsen onderpasje moose. Ut enim ' +
     'ad minim veniam, letsi ifder svensk og latin makinen dehr graek. ' +
-    'Yöva gäta stahrt sömwaer. Nawei raitinen de wehbsyte.',
+    'Yöva gäta stahrt sömwaer. Nawei raitinen de wehbsyte. ',
   long:
     'Lörem ipsum dolor sit amet, dedeeshka duu. Leebur deroor iehroom, bork ' +
     'bork börk! Ut enim ad minim veniam, letsi ifder svensk og latin ' +
     'makinen dehr graek. Ut enim ad minim veniam, letsi ifder svensk og ' +
     'latin makinen dehr graek. Nawei raitinen de wehbsyte. Ut enim ad minim ' +
     'veniam, letsi ifder svensk og latin makinen dehr graek. Ut enim ad ' +
-    'minim veniam, letsi ifder svensk og latin makinen dehr graek.',
+    'minim veniam, letsi ifder svensk og latin makinen dehr graek. ',
 };
 
 // ---------------------------------------------------------------------------
@@ -44,13 +44,13 @@ export const loremRT = {
   tiny: (bold = false) => (
     <Fragment>
       Leebur deroor iehroom, <a href="/">bork bork börk</a>! Enim ad{' '}
-      <B on={bold}>minim chokolat moose</B>.
+      <B on={bold}>minim chokolat moose</B>.{' '}
     </Fragment>
   ),
   short: (bold = false) => (
     <Fragment>
       Yöva gäta <a href="/">stahrt sömwaer</a>. Ut enim ad minim venäm,{' '}
-      <B on={bold}>letsi börk ifder</B> svensk og latin makinen dehr graek.
+      <B on={bold}>letsi börk ifder</B> svensk og latin makinen dehr graek.{' '}
     </Fragment>
   ),
   medium: (bold = false) => (
@@ -67,7 +67,7 @@ export const loremRT = {
       letsi ifder svensk og latin makinen dehr graek. Ut enim ad minim veniam, letsi ifder
       svensk og latin makinen dehr graek. Nawei raitinen de wehbsyte.{' '}
       <a href="/">Ut enim ad minim</a> veniam, letsi ifder svensk og latin makinen dehr
-      graek. Ut enim ad minim veniam, letsi ifder svensk og latin makinen dehr graek.
+      graek. Ut enim ad minim veniam, letsi ifder svensk og latin makinen dehr graek.{' '}
     </Fragment>
   ),
 };
