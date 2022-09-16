@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Mark uncontrolled `TextInput`'s with user input `--filled` after reload
 - fix(ts): Botched re-export of `SelectboxOption*` types
 
 ## 0.10.67

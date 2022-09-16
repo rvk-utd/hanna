@@ -1,4 +1,4 @@
-import React, { ChangeEvent, RefObject, useState } from 'react';
+import React, { ChangeEvent, RefObject, useEffect, useRef, useState } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import FormField, { FormFieldWrappingProps } from './FormField';
@@ -32,6 +32,8 @@ export type TextInputProps = {
   );
 
 const TextInput = (props: TextInputProps) => {
+  const _inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
+
   const {
     className,
 
@@ -50,7 +52,7 @@ const TextInput = (props: TextInputProps) => {
     small,
     type,
     ssr,
-    inputRef,
+    inputRef = _inputRef,
     ...inputElementProps
   } = props;
 
@@ -73,6 +75,11 @@ const TextInput = (props: TextInputProps) => {
               e as ChangeEvent<HTMLInputElement> & ChangeEvent<HTMLTextAreaElement>
             );
         };
+  useEffect(() => {
+    if (inputRef.current?.value) {
+      setHasValue(true);
+    }
+  }, []);
 
   return (
     <FormField
