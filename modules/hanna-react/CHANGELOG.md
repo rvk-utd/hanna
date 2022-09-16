@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix(ts): Botched re-export of `SelectboxOption*` types
 
 ## 0.10.67
 
