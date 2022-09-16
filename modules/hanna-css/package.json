@@ -32,7 +32,7 @@
     "build:css:dev": "yarn install  &&  node build.mjs  &&  yarn run gulp buildCss",
     "build:all": "yarn run build:css  &&  NODE_ENV=production  yarn run gulp buildAssets",
     "dev:server": "NODE_ENV=development  yarn run cssserve --config cssserve-dev.json",
-    "dev": "yarn install  &&  yarn run -T concurrently -k \"sleep 4 && tsc --noEmit --watch --preserveWatchOutput\"  \"node build.mjs --dev\"  \"sleep 3 && yarn run gulp watch\"  \"yarn run dev:server\" \"yarn run test:dev\"",
+    "dev": "yarn install  &&  yarn run -T concurrently -k \"node build.mjs --dev\"  \"sleep 3 && yarn run gulp watch\"  \"yarn run dev:server\" \"yarn run test:dev\"",
     "prepublishOnly": "echo \"\nRun 'yarn run publishdist' to publish this package\n\n\"  && exit 1",
     "publish:lib": "yarn run build:lib  &&  cd _npm-lib  &&  npm publish",
     "publish:server": "yarn install  &&  yarn run publish:server:assets  &&  yarn run publish:server:css",

@@ -1,6 +1,6 @@
 // @ts-check
 /* eslint-env es2022 */
-import { exec as execAsync, execSync } from 'child_process';
+import { execSync } from 'child_process';
 import esbuild from 'esbuild';
 import { readFileSync, writeFileSync } from 'fs';
 import { access, mkdir, readFile, writeFile } from 'fs/promises';
@@ -21,7 +21,8 @@ export const srcDir = 'src';
 // ---------------------------------------------------------------------------
 
 export const exit1 = (err) => {
-  console.error(err);
+  const message = 'message' in err ? err.message : err;
+  console.error(message);
 
   process.exit(1);
 };
@@ -83,35 +84,12 @@ export const externalDeps = [
   ...Object.keys(rootPkg.devDependencies || {}),
 ].filter((name) => !name.startsWith('@reykjavik/hanna-'));
 
-export const buildTests = () => {
-  execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
-
-  esbuild
-    .build({
-      bundle: true,
-      external: externalDeps,
-      format: 'cjs',
-      platform: 'node',
-      target: ['node16'],
-      entryPoints: glob.sync(`${srcDir}/**/*.tests.{js,ts,tsx}`),
-      entryNames: '[dir]/[hash]__[name]',
-      write: false,
-      watch: !!opts.dev && {
-        onRebuild: (err, results) => writeOnlyAffected(results, err),
-      },
-      outdir: testsDir,
-    })
-    .then(writeOnlyAffected)
-    .catch(exit1);
-};
-
 // ---------------------------------------------------------------------------
 
-/** @typedef {{ compilerOptions: Record<string, unknown>; include: string[]; exlude?: string[] }}  TSConfig */
+/** @typedef {{ compilerOptions?: Record<string, unknown>; include: string[]; exlude?: string[] }}  TSConfig */
 const tscBuild = (
   /** @type {string} */ name,
-  /** @type {TSConfig | undefined} */ config,
-  /** @type {boolean | undefined} */ watch
+  /** @type {TSConfig | undefined} */ config
 ) => {
   const cfgFile = `tsconfig.build.${name}.json`;
   writeFileSync(
@@ -122,11 +100,43 @@ const tscBuild = (
       '\t'
     )}`
   );
-  if (watch) {
-    execAsync(`yarn run -T tsc --project ${cfgFile} --watch --preserveWatchOutput`);
-  } else {
+  try {
     execSync(`yarn run -T tsc --project ${cfgFile}`);
+  } catch (err) {
+    exit1(new Error(err.output.toString()));
   }
+};
+
+// ---------------------------------------------------------------------------
+
+export const buildTests = () => {
+  execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
+
+  const globPrefix = `${srcDir}/**/*.tests`;
+  if (!opts.dev) {
+    tscBuild('tests', {
+      compilerOptions: { noEmit: true },
+      include: [`${globPrefix}.ts`],
+    });
+  }
+
+  esbuild
+    .build({
+      bundle: true,
+      external: externalDeps,
+      format: 'cjs',
+      platform: 'node',
+      target: ['node16'],
+      entryPoints: glob.sync(`${globPrefix}.{js,ts,tsx}`),
+      entryNames: '[dir]/[hash]__[name]',
+      write: false,
+      watch: !!opts.dev && {
+        onRebuild: (err, results) => writeOnlyAffected(results, err),
+      },
+      outdir: testsDir,
+    })
+    .then(writeOnlyAffected)
+    .catch(exit1);
 };
 
 // ---------------------------------------------------------------------------
