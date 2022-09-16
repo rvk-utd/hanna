@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import Selectbox, { SelectboxOptions } from '@reykjavik/hanna-react/Selectbox';
+import Selectbox, { SelectboxOptionList } from '@reykjavik/hanna-react/Selectbox';
 
 import HiddenTiger from './utils/HiddenTiger';
 import { getFormFieldKnobs } from './utils/knobs';
@@ -15,7 +15,7 @@ export default {
   } as StoryParameters,
 };
 
-const fruits: SelectboxOptions<string> = [
+const fruits: SelectboxOptionList<string> = [
   // { value: '', label: 'Empty (first)', disabled: true },
   { value: 'a', label: 'Apple' },
   { value: 'b', label: 'Banana' },
@@ -31,7 +31,7 @@ const makeStory = (ssr: boolean): StoryComponent => {
     const ffProps = getFormFieldKnobs();
 
     const [focused, setFocused] = useState(false);
-    const [value, setValue] = useState<string | number | undefined>('');
+    const [value, setValue] = useState<string>('');
 
     return (
       <Fragment key={JSON.stringify(ffProps)}>

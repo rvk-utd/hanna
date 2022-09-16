@@ -20,12 +20,15 @@ const getValue = (opt: SelectboxOption | string | number | undefined) => {
   return typeof val === 'number' ? String(val) : val;
 };
 
-export type SelectboxProps = FormFieldWrappingProps &
-  Omit<_SelectboxProps, 'bem'> & {
-    small?: boolean;
-  };
+type OptionOrValue = _SelectboxProps['options'][0];
 
-const Selectbox = (props: SelectboxProps) => {
+export type SelectboxProps<O extends OptionOrValue = OptionOrValue> =
+  FormFieldWrappingProps &
+    Omit<_SelectboxProps<O>, 'bem'> & {
+      small?: boolean;
+    };
+
+const Selectbox = <O extends OptionOrValue>(props: SelectboxProps<O>) => {
   const {
     className,
 

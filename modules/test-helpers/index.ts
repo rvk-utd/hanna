@@ -13,3 +13,10 @@ export const compareKeys = (
     unexpected,
   };
 };
+
+// ---------------------------------------------------------------------------°
+
+export type Equals<A, B> = A extends B ? (B extends A ? true : false) : false;
+export type TestEquals<A, B> = Equals<A, B> extends true ? unknown : never;
+export type TestExtends<A, B> = A extends B ? unknown : never;
+export type TestNotExtends<A, B> = B extends A ? never : unknown;
