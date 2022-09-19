@@ -1,22 +1,25 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
-import ButtonPrimary, { ButtonPrimaryProps } from '@reykjavik/hanna-react/ButtonPrimary';
-import ButtonSecondary, { ButtonSecondaryProps } from '@reykjavik/hanna-react/ButtonSecondary';
-import ButtonTertiary, { ButtonTertiaryProps } from '@reykjavik/hanna-react/ButtonTertiary';
+import ButtonBar from '@reykjavik/hanna-react/ButtonBar';
+import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
+import ButtonSecondary from '@reykjavik/hanna-react/ButtonSecondary';
+import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
+
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 //import { Buttons } from 'modules/html-storybook/src/Buttons.stories';
-import { PrimaryPanel } from '@reykjavik/hanna-react/MainMenu/_PrimaryPanel';
-import { serialize } from 'v8';
 
 export const meta: MetaFunction = autoTitle;
 
-export const handle = { cssTokens: ["ButtonPrimary", "ButtonSecondary", "ButtonTertiary"] };
+export const handle = {
+  cssTokens: ['ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary'],
+};
 
-const buttons = (align: 'right' | undefined) =>
-  [
+const buttons = (align: 'right' | undefined) => {
+  // alias here to appease PlayWright's weirdly limited build config
+  const ButtonBarSplit = ButtonBar.Split;
+  return (
     <Fragment>
       <ButtonBar align={align}>
         <ButtonPrimary icon="go-forward">Continue</ButtonPrimary>
@@ -26,7 +29,7 @@ const buttons = (align: 'right' | undefined) =>
 
       <ButtonBar align={align}>
         <ButtonPrimary icon="go-forward">Continue</ButtonPrimary>
-        {/* <ButtonBar.Split /> */}
+        <ButtonBarSplit />
         <ButtonTertiary>To the Right</ButtonTertiary>
         <ButtonTertiary icon="go-back">Go Back</ButtonTertiary>
       </ButtonBar>
@@ -34,7 +37,7 @@ const buttons = (align: 'right' | undefined) =>
       <ButtonBar align={align}>
         <ButtonPrimary icon="go-forward">Continue</ButtonPrimary>
         <ButtonTertiary>To the Left</ButtonTertiary>
-        {/* <ButtonBar.Split /> */}
+        <ButtonBarSplit />
         <ButtonTertiary icon="go-back">Go Back</ButtonTertiary>
       </ButtonBar>
       <hr />
@@ -44,9 +47,9 @@ const buttons = (align: 'right' | undefined) =>
       <hr />
       <ButtonBar align={align}>
         <ButtonSecondary>To the left</ButtonSecondary>
-        {/* <ButtonBar.Split /> */}
+        <ButtonBarSplit />
         <ButtonSecondary>Middle</ButtonSecondary>
-        {/* <ButtonBar.Split /> */}
+        <ButtonBarSplit />
         <ButtonPrimary>To the Right</ButtonPrimary>
       </ButtonBar>
       <hr />
@@ -54,9 +57,9 @@ const buttons = (align: 'right' | undefined) =>
       <ButtonBar align={align}>
         <ButtonSecondary>To the left</ButtonSecondary>
         <span>Random content</span>
-        {/* <ButtonBar.Split /> */}
+        <ButtonBarSplit />
         <ButtonSecondary>Middle …ish</ButtonSecondary>
-        {/* <ButtonBar.Split /> */}
+        <ButtonBarSplit />
         <ButtonPrimary>To the Right</ButtonPrimary>
       </ButtonBar>
 
@@ -71,15 +74,16 @@ const buttons = (align: 'right' | undefined) =>
       <ButtonBar align={align}>
         <ButtonPrimary icon="go-forward">Continue</ButtonPrimary>
         <ButtonTertiary icon="go-back">Go Back</ButtonTertiary>
-        {/* <ButtonBar.Split /> */}
+        <ButtonBarSplit />
         <ButtonSecondary>Secondary</ButtonSecondary>
         <ButtonSecondary>Uno</ButtonSecondary>
         <ButtonSecondary>Dos</ButtonSecondary>
-        {/* <ButtonBar.Split /> */}
+        <ButtonBarSplit />
         <ButtonSecondary>Tres</ButtonSecondary>
       </ButtonBar>
     </Fragment>
-  ]
+  );
+};
 
 export default function () {
   return (
