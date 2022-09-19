@@ -80,17 +80,17 @@ export const Buttons: StoryComponent = () => {
               <ButtonComponent size={sizeValue} variant={variant} icon="go-back">
                 Go Back
               </ButtonComponent>{' '}
-              {/** /}
-                {ButtonComponent !== ButtonTertiary && (
-                  <ButtonComponent
-                    size={sizeValue}
-                    variant={variant}
-                    icon={'edit' as never}
-                  >
-                    Icon
-                  </ButtonComponent>
-                )}{' '}
-                {/**/}
+              {/**/}
+              {ButtonComponent !== ButtonTertiary && (
+                <ButtonComponent
+                  size={sizeValue}
+                  variant={variant}
+                  icon={'edit' as never}
+                >
+                  Icon
+                </ButtonComponent>
+              )}{' '}
+              {/**/}
               {ButtonComponent !== ButtonTertiary && (
                 <ButtonComponent
                   size={sizeValue}

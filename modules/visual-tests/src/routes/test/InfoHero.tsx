@@ -58,6 +58,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  initialHover: '.ButtonTertiary:has-text("Fjárhagslegir hagsmunir") >> nth=0',
+  initialHover: '.ButtonTertiary:has-text("Lorem Ipsum") >> nth=0',
   clipViewport: true,
 };

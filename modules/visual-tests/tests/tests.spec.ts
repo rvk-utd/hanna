@@ -41,6 +41,7 @@ type TestPageLabel = keyof typeof testPagePaths;
 import { testing as AccordionList__test } from '../src/routes/test/AccordionList';
 import { testing as ActionCards__test } from '../src/routes/test/ActionCards';
 import { testing as Alert__test } from '../src/routes/test/Alert';
+import { testing as ArticleCards__test } from '../src/routes/test/ArticleCards';
 import { testing as ArticleCarousel__test } from '../src/routes/test/ArticleCarousel';
 import { testing as ArticleMeta__test } from '../src/routes/test/ArticleMeta';
 import { testing as Attention__test } from '../src/routes/test/Attention';
@@ -48,6 +49,8 @@ import { testing as BasicTable__test } from '../src/routes/test/BasicTable';
 import { testing as BgBox__test } from '../src/routes/test/BgBox';
 import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote';
 import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
+import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar';
+import { testing as Button_Types__test } from '../src/routes/test/Button_Types';
 import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
 import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble';
 import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
@@ -81,6 +84,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   AccordionList: AccordionList__test,
   ActionCards: ActionCards__test,
   Alert: Alert__test,
+  ArticleCards: ArticleCards__test,
   ArticleCarousel: ArticleCarousel__test,
   ArticleMeta: ArticleMeta__test,
   Attention: Attention__test,
@@ -88,6 +92,8 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   BgBox: BgBox__test,
   BlockQuote: BlockQuote__test,
   ButtonBack: ButtonBack__test,
+  ButtonBar: ButtonBar__test,
+  Button_Types: Button_Types__test,
   CityBlock: CityBlock__test,
   ContactBubble: ContactBubble__test,
   ExtraLinks: ExtraLinks__test,
