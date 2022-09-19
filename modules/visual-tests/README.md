@@ -43,7 +43,7 @@ result in some visual tests failing.
 ## Running the Tests
 
 The visuial-tests are automatically run as part of the publishing process for
-the [`style-server`] and `@reykjavik/hanna-react` library are published.
+the `style-server` and the `@reykjavik/hanna-react` library are published.
 
 Running the PlayWright tests standalone is also possible with `yarn run test`.
 

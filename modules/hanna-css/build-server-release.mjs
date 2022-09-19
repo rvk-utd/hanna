@@ -11,7 +11,7 @@ execSync(
     `git submodule update --init`,
 
     `cd ${serverFolder}`,
-    `git checkout style-server`,
+    `git checkout feature/style-server`,
     `cd -`,
 
     `git submodule update --remote --rebase`,

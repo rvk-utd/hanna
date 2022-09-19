@@ -7,7 +7,7 @@ git lfs pre-push "$@"
 ## Make sure all local submodule changes are also pushed
 if [ -e "style-server/package.json" ]; then
   cd style-server
-  git checkout style-server
+  git checkout feature/style-server
   git push
   cd -
 fi

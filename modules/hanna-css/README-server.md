@@ -37,6 +37,9 @@ yarn install --production
 yarn run start
 ```
 
+The `master` branch is the "live" branch, whereas the most recent
+content/features are on `feature/style-server`
+
 This starts a HTTP server with the config specified in
 [cssserve-prod.json](./cssserve-prod.json).
 
