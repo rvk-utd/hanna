@@ -3,20 +3,13 @@
 # Custom hack
 git config --local include.path ../.gitconfig
 
-command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n"; }
+OUTFILE='POST-INSTALL-README.txt'
+
+# echo messages to POST-INSTALL-README.md since yarn suppresses all script output during postinstall
+command -v git-lfs >/dev/null 2>&1 || { echo >&2 "This repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n" >> "$OUTFILE"; }
 
 if [ ! -e "style-server/package.json" ] || [ ! -e "servers/docs/package.json" ]; then
-  echo "NOTE: \nThis repo contains git submodules (in '/style-server' and '/servers/docs')."
-  while true; do
-    read -p "Do you want you want to initialize those submodules [*Yes*|No]?" yn
-    case $yn in
-      Y | y | Yes | yes )
-        git submodule update --init;
-        break
-      ;;
-      N | n | No | no )
-        exit
-      ;;
-    esac
-  done
+  echo "\nNOTE: \nThis repo contains git submodules (in '/style-server' and '/servers/docs').\n" >> "$OUTFILE"
+  echo "If you want to initialize those submodules run\n" >> "$OUTFILE"
+  echo "    git submodule update --init\n" >> "$OUTFILE"
 fi
