@@ -20,7 +20,7 @@ execSync(
     `cp package-server.json ${serverFolder}package.json`,
     `cp README-server.md ${serverFolder}README.md`,
     `cp CHANGELOG-server.md ${serverFolder}CHANGELOG.md`,
-    `cp cssserve-prod.json ${serverFolder}cssserve-prod.json`,
+    `cp cssserve-prod-server.json ${serverFolder}cssserve-prod.json`,
 
     // submodule commit
     `cd ${serverFolder}`,
