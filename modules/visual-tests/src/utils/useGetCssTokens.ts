@@ -21,8 +21,19 @@ export const useGetCssTokens = () => {
           matches
             .flatMap(({ handle, pathname }) => {
               const autoToken = [
-                pathname.match(/^\/test\/(?:.+\/)?([A-Z][a-zA-Z0-9]+)(?:-.+)?$/)?.[1] ||
-                  '',
+                (pathname.match(
+                  '' +
+                    // path must start with /test/
+                    '^/test/' +
+                    // ignore any sub-folder segments (greedy match)
+                    '(?:.+/)?' +
+                    // capture as $1 the PascalCased start of the last path segment
+                    '([A-Z][a-zA-Z0-9]+)' +
+                    // ignore/tolerate "-" and everything following it
+                    '(?:-.+)?' +
+                    // Match all the way to the end
+                    '$'
+                ) || [])[1] || '',
               ];
               const { cssTokens } = handle || {};
               const handleTokens =
