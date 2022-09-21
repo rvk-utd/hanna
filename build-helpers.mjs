@@ -58,17 +58,23 @@ export const isNewFile = ({ path }) => {
   return true;
 };
 
-const writeOnlyAffected = (res, err) => {
-  if (err) {
-    return;
-  }
-  return res.outputFiles.filter(isNewFile).forEach((res) => {
-    const targetDir = dirname(res.path);
-    return access(targetDir)
-      .catch(() => mkdir(targetDir, { recursive: true }))
-      .then(() => writeFile(res.path, res.text));
-  });
-};
+const writeOnlyAffected =
+  (/** @type {boolean} */ stripHashPrefix) =>
+  (/** @type {esbuild.BuildResult} */ res, /** unknown */ err) => {
+    if (err) {
+      return;
+    }
+    return (res.outputFiles || []).filter(isNewFile).forEach((file) => {
+      const targetDir = dirname(file.path);
+      let filePath = file.path;
+      if (stripHashPrefix) {
+        filePath = filePath.replace(/^\$\$[A-Z0-9]+\$\$-/, '');
+      }
+      return access(targetDir)
+        .catch(() => mkdir(targetDir, { recursive: true }))
+        .then(() => writeFile(filePath, file.text));
+    });
+  };
 
 // ---------------------------------------------------------------------------
 
@@ -112,11 +118,11 @@ const tscBuild = (
 export const buildTests = () => {
   execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
 
-  const globPrefix = `${srcDir}/**/*.tests`;
+  const globPrefix = `${srcDir}/**/*.tests.`;
   if (!opts.dev) {
     tscBuild('tests', {
       compilerOptions: { noEmit: true },
-      include: [`${globPrefix}.ts`],
+      include: [`${globPrefix}ts`],
     });
   }
 
@@ -127,15 +133,15 @@ export const buildTests = () => {
       format: 'cjs',
       platform: 'node',
       target: ['node16'],
-      entryPoints: glob.sync(`${globPrefix}.{js,ts,tsx}`),
-      entryNames: '[dir]/[hash]__[name]',
+      entryPoints: glob.sync(`${globPrefix}{js,ts,tsx}`),
+      entryNames: '[dir]/$$[hash]$$-[name]',
       write: false,
       watch: !!opts.dev && {
-        onRebuild: (err, results) => writeOnlyAffected(results, err),
+        onRebuild: (err, results) => results && writeOnlyAffected(true)(results, err),
       },
       outdir: testsDir,
     })
-    .then(writeOnlyAffected)
+    .then(writeOnlyAffected(true))
     .catch(exit1);
 };
 
