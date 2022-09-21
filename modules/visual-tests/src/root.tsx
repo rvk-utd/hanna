@@ -84,7 +84,11 @@ export default function App() {
         />
         <link
           rel="stylesheet"
-          href={getCssBundleUrl(cssTokens, { testingServer: 'http://localhost:4000' })}
+          href={
+            getCssBundleUrl(cssTokens, { testingServer: 'http://localhost:4000' }) +
+            // magic parameter to override default dev config while running tests
+            '&allowBadTokens=true'
+          }
         />
         <Links />
         {q.get('noAnimation') != null && (
