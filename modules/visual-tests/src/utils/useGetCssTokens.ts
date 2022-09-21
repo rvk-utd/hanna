@@ -29,8 +29,8 @@ export const useGetCssTokens = () => {
                     '(?:.+/)?' +
                     // capture as $1 the PascalCased start of the last path segment
                     '([A-Z][a-zA-Z0-9]+)' +
-                    // ignore/tolerate "-" and everything following it
-                    '(?:-.+)?' +
+                    // ignore/tolerate "-" and "_", and everything following it
+                    '(?:[-_].*)?' +
                     // Match all the way to the end
                     '$'
                 ) || [])[1] || '',
