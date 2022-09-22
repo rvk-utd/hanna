@@ -67,7 +67,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
   extras: async ({ page, localScreenshot }) => {
     const relatedLink = page.locator('a:has-text("Tengt efni")');
     const relatedContainer = page.locator('.RelatedLinks');
