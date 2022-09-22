@@ -38,7 +38,7 @@ const RELATEDLINKS: ContentArticleProps['relatedLinks'] = {
       href: 'something.pdf',
     },
     {
-      label: 'Tengt efni - upplýsingar',
+      label: 'Leebur deroor iehrom',
       href: 'something?format=pdf',
       type: 'pdf',
     },
@@ -66,4 +66,12 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {};
+export const testing: TestingInfo = {
+  __DEV_FOCUS__: true,
+  extras: async ({ page, localScreenshot }) => {
+    const relatedLink = page.locator('a:has-text("Tengt efni")');
+    const relatedContainer = page.locator('.RelatedLinks');
+    await relatedLink.hover();
+    await localScreenshot(relatedContainer, 'relatedLink-hover', { margin: true });
+  },
+};
