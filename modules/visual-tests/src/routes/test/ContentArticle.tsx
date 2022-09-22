@@ -65,7 +65,6 @@ export default function () {
     </Minimal>
   );
 }
-
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
     const relatedLink = page.locator('a:has-text("Tengt efni")');

@@ -51,4 +51,12 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {};
+export const testing: TestingInfo = {
+  extras: async ({ page, pageScreenshot }) => {
+    const carouselStepper = page.locator('.CarouselStepper__button >> nth = 2');
+    await carouselStepper.hover();
+    await pageScreenshot('carouselStepper-hover');
+    await carouselStepper.click();
+    await pageScreenshot('carouselStepper-click');
+  },
+};
