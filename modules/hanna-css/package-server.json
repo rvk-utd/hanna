@@ -23,6 +23,6 @@
     "start:dev": "yarn run cssserve --config cssserve-dev.json"
   },
   "dependencies": {
-    "cssserve": "^2.2.0"
+    "cssserve": "^2.2.1"
   }
 }
