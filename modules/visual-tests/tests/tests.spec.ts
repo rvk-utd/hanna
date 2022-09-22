@@ -48,11 +48,13 @@ import { testing as Attention__test } from '../src/routes/test/Attention';
 import { testing as BasicTable__test } from '../src/routes/test/BasicTable';
 import { testing as BgBox__test } from '../src/routes/test/BgBox';
 import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote';
-// import { testing as Button_Types__test } from '../src/routes/test/Butto°n_Types';
+import { testing as Button_Types__test } from '../src/routes/test/Button_Types';
 import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
 import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar';
+import { testing as Carousel__test } from '../src/routes/test/Carousel';
 import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
 import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble';
+import { testing as ContentArticle__test } from '../src/routes/test/ContentArticle';
 import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as Gallery__test } from '../src/routes/test/Gallery';
@@ -93,7 +95,9 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   BlockQuote: BlockQuote__test,
   ButtonBack: ButtonBack__test,
   ButtonBar: ButtonBar__test,
-  // Button_Types: Button_Types__test,
+  Button_Types: Button_Types__test,
+  Carousel: Carousel__test,
+  ContentArticle: ContentArticle__test,
   CityBlock: CityBlock__test,
   ContactBubble: ContactBubble__test,
   ExtraLinks: ExtraLinks__test,

@@ -8,7 +8,6 @@ import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
-//import { Buttons } from 'modules/html-storybook/src/Buttons.stories';
 
 export const meta: MetaFunction = autoTitle;
 
@@ -99,9 +98,4 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {
-  //initialHover: '.ButtonPrimary--go--back >> nth = 0 ',
-  extras: async ({ page, pageScreenshot }) => {
-    //const  = page.locator('.ButtonSecondary >> nth=0');
-  },
-};
+export const testing: TestingInfo = {};
