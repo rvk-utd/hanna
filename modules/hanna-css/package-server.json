@@ -19,8 +19,8 @@
     "yarn": ">=1.22"
   },
   "scripts": {
-    "start": "NODE_ENV=production  yarn run cssserve --config cssserve-prod.json",
-    "start:dev": "yarn run cssserve --config cssserve-dev.json"
+    "start": "sh scripts/start.sh",
+    "start:dev": "sh scripts/start-dev.sh"
   },
   "dependencies": {
     "cssserve": "^2.2.1"
