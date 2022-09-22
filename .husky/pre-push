@@ -4,16 +4,4 @@
 command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n"; exit 2; }
 git lfs pre-push "$@"
 
-## Make sure all local submodule changes are also pushed
-if [ -e "style-server/package.json" ]; then
-  cd style-server
-  git checkout feature/style-server
-  git push
-  cd -
-fi
-if [ -e "servers/docs/package.json" ]; then
-  cd servers/docs
-  git checkout main
-  git push
-  cd -
-fi
+sh scripts/submodules-push.sh

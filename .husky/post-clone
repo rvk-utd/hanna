@@ -3,13 +3,9 @@
 # Custom hack
 git config --local include.path ../.gitconfig
 
-OUTFILE='POST-INSTALL-README.txt'
+OUTFILE='WARNING---LSF.txt'
 
-# echo messages to POST-INSTALL-README.md since yarn suppresses all script output during postinstall
-command -v git-lfs >/dev/null 2>&1 || { echo >&2 "This repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n" >> "$OUTFILE"; }
+# echo messages to $%OUTFILE since yarn suppresses all script output during postinstall
+command -v git-lfs >/dev/null 2>&1 || { echo >&2 "This repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n" > "$OUTFILE"; }
 
-if [ ! -e "style-server/package.json" ] || [ ! -e "servers/docs/package.json" ]; then
-  echo "\nNOTE: \nThis repo contains git submodules (in '/style-server' and '/servers/docs').\n" >> "$OUTFILE"
-  echo "If you want to initialize those submodules run\n" >> "$OUTFILE"
-  echo "    git submodule update --init\n" >> "$OUTFILE"
-fi
+sh scripts/submodules-check.sh
