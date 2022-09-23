@@ -1,4 +1,4 @@
-import { TestEquals, TestExtends, TestNotExtends } from 'hanna-test-helpers';
+import type { Equals, Expect, Extends, NotExtends } from 'hanna-test-helpers';
 import o from 'ospec';
 
 import Selectbox_default, {
@@ -24,29 +24,34 @@ const typeTests = () => {
     label: 'asdf',
     options: [{ value: 'one' }, 'two'],
     onSelected: (newValue, newOption) => {
-      const t1: TestEquals<typeof newValue, string> = true;
-      const t2: TestExtends<typeof newOption, _StringOption | 'two'> = true;
-      const t3: TestNotExtends<typeof newOption, number> = true;
-      const t3b: TestNotExtends<typeof newOption, _NumberOption> = true;
+      type t1 = Expect<Equals<typeof newValue, string>>;
+      type t2 = Expect<Extends<typeof newOption, _StringOption | 'two'>>;
+      type t3 = Expect<NotExtends<typeof newOption, number>>;
+      type t3b = Expect<NotExtends<typeof newOption, _NumberOption>>;
     },
   });
 
-  const t1: TestEquals<SelectboxOptionList, SelectboxOptions> = true;
+  type t1 = Expect<Equals<SelectboxOptionList, SelectboxOptions>>;
 
-  const t2: TestEquals<SelectboxOptionList<string>[number], _StringOption> = undefined;
-  const t2b: TestEquals<SelectboxOptionList<number>[number], _NumberOption> = true;
-  const t3: TestEquals<_StringOption['value'], string> = true;
-  const t4: TestEquals<SelectboxProps<string>['options'][number], string> = true;
-  const t4b: TestEquals<
-    NonNullable<SelectboxProps<string>['onSelected']>,
-    (a: string, b: string) => void
-  > = true;
-  const t4c: TestEquals<
-    NonNullable<SelectboxProps<_StringOption>['onSelected']>,
-    (a: string, b: _StringOption) => void
-  > = true;
-  const t4d: TestEquals<SelectboxProps<number>['options'][number], number> = true;
-  const t5: TestEquals<SelectboxProps<_StringOption>['options'][number], _StringOption> =
-    true;
+  type t2 = Expect<Equals<SelectboxOptionList<string>[number], _StringOption>>;
+  type t2b = Expect<Equals<SelectboxOptionList<number>[number], _NumberOption>>;
+  type t3 = Expect<Equals<_StringOption['value'], string>>;
+  type t4 = Expect<Equals<SelectboxProps<string>['options'][number], string>>;
+  type t4b = Expect<
+    Equals<
+      NonNullable<SelectboxProps<string>['onSelected']>,
+      (a: string, b: string) => void
+    >
+  >;
+  type t4c = Expect<
+    Equals<
+      NonNullable<SelectboxProps<_StringOption>['onSelected']>,
+      (a: string, b: _StringOption) => void
+    >
+  >;
+  type t4d = Expect<Equals<SelectboxProps<number>['options'][number], number>>;
+  type t5 = Expect<
+    Equals<SelectboxProps<_StringOption>['options'][number], _StringOption>
+  >;
 };
 /* eslint-enable @typescript-eslint/no-unused-vars */
