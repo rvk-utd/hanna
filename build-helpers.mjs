@@ -49,14 +49,7 @@ const makePackageJson = (
 
 // ---------------------------------------------------------------------------
 
-const fileMem = {};
-export const isNewFile = ({ path }) => {
-  if (path in fileMem) {
-    return false;
-  }
-  fileMem[path] = true;
-  return true;
-};
+let fileMem = {};
 
 const writeOnlyAffected =
   (/** @type {boolean} */ stripHashPrefix) =>
@@ -64,15 +57,24 @@ const writeOnlyAffected =
     if (err) {
       return;
     }
-    return (res.outputFiles || []).filter(isNewFile).forEach((file) => {
-      const targetDir = dirname(file.path);
-      let filePath = file.path;
-      if (stripHashPrefix) {
-        filePath = filePath.replace(/^\$\$[A-Z0-9]+\$\$-/, '');
-      }
-      return access(targetDir)
-        .catch(() => mkdir(targetDir, { recursive: true }))
-        .then(() => writeFile(filePath, file.text));
+    const { outputFiles = [] } = res;
+    const newFiles = {};
+    outputFiles
+      .filter(({ path }) => !fileMem[path])
+      .forEach(({ path, text }) => {
+        const targetDir = dirname(path);
+        newFiles[path] = 1;
+        if (stripHashPrefix) {
+          path = path.replace(/(^|\/)\$\$[A-Z0-9]+\$\$-/, '$1');
+        }
+        return access(targetDir)
+          .catch(() => mkdir(targetDir, { recursive: true }))
+          .then(() => writeFile(path, text));
+      });
+    // map this set of outputFiles as the fileMem for next time
+    fileMem = {};
+    outputFiles.forEach(({ path }) => {
+      fileMem[path] = 1;
     });
   };
 
