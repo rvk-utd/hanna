@@ -16593,7 +16593,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ospec@npm:^4.1.1":
+"ospec@npm:4.1.6":
   version: 4.1.6
   resolution: "ospec@npm:4.1.6"
   dependencies:
@@ -16601,6 +16601,17 @@ __metadata:
   bin:
     ospec: bin/ospec
   checksum: c5a28c4b36ca171a50f3f9c1489422a51d981358ed693ec25617424746ba2e9dba5be603810f967cbb35507bc59ed6cc8ce3caa14414304219d9f8af0265f37c
+  languageName: node
+  linkType: hard
+
+"ospec@patch:ospec@npm:4.1.6#.yarn/patches/ospec-npm-4.1.6-e12d75c5aa.patch::locator=hanna%40workspace%3A.":
+  version: 4.1.6
+  resolution: "ospec@patch:ospec@npm%3A4.1.6#.yarn/patches/ospec-npm-4.1.6-e12d75c5aa.patch::version=4.1.6&hash=70e1e6&locator=hanna%40workspace%3A."
+  dependencies:
+    glob: ^7.1.3
+  bin:
+    ospec: bin/ospec
+  checksum: 107b984bfe3789423bb22846edd05a78ccd3e657dd13276d45a70d0cd91023eef1d5abbcf3351e314ccc7192b8339d6ef33ad9ceb6c52dd8d6eccb3381bcdca5
   languageName: node
   linkType: hard
 

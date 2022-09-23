@@ -80,5 +80,8 @@
       "eslint-plugin-unused-imports",
       "prettier"
     ]
+  },
+  "resolutions": {
+    "ospec@^4.1.1": "patch:ospec@npm:4.1.6#.yarn/patches/ospec-npm-4.1.6-e12d75c5aa.patch"
   }
 }

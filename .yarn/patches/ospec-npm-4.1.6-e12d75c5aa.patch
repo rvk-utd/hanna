@@ -1,0 +1,13 @@
+diff --git a/ospec.js b/ospec.js
+index 2a125005f47482317445abb473442cbf7911d80c..4f069522acc11f51f7e1205dbdb9c286b9405f77 100644
+--- a/ospec.js
++++ b/ospec.js
+@@ -265,7 +265,7 @@ else window.o = m()
+ 			if (typeof reporter === "function") reporter(results, stats)
+ 			else {
+ 				var errCount = o.report(results, stats)
+-				if (hasProcess && errCount !== 0) process.exit(1) // eslint-disable-line no-process-exit
++				if (hasProcess) process.exit(errCount !== 0 ? 1 : undefined) // eslint-disable-line no-process-exit
+ 			}
+ 		}, null, null)
+ 
