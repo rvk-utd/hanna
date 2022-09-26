@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.68
+
+_2022-09-26_
+
 - feat: Add prop `target` to `ArticleCarouselCardProps`
 - feat: Improve `Selectbox`'s `options` and `onSelected` prop generics
 - feat: Add prop `headingTag` to `ContentArticle` to support `<h1/>`

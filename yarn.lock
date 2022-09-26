@@ -2502,7 +2502,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reykjavik/hanna-css@^0.3.7, @reykjavik/hanna-css@workspace:modules/hanna-css":
+"@reykjavik/hanna-css@^0.3.7, @reykjavik/hanna-css@workspace:*, @reykjavik/hanna-css@workspace:modules/hanna-css":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-css@workspace:modules/hanna-css"
   dependencies:
@@ -2519,7 +2519,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-react@^0.10.67, @reykjavik/hanna-react@workspace:modules/hanna-react":
+"@reykjavik/hanna-react@^0.10.68, @reykjavik/hanna-react@workspace:*, @reykjavik/hanna-react@workspace:modules/hanna-react":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-react@workspace:modules/hanna-react"
   dependencies:
@@ -2546,7 +2546,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-utils@^0.1.13, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
+"@reykjavik/hanna-utils@^0.1.13, @reykjavik/hanna-utils@workspace:*, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
@@ -11929,7 +11929,7 @@ __metadata:
     "@babel/core": ^7.8.4
     "@hugsmidjan/qj": ^4.10.2
     "@reykjavik/hanna-css": ^0.3.7
-    "@reykjavik/hanna-react": ^0.10.67
+    "@reykjavik/hanna-react": ^0.10.68
     "@storybook/addon-knobs": ^5.3.14
     "@storybook/addon-viewport": ^5.3.17
     "@storybook/addons": ^5.3.14
@@ -11964,9 +11964,9 @@ __metadata:
     "@remix-run/node": ^1.6.8
     "@remix-run/react": ^1.6.8
     "@remix-run/serve": ^1.6.8
-    "@reykjavik/hanna-css": ^0.3.7
-    "@reykjavik/hanna-react": ^0.10.67
-    "@reykjavik/hanna-utils": ^0.1.13
+    "@reykjavik/hanna-css": "workspace:*"
+    "@reykjavik/hanna-react": "workspace:*"
+    "@reykjavik/hanna-utils": "workspace:*"
     "@types/react": ^17.0.24
     "@types/react-dom": ^17.0.9
     glob: ^8.0.3
