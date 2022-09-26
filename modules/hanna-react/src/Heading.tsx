@@ -15,11 +15,16 @@ export type HeadingProps = {
   Tag?: 'h2' | 'h3';
   size?: HeadingSize;
   children: ReactNode;
+  /**
+   * Make an exception and render a `<h1/>` element.
+   *
+   * This prop is ignore if the `Tag` prop is defined. */
+  forceH1?: boolean;
 } & ComponentLayoutProps;
 
 const Heading = (props: HeadingProps) => {
-  const { size = 'normal', Tag = 'h2', align, wide, children } = props;
-
+  const { size = 'normal', align, wide, children } = props;
+  const Tag = props.Tag || (props.forceH1 ? 'h1' : 'h2');
   return (
     <Tag
       className={getBemClass('Heading', [

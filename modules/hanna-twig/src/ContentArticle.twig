@@ -2,7 +2,7 @@
 
 {% if image %}
 	{% set topImage %}
-		{% include "@storybook/ContentImage/ContentImage.twig" with{
+	{% include "@storybook/ContentImage/ContentImage.twig" with{
 			text: imageText,
 			credit: imageCredit,
 			image: image,
@@ -11,8 +11,8 @@
 {% endif %}
 
 {% set contentText %}
-	{{ topImage }}
-	{{ summary }}
+{{ topImage }}
+{{ summary }}
 {% endset %}
 
 <div class="ContentArticle">
@@ -21,6 +21,7 @@
 	}%}
 
 	{% include "@storybook/Heading/Heading.twig" with {
+		forceH1: 'true',
 		title: label
 	}%}
 

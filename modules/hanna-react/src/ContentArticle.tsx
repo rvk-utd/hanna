@@ -12,6 +12,7 @@ export type ContentArticleProps = {
   /** Date, author, etc. */
   meta: ArticleMetaProps['items'];
   headline: string;
+  headlineTag?: 'h1' | 'h2';
   topImage?: ContentImageProps;
   body: ReactNode;
   relatedLinks?: RelatedLinksProps;
@@ -23,7 +24,7 @@ const ContentArticle = (props: ContentArticleProps) => {
   return (
     <div className="ContentArticle" ref={ref}>
       <ArticleMeta items={props.meta} />
-      <Heading>{props.headline}</Heading>
+      <Heading forceH1={props.headlineTag === 'h1'}>{props.headline}</Heading>
       <TextBlock startSeen>
         {props.topImage && <ContentImage {...props.topImage} />}
         {props.body}

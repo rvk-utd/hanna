@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - feat: Add prop `target` to `ArticleCarouselCardProps`
 - feat: Improve `Selectbox`'s `options` and `onSelected` prop generics
+- feat: Add prop `headingTag` to `ContentArticle` to support `<h1/>`
+- feat: Add prop `forceH1` to `Heading`
 - fix: Mark uncontrolled `TextInput`'s with user input `--filled` after reload
 - fix(ts): Botched re-export of `SelectboxOption*` types
 
