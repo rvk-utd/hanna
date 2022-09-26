@@ -55,7 +55,9 @@ import { testing as Carousel__test } from '../src/routes/test/Carousel';
 import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
 import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble';
 import { testing as ContentArticle__test } from '../src/routes/test/ContentArticle';
+import { testing as ContentImage__test } from '../src/routes/test/ContentImage';
 import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
+import { testing as FeatureList__test } from '../src/routes/test/FeatureList';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as Gallery__test } from '../src/routes/test/Gallery';
 import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks';
@@ -98,9 +100,11 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Buttons: Buttons__test,
   Carousel: Carousel__test,
   ContentArticle: ContentArticle__test,
+  ContentImage: ContentImage__test,
   CityBlock: CityBlock__test,
   ContactBubble: ContactBubble__test,
   ExtraLinks: ExtraLinks__test,
+  FeatureList: FeatureList__test,
   FooterInfo: FooterInfo__test,
   Gallery: Gallery__test,
   GridBlocks: GridBlocks__test,
