@@ -14,6 +14,7 @@ export type ArticleCarouselCardProps = {
   title: string;
   summary: string;
   href: string;
+  target?: string;
   color?: ColorFamily;
   /** NOTE: if both `color` and `theme` are specified
    * then `color` takes precedence.
@@ -33,8 +34,18 @@ export type ArticleCarouselCardProps = {
 export const ArticleCarouselCard = (
   props: ArticleCarouselCardProps & { moreLabel?: string }
 ) => {
-  const { date, title, summary, href, moreLabel, color, theme, illustration, image } =
-    props;
+  const {
+    date,
+    title,
+    summary,
+    href,
+    target,
+    moreLabel,
+    color,
+    theme,
+    illustration,
+    image,
+  } = props;
 
   const photo = image?.photo;
   const imageProps = illustration ? { src: getIllustrationUrl(illustration) } : image;
@@ -45,7 +56,7 @@ export const ArticleCarouselCard = (
       data-color={color && colorFamilies[color]}
       data-color-theme={!color ? theme && themeOptions[theme] : undefined} // color takes precedence over "theme"
     >
-      <Link className="ArticleCarouselCard__link" href={href}>
+      <Link className="ArticleCarouselCard__link" href={href} target={target}>
         {' '}
         <Image
           placeholder
@@ -57,7 +68,12 @@ export const ArticleCarouselCard = (
       {date && <span className="ArticleCarouselCard__date">{date}</span>}
       <div className="ArticleCarouselCard__summary">{summary}</div>
       {moreLabel && (
-        <Link className="ArticleCarouselCard__morelink" href={href} aria-label={title}>
+        <Link
+          className="ArticleCarouselCard__morelink"
+          href={href}
+          target={target}
+          aria-label={title}
+        >
           {' '}
           {moreLabel}{' '}
         </Link>

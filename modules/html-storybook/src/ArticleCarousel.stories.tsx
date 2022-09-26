@@ -30,6 +30,7 @@ const articleCarouselData: ArticleCarouselProps = {
       summary:
         'Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar. Tilgangurinn er að  skapa aukið og betra rými fyrir gangandi vegfarendur, mannlíf og starfsemi.',
       href: '/',
+      target: '_blank',
     },
     {
       illustration: 'borgarstjori2',
