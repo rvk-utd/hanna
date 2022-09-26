@@ -4,5 +4,6 @@
 command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository uses Git LFS but 'git-lfs' was not found on your path.\nSee https://git-lfs.github.com/ for more info'.\n"; exit 2; }
 git lfs post-merge "$@"
 
+yarn install
 sh scripts/submodules-check.sh
 sh scripts/submodules-update.sh
