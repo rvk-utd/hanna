@@ -11,7 +11,6 @@ import {
   distDir,
   exit1,
   externalDeps,
-  isNewFile,
   opts,
   srcDir,
 } from '../../build-helpers.mjs';
@@ -88,6 +87,15 @@ if (!opts.onlyLib) {
   //
   // ---------------------------------------------------------------------------
   // Build CSS/SCSS files
+
+  const fileMem = {};
+  const isNewFile = ({ path }) => {
+    if (path in fileMem) {
+      return false;
+    }
+    fileMem[path] = true;
+    return true;
+  };
 
   const toCSSSources = (res) =>
     res.outputFiles
