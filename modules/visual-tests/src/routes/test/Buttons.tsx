@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable prettier/prettier */
 import React, { Fragment } from 'react';
 import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
@@ -39,7 +41,7 @@ const buttons = (
         }[buttonSize] as any;
 
         return (
-          <Fragment key={i}>
+          <div key={i}>
             <p>
               <ButtonComponent size={sizeValue} variant={variantType}>
                 {sizeName} {variantName} {name} Button
@@ -47,12 +49,8 @@ const buttons = (
               <ButtonComponent size={sizeValue} variant={variantType} disabled>
                 Disabled
               </ButtonComponent>{' '}
-              <ButtonComponent
-                size={buttonSize === 'wide' ? 'normal' : buttonSize}
-                variant={variantType}
-                aria-pressed="true"
-              >
-                Pressed
+              <ButtonComponent size={sizeValue} variant={variantType} aria-pressed="true">
+                Pressed!
               </ButtonComponent>
             </p>
             <p>
@@ -63,11 +61,7 @@ const buttons = (
             <p>
               {' '}
               {variantType !== 'destructive' ? (
-                <ButtonComponent
-                  size={buttonSize === 'wide' ? 'normal' : buttonSize}
-                  variant={variantType}
-                  icon="go-back"
-                >
+                <ButtonComponent size={sizeValue} variant={variantType} icon="go-back">
                   Go Back
                 </ButtonComponent>
               ) : (
@@ -86,7 +80,7 @@ const buttons = (
               )}
             </p>
             <br />{' '}
-          </Fragment>
+          </div>
         );
       })}
     </Fragment>
@@ -109,7 +103,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  //  tags: ['firefox'],
+  tags: ['firefox'],
   extras: async ({ page, localScreenshot }) => {
     // Primary buttons
     const primaryButton = page.locator('.ButtonPrimary >> nth = 0');
@@ -120,32 +114,66 @@ export const testing: TestingInfo = {
     const disabledSecondary = page.locator('.ButtonSecondary:text("Disabled") >> nth =0');
     const pressedSecondary = page.locator('.ButtonSecondary:text("Pressed") >> nth = 0');
     // Tertiary Buttons
-    const tertiaryButton = page.locator(
-      '.ButtonTertiary:text("Tertiary Button") >> nth=0'
-    );
-    const disabledTertiary = page.locator('.ButtonTertiary >>nth=1');
+    const tertiaryButton = page.locator('.ButtonTertiary >> nth=0');
+    const disabledTertiary = page.locator('.ButtonTertiary:text("Disabled") >> nth=0');
     const pressedTertiary = page.locator('.ButtonTertiary:text("Pressed")>> nth=0');
+
+    // Destructive Buttons
+    const destructivePrimary = page.locator('.ButtonPrimary--destructive >> nth =0');
+    const destructiveDisabledPrim = page.locator('.ButtonPrimary--destructive:text("Disabled")>> nth =0');
+    const destructivePressedPrim = page.locator('.ButtonPrimary--destructive:text("Pressed")>> nth =0');
+    const destructiveSecondary = page.locator('.ButtonSecondary--destructive >> nth =0');
+    const destructiveDisabledSec = page.locator('.ButtonSecondary--destructive:text("Disabled")>> nth =0');
+    const destructivePressedSec = page.locator('.ButtonSecondary--destructive:text("Pressed")>> nth =0');
+    const destructiveTertiary = page.locator('.ButtonTertiary--destructive >> nth=0');
+    const destructiveDisabledTer = page.locator('.ButtonTertiary--destructive:text("Disabled")>> nth =0');
+    const destructivePressedTer = page.locator('.ButtonTertiary--destructive:text("Pressed")>> nth =0');
 
     const buttonTest = async (button: Locator, imgName: string, click: boolean) => {
       await button.hover({ force: true });
       await localScreenshot(button, imgName + '-hover', { margin: true });
-      if (click) {
+      // if (click) {
+      //   await button.hover();
+      //   await page.mouse.down();
+      //   await localScreenshot(button, imgName + '-click', { margin: true });
+      // }
+    };
+    const clickTest =async (button: Locator, imgName: string) =>{
         await button.hover();
         await page.mouse.down();
         await localScreenshot(button, imgName + '-click', { margin: true });
-      }
-    };
+    }
 
-    await Promise.all([
-      await buttonTest(primaryButton, 'primaryButton', true),
-      await buttonTest(disabledPrimary, 'disabledPrimary', false),
-      await buttonTest(pressedPrimary, 'pressedPrimary', false),
-      await buttonTest(secondaryButton, 'secondaryButton', true),
-      await buttonTest(disabledSecondary, 'disabledSecondary', false),
-      await buttonTest(pressedSecondary, 'pressedSecondary', false),
-      await buttonTest(tertiaryButton, 'tertiaryButton', true),
-      await buttonTest(disabledTertiary, 'disabledTertiary', false),
-      await buttonTest(pressedTertiary, 'pressedTertiary', false),
-    ]);
+    const buttons = [
+      { loc: primaryButton, imgName: 'primaryButton', clickTest: true },
+      { loc: disabledPrimary, imgName: 'disabledPrimary', clickTest: false },
+      { loc: pressedPrimary, imgName: 'pressedPrimary', clickTest: false },
+      { loc: secondaryButton, imgName: 'secondaryButton', clickTest: true },
+      { loc: disabledSecondary, imgName: 'disabledSecondary', clickTest: false },
+      { loc: pressedSecondary, imgName: 'pressedSecondary', clickTest: false },
+      { loc: tertiaryButton, imgName: 'tertiaryButton', clickTest: true },
+      { loc: disabledTertiary, imgName: 'disabledTertiary', clickTest: false },
+      { loc: pressedTertiary, imgName: 'pressedTertiary', clickTest: false },
+
+      // destructive butttons
+      { loc: destructivePrimary, imgName: 'destructivePrimary', clickTest: true },
+      { loc: destructiveDisabledPrim, imgName: 'destructiveDisabledPrim', clickTest: false },
+      { loc: destructivePressedPrim, imgName: 'destructivePressedPrim', clickTest: false },
+      { loc: destructiveSecondary, imgName: 'destructiveSecondary', clickTest: true },
+      { loc: destructiveDisabledSec, imgName: 'destructiveDisabledSec', clickTest: false },
+      { loc: destructivePressedSec, imgName: 'destructivePressedSec', clickTest: false },
+      { loc: destructiveTertiary, imgName: 'destructiveTertiary', clickTest: true },
+      { loc: destructiveDisabledTer, imgName: 'destructiveDisabledTer', clickTest: false },
+      { loc: destructivePressedTer, imgName: 'destructivePressedTer', clickTest: false },
+    ];
+    let i = 0;
+    let button: typeof buttons[number] | undefined;
+    while ((button = buttons[i++])) {
+      // eslint-disable-next-line no-await-in-loop
+      await buttonTest(button.loc, button.imgName, true);
+      // eslint-disable-next-line no-await-in-loop
+      if(button.clickTest)
+      {await clickTest(button.loc,button.imgName)}
+    }
   },
 };

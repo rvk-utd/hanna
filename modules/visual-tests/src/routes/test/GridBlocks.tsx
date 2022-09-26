@@ -15,7 +15,7 @@ export const meta: MetaFunction = autoTitle;
 const blocks = range(1, 5).map((n) => ({
   title: n === 5 ? 'Optional link long long long title' : 'Static Heading',
   href: n === 5 ? '' : undefined,
-  icon: efnistakn[n + 2],
+  icon: efnistakn[n + 1],
   summary:
     n % 2 === 0
       ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doasdasd eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'

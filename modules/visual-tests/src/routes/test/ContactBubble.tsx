@@ -6,6 +6,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
@@ -58,5 +59,11 @@ export default function () {
 export const testing: TestingInfo = {
   prep: async ({ page }) => {
     await page.locator('.ContactBubble__openbtn').hover();
+  },
+  extras: async ({ page, pageScreenshot, expandViewport }) => {
+    const contactBubble = page.locator('.ContactBubble__openbtn');
+    //await expandViewport(1000);
+    await contactBubble.click();
+    await pageScreenshot('contactBubble-click');
   },
 };
