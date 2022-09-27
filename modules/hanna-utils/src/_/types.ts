@@ -65,6 +65,61 @@ export type OpenStringMap<T extends string, V = T> = Record<T, T | V> &
 
 // ---------------------------------------------------------------------------
 
+/* * /
+// These simpler helpers fail for objects that also have index signatures
+// (https://www.typescriptlang.org/docs/handbook/interfaces.html#indexable-types)
+
+type Simple_RequiredKeys<T> = {
+  [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
+}[keyof T];
+type Simple_OptionalKeys<T> = {
+  [K in keyof T]-?: {} extends Pick<T, K> ? K : never;
+}[keyof T];
+/* */
+
+type PickRequiredLiteralKeys<T> = {
+  [K in keyof T as string extends K
+    ? never
+    : number extends K
+    ? never
+    : {} extends Pick<T, K>
+    ? never
+    : K]: T[K];
+};
+type PickOptionalLiteralKeys<T> = {
+  [K in keyof T as string extends K
+    ? never
+    : number extends K
+    ? never
+    : {} extends Pick<T, K>
+    ? K
+    : never]?: T[K];
+};
+
+type PickIndexKeys<T> = {
+  [K in string extends keyof T ? string : number extends keyof T ? number : never]: T[K];
+};
+
+export type PickIndexed<T> = PickIndexKeys<T>;
+export type PickRequired<T> = PickRequiredLiteralKeys<T>;
+export type PickOptional<T> = PickOptionalLiteralKeys<T>;
+export type RequiredKeys<T> = keyof PickRequiredLiteralKeys<T>;
+export type OptionalKeys<T> = keyof PickOptionalLiteralKeys<T>;
+
+// { // Testing galore
+//   type SomeType = {
+//     required: string;
+//     optional?: number;
+//     requiredButPossiblyUndefined: boolean | undefined;
+//     [n: number]: RegExp; // index signature
+//   };
+//   type Idx = PickIndexed<SomeType>;
+//   type Req = PickRequired<SomeType>;
+//   type Opt = PickOptional<SomeType>;
+// }
+
+// ---------------------------------------------------------------------------
+
 /**
  * Type hack to resolve a cleaner result from ´Pick´ and ´Omit´ operations
  *
