@@ -15,6 +15,7 @@ export const compareKeys = (
 };
 
 // ---------------------------------------------------------------------------°
+// Utilities for unit testing type signatures.
 
 export type Expect<T extends true> = T;
 export type Equals<A, B> = UnlessAny<
