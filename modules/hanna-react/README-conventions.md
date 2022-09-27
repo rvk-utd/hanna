@@ -94,8 +94,9 @@ export const FooBar: FC<FooBarProps> = (props) => {
   const [visible, setVisible] = useMixedControlState(props, 'visible', true);
 
   const handleToggle = () => {
-    props.onChange?.(!visible);
-    setVisible(!visible);
+    const newVisible = !visible;
+    props.onChange && props.onChange(newVisible);
+    setVisible(newVisible);
   };
   return (
     <div>

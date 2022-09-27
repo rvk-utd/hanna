@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add controlled props `open` and `onToggle` to `AccordionList` — it now
+  supports either [controlled or uncontrolled](./README-conventions.md) use.
 - fix: Squash `useMixedControlState` bugs/misbehavior and improve its typing
 
 ## 0.10.68

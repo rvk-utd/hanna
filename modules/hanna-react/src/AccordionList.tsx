@@ -1,37 +1,29 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { SSRSupport, useDomid, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
+import { useMixedControlState } from './utils';
 
-type AccordionListItemProps = {
+// ---------------------------------------------------------------------------
+
+export type AccordionListItemProps = {
   title: string | JSX.Element;
   content: string | JSX.Element | undefined;
   id?: string;
   disabled?: boolean;
 };
 
-export type AccordionListProps = {
-  items: Array<AccordionListItemProps>;
+type _ALItemProps = AccordionListItemProps & {
   ssr?: SSRSupport;
-  wide?: boolean;
-  /** Index of those items that should start open */
-  defaultOpen?: Array<number>;
-} & SeenProp;
-
-// ---------------------------------------------------------------------------
-
-type _ALItemProps = {
-  ssr?: SSRSupport;
+  open?: boolean;
+  onToggle: () => void;
   defaultOpen?: boolean;
 };
 
-const AccordionListItem = (props: AccordionListItemProps & _ALItemProps) => {
-  const { title, content, id, disabled = false, ssr } = props;
+const AccordionListItem = (props: _ALItemProps) => {
+  const { title, content, id, disabled = false, ssr, open, onToggle } = props;
 
-  // TODO: Add controlled state support to this component, and then switch
-  // to usw the hooks exported from `utils/useMixecControlState.ts`
-  const [open, setOpen] = useState(props.defaultOpen);
   const defaultOpen = useRef(props.defaultOpen);
 
   const domid = useDomid();
@@ -52,9 +44,7 @@ const AccordionListItem = (props: AccordionListItemProps & _ALItemProps) => {
             className="AccordionList__button"
             aria-controls={domid}
             aria-expanded={open || undefined}
-            onClick={() => {
-              setOpen(!open);
-            }}
+            onClick={onToggle}
             disabled={itemDisabled}
           >
             {title}
@@ -76,17 +66,46 @@ const AccordionListItem = (props: AccordionListItemProps & _ALItemProps) => {
 
 // ---------------------------------------------------------------------------
 
+export type AccordionListProps = {
+  items: Array<AccordionListItemProps>;
+  /** Index of the currently open items (controlled use) */
+  open?: Array<number>;
+  /** Called whenever an AccodrionList item is toggled  */
+  onToggle?: (data: { newOpen: Array<number>; index: number; opened: boolean }) => void;
+  /** Index of those items that should start open (uncontrolled use) */
+  defaultOpen?: Array<number>;
+  wide?: boolean;
+  ssr?: SSRSupport;
+} & SeenProp;
+
 const AccordionList = (props: AccordionListProps) => {
-  const { items, ssr, wide, defaultOpen, startSeen } = props;
+  const { items, ssr, wide, startSeen, defaultOpen } = props;
   const [ref] = useSeenEffect(startSeen);
+  const [open, setOpenArray, mode] = useMixedControlState(props, 'open', []);
+
+  const onToggle = (index: number) => {
+    setOpenArray((prevOpen) => {
+      const opened = !prevOpen.includes(index);
+      const newOpen = opened
+        ? prevOpen.concat(index)
+        : prevOpen.filter((idx) => idx !== index);
+      props.onToggle && props.onToggle({ newOpen, index, opened });
+      return newOpen;
+    });
+  };
 
   return (
     <div className={getBemClass('AccordionList', [wide && 'wide'])} ref={ref}>
+      {String(open)}
+      <br />
+      {String(mode)}
       {items.map((item, i) => (
         <AccordionListItem
           key={i}
           {...item}
           ssr={ssr}
+          open={open.includes(i)}
+          onToggle={() => onToggle(i)}
           defaultOpen={defaultOpen && defaultOpen.includes(i)}
         />
       ))}
