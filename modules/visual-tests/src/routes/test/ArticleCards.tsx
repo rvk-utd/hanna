@@ -14,26 +14,26 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
 const cards = range(0, 7).map(
-    (i): ImageCardProps => ({
-        title: ['Block Title', 'Block title lorem ipsum dolor sit ament foobar', lorem.tiny][
-            i % 3
-        ]!,
-        href: '',
-        image: photo.square,
-        meta: i % 2 === 0 ? lorem.medium : '14. október',
-    })
+  (i): ImageCardProps => ({
+    title: [
+      'Block Title',
+      'Block title lorem ipsum dolor sit ament foobar',
+      'Block title lorem ipsum dolor.',
+    ][i % 3]!,
+    href: '',
+    image: photo.square,
+    meta: i % 2 === 0 ? lorem.medium.slice(0, 103) + '.' : '14. október',
+  })
 );
 export default function () {
-    return (
-        // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
-        <Minimal>
-            <ArticleCards cards={cards} />
-        </Minimal>
-    );
+  return (
+    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
+    <Minimal>
+      <ArticleCards cards={cards} />
+    </Minimal>
+  );
 }
 
 export const testing: TestingInfo = {
-    initialHover: '.ArticleCards__card__title >> nth = 0',
+  initialHover: '.ArticleCards__card__title >> nth = 0',
 };
-
-
