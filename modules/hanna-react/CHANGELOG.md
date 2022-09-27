@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Squash `useMixedControlState` bugs/misbehavior and improve its typing
 
 ## 0.10.68
 
