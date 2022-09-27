@@ -1,10 +1,10 @@
 import React from 'react';
-import type { Resolve } from '@reykjavik/hanna-utils';
+import type { Cleanup } from '@reykjavik/hanna-utils';
 
 import { CardList, ImageCardListProps, ImageCardProps } from './_abstract/_CardList';
 
 export type ArticleCardProps = ImageCardProps;
-export type ArticleCardsProps = Resolve<
+export type ArticleCardsProps = Cleanup<
   Pick<ImageCardListProps, 'cards' | 'imgPlaceholder'>
 >;
 

@@ -72,6 +72,7 @@ import type {
   OpenRecord,
   OpenStringMap,
   Resolve,
+  Cleanup,
   AllowKeys,
   EitherObj,
   // PickRequired,

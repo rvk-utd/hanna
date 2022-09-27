@@ -126,7 +126,10 @@ export type OptionalKeys<T> = keyof PickOptionalLiteralKeys<T>;
  * For more info, see:
  * https://effectivetypescript.com/2022/02/25/gentips-4-display/
  */
-export type Resolve<T> = { [K in keyof T]: T[K] };
+export type Cleanup<T> = { [K in keyof T]: T[K] };
+
+/** @deprecated Use `Cleanup<T>` instead.  (will be removed in v0.11) */
+export type Resolve<T> = Cleanup<T>;
 
 // ---------------------------------------------------------------------------
 
@@ -151,7 +154,7 @@ export type Resolve<T> = { [K in keyof T]: T[K] };
  *
  * NOTE: This type helper is used by `EitherObj<A,B,…>` type.
  */
-export type AllowKeys<A, B> = Resolve<A & { [Key in Exclude<keyof B, keyof A>]?: never }>;
+export type AllowKeys<A, B> = Cleanup<A & { [Key in Exclude<keyof B, keyof A>]?: never }>;
 
 // ---------------------------------------------------------------------------
 
