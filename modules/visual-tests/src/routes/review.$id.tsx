@@ -92,7 +92,7 @@ export default function () {
   const { change } = useLoaderData<LoaderData>();
 
   return (
-    <Minimal key={change.id}>
+    <Minimal bare key={change.id}>
       <PageHeading small startSeen>
         {change.testName}{' '}
         <small>

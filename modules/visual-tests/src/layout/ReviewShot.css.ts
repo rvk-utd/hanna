@@ -141,7 +141,7 @@ export default css`
   }
   [data-mode='difference'] > .ReviewShot__shot--actual {
     position: absolute;
-    opacity: 0.5;
+    opacity: 0.6;
     box-shadow: 0 1000px 0 1020px white;
   }
   [data-mode='difference'] > .ReviewShot__shot--expected {

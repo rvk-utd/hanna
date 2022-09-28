@@ -22,6 +22,7 @@ export const DummyBlock = (props: DummyBlockProps) => (
       backgroundPosition: '0 0',
       backgroundSize: '32px 32px',
       opacity: 0.5,
+      margin: '1px 0',
       height: props.big ? '6.5rem' : props.thin ? '1rem' : '3rem',
     }}
   />
