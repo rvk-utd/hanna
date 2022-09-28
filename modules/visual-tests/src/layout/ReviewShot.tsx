@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LinksFunction } from '@remix-run/node';
 import { Form, Link, useTransition } from '@remix-run/react';
 import TagPill, { TagPillProps } from '@reykjavik/hanna-react/TagPill';
@@ -8,21 +8,21 @@ import { Changeset } from '../utils/tests.server';
 
 import styles from './ReviewShot.css';
 
-export type Mode = 'difference' | 'actual' | 'expected';
+export type Mode = 'difference' | 'differenceHL' | 'actual' | 'expected';
 
 const modeColor: Record<Mode, TagPillProps['color']> = {
   difference: 'yellow',
+  differenceHL: 'yellow',
   actual: 'orange',
   expected: 'green',
 };
 
 const getImgShowFlags = (change: Changeset, mode: Mode) => {
   const { diffUrl, actualUrl, expectedUrl } = change;
-  const diffMissing = !diffUrl && mode === 'difference';
   return {
-    diff: diffUrl && mode === 'difference',
-    actual: actualUrl && (mode === 'actual' || diffMissing),
-    expected: expectedUrl && (mode === 'expected' || diffMissing),
+    diff: diffUrl && mode === 'differenceHL',
+    actual: actualUrl && (mode === 'actual' || mode === 'difference'),
+    expected: expectedUrl && (mode === 'expected' || mode === 'difference'),
   };
 };
 
@@ -62,7 +62,13 @@ const useReviewState = (change: Changeset) => {
     setPrimed((state) => (state.on ? { ...state, on: false } : state));
   const toggleZoom = () => setZoom((zoomed) => !zoomed || undefined);
   const toggleTransp = () => setTransp((transp) => !transp || undefined);
-  const toDiffMode = () => setMode('difference');
+  const toggleDiffMode = useCallback(
+    () =>
+      setMode((mode) =>
+        change.diffUrl && mode === 'difference' ? 'differenceHL' : 'difference'
+      ),
+    [change.diffUrl]
+  );
   const toggleMode = () =>
     setMode((prevMode) => (prevMode === 'actual' ? 'expected' : 'actual'));
 
@@ -83,7 +89,7 @@ const useReviewState = (change: Changeset) => {
 
       if (!isNew) {
         if (key === 'D') {
-          toDiffMode();
+          toggleDiffMode();
           return;
         }
         if (key === 'F') {
@@ -126,12 +132,12 @@ const useReviewState = (change: Changeset) => {
     return () => {
       document.removeEventListener('keyup', shortcuts);
     };
-  }, [isLoading, isNew]);
+  }, [isLoading, isNew, toggleDiffMode]);
 
   return {
     isNew,
     mode,
-    toDiffMode,
+    toggleDiffMode,
     toggleMode,
     wrappeRref,
     primed,
@@ -154,7 +160,7 @@ export const ReviewShot = (props: ReviewShotProps) => {
   const {
     isNew,
     mode,
-    toDiffMode,
+    toggleDiffMode,
     toggleMode,
     wrappeRref,
     primed,
@@ -193,7 +199,7 @@ export const ReviewShot = (props: ReviewShotProps) => {
           {!isNew && (
             <button
               className="ReviewShot__modebutton ReviewShot__modebutton--diff"
-              onClick={toDiffMode}
+              onClick={toggleDiffMode}
             >
               <strong>D</strong>iff view
             </button>
