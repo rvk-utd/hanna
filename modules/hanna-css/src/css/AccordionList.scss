@@ -1,5 +1,6 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
+@use 'utils/textContent' as *;
 
 @function _between($from, $to) {
   @return between_container($from, $to, cols_px(8));
@@ -31,7 +32,7 @@
   }
 
   .AccordionList__title {
-    @include SubheadingStyle--small();
+    font: $var--font-sh-s;
     font-weight: $font-weight--bold;
     padding-left: var(--leftIndent);
   }
@@ -75,7 +76,8 @@
   // ---------------------------------------------------------------------------
 
   .AccordionList__content {
-    @include BodyTextStyle--large();
+    @include textContent(); // no headings above h4
+    font: $var--font-bd-l;
     transition: all 200ms ease-in;
     transition-property: opacity, visibility, max-height, padding-top;
     overflow: hidden;
@@ -83,6 +85,16 @@
     padding-top: grid-units(4);
     max-height: 4000px; // DECIDE: is this enough?
     opacity: 1;
+  }
+  .AccordionList__content h1,
+  .AccordionList__content h2,
+  .AccordionList__content h3 {
+    @include WARNING__('Only use <h4/> and below here');
+  }
+
+  .AccordionList__content .TextBlock {
+    max-width: none;
+    margin: 0;
   }
 
   html.before-sprinkling

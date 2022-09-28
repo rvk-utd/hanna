@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add support for rich text directly inside `.ArticleList__content`
 - feat: Add `.ActionCards__summary`
 
 ## 0.8.28

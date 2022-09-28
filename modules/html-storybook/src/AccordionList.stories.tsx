@@ -13,7 +13,7 @@ export default {
   } as StoryParameters,
 };
 
-const items = [
+const items = () => [
   {
     title:
       'Accordion list with label spreading over 2 lines ' +
@@ -22,8 +22,29 @@ const items = [
   },
   {
     title: 'Accordion item',
-    content:
-      'Reri goðaheill renni, söfnum akratungu óvirða hofgarða-refs dyflini. Sigvaldi frekust lögfengið vífi, barðan sveinung ódáðamanninn, firðinum skipkaup sæmdina tjóar kníf geldur ræna ójafnað. Gjósa þiðrandason, þrotin mannafarar styggðist. Kærðu skegg, bárðarsonar sektar mjaðmárdal. Gjörvast húsaviðar útfiri, bænarorð ekið, skalla-grímur auðhnykkjanda askmannsstöðum víkingi bræðrunga gerðinu allmikilli. Dirf vífi hróp, úlfa skyldleikar, hauginn fremi hnútu færir geirþjófsfirði reginmóðs.	Svefnsel sundsins, lamb ryðst meðallok siglt. Kviðling orfið bróklindahaldið, sorti skipbrotsmönnum, eirði flusti rignir lýkst þrotin. Jafnnýtt málstefnuna allhjaldrjúgt, ynnist konungsþræll, þorviðar senn leiru klæðahlaðann gestbeinlega gininn rauðgrani. Hýrmælt þveraðist leikmótsins, bræðrunga mannvandur laxakarl mælist hvalurinn. Kanntu fljúga færist, binda handviðris, svartar keppa hylli hleypir fjölkynngi aldur.',
+    content: (
+      <>
+        <p>
+          Reri goðaheill renni, <a href="">söfnum akratungu óvirða</a> hofgarða-refs
+          dyflini. Sigvaldi frekust lögfengið vífi, barðan sveinung ódáðamanninn,{' '}
+          <strong>firðinum skipkaup</strong> sæmdina tjóar kníf geldur ræna ójafnað. Gjósa
+          þiðrandason, þrotin mannafarar styggðist.
+        </p>
+        <p>
+          Kærðu skegg, bárðarsonar sektar mjaðmárdal. Gjörvast húsaviðar útfiri, bænarorð
+          ekið, skalla-grímur auðhnykkjanda askmannsstöðum víkingi bræðrunga gerðinu
+          allmikilli.
+        </p>
+        <ul>
+          <li>Dirf vífi hróp, úlfa skyldleikar, hauginn fremi hnútu færir.</li>
+          <li>
+            geirþjófsfirði reginmóðs. Svefnsel sundsins, lamb ryðst meðallok siglt.
+            Kviðling orfið bróklindahaldið, sorti skipbrotsmönnum, eirði flusti rignir
+            lýkst þrotin.
+          </li>
+        </ul>
+      </>
+    ),
   },
   { title: 'Accordion items', content: 'Hello content', disabled: true },
 ];
@@ -33,7 +54,7 @@ export const _AccordionList: StoryComponent = () => {
   return (
     <AccordionList
       key={String(wide)}
-      items={items}
+      items={items()}
       wide={wide}
       defaultOpen={[0]}
       startSeen
@@ -44,8 +65,8 @@ export const _AccordionList: StoryComponent = () => {
 export const AccordionListStyling: StoryComponent = () => {
   return (
     <>
-      <AccordionList items={items} startSeen />
-      <AccordionList items={items} wide startSeen />
+      <AccordionList items={items()} startSeen />
+      <AccordionList items={items()} wide startSeen />
     </>
   );
 };

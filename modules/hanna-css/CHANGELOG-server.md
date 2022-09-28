@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add rich text styling inside `.ArticleList__content`
 - feat: Add styling for `.ActionCards__summary`
 - fix: Color on destructive `.ButtonPrimary`s in all color themes
 - fix: Top margin on `.InfoHero__titleblurb`
