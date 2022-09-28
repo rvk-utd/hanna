@@ -5,6 +5,7 @@
   @include LinkStyle_Reset(true);
   --Button--color: #{$var--theme-color-primary--text};
   --Button--backgroundColor: #{$var--theme-color-primary};
+  --Button--color--active: #{$var--color-suld-0};
   --Button--backgroundColor--active: #{$var--theme-color-primary--dark};
   --Button--border: 0px;
   --Button--borderColor: var(--Button--backgroundColor);
@@ -53,7 +54,7 @@
   &[aria-pressed='true'] {
     text-decoration: none;
     background-color: var(--Button--backgroundColor--active);
-    color: var(--Button--color);
+    color: var(--Button--color--active);
   }
   @include keyboardFocus-selector {
     outline: prem(2) solid var(--Button--borderColor);

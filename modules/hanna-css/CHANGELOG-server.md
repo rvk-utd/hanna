@@ -5,11 +5,12 @@
 - ... <!-- Add new lines here. -->
 - feat: Add rich text styling inside `.ArticleList__content`
 - feat: Add styling for `.ActionCards__summary`
-- fix: Color on destructive `.ButtonPrimary`s in all color themes
 - fix: Top margin on `.InfoHero__titleblurb`
 - fix: Delay on `.MainMenu`'s auxiliary menu image in mobile
 - fix: Height of `MainMenu`'s auxiliary menu on small-yet-tall screens
 - fix: Display `.MainMenu`'s auxiliary menu image on wider screens
+- fix: Color on destructive `.ButtonPrimary`s in all color themes
+- fix: Active color for `ButtonPrimary`/`ButtonSecondary` in all color themes
 
 ## 0.8.69
 
