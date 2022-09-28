@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import AccordionList from '@reykjavik/hanna-react/AccordionList';
+import TextBlock from '@reykjavik/hanna-react/TextBlock';
 
 import { Minimal } from '../../layout/Minimal';
-import { lorem } from '../../test-helpers/dummyData';
+import { lorem, loremRT } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -12,15 +13,27 @@ const makeItems = () => [
     title:
       'Accordion list with label spreading over 2 lines, ' +
       'spreading over 2 lines, spreading over 2 lines',
-    content: 'Hello this accordion item starts open',
+    content: lorem.short,
   },
   {
     title: 'Accordion item',
-    content: lorem.medium,
+    content: (
+      <Fragment>
+        <p>{loremRT.medium(true)}</p>
+        <p>{lorem.short}</p>
+        <ul>
+          <li>{lorem.tiny}</li>
+          <li>{lorem.short}</li>
+        </ul>
+        <TextBlock>
+          <p>{lorem.short}</p>
+        </TextBlock>
+      </Fragment>
+    ),
   },
   {
     title: 'Accordion items',
-    content: 'Hello content',
+    content: lorem.tiny,
     disabled: true,
   },
 ];
@@ -29,8 +42,8 @@ const makeItems = () => [
 
 export const meta: MetaFunction = autoTitle;
 
-// // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// Use `handle` if you're using multiple Hanna compnents
+export const handle = { cssTokens: ['TextBlock'] };
 
 export default function () {
   return (
