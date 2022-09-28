@@ -96,9 +96,6 @@ const AccordionList = (props: AccordionListProps) => {
 
   return (
     <div className={getBemClass('AccordionList', [wide && 'wide'])} ref={ref}>
-      {String(open)}
-      <br />
-      {String(mode)}
       {items.map((item, i) => (
         <AccordionListItem
           key={i}

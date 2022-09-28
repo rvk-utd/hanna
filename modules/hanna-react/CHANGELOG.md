@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Remove leftover dev logging
 
 ## 0.10.69
 
