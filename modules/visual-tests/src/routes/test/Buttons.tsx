@@ -141,52 +141,50 @@ export const testing: TestingInfo = {
       '.ButtonTertiary--destructive:text("Pressed")>> nth =0'
     );
 
-    const buttonTest = async (button: Locator, imgName: string, click: boolean) => {
-      await button.hover({ force: true });
-      await localScreenshot(button, imgName + '-hover', { margin: true });
-      // if (click) {
-      //   await button.hover();
-      //   await page.mouse.down();
-      //   await localScreenshot(button, imgName + '-click', { margin: true });
-      // }
-    };
-    const clickTest = async (button: Locator, imgName: string) => {
-      await button.hover();
-      await page.mouse.down();
-      await localScreenshot(button, imgName + '-click', { margin: true });
+    type BTCfg = {
+      loc: Locator;
+      name: string;
+      click?: boolean;
+      margin?: boolean;
     };
 
-    const buttons = [
-      { loc: primaryButton, imgName: 'primaryButton', clickTest: true },
-      { loc: disabledPrimary, imgName: 'disabledPrimary', clickTest: false },
-      { loc: pressedPrimary, imgName: 'pressedPrimary', clickTest: false },
-      { loc: secondaryButton, imgName: 'secondaryButton', clickTest: true },
-      { loc: disabledSecondary, imgName: 'disabledSecondary', clickTest: false },
-      { loc: pressedSecondary, imgName: 'pressedSecondary', clickTest: false },
-      { loc: tertiaryButton, imgName: 'tertiaryButton', clickTest: true },
-      { loc: disabledTertiary, imgName: 'disabledTertiary', clickTest: false },
-      { loc: pressedTertiary, imgName: 'pressedTertiary', clickTest: false },
+    const buttonTest = async (cfg: BTCfg) => {
+      const { loc, name, click, margin = true } = cfg;
+      await loc.hover({ force: true });
+      await localScreenshot(loc, name + '-hover', { margin });
+      if (click) {
+        await loc.hover();
+        await page.mouse.down();
+        await localScreenshot(loc, name + '-click', { margin });
+      }
+    };
+
+    const buttons: Array<BTCfg> = [
+      { loc: primaryButton, name: 'primaryButton', click: true },
+      { loc: disabledPrimary, name: 'disabledPrimary' },
+      { loc: pressedPrimary, name: 'pressedPrimary' },
+      { loc: secondaryButton, name: 'secondaryButton', click: true },
+      { loc: disabledSecondary, name: 'disabledSecondary' },
+      { loc: pressedSecondary, name: 'pressedSecondary' },
+      { loc: tertiaryButton, name: 'tertiaryButton', click: true, margin: false },
+      { loc: disabledTertiary, name: 'disabledTertiary', margin: false },
+      { loc: pressedTertiary, name: 'pressedTertiary', margin: false },
 
       // destructive butttons
-      { loc: destrPrimary, imgName: 'destructivePrimary', clickTest: true },
-      { loc: destrDisabledPrim, imgName: 'destructiveDisabledPrim', clickTest: false },
-      { loc: destrPressedPrim, imgName: 'destructivePressedPrim', clickTest: false },
-      { loc: destrSecondary, imgName: 'destructiveSecondary', clickTest: true },
-      { loc: destrDisabledSec, imgName: 'destructiveDisabledSec', clickTest: false },
-      { loc: destrPressedSec, imgName: 'destructivePressedSec', clickTest: false },
-      { loc: destrTertiary, imgName: 'destructiveTertiary', clickTest: true },
-      { loc: destrDisabledTer, imgName: 'destructiveDisabledTer', clickTest: false },
-      { loc: destrPressedTer, imgName: 'destructivePressedTer', clickTest: false },
+      { loc: destrPrimary, name: 'destructivePrimary', click: true },
+      { loc: destrDisabledPrim, name: 'destructiveDisabledPrim' },
+      { loc: destrPressedPrim, name: 'destructivePressedPrim' },
+      { loc: destrSecondary, name: 'destructiveSecondary', click: true },
+      { loc: destrDisabledSec, name: 'destructiveDisabledSec' },
+      { loc: destrPressedSec, name: 'destructivePressedSec' },
+      { loc: destrTertiary, name: 'destructiveTertiary', click: true, margin: false },
+      { loc: destrDisabledTer, name: 'destructiveDisabledTer', margin: false },
+      { loc: destrPressedTer, name: 'destructivePressedTer', margin: false },
     ];
     let i = 0;
-    let button: typeof buttons[number] | undefined;
-    while ((button = buttons[i++])) {
-      // eslint-disable-next-line no-await-in-loop
-      await buttonTest(button.loc, button.imgName, true);
-      // eslint-disable-next-line no-await-in-loop
-      if (button.clickTest) {
-        await clickTest(button.loc, button.imgName);
-      }
+    let cfg: typeof buttons[number] | undefined;
+    while ((cfg = buttons[i++])) {
+      await buttonTest(cfg);
     }
   },
 };
