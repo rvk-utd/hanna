@@ -33,8 +33,7 @@ export default function () {
       <br />
       <br />
       <br />
-      <br />
-      <FeatureList title="Lorem Ipsum og Foo Bar" features={features} />
+      <FeatureList title="Lorem Ipsum og Foo Bar" features={features} startSeen={true} />
     </Minimal>
   );
 }

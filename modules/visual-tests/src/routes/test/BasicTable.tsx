@@ -8,113 +8,88 @@ import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 export const meta: MetaFunction = autoTitle;
-
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
-const simpleContent: Pick<BasicTableProps, 'cols' | 'thead' | 'tbody' | 'startSeen'> = {
-  cols: [{ number: true }, {}, {}, { tel: true }, { number: true }, {}],
-  thead: [['Erindi nr.', 'Lýsing', 'Sent dags. / kl', 'Sími', 'Gjald', 'Staða máls']],
-  tbody: [
-    [
-      '99',
-      {
-        value: (
-          <Fragment>
-            Umsókn um <a href="/url">stuðningsþjónustu</a>
-          </Fragment>
-        ),
-      },
-      '16.09.2019 / kl. 18:45',
-      '800 9000',
-      '45.663 kr',
-      'Í vinnslu',
-    ],
-    [
-      '100',
-      {
-        value: lorem.short,
-      },
-      '16.09.2019 / kl. 18:45',
-      '',
-      '5.663 kr',
-      'Í vinnslu',
-    ],
-    [
-      '1199',
-      {
-        value: (
-          <Fragment>
-            Umsókn um <a href="/url">stuðningsþjónustu</a>
-          </Fragment>
-        ),
-      },
-      '16.09.2019 / kl. 18:45',
-      '800 9000',
-      '40.663 kr',
-      'Í vinnslu',
-    ],
-  ],
-  startSeen: true,
-};
-const extraContent: Pick<BasicTableProps, 'cols' | 'thead' | 'tbody' | 'startSeen'> = {
-  cols: [{ number: true }, {}, {}, {}, {}, { tel: true }, { number: true }, {}],
-  thead: [
-    [
-      'Erindi nr.',
-      'Lýsing',
-      'Lýsing nr. 2',
-      'Lýsing nr. 3',
-      'Sent dags. / kl',
-      'Sími',
-      'Gjald',
-      'Staða máls',
-    ],
-  ],
-  tbody: [
-    [
-      '99',
-      {
-        value: (
-          <Fragment>
-            Umsókn um <a href="/url">stuðningsþjónustu</a>
-          </Fragment>
-        ),
-      },
-      'Umsókn um stuðningsþjónustu án links',
-      'Umsókn um aðra þjónustu',
-      '16.09.2019 / kl. 18:45',
-      '800 9000',
-      '45.663 kr',
-      'Í vinnslu',
-    ],
-    [
-      '100',
-      lorem.tiny,
-      lorem.tiny,
-      lorem.tiny,
-      '16.09.2019 / kl. 18:45',
-      '',
-      '5.663 kr',
-      'Í vinnslu',
-    ],
-    [
-      '1199',
-      {
-        value: (
-          <Fragment>
-            Umsókn um <a href="/url">stuðningsþjónustu</a>
-          </Fragment>
-        ),
-      },
-      lorem.tiny,
-      lorem.tiny,
-      '16.09.2019 / kl. 18:45',
-      '800 9000',
-      '40.663 kr',
-      'Í vinnslu',
-    ],
-  ],
-  startSeen: true,
+const content = (extra: boolean) => {
+  const props: Pick<BasicTableProps, 'thead' | 'tbody' | 'startSeen'> = {
+    thead: extra
+      ? [
+          [
+            'Erindi nr.',
+            'Lýsing',
+            'Lýsing nr. 2',
+            'Sent dags. / kl',
+            'Sími',
+            'Gjald',
+            'Staða máls',
+          ],
+        ]
+      : [['Erindi nr.', 'Lýsing', 'Sent dags. / kl', 'Sími', 'Gjald', 'Staða máls']],
+    tbody: extra
+      ? [
+          [
+            '99',
+            {
+              value: (
+                <Fragment>
+                  Umsókn um <a href="/url">stuðningsþjónustu</a>
+                </Fragment>
+              ),
+            },
+            'Umsókn um stuðningsþjónustu án links',
+            '16.09.2019 / kl. 18:45',
+            '800 9000',
+            '45.663 kr',
+            'Í vinnslu',
+          ],
+          [
+            '100',
+            lorem.tiny.slice(0, 28),
+            lorem.tiny.slice(0, 20),
+            '16.09.2019 / kl. 18:45',
+            '',
+            '5.663 kr',
+            'Í vinnslu',
+          ],
+          [
+            '1199',
+            lorem.tiny.slice(0, 21),
+            lorem.tiny.slice(0, 20),
+            '16.09.2019 / kl. 18:45',
+            '800 9000',
+            '40.663 kr',
+            'Í vinnslu',
+          ],
+        ]
+      : [
+          [
+            '99',
+            {
+              value: (
+                <Fragment>
+                  Umsókn um <a href="/url">stuðningsþjónustu</a>
+                </Fragment>
+              ),
+            },
+
+            '16.09.2019 / kl. 18:45',
+            '800 9000',
+            '45.663 kr',
+            'Í vinnslu',
+          ],
+          ['100', lorem.tiny, '16.09.2019 / kl. 18:45', '', '5.663 kr', 'Í vinnslu'],
+          [
+            '1199',
+            lorem.tiny,
+            '16.09.2019 / kl. 18:45',
+            '800 9000',
+            '40.663 kr',
+            'Í vinnslu',
+          ],
+        ],
+    startSeen: true,
+  };
+  return props;
 };
 
 const tFoot: BasicTableProps['tfoot'] = [
@@ -129,11 +104,12 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <BasicTable {...simpleContent} />
-      <BasicTable {...simpleContent} tfoot={tFoot} />
-      <BasicTable {...simpleContent} tfoot={tFoot} compact />
-      <BasicTable {...extraContent} align="right" />
-      <BasicTable {...simpleContent} caption="Table with caption" fullWidth />
+      {/* False for 6 columns - true for 7 columns (to check scroll)*/}
+      <BasicTable {...content(false)} />
+      <BasicTable {...content(false)} tfoot={tFoot} />
+      <BasicTable {...content(false)} tfoot={tFoot} compact />
+      <BasicTable {...content(true)} align="right" />
+      <BasicTable {...content(false)} caption="Table with caption" fullWidth />
     </Minimal>
   );
 }

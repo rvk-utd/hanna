@@ -5,7 +5,7 @@ import ArticleCarousel, {
 } from '@reykjavik/hanna-react/ArticleCarousel';
 
 import { Minimal } from '../../layout/Minimal';
-import { illustr, photo } from '../../test-helpers/dummyData';
+import { illustr, lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -15,7 +15,7 @@ const items: ArticleCarouselProps['items'] = [
     theme: 'colorful',
     date: '30. mar 2020',
     title: 'Item Number One',
-    summary: 'Veðrið hafði lítil áhrif á 88 íbúa og starfsfólk Seljahlíðar í gærmorgun.',
+    summary: lorem.tiny,
     href: '/',
   },
   {
@@ -25,16 +25,14 @@ const items: ArticleCarouselProps['items'] = [
     },
     color: 'ellidaardalur',
     title: 'Second Item Has a Pretty Long Title',
-    summary:
-      'Tilgangurinn er að  skapa aukið og betra rými fyrir gangandi vegfarendur, mannlíf og starfsemi.',
+    summary: lorem.tiny,
     href: '/',
   },
   {
     image: illustr.tall,
     date: '20. feb 2021',
     title: 'This is the third item',
-    summary:
-      'Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar. Tilgangurinn er að  skapa aukið og betra rými fyrir gangandi vegfarendur, mannlíf og starfsemi.',
+    summary: lorem.medium.slice(0, 120) + '.',
     href: '/',
   },
   {
@@ -42,8 +40,7 @@ const items: ArticleCarouselProps['items'] = [
     color: 'sund',
     date: '20. feb 2021',
     title: 'Item Number Four',
-    summary:
-      'Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar. Tilgangurinn er að  skapa aukið og betra rými fyrir gangandi vegfarendur, mannlíf og starfsemi.',
+    summary: lorem.long.slice(0, 160) + '.',
     href: '/',
   },
   {
@@ -51,17 +48,15 @@ const items: ArticleCarouselProps['items'] = [
     color: 'nautholsvik',
     date: '30. mar 2020',
     title: 'Item Number Five',
-    summary:
-      'Veðrið hafði lítil áhrif á 88 íbúa og starfsfólk Seljahlíðar í gærmorgun þegar þau gengu þríeykisgöngu í kringum hjúkrunarheimilið.',
+    summary: lorem.tiny + lorem.medium,
     href: '/',
   },
   {
     image: illustr.short,
     color: 'ellidaardalur',
     date: '20. feb 2021',
-    title: 'Borgarlínan',
-    summary:
-      'Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar. Tilgangurinn er að  skapa aukið og betra rými fyrir gangandi vegfarendur, mannlíf og starfsemi.',
+    title: 'Item Number Six',
+    summary: lorem.medium,
     href: '/',
   },
 ];
