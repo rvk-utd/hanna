@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat(ts): Export `ArticleCardsItemProps`, deprecate `ArticleCardProps`
 
 ## 0.10.70
 

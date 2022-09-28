@@ -3,7 +3,11 @@ import type { Cleanup } from '@reykjavik/hanna-utils';
 
 import { CardList, ImageCardListProps, ImageCardProps } from './_abstract/_CardList';
 
-export type ArticleCardProps = ImageCardProps;
+export type ArticleCardsItemProps = ImageCardProps;
+
+/** @deprecated Use `ArticleCardsItemProps` instead (Remove in v0.11) */
+export type ArticleCardProps = ArticleCardsItemProps;
+
 export type ArticleCardsProps = Cleanup<
   Pick<ImageCardListProps, 'cards' | 'imgPlaceholder'>
 >;
