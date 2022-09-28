@@ -9,10 +9,10 @@ import {
 } from './_abstract/_CardList';
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
-/** @deprecated Use `ImageCard` instead.  (Will be removed in v0.11) */
-export type ImageCardProps = _ImageCardProps;
-
 export type ImageCardsItemProps = _ImageCardProps;
+
+/** @deprecated Use `ImageCardsItemProps` instead.  (Will be removed in v0.11) */
+export type ImageCardProps = ImageCardsItemProps;
 
 export type ImageCardsProps = ImageCardListProps &
   CardListSummaryProps & { background?: boolean } & SeenProp;

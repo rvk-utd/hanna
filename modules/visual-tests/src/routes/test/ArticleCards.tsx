@@ -1,8 +1,7 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
-import ArticleCards from '@reykjavik/hanna-react/ArticleCards';
-import { ImageCardProps } from '@reykjavik/hanna-react/ImageCards';
+import ArticleCards, { ArticleCardsItemProps } from '@reykjavik/hanna-react/ArticleCards';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';
@@ -14,12 +13,13 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
 const cards = range(0, 7).map(
-  (i): ImageCardProps => ({
-    title: [
-      'Block Title',
-      'Block title lorem ipsum dolor sit ament foobar',
-      'Block title lorem ipsum dolor.',
-    ][i % 3]!,
+  (i): ArticleCardsItemProps => ({
+    title:
+      [
+        'Block Title',
+        'Block title lorem ipsum dolor sit ament foobar',
+        'Block title lorem ipsum dolor.',
+      ][i % 3] || '',
     href: '',
     image: photo.square,
     meta: i % 2 === 0 ? lorem.medium.slice(0, 103) + '.' : '14. október',

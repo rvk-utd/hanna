@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
 import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
-import ImageCards, { ImageCardProps } from '@reykjavik/hanna-react/ImageCards';
+import ImageCards, { ImageCardsItemProps } from '@reykjavik/hanna-react/ImageCards';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';
@@ -15,12 +15,13 @@ export const meta: MetaFunction = autoTitle;
 export const handle = { cssTokens: [] };
 
 const imageCards = range(0, 5).map(
-  (i): ImageCardProps => ({
-    title: [
-      'Block Title',
-      'Block title lorem ipsum dolor sit ament foobar',
-      'Tré ársins er rauðgreni í Elliðaárhólma',
-    ][i % 3]!,
+  (i): ImageCardsItemProps => ({
+    title:
+      [
+        'Block Title',
+        'Block title lorem ipsum dolor sit ament foobar',
+        'Tré ársins er rauðgreni í Elliðaárhólma',
+      ][i % 3] || '',
     href: '',
     image: photo.square,
     meta: i % 2 === 0 ? lorem.medium : '14. október',

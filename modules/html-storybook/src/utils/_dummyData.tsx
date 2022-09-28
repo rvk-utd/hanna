@@ -2,7 +2,7 @@ import React from 'react';
 import range from '@hugsmidjan/qj/range';
 import { BreadCrumbTrail } from '@reykjavik/hanna-react/BreadCrumbs';
 import { ButtonTertiaryProps } from '@reykjavik/hanna-react/ButtonTertiary';
-import { ImageCardProps } from '@reykjavik/hanna-react/ImageCards';
+import { ImageCardsItemProps } from '@reykjavik/hanna-react/ImageCards';
 import {
   AuxiliaryPanelProps,
   MainMenuItemList,
@@ -110,7 +110,7 @@ export const SUMMARY_BITS = [
 ];
 
 export const imageCards = range(0, 9).map(
-  (i): ImageCardProps => ({
+  (i): ImageCardsItemProps => ({
     title: [TITLE_SHORT, TITLE_LONG, TITLE_MEDIUM][i % 3]!,
     href: '',
     image: i === 4 || i === 6 ? undefined : { src: dummyImage, altText: '' },
