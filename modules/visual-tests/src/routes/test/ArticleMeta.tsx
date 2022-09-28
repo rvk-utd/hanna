@@ -21,8 +21,8 @@ export default function () {
             label: 'Mánudagur, 30. maí 2021',
           },
           {
-            label: 'Dagur B. Eggertsson',
-            href: '/borgarstjori',
+            label: 'Some random text',
+            href: '/',
           },
           {
             label: 'Hover Test',
