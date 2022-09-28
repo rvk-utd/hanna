@@ -2,7 +2,7 @@
 @use 'font' as *;
 
 @mixin AttentionStyle($border: true) {
-  @include BodyTextStyle--large();
+  font: $var--font-bd-l;
   position: relative;
   padding-left: grid-units(5);
 
@@ -23,13 +23,13 @@
   }
 
   @include media($mq-wide) {
-    margin-top: grid-units(10);
+    margin-top: 80px;
 
     @if $border {
-      padding-top: grid-units(8);
+      padding-top: 64px;
 
       &::before {
-        top: grid-units(8);
+        top: 64px;
       }
     }
   }

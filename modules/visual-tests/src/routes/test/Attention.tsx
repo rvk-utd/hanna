@@ -16,7 +16,9 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <Attention>{loremRT.long(true)}</Attention>
+      <Attention>
+        <p>{loremRT.long(true)}</p>
+      </Attention>
       <Attention small>{loremRT.long(true)}</Attention>
     </Minimal>
   );
