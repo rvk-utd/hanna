@@ -40,11 +40,9 @@ export type NotExtends<A, B> = UnlessAny<A, B, B extends A ? false : true>;
 type ExactEqual<A, B> =
   (<U>() => U extends A ? 1 : 0) extends (<U>() => U extends B ? 1 : 0) ? Any : never;
 
-// declare const _Any__Brand: unique symbol;
-// type Any = { [_Any__Brand]: true };
-declare class Any {
-  private _: true;
-}
+declare const _Any__Brand: unique symbol;
+type Any = { [_Any__Brand]: true };
+
 type IsAny<T> = Any extends T ? ([T] extends [Any] ? true : false) : false;
 type UnlessAny<A, B, C> = IsAny<A> extends true
   ? IsAny<B> extends true
