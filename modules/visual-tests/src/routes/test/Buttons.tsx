@@ -90,7 +90,7 @@ const buttons = (
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
-    <Minimal>
+    <Minimal bare>
       {buttons('normal', 'normal')}
       <hr />
       {buttons('small', 'normal')}
@@ -119,15 +119,27 @@ export const testing: TestingInfo = {
     const pressedTertiary = page.locator('.ButtonTertiary:text("Pressed")>> nth=0');
 
     // Destructive Buttons
-    const destructivePrimary = page.locator('.ButtonPrimary--destructive >> nth =0');
-    const destructiveDisabledPrim = page.locator('.ButtonPrimary--destructive:text("Disabled")>> nth =0');
-    const destructivePressedPrim = page.locator('.ButtonPrimary--destructive:text("Pressed")>> nth =0');
-    const destructiveSecondary = page.locator('.ButtonSecondary--destructive >> nth =0');
-    const destructiveDisabledSec = page.locator('.ButtonSecondary--destructive:text("Disabled")>> nth =0');
-    const destructivePressedSec = page.locator('.ButtonSecondary--destructive:text("Pressed")>> nth =0');
-    const destructiveTertiary = page.locator('.ButtonTertiary--destructive >> nth=0');
-    const destructiveDisabledTer = page.locator('.ButtonTertiary--destructive:text("Disabled")>> nth =0');
-    const destructivePressedTer = page.locator('.ButtonTertiary--destructive:text("Pressed")>> nth =0');
+    const destrPrimary = page.locator('.ButtonPrimary--destructive >> nth =0');
+    const destrDisabledPrim = page.locator(
+      '.ButtonPrimary--destructive:text("Disabled")>> nth =0'
+    );
+    const destrPressedPrim = page.locator(
+      '.ButtonPrimary--destructive:text("Pressed")>> nth =0'
+    );
+    const destrSecondary = page.locator('.ButtonSecondary--destructive >> nth =0');
+    const destrDisabledSec = page.locator(
+      '.ButtonSecondary--destructive:text("Disabled")>> nth =0'
+    );
+    const destrPressedSec = page.locator(
+      '.ButtonSecondary--destructive:text("Pressed")>> nth =0'
+    );
+    const destrTertiary = page.locator('.ButtonTertiary--destructive >> nth=0');
+    const destrDisabledTer = page.locator(
+      '.ButtonTertiary--destructive:text("Disabled")>> nth =0'
+    );
+    const destrPressedTer = page.locator(
+      '.ButtonTertiary--destructive:text("Pressed")>> nth =0'
+    );
 
     const buttonTest = async (button: Locator, imgName: string, click: boolean) => {
       await button.hover({ force: true });
@@ -138,11 +150,11 @@ export const testing: TestingInfo = {
       //   await localScreenshot(button, imgName + '-click', { margin: true });
       // }
     };
-    const clickTest =async (button: Locator, imgName: string) =>{
-        await button.hover();
-        await page.mouse.down();
-        await localScreenshot(button, imgName + '-click', { margin: true });
-    }
+    const clickTest = async (button: Locator, imgName: string) => {
+      await button.hover();
+      await page.mouse.down();
+      await localScreenshot(button, imgName + '-click', { margin: true });
+    };
 
     const buttons = [
       { loc: primaryButton, imgName: 'primaryButton', clickTest: true },
@@ -156,15 +168,15 @@ export const testing: TestingInfo = {
       { loc: pressedTertiary, imgName: 'pressedTertiary', clickTest: false },
 
       // destructive butttons
-      { loc: destructivePrimary, imgName: 'destructivePrimary', clickTest: true },
-      { loc: destructiveDisabledPrim, imgName: 'destructiveDisabledPrim', clickTest: false },
-      { loc: destructivePressedPrim, imgName: 'destructivePressedPrim', clickTest: false },
-      { loc: destructiveSecondary, imgName: 'destructiveSecondary', clickTest: true },
-      { loc: destructiveDisabledSec, imgName: 'destructiveDisabledSec', clickTest: false },
-      { loc: destructivePressedSec, imgName: 'destructivePressedSec', clickTest: false },
-      { loc: destructiveTertiary, imgName: 'destructiveTertiary', clickTest: true },
-      { loc: destructiveDisabledTer, imgName: 'destructiveDisabledTer', clickTest: false },
-      { loc: destructivePressedTer, imgName: 'destructivePressedTer', clickTest: false },
+      { loc: destrPrimary, imgName: 'destructivePrimary', clickTest: true },
+      { loc: destrDisabledPrim, imgName: 'destructiveDisabledPrim', clickTest: false },
+      { loc: destrPressedPrim, imgName: 'destructivePressedPrim', clickTest: false },
+      { loc: destrSecondary, imgName: 'destructiveSecondary', clickTest: true },
+      { loc: destrDisabledSec, imgName: 'destructiveDisabledSec', clickTest: false },
+      { loc: destrPressedSec, imgName: 'destructivePressedSec', clickTest: false },
+      { loc: destrTertiary, imgName: 'destructiveTertiary', clickTest: true },
+      { loc: destrDisabledTer, imgName: 'destructiveDisabledTer', clickTest: false },
+      { loc: destrPressedTer, imgName: 'destructivePressedTer', clickTest: false },
     ];
     let i = 0;
     let button: typeof buttons[number] | undefined;
@@ -172,8 +184,9 @@ export const testing: TestingInfo = {
       // eslint-disable-next-line no-await-in-loop
       await buttonTest(button.loc, button.imgName, true);
       // eslint-disable-next-line no-await-in-loop
-      if(button.clickTest)
-      {await clickTest(button.loc,button.imgName)}
+      if (button.clickTest) {
+        await clickTest(button.loc, button.imgName);
+      }
     }
   },
 };

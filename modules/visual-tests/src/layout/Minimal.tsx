@@ -29,7 +29,7 @@ export const Minimal = (props: MinimalProps) => {
       <div
         className={'Layout__' + slot}
         role={roles[slot]}
-        style={{ paddingBlock: '1rem', minHeight: 0 }}
+        style={{ paddingBlock: `${bare ? 2 : 1}rem`, minHeight: 0 }}
       >
         {!bare && <DummyBlock thin />}
         {props.children}
