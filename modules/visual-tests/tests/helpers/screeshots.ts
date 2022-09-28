@@ -25,7 +25,6 @@ const toFileName = (testName: string, label: string) =>
 // ---------------------------------------------------------------------------
 
 const DEFAULT_MARGIN = 15;
-
 export const makeSnapLocalScreeshot =
   (page: Page, testName: string): TestFnArgs['localScreenshot'] =>
   async (locator, label, opts) => {
@@ -38,9 +37,20 @@ export const makeSnapLocalScreeshot =
       });
       locator = page.locator('#' + id);
     }
+
+    let marginWidth = DEFAULT_MARGIN;
+    let marginHeight = DEFAULT_MARGIN;
     const marginOpt = (opts || {}).margin || 0;
-    const margin = Math.max(0, marginOpt === true ? DEFAULT_MARGIN : marginOpt);
-    if (marginOpt && margin) {
+
+    if (!Array.isArray(marginOpt)) {
+      marginWidth = marginHeight = marginOpt === true ? DEFAULT_MARGIN : marginOpt;
+    } else {
+      // Check for negative values
+      marginWidth = Math.max(0, marginOpt[0]);
+      marginHeight = Math.max(0, marginOpt[1]);
+    }
+
+    if (marginOpt) {
       // const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
       // const x = Math.max(0, rect.x - margin);
       // const y = Math.max(0, rect.y - margin);
@@ -58,13 +68,14 @@ export const makeSnapLocalScreeshot =
       return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
         ...opts,
         clip: {
-          x: rect.x - margin,
-          y: rect.y - margin,
-          width: rect.width + 2 * margin,
-          height: rect.height + 2 * margin,
+          x: rect.x - marginWidth,
+          y: rect.y - marginHeight,
+          width: rect.width + 2 * marginWidth,
+          height: rect.height + 2 * marginHeight,
         },
       });
     }
+
     return expectSoft(locator).toHaveScreenshot(toFileName(testName, label), opts);
   };
 
