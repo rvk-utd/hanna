@@ -86,8 +86,7 @@ export type AlertProps = {
     onClosed: () => void;
   },
   {
-    /**
-     * @deprecated This signature with the `event` argument will be removed in hanna-react v0.9
+    /** @deprecated This signature with the `event` argument will be removed in hanna-react v0.11
      *
      * Return `false` to prevent the alert from closing
      */

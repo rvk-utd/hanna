@@ -9,9 +9,9 @@ import TogglerInput, { TogglerInputProps } from './_abstract/_TogglerInput';
 export type RadioButtonsGroupProps = TogglerGroupFieldProps & {
   value?: string;
 
-  /** @deprecated (Will be removed in v0.9) */
+  /** @deprecated (Will be removed in v0.11) */
   columns?: '2col' | '3col';
-  /** @deprecated (Will be removed in v0.9) */
+  /** @deprecated (Will be removed in v0.11) */
   layout?: 'slim';
 };
 

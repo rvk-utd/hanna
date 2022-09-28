@@ -42,7 +42,7 @@ type Options = {
     }
   | {
       onChange?: undefined;
-      /** @deprecated (Will be removed in v0.9)
+      /** @deprecated (Will be removed in v0.11)
        *
        * This props is redundant when `onChange`, as its only possible value is `true`.
        */

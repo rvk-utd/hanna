@@ -48,9 +48,7 @@ export type FileInputProps = {
   name?: string;
   value?: ReadonlyArray<File>;
 
-  /**
-   * @deprecated Use props `multiple`, `accept` instead  (Will be removed in v0.11)
-   */
+  /** @deprecated Use props `multiple`, `accept` instead  (Will be removed in v0.11) */
   dropzoneProps?: { accept?: string; multiple?: boolean };
 } & FormFieldWrappingProps;
 // // Do we need more props from this type?
