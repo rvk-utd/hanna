@@ -9,11 +9,13 @@ import {
   ScrollRestoration,
   useSearchParams,
 } from '@remix-run/react';
-import { css, getCssBundleUrl } from '@reykjavik/hanna-css';
+import { css, getCssBundleUrl, HannaColorTheme } from '@reykjavik/hanna-css';
 import { getPageScrollElm as _getPageScrollElm } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
 import { useGetCssTokens } from './utils/useGetCssTokens';
+
+const THEME: HannaColorTheme = 'colorful';
 
 // ---------------------------------------------------------------------------
 
@@ -108,7 +110,7 @@ export default function App() {
         // (Most Figma designs show the default "trustworthy" theme,
         // so by running these tests with another theme, we're more likely
         // to catch accidental hard-coding of color types in the CSS)
-        data-color-theme="friendly"
+        data-color-theme={THEME}
       >
         <div id="bodyinner">
           <Outlet />
