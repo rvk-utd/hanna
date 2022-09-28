@@ -32,11 +32,11 @@ const content = (extra: boolean) => {
             {
               value: (
                 <Fragment>
-                  Umsókn um <a href="/url">stuðningsþjónustu</a>
+                  Umsókn um <a href="/url">þjónustu</a>
                 </Fragment>
               ),
             },
-            'Umsókn um stuðningsþjónustu án links',
+            'Umsókn um þjónustu án links',
             '16.09.2019 / kl. 18:45',
             '800 9000',
             '45.663 kr',
@@ -54,7 +54,7 @@ const content = (extra: boolean) => {
           [
             '1199',
             lorem.tiny.slice(0, 21),
-            lorem.tiny.slice(0, 20),
+            lorem.tiny.slice(0, 6),
             '16.09.2019 / kl. 18:45',
             '800 9000',
             '40.663 kr',
@@ -67,7 +67,7 @@ const content = (extra: boolean) => {
             {
               value: (
                 <Fragment>
-                  Umsókn um <a href="/url">stuðningsþjónustu</a>
+                  Umsókn um <a href="/url">þjónustu</a>
                 </Fragment>
               ),
             },
@@ -80,7 +80,7 @@ const content = (extra: boolean) => {
           ['100', lorem.tiny, '16.09.2019 / kl. 18:45', '', '5.663 kr', 'Í vinnslu'],
           [
             '1199',
-            lorem.tiny,
+            lorem.medium.slice(0, 60),
             '16.09.2019 / kl. 18:45',
             '800 9000',
             '40.663 kr',
@@ -94,8 +94,8 @@ const content = (extra: boolean) => {
 
 const tFoot: BasicTableProps['tfoot'] = [
   [
-    { value: 'Samtals:', number: false, colSpan: 4 },
-    { value: '16.345 kr.', number: true },
+    { value: 'Footer:', number: false, colSpan: 4 },
+    { value: 'Footer Value', number: true },
     '',
   ],
 ];
@@ -105,11 +105,11 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {/* False for 6 columns - true for 7 columns (to check scroll)*/}
-      <BasicTable {...content(false)} />
-      <BasicTable {...content(false)} tfoot={tFoot} />
-      <BasicTable {...content(false)} tfoot={tFoot} compact />
-      <BasicTable {...content(true)} align="right" />
-      <BasicTable {...content(false)} caption="Table with caption" fullWidth />
+      <BasicTable {...content(false)} startSeen />
+      <BasicTable {...content(false)} tfoot={tFoot} startSeen />
+      <BasicTable {...content(false)} tfoot={tFoot} compact startSeen />
+      <BasicTable {...content(true)} align="right" startSeen />
+      <BasicTable {...content(false)} caption="Table with caption" fullWidth startSeen />
     </Minimal>
   );
 }
