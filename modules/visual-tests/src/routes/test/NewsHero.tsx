@@ -1,5 +1,4 @@
 import React from 'react';
-import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
 import NewsHero from '@reykjavik/hanna-react/NewsHero';
 

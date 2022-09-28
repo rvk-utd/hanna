@@ -29,8 +29,8 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <CityBlock {...props} {...IMAGES['']} startSeen />
-      <CityBlock {...props} {...IMAGES['largebox']} align="left" startSeen />
-      <CityBlock {...props} {...IMAGES['largebox']} startSeen />
+      <CityBlock {...props} {...IMAGES.largebox} align="left" startSeen />
+      <CityBlock {...props} {...IMAGES.largebox} startSeen />
     </Minimal>
   );
 }
