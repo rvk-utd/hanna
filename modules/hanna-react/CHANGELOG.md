@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.70
+
+_2022-09-28_
+
 - fix: Remove leftover dev logging
 
 ## 0.10.69
