@@ -4,7 +4,7 @@ import type { MetaFunction } from '@remix-run/node';
 import ArticleCards, { ArticleCardsItemProps } from '@reykjavik/hanna-react/ArticleCards';
 
 import { Minimal } from '../../layout/Minimal';
-import { lorem, photo } from '../../test-helpers/dummyData';
+import { illustr, lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -12,7 +12,8 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
-const cards = range(0, 7).map(
+
+const cards = range(1, 5).map(
   (i): ArticleCardsItemProps => ({
     title:
       [
@@ -21,15 +22,16 @@ const cards = range(0, 7).map(
         'Block title lorem ipsum dolor.',
       ][i % 3] || '',
     href: '',
-    image: photo.square,
+    image: i === 3 ? undefined : i % 3 ? photo.portrait : photo.landscape,
     meta: i % 2 === 0 ? lorem.medium.slice(0, 103) + '.' : '14. október',
   })
 );
+
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <ArticleCards cards={cards} />
+      <ArticleCards cards={cards} imgPlaceholder={illustr.short.src} />
     </Minimal>
   );
 }
