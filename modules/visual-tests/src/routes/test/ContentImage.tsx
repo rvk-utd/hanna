@@ -26,7 +26,7 @@ export default function () {
       Image with caption
       <ContentImage image={photo.landscape} caption={lorem.medium} />
       <hr />
-      Image with caption
+      Image with credit
       <ContentImage image={photo.landscape} credit={'©2017 ' + lorem.tiny} />
     </Minimal>
   );

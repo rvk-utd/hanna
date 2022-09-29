@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import BasicTable, { BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
@@ -106,9 +107,13 @@ export default function () {
     <Minimal>
       {/* False for 6 columns - true for 7 columns (to check scroll)*/}
       <BasicTable {...content(false)} startSeen />
+      <DummyBlock thin />
       <BasicTable {...content(false)} tfoot={tFoot} startSeen />
+      <DummyBlock thin />
       <BasicTable {...content(false)} tfoot={tFoot} compact startSeen />
+      <DummyBlock thin />
       <BasicTable {...content(true)} align="right" startSeen />
+      <DummyBlock thin />
       <BasicTable {...content(false)} caption="Table with caption" fullWidth startSeen />
     </Minimal>
   );

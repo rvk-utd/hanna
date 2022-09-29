@@ -2,6 +2,7 @@ import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import InfoHero, { InfoHeroProps } from '@reykjavik/hanna-react/InfoHero';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import { photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
@@ -31,22 +32,24 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <InfoHero
-        title={'Lorem Ipsum'}
+        title={'Align left'}
         subTitle={'Lorem ipsum dolor sit amet'}
         image={photo.portrait}
         align="left"
         blurb="Foo bar"
       />
+      <DummyBlock thin />
       <InfoHero
-        title={'Lorem Ipsum'}
+        title={'Align right'}
         subTitle={'Lörem ipsum dolor sit amet, dedeeshka duu.'}
         image={photo.landscape}
         buttons={buttonProps.slice(0, 2)}
         blingType={'sunny-waves'}
         blurb="Foo bar"
       />
+      <DummyBlock thin />
       <InfoHero
-        title={'Lörem ipsum dolor sit amet.'}
+        title={'Align right with buttons'}
         subTitle={'Lorem ipsum dolor sit amet'}
         image={photo.landscape}
         buttons={buttonProps}
