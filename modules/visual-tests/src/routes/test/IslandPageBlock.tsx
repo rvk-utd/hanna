@@ -1,7 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import IslandPageBlock from '@reykjavik/hanna-react/IslandPageBlock';
-import { someButtons } from 'modules/html-storybook/src/utils/_dummyData';
 
 import { Minimal } from '../../layout/Minimal';
 import { illustr, lorem } from '../../test-helpers/dummyData';
@@ -12,6 +11,12 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
+const buttonList = [
+  { href: '', label: 'Button number one' },
+  { href: '', label: 'Button number two' },
+  { href: '', label: 'Button number three' },
+  { href: '', label: 'Button number four' },
+];
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
@@ -20,7 +25,7 @@ export default function () {
       <IslandPageBlock
         title={'Left aligned'}
         align={'left'}
-        buttons={someButtons.slice(0, 1)}
+        buttons={buttonList.slice(0, 1)}
         background={'none'}
         image={illustr.tall}
         startSeen
@@ -29,7 +34,7 @@ export default function () {
       <IslandPageBlock
         title={'Right aligned'}
         summary={lorem.short}
-        buttons={someButtons.slice(0, 2)}
+        buttons={buttonList.slice(0, 2)}
         align={'right'}
         background={'gray'}
         image={illustr.tall}
@@ -38,7 +43,7 @@ export default function () {
       <IslandPageBlock
         title={'Right aligned with secondary background'}
         summary={lorem.medium}
-        buttons={someButtons.slice(0, 4)}
+        buttons={buttonList.slice(0, 4)}
         align={'left'}
         background={'secondary'}
         image={illustr.tall}
@@ -48,4 +53,6 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {};
+export const testing: TestingInfo = {
+  __DEV_FOCUS__: true,
+};
