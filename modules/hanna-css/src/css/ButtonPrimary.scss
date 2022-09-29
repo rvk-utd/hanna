@@ -11,9 +11,8 @@
     @include ButtonStyle();
 
     &--destructive {
-      --Button--color: #{$var--color-suld-0};
-      --Button--backgroundColor: #{$var--color-heidmork-100};
-      --Button--backgroundColor--active: #{$var--color-heidmork-150};
+      --Button--color: #{$var--color-heidmork-100};
+      --Button--color--active: #{$var--color-heidmork-150};
     }
   }
 }

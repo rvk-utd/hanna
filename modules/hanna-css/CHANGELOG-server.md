@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Set `ButtonPrimary` and `ButtonSecondary` base color to Faxafloi
 - feat: Add rich text styling inside `.ArticleList__content`
 - feat: Add styling for `.ActionCards__summary`
 - fix: Top margin on `.InfoHero__titleblurb`

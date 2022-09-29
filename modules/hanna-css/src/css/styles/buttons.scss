@@ -3,13 +3,14 @@
 
 @mixin ButtonStyle() {
   @include LinkStyle_Reset(true);
-  --Button--color: #{$var--theme-color-primary--text};
-  --Button--backgroundColor: #{$var--theme-color-primary};
-  --Button--color--active: #{$var--color-suld-0};
-  --Button--backgroundColor--active: #{$var--theme-color-primary--dark};
+  --Button--color: #{$var--color-faxafloi-100};
+  --Button--color--active: #{$var--color-faxafloi-150};
+  --Button--textColor: #{$var--color-suld-0};
+  --Button--textColor--active: #{$var--color-suld-0};
+  --Button--backgroundColor: var(--Button--color);
+  --Button--backgroundColor--active: var(--Button--color--active);
   --Button--border: 0px;
-  --Button--borderColor: var(--Button--backgroundColor);
-  --Button--height: #{prem(56)};
+  --Button--height: #{$var--space-8};
   --Button--iconOutdent: #{$var--space-0_5--neg};
   --Button--iconSpace: #{$var--space-1};
 
@@ -19,11 +20,12 @@
   white-space: nowrap;
   vertical-align: middle;
 
-  color: var(--Button--color);
+  color: var(--Button--textColor);
   background-color: var(--Button--backgroundColor);
   display: inline-block;
   font: $var--font-button;
   font-weight: $font-weight--bold;
+  border: var(--Button--border) solid var(--Button--color);
   line-height: calc(var(--Button--height) - 2 * var(--Button--border));
   margin-right: $var--Button--gapH;
   margin-bottom: $var--Button--gapV;
@@ -48,16 +50,18 @@
     text-decoration: none;
     // box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
     box-shadow: 0 prem(8) prem(16) rgba(black, 0.15);
-    color: var(--Button--color);
+    color: var(--Button--textColor);
+    border: var(--Button--border) solid var(--Button--color);
   }
   &:active,
   &[aria-pressed='true'] {
     text-decoration: none;
-    background-color: var(--Button--backgroundColor--active);
-    color: var(--Button--color--active);
+    --Button--color: var(--Button--color--active);
+    --Button--backgroundColor: var(--Button--backgroundColor--active);
+    --Button--color: var(--Button--color--active);
   }
   @include keyboardFocus-selector {
-    outline: prem(2) solid var(--Button--borderColor);
+    outline: prem(2) solid var(--Button--color);
     outline-offset: prem(2);
   }
 
