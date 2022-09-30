@@ -170,5 +170,10 @@ Once the above software is installed, clone this repo and run:
 yarn install
 ```
 
-This sets up all the neccessary githooks, configures git and git-lfs, and
-displays notifications explaining the presence of the git submodules.
+This sets up all the neccessary githooks, configures git and git-lfs, and logs
+notifications explaining the presence of the git submodules, into a file
+called WARNING--SUB-MODULES.txt.
+
+If you plan on running the CSS dev server, or work on the documentation
+servers, you probably want to run `sh scripts/submodule-install.sh` straight
+away.
