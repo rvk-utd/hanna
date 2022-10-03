@@ -10,27 +10,79 @@ import { autoTitle } from '../../utils/meta';
 export const meta: MetaFunction = autoTitle;
 
 const IMAGES = {
-  '': { image: illustr.medium },
-  largebox: { image: { src: photo.square.src, altText: 'Alt text!' } },
+  illustr: { image: illustr.tall },
+  portrait: { image: { src: photo.portrait.src, altText: 'Alt text!' } },
+  small: { image: { src: photo.square.src, altTect: 'Alt text' } },
 };
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
+const buttonList = [
+  { href: '', label: 'Button number one' },
+  { href: '', label: 'Button number two' },
+  { href: '', label: 'Button number three' },
+  { href: '', label: 'Button number four' },
+];
 
-const props: Pick<CityBlockProps, 'content' | 'type' | 'startSeen'> = {
-  content: {
-    title: 'Lorem Ipsum',
-    summary: lorem.medium,
-    buttons: [{ href: '', label: 'Dagskrá næsta fundar' }],
-  },
+const content = (cityBlockTitle: string, i: number) => {
+  const props: Pick<CityBlockProps, 'content' | 'startSeen'> = {
+    content: {
+      title: cityBlockTitle,
+      summary: lorem.medium,
+      buttons: buttonList.slice(0, i),
+    },
+
+    startSeen: true,
+  };
+  return props;
 };
+
+// const contentprops: CityBlockProps['content'] = {
+//   title: 'lol',
+//   summary: 'hehehe',
+//   buttons: [{ href: '', label: 'Button number one' }],
+// };
 
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <CityBlock {...props} {...IMAGES['']} startSeen />
-      <CityBlock {...props} {...IMAGES.largebox} align="left" startSeen />
-      <CityBlock {...props} {...IMAGES.largebox} startSeen />
+      <CityBlock
+        {...content('Large image and right aligned', 3)}
+        {...IMAGES.portrait}
+        type={'largeimage'}
+        startSeen
+      />
+      <CityBlock
+        {...content('Large image and left aligned', 1)}
+        {...IMAGES.portrait}
+        align={'left'}
+        type={'largeimage'}
+        startSeen
+      />
+      <CityBlock
+        {...content('Large illustration and right aligned', 4)}
+        {...IMAGES.illustr}
+        startSeen
+      />
+      <CityBlock
+        {...content('Large illustration and left aligned', 2)}
+        {...IMAGES.illustr}
+        align={'left'}
+        startSeen
+      />
+      <CityBlock
+        {...content('Largebox and left aligned', 0)}
+        {...IMAGES.illustr}
+        type={'largebox'}
+        startSeen
+      />
+      <CityBlock
+        {...content('Largebox and right aligned', 2)}
+        {...IMAGES.illustr}
+        align={'left'}
+        type={'largebox'}
+        startSeen
+      />
     </Minimal>
   );
 }

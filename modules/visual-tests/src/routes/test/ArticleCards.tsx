@@ -22,11 +22,9 @@ const cards = range(1, 5).map(
         'Block title lorem ipsum dolor.',
       ][i % 3] || '',
     href: '',
-    image: i === 3 ? undefined : i % 3 ? photo.portrait : photo.landscape,
     meta: i % 2 === 0 ? lorem.medium.slice(0, 103) + '.' : '14. október',
   })
 );
-
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,

@@ -69,6 +69,7 @@ import { testing as IslandBlock__test } from '../src/routes/test/IslandBlock';
 import { testing as IslandPageBlock__test } from '../src/routes/test/IslandPageBlock';
 import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
 import { testing as MiniMetrics__test } from '../src/routes/test/MiniMetrics';
+import { testing as Modal__test } from '../src/routes/test/Modal';
 import { testing as NameCards__test } from '../src/routes/test/NameCards';
 import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
 import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
@@ -118,6 +119,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   IslandPageBlock: IslandPageBlock__test,
   MainMenu: MainMenu__test,
   MiniMetrics: MiniMetrics__test,
+  Modal: Modal__test,
   NameCards: NameCards__test,
   NewsHero: NewsHero__test,
   ProcessOverview: ProcessOverview__test,
