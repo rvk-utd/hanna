@@ -36,12 +36,6 @@ const content = (cityBlockTitle: string, i: number) => {
   return props;
 };
 
-// const contentprops: CityBlockProps['content'] = {
-//   title: 'lol',
-//   summary: 'hehehe',
-//   buttons: [{ href: '', label: 'Button number one' }],
-// };
-
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
