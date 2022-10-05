@@ -25,7 +25,7 @@ export const iconStyle = (icon?: string | VariablePrinter) => css`
   -webkit-font-smoothing: antialiased; // fix for light text on dark background from beeing smudgy in webkit/mac
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0;
-  ${icon && `content: "${icon}";`}
+  ${icon && `content: ${JSON.stringify(icon)};`}
 `;
 
 // ---------------------------------------------------------------------------

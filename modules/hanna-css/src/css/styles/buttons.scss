@@ -143,7 +143,7 @@
 :root {
   --ButtonTertiary--height: calc(#{$var--font-button-leading} + 4px);
   --ButtonTertiary--color: _inherit;
-  --ButtonTertiary--dashColor: #{$var--theme-color-primary--safeish};
+  --ButtonTertiary--dashColor: #{$var--color-faxafloi-100};
   --ButtonTertiary--dashWidth: #{$var--space-2};
   --ButtonTertiary--hover--dashWidth: #{$var--space-4};
   --ButtonTertiary--dashSpace: #{$var--space-2};
