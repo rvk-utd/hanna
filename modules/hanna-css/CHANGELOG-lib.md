@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Upgrade `es-in-css` for bugfixes and new features.
 
 ## 0.3.7
 
