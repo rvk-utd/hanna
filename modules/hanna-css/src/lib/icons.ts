@@ -1,5 +1,5 @@
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
-import { css, VariablePrinter } from 'es-in-css';
+import { css, str, VariablePrinter } from 'es-in-css';
 
 import iconfonttokens from './iconfonttokens';
 
@@ -11,22 +11,26 @@ const iconfontName = 'icons';
  * Mixin to use in either `::before` or `:after` contexts
  * to set up iconfont styling
  */
-export const iconStyle = (icon?: string | VariablePrinter) => css`
-  display: inline-block;
-  text-indent: 0;
-  text-align: center;
-  vertical-align: top;
-  // iconFontStyling
-  font-family: ${iconfontName};
-  speak: none;
-  font-weight: normal;
-  font-style: normal;
-  white-space: nowrap;
-  -webkit-font-smoothing: antialiased; // fix for light text on dark background from beeing smudgy in webkit/mac
-  -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0;
-  ${icon && `content: ${JSON.stringify(icon)};`}
-`;
+export const iconStyle = (icon?: string | VariablePrinter) => {
+  const content = !icon ? undefined : typeof icon === 'string' ? str(icon) : icon;
+
+  return css`
+    display: inline-block;
+    text-indent: 0;
+    text-align: center;
+    vertical-align: top;
+    // iconFontStyling
+    font-family: ${iconfontName};
+    speak: none;
+    font-weight: normal;
+    font-style: normal;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased; // fix for light text on dark background from beeing smudgy in webkit/mac
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
+    ${icon && `content: ${content};`}
+  `;
+};
 
 // ---------------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-import { color, css } from 'es-in-css';
+import { color, css, str } from 'es-in-css';
 
 import { isDevMode } from './cssutils';
 
@@ -40,7 +40,7 @@ export const WARNING__ = (message: string, opts?: WarningOpts) => {
       color: ${_color} !important;
       background-color: ${color(_color).mix(color('white'), 0.1).alpha(0.5)} !important;
       padding: 0 0.5em !important;
-      content: ${JSON.stringify(message)} !important;
+      content: ${str(message)} !important;
     }
   `;
 };
@@ -84,7 +84,7 @@ export const WARNING_message__ = (message: string, opts?: WarningOpts) => {
 
   return css`
     html:not([data-disable-css-warnings-with-abandon='true']) &${hover}::${pos} {
-      content: ${JSON.stringify(message)} !important;
+      content: ${str(message)} !important;
     }
   `;
 };
