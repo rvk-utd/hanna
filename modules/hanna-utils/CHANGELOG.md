@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `ensurePosInt` and branded `PositiveInteger` type
 
 ## 0.1.14
 

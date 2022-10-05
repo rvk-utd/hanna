@@ -14,6 +14,9 @@ o.spec('hanna-css lib', () => {
       ObjectFromEntries: true,
       ObjectKeys: true,
 
+      /* ensure.ts */
+      ensurePosInt: true,
+
       /* focusElement.ts */
       focusElement: true,
 
@@ -52,6 +55,9 @@ o.spec('hanna-css lib', () => {
 // Also check exported types. (Ignoring re-exported types from es-in-css.)
 import type {
   /* ObjectEntries.ts */
+
+  /* ensure.ts */
+  PositiveInteger,
 
   /* focusElement.ts */
 
