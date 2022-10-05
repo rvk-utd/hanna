@@ -19,6 +19,14 @@ import { devDistCssFolder } from './scripts/config.js';
 
 const glob = globPkg.sync;
 
+const logError = (err) => {
+  if (!opts.dev) {
+    exit1(err);
+  }
+  const message = 'message' in err ? err.message : err;
+  console.error(message);
+};
+
 // ---------------------------------------------------------------------------
 
 const baseOpts = {
@@ -123,7 +131,7 @@ if (!opts.onlyLib) {
       watch: opts.dev && {
         onRebuild: (error, results) => {
           if (!error) {
-            cssCompile(results);
+            cssCompile(results).catch(logError);
           }
         },
       },
@@ -133,7 +141,7 @@ if (!opts.onlyLib) {
     })
     .then(cssCompile)
     // FIXME: cleanup temporary .js files on error
-    .catch(exit1);
+    .catch(logError);
 
   // -------------------
 
@@ -155,7 +163,7 @@ if (!opts.onlyLib) {
       watch: opts.dev && {
         onRebuild: (error, results) => {
           if (!error) {
-            return scssCompile(results);
+            return scssCompile(results).catch(logError);
           }
         },
       },
@@ -163,5 +171,5 @@ if (!opts.onlyLib) {
     })
     .then(scssCompile)
     // FIXME: cleanup temporary .js files on error
-    .catch(exit1);
+    .catch(logError);
 }

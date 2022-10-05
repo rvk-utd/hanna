@@ -20,7 +20,7 @@ export const srcDir = 'src';
 
 // ---------------------------------------------------------------------------
 
-export const exit1 = (err) => {
+export const exit1 = (/** @type {object} */ err) => {
   const message = 'message' in err ? err.message : err;
   console.error(message);
 
