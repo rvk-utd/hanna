@@ -1,3 +1,4 @@
+export * from './_/ensure';
 export * from './_/focusElement';
 export * from './_/formatMonitor';
 export * from './_/getPageScrollElm';

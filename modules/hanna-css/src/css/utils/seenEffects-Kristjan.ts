@@ -1,4 +1,5 @@
-import { css, RawCssString } from 'es-in-css';
+import { ensurePosInt } from '@reykjavik/hanna-utils/_/ensure';
+import { css, ms, MsValue, RawCssString } from 'es-in-css';
 
 const pad = (selector: string) => {
   return selector.indexOf(':') === 1 ? selector : ` ${selector}`;
@@ -40,6 +41,15 @@ const SeenEffect__transition = (childSelector = '', content: RawCssString) => {
   `;
 };
 
+export const SeenEffect__fadein = (childSelector = '') =>
+  SeenEffect__initial(
+    childSelector,
+    css`
+      opacity: 0;
+      transform: translateY(200px);
+    `
+  );
+
 export const SeenEffect__fadeup = (childSelector = '') => {
   return css`
     ${SeenEffect__initial(
@@ -66,15 +76,6 @@ export const SeenEffect__fadeup = (childSelector = '') => {
   `;
 };
 
-export const SeenEffect__fadein = (childSelector = '') =>
-  SeenEffect__initial(
-    childSelector,
-    css`
-      opacity: 0;
-      transform: translateY(200px);
-    `
-  );
-
 export const SeenEffect__fadeleft = (childSelector = '') => {
   return css`
     ${SeenEffect__initial(
@@ -98,5 +99,14 @@ export const SeenEffect__fadeleft = (childSelector = '') => {
         ${Transition__properties()}
       `
     )}
+  `;
+};
+
+export const SeenEffect__delay = (delay: MsValue | number) => {
+  if (ensurePosInt(delay) === undefined) {
+    throw new Error('delay must be PositiveInteger');
+  }
+  return css`
+    transition-delay: ${ms(delay)};
   `;
 };
