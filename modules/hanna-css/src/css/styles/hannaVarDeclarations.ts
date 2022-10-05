@@ -622,19 +622,23 @@ const iconVarDeclarations = iconVars.declare(iconfonttokens);
 
 // ---------------------------------------------------------------------------
 
-export const hannaVarDeclarations = [
-  envVarDeclarations,
-  breakpointVarDeclarations,
-  colorVarDeclarations,
-  themeVarDeclarations,
-  linkVarDeclarations,
-  fontVarDeclarations,
-  zIndexVarDeclarations,
-  gridVarDeclarations,
-  spaceVarDeclarations,
-  layoutVarDeclarations,
-  mainMenuVarDeclarations,
-  borderEffectVarDeclarations,
-  buttonVarDeclarations,
-  iconVarDeclarations,
-].join('');
+export const hannaVarDeclarations = () => css`
+  :root {
+    ${[
+      envVarDeclarations,
+      breakpointVarDeclarations,
+      colorVarDeclarations,
+      themeVarDeclarations,
+      linkVarDeclarations,
+      fontVarDeclarations,
+      zIndexVarDeclarations,
+      gridVarDeclarations,
+      spaceVarDeclarations,
+      layoutVarDeclarations,
+      mainMenuVarDeclarations,
+      borderEffectVarDeclarations,
+      buttonVarDeclarations,
+      iconVarDeclarations,
+    ].join('')}
+  }
+`;
