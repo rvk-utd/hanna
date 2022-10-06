@@ -53,6 +53,7 @@ import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar';
 import { testing as Buttons__test } from '../src/routes/test/Buttons';
 import { testing as Carousel__test } from '../src/routes/test/Carousel';
 import { testing as CheckboxAndRadio__test } from '../src/routes/test/CheckboxAndRadio';
+import { testing as CheckboxButtonsGroup__test } from '../src/routes/test/CheckboxButtonsGroup';
 import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
 import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble';
 import { testing as ContentArticle__test } from '../src/routes/test/ContentArticle';
@@ -105,6 +106,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Buttons: Buttons__test,
   Carousel: Carousel__test,
   CheckboxAndRadio: CheckboxAndRadio__test,
+  CheckboxButtonsGroup: CheckboxButtonsGroup__test,
   ContentArticle: ContentArticle__test,
   ContentImage: ContentImage__test,
   CityBlock: CityBlock__test,
