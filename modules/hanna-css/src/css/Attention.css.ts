@@ -19,9 +19,8 @@ export default css`
       padding-left: ${vars.space_3};
     }
 
-    // TODO: Check media query. Not matching prod
     ${media(
-      mq.phone_tablet,
+      mq.phone_phablet,
       css`
         .Attention {
           padding-left: ${vars.space_2};
