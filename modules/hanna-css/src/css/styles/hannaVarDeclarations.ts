@@ -1,4 +1,4 @@
-import { css, em, px, rem } from 'es-in-css';
+import { css, em, px, rem, str } from 'es-in-css';
 
 import {
   between_cols,
@@ -36,7 +36,7 @@ const _f = fontVars.vars;
 // ---------------------------------------------------------------------------
 
 const envVarDeclarations = envVars.declare({
-  cssVersion: `"${cssVersion}"`,
+  cssVersion: str(cssVersion),
   // NOTE: This variable receives its actual value
   // somewhere off in JavaScript-land.
   // (Likely set by `@hugsmidjan/qj/getScrollbarWidth.setCSSvar()`)
