@@ -7,7 +7,7 @@ export const bp = {
   tablet: 760,
   phablet: 480,
   phone: 320, // $grid-margin--phone: 20;
-};
+} as const;
 // NOTE: 20px at 320px is equivalent to
 // 24px at 375px,`+` and 26px at 415px
 
@@ -57,12 +57,7 @@ export const mq = {
   phone_netbook,
   Hamburger,
   Topmenu,
-};
+} as const;
 
-export const baseMQs: Array<keyof typeof mq> = [
-  'phone',
-  'phablet',
-  'tablet',
-  'netbook',
-  'wide',
-];
+// TODO: Use `satisfies` as soon as TypeScript 4.9 is out
+export const baseMQs = ['phone', 'phablet', 'tablet', 'netbook', 'wide'] as const;
