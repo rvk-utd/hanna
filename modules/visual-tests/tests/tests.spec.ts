@@ -52,6 +52,8 @@ import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
 import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar';
 import { testing as Buttons__test } from '../src/routes/test/Buttons';
 import { testing as Carousel__test } from '../src/routes/test/Carousel';
+import { testing as CheckboxAndRadio__test } from '../src/routes/test/CheckboxAndRadio';
+import { testing as CheckboxButtonsGroup__test } from '../src/routes/test/CheckboxButtonsGroup';
 import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
 import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble';
 import { testing as ContentArticle__test } from '../src/routes/test/ContentArticle';
@@ -74,6 +76,7 @@ import { testing as NameCards__test } from '../src/routes/test/NameCards';
 import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
 import { testing as PageFilter__test } from '../src/routes/test/PageFilter';
 import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
+import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
 
@@ -103,6 +106,8 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   ButtonBar: ButtonBar__test,
   Buttons: Buttons__test,
   Carousel: Carousel__test,
+  CheckboxAndRadio: CheckboxAndRadio__test,
+  CheckboxButtonsGroup: CheckboxButtonsGroup__test,
   ContentArticle: ContentArticle__test,
   ContentImage: ContentImage__test,
   CityBlock: CityBlock__test,
@@ -125,6 +130,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   NewsHero: NewsHero__test,
   PageFilter: PageFilter__test,
   ProcessOverview: ProcessOverview__test,
+  RadioButtonsGroup: RadioButtonsGroup__test,
   TagPill: TagPill__test,
   TextBlock: TextBlock__test,
 };

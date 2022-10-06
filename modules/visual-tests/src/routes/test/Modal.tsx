@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
 import ButtonBar from '@reykjavik/hanna-react/ButtonBar';
 import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
@@ -24,34 +25,28 @@ export default function () {
   const closeModal = () => setOpen(false);
   const [value, setValue] = useState(mod);
 
+  const buttonText = ['Open modal', 'Open narrow modal', 'Open wide modal'];
+
+  const buttons = range(0, 2).map((i) => {
+    return (
+      <span key={i}>
+        <ButtonPrimary
+          onClick={() => {
+            i === 0 ? setValue('w8') : i === 1 ? setValue('w6') : setValue('w10');
+            openModal();
+          }}
+        >
+          {buttonText[i]}
+        </ButtonPrimary>
+      </span>
+    );
+  });
+
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <Fragment>
-        <ButtonPrimary
-          onClick={() => {
-            setValue('w8');
-            openModal();
-          }}
-        >
-          Opna modal
-        </ButtonPrimary>
-        <ButtonPrimary
-          onClick={() => {
-            setValue('w6');
-            openModal();
-          }}
-        >
-          Opna modal narrow
-        </ButtonPrimary>
-        <ButtonPrimary
-          onClick={() => {
-            setValue('w10');
-            openModal();
-          }}
-        >
-          Opna modal wide
-        </ButtonPrimary>
+        {buttons}
         <Modal
           modifier={value}
           open={open}

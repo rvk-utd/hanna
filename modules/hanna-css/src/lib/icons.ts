@@ -72,7 +72,7 @@ const quotes = {
     openSingle: lower9,
     closeSingle: upper9,
   },
-};
+} as const;
 
 /** Useful unicode characters for spacing, bullets, icons, etc… */
 export const characters = {
@@ -101,7 +101,7 @@ export const characters = {
     hair: '\u200A',
   },
   quotes,
-};
+} as const;
 
 // ---------------------------------------------------------------------------
 
@@ -117,4 +117,4 @@ export const iconfont_raw = {
       char,
     ])
   ),
-};
+} as const;

@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Upgrade `es-in-css` for bugfixes and new features.
+- fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7
 
