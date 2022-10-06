@@ -32,9 +32,7 @@ const fileChecksum = (file: string) => {
   }
 };
 
-const iconFontVersion = `?${fileChecksum(
-  '../../style-server/public/css/dev/i/icons.woff2'
-)}`;
+const iconFontVersion = fileChecksum('../../style-server/public/css/dev/i/icons.woff2');
 const esjaFolder = '/assets/fonts/Esja';
 
 // ---------------------------------------------------------------------------
@@ -47,8 +45,8 @@ export default css`
     font-weight: normal;
     font-style: normal;
     font-display: block;
-    src: url('i/icons.woff2' + ${iconFontVersion}) format('woff2'),
-      url('i/icons.woff' + ${iconFontVersion}) format('woff');
+    src: url('i/icons.woff2?' + ${iconFontVersion}) format('woff2'),
+      url('i/icons.woff?' + ${iconFontVersion}) format('woff');
   }
 
   @font-face {
