@@ -1,5 +1,8 @@
 import { css } from 'es-in-css';
 
+export default css``;
+
+// inlined in -basics.css.ts
 export const BlockBreak_css = () => css`
   .BlockBreak {
     display: block;
@@ -8,5 +11,3 @@ export const BlockBreak_css = () => css`
     margin: 0;
   }
 `;
-
-export default css``;

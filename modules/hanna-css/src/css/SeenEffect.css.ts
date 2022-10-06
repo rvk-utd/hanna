@@ -6,6 +6,9 @@ import {
   SeenEffect__fadeup,
 } from './utils/seenEffects';
 
+export default css``;
+
+// inlined in -basics.css.ts
 export const SeenEffect_css = () => css`
   [data-seen-effect=''],
   [data-seen-effect='true'],
@@ -19,5 +22,3 @@ export const SeenEffect_css = () => css`
     ${SeenEffect__fadeleft}
   }
 `;
-
-export default css``;
