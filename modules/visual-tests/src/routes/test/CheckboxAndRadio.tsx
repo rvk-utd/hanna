@@ -55,8 +55,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
-  tags: ['chrome'],
+
   extras: async ({ page, localScreenshot }) => {
     // Checkbox
     const normalCheckbox = page.locator('.Checkbox__label:text("Normal")');
