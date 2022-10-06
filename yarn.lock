@@ -2512,7 +2512,7 @@ __metadata:
     "@reykjavik/hanna-utils": ^0.1.14
     "@types/md5-file": ^5
     del: ^6.0.0
-    es-in-css: ^0.5.10
+    es-in-css: ^0.5.12
     gulp: ^4.0.2
     md5-file: ^5.0.0
     sass: ~1.32
@@ -8855,9 +8855,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-in-css@npm:^0.5.10":
-  version: 0.5.10
-  resolution: "es-in-css@npm:0.5.10"
+"es-in-css@npm:^0.5.12":
+  version: 0.5.12
+  resolution: "es-in-css@npm:0.5.12"
   dependencies:
     "@types/color": ^3.0.3
     "@types/color-name": ^1.1.1
@@ -8870,11 +8870,11 @@ __metadata:
     cssnano: ^5.1.0
     glob: ^7.2.0
     postcss: ^8.4.6
-    postcss-nested: ^5.0.6
+    postcss-nested: ^6.0.0
     postcss-scss: ^4.0.3
   bin:
     es-in-css: bin/cli.js
-  checksum: 483b0473184693537afe3d4de0cdca87c7cd910f312f894c087f65497c2a83614164a0168d8625001e35819f8cfa95d3b065c6a66ee1c9097074e7d8590c5431
+  checksum: 4bb4670aadeb9cb61648ca79d5bb0a35783a8077c2b17d3a9769513ce271f3c107ae8b56226014cd53d3725562ed2ec0332d86e0e78d0f8965555aae93fa8379
   languageName: node
   linkType: hard
 
@@ -17599,25 +17599,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-nested@npm:5.0.6":
-  version: 5.0.6
-  resolution: "postcss-nested@npm:5.0.6"
+"postcss-nested@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "postcss-nested@npm:6.0.0"
   dependencies:
-    postcss-selector-parser: ^6.0.6
+    postcss-selector-parser: ^6.0.10
   peerDependencies:
     postcss: ^8.2.14
-  checksum: dbcbfd11e514f485ac0d2b649b32bcbd855665a88a76f697f8be6c5017aa0260954ecccd2475bbd5865a5d248eae9a4e6e10d2d51927621d05430381aa37e43b
-  languageName: node
-  linkType: hard
-
-"postcss-nested@patch:postcss-nested@npm:5.0.6#./.yarn/patches/postcss-nested-npm-5.0.6-d408d3cd6e.patch::locator=hanna%40workspace%3A.":
-  version: 5.0.6
-  resolution: "postcss-nested@patch:postcss-nested@npm%3A5.0.6#./.yarn/patches/postcss-nested-npm-5.0.6-d408d3cd6e.patch::version=5.0.6&hash=02701a&locator=hanna%40workspace%3A."
-  dependencies:
-    postcss-selector-parser: ^6.0.6
-  peerDependencies:
-    postcss: ^8.2.14
-  checksum: f0a16d14aa220bf9e7a238b42ff2f0288a9f3f55c85af3ce366e1d183fd02395d5c1b9664d75e997e2d60d80edf44534bfa47fb1ad2356594a4227909e61b858
+  checksum: 2105dc52cd19747058f1a46862c9e454b5a365ac2e7135fc1015d67a8fe98ada2a8d9ee578e90f7a093bd55d3994dd913ba5ff1d5e945b4ed9a8a2992ecc8f10
   languageName: node
   linkType: hard
 
@@ -17764,7 +17753,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.0, postcss-selector-parser@npm:^6.0.2, postcss-selector-parser@npm:^6.0.4, postcss-selector-parser@npm:^6.0.5, postcss-selector-parser@npm:^6.0.6, postcss-selector-parser@npm:^6.0.9":
+"postcss-selector-parser@npm:^6.0.0, postcss-selector-parser@npm:^6.0.10, postcss-selector-parser@npm:^6.0.2, postcss-selector-parser@npm:^6.0.4, postcss-selector-parser@npm:^6.0.5, postcss-selector-parser@npm:^6.0.9":
   version: 6.0.10
   resolution: "postcss-selector-parser@npm:6.0.10"
   dependencies:
