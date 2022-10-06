@@ -30,7 +30,6 @@ export default css`
       `
     )}
 
-    // TODO: Add .Attention--strong
     .Attention--strong {
       ${WARNING__('Deprecated: `.Attention--strong` is no longer supported')}
     }
@@ -48,7 +47,6 @@ export default css`
       margin-bottom: 0;
     }
 
-    // TODO: Add .Attention h1,h2...
     .Attention h1,
     .Attention h2,
     .Attention h3,
