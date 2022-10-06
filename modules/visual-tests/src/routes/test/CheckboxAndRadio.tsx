@@ -55,7 +55,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-
   extras: async ({ page, localScreenshot }) => {
     // Checkbox
     const normalCheckbox = page.locator('.Checkbox__label:text("Normal")');
@@ -71,10 +70,10 @@ export const testing: TestingInfo = {
 
     // Hover checkboxes
     await normalCheckbox.hover();
-    await localScreenshot(normalCheckbox, 'normal-hover');
+    await localScreenshot(normalCheckbox, 'normal-hover', { margin: true });
 
     await checkedCheckbox.hover();
-    await localScreenshot(checkedCheckbox, 'checked-hover');
+    await localScreenshot(checkedCheckbox, 'checked-hover', { margin: true });
 
     await disabledCheckbox.hover();
     await localScreenshot(disabledCheckbox, 'disabled-hover', { margin: true });
@@ -84,7 +83,7 @@ export const testing: TestingInfo = {
 
     // Hover radio buttons
     await radioNormal.hover();
-    await localScreenshot(radioNormal, 'radionNormal-hover', { margin: 10 });
+    await localScreenshot(radioNormal, 'radioNormal-hover', { margin: 10 });
 
     await radioChecked.hover();
     await localScreenshot(radioChecked, 'radionChecked-hover', { margin: 10 });

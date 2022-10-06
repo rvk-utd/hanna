@@ -12,7 +12,7 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 //export const handle = { cssTokens: [] };
 
-const names = [
+export const props = [
   {
     value: 'text',
     label: (
@@ -54,14 +54,14 @@ export default function () {
     <Minimal>
       <CheckboxButtonsGroup
         label={'Checkbox Group'}
-        options={names}
+        options={props}
         required={true}
         name={''}
       />
       <DummyBlock thin />
       <CheckboxButtonsGroup
         label={'Invalid Checkbox Group'}
-        options={names}
+        options={props}
         invalid
         name={''}
         errorMessage="This is an error message"
@@ -71,7 +71,10 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, pageScreenshot, localScreenshot }) => {
+  extras: async ({ page, localScreenshot }) => {
+    const container = page.locator('.CheckboxButtonsGroup >> nth = 0');
+    const invalidContainer = page.locator('.CheckboxButtonsGroup >> nth = 1');
+
     const checkbox = page.locator('.CheckboxButton__label:text("Some") >> nth = 0');
     const invalidCheckbox = page.locator(
       '.CheckboxButton__label:text("Some") >> nth = 1'
@@ -81,16 +84,16 @@ export const testing: TestingInfo = {
     );
 
     await checkbox.hover();
-    await pageScreenshot('normal-hover');
+    await localScreenshot(container, 'normal-hover', { margin: true });
 
     await checkbox.click();
-    await pageScreenshot('normal-click');
-
-    await invalidCheckbox.click();
-    await pageScreenshot('invalid-click');
+    await localScreenshot(container, 'normal-click', { margin: true });
 
     await invalidCheckbox.hover();
-    await pageScreenshot('invalid-hover');
+    await localScreenshot(invalidContainer, 'invalid-hover', { margin: true });
+
+    await invalidCheckbox.click();
+    await localScreenshot(invalidContainer, 'invalid-click', { margin: true });
 
     await disabledCheckbox.hover();
     await localScreenshot(disabledCheckbox, 'disabled-hover', { margin: true });
