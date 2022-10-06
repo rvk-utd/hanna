@@ -87,277 +87,275 @@ export default css`
   ${hannaVarDeclarations}
   ${normalizeCss}
 
-  @media screen {
     *,
     *::before,
     *::after {
-      flex-shrink: 0;
-      box-sizing: border-box;
-    }
-    [hidden][hidden] {
-      display: none;
-    }
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  [hidden][hidden] {
+    display: none;
+  }
 
-    ${setDefaultKeyboardFocusStyle(css`
-      ${LinkStyle__focusOutline}
-    `)}
+  ${setDefaultKeyboardFocusStyle(css`
+    ${LinkStyle__focusOutline}
+  `)}
 
-    ${setDefaultNonKeyboardFocusStyle(css`
-      outline: none;
-      outline-offset: 0;
-    `)}
+  ${setDefaultNonKeyboardFocusStyle(css`
+    outline: none;
+    outline-offset: 0;
+  `)}
 
     html {
-      min-height: 100vh;
-      min-width: calc(${bp.phone} - ${vars.browser_scrollbar_width});
-      box-sizing: border-box;
-      overflow: hidden; // rely on body
-      position: relative;
+    min-height: 100vh;
+    min-width: calc(${bp.phone} - ${vars.browser_scrollbar_width});
+    box-sizing: border-box;
+    overflow: hidden; // rely on body
+    position: relative;
 
-      // "Fix" nasty/smudgy font rendering on mac
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    // "Fix" nasty/smudgy font rendering on mac
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-      background-color: ${vars.color_suld_0};
-      color: ${vars.color_suld_200};
+    background-color: ${vars.color_suld_0};
+    color: ${vars.color_suld_200};
 
-      font: ${vars.font_base};
-      font-weight: 400;
-      // quotes: auto; // Doesn't work in most browsers yet... See: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes#Browser_compatibility
-      quotes: '“' '”' '‘' '’'; // English style as "normal-looking" fallback
-    }
-
-    *:lang(is) {
-      quotes: '„' '“' '‚' '‘';
-    }
-
-    body {
-      // Placing the overflow rule on the <body> prevents sideways scrolling
-      // in Safari – which "helpfully" ignores \`overflow-x:hidden;\` on \`<html>\`.
-      overflow-x: hidden;
-      overflow-y: scroll;
-      height: 100vh;
-    }
-
-    *:first-child {
-      margin-top: 0;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      margin: 0;
-      font-weight: inherit;
-      font-size: inherit;
-    }
-
-    p,
-    ul,
-    ol,
-    dl,
-    table,
-    figure,
-    blockquote {
-      margin: 0;
-    }
-
-    p ul,
-    p ol,
-    p div,
-    p p,
-    p dl,
-    p blockquote {
-      ${WARNING__('No block-level tags inside <p/>')}
-    }
-
-    address {
-      font-style: normal;
-    }
-
-    img {
-      object-position: var(--focalPoint);
-    }
-    img,
-    video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    iframe {
-      width: 100%;
-      display: block;
-    }
-    iframe:not([frameborder='yes']) {
-      border: 0;
-    }
-
-    table {
-      border-collapse: separate;
-    }
-    th,
-    td {
-      padding: 0;
-    }
-
-    abbr {
-      cursor: help;
-    }
-
-    a[href^='tel:']:not([class]) {
-      ${hannaVarOverride({
-        link_color: '_inherit',
-      })}
-    }
-    a {
-      ${LinkStyle};
-    }
-    a[href='#'],
-    a:not([href]) {
-      ${WARNING__('Use <button/> instead')};
-    }
-    button[href] {
-      ${WARNING__('Use <a href=""/>')};
-    }
-
-    button {
-      ${buttonReset};
-    }
-    button:disabled {
-      cursor: auto;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    input,
-    textarea,
-    select {
-      font-size: inherit;
-      line-height: inherit;
-      padding: 0;
-    }
-    input:invalid {
-      box-shadow: none; // reset red default browser stylesheet box-shadow
-    }
-    [disabled],
-    [aria-disabled='true'] {
-      cursor: default;
-    }
-
-    optgroup {
-      font-style: normal;
-    }
-
-    ol {
-      padding-left: 1.5em;
-    }
-    li ol {
-      margin-bottom: 0;
-    }
-    ol {
-      counter-reset: ol;
-      list-style: none;
-    }
-    ol > li::before {
-      counter-increment: ol;
-      content: counter(ol) '. ';
-      float: left;
-      min-width: 2.5em;
-      text-align: right;
-      margin: 0 0.5em -0.5em -2.8em;
-    }
-    ol[type='a'], // <-- NOTE: non-scripted <ol> styling is limited
-	  ol[data-oltype='a'] > li::before {
-      content: counter(ol, lower-alpha) '. ';
-    }
-    ol[data-oltype='A'] > li::before {
-      content: counter(ol, upper-alpha) '. ';
-    }
-    ol[type='i'], // <-- NOTE: non-scripted <ol> styling is limited
-	  ol[data-oltype='i'] > li::before {
-      content: counter(ol, lower-roman) '. ';
-    }
-    ol[data-oltype='I'] > li::before {
-      content: counter(ol, upper-roman) '. ';
-    }
-    :not(ul):not(ol) > li {
-      ${WARNING__('<li/> must be inside <ol/> or <ul/>')};
-    }
-    ol > :not(li),
-    ul > :not(li),
-    menu > :not(li) {
-      ${WARNING__('Lists may only contain <li/>s')};
-    }
-
-    hr {
-      display: block;
-      margin: ${vars.baseVerticalMargin} 0;
-      padding: 0;
-      height: 1px;
-      border: 0;
-      border-top: 1px solid ${vars.color_suld_100};
-    }
-
-    fieldset {
-      padding: 0;
-      border: 0;
-      margin: 0;
-    }
-    legend {
-      float: left; // HACK: Trigger correct positioning within <fieldset>
-    }
-    :not(fieldset) > legend {
-      ${WARNING__('<legend/> must be first-child of <fieldset/>')};
-    }
-    legend + * {
-      clear: both;
-    }
-
-    // ===========================================================================
-
-    table {
-      font: ${vars.font_bd_s};
-      border-collapse: collapse;
-      margin-bottom: ${vars.baseVerticalMargin};
-    }
-    caption {
-      text-align: left;
-    }
-    th,
-    td {
-      text-align: left;
-      vertical-align: top;
-      padding: ${vars.space_1} ${vars.space_2};
-      color: ${vars.color_suld_150};
-      font-weight: ${vars.font_weight__normal};
-
-      &:first-child {
-        padding-left: 0;
-      }
-      &:last-child {
-        padding-right: 0;
-      }
-    }
-    thead > * > th {
-      font-weight: ${vars.font_weight__bold};
-      vertical-align: bottom;
-    }
-    tbody > * > th,
-    tbody > * > td {
-      border: ${vars.border_default};
-      border-width: 1px 0;
-    }
-
-    // ---------------------------------------------------------------------------
-
-    ${BlockBreak_css}
-    ${SeenEffect_css}
+    font: ${vars.font_base};
+    font-weight: 400;
+    // quotes: auto; // Doesn't work in most browsers yet... See: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes#Browser_compatibility
+    quotes: '“' '”' '‘' '’'; // English style as "normal-looking" fallback
   }
+
+  *:lang(is) {
+    quotes: '„' '“' '‚' '‘';
+  }
+
+  body {
+    // Placing the overflow rule on the <body> prevents sideways scrolling
+    // in Safari – which "helpfully" ignores \`overflow-x:hidden;\` on \`<html>\`.
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  p,
+  ul,
+  ol,
+  dl,
+  table,
+  figure,
+  blockquote {
+    margin: 0;
+  }
+
+  p ul,
+  p ol,
+  p div,
+  p p,
+  p dl,
+  p blockquote {
+    ${WARNING__('No block-level tags inside <p/>')}
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  img {
+    object-position: var(--focalPoint);
+  }
+  img,
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  iframe {
+    width: 100%;
+    display: block;
+  }
+  iframe:not([frameborder='yes']) {
+    border: 0;
+  }
+
+  table {
+    border-collapse: separate;
+  }
+  th,
+  td {
+    padding: 0;
+  }
+
+  abbr {
+    cursor: help;
+  }
+
+  a[href^='tel:']:not([class]) {
+    ${hannaVarOverride({
+      link_color: '_inherit',
+    })}
+  }
+  a {
+    ${LinkStyle};
+  }
+  a[href='#'],
+  a:not([href]) {
+    ${WARNING__('Use <button/> instead')};
+  }
+  button[href] {
+    ${WARNING__('Use <a href=""/>')};
+  }
+
+  button {
+    ${buttonReset};
+  }
+  button:disabled {
+    cursor: auto;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+  }
+  input:invalid {
+    box-shadow: none; // reset red default browser stylesheet box-shadow
+  }
+  [disabled],
+  [aria-disabled='true'] {
+    cursor: default;
+  }
+
+  optgroup {
+    font-style: normal;
+  }
+
+  ol {
+    padding-left: 1.5em;
+  }
+  li ol {
+    margin-bottom: 0;
+  }
+  ol {
+    counter-reset: ol;
+    list-style: none;
+  }
+  ol > li::before {
+    counter-increment: ol;
+    content: counter(ol) '. ';
+    float: left;
+    min-width: 2.5em;
+    text-align: right;
+    margin: 0 0.5em -0.5em -2.8em;
+  }
+  ol[type='a'], // <-- NOTE: non-scripted <ol> styling is limited
+	  ol[data-oltype='a'] > li::before {
+    content: counter(ol, lower-alpha) '. ';
+  }
+  ol[data-oltype='A'] > li::before {
+    content: counter(ol, upper-alpha) '. ';
+  }
+  ol[type='i'], // <-- NOTE: non-scripted <ol> styling is limited
+	  ol[data-oltype='i'] > li::before {
+    content: counter(ol, lower-roman) '. ';
+  }
+  ol[data-oltype='I'] > li::before {
+    content: counter(ol, upper-roman) '. ';
+  }
+  :not(ul):not(ol) > li {
+    ${WARNING__('<li/> must be inside <ol/> or <ul/>')};
+  }
+  ol > :not(li),
+  ul > :not(li),
+  menu > :not(li) {
+    ${WARNING__('Lists may only contain <li/>s')};
+  }
+
+  hr {
+    display: block;
+    margin: ${vars.baseVerticalMargin} 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid ${vars.color_suld_100};
+  }
+
+  fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+  legend {
+    float: left; // HACK: Trigger correct positioning within <fieldset>
+  }
+  :not(fieldset) > legend {
+    ${WARNING__('<legend/> must be first-child of <fieldset/>')};
+  }
+  legend + * {
+    clear: both;
+  }
+
+  // ===========================================================================
+
+  table {
+    font: ${vars.font_bd_s};
+    border-collapse: collapse;
+    margin-bottom: ${vars.baseVerticalMargin};
+  }
+  caption {
+    text-align: left;
+  }
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+    padding: ${vars.space_1} ${vars.space_2};
+    color: ${vars.color_suld_150};
+    font-weight: ${vars.font_weight__normal};
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+  thead > * > th {
+    font-weight: ${vars.font_weight__bold};
+    vertical-align: bottom;
+  }
+  tbody > * > th,
+  tbody > * > td {
+    border: ${vars.border_default};
+    border-width: 1px 0;
+  }
+
+  // ---------------------------------------------------------------------------
+
+  ${BlockBreak_css}
+  ${SeenEffect_css}
 
   // ===========================================================================
   // HACK: Drupal admin styles
