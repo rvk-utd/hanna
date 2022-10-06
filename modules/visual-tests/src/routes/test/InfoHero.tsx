@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import InfoHero, { InfoHeroProps } from '@reykjavik/hanna-react/InfoHero';
+import InfoHero from '@reykjavik/hanna-react/InfoHero';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
@@ -12,12 +12,6 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
-
-const cityCouncilContent: InfoHeroProps = {
-  title: 'Lorem Ipsum',
-  subTitle: 'Lorem ipsum dolor sit amet,',
-  // blurb: 'Foo bar',
-};
 
 const buttonProps = [
   { href: '', label: 'Lorem Ipsum' },

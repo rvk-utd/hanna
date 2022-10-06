@@ -26,6 +26,7 @@ const RadioGroup = (props: RadioGroupProps) => (
     Toggler={Radio}
   />
 );
+/** @deprecated Exposed for testing purposes only. This may disappear at any time. */
 RadioGroup.__Radio = Radio;
 
 export default RadioGroup;
