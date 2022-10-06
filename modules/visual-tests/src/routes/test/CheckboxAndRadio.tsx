@@ -67,7 +67,7 @@ export const testing: TestingInfo = {
     // Radio
     const radioNormal = page.locator('.Radio__label:text("Normal")');
     const radioChecked = page.locator('.Radio__label:text("Checked") >> nth = 0');
-    const radioDisabled = page.locator('.Radio__label:text(Disabled"")  nth = 0');
+    const radioDisabled = page.locator('.Radio__label:text("Disabled") >> nth = 0');
     const radioInvalid = page.locator('.Radio__label:text("Invalid") >> nth = 0 ');
 
     // Hover checkboxes
