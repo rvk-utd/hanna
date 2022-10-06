@@ -7,4 +7,4 @@ export const font = {
   family_w_fallback: `${familyName}, Helvetica, Arial, sans-serif`,
   base_size: 16,
   base_leading: 24,
-};
+} as const;

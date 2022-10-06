@@ -30,7 +30,7 @@ export const grid = {
   contentMaxWidth,
   contentMinWidth__outer,
   contentMaxWidth__outer,
-};
+} as const;
 
 // ===========================================================================
 

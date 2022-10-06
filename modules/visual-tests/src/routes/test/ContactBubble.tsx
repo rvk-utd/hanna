@@ -60,7 +60,7 @@ export const testing: TestingInfo = {
   prep: async ({ page }) => {
     await page.locator('.ContactBubble__openbtn').hover();
   },
-  extras: async ({ page, pageScreenshot, expandViewport }) => {
+  extras: async ({ page, pageScreenshot, localScreenshot, expandViewport }) => {
     const contactBubble = page.locator('.ContactBubble__openbtn');
     //await expandViewport(1000);
     await contactBubble.click();
