@@ -96,19 +96,17 @@ if (!opts.onlyLib) {
   // ---------------------------------------------------------------------------
   // Build CSS/SCSS files
 
-  const fileMem = {};
-  const isNewFile = ({ path }) => {
-    if (path in fileMem) {
-      return false;
-    }
-    fileMem[path] = true;
-    return true;
-  };
-
-  const toCSSSources = (res) =>
-    res.outputFiles
-      .filter(isNewFile)
+  let fileMem = {};
+  const toCSSSources = (res) => {
+    const outputfiles = res.outputFiles
+      .filter(({ path }) => !fileMem[path])
       .map((res) => ({ fileName: res.path, content: res.text }));
+    fileMem = {};
+    outputfiles.forEach(({ path }) => {
+      fileMem[path] = true;
+    });
+    return outputfiles;
+  };
 
   const cssCompile = (results) =>
     compileCSSFromJS(toCSSSources(results), {
