@@ -32,6 +32,7 @@ import { cssVersion } from '../../lib/style-server-info';
 const _c = colorVars.vars;
 const _g = gridVars.vars;
 const _f = fontVars.vars;
+const _fsz = font.sizes;
 
 // ---------------------------------------------------------------------------
 
@@ -281,57 +282,6 @@ const linkVarDeclarations = linkVars.declare({
 
 // ---------------------------------------------------------------------------
 
-const _font = {
-  // headings
-  hd_xl_size: 72,
-  hd_xl_leading: 90,
-  hd_xl_size__phone: 40,
-  hd_xl_leading__phone: 50,
-
-  hd_l_size: 64,
-  hd_l_leading: 80,
-  hd_l_size__phone: 32,
-  hd_l_leading__phone: 40,
-
-  hd_m_size: 48,
-  hd_m_leading: 60,
-  hd_m_size__phone: 24,
-  hd_m_leading__phone: 40,
-
-  hd_s_size: 40,
-  hd_s_leading: 50,
-  hd_s_size__phone: 20,
-  hd_s_leading__phone: 30,
-
-  // subheadings
-  sh_l_size: 32,
-  sh_l_leading: 40,
-  sh_l_size__phone: 20,
-  sh_l_leading__phone: 30,
-
-  sh_s_size: 24,
-  sh_s_leading: 32,
-  sh_s_size__phone: 20,
-  sh_s_leading__phone: 30,
-
-  // body text
-  bd_l_size: 20,
-  bd_l_leading: 32,
-
-  bd_s_size: font.base_size,
-  bd_s_leading: font.base_leading,
-
-  // buttons and labels
-  button_size: 16,
-  button_leading: 20,
-
-  label_size: 12,
-  label_leading: 16,
-
-  // Non-semantic font-sizes
-  size_12: 12,
-};
-
 const scale = between_phablet_netbook;
 
 const fontVarDeclarations = css`
@@ -356,29 +306,29 @@ const fontVarDeclarations = css`
     font_button: `${_f.font_button_size} / ${_f.font_button_leading} ${_f.font_family}`,
     font_label: `${_f.font_label_size} / ${_f.font_label_leading}) ${_f.font_family}`,
 
-    font_hd_xl_size: px(_font.hd_xl_size__phone),
-    font_hd_xl_leading: px(_font.hd_xl_leading__phone),
-    font_hd_l_size: px(_font.hd_l_size__phone),
-    font_hd_l_leading: px(_font.hd_l_leading__phone),
-    font_hd_m_size: px(_font.hd_m_size__phone),
-    font_hd_m_leading: px(_font.hd_m_leading__phone),
-    font_hd_s_size: px(_font.hd_s_size__phone),
-    font_hd_s_leading: px(_font.hd_s_leading__phone),
+    font_hd_xl_size: px(_fsz.hd_xl_size__phone),
+    font_hd_xl_leading: px(_fsz.hd_xl_leading__phone),
+    font_hd_l_size: px(_fsz.hd_l_size__phone),
+    font_hd_l_leading: px(_fsz.hd_l_leading__phone),
+    font_hd_m_size: px(_fsz.hd_m_size__phone),
+    font_hd_m_leading: px(_fsz.hd_m_leading__phone),
+    font_hd_s_size: px(_fsz.hd_s_size__phone),
+    font_hd_s_leading: px(_fsz.hd_s_leading__phone),
 
-    font_sh_l_size: px(_font.sh_l_size__phone),
-    font_sh_l_leading: px(_font.sh_l_leading__phone),
-    font_sh_s_size: px(_font.sh_s_size__phone),
-    font_sh_s_leading: px(_font.sh_s_leading__phone),
+    font_sh_l_size: px(_fsz.sh_l_size__phone),
+    font_sh_l_leading: px(_fsz.sh_l_leading__phone),
+    font_sh_s_size: px(_fsz.sh_s_size__phone),
+    font_sh_s_leading: px(_fsz.sh_s_leading__phone),
 
-    font_bd_l_size: px(_font.bd_l_size),
-    font_bd_l_leading: px(_font.bd_l_leading),
-    font_bd_s_size: px(_font.bd_s_size),
-    font_bd_s_leading: px(_font.bd_s_leading),
+    font_bd_l_size: px(_fsz.bd_l_size),
+    font_bd_l_leading: px(_fsz.bd_l_leading),
+    font_bd_s_size: px(_fsz.bd_s_size),
+    font_bd_s_leading: px(_fsz.bd_s_leading),
 
-    font_button_size: px(_font.button_size),
-    font_button_leading: px(_font.button_leading),
-    font_label_size: px(_font.label_size),
-    font_label_leading: px(_font.label_leading),
+    font_button_size: px(_fsz.button_size),
+    font_button_leading: px(_fsz.button_leading),
+    font_label_size: px(_fsz.label_size),
+    font_label_leading: px(_fsz.label_leading),
 
     baseVerticalMargin: between_phone_netbook(2 * grid.unit, 3 * grid.unit),
     baseVerticalMargin_2: between_phone_netbook(4 * grid.unit, 6 * grid.unit),
@@ -386,36 +336,36 @@ const fontVarDeclarations = css`
 
   @media ${mq.phablet_netbook} {
     ${fontVars.override({
-      font_hd_xl_size: scale(_font.hd_xl_size__phone, _font.hd_xl_size),
-      font_hd_xl_leading: scale(_font.hd_xl_leading__phone, _font.hd_xl_leading),
-      font_hd_l_size: scale(_font.hd_l_size__phone, _font.hd_l_size),
-      font_hd_l_leading: scale(_font.hd_l_leading__phone, _font.hd_l_leading),
-      font_hd_m_size: scale(_font.hd_m_size__phone, _font.hd_m_size),
-      font_hd_m_leading: scale(_font.hd_m_leading__phone, _font.hd_m_leading),
-      font_hd_s_size: scale(_font.hd_s_size__phone, _font.hd_s_size),
-      font_hd_s_leading: scale(_font.hd_s_leading__phone, _font.hd_s_leading),
+      font_hd_xl_size: scale(_fsz.hd_xl_size__phone, _fsz.hd_xl_size),
+      font_hd_xl_leading: scale(_fsz.hd_xl_leading__phone, _fsz.hd_xl_leading),
+      font_hd_l_size: scale(_fsz.hd_l_size__phone, _fsz.hd_l_size),
+      font_hd_l_leading: scale(_fsz.hd_l_leading__phone, _fsz.hd_l_leading),
+      font_hd_m_size: scale(_fsz.hd_m_size__phone, _fsz.hd_m_size),
+      font_hd_m_leading: scale(_fsz.hd_m_leading__phone, _fsz.hd_m_leading),
+      font_hd_s_size: scale(_fsz.hd_s_size__phone, _fsz.hd_s_size),
+      font_hd_s_leading: scale(_fsz.hd_s_leading__phone, _fsz.hd_s_leading),
 
-      font_sh_l_size: scale(_font.sh_l_size__phone, _font.sh_l_size),
-      font_sh_l_leading: scale(_font.sh_l_leading__phone, _font.sh_l_leading),
-      font_sh_s_size: scale(_font.sh_s_size__phone, _font.sh_s_size),
-      font_sh_s_leading: scale(_font.sh_s_leading__phone, _font.sh_s_leading),
+      font_sh_l_size: scale(_fsz.sh_l_size__phone, _fsz.sh_l_size),
+      font_sh_l_leading: scale(_fsz.sh_l_leading__phone, _fsz.sh_l_leading),
+      font_sh_s_size: scale(_fsz.sh_s_size__phone, _fsz.sh_s_size),
+      font_sh_s_leading: scale(_fsz.sh_s_leading__phone, _fsz.sh_s_leading),
     })}
   }
   @media ${mq.wide} {
     ${fontVars.override({
-      font_hd_xl_size: px(_font.hd_xl_size),
-      font_hd_xl_leading: px(_font.hd_xl_leading),
-      font_hd_l_size: px(_font.hd_l_size),
-      font_hd_l_leading: px(_font.hd_l_leading),
-      font_hd_m_size: px(_font.hd_m_size),
-      font_hd_m_leading: px(_font.hd_m_leading),
-      font_hd_s_size: px(_font.hd_s_size),
-      font_hd_s_leading: px(_font.hd_s_leading),
+      font_hd_xl_size: px(_fsz.hd_xl_size),
+      font_hd_xl_leading: px(_fsz.hd_xl_leading),
+      font_hd_l_size: px(_fsz.hd_l_size),
+      font_hd_l_leading: px(_fsz.hd_l_leading),
+      font_hd_m_size: px(_fsz.hd_m_size),
+      font_hd_m_leading: px(_fsz.hd_m_leading),
+      font_hd_s_size: px(_fsz.hd_s_size),
+      font_hd_s_leading: px(_fsz.hd_s_leading),
 
-      font_sh_l_size: px(_font.sh_l_size),
-      font_sh_l_leading: px(_font.sh_l_leading),
-      font_sh_s_size: px(_font.sh_s_size),
-      font_sh_s_leading: px(_font.sh_s_leading),
+      font_sh_l_size: px(_fsz.sh_l_size),
+      font_sh_l_leading: px(_fsz.sh_l_leading),
+      font_sh_s_size: px(_fsz.sh_s_size),
+      font_sh_s_leading: px(_fsz.sh_s_leading),
 
       baseVerticalMargin: px(3 * grid.unit),
       baseVerticalMargin_2: px(6 * grid.unit),
