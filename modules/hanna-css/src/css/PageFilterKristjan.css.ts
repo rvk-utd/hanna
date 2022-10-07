@@ -34,7 +34,7 @@ export default css`
 
   .PageFilter::before {
     border-left: ${between_phone_netbook(8, 24)} solid ${hannaVars.theme_color_primary};
-    margin-bottom: between_cols(-32, -64);
+    margin-bottom: ${between_cols(-32, -64)};
     pointer-events: none;
 
     ${media(
