@@ -152,7 +152,7 @@ const buildAssets = series(cleanupAssets, staticAssetsCompress);
 exports.publishCss = series(
   updateDistFolder,
   gulpExec(`yarn run build:css`),
-  // visuallyTest, // NOTE: Visual tests test the dev-css
+  // visuallyTest, // NOTE: Visual tests should test the dev-css
   () => cssVersion.startsWith('v0.') && del([publishCssFolder], { force: true }), // NOTE: only do this before v1.0
   copyToCssFolder,
   commitCssToGit
@@ -169,7 +169,7 @@ exports.publishDevCss = series(
 exports.publishAssets = series(
   updateDistFolder,
   buildAssets,
-  visuallyTest,
+  // visuallyTest, // running the whole VRT suite on assets AND then again for devCSS is pro'lly overkill
   commitAssetsToGit
 );
 
