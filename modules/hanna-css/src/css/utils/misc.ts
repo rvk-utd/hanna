@@ -1,5 +1,7 @@
 import { grid_unit } from '@reykjavik/hanna-css/src/css/vars/grid';
-import { rem } from 'es-in-css';
+import { css, rem } from 'es-in-css';
+
+import { hannaVars } from '../../lib/hannavars';
 
 /**
  * Utility function that returns a rem stringified value.
@@ -13,6 +15,34 @@ export const grid_units = (units = 1) => {
   return prem(grid_unit * units);
 };
 
-// Todo: Add 'extendBackgroundWithUnderlay' function from 'css/utils/_index.scss'
+// TODO: Fix ugly syntax
+export const extendBackgroundWithUnderlay = (
+  dir: 'left' | 'right' | 'both' = 'both',
+  pseudo: 'before' | 'after' = 'before'
+) => {
+  const direction = css``;
+  if (dir !== 'right') {
+    direction.concat(css`
+      left: ${hannaVars.grid_margin__neg};
+    `);
+  }
+  if (dir !== 'left') {
+    direction.concat(css`
+      right: ${hannaVars.grid_margin__neg};
+    `);
+  }
+  return css`
+    position: relative;
+    &::${pseudo} {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      ${direction.trim()}
+      z-index: -1;
+      background: inherit;
+    }
+  `;
+};
 
 // Todo: Add 'avoidCssnanoMerging' function from 'css/utils/_index.scss'
