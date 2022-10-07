@@ -78,7 +78,7 @@ export const textContent = () => css`
     clear: both;
   }
   * + h2 {
-    margin-top:  ${t.vars.h2__marginTop.or(em(1.5))};
+    margin-top: ${t.vars.h2__marginTop.or(em(1.5))};
   }
   h3 {
     font: ${vars.font_sh_l};
@@ -119,7 +119,7 @@ export const textContent = () => css`
       ${q.override({
         Quote__indent: vars.space_2,
       })}
-    `)}}
+    `)}
   }
   blockquote:not(.BlockQuote__quote):not(.PullQuote__quote)::after {
     content: '';

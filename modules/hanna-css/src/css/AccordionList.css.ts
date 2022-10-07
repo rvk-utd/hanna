@@ -10,15 +10,14 @@ import { WARNING__ } from '../lib/WARNING__';
 
 import { prem } from './utils/misc';
 import { SeenEffect__fadeup } from './utils/seenEffects';
-
-import { textContent } from './utils/textContent.css';
+import { textContent } from './utils/textContent';
 
 const a = buildVariables(['leftIndent', 'iconWidth']);
 
 export default css`
   @media screen {
     .AccordionList {
-      ${SeenEffect__fadeup};
+      ${SeenEffect__fadeup}
       max-width: ${cols_px(8)};
       margin-top: ${between_container(32, 56)};
 
