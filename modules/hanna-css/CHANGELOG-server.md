@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.70
+
+_2022-10-07_
+
 - feat: Set `ButtonPrimary`/-`Secondary`/-`Tertiary` base color to Faxaflói
 - feat: Add rich text styling inside `.ArticleList__content`
 - feat: Add styling for `.ActionCards__summary`
