@@ -61,6 +61,7 @@ import { testing as ContentImage__test } from '../src/routes/test/ContentImage';
 import { testing as Datepicker__test } from '../src/routes/test/Datepicker';
 import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
 import { testing as FeatureList__test } from '../src/routes/test/FeatureList';
+import { testing as FileInput__test } from '../src/routes/test/FileInput';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as Gallery__test } from '../src/routes/test/Gallery';
 import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks';
@@ -116,6 +117,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Datepicker: Datepicker__test,
   ExtraLinks: ExtraLinks__test,
   FeatureList: FeatureList__test,
+  FileInput: FileInput__test,
   FooterInfo: FooterInfo__test,
   Gallery: Gallery__test,
   GridBlocks: GridBlocks__test,
