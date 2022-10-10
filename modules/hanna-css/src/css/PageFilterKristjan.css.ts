@@ -75,6 +75,7 @@ export default css`
       margin-top: ${prem(20)};
       margin-bottom: ${between_cols(0, 24)};
       width: 100%;
+      // TODO: Include px suffix
       max-width: ${cols_px(9, 9)};
     }
 
@@ -82,6 +83,7 @@ export default css`
       margin-right: ${hannaVars.grid_gutter};
       margin-bottom: ${prem(3 * grid_unit)};
       // min-width: cols_pct(3, 2, 9, 9); // In FireFox the min-width becomes larger and thus only fits 2 FormFields per line.
+      // TODO: Include % suffix
       min-width: ${cols_pct(3, 1, { ofCols: 9, ofGutters: 9 })};
 
       ${media(
