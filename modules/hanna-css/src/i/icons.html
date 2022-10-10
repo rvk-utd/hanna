@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Icons (iconfont)</title>
+    <link href="/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="/bundle/dev?m=-basics,Layout,PageHeading,TextBlock,Icon"
+    />
+    <link rel="stylesheet" href="/assets/ThumbnailGrid.css" />
+    <style>
+      .IconExample {
+        --Icon--enabled: initial;
+        font-size: 3rem;
+        height: 6rem;
+        line-height: 6rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__header">
+          <a class="Layout__header__logo" href="/">
+            <picture>
+              <img src="/assets/reykjavik-logo.svg" alt="" loading="lazy" />
+            </picture>
+            Reykjavík
+          </a>
+        </div>
+        <div class="Layout__main">
+          <h1 class="PageHeading">Icons</h1>
+          <div class="TextBlock">
+            <a href="./icons.json">icons.json</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      const mainElm = document.querySelector('.Layout__main');
+      const link = mainElm.querySelector('a[href$=".json"]');
+      fetch(link.href)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error('Not Found');
+          }
+          return res.json();
+        })
+        .then((icons) => {
+          mainElm.insertAdjacentHTML(
+            'beforeend',
+            `
+							<ul class="ThumbnailGrid">
+								${Object.entries(icons)
+                  .map(
+                    ([name, char]) => `
+										<li class="ThumbnailGrid__item">
+											<span class="IconExample" data-icon="${name}" style="--Icon: '${char}';"></span>
+											<strong class="ThumbnailGrid__label">${name}</strong>
+										</li>
+									`
+                  )
+                  .join('')}
+							</ul>
+						`
+          );
+        })
+        .catch((e) => {
+          mainElm.insertAdjacentHTML(
+            'beforeend',
+            `
+							<h1 class="PageHeading">Eeek!</h1>
+							<div class="TextBlock">
+								<p>${e.message}</p>
+							</div>
+						`
+          );
+        });
+    </script>
+  </body>
+</html>
