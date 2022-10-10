@@ -58,6 +58,7 @@ export default css`
     }
 
     .PageFilter__title {
+      // TODO: Output should be var(--font-hd-s)
       font: ${font.sizes.sh_l_size};
       // TODO: Include em suffix
       margin-bottom: ${em(20 / 64)};
@@ -65,7 +66,6 @@ export default css`
     }
 
     .PageFilter__summary {
-      // @include BodyTextStyle--small();
       width: 100%;
     }
 
