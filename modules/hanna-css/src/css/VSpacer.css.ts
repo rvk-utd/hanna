@@ -5,8 +5,8 @@ import { WARNING__ } from '../lib/WARNING__';
 
 export default css`
   /*!@deps
-	TextBlock
-*/
+    TextBlock
+  */
 `;
 
 // inlined by TextBlock.css.ts
@@ -57,16 +57,16 @@ export const VSpacer_css = () => css`
   }
 
   br.VSpacer[class], // @deprecated (remove in v0.9)
-		// Drop-in (non-wrapping) <hr/> variant.
-		hr.VSpacer[class] {
+  // Drop-in (non-wrapping) <hr/> variant.
+  hr.VSpacer[class] {
     display: block;
     height: 0;
     border: 0;
     margin-bottom: 0;
   }
   br.VSpacer + [class], // @deprecated (remove in v0.9)
-		// Drop-in spacers override the top-margin of their next component sibling
-		hr.VSpacer + [class] {
+  // Drop-in spacers override the top-margin of their next component sibling
+  hr.VSpacer + [class] {
     margin-top: 0;
   }
 

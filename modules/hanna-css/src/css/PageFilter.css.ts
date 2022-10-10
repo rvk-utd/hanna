@@ -1,14 +1,12 @@
-import { css, em, media } from 'es-in-css';
+import { css, em } from 'es-in-css';
 
 import { between_cols, between_phone_netbook } from '../lib/between';
 import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
 import { cols_pct, cols_px } from '../lib/grid';
 import { hannaVars, hannaVars as vars } from '../lib/hannavars';
 
-import { extendBackgroundWithUnderlay, prem } from './utils/misc';
+import { extendBackgroundWithUnderlay, grid_units, prem } from './utils/miscUtils';
 import { SeenEffect__fadeup } from './utils/seenEffects';
-import { grid_unit } from './vars/grid';
 
 export default css`
   /*!@deps
@@ -21,10 +19,11 @@ export default css`
     ButtonTertiary
     Footnote
   */
+
   @media screen {
     .PageFilter {
       ${SeenEffect__fadeup};
-      background-color: ${colors.suld_25};
+      background-color: ${vars.color_suld_25};
       padding: ${between_cols(30, 80)} 0 0 0;
       margin-bottom: ${between_cols(64, 128)};
       display: flex;
@@ -39,26 +38,19 @@ export default css`
       margin-bottom: ${between_cols(-32, -64)};
       pointer-events: none;
 
-      ${media(
-        mq.wide,
-        css`
-          border-width: ${prem(24)};
-        `
-      )}
+      @media ${mq.wide} {
+        border-width: ${prem(24)};
+      }
     }
 
     .PageFilter--underlap {
-      ${media(
-        mq.tablet_up,
-        css`
-          margin-bottom: 0;
-        `
-      )}
+      @media ${mq.tablet_up} {
+        margin-bottom: 0;
+      }
     }
 
     .PageFilter__title {
       font: ${vars.font_hd_s};
-      // TODO: Include em suffix
       margin-bottom: ${em(20 / 64)};
       width: 100%;
     }
@@ -74,22 +66,20 @@ export default css`
       margin-top: ${prem(20)};
       margin-bottom: ${between_cols(0, 24)};
       width: 100%;
-      // TODO: Include px suffix
       max-width: ${cols_px(9, 9)};
     }
 
     .PageFilter__filters > .FormField {
       margin-right: ${hannaVars.grid_gutter};
-      margin-bottom: ${prem(3 * grid_unit)};
-      // TODO: Include % suffix
+      margin-bottom: ${grid_units(3)};
+      ${
+        '' // min-width: ${cols_pct(3, 2, { ofCols: 9, ofGutters: 9 })}; // In FireFox the min-width becomes larger and thus only fits 2 FormFields per line.
+      }
       min-width: ${cols_pct(3, 1, { ofCols: 9, ofGutters: 9 })};
 
-      ${media(
-        mq.phone,
-        css`
-          width: 100%;
-        `
-      )}
+      @media ${mq.phone} {
+        width: 100%;
+      }
     }
 
     .PageFilter__buttons {
@@ -100,6 +90,12 @@ export default css`
     .PageFilter__buttons > .ButtonTertiary:last-child,
     .PageFilter__buttons > .ButtonPrimary:last-child {
       margin-right: 0;
+      ${
+        ''
+        // The default max-content value triggers a FireFox flex-item width calculation bug,
+        // adding ~38ox of whitespace on right-hand-side when there's only a single buttuon.
+        // o_O   –– 2020-08-24
+      }
       width: auto;
     }
 

@@ -4,7 +4,7 @@ import { buildVariables } from '../../lib/cssutils';
 import { font } from '../../lib/font';
 import { cols_pct } from '../../lib/grid';
 import { hannaVars as vars } from '../../lib/hannavars';
-import { prem } from '../utils/misc';
+import { prem } from '../utils/miscUtils';
 
 const fontSize = font.sizes.sh_l_size;
 

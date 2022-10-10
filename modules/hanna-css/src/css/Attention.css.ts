@@ -1,4 +1,4 @@
-import { css, media } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
 import { hannaVars as vars } from '../lib/hannavars';
@@ -19,16 +19,14 @@ export default css`
       padding-left: ${vars.space_3};
     }
 
-    ${media(
-      mq.phone_phablet,
-      css`
-        .Attention {
-          padding-left: ${vars.space_2};
-          padding-right: 0;
-        }
-      `
-    )}
+    @media ${mq.phone_phablet} {
+      .Attention {
+        padding-left: ${vars.space_2};
+        padding-right: 0;
+      }
+    }
 
+    // @deprecated (Remove in v0.9)
     .Attention--strong {
       ${WARNING__('Deprecated: `.Attention--strong` is no longer supported')}
     }

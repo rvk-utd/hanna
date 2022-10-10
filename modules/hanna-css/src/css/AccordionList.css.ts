@@ -8,7 +8,7 @@ import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
-import { prem } from './utils/misc';
+import { prem } from './utils/miscUtils';
 import { SeenEffect__fadeup } from './utils/seenEffects';
 import { textContent } from './utils/textContent';
 

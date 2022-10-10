@@ -6,7 +6,7 @@ import { cols_px } from '../../lib/grid';
 import { hannaVars as vars } from '../../lib/hannavars';
 import { characters } from '../../lib/icons';
 
-import { prem } from './misc';
+import { prem } from './miscUtils';
 
 export const defaultULStyle = () => css`
   list-style: none;

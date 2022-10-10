@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
 import { between_cols } from '../lib/between';
-import { colors } from '../lib/colors';
+import { hannaVars as vars } from '../lib/hannavars';
 
-import { prem } from './utils/misc';
+import { prem } from './utils/miscUtils';
 
 export default css`
   @media screen {
@@ -13,7 +13,7 @@ export default css`
       margin-top: ${between_cols(24, 32)};
       margin-bottom: ${prem(30)};
       padding-left: ${between_cols(10, 36)};
-      color: ${colors.suld_150};
+      color: ${vars.color_suld_150};
 
       &::before {
         content: '';
