@@ -1,4 +1,4 @@
-import { css, media } from 'es-in-css';
+import { css, em, media } from 'es-in-css';
 
 import { between_cols, between_phone_netbook } from '../lib/between';
 import { mq } from '../lib/breakpoints';
@@ -43,7 +43,7 @@ export default css`
       ${media(
         mq.wide,
         css`
-          border-width: prem(24);
+          border-width: ${prem(24)};
         `
       )}
     }
@@ -59,7 +59,8 @@ export default css`
 
     .PageFilter__title {
       font: ${font.sizes.sh_l_size};
-      margin-bottom: em(20/64);
+      // TODO: Include em suffix
+      margin-bottom: ${em(20 / 64)};
       width: 100%;
     }
 
@@ -82,7 +83,6 @@ export default css`
     .PageFilter__filters > .FormField {
       margin-right: ${hannaVars.grid_gutter};
       margin-bottom: ${prem(3 * grid_unit)};
-      // min-width: cols_pct(3, 2, 9, 9); // In FireFox the min-width becomes larger and thus only fits 2 FormFields per line.
       // TODO: Include % suffix
       min-width: ${cols_pct(3, 1, { ofCols: 9, ofGutters: 9 })};
 
@@ -102,9 +102,6 @@ export default css`
     .PageFilter__buttons > .ButtonTertiary:last-child,
     .PageFilter__buttons > .ButtonPrimary:last-child {
       margin-right: 0;
-      // The default max-content value triggers a FireFox flex-item width calculation bug,
-      // adding ~38ox of whitespace on right-hand-side when there's only a single buttuon.
-      // o_O   –– 2020-08-24
       width: auto;
     }
 
