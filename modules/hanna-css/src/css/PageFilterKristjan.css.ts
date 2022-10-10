@@ -3,9 +3,8 @@ import { css, em, media } from 'es-in-css';
 import { between_cols, between_phone_netbook } from '../lib/between';
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
-import { font } from '../lib/font';
 import { cols_pct, cols_px } from '../lib/grid';
-import { hannaVars } from '../lib/hannavars';
+import { hannaVars, hannaVars as vars } from '../lib/hannavars';
 
 import { extendBackgroundWithUnderlay, prem } from './utils/misc';
 import { SeenEffect__fadeup } from './utils/seenEffects';
@@ -58,8 +57,7 @@ export default css`
     }
 
     .PageFilter__title {
-      // TODO: Output should be var(--font-hd-s)
-      font: ${font.sizes.sh_l_size};
+      font: ${vars.font_hd_s};
       // TODO: Include em suffix
       margin-bottom: ${em(20 / 64)};
       width: 100%;
