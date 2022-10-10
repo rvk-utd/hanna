@@ -20,17 +20,18 @@ export const extendBackgroundWithUnderlay = (
   dir: 'left' | 'right' | 'both' = 'both',
   pseudo: 'before' | 'after' = 'before'
 ) => {
-  const direction = css``;
-  if (dir !== 'right') {
-    direction.concat(css`
-      left: ${hannaVars.grid_margin__neg};
-    `);
-  }
-  if (dir !== 'left') {
-    direction.concat(css`
-      right: ${hannaVars.grid_margin__neg};
-    `);
-  }
+  const dirLeft =
+    dir !== 'left'
+      ? css`
+          left: ${hannaVars.grid_margin__neg};
+        `
+      : css``;
+  const dirRight =
+    dir !== 'right'
+      ? css`
+          right: ${hannaVars.grid_margin__neg};
+        `
+      : css``;
   return css`
     position: relative;
     &::${pseudo} {
@@ -38,7 +39,8 @@ export const extendBackgroundWithUnderlay = (
       position: absolute;
       top: 0;
       bottom: 0;
-      ${direction.trim()}
+      ${dirLeft.trim()}
+      ${dirRight.trim()}
       z-index: -1;
       background: inherit;
     }

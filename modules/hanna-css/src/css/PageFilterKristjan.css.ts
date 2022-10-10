@@ -28,11 +28,11 @@ export default css`
       background-color: ${colors.suld_25};
       padding: ${between_cols(30, 80)} 0 0 0;
       margin-bottom: ${between_cols(64, 128)};
-      ${extendBackgroundWithUnderlay}
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
       align-items: flex-start;
+      ${extendBackgroundWithUnderlay().trim()}
     }
 
     .PageFilter::before {
