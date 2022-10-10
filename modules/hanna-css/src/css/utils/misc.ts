@@ -8,7 +8,7 @@ import { hannaVars } from '../../lib/hannavars';
  * @param {number} px - number
  */
 export const prem = (px: number) => {
-  return `${rem(px / 16)}`;
+  return rem(px / 16);
 };
 
 export const grid_units = (units = 1) => {
