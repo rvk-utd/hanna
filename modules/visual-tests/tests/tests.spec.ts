@@ -79,6 +79,7 @@ import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
 import { testing as PageFilter__test } from '../src/routes/test/PageFilter';
 import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
 import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
+import { testing as SearchResults__test } from '../src/routes/test/SearchResults';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
 
@@ -135,6 +136,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   PageFilter: PageFilter__test,
   ProcessOverview: ProcessOverview__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
+  SearchResults: SearchResults__test,
   TagPill: TagPill__test,
   TextBlock: TextBlock__test,
 };
