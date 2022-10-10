@@ -1,4 +1,5 @@
 import { RawMediaQuery } from 'es-in-css';
+import { Expect, Extends } from 'hanna-test-helpers';
 
 // Starting breakpoints **including* $grid-margin--*
 export const bp = {
@@ -61,3 +62,5 @@ export const mq = {
 
 // TODO: Use `satisfies` as soon as TypeScript 4.9 is out
 export const baseMQs = ['phone', 'phablet', 'tablet', 'netbook', 'wide'] as const;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Satisfies_baseMQs = Expect<Extends<typeof baseMQs[number], keyof typeof mq>>;
