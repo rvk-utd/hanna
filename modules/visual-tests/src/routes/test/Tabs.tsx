@@ -40,8 +40,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
-  tags: ['chrome'],
   skipScreenshot: true,
   extras: async ({ page, pageScreenshot, localScreenshot, setViewportSize }) => {
     // Initial screenshot doesn't include vertical tabs - need to skip initial screenshot and set viewport size to get

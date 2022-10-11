@@ -6,7 +6,6 @@ import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
 import PageFilter from '@reykjavik/hanna-react/PageFilter';
 import Selectbox from '@reykjavik/hanna-react/Selectbox';
 import TextInput from '@reykjavik/hanna-react/TextInput';
-import HiddenTiger from 'modules/html-storybook/src/utils/HiddenTiger';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';
@@ -19,75 +18,58 @@ export const meta: MetaFunction = autoTitle;
 export const handle = { cssTokens: ['BlockBreak'] };
 
 const summary = 'This is a summary text!';
-const filters = (br: boolean) => (
-  <Fragment>
-    <TextInput label="Search terms" />
-    {br && <BlockBreak />}
-    <TextInput label="Moar terms" />
-    <Selectbox
-      label="Optional"
-      placeholder="asdfasdfasdfasdf"
-      options={['', 'One option', 'Other option']}
-    />
-  </Fragment>
-);
+
 const buttonRow = (resetButton: boolean) => (
   <Fragment>
     <ButtonPrimary>Sækja fundargerðir</ButtonPrimary>
     {resetButton && <ButtonTertiary disabled>Hreinsa</ButtonTertiary>}
   </Fragment>
 );
-
 const footnote = lorem.medium;
+
+const pagefilters = [1, 2, 3, 4].map((i) => {
+  return (
+    <PageFilter
+      key={i}
+      title={
+        i === 1
+          ? 'No placeholder'
+          : i === 2
+          ? 'Page filter with a reset button and footnote ' // Page filter with a reset button and footnote
+          : i === 3
+          ? 'Hi! This title is a little bit longer than the previous one'
+          : 'No line break'
+      }
+      summary={
+        i === 1
+          ? ' '
+          : i === 4
+          ? 'But has footnote and a reset button!'
+          : 'With line break! ' + lorem.short
+      }
+      buttonRow={i % 2 === 0 ? buttonRow(true) : buttonRow(false)}
+      filters={
+        <Fragment>
+          <TextInput label="Search terms" />
+          {i === 2 || i === 3 ? <BlockBreak /> : ''}
+          <TextInput label="Moar terms" />
+          {i === 1 || i === 3 ? <TextInput label="Even more terms" /> : ''}
+          <Selectbox
+            label="Optional"
+            placeholder={i === 1 ? '' : 'Placeholder text'}
+            options={['', 'One option', 'Other option']}
+          />
+        </Fragment>
+      }
+      footnote={i % 2 === 0 ? footnote : undefined}
+    />
+  );
+});
+
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
-    <Minimal>
-      {' '}
-      <PageFilter
-        title="Short title"
-        summary={summary}
-        filters={filters(false)}
-        buttonRow={buttonRow(false)}
-        footnote={footnote}
-        startSeen
-      />
-      <PageFilter
-        title="A title that's a little longer"
-        summary={summary}
-        filters={filters(true)}
-        buttonRow={buttonRow(true)}
-        startSeen
-      />
-      <PageFilter
-        title="This title is longer than the previous one"
-        summary={summary}
-        filters={filters(true)}
-        buttonRow={buttonRow(true)}
-        footnote={footnote}
-        startSeen
-      />
-      <PageFilter
-        title="Title"
-        summary={summary}
-        filters={filters(true)}
-        buttonRow={buttonRow(false)}
-        underlap={true}
-        startSeen
-      />
-      <HiddenTiger
-        style={{
-          backgroundColor: 'rgba(0, 0 ,0, .05',
-          marginLeft: '25%',
-          padding: '7.5% 5%',
-        }}
-      >
-        <p>
-          <strong>NOTE:</strong> This textbox is here to show <strong>underlap.</strong>{' '}
-          {lorem.short}
-        </p>
-      </HiddenTiger>
-    </Minimal>
+    <Minimal>{pagefilters}</Minimal>
   );
 }
 
