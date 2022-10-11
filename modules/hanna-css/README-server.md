@@ -124,3 +124,8 @@ minor `0.*` version. (Like so `/bundle/v0.8`.)
 
 The CSS files and other assets are built from sources stored in the main
 [Hanna monorepo](https://github.com/rvk-utd/hanna).
+
+Infornmation about how to delpoy new version to production can be found in in
+the file
+[`/README-deployment.md`](https://github.com/rvk-utd/hanna-styles/blob/develop/README-deployment.md)
+on the `develop` branch.
