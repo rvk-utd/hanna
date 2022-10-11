@@ -2512,7 +2512,7 @@ __metadata:
     "@reykjavik/hanna-utils": ^0.1.14
     "@types/md5-file": ^5
     del: ^6.0.0
-    es-in-css: ^0.5.13
+    es-in-css: ^0.5.15
     gulp: ^4.0.2
     md5-file: ^5.0.0
     sass: ~1.32
@@ -8855,9 +8855,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-in-css@npm:^0.5.13":
-  version: 0.5.13
-  resolution: "es-in-css@npm:0.5.13"
+"es-in-css@npm:^0.5.15":
+  version: 0.5.15
+  resolution: "es-in-css@npm:0.5.15"
   dependencies:
     "@types/color": ^3.0.3
     "@types/color-name": ^1.1.1
@@ -8874,7 +8874,7 @@ __metadata:
     postcss-scss: ^4.0.3
   bin:
     es-in-css: bin/cli.js
-  checksum: a475411950491f98417b979824398b5714f118d99d4caf9867905366b6c4a7d5ebce2891b54480d760983ac66183cf586d0e5328aabf8f0d4284456fbeba3d60
+  checksum: 10a6dd62ddbd6e1b9c60a745aedd746e6866600c24e17502dca80a009186fcbf69ca76c7831ef7f279a0dab0e7fb4feef0ec9b9bd086e25e530c651e2650894d
   languageName: node
   linkType: hard
 
