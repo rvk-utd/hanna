@@ -3,7 +3,7 @@ import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
-import { prem } from './utils/misc';
+import { prem } from './utils/miscUtils';
 
 export default css`
   @media screen {
