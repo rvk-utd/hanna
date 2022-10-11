@@ -15,11 +15,11 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = { cssTokens: ['SiteSearchInput'] };
-const items = range(1, 3).map(
+const items = range(1, 4).map(
   (item): SearchResultsItemProps => ({
-    title: 'Niðurstaða ' + item,
+    title: item % 4 === 1 ? lorem.tiny : 'Niðurstaða '+item, 
     meta: item % 3 === 1 ? ['Fréttir', '15. janúar 2020'] : undefined,
-    summary: item % 3 === 1 ? lorem.medium : item % 3 === 2 ? lorem.short : lorem.tiny,
+    summary: item % 3 === 1 ? lorem.medium : item % 3 === 2 ? lorem.tiny : '',
     href: '/',
   })
 );
