@@ -4,6 +4,7 @@ import type { MetaFunction } from '@remix-run/node';
 import SearchResults, {
   SearchResultsItemProps,
 } from '@reykjavik/hanna-react/SearchResults';
+import SiteSearchInput from '@reykjavik/hanna-react/SiteSearchInput';
 
 import { Minimal } from '../../layout/Minimal';
 import { illustr, lorem } from '../../test-helpers/dummyData';
@@ -13,7 +14,7 @@ import { autoTitle } from '../../utils/meta';
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+export const handle = { cssTokens: ['SiteSearchInput'] };
 const items = range(1, 3).map(
   (item): SearchResultsItemProps => ({
     title: 'Niðurstaða ' + item,
@@ -35,6 +36,7 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
+      <SiteSearchInput label="leit" />
       <SearchResults
         status={'results'}
         pageSize={0}
