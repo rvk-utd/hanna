@@ -115,6 +115,7 @@ if (!opts.onlyLib) {
       redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
       minify: process.env.NODE_ENV === 'production',
       prettify: process.env.NODE_ENV !== 'production',
+      nested: { rootRuleName: 'escape' },
     });
 
   esbuild

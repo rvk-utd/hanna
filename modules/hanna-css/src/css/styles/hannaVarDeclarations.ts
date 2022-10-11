@@ -129,7 +129,7 @@ const colorVarDeclarations =
 // ---------------------------------------------------------------------------
 
 const themeVarDeclarations = css`
-  @at-root {
+  @escape {
     :root:root,
     [data-color-theme][data-color-theme],
     [data-color-theme][data-color-theme='trustworthy'] {

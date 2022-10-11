@@ -1,4 +1,4 @@
-import { css, em, media } from 'es-in-css';
+import { css, em } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints';
 import { buildVariables } from '../../lib/cssutils';
@@ -114,12 +114,14 @@ export const textContent = () => css`
     margin-bottom: ${vars.space_4};
     padding-left: calc(${vars.space_2} + 2px);
 
-    ${media(mq.phablet_up)(css`
-      padding-left: calc(${vars.space_3} + 2px);
-      ${q.override({
-        Quote__indent: vars.space_2,
-      })}
-    `)}
+    @escape (without: media) {
+      @media ${mq.phablet_up} {
+        padding-left: calc(${vars.space_3} + 2px);
+        ${q.override({
+          Quote__indent: vars.space_2,
+        })}
+      }
+    }
   }
   blockquote:not(.BlockQuote__quote):not(.PullQuote__quote)::after {
     content: '';

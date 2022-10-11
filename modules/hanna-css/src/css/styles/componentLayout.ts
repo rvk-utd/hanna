@@ -1,4 +1,4 @@
-import { css, media } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints';
 import { cols_px } from '../../lib/grid';
@@ -14,11 +14,13 @@ export const ComponentLayout = (wide = true) => css`
     max-width: ${cols_px(6)};
 
     &--align--right {
-      ${media(mq.tablet_up)(css`
-        margin-left: auto;
-        max-width: none;
-        width: ${vars.grid_7};
-      `)}
+      @escape (without: media) {
+        @media ${mq.phablet_up} {
+          margin-left: auto;
+          max-width: none;
+          width: ${vars.grid_7};
+        }
+      }
     }
 
     ${wide &&
