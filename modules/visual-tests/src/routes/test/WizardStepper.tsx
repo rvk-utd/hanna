@@ -56,8 +56,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  tags: ['chrome'],
-  __DEV_FOCUS__: true,
   extras: async ({ page, pageScreenshot, localScreenshot }) => {
     const stepTwo = page.locator('.WizardStepper__step:text("Step 2")');
     const alwaysClickable = page.locator('.WizardStepper__step:text("always clickable")');
