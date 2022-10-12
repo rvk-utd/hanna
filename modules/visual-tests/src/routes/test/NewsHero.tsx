@@ -2,6 +2,7 @@ import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import NewsHero from '@reykjavik/hanna-react/NewsHero';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
@@ -33,8 +34,11 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <NewsHero {...prop.short} image={photo.landscape} />
+      <DummyBlock thin />
       <NewsHero {...prop.medium} blingType={'balls-small'} />
+      <DummyBlock thin />
       <NewsHero {...prop.medium} blingType={'dome'} />
+      <DummyBlock thin />
       <NewsHero {...prop.long} blingType={'snake'} />
     </Minimal>
   );

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import FileInput from '@reykjavik/hanna-react/FileInput';
 
@@ -15,14 +15,24 @@ const props = (
     Dragðu gögn hingað eða <strong>bættu</strong> þeim við.
   </Fragment>
 );
+
 export default function () {
+  const [files, setFiles] = useState<Array<File>>([
+    new File(['foo bar foo'], 'foo.txt', {
+      type: 'text/plain',
+    }),
+  ]);
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <FileInput
         dropzoneText={props}
+        value={files}
+        onFilesUpdated={setFiles}
+        showFileSize
         removeFileText={''}
-        label={'Label text'}
+        label={'Label text - Input required'}
+        required
         assistText="Close your eyes and input the first thing that comes to mind."
       />
       <FileInput
@@ -37,4 +47,12 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {};
+export const testing: TestingInfo = {
+  extras: async ({ page, localScreenshot }) => {
+    const dropzoneContainer = page.locator('.FileInput--multi >> nth = 0');
+    const removeButton = page.locator('.FileInput__file-remove');
+
+    await removeButton.hover();
+    await localScreenshot(dropzoneContainer, 'removeButton-hover', { margin: true });
+  },
+};

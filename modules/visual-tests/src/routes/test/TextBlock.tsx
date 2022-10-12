@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import TextBlock from '@reykjavik/hanna-react/TextBlock';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
@@ -53,15 +54,15 @@ export default function () {
       <TextBlock small={true} startSeen>
         {text('Left aligned with small text')}
       </TextBlock>
-      <br />
+      <DummyBlock thin />
       <TextBlock align="right" small={false} startSeen>
         {text('Right aligned with regular text')}
       </TextBlock>
-      <br />
+      <DummyBlock thin />
       <TextBlock wide={true} small={false} startSeen>
         {text('Wide with regular text')}
       </TextBlock>
-      <br />
+      <DummyBlock thin />
       <TextBlock labelled={true} small={false} startSeen>
         {text('Labelled with regular text')}
       </TextBlock>

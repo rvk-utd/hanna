@@ -1,5 +1,5 @@
 import * as esincss from 'es-in-css';
-import { reportMismatch } from 'hanna-test-helpers/ospec';
+import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
 import * as lib from './index';
@@ -39,6 +39,7 @@ o.spec('hanna-css lib', () => {
       iconStyle: true,
       characters: true,
       iconfont_raw: true,
+      icons: true,
 
       /* themes.ts */
       colorThemes: true,
@@ -51,7 +52,7 @@ o.spec('hanna-css lib', () => {
       // suppress_WARNING_soft__: true,
     };
 
-    reportMismatch(
+    reportKeyMismatch(
       lib,
       expectedTokens,
       // Ignoring re-exported tokens from es-in-css.
@@ -68,6 +69,9 @@ import type {
 
   // cssvars.ts
   HannaCssVarToken,
+
+  // icons.ts
+  IconName,
 
   // themes.ts
   HannaColorTheme,

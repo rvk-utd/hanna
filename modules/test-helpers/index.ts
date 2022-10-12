@@ -29,8 +29,20 @@ export type Equals<A, B> = UnlessAny<
       : '❌ Type B is not assignable to type A'
     : '❌ Type A is not assignable to type B'
 >;
-export type Extends<A, B> = UnlessAny<A, B, A extends B ? true : false>;
-export type NotExtends<A, B> = UnlessAny<A, B, B extends A ? false : true>;
+export type Extends<A, B> = UnlessAny<
+  A,
+  B,
+  [A] extends [B] ? true : '❌ Type A is not assignable to B'
+>;
+export type NotExtends<A, B> = UnlessAny<
+  A,
+  B,
+  [A] extends [B]
+    ? [B] extends [A]
+      ? '❌ Type A is equal to B'
+      : '❌ Type A is assignable to B'
+    : true
+>;
 
 // --------
 

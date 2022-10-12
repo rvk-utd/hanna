@@ -83,6 +83,7 @@ import { testing as SearchResults__test } from '../src/routes/test/SearchResults
 import { testing as Tabs__test } from '../src/routes/test/Tabs';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
+import { testing as WizardStepper__test } from '../src/routes/test/WizardStepper';
 
 /* eslint-enable import/first */
 
@@ -141,6 +142,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Tabs: Tabs__test,
   TagPill: TagPill__test,
   TextBlock: TextBlock__test,
+  WizardStepper: WizardStepper__test,
 };
 // ---------------------------------------------------------------------------
 

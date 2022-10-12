@@ -65,7 +65,24 @@ export const colors = {
 
 // ---------------------------------------------------------------------------
 
-export const colorFamilies = {
+/**
+ * The Hanna base color family nanmes.
+ */
+export type ColorFamily =
+  | 'esja'
+  | 'faxafloi'
+  | 'nautholsvik'
+  | 'heidmork'
+  | 'ellidaardalur'
+  | 'blafjoll'
+  | 'sund'
+  | 'rokkur'
+  | 'suld';
+
+/**
+ * Object containing the names of the Hanna base color families.
+ */
+export const colorFamilies: Readonly<Record<ColorFamily, ColorFamily>> = {
   esja: 'esja',
   faxafloi: 'faxafloi',
   nautholsvik: 'nautholsvik',
@@ -75,6 +92,4 @@ export const colorFamilies = {
   sund: 'sund',
   rokkur: 'rokkur',
   suld: 'suld',
-} as const;
-
-export type ColorFamily = keyof typeof colorFamilies;
+};

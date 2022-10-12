@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
+import Bling from '@reykjavik/hanna-react/Bling';
 import ButtonBar from '@reykjavik/hanna-react/ButtonBar';
 import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
 import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
@@ -15,9 +16,11 @@ import { autoTitle } from '../../utils/meta';
 export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = {
-  cssTokens: ['Modal,ButtonPrimary,ButtonTertiary,Heading,TextBlock,Bling'],
+  cssTokens: ['Modal,ButtonPrimary,ButtonTertiary,Heading,TextBlock, Bling'],
 };
-
+const renderBling = () => (
+  <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
+);
 const mod: ModalProps['modifier'] = 'w8';
 export default function () {
   const [open, setOpen] = useState(false);
@@ -26,7 +29,7 @@ export default function () {
   const [value, setValue] = useState(mod);
 
   const buttonText = ['Open modal', 'Open narrow modal', 'Open wide modal'];
-
+  const render = value === 'w8';
   const buttons = range(0, 2).map((i) => {
     return (
       <span key={i}>
@@ -54,6 +57,7 @@ export default function () {
           startOpen
           portal={false}
           fickle={false}
+          bling={render ? renderBling() : undefined}
           render={({ closeModal }) => {
             return (
               <Fragment>
@@ -83,11 +87,10 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  skipScreenshot: true,
   extras: async ({ page, localScreenshot, setViewportSize }) => {
-    const button = page.locator('.ButtonPrimary:text("Opna modal") >> nth=0');
-    const buttonNarrow = page.locator('.ButtonPrimary:text("Opna modal narrow")');
-    const buttonWide = page.locator('.ButtonPrimary:text("Opna modal wide")');
+    const button = page.locator('.ButtonPrimary:text("Open Modal") >> nth=0');
+    const buttonNarrow = page.locator('.ButtonPrimary:text("Open narrow modal")');
+    const buttonWide = page.locator('.ButtonPrimary:text("Open wide modal")');
     const modal = page.locator('.Layout');
     const modalCloseBtn = page.locator('.Modal__closebutton');
 

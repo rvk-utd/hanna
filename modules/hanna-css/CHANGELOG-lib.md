@@ -3,8 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Upgrade `es-in-css` for bugfixes and new features.
+- feat: Add constant `icons`, and type `IconName`
 - feat: Add `font_raw.sizes`
+- feat: Upgrade `es-in-css` for bugfixes and new features.
 - fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7
@@ -58,7 +59,8 @@ _2022-05-13_
 _2022-05-13_
 
 - feat: Initial release with basic features
-  - CSS variable helper: `cssVars` object, and a `cssVarOverride` method and a
+  - CSS variable helper: `hannaVars` object, and a `hannaVarOverride` method
+    and a
   - Lower-level variable builder `buildVarialbes`
   - Env variable: `isDevMode`
   - Helper constants: `colorThemes`, `mq` (media queries) and `characters`

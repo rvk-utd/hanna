@@ -17,8 +17,6 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = { cssTokens: ['BlockBreak'] };
 
-const summary = 'This is a summary text!';
-
 const buttonRow = (resetButton: boolean) => (
   <Fragment>
     <ButtonPrimary>Sækja fundargerðir</ButtonPrimary>
@@ -62,6 +60,7 @@ const pagefilters = [1, 2, 3, 4].map((i) => {
         </Fragment>
       }
       footnote={i % 2 === 0 ? footnote : undefined}
+      startSeen
     />
   );
 });
