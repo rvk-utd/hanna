@@ -39,6 +39,7 @@ o.spec('hanna-css lib', () => {
       iconStyle: true,
       characters: true,
       iconfont_raw: true,
+      icons: true,
 
       /* themes.ts */
       colorThemes: true,
@@ -68,6 +69,9 @@ import type {
 
   // cssvars.ts
   HannaCssVarToken,
+
+  // icons.ts
+  IconName,
 
   // themes.ts
   HannaColorTheme,

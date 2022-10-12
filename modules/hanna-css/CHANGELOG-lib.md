@@ -3,8 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Upgrade `es-in-css` for bugfixes and new features.
+- feat: Add constant `icons`, and type `IconName`
 - feat: Add `font_raw.sizes`
+- feat: Upgrade `es-in-css` for bugfixes and new features.
 - fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7

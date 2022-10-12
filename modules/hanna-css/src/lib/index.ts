@@ -1,7 +1,8 @@
 export * from './cssutils';
 export type { HannaCssVarToken } from './hannavars';
 export { hannaVarOverride, hannaVars } from './hannavars';
-export { characters, iconfont_raw, iconStyle } from './icons';
+export type { IconName } from './icons';
+export { characters, iconfont_raw, icons, iconStyle } from './icons';
 export type { HannaColorTheme } from './themes';
 export { colorThemes } from './themes';
 export { WARNING__, WARNING_message__, WARNING_soft__ } from './WARNING__';
