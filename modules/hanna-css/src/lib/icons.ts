@@ -21,7 +21,7 @@ export const iconStyle = (icon?: string | VariablePrinter) => {
     vertical-align: top;
     // iconFontStyling
     font-family: ${iconfontName};
-    speak: none;
+    speak: none; // speak property is deprecated
     font-weight: normal;
     font-style: normal;
     white-space: nowrap;

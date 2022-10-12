@@ -1,12 +1,16 @@
-import { css } from 'es-in-css';
+import { css, pct } from 'es-in-css';
 
 import { between } from '../lib/between';
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
 import { grid } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
+import { iconStyle } from '../lib/icons';
 
+import { freezeScroll_css, LayoutHeaderUnderlay_css } from './styles/header';
+import { sr_only_focusable_css } from './utils/a11y';
 import { grid_units, prem } from './utils/miscUtils';
+import { hideText_css } from './utils/scssutils/hideText';
 
 const mq_Fullscreen = mq.phone_phablet;
 const mq_Popup = mq.tablet_up;
@@ -47,8 +51,10 @@ export default css`
       // [data-freeze-scroll]
       // Env tweaks (side-effects)
       html[data-contact-bubble] {
-        // TODO: INCLUDE freezeScroll
-        /* $ {freezeScroll($hideSkiplink: true, $fixHeader: true)}; */
+        ${freezeScroll_css({
+          hideSkiplink: true,
+          fixHeader: true,
+        })}
       }
     }
 
@@ -104,7 +110,7 @@ export default css`
 
     .ContactBubble__openbtn::before,
     .ContactBubble__openbtn::after {
-      // TODO: INCLUDE icon
+      ${iconStyle(vars.icon__chat)}
       position: absolute;
       top: 50%;
       font-size: ${prem(40)};
@@ -190,7 +196,7 @@ export default css`
     @media ${mq_Fullscreen} {
       // underlay for .Layout__header
       .ContactBubble::before {
-        // TODO: Include LayoutHeaderUnderlay
+        ${LayoutHeaderUnderlay_css(colors.suld_25)}
       }
       .ContactBubble::after {
         content: '';
@@ -198,7 +204,7 @@ export default css`
         height: 0;
         margin-top: ${vars.space_8};
         // TODO: Find percentage function
-        padding-top: 666; // $ {percentage(300/610)};
+        padding-top: ${pct(300 / 610)}; // $ {percentage(300/610)};
         background: url('i/ContactBubble/illustration.png') 50% 50% / 100% auto no-repeat;
         max-width: 500px;
       }
@@ -286,6 +292,7 @@ export default css`
     }
 
     // ---------------------------------------------------------------------------
+
     // Script-only button
     @media ${mq_Fullscreen} {
       .ContactBubble__closebtn {
@@ -294,8 +301,7 @@ export default css`
         // TODO: FIX VARIABLE NAME
         top: calc(0.5 * ${vars.Layout$$header_height});
         right: ${vars.grid_margin__right};
-        // TODO: Include hideText
-        // @include hideText(soft);
+        ${hideText_css('soft')}
         // TODO: Check funnky variable name
         margin: ${vars.space_3__neg} ${vars.space_0$5};
         width: ${vars.space_6};
@@ -309,8 +315,7 @@ export default css`
         transform: scale(1.15);
       }
       .ContactBubble__closebtn::before {
-        // TODO: Include icon
-        // @include icon($icons-close);
+        ${iconStyle(vars.icon__close)}
         font-size: ${prem(26)};
         width: 100%;
         margin-right: 1px;
@@ -319,8 +324,7 @@ export default css`
 
     @media ${mq_Popup} {
       .ContactBubble__closebtn {
-        // TODO include sr-only-focusable
-        // @include sr-only-focusable();
+        ${sr_only_focusable_css({})}
       }
     }
   }
