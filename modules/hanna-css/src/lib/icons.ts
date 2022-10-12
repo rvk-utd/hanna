@@ -38,7 +38,6 @@ const upper66 = '\u201c';
 const upper99 = '\u201d';
 const lower99 = '\u201e';
 
-/** Collection of quotation marks for use on `blockquote`s etc. */
 const quotes = {
   upper6,
   upper9,
@@ -70,12 +69,17 @@ const quotes = {
   },
 } as const;
 
-/** Useful unicode characters for spacing, bullets, icons, etc… */
+/**
+ * Object with several named unicode symbols for use in generated content
+ * (`::marker`s, `::before` texts, etc.). Includes `bullets`, `spaces`, `quotes`.
+ */
 export const characters = {
+  /** Common bullets */
   bullets: {
     disc: '\u2022',
     square: '\u25aa',
   },
+  /** Various unicode space characters */
   spaces: {
     /** ~0.28em  (NO-BREAK space) */
     normal: '\u00a0',
@@ -96,6 +100,7 @@ export const characters = {
     /** 1/12em (HAIR space) */
     hair: '\u200A',
   },
+  /** Collection of quotation marks for use on `blockquote`s etc. */
   quotes,
 } as const;
 

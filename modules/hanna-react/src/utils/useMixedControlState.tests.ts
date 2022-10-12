@@ -89,8 +89,6 @@ o.spec('useMixedControlState', () => {
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 const useTypeTests = () => {
-  return;
-
   type Foo = Array<number>;
   type MaybeFoo = Foo | undefined;
   type FooProps = {

@@ -29,6 +29,7 @@ yarn add --dev @reykjavik/hanna-css
   - [`colorThemes`](#colorthemes)
   - [`colorFamilies`](#colorfamilies)
   - [`characters`](#characters)
+  - [`icons`](#icons)
   - [`mq`](#mq)
 - [Hanna CSS Env](#hanna-css-env)
   - [`isDevMode`](#isdevmode)
@@ -192,7 +193,7 @@ Object containing the names of the Hanna color themes.
 import { colorThemes } from '@reykjavik/hanna-css';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 
-const themeName: HannaColorTheme = Object.keys(colorThemes)[0];
+const themeName: HannaColorTheme = colorThemes.trustworty;
 
 coknsole.log(themeName);
 // "trustworthy"
@@ -200,13 +201,13 @@ coknsole.log(themeName);
 
 ### `colorFamilies`
 
-Object containing the names of the Hanna color themes.
+Object containing the names of the Hanna base color families.
 
 ```ts
 import { colorFamilies } from '@reykjavik/hanna-css';
 import type { ColorFamily } from '@reykjavik/hanna-css';
 
-const familyName: ColorFamily = Object.keys(colorFamilies)[0];
+const familyName: ColorFamily = colorFamilies.esja;
 
 coknsole.log(familyName);
 // "esja"
@@ -224,6 +225,22 @@ const { bullets, spaces, quotes } = characters;
 
 console.log(quotes.IS.open + 'Hæ!' + quotes.IS.close);
 // "„Hæ!“"
+```
+
+### `icons`
+
+Object with the names of the "decorative" icons available for general use with
+`data-icon=""` and `data-icon-after=""` attributes, and for React component
+icon props.
+
+```js
+import { icons } from '@reykjavik/hanna-css';
+import type { IconName } from '@reykjavik/hanna-css';
+
+const iconName: IconName = icons.close;
+
+console.log(iconName);
+// "close"
 ```
 
 ### `mq`
@@ -345,7 +362,7 @@ Primary use is for debugging/informational purposes.
 
 ## Markup Warning Helpers
 
-Sometimes you need to discourage certain HTML markup patterns, and Hanna
+Sometimes you need to discourage certain HTML markup patterns, and **Hanna**
 provides some helpful mixin methods to that purpose.
 
 They render a "hi-vis" outline around the current element and display a
