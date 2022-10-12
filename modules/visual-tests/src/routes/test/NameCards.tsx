@@ -3,6 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import NameCards from '@reykjavik/hanna-react/NameCards';
 
 import { Minimal } from '../../layout/Minimal';
+import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -18,40 +19,39 @@ export default function () {
       <NameCards
         items={[
           {
-            name: 'Anna Barbara Idzik',
-            contactInfo: [{ href: 'tel:+3546903653', label: '690-3653' }],
-            location: 'Skeljagrandi 7, 107',
-            hours: 'Vinnutími: 08:00 - 14:00',
+            name: 'George Clooney',
+            contactInfo: [{ href: 'tel:+3543546372', label: '555-8736' }],
+            location: 'Breiðstræti 4, 107',
+            hours: 'Vinnutími: 08:00 - 20:00',
 
             updated: '22.02.2020',
             available: true,
           },
           {
-            name: 'Jerzy Edward Brys',
-            contactInfo: [{ href: 'tel:+3546903653', label: '690-3653' }],
-            location: 'Skeljagrandi 7, \n\n107 Reykjavík',
+            name: 'Jón Jónsson',
+            contactInfo: [{ href: 'tel:+3549219283', label: '490-3223' }],
+            location: 'Vegamót 18, \n\n107 Reykjavík',
           },
           {
-            name: 'Anna Barbara Idzik',
+            name: 'Hanna Hönnudóttir',
             contactInfo: [
-              { href: 'tel:+3546903653', label: '690 3653' },
-              { href: 'tel:+3547700227', label: '770 0227' },
+              { href: 'tel:+3541119912', label: '550 0081' },
+              { href: 'tel:+354792837', label: '770 0192' },
             ],
-            location: 'Skeljagrandi 7, 107',
-            hours:
-              'Vinnutími: 08:00 - 14:00 \n\n(except on the first Wednesday of the month)',
+            location: 'Fjöruborð 6, 101',
+            hours: 'Vinnutími: 08:00 - 14:00 \n\n(extra text info)',
             available: false,
           },
           {
-            name: 'Álfhildur S. Jóhannsdóttir og Jón Jónsson',
+            name: 'Jóna Jónsdóttir og James Bond',
             contactInfo: [
-              { label: 'aogj@gmail.com', href: 'mailto:aogj@gmail.com' },
-              { href: 'tel:+3546903653', label: '690-3653' },
-              { href: 'tel:+3546903654', label: '690-3654' },
+              { label: '007@spy.com', href: 'mailto:007@spy.com' },
+              { href: 'tel:+3549384753', label: '598-6565' },
+              { href: 'tel:+0000007', label: '007-0070' },
             ],
             location: 'Skeljagrandi 7,\n 107 Reykjavík',
             hours: 'Vinnutími: 08:00 - 14:00',
-            aboutText: 'Eina 100% vegan daggæslan á stór-Skerjafjarðarsvæðinu.',
+            aboutText: lorem.tiny,
             updated: '22.02.2020',
           },
         ]}
@@ -61,5 +61,5 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  initialHover: '.NameCard__contactinfo__item[href="mailto:aogj@gmail.com"]',
+  initialHover: '.NameCard__contactinfo__item[href="mailto:007@spy.com"]',
 };
