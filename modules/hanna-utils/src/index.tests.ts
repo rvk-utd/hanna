@@ -1,5 +1,5 @@
 import * as esincss from 'es-in-css';
-import { reportMismatch } from 'hanna-test-helpers/ospec';
+import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
 import * as lib from './index';
@@ -42,7 +42,7 @@ o.spec('hanna-css lib', () => {
       /* types.d.ts */
     };
 
-    reportMismatch(
+    reportKeyMismatch(
       lib,
       expectedTokens,
       // Ignoring re-exported tokens from es-in-css.
@@ -54,7 +54,7 @@ o.spec('hanna-css lib', () => {
 /* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
 // Also check exported types. (Ignoring re-exported types from es-in-css.)
 import type {
-  /* ObjectEntries.ts */
+  /* ObjectHelpers.ts */
 
   /* ensure.ts */
   PositiveInteger,
