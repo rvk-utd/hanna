@@ -45,8 +45,8 @@ export default css`
     font-weight: normal;
     font-style: normal;
     font-display: block;
-    src: url('i/icons.woff2?' + ${iconFontVersion}) format('woff2'),
-      url('i/icons.woff?' + ${iconFontVersion}) format('woff');
+    src: url('i/icons.woff2?${iconFontVersion}') format('woff2'),
+      url('i/icons.woff?${iconFontVersion}') format('woff');
   }
 
   @font-face {

@@ -169,7 +169,6 @@ export default css`
         left: 0;
         // overflow-y: scroll;
         overflow: auto;
-        // TODO: FIX var name below
         padding-top: ${vars.Layout$$header_height};
         // …
       }
@@ -204,7 +203,6 @@ export default css`
         display: block;
         height: 0;
         margin-top: ${vars.space_8};
-        // TODO: Find percentage function
         padding-top: ${pct_f(300 / 610)};
         background: url('i/ContactBubble/illustration.png') 50% 50% / 100% auto no-repeat;
         max-width: 500px;
@@ -299,11 +297,9 @@ export default css`
       .ContactBubble__closebtn {
         position: fixed;
         z-index: 1;
-        // TODO: FIX VARIABLE NAME
         top: calc(0.5 * ${vars.Layout$$header_height});
         right: ${vars.grid_margin__right};
         ${hideText_css('soft')}
-        // TODO: Check funnky variable name
         margin: ${vars.space_3__neg} ${vars.space_0$5};
         width: ${vars.space_6};
         height: ${vars.space_6};

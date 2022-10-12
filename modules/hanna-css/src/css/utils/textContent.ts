@@ -30,6 +30,7 @@ export const defaultULStyle = () => css`
     }
   }
 `;
+
 // ---------------------------------------------------------------------------
 
 export const pullQuoteVars = buildVariables(['Quote__line', 'Quote__indent']);

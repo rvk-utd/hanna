@@ -1,3 +1,4 @@
+import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { css, em, px, rem, str } from 'es-in-css';
 
 import {
@@ -28,6 +29,7 @@ import {
 } from '../../lib/hannavars';
 import iconfonttokens from '../../lib/iconfonttokens';
 import { cssVersion } from '../../lib/style-server-info';
+import { grid_units } from '../utils/miscUtils';
 
 const _c = colorVars.vars;
 const _g = gridVars.vars;
@@ -483,31 +485,31 @@ const gridVarDeclarations = css`
 // ---------------------------------------------------------------------------
 
 const spaceVarDeclarations = spaceVars.declare({
-  space_1: grid.unit * 1,
-  space_2: grid.unit * 2,
-  space_3: grid.unit * 3,
-  space_4: grid.unit * 4,
-  space_5: grid.unit * 5,
-  space_6: grid.unit * 6,
-  space_7: grid.unit * 7,
-  space_8: grid.unit * 8,
-  space_9: grid.unit * 9,
+  space_1: grid_units(1),
+  space_2: grid_units(2),
+  space_3: grid_units(3),
+  space_4: grid_units(4),
+  space_5: grid_units(5),
+  space_6: grid_units(6),
+  space_7: grid_units(7),
+  space_8: grid_units(8),
+  space_9: grid_units(9),
 
-  space_0$5: grid.unit * 0.5,
-  space_1$5: grid.unit * 1.5,
+  space_0$5: grid_units(0.5),
+  space_1$5: grid_units(1.5),
 
-  space_1__neg: grid.unit * -1,
-  space_2__neg: grid.unit * -2,
-  space_3__neg: grid.unit * -3,
-  space_4__neg: grid.unit * -4,
-  space_5__neg: grid.unit * -5,
-  space_6__neg: grid.unit * -6,
-  space_7__neg: grid.unit * -7,
-  space_8__neg: grid.unit * -8,
-  space_9__neg: grid.unit * -9,
+  space_1__neg: grid_units(-1),
+  space_2__neg: grid_units(-2),
+  space_3__neg: grid_units(-3),
+  space_4__neg: grid_units(-4),
+  space_5__neg: grid_units(-5),
+  space_6__neg: grid_units(-6),
+  space_7__neg: grid_units(-7),
+  space_8__neg: grid_units(-8),
+  space_9__neg: grid_units(-9),
 
-  space_0$5__neg: grid.unit * -0.5,
-  space_1$5__neg: grid.unit * -1.5,
+  space_0$5__neg: grid_units(-0.5),
+  space_1$5__neg: grid_units(-1.5),
 
   component_vspace__small: between_cols(30, 70),
   component_vspace__medium: between_cols(40, 100),
@@ -568,7 +570,11 @@ const buttonVarDeclarations = css`
 
 // ---------------------------------------------------------------------------
 
-const iconVarDeclarations = iconVars.declare(iconfonttokens);
+const iconVarDeclarations = iconVars.declare(
+  ObjectFromEntries(
+    ObjectEntries(iconfonttokens).map(([name, char]) => [name, str(char)])
+  )
+);
 
 // ---------------------------------------------------------------------------
 
