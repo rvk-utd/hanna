@@ -71,7 +71,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
   extras: async ({ page, localScreenshot }) => {
     const smallText = page.locator('.TextBlock--small');
     const rightAligned = page.locator('.TextBlock--align--right >> nth = 0');
