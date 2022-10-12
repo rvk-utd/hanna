@@ -59,7 +59,8 @@ _2022-05-13_
 _2022-05-13_
 
 - feat: Initial release with basic features
-  - CSS variable helper: `cssVars` object, and a `cssVarOverride` method and a
+  - CSS variable helper: `hannaVars` object, and a `hannaVarOverride` method
+    and a
   - Lower-level variable builder `buildVarialbes`
   - Env variable: `isDevMode`
   - Helper constants: `colorThemes`, `mq` (media queries) and `characters`
