@@ -1,4 +1,4 @@
-import { css, pct } from 'es-in-css';
+import { css, pct_f } from 'es-in-css';
 
 import { between } from '../lib/between';
 import { mq } from '../lib/breakpoints';
@@ -82,6 +82,7 @@ export default css`
       white-space: nowrap;
 
       @media ${mq_Popup} {
+        display: block;
         right: ${vars.space_2__neg};
         bottom: 4vh;
         bottom: min(4vh, ${vars.space_5});
@@ -204,7 +205,7 @@ export default css`
         height: 0;
         margin-top: ${vars.space_8};
         // TODO: Find percentage function
-        padding-top: ${pct(300 / 610)}; // $ {percentage(300/610)};
+        padding-top: ${pct_f(300 / 610)};
         background: url('i/ContactBubble/illustration.png') 50% 50% / 100% auto no-repeat;
         max-width: 500px;
       }
