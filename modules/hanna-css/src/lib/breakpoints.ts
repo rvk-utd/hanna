@@ -60,6 +60,18 @@ export const mq = {
   Topmenu,
 } as const;
 
+/**
+ * Useful for appending `screen and ` in front of `mq.*` variables
+ * without triggering CSS warnings in VSCode.
+ *
+ * ```css
+ * ·@media ${screen_and + mq.tablet} {
+ * ·  div { display: block; }
+ * ·}
+ * ```
+ */
+export const screen_and = 'screen and ';
+
 // TODO: Use `satisfies` as soon as TypeScript 4.9 is out
 export const baseMQs = ['phone', 'phablet', 'tablet', 'netbook', 'wide'] as const;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
