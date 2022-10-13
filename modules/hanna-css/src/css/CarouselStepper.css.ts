@@ -1,7 +1,16 @@
 import { css } from 'es-in-css';
 
-import { colors } from '../lib/colors';
-import { hannaVars } from '../lib/hannavars';
+import { buildVariables } from '../lib/cssutils';
+import { hannaVars as vars } from '../lib/hannavars';
+
+export const CarouselStepperVariables = buildVariables(['CarouselStepper__height']);
+const csVars = CarouselStepperVariables.vars;
+
+export const carouselStepperBeforeSprinklingPadding = () => css`
+  html.before-sprinkling &:not([data-sprinkled]) {
+    padding-bottom: ${csVars.CarouselStepper__height};
+  }
+`;
 
 export default css`
   /*!@deps
@@ -11,18 +20,20 @@ export default css`
 
 export const CarouselStepper_css = () => css`
   :root {
-    --CarouselStepper--height: ${hannaVars.space_4};
+    ${CarouselStepperVariables.declare({
+      CarouselStepper__height: vars.space_4,
+    })}
   }
 
   // ---------------------------------------------------------------------------
 
   .CarouselStepper {
-    margin: 0 ${hannaVars.space_0$5__neg};
+    margin: 0 ${vars.space_0$5__neg};
     width: max-content;
     display: flex;
     align-items: flex-end;
-    padding-top: ${hannaVars.space_1};
-    height: var(--CarouselStepper--height);
+    padding-top: ${vars.space_1};
+    height: ${csVars.CarouselStepper__height};
   }
 
   .CarouselStepper__button {
@@ -30,16 +41,16 @@ export const CarouselStepper_css = () => css`
 
     position: relative;
 
-    width: ${hannaVars.space_1};
+    width: ${vars.space_1};
     height: 100%;
 
-    margin: 0 ${hannaVars.space_0$5};
+    margin: 0 ${vars.space_0$5};
 
     overflow: hidden;
     white-space: nowrap;
     text-indent: 150%;
 
-    background: ${hannaVars.theme_color_primary_50};
+    background: ${vars.theme_color_primary_50};
 
     transform: scaleY((16/24));
     transform-origin: bottom center;
@@ -48,12 +59,12 @@ export const CarouselStepper_css = () => css`
   }
 
   .CarouselStepper__button:hover {
-    background: ${colors.suld_150};
+    background: ${vars.color_suld_150};
     transform: scaleY((20/24));
   }
 
   .CarouselStepper__button[aria-pressed='true'] {
-    background: ${hannaVars.theme_color_primary};
+    background: ${vars.theme_color_primary};
     transform: none;
   }
 `;

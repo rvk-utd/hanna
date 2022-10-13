@@ -1,6 +1,11 @@
-@use '_globals' as *;
+import { css, px } from 'es-in-css';
 
-@mixin itemsScrollSnapStyles() {
+import { grid } from '../../lib/grid';
+import { hannaVars as vars } from '../../lib/hannavars';
+import { iconStyle } from '../../lib/icons';
+import { avoidCssnanoMerging } from '../utils/miscUtils';
+
+export const carouselItemsScrollSnapStyles = () => css`
   & {
     display: flex;
     flex-flow: row;
@@ -9,15 +14,24 @@
     --paddingLeft: calc(50vw - 50%);
     padding-left: var(--paddingLeft);
     margin: 0 calc(-1 * var(--paddingLeft));
-    scroll-padding-left: var(--Carousel--leftOffset, #{px($grid-margin--phone)});
-    // hide scrollbars
+    scroll-padding-left: var(--Carousel--leftOffset, ${px(grid.margin__phone)});
+    width: 100vw;
+    ${
+      ''
+      // WARNING: Script-driven snap scrolling seems to go all wonky
+      // in FF and Chrome (OSX) if \`position\` is not \`static\`
+      // -- Már @ 2022-08-08
+    }
+    position: static;
+  }
+
+  /* hide scrollbars */
+  & {
     -ms-overflow-style: none; /* Edge, Internet Explorer */
     scrollbar-width: none; /* Firefox */
-    width: 100vw;
-    // // WARNING: Script-driven snap scrolling seems to go all wonky
-    // // in FF and Chrome (OSX) if `position` is not `static`
-    // // -- Már @ 2022-08-08
-    // position: relative;
+  }
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
 
   &-wrapper {
@@ -28,9 +42,9 @@
   &-goLeft {
     position: absolute;
     width: 3rem;
-    @include avoidCssnanoMerging() {
-      width: MAX(calc(0.4 * var(--paddingLeft)), calc(1.2 * #{$var--grid-margin}), 2rem);
-    }
+    ${avoidCssnanoMerging(css`
+      width: max(calc(0.4 * var(--paddingLeft)), calc(1.2 * ${vars.grid_margin}), 2rem);
+    `)}
     top: -0.67rem;
     bottom: -0.67rem;
     cursor: pointer;
@@ -42,7 +56,7 @@
     );
     display: none;
     opacity: 0;
-    transition: opacity $var--link-transition;
+    transition: opacity ${vars.link_transition};
     // outline: 1px dashed rgba(black, 0.4);
   }
   :hover > &-goRight,
@@ -59,21 +73,20 @@
 
   &-goRight::before,
   &-goLeft::before {
-    @include icon();
-    content: $icons-chevron-right;
+    ${iconStyle(vars.icon__chevron_right)}
     font-size: 2.5rem;
     margin-right: 0.5rem;
-    color: $var--color-suld-150;
+    color: ${vars.color_suld_150};
     text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
   }
 
   &-goRight {
     cursor: e-resize;
-    right: calc(-1 * var(--paddingLeft) + #{$var--browser-scrollbar-width});
+    right: calc(-1 * var(--paddingLeft) + ${vars.browser_scrollbar_width});
   }
   &-goLeft {
-    cursor: w-resize;
     transform: rotate(180deg);
+    cursor: w-resize;
     left: calc(-1 * var(--paddingLeft));
   }
 
@@ -84,13 +97,10 @@
     width: 90vw;
   }
 
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
   &[data-scroll-snapping] {
     scroll-snap-type: x mandatory;
   }
   & > * {
     scroll-snap-align: start;
   }
-}
+`;

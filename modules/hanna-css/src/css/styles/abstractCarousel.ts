@@ -2,9 +2,10 @@ import { css, px } from 'es-in-css';
 
 import { grid } from '../../lib/grid';
 import { hannaVars as vars } from '../../lib/hannavars';
+import { iconStyle } from '../../lib/icons';
 import { avoidCssnanoMerging } from '../utils/miscUtils';
 
-export const itemsScrollSnapStyles_css = () => css`
+export const carouselItemsScrollSnapStyles = () => css`
   & {
     display: flex;
     flex-flow: row;
@@ -14,14 +15,23 @@ export const itemsScrollSnapStyles_css = () => css`
     padding-left: var(--paddingLeft);
     margin: 0 calc(-1 * var(--paddingLeft));
     scroll-padding-left: var(--Carousel--leftOffset, ${px(grid.margin__phone)});
-    // hide scrollbars
+    width: 100vw;
+    ${
+      ''
+      // WARNING: Script-driven snap scrolling seems to go all wonky
+      // in FF and Chrome (OSX) if \`position\` is not \`static\`
+      // -- Már @ 2022-08-08
+    }
+    position: static;
+  }
+
+  /* hide scrollbars */
+  & {
     -ms-overflow-style: none; /* Edge, Internet Explorer */
     scrollbar-width: none; /* Firefox */
-    width: 100vw;
-    // WARNING: Script-driven snap scrolling seems to go all wonky
-    // in FF and Chrome (OSX) if 'position' is not 'static'
-    //  -- Már @ 2022-08-08
-    // position: relative;
+  }
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
 
   &-wrapper {
@@ -32,11 +42,9 @@ export const itemsScrollSnapStyles_css = () => css`
   &-goLeft {
     position: absolute;
     width: 3rem;
-
     ${avoidCssnanoMerging(css`
-      width: MAX(calc(0.4 * var(--paddingLeft)), calc(1.2 * ${vars.grid_margin}), 2rem);
+      width: max(calc(0.4 * var(--paddingLeft)), calc(1.2 * ${vars.grid_margin}), 2rem);
     `)}
-
     top: -0.67rem;
     bottom: -0.67rem;
     cursor: pointer;
@@ -65,8 +73,7 @@ export const itemsScrollSnapStyles_css = () => css`
 
   &-goRight::before,
   &-goLeft::before {
-    @include icon();
-    content: ${vars.icon__chevron_right};
+    ${iconStyle(vars.icon__chevron_right)}
     font-size: 2.5rem;
     margin-right: 0.5rem;
     color: ${vars.color_suld_150};
@@ -78,8 +85,8 @@ export const itemsScrollSnapStyles_css = () => css`
     right: calc(-1 * var(--paddingLeft) + ${vars.browser_scrollbar_width});
   }
   &-goLeft {
-    cursor: w-resize;
     transform: rotate(180deg);
+    cursor: w-resize;
     left: calc(-1 * var(--paddingLeft));
   }
 
@@ -90,9 +97,6 @@ export const itemsScrollSnapStyles_css = () => css`
     width: 90vw;
   }
 
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
   &[data-scroll-snapping] {
     scroll-snap-type: x mandatory;
   }

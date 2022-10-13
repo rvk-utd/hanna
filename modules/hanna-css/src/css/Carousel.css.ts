@@ -2,18 +2,20 @@ import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
 
-import { itemsScrollSnapStyles_css } from './styles/abstractCarousel';
+import { carouselItemsScrollSnapStyles } from './styles/AbstractCarousel';
 
-import { CarouselStepper_css } from './CarouselStepper.css';
+import {
+  CarouselStepper_css,
+  carouselStepperBeforeSprinklingPadding,
+} from './CarouselStepper.css';
 
 export default css`
-  html.before-sprinkling .Carousel:not([data-sprinkled]) {
-    padding-bottom: var(--CarouselStepper--height);
+  .Carousel {
+    ${carouselStepperBeforeSprinklingPadding}
   }
   .Carousel__itemlist {
-    ${itemsScrollSnapStyles_css}
+    ${carouselItemsScrollSnapStyles};
   }
-
   .Carousel__itemlist > * {
     margin-right: ${vars.space_3};
   }
