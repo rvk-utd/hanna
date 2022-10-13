@@ -1,11 +1,11 @@
 import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
 import {
   ButtonTertiaryStyle,
+  ButtonTertiaryStyle__backArrow,
   ButtonTertiaryStyle__disabled,
   ButtonTertiaryVariables as bt,
 } from './styles/buttons';
@@ -23,11 +23,7 @@ export default css`
       order: -10;
     }
     &--go--back::before {
-      ${iconStyle(vars.icon__arrow_left_long)}
-      background: 0;
-      height: auto;
-      font-size: 0.75em;
-      overflow: hidden;
+      ${ButtonTertiaryStyle__backArrow}
     }
 
     &:active,

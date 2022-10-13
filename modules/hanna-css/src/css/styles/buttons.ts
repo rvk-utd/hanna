@@ -303,3 +303,11 @@ export const ButtonTertiaryStyle = (isStatic = false) => css`
 
   ${!isStatic && ButtonTertiaryStyle__hoverFocus}
 `;
+
+export const ButtonTertiaryStyle__backArrow = () => css`
+  ${iconStyle(vars.icon__arrow_left_long)}
+  background: 0;
+  height: auto;
+  font-size: 0.75em;
+  overflow: hidden;
+`;
