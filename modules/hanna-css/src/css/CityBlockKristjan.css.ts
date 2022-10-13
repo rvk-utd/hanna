@@ -7,11 +7,11 @@ import {
   between_phone_phablet,
 } from '../lib/between';
 import { bp, mq } from '../lib/breakpoints';
-import { font } from '../lib/font';
 import { cols_pct, cols_px, grid } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { WARNING_soft__ } from '../lib/WARNING__';
 
+import { ButtonTertiaryStyle } from './styles/buttons';
 import { LinkStyle_SameColor } from './styles/links';
 import { grid_units, prem } from './utils/miscUtils';
 import { SeenEffect__fadeup } from './utils/seenEffects';
@@ -64,14 +64,12 @@ export default css`
     }
 
     .CityBlock__title {
-      // TODO: CHECK IF THIS VALUE IS RIGHT
-      font: ${font.sizes.hd_s_size};
+      font: ${vars.font_hd_s};
       margin-bottom: ${grid_units(4)};
     }
     .CityBlock__summary {
       margin-bottom: ${grid_units(4)};
-      // TODO: CHECK IF THIS VALUE IS RIGHT
-      font: ${font.sizes.bd_l_size};
+      font: ${vars.font_bd_l};
     }
     .CityBlock__summary a {
       ${LinkStyle_SameColor}
@@ -85,7 +83,7 @@ export default css`
       margin-top: auto;
     }
     .CityBlock__button {
-      // TODO: INCLUDE ButtonTertiaryStyle
+      ${ButtonTertiaryStyle}
       display: block;
       margin-bottom: ${grid_units(1)};
     }
