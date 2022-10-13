@@ -39,7 +39,7 @@ export default css`
       ${LinkStyle_SameColor}
 
       margin: 0 ${vars.grid_margin__neg};
-      padding: between_cols(30, $grid-column) ${vars.grid_margin};
+      padding: ${between_cols(30, grid.column)} ${vars.grid_margin};
 
       min-height: ${between_phone_netbook(200, minH)};
       @media ${mq.wide} {
