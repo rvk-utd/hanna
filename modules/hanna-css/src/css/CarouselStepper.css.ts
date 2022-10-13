@@ -1,22 +1,27 @@
-@use '_globals' as *;
+import { css } from 'es-in-css';
 
-/*!@deps
-	Carousel
-*/
+import { colors } from '../lib/colors';
+import { hannaVars } from '../lib/hannavars';
 
-@mixin css() {
+export default css`
+  /*!@deps
+    Carousel
+  */
+`;
+
+export const CarouselStepper_css = () => css`
   :root {
-    --CarouselStepper--height: #{$var--space-4};
+    --CarouselStepper--height: ${hannaVars.space_4};
   }
 
   // ---------------------------------------------------------------------------
 
   .CarouselStepper {
-    margin: 0 $var--space-0_5--neg;
+    margin: 0 ${hannaVars.space_0$5__neg};
     width: max-content;
     display: flex;
     align-items: flex-end;
-    padding-top: $var--space-1;
+    padding-top: ${hannaVars.space_1};
     height: var(--CarouselStepper--height);
   }
 
@@ -25,16 +30,16 @@
 
     position: relative;
 
-    width: $var--space-1;
+    width: ${hannaVars.space_1};
     height: 100%;
 
-    margin: 0 $var--space-0_5;
+    margin: 0 ${hannaVars.space_0$5};
 
     overflow: hidden;
     white-space: nowrap;
     text-indent: 150%;
 
-    background: $var--theme-color-primary-50;
+    background: ${hannaVars.theme_color_primary_50};
 
     transform: scaleY((16/24));
     transform-origin: bottom center;
@@ -43,12 +48,12 @@
   }
 
   .CarouselStepper__button:hover {
-    background: $color-suld-150;
+    background: ${colors.suld_150};
     transform: scaleY((20/24));
   }
 
   .CarouselStepper__button[aria-pressed='true'] {
-    background: $var--theme-color-primary;
+    background: ${hannaVars.theme_color_primary};
     transform: none;
   }
-}
+`;
