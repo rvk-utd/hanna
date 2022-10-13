@@ -191,17 +191,27 @@ export const ButtonTertiaryVariables = buildVariables([
 ]);
 const btVars = ButtonTertiaryVariables.vars;
 
-const ButtonTertiaryVarDeclarations = () => css`
-  :root {
-    ${ButtonTertiaryVariables.declare({
-      ButtonTertiary__height: `calc(${vars.font_button_leading} + 4px)`,
-      ButtonTertiary__color: '_inherit',
-      ButtonTertiary__dashColor: vars.color_faxafloi_100,
-      ButtonTertiary__dashWidth: vars.space_2,
-      ButtonTertiary__hover__dashWidth: vars.space_4,
-      ButtonTertiary__dashSpace: vars.space_2,
-      ButtonTertiary__dashHeight: px(2),
-      ButtonTertiary__gapH: between_phone_netbook(16, 24),
+/**
+ * `ButtonTertiaryStyle()` is a mixin that is used in multiple situations —
+ * a bit similar to `LinkStyle()` and friends.
+ * Therefore these declarations are inlined in `-basics.css.ts`
+ * (via `hannaVarDeclarations.ts`)
+ */
+export const ButtonTertiaryVarDeclarations = () => css`
+  ${ButtonTertiaryVariables.declare({
+    ButtonTertiary__height: `calc(${vars.font_button_leading} + 4px)`,
+    ButtonTertiary__color: '_inherit',
+    ButtonTertiary__dashColor: vars.color_faxafloi_100,
+    ButtonTertiary__dashWidth: vars.space_2,
+    ButtonTertiary__hover__dashWidth: vars.space_4,
+    ButtonTertiary__dashSpace: vars.space_2,
+    ButtonTertiary__dashHeight: px(2),
+    ButtonTertiary__gapH: between_phone_netbook(16, 24),
+  })}
+
+  @media ${mq.wide} {
+    ${ButtonTertiaryVariables.override({
+      ButtonTertiary__gapH: px(24),
     })}
   }
 `;
@@ -251,6 +261,8 @@ export const ButtonTertiaryStyle__disabled = () => css`
     pointer-events: none;
   }
 `;
+
+// ---------------------------------------------------------------------------
 
 export const ButtonTertiaryStyle = (isStatic = false) => css`
   ${LinkStyle_Reset(true)}

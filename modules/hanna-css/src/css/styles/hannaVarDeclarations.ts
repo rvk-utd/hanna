@@ -31,6 +31,8 @@ import iconfonttokens from '../../lib/iconfonttokens';
 import { cssVersion } from '../../lib/style-server-info';
 import { grid_units } from '../utils/miscUtils';
 
+import { ButtonTertiaryVarDeclarations } from './buttons';
+
 const _c = colorVars.vars;
 const _g = gridVars.vars;
 const _f = fontVars.vars;
@@ -595,6 +597,8 @@ export const hannaVarDeclarations = () => css`
       borderEffectVarDeclarations,
       buttonVarDeclarations,
       iconVarDeclarations,
+
+      ButtonTertiaryVarDeclarations(),
     ].join('')}
   }
 `;
