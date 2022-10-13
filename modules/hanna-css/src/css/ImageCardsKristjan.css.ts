@@ -14,6 +14,7 @@ import {
 import {
   SeenEffect__delay,
   SeenEffect__fadein,
+  SeenEffect__fadeup,
   SeenEffect__transition,
 } from './utils/seenEffects';
 
@@ -29,8 +30,8 @@ export default css`
       ${CardBlock_css}
       margin-bottom: ${between_cols(60, 110)};
 
+      ${SeenEffect__fadeup('.ImageCards__summary')};
       ${SeenEffect__fadein('.ImageCards__item')};
-      ${SeenEffect__fadein('.ImageCards__summary')};
 
       ${range(1, 12).map(
         (i) => css`
