@@ -2,7 +2,7 @@ import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
 
-import { carouselItemsScrollSnapStyles } from './styles/AbstractCarousel';
+import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel';
 
 import {
   CarouselStepper_css,

@@ -8,7 +8,7 @@ import { grid } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
 
-import { carouselItemsScrollSnapStyles } from './styles/AbstractCarousel';
+import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel';
 import { ButtonTertiaryStyle } from './styles/buttons';
 import { LinkStyle_Reset } from './styles/links';
 import { prem } from './utils/miscUtils';

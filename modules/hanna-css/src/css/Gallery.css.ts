@@ -5,7 +5,7 @@ import { mq } from '../lib/breakpoints';
 import { hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
 
-import { carouselItemsScrollSnapStyles } from './styles/AbstractCarousel';
+import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel';
 import { LinkStyle_Reset } from './styles/links';
 import { SeenEffect__fadeup } from './utils/seenEffects';
 import { GalleryModal_css, GalleryModalItem_css } from './_GalleryModal';
