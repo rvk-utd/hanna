@@ -56,42 +56,35 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
-    // Checkbox
-    const normalCheckbox = page.locator('.Checkbox__label:text("Normal")');
-    const checkedCheckbox = page.locator('.Checkbox__label:text("Checked") >> nth = 0');
-    const disabledCheckbox = page.locator('.Checkbox__label:text("Disabled") >> nth =0');
-    const invalidCheckbox = page.locator('.Checkbox__label:text("Invalid") >> nth =0');
+    /* eslint-disable no-await-in-loop */
+    for (const type of ['Checkbox', 'Radio'] as const) {
+      const normal = page.locator('.' + type + '__label:text("Normal")');
+      const checked = page.locator('.' + type + '__label:text("Checked") >> nth = 0');
+      const disabled = page.locator('.' + type + '__label:text("Disabled") >> nth =0');
+      const invalid = page.locator('.' + type + '__label:text("Invalid") >> nth =0');
+      const invalidChecked = page.locator(
+        '.' + type + '__label:text("Invalid + checked") >> nth =0'
+      );
+      for (const action of ['hover', 'focus'] as const) {
+        // Hover things
+        await normal[action]();
+        await localScreenshot(normal, type + '-normal-' + action, { margin: 8 });
 
-    // Radio
-    const radioNormal = page.locator('.Radio__label:text("Normal")');
-    const radioChecked = page.locator('.Radio__label:text("Checked") >> nth = 0');
-    const radioDisabled = page.locator('.Radio__label:text("Disabled") >> nth = 0');
-    const radioInvalid = page.locator('.Radio__label:text("Invalid") >> nth = 0 ');
+        await checked[action]();
+        await localScreenshot(checked, type + '-checked-' + action, { margin: 8 });
 
-    // Hover checkboxes
-    await normalCheckbox.hover();
-    await localScreenshot(normalCheckbox, 'normal-hover', { margin: true });
+        await disabled[action]();
+        await localScreenshot(disabled, type + '-disabled-' + action, { margin: 8 });
 
-    await checkedCheckbox.hover();
-    await localScreenshot(checkedCheckbox, 'checked-hover', { margin: true });
+        await invalid[action]();
+        await localScreenshot(invalid, type + '-invalid-' + action, { margin: 8 });
 
-    await disabledCheckbox.hover();
-    await localScreenshot(disabledCheckbox, 'disabled-hover', { margin: true });
-
-    await invalidCheckbox.hover();
-    await localScreenshot(invalidCheckbox, 'invalid-hover', { margin: true });
-
-    // Hover radio buttons
-    await radioNormal.hover();
-    await localScreenshot(radioNormal, 'radioNormal-hover', { margin: 10 });
-
-    await radioChecked.hover();
-    await localScreenshot(radioChecked, 'radionChecked-hover', { margin: 10 });
-
-    await radioDisabled.hover();
-    await localScreenshot(radioDisabled, 'radioDisabled-hover', { margin: 10 });
-
-    await radioInvalid.hover();
-    await localScreenshot(radioInvalid, 'radioInvalid-hover', { margin: 10 });
+        await invalidChecked[action]();
+        await localScreenshot(invalidChecked, type + '-invalidchecked-' + action, {
+          margin: 8,
+        });
+      }
+    }
+    /* eslint-enable no-await-in-loop */
   },
 };
