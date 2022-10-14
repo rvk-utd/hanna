@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Color of disabled invalid checkboxes/radios
 
 ## 0.8.70
 
