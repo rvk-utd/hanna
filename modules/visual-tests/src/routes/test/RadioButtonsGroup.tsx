@@ -6,7 +6,7 @@ import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
-import { props } from './CheckboxButtonsGroup';
+import { options } from './CheckboxButtonsGroup';
 
 export const meta: MetaFunction = autoTitle;
 
@@ -19,15 +19,25 @@ export default function () {
     <Minimal>
       <RadioButtonsGroup
         label={'Radio Buttons Group'}
-        options={props}
+        options={options}
+        value={'text'}
         required={true}
-        name={''}
+        name={'normal'}
       />
       <RadioButtonsGroup
         label={'Invalid Radio buttons Group'}
-        options={props}
+        options={options}
+        value={'text'}
         invalid
-        name={''}
+        name={'invalid'}
+        errorMessage="This is an error message"
+      />
+      <RadioButtonsGroup
+        label={'Invalid Radio buttons Group'}
+        options={options}
+        value={'text'}
+        disabled
+        name={'disabled'}
         errorMessage="This is an error message"
       />
     </Minimal>
@@ -36,26 +46,39 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
-    const container = page.locator('.RadioButtonsGroup >> nth = 0');
-    const invalidContainer = page.locator('.RadioButtonsGroup >> nth = 1');
-    const normalRadio = page.locator('.RadioButton__label:text("Some") >> nth = 0');
-    const invalidRadio = page.locator('.RadioButton__label:text("Some") >> nth = 1');
-    const disabledRadio = page.locator(
-      '.RadioButton__label:text("Disabled") >> nth = 0 '
+    const normal = page.locator('.RadioButton__label >> nth = 1');
+    const checked = page.locator('.RadioButton__label >> nth = 0');
+    const invalid = page.locator('.FormField--invalid .RadioButton__label >> nth = 1');
+    const invalidChecked = page.locator(
+      '.FormField--invalid .RadioButton__label >> nth = 0'
     );
-    await normalRadio.hover();
-    await localScreenshot(container, 'normal-hover', { margin: true });
+    const disabled = page.locator('.FormField--disabled .RadioButton__label >> nth = 1 ');
 
-    await normalRadio.click();
-    await localScreenshot(container, 'normal-click', { margin: true });
+    await normal.hover();
+    await localScreenshot(normal, 'normal-hover', { margin: true });
 
-    await invalidRadio.hover();
-    await localScreenshot(invalidContainer, 'invalid-hover', { margin: true });
+    await checked.hover();
+    await localScreenshot(checked, 'invalid-hover', { margin: true });
 
-    await invalidRadio.click();
-    await localScreenshot(invalidContainer, 'invalid-click', { margin: true });
+    await invalid.hover();
+    await localScreenshot(invalid, 'invalid-hover', { margin: true });
 
-    await disabledRadio.hover();
-    await localScreenshot(disabledRadio, 'disabled-hover', { margin: true });
+    await invalidChecked.hover();
+    await localScreenshot(invalidChecked, 'invalid-hover', { margin: true });
+
+    await disabled.hover();
+    await localScreenshot(disabled, 'disabled-hover', { margin: true });
+
+    await normal.focus();
+    await localScreenshot(normal, 'normal-focus', { margin: true });
+
+    await checked.focus();
+    await localScreenshot(checked, 'invalid-focus', { margin: true });
+
+    await invalidChecked.focus();
+    await localScreenshot(invalidChecked, 'invalid-focus', { margin: true });
+
+    await invalid.focus();
+    await localScreenshot(invalid, 'invalid-focus', { margin: true });
   },
 };

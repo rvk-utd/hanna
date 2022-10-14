@@ -4,6 +4,7 @@ import CheckboxButtonsGroup from '@reykjavik/hanna-react/CheckboxButtonsGroup';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
+import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -12,7 +13,7 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 //export const handle = { cssTokens: [] };
 
-export const props = [
+export const options = [
   {
     value: 'text',
     label: (
@@ -29,7 +30,7 @@ export const props = [
     value: 'long',
     label: (
       <Fragment>
-        Long long long checkbox text <small>Longer extra info</small>
+        {lorem.tiny} <small>Longer extra info</small>
       </Fragment>
     ),
   },
@@ -44,7 +45,7 @@ export const props = [
   },
   {
     value: 'great',
-    label: 'Checkboxes are great',
+    label: lorem.tiny,
   },
 ];
 
@@ -54,17 +55,27 @@ export default function () {
     <Minimal>
       <CheckboxButtonsGroup
         label={'Checkbox Group'}
-        options={props}
+        options={options}
+        value={['text']}
         required={true}
-        name={''}
+        name={'normal'}
       />
       <DummyBlock thin />
       <CheckboxButtonsGroup
         label={'Invalid Checkbox Group'}
-        options={props}
+        options={options}
+        value={['text']}
         invalid
-        name={''}
+        name={'invalid'}
         errorMessage="This is an error message"
+      />
+      <DummyBlock thin />
+      <CheckboxButtonsGroup
+        label={'Invalid Checkbox Group'}
+        options={options}
+        value={['text']}
+        disabled
+        name={'disabled'}
       />
     </Minimal>
   );
@@ -72,30 +83,40 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
-    const container = page.locator('.CheckboxButtonsGroup >> nth = 0');
-    const invalidContainer = page.locator('.CheckboxButtonsGroup >> nth = 1');
-
-    const checkbox = page.locator('.CheckboxButton__label:text("Some") >> nth = 0');
-    const invalidCheckbox = page.locator(
-      '.CheckboxButton__label:text("Some") >> nth = 1'
+    const normal = page.locator('.CheckboxButton__label >> nth = 1');
+    const checked = page.locator('.CheckboxButton__label >> nth = 0');
+    const invalid = page.locator('.FormField--invalid .CheckboxButton__label >> nth = 1');
+    const invalidChecked = page.locator(
+      '.FormField--invalid .CheckboxButton__label >> nth = 0'
     );
-    const disabledCheckbox = page.locator(
-      '.CheckboxButton__label:text("Disabled") >> nth = 0'
+    const disabled = page.locator(
+      '.FormField--disabled .CheckboxButton__label >> nth = 1 '
     );
+    await normal.hover();
+    await localScreenshot(normal, 'normal-hover', { margin: true });
 
-    await checkbox.hover();
-    await localScreenshot(container, 'normal-hover', { margin: true });
+    await checked.hover();
+    await localScreenshot(checked, 'invalid-hover', { margin: true });
 
-    await checkbox.click();
-    await localScreenshot(container, 'normal-click', { margin: true });
+    await invalid.hover();
+    await localScreenshot(invalid, 'invalid-hover', { margin: true });
 
-    await invalidCheckbox.hover();
-    await localScreenshot(invalidContainer, 'invalid-hover', { margin: true });
+    await invalidChecked.hover();
+    await localScreenshot(invalidChecked, 'invalid-hover', { margin: true });
 
-    await invalidCheckbox.click();
-    await localScreenshot(invalidContainer, 'invalid-click', { margin: true });
+    await disabled.hover();
+    await localScreenshot(disabled, 'disabled-hover', { margin: true });
 
-    await disabledCheckbox.hover();
-    await localScreenshot(disabledCheckbox, 'disabled-hover', { margin: true });
+    await normal.focus();
+    await localScreenshot(normal, 'normal-focus', { margin: true });
+
+    await checked.focus();
+    await localScreenshot(checked, 'invalid-focus', { margin: true });
+
+    await invalidChecked.focus();
+    await localScreenshot(invalidChecked, 'invalid-focus', { margin: true });
+
+    await invalid.focus();
+    await localScreenshot(invalid, 'invalid-focus', { margin: true });
   },
 };

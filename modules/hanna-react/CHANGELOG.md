@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat(ts): Export `ArticleCardsItemProps`, deprecate `ArticleCardProps`
+- feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
 
 ## 0.10.70
 

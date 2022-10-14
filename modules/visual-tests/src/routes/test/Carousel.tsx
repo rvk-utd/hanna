@@ -18,17 +18,17 @@ export default function () {
       <Fragment>
         <style>
           {`
-        .Carousel p {
-          border: var(--border-default);
-          background-color: var(--color-suld-25);
-          padding: 1em;
-          margin-right: var(--grid-gutter);
-        }
-        .Carousel strong {
-          display: block;
-          width: max-content;
-        }
-      `}
+          .Carousel p {
+            border: var(--border-default);
+            background-color: var(--color-suld-25);
+            padding: 1em;
+            margin-right: var(--grid-gutter);
+          }
+          .Carousel strong {
+            display: block;
+            width: max-content;
+          }
+        `}
         </style>
         <Carousel startSeen>
           <p>
@@ -52,11 +52,13 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, pageScreenshot }) => {
-    const carouselStepper = page.locator('.CarouselStepper__button >> nth = 2');
-    await carouselStepper.hover();
-    await pageScreenshot('carouselStepper-hover');
-    await carouselStepper.click();
-    await pageScreenshot('carouselStepper-click');
-  },
+  initialHover: '.CarouselStepper__button >> nth = 2',
+  // extras: async ({ page, pageScreenshot }) => {
+  //   // NOTE: ArticleCarousel.tsx has lots of tests for Carousel overflows and
+  //   // goleft/goright buttons, etc.
+  //   const carouselStepper = page.locator('.CarouselStepper__button >> nth = 2');
+  //   await carouselStepper.click();
+  //   await page.waitForTimeout(100);
+  //   await pageScreenshot('carouselStepper-hover');
+  // },
 };

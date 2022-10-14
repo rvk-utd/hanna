@@ -107,7 +107,9 @@ export type TestFnArgs = Pick<
     locator: Locator | ElementHandle,
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
-    opts?: LocatorScreenshotOptions & { margin: true | number | [number, number] }
+    opts?: LocatorScreenshotOptions & {
+      margin: boolean | number | [number, number] | 'fullwidth';
+    }
   ): Promise<void>;
 
   /**
