@@ -38,32 +38,23 @@ export const makeSnapLocalScreeshot =
       locator = page.locator('#' + id);
     }
 
-    let marginWidth = DEFAULT_MARGIN;
-    let marginHeight = DEFAULT_MARGIN;
-    const marginOpt = (opts || {}).margin || 0;
-
-    if (!Array.isArray(marginOpt)) {
-      marginWidth = marginHeight = marginOpt === true ? DEFAULT_MARGIN : marginOpt;
-    } else {
-      // Check for negative values
-      marginWidth = Math.max(0, marginOpt[0]);
-      marginHeight = Math.max(0, marginOpt[1]);
-    }
-
+    const marginOpt = (opts || {}).margin;
     if (marginOpt) {
-      // const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
-      // const x = Math.max(0, rect.x - margin);
-      // const y = Math.max(0, rect.y - margin);
-      // const viewport = page.viewportSize() || { width: 0, height: 0 };
-      // const width = Math.min(rect.width + Math.min(x, margin) + margin, viewport.width);
-      // const height = Math.min(
-      //   rect.height + Math.min(y, margin) + margin,
-      //   viewport.height
-      // );
-      // return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
-      //   ...opts,
-      //   clip: { x, y, width, height },
-      // });
+      let margins: [number, number] = [0, 0];
+
+      if (marginOpt === 'fullwidth') {
+        margins = [10000, 0];
+      } else if (marginOpt === true) {
+        margins = [DEFAULT_MARGIN, DEFAULT_MARGIN];
+      } else if (typeof marginOpt === 'number') {
+        margins = [marginOpt, marginOpt];
+      } else {
+        margins = marginOpt;
+      }
+      // Check for negative values
+      const marginWidth = Math.max(0, margins[0]);
+      const marginHeight = Math.max(0, margins[1]);
+
       const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
       return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
         ...opts,
