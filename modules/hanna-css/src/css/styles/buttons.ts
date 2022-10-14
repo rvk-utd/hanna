@@ -43,7 +43,7 @@ export const ButtonStyle = () => css`
     Button__textColor__active: vars.color_suld_0,
     Button__backgroundColor: bVars.Button__color,
     Button__backgroundColor__active: bVars.Button__color__active,
-    Button__border: 0,
+    Button__border: px(0), // Must have a unit, because it gets used inside a calc()
     Button__height: vars.space_8,
     Button__iconOutdent: vars.space_0$5__neg,
     Button__iconSpace: vars.space_1,
