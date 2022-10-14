@@ -2,6 +2,7 @@ import React from 'react';
 import Table, { TableProps } from '@hugsmidjan/react/Table';
 import TableWrapper from '@hugsmidjan/react/TableWrapper';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
@@ -10,9 +11,8 @@ export type BasicTableProps = {
   type?: 'text' | 'number';
   children?: undefined;
   modifier?: string;
-  fullWidth?: boolean;
-  align?: 'right';
-} & SeenProp &
+} & EitherObj<{ fullWidth?: boolean }, { align?: 'right' }> &
+  SeenProp &
   Omit<TableProps, 'className' | 'children'>;
 
 const BasicTable = (props: BasicTableProps) => {
