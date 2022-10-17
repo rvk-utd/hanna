@@ -99,7 +99,7 @@ const _scaleDown = grid.contentMinWidth / grid.contentMaxWidth;
 export const between_cols = (
   from: RangeEdge,
   to: RangeEdge,
-  cols = grid.numCols,
+  cols: number = grid.numCols,
   gutters?: number
 ) => {
   const max = cols_px(cols, gutters);
