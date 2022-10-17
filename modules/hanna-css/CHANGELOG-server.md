@@ -7,6 +7,7 @@
 - fix: Color of disabled invalid checkboxes/radios
 - fix: Suppress dev warning about forced `h1.Heading` elements
 - fix: Tweak layout of `FileInput__filelist` items
+- fix: Set `Gallery` modal link color to Faxaflói
 
 ## 0.8.70
 

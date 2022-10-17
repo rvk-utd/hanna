@@ -49,7 +49,7 @@
 
     .GalleryModalPager__button,
     .GalleryModal__closebutton {
-      color: $var--theme-color-primary;
+      color: $var--color-faxafloi-100;
 
       &::before {
         @include icon($icons-arrow-left);
