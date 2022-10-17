@@ -3,8 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Color of disabled invalid checkboxes/radios
 - feat: Add styling for `.Cell--text--(right|center)` inside `.BasicTable`
+- fix: Color of disabled invalid checkboxes/radios
+- fix: Suppress dev warning about forced `h1.Heading` elements
 
 ## 0.8.70
 
