@@ -24,8 +24,8 @@ export const setViewportSize =
 // ---------------------------------------------------------------------------
 
 export const expandViewport =
-  (page: Page) =>
-  async (minHeight = 0) => {
+  (page: Page, defaultMinHeight = 0) =>
+  async (minHeight = defaultMinHeight) => {
     if (minHeight) {
       await setViewportSize(page)(minHeight);
     }

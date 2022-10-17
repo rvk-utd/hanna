@@ -64,6 +64,13 @@ export type TestInfoObj = {
   clipViewport?: boolean;
 
   /**
+   * Sets minimum _viewport_ height for the `expandViewport()` helper
+   *
+   * Default: `0`
+   */
+  viewportMinHeight?: number;
+
+  /**
    * Skips the automatic pageScreenshot that gets snapped if the
    * prep function didn't snap any.
    */

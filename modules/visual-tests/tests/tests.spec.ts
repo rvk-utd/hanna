@@ -203,7 +203,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         clipViewport: testInfo.clipViewport,
       });
       const localScreenshot = makeSnapLocalScreeshot(page, testName);
-      const expandViewport = _expandViewport(page);
+      const expandViewport = _expandViewport(page, testInfo.viewportMinHeight);
       const setViewportSize = _setViewportSize(page);
 
       const args: TestFnArgs = {
