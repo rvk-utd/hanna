@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat(ts): Export `ArticleCardsItemProps`, deprecate `ArticleCardProps`
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
+- fix: Make prop `ContentArticleProps.meta` optional
 
 ## 0.10.70
 

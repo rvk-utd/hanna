@@ -10,7 +10,7 @@ import VSpacer from './VSpacer';
 
 export type ContentArticleProps = {
   /** Date, author, etc. */
-  meta: ArticleMetaProps['items'];
+  meta?: ArticleMetaProps['items'];
   headline: string;
   headlineTag?: 'h1' | 'h2';
   topImage?: ContentImageProps;
@@ -23,7 +23,7 @@ const ContentArticle = (props: ContentArticleProps) => {
 
   return (
     <div className="ContentArticle" ref={ref}>
-      <ArticleMeta items={props.meta} />
+      {props.meta && <ArticleMeta items={props.meta} />}
       <Heading forceH1={props.headlineTag === 'h1'}>{props.headline}</Heading>
       <TextBlock startSeen>
         {props.topImage && <ContentImage {...props.topImage} />}
