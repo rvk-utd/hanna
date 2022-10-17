@@ -96,7 +96,8 @@
 
   .FileInput__filelist {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-items: center;
   }
 
   .FileInput__file {
@@ -137,11 +138,11 @@
 
   .FileInput__file-remove {
     @include hideText(soft);
-    width: prem(10);
-    color: inherit;
     position: absolute;
     top: 50%;
     left: 0;
+    color: inherit;
+    width: prem(10);
     margin-top: prem(-5);
 
     &::before {
