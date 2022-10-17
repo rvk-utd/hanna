@@ -7,6 +7,7 @@
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
 - fix: Make prop `ContentArticleProps.meta` optional
 - fix: Suppress `<hr>` in `ContentArticleProps` when `relatedLinks` is missing
+- fix: Make prop `InfoBlock.subTitle` optional
 
 ## 0.10.70
 
