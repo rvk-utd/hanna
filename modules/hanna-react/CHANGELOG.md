@@ -8,6 +8,7 @@
 - fix: Make prop `ContentArticleProps.meta` optional
 - fix: Suppress `<hr>` in `ContentArticleProps` when `relatedLinks` is missing
 - fix: Make prop `InfoBlock.subTitle` optional
+- fix(ts): Remove unused (`never`) props from `ModalProps`
 
 ## 0.10.70
 
