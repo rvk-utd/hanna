@@ -19,6 +19,7 @@ export type ContentArticleProps = {
 } & SeenProp;
 
 const ContentArticle = (props: ContentArticleProps) => {
+  const { relatedLinks } = props;
   const [ref] = useSeenEffect(props.startSeen);
 
   return (
@@ -29,10 +30,12 @@ const ContentArticle = (props: ContentArticleProps) => {
         {props.topImage && <ContentImage {...props.topImage} />}
         {props.body}
       </TextBlock>
-      <VSpacer size="small">
-        <hr />
-      </VSpacer>
-      {props.relatedLinks && <RelatedLinks {...props.relatedLinks} />}
+      {relatedLinks && relatedLinks.links.length > 0 && (
+        <VSpacer size="small">
+          <hr />
+        </VSpacer>
+      )}
+      {relatedLinks && <RelatedLinks {...relatedLinks} />}
     </div>
   );
 };

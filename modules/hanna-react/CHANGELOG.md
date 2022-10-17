@@ -6,6 +6,7 @@
 - feat(ts): Export `ArticleCardsItemProps`, deprecate `ArticleCardProps`
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
 - fix: Make prop `ContentArticleProps.meta` optional
+- fix: Suppress `<hr>` in `ContentArticleProps` when `relatedLinks` is missing
 
 ## 0.10.70
 
