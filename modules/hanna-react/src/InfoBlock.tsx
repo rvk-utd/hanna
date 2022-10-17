@@ -1,4 +1,5 @@
 import React from 'react';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
@@ -6,11 +7,10 @@ export type InfoBlockProps = {
   title: string;
   subtitle: string | JSX.Element;
   items: Array<string | JSX.Element>;
-} & (
-  | { attention?: undefined; extraInfo?: undefined }
-  | { attention: string | JSX.Element; extraInfo?: undefined }
-  | { extraInfo: string | JSX.Element; attention?: undefined }
-) &
+} & EitherObj<
+  { attention?: string | JSX.Element },
+  { extraInfo?: string | JSX.Element }
+> &
   SeenProp;
 
 const InfoBlock = (props: InfoBlockProps) => {

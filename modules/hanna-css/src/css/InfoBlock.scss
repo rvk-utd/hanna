@@ -54,6 +54,7 @@
   .InfoBlock__item {
     padding-left: prem(28);
     margin-bottom: prem(16);
+    break-inside: avoid;
   }
   .InfoBlock__item::before {
     content: '';
@@ -75,5 +76,10 @@
   }
   .InfoBlock__extrainfo::before {
     content: none;
+  }
+
+  .InfoBlock__extrainfo + .InfoBlock__attention,
+  .InfoBlock__attention + .InfoBlock__extrainfo {
+    @include WARNING__('Choose *EITHER* `__extrainfo` *OR* `__attention`.');
   }
 }
