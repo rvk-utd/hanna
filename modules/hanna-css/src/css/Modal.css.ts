@@ -2,7 +2,6 @@ import { css, em } from 'es-in-css';
 
 import { between_phone_netbook } from '../lib/between';
 import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
 import { cols_px } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
@@ -125,7 +124,7 @@ export default css`
       z-index: 5;
       top: ${vars.grid_1};
       right: ${vars.grid_1};
-      color: ${colors.suld_200};
+      color: ${vars.color_suld_200};
       font-size: ${between_phone_netbook(36, 64)};
       margin: -0.4em;
       width: 1em;
