@@ -1,6 +1,6 @@
 /**
- * Simple type-guarding filter function that helps filter out `null`y (i.e.
- * `null` and `undefined`) values from an array in a type-aware way.
+ * Simple type-guarding filter function that filters out `null`y values (`null`
+ * and `undefined`) in a type-aware way.
  *
  * ```ts
  * import { notNully } from '@reykjavik/hanna-utils';
@@ -9,7 +9,7 @@
  * const strings: Array<string> = mixed.filter(notNully);
  * ```
  */
-export const notNully = <T>(val: T): val is NonNullable<T> => val != null;
+export const notNully = <T>(val: T | null | undefined): val is T => val != null;
 
 /**
  * Simple 'foo bar' --> 'Foo bar' mapper.

@@ -297,14 +297,15 @@ import '@reykjavik/hanna-utils/focus-visible';
 
 **Syntax:** `notNully(value: unknown): value is NonNullable<V>`
 
-Simple type-guarding filter function that helps filter out `null`y (i.e.
-`null` and `undefined`) values from an array in a type-aware way.
+Simple type-guarding filter function that filters out `null`y values (`null`
+and `undefined`) in a type-aware way.
 
 ```ts
 import { notNully } from '@reykjavik/hanna-utils';
 
 const mixed = ['hi', null, undefined, ''];
 const strings: Array<string> = mixed.filter(notNully);
+// ['hi', '']
 ```
 
 ### `ObjectKeys`, `ObjectEntries`, `ObjectFromEntries`
