@@ -82,6 +82,7 @@ import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOver
 import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
 import { testing as SearchResults__test } from '../src/routes/test/SearchResults';
 import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete';
+import { testing as Skeleton__test } from '../src/routes/test/Skeleton';
 import { testing as Tabs__test } from '../src/routes/test/Tabs';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
@@ -143,6 +144,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   RadioButtonsGroup: RadioButtonsGroup__test,
   SearchResults: SearchResults__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,
+  Skeleton: Skeleton__test,
   Tabs: Tabs__test,
   TagPill: TagPill__test,
   TextBlock: TextBlock__test,
