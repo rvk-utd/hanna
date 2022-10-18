@@ -58,7 +58,7 @@ export const getCssBundleUrl = (
   }
 ): string => {
   options = options || {};
-  const host = options.testingServer || styleServerUrl;
+  const host = (options.testingServer || styleServerUrl).replace(/\/$/, '');
   const versionFolder = options.version || cssCurrentVersionFolder;
   const tokens = typeof cssTokens === 'string' ? cssTokens : cssTokens.join(',');
 
