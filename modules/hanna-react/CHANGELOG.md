@@ -5,10 +5,11 @@
 - ... <!-- Add new lines here. -->
 - feat(ts): Export `ArticleCardsItemProps`, deprecate `ArticleCardProps`
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
+- feat: Make `SiteSearchAutocompleteProps.renderSuggestion` optional
 - fix: Add missing prop `name` to `DatePicker`
-- fix: Make prop `ContentArticleProps.meta` optional
+- fix: Make `ContentArticleProps.meta` optional
 - fix: Suppress `<hr>` in `ContentArticleProps` when `relatedLinks` is missing
-- fix: Make prop `InfoBlock.subTitle` optional
+- fix: Make `InfoBlockProps.subTitle` optional
 - fix(ts): Remove unused (`never`) props from `ModalProps`
 
 ## 0.10.70

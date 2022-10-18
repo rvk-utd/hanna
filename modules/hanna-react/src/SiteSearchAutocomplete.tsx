@@ -40,7 +40,7 @@ export const defaultSiteSearchACTexts: DefaultTexts<SiteSearchACI18n> = {
 
 export type SiteSearchAutocompleteProps<T> = {
   suggestions: Array<T>;
-  renderSuggestion: RenderSuggestion<T>;
+  renderSuggestion?: RenderSuggestion<T>;
   setSuggestions: (suggestions: Array<T>) => void;
   getSuggestionValue: (suggestion: T) => string;
   onSuggestionsFetchRequested: (
@@ -102,7 +102,7 @@ const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>) => {
       getSuggestionValue={getSuggestionValue}
       onSuggestionSelected={onSuggestionSelected}
       onSuggestionHighlighted={onSuggestionHighlighted}
-      renderSuggestion={renderSuggestion}
+      renderSuggestion={renderSuggestion || ((s) => String(s))}
       containerProps={{ 'aria-label': txt.label }}
       renderSuggestionsContainer={({ containerProps, children }) => (
         <div {...containerProps} aria-label={txt.suggestionsLabel}>
