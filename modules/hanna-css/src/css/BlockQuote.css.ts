@@ -28,7 +28,7 @@ export default css`
   .BlockQuote__quote {
     ${textContent}
     font: ${vars.font_bd_s};
-    border-left: ${pqVars.Quote__line};
+    border-left: ${pqVars.line};
     padding-left: ${vars.space_2};
 
     @media ${mq.phablet_up} {
@@ -48,7 +48,7 @@ export default css`
     line-height: 1;
 
     @media ${mq.phablet_up} {
-      margin-bottom: calc(-1 * ${bVars.ButtonTertiary__height});
+      margin-bottom: calc(-1 * ${bVars.height});
       color: purple;
     }
   }
@@ -57,14 +57,12 @@ export default css`
   .BlockQuote__by > span {
     ${ButtonTertiaryStyle(true)}
     margin: 0;
-    margin-right: calc(
-      -1 * (${bVars.ButtonTertiary__hover__dashWidth} - ${bVars.ButtonTertiary__dashWidth})
-    );
+    margin-right: calc(-1 * (${bVars.hover__dashWidth} - ${bVars.dashWidth}));
   }
   .BlockQuote__by > span {
     font-weight: ${vars.font_weight__normal};
     ${ButtonTertiaryVariables.override({
-      ButtonTertiary__dashColor: vars.color_suld_150,
+      dashColor: vars.color_suld_150,
     })}
   }
   .BlockQuote__by > a {

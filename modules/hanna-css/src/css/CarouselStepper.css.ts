@@ -3,12 +3,12 @@ import { css } from 'es-in-css';
 import { buildVariables } from '../lib/cssutils';
 import { hannaVars as vars } from '../lib/hannavars';
 
-export const CarouselStepperVariables = buildVariables(['CarouselStepper__height']);
+export const CarouselStepperVariables = buildVariables(['height'], 'CarouselStepper');
 const csVars = CarouselStepperVariables.vars;
 
 export const carouselStepperBeforeSprinklingPadding = () => css`
   html.before-sprinkling &:not([data-sprinkled]) {
-    padding-bottom: ${csVars.CarouselStepper__height};
+    padding-bottom: ${csVars.height};
   }
 `;
 
@@ -21,7 +21,7 @@ export default css`
 export const CarouselStepper_css = () => css`
   :root {
     ${CarouselStepperVariables.declare({
-      CarouselStepper__height: vars.space_4,
+      height: vars.space_4,
     })}
   }
 
@@ -33,7 +33,7 @@ export const CarouselStepper_css = () => css`
     display: flex;
     align-items: flex-end;
     padding-top: ${vars.space_1};
-    height: ${csVars.CarouselStepper__height};
+    height: ${csVars.height};
   }
 
   .CarouselStepper__button {

@@ -33,17 +33,17 @@ export const defaultULStyle = () => css`
 
 // ---------------------------------------------------------------------------
 
-export const pullQuoteVars = buildVariables(['Quote__line', 'Quote__indent']);
+export const pullQuoteVars = buildVariables(['line', 'indent'], 'Quote');
 const q = pullQuoteVars;
 
 export const pullQuoteContainerStyle = () => css`
   ${q.declare({
-    Quote__line: `2px solid ${vars.theme_color_primary}`,
-    Quote__indent: 0,
+    line: `2px solid ${vars.theme_color_primary}`,
+    indent: 0,
   })}
-  max-width: calc(${cols_px(8)} - ${q.vars.Quote__indent});
+  max-width: calc(${cols_px(8)} - ${q.vars.indent});
   padding-top: ${vars.space_5};
-  margin-left: ${q.vars.Quote__indent};
+  margin-left: ${q.vars.indent};
   position: relative;
 
   &::before {
@@ -119,7 +119,7 @@ export const textContent = () => css`
       @media ${mq.phablet_up} {
         padding-left: calc(${vars.space_3} + 2px);
         ${q.override({
-          Quote__indent: vars.space_2,
+          indent: vars.space_2,
         })}
       }
     }
@@ -127,7 +127,7 @@ export const textContent = () => css`
   blockquote:not(.BlockQuote__quote):not(.PullQuote__quote)::after {
     content: '';
     position: absolute;
-    border-left: ${q.vars.Quote__line};
+    border-left: ${q.vars.line};
     top: ${vars.space_5};
     bottom: 0;
     left: 0;

@@ -13,12 +13,10 @@ import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEff
 const _between = (from: RangeEdge, to: RangeEdge) =>
   between(from, to, bp.phone, grid.contentMaxWidth, '%');
 
-export const BasicTableVariables = buildVariables([
-  'BasicTable__width',
-  'BasicTable__margin_left',
-  'BasicTable__pad_left',
-  'BasicTable__pad_right',
-]);
+export const BasicTableVariables = buildVariables(
+  ['width', 'margin_left', 'pad_left', 'pad_right'],
+  'BasicTable'
+);
 const bt = BasicTableVariables;
 
 export default css`
@@ -32,25 +30,20 @@ export default css`
       overflow-x: auto;
 
       ${bt.declare({
-        BasicTable__width: 'auto', // auto causes calc() to fail and implicitly revert to "auto"
-        BasicTable__margin_left: '0px',
-        BasicTable__pad_left: '0px',
-        BasicTable__pad_right: '0px',
+        width: 'auto', // auto causes calc() to fail and implicitly revert to "auto"
+        margin_left: '0px',
+        pad_left: '0px',
+        pad_right: '0px',
       })};
 
-      width: calc(
-        ${bt.vars.BasicTable__width} + ${bt.vars.BasicTable__pad_left} +
-          ${bt.vars.BasicTable__pad_right}
-      );
-      margin-left: calc(
-        ${bt.vars.BasicTable__margin_left} - ${bt.vars.BasicTable__pad_left}
-      );
-      margin-right: calc(0px - ${bt.vars.BasicTable__pad_right});
+      width: calc(${bt.vars.width} + ${bt.vars.pad_left} + ${bt.vars.pad_right});
+      margin-left: calc(${bt.vars.margin_left} - ${bt.vars.pad_left});
+      margin-right: calc(0px - ${bt.vars.pad_right});
 
       @media ${mq.phone_tablet} {
         ${bt.override({
-          BasicTable__pad_left: vars.grid_margin,
-          BasicTable__pad_right: vars.grid_margin__right,
+          pad_left: vars.grid_margin,
+          pad_right: vars.grid_margin__right,
         })};
       }
     }
@@ -63,26 +56,26 @@ export default css`
     @media ${mq.tablet_up} {
       .TableWrapper--BasicTable--align--right {
         ${bt.override({
-          BasicTable__margin_left: vars.grid_5_5,
-          BasicTable__width: vars.grid_7,
+          margin_left: vars.grid_5_5,
+          width: vars.grid_7,
         })};
       }
       .TextBlock--labelled .TableWrapper--BasicTable--align--right,
       .TextBlock--align--right .TableWrapper--BasicTable--align--right,
       .LabeledTextBlock--wide .TableWrapper--BasicTable--align--right {
-        ${bt.override({ BasicTable__margin_left: '0px' })};
+        ${bt.override({ margin_left: '0px' })};
       }
 
       .TableWrapper--BasicTable--fullwidth {
-        ${bt.override({ BasicTable__width: vars.grid_12 })};
+        ${bt.override({ width: vars.grid_12 })};
       }
       .TextBlock--labelled .TableWrapper--BasicTable--fullwidth,
       .TextBlock--align--right .TableWrapper--BasicTable--fullwidth,
       .LabeledTextBlock--wide .TableWrapper--BasicTable--fullwidth {
-        ${bt.override({ BasicTable__margin_left: `calc(-1 * ${vars.grid_5_5})` })};
+        ${bt.override({ margin_left: `calc(-1 * ${vars.grid_5_5})` })};
       }
       .LabeledTextBlock .TableWrapper--BasicTable--fullwidth {
-        ${bt.override({ BasicTable__margin_left: `calc(-1 * ${vars.grid_6_6})` })};
+        ${bt.override({ margin_left: `calc(-1 * ${vars.grid_6_6})` })};
       }
     }
 
@@ -124,8 +117,8 @@ export default css`
     }
     .TableWrapper__scroller {
       overflow-x: auto;
-      padding-left: ${bt.vars.BasicTable__pad_left};
-      padding-right: ${bt.vars.BasicTable__pad_right};
+      padding-left: ${bt.vars.pad_left};
+      padding-right: ${bt.vars.pad_right};
     }
 
     .TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {

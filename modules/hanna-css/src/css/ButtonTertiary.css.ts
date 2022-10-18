@@ -29,21 +29,21 @@ export default css`
     &:active,
     &[aria-pressed='true'] {
       ${bt.override({
-        ButtonTertiary__dashColor: '_inherit',
-        ButtonTertiary__dashHeight: prem(6),
+        dashColor: '_inherit',
+        dashHeight: prem(6),
       })};
     }
 
     &--small {
       ${bt.override({
-        ButtonTertiary__dashSpace: vars.space_1,
+        dashSpace: vars.space_1,
       })};
       /* font-weight: 400; */
     }
     &--destructive {
       ${bt.override({
-        ButtonTertiary__color: vars.color_heidmork_100,
-        ButtonTertiary__dashColor: 'currentColor',
+        color: vars.color_heidmork_100,
+        dashColor: 'currentColor',
       })}
     }
 

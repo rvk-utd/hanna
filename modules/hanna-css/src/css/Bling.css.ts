@@ -7,7 +7,7 @@ import { hannaVars as vars } from '../lib/hannavars';
 
 const $baseW = grid.contentMaxWidth;
 
-export const BlingVariables = buildVariables(['Bling__baseWitdh']);
+export const BlingVariables = buildVariables(['baseWitdh'], 'Bling');
 const Bv = BlingVariables.vars;
 
 export default css`
@@ -17,7 +17,7 @@ export default css`
   @media ${screen_and + mq.tablet_up} {
     :root {
       ${BlingVariables.declare({
-        Bling__baseWitdh: vars.grid_12,
+        baseWitdh: vars.grid_12,
       })}
     }
 
@@ -40,7 +40,7 @@ export default css`
 
     .Bling > svg {
       transform: translate(-50%, -50%); // Default to --vertical--center
-      width: calc(var(--bling-width) / ${$baseW} * ${Bv.Bling__baseWitdh});
+      width: calc(var(--bling-width) / ${$baseW} * ${Bv.baseWitdh});
       height: auto;
       display: block;
       position: relative;
@@ -68,12 +68,12 @@ export default css`
 
     .Bling--align--left > svg,
     .Bling--align--right > svg {
-      left: calc(var(--bling-offset) / ${$baseW} * ${Bv.Bling__baseWitdh});
+      left: calc(var(--bling-offset) / ${$baseW} * ${Bv.baseWitdh});
     }
     .Bling--align--left-ish > svg,
     .Bling--align--right-ish > svg {
       left: calc(
-        var(--bling-offset-ish, var(--bling-offset)) / ${$baseW} * ${Bv.Bling__baseWitdh}
+        var(--bling-offset-ish, var(--bling-offset)) / ${$baseW} * ${Bv.baseWitdh}
       );
       @if isDevMode() {
         // prettier-ignore
@@ -93,7 +93,7 @@ export default css`
       --bling-offset-center,
       var(--bling-offset-ish, var(--bling-offset))
     );
-      left: calc(var(--postcss-calc-bug-workaround) / ${$baseW} * ${Bv.Bling__baseWitdh});
+      left: calc(var(--postcss-calc-bug-workaround) / ${$baseW} * ${Bv.baseWitdh});
       ${isDevMode &&
       css`
         // prettier-ignore

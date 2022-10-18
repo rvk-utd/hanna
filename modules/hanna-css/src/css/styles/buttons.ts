@@ -20,47 +20,50 @@ import { enableDataIcon } from '../Icon.css';
 
 // ---------------------------------------------------------------------------
 
-export const ButtonVariables = buildVariables([
-  'Button__color',
-  'Button__color__active',
-  'Button__textColor',
-  'Button__textColor__active',
-  'Button__backgroundColor',
-  'Button__backgroundColor__active',
-  'Button__border',
-  'Button__height',
-  'Button__iconOutdent',
-  'Button__iconSpace',
-]);
+export const ButtonVariables = buildVariables(
+  [
+    'color',
+    'color__active',
+    'textColor',
+    'textColor__active',
+    'backgroundColor',
+    'backgroundColor__active',
+    'border',
+    'height',
+    'iconOutdent',
+    'iconSpace',
+  ],
+  'Button'
+);
 const bVars = ButtonVariables.vars;
 
 export const ButtonStyle = () => css`
   ${LinkStyle_Reset(true)}
   ${ButtonVariables.declare({
-    Button__color: vars.color_faxafloi_100,
-    Button__color__active: vars.color_faxafloi_150,
-    Button__textColor: vars.color_suld_0,
-    Button__textColor__active: vars.color_suld_0,
-    Button__backgroundColor: bVars.Button__color,
-    Button__backgroundColor__active: bVars.Button__color__active,
-    Button__border: px(0), // Must have a unit, because it gets used inside a calc()
-    Button__height: vars.space_8,
-    Button__iconOutdent: vars.space_0$5__neg,
-    Button__iconSpace: vars.space_1,
+    color: vars.color_faxafloi_100,
+    color__active: vars.color_faxafloi_150,
+    textColor: vars.color_suld_0,
+    textColor__active: vars.color_suld_0,
+    backgroundColor: bVars.color,
+    backgroundColor__active: bVars.color__active,
+    border: px(0), // Must have a unit, because it gets used inside a calc()
+    height: vars.space_8,
+    iconOutdent: vars.space_0$5__neg,
+    iconSpace: vars.space_1,
   })}
 
   // normalize links
   white-space: nowrap;
   vertical-align: middle;
 
-  color: ${bVars.Button__textColor};
+  color: ${bVars.textColor};
 
-  background-color: ${bVars.Button__backgroundColor};
+  background-color: ${bVars.backgroundColor};
   display: inline-block;
   font: ${vars.font_button};
   font-weight: ${vars.font_weight__bold};
-  border: ${bVars.Button__border} solid ${bVars.Button__color};
-  line-height: calc(${bVars.Button__height} - 2 * ${bVars.Button__border});
+  border: ${bVars.border} solid ${bVars.color};
+  line-height: calc(${bVars.height} - 2 * ${bVars.border});
   margin-right: ${vars.Button__gapH};
   margin-bottom: ${vars.Button__gapV};
   text-align: center;
@@ -92,14 +95,14 @@ export const ButtonStyle = () => css`
   &[aria-pressed='true'] {
     text-decoration: none;
     ${ButtonVariables.override({
-      Button__color: bVars.Button__color__active,
-      Button__textColor: bVars.Button__textColor__active,
-      Button__backgroundColor: bVars.Button__backgroundColor__active,
+      color: bVars.color__active,
+      textColor: bVars.textColor__active,
+      backgroundColor: bVars.backgroundColor__active,
     })}
   }
 
   ${keyboardFocus_selector(css`
-    outline: ${prem(2)} solid ${bVars.Button__color};
+    outline: ${prem(2)} solid ${bVars.color};
     outline-offset: ${prem(2)};
   `)}
 
@@ -121,9 +124,9 @@ export const ButtonStyle = () => css`
   }
   &--small {
     ${ButtonVariables.override({
-      Button__iconOutdent: vars.space_0$5__neg,
-      Button__iconSpace: vars.space_1,
-      Button__height: prem(40),
+      iconOutdent: vars.space_0$5__neg,
+      iconSpace: vars.space_1,
+      height: prem(40),
     })}
     padding-left: ${between_phone_netbook(16, 24)};
     padding-right: ${between_phone_netbook(16, 24)};
@@ -139,8 +142,8 @@ export const ButtonStyle = () => css`
   }
   &--go--back::before {
     ${iconStyle(vars.icon__arrow_left)}
-    margin-left: ${bVars.Button__iconOutdent};
-    margin-right: ${bVars.Button__iconSpace};
+    margin-left: ${bVars.iconOutdent};
+    margin-right: ${bVars.iconSpace};
   }
   &--go--forward {
     order: 10;
@@ -148,8 +151,8 @@ export const ButtonStyle = () => css`
   }
   &--go--forward::after {
     ${iconStyle(vars.icon__arrow_right)}
-    margin-right: ${bVars.Button__iconOutdent};
-    margin-left: ${bVars.Button__iconSpace};
+    margin-right: ${bVars.iconOutdent};
+    margin-left: ${bVars.iconSpace};
   }
 
   &[data-icon]::before {
@@ -179,16 +182,19 @@ export const ButtonStyle = () => css`
 //
 // ===========================================================================
 
-export const ButtonTertiaryVariables = buildVariables([
-  'ButtonTertiary__height',
-  'ButtonTertiary__color',
-  'ButtonTertiary__dashColor',
-  'ButtonTertiary__dashWidth',
-  'ButtonTertiary__hover__dashWidth',
-  'ButtonTertiary__dashSpace',
-  'ButtonTertiary__dashHeight',
-  'ButtonTertiary__gapH',
-]);
+export const ButtonTertiaryVariables = buildVariables(
+  [
+    'height',
+    'color',
+    'dashColor',
+    'dashWidth',
+    'hover__dashWidth',
+    'dashSpace',
+    'dashHeight',
+    'gapH',
+  ],
+  'ButtonTertiary'
+);
 const btVars = ButtonTertiaryVariables.vars;
 
 /**
@@ -199,39 +205,37 @@ const btVars = ButtonTertiaryVariables.vars;
  */
 export const ButtonTertiaryVarDeclarations = () => css`
   ${ButtonTertiaryVariables.declare({
-    ButtonTertiary__height: `calc(${vars.font_button_leading} + 4px)`,
-    ButtonTertiary__color: '_inherit',
-    ButtonTertiary__dashColor: vars.color_faxafloi_100,
-    ButtonTertiary__dashWidth: vars.space_2,
-    ButtonTertiary__hover__dashWidth: vars.space_4,
-    ButtonTertiary__dashSpace: vars.space_2,
-    ButtonTertiary__dashHeight: px(2),
-    ButtonTertiary__gapH: between_phone_netbook(16, 24),
+    height: `calc(${vars.font_button_leading} + 4px)`,
+    color: '_inherit',
+    dashColor: vars.color_faxafloi_100,
+    dashWidth: vars.space_2,
+    hover__dashWidth: vars.space_4,
+    dashSpace: vars.space_2,
+    dashHeight: px(2),
+    gapH: between_phone_netbook(16, 24),
   })}
 
   @media ${mq.wide} {
     ${ButtonTertiaryVariables.override({
-      ButtonTertiary__gapH: px(24),
+      gapH: px(24),
     })}
   }
 `;
 
 export const ButtonTertiaryStyle__hoverFocus = () => css`
   ${hoverActiveKeyboardFocus_selector()(css`
-    padding-left: calc(
-      ${btVars.ButtonTertiary__dashSpace} + ${btVars.ButtonTertiary__hover__dashWidth}
-    );
+    padding-left: calc(${btVars.dashSpace} + ${btVars.hover__dashWidth});
     padding-right: prem(0);
-    color: ${btVars.ButtonTertiary__color};
+    color: ${btVars.color};
     outline: 0;
 
     &::before {
-      width: ${btVars.ButtonTertiary__hover__dashWidth};
+      width: ${btVars.hover__dashWidth};
     }
   `)}
 
   &:active::before {
-    width: ${btVars.ButtonTertiary__dashWidth};
+    width: ${btVars.dashWidth};
   }
 
   ${keyboardFocus_selector(css`
@@ -243,7 +247,7 @@ export const ButtonTertiaryStyle__hoverFocus = () => css`
       bottom: 0;
       left: 0;
       margin: ${prem(-13)} ${prem(-16)};
-      border: ${prem(1)} dotted ${btVars.ButtonTertiary__dashColor};
+      border: ${prem(1)} dotted ${btVars.dashColor};
       border-radius: ${prem(8)};
     }
   `)}
@@ -253,9 +257,9 @@ export const ButtonTertiaryStyle__disabled = () => css`
   &[disabled],
   &[aria-disabled='true'] {
     ${ButtonTertiaryVariables.override({
-      ButtonTertiary__hover__dashWidth: btVars.ButtonTertiary__dashWidth,
-      ButtonTertiary__dashColor: 'currentColor',
-      ButtonTertiary__color: '_inherit',
+      hover__dashWidth: btVars.dashWidth,
+      dashColor: 'currentColor',
+      color: '_inherit',
     })}
     opacity: 0.5;
     pointer-events: none;
@@ -267,7 +271,7 @@ export const ButtonTertiaryStyle__disabled = () => css`
 export const ButtonTertiaryStyle = (isStatic = false) => css`
   ${LinkStyle_Reset(true)}
 
-  color: ${btVars.ButtonTertiary__color};
+  color: ${btVars.color};
   position: relative;
   display: inline-block;
   width: max-content;
@@ -275,13 +279,9 @@ export const ButtonTertiaryStyle = (isStatic = false) => css`
   vertical-align: middle;
   font: ${vars.font_button};
   padding: 2px 0;
-  padding-left: calc(
-    ${btVars.ButtonTertiary__dashSpace} + ${btVars.ButtonTertiary__dashWidth}
-  );
-  padding-right: calc(
-    ${btVars.ButtonTertiary__hover__dashWidth} - ${btVars.ButtonTertiary__dashWidth}
-  );
-  margin-right: ${btVars.ButtonTertiary__gapH};
+  padding-left: calc(${btVars.dashSpace} + ${btVars.dashWidth});
+  padding-right: calc(${btVars.hover__dashWidth} - ${btVars.dashWidth});
+  margin-right: ${btVars.gapH};
   margin-bottom: ${vars.space_1};
   font-weight: 700;
   transition: all 100ms ease-in;
@@ -291,12 +291,12 @@ export const ButtonTertiaryStyle = (isStatic = false) => css`
     position: absolute;
     left: 0;
     top: 50%;
-    width: ${btVars.ButtonTertiary__dashWidth};
-    height: ${btVars.ButtonTertiary__dashHeight};
+    width: ${btVars.dashWidth};
+    height: ${btVars.dashHeight};
     display: inline-block;
     vertical-align: middle;
     background-color: currentColor;
-    color: ${btVars.ButtonTertiary__dashColor};
+    color: ${btVars.dashColor};
     transform: translateY(-50%);
     transition: inherit;
   }
