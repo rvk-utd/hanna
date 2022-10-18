@@ -2,15 +2,13 @@ import { color, css, ms } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
-import { hannaVars } from '../lib/hannavars';
-import { icons } from '../lib/icons';
+import { hannaVars as vars } from '../lib/hannavars';
+import { icons, iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
 import { LinkStyle_Reset } from './styles/links';
 import { prem } from './utils/miscUtils';
 import { hideText_css } from './utils/scssutils/hideText';
-
-import IconCss from './Icon.css';
 
 const pureWhite = color('#fff');
 const linkColor = color(colors.faxafloi_100).mix(colors.faxafloi_150, 80);
@@ -21,7 +19,7 @@ export default css`
   @media screen {
     .Alert {
       --Alert-background: ${color(colors.faxafloi_50).mix(pureWhite, 50)};
-      --Alert-icon-color: ${hannaVars.color_faxafloi_100};
+      --Alert-icon-color: ${vars.color_faxafloi_100};
       --Alert-icon: ${icons.info};
 
       --link-color: ${linkColor};
@@ -40,7 +38,7 @@ export default css`
       }
     }
     .Alert::before {
-      ${IconCss}
+      ${iconStyle()}
       content: var(--Alert-icon);
       color: var(--Alert-icon-color);
 
@@ -62,23 +60,23 @@ export default css`
       ${WARNING__('Should be role="alert"', { pos: 'after' })};
     }
 
-    // 	// This is the default styling state
-    // 	.Alert--info {
+    //  // This is the default styling state
+    //  .Alert--info {
     // }
 
     .Alert--critical,
     .Alert--error {
       --Alert-background: ${color(colors.heidmork_50).mix(pureWhite, 50)}; // a11y hax
-      --Alert-icon-color: ${hannaVars.color_heidmork_100};
-      --Alert-icon: ${icons.search}; // TODO: FIND icons-error '#{$icons-error}';
+      --Alert-icon-color: ${vars.color_heidmork_100};
+      --Alert-icon: ${vars.icon__error};
     }
     .Alert--warning {
-      --Alert-background: ${hannaVars.color_nautholsvik_50};
+      --Alert-background: ${vars.color_nautholsvik_50};
       --Alert-icon-color: ${color(colors.nautholsvik_100).mix(
         colors.nautholsvik_150,
         67
       )}; // a11y hax
-      --Alert-icon: ${icons.data}; // TODO: Find icons-warning
+      --Alert-icon: ${vars.icon__warning};
     }
     .Alert--success {
       --Alert-background: ${color(colors.ellidaardalur_50).mix(
@@ -89,7 +87,7 @@ export default css`
         colors.ellidaardalur_150,
         67
       )};
-      --Alert-icon: ${icons.chat}; // TODO: Find '#{$icons-checkmark}';
+      --Alert-icon: ${vars.icon__checkmark};
     }
 
     // ---------------------------------------------------------------------------
@@ -97,8 +95,6 @@ export default css`
     // // NOTE: This className is only used to signal to hanna-sprinkles that
     // // a .Alert__close button should be injected
     // .Alert--closable {}
-
-    $closing-duration: 400ms;
 
     .Alert {
       transition: all ${closing_duration} 0ms;
@@ -158,7 +154,7 @@ export default css`
       font-size: ${prem(16)};
     }
     .Alert__close::before {
-      ${icons.close}
+      ${iconStyle(vars.icon__close)}
       margin-right: 1px;
       width: 100%;
     }
