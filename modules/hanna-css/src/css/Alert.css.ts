@@ -1,4 +1,4 @@
-import { color, css, ms } from 'es-in-css';
+import { color, css, ms, str } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
@@ -11,16 +11,16 @@ import { prem } from './utils/miscUtils';
 import { hideText_css } from './utils/scssutils/hideText';
 
 const pureWhite = color('#fff');
-const linkColor = color(colors.faxafloi_100).mix(colors.faxafloi_150, 80);
+const linkColor = color(colors.faxafloi_100).mix(colors.faxafloi_150, 0.8);
 const closing_duration = ms(400);
 const ease_out_quartic = 'cubic-bezier(0.165, 0.84, 0.44, 1)';
 
 export default css`
   @media screen {
     .Alert {
-      --Alert-background: ${color(colors.faxafloi_50).mix(pureWhite, 50)};
+      --Alert-background: ${color(colors.faxafloi_50).mix(pureWhite, 0.5)};
       --Alert-icon-color: ${vars.color_faxafloi_100};
-      --Alert-icon: ${icons.info};
+      --Alert-icon: ${vars.icon__info}; // ${str(icons.info)};
 
       --link-color: ${linkColor};
       --link-color-hover: ${linkColor};
@@ -38,7 +38,7 @@ export default css`
       }
     }
     .Alert::before {
-      ${iconStyle()}
+      ${iconStyle(vars.icon__info)}
       content: var(--Alert-icon);
       color: var(--Alert-icon-color);
 
@@ -66,7 +66,7 @@ export default css`
 
     .Alert--critical,
     .Alert--error {
-      --Alert-background: ${color(colors.heidmork_50).mix(pureWhite, 50)}; // a11y hax
+      --Alert-background: ${color(colors.heidmork_50).mix(pureWhite, 0.5)}; // a11y hax
       --Alert-icon-color: ${vars.color_heidmork_100};
       --Alert-icon: ${vars.icon__error};
     }
@@ -74,18 +74,18 @@ export default css`
       --Alert-background: ${vars.color_nautholsvik_50};
       --Alert-icon-color: ${color(colors.nautholsvik_100).mix(
         colors.nautholsvik_150,
-        67
+        0.67
       )}; // a11y hax
       --Alert-icon: ${vars.icon__warning};
     }
     .Alert--success {
       --Alert-background: ${color(colors.ellidaardalur_50).mix(
         pureWhite,
-        60
+        0.6
       )}; // a11y hax
       --Alert-icon-color: ${color(colors.ellidaardalur_100).mix(
         colors.ellidaardalur_150,
-        67
+        0.67
       )};
       --Alert-icon: ${vars.icon__checkmark};
     }
