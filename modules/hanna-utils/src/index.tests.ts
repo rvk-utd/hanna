@@ -34,6 +34,7 @@ o.spec('hanna-css lib', () => {
 
       /* misc.ts */
       notNully: true,
+      notFalsy: true,
       capitalize: true,
 
       /* printDate.ts */
@@ -71,6 +72,7 @@ import type {
   /* getStableRandomItem.ts */
 
   /* misc.ts */
+  Falsy,
 
   /* printDate.ts */
 

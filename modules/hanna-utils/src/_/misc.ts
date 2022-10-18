@@ -11,6 +11,22 @@
  */
 export const notNully = <T>(val: T | null | undefined): val is T => val != null;
 
+export type Falsy = undefined | null | false | 0 | '';
+
+/**
+ * Simple type-guarding filter function that filters out "falsy" values (`""`,
+ * `0`, `NaN`, false, `null` and `undefined`) in a type-aware way.
+ *
+ * ```ts
+ * import { notFalsy } from '@reykjavik/hanna-utils';
+ *
+ * const mixed = ['hi', null, undefined, '', 0, false, 'ho'] as const;
+ * const strings: Array<string> = mixed.filter(notFalsy);
+ * ```
+ */
+
+export const notFalsy = <T>(val: T | Falsy): val is T => !!val;
+
 /**
  * Simple 'foo bar' --> 'Foo bar' mapper.
  *

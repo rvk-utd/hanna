@@ -28,6 +28,7 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
   - [`focus-visible` polyfill](#focus-visible-polyfill)
 - [TypeScript helpers](#typescript-helpers)
   - [`notNully`](#notnully)
+  - [`notFalsy`](#notfalsy)
   - [`ObjectKeys`, `ObjectEntries`, `ObjectFromEntries`](#objectkeys-objectentries-objectfromentries)
   - [Type `OpenRecord`](#type-openrecord)
   - [Type `OpenStringMap`](#type-openstringmap)
@@ -306,6 +307,21 @@ import { notNully } from '@reykjavik/hanna-utils';
 const mixed = ['hi', null, undefined, ''];
 const strings: Array<string> = mixed.filter(notNully);
 // ['hi', '']
+```
+
+### `notFalsy`
+
+**Syntax:** `notFalsy(value: unknown): value is NonNullable<V>`
+
+Simple type-guarding filter function that filters out "falsy" values (`""`,
+`0`, `NaN`, false, `null` and `undefined`) in a type-aware way.
+
+```ts
+import { notFalsy } from '@reykjavik/hanna-utils';
+
+const mixed = ['hi', null, undefined, '', 0, false, 'ho'] as const;
+const strings: Array<'hi', 'ho'> = mixed.filter(notFalsy);
+// ['hi']
 ```
 
 ### `ObjectKeys`, `ObjectEntries`, `ObjectFromEntries`
