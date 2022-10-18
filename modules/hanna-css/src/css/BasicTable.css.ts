@@ -2,6 +2,7 @@ import { css } from 'es-in-css';
 
 import { between, RangeEdge } from '../lib/between';
 import { bp, mq } from '../lib/breakpoints';
+import { buildVariables } from '../lib/cssutils';
 import { grid } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
@@ -12,56 +13,76 @@ import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEff
 const _between = (from: RangeEdge, to: RangeEdge) =>
   between(from, to, bp.phone, grid.contentMaxWidth, '%');
 
+export const BasicTableVariables = buildVariables([
+  'BasicTable__width',
+  'BasicTable__margin_left',
+  'BasicTable__pad_left',
+  'BasicTable__pad_right',
+]);
+const bt = BasicTableVariables;
+
 export default css`
   @media screen {
     .TableWrapper {
       ${SeenEffect__fadeup}
       // @deprecated  Remove this mixin in v0.9
       ${SeenEffect__disallowNesting}
+
       position: relative;
       overflow-x: auto;
-    }
-    .TableWrapper__footnote div:before {
-      content: '';
-      display: inline-block;
-      width: 4px;
-      height: 18px;
-      position: relative;
-      margin-right: 24px;
-      transform: translateY(4px);
-      background-color: ${vars.color_suld_150};
-    }
-    .TableWrapper__footnote div {
-      color: ${vars.color_suld_150};
+
+      ${bt.declare({
+        BasicTable__width: 'auto', // auto causes calc() to fail and implicitly revert to "auto"
+        BasicTable__margin_left: '0px',
+        BasicTable__pad_left: '0px',
+        BasicTable__pad_right: '0px',
+      })};
+
+      width: calc(
+        ${bt.vars.BasicTable__width} + ${bt.vars.BasicTable__pad_left} +
+          ${bt.vars.BasicTable__pad_right}
+      );
+      margin-left: calc(
+        ${bt.vars.BasicTable__margin_left} - ${bt.vars.BasicTable__pad_left}
+      );
+      margin-right: calc(0px - ${bt.vars.BasicTable__pad_right});
+
+      @media ${mq.phone_tablet} {
+        ${bt.override({
+          BasicTable__pad_left: vars.grid_margin,
+          BasicTable__pad_right: vars.grid_margin__right,
+        })};
+      }
     }
 
-    .TableWrapper--BasicTable--fullwidth .BasicTable {
+    .TableWrapper--BasicTable--fullwidth .BasicTable,
+    .TableWrapper--BasicTable--align--right .BasicTable {
       width: 100%;
     }
 
     @media ${mq.tablet_up} {
       .TableWrapper--BasicTable--align--right {
-        margin-left: auto;
-        width: ${vars.grid_7}; // tolerate containment by right-aligned TextBlock, for instance
-        .BasicTable {
-          width: 100%;
-        }
+        ${bt.override({
+          BasicTable__margin_left: vars.grid_5_5,
+          BasicTable__width: vars.grid_7,
+        })};
       }
-      .paragraph-alignment-right .TableWrapper__footnote {
-        margin-left: auto;
-        width: ${vars.grid_7};
-      }
-      .TableWrapper--BasicTable--fullwidth {
-        width: ${vars.grid_12};
+      .TextBlock--labelled .TableWrapper--BasicTable--align--right,
+      .TextBlock--align--right .TableWrapper--BasicTable--align--right,
+      .LabeledTextBlock--wide .TableWrapper--BasicTable--align--right {
+        ${bt.override({ BasicTable__margin_left: '0px' })};
       }
 
+      .TableWrapper--BasicTable--fullwidth {
+        ${bt.override({ BasicTable__width: vars.grid_12 })};
+      }
       .TextBlock--labelled .TableWrapper--BasicTable--fullwidth,
       .TextBlock--align--right .TableWrapper--BasicTable--fullwidth,
       .LabeledTextBlock--wide .TableWrapper--BasicTable--fullwidth {
-        margin-left: calc(-1 * ${vars.grid_5_5});
+        ${bt.override({ BasicTable__margin_left: `calc(-1 * ${vars.grid_5_5})` })};
       }
       .LabeledTextBlock .TableWrapper--BasicTable--fullwidth {
-        margin-left: calc(-1 * ${vars.grid_6_6});
+        ${bt.override({ BasicTable__margin_left: `calc(-1 * ${vars.grid_6_6})` })};
       }
     }
 
@@ -103,20 +124,36 @@ export default css`
     }
     .TableWrapper__scroller {
       overflow-x: auto;
+      padding-left: ${bt.vars.BasicTable__pad_left};
+      padding-right: ${bt.vars.BasicTable__pad_right};
+    }
+
+    .TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {
+      ${WARNING__('--align-right and --fullwidth should not be used together')};
     }
   }
-  @media ${mq.phone_tablet} {
-    .BasicTable {
-      width: 100%;
-    }
-    .TableWrapper {
-      margin: 0 ${vars.grid_margin__neg};
-      margin-right: ${vars.grid_margin__right__neg};
-    }
-    .TableWrapper__scroller {
-      padding: 0 ${vars.grid_margin};
-      padding-right: ${vars.grid_margin__right};
-      // border-right: $var--browser-scrollbar-width solid transparent; // push away fromunder
+
+  // ===========================================================================
+
+  // Drupal specific additions. Consider removing in future version
+  .TableWrapper__footnote div {
+    color: ${vars.color_suld_150};
+  }
+  .TableWrapper__footnote div:before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    position: relative;
+    margin-right: 24px;
+    transform: translateY(4px);
+    background-color: currentColor;
+  }
+
+  @media ${mq.tablet_up} {
+    .paragraph-alignment-right .TableWrapper__footnote {
+      margin-left: auto;
+      width: ${vars.grid_7};
     }
   }
 
@@ -126,6 +163,12 @@ export default css`
     .BasicTable,
     .TableWrapper--BasicTable {
       margin-bottom: ${prem(30)};
+    }
+
+    .BasicTable {
+      @media ${mq.phone_phablet} {
+        width: 100%;
+      }
     }
 
     .BasicTable > * > * > th,
@@ -198,11 +241,5 @@ export default css`
       text-align: center;
       white-space: normal;
     }
-  }
-
-  // ===========================================================================
-
-  .TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {
-    ${WARNING__('--align-right and --fullwidth should not be used together')};
   }
 `;
