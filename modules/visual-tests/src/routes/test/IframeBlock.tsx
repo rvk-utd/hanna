@@ -51,4 +51,4 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = { __DEV_FOCUS__: true };
+export const testing: TestingInfo = {};
