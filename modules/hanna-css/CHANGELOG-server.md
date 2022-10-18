@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add styling for `.Cell--text--(right|center)` inside `.BasicTable`
+- fix: `BasicTable` with `--align--right` position on "tablet" sized viewports
 - fix: Disappearing border on link `.Tabs__tab` hover
 - fix: Set color of `.SiteSearchInput__button` to Faxaflói
 - fix: Color of disabled invalid checkboxes/radios
