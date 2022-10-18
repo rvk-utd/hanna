@@ -16,40 +16,41 @@ export default {
 
 const items: Array<NameCardProps> = [
   {
-    name: 'Anna Barbara Idzik',
-    contactInfo: [{ href: 'tel:+3546903653', label: '690-3653' }],
-    location: 'Skeljagrandi 7, 107',
-    hours: 'Vinnutími: 08:00 - 14:00',
+    name: 'George Clooney',
+    contactInfo: [{ href: 'tel:+3545674321', label: '567-4321' }],
+    location: 'Breiðstræti 4, 107',
+    hours: 'Vinnutími: 08:00 - 20:00',
 
     updated: '22.02.2020',
     available: true,
   },
   {
-    name: 'Jerzy Edward Brys',
-    contactInfo: [{ href: 'tel:+3546903653', label: '690-3653' }],
-    location: 'Skeljagrandi 7, \n\n107 Reykjavík',
+    name: 'Jón Jónsson',
+    contactInfo: [{ href: 'tel:+3549876543', label: '987-6543' }],
+    location: 'Vegamót 18, \n\n107 Reykjavík',
   },
   {
-    name: 'Anna Barbara Idzik',
+    name: 'Hanna Hönnudóttir',
     contactInfo: [
-      { href: 'tel:+3546903653', label: '690 3653' },
-      { href: 'tel:+3547700227', label: '770 0227' },
+      { href: 'tel:+3545674321', label: '567 4321' },
+      { href: 'tel:+3549876543', label: '987 6543' },
     ],
-    location: 'Skeljagrandi 7, 107',
-    hours: 'Vinnutími: 08:00 - 14:00 \n\n(except on the first Wednesday of the month)',
+    location: 'Fjöruborð 6, 101',
+    hours: 'Vinnutími: 08:00 - 14:00 \n\n(extra text info)',
     available: false,
   },
   {
-    name: 'Álfhildur S. Jóhannsdóttir og Jón Jónsson',
+    name: 'Jóna Jónsdóttir og James Bond',
     contactInfo: [
-      { label: 'aogj@gmail.com', href: 'mailto:aogj@gmail.com' },
-      { href: 'tel:+3546903653', label: '690-3653' },
-      { href: 'tel:+3546903654', label: '690-3654' },
+      { label: '007@spy.com', href: 'mailto:007@spy.com' },
+      { href: 'tel:+3548765432', label: '876-5432' },
+      { href: 'tel:+4407007007007', label: '+44 0700 700-7007' },
     ],
     location: 'Skeljagrandi 7,\n 107 Reykjavík',
     hours: 'Vinnutími: 08:00 - 14:00',
-    aboutText: 'Eina 100% vegan daggæslan á stór-Skerjafjarðarsvæðinu.',
-    updated: new Date(),
+    aboutText:
+      'Yöva gäta stahrt sömwaer. Ut enim ad minim veniam, letsi Björk ifder svensk og latin makinen dehr graek.',
+    updated: '22.02.2020',
   },
 ];
 
