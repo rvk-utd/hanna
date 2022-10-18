@@ -5,7 +5,6 @@ import { hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
 
 import {
-  ButtonStyle,
   ButtonTertiaryStyle,
   ButtonTertiaryStyle__hoverFocus,
   ButtonTertiaryVariables,
@@ -41,7 +40,6 @@ export default css`
   }
 
   .BlockQuote__by {
-    ${ButtonStyle};
     position: relative;
     top: ${vars.space_1__neg};
     margin-top: ${vars.space_2};
