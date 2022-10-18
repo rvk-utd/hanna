@@ -80,8 +80,5 @@ export const testing: TestingInfo = {
 
     await hoverMe.hover();
     await localScreenshot(ulElm, 'link-hover');
-
-    await hoverMe.locator('closest=a').focus();
-    await localScreenshot(ulElm, 'link-focus');
   },
 };
