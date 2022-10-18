@@ -47,7 +47,8 @@ const WizardStepper = (props: WizardStepperProps) => {
   return (
     <div className={getBemClass('WizardStepper', activeStep === -1 && 'preview')}>
       {steps.map((step, i) => {
-        const { label, clickable, done, neutral } = step;
+        const { clickable, done, neutral } = step;
+        const label = step.label || '…';
         const stepClass = getBemClass('WizardStepper__step', [
           (done || (done == null && i < activeStep)) && 'done',
           neutral && 'neutral',
