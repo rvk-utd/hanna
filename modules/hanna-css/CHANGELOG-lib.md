@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support passing custom `namespace` prefix to `buildVariables()`
 - feat: Add constant `icons`, and type `IconName`
 - feat: Add `font_raw.sizes`
 - feat: Upgrade `es-in-css` for bugfixes and new features.

@@ -12,4 +12,8 @@ o.spec('buildVariables helper', () => {
     o(typeof buildVariables.isVar).equals('function');
     o(typeof buildVariables.join).equals('function');
   });
+
+  o('accepts custom `namespace` parameter', () => {
+    o(buildVariables(['bar_baz'], 'FOO-').vars.bar_baz + '').equals('var(--FOO-bar-baz)');
+  });
 });

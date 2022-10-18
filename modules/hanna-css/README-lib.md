@@ -148,7 +148,7 @@ css`
 ### `buildVariables`
 
 **Syntax:**
-`buildVariables<T extends string>(vars: Record<T, VariableValue>): VariableStyles<T>`
+`buildVariables<T extends string>(vars: Array<T>, namespace?: string): VariableStyles<T>`
 
 A limited, pre-configured version of the
 [`makeVariables` helper](https://www.npmjs.com/package/es-in-css#makevariables-helper)
@@ -165,12 +165,35 @@ const myVars = buildVariables(['Component$$title__fontSize']);
 
 css`
   .Component {
-    ${myVars.declare({
-      Component$$title__fontSize: rem(2),
-    })}
+    ${myVars.declare({ Component$$title__fontSize: rem(2) })}
   }
   .Component__title {
     font-size: ${myVars.vars.Component$$title__fontSize};
+  }
+`;
+/*`
+  .Component {
+    --Component__title--fontSize: 2rem;
+  }
+  .Component__title {
+    font-size: var(--Component__title--fontSize);
+  }
+`*/
+```
+
+The `namespace` parameter gets prepended to the generated CSS variable names.
+
+Thus the code example above could be rewritten like this:
+
+```js
+const myVars = buildVariables(['title__fontSize'], 'Component__');
+
+css`
+  .Component {
+    ${myVars.declare({ title__fontSize: rem(2) })}
+  }
+  .Component__title {
+    font-size: ${myVars.vars.title__fontSize};
   }
 `;
 /*`
