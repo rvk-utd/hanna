@@ -14,6 +14,14 @@ o.spec('buildVariables helper', () => {
   });
 
   o('accepts custom `namespace` parameter', () => {
-    o(buildVariables(['bar_baz'], 'FOO-').vars.bar_baz + '').equals('var(--FOO-bar-baz)');
+    o(buildVariables(['bar_baz'], 'FOO').vars.bar_baz + '').equals('var(--FOO--bar-baz)')(
+      'appends double-dash to namespace'
+    );
+    o(buildVariables(['bar_baz'], 'FOO----').vars.bar_baz + '').equals(
+      'var(--FOO--bar-baz)'
+    )('collapses multiple trailing dashes');
+    o(buildVariables(['bar_baz'], 'FOO__').vars.bar_baz + '').equals(
+      'var(--FOO__bar-baz)'
+    )('accepts double-underscores as a suffix');
   });
 });

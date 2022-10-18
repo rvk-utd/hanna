@@ -29,11 +29,20 @@ const variableOptions: Partial<VariableOptions> = {
  */
 export const buildVariables = <T extends string>(
   input: Array<T>,
-  /** Custom prefix that gets prepended to the generated CSS variable names. */
+  /**
+   * Custom prefix that gets prepended to the generated CSS variable names.
+   *
+   * (NOTE: Namespaces are internally normalized to end with either `--` or `__`.)
+   */
   namespace?: string
 ): VariableStyles<T> => {
   let options = variableOptions;
   if (namespace) {
+    namespace = namespace.trim().replace(/-+$/, '').replace(/_+$/, '__');
+    if (!/_$/.test(namespace)) {
+      namespace += '--';
+    }
+
     options = {
       ...variableOptions,
       namespace: variableOptions.namespace + namespace,

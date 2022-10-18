@@ -182,6 +182,7 @@ css`
 ```
 
 The `namespace` parameter gets prepended to the generated CSS variable names.
+(NOTE: Namespaces are internally normalized to end with either `--` or `__`.)
 
 Thus the code example above could be rewritten like this:
 
