@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
 import Bling from '@reykjavik/hanna-react/Bling';
 import ButtonBar from '@reykjavik/hanna-react/ButtonBar';
@@ -10,6 +9,7 @@ import Modal, { ModalProps } from '@reykjavik/hanna-react/Modal';
 import TextBlock from '@reykjavik/hanna-react/TextBlock';
 
 import { Minimal } from '../../layout/Minimal';
+import { loremRT } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -21,29 +21,29 @@ export const handle = {
 const renderBling = () => (
   <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
 );
-const mod: ModalProps['modifier'] = 'w8';
+
 export default function () {
   const [open, setOpen] = useState(false);
   const openModal = () => setOpen(true);
   const closeModal = () => setOpen(false);
-  const [value, setValue] = useState(mod);
+  const [widthModifier, setWidth] = useState<ModalProps['modifier']>('w8');
 
-  const buttonText = ['Open modal', 'Open narrow modal', 'Open wide modal'];
-  const render = value === 'w8';
-  const buttons = range(0, 2).map((i) => {
-    return (
-      <span key={i}>
-        <ButtonPrimary
-          onClick={() => {
-            i === 0 ? setValue('w8') : i === 1 ? setValue('w6') : setValue('w10');
-            openModal();
-          }}
-        >
-          {buttonText[i]}
-        </ButtonPrimary>
-      </span>
-    );
-  });
+  const buttons = ['Open modal', 'Open narrow modal', 'Open wide modal'].map(
+    (buttonText, i) => {
+      return (
+        <span key={i}>
+          <ButtonPrimary
+            onClick={() => {
+              i === 0 ? setWidth('w8') : i === 1 ? setWidth('w6') : setWidth('w10');
+              openModal();
+            }}
+          >
+            {buttonText}
+          </ButtonPrimary>
+        </span>
+      );
+    }
+  );
 
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
@@ -51,13 +51,11 @@ export default function () {
       <Fragment>
         {buttons}
         <Modal
-          modifier={value}
+          modifier={widthModifier}
           open={open}
           onClosed={closeModal}
           startOpen
-          portal={false}
-          fickle={false}
-          bling={render ? renderBling() : undefined}
+          bling={widthModifier === 'w8' ? renderBling() : undefined}
           render={({ closeModal }) => {
             return (
               <Fragment>
@@ -67,6 +65,7 @@ export default function () {
                     Athugið að þegar hætt er við umsókn mun hún ekki vistast og þú munt
                     þurfa að byrja upp á nýtt.
                   </p>
+                  {widthModifier === 'w10' && <p>{loremRT.long(true)}</p>}
                 </TextBlock>
                 <ButtonBar>
                   <ButtonPrimary onClick={closeModal}>
@@ -87,26 +86,28 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, setViewportSize }) => {
-    const button = page.locator('.ButtonPrimary:text("Open Modal") >> nth=0');
-    const buttonNarrow = page.locator('.ButtonPrimary:text("Open narrow modal")');
-    const buttonWide = page.locator('.ButtonPrimary:text("Open wide modal")');
-    const modal = page.locator('.Layout');
+  viewportMinHeight: 1000,
+  skipScreenshot: true,
+  extras: async ({ page, pageScreenshot, setViewportSize }) => {
+    const button = page.locator('.ButtonPrimary:text-is("Open Modal")');
+    const buttonNarrow = page.locator('.ButtonPrimary:text-is("Open narrow modal")');
+    const buttonWide = page.locator('.ButtonPrimary:text-is("Open wide modal")');
+
     const modalCloseBtn = page.locator('.Modal__closebutton');
 
-    await setViewportSize(1000);
     await button.click();
-    await localScreenshot(modal, 'open-modal', { margin: 100 });
-    await modalCloseBtn.click();
+    await pageScreenshot('medium');
 
+    await modalCloseBtn.click();
     await page.waitForTimeout(800);
+
     await buttonNarrow.click();
-    await localScreenshot(modal, 'open-narrow-modal', { margin: 100 });
+    await pageScreenshot('narrow');
 
     await modalCloseBtn.click();
-
     await page.waitForTimeout(800);
+
     await buttonWide.click();
-    await localScreenshot(modal, 'open-wide-modal', { margin: 100 });
+    await pageScreenshot('wide');
   },
 };

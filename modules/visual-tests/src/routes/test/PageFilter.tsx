@@ -3,6 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import BlockBreak from '@reykjavik/hanna-react/BlockBreak';
 import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
 import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
+import ImageCards from '@reykjavik/hanna-react/ImageCards';
 import PageFilter from '@reykjavik/hanna-react/PageFilter';
 import Selectbox from '@reykjavik/hanna-react/Selectbox';
 import TextInput from '@reykjavik/hanna-react/TextInput';
@@ -12,17 +13,13 @@ import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
+import { imageCards } from './ImageCards';
+
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['BlockBreak'] };
+export const handle = { cssTokens: ['BlockBreak', 'ImageCards'] };
 
-const buttonRow = (resetButton: boolean) => (
-  <Fragment>
-    <ButtonPrimary>Sækja fundargerðir</ButtonPrimary>
-    {resetButton && <ButtonTertiary disabled>Hreinsa</ButtonTertiary>}
-  </Fragment>
-);
 const footnote = lorem.medium;
 
 const pagefilters = [1, 2, 3, 4].map((i) => {
@@ -45,7 +42,12 @@ const pagefilters = [1, 2, 3, 4].map((i) => {
           ? 'But has footnote and a reset button!'
           : 'With line break! ' + lorem.short
       }
-      buttonRow={i % 2 === 0 ? buttonRow(true) : buttonRow(false)}
+      buttonRow={
+        <Fragment>
+          <ButtonPrimary>Sækja fundargerðir</ButtonPrimary>
+          {i % 2 === 0 && <ButtonTertiary disabled>Hreinsa</ButtonTertiary>}
+        </Fragment>
+      }
       filters={
         <Fragment>
           <TextInput label="Search terms" />
@@ -59,7 +61,8 @@ const pagefilters = [1, 2, 3, 4].map((i) => {
           />
         </Fragment>
       }
-      footnote={i % 2 === 0 ? footnote : undefined}
+      footnote={i % 3 === 0 ? footnote : undefined}
+      underlap={i === 4}
       startSeen
     />
   );
@@ -68,7 +71,10 @@ const pagefilters = [1, 2, 3, 4].map((i) => {
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
-    <Minimal>{pagefilters}</Minimal>
+    <Minimal>
+      {pagefilters}
+      <ImageCards cards={imageCards.slice(1, 3)} />
+    </Minimal>
   );
 }
 

@@ -2,9 +2,14 @@ import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import FileInput from '@reykjavik/hanna-react/FileInput';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
+import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+
+const previewUri =
+  "data:image/svg+xml,%3Csvg width='375' height='271' viewBox='0 0 375 271' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.330078 270.54H375V8.19995H0.330078V270.54Z' fill='white'/%3E%3Cpath d='M0.330078 270.54H375V159.78H0.330078V270.54Z' fill='%23999'/%3E%3Cpath d='M0.330078 86.1899V210.43H71.5801H148.21H198.62H208.2L325.91 86.1899H0.330078Z' fill='black'/%3E%3Cpath d='M0 0V116H16.75H185.13H238.68H297.91L375 41.3963V0H0Z' fill='black'/%3E%3C/svg%3E";
 
 export const meta: MetaFunction = autoTitle;
 
@@ -17,42 +22,67 @@ const props = (
 );
 
 export default function () {
+  const fileWithPreview = new File([lorem.long], lorem.tiny + '.pdf');
+  (fileWithPreview as any).preview = previewUri;
+
   const [files, setFiles] = useState<Array<File>>([
-    new File(['foo bar foo'], 'foo.txt', {
-      type: 'text/plain',
-    }),
+    new File([lorem.long], 'Short_filename.txt'),
+    fileWithPreview,
+    new File([lorem.long], 'Short_filename (final).pdf'),
   ]);
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <FileInput
+        label={'Normal'}
+        dropzoneText={props}
+        onFilesUpdated={setFiles}
+        showFileSize
+        removeFileText={''}
+      />
+      <DummyBlock thin />
+      <FileInput
+        label={'Files + Assist text'}
         dropzoneText={props}
         value={files}
         onFilesUpdated={setFiles}
         showFileSize
         removeFileText={''}
-        label={'Label text - Input required'}
         required
+        showImagePreviews
         assistText="Close your eyes and input the first thing that comes to mind."
       />
+      <DummyBlock thin />
       <FileInput
+        label={'Invalid'}
         dropzoneText={props}
         removeFileText={''}
-        label={'Invalid'}
         invalid
         errorMessage="Your input has errors"
       />
-      <FileInput dropzoneText={props} removeFileText={''} label={'Disabled'} disabled />
+      <DummyBlock thin />
+      <FileInput label={'Disabled'} dropzoneText={props} removeFileText={''} disabled />
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
-    const dropzoneContainer = page.locator('.FileInput--multi >> nth = 0');
-    const removeButton = page.locator('.FileInput__file-remove');
+    const normal = page.locator('.FileInput:has(.FormField__label:text("Normal"))');
+    const invalid = page.locator('.FileInput:has(.FormField__label:text("Invalid"))');
+    const disabled = page.locator('.FileInput:has(.FormField__label:text("Disabled"))');
+    const file = page.locator('.FileInput__file >> nth=0');
 
-    await removeButton.hover();
-    await localScreenshot(dropzoneContainer, 'removeButton-hover', { margin: true });
+    await normal.locator('.FileInput__dropzone').hover();
+    await localScreenshot(normal, 'hover');
+
+    await invalid.locator('.FileInput__dropzone').hover();
+    await localScreenshot(invalid, 'hover-invalid');
+
+    await disabled.locator('.FileInput__dropzone').hover();
+    await localScreenshot(disabled, 'hover-disabled');
+
+    await file.locator('.FileInput__file-remove').hover();
+    await localScreenshot(file, 'file-remove-hover');
   },
 };

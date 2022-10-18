@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import Datepicker from '@reykjavik/hanna-react/Datepicker';
+import RowBlock from '@reykjavik/hanna-react/RowBlock';
+import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
@@ -9,74 +11,91 @@ import { autoTitle } from '../../utils/meta';
 
 export const meta: MetaFunction = autoTitle;
 
-// // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+const startDate = new Date('2022-10-05');
+
+// Use `handle` if you're using multiple Hanna compnents
+export const handle = { cssTokens: ['RowBlock', 'RowBlockColumn'] };
+
 export default function () {
-  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <br />
-      <Datepicker
-        label={'Veldu dagsetningu'}
-        placeholder={'d.mmm.yyyy'}
-        value={startDate}
-        onChange={(date?: Date) => setStartDate(date)}
-        required
-        assistText={'Close your eyes and input the first thing that comes to mind.'}
-      />
-      <DummyBlock thin />
-      <br />
-      <Datepicker
-        label={'Veldu dagsetningu'}
-        placeholder={'d.mmm.yyyy'}
-        value={startDate}
-        onChange={(date?: Date) => setStartDate(date)}
-        errorMessage="Your input has errors"
-      />
-      <DummyBlock thin />
-      <br />
-      <Datepicker
-        label={'Veldu dagsetningu - small + disabled'}
-        placeholder={'d.mmm.yyyy'}
-        value={startDate}
-        onChange={(date?: Date) => setStartDate(date)}
-        small
-        disabled
-      />
-      <DummyBlock thin />
-      <br />
-      <Datepicker
-        label={'Read only'}
-        placeholder={'d.mmm.yyyy'}
-        value={startDate}
-        onChange={(date?: Date) => setStartDate(date)}
-        readOnly
-      />
+      <style>{`
+        .RowBlock { margin: 0; }
+      `}</style>
+      <RowBlock>
+        <RowBlockColumn>
+          <Datepicker
+            label={'Normal'}
+            // name="date"
+            placeholder={'d. mmm. yyyy'}
+            dateFormat="d. MMM. yyyy"
+            value={startDate}
+            onChange={() => undefined}
+            required
+            assistText={'Close your eyes and input the first thing that comes to mind.'}
+          />
+          <DummyBlock thin />
+          <Datepicker
+            label={'Error'}
+            // name="date"
+            placeholder={'d. mmm. yyyy'}
+            dateFormat="d. MMM. yyyy"
+            value={startDate}
+            onChange={() => undefined}
+            errorMessage="Your input has errors"
+          />
+          <Datepicker
+            label={'Small'}
+            // name="date"
+            placeholder={'d. mmm. yyyy'}
+            dateFormat="d. MMM. yyyy"
+            // value={undefined}
+            onChange={() => undefined}
+            small
+          />
+          <DummyBlock thin />
+          <Datepicker
+            label={'Disabled'}
+            // name="date"
+            placeholder={'d. mmm. yyyy'}
+            dateFormat="d. MMM. yyyy"
+            // value={undefined}
+            onChange={() => undefined}
+            disabled
+          />
+          <DummyBlock thin />
+          <Datepicker
+            label={'Read only'}
+            // name="date"
+            placeholder={'d. mmm. yyyy'}
+            dateFormat="d. MMM. yyyy"
+            // value={undefined}
+            onChange={() => undefined}
+            readOnly
+          />
+        </RowBlockColumn>
+        <RowBlockColumn>{''}</RowBlockColumn>
+      </RowBlock>
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
+  viewportMinHeight: 700,
   extras: async ({ page, localScreenshot, pageScreenshot }) => {
-    const datepicker = page.locator('.FormField >> nth = 0');
-    const errorDate = page.locator('.FormField >> nth = 1');
-    const disabled = page.locator('.FormField >> nth = 2');
-    const readOnly = page.locator('.FormField >> nth = 3');
+    await page.locator('.FormField__label:text("Normal")').click();
+    await pageScreenshot('opened');
 
-    await datepicker.hover();
-    await pageScreenshot('datepicker-hover');
+    const datepicker = page.locator('.react-datepicker');
 
-    await errorDate.hover();
-    await pageScreenshot('errorMsg-hover');
+    await datepicker.locator('span:text-is("October")').hover();
+    await localScreenshot(datepicker, 'dp-hover-month');
 
-    await disabled.hover();
-    await localScreenshot(disabled, 'disabled-hover', { margin: true });
+    await datepicker.locator('[role="button"]:text-is("5")').hover();
+    await localScreenshot(datepicker, 'dp-hover-today');
 
-    await readOnly.hover();
-    await localScreenshot(readOnly, 'readOnly-hover', { margin: true });
-
-    await datepicker.click();
-    await pageScreenshot('datepicker-click');
+    await datepicker.locator('[role="button"]:text-is("21")').hover();
+    await localScreenshot(datepicker, 'dp-hover-weekend');
   },
 };

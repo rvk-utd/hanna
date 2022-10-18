@@ -22,7 +22,7 @@ const testCombos = (['svg-asset', 'textonly'] as const).reduce<Array<IslandBlock
 
       const content = {
         title: c === 1 || c === 2 ? 'Lorem ipsum' : lorem.tiny,
-        summary: c === 3 ? lorem.short : lorem.medium,
+        summary: c === 3 ? lorem.short : c === 2 ? undefined : lorem.medium,
         buttons: c === 0 ? [] : buttons.slice(c, buttons.length),
       };
 

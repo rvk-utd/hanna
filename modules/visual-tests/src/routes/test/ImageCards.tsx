@@ -14,7 +14,7 @@ export const meta: MetaFunction = autoTitle;
 // Use `handle` if you're using multiple Hanna compnents
 export const handle = { cssTokens: [] };
 
-const imageCards = range(0, 5).map(
+export const imageCards = range(0, 5).map(
   (i): ImageCardsItemProps => ({
     title:
       [
