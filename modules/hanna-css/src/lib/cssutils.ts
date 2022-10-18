@@ -18,14 +18,38 @@ const variableOptions: Partial<VariableOptions> = {
   nameRe: /^[a-z0-9$_-]+$/i,
   // .Tabs$$tab__borderWidth  -->  var(--Tabs__tab--borderWidth)
   toCSSName: (name) => name.replace(/_/g, '-').replace(/\$/g, '_'),
+  // NOTE: Set the namespace to 'hanna--' before next MAJOR release
+  // namespace: 'hanna--',
+  namespace: '',
 };
 
 /**
  * Limited version of the `makeVariables` helper from `es-in-css`,
  * configured specifically for the Hanna project.
  */
-export const buildVariables = <T extends string>(input: Array<T>): VariableStyles<T> =>
-  makeVariables(input, variableOptions);
+export const buildVariables = <T extends string>(
+  input: Array<T>,
+  /**
+   * Custom prefix that gets prepended to the generated CSS variable names.
+   *
+   * (NOTE: Namespaces are internally normalized to end with either `--` or `__`.)
+   */
+  namespace?: string
+): VariableStyles<T> => {
+  let options = variableOptions;
+  if (namespace) {
+    namespace = namespace.trim().replace(/-+$/, '').replace(/_+$/, '__');
+    if (!/_$/.test(namespace)) {
+      namespace += '--';
+    }
+
+    options = {
+      ...variableOptions,
+      namespace: variableOptions.namespace + namespace,
+    };
+  }
+  return makeVariables(input, options);
+};
 buildVariables.isVar = makeVariables.isVar;
 buildVariables.join = makeVariables.join;
 
