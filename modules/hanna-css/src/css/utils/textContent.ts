@@ -1,4 +1,4 @@
-import { css, em } from 'es-in-css';
+import { css, em, str } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints';
 import { buildVariables } from '../../lib/cssutils';
@@ -47,7 +47,7 @@ export const pullQuoteContainerStyle = () => css`
   position: relative;
 
   &::before {
-    content: ${characters.quotes.upper99};
+    content: ${str(characters.quotes.upper99)};
     color: ${vars.theme_color_primary};
     font-size: ${prem(72)};
     line-height: 1;
