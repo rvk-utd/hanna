@@ -35,7 +35,7 @@ export type WizardStepperProps = {
   steps: ReadonlyArray<WizardStepperStep>;
   /** Zero-based index of the active (current) step */
   activeStep?: number;
-  /** By default, clickable "done" steps remain clickable */
+  /** By default, clickable steps remain clickable once "done" */
   disableBacktrack?: boolean;
   /** By default, clickable steps after the active step are not immediately clickable */
   allowForwardSkip?: boolean;
