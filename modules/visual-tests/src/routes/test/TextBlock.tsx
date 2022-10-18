@@ -70,17 +70,4 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
-    const smallText = page.locator('.TextBlock--small');
-    const rightAligned = page.locator('.TextBlock--align--right >> nth = 0');
-    const wide = page.locator('.TextBlock--wide');
-    const labelled = page.locator('.TextBlock--labelled');
-
-    // All these screenshots might not be necessary
-    await localScreenshot(smallText, 'smallText', { margin: true });
-    await localScreenshot(rightAligned, 'rightAligned', { margin: true });
-    await localScreenshot(wide, 'wideLayout', { margin: true });
-    await localScreenshot(labelled, 'labelled', { margin: [600, 0] });
-  },
-};
+export const testing: TestingInfo = {};

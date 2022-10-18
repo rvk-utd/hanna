@@ -56,14 +56,18 @@ export default function () {
   );
 }
 
+// TODO: Text combination of .ContactBubble and .MainMenu
+
 export const testing: TestingInfo = {
-  prep: async ({ page }) => {
-    await page.locator('.ContactBubble__openbtn').hover();
-  },
-  extras: async ({ page, pageScreenshot, localScreenshot, expandViewport }) => {
-    const contactBubble = page.locator('.ContactBubble__openbtn');
-    //await expandViewport(1000);
-    await contactBubble.click();
-    await pageScreenshot('contactBubble-click');
+  viewportMinHeight: 600,
+  extras: async ({ page, pageScreenshot, localScreenshot }) => {
+    const contactBubbleBtn = page.locator('.ContactBubble__openbtn');
+    await contactBubbleBtn.hover();
+    await localScreenshot(contactBubbleBtn, 'btn-hover', { margin: 25 });
+
+    await contactBubbleBtn.click();
+    await page.waitForTimeout(100);
+    await page.locator('.ContactBubble__link:has-text("Netspjall")').hover();
+    await pageScreenshot('opened');
   },
 };

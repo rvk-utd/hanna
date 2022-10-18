@@ -3,18 +3,13 @@ import type { MetaFunction } from '@remix-run/node';
 import CityBlock, { CityBlockProps } from '@reykjavik/hanna-react/CityBlock';
 
 import { Minimal } from '../../layout/Minimal';
-import { illustr, lorem, photo } from '../../test-helpers/dummyData';
+import { illustr, lorem, loremRT, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 export const meta: MetaFunction = autoTitle;
 
-const IMAGES = {
-  illustr: { image: illustr.tall },
-  portrait: { image: { src: photo.portrait.src, altText: 'Alt text!' } },
-  small: { image: { src: photo.square.src, altTect: 'Alt text' } },
-};
-// // Use `handle` if you're using multiple Hanna compnents
+// Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
 const buttonList = [
   { href: '', label: 'Button number one' },
@@ -23,66 +18,58 @@ const buttonList = [
   { href: '', label: 'Button number four' },
 ];
 
-const content = (cityBlockTitle: string, i: number) => {
-  const props: Pick<CityBlockProps, 'content' | 'startSeen'> = {
-    content: {
-      title: cityBlockTitle,
-      summary: lorem.medium,
-      buttons: buttonList.slice(0, i),
-    },
-
-    startSeen: true,
-  };
-  return props;
-};
+const content = (
+  cityBlockTitle: string,
+  i: number,
+  summary: string | JSX.Element = lorem.medium
+): Pick<CityBlockProps, 'content' | 'startSeen'> => ({
+  content: {
+    title: cityBlockTitle,
+    summary,
+    buttons: buttonList.slice(0, i),
+  },
+  startSeen: true,
+});
 
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <CityBlock
-        {...content('Large image and right aligned', 3)}
-        {...IMAGES.portrait}
+        {...content('Large image and right aligned', 3, loremRT.medium(true))}
+        image={photo.portrait}
         type={'largeimage'}
-        startSeen
       />
       <CityBlock
-        {...content('Large image and left aligned', 1)}
-        {...IMAGES.portrait}
+        {...content('Large image and left aligned', 1, lorem.tiny)}
+        image={photo.portrait}
         align={'left'}
         type={'largeimage'}
-        startSeen
       />
       <CityBlock
         {...content('Large illustration and right aligned', 4)}
-        {...IMAGES.illustr}
-        startSeen
+        image={illustr.tall}
       />
       <CityBlock
         {...content('Large illustration and left aligned', 2)}
-        {...IMAGES.illustr}
+        image={illustr.tall}
         align={'left'}
-        startSeen
       />
       <CityBlock
         {...content('Largebox and left aligned', 0)}
-        {...IMAGES.illustr}
+        image={photo.landscape}
         type={'largebox'}
-        startSeen
       />
       <CityBlock
         {...content('Largebox and right aligned', 2)}
-        {...IMAGES.illustr}
+        image={illustr.tall}
         align={'left'}
         type={'largebox'}
-        startSeen
       />
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  prep: async ({ page }) => {
-    await page.locator('.CityBlock__button >> nth=0').hover();
-  },
+  initialHover: '.CityBlock__button >> nth=0',
 };

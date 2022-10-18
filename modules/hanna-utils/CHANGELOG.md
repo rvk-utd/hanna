@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `ensurePosInt` and branded `PositiveInteger` type
+- feat: Add `notFalsy` type guarding filter function
 
 ## 0.1.14
 

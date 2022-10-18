@@ -18,15 +18,19 @@ export type HeadingProps = {
   /**
    * Make an exception and render a `<h1/>` element.
    *
-   * This prop is ignore if the `Tag` prop is defined. */
+   * This prop is ignore if the `Tag` prop is defined.
+   */
   forceH1?: boolean;
 } & ComponentLayoutProps;
 
 const Heading = (props: HeadingProps) => {
   const { size = 'normal', align, wide, children } = props;
   const Tag = props.Tag || (props.forceH1 ? 'h1' : 'h2');
+  const suppressWarning =
+    process.env.NODE_ENV !== 'production' && Tag === 'h1' ? true : undefined;
   return (
     <Tag
+      data-dev-forcedH1={suppressWarning}
       className={getBemClass('Heading', [
         sizes[size],
         align === 'right' && 'align--' + align,

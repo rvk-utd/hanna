@@ -3,7 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import Gallery from '@reykjavik/hanna-react/Gallery';
 
 import { Minimal } from '../../layout/Minimal';
-import { photo } from '../../test-helpers/dummyData';
+import { lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -19,23 +19,27 @@ export default function () {
       <Gallery
         items={[
           {
+            ...photo.landscape,
+            largeImageSrc: photo.landscape.src,
             caption: 'Elliðaárdalur',
-            largeImageSrc: photo.landscape.src,
-            src: photo.landscape.src,
           },
           {
-            caption: 'long caption here to test how this can break the layout',
+            ...photo.portrait,
             largeImageSrc: photo.portrait.src,
-            src: photo.portrait.src,
-            altText: 'Elliðaárdalur alt text',
+            caption: 'long caption here to test how this can break the layout',
+            description: lorem.short,
           },
           {
+            ...photo.landscape,
             largeImageSrc: photo.landscape.src,
-            src: photo.landscape.src,
           },
           {
+            ...photo.portrait,
             caption: 'This one has a caption',
-            src: photo.portrait.src,
+          },
+          {
+            ...photo.landscape,
+            largeImageSrc: photo.landscape.src,
           },
         ]}
       />
@@ -43,32 +47,32 @@ export default function () {
   );
 }
 export const testing: TestingInfo = {
-  initialHover: '.CarouselStepper__button[aria-label="4"] ',
-
+  viewportMinHeight: 1250,
   extras: async ({ page, pageScreenshot }) => {
-    // Click third carousel step button
-    await page.locator('.CarouselStepper__button[aria-label="3"]').click();
-    await pageScreenshot('carousel-stepper-click-third');
+    // scroll to 3rd item and hover it.
+    await page.locator('.CarouselStepper__button >> nth=2').click();
+    await page.locator('.GalleryItem__button >> nth=2').hover();
+    await pageScreenshot('scrolled');
 
-    const itemlist = page.locator('.Gallery__itemlist');
+    // click 3rd item and hover the modal's close button
+    await page.locator('.GalleryItem__button >> nth=2').click();
+    await page.waitForTimeout(200);
+    await page.locator('.GalleryModal__closebutton').hover();
+    await pageScreenshot('modal-nocaption-closebtn-hover');
 
-    // Go back to the first carousel step
-    await page.locator('.CarouselStepper__button[aria-label="1"]').click();
-    await pageScreenshot('carousel-stepper-click-first');
+    const prevButton = page.locator('.GalleryModalPager__button--prev');
 
-    // Hover go-left arrow
-    await itemlist.hover();
-    await page.locator('.Gallery__itemlist-goRight').hover();
-    await pageScreenshot('go-right-hover');
+    // navigate back (to 2nd item) and hover the prev button
+    await prevButton.click();
+    await prevButton.hover();
+    await pageScreenshot('modal-description-portrait-prev-hover');
 
-    // Click go-left arrow
-    await page.locator('.Gallery__itemlist-goRight').click();
-    await pageScreenshot('go-right-click');
+    // navigate back (to 1st item) and hover the next button
+    await prevButton.click();
+    await page.locator('.GalleryModalPager__button--next').hover();
+    await pageScreenshot('modal-caption-next-hover');
 
-    // Click first photo and take a screenshot
-    await page
-      .locator('.GalleryItem__button[href="/media/photo-landscape.png"] >> nth=0')
-      .click();
-    await pageScreenshot('click-photo');
+    // NOTE: The `--goleft` and `--goright` mouse-navigation buttons
+    // are tested as part of the ArticleCarousel test
   },
 };

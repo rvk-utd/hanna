@@ -20,7 +20,7 @@ export default function () {
         items={[
           {
             name: 'George Clooney',
-            contactInfo: [{ href: 'tel:+3543546372', label: '555-8736' }],
+            contactInfo: [{ href: 'tel:+3545674321', label: '567-4321' }],
             location: 'Breiðstræti 4, 107',
             hours: 'Vinnutími: 08:00 - 20:00',
 
@@ -29,14 +29,14 @@ export default function () {
           },
           {
             name: 'Jón Jónsson',
-            contactInfo: [{ href: 'tel:+3549219283', label: '490-3223' }],
+            contactInfo: [{ href: 'tel:+3549876543', label: '987-6543' }],
             location: 'Vegamót 18, \n\n107 Reykjavík',
           },
           {
             name: 'Hanna Hönnudóttir',
             contactInfo: [
-              { href: 'tel:+3541119912', label: '550 0081' },
-              { href: 'tel:+354792837', label: '770 0192' },
+              { href: 'tel:+3545674321', label: '567 4321' },
+              { href: 'tel:+3549876543', label: '987 6543' },
             ],
             location: 'Fjöruborð 6, 101',
             hours: 'Vinnutími: 08:00 - 14:00 \n\n(extra text info)',
@@ -46,8 +46,8 @@ export default function () {
             name: 'Jóna Jónsdóttir og James Bond',
             contactInfo: [
               { label: '007@spy.com', href: 'mailto:007@spy.com' },
-              { href: 'tel:+3549384753', label: '598-6565' },
-              { href: 'tel:+0000007', label: '007-0070' },
+              { href: 'tel:+3548765432', label: '876-5432' },
+              { href: 'tel:+4407007007007', label: '+44 0700 700-7007' },
             ],
             location: 'Skeljagrandi 7,\n 107 Reykjavík',
             hours: 'Vinnutími: 08:00 - 14:00',

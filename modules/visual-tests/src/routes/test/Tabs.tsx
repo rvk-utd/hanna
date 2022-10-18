@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Tabs, { TabItemProps } from '@reykjavik/hanna-react/Tabs';
+import Tabs, { TabItemProps, TabsProps } from '@reykjavik/hanna-react/Tabs';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
@@ -9,62 +9,121 @@ import { autoTitle } from '../../utils/meta';
 
 export const meta: MetaFunction = autoTitle;
 
-// // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// Use `handle` if you're using multiple Hanna compnents
+export const handle = { cssTokens: ['VSpacer'] };
 
-const props: Array<TabItemProps> = [1, 2, 3, 4].map((i) => ({
-  label: 'Tab ' + i + (i === 2 ? ' has very, very longwinded label' : ''),
-  longLabel: i === 4 ? 'Tab ' + i + ' has longer label' : undefined,
-  badge: [14, 2, undefined, '1.024'][i - 1],
+type SubTabProps = NonNullable<TabsProps['subTabs']>;
+
+const tabs = [1, 2, 3].map(
+  (i): TabItemProps => ({
+    label: 'Tab ' + i + (i === 3 ? ' has very, very longwinded label' : ''),
+    longLabel: i === 2 ? 'Tab ' + i + ' has longer label' : undefined,
+    badge: [14, undefined, 999][i - 1],
+  })
+);
+
+const linkTabs = tabs.map((tab, i): TabItemProps & { href: string } => ({
+  ...tab,
+  href: '#tab-' + (i + 1),
 }));
 
-const subProps = {
-  tabs: props.map((prop) => ({
+const subTabs: SubTabProps = {
+  tabs: tabs.map((prop) => ({
     ...prop,
-    label: 'Sub-' + prop.label.toLowerCase(),
-    longLabel: prop.longLabel ? 'Sub-' + prop.longLabel.toLowerCase() : undefined,
+    label: 'Sub-' + prop.label,
+    longLabel: prop.longLabel ? 'Sub-' + prop.longLabel : undefined,
   })),
+  activeIdx: 2,
 };
+const linkSubTabs: SubTabProps = {
+  tabs: tabs.map((prop) => ({
+    ...prop,
+    label: 'Sub-' + prop.label,
+    longLabel: prop.longLabel ? 'Sub-' + prop.longLabel : undefined,
+  })),
+  activeIdx: 2,
+};
+
+const renderTabs = (
+  tagType: 'links' | 'buttons',
+  tabs: Array<TabItemProps>,
+  subTabs: SubTabProps
+) => (
+  <Fragment>
+    <Tabs aria-label={`${tagType}-tabs`} tabs={tabs} activeIdx={1} startSeen />
+    <DummyBlock thin />
+    <Tabs
+      aria-label={`${tagType}-subTabs`}
+      tabs={tabs}
+      activeIdx={2}
+      subTabs={subTabs}
+      startSeen
+    />
+    <DummyBlock thin />
+    <Tabs
+      aria-label={`${tagType}-vertical-tabs`}
+      tabs={tabs}
+      activeIdx={0}
+      vertical
+      startSeen
+    />
+    <DummyBlock thin />
+    <Tabs
+      aria-label={`${tagType}-vertical-subTabs`}
+      tabs={tabs}
+      vertical
+      subTabs={subTabs}
+      activeIdx={1}
+      startSeen
+    />
+    <DummyBlock thin />
+    <Tabs
+      aria-label={`${tagType}-vertical-subTabs2`}
+      tabs={tabs.slice(0, 2)}
+      vertical
+      subTabs={{
+        tabs: subTabs.tabs.slice(0, 2),
+        activeIdx: 0,
+      }}
+      activeIdx={2}
+      startSeen
+    />
+  </Fragment>
+);
 
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <Tabs aria-label="tabs" tabs={props} startSeen />
-      <DummyBlock thin />
-      <Tabs aria-label="with-subTabs" tabs={props} subTabs={subProps} startSeen />
-      <Tabs tabs={props} vertical startSeen />
-      <Tabs tabs={props} vertical subTabs={subProps} activeIdx={1} startSeen />
+      <style>{`
+        .Tabs--vertical[class] {
+          position: static;
+        }
+      `}</style>
+      {renderTabs('buttons', tabs, subTabs)}
+      <DummyBlock />
+      {renderTabs('links', linkTabs, linkSubTabs)}
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  skipScreenshot: true,
-  extras: async ({ page, pageScreenshot, localScreenshot, setViewportSize }) => {
-    // Initial screenshot doesn't include vertical tabs - need to skip initial screenshot and set viewport size to get
-    await setViewportSize(1000);
-    await pageScreenshot('tabs');
-
+  extras: async ({ page, localScreenshot }) => {
     // Hover tabs
-    const tab = page.locator('button:text("Tab 1") >> nth = 0');
-    const tabContainer = page.locator('[aria-label="tabs"]');
-    const subTab = page.locator('button:text("Sub-tab 2") >> nth = 0');
-    const subTabContainer = page.locator('[aria-label="with-subTabs"]');
+    for (const tagType of ['links', 'buttons'] as const) {
+      for (const labelSuffix of [
+        'tabs',
+        'subTabs',
+        'vertical-tabs',
+        'vertical-subTabs',
+      ] as const) {
+        const tabsLabel = tagType + '-' + labelSuffix;
+        const tabContainer = page.locator(`[aria-label="${tabsLabel}"]`);
+        const tabText = /-subTabs$/.test(labelSuffix) ? 'Sub-tab' : 'Tab';
 
-    await tab.hover();
-    await localScreenshot(tabContainer, 'tab-hover', { margin: true });
-
-    await subTab.hover();
-    await localScreenshot(subTabContainer, 'subTab-hover', { margin: true });
-
-    await tab.focus();
-    await localScreenshot(tabContainer, 'tab-focus', { margin: true });
-
-    //Move hover focus point so that subtab.hover doesn't affect subtab.focus screenshot with hover-underline
-    await page.locator('[aria-label="tabs"]').hover();
-
-    await subTab.focus();
-    await localScreenshot(subTabContainer, 'subtab-focus', { margin: true });
+        await tabContainer.locator(`.Tabs__tab:text("${tabText} 1")`).hover();
+        await localScreenshot(tabContainer, tabsLabel + '-hover');
+      }
+    }
   },
 };

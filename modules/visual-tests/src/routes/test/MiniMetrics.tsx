@@ -16,7 +16,7 @@ export default function () {
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <MiniMetrics
-        text="Leebur deroor iehroom, bork bork börk! "
+        text="Leebur deroor iehroom, bork bork börk!"
         moreButton={{ href: '', label: 'Label text' }}
         startSeen
       />

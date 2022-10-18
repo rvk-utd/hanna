@@ -5,7 +5,6 @@ import NewsHero from '@reykjavik/hanna-react/NewsHero';
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 export const meta: MetaFunction = autoTitle;
@@ -14,13 +13,13 @@ export const meta: MetaFunction = autoTitle;
 // export const handle = { cssTokens: [], };
 const prop = {
   short: {
-    title: 'Yöva gäta stahrt sömwaer.',
+    title: 'Yöva gäta stahrt.',
     meta: '14. oktober',
     summary: lorem.short,
   },
   medium: {
-    title: 'Leebur deroor iehroom, bork bork börk!',
-    meta: '14. oktober',
+    title: 'Leebur deroor iehroom, bork!',
+    // meta: '14. oktober',
     summary: lorem.medium,
   },
   long: {
@@ -33,17 +32,13 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <NewsHero {...prop.short} image={photo.landscape} />
+      <NewsHero {...prop.short} image={photo.landscape} startSeen />
       <DummyBlock thin />
-      <NewsHero {...prop.medium} blingType={'balls-small'} />
+      <NewsHero {...prop.medium} blingType={'balls-small'} startSeen />
       <DummyBlock thin />
-      <NewsHero {...prop.medium} blingType={'dome'} />
+      <NewsHero {...prop.long} blingType={'dome'} sharing={false} startSeen />
       <DummyBlock thin />
-      <NewsHero {...prop.long} blingType={'snake'} />
+      <NewsHero {...prop.medium} summary={undefined} blingType={'snake'} startSeen />
     </Minimal>
   );
 }
-
-export const testing: TestingInfo = {
-  initialHover: '.ShareButtons__link--facebook >> nth = 0',
-};

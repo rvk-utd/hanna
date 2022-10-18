@@ -239,6 +239,10 @@
 
     @include afterClear();
   }
+  .SearchResultsHighlightItem__link:not(:has(.SearchResultsHighlightItem__image)) {
+    min-height: 0;
+  }
+
   .SearchResultsHighlightItem__link:hover,
   .SearchResultsHighlightItem__link:active {
     border-color: $color-faxafloi-100;

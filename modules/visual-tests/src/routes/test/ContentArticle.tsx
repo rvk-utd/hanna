@@ -4,6 +4,7 @@ import ContentArticle, {
   ContentArticleProps,
 } from '@reykjavik/hanna-react/ContentArticle';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
@@ -22,10 +23,9 @@ const META: ContentArticleProps['meta'] = [
     href: '/',
   },
 ];
-const HEADLINE = lorem.short;
 
 const CONTENTIMAGE_PROPS: ContentArticleProps['topImage'] = {
-  image: photo.square,
+  image: photo.landscape,
   caption: lorem.short,
   credit: 'Mynd: Lorem Foobar',
 };
@@ -50,26 +50,32 @@ export default function () {
     <Minimal>
       <ContentArticle
         meta={META}
-        headline={HEADLINE}
+        headline={lorem.tiny.slice(0, 52)}
         topImage={CONTENTIMAGE_PROPS}
         body={
           <Fragment>
-            <h2>Aðal fyrirsögn</h2>
-            <p>{lorem.long + lorem.long}</p>
+            <p>{lorem.medium}</p>
             <h3>Millifyrirsögn</h3>
-            <p>{lorem.long + lorem.medium}</p>
+            <p>{lorem.tiny}</p>
+            <p>{lorem.short}</p>
           </Fragment>
         }
         relatedLinks={RELATEDLINKS}
+        startSeen
+      />
+      <DummyBlock thin />
+      <ContentArticle
+        headlineTag="h1"
+        headline={lorem.tiny.slice(0, 20)}
+        body={
+          <Fragment>
+            <p>{lorem.tiny}</p>
+            <p>{lorem.short}</p>
+          </Fragment>
+        }
+        startSeen
       />
     </Minimal>
   );
 }
-export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
-    const relatedLink = page.locator('a:has-text("Tengt efni")');
-    const relatedContainer = page.locator('.RelatedLinks');
-    await relatedLink.hover();
-    await localScreenshot(relatedContainer, 'relatedLink-hover', { margin: true });
-  },
-};
+export const testing: TestingInfo = {};

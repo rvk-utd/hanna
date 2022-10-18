@@ -3,8 +3,13 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Color of disabled invalid checkboxes/radios
 - feat: Add styling for `.Cell--text--(right|center)` inside `.BasicTable`
+- fix: Disappearing border on link `.Tabs__tab` hover
+- fix: Set color of `.SiteSearchInput__button` to Faxaflói
+- fix: Color of disabled invalid checkboxes/radios
+- fix: Suppress dev warning about forced `h1.Heading` elements
+- fix: Tweak layout of `FileInput__filelist` items
+- fix: Set color of `Gallery` modal links/buttons to Faxaflói
 
 ## 0.8.70
 

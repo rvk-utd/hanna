@@ -150,7 +150,7 @@ turn set the appropriate classNames.
 Abstract (private) components should, however, use this pattern:
 
 ```ts
-type Falsy = undefined | null | false | 0;
+type Falsy = undefined | null | false | 0 | '';
 type Modifier = string | Falsy;
 
 type BemPropsModifier = {

@@ -6,6 +6,7 @@
 - feat: Add constant `icons`, and type `IconName`
 - feat: Add `font_raw.sizes`
 - feat: Upgrade `es-in-css` for bugfixes and new features.
+- feat: `getCssBundleUrl` tolerates trailing slashes on `testingServer` URLs
 - fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7

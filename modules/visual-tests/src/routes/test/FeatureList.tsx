@@ -17,9 +17,9 @@ const features: FeatureListProps['features'] = [
   { name: 'Frítt WiFi', icon: 'wifi' },
   { name: '25 metra laug', icon: 'sund_metralaug' },
   { name: 'Sauna', icon: 'sund_sauna' },
-  { name: 'Heitir pottar', icon: 'sund_sauna' },
+  { name: 'Heitir pottar', icon: 'sund_heiturpottur' },
   { name: 'No icon specified' },
-  { name: 'Sala á sundfatnaði', icon: 'sund_sundfot' },
+  { name: 'Sala á sjúklega flottum sundfatnaði með langan titil', icon: 'sund_sundfot' },
   { name: 'Barnalaug', icon: 'sund_barnalaug' },
   { name: 'Eimbað', icon: 'sund_metralaug' },
   { name: 'Kaldur pottur', icon: 'sund_kaldurpottur' },
@@ -28,11 +28,6 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <FeatureList title="Lorem Ipsum og Foo Bar" features={features} startSeen={true} />
     </Minimal>
   );

@@ -3,7 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import InfoBlock from '@reykjavik/hanna-react/InfoBlock';
 
 import { Minimal } from '../../layout/Minimal';
-import { lorem } from '../../test-helpers/dummyData';
+import { lorem, loremRT } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -11,11 +11,11 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
-const textItems = [
+const textItems = () => [
   lorem.tiny,
-  lorem.long.slice(0, 80) + '.',
+  lorem.tiny.slice(0, 50) + '.',
+  loremRT.medium(true),
   lorem.medium.slice(0, 115) + '.',
-  lorem.medium.slice(0, 149) + '.',
   lorem.tiny,
 ];
 export default function () {
@@ -24,16 +24,20 @@ export default function () {
     <Minimal>
       <InfoBlock
         title="InfoBlock with attention text below"
-        subtitle={lorem.short}
-        items={textItems}
+        subtitle={loremRT.short()}
+        items={textItems()}
+        startSeen
+      />
+      <InfoBlock
+        title={lorem.short}
+        items={textItems().slice(0, 2)}
         attention={lorem.medium}
         startSeen
       />
       <InfoBlock
-        title="InfoBlock with extra info below"
-        subtitle={lorem.short}
-        items={textItems}
-        extraInfo={lorem.medium}
+        title={lorem.short}
+        items={textItems().slice(0, 2)}
+        extraInfo={lorem.short}
         startSeen
       />
     </Minimal>

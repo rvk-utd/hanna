@@ -18,6 +18,7 @@ export const photo = {
   landscape: { src: host + '/media/photo-landscape.png', altText: 'Photo, landscape' },
   square: { src: host + '/media/photo-square.png', altText: 'Photo, square' },
   portrait: { src: host + '/media/photo-portrait.png', altText: 'Photo, portrait' },
+  banner: { src: host + '/media/photo-banner.png', altText: 'Photo, long banner' },
 };
 
 // ---------------------------------------------------------------------------

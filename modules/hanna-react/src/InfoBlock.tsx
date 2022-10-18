@@ -1,16 +1,16 @@
 import React from 'react';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
 
 export type InfoBlockProps = {
   title: string;
-  subtitle: string | JSX.Element;
+  subtitle?: string | JSX.Element;
   items: Array<string | JSX.Element>;
-} & (
-  | { attention?: undefined; extraInfo?: undefined }
-  | { attention: string | JSX.Element; extraInfo?: undefined }
-  | { extraInfo: string | JSX.Element; attention?: undefined }
-) &
+} & EitherObj<
+  { attention?: string | JSX.Element },
+  { extraInfo?: string | JSX.Element }
+> &
   SeenProp;
 
 const InfoBlock = (props: InfoBlockProps) => {
@@ -20,7 +20,7 @@ const InfoBlock = (props: InfoBlockProps) => {
   return (
     <div className="InfoBlock" ref={ref}>
       <h2 className="InfoBlock__title">{title}</h2>
-      <div className="InfoBlock__subtitle">{subtitle}</div>
+      {subtitle && <div className="InfoBlock__subtitle">{subtitle}</div>}
       <ul className="InfoBlock__items">
         {items.map((item, i) => (
           <li key={i} className="InfoBlock__item">

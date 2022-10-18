@@ -3,9 +3,7 @@ import _Modal, { ModalProps as _ModalProps } from '@hugsmidjan/react/Modal';
 
 //FIXME: When Omit<> is used to omit 'bem' typescript deems `P` incompatible with
 // props spread into _Modal
-export type ModalProps = _ModalProps & {
-  bem?: never;
-  bodyWrap?: never;
+export type ModalProps = Omit<_ModalProps, 'bem' | 'bodyWrap' | 'modifier'> & {
   modifier?: 'w6' | 'w8' | 'w10';
   bling?: ReactElement;
 };

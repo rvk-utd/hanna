@@ -19,6 +19,7 @@ export type DatepickerProps = {
   small?: boolean;
   placeholder?: string;
   value?: Date;
+  name?: string;
   startDate?: Date;
   endDate?: Date;
   minDate?: Date;
@@ -97,6 +98,7 @@ const Datepicker = (props: DatepickerProps) => {
     dateFormat = 'd.M.yyy',
     initialDate,
     value = initialDate,
+    name,
     startDate,
     endDate,
     minDate,
@@ -151,6 +153,7 @@ const Datepicker = (props: DatepickerProps) => {
               disabled={inputProps.disabled}
               readOnly={inputProps.readOnly}
               selected={value}
+              name={name}
               locale={localeCode}
               dateFormat={dateFormat}
               onChange={(date: Date | null) => {

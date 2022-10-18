@@ -87,7 +87,11 @@ export default function App() {
         <link
           rel="stylesheet"
           href={
-            getCssBundleUrl(cssTokens, { testingServer: 'http://localhost:4000' }) +
+            getCssBundleUrl(cssTokens, {
+              testingServer: 'http://localhost:4000',
+              // testingServer: 'https://styles.prod.thon.is/',
+              // version: 'dev-v0',
+            }) +
             // magic parameter to override default dev config while running tests
             '&allowBadTokens=true'
           }
