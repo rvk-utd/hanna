@@ -110,8 +110,8 @@ export default function () {
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
     // Hover tabs
-    for await (const tagType of ['links', 'buttons'] as const) {
-      for await (const labelSuffix of [
+    for (const tagType of ['links', 'buttons'] as const) {
+      for (const labelSuffix of [
         'tabs',
         'subTabs',
         'vertical-tabs',
@@ -123,10 +123,6 @@ export const testing: TestingInfo = {
 
         await tabContainer.locator(`.Tabs__tab:text("${tabText} 1")`).hover();
         await localScreenshot(tabContainer, tabsLabel + '-hover');
-
-        await page.mouse.move(0, 0);
-        await tabContainer.locator(`.Tabs__tab:text("${tabText} 1")`).focus();
-        await localScreenshot(tabContainer, tabsLabel + '-focus');
       }
     }
   },

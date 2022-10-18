@@ -33,7 +33,6 @@ export default function () {
             value={startDate}
             onChange={() => undefined}
             required
-            assistText={'Close your eyes and input the first thing that comes to mind.'}
           />
           <DummyBlock thin />
           <Datepicker
@@ -43,7 +42,7 @@ export default function () {
             dateFormat="d. MMM. yyyy"
             value={startDate}
             onChange={() => undefined}
-            errorMessage="Your input has errors"
+            invalid
           />
           <Datepicker
             label={'Small'}

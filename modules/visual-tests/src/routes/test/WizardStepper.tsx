@@ -1,8 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import React from 'react';
-import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
-import WizardStepper, { WizardStepperStep } from '@reykjavik/hanna-react/WizardStepper';
+import WizardStepper from '@reykjavik/hanna-react/WizardStepper';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
@@ -14,40 +13,60 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
-const ACTIVE_STEP = 2;
 
-const steps: Array<WizardStepperStep> = [
-  { label: 'Inngangur - neutral', clickable: false, done: false, neutral: true },
-  { label: 'Not clickable and done', clickable: false, done: true },
-  {
-    label: 'Long clickable text - ' + lorem.medium,
-    clickable: true,
-    done: false,
-  },
-
-  { label: 'Clickable', clickable: true, done: false },
-  { label: 'Not clickable', clickable: false, done: true },
-  { label: '', clickable: false, done: false },
-  {
-    label: 'Always clickable',
-    clickable: 'always',
-  },
-];
+const noop = () => undefined;
 
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <br />
-      <WizardStepper steps={steps} activeStep={ACTIVE_STEP} onClick={() => ''} />
-      <DummyBlock thin />
-      <br />
       <WizardStepper
-        steps={steps.slice(0, ACTIVE_STEP + 1)}
-        activeStep={ACTIVE_STEP - 1}
-        onClick={() => {
-          ('');
-        }}
+        steps={[
+          { label: 'Past, Clickable', clickable: true },
+          { label: 'Past, Clickable, not done', clickable: true, done: false },
+          { label: 'Past, Not clickable' },
+          { label: 'Past, Not clickable, not done', done: false },
+          {
+            // the active one (idx: 4)
+            label: 'Current, Clickable, long text - ' + lorem.medium,
+            clickable: true,
+          },
+
+          { label: 'Future, Clickable, done', clickable: 'always', done: true },
+          {
+            label: 'Future, Clickable',
+            clickable: 'always',
+          },
+          { label: 'Future, Not clickable, done', done: true },
+          { label: '' },
+        ]}
+        activeStep={4}
+        onClick={noop}
+      />
+
+      <DummyBlock thin />
+
+      <WizardStepper
+        steps={[
+          { label: 'neutral', neutral: true },
+          { label: 'one, done', done: true },
+          { label: 'two' },
+          { label: 'three' },
+        ]}
+        activeStep={1}
+        onClick={noop}
+      />
+
+      <DummyBlock thin />
+
+      <WizardStepper
+        steps={[
+          { label: 'neutral, not done', neutral: true, done: false },
+          { label: 'one' },
+          { label: 'two' },
+        ]}
+        activeStep={1}
+        onClick={noop}
       />
     </Minimal>
   );
@@ -55,38 +74,10 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
-    const neutral = page.locator('.WizardStepper__step--neutral >> nth = 0');
-    const activeClickable = page.locator(
-      '.WizardStepper__step:text("Long clickable") >> nth = 0'
-    );
-    const clickable = page.locator('.WizardStepper__step:text-is("Clickable")');
-    const alwaysClickable = page.locator(
-      '.WizardStepper__step:text-is("Always clickable")'
-    );
-    // Hover/focus/click not clickable ?
-    // const notClickable = page.locator('');
-
-    const testItems = [
-      { loc: neutral, name: 'neutral' },
-      { loc: activeClickable, name: 'activeClickable' },
-      { loc: alwaysClickable, name: 'alwaysClickable' },
-      { loc: clickable, name: 'clickable' },
-    ];
-
-    const test = async (item: Locator, name: string) => {
-      await item.hover({ force: true });
-      await localScreenshot(item, name + '-hover', { margin: true });
-
-      await page.mouse.move(0, 0);
-
-      await item.focus();
-      await localScreenshot(item, name + '-focus', { margin: true });
-    };
-
-    let i = 0;
-    let item: typeof testItems[number] | undefined;
-    while ((item = testItems[i++])) {
-      await test(item.loc, item.name);
+    const buttons = await page.locator('button.WizardStepper__step').elementHandles();
+    for (const button of buttons) {
+      await button.hover();
+      await localScreenshot(button, 'blah-hover', { margin: [5, 10] });
     }
   },
 };
