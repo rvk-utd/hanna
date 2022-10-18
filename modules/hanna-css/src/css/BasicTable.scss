@@ -11,31 +11,51 @@
     @include SeenEffect--disallowNesting();
     position: relative;
     overflow-x: auto;
+
+    --BasicTable--width: auto; // auto causes calc() to fail and implicitly revert to "auto"
+    --BasicTable--margin-left: 0px;
+    --BasicTable--pad-left: 0px;
+    --BasicTable--pad-right: 0px;
+
+    width: calc(
+      var(--BasicTable--width) + var(--BasicTable--pad-left) +
+        var(--BasicTable--pad-right)
+    );
+    margin-left: calc(var(--BasicTable--margin-left) - var(--BasicTable--pad-left));
+    margin-right: calc(0px - var(--BasicTable--pad-right));
+
+    @include media($mq-phone_tablet) {
+      --BasicTable--pad-left: #{$var--grid-margin};
+      --BasicTable--pad-right: #{$var--grid-margin--right};
+    }
   }
 
-  .TableWrapper--BasicTable--fullwidth .BasicTable {
+  .TableWrapper--BasicTable--fullwidth .BasicTable,
+  .TableWrapper--BasicTable--align--right .BasicTable {
     width: 100%;
   }
 
   @include media($mq-tablet_up) {
     .TableWrapper--BasicTable--align--right {
-      margin-left: auto;
-      width: $var--grid-7; // tolerate containment by right-aligned TextBlock, for instance
-      .BasicTable {
-        width: 100%;
-      }
+      --BasicTable--margin-left: #{$var--grid-5-5};
+      --BasicTable--width: #{$var--grid-7};
     }
-    .TableWrapper--BasicTable--fullwidth {
-      width: $var--grid-12;
+    .TextBlock--labelled .TableWrapper--BasicTable--align--right,
+    .TextBlock--align--right .TableWrapper--BasicTable--align--right,
+    .LabeledTextBlock--wide .TableWrapper--BasicTable--align--right {
+      --BasicTable--margin-left: 0px;
     }
 
+    .TableWrapper--BasicTable--fullwidth {
+      --BasicTable--width: #{$var--grid-12};
+    }
     .TextBlock--labelled .TableWrapper--BasicTable--fullwidth,
     .TextBlock--align--right .TableWrapper--BasicTable--fullwidth,
     .LabeledTextBlock--wide .TableWrapper--BasicTable--fullwidth {
-      margin-left: calc(-1 * #{$var--grid-5-5});
+      --BasicTable--margin-left: calc(-1 * #{$var--grid-5-5});
     }
     .LabeledTextBlock .TableWrapper--BasicTable--fullwidth {
-      margin-left: calc(-1 * #{$var--grid-6-6});
+      --BasicTable--margin-left: calc(-1 * #{$var--grid-6-6});
     }
   }
 
@@ -77,24 +97,12 @@
   }
   .TableWrapper__scroller {
     overflow-x: auto;
+    padding-left: var(--BasicTable--pad-left);
+    padding-right: var(--BasicTable--pad-right);
   }
 
   .TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {
     @include WARNING__('--align-right and --fullwidth should not be used together');
-  }
-}
-@include media($mq-phone_tablet) {
-  .BasicTable {
-    width: 100%;
-  }
-  .TableWrapper {
-    margin: 0 $var--grid-margin--neg;
-    margin-right: $var--grid-margin--right--neg;
-  }
-  .TableWrapper__scroller {
-    padding: 0 $var--grid-margin;
-    padding-right: $var--grid-margin--right;
-    // border-right: $var--browser-scrollbar-width solid transparent; // push away fromunder
   }
 }
 
@@ -132,6 +140,12 @@
   .BasicTable,
   .TableWrapper--BasicTable {
     margin-bottom: prem(30);
+  }
+
+  .BasicTable {
+    @media #{$mq-phone_phablet} {
+      width: 100%;
+    }
   }
 
   .BasicTable > * > * > th,
