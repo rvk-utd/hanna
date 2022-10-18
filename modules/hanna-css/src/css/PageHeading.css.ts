@@ -7,7 +7,13 @@ import { hannaVars as vars } from '../lib/hannavars';
 import { ComponentLayout } from './styles/componentLayout';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects';
 
-// inlined by TextBlock
+export default css`
+  /*!@deps
+    TextBlock
+  */
+`;
+
+// inlined by TextBlock.css.ts
 export const PageHeading_css = () => css`
   .PageHeading {
     ${SeenEffect__fadeup}
@@ -21,11 +27,4 @@ export const PageHeading_css = () => css`
   .PageHeading--small {
     font: ${vars.font_hd_m};
   }
-`;
-
-export default css`
-  /*!@deps
-    TextBlock
-  */
-  ${PageHeading_css}
 `;
