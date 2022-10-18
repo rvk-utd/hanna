@@ -4,8 +4,15 @@ import { mq } from '../lib/breakpoints';
 import { hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
 
-import { ButtonTertiaryStyle, ButtonTertiaryStyle__hoverFocus } from './styles/buttons';
+import {
+  ButtonStyle,
+  ButtonTertiaryStyle,
+  ButtonTertiaryStyle__hoverFocus,
+  ButtonTertiaryVariables,
+} from './styles/buttons';
 import { pullQuoteContainerStyle, textContent } from './utils/textContent';
+
+const bVars = ButtonTertiaryVariables.vars;
 
 export default css`
   .BlockQuote {
@@ -34,6 +41,7 @@ export default css`
   }
 
   .BlockQuote__by {
+    ${ButtonStyle};
     position: relative;
     top: ${vars.space_1__neg};
     margin-top: ${vars.space_2};
@@ -41,8 +49,8 @@ export default css`
     line-height: 1;
 
     @media ${mq.phablet_up} {
-      // TODO: FIND var--ButtonTertiary--height
-      // margin-bottom: calc(-1 * #{$var--ButtonTertiary--height});
+      margin-bottom: calc(-1 * ${bVars.ButtonTertiary__height});
+      color: purple;
     }
   }
 
@@ -50,16 +58,15 @@ export default css`
   .BlockQuote__by > span {
     ${ButtonTertiaryStyle(true)}
     margin: 0;
-    // TODO: Find vars below
-    /*
-      margin-right: calc(
-        -1 * (#{$var--ButtonTertiary--hover--dashWidth} - #{$var--ButtonTertiary--dashWidth})
-      );
-    */
+    margin-right: calc(
+      -1 * (${bVars.ButtonTertiary__hover__dashWidth} - ${bVars.ButtonTertiary__dashWidth})
+    );
   }
   .BlockQuote__by > span {
     font-weight: ${vars.font_weight__normal};
-    --ButtonTertiary--dashColor: ${vars.color_suld_150};
+    ${ButtonTertiaryVariables.override({
+      ButtonTertiary__dashColor: vars.color_suld_150,
+    })}
   }
   .BlockQuote__by > a {
     ${ButtonTertiaryStyle__hoverFocus}
