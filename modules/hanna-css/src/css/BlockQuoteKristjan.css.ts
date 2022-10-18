@@ -9,9 +9,10 @@ import {
   ButtonTertiaryStyle__hoverFocus,
   ButtonTertiaryVariables,
 } from './styles/buttons';
-import { pullQuoteContainerStyle, textContent } from './utils/textContent';
+import { pullQuoteContainerStyle, pullQuoteVars, textContent } from './utils/textContent';
 
 const bVars = ButtonTertiaryVariables.vars;
+const pqVars = pullQuoteVars.vars;
 
 export default css`
   .BlockQuote {
@@ -27,7 +28,7 @@ export default css`
   .BlockQuote__quote {
     ${textContent}
     font: ${vars.font_bd_s};
-    border-left: var(--Quote--line);
+    border-left: ${pqVars.Quote__line};
     padding-left: ${vars.space_2};
 
     @media ${mq.phablet_up} {
