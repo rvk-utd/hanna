@@ -56,7 +56,7 @@ export const GalleryModal_css = () => css`
 
     .GalleryModalPager__button,
     .GalleryModal__closebutton {
-      color: ${vars.theme_color_primary};
+      color: ${vars.color_faxafloi_100};
 
       &::before {
         ${iconStyle(vars.icon__arrow_left)}
@@ -153,7 +153,7 @@ export const GalleryModalItem_css = () => css`
 
     .GalleryModalItem__text {
       background: ${vars.theme_color_primary};
-      color: ${vars.color_suld_0};
+      color: ${vars.theme_color_primary__text};
       margin-top: ${grid_units(2.5)};
       padding: ${grid_units(3)};
 

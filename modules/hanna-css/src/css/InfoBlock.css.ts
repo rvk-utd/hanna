@@ -5,6 +5,7 @@ import { mq } from '../lib/breakpoints';
 import { cols_pct, cols_px } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
+import { WARNING__ } from '../lib/WARNING__';
 
 import { AttentionStyle } from './styles/attention';
 import { grid_units, prem } from './utils/miscUtils';
@@ -62,6 +63,7 @@ export default css`
     .InfoBlock__item {
       padding-left: ${prem(28)};
       margin-bottom: ${prem(16)};
+      break-inside: avoid;
     }
     .InfoBlock__item::before {
       content: '';
@@ -83,6 +85,11 @@ export default css`
     }
     .InfoBlock__extrainfo::before {
       content: none;
+    }
+
+    .InfoBlock__extrainfo + .InfoBlock__attention,
+    .InfoBlock__attention + .InfoBlock__extrainfo {
+      ${WARNING__('Choose *EITHER* `__extrainfo` *OR* `__attention`.')};
     }
   }
 `;
