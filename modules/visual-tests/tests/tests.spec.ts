@@ -66,6 +66,7 @@ import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as Gallery__test } from '../src/routes/test/Gallery';
 import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
+import { testing as IframeBlock__test } from '../src/routes/test/IframeBlock';
 import { testing as ImageCards__test } from '../src/routes/test/ImageCards';
 import { testing as InfoBlock__test } from '../src/routes/test/InfoBlock';
 import { testing as InfoHero__test } from '../src/routes/test/InfoHero';
@@ -126,6 +127,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Gallery: Gallery__test,
   GridBlocks: GridBlocks__test,
   HeroBlock: HeroBlock__test,
+  IframeBlock: IframeBlock__test,
   ImageCards: ImageCards__test,
   InfoBlock: InfoBlock__test,
   InfoHero: InfoHero__test,
