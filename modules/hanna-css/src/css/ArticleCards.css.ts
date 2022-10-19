@@ -50,7 +50,7 @@ export default css`
   .ArticleCards__image {
     display: block;
     position: relative;
-    padding-top: ${pct(168 / 272)};
+    padding-top: ${pct((168 / 272) * 100)};
     margin-bottom: ${vars.space_2};
 
     ${avoidCssnanoMerging(
@@ -61,7 +61,8 @@ export default css`
   }
   .ArticleCards__image--missing {
     border: ${borderW} solid transparent;
-    padding-top: calc(${pct(168 / 272)} - ${2 * borderW});
+    // TODO: Verify value
+    padding-top: calc(${pct((168 / 272) * 100)} - (2 * ${borderW}));
     background: var(--ArticleCards--fallback) 50% 50% / contain no-repeat;
   }
 
@@ -72,6 +73,7 @@ export default css`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    -o-object-fit: cover;
   }
 
   .ArticleCards__card__title {
