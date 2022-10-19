@@ -31,7 +31,7 @@ export const makeSnapLocalScreeshot =
     if ('waitForElementState' in locator) {
       const id = await locator.evaluate((elm: HTMLElement) => {
         if (!elm.id) {
-          elm.id = 'foo' + Date.now() + Math.random();
+          elm.id = 'foo' + Date.now() + String(Math.random()).slice(2);
         }
         return elm.id;
       });
