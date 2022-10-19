@@ -43,7 +43,7 @@ const srFocusStyling = ({ link, border, bg }: Required<SROnlyFocusProps>) => css
   white-space: nowrap;
 `;
 
-const sr_only = (mode: Mode = 'normal') => css`
+export const sr_only = (mode: Mode = 'normal') => css`
   position: absolute;
   width: 1px;
   height: 1px;
