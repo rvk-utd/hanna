@@ -15,7 +15,7 @@ export const ComponentLayout = (wide = true) => css`
 
     &--align--right {
       @escape (without: media) {
-        @media ${mq.phablet_up} {
+        @media ${mq.tablet_up} {
           margin-left: auto;
           max-width: none;
           width: ${vars.grid_7};
