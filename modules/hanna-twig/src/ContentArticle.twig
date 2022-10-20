@@ -29,7 +29,7 @@
 		content: contentText
 	}%}
 
-	{% if relatedItems is defined %}
+	{% if relatedItems is defined and relatedItems|length > 0 %}
 		{% include "@storybook/VSpacer/VSpacer.twig" with {
 			size: 'true',
 			small: 'small',
@@ -37,7 +37,7 @@
 		}%}
 
 		{% include "@storybook/RelatedLinks/RelatedLinks.twig" with {
-			title: relatedItems|length > 0 ? ('Related material'|trans) : '',
+			title: 'Related material'|trans,
 			items: relatedItems
 		}%}
 	{% endif %}
