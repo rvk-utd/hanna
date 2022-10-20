@@ -263,7 +263,7 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
 // ===========================================================================
 
 export const InputField = () => css`
-  font: ${hannaVars.font_bd_l};
+  font: ${hannaVars.font_bd_l_size};
   position: relative;
   display: flex;
   width: 100%;
@@ -276,7 +276,7 @@ export const InputField = () => css`
   padding: 0 ${InputField_paddingH};
   padding-top: ${InputField_paddingTop};
   height: ${prem(InputField_heightI + InputField_paddingTop + 2)};
-  line-height: $InputField-heightI;
+  line-height: ${InputField_heightI};
 `;
 
 export const InputField__noLabel = () => css`

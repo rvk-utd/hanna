@@ -19,7 +19,7 @@ import {
 import { sr_only } from './utils/a11y';
 import { grid_units, overflowEllipsis, prem } from './utils/miscUtils';
 
-import { Selectbox_css } from './SelecboxKristjan.css';
+import { Selectbox_css } from './SelectboxKristjan.css';
 import { TextInput_css } from './TextInputKristjan.css';
 
 export default css`
@@ -93,7 +93,6 @@ export default css`
       ${InputField__placeholder}
     }
     .FormField--filled > .FormField__input {
-      @include InputField--filled();
       ${InputField__filled}
     }
     .FormField--invalid > .FormField__input,

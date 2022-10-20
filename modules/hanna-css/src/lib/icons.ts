@@ -22,7 +22,7 @@ export const iconStyle = (icon?: string | VariablePrinter) => {
     text-align: center;
     vertical-align: top;
     // iconFontStyling
-    font-family: ${iconfontName};
+    font-family: ${iconfontName + ', Arial, Helvetica, sans-serif'};
     speak: none; // speak property is deprecated
     font-weight: normal;
     font-style: normal;

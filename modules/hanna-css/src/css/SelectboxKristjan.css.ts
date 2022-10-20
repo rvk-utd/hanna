@@ -5,12 +5,6 @@ import { iconStyle } from '../lib/icons';
 
 import { overflowEllipsis, prem } from './utils/miscUtils';
 
-export default css`
-  /*!@deps
-    FormField
-  */
-`;
-
 // inlined by FormField
 export const Selectbox_css = () => css`
   @media screen {
@@ -54,4 +48,10 @@ export const Selectbox_css = () => css`
     .Selectbox > * > .FormField__input__value--empty {
     }
   }
+`;
+
+export default css`
+  /*!@deps
+    FormFieldKristjan
+  */
 `;
