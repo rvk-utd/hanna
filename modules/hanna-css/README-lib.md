@@ -42,6 +42,8 @@ yarn add --dev @reykjavik/hanna-css
   - [`WARNING__`](#warning__)
   - [`WARNING_soft__`](#warning_soft__)
   - [`WARNING_message__`](#warning_message__)
+  - [`WARNING_border__`](#warning_border__)
+  - [`WARNING_border_soft__`](#warning_border_soft__)
   - [`suppress_WARNING__`](#suppress_warning__)
   - [`suppress_WARNING_soft__`](#suppress_warning_soft__)
   - [Type `WarningOpts`](#type-warningopts)
@@ -447,6 +449,19 @@ then the HTML element is `:hover`ed.
 
 Only sets (overrides) the warning message on an element that already has a
 warning style applied.
+
+### `WARNING_border__`
+
+**Syntax:** `WARNING_border__(ops?: Omit<WarningOpts, 'pos'>): string`
+
+Sets a high-priority (red) warning border around an element.
+
+### `WARNING_border_soft__`
+
+**Syntax:** `WARNING_border_soft__(ops?: Omit<WarningOpts, 'pos'>): string`
+
+Renders a lower-priority (orange) warning warning that is only visible then
+the HTML element is `:hover`ed.
 
 ### `suppress_WARNING__`
 

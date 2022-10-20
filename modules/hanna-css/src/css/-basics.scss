@@ -165,7 +165,7 @@
   audio:not([title]):not([aria-label]),
   video:not([title]):not([aria-label]),
   iframe:not([title]):not([aria-label]) {
-    @include WARNING__border();
+    @include WARNING_border__();
   }
 
   table {

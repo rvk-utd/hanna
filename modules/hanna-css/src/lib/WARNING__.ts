@@ -1,32 +1,65 @@
-import { color, css } from 'es-in-css';
+import { color, ColorName, css, str } from 'es-in-css';
 
-import { isDevMode } from './cssutils';
+import { buildVariables, isDevMode } from './cssutils';
 
 type Mode = 'normal' | 'soft';
 
+const warn = buildVariables(['message'], 'WARNING');
+
+const modeValues: Record<Mode, { _color: ColorName; hover?: string }> = {
+  normal: { _color: 'red', hover: ':hover' },
+  soft: { _color: 'orange' },
+};
+
+const border = (_color: ColorName) => css`
+  box-shadow: 0 0 0 2px ${color(_color).alpha(0.5)} !important;
+`;
+
 type WarningOpts = {
+  /**
+   * Controls into which ::pseudo-element the `message` content is rendered.
+   *
+   * Default: `"before"`
+   */
   pos?: 'before' | 'after';
+
+  /**
+   * Optionally make the warning messages visible in production builds also. A
+   * drastic measure reserved for highly unusual situations.
+   *
+   * Default: `false`
+   */
   always?: boolean;
 };
 
-export const WARNING__ = (message: string, opts?: WarningOpts) => {
-  const {
-    pos = 'before',
-    always,
-    // @ts-expect-error  (Undocumented property for local use)
-    mode = 'normal' as Mode,
-  } = opts || {};
+type MiniWarningOpts = Omit<WarningOpts, 'pos'>;
+
+const _WARNING_border__ = (opts?: MiniWarningOpts, mode: Mode = 'normal') => {
+  if (!isDevMode && !(opts && opts.always)) {
+    return '';
+  }
+
+  const { _color, hover } = modeValues[mode];
+
+  return css`
+    html:not([data-disable-css-warnings-with-abandon='true']) &${hover} {
+      ${border(_color)}
+    }
+  `;
+};
+
+const _WARNING__ = (message: string, opts?: WarningOpts, mode: Mode = 'normal') => {
+  const { pos = 'before', always } = opts || {};
+  const { _color, hover } = modeValues[mode];
 
   if (!isDevMode && !always) {
     return '';
   }
 
-  const _color = mode === 'soft' ? 'orange' : 'red';
-  const hover = mode === 'soft' && ':hover';
-
   return css`
     html:not([data-disable-css-warnings-with-abandon='true']) &${hover} {
-      box-shadow: 0 0 0 1px ${color(_color).alpha(0.5)} !important;
+      ${warn.override({ message: str(message) })};
+      ${border(_color)}
     }
     html:not([data-disable-css-warnings-with-abandon='true']) &${hover}::${pos} {
       all: initial !important;
@@ -40,26 +73,34 @@ export const WARNING__ = (message: string, opts?: WarningOpts) => {
       color: ${_color} !important;
       background-color: ${color(_color).mix(color('white'), 0.1).alpha(0.5)} !important;
       padding: 0 0.5em !important;
-      content: ${JSON.stringify(message)} !important;
+      content: ${warn.vars.message} !important;
     }
   `;
 };
-export const suppress_WARNING__ = (opts?: WarningOpts) => {
-  const {
-    pos = 'before',
-    always,
-    // @ts-expect-error  (Undocumented property for local use)
-    mode = 'normal' as Mode,
-  } = opts || {};
+
+const _WARNING_message__ = (message: string, opts?: MiniWarningOpts) => {
+  if (!isDevMode && !(opts && opts.always)) {
+    return '';
+  }
+
+  return css`
+    html:not([data-disable-css-warnings-with-abandon='true']) & {
+      ${warn.override({ message: str(message) })};
+    }
+  `;
+};
+
+const _suppress_WARNING__ = (opts?: WarningOpts, mode: Mode = 'normal') => {
+  const { pos = 'before', always } = opts || {};
+  const { hover } = modeValues[mode];
 
   if (!isDevMode && !always) {
     return '';
   }
 
-  const hover = mode === 'soft' && ':hover';
-
   return css`
     html:not([data-disable-css-warnings-with-abandon='true']) &${hover} {
+      ${warn.override({ message: 'initial' })};
       box-shadow: none !important;
     }
     html:not([data-disable-css-warnings-with-abandon='true']) &${hover}::${pos} {
@@ -68,37 +109,67 @@ export const suppress_WARNING__ = (opts?: WarningOpts) => {
   `;
 };
 
-export const WARNING_message__ = (message: string, opts?: WarningOpts) => {
-  const {
-    pos = 'before',
-    always,
-    // @ts-expect-error  (Undocumented property for local use)
-    mode = 'normal' as Mode,
-  } = opts || {};
+// ===========================================================================
 
-  if (!isDevMode && !always) {
-    return '';
-  }
+/**
+ * Renders a high-priority (red) warning and message.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning__
+ */
+export const WARNING__ = (message: string, opts?: WarningOpts) =>
+  _WARNING__(message, opts);
 
-  const hover = mode === 'soft' && ':hover';
+/**
+ * Renders a lower-priority (orange) warning and message that are only visible
+ * then the HTML element is `:hover`ed.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning_soft__
+ */
+export const WARNING_soft__ = (message: string, opts?: WarningOpts) =>
+  _WARNING__(message, opts, 'soft');
 
-  return css`
-    html:not([data-disable-css-warnings-with-abandon='true']) &${hover}::${pos} {
-      content: ${JSON.stringify(message)} !important;
-    }
-  `;
-};
+// ---------------------------------------------------------------------------
 
-export const WARNING_soft__ = (message: string, opts?: Omit<WarningOpts, 'mode'>) =>
-  WARNING__(message, {
-    ...opts,
-    // @ts-expect-error  (Undocumented property for local use)
-    mode: 'soft',
-  });
+/**
+ * Only sets (overrides) the warning message on an element that already has a
+ * warning style applied.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning_message__
+ */
+export const WARNING_message__ = (message: string) => _WARNING_message__(message);
 
-export const suppress_WARNING_soft__ = (opts?: Omit<WarningOpts, 'mode'>) =>
-  suppress_WARNING__({
-    ...opts,
-    // @ts-expect-error  (Undocumented property for local use)
-    mode: 'soft',
-  });
+// ---------------------------------------------------------------------------
+
+/**
+ * Sets a high-priority (red) warning border around an element.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning_border__
+ */
+export const WARNING_border__ = (opts?: MiniWarningOpts) => _WARNING_border__(opts);
+
+/**
+ * Renders a lower-priority (orange) warning warning that is only visible then
+ * the HTML element is `:hover`ed.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning_border_soft__
+ */
+export const WARNING_border_soft__ = (opts?: MiniWarningOpts) =>
+  _WARNING_border__(opts, 'soft');
+
+// ---------------------------------------------------------------------------
+
+/**
+ * Attempts to remove warning border and message.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#suppress_warning__
+ */
+export const suppress_WARNING__ = (message: string, opts?: WarningOpts) =>
+  _suppress_WARNING__(opts);
+
+/**
+ * Attempts to remove lower-priority (`:hover`) warning border and message.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#suppress_warning_soft__
+ */
+export const suppress_WARNING_soft__ = (opts?: WarningOpts) =>
+  _suppress_WARNING__(opts, 'soft');
