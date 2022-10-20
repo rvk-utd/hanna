@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add styling for `.Cell--text--(right|center)` inside `.BasicTable`
+- feat: Add dev warnings for missing text labels (i.e. `alt` attributes on
+  iframes and multimedia elements)
 - fix: `BasicTable` with `--align--right` position on "tablet" sized viewports
 - fix: Disappearing border on link `.Tabs__tab` hover
 - fix: Set color of `.SiteSearchInput__button` to Faxaflói

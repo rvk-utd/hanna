@@ -161,6 +161,12 @@
   iframe:not([frameborder='yes']) {
     border: 0;
   }
+  img:not([alt]),
+  audio:not([title]):not([aria-label]),
+  video:not([title]):not([aria-label]),
+  iframe:not([title]):not([aria-label]) {
+    @include WARNING__border();
+  }
 
   table {
     border-collapse: separate;
