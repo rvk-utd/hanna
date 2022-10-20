@@ -1,7 +1,7 @@
 import { css } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints';
-import { hannaVars } from '../../lib/hannavars';
+import { hannaVars as vars } from '../../lib/hannavars';
 import { iconStyle } from '../../lib/icons';
 import { WARNING__ } from '../../lib/WARNING__';
 import { sr_only } from '../utils/a11y';
@@ -13,14 +13,14 @@ export const InputField_heightI__small = 38;
 export const InputField_paddingH = grid_units(2);
 
 export const FormField__error = (paddingLeft = grid_units(2), marginTop = prem(9)) => css`
-  color: ${hannaVars.color_heidmork_100};
+  color: ${vars.color_heidmork_100};
   font-size: ${prem(12)}; // TODO find variable $font-size-12
   line-height: ${prem(14)};
   padding-left: ${paddingLeft};
   margin-top: ${marginTop};
 
   &::before {
-    ${iconStyle(hannaVars.icon__error)}
+    ${iconStyle(vars.icon__error)}
     margin-right: ${grid_units(1)};
     font-size: ${prem(10)};
   }
@@ -50,8 +50,8 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
   }
   .${bem}__label {
     display: inline-block;
-    font: ${hannaVars.font_button};
-    padding: ${hannaVars.space_1} 0;
+    font: ${vars.font_button};
+    padding: ${vars.space_1} 0;
     padding-left: ${prem(36)};
     position: relative;
   }
@@ -71,7 +71,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
       : css`
           font-size: ${prem(12)};
         `}
-    border: ${prem(1)} solid ${hannaVars.color_suld_100};
+    border: ${prem(1)} solid ${vars.color_suld_100};
     transition: all 200ms ease-in;
     transition-property: box-shadow, border-color, background-color, outline;
     outline: 0 solid transparent;
@@ -79,40 +79,40 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
 
   // Invalid
   .${bem}__input[aria-invalid='true'] + .${bem}__label {
-    color: ${hannaVars.color_heidmork_100};
+    color: ${vars.color_heidmork_100};
   }
   .${bem}__input[aria-invalid='true'] + .${bem}__label::before {
-    border-color: ${hannaVars.color_heidmork_100};
+    border-color: ${vars.color_heidmork_100};
   }
 
   // Focus/Hover
   .${bem}__label[class][class]:hover, .${bem}__input[class]:focus + .${bem}__label {
-    color: ${hannaVars.color_suld_200};
+    color: ${vars.color_suld_200};
   }
   .${bem}__label[class][class]:hover::before,
     .${bem}__input[class]:focus
     + .${bem}__label::before {
-    border-color: ${hannaVars.color_faxafloi_100};
-    box-shadow: inset 0 0 0 2px ${hannaVars.color_faxafloi_100};
+    border-color: ${vars.color_faxafloi_100};
+    box-shadow: inset 0 0 0 2px ${vars.color_faxafloi_100};
   }
 
   // Checked
   .${bem}__input:checked + .${bem}__label::before {
     ${radio
       ? css`
-          content: ${hannaVars.icon__radioball};
+          content: ${vars.icon__radioball};
         `
       : css`
-          content: ${hannaVars.icon__checkmark};
+          content: ${vars.icon__checkmark};
         `}
 
     border-color: transparent;
-    background-color: ${hannaVars.color_faxafloi_100};
-    color: ${hannaVars.color_suld_0};
+    background-color: ${vars.color_faxafloi_100};
+    color: ${vars.color_suld_0};
   }
   // Checked + Invalid
   .${bem}__input[aria-invalid='true']:checked + .${bem}__label::before {
-    background-color: ${hannaVars.color_heidmork_100};
+    background-color: ${vars.color_heidmork_100};
   }
 
   // Checked + Focus/Hover
@@ -120,20 +120,20 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     + .${bem}__label:hover::before,
     .${bem}__input:checked:focus
     + .${bem}__label::before {
-    background-color: ${hannaVars.color_faxafloi_100};
-    outline: ${prem(1)} solid ${hannaVars.color_faxafloi_100};
+    background-color: ${vars.color_faxafloi_100};
+    outline: ${prem(1)} solid ${vars.color_faxafloi_100};
     outline-offset: ${prem(1)};
   }
 
   // Disabled
   .${bem}__input[class]:disabled + .${bem}__label {
-    color: ${hannaVars.color_suld_200};
+    color: ${vars.color_suld_200};
     opacity: 0.5;
   }
   .${bem}__input[class]:disabled + .${bem}__label::before {
-    border-color: ${hannaVars.color_suld_100};
-    background-color: ${hannaVars.color_suld_50};
-    color: ${hannaVars.color_suld_100};
+    border-color: ${vars.color_suld_100};
+    background-color: ${vars.color_suld_50};
+    color: ${vars.color_suld_100};
     box-shadow: none;
     outline: 0;
   }
@@ -141,8 +141,8 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
   ${radio &&
   css`
     .${bem}__input:disabled:checked + .${bem}__label::before {
-      background-color: ${hannaVars.color_suld_100};
-      color: ${hannaVars.color_suld_50};
+      background-color: ${vars.color_suld_100};
+      color: ${vars.color_suld_50};
     }
   `}
 
@@ -160,24 +160,24 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
 export const TogglerButtonsGroup = (bem: string) => css`
   .${bem} > .FormField__options {
     @media ${mq.phablet_up} {
-      margin-right: ${hannaVars.grid_0_1__neg};
+      margin-right: ${vars.grid_0_1__neg};
       display: flex;
       flex-flow: row wrap;
     }
   }
   .${bem} > * > .FormField__options__item {
-    margin-bottom: ${hannaVars.space_2};
+    margin-bottom: ${vars.space_2};
 
     @media ${mq.phablet_up} {
-      margin-bottom: ${hannaVars.grid_0_1};
-      margin-right: ${hannaVars.grid_0_1};
-      width: ${hannaVars.grid_6};
+      margin-bottom: ${vars.grid_0_1};
+      margin-right: ${vars.grid_0_1};
+      width: ${vars.grid_6};
     }
     @media ${mq.netbook} {
-      width: ${hannaVars.grid_4};
+      width: ${vars.grid_4};
     }
     @media ${mq.wide} {
-      width: ${hannaVars.grid_3};
+      width: ${vars.grid_3};
     }
   }
 
@@ -196,37 +196,37 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
   ${TogglerKnob(bem)}
 
   .${bem}__label {
-    font-weight: ${hannaVars.font_weight__bold};
+    font-weight: ${vars.font_weight__bold};
     width: 100%;
     height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    padding: ${hannaVars.space_3};
+    padding: ${vars.space_3};
     padding-left: ${prem(60)};
-    border: ${prem(1)} solid ${hannaVars.color_suld_100};
+    border: ${prem(1)} solid ${vars.color_suld_100};
     transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
   }
   .${bem}__label > small {
-    margin-top: ${hannaVars.space_0$5};
+    margin-top: ${vars.space_0$5};
     display: block;
-    font: ${hannaVars.font_label};
-    font-weight: ${hannaVars.font_weight__normal};
+    font: ${vars.font_label};
+    font-weight: ${vars.font_weight__normal};
   }
 
   .${bem}__label::before {
     position: absolute;
     top: 50%;
-    left: ${hannaVars.space_3};
+    left: ${vars.space_3};
     margin-top: ${prem(-10)};
     margin-left: 0;
   }
 
   // Focus + Hover
   .${bem}__label:hover, .${bem}__input:focus + .${bem}__label {
-    border-color: ${hannaVars.color_faxafloi_100};
-    box-shadow: inset 0 0 0 2px ${hannaVars.color_faxafloi_100};
+    border-color: ${vars.color_faxafloi_100};
+    box-shadow: inset 0 0 0 2px ${vars.color_faxafloi_100};
   }
 
   // Checked + Focus/Hover
@@ -239,20 +239,20 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
 
   // Disabled
   .${bem}__input[class]:disabled + .${bem}__label {
-    color: ${hannaVars.color_suld_150};
-    border-color: ${hannaVars.color_suld_100};
-    background-color: ${hannaVars.color_suld_50};
+    color: ${vars.color_suld_150};
+    border-color: ${vars.color_suld_100};
+    background-color: ${vars.color_suld_50};
     box-shadow: none;
     opacity: 0.5;
   }
   .${bem}__input:disabled + .${bem}__label > small {
-    color: ${hannaVars.color_suld_150};
+    color: ${vars.color_suld_150};
   }
 
   ${!radio &&
   css`
     .${bem}__error {
-      color: ${hannaVars.color_heidmork_150};
+      color: ${vars.color_heidmork_150};
       padding-left: ${prem(36)};
     }
   `};
@@ -263,12 +263,12 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
 // ===========================================================================
 
 export const InputField = () => css`
-  font-size: ${hannaVars.font_bd_l_size};
+  font-size: ${vars.font_bd_l_size};
   position: relative;
   display: flex;
   width: 100%;
-  background-color: ${hannaVars.color_suld_0};
-  color: ${hannaVars.color_suld_200};
+  background-color: ${vars.color_suld_0};
+  color: ${vars.color_suld_200};
   border: ${prem(1)} solid var(--input-border-color);
   transition: all 400ms ease-in;
   transition-property: color, border-color, box-shadow, background-color;
@@ -286,40 +286,40 @@ export const InputField__noLabel = () => css`
 
 export const InputField__small = () => css`
   padding-top: 0;
-  font-size: ${hannaVars.font_base_size};
+  font-size: ${vars.font_base_size};
   height: ${prem(InputField_heightI__small + 2)};
   line-height: ${prem(InputField_heightI__small)};
 `;
 
 export const InputField__placeholder = () => css`
-  color: ${hannaVars.color_suld_150};
+  color: ${vars.color_suld_150};
   opacity: 1; // override browser default styling
 `;
 
 export const InputField__filled = () => css`
-  --input-border-color: ${hannaVars.color_faxafloi_100};
+  --input-border-color: ${vars.color_faxafloi_100};
 `;
 
 export const InputField__invalid = () => css`
-  --input-border-color: ${hannaVars.color_heidmork_100};
-  color: ${hannaVars.color_heidmork_100};
+  --input-border-color: ${vars.color_heidmork_100};
+  color: ${vars.color_heidmork_100};
 `;
 
 export const InputField__focused = () => css`
-  --input-border-color: ${hannaVars.color_faxafloi_100};
-  color: ${hannaVars.color_suld_200};
+  --input-border-color: ${vars.color_faxafloi_100};
+  color: ${vars.color_suld_200};
   box-shadow: inset 0 0 0 ${prem(1)} var(--input-border-color);
   outline: 0;
 `;
 
 export const InputField__disabled = () => css`
-  --input-border-color: ${hannaVars.color_suld_100};
-  background-color: ${hannaVars.color_suld_50};
+  --input-border-color: ${vars.color_suld_100};
+  background-color: ${vars.color_suld_50};
   opacity: 0.5;
   cursor: not-allowed;
 `;
 
 export const InputField__readonly = () => css`
-  --input-border-color: ${hannaVars.color_suld_100};
-  background-color: ${hannaVars.color_suld_50};
+  --input-border-color: ${vars.color_suld_100};
+  background-color: ${vars.color_suld_50};
 `;
