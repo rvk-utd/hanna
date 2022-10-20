@@ -105,7 +105,10 @@ const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>) => {
       renderSuggestion={renderSuggestion || ((s) => String(s))}
       containerProps={{ 'aria-label': txt.label }}
       renderSuggestionsContainer={({ containerProps, children }) => (
-        <div {...containerProps} aria-label={txt.suggestionsLabel}>
+        <div
+          {...containerProps}
+          aria-label={suggestions.length ? txt.suggestionsLabel : undefined}
+        >
           {children}
         </div>
       )}

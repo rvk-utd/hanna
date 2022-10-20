@@ -21,7 +21,7 @@ const items = range(1, 5).map((value) => `Suggestion ${value}`);
 // };
 
 export const _SiteSearchAutocomplete: StoryComponent = () => {
-  const [suggestions, setSuggestions] = useState(items);
+  const [suggestions, setSuggestions] = useState<Array<string>>([]);
   return (
     <SiteSearchAutocomplete
       suggestions={suggestions}
