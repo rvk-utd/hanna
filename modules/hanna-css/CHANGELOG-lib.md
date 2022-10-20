@@ -8,6 +8,9 @@
 - feat: Add `font_raw.sizes`
 - feat: Upgrade `es-in-css` for bugfixes and new features.
 - feat: `getCssBundleUrl` tolerates trailing slashes on `testingServer` URLs
+- feat: Re-export `setStyleServerUrl` from `@reykjavik/hanna-utils`
+- feat: Deprecate `CssBundleOpts.testingServer` in favour of
+  `setStyleServerUrl`
 - fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7

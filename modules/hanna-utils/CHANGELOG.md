@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `styleServerUrl` and `setStyleServerUrl()`
 - feat: Add `ensurePosInt` and branded `PositiveInteger` type
 - feat: Add `notFalsy` type guarding filter function
 

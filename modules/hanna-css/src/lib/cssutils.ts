@@ -1,3 +1,4 @@
+import { styleServerUrl } from '@reykjavik/hanna-utils/assets';
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
 import { cssVersion as fullCssVersion } from './style-server-info';
@@ -55,31 +56,26 @@ buildVariables.join = makeVariables.join;
 
 // ---------------------------------------------------------------------------
 
-// Add this workaround for remix_run as it's build script
-// does not allow string replacing process.env.* build variables
-// See: https://github.com/remix-run/remix/discussions/3541
-declare const _NPM_PUB_: boolean;
+export { setStyleServerUrl, styleServerUrl } from '@reykjavik/hanna-utils/assets';
 
 const cssCurrentVersionFolder =
   process.env.NODE_ENV === 'production'
     ? 'v' + targetCssVersion
-    : typeof _NPM_PUB_ !== 'undefined'
+    : styleServerUrl.indexOf('://localhost') > -1
     ? 'dev-v' + targetCssVersion.replace(/\..+/, '') // only the MAJOR version
     : 'dev'; // Use "live" compilation results during local dev.
 
-export const styleServerUrl =
-  typeof _NPM_PUB_ !== 'undefined' || process.env.NODE_ENV === 'production'
-    ? 'https://styles.reykjavik.is'
-    : 'http://localhost:4000';
+type CssBundleOpts = {
+  /** If you want to pin your CSS files to a specific version */
+  version?: string;
+
+  /** @deprecated Use `setStyleServerUrl()` instead. (will be removed in v0.6) */
+  testingServer?: string;
+};
 
 export const getCssBundleUrl = (
   cssTokens: string | Array<string>,
-  options?: {
-    /** If you want to pin your CSS files to a specific version */
-    version?: string;
-    /** If you've got a custom style server instance, for testing/staging/etc. */
-    testingServer?: string;
-  }
+  options?: CssBundleOpts
 ): string => {
   options = options || {};
   const host = (options.testingServer || styleServerUrl).replace(/\/$/, '');

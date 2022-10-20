@@ -36,6 +36,7 @@ yarn add --dev @reykjavik/hanna-css
   - [`getCssBundleUrl`](#getcssbundleurl)
     - [Type `CssBundleOpts`](#type-cssbundleopts)
   - [`styleServerUrl`](#styleserverurl)
+  - [`setStyleServerUrl`](#setstyleserverurl)
   - [`cssVersion`](#cssversion)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
@@ -360,20 +361,27 @@ specific version folder.
 const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.8.20' });
 ```
 
-**`CssBundleOpts.testingServer?: string`**
-
-Default: [`styleServerUrl`](#styleserverurl)
-
-Use this option if you need to load the CSS bundles from a custom style-server
-instance, during testing/staging/etc.
-
 ### `styleServerUrl`
 
 **Syntax:** `styleServerUrl: string`
 
-The root URL of the Hanna Style Server. This URL is useful when building links
-linking to assets, etc, and is used internally by
-[`getCssBundleUrl()`](#getcssbundleurl)
+Re-export from [`@reykjavik/hanna-utils/assets`](../hanna-utils).
+
+This URL is useful when building links linking to assets, etc, and is used
+internally by [`getCssBundleUrl()`](#getcssbundleurl)
+
+### `setStyleServerUrl`
+
+**Syntax:** `setStyleServerUrl(url: string | URL)`
+
+Re-export from [`@reykjavik/hanna-utils/assets`](../hanna-utils).
+
+This updates the value of `styleServerUrl` globally. Use it at the top of your
+application if you want to load assets and CSS bundles from a custom
+style-server instance, e.g. during testing/staging/etc.
+
+_(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
+DEFAULT value.)_
 
 ### `cssVersion`
 

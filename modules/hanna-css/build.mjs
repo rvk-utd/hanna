@@ -77,18 +77,6 @@ buildNpmLib('css', {
   entryGlobs: ['index.ts'],
 });
 
-if (!opts.dev) {
-  // poor man's tsc replace-string plugin
-  ['.' /* , 'esm' */].forEach((folder) => {
-    const fileName = `${distDir}/${folder}/cssutils.js`;
-    readFile(fileName)
-      .then((contents) =>
-        contents.toString().replaceAll(`typeof _NPM_PUB_ !== 'undefined'`, 'true')
-      )
-      .then((content) => writeFile(fileName, content));
-  });
-}
-
 // ---------------------------------------------------------------------------
 
 if (!opts.onlyLib) {

@@ -1,12 +1,11 @@
-import * as esincss from 'es-in-css';
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
 import * as lib from './index';
 
-type ExpectedExports = Exclude<keyof typeof lib, keyof typeof esincss>;
+type ExpectedExports = keyof typeof lib;
 
-o.spec('hanna-css lib', () => {
+o.spec('hanna-utils lib', () => {
   o('exports the correct tokens', () => {
     const expectedTokens: Record<ExpectedExports, true> = {
       /* ObjectHelpers.ts */
@@ -43,12 +42,7 @@ o.spec('hanna-css lib', () => {
       /* types.d.ts */
     };
 
-    reportKeyMismatch(
-      lib,
-      expectedTokens,
-      // Ignoring re-exported tokens from es-in-css.
-      esincss
-    );
+    reportKeyMismatch(lib, expectedTokens);
   });
 });
 
@@ -89,5 +83,4 @@ import type {
   // RequiredKeys,
   // OptionalKeys,
 } from './index';
-import { tree } from 'gulp';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
