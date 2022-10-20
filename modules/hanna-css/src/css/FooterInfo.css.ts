@@ -3,6 +3,7 @@ import { css } from 'es-in-css';
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
 import { hannaVars as vars } from '../lib/hannavars';
+import { WARNING__ } from '../lib/WARNING__';
 
 import { afterClear_css } from './utils/afterClear';
 import { prem } from './utils/miscUtils';
@@ -52,7 +53,8 @@ export default css`
     }
   }
 
-  .FooterInfo__group[role='contactinfo'] {
+  .FooterInfo__group[role='contactinfo'], /** @deprecated  invalid role value (Remove in v0.9) */
+  .FooterInfo__group--main {
     background-color: ${colors.suld_25};
     padding: ${vars.space_8} ${vars.grid_gutter};
 
@@ -74,6 +76,10 @@ export default css`
       width: ${vars.grid_4};
       margin-left: ${vars.grid_1_1};
     }
+  }
+
+  .FooterInfo__group--main ~ .FooterInfo__group--main {
+    ${WARNING__('Multiple `--main` groups are not supported')};
   }
 
   .FooterInfo__grouptitle {

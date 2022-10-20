@@ -1,19 +1,20 @@
-import { css } from 'es-in-css';
+import { css, px } from 'es-in-css';
 
 import { between_cols } from '../lib/between';
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
 import { cols_pct, px_pct } from '../lib/grid';
-import { hannaVars } from '../lib/hannavars';
+import { hannaVars as vars } from '../lib/hannavars';
 
 import { prem } from './utils/miscUtils';
 
 export default css`
   /*!@deps
-	ButtonTertiary
-	Sharpie
-	Bling
-*/
+    ButtonTertiary
+    Sharpie
+    Bling
+  */
+
   @media screen {
     .InfoHero {
       position: relative;
@@ -33,14 +34,15 @@ export default css`
 
     .InfoHero__image {
       position: relative;
-      margin: 0 ${hannaVars.grid_margin__neg};
+      margin: 0 ${vars.grid_margin__neg};
       padding-top: 75%;
 
       @media ${mq.phablet_up} {
-        padding-left: ${hannaVars.grid_margin};
+        padding-left: ${vars.grid_margin};
         box-sizing: content-box;
-        width: ${cols_pct(6)};
+        width: ${vars.grid_6};
         padding-top: ${px_pct(690)};
+        max-height: ${px(850 - 690)};
       }
     }
 
@@ -55,11 +57,16 @@ export default css`
       height: 100%;
       object-fit: contain;
       object-position: 50% 31%;
+
+      @media ${mq.tablet_up} {
+        object-position: 0% 31%;
+
+        .InfoHero--align--left & {
+          object-position: 100% 31%;
+        }
+      }
     }
-    .InfoHero__wrapper {
-      display: flex;
-      flex-direction: column;
-    }
+
     .InfoHero__content {
       margin-top: ${between_cols(20, 40)};
 
@@ -74,14 +81,14 @@ export default css`
     }
 
     .InfoHero__title {
-      font: ${hannaVars.font_hd_l};
+      font: ${vars.font_hd_l};
       margin-bottom: 0;
       word-break: break-word;
       overflow-wrap: break-word;
     }
     .InfoHero--align--left > * > .InfoHero__title {
       @media ${mq.netbook_up} {
-        margin-right: ${hannaVars.grid_1__neg};
+        margin-right: ${vars.grid_1__neg};
       }
     }
 
@@ -89,11 +96,11 @@ export default css`
       margin-bottom: ${px_pct(24, 5)};
     }
     .InfoHero__subtitle {
-      font: ${hannaVars.font_hd_l};
+      font: ${vars.font_hd_l};
       margin-bottom: ${prem(8)};
     }
     .InfoHero__blurb {
-      font: ${hannaVars.font_bd_s};
+      font: ${vars.font_bd_s};
       color: ${colors.suld_150};
       margin-bottom: ${prem(8)};
     }
@@ -104,5 +111,29 @@ export default css`
     .InfoHero__buttons > .ButtonTertiary {
       display: block;
     }
+
+    /* ------------------------------------------------------------------------ */
+    /*
+      BEGIN: Styling for weird custom markup changes in some places on www.reykjavik.is
+
+      .InfoHero__wrapper
+          .InfoHero__head
+              .InfoHero__title
+          .InfoHero
+              .InfoHero__content  (w/o \`.InfoHero__title\`)
+              .InfoHero__image
+
+              see \`InfoHero.twig\` for details...
+    */
+    .InfoHero__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    .InfoHero__head {
+    }
+    .InfoHero__head + * > .InfoHero__image > img {
+      top: ${vars.space_2};
+    }
+    /* END: custom markup */
   }
 `;

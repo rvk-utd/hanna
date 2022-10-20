@@ -51,12 +51,9 @@ export default css`
         width: ${vars.grid_10_10};
         columns: 2;
       }
-      @media ${mq.tablet_netbook} {
+      @media ${mq.tablet_up} {
         width: calc(${vars.grid_9_9} + 3 * ${vars.grid_0_1});
-        columns: 3;
-      }
-      @media ${mq.wide} {
-        width: ${vars.grid_9_9};
+        max-width: ${cols_px(9, 9)};
         columns: 3;
       }
     }
@@ -66,10 +63,17 @@ export default css`
       padding-bottom: ${vars.grid_0_1};
       padding-right: ${vars.grid_0_1};
       padding-left: ${prem(40)};
+      box-sizing: content-box;
+      // Fix for Firefox css column rendering glitch which
+      // causes the .FeatureList__feature::before icon to blink
+      // in/out as the viewport is resized.
+      min-height: calc(${vars.font_base_leading} + 1px);
     }
+
     .FeatureList__feature:not([data-efnistakn]) {
       --efnistakn: url('/assets/efnistakn/skipurit_01.svg');
     }
+
     .FeatureList__feature::before {
       content: '';
       position: absolute;

@@ -9,6 +9,7 @@ import md5File from 'md5-file';
 
 import { bp } from '../lib/breakpoints';
 import { iconfont_raw } from '../lib/icons';
+import { WARNING_border__ } from '../lib/WARNING__';
 
 import { hannaVarDeclarations } from './styles/hannaVarDeclarations';
 import { LinkStyle, LinkStyle__focusOutline } from './styles/links';
@@ -190,6 +191,13 @@ export default css`
   }
   iframe:not([frameborder='yes']) {
     border: 0;
+  }
+
+  img:not([alt]),
+  audio:not([title]):not([aria-label]),
+  video:not([title]):not([aria-label]),
+  iframe:not([title]):not([aria-label]) {
+    ${WARNING_border__};
   }
 
   table {
