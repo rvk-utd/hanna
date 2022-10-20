@@ -55,25 +55,27 @@ in this monorepo and outside it, and is a more future-proof technology than
 SASS.
 
 SASS has been almost an industry standard tool for templating CSS code for
-over a decade now. Yet it provides poor developer experience with lackluster
-editor integrations, idiosyncratic syntax, extremely limited feature set,
-publishing and consuming libraries is hard, etc…
+well over a decade now. Yet it provides poor developer experience with
+lackluster editor integrations, idiosyncratic syntax, extremely limited
+feature set, publishing and consuming libraries is hard, etc…
 
 The web development community has been steadily moving on to other, more
-nimble technologies — either more vanilla "text/css" authoring,
+nimble technologies — either more vanilla "text/css" authoring, or
 class-name-based reverse compilers like Tailwind, or various CSS-in-JS
 solutions.
 
 This package provides supportive tooling for this last group, but offers also
-a new lightweight alternative: to author CSS using JavaScript as a templating
-engine … and then simply `writeFile` the resulting string to static file, use
-an
-[es-to-css compiler](https://github.com/maranomynet/es-in-css#compilation-api),
-or stream it directly to the browser.
+a new lightweight alternative: To author CSS using JavaScript as a templating
+engine, and then output it via one of the following methods:
 
-However, if SASS remains your thing you might still use this library to
-programmatically generate \*.scss files with SASS variables, etc. and then
-consume those files as part of your SASS compilation.
+- Simply `writeFile` the resulting string to static file
+- Use an
+  [es-to-css compiler](https://github.com/maranomynet/es-in-css#compilation-api),
+- Or stream it directly to the browser.
+
+However, if SASS remains your thing you could still use this library to
+programmatically generate some key \*.scss files with SASS variables, etc. and
+then `@use` those in the SASS files you write.
 
 ## Generic CSS helpers
 
