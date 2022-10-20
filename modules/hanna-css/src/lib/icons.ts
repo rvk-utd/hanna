@@ -12,7 +12,9 @@ const iconfontName = 'icons';
  * to set up iconfont styling
  */
 export const iconStyle = (icon?: string | VariablePrinter) => {
-  const content = !icon ? undefined : typeof icon === 'string' ? str(icon) : icon;
+  if (typeof icon === 'string') {
+    icon = str(icon);
+  }
 
   return css`
     display: inline-block;
@@ -28,7 +30,7 @@ export const iconStyle = (icon?: string | VariablePrinter) => {
     -webkit-font-smoothing: antialiased; // fix for light text on dark background from beeing smudgy in webkit/mac
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
-    ${icon && `content: ${content};`}
+    ${icon && `content: ${icon};`}
   `;
 };
 

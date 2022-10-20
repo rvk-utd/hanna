@@ -53,7 +53,7 @@ export const sr_only = (mode: Mode = 'normal') => css`
   pointer-events: none;
   ${mode !== 'soft' &&
   css`
-    margin: 0;
+    margin: -1px;
   `}
 `;
 

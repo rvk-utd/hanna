@@ -56,7 +56,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     position: relative;
   }
   .${bem}__label::before {
-    ${iconStyle}
+    ${iconStyle('')}
     float: left;
     margin-top: ${prem(2)};
     margin-left: ${prem(-36)};
