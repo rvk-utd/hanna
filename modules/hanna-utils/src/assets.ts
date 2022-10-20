@@ -1,4 +1,38 @@
-import { styleServerUrl } from '@reykjavik/hanna-css';
+// ---------------------------------------------------------------------------
+
+// Add this workaround for remix_run as it's build script
+// does not allow string replacing process.env.* build variables
+// See: https://github.com/remix-run/remix/discussions/3541
+declare const _NPM_PUB_: boolean;
+
+const _defaultStyleServerUrl =
+  typeof _NPM_PUB_ !== 'undefined' || process.env.NODE_ENV === 'production'
+    ? 'https://styles.reykjavik.is'
+    : 'http://localhost:4000';
+
+/**
+ * This URL is used when building links to graphic/styling assets, etc.
+ *
+ * Use `setStyleServerUrl` to change it.
+ */
+export let styleServerUrl = _defaultStyleServerUrl;
+
+/**
+ * This updates the value of `styleServerUrl` globally. Use it when you want to
+ * load assets and CSS bundles from a custom style-server instance, e.g. during
+ * testing/staging/etc.
+ *
+ * _(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
+ * DEFAULT value.)_
+ */
+export const setStyleServerUrl = (url: string | URL) => {
+  // NOTE: This DOES throw if user passes an invalid URL string
+  url = typeof url === 'string' ? new URL(url) : url;
+  styleServerUrl = url.toString();
+};
+setStyleServerUrl.reset = () => {
+  styleServerUrl = _defaultStyleServerUrl;
+};
 
 // ---------------------------------------------------------------------------
 

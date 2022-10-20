@@ -28,7 +28,7 @@ export default function () {
           { label: 'Past, Not clickable, not done', done: false },
           {
             // the active one (idx: 4)
-            label: 'Current, Clickable, long text - ' + lorem.medium,
+            label: 'Current, Clickable, long text -- ' + lorem.medium,
             clickable: true,
           },
 
@@ -76,8 +76,10 @@ export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
     const buttons = await page.locator('button.WizardStepper__step').elementHandles();
     for (const button of buttons) {
+      const label = ((await button.textContent()) || '').split('--')[0];
+
       await button.hover();
-      await localScreenshot(button, 'blah-hover', { margin: [5, 10] });
+      await localScreenshot(button, label + '-hover', { margin: [5, 10] });
     }
   },
 };

@@ -5,6 +5,8 @@ import IframeResizer, { ResizerOptions } from 'iframe-resizer-react';
 
 export type IframeBlockProps = {
   src: string;
+  /** Accessible title attribute for the iframe (similar to alt="" on images) */
+  title: string;
   framed?: boolean;
   compact?: boolean;
   align?: 'right';
@@ -32,6 +34,7 @@ export type IframeBlockProps = {
 
 const IframeBlock = (props: IframeBlockProps) => {
   const {
+    title,
     src,
     framed,
     compact,
@@ -48,10 +51,16 @@ const IframeBlock = (props: IframeBlockProps) => {
   ]);
 
   return height === 'auto' ? (
-    <IframeResizer className={className} src={src} checkOrigin={checkOrigin} />
+    <IframeResizer
+      className={className}
+      title={title}
+      src={src}
+      checkOrigin={checkOrigin}
+    />
   ) : (
     <iframe
       className={className}
+      title={title}
       src={src}
       // hidden tiger: pass negative height to disable iframe-resizer but not set height explicitly
       // (Silly hack, don't rely on this)

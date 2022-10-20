@@ -23,6 +23,9 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
   - [Formheimur Shapes](#formheimur-shapes)
   - [Bling Shapes](#bling-shapes)
   - [Misc. Style Server Assets](#misc-style-server-assets)
+  - [Style-Server Info](#style-server-info)
+    - [`styleServerUrl`](#styleserverurl)
+    - [`setStyleServerUrl`](#setstyleserverurl)
 - [Social Media Sharing](#social-media-sharing)
 - [Polyfills / A11y](#polyfills--a11y)
   - [`focus-visible` polyfill](#focus-visible-polyfill)
@@ -262,6 +265,27 @@ import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
 const url = getAssetUrl('reykjavik-logo.svg');
 ```
+
+### Style-Server Info
+
+#### `styleServerUrl`
+
+**Syntax:** `styleServerUrl: string`
+
+This URL is used when building links to graphic/styling assets, etc. It is
+used internally by all of the above asset getter functions
+(`getIllustrationUrl`, `getIllustrationUrl`).
+
+#### `setStyleServerUrl`
+
+**Syntax:** `setStyleServerUrl(url: string | URL): void`
+
+This updates the value of `styleServerUrl` globally. Use it at the top of your
+application if you want to load assets and CSS bundles from a custom
+style-server instance, e.g. during testing/staging/etc.
+
+_(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
+DEFAULT value.)_
 
 ## Social Media Sharing
 

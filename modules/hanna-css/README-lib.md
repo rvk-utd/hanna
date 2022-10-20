@@ -36,11 +36,16 @@ yarn add --dev @reykjavik/hanna-css
   - [`getCssBundleUrl`](#getcssbundleurl)
     - [Type `CssBundleOpts`](#type-cssbundleopts)
   - [`styleServerUrl`](#styleserverurl)
-  - [`cssVersion`](#cssversion)
+  - [`setStyleServerUrl`](#setstyleserverurl)
+  - [`targetCssVersion`](#targetcssversion)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
   - [`WARNING_soft__`](#warning_soft__)
   - [`WARNING_message__`](#warning_message__)
+  - [`WARNING_border__`](#warning_border__)
+  - [`WARNING_border_soft__`](#warning_border_soft__)
+  - [`suppress_WARNING__`](#suppress_warning__)
+  - [`suppress_WARNING_soft__`](#suppress_warning_soft__)
   - [Type `WarningOpts`](#type-warningopts)
 - [Raw Design Constants](#raw-design-constants)
 - [Changelog](#changelog)
@@ -54,25 +59,27 @@ in this monorepo and outside it, and is a more future-proof technology than
 SASS.
 
 SASS has been almost an industry standard tool for templating CSS code for
-over a decade now. Yet it provides poor developer experience with lackluster
-editor integrations, idiosyncratic syntax, extremely limited feature set,
-publishing and consuming libraries is hard, etc…
+well over a decade now. Yet it provides poor developer experience with
+lackluster editor integrations, idiosyncratic syntax, extremely limited
+feature set, publishing and consuming libraries is hard, etc…
 
 The web development community has been steadily moving on to other, more
-nimble technologies — either more vanilla "text/css" authoring,
+nimble technologies — either more vanilla "text/css" authoring, or
 class-name-based reverse compilers like Tailwind, or various CSS-in-JS
 solutions.
 
 This package provides supportive tooling for this last group, but offers also
-a new lightweight alternative: to author CSS using JavaScript as a templating
-engine … and then simply `writeFile` the resulting string to static file, use
-an
-[es-to-css compiler](https://github.com/maranomynet/es-in-css#compilation-api),
-or stream it directly to the browser.
+a new lightweight alternative: To author CSS using JavaScript as a templating
+engine, and then output it via one of the following methods:
 
-However, if SASS remains your thing you might still use this library to
-programmatically generate \*.scss files with SASS variables, etc. and then
-consume those files as part of your SASS compilation.
+- Simply `writeFile` the resulting string to static file
+- Use an
+  [es-to-css compiler](https://github.com/maranomynet/es-in-css#compilation-api),
+- Or stream it directly to the browser.
+
+However, if SASS remains your thing you could still use this library to
+programmatically generate some key \*.scss files with SASS variables, etc. and
+then `@use` those in the SASS files you write.
 
 ## Generic CSS helpers
 
@@ -360,24 +367,31 @@ specific version folder.
 const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.8.20' });
 ```
 
-**`CssBundleOpts.testingServer?: string`**
-
-Default: [`styleServerUrl`](#styleserverurl)
-
-Use this option if you need to load the CSS bundles from a custom style-server
-instance, during testing/staging/etc.
-
 ### `styleServerUrl`
 
 **Syntax:** `styleServerUrl: string`
 
-The root URL of the Hanna Style Server. This URL is useful when building links
-linking to assets, etc, and is used internally by
-[`getCssBundleUrl()`](#getcssbundleurl)
+Re-export from [`@reykjavik/hanna-utils/assets`](../hanna-utils).
 
-### `cssVersion`
+This URL is useful when building links linking to assets, etc, and is used
+internally by [`getCssBundleUrl()`](#getcssbundleurl)
 
-**Syntax:** `cssVersion: string`
+### `setStyleServerUrl`
+
+**Syntax:** `setStyleServerUrl(url: string | URL)`
+
+Re-export from [`@reykjavik/hanna-utils/assets`](../hanna-utils).
+
+This updates the value of `styleServerUrl` globally. Use it at the top of your
+application if you want to load assets and CSS bundles from a custom
+style-server instance, e.g. during testing/staging/etc.
+
+_(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
+DEFAULT value.)_
+
+### `targetCssVersion`
+
+**Syntax:** `targetCssVersion: string`
 
 The current version of the Hanna style-server CSS files this version of
 `@reyjkjavik/hanna-css` package targets.
@@ -430,10 +444,36 @@ then the HTML element is `:hover`ed.
 
 ### `WARNING_message__`
 
-**Syntax:** `WARNING_soft__(message: string, opts?: WarningOpts): string`
+**Syntax:**
+`WARNING_soft__(message: string, ops?: Omit<WarningOpts, 'pos'>): string`
 
 Only sets (overrides) the warning message on an element that already has a
 warning style applied.
+
+### `WARNING_border__`
+
+**Syntax:** `WARNING_border__(ops?: Omit<WarningOpts, 'pos'>): string`
+
+Sets a high-priority (red) warning border around an element.
+
+### `WARNING_border_soft__`
+
+**Syntax:** `WARNING_border_soft__(ops?: Omit<WarningOpts, 'pos'>): string`
+
+Renders a lower-priority (orange) warning warning that is only visible then
+the HTML element is `:hover`ed.
+
+### `suppress_WARNING__`
+
+**Syntax:** `suppress_WARNING__(ops?: WarningOpts): string`
+
+Attempts to remove warning border and message.
+
+### `suppress_WARNING_soft__`
+
+**Syntax:** `suppress_WARNING_soft__(ops?: WarningOpts): string`
+
+Attempts to remove lower-priority (`:hover`) warning border and message.
 
 ### Type `WarningOpts`
 

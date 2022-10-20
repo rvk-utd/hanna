@@ -52,6 +52,7 @@ import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
 import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar';
 import { testing as Buttons__test } from '../src/routes/test/Buttons';
 import { testing as Carousel__test } from '../src/routes/test/Carousel';
+import { testing as CenterColumn__test } from '../src/routes/test/CenterColumn';
 import { testing as CheckboxAndRadio__test } from '../src/routes/test/CheckboxAndRadio';
 import { testing as CheckboxButtonsGroup__test } from '../src/routes/test/CheckboxButtonsGroup';
 import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
@@ -80,11 +81,15 @@ import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
 import { testing as PageFilter__test } from '../src/routes/test/PageFilter';
 import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
 import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
+import { testing as RelatedLinks__test } from '../src/routes/test/RelatedLinks';
 import { testing as SearchResults__test } from '../src/routes/test/SearchResults';
+import { testing as Selectbox__test } from '../src/routes/test/Selectbox';
 import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete';
+import { testing as Skeleton__test } from '../src/routes/test/Skeleton';
 import { testing as Tabs__test } from '../src/routes/test/Tabs';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
+import { testing as TextInput__test } from '../src/routes/test/TextInput';
 import { testing as WizardStepper__test } from '../src/routes/test/WizardStepper';
 
 /* eslint-enable import/first */
@@ -113,6 +118,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   ButtonBar: ButtonBar__test,
   Buttons: Buttons__test,
   Carousel: Carousel__test,
+  CenterColumn: CenterColumn__test,
   CheckboxAndRadio: CheckboxAndRadio__test,
   CheckboxButtonsGroup: CheckboxButtonsGroup__test,
   ContentArticle: ContentArticle__test,
@@ -141,11 +147,15 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   PageFilter: PageFilter__test,
   ProcessOverview: ProcessOverview__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
+  RelatedLinks: RelatedLinks__test,
   SearchResults: SearchResults__test,
+  Selectbox: Selectbox__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,
+  Skeleton: Skeleton__test,
   Tabs: Tabs__test,
   TagPill: TagPill__test,
   TextBlock: TextBlock__test,
+  TextInput: TextInput__test,
   WizardStepper: WizardStepper__test,
 };
 // ---------------------------------------------------------------------------

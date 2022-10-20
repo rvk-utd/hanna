@@ -3,11 +3,15 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add new dev mixins `WARNING_border__`, `WARNING_border_soft__`
 - feat: Support passing custom `namespace` prefix to `buildVariables()`
 - feat: Add constant `icons`, and type `IconName`
 - feat: Add `font_raw.sizes`
 - feat: Upgrade `es-in-css` for bugfixes and new features.
 - feat: `getCssBundleUrl` tolerates trailing slashes on `testingServer` URLs
+- feat: Re-export `setStyleServerUrl` from `@reykjavik/hanna-utils`
+- feat: Deprecate `CssBundleOpts.testingServer` in favour of
+  `setStyleServerUrl`
 - fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7
@@ -67,6 +71,7 @@ _2022-05-13_
   - Env variable: `isDevMode`
   - Helper constants: `colorThemes`, `mq` (media queries) and `characters`
   - Iconfont styling mixin: `iconStyle` (undocumented, for now)
-  - Markup warning mixins: `WARNING__`, `WARNING_soft__`, `WARNING_message__`
+  - Markup warning mixins: `WARNING__`, `WARNING_soft__`, `WARNING_message__`,
+    `suppress_WARNING__`, `suppress_WARNING_soft__`
   - Raw design constants: `colors_raw`, `font_raw`, `grid_raw`,
     `iconfont_raw`, `breakpoints_raw`

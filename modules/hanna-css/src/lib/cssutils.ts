@@ -1,11 +1,26 @@
+import { styleServerUrl } from '@reykjavik/hanna-utils/assets';
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
 import { cssVersion as fullCssVersion } from './style-server-info';
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Convenience shorthand for process.env.NODE_ENV !== 'production',
+ * used internally in some of the exported mixins, etc.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#isdevmode
+ */
 export const isDevMode = process.env.NODE_ENV !== 'production';
 
+/**
+ * The current version of the Hanna style-server CSS files this version of
+ * `@reyjkjavik/hanna-css` package targets.
+ *
+ * Primary use is for debugging/informational purposes.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#targetcssversion
+ */
 export const targetCssVersion =
   (fullCssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0] || '';
 
@@ -26,6 +41,8 @@ const variableOptions: Partial<VariableOptions> = {
 /**
  * Limited version of the `makeVariables` helper from `es-in-css`,
  * configured specifically for the Hanna project.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#buildvariables
  */
 export const buildVariables = <T extends string>(
   input: Array<T>,
@@ -55,31 +72,31 @@ buildVariables.join = makeVariables.join;
 
 // ---------------------------------------------------------------------------
 
-// Add this workaround for remix_run as it's build script
-// does not allow string replacing process.env.* build variables
-// See: https://github.com/remix-run/remix/discussions/3541
-declare const _NPM_PUB_: boolean;
+export { setStyleServerUrl, styleServerUrl } from '@reykjavik/hanna-utils/assets';
 
 const cssCurrentVersionFolder =
   process.env.NODE_ENV === 'production'
     ? 'v' + targetCssVersion
-    : typeof _NPM_PUB_ !== 'undefined'
+    : styleServerUrl.indexOf('://localhost') === -1
     ? 'dev-v' + targetCssVersion.replace(/\..+/, '') // only the MAJOR version
     : 'dev'; // Use "live" compilation results during local dev.
 
-export const styleServerUrl =
-  typeof _NPM_PUB_ !== 'undefined' || process.env.NODE_ENV === 'production'
-    ? 'https://styles.reykjavik.is'
-    : 'http://localhost:4000';
+type CssBundleOpts = {
+  /** If you want to pin your CSS files to a specific version */
+  version?: string;
 
+  /** @deprecated Use `setStyleServerUrl()` instead. (will be removed in v0.6) */
+  testingServer?: string;
+};
+
+/**
+ * This methods generates a URL to load a correctly versioned CSS bundle from the Hanna Style Server.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getcssbundleurl
+ */
 export const getCssBundleUrl = (
   cssTokens: string | Array<string>,
-  options?: {
-    /** If you want to pin your CSS files to a specific version */
-    version?: string;
-    /** If you've got a custom style server instance, for testing/staging/etc. */
-    testingServer?: string;
-  }
+  options?: CssBundleOpts
 ): string => {
   options = options || {};
   const host = (options.testingServer || styleServerUrl).replace(/\/$/, '');

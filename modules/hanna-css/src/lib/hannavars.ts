@@ -309,7 +309,19 @@ const _hannaVars = buildVariables.join(
   iconVars
 );
 
+/**
+ * Type-safe collection of CSS variables for use in your CSS code.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hannavars
+ */
 export const hannaVars = _hannaVars.vars;
+
+/**
+ * This function provides a type-safe way to write local overrides for the Hanna
+ * CSS variables. _Use sparingly, with caution!_
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hannavaroverride
+ */
 export const hannaVarOverride = _hannaVars.override;
 
 export type HannaCssVarToken = keyof typeof hannaVars;

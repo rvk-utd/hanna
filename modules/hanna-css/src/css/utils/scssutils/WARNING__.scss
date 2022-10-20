@@ -47,6 +47,14 @@ $_isDev: isDevMode();
   }
 }
 
+@mixin WARNING_border__($always: false) {
+  @if ($_isDev or $always) {
+    html:not([data-disable-css-warnings-with-abandon='true']) & {
+      box-shadow: 0 0 0 1px rgba(red, 0.5) !important;
+    }
+  }
+}
+
 @mixin WARNING_soft__($message, $pos: before, $always: false) {
   @include WARNING__($message, soft, $pos, $always);
 }
