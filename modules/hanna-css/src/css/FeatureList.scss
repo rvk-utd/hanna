@@ -36,6 +36,7 @@
   }
 
   .FeatureList__list {
+    background-color: white;
     margin-left: var(--left-offset);
     column-gap: 0;
 
@@ -43,12 +44,9 @@
       width: $var--grid-10-10;
       columns: 2;
     }
-    @include media($mq-tablet_netbook) {
+    @include media($mq-tablet_up) {
       width: calc(#{$var--grid-9-9} + 3 * #{$var--grid-0-1});
-      columns: 3;
-    }
-    @include media($mq-wide) {
-      width: $var--grid-9-9;
+      max-width: cols_px(9, 9);
       columns: 3;
     }
   }
@@ -58,7 +56,13 @@
     padding-bottom: $var--grid-0-1;
     padding-right: $var--grid-0-1;
     padding-left: prem(40);
+    box-sizing: content-box;
+    // Fix for Firefox css column rendering glitch which
+    // causes the .FeatureList__feature::before icon to blink
+    // in/out as the viewport is resized.
+    min-height: calc(#{$var--font-base-leading} + 1px);
   }
+
   .FeatureList__feature:not([data-efnistakn]) {
     --efnistakn: url('/assets/efnistakn/skipurit_01.svg');
   }
@@ -69,6 +73,7 @@
     left: prem(-2);
     width: prem(24);
     height: prem(24);
+
     background: var(--efnistakn) no-repeat;
     background-size: contain;
   }

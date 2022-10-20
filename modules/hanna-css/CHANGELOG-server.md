@@ -13,6 +13,7 @@
 - fix: Suppress dev warning about forced `h1.Heading` elements
 - fix: Tweak layout of `FileInput__filelist` items
 - fix: Set color of `Gallery` modal links/buttons to Faxaflói
+- fix: Correct minor responsive rendering glitches in `.FeatureList`
 
 ## 0.8.70
 
