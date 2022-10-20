@@ -37,7 +37,16 @@ export default function () {
         titleBlurb="Title blurb"
         subTitle={lorem.tiny}
         image={photo.portrait}
-        blurb={loremRT.tiny()}
+        blurb={
+          <>
+            And long, long blurb content…
+            <br />
+            {loremRT.long()}
+            <br />
+            <br />
+            {loremRT.long()}
+          </>
+        }
         buttons={buttonProps.slice(0, 2)}
         align="left"
       />
