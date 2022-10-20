@@ -77,7 +77,7 @@ export { setStyleServerUrl, styleServerUrl } from '@reykjavik/hanna-utils/assets
 const cssCurrentVersionFolder =
   process.env.NODE_ENV === 'production'
     ? 'v' + targetCssVersion
-    : styleServerUrl.indexOf('://localhost') > -1
+    : styleServerUrl.indexOf('://localhost') === -1
     ? 'dev-v' + targetCssVersion.replace(/\..+/, '') // only the MAJOR version
     : 'dev'; // Use "live" compilation results during local dev.
 
