@@ -43,8 +43,8 @@
     }
   }
 
-  // .FooterInfo__group[role='contactinfo'] {
-  .FooterInfo__group[role='contactinfo'] {
+  .FooterInfo__group[role='contactinfo'], // @deprecated  invalid role value (Remove in v0.9)
+  .FooterInfo__group--main {
     background-color: $color-suld-25;
     padding: $var--space-8 $var--grid-gutter;
 
@@ -66,6 +66,10 @@
       width: $var--grid-4;
       margin-left: $var--grid-1-1;
     }
+  }
+
+  .FooterInfo__group--main ~ .FooterInfo__group--main {
+    @include WARNING__('Multiple `--main` groups are not supported');
   }
 
   .FooterInfo__grouptitle {

@@ -14,6 +14,7 @@ export default {
 const dummyContent: FooterInfoBoxes = [
   {
     title: 'Opnunartímar',
+    main: true,
     html: `
 			<h4>Þjónustuver</h4>
 			<p>
@@ -31,7 +32,6 @@ const dummyContent: FooterInfoBoxes = [
 				Helgar kl. 10:00–18:00<br />
 			</p>
 		`,
-    role: 'contactinfo',
   },
   {
     title: 'Hafa samband',

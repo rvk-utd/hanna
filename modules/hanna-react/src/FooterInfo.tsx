@@ -4,8 +4,10 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 export type FooterInfoGroup = {
   title: string;
-  role?: JSX.IntrinsicElements['div']['role'];
   modifier?: string;
+  main?: boolean;
+  /** @deprecated (Will be removed in v0.11) */
+  role?: JSX.IntrinsicElements['div']['role'];
 } & BemPropsModifier &
   ({ content: JSX.Element; html?: undefined } | { html: string; content?: undefined });
 
@@ -22,8 +24,10 @@ const FooterInfo = (props: FooterInfoProps) => {
     <div className="FooterInfo">
       {boxes.map((group, i) => (
         <div
-          className={getBemClass('FooterInfo__group', group.modifier)}
-          role={group.role}
+          className={getBemClass('FooterInfo__group', [
+            group.main && 'main',
+            group.modifier,
+          ])}
           key={i}
         >
           <h3 className="FooterInfo__grouptitle">{group.title}</h3>

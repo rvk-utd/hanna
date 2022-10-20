@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add support for rich text directly inside `.ArticleList__content`
 - feat: Add `.ActionCards__summary`
+- feat: Add `.FooterInfo__group--main`, deprecate `[role]` styling
 - fix: Add missing `title=""` attribute on `.IframeBlock` pattern
 
 ## 0.8.28
