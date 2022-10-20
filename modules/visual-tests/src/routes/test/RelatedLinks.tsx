@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import RelatedLinks, { RelatedLinkItem } from '@reykjavik/hanna-react/RelatedLinks';
@@ -15,32 +16,32 @@ export const handle = { cssTokens: [] };
 const links: Array<RelatedLinkItem> = [
   {
     href: 'https://abendingar.reykjavik.is',
-    label: 'Ábendingavefur',
+    label: 'External ',
     type: 'external',
     target: '_blank',
   },
   {
     href: 'https://abendingar.reykjavik.is',
-    label: 'Ábendingavefur',
+    label: 'Link ',
     target: '_blank',
   },
   {
     href: '/files/somepdfFile',
-    label: 'Eitthvað PDF skjal',
+    label: 'PDF file',
     type: 'pdf',
   },
   {
     href: '/files/some.pdf',
-    label: 'Eitthvað PDF skjal',
+    label: 'PDF with long title. -- ' + lorem.tiny.slice(0, 33),
   },
   {
     href: '/files/someOtherDocument',
-    label: 'Annars konar Skjal með afar langan titil sem brotnar milli lína',
+    label: 'Document',
     type: 'document',
   },
   {
     href: '/normal/link',
-    label: 'Vefsíða með tengdu efni',
+    label: 'Related links',
     type: 'link',
   },
 ];
@@ -52,17 +53,22 @@ export default function () {
       <DummyBlock thin />
       <RelatedLinks
         title={'Linebreak title. ' + lorem.medium.slice(0, 120)}
-        links={links}
+        links={links.slice(0, 5)}
       />
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
   extras: async ({ page, localScreenshot }) => {
-    const external = page.locator('.RelatedLinks__link[data-type="external"]');
-    await external.hover();
-    await localScreenshot(external, 'external-hover', { margin: true });
+    // Only test first related links group
+    const relatedLinksFirst = page.locator('.RelatedLinks >> nth = 0');
+    const relatedLinks = await relatedLinksFirst.locator('li').elementHandles();
+    for (const relatedlink of relatedLinks) {
+      const label = ((await relatedlink.textContent()) || '').split('--')[0];
+
+      await relatedlink.hover();
+      await localScreenshot(relatedlink, label + '-hover', { margin: [5, 10] });
+    }
   },
 };

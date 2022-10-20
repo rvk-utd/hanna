@@ -81,6 +81,7 @@ import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
 import { testing as PageFilter__test } from '../src/routes/test/PageFilter';
 import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
 import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
+import { testing as RelatedLinks__test } from '../src/routes/test/RelatedLinks';
 import { testing as SearchResults__test } from '../src/routes/test/SearchResults';
 import { testing as Selectbox__test } from '../src/routes/test/Selectbox';
 import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete';
@@ -146,6 +147,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   PageFilter: PageFilter__test,
   ProcessOverview: ProcessOverview__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
+  RelatedLinks: RelatedLinks__test,
   SearchResults: SearchResults__test,
   Selectbox: Selectbox__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,

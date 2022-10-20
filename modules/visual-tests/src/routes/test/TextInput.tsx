@@ -42,8 +42,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
-  tags: ['chrome'],
   extras: async ({ page, localScreenshot }) => {
     // Three states: empty, neither, filled
     const normal = page.locator('.FormField__input >> nth = 0');
