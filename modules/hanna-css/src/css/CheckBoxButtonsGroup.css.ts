@@ -2,7 +2,7 @@ import { css } from 'es-in-css';
 
 import { TogglerButtonsGroup, TogglerButtonsKnob } from './styles/forms';
 
-import { RadioButtonsGroupStyling } from './RadioButtonsGroupKristjan.css';
+import { RadioButtonsGroupStyling } from './RadioButtonsGroup.css';
 
 export default css`
   /*!@deps
