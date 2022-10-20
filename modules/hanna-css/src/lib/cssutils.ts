@@ -5,8 +5,22 @@ import { cssVersion as fullCssVersion } from './style-server-info';
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Convenience shorthand for process.env.NODE_ENV !== 'production',
+ * used internally in some of the exported mixins, etc.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#isdevmode
+ */
 export const isDevMode = process.env.NODE_ENV !== 'production';
 
+/**
+ * The current version of the Hanna style-server CSS files this version of
+ * `@reyjkjavik/hanna-css` package targets.
+ *
+ * Primary use is for debugging/informational purposes.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#targetcssversion
+ */
 export const targetCssVersion =
   (fullCssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0] || '';
 
@@ -27,6 +41,8 @@ const variableOptions: Partial<VariableOptions> = {
 /**
  * Limited version of the `makeVariables` helper from `es-in-css`,
  * configured specifically for the Hanna project.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#buildvariables
  */
 export const buildVariables = <T extends string>(
   input: Array<T>,
@@ -73,6 +89,11 @@ type CssBundleOpts = {
   testingServer?: string;
 };
 
+/**
+ * This methods generates a URL to load a correctly versioned CSS bundle from the Hanna Style Server.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getcssbundleurl
+ */
 export const getCssBundleUrl = (
   cssTokens: string | Array<string>,
   options?: CssBundleOpts

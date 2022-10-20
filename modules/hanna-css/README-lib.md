@@ -37,11 +37,13 @@ yarn add --dev @reykjavik/hanna-css
     - [Type `CssBundleOpts`](#type-cssbundleopts)
   - [`styleServerUrl`](#styleserverurl)
   - [`setStyleServerUrl`](#setstyleserverurl)
-  - [`cssVersion`](#cssversion)
+  - [`targetCssVersion`](#targetcssversion)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
   - [`WARNING_soft__`](#warning_soft__)
   - [`WARNING_message__`](#warning_message__)
+  - [`suppress_WARNING__`](#suppress_warning__)
+  - [`suppress_WARNING_soft__`](#suppress_warning_soft__)
   - [Type `WarningOpts`](#type-warningopts)
 - [Raw Design Constants](#raw-design-constants)
 - [Changelog](#changelog)
@@ -385,9 +387,9 @@ style-server instance, e.g. during testing/staging/etc.
 _(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
 DEFAULT value.)_
 
-### `cssVersion`
+### `targetCssVersion`
 
-**Syntax:** `cssVersion: string`
+**Syntax:** `targetCssVersion: string`
 
 The current version of the Hanna style-server CSS files this version of
 `@reyjkjavik/hanna-css` package targets.
@@ -440,10 +442,23 @@ then the HTML element is `:hover`ed.
 
 ### `WARNING_message__`
 
-**Syntax:** `WARNING_soft__(message: string, opts?: WarningOpts): string`
+**Syntax:**
+`WARNING_soft__(message: string, ops?: Omit<WarningOpts, 'pos'>): string`
 
 Only sets (overrides) the warning message on an element that already has a
 warning style applied.
+
+### `suppress_WARNING__`
+
+**Syntax:** `suppress_WARNING__(ops?: WarningOpts): string`
+
+Attempts to remove warning border and message.
+
+### `suppress_WARNING_soft__`
+
+**Syntax:** `suppress_WARNING_soft__(ops?: WarningOpts): string`
+
+Attempts to remove lower-priority (`:hover`) warning border and message.
 
 ### Type `WarningOpts`
 
