@@ -60,3 +60,9 @@ export const avoidCssnanoMerging = (cssContent: RawCssString) => css`
     ${cssContent};
   }
 `;
+
+export const overflowEllipsis = () => css`
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+`;

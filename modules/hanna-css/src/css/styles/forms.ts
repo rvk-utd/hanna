@@ -7,10 +7,10 @@ import { WARNING__ } from '../../lib/WARNING__';
 import { sr_only } from '../utils/a11y';
 import { grid_units, prem } from '../utils/miscUtils';
 
-const InputField_heightI = 42;
-const InputField_paddingTop = 12;
-const InputField_heightI__small = 38;
-const InputField_paddingH = grid_units(2);
+export const InputField_heightI = 42;
+export const InputField_paddingTop = 12;
+export const InputField_heightI__small = 38;
+export const InputField_paddingH = grid_units(2);
 
 export const FormField__error = (paddingLeft = grid_units(2), marginTop = prem(9)) => css`
   color: ${hannaVars.color_heidmork_100};
