@@ -19,8 +19,8 @@ import {
 import { sr_only } from './utils/a11y';
 import { grid_units, overflowEllipsis, prem } from './utils/miscUtils';
 
-import { Selectbox_css } from './SelectboxKristjan.css';
-import { TextInput_css } from './TextInputKristjan.css';
+import { Selectbox_css } from './Selectbox.css';
+import { TextInput_css } from './TextInput.css';
 
 export default css`
   @media screen {

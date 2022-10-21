@@ -1,7 +1,12 @@
 import { css } from 'es-in-css';
 import Color from 'es-in-css/_/color.types';
 
+import { mq } from '../../lib/breakpoints';
 import { hannaVars as vars } from '../../lib/hannavars';
+import { prem } from '../utils/miscUtils';
+import { hideText_css } from '../utils/scssutils/hideText';
+
+import { LinkStyle_Reset } from './links';
 
 type FreezeScrollProps = {
   immediate?: boolean;
@@ -9,6 +14,53 @@ type FreezeScrollProps = {
   hideSkiplink?: boolean;
   hideAlerts?: boolean;
 };
+
+export const LayoutHeaderLogo = () => css`
+  ${LinkStyle_Reset(true)}
+  ${hideText_css('soft')}
+  display: block;
+  width: ${prem(182)};
+  height: ${prem(53)};
+
+  & > svg,
+  & > img,
+  & > * > svg,
+  & > * > img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    object-fit: contain;
+    object-position: 0% 50%;
+    margin-right: ${prem(10)};
+    margin-left: -1px;
+  }
+
+  @media ${mq.Hamburger} {
+    margin: ${prem(-10)};
+    padding: ${prem(10)};
+    overflow: hidden;
+    box-sizing: content-box;
+
+    > div {
+      display: inline-block;
+    }
+
+    & > svg,
+    & > img,
+    & > * > svg,
+    & > * > img {
+      width: ${prem(185)};
+      object-fit: cover;
+      margin-right: ${prem(21)};
+    }
+
+    // // Hide the text layer within the logo
+    // svg .logo-text {
+    // 	display: none;
+    // }
+  }
+`;
 
 export const freezeScroll_css = ({
   immediate = false,

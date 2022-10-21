@@ -1,11 +1,12 @@
-@use 'globals' as *;
+import { css } from 'es-in-css';
 
-/*!@deps
-	FormField
-*/
+import { hannaVars } from '../lib/hannavars';
+import { iconStyle } from '../lib/icons';
+
+import { overflowEllipsis, prem } from './utils/miscUtils';
 
 // inlined by FormField
-@mixin css() {
+export const Selectbox_css = () => css`
   @media screen {
     .Selectbox {
     }
@@ -16,16 +17,16 @@
     }
 
     .Selectbox > .FormField__input::after {
-      @include icon($icons-chevron-down);
+      ${iconStyle(hannaVars.icon__chevron_down)}
       position: absolute;
       top: 0;
       bottom: 0;
-      right: prem(20);
+      right: ${prem(20)};
       pointer-events: none;
       margin: auto;
       color: var(--input-border-color);
       transition: all 200ms ease-in;
-      font-size: prem(16);
+      font-size: ${prem(16)};
       height: 1em;
       line-height: 1em;
     }
@@ -36,14 +37,21 @@
 		}*/
 
     .Selectbox > * > .FormField__input__value {
-      @include overflowEllipsis();
+      ${overflowEllipsis}
+
       // white-space: nowrap;
       // overflow: hidden;
       display: block;
-      margin-right: prem(50);
+      margin-right: ${prem(50)};
     }
 
     .Selectbox > * > .FormField__input__value--empty {
     }
   }
-}
+`;
+
+export default css`
+  /*!@deps
+    FormField
+  */
+`;
