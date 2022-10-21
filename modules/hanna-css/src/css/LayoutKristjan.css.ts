@@ -1,6 +1,5 @@
 import { css } from 'es-in-css';
 
-import { sr_only_focusable_css } from '../css/utils/a11y';
 import { mq } from '../lib/breakpoints';
 import { isDevMode } from '../lib/cssutils';
 import { grid, showColumnGridLines } from '../lib/grid';
@@ -9,6 +8,7 @@ import { iconStyle } from '../lib/icons';
 
 import { freezeScroll_css, LayoutHeaderLogo } from './styles/header';
 import { LinkStyle_Reset } from './styles/links';
+import { sr_only_focusable_css } from './utils/a11y';
 import { grid_units, prem } from './utils/miscUtils';
 import { hideText_css } from './utils/scssutils/hideText';
 
