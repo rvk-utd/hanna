@@ -1,41 +1,41 @@
-import { RawMediaQuery } from 'es-in-css';
+import { px, RawMediaQuery } from 'es-in-css';
 import { Expect, Extends } from 'hanna-test-helpers';
 
 // Starting breakpoints **including* $grid-margin--*
 export const bp = {
-  wide: 1368, // $grid-margin--wide: 80;
-  netbook: 980,
-  tablet: 760,
-  phablet: 480,
-  phone: 320, // $grid-margin--phone: 20;
+  wide: px(1368), // $grid-margin--wide: 80;
+  netbook: px(980),
+  tablet: px(760),
+  phablet: px(480),
+  phone: px(320), // $grid-margin--phone: 20;
 } as const;
 // NOTE: 20px at 320px is equivalent to
 // 24px at 375px,`+` and 26px at 415px
 
-const wide: RawMediaQuery = `(min-width: ${bp.wide}px)`;
+const wide: RawMediaQuery = `(min-width: ${bp.wide})`;
 const netbook: RawMediaQuery =
-  `(min-width: ${bp.netbook}px)` + ` and (max-width: ${bp.wide - 1}px)`;
+  `(min-width: ${bp.netbook})` + ` and (max-width: ${px(bp.wide - 1)})`;
 const tablet: RawMediaQuery =
-  `(min-width: ${bp.tablet}px)` + ` and (max-width: ${bp.netbook - 1}px)`;
+  `(min-width: ${bp.tablet})` + ` and (max-width: ${px(bp.netbook - 1)})`;
 const phablet: RawMediaQuery =
-  `(min-width: ${bp.phablet}px)` + ` and (max-width: ${bp.tablet - 1}px)`;
-const phone: RawMediaQuery = `(max-width: ${bp.phablet - 1}px)`;
+  `(min-width: ${bp.phablet})` + ` and (max-width: ${px(bp.tablet - 1)})`;
+const phone: RawMediaQuery = `(max-width: ${px(bp.phablet - 1)})`;
 
-const netbook_up: RawMediaQuery = `(min-width: ${bp.netbook}px)`;
+const netbook_up: RawMediaQuery = `(min-width: ${bp.netbook})`;
 
 const tablet_netbook: RawMediaQuery =
-  `(min-width: ${bp.tablet}px)` + ` and (max-width: ${bp.wide - 1}px)`;
-const tablet_up: RawMediaQuery = `(min-width: ${bp.tablet}px)`;
+  `(min-width: ${bp.tablet})` + ` and (max-width: ${px(bp.wide - 1)})`;
+const tablet_up: RawMediaQuery = `(min-width: ${bp.tablet})`;
 
 const phablet_tablet: RawMediaQuery =
-  `(min-width: ${bp.phablet}px)` + ` and (max-width: ${bp.netbook - 1}px)`;
+  `(min-width: ${bp.phablet})` + ` and (max-width: ${px(bp.netbook - 1)})`;
 const phablet_netbook: RawMediaQuery =
-  `(min-width: ${bp.phablet}px)` + ` and (max-width: ${bp.wide - 1}px)`;
-const phablet_up: RawMediaQuery = `(min-width: ${bp.phablet}px)`;
+  `(min-width: ${bp.phablet})` + ` and (max-width: ${px(bp.wide - 1)})`;
+const phablet_up: RawMediaQuery = `(min-width: ${bp.phablet})`;
 
-const phone_phablet: RawMediaQuery = `(max-width: ${bp.tablet - 1}px)`;
-const phone_tablet: RawMediaQuery = `(max-width: ${bp.netbook - 1}px)`;
-const phone_netbook: RawMediaQuery = `(max-width: ${bp.wide - 1}px)`;
+const phone_phablet: RawMediaQuery = `(max-width: ${px(bp.tablet - 1)})`;
+const phone_tablet: RawMediaQuery = `(max-width: ${px(bp.netbook - 1)})`;
+const phone_netbook: RawMediaQuery = `(max-width: ${px(bp.wide - 1)})`;
 
 // High level media-formats
 const Hamburger = phone_tablet;

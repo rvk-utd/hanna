@@ -16,10 +16,10 @@ import { LinkStyle_SameColor } from './styles/links';
 import { grid_units, prem } from './utils/miscUtils';
 import { SeenEffect__fadeup } from './utils/seenEffects';
 
-const minH = 480 - 2 * grid.column;
+const minH = px(480 - 2 * grid.column);
 
-const largebox_minH = 800 - 2 * grid.column;
-const largeimage_minH = 880;
+const largebox_minH = px(800 - 2 * grid.column);
+const largeimage_minH = px(880);
 
 export default css`
   /*!@deps
@@ -43,7 +43,7 @@ export default css`
 
       min-height: ${between_phone_netbook(200, minH)};
       @media ${mq.wide} {
-        min-height: ${px(minH)};
+        min-height: ${minH};
       }
     }
     .CityBlock__image {
@@ -175,10 +175,10 @@ export default css`
 
   @media ${mq.wide} {
     .CityBlock--largebox > .CityBlock__content {
-      min-height: ${px(largebox_minH)};
+      min-height: ${largebox_minH};
     }
     .CityBlock--largeimage > .CityBlock__image {
-      min-height: ${px(largeimage_minH)};
+      min-height: ${largeimage_minH};
     }
   }
 `;

@@ -12,6 +12,8 @@
 - feat: Re-export `setStyleServerUrl` from `@reykjavik/hanna-utils`
 - feat: Deprecate `CssBundleOpts.testingServer` in favour of
   `setStyleServerUrl`
+- feat: Convert relevant `_raw` values to `PxValue`
+- fix: Tighten signature of between helpers to use `PlainNumber` type
 - fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7

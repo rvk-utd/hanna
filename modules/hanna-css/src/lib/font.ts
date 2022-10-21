@@ -1,7 +1,9 @@
+import { px } from 'es-in-css';
+
 const familyName = 'Esja';
 
-const base_size = 16;
-const base_leading = 24;
+const base_size = px(16);
+const base_leading = px(24);
 
 export const font = {
   familyName,
@@ -13,52 +15,52 @@ export const font = {
 
   sizes: {
     // headings
-    hd_xl_size: 72,
-    hd_xl_leading: 90,
-    hd_xl_size__phone: 40,
-    hd_xl_leading__phone: 50,
+    hd_xl_size: px(72),
+    hd_xl_leading: px(90),
+    hd_xl_size__phone: px(40),
+    hd_xl_leading__phone: px(50),
 
-    hd_l_size: 64,
-    hd_l_leading: 80,
-    hd_l_size__phone: 32,
-    hd_l_leading__phone: 40,
+    hd_l_size: px(64),
+    hd_l_leading: px(80),
+    hd_l_size__phone: px(32),
+    hd_l_leading__phone: px(40),
 
-    hd_m_size: 48,
-    hd_m_leading: 60,
-    hd_m_size__phone: 24,
-    hd_m_leading__phone: 40,
+    hd_m_size: px(48),
+    hd_m_leading: px(60),
+    hd_m_size__phone: px(24),
+    hd_m_leading__phone: px(40),
 
-    hd_s_size: 40,
-    hd_s_leading: 50,
-    hd_s_size__phone: 20,
-    hd_s_leading__phone: 30,
+    hd_s_size: px(40),
+    hd_s_leading: px(50),
+    hd_s_size__phone: px(20),
+    hd_s_leading__phone: px(30),
 
     // subheadings
-    sh_l_size: 32,
-    sh_l_leading: 40,
-    sh_l_size__phone: 20,
-    sh_l_leading__phone: 30,
+    sh_l_size: px(32),
+    sh_l_leading: px(40),
+    sh_l_size__phone: px(20),
+    sh_l_leading__phone: px(30),
 
-    sh_s_size: 24,
-    sh_s_leading: 32,
-    sh_s_size__phone: 20,
-    sh_s_leading__phone: 30,
+    sh_s_size: px(24),
+    sh_s_leading: px(32),
+    sh_s_size__phone: px(20),
+    sh_s_leading__phone: px(30),
 
     // body text
-    bd_l_size: 20,
-    bd_l_leading: 32,
+    bd_l_size: px(20),
+    bd_l_leading: px(32),
 
     bd_s_size: base_size,
     bd_s_leading: base_leading,
 
     // buttons and labels
-    button_size: 16,
-    button_leading: 20,
+    button_size: px(16),
+    button_leading: px(20),
 
-    label_size: 12,
-    label_leading: 16,
+    label_size: px(12),
+    label_leading: px(16),
 
     // Non-semantic font-sizes
-    size_12: 12,
+    size_12: px(12),
   },
 } as const;

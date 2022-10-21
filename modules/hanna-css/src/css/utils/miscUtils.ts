@@ -1,13 +1,12 @@
-import { css, RawCssString, rem } from 'es-in-css';
+import { css, PlainNumber, PxValue, RawCssString, rem } from 'es-in-css';
 
 import { grid } from '../../lib/grid';
 import { hannaVars } from '../../lib/hannavars';
 
 /**
- * Utility function that returns a rem stringified value.
- * @param {number} px - number
+ * Utility function that converts a pixel size to a rem value.
  */
-export const prem = (px: number) => {
+export const prem = (px: PlainNumber | PxValue) => {
   return rem(px / 16);
 };
 

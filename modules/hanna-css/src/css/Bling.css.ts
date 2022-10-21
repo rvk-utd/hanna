@@ -5,7 +5,7 @@ import { buildVariables, isDevMode } from '../lib/cssutils';
 import { grid } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 
-const $baseW = grid.contentMaxWidth;
+const $baseW = grid.contentMaxWidth.value;
 
 export const BlingVariables = buildVariables(['baseWitdh'], 'Bling');
 const Bv = BlingVariables.vars;

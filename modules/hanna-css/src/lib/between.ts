@@ -1,5 +1,14 @@
-import type { PctValue, PxValue, RawCssValue } from 'es-in-css';
-import { pct_f, px, unitOf, vh_f, vw_f } from 'es-in-css';
+import {
+  pct_f,
+  PctValue,
+  PlainNumber,
+  px,
+  PxValue,
+  RawCssValue,
+  unitOf,
+  vh_f,
+  vw_f,
+} from 'es-in-css';
 
 import { bp } from './breakpoints';
 import { cols_px, grid } from './grid';
@@ -21,13 +30,13 @@ const unitConverters = {
   vh: vh_f,
 };
 
-export type RangeEdge = number | PxValue | PctValue;
+export type RangeEdge = PlainNumber | PxValue | PctValue;
 
 export const between = (
   from: RangeEdge,
   to: RangeEdge,
-  min: number | PxValue,
-  max: number | PxValue,
+  min: PlainNumber | PxValue,
+  max: PlainNumber | PxValue,
   unit: '%' | 'vw' | 'vh'
 ): string => {
   if (unitOf(from) === '%') {
@@ -99,8 +108,8 @@ const _scaleDown = grid.contentMinWidth / grid.contentMaxWidth;
 export const between_cols = (
   from: RangeEdge,
   to: RangeEdge,
-  cols: number = grid.numCols,
-  gutters?: number
+  cols: PlainNumber = grid.numCols,
+  gutters?: PlainNumber
 ) => {
   const max = cols_px(cols, gutters);
   const min = _scaleDown * max;
