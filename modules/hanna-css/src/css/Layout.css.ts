@@ -185,7 +185,6 @@ export default css`
     }
 
     .Layout__nav__closebutton {
-      // TODO: Why can't we call the function without empty object?
       ${sr_only_focusable_css({})}
     }
   }
@@ -196,7 +195,6 @@ export default css`
 
   @media ${mq.Topmenu} {
     .Layout__header__skiplink {
-      // TODO: Why can't we call the function without empty object?
       ${sr_only_focusable_css({})}
     }
     html[data-mega-panel-active] .Layout__header__logo {
@@ -208,7 +206,6 @@ export default css`
   // Grid helper
   // ===========================================================================
 
-  // TODO: Check if right (getEnv('NODE_ENV') == '' in sass file)
   ${isDevMode &&
   css`
     html[data-grid-overlay] body:hover {
