@@ -14,8 +14,8 @@ import { LinkStyle } from './styles/links';
 import { sr_only_content_focusable, sr_only_focusable_css } from './utils/a11y';
 import { extendSides } from './utils/extendSides';
 import { grid_units, prem } from './utils/miscUtils';
-import { AuxiliaryPanel_css } from './_AuxiliaryPanelKristjan';
-import { PrimaryPanel_css } from './_PrimaryPanelKristjan';
+import { AuxiliaryPanel_css } from './_AuxiliaryPanel';
+import { PrimaryPanel_css } from './_PrimaryPanel';
 
 const menu_speed = '400ms';
 
@@ -204,7 +204,7 @@ export default css`
   //
   // ===========================================================================
 
-  @media #{$mq-Topmenu} {
+  @media ${mq.Topmenu} {
     .MainMenu {
     }
 
