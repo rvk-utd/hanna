@@ -63,7 +63,6 @@ export const PrimaryPanel_css = () => css`
 
       padding-top: ${vars.Layout$$header_height};
       padding-bottom: ${prem(125)}; // clear .MainMenu__megapanel__backtomenu
-      // TODO: Check value
       grid-column: 2 / span 7;
       column-gap: ${vars.grid_gutter};
     }
@@ -75,13 +74,11 @@ export const PrimaryPanel_css = () => css`
     }
 
     .PrimaryPanel__title {
-      // TODO: Check value
       margin-right: ${cols_pct(1, 0, { ofCols: 5 })};
       grid-column: span 5;
     }
     .PrimaryPanel--twocol .PrimaryPanel__title {
       grid-column: span var(--PrimaryPanel-columns);
-      // TODO: Check value
       margin-right: ${cols_pct(1, 0, { ofCols: 8 })};
     }
 
@@ -101,7 +98,6 @@ export const PrimaryPanel_css = () => css`
       margin-bottom: ${grid_units(3)};
     }
     .PrimaryPanel--twocol .PrimaryPanel__item {
-      // TODO: Check value
       padding-right: ${cols_pct(1, 0, { ofCols: 4 })};
     }
 

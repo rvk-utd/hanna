@@ -189,13 +189,12 @@ export default css`
       margin-left: ${prem(-24)};
       width: ${prem(8)};
       height: ${prem(2)};
-      // TODO: Check if value is right
       margin-top: ${prem(font.base_leading / 2 - 1)};
       background-color: currentColor;
     }
 
     .MainMenu__megapanel__backtomenu {
-      ${sr_only_focusable_css}
+      ${sr_only_focusable_css({})}
     }
   }
 
@@ -261,8 +260,7 @@ export default css`
     html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
     html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
       --link-color--hover: ${vars.color_suld_0};
-      // TODO: Check if value is right:
-      color: ${color(colors.suld_25).fade(0.7)};
+      color: ${color(colors.suld_25).fade(0.3)};
     }
 
     .MainMenu__link {
@@ -382,7 +380,6 @@ export default css`
     }
 
     .MainMenu__megapanel__backtomenu::before {
-      // TODO: Check if right
       ${iconStyle(vars.icon__close)}
       font-size: ${prem(16)};
       width: 100%;

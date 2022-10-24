@@ -19,7 +19,6 @@ export const AuxiliaryPanel_css = () => css`
       font-weight: ${vars.font_weight__bold};
 
       border-bottom: 1px solid ${vars.color_suld_100};
-      // TODO: Check if value is right
       margin-right: ${cols_pct(1, 0, { ofCols: 4 })};
       margin-bottom: ${grid_units(3)};
       padding-bottom: ${grid_units(2)};
@@ -71,8 +70,7 @@ export const AuxiliaryPanel_css = () => css`
       background: 50% 100% / contain repeat-x;
       background-image: url('/assets/valmundur-a-sundi.png');
       mix-blend-mode: multiply;
-      // TODO: Check if value is right
-      padding-top: ${pct(115 / 325)};
+      padding-top: ${pct((115 / 325) * 100)};
     }
 
     html.menu-is-open .AuxiliaryPanel::after {
@@ -109,11 +107,9 @@ export const AuxiliaryPanel_css = () => css`
     }
 
     .AuxiliaryPanel__items {
-      // TODO: Check if value is right
       margin-right: ${cols_pct(1, 0, { ofCols: 4 })};
     }
     .AuxiliaryPanel__item {
-      // TODO: Check if value is right
       margin-bottom: ${prem(8)};
     }
   }
