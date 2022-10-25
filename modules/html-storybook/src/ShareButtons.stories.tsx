@@ -6,7 +6,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { StoryComponent, StoryParameters } from './storytypes';
 
 export default {
-  title: 'Sharebuttons',
+  title: 'ShareButtons',
   parameters: {
     knobs: { disabled: false },
   } as StoryParameters,
