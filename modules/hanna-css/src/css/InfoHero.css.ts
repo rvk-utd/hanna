@@ -2,7 +2,6 @@ import { css, px } from 'es-in-css';
 
 import { between_cols } from '../lib/between';
 import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
 import { cols_pct, px_pct } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 
@@ -47,7 +46,7 @@ export default css`
     }
 
     .InfoHero__image--missing {
-      background-color: ${colors.suld_50};
+      background-color: ${vars.color_suld_50};
     }
     .InfoHero__image > img {
       position: absolute;
@@ -101,7 +100,7 @@ export default css`
     }
     .InfoHero__blurb {
       font: ${vars.font_bd_s};
-      color: ${colors.suld_150};
+      color: ${vars.color_suld_150};
       margin-bottom: ${prem(8)};
     }
 
