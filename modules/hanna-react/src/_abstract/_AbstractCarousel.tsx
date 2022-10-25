@@ -63,13 +63,13 @@ export type CarouselProps<
   SeenProp;
 
 type AbstractCarouselProps<
-  I extends Record<string, unknown> = {},
-  P extends Record<string, unknown> | undefined = {}
+  I extends Record<string, unknown> = Record<string, unknown>,
+  P extends Record<string, unknown> | undefined = Record<string, unknown>
 > = CarouselProps<I, P> & BemProps & { title?: string };
 
 const AbstractCarousel = <
-  I extends Record<string, unknown> = {},
-  P extends Record<string, unknown> | undefined = {}
+  I extends Record<string, unknown> = Record<string, unknown>,
+  P extends Record<string, unknown> | undefined = Record<string, unknown>
 >(
   props: AbstractCarouselProps<I, P>
 ) => {
