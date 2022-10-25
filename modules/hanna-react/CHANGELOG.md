@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `itemCount` for all Carousel-related components with
+  `children` — drop requirement for children to be an Array.
 - feat(ts): Export `ArticleCardsItemProps`, deprecate `ArticleCardProps`
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
 - feat: Make `SiteSearchAutocompleteProps.renderSuggestion` optional

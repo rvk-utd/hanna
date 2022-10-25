@@ -1,6 +1,7 @@
 import React, {
   CSSProperties,
   ReactElement,
+  ReactNode,
   useEffect,
   useMemo,
   useRef,
@@ -48,7 +49,16 @@ export type CarouselProps<
     Component: (props: P extends undefined ? I : I & P) => ReactElement | null;
     ComponentProps?: P;
   },
-  { children: Array<ReactElement> }
+  {
+    children: ReactNode;
+    /**
+     * Explicit number of items contained by the `children` prop
+     *
+     * Use this when your returned child elements are wrapped in a
+     * `<Fragment />` or some such.
+     */
+    itemCount?: number;
+  }
 > &
   SeenProp;
 
@@ -73,11 +83,16 @@ const AbstractCarousel = <
     ssr,
     startSeen,
   } = props;
-  const children = props.children && props.children.filter(notNully);
+
+  const children = !props.children
+    ? undefined
+    : Array.isArray(props.children)
+    ? props.children.filter(notNully)
+    : [props.children];
 
   const [leftOffset, setLeftOffset] = useState<number | undefined>();
 
-  const itemCount = (children || items).length;
+  const itemCount = props.itemCount || (children || items).length;
   const listRef = useRef<HTMLDivElement>(null);
 
   const [activeItem, setActiveItem] = useState(0);
