@@ -7,6 +7,7 @@
 - feat: Add `ensurePosInt` and branded `PositiveInteger` type
 - feat: Add `notFalsy` type guarding filter function
 - feat: Add illustration token `vegvisir`
+- feat(ts): Add testing types `Expect`, `Equals`, `Extends`, `NotExtends`
 
 ## 0.1.14
 

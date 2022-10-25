@@ -1,6 +1,6 @@
 import 'hanna-test-helpers/polyfill-document';
 
-import { Equals, Expect } from 'hanna-test-helpers';
+import { Equals, Expect } from '@reykjavik/hanna-utils';
 import o from 'ospec';
 
 import { useMixedControlState } from './useMixedControlState';

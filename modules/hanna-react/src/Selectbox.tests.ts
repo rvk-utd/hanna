@@ -1,4 +1,4 @@
-import type { Equals, Expect, Extends, NotExtends } from 'hanna-test-helpers';
+import { Equals, Expect, Extends, NotExtends } from '@reykjavik/hanna-utils';
 import o from 'ospec';
 
 import Selectbox_default, {
