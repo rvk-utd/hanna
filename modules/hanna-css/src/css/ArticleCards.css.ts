@@ -4,7 +4,7 @@ import { between_phone_netbook } from '../lib/between';
 import { hannaVars as vars } from '../lib/hannavars';
 
 import { CardList_css } from './styles/cards';
-import { avoidCssnanoMerging, prem } from './utils/miscUtils';
+import { avoidCssnanoMerging, percentage, prem } from './utils/miscUtils';
 
 const borderW = prem(12);
 
@@ -62,7 +62,7 @@ export default css`
   .ArticleCards__image--missing {
     border: ${borderW} solid transparent;
     // TODO: Verify value
-    padding-top: calc(${pct((168 / 272) * 100)} - (2 * ${borderW}));
+    padding-top: calc(${percentage(168 / 272)} - (2 * ${borderW}));
     background: var(--ArticleCards--fallback) 50% 50% / contain no-repeat;
   }
 

@@ -1,10 +1,10 @@
-import { css, pct } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
 import { cols_pct } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 
-import { grid_units, prem } from './utils/miscUtils';
+import { grid_units, percentage, prem } from './utils/miscUtils';
 
 export const AuxiliaryPanel_css = () => css`
   @media screen {
@@ -70,7 +70,7 @@ export const AuxiliaryPanel_css = () => css`
       background: 50% 100% / contain repeat-x;
       background-image: url('/assets/valmundur-a-sundi.png');
       mix-blend-mode: multiply;
-      padding-top: ${pct((115 / 325) * 100)};
+      padding-top: ${percentage(115 / 325)};
     }
 
     html.menu-is-open .AuxiliaryPanel::after {

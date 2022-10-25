@@ -1,13 +1,21 @@
-import { css, PlainNumber, PxValue, RawCssString, rem } from 'es-in-css';
+import { css, pct, PlainNumber, PxValue, RawCssString, rem } from 'es-in-css';
 
 import { grid } from '../../lib/grid';
-import { hannaVars } from '../../lib/hannavars';
+import { hannaVars as vars } from '../../lib/hannavars';
 
 /**
- * Utility function that converts a pixel size to a rem value.
+ * Converts a pixel size to a rem value.
  */
 export const prem = (px: PlainNumber | PxValue) => {
   return rem(px / 16);
+};
+
+/**
+ * Converts a unitless number (a decimal between 0 and 1) to a percentage.
+ * @param {number} num - number between 0 and 1
+ */
+export const percentage = (num: number) => {
+  return pct(num * 100);
 };
 
 export const grid_units = (units = 1) => {
@@ -22,12 +30,12 @@ export const extendBackgroundWithUnderlay = (
   const leftProp =
     dir !== 'right' &&
     css`
-      left: ${hannaVars.grid_margin__neg};
+      left: ${vars.grid_margin__neg};
     `;
   const rightProp =
     dir !== 'left' &&
     css`
-      right: ${hannaVars.grid_margin__neg};
+      right: ${vars.grid_margin__neg};
     `;
 
   return css`
