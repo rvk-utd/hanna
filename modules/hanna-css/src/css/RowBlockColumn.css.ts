@@ -2,7 +2,6 @@ import { css } from 'es-in-css';
 
 import { between_cols } from '../lib/between';
 import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
 import { cols_pct } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
@@ -21,7 +20,7 @@ export const RowBlockColumn_css = () => css`
       width: 100%; // to avoid flex item auto-sizing
     }
     .RowBlockColumn--background {
-      background-color: ${colors.suld_25};
+      background-color: ${vars.color_suld_25};
       box-sizing: content-box;
       margin: 0 ${vars.grid_margin__neg};
       padding: ${between_cols(30, 80)} ${vars.grid_margin};
