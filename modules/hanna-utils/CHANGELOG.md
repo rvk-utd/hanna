@@ -6,6 +6,7 @@
 - feat: Add `styleServerUrl` and `setStyleServerUrl()`
 - feat: Add `ensurePosInt` and branded `PositiveInteger` type
 - feat: Add `notFalsy` type guarding filter function
+- feat: Add illustration token `vegvisir`
 
 ## 0.1.14
 

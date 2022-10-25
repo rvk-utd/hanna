@@ -7,6 +7,8 @@
 - feat: Add dev warnings for missing text labels (i.e. `alt` attributes on
   iframes and multimedia elements)
 - feat: Add `.FooterInfo__group--main`, deprecate `[role]` styling
+- feat: Add "[Illustration](src/assets/illustrations/files.json)" PNG asset
+  ("vegvisir")
 - fix: Adjust alignment and cap height of `.InfoHero__image`
 - fix: `BasicTable` with `--align--right` position on "tablet" sized viewports
 - fix: Disappearing border on link `.Tabs__tab` hover

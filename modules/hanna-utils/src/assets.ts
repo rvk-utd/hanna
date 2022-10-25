@@ -193,6 +193,7 @@ export const illustrations = [
   'umhverfi3',
   'utgefidefni',
   'utivinna',
+  'vegvisir',
   'velferd1',
   'velferd2',
   'velferd3',
