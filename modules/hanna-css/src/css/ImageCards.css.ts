@@ -2,7 +2,6 @@ import range from '@hugsmidjan/qj/range';
 import { css, ms, pct } from 'es-in-css';
 
 import { between_cols, between_phone_netbook } from '../lib/between';
-import { colors } from '../lib/colors';
 import { hannaVars as vars } from '../lib/hannavars';
 
 import { CardBlock_css, CardList_css, CardListTitle_css } from './styles/cards';
@@ -47,7 +46,7 @@ export default css`
 
     .ImageCards--background {
       ${extendBackgroundWithUnderlay}
-      background-color: ${colors.suld_25};
+      background-color: ${vars.color_suld_25};
 
       padding: 100px 0;
       ${avoidCssnanoMerging(
@@ -86,8 +85,8 @@ export default css`
 
     .ImageCards__card {
       --link-color: _inherit;
-      --link-underline: 1px solid ${colors.suld_200};
-      --link-underline--hover: 1px solid ${colors.faxafloi_100};
+      --link-underline: 1px solid ${vars.color_suld_200};
+      --link-underline--hover: 1px solid ${vars.color_faxafloi_100};
 
       display: block;
       height: 100%;
@@ -133,7 +132,7 @@ export default css`
 
     .ImageCards__card__meta {
       font: ${vars.font_bd_s};
-      color: ${colors.suld_150};
+      color: ${vars.color_suld_150};
       font-weight: ${vars.font_weight__normal};
     }
   }
