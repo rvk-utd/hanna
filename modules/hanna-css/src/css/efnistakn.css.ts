@@ -1,5 +1,6 @@
-// Based on "https://styles.reykjavik.is/assets/efnistakn/files.json"
-$_efnistakn: (
+import { css, str } from 'es-in-css';
+
+const efnistakn = [
   'bygging_01',
   'download_01',
   'dyrahald_01',
@@ -59,11 +60,16 @@ $_efnistakn: (
   'velferd_03',
   'verdlaun_01',
   'verdlaun_02',
-  'wifi'
-);
+  'wifi',
+];
 
-@each $icon in $_efnistakn {
-  [data-efnistakn='#{$icon}'] {
-    --efnistakn: url('/assets/efnistakn/#{$icon}.svg');
-  }
-}
+export default css`
+  ${efnistakn.map((icon) => {
+    const path = `/assets/efnistakn/${icon}.svg`;
+    return css`
+      [data-efnistakn=${icon}] {
+        --efnistakn: url(${str(path)});
+      }
+    `;
+  })}
+`;
