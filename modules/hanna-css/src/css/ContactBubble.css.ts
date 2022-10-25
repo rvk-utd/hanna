@@ -2,7 +2,6 @@ import { css, pct_f } from 'es-in-css';
 
 import { between } from '../lib/between';
 import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
 import { grid } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
@@ -69,8 +68,8 @@ export default css`
       box-sizing: content-box;
       font-size: ${vars.font_bd_l_size};
       font-weight: ${vars.font_weight__bold};
-      background-color: ${colors.suld_25};
-      color: ${colors.faxafloi_100};
+      background-color: ${vars.color_suld_25};
+      color: ${vars.color_faxafloi_100};
       border-radius: ${grid_units(4.5)};
       border: ${vars.border_default};
       height: ${vars.space_3};
@@ -94,9 +93,9 @@ export default css`
     }
 
     .ContactBubble__openbtn:hover {
-      color: ${colors.faxafloi_150};
-      border-color: ${colors.suld_100};
-      background-color: ${colors.suld_50};
+      color: ${vars.color_faxafloi_150};
+      border-color: ${vars.color_suld_100};
+      background-color: ${vars.color_suld_50};
     }
 
     .ContactBubble__openbtn[aria-expanded='true'] {
@@ -146,7 +145,7 @@ export default css`
     }
     .ContactBubble {
       pointer-events: auto;
-      background-color: ${colors.suld_25};
+      background-color: ${vars.color_suld_25};
       padding: ${grid_units(4)};
       opacity: 1;
       transition: all 300ms ease-in-out;
@@ -196,7 +195,7 @@ export default css`
     @media ${mq_Fullscreen} {
       // underlay for .Layout__header
       .ContactBubble::before {
-        ${LayoutHeaderUnderlay_css(colors.suld_25)}
+        ${LayoutHeaderUnderlay_css(vars.color_suld_25)}
       }
       .ContactBubble::after {
         content: '';
@@ -228,7 +227,7 @@ export default css`
 
     .ContactBubble__list {
       font: ${vars.font_bd_s};
-      border-top: 1px solid ${colors.suld_50};
+      border-top: 1px solid ${vars.color_suld_50};
       font-weight: ${vars.font_weight__bold};
     }
 
@@ -237,7 +236,7 @@ export default css`
       padding: ${grid_units(2)} ${grid_units(4)};
       padding-left: ${grid_units(7)};
       min-height: calc(${vars.font_bd_s_leading} + ${vars.font_label_leading});
-      border-bottom: 1px solid ${colors.suld_50};
+      border-bottom: 1px solid ${vars.color_suld_50};
       --link-underline: none;
       --link-underline--hover: none;
       --ContactBubble--type--icon: none;
@@ -263,7 +262,7 @@ export default css`
       font: ${vars.font_label};
       font-weight: ${vars.font_weight__normal};
       display: block;
-      color: ${colors.suld_200};
+      color: ${vars.color_suld_200};
       text-decoration: none;
       transition: inherit;
     }
@@ -273,7 +272,7 @@ export default css`
 
     .ContactBubble__link::before {
       content: '';
-      background-color: ${colors.suld_100};
+      background-color: ${vars.color_suld_100};
       width: ${grid_units(4)};
       height: ${grid_units(3.5)};
       line-height: ${grid_units(3.5)};
@@ -304,7 +303,7 @@ export default css`
         width: ${vars.space_6};
         height: ${vars.space_6};
         line-height: ${vars.space_6};
-        color: ${colors.faxafloi_100};
+        color: ${vars.color_faxafloi_100};
         transition: all 200ms ease-in-out;
       }
       .ContactBubble__closebtn:hover {
