@@ -3,8 +3,8 @@ import Color from 'es-in-css/_/color.types';
 
 import { mq } from '../../lib/breakpoints';
 import { hannaVars as vars } from '../../lib/hannavars';
+import { hideText_css } from '../utils/hideText';
 import { prem } from '../utils/miscUtils';
-import { hideText_css } from '../utils/scssutils/hideText';
 
 import { LinkStyle_Reset } from './links';
 

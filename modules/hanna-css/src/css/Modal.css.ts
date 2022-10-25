@@ -8,8 +8,8 @@ import { iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
 import { freezeScroll_css } from './styles/header';
+import { hideText_css } from './utils/hideText';
 import { prem } from './utils/miscUtils';
-import { hideText_css } from './utils/scssutils/hideText';
 
 export default css`
   @media screen {

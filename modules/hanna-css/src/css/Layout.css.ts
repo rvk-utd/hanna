@@ -9,8 +9,8 @@ import { iconStyle } from '../lib/icons';
 import { freezeScroll_css, LayoutHeaderLogo } from './styles/header';
 import { LinkStyle_Reset } from './styles/links';
 import { sr_only_focusable_css } from './utils/a11y';
+import { hideText_css } from './utils/hideText';
 import { grid_units, prem } from './utils/miscUtils';
-import { hideText_css } from './utils/scssutils/hideText';
 
 const whiteLogo = () => css`
   --logo-fill-color: ${vars.color_suld_0};

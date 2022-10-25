@@ -5,8 +5,8 @@ import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 import { suppress_WARNING__ } from '../lib/WARNING__';
 
+import { hideText_css } from './utils/hideText';
 import { prem } from './utils/miscUtils';
-import { hideText_css } from './utils/scssutils/hideText';
 
 export default css`
   /*!@deps

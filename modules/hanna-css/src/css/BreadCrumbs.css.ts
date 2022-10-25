@@ -5,8 +5,8 @@ import { iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
 import { LinkStyle_Reset } from './styles/links';
+import { hideText_css } from './utils/hideText';
 import { prem } from './utils/miscUtils';
-import { hideText_css } from './utils/scssutils/hideText';
 
 export default css`
   @media screen {

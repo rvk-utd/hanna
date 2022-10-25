@@ -6,8 +6,8 @@ import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
 import { sr_only } from './utils/a11y';
+import { hideText_css } from './utils/hideText';
 import { grid_units, prem } from './utils/miscUtils';
-import { hideText_css } from './utils/scssutils/hideText';
 
 export default css`
   /*!@deps

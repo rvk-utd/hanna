@@ -1,7 +1,0 @@
-@mixin media($media) {
-  @at-root (without: media) {
-    @media #{$media} {
-      @content;
-    }
-  }
-}
