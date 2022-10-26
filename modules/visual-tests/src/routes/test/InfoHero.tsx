@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import InfoHero from '@reykjavik/hanna-react/InfoHero';
 
@@ -38,14 +38,14 @@ export default function () {
         subTitle={lorem.tiny}
         image={photo.portrait}
         blurb={
-          <>
+          <Fragment>
             And long, long blurb content…
             <br />
             {loremRT.long()}
             <br />
             <br />
             {loremRT.long()}
-          </>
+          </Fragment>
         }
         buttons={buttonProps.slice(0, 2)}
         align="left"
