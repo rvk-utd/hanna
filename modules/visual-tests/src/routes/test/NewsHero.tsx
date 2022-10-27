@@ -5,6 +5,7 @@ import NewsHero from '@reykjavik/hanna-react/NewsHero';
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';
+import { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 export const meta: MetaFunction = autoTitle;
@@ -42,3 +43,7 @@ export default function () {
     </Minimal>
   );
 }
+
+export const testing: TestingInfo = {
+  initialHover: '.ShareButtons__link--facebook >> nth = 0',
+};

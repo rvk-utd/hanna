@@ -28,7 +28,7 @@ const pagefilters = [1, 2, 3, 4].map((i) => {
       key={i}
       title={
         i === 1
-          ? 'No placeholder'
+          ? 'No placeholder in selectbox'
           : i === 2
           ? 'Page filter with a reset button and footnote ' // Page filter with a reset button and footnote
           : i === 3
