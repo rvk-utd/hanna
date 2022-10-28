@@ -13,6 +13,17 @@ import {
 import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList';
 import FormField, { FormFieldWrappingProps } from './FormField';
 
+const defaultOnFilesRejected: FileInputProps['onFilesRejected'] = (rejectedFiles) => {
+  window.alert(
+    'Error:\n' +
+      rejectedFiles
+        .map((elm) => {
+          return elm.name;
+        })
+        .join(', ')
+  );
+};
+
 export type FileInputProps = {
   /**
    * Flags if the input should accept multiple, or just a single file at a time.
@@ -45,6 +56,7 @@ export type FileInputProps = {
      */
     diff: { deleted?: Array<File>; added?: Array<File> }
   ) => void;
+  onFilesRejected?: (rejectedFiles: Array<File>) => void;
   name?: string;
   value?: ReadonlyArray<File>;
 
@@ -85,6 +97,7 @@ const FileInput = (props: FileInputProps) => {
     reqText,
     FileList = DefaultFileList,
     onFilesUpdated = () => undefined,
+    onFilesRejected,
     showFileSize,
     showImagePreviews,
 
@@ -108,16 +121,7 @@ const FileInput = (props: FileInputProps) => {
       addFiles(acceptedFiles);
       setIsHover(false);
     },
-    onDropRejected: (rejectedFiles: Array<File>) => {
-      window.alert(
-        'Error:\n' +
-          rejectedFiles
-            .map((elm) => {
-              return elm.name;
-            })
-            .join(', ')
-      );
-    },
+    onDropRejected: onFilesRejected || defaultOnFilesRejected,
     onDragEnter: () => {
       // 'dragLeave' always fires right after 'dragEnter', use 'dragOver' instead
       // console.log('enter');
