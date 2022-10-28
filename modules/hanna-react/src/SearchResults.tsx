@@ -4,7 +4,7 @@ import { prettyNum, PrettyNumOptions } from '@hugsmidjan/qj/prettyNum';
 import range from '@hugsmidjan/qj/range';
 import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { DEFAULT_LANG, DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import SearchResultsItem, {
   SearchResultsItemProps,
@@ -149,13 +149,12 @@ const SearchResults__loadmore = (props: LoadMoreProps) => {
 
 const renderTitle = (props: SearchResultsProps, texts: SearchReesultI18n) => {
   const { status, totalHits, query } = props;
-  const lang = texts.lang || props.lang || DEFAULT_LANG;
   return (
     <h2 className="SearchResults__title">
       {status === 'loadingquery'
         ? texts.loadQueryTitle
         : totalHits
-        ? prettyNum(totalHits, { lang: lang as PrettyNumOptions['lang'] }) +
+        ? prettyNum(totalHits, { lang: texts.lang as PrettyNumOptions['lang'] }) +
           ' ' +
           texts.resultsTitle
         : texts.noResultsTitle}
