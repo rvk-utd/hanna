@@ -1,4 +1,5 @@
-import { ObjectKeys } from './_/ObjectHelpers';
+export const DEFAULT_LANG = 'is';
+type DefaultLang = typeof DEFAULT_LANG;
 
 /**
  * Returns the passed `defaultTexts` in "production" mode.
@@ -8,26 +9,20 @@ import { ObjectKeys } from './_/ObjectHelpers';
  */
 const langMissing = <T extends Record<string, unknown>>(
   lang: string,
-  defaults: T
-): T | Record<keyof T, string> => {
-  if (process.env.NODE_ENV === 'production') {
-    return defaults;
-  } else {
+  defaultTexts: T
+): T => {
+  if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV === 'production') {
     console.error(`language '${lang}' not supported`);
-    return ObjectKeys(defaults).reduce((texts, key) => {
-      texts[key] = '???';
-      return texts;
-    }, {} as Record<keyof T, string>);
   }
+  return defaultTexts;
 };
 
-export const DEFAULT_LANG = 'is';
-
-type DefaultLang = typeof DEFAULT_LANG;
-
-export type DefaultTexts<T extends Record<string, unknown>, L extends string = string> = {
-  [x in DefaultLang]: T;
-} & Record<L, T | undefined>;
+export type DefaultTexts<
+  Texts extends Record<string, unknown>,
+  Lang extends string = string
+> = {
+  [x in DefaultLang]: Texts;
+} & Record<Lang, Texts | undefined>;
 
 /**
  * Helper for components that expose (optional) `texts` and `lang` props
@@ -42,14 +37,17 @@ export type DefaultTexts<T extends Record<string, unknown>, L extends string = s
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#gettexts
  */
-export const getTexts = <T extends Record<string, unknown>, L extends string>(
-  props: { texts?: T; lang?: L },
-  defaultTexts: DefaultTexts<T, L>
-): T | Record<keyof T, string> => {
+export const getTexts = <
+  Texts extends Readonly<Record<string, unknown>>,
+  Lang extends string
+>(
+  props: { texts?: Texts; lang?: Lang },
+  defaultTexts: DefaultTexts<Texts, Lang>
+): Texts => {
   const lang = props.lang || DEFAULT_LANG;
   return (
     props.texts ||
-    (defaultTexts[lang] as T | undefined) ||
+    (defaultTexts[lang] as Texts | undefined) ||
     langMissing(lang, defaultTexts[DEFAULT_LANG])
   );
 };
