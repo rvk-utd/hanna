@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - docs: Improve JSDocs and add missing chapters to README
+- fix: `printDate` should default to DEFAULT_LANGUAGE, not English
 
 ## 0.1.15
 

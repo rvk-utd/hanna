@@ -1,3 +1,5 @@
+import { DEFAULT_LANG } from '../i18n';
+
 import { OpenRecord } from './types';
 
 const monthsByLang: OpenRecord<'is' | 'en' | 'pl', Array<string>> = {
@@ -59,7 +61,7 @@ const monthsByLang: OpenRecord<'is' | 'en' | 'pl', Array<string>> = {
 export const printDate = (date: string | Date, lang?: string): string => {
   date = typeof date === 'string' ? new Date(date) : date;
   const d = date.getUTCDate();
-  const months = monthsByLang[lang || ''] || monthsByLang.en;
+  const months = monthsByLang[lang || ''] || monthsByLang[DEFAULT_LANG];
   const mmm = months[date.getUTCMonth()];
   const yyyy = date.getUTCFullYear();
   return months === monthsByLang.en ? `${mmm} ${d}, ${yyyy}` : `${d}. ${mmm} ${yyyy}`;
