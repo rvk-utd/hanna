@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- docs: Improve JSDocs and add missing chapters to README
 
 ## 0.1.15
 
