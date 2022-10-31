@@ -112,6 +112,7 @@ const useReviewState = (change: Changeset) => {
         if (doublePress) {
           submitButton.click();
         } else {
+          setMode(key === 'A' ? 'actual' : 'expected');
           setPrimed({ on: true, letter: key });
           primeout = setTimeout(() => {
             resetPrimed();
