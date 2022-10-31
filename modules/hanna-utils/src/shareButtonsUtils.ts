@@ -10,10 +10,19 @@ const shareButtonPlatforms = {
   linkedin: 'LinkedIn',
   email: 'E-mail',
 };
+/**
+ * List of supported social media platforms
+ */
 export type ShareButtonPlatforms = keyof typeof shareButtonPlatforms;
 
+/**
+ * List of supported social media platforms
+ */
 export const shareButtonTypes = ObjectKeys(shareButtonPlatforms);
 
+/**
+ * Texts for the social media sharing UI
+ */
 export type ShareButtonI18n = {
   label?: string;
   buttonLabel?: string;
@@ -25,6 +34,14 @@ export type ShareButtonI18n = {
 let _lastLabel: string | undefined;
 let _lastValue: [string, string] = ['', ''];
 const _token = '${name}';
+
+/**
+ * Generates a sharing button/link label for a given social media
+ * platform type.
+ *
+ * Interpolates the platform name, if the provided label contains
+ * a `${name}` token.
+ */
 export const getShareButtonLabel = (
   type: ShareButtonPlatforms,
   label: string
@@ -63,6 +80,9 @@ const getAttr = (selector: string, prop: string) => {
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Translation strings for social media sharing
+ */
 export const shareButtonTexts: {
   en: ShareButtonI18n;
   is: ShareButtonI18n;
@@ -86,6 +106,10 @@ export const shareButtonTexts: {
   },
 };
 
+/**
+ * MetaData for the current page, including fully constructed sharing
+ * URLs for all `ShareButtonPlatforms`
+ */
 export type DocMeta = {
   hrefs: Record<ShareButtonPlatforms, string>;
   url: string;
@@ -99,6 +123,14 @@ type DocMetaConfig = {
   lang?: string;
 };
 
+/**
+ * Runs in the browser and parses the open-graph <meta/> tags
+ * of the current page.
+ *
+ * Returns the canonical `url`, `title`, `description` and page `lang`
+ * as well as ready-made "share this page" URLs for all
+ * `ShareButtonPlatforms`.
+ */
 export const getDocMeta = (cfg: DocMetaConfig = {}): DocMeta => {
   const url =
     getElm<HTMLLinkElement>('link[rel="canonical"]').href ||
@@ -141,6 +173,10 @@ export const getDocMeta = (cfg: DocMetaConfig = {}): DocMeta => {
   };
 };
 
+/**
+ * An event handler, ready to be assigned to sharing links (with `href=""`s)
+ * that opens the link in a small popup window.
+ */
 export const openInPopup = (e: { target: EventTarget; preventDefault: () => void }) => {
   if (e.target instanceof HTMLAnchorElement) {
     e.preventDefault();

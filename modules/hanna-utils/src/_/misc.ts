@@ -8,6 +8,8 @@
  * const mixed = ['hi', null, undefined, ''];
  * const strings: Array<string> = mixed.filter(notNully);
  * ```
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#notnully
  */
 export const notNully = <T>(val: T | null | undefined): val is T => val != null;
 
@@ -23,6 +25,8 @@ export type Falsy = undefined | null | false | 0 | '';
  * const mixed = ['hi', null, undefined, '', 0, false, 'ho'] as const;
  * const strings: Array<string> = mixed.filter(notFalsy);
  * ```
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#notfalsy
  */
 
 export const notFalsy = <T>(val: T | Falsy): val is T => !!val;
@@ -39,6 +43,8 @@ export const notFalsy = <T>(val: T | Falsy): val is T => !!val;
  * capitalize('hello world'); // "Hello world"
  * capitalize('istanbul', 'TR'); // "İstanbul"
  * ```
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#capitalize
  */
 export const capitalize = <S extends string>(
   str: S,

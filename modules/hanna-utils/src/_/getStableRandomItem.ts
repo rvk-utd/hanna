@@ -11,6 +11,8 @@ const stupidStableRandom = (seed: string) =>
  *
  * You might want to use this helper inside React components to get a stable
  * randomness, without having to resort to hooks.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#getstablerandomitem
  */
 export const getStableRandomItem = <T>(
   items: ReadonlyArray<T> | Record<string, T>,

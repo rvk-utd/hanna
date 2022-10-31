@@ -27,6 +27,8 @@ import FormatChange from 'formatchange';
  *
  * (This utility is, for example, utilized by the hanna-react package to generate
  * its `useFormatMonitor` hook.)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formatmonitor
  */
 export const formatMonitor =
   // When running in CommonJS context (e.g. during server-side rendering)
