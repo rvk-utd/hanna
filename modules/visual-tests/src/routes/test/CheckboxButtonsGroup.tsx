@@ -47,6 +47,19 @@ export const options = [
     value: 'great',
     label: lorem.tiny,
   },
+  {
+    value: 'label',
+    label: 'Label',
+  },
+  {
+    value: 'great',
+    label: (
+      <Fragment>
+        {lorem.tiny.slice(0, 50)}{' '}
+        <small>Extra extra info that is a bit longer than it maybe should be</small>
+      </Fragment>
+    ),
+  },
 ];
 
 export default function () {
@@ -71,8 +84,8 @@ export default function () {
       />
       <DummyBlock thin />
       <CheckboxButtonsGroup
-        label={'Invalid Checkbox Group'}
-        options={options}
+        label={'Disabled Checkbox Group'}
+        options={options.slice(0, 2)}
         value={['text']}
         disabled
         name={'disabled'}
@@ -83,40 +96,34 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
-    const normal = page.locator('.CheckboxButton__label >> nth = 1');
+    const notChecked = page.locator('.CheckboxButton__label >> nth = 1');
     const checked = page.locator('.CheckboxButton__label >> nth = 0');
-    const invalid = page.locator('.FormField--invalid .CheckboxButton__label >> nth = 1');
     const invalidChecked = page.locator(
       '.FormField--invalid .CheckboxButton__label >> nth = 0'
     );
     const disabled = page.locator(
       '.FormField--disabled .CheckboxButton__label >> nth = 1 '
     );
-    await normal.hover();
-    await localScreenshot(normal, 'normal-hover', { margin: true });
+
+    await notChecked.hover();
+    await localScreenshot(notChecked, 'notChecked-hover', { margin: true });
 
     await checked.hover();
-    await localScreenshot(checked, 'invalid-hover', { margin: true });
-
-    await invalid.hover();
-    await localScreenshot(invalid, 'invalid-hover', { margin: true });
+    await localScreenshot(checked, 'checked-hover', { margin: true });
 
     await invalidChecked.hover();
-    await localScreenshot(invalidChecked, 'invalid-hover', { margin: true });
+    await localScreenshot(invalidChecked, 'invalidChecked-hover', { margin: true });
 
     await disabled.hover();
     await localScreenshot(disabled, 'disabled-hover', { margin: true });
 
-    await normal.focus();
-    await localScreenshot(normal, 'normal-focus', { margin: true });
+    await notChecked.focus();
+    await localScreenshot(notChecked, 'notChecked-focus', { margin: true });
 
     await checked.focus();
-    await localScreenshot(checked, 'invalid-focus', { margin: true });
+    await localScreenshot(checked, 'checked-focus', { margin: true });
 
     await invalidChecked.focus();
-    await localScreenshot(invalidChecked, 'invalid-focus', { margin: true });
-
-    await invalid.focus();
-    await localScreenshot(invalid, 'invalid-focus', { margin: true });
+    await localScreenshot(invalidChecked, 'invalidChecked-focus', { margin: true });
   },
 };
