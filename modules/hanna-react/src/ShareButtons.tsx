@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { SSRSupport } from '@hugsmidjan/react/hooks';
+import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 import {
   DocMeta,
   getDocMeta,
   getShareButtonLabel,
-  i18n,
   openInPopup,
   ShareButtonI18n,
   ShareButtonPlatforms,
+  shareButtonTexts,
   shareButtonTypes,
 } from '@reykjavik/hanna-utils/shareButtonsUtils';
 
@@ -68,11 +69,13 @@ export type ShareButtonsProps = {
   ssr?: SSRSupport;
   children?: undefined;
   texts?: Readonly<ShareButtonI18n>;
+  lang?: string;
 } & Partial<Record<ShareButtonPlatforms, boolean>>;
 
 const ShareButtons = (props: ShareButtonsProps) => {
   const {
     texts,
+    lang,
     ssr,
 
     facebook = true,
@@ -86,17 +89,25 @@ const ShareButtons = (props: ShareButtonsProps) => {
   useEffect(() => {
     // FIXME: Drop dependency on _loc.href and set up proper
     // location/route monitoring event handler, with unsubscribe on unmount
-    const { emailSubject } = texts || {};
-    setDocMeta(getDocMeta({ emailSubject }));
-  }, [texts, href]);
+    setDocMeta(
+      getDocMeta({
+        lang,
+        emailSubject: texts && texts.emailSubject,
+      })
+    );
+  }, [texts, lang, href]);
 
   if (!facebook && !twitter && !linkedin && !email) {
     // no place to share
     return null;
   }
 
-  const txt = texts || (docMeta && i18n[docMeta.lang]) || {};
-  const { label, buttonLabel } = txt;
+  const txt =
+    texts ||
+    (docMeta && (shareButtonTexts[docMeta.lang] || shareButtonTexts[DEFAULT_LANG])) ||
+    {};
+
+  const { label, buttonLabel, emailSubject } = txt;
 
   if (!docMeta || ssr === 'ssr-only') {
     // Generate SSR markup for hanna-sprinkles to pick up on.
@@ -106,7 +117,7 @@ const ShareButtons = (props: ShareButtonsProps) => {
         data-button-types={generateTypeList(facebook, twitter, linkedin, email)}
         data-label={label}
         data-buttonlabel={buttonLabel}
-        data-emailsubject={txt.emailSubject || undefined}
+        data-emailsubject={emailSubject || undefined}
       />
     );
   }

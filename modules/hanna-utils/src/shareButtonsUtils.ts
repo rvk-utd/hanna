@@ -2,6 +2,7 @@ import addUrlParams from '@hugsmidjan/qj/addUrlParams';
 import htmlLang from '@hugsmidjan/qj/htmlLang';
 
 import { ObjectKeys } from './_/ObjectHelpers';
+import { DEFAULT_LANG } from './i18n';
 
 const shareButtonPlatforms = {
   facebook: 'Facebook',
@@ -62,19 +63,26 @@ const getAttr = (selector: string, prop: string) => {
 
 // ---------------------------------------------------------------------------
 
-export const i18n: {
+export const shareButtonTexts: {
   en: ShareButtonI18n;
+  is: ShareButtonI18n;
+  pl: ShareButtonI18n;
   [x: string]: ShareButtonI18n;
 } = {
-  en: {
-    label: 'Share this page via',
-    // buttonLabel: '',
-    emailSubject: 'Kíktu á þetta!',
-  },
   is: {
     label: 'Deila síðu á',
     // buttonLabel: '',
+    emailSubject: 'Kíktu á þetta!',
+  },
+  en: {
+    label: 'Share this page via',
+    // buttonLabel: '',
     emailSubject: 'Check this out!',
+  },
+  pl: {
+    label: 'Udostępnij tę stronę przez',
+    // buttonLabel: '',
+    emailSubject: 'Spójrz na to!',
   },
 };
 
@@ -88,11 +96,10 @@ export type DocMeta = {
 
 type DocMetaConfig = {
   emailSubject?: string;
+  lang?: string;
 };
 
-export const getDocMeta = (cfg?: DocMetaConfig): DocMeta => {
-  const { emailSubject } = cfg || {};
-
+export const getDocMeta = (cfg: DocMetaConfig = {}): DocMeta => {
   const url =
     getElm<HTMLLinkElement>('link[rel="canonical"]').href ||
     document.location.href.split('#')[0]!.replace(/[?&]fb_action_ids=.+/, '');
@@ -104,7 +111,7 @@ export const getDocMeta = (cfg?: DocMetaConfig): DocMeta => {
     getAttr('meta[property="og:description"]', 'content') ||
     getAttr('meta[name="description"]', 'content') ||
     '';
-  const lang = htmlLang() || '';
+  const lang = cfg.lang || htmlLang() || '';
 
   return {
     hrefs: {
@@ -121,7 +128,9 @@ export const getDocMeta = (cfg?: DocMetaConfig): DocMeta => {
         summary: description,
       }),
       email: addUrlParams('mailto:', {
-        subject: emailSubject || (i18n[lang] || i18n.en).emailSubject,
+        subject:
+          cfg.emailSubject ||
+          (shareButtonTexts[lang] || shareButtonTexts[DEFAULT_LANG]).emailSubject,
         body: title + '\n' + url + '\n\n',
       }),
     },

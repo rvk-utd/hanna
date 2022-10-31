@@ -10,6 +10,10 @@
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
 - feat: Make `SiteSearchAutocompleteProps.renderSuggestion` optional
 - feat: Add `FooterInfoGroup.main`, deprecate `FooterInfoGroup.role`
+- `ShareButton`:
+  - fix: Add support for Polish
+  - fix: Make Icelandic the default/fallback locale
+  - fix: Swap in Icelandic and English `emailSubject`s
 - fix: Suppress Autocomplete suggestion container until suggestions arrive
 - fix: Add missing `title` prop on `IframeBlock`
 - fix: Set default value for empty `WizardStepper` step labels

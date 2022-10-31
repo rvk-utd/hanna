@@ -5,6 +5,10 @@
 - ... <!-- Add new lines here. -->
 - docs: Improve JSDocs and add missing chapters to README
 - fix: `printDate` should default to DEFAULT_LANGUAGE, not English
+- `shareButtonUtils`:
+  - fix: Add support for Polish
+  - fix: Make Icelandic the default/fallback locale
+  - fix: Swap in Icelandic and English `emailSubject`s
 
 ## 0.1.15
 
