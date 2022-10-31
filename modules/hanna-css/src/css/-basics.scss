@@ -99,6 +99,9 @@
   *:lang(is) {
     quotes: '„' '“' '‚' '‘';
   }
+  *:lang(pl) {
+    quotes: '„' '”' '‘' '’';
+  }
 
   body {
     // Placing the overflow rule on the <body> prevents sideways scrolling
