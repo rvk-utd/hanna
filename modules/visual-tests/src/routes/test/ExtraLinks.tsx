@@ -64,6 +64,6 @@ export const testing: TestingInfo = {
     const relLink = relatedLinks.locator(':last-child > .ExtraLinks__related__link');
 
     await relLink.hover();
-    await localScreenshot(relatedLinks, 'relatedlink-hover');
+    await localScreenshot(relatedLinks, 'relatedlink-hover', { margin: true });
   },
 };

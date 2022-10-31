@@ -4,6 +4,7 @@ import SiteSearchAutocomplete from '@reykjavik/hanna-react/SiteSearchAutocomplet
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';
+import { keyboardFocus } from '../../test-helpers/keyboardFocus';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -32,23 +33,26 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, pageScreenshot, localScreenshot, setViewportSize }) => {
-    const searchBox = page.locator('.SiteSearchInput__input');
+  extras: async ({ page, pageScreenshot, localScreenshot, setViewportSize, project }) => {
+    const formFieldInput = page.locator('.FormField__input');
     const searchButton = page.locator('.SiteSearchInput__button');
+    const searchBox = page.locator('.SiteSearchInput__input');
 
-    // Focus search button
-    await searchButton.focus();
-    await localScreenshot(searchBox, 'searchButton-focus');
-    // Focus search box
-    await searchBox.focus();
-    await localScreenshot(searchBox, 'searchbox-focus');
+    if (project === 'firefox-wide' || project === 'firefox-phone') {
+      // Focus search button
+      await keyboardFocus(searchButton, true);
+      await localScreenshot(formFieldInput, 'searchButton-focus');
+      // Focus search box
+      await keyboardFocus(searchBox, true);
+      await localScreenshot(formFieldInput, 'searchbox-focus');
 
-    // Hover search button
-    await searchButton.hover();
-    await localScreenshot(searchBox, 'searchButton-hover');
-    // Focus search box
-    await searchBox.hover();
-    await localScreenshot(searchBox, 'searchbox-hover');
+      // Hover search button
+      await searchButton.hover();
+      await localScreenshot(formFieldInput, 'searchButton-hover');
+      // Focus search box
+      await searchBox.hover();
+      await localScreenshot(formFieldInput, 'searchbox-hover');
+    }
 
     // Hover suggestion
     setViewportSize(1000);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
 import RadioButtonsGroup from '@reykjavik/hanna-react/RadioButtonsGroup';
 
@@ -45,7 +46,11 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox_wide' && project !== 'iphone') {
+      return;
+    }
+
     const normal = page.locator('.RadioButton__label >> nth = 1');
     const checked = page.locator('.RadioButton__label >> nth = 0');
     const invalid = page.locator('.FormField--invalid .RadioButton__label >> nth = 1');
@@ -54,31 +59,47 @@ export const testing: TestingInfo = {
     );
     const disabled = page.locator('.FormField--disabled .RadioButton__label >> nth = 1 ');
 
+    const removeSubSequentNodes = (locator: Locator) =>
+      locator.evaluate((elm) => {
+        while (elm.nextSibling) {
+          elm.nextSibling.remove();
+        }
+      });
+
+    // Because flexbox may artificially increase button height
+    await removeSubSequentNodes(normal);
+    await removeSubSequentNodes(invalidChecked);
+    await removeSubSequentNodes(disabled);
+
+    // :hover
+
     await normal.hover();
     await localScreenshot(normal, 'normal-hover', { margin: true });
 
     await checked.hover();
-    await localScreenshot(checked, 'invalid-hover', { margin: true });
+    await localScreenshot(checked, 'checked-hover', { margin: true });
 
     await invalid.hover();
     await localScreenshot(invalid, 'invalid-hover', { margin: true });
 
     await invalidChecked.hover();
-    await localScreenshot(invalidChecked, 'invalid-hover', { margin: true });
+    await localScreenshot(invalidChecked, 'invalidchecked-hover', { margin: true });
 
     await disabled.hover();
     await localScreenshot(disabled, 'disabled-hover', { margin: true });
+
+    // :focus
 
     await normal.focus();
     await localScreenshot(normal, 'normal-focus', { margin: true });
 
     await checked.focus();
-    await localScreenshot(checked, 'invalid-focus', { margin: true });
-
-    await invalidChecked.focus();
-    await localScreenshot(invalidChecked, 'invalid-focus', { margin: true });
+    await localScreenshot(checked, 'checked-focus', { margin: true });
 
     await invalid.focus();
     await localScreenshot(invalid, 'invalid-focus', { margin: true });
+
+    await invalidChecked.focus();
+    await localScreenshot(invalidChecked, 'invalidchecked-focus', { margin: true });
   },
 };

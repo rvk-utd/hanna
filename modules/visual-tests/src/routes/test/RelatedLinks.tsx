@@ -65,7 +65,7 @@ export const testing: TestingInfo = {
     const relatedLinksGroup = page.locator('.RelatedLinks >> nth = 0');
     const relatedLinks = await relatedLinksGroup.locator('li').elementHandles();
     for (const relatedlink of relatedLinks) {
-      const label = ((await relatedlink.textContent()) || '').split('--')[0];
+      const label = ((await relatedlink.textContent()) || '').split('--')[0]!.trim();
 
       await relatedlink.hover();
       await localScreenshot(relatedlink, label + '-hover', { margin: [5, 10] });

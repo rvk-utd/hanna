@@ -59,15 +59,23 @@ export default function () {
 // TODO: Text combination of .ContactBubble and .MainMenu
 
 export const testing: TestingInfo = {
-  viewportMinHeight: 600,
-  extras: async ({ page, pageScreenshot, localScreenshot }) => {
+  viewportMinHeight: 700,
+  extras: async ({ page, pageScreenshot, localScreenshot, project, setViewportSize }) => {
     const contactBubbleBtn = page.locator('.ContactBubble__openbtn');
-    await contactBubbleBtn.hover();
-    await localScreenshot(contactBubbleBtn, 'btn-hover', { margin: 25 });
+    if (project !== 'firefox_netbook') {
+      await contactBubbleBtn.hover();
+      await localScreenshot(contactBubbleBtn, 'btn-hover', { margin: 25 });
+    }
 
     await contactBubbleBtn.click();
     await page.waitForTimeout(100);
     await page.locator('.ContactBubble__link:has-text("Netspjall")').hover();
     await pageScreenshot('opened');
+    if (project === 'firefox_phone') {
+      await page.locator('.ContactBubble').evaluate((elm) => {
+        elm.scrollTo(0, 1000);
+      });
+      await pageScreenshot('opened-scrolled');
+    }
   },
 };

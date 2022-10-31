@@ -47,30 +47,33 @@ export default function () {
   );
 }
 export const testing: TestingInfo = {
-  viewportMinHeight: 1250,
   extras: async ({ page, pageScreenshot }) => {
+    const opts = {
+      viewportMinHeight: Math.max(500, 0.9 * page.viewportSize()!.width),
+    };
+
     // scroll to 3rd item and hover it.
     await page.locator('.CarouselStepper__button >> nth=2').click();
     await page.locator('.GalleryItem__button >> nth=2').hover();
-    await pageScreenshot('scrolled');
+    await pageScreenshot('scrolled', opts);
 
     // click 3rd item and hover the modal's close button
     await page.locator('.GalleryItem__button >> nth=2').click();
     await page.waitForTimeout(200);
     await page.locator('.GalleryModal__closebutton').hover();
-    await pageScreenshot('modal-nocaption-closebtn-hover');
+    await pageScreenshot('modal-nocaption-closebtn-hover', opts);
 
     const prevButton = page.locator('.GalleryModalPager__button--prev');
 
     // navigate back (to 2nd item) and hover the prev button
     await prevButton.click();
     await prevButton.hover();
-    await pageScreenshot('modal-description-portrait-prev-hover');
+    await pageScreenshot('modal-description-portrait-prev-hover', opts);
 
     // navigate back (to 1st item) and hover the next button
     await prevButton.click();
     await page.locator('.GalleryModalPager__button--next').hover();
-    await pageScreenshot('modal-caption-next-hover');
+    await pageScreenshot('modal-caption-next-hover', opts);
 
     // NOTE: The `--goleft` and `--goright` mouse-navigation buttons
     // are tested as part of the ArticleCarousel test

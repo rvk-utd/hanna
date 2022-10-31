@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
 import CheckboxButtonsGroup from '@reykjavik/hanna-react/CheckboxButtonsGroup';
 
@@ -24,7 +25,11 @@ export const options = [
   },
   {
     value: 'random',
-    label: 'Random text',
+    label: (
+      <Fragment>
+        Random text <small>Extra info</small>
+      </Fragment>
+    ),
   },
   {
     value: 'long',
@@ -49,7 +54,7 @@ export const options = [
   },
   {
     value: 'label',
-    label: 'Label',
+    label: 'Label Label',
   },
   {
     value: 'great',
@@ -95,15 +100,33 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
-    const notChecked = page.locator('.CheckboxButton__label >> nth = 1');
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox_wide' && project !== 'iphone') {
+      return;
+    }
+
     const checked = page.locator('.CheckboxButton__label >> nth = 0');
+    const notChecked = page.locator('.CheckboxButton__label >> nth = 1');
     const invalidChecked = page.locator(
       '.FormField--invalid .CheckboxButton__label >> nth = 0'
     );
     const disabled = page.locator(
       '.FormField--disabled .CheckboxButton__label >> nth = 1 '
     );
+
+    const removeSubSequentNodes = (locator: Locator) =>
+      locator.evaluate((elm) => {
+        while (elm.nextSibling) {
+          elm.nextSibling.remove();
+        }
+      });
+
+    // Because flexbox may artificially increase button height
+    await removeSubSequentNodes(notChecked);
+    await removeSubSequentNodes(invalidChecked);
+    await removeSubSequentNodes(disabled);
+
+    // :hover
 
     await notChecked.hover();
     await localScreenshot(notChecked, 'notChecked-hover', { margin: true });
@@ -116,6 +139,8 @@ export const testing: TestingInfo = {
 
     await disabled.hover();
     await localScreenshot(disabled, 'disabled-hover', { margin: true });
+
+    // :focus
 
     await notChecked.focus();
     await localScreenshot(notChecked, 'notChecked-focus', { margin: true });

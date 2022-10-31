@@ -27,7 +27,11 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox_wide' && project !== 'firefox_phone') {
+      return;
+    }
+
     const backButton = page.locator('.ButtonBack:text("Back button")');
     const backLink = page.locator('.ButtonBack:text("Back link")');
     const disabledBackButton = page.locator('.ButtonBack:text("Disabled button")');

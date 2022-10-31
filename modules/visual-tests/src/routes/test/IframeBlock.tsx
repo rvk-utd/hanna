@@ -20,8 +20,8 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      {alignment.map((align) => {
-        return compactness.map((compact) => {
+      {compactness.map((compact) => {
+        return alignment.map((align) => {
           return framedness.map((framed, i) => {
             const dummy = align !== 'right' || compact !== true || framed !== true;
             const name =
@@ -31,6 +31,7 @@ export default function () {
             return (
               <Fragment key={i}>
                 <IframeBlock
+                  title="Testing"
                   src={
                     'data:text/html,' +
                     encodeURIComponent(`<body style="background:#ffdc">${name} </body>`)

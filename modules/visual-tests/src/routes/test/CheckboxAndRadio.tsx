@@ -55,7 +55,11 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox_wide' && project !== 'iphone') {
+      return;
+    }
+
     /* eslint-disable no-await-in-loop */
     for (const type of ['Checkbox', 'Radio'] as const) {
       const normal = page.locator('.' + type + '__label:text("Normal")');
