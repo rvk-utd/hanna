@@ -145,7 +145,7 @@ export type TestFnArgs = Pick<
   /**
    * Sugar method for page.setViewPortSize with nicer defaults
    */
-  setViewportSize(minHeight: number): Promise<void>;
+  setViewportSize(height: number): Promise<void>;
   setViewportSize(
     opts: { width: number; height?: number } | { width?: number; height: number }
   ): Promise<void>;
