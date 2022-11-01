@@ -125,6 +125,9 @@ export default function App() {
               transition-delay: 0ms !important;
               transition-duration: 0ms !important;
             }
+            #mediaformat {
+              display: none !important;
+            }
           `}</style>
         )}
       </head>
