@@ -10,6 +10,7 @@
   .#{$BEM}--inline > * > .FormField__options__item {
     margin-left: prem(15);
     margin-right: prem(15);
+    flex-shrink: 1;
   }
 }
 
