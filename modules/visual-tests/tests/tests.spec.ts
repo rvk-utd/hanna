@@ -48,6 +48,7 @@ import { testing as Attention__test } from '../src/routes/test/Attention';
 import { testing as BasicTable__test } from '../src/routes/test/BasicTable';
 import { testing as BgBox__test } from '../src/routes/test/BgBox';
 import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote';
+import { testing as BreadCrumbs__test } from '../src/routes/test/BreadCrumbs';
 import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
 import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar';
 import { testing as Buttons__test } from '../src/routes/test/Buttons';
@@ -116,6 +117,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   BasicTable: BasicTable__test,
   BgBox: BgBox__test,
   BlockQuote: BlockQuote__test,
+  BreadCrumbs: BreadCrumbs__test,
   ButtonBack: ButtonBack__test,
   ButtonBar: ButtonBar__test,
   Buttons: Buttons__test,
