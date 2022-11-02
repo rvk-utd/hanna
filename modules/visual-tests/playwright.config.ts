@@ -16,14 +16,20 @@ const tagREs: Record<TestTag, RegExp> = ObjectFromEntries(
       'firefox',
       'firefox_wide',
       'firefox_netbook',
+      'firefox_tablet',
+      'firefox_phone',
       'chrome',
       'chrome_wide',
       'chrome_netbook',
+      'chrome_tablet',
+      'chrome_phone',
       'safari',
       'safari_wide',
       'safari_netbook',
-      'ipad',
-      'iphone',
+      'safari_tablet',
+      'safari_phone',
+      // 'ipad',
+      // 'iphone',
     ] /*  as Array<TestTag> */ as const
   ).map((name) => {
     const re = new RegExp(TAG_PREFIX + name.replace(/_/g, '-'));
@@ -45,6 +51,8 @@ const projects: Array<ProjectCfg> = [
   ...ObjectEntries({
     wide: { width: 1600, height: 300 },
     netbook: { width: 1100, height: 300 },
+    tablet: { width: 768, height: 300 },
+    phone: { width: 375, height: 300 },
   }).flatMap(
     ([label, viewport]): Array<ProjectCfg> => [
       {
@@ -75,16 +83,21 @@ const projects: Array<ProjectCfg> = [
     ]
   ),
 
-  {
-    name: 'ipad',
-    use: { ...devices['iPad (gen 7)'] },
-    grep: [tagREs.ipad],
-  },
-  {
-    name: 'iphone',
-    use: { ...devices['iPhone 12'] },
-    grep: [tagREs.iphone],
-  },
+  // // The webkit-based emulators (especially "iphone") are wildly unstable
+  // // and non-deterministic.
+  // // Since we're not really testing touch-screen behavior or other device
+  // // specific things, and mostly just CSS rendering, we decided to just
+  // // stick with Firefox.
+  // {
+  //   name: 'ipad',
+  //   use: { ...devices['iPad (gen 7)'] },
+  //   grep: [tagREs.ipad],
+  // },
+  // {
+  //   name: 'iphone',
+  //   use: { ...devices['iPhone 12'] },
+  //   grep: [tagREs.iphone],
+  // },
 
   /* Test against branded browsers. */
   // { name: 'Microsoft Edge', use: { channel: 'msedge' } },

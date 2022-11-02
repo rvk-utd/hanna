@@ -126,7 +126,7 @@ export default function () {
 export const testing: TestingInfo = [
   {
     label: 'topmenu',
-    tags: ['firefox'],
+    tags: ['firefox_wide', 'firefox_netbook'],
     initialHover: '.MainMenu__link:text("Stjórnkerfið")',
     extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
       // open a mega menu panel
@@ -171,7 +171,7 @@ export const testing: TestingInfo = [
 
   {
     label: 'hamburger',
-    tags: ['iphone', 'ipad'],
+    tags: ['firefox_phone', 'firefox_tablet'],
     extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
       const hamburgerBtn = page.locator('.Layout__header__skiplink');
       const activePanel = page.locator('.PrimaryPanel--active');

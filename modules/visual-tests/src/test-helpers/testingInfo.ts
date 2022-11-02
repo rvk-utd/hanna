@@ -157,11 +157,17 @@ export type ProjectName =
   | 'meta'
   | 'firefox_wide'
   | 'firefox_netbook'
+  | 'firefox_tablet'
+  | 'firefox_phone'
   | 'chrome_wide'
   | 'chrome_netbook'
+  | 'chrome_tablet'
+  | 'chrome_phone'
   | 'safari_wide'
   | 'safari_netbook'
-  | 'ipad'
-  | 'iphone';
+  | 'safari_tablet'
+  | 'safari_phone';
+// | 'ipad'
+// | 'iphone';
 
 export type TestTag = ProjectName | 'firefox' | 'chrome' | 'safari';

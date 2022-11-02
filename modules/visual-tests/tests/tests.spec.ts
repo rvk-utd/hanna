@@ -180,7 +180,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
 };
 // ---------------------------------------------------------------------------
 
-const DEFAULT_TAGS: Array<TestTag> = ['firefox', 'ipad', 'iphone'];
+const DEFAULT_TAGS: Array<TestTag> = ['firefox'];
 
 type NormalizedTestInfoObj = Omit<TestInfoObj, 'skipTags' | 'addTags'>;
 
