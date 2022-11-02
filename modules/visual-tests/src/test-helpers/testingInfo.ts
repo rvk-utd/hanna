@@ -129,7 +129,7 @@ export type TestFnArgs = Pick<
   pageScreenshot(
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
-    opts?: PageScreenshotOptions & { clipViewport?: boolean }
+    opts?: PageScreenshotOptions & { clipViewport?: boolean; viewportMinHeight?: number }
   ): Promise<void>;
 
   /**

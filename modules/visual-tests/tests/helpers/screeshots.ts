@@ -1,4 +1,4 @@
-import type { Page, PageScreenshotOptions } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 
 import type { TestFnArgs } from '../../src/test-helpers/testingInfo';
@@ -72,6 +72,8 @@ export const makeSnapLocalScreeshot =
 
 // ---------------------------------------------------------------------------
 
+type Opts = { clipViewport?: boolean; viewportMinHeight?: number };
+
 /**
  * Factory function that generates a pageScreenshot convenience function
  * for custom tests to use.
@@ -84,19 +86,17 @@ export const makeSnapLocalScreeshot =
 export const makeSnapPageScreeshot = (
   page: Page,
   testName: string,
-  factoryOpts: { clipViewport?: boolean } = {}
-): TestFnArgs['pageScreenshot'] & { callCount(): number } => {
+  factoryOpts: Opts = {}
+) => {
   let snaps = 0;
-  const snapPageScreenShot = async (
-    label: string,
-    opts?: PageScreenshotOptions & { clipViewport?: boolean }
-  ) => {
+  const snapPageScreenShot: TestFnArgs['pageScreenshot'] & {
+    callCount(): number;
+  } = async (label, opts = {}) => {
     snaps += 1;
 
-    await expandViewport(page)();
+    await expandViewport(page)(opts.viewportMinHeight || factoryOpts.viewportMinHeight);
 
-    const clipViewport =
-      ((opts && opts.clipViewport) ?? factoryOpts.clipViewport) || undefined;
+    const clipViewport = (opts.clipViewport ?? factoryOpts.clipViewport) || undefined;
 
     await expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
       fullPage: true,
