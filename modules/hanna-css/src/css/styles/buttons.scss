@@ -174,12 +174,9 @@ $var--ButtonTertiary--gapH: var(--ButtonTertiary--gapH);
   vertical-align: middle;
   font: $var--font-button;
   padding: 2px 0;
-  padding-left: calc(
-    #{$var--ButtonTertiary--dashSpace} + #{$var--ButtonTertiary--dashWidth}
-  );
-  padding-right: calc(
-    #{$var--ButtonTertiary--hover--dashWidth} - #{$var--ButtonTertiary--dashWidth}
-  );
+  --dashWidth: #{$var--ButtonTertiary--dashWidth};
+  padding-left: calc(#{$var--ButtonTertiary--dashSpace} + var(--dashWidth));
+  padding-right: calc(#{$var--ButtonTertiary--hover--dashWidth} - var(--dashWidth));
   margin-right: $var--ButtonTertiary--gapH;
   margin-bottom: $var--space-1;
   font-weight: 700;
@@ -190,7 +187,7 @@ $var--ButtonTertiary--gapH: var(--ButtonTertiary--gapH);
     position: absolute;
     left: 0;
     top: 50%;
-    width: $var--ButtonTertiary--dashWidth;
+    width: var(--dashWidth);
     height: $var--ButtonTertiary--dashHeight;
     display: inline-block;
     vertical-align: middle;
@@ -207,16 +204,9 @@ $var--ButtonTertiary--gapH: var(--ButtonTertiary--gapH);
 
 @mixin ButtonTertiaryStyle--hoverFocus() {
   @include hoverActiveKeyboardFocus-selector {
-    padding-left: calc(
-      #{$var--ButtonTertiary--dashSpace} + #{$var--ButtonTertiary--hover--dashWidth}
-    );
-    padding-right: prem(0);
+    --dashWidth: #{$var--ButtonTertiary--hover--dashWidth};
     color: $var--ButtonTertiary--color;
     outline: 0;
-
-    &::before {
-      width: $var--ButtonTertiary--hover--dashWidth;
-    }
   }
 
   &:active::before {
@@ -241,7 +231,7 @@ $var--ButtonTertiary--gapH: var(--ButtonTertiary--gapH);
 @mixin ButtonTertiaryStyle--disabled() {
   &[disabled],
   &[aria-disabled='true'] {
-    --ButtonTertiary--hover--dashWidth: #{$var--ButtonTertiary--dashWidth};
+    --dashWidth: #{$var--ButtonTertiary--dashWidth};
     --ButtonTertiary--dashColor: currentColor;
     --ButtonTertiary--color: _inherit;
     opacity: 0.5;

@@ -20,6 +20,7 @@
 - fix: Set color of `Gallery` modal links/buttons to Faxaflói
 - fix: Correct minor responsive rendering glitches in `.FeatureList`
 - fix: Make `--inline` `Checkbox` and `Radio` labels line wrap
+- fix: Right padding on `.ButtonTertiary--disabled`
 
 ## 0.8.70
 
