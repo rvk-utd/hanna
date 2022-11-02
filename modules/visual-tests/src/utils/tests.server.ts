@@ -138,7 +138,7 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
     const [folder = '', filename = ''] = testPath.split('/');
     const project = folder.split('--')[1] || '_unknown-project_';
     const [testName_raw = '_unknown-test_', label = ''] = filename.split(LABEL_SPLIT);
-    const testName = testName_raw.replace(NAME_SPLIT, '--');
+    const testName = testName_raw.replace(NAME_SPLIT, ' : ');
     const id = `${testName}_${label}_${project}`;
 
     const specFile = folder.split('-' + testName_raw)[0] || '_unknown-specfile_';
