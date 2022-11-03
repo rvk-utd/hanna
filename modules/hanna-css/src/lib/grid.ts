@@ -1,20 +1,20 @@
-import { color, css, pct_f, px, PxValue } from 'es-in-css';
+import { color, css, pct_f, PlainNumber, px, PxValue } from 'es-in-css';
 
 import { bp } from './breakpoints';
 import { isDevMode } from './cssutils';
 
-const unit = 8;
-const gutter = 40;
-const column = 64;
+const unit = px(8);
+const gutter = px(40);
+const column = px(64);
 const numCols = 12;
 
-const margin__phone = 20;
-const margin__wide = 80;
+const margin__phone = px(20);
+const margin__wide = px(80);
 
-const contentMaxWidth = column * numCols + gutter * (numCols - 1);
-const contentMinWidth = bp.phone - 2 * margin__phone;
+const contentMaxWidth = px(column * numCols + gutter * (numCols - 1));
+const contentMinWidth = px(bp.phone - 2 * margin__phone);
 
-const contentMaxWidth__outer = contentMaxWidth + 2 * margin__wide;
+const contentMaxWidth__outer = px(contentMaxWidth + 2 * margin__wide);
 const contentMinWidth__outer = bp.phone;
 
 export const grid = {
@@ -38,15 +38,15 @@ const oneof = (n: number) => (n < 0 ? -1 : n > 0 ? 1 : 0);
 
 /** Percentage length - by columns */
 export const cols_pct = (
-  cols: number,
+  cols: PlainNumber,
   gutters = cols - oneof(cols),
   opts?: {
-    ofCols?: number;
-    ofGutters?: number;
+    ofCols?: PlainNumber;
+    ofGutters?: PlainNumber;
     /** Custom container width in pixels. When specified, this overrides the default column-based container width. */
-    width?: number | PxValue;
+    width?: PlainNumber | PxValue;
     /** Pixel-based modifier for the column-based container width. (Useful for gridded-containers with non-standard padding/margin) */
-    edge?: number | PxValue;
+    edge?: PlainNumber | PxValue;
   }
 ) => {
   opts = opts || {};
@@ -64,15 +64,15 @@ export const cols_pct = (
 
 /** Percentage length - pixels to page-width */
 export const px_pct = (
-  nPx: number | PxValue,
-  ofCols = numCols,
-  ofGutters = ofCols - oneof(ofCols),
+  nPx: PlainNumber | PxValue,
+  ofCols: PlainNumber = numCols,
+  ofGutters: PlainNumber = ofCols - oneof(ofCols),
   /** Pixel-based modifier for the column-based container width. (Useful for gridded-containers with non-standard padding/margin) */
-  edge: number | PxValue = 0
+  edge: PlainNumber | PxValue = 0
 ) => pct_f(nPx / (ofCols * column + ofGutters * gutter + edge));
 
 /** pixel length - by columns */
-export const cols_px = (numCols: number, numGutters = numCols - 1) =>
+export const cols_px = (numCols: PlainNumber, numGutters: PlainNumber = numCols - 1) =>
   px(numCols * column + numGutters * gutter);
 
 // ===========================================================================
