@@ -3,10 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Convert relevant `_raw` values to `PxValue`
-- fix: Tighten signature of between helpers to use `PlainNumber` type
 
-## 0.3.8
+## 0.3.8 – 0.3.9
 
 _2022-11-03_
 
@@ -19,6 +17,8 @@ _2022-11-03_
   `setStyleServerUrl`
 - feat: Upgrade `es-in-css` for bugfixes and new features.
 - feat: Add new dev mixins `WARNING_border__`, `WARNING_border_soft__`
+- feat: Convert relevant `_raw` values to `PxValue`
+- fix(ts): Tighten signature of between helpers to use `PlainNumber` type
 - fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7

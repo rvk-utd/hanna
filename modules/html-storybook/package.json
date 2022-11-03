@@ -24,7 +24,7 @@
   "dependencies": {
     "@babel/core": "^7.8.4",
     "@hugsmidjan/qj": "^4.10.2",
-    "@reykjavik/hanna-css": "^0.3.8",
+    "@reykjavik/hanna-css": "^0.3.9",
     "@reykjavik/hanna-react": "^0.10.70",
     "@storybook/addon-knobs": "^5.3.14",
     "@storybook/addon-viewport": "^5.3.17",
