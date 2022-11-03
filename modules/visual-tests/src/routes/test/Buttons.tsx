@@ -100,7 +100,6 @@ export default function () {
 
 export const testing: TestingInfo = {
   tags: ['firefox'],
-  __DEV_FOCUS__:true,
   extras: async ({ page, localScreenshot }) => {
     // Primary buttons
     const primaryButton = page.locator('.ButtonPrimary >> nth = 0');
