@@ -65,8 +65,10 @@ import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
 import { testing as FeatureList__test } from '../src/routes/test/FeatureList';
 import { testing as FileInput__test } from '../src/routes/test/FileInput';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
+import { testing as Footnote__test } from '../src/routes/test/Footnote';
 import { testing as Gallery__test } from '../src/routes/test/Gallery';
 import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks';
+import { testing as Heading__test } from '../src/routes/test/Heading';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
 import { testing as IframeBlock__test } from '../src/routes/test/IframeBlock';
 import { testing as ImageCards__test } from '../src/routes/test/ImageCards';
@@ -135,8 +137,10 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   FeatureList: FeatureList__test,
   FileInput: FileInput__test,
   FooterInfo: FooterInfo__test,
+  Footnote: Footnote__test,
   Gallery: Gallery__test,
   GridBlocks: GridBlocks__test,
+  Heading: Heading__test,
   HeroBlock: HeroBlock__test,
   IframeBlock: IframeBlock__test,
   ImageCards: ImageCards__test,
