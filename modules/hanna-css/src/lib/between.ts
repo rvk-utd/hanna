@@ -21,7 +21,7 @@ const unitConverters = {
   vh: vh_f,
 };
 
-type RangeEdge = PlainNumber | PxValue | PctValue;
+export type RangeEdge = PlainNumber | PxValue | PctValue;
 
 export const between = (
   from: RangeEdge,
