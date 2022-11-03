@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.1.16
+
+_2022-11-03_
+
 - docs: Improve JSDocs and add missing chapters to README
 - fix: `printDate` should default to DEFAULT_LANGUAGE, not English
 - `shareButtonUtils`:
