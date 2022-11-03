@@ -7,7 +7,7 @@ export const envVars = buildVariables(['cssVersion', 'browser_scrollbar_width'])
 
 // ---------------------------------------------------------------------------
 
-/** CSS variables with pixel value `witdh`s of the Hanna responsive
+/** CSS variables with pixel value `min-witdh`s of the Hanna responsive
  * breakpoints.
  *
  * BTW: `bp_w_phone` is the **minimum** supported width, although the

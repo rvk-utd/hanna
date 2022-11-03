@@ -60,14 +60,12 @@ const buttons = (
             </p>
             <p>
               {' '}
-              {variantType !== 'destructive' ? (
+              {variantType !== 'destructive' && (
                 <ButtonComponent size={sizeValue} variant={variantType} icon="go-back">
                   Go Back
                 </ButtonComponent>
-              ) : (
-                ''
-              )}
-              {variantType !== 'destructive' ? (
+              ) }
+              {variantType !== 'destructive' && (
                 <ButtonComponent
                   size={sizeValue}
                   variant={variantType}
@@ -75,9 +73,7 @@ const buttons = (
                 >
                   Go Forward
                 </ButtonComponent>
-              ) : (
-                ''
-              )}
+              ) }
             </p>
             <br />{' '}
           </div>
@@ -104,6 +100,7 @@ export default function () {
 
 export const testing: TestingInfo = {
   tags: ['firefox'],
+  __DEV_FOCUS__:true,
   extras: async ({ page, localScreenshot }) => {
     // Primary buttons
     const primaryButton = page.locator('.ButtonPrimary >> nth = 0');

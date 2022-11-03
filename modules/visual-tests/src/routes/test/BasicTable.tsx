@@ -12,9 +12,7 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
 
-const content = (
-  extra?: boolean
-): Pick<BasicTableProps, 'thead' | 'tbody' | 'startSeen' | 'cols'> => ({
+const content = (): Pick<BasicTableProps, 'thead' | 'tbody' | 'startSeen' | 'cols'> => ({
   cols: [{ number: true }, {}, {}, {}, { tel: true }, { number: true }, {}],
   thead: [
     [
