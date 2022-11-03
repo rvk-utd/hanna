@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.3.8
+
+_2022-11-03_
+
 - feat: Support passing custom `namespace` prefix to `buildVariables()`
 - feat: Add constant `icons`, and type `IconName`
 - feat: Add `font_raw.sizes`
