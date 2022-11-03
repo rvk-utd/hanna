@@ -34,13 +34,14 @@ export const FormField__error = (paddingLeft = grid_units(2), marginTop = prem(9
 
 export const TogglerGroup = (bem: string) => css`
   .${bem}--inline > .FormField__options {
-    margin: 0 prem(-15);
+    margin: 0 ${prem(-15)};
     display: flex;
     flex-flow: row wrap;
   }
   .${bem}--inline > * > .FormField__options__item {
-    margin-left: prem(15);
-    margin-right: prem(15);
+    margin-left: ${prem(15)};
+    margin-right: ${prem(15)};
+    flex-shrink: 1;
   }
 `;
 

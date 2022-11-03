@@ -52,6 +52,8 @@ const quotes = {
   upper99,
   lower99,
 
+  // https://op.europa.eu/en/web/eu-vocabularies/formex/physical-specifications/character-encoding/use-of-quotation-marks-in-the-different-languages
+
   /** Icelandic style */
   IS: {
     open: lower99,
@@ -70,7 +72,7 @@ const quotes = {
   PL: {
     open: lower99,
     close: upper99,
-    openSingle: lower9,
+    openSingle: upper6,
     closeSingle: upper9,
   },
 } as const;

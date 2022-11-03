@@ -4,11 +4,11 @@ import {
   hannaVars as vars,
   WARNING__,
 } from '@reykjavik/hanna-css';
-import { css } from 'es-in-css';
+import { css, str } from 'es-in-css';
 import md5File from 'md5-file';
 
 import { bp } from '../lib/breakpoints';
-import { iconfont_raw } from '../lib/icons';
+import { characters, iconfont_raw } from '../lib/icons';
 import { WARNING_border__ } from '../lib/WARNING__';
 
 import { hannaVarDeclarations } from './styles/hannaVarDeclarations';
@@ -32,6 +32,13 @@ const fileChecksum = (file: string) => {
     return '😢';
   }
 };
+
+const quotes = (lang: 'IS' | 'EN' | 'PL') => {
+  const q = characters.quotes[lang];
+  return `${str(q.open)} ${str(q.close)} ${str(q.openSingle)} ${str(q.closeSingle)}`;
+};
+
+const q = characters.quotes;
 
 const iconFontVersion = fileChecksum('../../style-server/public/css/dev/i/icons.woff2');
 const esjaFolder = '/assets/fonts/Esja';
@@ -123,12 +130,16 @@ export default css`
 
     font: ${vars.font_base};
     font-weight: 400;
+    // English style as "normal-looking" fallback for unknown languages
+    quotes: ${quotes('EN')};
     // quotes: auto; // Doesn't work in most browsers yet... See: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes#Browser_compatibility
-    quotes: '“' '”' '‘' '’'; // English style as "normal-looking" fallback
   }
 
   *:lang(is) {
-    quotes: '„' '“' '‚' '‘';
+    quotes: ${quotes('IS')};
+  }
+  *:lang(pl) {
+    quotes: ${quotes('PL')};
   }
 
   body {

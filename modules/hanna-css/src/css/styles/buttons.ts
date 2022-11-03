@@ -224,14 +224,9 @@ export const ButtonTertiaryVarDeclarations = () => css`
 
 export const ButtonTertiaryStyle__hoverFocus = () => css`
   ${hoverActiveKeyboardFocus_selector()(css`
-    padding-left: calc(${btVars.dashSpace} + ${btVars.hover__dashWidth});
-    padding-right: prem(0);
+    --dashWidth: ${btVars.hover__dashWidth};
     color: ${btVars.color};
     outline: 0;
-
-    &::before {
-      width: ${btVars.hover__dashWidth};
-    }
   `)}
 
   &:active::before {
@@ -256,8 +251,8 @@ export const ButtonTertiaryStyle__hoverFocus = () => css`
 export const ButtonTertiaryStyle__disabled = () => css`
   &[disabled],
   &[aria-disabled='true'] {
+    --dashWidth: ${btVars.dashWidth};
     ${ButtonTertiaryVariables.override({
-      hover__dashWidth: btVars.dashWidth,
       dashColor: 'currentColor',
       color: '_inherit',
     })}
@@ -279,8 +274,9 @@ export const ButtonTertiaryStyle = (isStatic = false) => css`
   vertical-align: middle;
   font: ${vars.font_button};
   padding: 2px 0;
-  padding-left: calc(${btVars.dashSpace} + ${btVars.dashWidth});
-  padding-right: calc(${btVars.hover__dashWidth} - ${btVars.dashWidth});
+  --dashWidth: ${btVars.dashWidth};
+  padding-left: calc(${btVars.dashSpace} + var(--dashWidth));
+  padding-right: calc(${btVars.hover__dashWidth} - var(--dashWidth));
   margin-right: ${btVars.gapH};
   margin-bottom: ${vars.space_1};
   font-weight: 700;
@@ -291,7 +287,7 @@ export const ButtonTertiaryStyle = (isStatic = false) => css`
     position: absolute;
     left: 0;
     top: 50%;
-    width: ${btVars.dashWidth};
+    width: var(--dashWidth);
     height: ${btVars.dashHeight};
     display: inline-block;
     vertical-align: middle;
