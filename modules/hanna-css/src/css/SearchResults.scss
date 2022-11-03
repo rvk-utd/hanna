@@ -154,16 +154,19 @@
     transition: width $dashTransition;
   }
 
-  .SearchResultsItem__link:hover > .SearchResultsItem__title,
-  .SearchResultsItem__link:focus > .SearchResultsItem__title,
-  .SearchResultsItem__link:active > .SearchResultsItem__title {
-    padding-right: 0;
+  .SearchResultsItem__link {
+    @include hoverActiveKeyboardFocus-selector {
+      > .SearchResultsItem__title {
+        padding-right: 0;
 
-    --dash-width: #{_flexDash($hoverDashWidth)};
-    @include media($mq-wide) {
-      --dash-width: #{prem($hoverDashWidth)};
+        --dash-width: #{_flexDash($hoverDashWidth)};
+        @include media($mq-wide) {
+          --dash-width: #{prem($hoverDashWidth)};
+        }
+      }
     }
   }
+
   .SearchResultsItem__meta {
     font: $var--font-label;
     color: $var--color-suld-150;

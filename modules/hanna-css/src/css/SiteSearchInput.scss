@@ -49,12 +49,14 @@
     border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
     color: $var--color-suld-0;
   }
-  .SiteSearchInput__button:hover,
-  .SiteSearchInput__button:focus,
-  .SiteSearchInput__button:active {
-    background-color: $var--color-faxafloi-150;
-    color: $color-suld-0;
+
+  .SiteSearchInput__button {
+    @include hoverActiveKeyboardFocus-selector {
+      background-color: $var--color-faxafloi-150;
+      color: $color-suld-0;
+    }
   }
+
   .SiteSearchInput__button::before {
     @include icon($icons-search);
     width: 100%;

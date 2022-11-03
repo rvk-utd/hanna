@@ -50,10 +50,6 @@
     color: $color-suld-150;
     font-size: prem(20);
   }
-  .SearchInput__button:hover,
-  .SearchInput__button:focus {
-    color: $color-faxafloi-100;
-  }
   .SearchInput__button::before {
     @include icon($icons-search);
     width: calc(100% - 2px);
@@ -61,11 +57,17 @@
     padding-left: prem(6);
     transition: all 200ms ease-in;
   }
-  .SearchInput__button:hover::before,
-  .SearchInput__button:focus::before {
-    background-color: $color-suld-25;
-    transform: scale(1.15);
+  .SearchInput__button {
+    @include hoverActiveKeyboardFocus-selector($active: false) {
+      color: $color-faxafloi-100;
+
+      &::before {
+        background-color: $color-suld-25;
+        transform: scale(1.15);
+      }
+    }
   }
+
   .SearchInput__button::after {
     content: '';
     order: -1;
