@@ -174,14 +174,15 @@ const addReferenePathsToIndex = (
 
 // ---------------------------------------------------------------------------
 
-/** @typedef {{ src?: string, cpCmds?: Array<string>, entryGlobs?: Array<string>, sideEffects?: boolean }}  BuildOpts */
+/** @typedef {{ src?: string, cpCmds?: Array<string>, entryGlobs?: Array<string>, sideEffects?: Array<string>, shallowCopy?: boolean }}  BuildOpts */
 /** @type {(libName: string, custom?: BuildOpts) => void} */
 export const buildNpmLib = (libName, custom) => {
   const {
     src = srcDir,
     cpCmds = [`cp README.md  CHANGELOG.md ${distDir}`],
     entryGlobs = [`*.{ts,tsx}`],
-    sideEffects = false,
+    sideEffects,
+    shallowCopy = false,
   } = custom || {};
 
   const entryPoints = entryGlobs.flatMap((entryGlob) =>
@@ -220,7 +221,9 @@ export const buildNpmLib = (libName, custom) => {
       // { name: 'esm', module: 'esnext' },
     ].forEach(({ name, module }) => {
       const tempOutDir = `${distDir}/temp`;
-      const tempLibRoot = `${tempOutDir}/hanna-${libName}/${src}`;
+      const tempLibRoot = shallowCopy
+        ? tempOutDir
+        : `${tempOutDir}/hanna-${libName}/${src}`;
       tscBuild(`lib-${name}`, {
         compilerOptions: {
           module,

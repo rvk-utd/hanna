@@ -1,6 +1,6 @@
 {
   "name": "@reykjavik/hanna-utils",
-  "version": "0.1.14",
+  "version": "0.1.16",
   "author": "Reykjavík (http://www.reykjavik.is)",
   "contributors": [
     "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
@@ -32,7 +32,7 @@
     "build": "yarn install  &&  node build.mjs  &&  yarn run test",
     "dev": "yarn run -T concurrently -k  \"node build.mjs --dev\"  \"yarn run test:dev\"",
     "test:dev": "sleep 1  &&  (yarn run test || true)  &&  yarn run test:watch",
-    "test:watch": "yarn run -T onchange '__tests/**/*.tests.js' -f add -f change -- yarn run -T ospec '{{file}}'",
-    "test": "yarn run -T ospec \"__tests/**/*.tests.js\""
+    "test:watch": "NODE_ENV=test  yarn run -T onchange '__tests/**/*.tests.js' -f add -f change -- yarn run -T ospec '{{file}}'",
+    "test": "NODE_ENV=test  yarn run -T ospec \"__tests/**/*.tests.js\""
   }
 }

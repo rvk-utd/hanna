@@ -7,6 +7,15 @@ export const envVars = buildVariables(['cssVersion', 'browser_scrollbar_width'])
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables with pixel value `witdh`s of the Hanna responsive
+ * breakpoints.
+ *
+ * BTW: `bp_w_phone` is the **minimum** supported width, although the
+ * "phone" format technically doesn't have a lower limit.
+ *
+ * BTW 2: `bp_w_Hamburger` is the **upper** limit of where the Hamburger
+ * menu turns into a Topmenu
+ */
 export const breakpointVars = buildVariables([
   'bp_w_phone',
   'bp_w_phablet',
@@ -18,6 +27,7 @@ export const breakpointVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for the Hanna color pallette */
 export const colorVars = buildVariables([
   'color_esja_25',
   'color_esja_50',
@@ -81,6 +91,7 @@ export const colorVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for semantic color-theme values */
 export const themeVars = buildVariables([
   'theme_color_primary',
   'theme_color_primary_75',
@@ -106,6 +117,7 @@ export const themeVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for default text-link styling */
 export const linkVars = buildVariables([
   'link_color',
   'link_color__hover',
@@ -125,6 +137,7 @@ export const linkVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for Hanna typhography */
 export const fontVars = buildVariables([
   'font_family',
   'font_weight__normal',
@@ -133,7 +146,7 @@ export const fontVars = buildVariables([
   'font_base_size',
   'font_base_leading',
 
-  // Compound font values
+  // Compound `font:` shortand property values
   'font_base',
   'font_hd_xl',
   'font_hd_l',
@@ -182,6 +195,7 @@ export const fontVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for semantic z-index layering */
 export const zIndexVars = buildVariables([
   'zindex__sr_only',
   'zindex__modal',
@@ -193,6 +207,7 @@ export const zIndexVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for the hanna 12 column grid system */
 export const gridVars = buildVariables([
   'grid_margin',
   'grid_margin__neg',
@@ -235,6 +250,7 @@ export const gridVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for standard spacing (combine with `calc()` for even more profit) */
 export const spaceVars = buildVariables([
   'space_1',
   'space_2',
@@ -266,6 +282,7 @@ export const spaceVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables with global Layout values */
 export const layoutVars = buildVariables([
   'Layout$$header_height',
   'Layout$$header_backgroundColor',
@@ -273,6 +290,7 @@ export const layoutVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables with global MainMenu values  */
 export const mainMenuVars = buildVariables([
   'MainMenu_accentcolor',
   'MainMenu_background',
@@ -280,14 +298,17 @@ export const mainMenuVars = buildVariables([
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for borders */
 export const borderEffectVars = buildVariables(['border_default', 'border_dark']);
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for Button* spacing */
 export const buttonVars = buildVariables(['Button__gapH', 'Button__gapV']);
 
 // ---------------------------------------------------------------------------
 
+/** CSS variables for Hanna icon types */
 export const iconVars = buildVariables(ObjectKeys(iconfonttokens));
 
 // ---------------------------------------------------------------------------

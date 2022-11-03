@@ -798,5 +798,10 @@
 		"tags": ["frontpage"],
 		"src": "https://styles.reykjavik.is/assets/illustrations/forsida-snjor.png",
 		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/forsida-snjor.png"
+	},
+	"vegvisir": {
+		"tags": ["theme/trustworthy"],
+		"src": "https://styles.reykjavik.is/assets/illustrations/vegvisir.png",
+		"thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/vegvisir.png"
 	}
 }

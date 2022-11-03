@@ -1,4 +1,4 @@
-import { Expect, Extends, NotExtends } from 'hanna-test-helpers';
+import { Expect, Extends, NotExtends } from '@reykjavik/hanna-utils';
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 

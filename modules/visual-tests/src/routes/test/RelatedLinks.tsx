@@ -62,8 +62,8 @@ export default function () {
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
     // Only test first related links group
-    const relatedLinksFirst = page.locator('.RelatedLinks >> nth = 0');
-    const relatedLinks = await relatedLinksFirst.locator('li').elementHandles();
+    const relatedLinksGroup = page.locator('.RelatedLinks >> nth = 0');
+    const relatedLinks = await relatedLinksGroup.locator('li').elementHandles();
     for (const relatedlink of relatedLinks) {
       const label = ((await relatedlink.textContent()) || '').split('--')[0];
 

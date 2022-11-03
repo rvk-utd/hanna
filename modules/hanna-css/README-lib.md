@@ -48,6 +48,7 @@ yarn add --dev @reykjavik/hanna-css
   - [`suppress_WARNING_soft__`](#suppress_warning_soft__)
   - [Type `WarningOpts`](#type-warningopts)
 - [Raw Design Constants](#raw-design-constants)
+- [Helpful VSCode Snippets](#helpful-vscode-snippets)
 - [Changelog](#changelog)
 
 <!-- prettier-ignore-end -->
@@ -87,6 +88,12 @@ For convenience, `@reykjavik/hanna-css` re-exports **all** types and helper
 methods from the
 [`es-in-css` library](https://www.npmjs.com/package/es-in-css) (excluding the
 JS-to-CSS "compiler").
+
+For good developer experience, use VSCode and install the official
+[**vscode-styled-components** extension](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components).
+That gives you instant syntax highlighting and IntelliSense autocompletion
+inside ` css``  ` template literals, and maybe add a few helpful
+[hanna-css VSCode "snippets"](#helpful-vscode-snippets).
 
 **Please refer to the
 [`es-in-css` documentation](https://www.npmjs.com/package/es-in-css) for more
@@ -511,6 +518,40 @@ import {
 ```
 
 Again use these sparingly, and deliberately.
+
+## Helpful VSCode Snippets
+
+Here are a few code "snippets" you can
+[add to your global snippets file](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_create-your-own-snippets)
+to help you use hanna-css a bit faster:
+
+```jsonc
+  "Insert ${} variable print block": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact,css",
+    "prefix": "v",
+    "body": "\\${$0}",
+  },
+  "Insert Hanna CSS variable": {
+    "scope": "css",
+    "prefix": "h",
+    "body": "\\${hannaVars.$1};",
+  },
+  "Insert CSS property with Hanna varible": {
+    "scope": "css",
+    "prefix": "hannaprop",
+    "body": "${1:css-property}: \\${hannaVars.$2};",
+  },
+  "css`` tagged template literal": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "css",
+    "body": "css`\n\t$0\n`",
+  },
+  "cssVal`` tagged template literal": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "cssVal",
+    "body": "cssVal`\n\t$0\n`",
+  },
+```
 
 ## Changelog
 

@@ -44,7 +44,7 @@ items.unshift(
     highlight: true,
     href: '',
     title: 'Somewhat longer title',
-    // summary: lorem.short,
+    summary: lorem.short,
     image: photo.portrait.src,
     meta: '10. október 2022',
   }

@@ -14,6 +14,8 @@ const _defaultStyleServerUrl =
  * This URL is used when building links to graphic/styling assets, etc.
  *
  * Use `setStyleServerUrl` to change it.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#styleserverurl
  */
 export let styleServerUrl = _defaultStyleServerUrl;
 
@@ -24,6 +26,8 @@ export let styleServerUrl = _defaultStyleServerUrl;
  *
  * _(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
  * DEFAULT value.)_
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#setstyleserverurl
  */
 export const setStyleServerUrl = (url: string | URL) => {
   // NOTE: This DOES throw if user passes an invalid URL string
@@ -37,7 +41,10 @@ setStyleServerUrl.reset = () => {
 // ---------------------------------------------------------------------------
 
 /**
- * Based on "https://styles.reykjavik.is/assets/illustrations/files.json"
+ * List of "Illustration" names/ids
+ * based on "https://styles.reykjavik.is/assets/illustrations/files.json"
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#illustrations
  */
 export const illustrations = [
   'allirsaman1',
@@ -193,6 +200,7 @@ export const illustrations = [
   'umhverfi3',
   'utgefidefni',
   'utivinna',
+  'vegvisir',
   'velferd1',
   'velferd2',
   'velferd3',
@@ -207,7 +215,10 @@ export type Illustration = typeof illustrations[number];
 // ---------------------------------------------------------------------------
 
 /**
- * Based on "https://styles.reykjavik.is/assets/efnistakn/files.json"
+ * List of "Efnistákn" icon names/ids
+ * based on "https://styles.reykjavik.is/assets/efnistakn/files.json"
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#efnistákn-icons
  */
 export const efnistakn = [
   'bygging_01',
@@ -276,7 +287,10 @@ export type Efnistakn = typeof efnistakn[number];
 // ---------------------------------------------------------------------------
 
 /**
- * Based on "https://styles.reykjavik.is/assets/formheimur/files.json"
+ * List of "Formheimur" shape names/ids
+ * based on "https://styles.reykjavik.is/assets/formheimur/files.json"
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formheimur-shapes
  */
 export const formheimur = [
   'blokkir',
@@ -301,7 +315,10 @@ export type Formheimur = typeof formheimur[number];
 // ---------------------------------------------------------------------------
 
 /**
- * Based on "https://styles.reykjavik.is/assets/bling/files.json"
+ * List of "Bling" shape names/ids
+ * based on "https://styles.reykjavik.is/assets/bling/files.json"
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#bling-shapes
  */
 export const blingTypes = [
   'arrow-right-large',
@@ -329,13 +346,41 @@ export type BlingType = typeof blingTypes[number];
 
 // ===========================================================================
 
+/**
+ * Generates a URL to arbitrary asset on on the style server.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#getasseturl
+ */
 export const getAssetUrl = (file: string): string => styleServerUrl + '/assets/' + file;
 
+/**
+ * Generates a URL to a Hanna "Illustration" on the style server.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#illustrations
+ */
 export const getIllustrationUrl = (illustration: Illustration): string =>
   getAssetUrl('illustrations/' + illustration + '.png');
+
+/**
+ * Generates a URL to a Hanna "Efnistákn" icon on the style server.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#efnistákn-icons
+ */
 export const getEfnistaknUrl = (icon: Efnistakn): string =>
   getAssetUrl('efnistakn/' + icon + '.svg');
+
+/**
+ * Generates a URL to a Hanna "Formheimur" shape on the style server.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formheimur-shapes
+ */
 export const getFormheimurUrl = (shapes: Formheimur): string =>
   getAssetUrl('formheimur/' + shapes + '.svg');
+
+/**
+ * Generates a URL to a Hanna "Bling" shape on the style server.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#bling-shapes
+ */
 export const getBlingUrl = (blingType: BlingType): string =>
   getAssetUrl('bling/' + blingType + '.svg');

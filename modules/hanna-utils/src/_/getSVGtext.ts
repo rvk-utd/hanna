@@ -4,7 +4,9 @@ const isSvgUrl = (url: string) => /\.svg(?:$|\?|#)/i.test(url);
 
 /**
  * Fetches a remote SVG file and returns its markup contents — exlcuding any
- * leading `
+ * leading `<?xml />` directives or "Generator" comments.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#getsvgtext
  */
 export const getSVGtext = (url: string | undefined): Promise<string> => {
   return url && isSvgUrl(url)

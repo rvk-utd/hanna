@@ -17,6 +17,8 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
   - [`getPageScrollElm`](#getpagescrollelm)
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
+  - [Branded types](#branded-types)
+  - [`ensurePosInt`](#ensureposint)
 - [Asset helpers](#asset-helpers)
   - [Illustrations](#illustrations)
   - [Efnistákn Icons](#efnistákn-icons)
@@ -26,6 +28,8 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
   - [Style-Server Info](#style-server-info)
     - [`styleServerUrl`](#styleserverurl)
     - [`setStyleServerUrl`](#setstyleserverurl)
+- [I18N helpers](#i18n-helpers)
+  - [`getTexts`](#gettexts)
 - [Social Media Sharing](#social-media-sharing)
 - [Polyfills / A11y](#polyfills--a11y)
   - [`focus-visible` polyfill](#focus-visible-polyfill)
@@ -37,6 +41,11 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
   - [Type `OpenStringMap`](#type-openstringmap)
   - [Type `AllowKeys`](#type-allowkeys)
   - [Type `EitherObj`](#type-eitherobj)
+  - [Type Testing Helpers](#type-testing-helpers)
+    - [Type `Expect<T>`](#type-expectt)
+    - [Type `Equals<A, B>`](#type-equalsa-b)
+    - [Type `Extends<A, B>`](#type-extendsa-b)
+    - [Type `NotExtends<A, B>`](#type-notextendsa-b)
 
 <!-- prettier-ignore-end -->
 
@@ -96,8 +105,8 @@ package to implement its `useFormatMonitor` hook.)
 
 **Syntax:** `printDate(date: string | Date, lang?: string): string`
 
-Very simple, very stupid, standalone date formatter for Icelandic, English and
-Polish.
+Very simple, very stupid, standalone date formatter for Icelandic (default),
+English and Polish.
 
 Just prints the full date (day, month, year). No bells. No whistles. No
 options.
@@ -106,7 +115,7 @@ options.
 import { printDate } from '@reykjavik/hanna-utils';
 
 printDate('2022-04-30', 'is'); // 31. apríl 2022
-printDate('2022-04-30', 'en'); // April 31, 2022
+printDate(new Date('2022-04-30'), 'en'); // April 31, 2022
 ```
 
 ### `getPageScrollElm`
@@ -163,6 +172,27 @@ import { capitalize } from '@reykjavik/hanna-utils';
 capitalize('hello world'); // "Hello world"
 capitalize('istanbul', 'TR'); // "İstanbul"
 ```
+
+### Branded types
+
+### `ensurePosInt`
+
+**Syntax:** `ensurePosInt(cand: unknown): PositiveInteger | undefined`
+
+Checks if `cand` evaluates to a positive integer and, if so, returns a branded
+`PositiveInteger` of equal value.
+
+Returns `undefined` otherwise.
+
+Examples:
+
+- `1` → `1`
+- `"1"` → `1`
+- `0` → `undefined`
+- `-1` → `undefined`
+- `1.5` → `undefined`
+- `"Infinity"` → `undefined`
+- `"foo"` → `undefined`
 
 <!--
 ### `focusElement`
@@ -286,6 +316,51 @@ style-server instance, e.g. during testing/staging/etc.
 
 _(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
 DEFAULT value.)_
+
+## I18N helpers
+
+### `getTexts`
+
+**Syntax:**
+`<Texts extends Record<string, unknown>, Lang extends string>( props: { texts?: Texts; lang?: Lang }, defaultTexts: DefaultTexts<Texts, Lang>) => Texts | Record<keyof Texts, string>`
+
+Helper for components that expose (optional) `texts` and `lang` props for
+customizing their UI texts,
+
+Returns `texts` when available, but otherwise it resolves the correct texts
+object from within `defaultTexts` to use based on `lang` (falling back on
+default language texts when all else fails).
+
+In dev-mode it emits an error to the console if an unsupported `lang` is
+passed.
+
+```tsx
+import { getTexts } from '@reykjavik/hanna-utils/i18n';
+
+type Props = {
+  isOpen: boolean;
+  onToggle: () => void;
+  // I18n props:
+  texts?: { open: string; close: string };
+  lang?: string;
+};
+
+const defaultTexts: Record<Props['lang'], Props['texts']> = {
+  is: { open: 'Opna', close: 'Loka' },
+  en: { open: 'Open', close: 'Close' },
+  pl: { open: 'Otworzyć', close: 'Zamknąć' },
+};
+
+export const SillyToggler = (props: Props) => {
+  const texts = getTexts(props, defaultTexts);
+
+  return (
+    <button onClick={props.onToggle}>
+      {props.isOpen ? texts.open : texts.close}
+    </button>
+  );
+};
+```
 
 ## Social Media Sharing
 
@@ -468,3 +543,21 @@ type MyProps =
   | { type: 'loss'; gain?: never; loss: number; panic?: never }
   | { type: 'even'; gain?: never; loss?: never; panic: boolean };
 ```
+
+### Type Testing Helpers
+
+#### Type `Expect<T>`
+
+Expects `T` to be `true`
+
+#### Type `Equals<A, B>`
+
+Returns true if types `A` and `B` are equal (and neither is `any`)
+
+#### Type `Extends<A, B>`
+
+Returns true if type `A` extends type `B` (and neither is `any`)
+
+#### Type `NotExtends<A, B>`
+
+Returns true if type `A` does **NOT** extend type `B` (and neither is `any`)

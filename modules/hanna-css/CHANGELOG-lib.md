@@ -3,17 +3,22 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add new dev mixins `WARNING_border__`, `WARNING_border_soft__`
+- feat: Convert relevant `_raw` values to `PxValue`
+- fix: Tighten signature of between helpers to use `PlainNumber` type
+
+## 0.3.8
+
+_2022-11-03_
+
 - feat: Support passing custom `namespace` prefix to `buildVariables()`
 - feat: Add constant `icons`, and type `IconName`
 - feat: Add `font_raw.sizes`
-- feat: Upgrade `es-in-css` for bugfixes and new features.
 - feat: `getCssBundleUrl` tolerates trailing slashes on `testingServer` URLs
 - feat: Re-export `setStyleServerUrl` from `@reykjavik/hanna-utils`
-- feat: Deprecate `CssBundleOpts.testingServer` in favour of
+- feat: Deprecate `getCssBundleUrl`'s `testingServer` option in favour of
   `setStyleServerUrl`
-- feat: Convert relevant `_raw` values to `PxValue`
-- fix: Tighten signature of between helpers to use `PlainNumber` type
+- feat: Upgrade `es-in-css` for bugfixes and new features.
+- feat: Add new dev mixins `WARNING_border__`, `WARNING_border_soft__`
 - fix(ts): Make most constant objects readonly (`as const`)
 
 ## 0.3.7

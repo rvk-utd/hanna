@@ -48,6 +48,7 @@ import { testing as Attention__test } from '../src/routes/test/Attention';
 import { testing as BasicTable__test } from '../src/routes/test/BasicTable';
 import { testing as BgBox__test } from '../src/routes/test/BgBox';
 import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote';
+import { testing as BreadCrumbs__test } from '../src/routes/test/BreadCrumbs';
 import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
 import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar';
 import { testing as Buttons__test } from '../src/routes/test/Buttons';
@@ -64,8 +65,10 @@ import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
 import { testing as FeatureList__test } from '../src/routes/test/FeatureList';
 import { testing as FileInput__test } from '../src/routes/test/FileInput';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
+import { testing as Footnote__test } from '../src/routes/test/Footnote';
 import { testing as Gallery__test } from '../src/routes/test/Gallery';
 import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks';
+import { testing as Heading__test } from '../src/routes/test/Heading';
 import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
 import { testing as IframeBlock__test } from '../src/routes/test/IframeBlock';
 import { testing as ImageCards__test } from '../src/routes/test/ImageCards';
@@ -73,6 +76,7 @@ import { testing as InfoBlock__test } from '../src/routes/test/InfoBlock';
 import { testing as InfoHero__test } from '../src/routes/test/InfoHero';
 import { testing as IslandBlock__test } from '../src/routes/test/IslandBlock';
 import { testing as IslandPageBlock__test } from '../src/routes/test/IslandPageBlock';
+import { testing as LabeledTextBlock__test } from '../src/routes/test/LabeledTextBlock';
 import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
 import { testing as MiniMetrics__test } from '../src/routes/test/MiniMetrics';
 import { testing as Modal__test } from '../src/routes/test/Modal';
@@ -82,6 +86,8 @@ import { testing as PageFilter__test } from '../src/routes/test/PageFilter';
 import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
 import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
 import { testing as RelatedLinks__test } from '../src/routes/test/RelatedLinks';
+import { testing as RowBlock__test } from '../src/routes/test/RowBlock';
+import { testing as SearchHeroParagraph__test } from '../src/routes/test/SearchHeroParagraph';
 import { testing as SearchResults__test } from '../src/routes/test/SearchResults';
 import { testing as Selectbox__test } from '../src/routes/test/Selectbox';
 import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete';
@@ -114,6 +120,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   BasicTable: BasicTable__test,
   BgBox: BgBox__test,
   BlockQuote: BlockQuote__test,
+  BreadCrumbs: BreadCrumbs__test,
   ButtonBack: ButtonBack__test,
   ButtonBar: ButtonBar__test,
   Buttons: Buttons__test,
@@ -130,8 +137,10 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   FeatureList: FeatureList__test,
   FileInput: FileInput__test,
   FooterInfo: FooterInfo__test,
+  Footnote: Footnote__test,
   Gallery: Gallery__test,
   GridBlocks: GridBlocks__test,
+  Heading: Heading__test,
   HeroBlock: HeroBlock__test,
   IframeBlock: IframeBlock__test,
   ImageCards: ImageCards__test,
@@ -139,6 +148,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   InfoHero: InfoHero__test,
   IslandBlock: IslandBlock__test,
   IslandPageBlock: IslandPageBlock__test,
+  LabeledTextBlock: LabeledTextBlock__test,
   MainMenu: MainMenu__test,
   MiniMetrics: MiniMetrics__test,
   Modal: Modal__test,
@@ -148,6 +158,8 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   ProcessOverview: ProcessOverview__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
   RelatedLinks: RelatedLinks__test,
+  RowBlock: RowBlock__test,
+  SearchHeroParagraph: SearchHeroParagraph__test,
   SearchResults: SearchResults__test,
   Selectbox: Selectbox__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,

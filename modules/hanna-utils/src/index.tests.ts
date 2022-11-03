@@ -70,6 +70,12 @@ import type {
 
   /* printDate.ts */
 
+  /* testing.d.ts */
+  Expect,
+  Equals,
+  Extends,
+  NotExtends,
+
   /* types.d.ts */
   OpenRecord,
   OpenStringMap,

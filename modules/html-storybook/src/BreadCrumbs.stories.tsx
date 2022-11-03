@@ -20,7 +20,7 @@ export const _BreadCrumbs: StoryComponent = () => {
   const links = useMemo(() => {
     const links = crumbTrail.slice(0, trailLength);
     if (sparse) {
-      const i = Math.min(2, trailLength);
+      const i = Math.min(2, trailLength - 1);
       links[i] = { label: links[i]!.label };
     }
     return links;

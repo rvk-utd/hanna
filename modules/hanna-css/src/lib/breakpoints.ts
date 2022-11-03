@@ -1,5 +1,5 @@
+import { Expect, Extends } from '@reykjavik/hanna-utils';
 import { px, RawMediaQuery } from 'es-in-css';
-import { Expect, Extends } from 'hanna-test-helpers';
 
 // Starting breakpoints **including* $grid-margin--*
 export const bp = {
