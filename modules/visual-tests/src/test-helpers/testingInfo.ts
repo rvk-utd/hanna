@@ -155,18 +155,18 @@ export type TestFnArgs = Pick<
 
 export type ProjectName =
   | 'meta'
-  | 'firefox_wide'
-  | 'firefox_netbook'
-  | 'firefox_tablet'
-  | 'firefox_phone'
-  | 'chrome_wide'
-  | 'chrome_netbook'
-  | 'chrome_tablet'
-  | 'chrome_phone'
-  | 'safari_wide'
-  | 'safari_netbook'
-  | 'safari_tablet'
-  | 'safari_phone';
+  | 'firefox-wide'
+  | 'firefox-netbook'
+  | 'firefox-tablet'
+  | 'firefox-phone'
+  | 'chrome-wide'
+  | 'chrome-netbook'
+  | 'chrome-tablet'
+  | 'chrome-phone'
+  | 'safari-wide'
+  | 'safari-netbook'
+  | 'safari-tablet'
+  | 'safari-phone';
 // | 'ipad'
 // | 'iphone';
 

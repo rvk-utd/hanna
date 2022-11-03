@@ -62,7 +62,7 @@ export const testing: TestingInfo = {
   viewportMinHeight: 700,
   extras: async ({ page, pageScreenshot, localScreenshot, project, setViewportSize }) => {
     const contactBubbleBtn = page.locator('.ContactBubble__openbtn');
-    if (project !== 'firefox_netbook') {
+    if (project !== 'firefox-netbook') {
       await contactBubbleBtn.hover();
       await localScreenshot(contactBubbleBtn, 'btn-hover', { margin: 25 });
     }
@@ -71,7 +71,7 @@ export const testing: TestingInfo = {
     await page.waitForTimeout(100);
     await page.locator('.ContactBubble__link:has-text("Netspjall")').hover();
     await pageScreenshot('opened');
-    if (project === 'firefox_phone') {
+    if (project === 'firefox-phone') {
       await page.locator('.ContactBubble').evaluate((elm) => {
         elm.scrollTo(0, 1000);
       });

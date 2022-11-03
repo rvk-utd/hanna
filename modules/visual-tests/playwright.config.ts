@@ -2,7 +2,7 @@ import { devices, PlaywrightTestConfig } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 
 import { ProjectName, TestTag } from './src/test-helpers/testingInfo';
-import { TAG_PREFIX } from './tests/helpers/screeshots';
+import { TAG_PREFIX, TAG_SUFFIX } from './tests/helpers/screeshots';
 import { registerCustomSelectorsEngines } from './tests/helpers/selectorEngines';
 
 registerCustomSelectorsEngines();
@@ -14,25 +14,25 @@ const tagREs: Record<TestTag, RegExp> = ObjectFromEntries(
     [
       'meta',
       'firefox',
-      'firefox_wide',
-      'firefox_netbook',
-      'firefox_tablet',
-      'firefox_phone',
+      'firefox-wide',
+      'firefox-netbook',
+      'firefox-tablet',
+      'firefox-phone',
       'chrome',
-      'chrome_wide',
-      'chrome_netbook',
-      'chrome_tablet',
-      'chrome_phone',
+      'chrome-wide',
+      'chrome-netbook',
+      'chrome-tablet',
+      'chrome-phone',
       'safari',
-      'safari_wide',
-      'safari_netbook',
-      'safari_tablet',
-      'safari_phone',
+      'safari-wide',
+      'safari-netbook',
+      'safari-tablet',
+      'safari-phone',
       // 'ipad',
       // 'iphone',
     ] /*  as Array<TestTag> */ as const
   ).map((name) => {
-    const re = new RegExp(TAG_PREFIX + name.replace(/_/g, '-'));
+    const re = new RegExp(TAG_PREFIX.trim() + name + TAG_SUFFIX);
     return [name, re];
   })
 );
@@ -56,29 +56,28 @@ const projects: Array<ProjectCfg> = [
   }).flatMap(
     ([label, viewport]): Array<ProjectCfg> => [
       {
-        name: `firefox_${label}`,
-        // use desktop firefox
+        name: `firefox-${label}`,
         use: {
           ...devices['Desktop Firefox'],
           viewport,
         },
-        grep: [tagREs.firefox, tagREs[`firefox_${label}`]],
+        grep: [tagREs.firefox, tagREs[`firefox-${label}`]],
       },
       {
-        name: `chrome_${label}`,
+        name: `chrome-${label}`,
         use: {
           ...devices['Desktop Chrome'],
           viewport,
         },
-        grep: [tagREs.chrome, tagREs[`chrome_${label}`]],
+        grep: [tagREs.chrome, tagREs[`chrome-${label}`]],
       },
       {
-        name: `safari_${label}`,
+        name: `safari-${label}`,
         use: {
           ...devices['Desktop Safari'],
           viewport,
         },
-        grep: [tagREs.safari, tagREs[`safari_${label}`]],
+        grep: [tagREs.safari, tagREs[`safari-${label}`]],
       },
     ]
   ),

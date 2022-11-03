@@ -28,7 +28,7 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot, project }) => {
-    if (project !== 'firefox_wide' && project !== 'firefox_phone') {
+    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
       return;
     }
 

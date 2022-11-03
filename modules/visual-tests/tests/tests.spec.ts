@@ -16,6 +16,7 @@ import {
   makeSnapPageScreeshot,
   NAME_SPLIT,
   TAG_PREFIX,
+  TAG_SUFFIX,
 } from './helpers/screeshots';
 import {
   expandViewport as _expandViewport,
@@ -218,7 +219,9 @@ const allComponentTests = normalizeTestInfos(testingInfos);
 
 allComponentTests.forEach(([name, testInfo]) => {
   const testName = name + (testInfo.label ? NAME_SPLIT + testInfo.label : '');
-  const tagStr = testInfo.tags?.length ? TAG_PREFIX + testInfo.tags.join(TAG_PREFIX) : '';
+  const tagStr = testInfo.tags?.length
+    ? TAG_PREFIX + testInfo.tags.join(TAG_SUFFIX + TAG_PREFIX) + TAG_SUFFIX
+    : '';
 
   const testPagePath = testPagePaths[name];
   if (!testPagePath) {

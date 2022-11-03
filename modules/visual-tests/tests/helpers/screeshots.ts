@@ -13,7 +13,8 @@ import { expandViewport } from './viewport';
 export const NAME_SPLIT = '-ι-';
 export const LABEL_SPLIT = '-ιι-';
 
-export const TAG_PREFIX = ' 🏷';
+export const TAG_PREFIX = ' ¶';
+export const TAG_SUFFIX = '⁋';
 
 const expectSoft = expect.soft;
 
