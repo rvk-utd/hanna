@@ -172,7 +172,7 @@ from `es-in-css`.
 
 You can use this helper to generate custom CSS variables for your one-off
 component styling, using the same naming pattern as the Hanna CSS varibles,
-and the same type-safety as `cssVars`.
+and the same type-safety as `hannaVars`.
 
 ```js
 import { buildVariables, rem } from '@reykjavik/hanna-css';
@@ -197,13 +197,15 @@ const myCss = css`
 `*/
 ```
 
-The `namespace` parameter gets prepended to the generated CSS variable names.
-(NOTE: Namespaces are internally normalized to end with either `--` or `__`.)
+The optional `namespace` parameter gets prepended to the generated CSS
+variable names. (NOTE: Namespaces are internally normalized to end with either
+`--` or `__`.)
 
 Thus the code example above could be rewritten like this:
 
 ```js
-const myVars = buildVariables(['title__fontSize'], 'Component__');
+const namespace = 'Component__';
+const myVars = buildVariables(['title__fontSize'], namespace);
 
 const myCss = css`
   .Component {
@@ -235,7 +237,7 @@ import type { HannaColorTheme } from '@reykjavik/hanna-css';
 
 const themeName: HannaColorTheme = colorThemes.trustworty;
 
-coknsole.log(themeName);
+console.log(themeName);
 // "trustworthy"
 ```
 
@@ -249,7 +251,7 @@ import type { ColorFamily } from '@reykjavik/hanna-css';
 
 const familyName: ColorFamily = colorFamilies.esja;
 
-coknsole.log(familyName);
+console.log(familyName);
 // "esja"
 ```
 
@@ -503,9 +505,9 @@ drastic measure reserved for highly unusual situations.
 
 ## Raw Design Constants
 
-Using the [Hanna CSS variables](#cssVars) is **highly** preferrable, whenever
-possible. However, there are always edge cases where you need access to the
-raw values the CSS variables build on.
+Using the [Hanna CSS variables](#hannavars) is **highly** preferrable,
+whenever possible. However, there are always edge cases where you need access
+to the raw values the CSS variables build on.
 
 For that this library exports some helpful objects.
 
