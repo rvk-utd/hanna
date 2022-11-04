@@ -56,31 +56,31 @@ yarn add --dev @reykjavik/hanna-css
 ## Why TypeScript Instead of SASS?
 
 **TL;DR:** TypeScript provides better developer ergonomics – both internally
-in this monorepo and outside it, and is a more future-proof technology than
+in this monorepo and outside of it, and is a more future-proof technology than
 SASS.
 
 SASS has been almost an industry standard tool for templating CSS code for
 well over a decade now. Yet it provides poor developer experience with
 lackluster editor integrations, idiosyncratic syntax, extremely limited
-feature set, publishing and consuming libraries is hard, etc…
+feature set, it's hard to publish and consume libraries, etc…
 
 The web development community has been steadily moving on to other, more
 nimble technologies — either more vanilla "text/css" authoring, or
-class-name-based reverse compilers like Tailwind, or various CSS-in-JS
-solutions.
+class-name-based reverse compilers like Tailwind, or various JavaScript-based
+solutions (including literal CSS-in-JS).
 
 This package provides supportive tooling for this last group, but offers also
 a new lightweight alternative: To author CSS using JavaScript as a templating
-engine, and then output it via one of the following methods:
+engine, but then output it via one of the following methods:
 
-- Simply `writeFile` the resulting string to static file
-- Use an
+- Simple `writeFile`ing the string result to static file
+- Use something like the
   [es-to-css compiler](https://github.com/maranomynet/es-in-css#compilation-api),
 - Or stream it directly to the browser.
 
 However, if SASS remains your thing you could still use this library to
 programmatically generate some key \*.scss files with SASS variables, etc. and
-then `@use` those in the SASS files you write.
+then `@use` those in the SASS files you write. You do you. ❤️
 
 ## Generic CSS helpers
 
@@ -89,17 +89,17 @@ methods from the
 [`es-in-css` library](https://www.npmjs.com/package/es-in-css) (excluding the
 JS-to-CSS "compiler").
 
-For good developer experience, use VSCode and install the official
-[**vscode-styled-components** extension](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components).
-That gives you instant syntax highlighting and IntelliSense autocompletion
-inside ` css``  ` template literals.
-
-You might also want to add a couple of
-[hanna-css VSCode "snippets"](#helpful-vscode-snippets).
-
 **Please refer to the
 [`es-in-css` documentation](https://www.npmjs.com/package/es-in-css) for more
 info.**
+
+For the best developer experience, use VSCode and install the official
+[**vscode-styled-components** extension](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components).
+That gives you instant syntax highlighting and IntelliSense autocompletion
+inside ` css`` ` template literals.
+
+You might also want to add a couple of
+[hanna-css VSCode "snippets"](#helpful-vscode-snippets).
 
 ## Hanna CSS Variables
 
@@ -120,7 +120,7 @@ Type-safe collection of CSS variables for use in your CSS code.
 ```js
 import { hannaVars, css } from '@reykjavik/hanna-css';
 
-css`
+const myCss = css`
   .SomeComponent {
     background-color: ${hannaVars.theme_color_primary};
     font: ${hannaVars.font_hd_s};
@@ -147,7 +147,7 @@ CSS variables. _Use sparingly, with caution!_
 ```js
 import { hannaVarOverride, css } from '@reykjavik/hanna-css';
 
-css`
+const myCss = css`
   .SomeComponent {
     ${hannaVarOverride({
       color_faxafloi_100: `red`,
@@ -179,7 +179,7 @@ import { buildVariables, rem } from '@reykjavik/hanna-css';
 
 const myVars = buildVariables(['Component$$title__fontSize']);
 
-css`
+const myCss = css`
   .Component {
     ${myVars.declare({ Component$$title__fontSize: rem(2) })}
   }
@@ -205,7 +205,7 @@ Thus the code example above could be rewritten like this:
 ```js
 const myVars = buildVariables(['title__fontSize'], 'Component__');
 
-css`
+const myCss = css`
   .Component {
     ${myVars.declare({ title__fontSize: rem(2) })}
   }
@@ -290,7 +290,7 @@ Object with pre-fabricated media queries.
 ```js
 import { mq, css } from '@reykjavik/hanna-css';
 
-css`
+const myCss = css`
   @media ${mq.tablet_up} {
     .SomeComponent {
       width: 100%;
@@ -318,7 +318,7 @@ internally in some of the exported mixins, etc.
 ```js
 import { isDevMode } from '@reykjavik/hanna-css';
 
-css`
+const myCss = css`
   .SomeComponent {
     color: ${isDevMode ? 'red' : 'blue'};
   }
