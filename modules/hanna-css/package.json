@@ -10,7 +10,7 @@
     "Valur Sverrisson <valur@hugsmidjan.is>"
   ],
   "repository": "ssh://git@github.com:rvk-utd/hanna.git",
-  "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/hanna-css/README-npmlib.md",
+  "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/hanna-css/README-lib.md",
   "private": true,
   "license": "MIT",
   "dependencies": {

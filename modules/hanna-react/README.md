@@ -32,7 +32,7 @@ automatically triggers a major version bump in this package.
 
 If you need a version of this package that "targets" an older Hanna markup
 version, you'll find the appropriate package version in the
-[change log](CHANGELOG.md).
+[change log](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-react/CHANGELOG.md).
 
 ## CSS
 
@@ -72,3 +72,8 @@ To view the documentation for older versions of Hanna, check out the
 corresponding branches in the git repo.
 
 -->
+
+## Changelog
+
+See
+[CHANGELOG.md](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-react/CHANGELOG-lib.md)

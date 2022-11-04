@@ -46,6 +46,7 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
     - [Type `Equals<A, B>`](#type-equalsa-b)
     - [Type `Extends<A, B>`](#type-extendsa-b)
     - [Type `NotExtends<A, B>`](#type-notextendsa-b)
+- [Changelog](#changelog)
 
 <!-- prettier-ignore-end -->
 
@@ -561,3 +562,8 @@ Returns true if type `A` extends type `B` (and neither is `any`)
 #### Type `NotExtends<A, B>`
 
 Returns true if type `A` does **NOT** extend type `B` (and neither is `any`)
+
+## Changelog
+
+See
+[CHANGELOG.md](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-utils/CHANGELOG.md)

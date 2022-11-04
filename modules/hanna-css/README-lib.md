@@ -92,7 +92,9 @@ JS-to-CSS "compiler").
 For good developer experience, use VSCode and install the official
 [**vscode-styled-components** extension](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components).
 That gives you instant syntax highlighting and IntelliSense autocompletion
-inside ` css``  ` template literals, and maybe add a few helpful
+inside ` css``  ` template literals.
+
+You might also want to add a couple of
 [hanna-css VSCode "snippets"](#helpful-vscode-snippets).
 
 **Please refer to the
@@ -555,4 +557,5 @@ to help you use hanna-css a bit faster:
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md)
+See
+[CHANGELOG.md](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-css/CHANGELOG-lib.md)
