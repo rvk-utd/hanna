@@ -16,6 +16,15 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
+      <style>
+        {`
+          .Heading {
+            background: 
+            repeating-conic-gradient(#eee 0% 25%, transparent 0% 50%) 
+              50% / 20px 20px;
+          }
+        `}
+      </style>
       <Heading size="large" align="right">
         Right aligned and large
       </Heading>
