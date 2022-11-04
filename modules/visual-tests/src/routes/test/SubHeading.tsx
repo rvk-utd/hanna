@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Heading from '@reykjavik/hanna-react/Heading';
+import Subheading from '@reykjavik/hanna-react/SubHeading';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
@@ -18,26 +18,31 @@ export default function () {
     <Minimal>
       <style>
         {`
-          .Heading {
+          .SubHeading {
             background: 
             repeating-conic-gradient(#eee 0% 25%, transparent 0% 50%) 
               50% / 20px 20px;
           }
         `}
       </style>
-      <Heading size="large" align="right">
-        Right aligned and large
-      </Heading>
+      <Subheading startSeen align="right">
+        {' '}
+        Right aligned{' '}
+      </Subheading>
       <DummyBlock thin />
-      <Heading size="small" align="right">
-        Right aligned and small
-      </Heading>
+      <Subheading startSeen align="right" small>
+        {' '}
+        Right aligned and small{' '}
+      </Subheading>
       <DummyBlock thin />
-      <Heading>Left aligned</Heading>
+      <Subheading startSeen>Left aligned </Subheading>
       <DummyBlock thin />
-      <Heading wide>Wide Heading</Heading>
+      <Subheading startSeen wide>
+        {' '}
+        Wide Subheading{' '}
+      </Subheading>
       <DummyBlock thin />
-      <Heading Tag="h3">Heading level H3</Heading>
+      <Subheading startSeen>Heading level H3</Subheading>
     </Minimal>
   );
 }

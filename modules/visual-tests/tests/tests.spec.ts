@@ -93,6 +93,7 @@ import { testing as SearchResults__test } from '../src/routes/test/SearchResults
 import { testing as Selectbox__test } from '../src/routes/test/Selectbox';
 import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete';
 import { testing as Skeleton__test } from '../src/routes/test/Skeleton';
+import { testing as SubHeading__test } from '../src/routes/test/SubHeading';
 import { testing as Tabs__test } from '../src/routes/test/Tabs';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
@@ -166,6 +167,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Selectbox: Selectbox__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,
   Skeleton: Skeleton__test,
+  SubHeading: SubHeading__test,
   Tabs: Tabs__test,
   TagPill: TagPill__test,
   TextBlock: TextBlock__test,
