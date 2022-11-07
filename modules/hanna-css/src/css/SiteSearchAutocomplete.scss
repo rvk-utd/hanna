@@ -33,21 +33,33 @@
   }
 
   .SiteSearchAutocomplete__item {
-    padding: prem(16) prem(45) prem(16) prem(32);
-    @include BodyTextStyle--large();
-  }
+    font: $var--font-bd-l;
+    padding: $var--space-2 $var--space-4;
+    padding-right: $var--space-6;
 
+    @media #{$mq-phone_phablet} {
+      padding-left: $var--space-2;
+      padding-right: $var--space-4;
+    }
+  }
   .SiteSearchAutocomplete__item--highlighted {
     position: relative;
     cursor: pointer;
     color: $var--color-faxafloi-100;
     background-color: $var--color-suld-25;
   }
-  .SiteSearchAutocomplete__item--highlighted::after {
+  .SiteSearchAutocomplete__item--highlighted::before {
     @include icon($icons-search);
     color: $var--color-suld-100;
     float: right;
-    margin-left: $var--space-2;
-    font-size: prem(16);
+    font-size: $var--font-bd-s-size;
+    width: $var--space-1_5;
+    margin-right: $var--space-3--neg;
+    margin-left: $var--space-1;
+
+    @media #{$mq-phone_phablet} {
+      margin-right: $var--space-2--neg;
+      margin-left: $var--space-0_5;
+    }
   }
 }

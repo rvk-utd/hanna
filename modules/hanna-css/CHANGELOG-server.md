@@ -10,6 +10,7 @@
 - feat: Add "[Illustration](src/assets/illustrations/files.json)" PNG asset
   ("vegvisir")
 - fix: Update the "Esja" font files better Polish alphabet support
+- fix: Top-align search icons on hovered `.SiteSearchAutocomplete__item`s
 - fix: Adjust alignment and cap height of `.InfoHero__image`
 - fix: `BasicTable` with `--align--right` position on "tablet" sized viewports
 - fix: Disappearing border on link `.Tabs__tab` hover
