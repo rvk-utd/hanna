@@ -32,6 +32,7 @@ export const _IframeBlock: StoryComponent = () => {
       clientSide={() => (
         <>
           <IframeBlock
+            title="Iframe example"
             src={src}
             align={align}
             framed={framed}
@@ -44,7 +45,9 @@ export const _IframeBlock: StoryComponent = () => {
             </p>
           ) : (
             <div>
-              <p>Add the following code-snipped to the iframed page:</p>
+              <p>
+                Add the following code-snipped into the ifram<strong>ed</strong> page:
+              </p>
               <pre style={{ padding: '1em 1.5em', backgroundColor: '#00000011' }}>
                 {codeExample}
               </pre>
@@ -54,6 +57,7 @@ export const _IframeBlock: StoryComponent = () => {
       )}
       serverSide={() => (
         <IframeBlock
+          title="Iframe example"
           src={src}
           align={align}
           framed={framed}
