@@ -44,7 +44,7 @@ export const makeSnapLocalScreeshot =
       let margins: [number, number] = [0, 0];
 
       if (marginOpt === 'fullwidth') {
-        margins = [10000, 0];
+        margins = [0, 10000];
       } else if (marginOpt === true) {
         margins = [DEFAULT_MARGIN, DEFAULT_MARGIN];
       } else if (typeof marginOpt === 'number') {
