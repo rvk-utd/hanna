@@ -138,6 +138,7 @@ const Datepicker = (props: DatepickerProps) => {
         return (
           <div
             className={className.input}
+            onClick={(e) => e.currentTarget.querySelector('input')!.focus()}
             ref={
               inputRef &&
               ((elm) => {

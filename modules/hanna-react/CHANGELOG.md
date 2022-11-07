@@ -25,6 +25,7 @@
 - fix: Make `ContentArticleProps.meta` optional
 - fix: Suppress `<hr>` in `ContentArticleProps` when `relatedLinks` is missing
 - fix: Make `InfoBlockProps.subTitle` optional
+- fix: Clicks inside `.Datepicker .FormField__input` div always focus `input`
 - fix(ts): Remove unused (`never`) props from `ModalProps`
 
 ## 0.10.70
