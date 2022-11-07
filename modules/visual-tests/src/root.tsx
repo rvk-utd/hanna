@@ -1,5 +1,5 @@
 import React from 'react';
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
+import { LinksFunction, MetaFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -7,6 +7,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
   useSearchParams,
 } from '@remix-run/react';
 import { css, getCssBundleUrl, HannaColorTheme } from '@reykjavik/hanna-css';
@@ -16,6 +17,23 @@ import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { useGetCssTokens } from './utils/useGetCssTokens';
 
 const THEME: HannaColorTheme = 'colorful';
+
+const usePageLang = (): string => {
+  const matches = useMatches();
+  let i = matches.length;
+  let lang = '';
+  while (i--) {
+    const { pathname = '', handle = {} } = matches[i]!;
+    if (handle.lang) {
+      lang = handle.lang;
+      break;
+    }
+    if (!lang) {
+      lang = pathname.startsWith('/test/') ? 'is' : 'en';
+    }
+  }
+  return lang;
+};
 
 // ---------------------------------------------------------------------------
 
@@ -41,6 +59,7 @@ export const meta: MetaFunction = () => {
     viewport: 'width=device-width, initial-scale=1.0',
   };
 };
+
 export const links: LinksFunction = () => [
   {
     rel: 'shortcut icon',
@@ -65,13 +84,14 @@ const noFlickerSnippet = `
 export default function App() {
   const cssTokens = useGetCssTokens();
   const [q] = useSearchParams();
+  const lang = usePageLang();
 
   // if (typeof window !== 'undefined') {
   //   window.getPageScrollElm = _getPageScrollElm;
   // }
 
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         <Meta />
         <script
