@@ -1,5 +1,5 @@
 import React from 'react';
-import { hannaVars } from '@reykjavik/hanna-css';
+import { css, hannaVars } from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 export type DummyBlockProps = EitherObj<{ big?: true }, { thin?: true }>;
@@ -27,4 +27,20 @@ export const DummyBlock = (props: DummyBlockProps) => (
       clear: 'both',
     }}
   />
+);
+
+export const checkeredBackgroundStyles = () => `
+  background-image: repeating-conic-gradient(#eee 0% 25%, transparent 0% 50%);
+  background-position: 50% 50%;
+  background-size: 20px 20px;
+`;
+
+export const checkeredBackground = (selector: string) => (
+  <style>
+    {css`
+      ${selector} {
+        ${checkeredBackgroundStyles};
+      }
+    `}
+  </style>
 );
