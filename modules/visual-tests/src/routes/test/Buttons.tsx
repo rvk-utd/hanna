@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
 import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
@@ -19,7 +19,8 @@ export const handle = {
 };
 const buttons = (
   buttonSize: 'small' | 'wide' | 'normal',
-  variantType: 'normal' | 'destructive'
+  variantType: 'normal' | 'destructive',
+  modeToggler?: () => void
 ) => {
   return (
     <Fragment>
@@ -40,9 +41,13 @@ const buttons = (
         }[buttonSize] as any;
 
         return (
-          <div key={i}>
+          <div className={name} key={i}>
             <p>
-              <ButtonComponent size={sizeValue} variant={variantType}>
+              <ButtonComponent
+                size={sizeValue}
+                variant={variantType}
+                onClick={modeToggler}
+              >
                 {sizeName} {variantName} {name} Button
               </ButtonComponent>{' '}
               <ButtonComponent size={sizeValue} variant={variantType} disabled>
@@ -63,7 +68,7 @@ const buttons = (
                 <ButtonComponent size={sizeValue} variant={variantType} icon="go-back">
                   Go Back
                 </ButtonComponent>
-              ) }
+              )}
               {variantType !== 'destructive' && (
                 <ButtonComponent
                   size={sizeValue}
@@ -72,7 +77,7 @@ const buttons = (
                 >
                   Go Forward
                 </ButtonComponent>
-              ) }
+              )}
             </p>
             <br />{' '}
           </div>
@@ -83,16 +88,28 @@ const buttons = (
 };
 
 export default function () {
+  const [isolationMode, setIsolationMode] = useState(false);
+  const toggleIsolationMode = () => setIsolationMode((isolationMode) => !isolationMode);
+
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal bare>
-      {buttons('normal', 'normal')}
+      {buttons('normal', 'normal', toggleIsolationMode)}
       <hr />
       {buttons('small', 'normal')}
       <hr />
       {buttons('wide', 'normal')}
       <hr />
       {buttons('normal', 'destructive')}
+
+      {isolationMode && (
+        <style>{`
+          div.Tertiary .ButtonTertiary {
+            margin-right: 32px;
+            margin-bottom: 32px;
+          }
+        `}</style>
+      )}
     </Minimal>
   );
 }
@@ -153,12 +170,15 @@ export const testing: TestingInfo = {
       '.ButtonTertiary--destructive:test("Link") >> nth=0'
     );
 
+    // toggleIsolationMode on
+    await primaryButton.click();
+
     type BTCfg = {
       loc: Locator;
       name: string;
       click?: boolean;
       focus?: boolean;
-      margin?: boolean;
+      tertiary?: boolean;
     };
     const buttons: Array<BTCfg> = [
       { loc: primaryButton, name: 'primaryButton', click: true },
@@ -171,10 +191,15 @@ export const testing: TestingInfo = {
       { loc: secondaryPressed, name: 'secondaryPressed' },
       { loc: secondaryLink, name: 'secondaryLink' },
 
-      { loc: tertiaryButton, name: 'tertiaryButton', click: true, margin: false },
-      { loc: tertiaryDisabled, name: 'tertiaryDisabled', focus: false, margin: false },
-      { loc: tertiaryPressed, name: 'tertiaryPressed', margin: false },
-      { loc: tertiaryLink, name: 'tertiaryLink', margin: false },
+      { loc: tertiaryButton, name: 'tertiaryButton', click: true, tertiary: true },
+      {
+        loc: tertiaryDisabled,
+        name: 'tertiaryDisabled',
+        focus: false,
+        tertiary: true,
+      },
+      { loc: tertiaryPressed, name: 'tertiaryPressed', tertiary: true },
+      { loc: tertiaryLink, name: 'tertiaryLink', tertiary: true },
 
       // // destructive butttons
       { loc: destrPrimary, name: 'destr-Primary', click: true },
@@ -187,15 +212,15 @@ export const testing: TestingInfo = {
       { loc: destrSecondaryPressed, name: 'destr-SecondaryPressed' },
       { loc: destrSecondaryLink, name: 'destr-SecondaryLink' },
 
-      { loc: destrTertiary, name: 'destr-Tertiary', click: true, margin: false },
+      { loc: destrTertiary, name: 'destr-Tertiary', click: true, tertiary: true },
       {
         loc: destrTertiaryDisabled,
         name: 'destr-TertiaryDisabled',
         focus: false,
-        margin: false,
+        tertiary: true,
       },
-      { loc: destrTertiaryPressed, name: 'destr-TertiaryPressed', margin: false },
-      { loc: destrTertiaryLink, name: 'destr-TertiaryLink', margin: false },
+      { loc: destrTertiaryPressed, name: 'destr-TertiaryPressed', tertiary: true },
+      { loc: destrTertiaryLink, name: 'destr-TertiaryLink', tertiary: true },
     ];
 
     let cfg: typeof buttons[number] | undefined;
@@ -203,18 +228,18 @@ export const testing: TestingInfo = {
     let i = 0;
     /* eslint-disable no-await-in-loop */
     while ((cfg = buttons[i++])) {
-      const { loc, name, click, margin = true, focus = true } = cfg;
+      const { loc, name, click, focus = true, tertiary } = cfg;
       await loc.hover({ force: true });
-      await localScreenshot(loc, name + '-hover', { margin });
+      await localScreenshot(loc, name + '-hover', { margin: true });
       if (click) {
         await page.mouse.down();
-        await localScreenshot(loc, name + '-mousedown', { margin });
+        await localScreenshot(loc, name + '-mousedown', { margin: true });
         await page.mouse.move(0, 0);
         await page.mouse.up();
       }
       if (focus) {
         await keyboardFocus(loc);
-        await localScreenshot(loc, name + '-focus', { margin });
+        await localScreenshot(loc, name + '-focus', { margin: tertiary ? 20 : true });
         await page.mouse.click(0, 0);
       }
     }

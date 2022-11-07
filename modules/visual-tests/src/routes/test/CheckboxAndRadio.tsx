@@ -50,6 +50,11 @@ export default function () {
           <RadioGroup__Radio label="Invalid + checked" invalid checked />
         </RowBlockColumn>{' '}
       </RowBlock>
+      <style>{`
+        .Radio {
+          margin-bottom: .5em;
+        }
+      `}</style>
     </Minimal>
   );
 }
@@ -77,8 +82,10 @@ export const testing: TestingInfo = {
         await checked[action]();
         await localScreenshot(checked, type + '-checked-' + action, { margin: 8 });
 
-        await disabled[action]();
-        await localScreenshot(disabled, type + '-disabled-' + action, { margin: 8 });
+        if (action !== 'focus') {
+          await disabled[action]();
+          await localScreenshot(disabled, type + '-disabled-' + action, { margin: 8 });
+        }
 
         await invalid[action]();
         await localScreenshot(invalid, type + '-invalid-' + action, { margin: 8 });

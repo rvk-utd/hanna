@@ -53,17 +53,17 @@ export const makeSnapLocalScreeshot =
         margins = marginOpt;
       }
       // Check for negative values
-      const marginWidth = Math.max(0, margins[0]);
-      const marginHeight = Math.max(0, margins[1]);
+      const marginV = Math.max(0, margins[0]);
+      const marginH = Math.max(0, margins[1]);
 
       const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
       return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
         ...opts,
         clip: {
-          x: rect.x - marginWidth,
-          y: rect.y - marginHeight,
-          width: rect.width + 2 * marginWidth,
-          height: rect.height + 2 * marginHeight,
+          x: rect.x - marginH,
+          y: rect.y - marginV,
+          width: rect.width + 2 * marginH,
+          height: rect.height + 2 * marginV,
         },
       });
     }
@@ -95,7 +95,10 @@ export const makeSnapPageScreeshot = (
   } = async (label, opts = {}) => {
     snaps += 1;
 
-    await expandViewport(page)(opts.viewportMinHeight || factoryOpts.viewportMinHeight);
+    await expandViewport(page)(
+      opts.viewportMinHeight || factoryOpts.viewportMinHeight,
+      opts.customScrollElement
+    );
 
     const clipViewport = (opts.clipViewport ?? factoryOpts.clipViewport) || undefined;
 

@@ -68,7 +68,7 @@ export const testing: TestingInfo = {
       const label = ((await relatedlink.textContent()) || '').split('--')[0]!.trim();
 
       await relatedlink.hover();
-      await localScreenshot(relatedlink, label + '-hover', { margin: [5, 10] });
+      await localScreenshot(relatedlink, label + '-hover', { margin: [10, 5] });
     }
   },
 };

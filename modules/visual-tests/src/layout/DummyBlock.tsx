@@ -29,8 +29,11 @@ export const DummyBlock = (props: DummyBlockProps) => (
   />
 );
 
-export const checkeredBackgroundStyles = () => `
-  background-image: repeating-conic-gradient(#eee 0% 25%, transparent 0% 50%);
+export const checkeredBackgroundStyles = () => css`
+  background-image: repeating-conic-gradient(
+    rgba(0, 0, 0, 0.03) 0% 25%,
+    rgba(255, 255, 255, 0.03) 0% 50%
+  );
   background-position: 50% 50%;
   background-size: 20px 20px;
 `;

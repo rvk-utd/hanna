@@ -1,4 +1,4 @@
-import { expect, Page } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 
 import { TestFnArgs } from '../../src/test-helpers/testingInfo';
 
@@ -25,19 +25,24 @@ export const setViewportSize =
 
 export const expandViewport =
   (page: Page, defaultMinHeight = 0) =>
-  async (minHeight = defaultMinHeight) => {
+  async (minHeight = defaultMinHeight, customElm?: Locator) => {
     if (minHeight) {
       await setViewportSize(page)(minHeight);
     }
 
     const viewportSize = () => page.viewportSize() || { width: 0, height: 0 };
 
-    let scrollHeight = await getPageScrollHeight(page);
-    while (viewportSize().height !== scrollHeight && viewportSize().height > minHeight) {
+    const getScrollHeight = customElm
+      ? () => customElm.evaluate((elm) => elm.scrollHeight)
+      : () => getPageScrollHeight(page);
+
+    let scrollHeight = await getScrollHeight();
+
+    while (viewportSize().height !== scrollHeight && scrollHeight > minHeight) {
       /* eslint-disable no-await-in-loop */
       await setViewportSize(page)(scrollHeight);
       await page.waitForTimeout(200);
-      scrollHeight = await getPageScrollHeight(page);
+      scrollHeight = await getScrollHeight();
       /* eslint-enable no-await-in-loop */
     }
   };
