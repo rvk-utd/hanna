@@ -15,15 +15,16 @@
   .RelatedLinks__list {
     display: flex;
     flex-flow: row wrap;
-    margin-right: $var--grid-gutter--neg;
+    margin-right: calc(#{$var--grid-gutter--neg} - 1px);
   }
   .RelatedLinks__item {
     margin-top: grid-units(1);
     margin-bottom: grid-units(2);
     margin-right: $var--grid-gutter;
-    min-width: 220px;
+    width: $var--grid-12;
+    min-width: 250px;
 
-    @media #{$mq-phone_tablet} {
+    @media #{$mq-phablet_tablet} {
       width: $var--grid-6;
     }
     @media #{$mq-netbook_up} {
