@@ -17,8 +17,6 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
   - [`getPageScrollElm`](#getpagescrollelm)
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
-  - [Branded types](#branded-types)
-  - [`ensurePosInt`](#ensureposint)
 - [Asset helpers](#asset-helpers)
   - [Illustrations](#illustrations)
   - [Efnistákn Icons](#efnistákn-icons)
@@ -33,6 +31,8 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
 - [Social Media Sharing](#social-media-sharing)
 - [Polyfills / A11y](#polyfills--a11y)
   - [`focus-visible` polyfill](#focus-visible-polyfill)
+- [Branded types](#branded-types)
+  - [`ensurePosInt`](#ensureposint)
 - [TypeScript helpers](#typescript-helpers)
   - [`notNully`](#notnully)
   - [`notFalsy`](#notfalsy)
@@ -173,27 +173,6 @@ import { capitalize } from '@reykjavik/hanna-utils';
 capitalize('hello world'); // "Hello world"
 capitalize('istanbul', 'TR'); // "İstanbul"
 ```
-
-### Branded types
-
-### `ensurePosInt`
-
-**Syntax:** `ensurePosInt(cand: unknown): PositiveInteger | undefined`
-
-Checks if `cand` evaluates to a positive integer and, if so, returns a branded
-`PositiveInteger` of equal value.
-
-Returns `undefined` otherwise.
-
-Examples:
-
-- `1` → `1`
-- `"1"` → `1`
-- `0` → `undefined`
-- `-1` → `undefined`
-- `1.5` → `undefined`
-- `"Infinity"` → `undefined`
-- `"foo"` → `undefined`
 
 <!--
 ### `focusElement`
@@ -391,6 +370,27 @@ At/near the top of your App do:
 ```ts
 import '@reykjavik/hanna-utils/focus-visible';
 ```
+
+## Branded types
+
+### `ensurePosInt`
+
+**Syntax:** `ensurePosInt(cand: unknown): PositiveInteger | undefined`
+
+Checks if `cand` evaluates to a positive integer and, if so, returns a branded
+`PositiveInteger` of equal value.
+
+Returns `undefined` otherwise.
+
+Examples:
+
+- `1` → `1`
+- `"1"` → `1`
+- `0` → `undefined`
+- `-1` → `undefined`
+- `1.5` → `undefined`
+- `"Infinity"` → `undefined`
+- `"foo"` → `undefined`
 
 ## TypeScript helpers
 
