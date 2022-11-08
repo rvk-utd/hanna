@@ -9,13 +9,16 @@
 @mixin css() {
   @media screen {
     .RowBlockColumn {
+      padding-top: between_cols(30, 80);
+      padding-bottom: between_cols(30, 80);
       width: 100%; // to avoid flex item auto-sizing
     }
     .RowBlockColumn--background {
       background-color: $color-suld-25;
       box-sizing: content-box;
       margin: 0 $var--grid-margin--neg;
-      padding: between_cols(30, 80) $var--grid-margin;
+      padding-left: $var--grid-margin;
+      padding-right: $var--grid-margin;
     }
     .RowBlockColumn--background--primary {
       background-color: $var--theme-color-primary;

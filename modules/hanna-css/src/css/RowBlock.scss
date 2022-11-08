@@ -9,7 +9,7 @@
   .RowBlock {
     margin-bottom: $var--component-vspace--large;
     display: flex;
-    flex-flow: column-reverse;
+    flex-flow: column;
     justify-content: space-between;
     align-items: center;
     @include SeenEffect--fadeup('> .RowBlockColumn');
