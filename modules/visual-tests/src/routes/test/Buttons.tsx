@@ -38,7 +38,7 @@ const buttons = (
           normal: undefined,
           small: 'small',
           wide: supportsWide ? 'wide' : undefined,
-        }[buttonSize] as any;
+        }[buttonSize] as never;
 
         return (
           <div className={name} key={i}>
