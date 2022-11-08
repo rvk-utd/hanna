@@ -529,9 +529,9 @@ The `EitherObj` accepts between 2 and 4 type parameters.
 Example with three inputs: `A`, `B` and `C`:
 
 ```ts
-type A { type: 'profit', gain: number },
-type B { type: 'loss', loss: number }
-type C { type: 'even', panic: boolean }
+type A = { type: 'profit'; gain: number };
+type B = { type: 'loss'; loss: number };
+type C = { type: 'even'; panic: boolean };
 
 type MyProps = EitherObj<A, B, C>;
 ```
@@ -540,8 +540,8 @@ is equivalent to:
 
 ```ts
 type MyProps =
-  | { type: 'profit'; gain: number; loss?: never; panic?: never }
-  | { type: 'loss'; gain?: never; loss: number; panic?: never }
+  | { type: 'profit'; gain: number; loss?: never; panic?: never };
+  | { type: 'loss'; gain?: never; loss: number; panic?: never };
   | { type: 'even'; gain?: never; loss?: never; panic: boolean };
 ```
 
