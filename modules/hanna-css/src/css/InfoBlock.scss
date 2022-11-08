@@ -25,6 +25,7 @@
     max-width: calc(0.5em + #{$var--grid-margin--right});
     margin-right: MAX(#{$var--grid-margin--right--neg}, -0.5em);
     font-size: between_phone_netbook(49, 89);
+    overflow: hidden;
 
     @include media($mq-wide) {
       font-size: prem(89);
