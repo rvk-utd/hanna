@@ -11,8 +11,9 @@
 - feat: Make `SiteSearchAutocompleteProps.renderSuggestion` optional
 - feat: Add `FooterInfoGroup.main`, deprecate `FooterInfoGroup.role`
 - `FileInput`:
-  - feat: Add prop `lang`
+  - feat: Add prop `lang` (default: `'is'`)
   - feat: Make prop `removeFileText` optional
+  - fix: File-sizes are now formatted based on `lang` prop
 - `ShareButton`:
   - fix: Add support for Polish
   - fix: Make Icelandic the default/fallback locale
