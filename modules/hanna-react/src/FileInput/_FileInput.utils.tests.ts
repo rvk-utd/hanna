@@ -88,6 +88,7 @@ o.spec('getFileListUpdate', () => {
 o.spec('formatBytes', () => {
   o('works', () => {
     o(formatBytes(0)).equals('0 Bytes');
+    o(formatBytes(1.5)).equals('1,5 Bytes'); // silly but still
     o(formatBytes(500)).equals('500 Bytes');
     o(formatBytes(965)).equals('965 Bytes');
     o(formatBytes(980)).equals('0,96 KB'); // snaps up a unit-level just below 1_000 units
@@ -116,5 +117,13 @@ o.spec('formatBytes', () => {
     o(formatBytes(999, 'en')).equals('0.98 KB');
     o(formatBytes(999, 'pl')).equals('0,98 KB');
     o(formatBytes(999, 'jp')).equals('0.98 KB');
+  });
+  o('displays negative file sizes 🤷', () => {
+    o(formatBytes(-0)).equals('0 Bytes');
+    o(formatBytes(-11)).equals('-11 Bytes');
+    o(formatBytes(-1.5 * 1024, undefined, 0)).equals('-2 KB')(
+      'Rounds negative numbers away from zero'
+    );
+    o(formatBytes(-999, 'en')).equals('-0.98 KB');
   });
 });

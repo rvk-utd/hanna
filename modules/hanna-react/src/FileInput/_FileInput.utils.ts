@@ -32,11 +32,11 @@ const decimalSymbols: Record<string, string> = { is: ',', en: '.', pl: ',' };
  * Small+stupid file size pretty-printer.
  */
 export const formatBytes = (bytes: number, lang = 'is', decimals = 2): string => {
-  if (bytes <= 0) {
+  if (bytes === 0) {
     return '0 Bytes';
   }
   const i = Math.min(
-    Math.floor(Math.log(bytes / kThreshold) / Math.log(k)),
+    Math.floor(Math.log(Math.abs(bytes) / kThreshold) / Math.log(k)),
     units.length - 1
   );
   const scaled = bytes / Math.pow(k, i);
