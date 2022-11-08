@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDropzone } from 'react-dropzone'; // https://react-dropzone.js.org/#!/Dropzone
 import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { OpenRecord } from '@reykjavik/hanna-utils';
+import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 
 import {
   addPreview,
@@ -12,6 +14,12 @@ import {
 } from './FileInput/_FileInput.utils';
 import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList';
 import FormField, { FormFieldWrappingProps } from './FormField';
+
+const defaultRemoveFileText: OpenRecord<'is' | 'en' | 'pl', string> = {
+  is: 'Fjarlægja',
+  en: 'Remove',
+  pl: 'Usuń',
+};
 
 const defaultOnFilesRejected: FileInputProps['onFilesRejected'] = (rejectedFiles) => {
   window.alert(
@@ -38,7 +46,8 @@ export type FileInputProps = {
    */
   accept?: string | Array<string>;
   dropzoneText: string | JSX.Element;
-  removeFileText: string;
+  removeFileText?: string;
+  lang?: string;
   showFileSize?: boolean;
   showImagePreviews?: boolean;
   FileList?: false | ((props: FileListProps) => JSX.Element | null);
@@ -88,7 +97,8 @@ const FileInput = (props: FileInputProps) => {
     multiple = dropzoneProps.multiple,
     accept,
     dropzoneText,
-    removeFileText,
+    lang = DEFAULT_LANG,
+    removeFileText = defaultRemoveFileText[lang] || defaultRemoveFileText[DEFAULT_LANG],
     assistText,
     disabled,
     invalid,

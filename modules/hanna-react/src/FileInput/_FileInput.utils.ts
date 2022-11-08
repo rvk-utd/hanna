@@ -21,17 +21,31 @@ export const releasePreview = (file: CustomFile): void => {
   delete file.preview;
 };
 
+// ---------------------------------------------------------------------------
+
+const k = 1024;
+const kThreshold = 970 / k; // Snap up a unit level at this point
+const units = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB' /*, 'EB', 'ZB', 'YB' */];
+const decimalSymbols: Record<string, string> = { is: ',', en: '.', pl: ',' };
+
 /**
  * Small+stupid file size pretty-printer.
  */
-export const formatBytes = (bytes: number, decimals = 2): string => {
-  if (bytes === 0) {
+export const formatBytes = (bytes: number, lang = 'is', decimals = 2): string => {
+  if (bytes <= 0) {
     return '0 Bytes';
   }
-  const k = 1024;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i];
+  const i = Math.min(
+    Math.floor(Math.log(bytes / kThreshold) / Math.log(k)),
+    units.length - 1
+  );
+  const scaled = bytes / Math.pow(k, i);
+  const formatted = (parseFloat(scaled.toFixed(decimals)) + '').replace(
+    '.',
+    // NOTE: As of 2022-11 Chrome still doesn't support Icelandic
+    decimalSymbols[lang] || (1.1).toLocaleString(lang)[1]!
+  );
+  return `${formatted} ${units[i]}`;
 };
 
 /**

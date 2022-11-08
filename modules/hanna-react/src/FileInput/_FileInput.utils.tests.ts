@@ -1,6 +1,6 @@
 import o from 'ospec';
 
-import { getFileListUpdate } from './_FileInput.utils';
+import { formatBytes, getFileListUpdate } from './_FileInput.utils';
 
 o.spec('getFileListUpdate', () => {
   class MockFile {
@@ -80,5 +80,41 @@ o.spec('getFileListUpdate', () => {
       fileList: [myCV],
       diff: { added: [] },
     })('Adding an empty array is tolerated and does nothing');
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+o.spec('formatBytes', () => {
+  o('works', () => {
+    o(formatBytes(0)).equals('0 Bytes');
+    o(formatBytes(500)).equals('500 Bytes');
+    o(formatBytes(965)).equals('965 Bytes');
+    o(formatBytes(980)).equals('0,96 KB'); // snaps up a unit-level just below 1_000 units
+    o(formatBytes(1024)).equals('1 KB');
+    o(formatBytes(1024)).equals('1 KB');
+    o(formatBytes(1530)).equals('1,49 KB');
+    o(formatBytes(1536)).equals('1,5 KB');
+    o(formatBytes(1024 * 1024)).equals('1 MB');
+    o(formatBytes(980 * 1024)).equals('0,96 MB');
+    o(formatBytes(3.5 * 1024 * 1024 * 1024)).equals('3,5 GB');
+    o(formatBytes(54.4 * 1024 * 1024 * 1024 * 1024)).equals('54,4 TB');
+    o(formatBytes(2097152.45 * 1024 * 1024 * 1024 * 1024 * 1024)).equals('2097152,45 PB')(
+      'Petabyte is the largest supported unit'
+    );
+  });
+  o('custom decimsals', () => {
+    o(formatBytes(1530, undefined, 0)).equals('1 KB')('0 decimals');
+    o(formatBytes(1530, undefined, 1)).equals('1,5 KB')('1 decimal');
+    o(formatBytes(1530, undefined, 2)).equals('1,49 KB')('2 decimal'); // this is the default
+    o(formatBytes(1530, undefined, 3)).equals('1,494 KB')('3 decimals'); // ack! weird
+    o(formatBytes(1530, undefined, 4)).equals('1,4941 KB')('4 decimals'); // this is just silly
+    o(formatBytes(1538, undefined, 0)).equals('2 KB')('Rounds up to the nearest KB');
+  });
+  o('locale aware', () => {
+    o(formatBytes(999, 'is')).equals('0,98 KB');
+    o(formatBytes(999, 'en')).equals('0.98 KB');
+    o(formatBytes(999, 'pl')).equals('0,98 KB');
+    o(formatBytes(999, 'jp')).equals('0.98 KB');
   });
 });

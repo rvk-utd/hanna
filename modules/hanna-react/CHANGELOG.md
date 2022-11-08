@@ -10,6 +10,9 @@
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
 - feat: Make `SiteSearchAutocompleteProps.renderSuggestion` optional
 - feat: Add `FooterInfoGroup.main`, deprecate `FooterInfoGroup.role`
+- `FileInput`:
+  - feat: Add prop `lang`
+  - feat: Make prop `removeFileText` optional
 - `ShareButton`:
   - fix: Add support for Polish
   - fix: Make Icelandic the default/fallback locale
