@@ -22,6 +22,8 @@
     height: 1em;
     line-height: 1em;
     margin: -0.2em -0.5em;
+    max-width: calc(0.5em + #{$var--grid-margin--right});
+    margin-right: MAX(#{$var--grid-margin--right--neg}, -0.5em);
     font-size: between_phone_netbook(49, 89);
 
     @include media($mq-wide) {
