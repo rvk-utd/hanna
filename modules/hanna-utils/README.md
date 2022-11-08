@@ -56,7 +56,7 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
 
 **Syntax:** `getSVGtext(url: string | undefined): Promise<string>`
 
-Fetches a remote SVG file and returns its markup contents — exlcuding any
+Fetches a remote SVG file and returns its markup contents — excluding any
 leading `<?xml />` directives or "Generator" comments.
 
 ```ts
