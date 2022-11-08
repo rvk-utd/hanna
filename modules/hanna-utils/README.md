@@ -69,6 +69,16 @@ getSVGtext(svgUrl).then((svgMarkup) => {
 });
 ```
 
+To check if file is svg:
+
+```ts
+import { getSVGtext } from '@reykjavik/hanna-utils';
+
+const svgUrl = 'https://styles.reykjavik.is/assets/reykjavik-logo.svg';
+// true
+const isSVG = getSVGtext.isSvgUrl(svgUrl);
+```
+
 ### `formatMonitor`
 
 A module that contains info about the currently active screen media format and
