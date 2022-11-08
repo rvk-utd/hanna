@@ -419,7 +419,7 @@ Simple type-guarding filter function that filters out "falsy" values (`""`,
 ```ts
 import { notFalsy } from '@reykjavik/hanna-utils';
 
-const mixed = ['hi', null, undefined, '', 0, false, 'ho'] as const;
+const mixed = ['hi', null, undefined, '', 0, false] as const;
 const strings: Array<'hi', 'ho'> = mixed.filter(notFalsy);
 // ['hi']
 ```
