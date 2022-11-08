@@ -12,6 +12,7 @@
 - fix: Reversed order of `RowBlockColumn`s on narrow screens + padding
 - fix: Improve mobile rendering of `.RelatedLinks`
 - fix: Update the "Esja" font files better Polish alphabet support
+- fix: Improve mobile rendering of `.SearchResultsHighlightItem` images
 - fix: Top-align search icons on hovered `.SiteSearchAutocomplete__item`s
 - fix: Adjust alignment and cap height of `.InfoHero__image`
 - fix: `BasicTable` with `--align--right` position on "tablet" sized viewports

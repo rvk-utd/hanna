@@ -275,13 +275,23 @@
 
   .SearchResultsHighlightItem__image {
     order: -2;
+
     @include media($mq-phone_phablet) {
-      margin-bottom: prem(32);
+      position: relative;
+      height: 0;
+      padding-top: 50%;
+      margin-bottom: $var--space-2;
     }
   }
   .SearchResultsHighlightItem__image > img {
+    position: absolute;
+    object-fit: contain;
+
     @include media($mq-phone_phablet) {
-      max-width: prem(300);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
     @include media($mq-tablet_up) {
       position: absolute;
@@ -289,7 +299,6 @@
       right: 0;
       width: $var--grid-4-4;
       height: calc(100% - #{prem(40)});
-      object-fit: contain;
     }
   }
 }
