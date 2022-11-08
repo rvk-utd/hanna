@@ -125,8 +125,9 @@ options.
 ```ts
 import { printDate } from '@reykjavik/hanna-utils';
 
-printDate('2022-04-30', 'is'); // 31. apríl 2022
-printDate(new Date('2022-04-30'), 'en'); // April 31, 2022
+printDate('2022-04-30', 'is'); // 30. apríl 2022
+printDate(new Date('2022-04-30'), 'en'); // April 30, 2022
+printDate('2022-04-30', 'pl'); // 30. kwietnia 2022
 ```
 
 ### `getPageScrollElm`
