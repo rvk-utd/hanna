@@ -36,7 +36,6 @@ const selectboxes: Record<string, SelectboxProps & { noTest?: true }> = {
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {ObjectEntries(selectboxes).map(([id, props]) => (
         <Selectbox key={id} id={id} {...props} />

@@ -82,7 +82,6 @@ const miniTable: Pick<
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {/* False for 6 columns - true for 7 columns (to check scroll)*/}
       <BasicTable {...content()} caption="I'm a caption!" tfoot={tFoot} />

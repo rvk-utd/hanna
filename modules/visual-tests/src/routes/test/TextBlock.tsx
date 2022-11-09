@@ -49,7 +49,6 @@ const text = (headline: string) => {
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <TextBlock small={true} startSeen>
         {text('Left aligned with small text')}

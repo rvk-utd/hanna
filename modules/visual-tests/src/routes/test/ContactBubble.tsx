@@ -49,7 +49,6 @@ export default function () {
   const alwaysShow = boolean('Set optional "alwaysShow" data-attribute', true);
   const key = '' + ssr;
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <ContactBubble key={key} title={'Hafa '} links={LINKS} alwaysShow={alwaysShow} />
     </Minimal>

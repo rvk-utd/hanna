@@ -31,7 +31,6 @@ export default function () {
     new File([lorem.long], 'Short_filename (final).pdf'),
   ]);
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <FileInput
         label={'Normal'}

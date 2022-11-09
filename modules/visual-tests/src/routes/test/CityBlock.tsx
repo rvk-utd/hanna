@@ -33,7 +33,6 @@ const content = (
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <CityBlock
         {...content('Large image and right aligned', 3, loremRT.medium(true))}

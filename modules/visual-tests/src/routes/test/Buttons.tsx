@@ -92,7 +92,6 @@ export default function () {
   const toggleIsolationMode = () => setIsolationMode((isolationMode) => !isolationMode);
 
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal bare>
       {buttons('normal', 'normal', toggleIsolationMode)}
       <hr />

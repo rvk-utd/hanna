@@ -15,7 +15,6 @@ export const meta: MetaFunction = autoTitle;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <Textinput label="Normal" placeholder="Placeholder" aria-label="normal" />
       <Textinput

@@ -13,7 +13,6 @@ export const meta: MetaFunction = autoTitle;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <ButtonBack>Back button</ButtonBack>
       <ButtonBack disabled>Disabled button</ButtonBack>

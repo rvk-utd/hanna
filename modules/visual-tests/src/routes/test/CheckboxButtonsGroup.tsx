@@ -69,7 +69,6 @@ export const options = [
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <CheckboxButtonsGroup
         label={'Checkbox Group'}

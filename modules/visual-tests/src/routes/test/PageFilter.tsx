@@ -22,7 +22,6 @@ export const handle = { cssTokens: ['BlockBreak', 'ImageCards'] };
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {[1, 2, 3, 4].map((i) => (
         <PageFilter

@@ -20,7 +20,6 @@ const items = [1, 2, 3, 4, 5].map((value) =>
 export default function () {
   const [suggestions, setSuggestions] = useState(items);
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <SiteSearchAutocomplete
         suggestions={suggestions}

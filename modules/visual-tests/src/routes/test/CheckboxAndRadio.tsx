@@ -22,7 +22,6 @@ export default function () {
   const RadioGroup__Radio = RadioGroup.__Radio;
 
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <RowBlock>
         <RowBlockColumn>

@@ -29,7 +29,6 @@ const cards = range(1, 5).map(
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <ArticleCards cards={cards} imgPlaceholder={illustr.short.src} />
     </Minimal>

@@ -16,7 +16,6 @@ export const handle = { cssTokens: ['CenterColumn,PageHeading,TextBlock'] };
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <CenterColumn>
         <PageHeading startSeen>

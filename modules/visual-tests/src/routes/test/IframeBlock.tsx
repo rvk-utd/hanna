@@ -18,7 +18,6 @@ const framedness = [false, true] as const;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {compactness.map((compact) => {
         return alignment.map((align) => {

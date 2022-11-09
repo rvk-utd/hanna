@@ -87,7 +87,6 @@ const buttons = (align: 'right' | undefined) => {
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <hr />
       {buttons(undefined)}
