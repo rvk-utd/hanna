@@ -88,7 +88,7 @@ export default function () {
 export const testing: TestingInfo = {
   viewportMinHeight: 1000,
   skipScreenshot: true,
-  extras: async ({ page, pageScreenshot, setViewportSize }) => {
+  extras: async ({ page, pageScreenshot }) => {
     const button = page.locator('.ButtonPrimary:text-is("Open Modal")');
     const buttonNarrow = page.locator('.ButtonPrimary:text-is("Open narrow modal")');
     const buttonWide = page.locator('.ButtonPrimary:text-is("Open wide modal")');

@@ -40,7 +40,6 @@ export default function () {
           />
         </RowBlockColumn>
         <RowBlockColumn>
-          {/* Playwright doesn't want run test on RadioGroup.__Radio */}
           <RadioGroup__Radio label={lorem.short} />
           <RadioGroup__Radio label="Normal" checked={false} />
           <RadioGroup__Radio label="Checked" checked />

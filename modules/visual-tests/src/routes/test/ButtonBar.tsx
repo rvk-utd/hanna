@@ -5,6 +5,7 @@ import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
 import ButtonSecondary from '@reykjavik/hanna-react/ButtonSecondary';
 import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
@@ -90,9 +91,7 @@ export default function () {
     <Minimal>
       <hr />
       {buttons(undefined)}
-      <hr />
-      Right align
-      <hr />
+      <DummyBlock thin />
       {buttons('right')}
     </Minimal>
   );
