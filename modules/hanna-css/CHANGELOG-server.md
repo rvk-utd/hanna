@@ -9,6 +9,7 @@
 - feat: Add `.FooterInfo__group--main`, deprecate `[role]` styling
 - feat: Add "[Illustration](src/assets/illustrations/files.json)" PNG asset
   ("vegvisir")
+- fix: Text color of `.Selectbox`'s placeholder (non-empty, non-filled)
 - fix: Reversed order of `RowBlockColumn`s on narrow screens + padding
 - fix: Improve mobile rendering of `.RelatedLinks`
 - fix: Update the "Esja" font files better Polish alphabet support

@@ -1,4 +1,5 @@
 @use 'globals' as *;
+@use 'styles/forms' as *;
 
 /*!@deps
 	FormField
@@ -28,6 +29,10 @@
       font-size: prem(16);
       height: 1em;
       line-height: 1em;
+    }
+
+    .Selectbox:not(.FormField--filled):not(.FormField--empty) > .FormField__input {
+      @include InputField--placeholder();
     }
     // select options are not necessarily visible on focus,
     // * leaving this arrow in reversed state with no visible dropdown
