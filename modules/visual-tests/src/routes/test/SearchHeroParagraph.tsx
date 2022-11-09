@@ -30,7 +30,10 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <RowBlock>
+      <RowBlock right>
+        <RowBlockColumn>
+          <ContentImage image={illustr.tall} />
+        </RowBlockColumn>
         <RowBlockColumn>
           <HiddenTiger
             clientSide={() => (
@@ -45,9 +48,6 @@ export default function () {
               </SiteSearchCurtain>
             )}
           />
-        </RowBlockColumn>
-        <RowBlockColumn>
-          <ContentImage image={illustr.tall} />
         </RowBlockColumn>
       </RowBlock>
     </Minimal>

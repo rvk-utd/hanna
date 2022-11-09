@@ -27,9 +27,13 @@ export default function () {
       <DummyBlock thin />
       <Heading>Left aligned</Heading>
       <DummyBlock thin />
+      <Heading size="small">Left aligned and small</Heading>
+      <DummyBlock thin />
       <Heading wide>Wide Heading</Heading>
       <DummyBlock thin />
       <Heading Tag="h3">Heading level H3</Heading>
+      <DummyBlock thin />
+      <Heading forceH1>Heading level H1 (avoid using)</Heading>
     </Minimal>
   );
 }

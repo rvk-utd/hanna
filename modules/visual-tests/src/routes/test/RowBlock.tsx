@@ -20,35 +20,42 @@ export default function () {
     <Minimal>
       <RowBlock right startSeen>
         <RowBlockColumn background="primary">
-          <strong>First Column Right Aligned </strong>
+          <strong>1. Column (Right Aligned)</strong>
           <br />
           {loremRT.medium()}
+          {loremRT.medium()}
         </RowBlockColumn>
-        <RowBlockColumn narrow={false}>
-          <strong>Second Column</strong>
-          <br /> {lorem.tiny}
+        <RowBlockColumn>
+          <strong>2. Column</strong>
+          <br /> {lorem.tiny.slice(0, 20)}
+          <hr />
+          Horizontal Rule
         </RowBlockColumn>
       </RowBlock>
+
       <DummyBlock thin />
+
       <RowBlock startSeen>
-        <RowBlockColumn background={true}>
-          <strong>First Column Left Aligned </strong>
+        <RowBlockColumn background>
+          <strong>1. Column Left Aligned </strong>
           <br />
           {loremRT.short()}
         </RowBlockColumn>
-        <RowBlockColumn background={true} narrow={true}>
-          <strong>Narrow Second Column</strong>
+        <RowBlockColumn background narrow>
+          <strong>2. Column Narrow</strong>
         </RowBlockColumn>
       </RowBlock>
+
       <DummyBlock thin />
+
       <RowBlock startSeen>
         <RowBlockColumn background="primary" narrow>
-          <strong>Narrow First Column Left Aligned </strong>
+          <strong>1. Column Left Aligned Narrow</strong>
           <br />
           {loremRT.short()}
         </RowBlockColumn>
-        <RowBlockColumn background={true} narrow={true}>
-          <strong>Narrow Second Column</strong>
+        <RowBlockColumn background narrow>
+          <strong>2. Column Narrow</strong>
           <br />
           {loremRT.long()}
         </RowBlockColumn>

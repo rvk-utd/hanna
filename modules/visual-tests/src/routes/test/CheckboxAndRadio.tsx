@@ -50,9 +50,9 @@ export default function () {
         </RowBlockColumn>{' '}
       </RowBlock>
       <style>{`
-        .Radio {
-          margin-bottom: .5em;
-        }
+        .RowBlock { margin-bottom: 0; }
+        .RowBlockColumn { padding-block: 0; }
+        .Radio { margin-bottom: .5em; }
       `}</style>
     </Minimal>
   );

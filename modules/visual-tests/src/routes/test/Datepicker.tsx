@@ -20,16 +20,14 @@ export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <style>{`
-        .RowBlock { margin: 0; }
-      `}</style>
       <RowBlock>
         <RowBlockColumn>
           <Datepicker
             label={'Normal'}
+            localeCode="is"
             // name="date"
             placeholder={'d. mmm. yyyy'}
-            dateFormat="d. MMM. yyyy"
+            dateFormat="d. MMM yyyy"
             value={startDate}
             onChange={() => undefined}
             required
@@ -37,18 +35,20 @@ export default function () {
           <DummyBlock thin />
           <Datepicker
             label={'Error'}
+            localeCode="is"
             // name="date"
             placeholder={'d. mmm. yyyy'}
-            dateFormat="d. MMM. yyyy"
+            dateFormat="d. MMM yyyy"
             value={startDate}
             onChange={() => undefined}
             invalid
           />
           <Datepicker
             label={'Small'}
+            localeCode="is"
             // name="date"
             placeholder={'d. mmm. yyyy'}
-            dateFormat="d. MMM. yyyy"
+            dateFormat="d. MMM yyyy"
             // value={undefined}
             onChange={() => undefined}
             small
@@ -56,9 +56,10 @@ export default function () {
           <DummyBlock thin />
           <Datepicker
             label={'Disabled'}
+            localeCode="is"
             // name="date"
             placeholder={'d. mmm. yyyy'}
-            dateFormat="d. MMM. yyyy"
+            dateFormat="d. MMM yyyy"
             // value={undefined}
             onChange={() => undefined}
             disabled
@@ -66,16 +67,21 @@ export default function () {
           <DummyBlock thin />
           <Datepicker
             label={'Read only'}
+            localeCode="is"
             // name="date"
             placeholder={'d. mmm. yyyy'}
-            dateFormat="d. MMM. yyyy"
+            dateFormat="d. MMM yyyy"
             // value={undefined}
             onChange={() => undefined}
             readOnly
           />
         </RowBlockColumn>
-        <RowBlockColumn>{''}</RowBlockColumn>
+        <RowBlockColumn> </RowBlockColumn>
       </RowBlock>
+      <style>{`
+        .RowBlock { margin: 0; }
+        .RowBlockColumn { padding-block: 0; }
+      `}</style>
     </Minimal>
   );
 }
@@ -83,18 +89,18 @@ export default function () {
 export const testing: TestingInfo = {
   viewportMinHeight: 700,
   extras: async ({ page, localScreenshot, pageScreenshot }) => {
-    await page.locator('.FormField__label:text("Normal")').click();
+    await page.locator('.FormField__input input >> nth=0').click();
     await pageScreenshot('opened');
 
     const datepicker = page.locator('.react-datepicker');
 
-    await datepicker.locator('span:text-is("October")').hover();
+    await datepicker.locator('span:text-is("október"), span:text-is("Október")').hover();
     await localScreenshot(datepicker, 'dp-hover-month');
 
-    await datepicker.locator('[role="button"]:text-is("5")').hover();
+    await datepicker.locator('[role="button"]:text-is("5") >> nth=0').hover();
     await localScreenshot(datepicker, 'dp-hover-today');
 
-    await datepicker.locator('[role="button"]:text-is("21")').hover();
+    await datepicker.locator('[role="button"]:text-is("21") >> nth=0').hover();
     await localScreenshot(datepicker, 'dp-hover-weekend');
   },
 };

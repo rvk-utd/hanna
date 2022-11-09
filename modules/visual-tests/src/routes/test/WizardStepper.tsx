@@ -82,7 +82,7 @@ export const testing: TestingInfo = {
       const label = ((await button.textContent()) || '').split('--')[0]!.trim();
 
       await button.hover();
-      await localScreenshot(button, label + '-hover', { margin: [0, 5] });
+      await localScreenshot(button, `${label}-hover`, { margin: [0, 5] });
     }
   },
 };

@@ -42,7 +42,11 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+      return;
+    }
+
     // Three states: empty, neither, filled
     const normal = page.locator('.FormField__input >> nth = 0');
     const invalid = page.locator('.FormField__input[aria-invalid=true] >> nth = 1');

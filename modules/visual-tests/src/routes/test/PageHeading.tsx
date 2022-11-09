@@ -26,6 +26,9 @@ export default function () {
       <PageHeading startSeen small>
         Small title
       </PageHeading>
+      <PageHeading startSeen small align="right">
+        Small align right
+      </PageHeading>
       <DummyBlock thin />
       <PageHeading startSeen Tag="h2">
         Heading level H2

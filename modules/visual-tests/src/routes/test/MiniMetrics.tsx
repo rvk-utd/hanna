@@ -26,4 +26,5 @@ export default function () {
 
 export const testing: TestingInfo = {
   initialHover: '.MiniMetrics__more',
+  clipViewport: true,
 };

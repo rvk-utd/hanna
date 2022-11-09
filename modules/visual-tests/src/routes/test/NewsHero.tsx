@@ -46,4 +46,5 @@ export default function () {
 
 export const testing: TestingInfo = {
   initialHover: '.ShareButtons__link--facebook >> nth = 0',
+  clipViewport: true,
 };

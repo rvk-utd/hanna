@@ -16,7 +16,7 @@ type SubTabProps = NonNullable<TabsProps['subTabs']>;
 
 const tabs = [1, 2, 3].map(
   (i): TabItemProps => ({
-    label: 'Tab ' + i + (i === 3 ? ' has very, very longwinded label' : ''),
+    label: 'Tab ' + i + (i === 3 ? ' has a very longwinded label' : ''),
     longLabel: i === 2 ? 'Tab ' + i + ' has longer label' : undefined,
     badge: [14, undefined, 999][i - 1],
   })
@@ -108,9 +108,14 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+      return;
+    }
+
     // Hover tabs
     for (const tagType of ['links', 'buttons'] as const) {
+      /* eslint-disable no-await-in-loop */
       for (const labelSuffix of [
         'tabs',
         'subTabs',
@@ -124,6 +129,7 @@ export const testing: TestingInfo = {
         await tabContainer.locator(`.Tabs__tab:text("${tabText} 1")`).hover();
         await localScreenshot(tabContainer, tabsLabel + '-hover');
       }
+      /* eslint-enaable no-await-in-loop */
     }
   },
 };

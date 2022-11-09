@@ -27,7 +27,7 @@ export default function () {
       />
       <RadioButtonsGroup
         label={'Invalid Radio buttons Group'}
-        options={options}
+        options={options.slice(0, 4)}
         value={'text'}
         invalid
         name={'invalid'}
@@ -35,11 +35,11 @@ export default function () {
       />
       <RadioButtonsGroup
         label={'Disabled Radio buttons Group'}
-        options={options}
+        options={options.slice(0, 2)}
         value={'text'}
         disabled
         name={'disabled'}
-        errorMessage="This is an error message"
+        assistText="This is an error message"
       />
     </Minimal>
   );
@@ -51,13 +51,12 @@ export const testing: TestingInfo = {
       return;
     }
 
-    const normal = page.locator('.RadioButton__label >> nth = 1');
-    const checked = page.locator('.RadioButton__label >> nth = 0');
-    const invalid = page.locator('.FormField--invalid .RadioButton__label >> nth = 1');
+    const checked = page.locator('.RadioButton__label >> nth=0');
+    const notChecked = page.locator('.RadioButton__label >> nth=1');
     const invalidChecked = page.locator(
-      '.FormField--invalid .RadioButton__label >> nth = 0'
+      '.FormField--invalid .RadioButton__label >> nth=0'
     );
-    const disabled = page.locator('.FormField--disabled .RadioButton__label >> nth = 1 ');
+    const disabled = page.locator('.FormField--disabled .RadioButton__label >> nth=1');
 
     const removeSubSequentNodes = (locator: Locator) =>
       locator.evaluate((elm) => {
@@ -67,39 +66,33 @@ export const testing: TestingInfo = {
       });
 
     // Because flexbox may artificially increase button height
-    await removeSubSequentNodes(normal);
+    await removeSubSequentNodes(notChecked);
     await removeSubSequentNodes(invalidChecked);
     await removeSubSequentNodes(disabled);
 
     // :hover
 
-    await normal.hover();
-    await localScreenshot(normal, 'normal-hover', { margin: true });
+    await notChecked.hover();
+    await localScreenshot(notChecked, 'notChecked-hover', { margin: 10 });
 
     await checked.hover();
-    await localScreenshot(checked, 'checked-hover', { margin: true });
-
-    await invalid.hover();
-    await localScreenshot(invalid, 'invalid-hover', { margin: true });
+    await localScreenshot(checked, 'checked-hover', { margin: 10 });
 
     await invalidChecked.hover();
-    await localScreenshot(invalidChecked, 'invalidchecked-hover', { margin: true });
+    await localScreenshot(invalidChecked, 'invalidChecked-hover', { margin: 10 });
 
     await disabled.hover();
-    await localScreenshot(disabled, 'disabled-hover', { margin: true });
+    await localScreenshot(disabled, 'disabled-hover', { margin: 10 });
 
     // :focus
 
-    await normal.focus();
-    await localScreenshot(normal, 'normal-focus', { margin: true });
+    await notChecked.focus();
+    await localScreenshot(notChecked, 'notChecked-focus', { margin: 10 });
 
     await checked.focus();
-    await localScreenshot(checked, 'checked-focus', { margin: true });
-
-    await invalid.focus();
-    await localScreenshot(invalid, 'invalid-focus', { margin: true });
+    await localScreenshot(checked, 'checked-focus', { margin: 10 });
 
     await invalidChecked.focus();
-    await localScreenshot(invalidChecked, 'invalidchecked-focus', { margin: true });
+    await localScreenshot(invalidChecked, 'invalidChecked-focus', { margin: 10 });
   },
 };

@@ -145,7 +145,7 @@ export const testing: TestingInfo = {
       '.ButtonPrimary--destructive:text("Pressed")>> nth=0'
     );
     const destrPrimaryLink = page.locator(
-      '.ButtonPrimary--destructive:test("Link") >> nth=0'
+      '.ButtonPrimary--destructive:text("Link") >> nth=0'
     );
 
     const destrSecondary = page.locator('.ButtonSecondary--destructive >> nth=0');
@@ -156,7 +156,7 @@ export const testing: TestingInfo = {
       '.ButtonSecondary--destructive:text("Pressed")>> nth=0'
     );
     const destrSecondaryLink = page.locator(
-      '.ButtonSecondary--destructive:test("Link") >> nth=0'
+      '.ButtonSecondary--destructive:text("Link") >> nth=0'
     );
 
     const destrTertiary = page.locator('.ButtonTertiary--destructive >> nth=0');
@@ -167,7 +167,7 @@ export const testing: TestingInfo = {
       '.ButtonTertiary--destructive:text("Pressed")>> nth=0'
     );
     const destrTertiaryLink = page.locator(
-      '.ButtonTertiary--destructive:test("Link") >> nth=0'
+      '.ButtonTertiary--destructive:text("Link") >> nth=0'
     );
 
     // toggleIsolationMode on

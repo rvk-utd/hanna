@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
+import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { compareKeys } from 'hanna-test-helpers';
 
 import type {
@@ -30,7 +30,7 @@ const expectSoft = expect.soft;
 /**
  * An auto-built list of test pages contained in `src/routes/test/**`
  */
-const testPagePaths = ObjectFromEntries(
+const testPagePaths = Object.fromEntries(
   getTestListSync().map(({ label, path }) => [label, path])
 );
 

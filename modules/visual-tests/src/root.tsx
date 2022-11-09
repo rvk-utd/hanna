@@ -119,7 +119,9 @@ export default function App() {
         <Links />
         {q.get('noAnimation') != null && (
           <style>{css`
-            * {
+            *,
+            *::before,
+            *::after {
               scroll-behavior: auto !important;
               transition: none !important;
               transition-delay: 0ms !important;

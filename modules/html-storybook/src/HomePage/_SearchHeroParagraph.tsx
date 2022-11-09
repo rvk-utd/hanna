@@ -27,7 +27,10 @@ const SearchHeroParagraph: FC & CSSTokenInfo = () => {
   const [suggestions, setSuggestions] = useState(items);
 
   return (
-    <RowBlock>
+    <RowBlock right>
+      <RowBlockColumn>
+        <Illustration type={illustrations[10]} />
+      </RowBlockColumn>
       <RowBlockColumn>
         <HiddenTiger
           serverSide={() => (
@@ -54,9 +57,6 @@ const SearchHeroParagraph: FC & CSSTokenInfo = () => {
             </SiteSearchCurtain>
           )}
         />
-      </RowBlockColumn>
-      <RowBlockColumn>
-        <Illustration type={illustrations[10]} />
       </RowBlockColumn>
     </RowBlock>
   );

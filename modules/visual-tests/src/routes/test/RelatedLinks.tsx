@@ -3,7 +3,6 @@ import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import RelatedLinks, { RelatedLinkItem } from '@reykjavik/hanna-react/RelatedLinks';
 
-import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
@@ -15,20 +14,18 @@ export const meta: MetaFunction = autoTitle;
 export const handle = { cssTokens: [] };
 const links: Array<RelatedLinkItem> = [
   {
-    href: 'https://abendingar.reykjavik.is',
-    label: 'External ',
-    type: 'external',
-    target: '_blank',
+    href: '/normal/link',
+    label: 'Default icon',
   },
   {
     href: 'https://abendingar.reykjavik.is',
     label: 'Link ',
-    target: '_blank',
+    type: 'link',
   },
   {
-    href: '/files/somepdfFile',
-    label: 'PDF file',
-    type: 'pdf',
+    href: 'https://abendingar.reykjavik.is',
+    label: 'External ',
+    type: 'external',
   },
   {
     href: '/files/some.pdf',
@@ -39,36 +36,17 @@ const links: Array<RelatedLinkItem> = [
     label: 'Document',
     type: 'document',
   },
-  {
-    href: '/normal/link',
-    label: 'Related links',
-    type: 'link',
-  },
 ];
+
 export default function () {
   return (
     // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
-      <RelatedLinks title="Best title in the world" links={links} />
-      <DummyBlock thin />
-      <RelatedLinks
-        title={'Linebreak title. ' + lorem.medium.slice(0, 120)}
-        links={links.slice(0, 5)}
-      />
+      <RelatedLinks title={lorem.medium} links={links} />
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
-    // Only test first related links group
-    const relatedLinksGroup = page.locator('.RelatedLinks >> nth = 0');
-    const relatedLinks = await relatedLinksGroup.locator('li').elementHandles();
-    for (const relatedlink of relatedLinks) {
-      const label = ((await relatedlink.textContent()) || '').split('--')[0]!.trim();
-
-      await relatedlink.hover();
-      await localScreenshot(relatedlink, label + '-hover', { margin: [10, 5] });
-    }
-  },
+  initialHover: '.RelatedLinks__link',
 };

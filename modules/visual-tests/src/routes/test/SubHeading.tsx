@@ -18,23 +18,25 @@ export default function () {
     <Minimal>
       {checkeredBackground('.SubHeading')}
       <Subheading startSeen align="right">
-        {' '}
-        Right aligned{' '}
+        Right aligned
       </Subheading>
       <DummyBlock thin />
       <Subheading startSeen align="right" small>
-        {' '}
-        Right aligned and small{' '}
+        Right aligned and small
       </Subheading>
       <DummyBlock thin />
-      <Subheading startSeen>Left aligned </Subheading>
+      <Subheading startSeen>Left aligned</Subheading>
+      <Subheading startSeen small>
+        Left aligned and small
+      </Subheading>
       <DummyBlock thin />
       <Subheading startSeen wide>
-        {' '}
-        Wide Subheading{' '}
+        Wide Subheading
       </Subheading>
       <DummyBlock thin />
-      <Subheading startSeen>Heading level H3</Subheading>
+      <Subheading startSeen Tag="h3">
+        Heading level H3
+      </Subheading>
     </Minimal>
   );
 }
