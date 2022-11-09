@@ -96,16 +96,17 @@
 
   $icon-indent: prem(26);
   .ExtraLinks__related__item {
-    padding-left: $icon-indent;
+    margin-left: $icon-indent;
+    position: relative;
   }
   .ExtraLinks__related__link {
     @include BodyTextStyle--large();
     color: $color-suld-200;
-    position: relative;
   }
   .ExtraLinks__related__link::before {
     @include icon($icons-dash);
     position: absolute;
+    top: 0;
     right: 100%;
     width: $icon-indent;
     text-align: left;
