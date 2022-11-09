@@ -34,7 +34,7 @@ export default function () {
         errorMessage="This is an error message"
       />
       <RadioButtonsGroup
-        label={'Invalid Radio buttons Group'}
+        label={'Disabled Radio buttons Group'}
         options={options}
         value={'text'}
         disabled
