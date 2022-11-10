@@ -58,6 +58,4 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {
-  initialHover: '.FormField--disabled.RadioGroup--inline input[type="radio"] >> nth=2',
-};
+export const testing: TestingInfo = {};
