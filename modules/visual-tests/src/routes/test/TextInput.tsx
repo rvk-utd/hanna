@@ -1,10 +1,11 @@
-/* eslint-disable no-await-in-loop */
 import React from 'react';
-import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
-import Textinput from '@reykjavik/hanna-react/TextInput';
+import Textinput, { TextInputProps } from '@reykjavik/hanna-react/TextInput';
+import { notFalsy } from '@reykjavik/hanna-utils';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
+import { lorem } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -13,71 +14,135 @@ export const meta: MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
 
+type PartialProps = Array<Partial<TextInputProps> & { id: string; label: string }>;
+
+const sizes: PartialProps = [
+  { id: '', label: '' },
+  { id: 'small', label: 'Small ', small: true },
+];
+
+const contents: PartialProps = [
+  { id: '', label: '', value: 'Some value' },
+  {
+    id: 'placeholder',
+    label: ' (placeholder)',
+    placeholder: 'Placeholder text',
+  },
+  { id: 'empty', label: ' (empty)' },
+];
+
+const baseStates: PartialProps = [
+  { id: 'normal', label: 'Normal' },
+  { id: 'required', label: 'Required', required: true, assistText: 'Assist text here' },
+  { id: 'hidelabel', label: 'hidelabel', hideLabel: true },
+  { id: 'invalid', label: 'Error', invalid: true, errorMessage: 'Error message here' },
+  { id: 'textarea', type: 'textarea', label: 'Textarea' },
+  { id: 'disabled', label: 'Disabled', disabled: true },
+  { id: 'readonly', label: 'Readonly', readOnly: true },
+];
+
+const textinputs: Array<TextInputProps | 'split'> = [];
+
+sizes.forEach((size, i) => {
+  baseStates.forEach((baseState, i) => {
+    if (i > 0) {
+      textinputs.push('split');
+    }
+    contents.forEach((content) => {
+      const id = [size.id, baseState.id, content.id].filter(notFalsy).join('-');
+      const label = size.label + baseState.label + content.label;
+      textinputs.push({
+        ...size,
+        ...content,
+        ...baseState,
+        id,
+        label,
+      } as TextInputProps);
+    });
+  });
+  if (i > 0) {
+    textinputs.push('split');
+  }
+});
+
+const overflowInputs: Array<TextInputProps> = [
+  {
+    id: 'talltextarea',
+    label: 'Taller line-wrapping textarea',
+    type: 'textarea',
+    rows: 5,
+    value: lorem.medium,
+  },
+  {
+    id: 'overflow',
+    label: 'Text overflow',
+    value: lorem.medium,
+  },
+  {
+    id: 'overflow-small',
+    label: 'Text overflow Small',
+    small: true,
+    value: lorem.medium,
+  },
+];
+
+// ---------------------------------------------------------------------------
+
+const render = (inputs: Array<TextInputProps | 'split'>) =>
+  inputs.map((props, i) =>
+    props === 'split' ? <DummyBlock thin key={i} /> : <Textinput key={i} {...props} />
+  );
+
+// ---------------------------------------------------------------------------
+
 export default function () {
   return (
     <Minimal>
-      <Textinput label="Normal" placeholder="Placeholder" aria-label="normal" />
-      <Textinput
-        placeholder="Placeholder"
-        label="Label"
-        hideLabel={true}
-        errorMessage="Error message here"
-        aria-label="error"
-      />
-      <Textinput label="Assist text" assistText="Assist text here" aria-label="assist" />
-      <Textinput
-        placeholder="Placeholder"
-        label="Text area, required"
-        type={'textarea'}
-        aria-label="textarea"
-        required
-      />
-      <Textinput placeholder="Placeholder" label="Small" small />
-      <Textinput label="Disabled" disabled aria-label="disabled" />
-      <Textinput label="Read only" readOnly aria-label="readonly" />
-      <Textinput placeholder="Placeholder" label="Invalid" aria-label="invalid" invalid />
+      {render(textinputs)}
+      {render(overflowInputs)}
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, project }) => {
+  extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
     if (project !== 'firefox-wide' && project !== 'firefox-phone') {
       return;
     }
 
-    // Three states: empty, neither, filled
-    const normal = page.locator('.FormField__input >> nth = 0');
-    const invalid = page.locator('.FormField__input[aria-invalid=true] >> nth = 1');
-    const readOnly = page.locator('.FormField__input[aria-label="readonly"] ');
-    const assist = page.locator('.FormField__input[aria-label="assist"] ');
-
-    const textInputs = [
-      { loc: normal, name: 'normal' },
-      { loc: assist, name: 'assist' },
-      { loc: readOnly, name: 'read-only' },
-      { loc: invalid, name: 'invalid' },
+    const inputsToHover = [
+      { id: 'normal', name: 'normal' },
+      { id: 'normal-placeholder', name: 'normalPlaceholder' },
+      { id: 'normal-empty', name: 'normalEmpty' },
+      { id: 'invalid', name: 'invalid' },
+      { id: 'textarea', name: 'textarea' },
+      { id: 'disabled', name: 'disabled' },
+      { id: 'readonly', name: 'readonly' },
+      { id: 'small-normal', name: 'smallNormal' },
+      { id: 'small-normal-placeholder', name: 'smallNormalPlaceholder' },
+      { id: 'small-normal-empty', name: 'small-NormalEmpty' },
+      { id: 'small-invalid', name: 'smallInvalid' },
     ];
 
-    // Test focus on all states
-    const focusTest = async (loc: Locator, name: string) => {
-      // Neither state (placeholder)
-      await loc.focus();
-      await localScreenshot(loc, name + '-neither-focus', { margin: true });
-      if (name !== 'read-only') {
-        // Empty state
-        await loc.fill('');
-        await localScreenshot(loc, name + '-empty-focus', { margin: true });
+    /* eslint-disable no-await-in-loop */
+    for (const { id, name } of inputsToHover) {
+      const input = page.locator(`#${id}`);
+      const formfield = input.locator('closest=.FormField');
 
-        // Filled state
-        await loc.fill('Some input');
-        await localScreenshot(loc, name + '-filled-focus', { margin: true });
-      }
-    };
-    let i = 0;
-    let textInput: typeof textInputs[number] | undefined;
-    while ((textInput = textInputs[i++])) {
-      await focusTest(textInput.loc, textInput.name);
+      await input.hover({ force: true });
+      await localScreenshot(formfield, `${name}-hover`, { margin: 10 });
     }
+    /* eslint-enable no-await-in-loop */
+
+    // Hack to screenshot all focus states at once
+    await page.mouse.move(0, 0);
+    await page
+      .locator('.FormField:not(.FormField__input--disabled)')
+      .evaluateAll((elms) => {
+        elms.forEach((elm) => {
+          elm.classList.add('FormField--focused');
+        });
+      });
+    await pageScreenshot('allFocused');
   },
 };

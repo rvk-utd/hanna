@@ -45,7 +45,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, project }) => {
+  extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
     if (project !== 'firefox-wide' && project !== 'firefox-phone') {
       return;
     }
@@ -58,15 +58,20 @@ export const testing: TestingInfo = {
       const select = page.locator(`#${id}`);
       const formfield = select.locator('closest=.FormField');
 
-      await select.hover();
+      await select.hover({ force: true });
       await localScreenshot(formfield, `${id}-hover`, { margin: 10 });
-
-      if (!props.disabled) {
-        await page.mouse.move(0, 0);
-        await select.focus();
-        await localScreenshot(formfield, `${id}-focus`, { margin: 10 });
-      }
     }
     /* eslint-enable no-await-in-loop */
+
+    // Hack to screenshot all focus states at once
+    await page.mouse.move(0, 0);
+    await page
+      .locator('.FormField:not(.FormField__input--disabled)')
+      .evaluateAll((elms) => {
+        elms.forEach((elm) => {
+          elm.classList.add('FormField--focused');
+        });
+      });
+    await pageScreenshot('focused');
   },
 };
