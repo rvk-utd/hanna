@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Make `ObjectFromEntries` accept readonly arrays
 
 ## 0.1.16
 

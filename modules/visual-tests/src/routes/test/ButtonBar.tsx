@@ -5,6 +5,7 @@ import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
 import ButtonSecondary from '@reykjavik/hanna-react/ButtonSecondary';
 import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
@@ -86,13 +87,10 @@ const buttons = (align: 'right' | undefined) => {
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <hr />
       {buttons(undefined)}
-      <hr />
-      Right align
-      <hr />
+      <DummyBlock thin />
       {buttons('right')}
     </Minimal>
   );

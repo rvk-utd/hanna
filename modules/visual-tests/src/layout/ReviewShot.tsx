@@ -79,8 +79,12 @@ const useReviewState = (change: Changeset) => {
     }
     let lastKey = '';
     let primeout: ReturnType<typeof setTimeout>;
+    let navigating: ReturnType<typeof setTimeout> | null;
     // eslint-disable-next-line complexity
     const shortcuts = (e: KeyboardEvent) => {
+      if (navigating) {
+        return;
+      }
       const key = e.key.toUpperCase();
       const doublePress = key === lastKey;
       lastKey = key;
@@ -110,8 +114,12 @@ const useReviewState = (change: Changeset) => {
           return;
         }
         if (doublePress) {
-          submitButton.click();
+          navigating = setTimeout(() => {
+            submitButton.click();
+            navigating = null;
+          }, 150);
         } else {
+          !isNew && setMode(key === 'A' ? 'actual' : 'expected');
           setPrimed({ on: true, letter: key });
           primeout = setTimeout(() => {
             resetPrimed();

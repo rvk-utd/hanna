@@ -37,7 +37,6 @@ const RELATED_LINKS = range(1, 6).map(
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <ExtraLinks title="Extra Links" cards={CARDS} startSeen />
       <ExtraLinks
@@ -64,6 +63,6 @@ export const testing: TestingInfo = {
     const relLink = relatedLinks.locator(':last-child > .ExtraLinks__related__link');
 
     await relLink.hover();
-    await localScreenshot(relatedLinks, 'relatedlink-hover');
+    await localScreenshot(relatedLinks, 'relatedlink-hover', { margin: true });
   },
 };

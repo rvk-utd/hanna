@@ -30,7 +30,6 @@ export const imageCards = range(0, 5).map(
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <ImageCards
         title="Image Cards"

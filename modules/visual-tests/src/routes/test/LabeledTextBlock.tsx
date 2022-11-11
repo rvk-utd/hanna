@@ -20,7 +20,6 @@ const buttons = [
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <LabeledTextBlock
         startSeen

@@ -32,7 +32,6 @@ const blocks = range(1, 5).map((n) => ({
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <GridBlocks blocks={blocks} startSeen />
       <DummyBlock thin />

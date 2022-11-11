@@ -1,6 +1,4 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable prettier/prettier */
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
 import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
@@ -9,6 +7,7 @@ import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 
 import { Minimal } from '../../layout/Minimal';
+import { keyboardFocus } from '../../test-helpers/keyboardFocus';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -20,7 +19,8 @@ export const handle = {
 };
 const buttons = (
   buttonSize: 'small' | 'wide' | 'normal',
-  variantType: 'normal' | 'destructive'
+  variantType: 'normal' | 'destructive',
+  modeToggler?: () => void
 ) => {
   return (
     <Fragment>
@@ -38,12 +38,16 @@ const buttons = (
           normal: undefined,
           small: 'small',
           wide: supportsWide ? 'wide' : undefined,
-        }[buttonSize] as any;
+        }[buttonSize] as never;
 
         return (
-          <div key={i}>
+          <div className={name} key={i}>
             <p>
-              <ButtonComponent size={sizeValue} variant={variantType}>
+              <ButtonComponent
+                size={sizeValue}
+                variant={variantType}
+                onClick={modeToggler}
+              >
                 {sizeName} {variantName} {name} Button
               </ButtonComponent>{' '}
               <ButtonComponent size={sizeValue} variant={variantType} disabled>
@@ -54,7 +58,7 @@ const buttons = (
               </ButtonComponent>
             </p>
             <p>
-              <ButtonComponent size={sizeValue} variant={variantType} href="">
+              <ButtonComponent size={sizeValue} variant={variantType} href="/">
                 {sizeName} {variantName} {name} Link
               </ButtonComponent>{' '}
             </p>
@@ -64,7 +68,7 @@ const buttons = (
                 <ButtonComponent size={sizeValue} variant={variantType} icon="go-back">
                   Go Back
                 </ButtonComponent>
-              ) }
+              )}
               {variantType !== 'destructive' && (
                 <ButtonComponent
                   size={sizeValue}
@@ -73,7 +77,7 @@ const buttons = (
                 >
                   Go Forward
                 </ButtonComponent>
-              ) }
+              )}
             </p>
             <br />{' '}
           </div>
@@ -84,104 +88,160 @@ const buttons = (
 };
 
 export default function () {
+  const [isolationMode, setIsolationMode] = useState(false);
+  const toggleIsolationMode = () => setIsolationMode((isolationMode) => !isolationMode);
+
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal bare>
-      {buttons('normal', 'normal')}
+      {buttons('normal', 'normal', toggleIsolationMode)}
       <hr />
       {buttons('small', 'normal')}
       <hr />
       {buttons('wide', 'normal')}
       <hr />
       {buttons('normal', 'destructive')}
+
+      {isolationMode && (
+        <style>{`
+          div.Tertiary .ButtonTertiary {
+            margin-right: 32px;
+            margin-bottom: 32px;
+          }
+        `}</style>
+      )}
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  tags: ['firefox'],
-  __DEV_FOCUS__:true,
-  extras: async ({ page, localScreenshot }) => {
-    // Primary buttons
-    const primaryButton = page.locator('.ButtonPrimary >> nth = 0');
-    const disabledPrimary = page.locator('.ButtonPrimary:text("Disabled") >> nth =0');
-    const pressedPrimary = page.locator('.ButtonPrimary:text("Pressed") >> nth =0');
-    // Secondary buttons
-    const secondaryButton = page.locator('.ButtonSecondary >> nth = 0');
-    const disabledSecondary = page.locator('.ButtonSecondary:text("Disabled") >> nth =0');
-    const pressedSecondary = page.locator('.ButtonSecondary:text("Pressed") >> nth = 0');
-    // Tertiary Buttons
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+      return;
+    }
+
+    // Primary buttons (default variant)
+    const primaryButton = page.locator('.ButtonPrimary >> nth=0');
+    const primaryDisabled = page.locator('.ButtonPrimary:text("Disabled") >> nth=0');
+    const primaryPressed = page.locator('.ButtonPrimary:text("Pressed") >> nth=0');
+    const primaryLink = page.locator('.ButtonPrimary:text("Link") >> nth=0');
+    // Secondary buttons (default variant)
+    const secondaryButton = page.locator('.ButtonSecondary >> nth=0');
+    const secondaryDisabled = page.locator('.ButtonSecondary:text("Disabled") >> nth=0');
+    const secondaryPressed = page.locator('.ButtonSecondary:text("Pressed") >> nth=0');
+    const secondaryLink = page.locator('.ButtonSecondary:text("Link") >> nth=0');
+    // Tertiary buttons (default variant)
     const tertiaryButton = page.locator('.ButtonTertiary >> nth=0');
-    const disabledTertiary = page.locator('.ButtonTertiary:text("Disabled") >> nth=0');
-    const pressedTertiary = page.locator('.ButtonTertiary:text("Pressed")>> nth=0');
+    const tertiaryDisabled = page.locator('.ButtonTertiary:text("Disabled") >> nth=0');
+    const tertiaryPressed = page.locator('.ButtonTertiary:text("Pressed")>> nth=0');
+    const tertiaryLink = page.locator('.ButtonTertiary:text("Link") >> nth=0');
 
     // Destructive Buttons
-    const destrPrimary = page.locator('.ButtonPrimary--destructive >> nth =0');
-    const destrDisabledPrim = page.locator(
-      '.ButtonPrimary--destructive:text("Disabled")>> nth =0'
+    const destrPrimary = page.locator('.ButtonPrimary--destructive >> nth=0');
+    const destrPrimaryDisabled = page.locator(
+      '.ButtonPrimary--destructive:text("Disabled")>> nth=0'
     );
-    const destrPressedPrim = page.locator(
-      '.ButtonPrimary--destructive:text("Pressed")>> nth =0'
+    const destrPrimaryPressed = page.locator(
+      '.ButtonPrimary--destructive:text("Pressed")>> nth=0'
     );
-    const destrSecondary = page.locator('.ButtonSecondary--destructive >> nth =0');
-    const destrDisabledSec = page.locator(
-      '.ButtonSecondary--destructive:text("Disabled")>> nth =0'
+    const destrPrimaryLink = page.locator(
+      '.ButtonPrimary--destructive:text("Link") >> nth=0'
     );
-    const destrPressedSec = page.locator(
-      '.ButtonSecondary--destructive:text("Pressed")>> nth =0'
+
+    const destrSecondary = page.locator('.ButtonSecondary--destructive >> nth=0');
+    const destrSecondaryDisabled = page.locator(
+      '.ButtonSecondary--destructive:text("Disabled")>> nth=0'
     );
+    const destrSecondaryPressed = page.locator(
+      '.ButtonSecondary--destructive:text("Pressed")>> nth=0'
+    );
+    const destrSecondaryLink = page.locator(
+      '.ButtonSecondary--destructive:text("Link") >> nth=0'
+    );
+
     const destrTertiary = page.locator('.ButtonTertiary--destructive >> nth=0');
-    const destrDisabledTer = page.locator(
-      '.ButtonTertiary--destructive:text("Disabled")>> nth =0'
+    const destrTertiaryDisabled = page.locator(
+      '.ButtonTertiary--destructive:text("Disabled")>> nth=0'
     );
-    const destrPressedTer = page.locator(
-      '.ButtonTertiary--destructive:text("Pressed")>> nth =0'
+    const destrTertiaryPressed = page.locator(
+      '.ButtonTertiary--destructive:text("Pressed")>> nth=0'
     );
+    const destrTertiaryLink = page.locator(
+      '.ButtonTertiary--destructive:text("Link") >> nth=0'
+    );
+
+    // toggleIsolationMode on
+    await primaryButton.click();
 
     type BTCfg = {
       loc: Locator;
       name: string;
       click?: boolean;
-      margin?: boolean;
+      focus?: boolean;
+      tertiary?: boolean;
     };
-
-    const buttonTest = async (cfg: BTCfg) => {
-      const { loc, name, click, margin = true } = cfg;
-      await loc.hover({ force: true });
-      await localScreenshot(loc, name + '-hover', { margin });
-      if (click) {
-        await loc.hover();
-        await page.mouse.down();
-        await localScreenshot(loc, name + '-click', { margin });
-      }
-    };
-
     const buttons: Array<BTCfg> = [
       { loc: primaryButton, name: 'primaryButton', click: true },
-      { loc: disabledPrimary, name: 'disabledPrimary' },
-      { loc: pressedPrimary, name: 'pressedPrimary' },
-      { loc: secondaryButton, name: 'secondaryButton', click: true },
-      { loc: disabledSecondary, name: 'disabledSecondary' },
-      { loc: pressedSecondary, name: 'pressedSecondary' },
-      { loc: tertiaryButton, name: 'tertiaryButton', click: true, margin: false },
-      { loc: disabledTertiary, name: 'disabledTertiary', margin: false },
-      { loc: pressedTertiary, name: 'pressedTertiary', margin: false },
+      { loc: primaryDisabled, name: 'primaryDisabled', focus: false },
+      { loc: primaryPressed, name: 'primaryPressed' },
+      { loc: primaryLink, name: 'primaryLink' },
 
-      // destructive butttons
-      { loc: destrPrimary, name: 'destructivePrimary', click: true },
-      { loc: destrDisabledPrim, name: 'destructiveDisabledPrim' },
-      { loc: destrPressedPrim, name: 'destructivePressedPrim' },
-      { loc: destrSecondary, name: 'destructiveSecondary', click: true },
-      { loc: destrDisabledSec, name: 'destructiveDisabledSec' },
-      { loc: destrPressedSec, name: 'destructivePressedSec' },
-      { loc: destrTertiary, name: 'destructiveTertiary', click: true, margin: false },
-      { loc: destrDisabledTer, name: 'destructiveDisabledTer', margin: false },
-      { loc: destrPressedTer, name: 'destructivePressedTer', margin: false },
+      { loc: secondaryButton, name: 'secondaryButton', click: true },
+      { loc: secondaryDisabled, name: 'secondaryDisabled', focus: false },
+      { loc: secondaryPressed, name: 'secondaryPressed' },
+      { loc: secondaryLink, name: 'secondaryLink' },
+
+      { loc: tertiaryButton, name: 'tertiaryButton', click: true, tertiary: true },
+      {
+        loc: tertiaryDisabled,
+        name: 'tertiaryDisabled',
+        focus: false,
+        tertiary: true,
+      },
+      { loc: tertiaryPressed, name: 'tertiaryPressed', tertiary: true },
+      { loc: tertiaryLink, name: 'tertiaryLink', tertiary: true },
+
+      // // destructive butttons
+      { loc: destrPrimary, name: 'destr-Primary', click: true },
+      { loc: destrPrimaryDisabled, name: 'destr-PrimaryDisabled', focus: false },
+      { loc: destrPrimaryPressed, name: 'destr-PrimaryPressed' },
+      { loc: destrPrimaryLink, name: 'destr-PrimaryLink' },
+
+      { loc: destrSecondary, name: 'destr-Secondary', click: true },
+      { loc: destrSecondaryDisabled, name: 'destr-SecondaryDisabled', focus: false },
+      { loc: destrSecondaryPressed, name: 'destr-SecondaryPressed' },
+      { loc: destrSecondaryLink, name: 'destr-SecondaryLink' },
+
+      { loc: destrTertiary, name: 'destr-Tertiary', click: true, tertiary: true },
+      {
+        loc: destrTertiaryDisabled,
+        name: 'destr-TertiaryDisabled',
+        focus: false,
+        tertiary: true,
+      },
+      { loc: destrTertiaryPressed, name: 'destr-TertiaryPressed', tertiary: true },
+      { loc: destrTertiaryLink, name: 'destr-TertiaryLink', tertiary: true },
     ];
-    let i = 0;
+
     let cfg: typeof buttons[number] | undefined;
+
+    let i = 0;
+    /* eslint-disable no-await-in-loop */
     while ((cfg = buttons[i++])) {
-      await buttonTest(cfg);
+      const { loc, name, click, focus = true, tertiary } = cfg;
+      await loc.hover({ force: true });
+      await localScreenshot(loc, name + '-hover', { margin: true });
+      if (click) {
+        await page.mouse.down();
+        await localScreenshot(loc, name + '-mousedown', { margin: true });
+        await page.mouse.move(0, 0);
+        await page.mouse.up();
+      }
+      if (focus) {
+        await keyboardFocus(loc);
+        await localScreenshot(loc, name + '-focus', { margin: tertiary ? 20 : true });
+        await page.mouse.click(0, 0);
+      }
     }
+    /* eslint-enable no-await-in-loop */
   },
 };

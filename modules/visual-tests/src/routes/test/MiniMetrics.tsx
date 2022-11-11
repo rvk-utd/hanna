@@ -13,7 +13,6 @@ export const meta: MetaFunction = autoTitle;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <MiniMetrics
         text="Leebur deroor iehroom, bork bork börk!"
@@ -26,4 +25,5 @@ export default function () {
 
 export const testing: TestingInfo = {
   initialHover: '.MiniMetrics__more',
+  clipViewport: true,
 };

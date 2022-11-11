@@ -13,7 +13,6 @@ export const meta: MetaFunction = autoTitle;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <ButtonBack>Back button</ButtonBack>
       <ButtonBack disabled>Disabled button</ButtonBack>
@@ -27,7 +26,11 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+      return;
+    }
+
     const backButton = page.locator('.ButtonBack:text("Back button")');
     const backLink = page.locator('.ButtonBack:text("Back link")');
     const disabledBackButton = page.locator('.ButtonBack:text("Disabled button")');

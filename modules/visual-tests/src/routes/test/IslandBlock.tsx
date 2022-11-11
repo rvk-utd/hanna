@@ -52,7 +52,6 @@ const testCombos = (['svg-asset', 'textonly'] as const).reduce<Array<IslandBlock
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {testCombos.map((props, i) => (
         <Fragment key={i}>

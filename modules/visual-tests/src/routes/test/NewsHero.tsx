@@ -31,7 +31,6 @@ const prop = {
 };
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <NewsHero {...prop.short} image={photo.landscape} startSeen />
       <DummyBlock thin />
@@ -46,4 +45,5 @@ export default function () {
 
 export const testing: TestingInfo = {
   initialHover: '.ShareButtons__link--facebook >> nth = 0',
+  clipViewport: true,
 };

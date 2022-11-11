@@ -19,7 +19,6 @@ const crumbTrail = [
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <BreadCrumbs title={'Þú ert hér'} trail={crumbTrail} />
     </Minimal>
@@ -30,15 +29,16 @@ export const testing: TestingInfo = {
   // page screenshot in all browsers
   initialHover: '.BreadCrumbs__item:text("Mannréttindaráð")',
   extras: async ({ page, localScreenshot, project }) => {
-    if (project === 'firefox_wide') {
-      const home = page.locator('.BreadCrumbs__item:text("Forsíða")');
-      const child = page.locator('.BreadCrumbs__item:text("Fundargerðir")');
-
-      await home.hover();
-      await localScreenshot(home, 'home-hover', { margin: true });
-
-      await child.hover();
-      await localScreenshot(child, 'child-hover', { margin: true });
+    if (project !== 'firefox-wide') {
+      return;
     }
+    const home = page.locator('.BreadCrumbs__item:text("Forsíða")');
+    const child = page.locator('.BreadCrumbs__item:text("Fundargerðir")');
+
+    await home.hover();
+    await localScreenshot(home, 'home-hover', { margin: true });
+
+    await child.hover();
+    await localScreenshot(child, 'child-hover', { margin: true });
   },
 };

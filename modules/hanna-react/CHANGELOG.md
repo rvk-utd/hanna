@@ -10,6 +10,10 @@
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
 - feat: Make `SiteSearchAutocompleteProps.renderSuggestion` optional
 - feat: Add `FooterInfoGroup.main`, deprecate `FooterInfoGroup.role`
+- `FileInput`:
+  - feat: Add prop `lang` (default: `'is'`)
+  - feat: Make prop `removeFileText` optional
+  - fix: File-sizes are now formatted based on `lang` prop
 - `ShareButton`:
   - fix: Add support for Polish
   - fix: Make Icelandic the default/fallback locale
@@ -21,6 +25,7 @@
 - fix: Make `ContentArticleProps.meta` optional
 - fix: Suppress `<hr>` in `ContentArticleProps` when `relatedLinks` is missing
 - fix: Make `InfoBlockProps.subTitle` optional
+- fix: Clicks inside `.Datepicker .FormField__input` div always focus `input`
 - fix(ts): Remove unused (`never`) props from `ModalProps`
 
 ## 0.10.70

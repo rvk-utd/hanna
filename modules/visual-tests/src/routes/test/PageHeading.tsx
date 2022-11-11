@@ -2,7 +2,7 @@ import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import PageHeading from '@reykjavik/hanna-react/PageHeading';
 
-import { DummyBlock } from '../../layout/DummyBlock';
+import { checkeredBackground, DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
@@ -14,8 +14,8 @@ export const meta: MetaFunction = autoTitle;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
+      {checkeredBackground('.PageHeading')}
       <PageHeading startSeen>Align left</PageHeading>
       <DummyBlock thin />
       <PageHeading startSeen align="right">
@@ -24,6 +24,9 @@ export default function () {
       <DummyBlock thin />
       <PageHeading startSeen small>
         Small title
+      </PageHeading>
+      <PageHeading startSeen small align="right">
+        Small align right
       </PageHeading>
       <DummyBlock thin />
       <PageHeading startSeen Tag="h2">

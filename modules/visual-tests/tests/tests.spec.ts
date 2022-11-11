@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
+import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { compareKeys } from 'hanna-test-helpers';
 
 import type {
@@ -16,6 +16,7 @@ import {
   makeSnapPageScreeshot,
   NAME_SPLIT,
   TAG_PREFIX,
+  TAG_SUFFIX,
 } from './helpers/screeshots';
 import {
   expandViewport as _expandViewport,
@@ -29,7 +30,7 @@ const expectSoft = expect.soft;
 /**
  * An auto-built list of test pages contained in `src/routes/test/**`
  */
-const testPagePaths = ObjectFromEntries(
+const testPagePaths = Object.fromEntries(
   getTestListSync().map(({ label, path }) => [label, path])
 );
 
@@ -56,6 +57,7 @@ import { testing as Carousel__test } from '../src/routes/test/Carousel';
 import { testing as CenterColumn__test } from '../src/routes/test/CenterColumn';
 import { testing as CheckboxAndRadio__test } from '../src/routes/test/CheckboxAndRadio';
 import { testing as CheckboxButtonsGroup__test } from '../src/routes/test/CheckboxButtonsGroup';
+import { testing as CheckboxGroup__test } from '../src/routes/test/CheckboxGroup';
 import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
 import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble';
 import { testing as ContentArticle__test } from '../src/routes/test/ContentArticle';
@@ -85,7 +87,9 @@ import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
 import { testing as PageFilter__test } from '../src/routes/test/PageFilter';
 import { testing as PageHeading__test } from '../src/routes/test/PageHeading';
 import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
+import { testing as PullQuote__test } from '../src/routes/test/PullQuote';
 import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
+import { testing as RadioGroup__test } from '../src/routes/test/RadioGroup';
 import { testing as RelatedLinks__test } from '../src/routes/test/RelatedLinks';
 import { testing as RowBlock__test } from '../src/routes/test/RowBlock';
 import { testing as SearchHeroParagraph__test } from '../src/routes/test/SearchHeroParagraph';
@@ -93,10 +97,12 @@ import { testing as SearchResults__test } from '../src/routes/test/SearchResults
 import { testing as Selectbox__test } from '../src/routes/test/Selectbox';
 import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete';
 import { testing as Skeleton__test } from '../src/routes/test/Skeleton';
+import { testing as SubHeading__test } from '../src/routes/test/SubHeading';
 import { testing as Tabs__test } from '../src/routes/test/Tabs';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
 import { testing as TextInput__test } from '../src/routes/test/TextInput';
+import { testing as VSpacer__test } from '../src/routes/test/VSpacer';
 import { testing as WizardStepper__test } from '../src/routes/test/WizardStepper';
 
 /* eslint-enable import/first */
@@ -128,6 +134,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Carousel: Carousel__test,
   CenterColumn: CenterColumn__test,
   CheckboxAndRadio: CheckboxAndRadio__test,
+  CheckboxGroup: CheckboxGroup__test,
   CheckboxButtonsGroup: CheckboxButtonsGroup__test,
   ContentArticle: ContentArticle__test,
   ContentImage: ContentImage__test,
@@ -158,6 +165,8 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   PageFilter: PageFilter__test,
   PageHeading: PageHeading__test,
   ProcessOverview: ProcessOverview__test,
+  PullQuote: PullQuote__test,
+  RadioGroup: RadioGroup__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
   RelatedLinks: RelatedLinks__test,
   RowBlock: RowBlock__test,
@@ -166,15 +175,17 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Selectbox: Selectbox__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,
   Skeleton: Skeleton__test,
+  SubHeading: SubHeading__test,
   Tabs: Tabs__test,
   TagPill: TagPill__test,
   TextBlock: TextBlock__test,
   TextInput: TextInput__test,
+  VSpacer: VSpacer__test,
   WizardStepper: WizardStepper__test,
 };
 // ---------------------------------------------------------------------------
 
-const DEFAULT_TAGS: Array<TestTag> = ['firefox', 'ipad', 'iphone'];
+const DEFAULT_TAGS: Array<TestTag> = ['firefox'];
 
 type NormalizedTestInfoObj = Omit<TestInfoObj, 'skipTags' | 'addTags'>;
 
@@ -212,7 +223,9 @@ const allComponentTests = normalizeTestInfos(testingInfos);
 
 allComponentTests.forEach(([name, testInfo]) => {
   const testName = name + (testInfo.label ? NAME_SPLIT + testInfo.label : '');
-  const tagStr = testInfo.tags?.length ? TAG_PREFIX + testInfo.tags.join(TAG_PREFIX) : '';
+  const tagStr = testInfo.tags?.length
+    ? TAG_PREFIX + testInfo.tags.join(TAG_SUFFIX + TAG_PREFIX) + TAG_SUFFIX
+    : '';
 
   const testPagePath = testPagePaths[name];
   if (!testPagePath) {
@@ -225,9 +238,7 @@ allComponentTests.forEach(([name, testInfo]) => {
   testFn(
     testName + tagStr + '-',
     async ({ page, context, browserName, isMobile, hasTouch }, { project }) => {
-      const pageScreenshot = makeSnapPageScreeshot(page, testName, {
-        clipViewport: testInfo.clipViewport,
-      });
+      const pageScreenshot = makeSnapPageScreeshot(page, testName, testInfo);
       const localScreenshot = makeSnapLocalScreeshot(page, testName);
       const expandViewport = _expandViewport(page, testInfo.viewportMinHeight);
       const setViewportSize = _setViewportSize(page);

@@ -1,4 +1,4 @@
-import type { Page, PageScreenshotOptions } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 
 import type { TestFnArgs } from '../../src/test-helpers/testingInfo';
@@ -13,7 +13,8 @@ import { expandViewport } from './viewport';
 export const NAME_SPLIT = '-ι-';
 export const LABEL_SPLIT = '-ιι-';
 
-export const TAG_PREFIX = ' 🏷';
+export const TAG_PREFIX = ' ¶';
+export const TAG_SUFFIX = '⁋';
 
 const expectSoft = expect.soft;
 
@@ -43,7 +44,7 @@ export const makeSnapLocalScreeshot =
       let margins: [number, number] = [0, 0];
 
       if (marginOpt === 'fullwidth') {
-        margins = [10000, 0];
+        margins = [0, 10000];
       } else if (marginOpt === true) {
         margins = [DEFAULT_MARGIN, DEFAULT_MARGIN];
       } else if (typeof marginOpt === 'number') {
@@ -52,17 +53,17 @@ export const makeSnapLocalScreeshot =
         margins = marginOpt;
       }
       // Check for negative values
-      const marginWidth = Math.max(0, margins[0]);
-      const marginHeight = Math.max(0, margins[1]);
+      const marginV = Math.max(0, margins[0]);
+      const marginH = Math.max(0, margins[1]);
 
       const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
       return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
         ...opts,
         clip: {
-          x: rect.x - marginWidth,
-          y: rect.y - marginHeight,
-          width: rect.width + 2 * marginWidth,
-          height: rect.height + 2 * marginHeight,
+          x: rect.x - marginH,
+          y: rect.y - marginV,
+          width: rect.width + 2 * marginH,
+          height: rect.height + 2 * marginV,
         },
       });
     }
@@ -71,6 +72,8 @@ export const makeSnapLocalScreeshot =
   };
 
 // ---------------------------------------------------------------------------
+
+type Opts = { clipViewport?: boolean; viewportMinHeight?: number };
 
 /**
  * Factory function that generates a pageScreenshot convenience function
@@ -84,19 +87,20 @@ export const makeSnapLocalScreeshot =
 export const makeSnapPageScreeshot = (
   page: Page,
   testName: string,
-  factoryOpts: { clipViewport?: boolean } = {}
-): TestFnArgs['pageScreenshot'] & { callCount(): number } => {
+  factoryOpts: Opts = {}
+) => {
   let snaps = 0;
-  const snapPageScreenShot = async (
-    label: string,
-    opts?: PageScreenshotOptions & { clipViewport?: boolean }
-  ) => {
+  const snapPageScreenShot: TestFnArgs['pageScreenshot'] & {
+    callCount(): number;
+  } = async (label, opts = {}) => {
     snaps += 1;
 
-    await expandViewport(page)();
+    await expandViewport(page)(
+      opts.viewportMinHeight || factoryOpts.viewportMinHeight,
+      opts.customScrollElement
+    );
 
-    const clipViewport =
-      ((opts && opts.clipViewport) ?? factoryOpts.clipViewport) || undefined;
+    const clipViewport = (opts.clipViewport ?? factoryOpts.clipViewport) || undefined;
 
     await expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
       fullPage: true,

@@ -129,7 +129,11 @@ export type TestFnArgs = Pick<
   pageScreenshot(
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
-    opts?: PageScreenshotOptions & { clipViewport?: boolean }
+    opts?: PageScreenshotOptions & {
+      clipViewport?: boolean;
+      viewportMinHeight?: number;
+      customScrollElement?: Locator;
+    }
   ): Promise<void>;
 
   /**
@@ -140,12 +144,12 @@ export type TestFnArgs = Pick<
    * newly added/displayed elements near the bottom of the page,
    * or during the `prep` step.
    */
-  expandViewport(minHeight?: number): Promise<void>;
+  expandViewport(minHeight?: number, customElm?: Locator): Promise<void>;
 
   /**
    * Sugar method for page.setViewPortSize with nicer defaults
    */
-  setViewportSize(minHeight: number): Promise<void>;
+  setViewportSize(height: number): Promise<void>;
   setViewportSize(
     opts: { width: number; height?: number } | { width?: number; height: number }
   ): Promise<void>;
@@ -155,13 +159,19 @@ export type TestFnArgs = Pick<
 
 export type ProjectName =
   | 'meta'
-  | 'firefox_wide'
-  | 'firefox_netbook'
-  | 'chrome_wide'
-  | 'chrome_netbook'
-  | 'safari_wide'
-  | 'safari_netbook'
-  | 'ipad'
-  | 'iphone';
+  | 'firefox-wide'
+  | 'firefox-netbook'
+  | 'firefox-tablet'
+  | 'firefox-phone'
+  | 'chrome-wide'
+  | 'chrome-netbook'
+  | 'chrome-tablet'
+  | 'chrome-phone'
+  | 'safari-wide'
+  | 'safari-netbook'
+  | 'safari-tablet'
+  | 'safari-phone';
+// | 'ipad'
+// | 'iphone';
 
 export type TestTag = ProjectName | 'firefox' | 'chrome' | 'safari';

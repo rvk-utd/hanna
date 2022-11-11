@@ -32,7 +32,7 @@ export const DefaultFileList = (props: FileListProps) => {
             className="FileInput__file-remove"
             type="button"
             onClick={() => removeFile(file)}
-            aria-label={removeFileText}
+            aria-label={`${removeFileText} ${file.name}`}
           >
             {removeFileText}
           </button>

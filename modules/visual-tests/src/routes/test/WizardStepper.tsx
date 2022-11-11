@@ -18,7 +18,6 @@ const noop = () => undefined;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <WizardStepper
         steps={[
@@ -74,12 +73,15 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot }) => {
-    const buttons = await page.locator('button.WizardStepper__step').elementHandles();
+    const buttons = await page
+      .locator('button.WizardStepper__step, a.WizardStepper__step')
+      .elementHandles();
+
     for (const button of buttons) {
-      const label = ((await button.textContent()) || '').split('--')[0];
+      const label = ((await button.textContent()) || '').split('--')[0]!.trim();
 
       await button.hover();
-      await localScreenshot(button, label + '-hover', { margin: [5, 10] });
+      await localScreenshot(button, `${label}-hover`, { margin: [0, 5] });
     }
   },
 };

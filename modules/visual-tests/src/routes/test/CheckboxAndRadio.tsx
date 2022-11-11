@@ -22,7 +22,6 @@ export default function () {
   const RadioGroup__Radio = RadioGroup.__Radio;
 
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <RowBlock>
         <RowBlockColumn>
@@ -40,7 +39,6 @@ export default function () {
           />
         </RowBlockColumn>
         <RowBlockColumn>
-          {/* Playwright doesn't want run test on RadioGroup.__Radio */}
           <RadioGroup__Radio label={lorem.short} />
           <RadioGroup__Radio label="Normal" checked={false} />
           <RadioGroup__Radio label="Checked" checked />
@@ -50,12 +48,21 @@ export default function () {
           <RadioGroup__Radio label="Invalid + checked" invalid checked />
         </RowBlockColumn>{' '}
       </RowBlock>
+      <style>{`
+        .RowBlock { margin-bottom: 0; }
+        .RowBlockColumn { padding-block: 0; }
+        .Radio { margin-bottom: .5em; }
+      `}</style>
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+      return;
+    }
+
     /* eslint-disable no-await-in-loop */
     for (const type of ['Checkbox', 'Radio'] as const) {
       const normal = page.locator('.' + type + '__label:text("Normal")');
@@ -73,8 +80,10 @@ export const testing: TestingInfo = {
         await checked[action]();
         await localScreenshot(checked, type + '-checked-' + action, { margin: 8 });
 
-        await disabled[action]();
-        await localScreenshot(disabled, type + '-disabled-' + action, { margin: 8 });
+        if (action !== 'focus') {
+          await disabled[action]();
+          await localScreenshot(disabled, type + '-disabled-' + action, { margin: 8 });
+        }
 
         await invalid[action]();
         await localScreenshot(invalid, type + '-invalid-' + action, { margin: 8 });

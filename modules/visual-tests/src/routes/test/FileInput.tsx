@@ -15,7 +15,7 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = { cssTokens: [], };
-const props = (
+const dropzoneText = () => (
   <Fragment>
     Dragðu gögn hingað eða <strong>bættu</strong> þeim við.
   </Fragment>
@@ -31,23 +31,20 @@ export default function () {
     new File([lorem.long], 'Short_filename (final).pdf'),
   ]);
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <FileInput
         label={'Normal'}
-        dropzoneText={props}
+        dropzoneText={dropzoneText()}
         onFilesUpdated={setFiles}
         showFileSize
-        removeFileText={''}
       />
       <DummyBlock thin />
       <FileInput
         label={'Files + Assist text'}
-        dropzoneText={props}
+        dropzoneText={dropzoneText()}
         value={files}
         onFilesUpdated={setFiles}
         showFileSize
-        removeFileText={''}
         required
         showImagePreviews
         assistText="Close your eyes and input the first thing that comes to mind."
@@ -55,19 +52,28 @@ export default function () {
       <DummyBlock thin />
       <FileInput
         label={'Invalid'}
-        dropzoneText={props}
+        dropzoneText={dropzoneText()}
         removeFileText={''}
         invalid
         errorMessage="Your input has errors"
       />
       <DummyBlock thin />
-      <FileInput label={'Disabled'} dropzoneText={props} removeFileText={''} disabled />
+      <FileInput
+        label={'Disabled'}
+        dropzoneText={dropzoneText()}
+        disabled
+        assistText="This is an assist text."
+      />
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, project }) => {
+    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+      return;
+    }
+
     const normal = page.locator('.FileInput:has(.FormField__label:text("Normal"))');
     const invalid = page.locator('.FileInput:has(.FormField__label:text("Invalid"))');
     const disabled = page.locator('.FileInput:has(.FormField__label:text("Disabled"))');

@@ -16,7 +16,6 @@ export const meta: MetaFunction = autoTitle;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {([undefined, 'inline'] as const).map((layout, i) => {
         const opts = !layout ? options.slice(0, 3) : options;
@@ -59,6 +58,4 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {
-  initialHover: '.FormField--disabled.RadioGroup--inline input[type="radio"] >> nth=2',
-};
+export const testing: TestingInfo = {};

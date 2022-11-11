@@ -61,8 +61,8 @@ export type Changeset = {
   Structure of `public/test-results/**` file names,
   and how it relates to the `Changeset` type above:
 
-  ┌─A─┐ ┌─B──┐┌Z┐┌─C─┐ ┌─────D─────┐  ┌────E─────┐ ┌─B──┐┌Z┐┌─C─┐┌Y─┐┌─────F──────┐┌Z┐ ┌─G──┐
-  tests-Button-ι-extra-🏷also-safari--firefox-wide/Button-ι-extra-ιι-disabled-hover-ι--actual.png
+  ┌─A─┐ ┌─B──┐┌Z┐┌─C─┐ ┌─────D──────────┐  ┌────E─────┐ ┌─B──┐┌Z┐┌─C─┐┌Y─┐┌─────F──────┐┌Z┐ ┌─G──┐
+  tests-Button-ι-extra-¶firefox⁋-¶chrome⁋--firefox-wide/Button-ι-extra-ιι-disabled-hover-ι--actual.png
 
   (A) `specFile`.
       The name (prefix) of the actual "*.spec.ts" file containing
@@ -72,8 +72,8 @@ export type Changeset = {
   (C) Optional label suffix part of `testName`
       The `TestInfoObj['label']` added when there are multiple
       tests run for a single test page.
-  (D) This bit is ignored. (These are optional tags that control
-      in which "projects" (browsers) test is run.
+  (D) This bit is ignored. (These are the tags that control
+      in which "projects" (i.e. browsers) the test is run.
   (E) `project`. Effectively the name of the browser in which
       the screenshot is snapped.
   (F) `label`. An (optional) unique label for this specific screenshot.
@@ -138,7 +138,7 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
     const [folder = '', filename = ''] = testPath.split('/');
     const project = folder.split('--')[1] || '_unknown-project_';
     const [testName_raw = '_unknown-test_', label = ''] = filename.split(LABEL_SPLIT);
-    const testName = testName_raw.replace(NAME_SPLIT, '--');
+    const testName = testName_raw.replace(NAME_SPLIT, ' : ');
     const id = `${testName}_${label}_${project}`;
 
     const specFile = folder.split('-' + testName_raw)[0] || '_unknown-specfile_';

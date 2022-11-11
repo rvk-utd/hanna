@@ -14,7 +14,6 @@ export const meta: MetaFunction = autoTitle;
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       <Gallery
         items={[
@@ -47,16 +46,20 @@ export default function () {
   );
 }
 export const testing: TestingInfo = {
-  viewportMinHeight: 1250,
-  extras: async ({ page, pageScreenshot }) => {
+  extras: async ({ page, pageScreenshot, expandViewport }) => {
     // scroll to 3rd item and hover it.
     await page.locator('.CarouselStepper__button >> nth=2').click();
     await page.locator('.GalleryItem__button >> nth=2').hover();
     await pageScreenshot('scrolled');
 
+    const viewportMinHeight = Math.max(500, 0.9 * page.viewportSize()!.width);
+    const customScrollElement = page.locator('.GalleryModalItem >> scrollContainer=');
+
     // click 3rd item and hover the modal's close button
     await page.locator('.GalleryItem__button >> nth=2').click();
     await page.waitForTimeout(200);
+    await page.waitForTimeout(100);
+    await expandViewport(viewportMinHeight, customScrollElement);
     await page.locator('.GalleryModal__closebutton').hover();
     await pageScreenshot('modal-nocaption-closebtn-hover');
 
@@ -64,11 +67,15 @@ export const testing: TestingInfo = {
 
     // navigate back (to 2nd item) and hover the prev button
     await prevButton.click();
+    await page.waitForTimeout(100);
+    await expandViewport(viewportMinHeight, customScrollElement);
     await prevButton.hover();
     await pageScreenshot('modal-description-portrait-prev-hover');
 
     // navigate back (to 1st item) and hover the next button
     await prevButton.click();
+    await page.waitForTimeout(100);
+    await expandViewport(viewportMinHeight, customScrollElement);
     await page.locator('.GalleryModalPager__button--next').hover();
     await pageScreenshot('modal-caption-next-hover');
 

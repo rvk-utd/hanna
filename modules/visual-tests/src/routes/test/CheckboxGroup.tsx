@@ -46,7 +46,6 @@ export const options = [
 
 export default function () {
   return (
-    // Minimal is a no-frills, no-chrome replacement for the `Layout` component,
     <Minimal>
       {([undefined, 'inline'] as const).map((layout, i) => {
         const opts = !layout ? options.slice(0, 3) : options;

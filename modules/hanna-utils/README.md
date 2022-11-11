@@ -17,8 +17,6 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
   - [`getPageScrollElm`](#getpagescrollelm)
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
-  - [Branded types](#branded-types)
-  - [`ensurePosInt`](#ensureposint)
 - [Asset helpers](#asset-helpers)
   - [Illustrations](#illustrations)
   - [Efnistákn Icons](#efnistákn-icons)
@@ -33,6 +31,8 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
 - [Social Media Sharing](#social-media-sharing)
 - [Polyfills / A11y](#polyfills--a11y)
   - [`focus-visible` polyfill](#focus-visible-polyfill)
+- [Branded types](#branded-types)
+  - [`ensurePosInt`](#ensureposint)
 - [TypeScript helpers](#typescript-helpers)
   - [`notNully`](#notnully)
   - [`notFalsy`](#notfalsy)
@@ -46,6 +46,7 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
     - [Type `Equals<A, B>`](#type-equalsa-b)
     - [Type `Extends<A, B>`](#type-extendsa-b)
     - [Type `NotExtends<A, B>`](#type-notextendsa-b)
+- [Changelog](#changelog)
 
 <!-- prettier-ignore-end -->
 
@@ -172,27 +173,6 @@ import { capitalize } from '@reykjavik/hanna-utils';
 capitalize('hello world'); // "Hello world"
 capitalize('istanbul', 'TR'); // "İstanbul"
 ```
-
-### Branded types
-
-### `ensurePosInt`
-
-**Syntax:** `ensurePosInt(cand: unknown): PositiveInteger | undefined`
-
-Checks if `cand` evaluates to a positive integer and, if so, returns a branded
-`PositiveInteger` of equal value.
-
-Returns `undefined` otherwise.
-
-Examples:
-
-- `1` → `1`
-- `"1"` → `1`
-- `0` → `undefined`
-- `-1` → `undefined`
-- `1.5` → `undefined`
-- `"Infinity"` → `undefined`
-- `"foo"` → `undefined`
 
 <!--
 ### `focusElement`
@@ -391,6 +371,27 @@ At/near the top of your App do:
 import '@reykjavik/hanna-utils/focus-visible';
 ```
 
+## Branded types
+
+### `ensurePosInt`
+
+**Syntax:** `ensurePosInt(cand: unknown): PositiveInteger | undefined`
+
+Checks if `cand` evaluates to a positive integer and, if so, returns a branded
+`PositiveInteger` of equal value.
+
+Returns `undefined` otherwise.
+
+Examples:
+
+- `1` → `1`
+- `"1"` → `1`
+- `0` → `undefined`
+- `-1` → `undefined`
+- `1.5` → `undefined`
+- `"Infinity"` → `undefined`
+- `"foo"` → `undefined`
+
 ## TypeScript helpers
 
 ### `notNully`
@@ -418,7 +419,7 @@ Simple type-guarding filter function that filters out "falsy" values (`""`,
 ```ts
 import { notFalsy } from '@reykjavik/hanna-utils';
 
-const mixed = ['hi', null, undefined, '', 0, false, 'ho'] as const;
+const mixed = ['hi', null, undefined, '', 0, false] as const;
 const strings: Array<'hi', 'ho'> = mixed.filter(notFalsy);
 // ['hi']
 ```
@@ -561,3 +562,8 @@ Returns true if type `A` extends type `B` (and neither is `any`)
 #### Type `NotExtends<A, B>`
 
 Returns true if type `A` does **NOT** extend type `B` (and neither is `any`)
+
+## Changelog
+
+See
+[CHANGELOG.md](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-utils/CHANGELOG.md)
