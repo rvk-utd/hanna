@@ -3,6 +3,7 @@ import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
+import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors';
 import { hideText_css } from './utils/hideText';
 import { percentage, prem } from './utils/miscUtils';
 
@@ -57,10 +58,6 @@ export default css`
       color: ${vars.color_suld_150};
       font-size: ${prem(20)};
     }
-    .SearchInput__button:hover,
-    .SearchInput__button:focus {
-      color: ${vars.color_faxafloi_100};
-    }
     .SearchInput__button::before {
       ${iconStyle(vars.icon__search)}
       width: calc(100% - 2px);
@@ -68,11 +65,17 @@ export default css`
       padding-left: ${prem(6)};
       transition: all 200ms ease-in;
     }
-    .SearchInput__button:hover::before,
-    .SearchInput__button:focus::before {
-      background-color: ${vars.color_suld_25};
-      transform: scale(1.15);
+    .SearchInput__button {
+      ${hoverActiveKeyboardFocus_selector(false)(css`
+        color: ${vars.color_faxafloi_100};
+
+        &::before {
+          background-color: ${vars.color_suld_25};
+          transform: scale(1.15);
+        }
+      `)}
     }
+
     .SearchInput__button::after {
       content: '';
       order: -1;

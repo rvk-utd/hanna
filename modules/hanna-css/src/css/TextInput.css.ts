@@ -40,7 +40,7 @@ export const TextInput_css = () => css`
 
       ${range(minRows + 1, maxRows).map(
         (i) => css`
-          [rows='${i}'] {
+          &[rows='${i}'] {
             height: ${heightLarge(i)};
           }
         `
@@ -53,7 +53,7 @@ export const TextInput_css = () => css`
 
       ${range(minRows + 1, maxRows).map(
         (i) => css`
-          [rows='${i}'] {
+          &[rows='${i}'] {
             height: ${heightSmall(i)};
           }
         `

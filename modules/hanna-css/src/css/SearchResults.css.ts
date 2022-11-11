@@ -11,6 +11,7 @@ import { LabeledTitleStyle__basics } from './styles/labeledTitle';
 import { LinkStyle_Reset } from './styles/links';
 import { sr_only } from './utils/a11y';
 import { afterClear_css } from './utils/afterClear';
+import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors';
 import { grid_units, prem } from './utils/miscUtils';
 
 const baseDashWidth = 24;
@@ -159,16 +160,19 @@ export default css`
       transition: width ${dashTransition};
     }
 
-    .SearchResultsItem__link:hover > .SearchResultsItem__title,
-    .SearchResultsItem__link:focus > .SearchResultsItem__title,
-    .SearchResultsItem__link:active > .SearchResultsItem__title {
-      padding-right: 0;
+    .SearchResultsItem__link {
+      ${hoverActiveKeyboardFocus_selector()(css`
+        > .SearchResultsItem__title {
+          padding-right: 0;
 
-      --dash-width: ${flexDash(hoverDashWidth)};
-      @media ${mq.wide} {
-        --dash-width: ${prem(hoverDashWidth)};
-      }
+          --dash-width: ${flexDash(hoverDashWidth)};
+          @media ${mq.wide} {
+            --dash-width: ${prem(hoverDashWidth)};
+          }
+        }
+      `)}
     }
+
     .SearchResultsItem__meta {
       font: ${vars.font_label};
       color: ${vars.color_suld_150};
@@ -278,21 +282,29 @@ export default css`
 
     .SearchResultsHighlightItem__image {
       order: -2;
+
       @media ${mq.phone_phablet} {
-        margin-bottom: ${prem(32)};
+        position: relative;
+        height: 0;
+        padding-top: 50%;
+        margin-bottom: ${vars.space_2};
       }
     }
     .SearchResultsHighlightItem__image > img {
+      position: absolute;
+      object-fit: contain;
+
       @media ${mq.phone_phablet} {
-        max-width: ${prem(300)};
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
       @media ${mq.tablet_up} {
-        position: absolute;
         top: ${prem(20)};
         right: 0;
         width: ${vars.grid_4_4};
         height: calc(100% - ${prem(40)});
-        object-fit: contain;
       }
     }
   }

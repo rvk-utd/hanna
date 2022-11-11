@@ -6,6 +6,7 @@ import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
 import { sr_only } from './utils/a11y';
+import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors';
 import { hideText_css } from './utils/hideText';
 import { grid_units, prem } from './utils/miscUtils';
 
@@ -59,11 +60,11 @@ export default css`
       border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
       color: ${vars.color_suld_0};
     }
-    .SiteSearchInput__button:hover,
-    .SiteSearchInput__button:focus,
-    .SiteSearchInput__button:active {
-      background-color: ${vars.color_faxafloi_150};
-      color: ${vars.color_suld_0};
+    .SiteSearchInput__button {
+      ${hoverActiveKeyboardFocus_selector()(css`
+        background-color: ${vars.color_faxafloi_150};
+        color: ${vars.color_suld_0};
+      `)}
     }
     .SiteSearchInput__button::before {
       ${iconStyle(vars.icon__search)}

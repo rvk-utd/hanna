@@ -20,7 +20,7 @@ export default css`
     .RowBlock {
       margin-bottom: ${hannaVars.component_vspace__large};
       display: flex;
-      flex-flow: column-reverse;
+      flex-flow: column;
       justify-content: space-between;
       align-items: center;
       ${SeenEffect__fadeup('> .RowBlockColumn')}

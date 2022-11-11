@@ -1,9 +1,8 @@
 import { css } from 'es-in-css';
 
+import { mq } from '../lib/breakpoints';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
-
-import { prem } from './utils/miscUtils';
 
 export default css`
   /*!@deps
@@ -37,8 +36,14 @@ export default css`
     }
 
     .SiteSearchAutocomplete__item {
-      padding: ${prem(16)} ${prem(45)} ${prem(16)} ${prem(32)};
       font: ${vars.font_bd_l};
+      padding: ${vars.space_2} ${vars.space_4};
+      padding-right: ${vars.space_7};
+
+      @media ${mq.phone_phablet} {
+        padding-left: ${vars.space_2};
+        padding-right: ${vars.space_4};
+      }
     }
 
     .SiteSearchAutocomplete__item--highlighted {
@@ -47,12 +52,19 @@ export default css`
       color: ${vars.color_faxafloi_100};
       background-color: ${vars.color_suld_25};
     }
-    .SiteSearchAutocomplete__item--highlighted::after {
+    .SiteSearchAutocomplete__item--highlighted::before {
       ${iconStyle(vars.icon__search)}
       color: ${vars.color_suld_100};
       float: right;
-      margin-left: ${vars.space_2};
-      font-size: ${prem(16)};
+      font-size: ${vars.font_bd_s_size};
+      width: ${vars.space_1$5};
+      margin-right: ${vars.space_3__neg};
+      margin-left: ${vars.space_1};
+
+      @media ${mq.phone_phablet} {
+        margin-right: ${vars.space_2__neg};
+        margin-left: ${vars.space_0$5};
+      }
     }
   }
 `;

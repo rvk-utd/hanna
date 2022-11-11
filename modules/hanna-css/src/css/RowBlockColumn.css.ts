@@ -17,13 +17,16 @@ export default css`
 export const RowBlockColumn_css = () => css`
   @media screen {
     .RowBlockColumn {
+      padding-top: ${between_cols(30, 80)};
+      padding-bottom: ${between_cols(30, 80)};
       width: 100%; // to avoid flex item auto-sizing
     }
     .RowBlockColumn--background {
       background-color: ${vars.color_suld_25};
       box-sizing: content-box;
       margin: 0 ${vars.grid_margin__neg};
-      padding: ${between_cols(30, 80)} ${vars.grid_margin};
+      padding-left: ${vars.grid_margin};
+      padding-right: ${vars.grid_margin};
     }
     .RowBlockColumn--background--primary {
       background-color: ${vars.theme_color_primary};

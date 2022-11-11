@@ -125,16 +125,17 @@ export default css`
     }
 
     .ExtraLinks__related__item {
-      padding-left: ${icon_indent};
+      margin-left: ${icon_indent};
+      position: relative;
     }
     .ExtraLinks__related__link {
       font: ${vars.font_bd_l};
       color: ${vars.color_suld_200};
-      position: relative;
     }
     .ExtraLinks__related__link::before {
       ${iconStyle(vars.icon__dash)}
       position: absolute;
+      top: 0;
       right: 100%;
       width: ${icon_indent};
       text-align: left;

@@ -22,15 +22,16 @@ export default css`
     .RelatedLinks__list {
       display: flex;
       flex-flow: row wrap;
-      margin-right: ${vars.grid_gutter__neg};
+      margin-right: calc(${vars.grid_gutter__neg} - 1px);
     }
     .RelatedLinks__item {
       margin-top: ${grid_units(1)};
       margin-bottom: ${grid_units(2)};
       margin-right: ${vars.grid_gutter};
-      min-width: 220px;
+      width: ${vars.grid_12};
+      min-width: 250px;
 
-      @media ${mq.phone_tablet} {
+      @media ${mq.phablet_tablet} {
         width: ${vars.grid_6};
       }
       @media ${mq.netbook_up} {

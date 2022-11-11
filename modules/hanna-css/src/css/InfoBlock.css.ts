@@ -31,7 +31,10 @@ export default css`
       height: 1em;
       line-height: 1em;
       margin: -0.2em -0.5em;
+      max-width: calc(0.5em + ${vars.grid_margin__right});
+      margin-right: max(${vars.grid_margin__right__neg}, -0.5em);
       font-size: ${between_phone_netbook(49, 89)};
+      overflow: hidden;
 
       @media ${mq.wide} {
         font-size: ${prem(89)};
