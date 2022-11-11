@@ -1,7 +1,7 @@
 import { Equals, Expect, Extends, NotExtends } from '@reykjavik/hanna-utils';
 import o from 'ospec';
 
-import Selectbox_default, {
+import Selectbox, {
   SelectboxOption,
   SelectboxOptionList,
   SelectboxOptions,
@@ -10,7 +10,7 @@ import Selectbox_default, {
 
 o.spec('Selectbox', () => {
   o('is exported', () => {
-    o(typeof Selectbox_default === 'function').equals(true);
+    o(typeof Selectbox === 'function').equals(true);
   });
 });
 
@@ -20,7 +20,7 @@ const typeTests = () => {
   type _StringOption = SelectboxOption<string>;
   type _NumberOption = SelectboxOption<number>;
 
-  const foo = Selectbox_default({
+  const foo = Selectbox({
     label: 'asdf',
     options: [{ value: 'one' }, 'two'],
     onSelected: (newValue, newOption) => {
