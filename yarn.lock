@@ -1987,24 +1987,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hugsmidjan/gulp-sass@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@hugsmidjan/gulp-sass@npm:0.2.0"
-  dependencies:
-    "@hugsmidjan/gulp-utils": ^0.1.3
-    autoprefixer: ^10.4.2
-    cssnano: ^5.1.0
-    gulp-postcss: ^9.0.0
-    gulp-sass: ^5.1.0
-    postcss: ^8.4.6
-    sass: ^1.32
-  peerDependencies:
-    gulp: ^4
-    sass: ^1.32
-  checksum: 7883599da18ef0b8a7815ee062aedfc809d13af1b82f4b272b2f278022e29a4f71ec0af92f88d1ccd8464b1ad2bd3b6581b6225373f222e538c0668be5d17154
-  languageName: node
-  linkType: hard
-
 "@hugsmidjan/gulp-utils@npm:^0.1.3":
   version: 0.1.3
   resolution: "@hugsmidjan/gulp-utils@npm:0.1.3"
@@ -2508,14 +2490,12 @@ __metadata:
   dependencies:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
-    "@hugsmidjan/gulp-sass": ^0.2.0
     "@reykjavik/hanna-utils": ^0.1.16
     "@types/md5-file": ^5
     del: ^6.0.0
     es-in-css: ^0.5.18
     gulp: ^4.0.2
     md5-file: ^5.0.0
-    sass: ~1.32
   languageName: unknown
   linkType: soft
 
@@ -6804,25 +6784,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.3.1, chokidar@npm:^3.4.1, chokidar@npm:^3.5.1":
-  version: 3.5.3
-  resolution: "chokidar@npm:3.5.3"
-  dependencies:
-    anymatch: ~3.1.2
-    braces: ~3.0.2
-    fsevents: ~2.3.2
-    glob-parent: ~5.1.2
-    is-binary-path: ~2.1.0
-    is-glob: ~4.0.1
-    normalize-path: ~3.0.0
-    readdirp: ~3.6.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  checksum: b49fcde40176ba007ff361b198a2d35df60d9bb2a5aab228279eb810feae9294a6b4649ab15981304447afe1e6ffbf4788ad5db77235dc770ab777c6e771980c
-  languageName: node
-  linkType: hard
-
 "chokidar@npm:^2.0.0, chokidar@npm:^2.0.4, chokidar@npm:^2.1.8":
   version: 2.1.8
   resolution: "chokidar@npm:2.1.8"
@@ -6843,6 +6804,25 @@ __metadata:
     fsevents:
       optional: true
   checksum: 0c43e89cbf0268ef1e1f41ce8ec5233c7ba022c6f3282c2ef6530e351d42396d389a1148c5a040f291cf1f4083a4c6b2f51dad3f31c726442ea9a337de316bcf
+  languageName: node
+  linkType: hard
+
+"chokidar@npm:^3.3.1, chokidar@npm:^3.4.1, chokidar@npm:^3.5.1":
+  version: 3.5.3
+  resolution: "chokidar@npm:3.5.3"
+  dependencies:
+    anymatch: ~3.1.2
+    braces: ~3.0.2
+    fsevents: ~2.3.2
+    glob-parent: ~5.1.2
+    is-binary-path: ~2.1.0
+    is-glob: ~4.0.1
+    normalize-path: ~3.0.0
+    readdirp: ~3.6.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: b49fcde40176ba007ff361b198a2d35df60d9bb2a5aab228279eb810feae9294a6b4649ab15981304447afe1e6ffbf4788ad5db77235dc770ab777c6e771980c
   languageName: node
   linkType: hard
 
@@ -11724,20 +11704,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-postcss@npm:^9.0.0":
-  version: 9.0.1
-  resolution: "gulp-postcss@npm:9.0.1"
-  dependencies:
-    fancy-log: ^1.3.3
-    plugin-error: ^1.0.1
-    postcss-load-config: ^3.0.0
-    vinyl-sourcemaps-apply: ^0.2.1
-  peerDependencies:
-    postcss: ^8.0.0
-  checksum: f27a7ebdb71b2bcd59ac5fbbc15ab877b22585a9352884a81395ffb8fe6230dfc8106cdf93075e54685c7bf249a0bd1ad2f6fbeb452bdf81a01c3adcc3c6fff4
-  languageName: node
-  linkType: hard
-
 "gulp-rename@npm:^2.0":
   version: 2.0.0
   resolution: "gulp-rename@npm:2.0.0"
@@ -11755,20 +11721,6 @@ __metadata:
     replacestream: ^4.0.3
     yargs-parser: ">=5.0.0-security.0"
   checksum: fa151a94acf40dcb080c66a7fbc405a6a7902f5537dc1c202e909097b3a19238a033186335e55669a646ea8639e9b8f3662894e58e0f2c0ac6ad9e9c22d1c935
-  languageName: node
-  linkType: hard
-
-"gulp-sass@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "gulp-sass@npm:5.1.0"
-  dependencies:
-    lodash.clonedeep: ^4.5.0
-    picocolors: ^1.0.0
-    plugin-error: ^1.0.1
-    replace-ext: ^2.0.0
-    strip-ansi: ^6.0.1
-    vinyl-sourcemaps-apply: ^0.2.1
-  checksum: 9aba052c76e808321f9ecf70885806a389e73b87005c3c4f47beba7050ef280d06402f1ac19105b32407170b6fdef5c9e26ed0560074dd5a949197b50e82604d
   languageName: node
   linkType: hard
 
@@ -12633,13 +12585,6 @@ __metadata:
   version: 1.10.0
   resolution: "immer@npm:1.10.0"
   checksum: 8bdce9ebd81861dcef21725bc0f9cc456c2051188b7c001bcd9b9dffb9519cd897ab207f475b5425b83767a4b1fba76b4665e3f3c41171e24ea938c3cd02d035
-  languageName: node
-  linkType: hard
-
-"immutable@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "immutable@npm:4.1.0"
-  checksum: b9bc1f14fb18eb382d48339c064b24a1f97ae4cf43102e0906c0a6e186a27afcd18b55ca4a0b63c98eefb58143e2b5ebc7755a5fb4da4a7ad84b7a6096ac5b13
   languageName: node
   linkType: hard
 
@@ -14239,7 +14184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lilconfig@npm:^2.0.3, lilconfig@npm:^2.0.5":
+"lilconfig@npm:^2.0.3":
   version: 2.0.6
   resolution: "lilconfig@npm:2.0.6"
   checksum: 40a3cd72f103b1be5975f2ac1850810b61d4053e20ab09be8d3aeddfe042187e1ba70b4651a7e70f95efa1642e7dc8b2ae395b317b7d7753b241b43cef7c0f7d
@@ -14411,13 +14356,6 @@ __metadata:
   version: 3.0.1
   resolution: "lodash._root@npm:3.0.1"
   checksum: 3e12c6f409ae13164a8db358f44a691f1e038dad4e25463802980d0ed641ed118c147b65657501c51778c885422b913264dfbe33ec0c5d676443dd630a7e685a
-  languageName: node
-  linkType: hard
-
-"lodash.clonedeep@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.clonedeep@npm:4.5.0"
-  checksum: 92c46f094b064e876a23c97f57f81fbffd5d760bf2d8a1c61d85db6d1e488c66b0384c943abee4f6af7debf5ad4e4282e74ff83177c9e63d8ff081a4837c3489
   languageName: node
   linkType: hard
 
@@ -17453,24 +17391,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-load-config@npm:^3.0.0":
-  version: 3.1.4
-  resolution: "postcss-load-config@npm:3.1.4"
-  dependencies:
-    lilconfig: ^2.0.5
-    yaml: ^1.10.2
-  peerDependencies:
-    postcss: ">=8.0.9"
-    ts-node: ">=9.0.0"
-  peerDependenciesMeta:
-    postcss:
-      optional: true
-    ts-node:
-      optional: true
-  checksum: 1c589504c2d90b1568aecae8238ab993c17dba2c44f848a8f13619ba556d26a1c09644d5e6361b5784e721e94af37b604992f9f3dc0483e687a0cc1cc5029a34
-  languageName: node
-  linkType: hard
-
 "postcss-loader@npm:^3.0.0":
   version: 3.0.0
   resolution: "postcss-loader@npm:3.0.0"
@@ -19539,30 +19459,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.32":
-  version: 1.54.2
-  resolution: "sass@npm:1.54.2"
-  dependencies:
-    chokidar: ">=3.0.0 <4.0.0"
-    immutable: ^4.0.0
-    source-map-js: ">=0.6.2 <2.0.0"
-  bin:
-    sass: sass.js
-  checksum: 710e798533088182963f9c83113954ea1db5ffdf24ffbe454ce7667f3113e308c43ba20516a8c40929fae5b5f911032076e7c4d7eb00b2da7a12fc9884f5d39d
-  languageName: node
-  linkType: hard
-
-"sass@npm:~1.32":
-  version: 1.32.13
-  resolution: "sass@npm:1.32.13"
-  dependencies:
-    chokidar: ">=3.0.0 <4.0.0"
-  bin:
-    sass: sass.js
-  checksum: 51b798280bd96c8e8d580592bcd40947075e9e55109bbc5e21037427ac2a78e58d3c3cf4b8b33ac9d592758376597d15cd28ddde1cda2885d19791d6321989d4
-  languageName: node
-  linkType: hard
-
 "sax@npm:^1.2.4, sax@npm:~1.2.4":
   version: 1.2.4
   resolution: "sax@npm:1.2.4"
@@ -20128,7 +20024,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-js@npm:>=0.6.2 <2.0.0, source-map-js@npm:^1.0.2":
+"source-map-js@npm:^1.0.2":
   version: 1.0.2
   resolution: "source-map-js@npm:1.0.2"
   checksum: c049a7fc4deb9a7e9b481ae3d424cc793cb4845daa690bc5a05d428bf41bf231ced49b4cf0c9e77f9d42fdb3d20d6187619fc586605f5eabe995a316da8d377c
@@ -20165,7 +20061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map@npm:^0.5.0, source-map@npm:^0.5.1, source-map@npm:^0.5.6, source-map@npm:^0.5.7":
+"source-map@npm:^0.5.0, source-map@npm:^0.5.6, source-map@npm:^0.5.7":
   version: 0.5.7
   resolution: "source-map@npm:0.5.7"
   checksum: 5dc2043b93d2f194142c7f38f74a24670cd7a0063acdaf4bf01d2964b402257ae843c2a8fa822ad5b71013b5fcafa55af7421383da919752f22ff488bc553f4d
@@ -22241,15 +22137,6 @@ __metadata:
     remove-bom-buffer: ^3.0.0
     vinyl: ^2.0.0
   checksum: e7174851faff44ffd0f91d4d7234a0c153cad7da9c142e5ef46b4a24fe5ab0c98c997db7c719919cbab28edb4b9cf9ec3d7fed8460f047b3d640740a613ec944
-  languageName: node
-  linkType: hard
-
-"vinyl-sourcemaps-apply@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "vinyl-sourcemaps-apply@npm:0.2.1"
-  dependencies:
-    source-map: ^0.5.1
-  checksum: c1a81b085fc2ee7c140ab26cb1a87031b79590c22a992dafcbc47f8db74e58fbfca2689200df6a08c341e65a67b539dcee14a7fd80e6fdeaa2e88bfe2622f361
   languageName: node
   linkType: hard
 
