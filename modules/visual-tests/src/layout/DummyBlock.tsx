@@ -1,5 +1,5 @@
-import React from 'react';
-import { css, hannaVars } from '@reykjavik/hanna-css';
+import React, { ReactNode } from 'react';
+import { css, hannaVars as vars } from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 export type DummyBlockProps = EitherObj<{ big?: true }, { thin?: true }>;
@@ -8,16 +8,16 @@ export const DummyBlock = (props: DummyBlockProps) => (
   <div
     className="DummyBlock"
     style={{
-      background: `${hannaVars.color_suld_50}
+      background: `${vars.color_suld_50}
         linear-gradient(-45deg,
-          ${hannaVars.color_suld_75} 12.5%,
+          ${vars.color_suld_75} 12.5%,
           transparent 12.5%,
           transparent 37.5%,
-          ${hannaVars.color_suld_75} 37.5%,
-          ${hannaVars.color_suld_75} 62.5%,
+          ${vars.color_suld_75} 37.5%,
+          ${vars.color_suld_75} 62.5%,
           transparent 62.5%,
           transparent 87.5%,
-          ${hannaVars.color_suld_75} 87.5%
+          ${vars.color_suld_75} 87.5%
         )`,
       backgroundPosition: '0 0',
       backgroundSize: '32px 32px',
@@ -46,4 +46,19 @@ export const checkeredBackground = (selector: string) => (
       }
     `}
   </style>
+);
+
+// ===========================================================================
+
+export const GhostLabel = (props: { label: ReactNode }) => (
+  <div
+    className="GhostLabel"
+    style={{
+      position: 'absolute',
+      font: `${vars.font_label}`,
+      color: `${vars.color_suld_100}`,
+    }}
+  >
+    {props.label}
+  </div>
 );
