@@ -30,7 +30,7 @@ $_pHSmall: ($InputField-heightI--small - prem($font-base-leading)) / 2;
       padding-bottom: $_pHLarge;
 
       @for $i from ($_minRows + 1) through $_maxRows {
-        [rows='#{$i}'] {
+        &[rows='#{$i}'] {
           height: _heightLarge($i);
         }
       }
@@ -41,7 +41,7 @@ $_pHSmall: ($InputField-heightI--small - prem($font-base-leading)) / 2;
       padding-bottom: $_pHSmall;
 
       @for $i from ($_minRows + 1) through $_maxRows {
-        [rows='#{$i}'] {
+        &[rows='#{$i}'] {
           height: _heightSmall($i);
         }
       }

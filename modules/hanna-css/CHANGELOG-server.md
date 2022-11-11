@@ -9,6 +9,7 @@
 - feat: Add `.FooterInfo__group--main`, deprecate `[role]` styling
 - feat: Add "[Illustration](src/assets/illustrations/files.json)" PNG asset
   ("vegvisir")
+- fix: `.TextInput--multiline` not repsonding to `rows=""` attribute
 - fix: Text color of `.Selectbox`'s placeholder (non-empty, non-filled)
 - fix: Reversed order of `RowBlockColumn`s on narrow screens + padding
 - fix: Improve mobile rendering of `.RelatedLinks`
