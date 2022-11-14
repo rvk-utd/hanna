@@ -23,7 +23,6 @@ export default css`
 
   @media screen {
     .LabeledTextBlock {
-      // @include SeenEffect--fadeup();
       ${SeenEffect__fadeup}
       margin-bottom: ${between_cols(30, 100)};
     }

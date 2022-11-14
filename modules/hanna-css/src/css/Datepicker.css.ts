@@ -47,18 +47,24 @@ export default css`
       ${iconStyle(vars.icon__calendar)}
       display: block;
       color: ${vars.color_suld_0};
-      font-size: ${prem(20)};
+      font-size: 1em;
       position: absolute;
       top: 50%;
-      margin-top: ${prem(-16)};
-      right: ${prem(20)};
-      width: ${prem(48)};
-      line-height: ${prem(32)};
-      padding-left: ${prem(24)};
+      transform: translateY(-50%);
+      right: 0;
+      box-sizing: content-box;
+      width: ${vars.space_8};
+      padding-left: ${vars.space_0$5};
+      line-height: ${vars.space_4};
       color: ${vars.color_suld_150};
       border-left: 2px solid ${vars.color_suld_150};
       pointer-events: none;
     }
+    .FormField--small .react-datepicker__input-container::after {
+      line-height: calc(${vars.space_0$5} + ${vars.space_2});
+      width: ${vars.space_6};
+    }
+
     .FormField--focused .react-datepicker__input-container::after {
       border-color: ${vars.color_faxafloi_100};
       color: ${vars.color_faxafloi_100};
@@ -174,17 +180,17 @@ export default css`
     }
     /*
       .react-datepicker__navigation--next {
-        right: prem(12);
+        right: ${prem(12)};
         left: auto;
 
         &::after {
-          content: $icons-chevron-right;
+          content: ${vars.icon__chevron_right};
         }
       }
 
       .react-datepicker__navigation--previous--disabled::after,
       .react-datepicker__navigation--next--disabled::after {
-        color: $color-suld-100;
+        color: ${vars.color_suld_100};
       }
     */
 

@@ -1,7 +1,7 @@
 import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
 
 import { afterClear_css } from './utils/afterClear';
@@ -35,7 +35,7 @@ export default css`
       position: absolute;
       left: 0;
       width: ${vars.grid_1};
-      // margin-top: grid-units(-1);
+      // margin-top: ${vars.grid_1__neg};
     }
   }
 
@@ -104,7 +104,9 @@ export default css`
   }
 
   .FooterInfo__groupcontent a[href^='tel:'] {
-    --link-color: var(--current-link-color);
+    ${hannaVarOverride({
+      link_color: `var(--current-link-color)`,
+    })}
   }
   .FooterInfo__groupcontent a > small {
     font-size: 1em;

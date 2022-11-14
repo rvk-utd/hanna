@@ -1,6 +1,6 @@
 /* eslint-disable unused-imports/no-unused-imports-ts */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { css, px } from 'es-in-css';
+import { color, css, px } from 'es-in-css';
 
 import { between_phone_netbook, between_tablet_netbook } from '../../lib/between';
 import { mq } from '../../lib/breakpoints';
@@ -85,8 +85,8 @@ export const ButtonStyle = () => css`
   ${hoverActiveKeyboardFocus_selector()(css`
     outline: 0;
     text-decoration: none;
-    // box-shadow: 0 prem(12) prem(16) rgba(black, 0.09);
-    box-shadow: 0 prem(8) prem(16) rgba(black, 0.15);
+    // box-shadow: 0 ${prem(12)} ${prem(16)} rgba(0, 0, 0, 0.09);
+    box-shadow: 0 ${prem(8)} ${prem(16)} rgba(0, 0, 0, 0.15);
     color: var(--Button--textColor);
     border: var(--Button--border) solid var(--Button--color);
   `)}

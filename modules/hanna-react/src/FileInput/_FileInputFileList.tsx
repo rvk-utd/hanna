@@ -40,7 +40,7 @@ export const DefaultFileList = (props: FileListProps) => {
             {showImagePreviews && file.preview && (
               <>
                 <span className="FileInput__preview">
-                  <img src={file.preview} />
+                  <img src={file.preview} alt="" />
                 </span>{' '}
               </>
             )}

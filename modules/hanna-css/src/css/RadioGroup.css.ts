@@ -1,17 +1,18 @@
 import { css } from 'es-in-css';
 
-import { TogglerButtonsGroup, TogglerButtonsKnob } from './styles/forms';
+import { TogglerGroup, TogglerKnob } from './styles/forms';
 
 export default css`
   /*!@deps
     FormField
-    CheckboxButtonsGroup
+    CheckboxGroup
   */
 `;
 
+// inlined by CheckboxGroup.css.ts
 export const RadioGroup_css = () => css`
   @media screen {
-    ${TogglerButtonsKnob('RadioButton')}
-    ${TogglerButtonsGroup('RadioButtonsGroup')}
+    ${TogglerKnob('Radio')}
+    ${TogglerGroup('RadioGroup')}
   }
 `;

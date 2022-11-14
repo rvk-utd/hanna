@@ -19,7 +19,7 @@ export default css`
     .SiteSearchInput {
       margin-bottom: ${grid_units(7)};
       // Changes as evident in the "Frontpage" Figma document
-      // --input-border-color: #{$color-suld-75};
+      // --input-border-color: ${vars.color_suld_75};
       // --input-border-radius: 0;
       --ssi-height: ${between_phone_netbook(64, 96)};
       @media ${mq.wide} {

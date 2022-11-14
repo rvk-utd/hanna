@@ -1,4 +1,4 @@
-import { css } from 'es-in-css';
+import { css, LengthValue, VariablePrinter } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints';
 import { hannaVars as vars } from '../../lib/hannavars';
@@ -12,9 +12,12 @@ export const InputField_paddingTop = 12;
 export const InputField_heightI__small = 38;
 export const InputField_paddingH = grid_units(2);
 
-export const FormField__error = (paddingLeft = grid_units(2), marginTop = prem(9)) => css`
+export const FormField__error = (
+  paddingLeft: LengthValue | VariablePrinter | 0 = vars.space_2,
+  marginTop: LengthValue | VariablePrinter | 0 = prem(9)
+) => css`
   color: ${vars.color_heidmork_100};
-  font-size: ${prem(12)}; // TODO find variable $font-size-12
+  font-size: ${prem(12)};
   line-height: ${prem(14)};
   padding-left: ${paddingLeft};
   margin-top: ${marginTop};
@@ -151,7 +154,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
   ${!radio &&
   css`
     .${bem}__error {
-      ${FormField__error}
+      ${FormField__error(prem(36), 0)};
     }
   `}
 `;
@@ -182,6 +185,12 @@ export const TogglerButtonsGroup = (bem: string) => css`
     }
   }
 
+  .${bem} > .FormField__error,
+  .${bem} > .FormField__assist {
+    position: relative;
+    top: calc(-0.5 * ${vars.grid_0_1});
+  }
+
   .${bem}--slim {
     ${WARNING__(`Deprecated: .${bem} --slim is no longer supported`)};
   }
@@ -194,7 +203,7 @@ export const TogglerButtonsGroup = (bem: string) => css`
 `;
 
 export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') => css`
-  ${TogglerKnob(bem)}
+  ${TogglerKnob(bem, radio)}
 
   .${bem}__label {
     font-weight: ${vars.font_weight__bold};
@@ -287,7 +296,7 @@ export const InputField__noLabel = () => css`
 
 export const InputField__small = () => css`
   padding-top: 0;
-  font-size: ${vars.font_base_size};
+  font-size: ${vars.font_bd_s_size};
   height: ${prem(InputField_heightI__small + 2)};
   line-height: ${prem(InputField_heightI__small)};
 `;

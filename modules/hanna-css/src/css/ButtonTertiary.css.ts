@@ -54,7 +54,7 @@ export default css`
     &[data-icon] {
       ${WARNING__('No icons on `ButtonTertiary`')};
     }
-    &--go--back#{&}--destructive {
+    &--go--back&--destructive {
       ${WARNING__('`--destructive` and `--go--back` do NOT mix')};
     }
     &--go--forward {

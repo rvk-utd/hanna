@@ -15,8 +15,8 @@ export default css`
 
     &--destructive {
       ${ButtonVariables.override({
-        Button__color: vars.color_heidmork_100,
-        Button__color__active: vars.color_heidmork_150,
+        color: vars.color_heidmork_100,
+        color__active: vars.color_heidmork_150,
       })}
     }
   }

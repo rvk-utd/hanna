@@ -5,7 +5,7 @@ import { between_cols, between_phone_netbook } from '../lib/between';
 import { mq } from '../lib/breakpoints';
 import { cols_pct, px_pct } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
-import { icons, iconStyle } from '../lib/icons';
+import { iconStyle } from '../lib/icons';
 
 import { Card_css, CardList_css, CardListTitle_css } from './styles/cards';
 import { extendBackgroundWithUnderlay, prem } from './utils/miscUtils';
@@ -22,9 +22,9 @@ import {
 
 const icon_indent = prem(26);
 const iconList = [
-  { name: 'text', icon: icons.text },
-  { name: 'pdf', icon: icons.file_pdf },
-  { name: 'link', icon: icons.link },
+  { name: 'text', icon: vars.icon__text },
+  { name: 'pdf', icon: vars.icon__file_pdf },
+  { name: 'link', icon: vars.icon__link },
 ];
 
 export default css`
@@ -77,7 +77,7 @@ export default css`
     }
 
     .ExtraLinks__title {
-      ${CardListTitle_css}
+      ${CardListTitle_css};
 
       margin-bottom: ${between_phone_netbook(24, 57)};
       @media ${mq.wide} {
@@ -85,12 +85,16 @@ export default css`
       }
     }
     .ExtraLinks__list {
-      ${CardList_css}
+      ${CardList_css};
     }
 
     .ExtraLinks__card {
-      ${Card_css}
-      border: ${vars.border_default};
+      ${Card_css};
+
+      &[class] {
+        // double strentgh selector to override defaut link :hover styling
+        border: ${vars.border_default};
+      }
     }
     .ExtraLinks__card:hover,
     .ExtraLinks__card:active {
@@ -143,9 +147,9 @@ export default css`
     }
 
     ${iconList.map(
-      (item) => css`
-        .ExtraLinks__related__link--${item.name}::before {
-          content: ${item.icon};
+      ({ name, icon }) => css`
+        .ExtraLinks__related__link--${name}::before {
+          content: ${icon};
         }
       `
     )}

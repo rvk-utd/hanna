@@ -7,6 +7,7 @@ import { cols_px, px_pct } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 
 import { ButtonTertiaryStyle } from './styles/buttons';
+import { prem } from './utils/miscUtils';
 
 export default css`
   @media screen {
@@ -30,7 +31,7 @@ export default css`
       ${ButtonTertiaryStyle}
       font: ${vars.font_sh_s};
       --ButtonTertiary--dashWidth: ${rem(24 / font.sizes.sh_s_size)};
-      // --ButtonTertiary--hover--dashWidth: #{prem(48)};
+      // --ButtonTertiary--hover--dashWidth: ${prem(48)};
       --ButtonTertiary--dashHeight: ${rem(4 / font.sizes.sh_s_size)};
     }
     .MiniMetrics__more::before {
@@ -48,7 +49,7 @@ export default css`
           right: 0;
           width: ${px_pct(127)};
           padding-top: ${px_pct(127)};
-          // background-color: $var--theme-color-secondary;
+          // background-color: ${vars.theme_color_secondary};
           background-color: ${vars.color_rokkur_100};
           mask-image: url('/assets/bling/circle-small.svg');
           mask-position: 50% 50%;
@@ -63,7 +64,7 @@ export default css`
           margin-bottom: ${px_pct(-95)};
           width: ${px_pct(3 * 275)};
           padding-top: ${px_pct(232)};
-          // background-color: $var--theme-color-tertiary;
+          // background-color: ${vars.theme_color_tertiary};
           background-color: ${vars.color_esja_100};
           mask-image: url('/assets/bling/waves-medium.svg');
           mask-size: 133.33% auto;

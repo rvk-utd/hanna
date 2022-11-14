@@ -34,7 +34,7 @@ export default css`
       bottom: 0;
       left: 0;
       pointer-events: none;
-      background-color: rgba(${colors.suld_0}, 0.9);
+      background-color: ${colors.suld_0.alpha(0.9)};
 
       opacity: 0;
       visibility: hidden;

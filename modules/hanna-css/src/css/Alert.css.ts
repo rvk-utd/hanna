@@ -2,7 +2,7 @@ import { color, css, ms, str } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 import { icons, iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
@@ -11,7 +11,7 @@ import { hideText_css } from './utils/hideText';
 import { prem } from './utils/miscUtils';
 
 const pureWhite = color('#fff');
-const linkColor = color(colors.faxafloi_100).mix(colors.faxafloi_150, 0.8);
+const linkColor = color(colors.faxafloi_100).mix(colors.faxafloi_150, 0.2);
 const closing_duration = ms(400);
 const ease_out_quartic = 'cubic-bezier(0.165, 0.84, 0.44, 1)';
 
@@ -22,8 +22,10 @@ export default css`
       --Alert-icon-color: ${vars.color_faxafloi_100};
       --Alert-icon: ${vars.icon__info}; // ${str(icons.info)};
 
-      --link-color: ${linkColor};
-      --link-color-hover: ${linkColor};
+      ${hannaVarOverride({
+        link_color: linkColor,
+        link_color__hover: linkColor,
+      })}
 
       background: var(--Alert-background);
       border-radius: ${prem(8)};
@@ -43,7 +45,7 @@ export default css`
       color: var(--Alert-icon-color);
 
       font-size: ${prem(16)};
-      // line-height: prem(12);
+      // line-height: ${prem(12)};
       position: absolute;
       top: ${prem(14)};
       left: ${prem(14)};
@@ -74,18 +76,18 @@ export default css`
       --Alert-background: ${vars.color_nautholsvik_50};
       --Alert-icon-color: ${color(colors.nautholsvik_100).mix(
         colors.nautholsvik_150,
-        0.67
+        0.33
       )}; // a11y hax
       --Alert-icon: ${vars.icon__warning};
     }
     .Alert--success {
       --Alert-background: ${color(colors.ellidaardalur_50).mix(
         pureWhite,
-        0.6
+        0.4
       )}; // a11y hax
       --Alert-icon-color: ${color(colors.ellidaardalur_100).mix(
         colors.ellidaardalur_150,
-        0.67
+        0.33
       )};
       --Alert-icon: ${vars.icon__checkmark};
     }

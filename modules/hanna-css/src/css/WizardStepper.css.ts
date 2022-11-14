@@ -1,4 +1,4 @@
-import { css } from 'es-in-css';
+import { css, str } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
 import { hannaVars as vars } from '../lib/hannavars';
@@ -15,7 +15,7 @@ export default css`
     .WizardStepper__step {
       --WizardStepper-ballBackground: ${vars.color_faxafloi_75};
       --WizardStepper-ballColor: ${vars.color_suld_0};
-      --WizardStepper-ballIcon: '#{$icons-checkmark}';
+      --WizardStepper-ballIcon: ${vars.icon__checkmark};
       --WizardStepper-lineColor: ${vars.color_faxafloi_100};
       color: ${vars.color_faxafloi_100};
 
@@ -65,7 +65,7 @@ export default css`
       counter-increment: none;
     }
     .WizardStepper__step--neutral::before {
-      content: ${characters.bullets.disc};
+      content: ${str(characters.bullets.disc)};
       font-size: ${prem(20)};
     }
 
@@ -78,7 +78,7 @@ export default css`
     }
     .WizardStepper--preview > .WizardStepper__step--done,
     [aria-current='step'] ~ .WizardStepper__step--done {
-      --WizardStepper-ballColor: ${vars.color_suld_150}; // $var--color-suld-150
+      --WizardStepper-ballColor: ${vars.color_suld_150};
     }
 
     .WizardStepper__step[aria-current='step'] {
@@ -90,7 +90,6 @@ export default css`
     .WizardStepper__step--done::before,
     .WizardStepper__step[aria-current='step']::before {
       ${iconStyle('')}
-      // TODO: check/fix
       content: var(--WizardStepper-ballIcon);
       font-size: ${prem(12)};
     }

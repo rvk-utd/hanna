@@ -49,7 +49,6 @@ export default css`
 
     @media ${mq.phablet_up} {
       margin-bottom: calc(-1 * ${bVars.height});
-      color: purple;
     }
   }
 

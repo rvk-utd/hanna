@@ -1,18 +1,20 @@
-import { css } from 'es-in-css';
+import { css, pct_f } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
 import { cols_pct } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVars as vars, linkVars } from '../lib/hannavars';
 
-import { grid_units, percentage, prem } from './utils/miscUtils';
+import { grid_units, prem } from './utils/miscUtils';
 
 export const AuxiliaryPanel_css = () => css`
   @media screen {
     .AuxiliaryPanel {
       color: ${vars.MainMenu_accentcolor};
-      --link-color: _inherit;
-      --link-color--hover: ${vars.MainMenu_accentcolor};
-      --link-weight: ${vars.font_weight__normal};
+      ${linkVars.override({
+        link_color: '_inherit',
+        link_color__hover: vars.MainMenu_accentcolor,
+        link_weight: vars.font_weight__normal,
+      })}
     }
 
     .AuxiliaryPanel__title {
@@ -33,31 +35,31 @@ export const AuxiliaryPanel_css = () => css`
     .AuxiliaryPanel {
       position: relative;
       background-color: ${vars.color_suld_25};
-      padding-top: ${grid_units(4)};
-      padding-bottom: percentage(125 / 325);
+      padding-top: ${vars.space_4};
+      padding-bottom: ${pct_f(125 / 325)};
       flex-grow: 1;
 
-      margin-left: $var--grid-margin--neg;
-      margin-right: $var--grid-margin--right--neg;
-      padding-left: calc(#{$var--grid-margin} + var(--MainMenu--offsetLeft));
-      padding-right: calc(#{$var--grid-margin--right} + var(--MainMenu--offsetLeft));
+      margin-left: ${vars.grid_margin__neg};
+      margin-right: ${vars.grid_margin__right__neg};
+      padding-left: calc(${vars.grid_margin} + var(--MainMenu--offsetLeft));
+      padding-right: calc(${vars.grid_margin__right} + var(--MainMenu--offsetLeft));
     }
 
     .AuxiliaryPanel__title {
-      @include SubheadingStyle--small();
-      padding-bottom: grid-units(1);
-      margin-bottom: grid-units(2);
+      font: ${vars.font_sh_s};
+      padding-bottom: ${vars.space_1};
+      margin-bottom: ${vars.space_2};
       margin-right: 0;
 
-      max-width: percentage(140/365);
-      min-width: prem(140);
+      max-width: ${pct_f(140 / 365)};
+      min-width: ${prem(140)};
     }
 
     .AuxiliaryPanel__items {
-      margin-bottom: grid-units(4);
+      margin-bottom: ${vars.space_4};
     }
     .AuxiliaryPanel__item {
-      margin-bottom: grid-units(1.5);
+      margin-bottom: ${vars.space_1$5};
     }
 
     .AuxiliaryPanel::after {
@@ -70,7 +72,7 @@ export const AuxiliaryPanel_css = () => css`
       background: 50% 100% / contain repeat-x;
       background-image: url('/assets/valmundur-a-sundi.png');
       mix-blend-mode: multiply;
-      padding-top: ${percentage(115 / 325)};
+      padding-top: ${pct_f(115 / 325)};
     }
 
     html.menu-is-open .AuxiliaryPanel::after {

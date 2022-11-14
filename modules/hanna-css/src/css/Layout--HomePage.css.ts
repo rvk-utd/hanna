@@ -24,7 +24,7 @@ export default css`
       margin-top: ${between_container(-30, -80)};
       margin-bottom: ${between_container(30, 210)};
       // TODO: Is font-size right value? Is '12' on prod.
-      font-size: prem(12);
+      font-size: ${prem(12)};
       font-weight: ${vars.font_weight__bold};
 
       @media ${mq.tablet_up} {

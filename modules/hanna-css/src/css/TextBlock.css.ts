@@ -26,27 +26,29 @@ export default css`
     Attention
   */
 
-  .TextBlock {
-    ${ComponentLayout}
-    ${textContent}
-    ${SeenEffect__fadeup}
-    ${SeenEffect__disallowNesting}
+  @media screen {
+    .TextBlock {
+      ${ComponentLayout};
+      ${textContent};
+      ${SeenEffect__fadeup};
+      ${SeenEffect__disallowNesting};
 
-    position: relative;
-    margin-bottom: ${between_cols(20, 30)};
-  }
-  .TextBlock--small {
-    font: ${vars.font_bd_s};
+      position: relative;
+      margin-bottom: ${between_cols(20, 30)};
+    }
+    .TextBlock--small {
+      font: ${vars.font_bd_s};
 
-    h2 {
-      font: ${vars.font_sh_l};
-    }
-    h3 {
-      font: ${vars.font_sh_s};
-    }
-    h4 {
-      font: ${vars.font_bd_l};
-      font-weight: ${vars.font_weight__bold};
+      h2 {
+        font: ${vars.font_sh_l};
+      }
+      h3 {
+        font: ${vars.font_sh_s};
+      }
+      h4 {
+        font: ${vars.font_bd_l};
+        font-weight: ${vars.font_weight__bold};
+      }
     }
 
     // ---------------------------------------------------------------------------
@@ -54,6 +56,7 @@ export default css`
     .TextBlock--labelled h2 {
       ${LabeledTitleStyle__basics(false)}
     }
+
     @media ${mq.tablet_up} {
       .TextBlock--labelled {
         ${textContentVars.override({
@@ -100,7 +103,8 @@ export default css`
   // ===========================================================================
 
   ${
-    '' // Inline the most common text atom components
+    ''
+    // Inline the most common text atom components
     // for better compression and loading speed
   }
   ${PageHeading_css}

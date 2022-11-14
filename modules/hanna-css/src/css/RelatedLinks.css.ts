@@ -1,7 +1,7 @@
 import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
 import { LinkStyle_Reset } from './styles/links';
@@ -40,10 +40,12 @@ export default css`
     }
     .RelatedLinks__link {
       ${LinkStyle_Reset(true)}
+      ${hannaVarOverride({
+        link_color: vars.color_faxafloi_100,
+      })}
       position: relative;
       display: block;
       background-color: ${vars.color_suld_25};
-      --link-color: ${vars.color_faxafloi_100};
       text-decoration: none;
       padding: ${grid_units(2)} ${grid_units(3)};
       padding-left: ${grid_units(7)};

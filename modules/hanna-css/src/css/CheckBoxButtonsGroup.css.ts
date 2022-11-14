@@ -2,7 +2,7 @@ import { css } from 'es-in-css';
 
 import { TogglerButtonsGroup, TogglerButtonsKnob } from './styles/forms';
 
-import { RadioButtonsGroupStyling } from './RadioButtonsGroup.css';
+import { RadioButtonsGroup_css } from './RadioButtonsGroup.css';
 
 export default css`
   /*!@deps
@@ -15,5 +15,5 @@ export default css`
 
   // ===========================================================================
   // Inline for better compression and loading speed
-  ${RadioButtonsGroupStyling}
+  ${RadioButtonsGroup_css}
 `;

@@ -13,6 +13,7 @@ import { WARNING_border__ } from '../lib/WARNING__';
 
 import { hannaVarDeclarations } from './styles/hannaVarDeclarations';
 import { LinkStyle, LinkStyle__focusOutline } from './styles/links';
+import { sr_only } from './utils/a11y';
 import { buttonReset } from './utils/buttonReset';
 import {
   setDefaultKeyboardFocusStyle,
@@ -383,7 +384,7 @@ export default css`
   // ===========================================================================
   @media screen {
     [class].visually-hidden {
-      @include sr-only();
+      ${sr_only};
     }
     .local-tasks {
       position: fixed;

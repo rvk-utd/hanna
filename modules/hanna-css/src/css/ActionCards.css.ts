@@ -1,7 +1,7 @@
 import { css } from 'es-in-css';
 
 import { between_cols } from '../lib/between';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 
 import { Card_css, CardBlock_css, CardList_css, CardListTitle_css } from './styles/cards';
 import { SeenEffect__fadeup } from './utils/seenEffects';
@@ -29,7 +29,9 @@ export default css`
     }
     .ActionCards__card {
       ${Card_css}
-      --link-color--hover: ${vars.color_suld_200};
+      ${hannaVarOverride({
+        link_color__hover: vars.color_suld_200,
+      })}
       border: ${vars.border_default};
     }
     .ActionCards__card:hover,

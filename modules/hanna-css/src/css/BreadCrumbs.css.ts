@@ -1,4 +1,4 @@
-import { css, em } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
@@ -13,7 +13,7 @@ export default css`
     .BreadCrumbs {
       color: ${vars.color_suld_150};
       font-size: ${vars.font_label_size};
-      line-height: ${em(2)};
+      line-height: ${prem(24)};
     }
 
     .Layout__nav .BreadCrumbs {
@@ -57,7 +57,7 @@ export default css`
       width: ${prem(13)};
     }
     .BreadCrumbs__separator::before {
-      ${iconStyle(vars.icon__chevron_right)}
+      ${iconStyle(vars.icon__chevron_soft_right)}
       width: 100%;
       margin-right: 1px;
       font-size: ${prem(5)};

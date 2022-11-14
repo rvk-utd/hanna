@@ -1,11 +1,11 @@
-import { css } from 'es-in-css';
+import { css, pct_f } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
 import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors';
 import { hideText_css } from './utils/hideText';
-import { percentage, prem } from './utils/miscUtils';
+import { prem } from './utils/miscUtils';
 
 export default css`
   /*!@deps
@@ -81,7 +81,7 @@ export default css`
       order: -1;
       position: relative;
       z-index: 1;
-      height: ${percentage(32 / 50)};
+      height: ${pct_f(32 / 50)};
       border-left: 2px solid currentColor;
     }
   }

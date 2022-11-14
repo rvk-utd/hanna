@@ -36,7 +36,6 @@ export default css`
     }
 
     .FeatureList__title {
-      @include HeadingStyle--small();
       font: ${vars.font_hd_s};
       max-width: ${cols_px(4, 4)};
       margin-bottom: ${between_container(20, 84)};

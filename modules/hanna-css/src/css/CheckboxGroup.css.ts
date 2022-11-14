@@ -10,10 +10,13 @@ export default css`
     FormField
     Checkbox
   */
+
   ${Checkbox_css}
+
   @media screen {
     ${TogglerGroup('CheckboxGroup')}
   }
+
   // ===========================================================================
   // Inline for better compression and loading speed
   ${RadioGroup_css}

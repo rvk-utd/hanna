@@ -42,16 +42,6 @@ export default function () {
             onChange={() => undefined}
             invalid
           />
-          <Datepicker
-            label={'Small'}
-            localeCode="is"
-            // name="date"
-            placeholder={'d. mmm. yyyy'}
-            dateFormat="d. MMM yyyy"
-            // value={undefined}
-            onChange={() => undefined}
-            small
-          />
           <DummyBlock thin />
           <Datepicker
             label={'Disabled'}
@@ -73,6 +63,17 @@ export default function () {
             // value={undefined}
             onChange={() => undefined}
             readOnly
+          />
+          <DummyBlock thin />
+          <Datepicker
+            label={'Small'}
+            localeCode="is"
+            // name="date"
+            placeholder={'d. mmm. yyyy'}
+            dateFormat="d. MMM yyyy"
+            // value={undefined}
+            onChange={() => undefined}
+            small
           />
         </RowBlockColumn>
         <RowBlockColumn> </RowBlockColumn>

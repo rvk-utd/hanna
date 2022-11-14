@@ -9,10 +9,10 @@ export default css`
   */
 `;
 
-// inlined by CheckboxButtonsGroup
-export const RadioButtonsGroupStyling = () => css`
+// inlined by CheckboxButtonsGroup.css.ts
+export const RadioButtonsGroup_css = () => css`
   @media screen {
-    ${TogglerButtonsKnob('RadioButton')}
-    ${TogglerButtonsGroup('RadioButtonsGroup')}
+    ${TogglerButtonsKnob('RadioButton')};
+    ${TogglerButtonsGroup('RadioButtonsGroup')};
   }
 `;

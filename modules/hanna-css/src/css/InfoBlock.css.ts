@@ -80,7 +80,7 @@ export default css`
 
     .InfoBlock__extrainfo,
     .InfoBlock__attention {
-      ${AttentionStyle}
+      ${AttentionStyle};
     }
 
     .InfoBlock__extrainfo {

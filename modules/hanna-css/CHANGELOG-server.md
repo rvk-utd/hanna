@@ -27,6 +27,7 @@
 - fix: Correct minor responsive rendering glitches in `.FeatureList`
 - fix: Make `--inline` `Checkbox` and `Radio` labels line wrap
 - fix: Right padding on `.ButtonTertiary--disabled`
+- fix: Font-size in `.FormField--small .FormField__input`s
 
 ## 0.8.70
 

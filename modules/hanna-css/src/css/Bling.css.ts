@@ -5,7 +5,7 @@ import { buildVariables, isDevMode } from '../lib/cssutils';
 import { grid } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 
-const $baseW = grid.contentMaxWidth.value;
+const baseW = grid.contentMaxWidth.value;
 
 export const BlingVariables = buildVariables(['baseWitdh'], 'Bling');
 const Bv = BlingVariables.vars;
@@ -40,7 +40,7 @@ export default css`
 
     .Bling > svg {
       transform: translate(-50%, -50%); // Default to --vertical--center
-      width: calc(var(--bling-width) / ${$baseW} * ${Bv.baseWitdh});
+      width: calc(var(--bling-width) / ${baseW} * ${Bv.baseWitdh});
       height: auto;
       display: block;
       position: relative;
@@ -68,17 +68,17 @@ export default css`
 
     .Bling--align--left > svg,
     .Bling--align--right > svg {
-      left: calc(var(--bling-offset) / ${$baseW} * ${Bv.baseWitdh});
+      left: calc(var(--bling-offset) / ${baseW} * ${Bv.baseWitdh});
     }
     .Bling--align--left-ish > svg,
     .Bling--align--right-ish > svg {
       left: calc(
-        var(--bling-offset-ish, var(--bling-offset)) / ${$baseW} * ${Bv.baseWitdh}
+        var(--bling-offset-ish, var(--bling-offset)) / ${baseW} * ${Bv.baseWitdh}
       );
       @if isDevMode() {
         // prettier-ignore
         --notDefined--bling-offset-ish: var(--bling-offset-ish, );
-        outline: var(--notDefined--bling-offset-ish) 10px dashed rgba(red, 0.25);
+        outline: var(--notDefined--bling-offset-ish) 10px dashed rgba(255, 0, 0, 0.25);
       }
     }
     .Bling--align--left-center > svg,
@@ -93,12 +93,12 @@ export default css`
       --bling-offset-center,
       var(--bling-offset-ish, var(--bling-offset))
     );
-      left: calc(var(--postcss-calc-bug-workaround) / ${$baseW} * ${Bv.baseWitdh});
+      left: calc(var(--postcss-calc-bug-workaround) / ${baseW} * ${Bv.baseWitdh});
       ${isDevMode &&
       css`
         // prettier-ignore
         --notDefined--bling-offset-center: var(--bling-offset-center, );
-        outline: var(--notDefined--bling-offset-center) 10px dashed rgba(red, 0.25);
+        outline: var(--notDefined--bling-offset-center) 10px dashed rgba(255, 0, 0, 0.25);
       `}
     }
 

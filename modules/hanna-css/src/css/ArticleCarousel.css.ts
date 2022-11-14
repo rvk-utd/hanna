@@ -141,19 +141,19 @@ export default css`
 
     .ArticleCarouselCard__title {
       font: ${vars.font_sh_l};
-      margin-bottom: ${vars.grid_4};
+      margin-bottom: ${vars.space_4};
     }
 
     .ArticleCarouselCard__date {
       font: ${vars.font_bd_s};
       color: ${vars.color_suld_150};
-      margin-bottom: ${vars.grid_4};
+      margin-bottom: ${vars.space_4};
       display: block;
     }
 
     .ArticleCarouselCard__summary {
       font: ${vars.font_bd_s};
-      margin-bottom: ${vars.grid_3};
+      margin-bottom: ${vars.space_3};
     }
 
     .ArticleCarouselCard__morelink {

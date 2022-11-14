@@ -43,7 +43,7 @@ export default css`
 
     .WizardLayout__header {
       position: relative;
-      z-index: 3; // ??? $var--zindex--header ???
+      z-index: 3; // ??? ${vars.zindex__header};
       height: ${vars.Layout$$header_height};
       display: flex;
       align-items: center;

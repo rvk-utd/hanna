@@ -1,17 +1,20 @@
 import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
-import { cols_pct } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 
 import { sr_only } from './utils/a11y';
 import { grid_units, prem } from './utils/miscUtils';
 
+const pPanelCols = 8;
+
 export const PrimaryPanel_css = () => css`
   .PrimaryPanel {
     color: ${vars.color_suld_0};
-    --link-color: _inherit;
-    --link-color--hover: ${vars.color_suld_25};
+    ${hannaVarOverride({
+      link_color: '_inherit',
+      link_color__hover: vars.color_suld_25,
+    })}
 
     background-color: ${vars.MainMenu_background};
   }
@@ -41,7 +44,7 @@ export const PrimaryPanel_css = () => css`
     }
 
     // .MainMenu[data-sprinkled] .PrimaryPanel__title {
-    // 	@include sr-only();
+    //   $ {sr_only};
     // }
 
     .PrimaryPanel__item {
@@ -56,10 +59,9 @@ export const PrimaryPanel_css = () => css`
 
   @media ${mq.Topmenu} {
     .PrimaryPanel {
-      --PrimaryPanel-columns: 8;
       display: grid;
       align-content: flex-start;
-      grid-template-columns: repeat(var(--PrimaryPanel-columns), minmax(0, 1fr));
+      grid-template-columns: repeat(${pPanelCols}, minmax(0, 1fr));
 
       padding-top: ${vars.Layout$$header_height};
       padding-bottom: ${prem(125)}; // clear .MainMenu__megapanel__backtomenu
@@ -70,35 +72,32 @@ export const PrimaryPanel_css = () => css`
     }
 
     .PrimaryPanel--twocol {
-      grid-column: span var(--PrimaryPanel-columns);
+      grid-column: span ${pPanelCols};
     }
 
     .PrimaryPanel__title {
-      margin-right: ${cols_pct(1, 0, { ofCols: 5 })};
+      margin-right: ${vars.grid_column};
       grid-column: span 5;
     }
     .PrimaryPanel--twocol .PrimaryPanel__title {
-      grid-column: span var(--PrimaryPanel-columns);
-      margin-right: ${cols_pct(1, 0, { ofCols: 8 })};
+      grid-column: span ${pPanelCols};
     }
 
     .PrimaryPanel__items {
       grid-column: span 4;
-      padding-right: cols_pct(1, 0, 4);
     }
     .PrimaryPanel--twocol .PrimaryPanel__items {
-      grid-column: span var(--PrimaryPanel-columns);
+      grid-column: span ${pPanelCols};
       display: grid;
       column-gap: ${vars.grid_gutter};
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      padding-right: 0;
     }
 
     .PrimaryPanel__item {
       margin-bottom: ${grid_units(3)};
     }
     .PrimaryPanel--twocol .PrimaryPanel__item {
-      padding-right: ${cols_pct(1, 0, { ofCols: 4 })};
+      padding-right: ${vars.grid_column};
     }
 
     .PrimaryPanel__linkTitle {

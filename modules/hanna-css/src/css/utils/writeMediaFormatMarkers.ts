@@ -34,7 +34,7 @@ export const writeMediaFormatMarkers = (opts?: Options) => {
             bottom: 0 !important;
             right: 0 !important;
             z-index: 10000 !important;
-            background-color: rgba(#000, 0.5) !important;
+            background-color: rgba(0, 0, 0, 0.5) !important;
             color: #fec !important;
             visibility: visible !important;
             width: auto !important;

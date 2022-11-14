@@ -13,7 +13,7 @@ export const AttentionStyle = (border = true) => css`
   ${border &&
   css`
     border-top: ${vars.border_dark};
-    padding-top: between_phone_netbook(40, 64);
+    padding-top: ${between_phone_netbook(40, 64)};
   `}
 
   &::before {

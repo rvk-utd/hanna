@@ -1,13 +1,13 @@
 import { Expect, Extends } from '@reykjavik/hanna-utils';
 import { px, RawMediaQuery } from 'es-in-css';
 
-// Starting breakpoints **including* $grid-margin--*
+// Starting breakpoints **including* grid.margin__*
 export const bp = {
-  wide: px(1368), // $grid-margin--wide: 80;
+  wide: px(1368), // grid.margin__wide: 80;
   netbook: px(980),
   tablet: px(760),
   phablet: px(480),
-  phone: px(320), // $grid-margin--phone: 20;
+  phone: px(320), // grid.margin__phone: 20;
 } as const;
 // NOTE: 20px at 320px is equivalent to
 // 24px at 375px,`+` and 26px at 415px

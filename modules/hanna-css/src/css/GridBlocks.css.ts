@@ -14,6 +14,10 @@ import {
 } from './utils/seenEffects';
 
 export default css`
+  /*!@deps
+    ButtonTertiary
+  */
+
   @media screen {
     .GridBlocks {
       display: flex;
@@ -75,7 +79,6 @@ export default css`
 
     .GridBlocks__item__titlelink::before {
       content: '';
-      // background-color: rgba(yellow, 0.35); // DEV helper
       position: absolute;
       bottom: 100%;
       left: ${prem(-20)};

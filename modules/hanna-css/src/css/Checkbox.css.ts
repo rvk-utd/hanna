@@ -9,10 +9,11 @@ export default css`
   */
 `;
 
-// inlined by CheckboxGroup
+// inlined by CheckboxGroup.css.ts
 export const Checkbox_css = () => css`
   @media screen {
     ${TogglerKnob('Checkbox')}
+
     .Checkbox:not(.FormField__options__item) {
       margin-bottom: ${grid_units(3)};
     }

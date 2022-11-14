@@ -50,14 +50,14 @@ export const carouselItemsScrollSnapStyles = () => css`
     cursor: pointer;
     background-image: linear-gradient(
       -90deg,
-      rgba(#fff, 1) 0%,
-      rgba(#fff, 0.5) 67%,
-      rgba(#fff, 0) 100%
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.5) 67%,
+      rgba(255, 255, 255, 0) 100%
     );
     display: none;
     opacity: 0;
     transition: opacity ${vars.link_transition};
-    // outline: 1px dashed rgba(black, 0.4);
+    /* outline: 1px dashed rgba(255, 255, 255, 0.4); */
   }
   :hover > &-goRight,
   :hover > &-goLeft {

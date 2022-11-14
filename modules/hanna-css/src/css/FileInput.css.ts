@@ -7,7 +7,7 @@ import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
 import { hideText_css } from './utils/hideText';
-import { prem } from './utils/miscUtils';
+import { overflowEllipsis, prem } from './utils/miscUtils';
 
 export default css`
   /*!@deps
@@ -97,9 +97,8 @@ export default css`
 
     //invalid
     .FormField--invalid .FileInput__dropzone {
-      // TODO: Verify that this color is the same
-      background: ${color(colors.heidmork_100).fade(0.1)};
-      border-color: $var--color-heidmork-100;
+      background: ${color(colors.heidmork_100).fade(0.9)};
+      border-color: ${vars.color_heidmork_100};
     }
 
     .FileInput__filelist {
@@ -123,8 +122,7 @@ export default css`
     }
 
     .FileInput__filename {
-      // @include overflowEllipsis();
-      // TODO: Add overflowEllipsis
+      ${overflowEllipsis};
       flex-shrink: 1;
     }
     .FileInput__filesize {

@@ -95,11 +95,11 @@ export default css`
       margin-bottom: ${px_pct(24, 5)};
     }
     .InfoHero__subtitle {
-      font: ${vars.font_hd_l};
+      font: ${vars.font_sh_l};
       margin-bottom: ${prem(8)};
     }
     .InfoHero__blurb {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_bd_l};
       color: ${vars.color_suld_150};
       margin-bottom: ${prem(8)};
     }

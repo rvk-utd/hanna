@@ -3,7 +3,7 @@ import { css } from 'es-in-css';
 import { mq } from '../lib/breakpoints';
 import { isDevMode } from '../lib/cssutils';
 import { grid, showColumnGridLines } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
 import { freezeScroll_css, LayoutHeaderLogo } from './styles/header';
@@ -17,7 +17,10 @@ const whiteLogo = () => css`
   --logo-text-color: ${vars.color_suld_0};
   --logo-transition-delay: 0ms;
   --logo-background-color: ${vars.color_faxafloi_100};
-  --link-focus-outlineColor: ${vars.color_suld_0};
+
+  ${hannaVarOverride({
+    link_focus_outline: vars.color_suld_0,
+  })}
 `;
 
 export default css`
@@ -135,11 +138,11 @@ export default css`
       color: ${vars.color_suld_0};
       --open-icon-color: transparent;
       --close-icon-color: _inherit;
-      // margin-right: $var--browser-scrollbar-width;
+      // margin-right: ${vars.browser_scrollbar_width};
     }
     .Layout__header__skiplink:hover,
     .Layout__header__skiplink:active {
-      text-shadow: 0 0 ${prem(8)} rgba(#000, 0.2);
+      text-shadow: 0 0 ${prem(8)} rgba(0, 0, 0, 0.2);
     }
 
     .Layout__header__skiplink::before,

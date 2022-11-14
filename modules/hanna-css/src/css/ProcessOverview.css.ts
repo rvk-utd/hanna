@@ -18,7 +18,7 @@ export default css`
       background-color: ${vars.color_suld_25};
       margin: 0 ${vars.grid_margin__neg};
       padding: 0 ${vars.grid_margin};
-      // @include extendBackgroundWithUnderlay(); // <-- this could be used also
+      // $ {extendBackgroundWithUnderlay}; // <-- this could be used also
       margin-bottom: ${between_cols(30, 120)};
       padding-top: ${between_cols(50, 120)};
       padding-bottom: ${between_cols(50, 192)};

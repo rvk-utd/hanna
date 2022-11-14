@@ -1,14 +1,14 @@
-import { css } from 'es-in-css';
+import { css, em } from 'es-in-css';
 
 import { between_container, between_phone_phablet } from '../lib/between';
 import { mq } from '../lib/breakpoints';
 import { buildVariables } from '../lib/cssutils';
+import { font } from '../lib/font';
 import { cols_px } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
-import { prem } from './utils/miscUtils';
 import { SeenEffect__fadeup } from './utils/seenEffects';
 import { textContent } from './utils/textContent';
 
@@ -72,7 +72,7 @@ export default css`
       position: absolute;
       left: 0;
       width: ${a.vars.iconWidth};
-      font-size: ${prem(14)};
+      font-size: ${em(18 / font.sizes.sh_s_size)};
       color: ${vars.color_suld_200};
       transform: rotateZ(45deg);
       transition: transform 200ms ease-in;

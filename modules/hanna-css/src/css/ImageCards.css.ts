@@ -1,8 +1,8 @@
 import range from '@hugsmidjan/qj/range';
-import { css, ms, pct } from 'es-in-css';
+import { css, ms, pct, pct_f } from 'es-in-css';
 
 import { between_cols, between_phone_netbook } from '../lib/between';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 
 import { CardBlock_css, CardList_css, CardListTitle_css } from './styles/cards';
 import {
@@ -36,8 +36,7 @@ export default css`
         (i) => css`
           ${SeenEffect__transition(`.ImageCards__item:nth-child(${i})`)(
             css`
-              color: red;
-              ${SeenEffect__delay(ms(i * 50 * 200))}
+              ${SeenEffect__delay(ms(i * 50 + 200))}
             `
           )}
         `
@@ -84,9 +83,11 @@ export default css`
     }
 
     .ImageCards__card {
-      --link-color: _inherit;
-      --link-underline: 1px solid ${vars.color_suld_200};
-      --link-underline--hover: 1px solid ${vars.color_faxafloi_100};
+      ${hannaVarOverride({
+        link_color: '_inherit',
+        link_underline: `1px solid ${vars.color_suld_200}`,
+        link_underline__hover: `1px solid ${vars.color_faxafloi_100}`,
+      })}
 
       display: block;
       height: 100%;
@@ -101,7 +102,7 @@ export default css`
     .ImageCards__image {
       display: block;
       position: relative;
-      padding-top: ${pct(168 / 272)};
+      padding-top: ${pct_f(168 / 272)};
       margin-bottom: ${vars.space_2};
       ${avoidCssnanoMerging(
         css`

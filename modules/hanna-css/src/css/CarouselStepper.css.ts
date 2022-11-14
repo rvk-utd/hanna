@@ -52,7 +52,7 @@ export const CarouselStepper_css = () => css`
 
     background: ${vars.theme_color_primary_50};
 
-    transform: scaleY((16/24));
+    transform: scaleY(${16 / 24});
     transform-origin: bottom center;
 
     transition: transform 200ms ease-in;
@@ -60,7 +60,7 @@ export const CarouselStepper_css = () => css`
 
   .CarouselStepper__button:hover {
     background: ${vars.color_suld_150};
-    transform: scaleY((20/24));
+    transform: scaleY(${20 / 24});
   }
 
   .CarouselStepper__button[aria-pressed='true'] {

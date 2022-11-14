@@ -20,8 +20,8 @@ const dashDiff = hoverDashWidth - baseDashWidth;
 const dashTransition = '200ms ease-in';
 
 const flexDash = (pxWidth: number) => {
-  // get the pxWidth as a ratio of `vw` based on a maxinum 64px width (i.e. $var--grid-column)
-  // FIXME: calculated value will be just a hair off $var--grid-column
+  // get the pxWidth as a ratio of `vw` based on a maxinum 64px width (i.e. ${vars.grid_column})
+  // FIXME: calculated value will be just a hair off ${vars.grid_column}
   const from = (pxWidth / grid.column / grid.numCols) * grid.contentMinWidth;
   return between_phone_netbook(Math.floor(from), pxWidth);
 };
@@ -139,7 +139,7 @@ export default css`
       margin-bottom: ${prem(16)};
       margin-left: ${vars.grid_column__neg};
 
-      margin-right: ${flexDash(dashDiff)};
+      margin-right: ${flexDash(-dashDiff)};
       padding-right: ${flexDash(dashDiff)};
       transition: padding-right ${dashTransition};
 
@@ -151,7 +151,7 @@ export default css`
         --dash-margin: ${prem(32)};
         --dash-indent: ${prem(8)};
 
-        margin-right: ${prem(dashDiff)};
+        margin-right: ${prem(-dashDiff)};
         padding-right: ${prem(dashDiff)};
       }
     }
@@ -264,7 +264,7 @@ export default css`
     }
 
     .SearchResultsHighlightItem__meta {
-      // font: $var--font-bd-s;
+      /* font: ${vars.font_bd_s}; */
       font: ${vars.font_label};
       color: ${vars.color_suld_150};
       margin-top: ${vars.space_1$5__neg};

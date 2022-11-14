@@ -109,10 +109,13 @@ export default css`
     .Modal__blings > :not(.Bling):not(.Modal__blings__inner) {
       ${WARNING__('Only place .Bling content inside .Modal__blings')};
     }
-    // // FIXME: Enable this instead in v0.9
-    // .Modal__blings > not(.Modal__blings__inner) {
-    //   @include WARNING__('Only place .Modal__blings__inner inside .Modal__blings');
-    // }
+    /*
+      // FIXME: Enable this instead in v0.9
+      .Modal__blings > not(.Modal__blings__inner) {
+        $ {WARNING__('Only place .Modal__blings__inner inside .Modal__blings')};
+      }
+    */
+
     .Modal__blings__inner > :not(.Bling) {
       ${WARNING__('Only place .Bling content inside .Modal__blings')};
     }

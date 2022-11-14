@@ -1,20 +1,23 @@
-import { css, cssVal, px } from 'es-in-css';
-// TODO: Convert to jsDoc
-// ===============================================================================
-// Make an element reach beyond the left/right edges of it's container
-// all the way to the viewport edges.
-//
-//     @include extendSides()
-//     @include extendSides(both)  // same as @include extendSides()
-//     @include extendSides(left)  // only affect the left-hand side
-//     @include extendSides(right)  // ...or the right
-//
-//     @include extendSides(both, (25/16)em )  // Set additional padding
-//     @include extendSides(both, (-25/16)em )  // ...which can also be a negative value
-//     @include extendSides(left, (25/16)em )  // etc.
-//
-
-export const extendSides = (side: 'left' | 'right' | 'both' = 'both', pad = 0) => {
+import { css, cssVal, PlainNumber, px, PxValue } from 'es-in-css';
+/**
+ * Makes an element reach beyond the left/right edges of it's container
+ * all the way to the viewport edges.
+ *
+ * ```ts
+ * extendSides()
+ * extendSides('both')   // same as extendSides()
+ * extendSides('left')   // only affect the left-hand side
+ * extendSides('right')  // ...or the right
+ *
+ * extendSides('both', em(25/16) )   // Set additional padding
+ * extendSides('both', em(-25/16) )  // ...possibly a negative value
+ * extendSides('left', em(25/16) )   // etc.
+ * ```
+ */
+export const extendSides = (
+  side: 'left' | 'right' | 'both' = 'both',
+  pad: PlainNumber | PxValue = 0
+) => {
   let margin = 0;
   if (pad < 0) {
     margin = pad;

@@ -94,8 +94,8 @@ export default css`
       width: ${vars.space_3};
       background-image: linear-gradient(
         90deg,
-        rgba(black, 0.12) 0,
-        rgba(black, 0.05) 50%,
+        rgba(0, 0, 0, 0.12) 0,
+        rgba(0, 0, 0, 0.05) 50%,
         transparent 100%
       );
       pointer-events: none;

@@ -13,13 +13,13 @@ export default css`
   .ButtonSecondary {
     ${ButtonStyle}
     ${b.override({
-      // Button__color: vars.color_faxafloi_100,
-      Button__color__active: vars.color_faxafloi_100,
-      Button__textColor: b.vars.Button__color,
-      Button__textColor__active: b.vars.Button__color__active,
-      Button__backgroundColor: vars.color_suld_0,
-      Button__backgroundColor__active: vars.color_suld_50,
-      Button__border: px(1),
+      // color: vars.color_faxafloi_100,
+      color__active: vars.color_faxafloi_100,
+      textColor: b.vars.color,
+      textColor__active: b.vars.color__active,
+      backgroundColor: vars.color_suld_0,
+      backgroundColor__active: vars.color_suld_50,
+      border: px(1),
     })}
 
     &[disabled],
@@ -29,8 +29,8 @@ export default css`
 
     &--destructive {
       ${b.override({
-        Button__color: vars.color_heidmork_100,
-        Button__color__active: vars.color_heidmork_100,
+        color: vars.color_heidmork_100,
+        color__active: vars.color_heidmork_100,
       })}
     }
   }

@@ -5,7 +5,7 @@ import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
 import { font } from '../lib/font';
 import { cols_pct, grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
@@ -33,7 +33,7 @@ export default css`
     .MainMenu {
     }
     .MainMenu__title {
-      display: none; // ok if aria-label/aria-labelledby is used!
+      display: none; // ok if aria-label/aria-labelled by is used!
     }
     .MainMenu__item--home[class] {
       ${sr_only_content_focusable({})};
@@ -47,7 +47,7 @@ export default css`
     }
 
     .MainMenu__link::before {
-      ${iconStyle('')}
+      ${iconStyle()}
       margin-right: ${prem(8)};
       vertical-align: ${prem(-3)};
     }
@@ -82,8 +82,8 @@ export default css`
       @media screen and (max-width: 370px) {
         --MainMenu--offsetLeft: ${grid_units(2)};
       }
-      // @include media('screen and (max-height: 640px)') {
-      // 	--MainMenu__list--padTop: #{grid-units(2)};
+      // @media screen and (max-height: 640px) {
+      // 	--MainMenu__list--padTop: ${vars.space_2};
       // }
     }
 
@@ -114,7 +114,9 @@ export default css`
       margin-top: -100vh;
     }
     html.menu-is-open {
-      --Layout__header-backgroundColor: ${vars.color_faxafloi_100};
+      ${hannaVarOverride({
+        Layout$$header_backgroundColor: vars.color_faxafloi_100,
+      })}
     }
     html.menu-is-open .MainMenu {
       transition-delay: 0ms;
@@ -126,8 +128,10 @@ export default css`
 
     .MainMenu__items {
       color: ${vars.color_suld_0};
-      --link-color: _inherit;
-      --link-color--hover: ${vars.color_suld_25};
+      ${hannaVarOverride({
+        link_color: '_inherit',
+        link_color__hover: vars.color_suld_25,
+      })}
 
       display: flex;
       flex-flow: row wrap;
@@ -209,14 +213,17 @@ export default css`
     }
 
     .MainMenu__items {
-      --link-color: _inherit;
-      --link-color--hover: ${vars.MainMenu_accentcolor};
+      ${hannaVarOverride({
+        link_color: '_inherit',
+        link_color__hover: vars.MainMenu_accentcolor,
+      })}
       position: absolute;
       z-index: ${vars.zindex__header};
       top: 0;
       right: 0;
       left: ${cols_pct(3, 3)};
       height: ${vars.Layout$$header_height};
+      padding-bottom: ${prem(10)};
       margin-right: ${between_Topmenu(-8, -20)};
       margin-left: ${between_Topmenu(-14, -20)};
       display: flex;
@@ -259,13 +266,15 @@ export default css`
     }
     html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
     html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
-      --link-color--hover: ${vars.color_suld_0};
+      ${hannaVarOverride({
+        link_color__hover: vars.color_suld_0,
+      })}
       color: ${color(colors.suld_25).fade(0.3)};
     }
 
     .MainMenu__link {
       padding: ${prem(10)} var(--MainMenu__item-padding);
-      padding-bottom: calc(${prem(10)} - ${vars.link_underline__thickness});
+      padding-bottom: 0;
     }
     .MainMenu__link[aria-pressed='true'] {
       color: ${vars.color_suld_0};
@@ -371,7 +380,9 @@ export default css`
       padding-top: ${prem(65)};
       padding-left: ${prem(32)};
       padding-bottom: ${prem(33)};
-      --link-focus-outlineColor: ${vars.color_suld_0};
+      ${hannaVarOverride({
+        link_focus_outlineColor: vars.color_suld_0,
+      })}
     }
     .MainMenu__megapanel__backtomenu:hover::after,
     .MainMenu__megapanel__backtomenu:active::after {

@@ -61,7 +61,7 @@ export default css`
 
     .IslandBlock__image {
       // // Arg this bleeds around the edges of the SVG in chrome
-      // background-color: $var--theme-color-tertiary;
+      // background-color: ${vars.theme_color_tertiary};
       position: relative;
       display: block;
       overflow: hidden;

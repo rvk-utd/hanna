@@ -1,4 +1,4 @@
-import { css, pct, PlainNumber, PxValue, RawCssString, rem } from 'es-in-css';
+import { css, PlainNumber, PxValue, RawCssString, rem } from 'es-in-css';
 
 import { grid } from '../../lib/grid';
 import { hannaVars as vars } from '../../lib/hannavars';
@@ -8,14 +8,6 @@ import { hannaVars as vars } from '../../lib/hannavars';
  */
 export const prem = (px: PlainNumber | PxValue) => {
   return rem(px / 16);
-};
-
-/**
- * Converts a unitless number (a decimal between 0 and 1) to a percentage.
- * @param {number} num - number between 0 and 1
- */
-export const percentage = (num: number) => {
-  return pct(num * 100);
 };
 
 export const grid_units = (units = 1) => {

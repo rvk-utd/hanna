@@ -3,7 +3,7 @@ import { css, pct_f } from 'es-in-css';
 import { between } from '../lib/between';
 import { mq } from '../lib/breakpoints';
 import { grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
 import { freezeScroll_css, LayoutHeaderUnderlay_css } from './styles/header';
@@ -164,7 +164,7 @@ export default css`
         top: 0;
         bottom: 0;
         right: 0;
-        // right: calc(-1 * #{$var--browser-scrollbar-width});
+        // right: calc(-1 * ${vars.browser_scrollbar_width});
         left: 0;
         // overflow-y: scroll;
         overflow: auto;
@@ -237,8 +237,10 @@ export default css`
       padding-left: ${grid_units(7)};
       min-height: calc(${vars.font_bd_s_leading} + ${vars.font_label_leading});
       border-bottom: 1px solid ${vars.color_suld_50};
-      --link-underline: none;
-      --link-underline--hover: none;
+      ${hannaVarOverride({
+        link_underline: 'none',
+        link_underline__hover: 'none',
+      })}
       --ContactBubble--type--icon: none;
     }
     .ContactBubble__item--type--suggestions {
