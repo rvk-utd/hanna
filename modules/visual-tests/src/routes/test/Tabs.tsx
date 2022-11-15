@@ -125,7 +125,7 @@ export const testing: TestingInfo = {
         const tabContainer = page.locator(`[aria-label="${tabsLabel}"]`);
         const tabText = /-subTabs$/.test(labelSuffix) ? 'Sub-tab' : 'Tab';
 
-        await tabContainer.locator(`.Tabs__tab:text("${tabText} 1")`).hover();
+        await tabContainer.locator(`.Tabs__tab:text("${tabText} 1") >> nth=0`).hover();
         await localScreenshot(tabContainer, tabsLabel + '-hover');
       }
       /* eslint-enaable no-await-in-loop */

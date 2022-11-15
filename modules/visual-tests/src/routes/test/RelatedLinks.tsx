@@ -47,5 +47,5 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  initialHover: '.RelatedLinks__link',
+  initialHover: '.RelatedLinks__link >> nth=0',
 };
