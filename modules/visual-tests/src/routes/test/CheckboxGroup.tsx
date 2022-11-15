@@ -50,6 +50,7 @@ export default function () {
       {([undefined, 'inline'] as const).map((layout, i) => {
         const opts = !layout ? options.slice(0, 3) : options;
         const name = layout || '';
+
         return (
           <Fragment key={i}>
             {i > 0 && <DummyBlock thin />}
@@ -88,7 +89,4 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {
-  initialHover:
-    '.FormField--disabled.CheckboxGroup--inline input[type="checkbox"] >> nth=2',
-};
+export const testing: TestingInfo = {};
