@@ -1,6 +1,7 @@
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { css, str, VariablePrinter } from 'es-in-css';
 
+import { font } from './font';
 import iconfonttokens from './iconfonttokens';
 
 // ---------------------------------------------------------------------------
@@ -22,7 +23,7 @@ export const iconStyle = (icon?: string | VariablePrinter) => {
     text-align: center;
     vertical-align: top;
     // iconFontStyling
-    font-family: ${iconfontName + ', Arial, Helvetica, sans-serif'};
+    font-family: ${`${iconfontName}, ${font.family_w_fallback}`};
     speak: none; // speak property is deprecated
     font-weight: normal;
     font-style: normal;

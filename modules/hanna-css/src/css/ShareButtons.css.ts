@@ -60,10 +60,14 @@ export default css`
       content: ${vars.icon__twitter};
     }
     .ShareButtons__link--linkedin::before {
-      content: 'LI';
+      content: 'Li';
+      font-weight: bold;
+      line-height: 31px;
     }
     .ShareButtons__link--email::before {
-      content: 'E';
+      content: '@';
+      font-weight: bold;
+      line-height: 28px;
     }
   }
 `;
