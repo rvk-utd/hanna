@@ -2,6 +2,7 @@ import { css, em } from 'es-in-css';
 
 import { between_phone_netbook } from '../lib/between';
 import { mq } from '../lib/breakpoints';
+import { buildVariables } from '../lib/cssutils';
 import { cols_px } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
@@ -10,6 +11,9 @@ import { WARNING__ } from '../lib/WARNING__';
 import { freezeScroll_css } from './styles/header';
 import { hideText_css } from './utils/hideText';
 import { prem } from './utils/miscUtils';
+
+const ModalVariables = buildVariables(['paddingV', 'paddingH'], 'Modal');
+const mVars = ModalVariables.vars;
 
 export default css`
   @media screen {
@@ -43,15 +47,16 @@ export default css`
     }
 
     .Modal {
+      ${ModalVariables.declare({
+        paddingV: vars.grid_1,
+        paddingH: vars.grid_1,
+      })}
+
       max-width: ${cols_px(8)};
-
-      --Modal--paddingV: ${vars.grid_1};
-      --Modal--paddingH: ${vars.grid_1};
-
       position: relative;
       width: 95%;
       margin: 0 auto;
-      padding: var(--Modal--paddingV) var(--Modal--paddingH);
+      padding: ${mVars.paddingV} ${mVars.paddingH};
       background-color: #fff;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 
@@ -68,7 +73,9 @@ export default css`
       max-width: ${cols_px(6)};
 
       @media ${mq.tablet_up} {
-        --Modal--paddingH: ${vars.grid_0_1};
+        ${ModalVariables.override({
+          paddingH: vars.grid_0_1,
+        })}
       }
     }
     .Modal--w8 {
@@ -78,7 +85,9 @@ export default css`
       max-width: ${cols_px(10)};
 
       @media ${mq.netbook_up} {
-        --Modal--paddingH: ${vars.grid_1_1};
+        ${ModalVariables.override({
+          paddingH: vars.grid_1_1,
+        })}
       }
     }
 
@@ -102,7 +111,7 @@ export default css`
       bottom: 0;
       left: 0;
       right: 0;
-      margin: var(--Modal--paddingV) calc(0.5 * var(--Modal--paddingH));
+      margin: ${mVars.paddingV} calc(0.5 * ${mVars.paddingH});
     }
 
     // @deprecated  Remove this selector in v0.9
@@ -121,7 +130,7 @@ export default css`
     }
 
     .Modal__closebutton {
-      ${hideText_css()}
+      ${hideText_css('soft')}
       display: block;
       position: absolute;
       z-index: 5;
