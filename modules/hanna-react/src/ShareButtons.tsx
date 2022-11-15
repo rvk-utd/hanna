@@ -39,7 +39,6 @@ type SBP = {
   type: ShareButtonPlatforms;
   label: string;
   href: string;
-  children?: undefined;
 };
 
 const ShareButtons__item = (props: SBP) => {
@@ -67,7 +66,6 @@ const ShareButtons__item = (props: SBP) => {
 
 export type ShareButtonsProps = {
   ssr?: SSRSupport;
-  children?: undefined;
   texts?: Readonly<ShareButtonI18n>;
   lang?: string;
 } & Partial<Record<ShareButtonPlatforms, boolean>>;

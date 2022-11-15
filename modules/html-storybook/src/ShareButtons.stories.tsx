@@ -9,34 +9,35 @@ export default {
   title: 'ShareButtons',
   parameters: {
     knobs: { disabled: false },
+    viewport: { defaultViewport: 'responsive' },
   } as StoryParameters,
 };
 
 export const _ShareButtons: StoryComponent = () => {
-  const facebook = boolean('Facebook (default)', true);
-  const twitter = boolean('Twitter (default)', true);
-  const linkedin = boolean('LinkedIn', false);
-  const email = boolean('E-mail', false);
-
+  // const showBrowserHTML = boolean('Show JavaScript rendered HTML', false);
   const label = boolean('Custom label', false) ? 'Deila frétt' : undefined;
   const buttonLabel = boolean('Custom button text', false)
     ? '${name} deiling'
     : undefined;
+
+  const facebook = boolean('Facebook (default)', true);
+  const twitter = boolean('Twitter (default)', true);
+  const linkedin = boolean('LinkedIn', false);
+  const email = boolean('E-mail', false);
   const emailSubject =
     email && boolean('Custom e-mail subject', false) ? 'Áhugaverð frétt' : undefined;
-
-  const showBrowserHTML = boolean('Show JavaScript rendered HTML', false);
 
   const isServerSide = useIsServerSide();
 
   const key = [
+    // showBrowserHTML,
     facebook,
     twitter,
     linkedin,
     email,
     label,
     buttonLabel,
-    showBrowserHTML,
+    emailSubject,
     isServerSide,
   ].join(',');
 
@@ -53,7 +54,8 @@ export const _ShareButtons: StoryComponent = () => {
       linkedin={linkedin}
       email={email}
       texts={texts}
-      ssr={isServerSide && !showBrowserHTML ? 'ssr-only' : false}
+      ssr={false}
+      // ssr={isServerSide && !showBrowserHTML ? 'ssr-only' : false}
     />
   );
 };

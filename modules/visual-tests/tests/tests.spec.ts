@@ -66,6 +66,7 @@ import { testing as Datepicker__test } from '../src/routes/test/Datepicker';
 import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
 import { testing as FeatureList__test } from '../src/routes/test/FeatureList';
 import { testing as FileInput__test } from '../src/routes/test/FileInput';
+import { testing as FooterBadges__test } from '../src/routes/test/FooterBadges';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as Footnote__test } from '../src/routes/test/Footnote';
 import { testing as Gallery__test } from '../src/routes/test/Gallery';
@@ -95,6 +96,7 @@ import { testing as RowBlock__test } from '../src/routes/test/RowBlock';
 import { testing as SearchHeroParagraph__test } from '../src/routes/test/SearchHeroParagraph';
 import { testing as SearchResults__test } from '../src/routes/test/SearchResults';
 import { testing as Selectbox__test } from '../src/routes/test/Selectbox';
+import { testing as ShareButtons__test } from '../src/routes/test/ShareButtons';
 import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete';
 import { testing as Skeleton__test } from '../src/routes/test/Skeleton';
 import { testing as SubHeading__test } from '../src/routes/test/SubHeading';
@@ -134,16 +136,17 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Carousel: Carousel__test,
   CenterColumn: CenterColumn__test,
   CheckboxAndRadio: CheckboxAndRadio__test,
-  CheckboxGroup: CheckboxGroup__test,
   CheckboxButtonsGroup: CheckboxButtonsGroup__test,
-  ContentArticle: ContentArticle__test,
-  ContentImage: ContentImage__test,
+  CheckboxGroup: CheckboxGroup__test,
   CityBlock: CityBlock__test,
   ContactBubble: ContactBubble__test,
+  ContentArticle: ContentArticle__test,
+  ContentImage: ContentImage__test,
   Datepicker: Datepicker__test,
   ExtraLinks: ExtraLinks__test,
   FeatureList: FeatureList__test,
   FileInput: FileInput__test,
+  FooterBadges: FooterBadges__test,
   FooterInfo: FooterInfo__test,
   Footnote: Footnote__test,
   Gallery: Gallery__test,
@@ -166,13 +169,14 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   PageHeading: PageHeading__test,
   ProcessOverview: ProcessOverview__test,
   PullQuote: PullQuote__test,
-  RadioGroup: RadioGroup__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
+  RadioGroup: RadioGroup__test,
   RelatedLinks: RelatedLinks__test,
   RowBlock: RowBlock__test,
   SearchHeroParagraph: SearchHeroParagraph__test,
   SearchResults: SearchResults__test,
   Selectbox: Selectbox__test,
+  ShareButtons: ShareButtons__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,
   Skeleton: Skeleton__test,
   SubHeading: SubHeading__test,
