@@ -13,7 +13,7 @@ export default {
   parameters: {
     knobs: { disabled: false },
     layout: { disabled: true },
-    viewport: { defaultViewport: 'phone' },
+    // viewport: { defaultViewport: 'phone' },
     css: { noLayout: true },
   } as StoryParameters,
 };

@@ -2,13 +2,20 @@ import React, { ReactNode } from 'react';
 import { css, hannaVars as vars } from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-export type DummyBlockProps = EitherObj<{ big?: true }, { thin?: true }>;
+export type DummyBlockProps = { clear?: false } & EitherObj<
+  { big?: true },
+  { thin?: true },
+  { thick?: true },
+  { customHeight?: string }
+>;
 
-export const DummyBlock = (props: DummyBlockProps) => (
-  <div
-    className="DummyBlock"
-    style={{
-      background: `${vars.color_suld_50}
+export const DummyBlock = (props: DummyBlockProps) => {
+  const { big, thick, thin, customHeight, clear } = props;
+  return (
+    <div
+      className="DummyBlock"
+      style={{
+        background: `${vars.color_suld_50}
         linear-gradient(-45deg,
           ${vars.color_suld_75} 12.5%,
           transparent 12.5%,
@@ -19,15 +26,22 @@ export const DummyBlock = (props: DummyBlockProps) => (
           transparent 87.5%,
           ${vars.color_suld_75} 87.5%
         )`,
-      backgroundPosition: '0 0',
-      backgroundSize: '32px 32px',
-      opacity: 0.5,
-      margin: '1px 0',
-      height: props.big ? '6.5rem' : props.thin ? '1rem' : '3rem',
-      clear: 'both',
-    }}
-  />
-);
+        backgroundPosition: '0 0',
+        backgroundSize: '32px 32px',
+        opacity: 0.5,
+        margin: '1px 0',
+        height: customHeight
+          ? customHeight
+          : big
+          ? '6.5rem'
+          : thick || !thin
+          ? '3rem'
+          : '1rem',
+        clear: clear === false ? undefined : 'both',
+      }}
+    />
+  );
+};
 
 export const checkeredBackgroundStyles = () => css`
   background-image: repeating-conic-gradient(

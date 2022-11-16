@@ -36,6 +36,8 @@ export default css`
       max-width: ${prem(grid.contentMaxWidth)};
       margin: 0 auto;
       position: relative;
+      display: flex;
+      flex-flow: column;
     }
 
     .Layout__alerts {
@@ -53,7 +55,7 @@ export default css`
     }
 
     .Layout__content {
-      min-height: 100vh;
+      flex-grow: 1;
       display: flex;
       flex-flow: column nowrap;
       padding-top: ${vars.Layout$$header_height};

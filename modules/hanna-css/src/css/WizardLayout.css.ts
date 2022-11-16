@@ -17,6 +17,8 @@ export default css`
       max-width: ${prem(grid.contentMaxWidth)};
       margin: 0 auto;
       position: relative;
+      display: flex;
+      flex-flow: column;
     }
 
     .WizardLayout__alerts {
@@ -34,7 +36,7 @@ export default css`
     }
 
     .WizardLayout__content {
-      min-height: 100vh;
+      flex-grow: 1;
       display: flex;
       flex-flow: column nowrap;
       // align-items: center;

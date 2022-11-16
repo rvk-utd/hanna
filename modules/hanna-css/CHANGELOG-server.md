@@ -28,6 +28,8 @@
 - fix: Make `--inline` `Checkbox` and `Radio` labels line wrap
 - fix: Right padding on `.ButtonTertiary--disabled`
 - fix: Font-size in `.FormField--small .FormField__input`s
+- fix: Height-scaling of `Layout` and `WizardLayout` with `__alerts` visible
+- fix: Hover styling of `.WizardLayoutClose`
 
 ## 0.8.70
 

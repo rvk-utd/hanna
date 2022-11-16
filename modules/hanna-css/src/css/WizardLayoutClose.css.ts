@@ -6,6 +6,7 @@ import { grid } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
+import { LinkStyle_Reset } from './styles/links';
 import { prem } from './utils/miscUtils';
 
 export default css`
@@ -26,12 +27,25 @@ export const WizardLayoutClose_css = () => css`
       color: ${vars.color_suld_200};
       font-weight: 700;
     }
+    a.WizardLayoutClose {
+      ${LinkStyle_Reset(true)};
+    }
 
     .WizardLayoutClose::after {
       ${iconStyle(vars.icon__close)}
       font-size: ${prem(13)};
       margin-left: ${prem(13)};
       padding-top: ${prem(1)};
+      transition: transform ${vars.link_transition};
+    }
+
+    .WizardLayoutClose:hover,
+    .WizardLayoutClose:active {
+      color: ${vars.color_faxafloi_100};
+
+      &::after {
+        transform: scale(1.3);
+      }
     }
   }
   @media ${mq.tablet_up} {

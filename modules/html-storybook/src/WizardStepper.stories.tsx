@@ -7,8 +7,8 @@ import { StoryComponent, StoryParameters } from './storytypes';
 export default {
   title: 'WizardStepper',
   parameters: {
-    viewport: { defaultViewport: 'responsive' },
     knobs: { disabled: false },
+    viewport: { defaultViewport: 'responsive' },
   } as StoryParameters,
 };
 
