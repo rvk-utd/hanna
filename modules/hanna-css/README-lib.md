@@ -505,9 +505,9 @@ drastic measure reserved for highly unusual situations.
 
 ## Raw Design Constants
 
-Using the [Hanna CSS variables](#hannavars) is **highly** preferrable,
-whenever possible. However, there are always edge cases where you need access
-to the raw values the CSS variables build on.
+Using the [Hanna CSS variables](#hannavars) is **highly** preferable, whenever
+possible. However, there are always edge cases where you need access to the
+raw values the CSS variables build on.
 
 For that this library exports some helpful objects.
 
