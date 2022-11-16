@@ -3,6 +3,7 @@ import { color, css } from 'es-in-css';
 import { between_Topmenu } from '../lib/between';
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
+import { buildVariables } from '../lib/cssutils';
 import { font } from '../lib/font';
 import { cols_pct, grid } from '../lib/grid';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
@@ -16,6 +17,11 @@ import { extendSides } from './utils/extendSides';
 import { grid_units, prem } from './utils/miscUtils';
 import { AuxiliaryPanel_css } from './_AuxiliaryPanel';
 import { PrimaryPanel_css } from './_PrimaryPanel';
+
+const HamburgerVariables = buildVariables(['offsetLeft', 'list__padTop'], 'MainMenu');
+const TopMenuVariables = buildVariables(['item_padding'], 'MainMenu');
+const hmVars = HamburgerVariables.vars;
+const tmVars = TopMenuVariables.vars;
 
 const menu_speed = '400ms';
 
@@ -70,21 +76,28 @@ export default css`
       display: none;
     }
     .MainMenu {
+      ${HamburgerVariables.declare({
+        offsetLeft: vars.space_4,
+        list__padTop: vars.space_2,
+      })}
       position: relative;
       display: flex;
       flex-flow: column;
 
       background-color: ${vars.MainMenu_background};
 
-      --MainMenu--offsetLeft: ${grid_units(4)};
-      --MainMenu__list--padTop: ${grid_units(2)};
-
       @media screen and (max-width: 370px) {
-        --MainMenu--offsetLeft: ${grid_units(2)};
+        ${HamburgerVariables.override({
+          offsetLeft: vars.space_2,
+        })}
       }
-      // @media screen and (max-height: 640px) {
-      // 	--MainMenu__list--padTop: ${vars.space_2};
-      // }
+      /*
+        @media screen and (max-height: 640px) {
+          $ {HamburgerVariables.override({
+            list__padTop: vars.space_2,
+          })}
+        }
+      */
     }
 
     html.menu-is-active .MainMenu {
@@ -135,12 +148,12 @@ export default css`
 
       display: flex;
       flex-flow: row wrap;
-      padding-top: var(--MainMenu__list--padTop);
+      padding-top: ${hmVars.list__padTop};
       padding-bottom: ${grid_units(3)};
 
       margin-left: ${vars.grid_margin__neg};
       margin-right: ${vars.grid_margin__right__neg};
-      padding-left: calc(${vars.grid_margin} + var(--MainMenu--offsetLeft));
+      padding-left: calc(${vars.grid_margin} + ${hmVars.offsetLeft});
       padding-right: ${vars.grid_margin__right};
     }
 
@@ -262,7 +275,9 @@ export default css`
     }
 
     .MainMenu__item:not(.MainMenu__separator ~ *) {
-      --MainMenu__item-padding: ${prem(10)};
+      ${TopMenuVariables.declare({
+        item_padding: prem(10),
+      })}
     }
     html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
     html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
@@ -273,7 +288,7 @@ export default css`
     }
 
     .MainMenu__link {
-      padding: ${prem(10)} var(--MainMenu__item-padding);
+      padding: ${prem(10)} ${tmVars.item_padding};
       padding-bottom: 0;
     }
     .MainMenu__link[aria-pressed='true'] {

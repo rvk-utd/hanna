@@ -1,14 +1,18 @@
-import { color, css, ms, str } from 'es-in-css';
+import { color, css, ms } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
 import { colors } from '../lib/colors';
+import { buildVariables } from '../lib/cssutils';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { icons, iconStyle } from '../lib/icons';
+import { iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
 import { LinkStyle_Reset } from './styles/links';
 import { hideText_css } from './utils/hideText';
 import { prem } from './utils/miscUtils';
+
+const AlertVariables = buildVariables(['background', 'icon_color', 'icon'], 'Alert');
+const alertVars = AlertVariables.vars;
 
 const pureWhite = color('#fff');
 const linkColor = color(colors.faxafloi_100).mix(colors.faxafloi_150, 0.2);
@@ -18,16 +22,18 @@ const ease_out_quartic = 'cubic-bezier(0.165, 0.84, 0.44, 1)';
 export default css`
   @media screen {
     .Alert {
-      --Alert-background: ${color(colors.faxafloi_50).mix(pureWhite, 0.5)};
-      --Alert-icon-color: ${vars.color_faxafloi_100};
-      --Alert-icon: ${vars.icon__info}; // ${str(icons.info)};
+      ${AlertVariables.declare({
+        background: color(colors.faxafloi_50).mix(pureWhite, 0.5),
+        icon_color: vars.color_faxafloi_100,
+        icon: vars.icon__info,
+      })}
 
       ${hannaVarOverride({
         link_color: linkColor,
         link_color__hover: linkColor,
       })}
 
-      background: var(--Alert-background);
+      background: ${alertVars.background};
       border-radius: ${prem(8)};
       position: relative;
 
@@ -41,8 +47,8 @@ export default css`
     }
     .Alert::before {
       ${iconStyle(vars.icon__info)}
-      content: var(--Alert-icon);
-      color: var(--Alert-icon-color);
+      content: ${alertVars.icon};
+      color: ${alertVars.icon_color};
 
       font-size: ${prem(16)};
       // line-height: ${prem(12)};
@@ -68,28 +74,25 @@ export default css`
 
     .Alert--critical,
     .Alert--error {
-      --Alert-background: ${color(colors.heidmork_50).mix(pureWhite, 0.5)}; // a11y hax
-      --Alert-icon-color: ${vars.color_heidmork_100};
-      --Alert-icon: ${vars.icon__error};
+      ${AlertVariables.override({
+        background: color(colors.heidmork_50).mix(pureWhite, 0.5),
+        icon_color: vars.color_heidmork_100,
+        icon: vars.icon__error,
+      })}
     }
     .Alert--warning {
-      --Alert-background: ${vars.color_nautholsvik_50};
-      --Alert-icon-color: ${color(colors.nautholsvik_100).mix(
-        colors.nautholsvik_150,
-        0.33
-      )}; // a11y hax
-      --Alert-icon: ${vars.icon__warning};
+      ${AlertVariables.override({
+        background: vars.color_nautholsvik_50,
+        icon_color: color(colors.nautholsvik_100).mix(colors.nautholsvik_150, 0.33),
+        icon: vars.icon__warning,
+      })}
     }
     .Alert--success {
-      --Alert-background: ${color(colors.ellidaardalur_50).mix(
-        pureWhite,
-        0.4
-      )}; // a11y hax
-      --Alert-icon-color: ${color(colors.ellidaardalur_100).mix(
-        colors.ellidaardalur_150,
-        0.33
-      )};
-      --Alert-icon: ${vars.icon__checkmark};
+      ${AlertVariables.override({
+        background: color(colors.ellidaardalur_50).mix(pureWhite, 0.4),
+        icon_color: color(colors.ellidaardalur_100).mix(colors.ellidaardalur_150, 0.33),
+        icon: vars.icon__checkmark,
+      })}
     }
 
     // ---------------------------------------------------------------------------

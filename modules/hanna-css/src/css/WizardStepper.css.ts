@@ -1,11 +1,18 @@
 import { css, str } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
+import { buildVariables } from '../lib/cssutils';
 import { hannaVars as vars } from '../lib/hannavars';
 import { characters, iconStyle } from '../lib/icons';
 import { WARNING__ } from '../lib/WARNING__';
 
 import { prem } from './utils/miscUtils';
+
+const WizardStepperVariables = buildVariables(
+  ['ballBackground', 'ballColor', 'ballIcon', 'lineColor'],
+  'WizardStepper'
+);
+const wsVars = WizardStepperVariables.vars;
 
 export default css`
   @media screen {
@@ -13,10 +20,12 @@ export default css`
       counter-reset: step;
     }
     .WizardStepper__step {
-      --WizardStepper-ballBackground: ${vars.color_faxafloi_75};
-      --WizardStepper-ballColor: ${vars.color_suld_0};
-      --WizardStepper-ballIcon: ${vars.icon__checkmark};
-      --WizardStepper-lineColor: ${vars.color_faxafloi_100};
+      ${WizardStepperVariables.declare({
+        ballBackground: vars.color_faxafloi_75,
+        ballColor: vars.color_suld_0,
+        ballIcon: vars.icon__checkmark,
+        lineColor: vars.color_faxafloi_100,
+      })}
       color: ${vars.color_faxafloi_100};
 
       display: block;
@@ -40,9 +49,9 @@ export default css`
       position: absolute;
       top: ${prem(8)};
       left: ${prem(8)};
-      background: var(--WizardStepper-ballBackground);
+      background: ${wsVars.ballBackground};
       border-radius: 50%;
-      color: var(--WizardStepper-ballColor);
+      color: ${wsVars.ballColor};
       font-size: ${prem(14)};
       font-weight: ${vars.font_weight__bold};
       text-align: center;
@@ -55,7 +64,7 @@ export default css`
       bottom: ${prem(-24)};
       left: ${prem(19)};
       width: ${prem(2)};
-      background: var(--WizardStepper-lineColor);
+      background: ${wsVars.lineColor};
     }
     .WizardStepper__step:last-child::after {
       content: none;
@@ -71,26 +80,32 @@ export default css`
 
     .WizardStepper--preview > .WizardStepper__step,
     [aria-current='step'] ~ .WizardStepper__step {
-      --WizardStepper-ballBackground: ${vars.color_suld_50};
-      --WizardStepper-ballColor: ${vars.color_suld_100};
-      --WizardStepper-lineColor: ${vars.color_suld_75};
+      ${WizardStepperVariables.override({
+        ballBackground: vars.color_suld_50,
+        ballColor: vars.color_suld_100,
+        lineColor: vars.color_suld_75,
+      })}
       color: ${vars.color_suld_150};
     }
     .WizardStepper--preview > .WizardStepper__step--done,
     [aria-current='step'] ~ .WizardStepper__step--done {
-      --WizardStepper-ballColor: ${vars.color_suld_150};
+      ${WizardStepperVariables.override({
+        ballColor: vars.color_suld_150,
+      })}
     }
 
     .WizardStepper__step[aria-current='step'] {
-      --WizardStepper-ballBackground: ${vars.color_faxafloi_100};
-      --WizardStepper-ballIcon: ${vars.icon__pen};
-      --WizardStepper-lineColor: ${vars.color_suld_75};
+      ${WizardStepperVariables.override({
+        ballBackground: vars.color_faxafloi_100,
+        ballIcon: vars.icon__pen,
+        lineColor: vars.color_suld_75,
+      })}
     }
 
     .WizardStepper__step--done::before,
     .WizardStepper__step[aria-current='step']::before {
       ${iconStyle('')}
-      content: var(--WizardStepper-ballIcon);
+      content: ${wsVars.ballIcon};
       font-size: ${prem(12)};
     }
 
