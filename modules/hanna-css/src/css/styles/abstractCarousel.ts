@@ -36,6 +36,7 @@ export const carouselItemsScrollSnapStyles = () => css`
 
   &-wrapper {
     position: relative;
+    --paddingLeft: calc(50vw - 50%);
   }
   &-goRight,
   &-goLeft {

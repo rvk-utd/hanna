@@ -1,4 +1,4 @@
-import { color, css } from 'es-in-css';
+import { color, css, px } from 'es-in-css';
 
 import { between_Topmenu } from '../lib/between';
 import { mq } from '../lib/breakpoints';
@@ -19,11 +19,14 @@ import { AuxiliaryPanel_css } from './_AuxiliaryPanel';
 import { PrimaryPanel_css } from './_PrimaryPanel';
 
 const HamburgerVariables = buildVariables(['offsetLeft', 'list__padTop'], 'MainMenu');
-const TopMenuVariables = buildVariables(['item_padding'], 'MainMenu');
 const hmVars = HamburgerVariables.vars;
+
+const TopMenuVariables = buildVariables(['item_padding'], 'MainMenu');
 const tmVars = TopMenuVariables.vars;
 
 const menu_speed = '400ms';
+
+// ---------------------------------------------------------------------------
 
 export default css`
   @keyframes MainMenu__mega__item--fadeup {
@@ -250,15 +253,20 @@ export default css`
     }
 
     .MainMenu__item {
+      ${TopMenuVariables.declare({
+        item_padding: between_Topmenu(4, 10),
+      })}
+
       color: ${vars.color_suld_200};
       white-space: nowrap;
       margin: 0 ${between_Topmenu(4, 10)};
-      --MainMenu__item-padding: ${between_Topmenu(4, 10)};
 
       @media ${mq.wide} {
         margin-right: 10px;
         margin-left: 10px;
-        --MainMenu__item-padding: 10px;
+        ${TopMenuVariables.override({
+          item_padding: px(10),
+        })}
       }
     }
 
@@ -275,7 +283,7 @@ export default css`
     }
 
     .MainMenu__item:not(.MainMenu__separator ~ *) {
-      ${TopMenuVariables.declare({
+      ${TopMenuVariables.override({
         item_padding: prem(10),
       })}
     }
