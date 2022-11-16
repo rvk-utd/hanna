@@ -105,6 +105,7 @@ import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
 import { testing as TextInput__test } from '../src/routes/test/TextInput';
 import { testing as VSpacer__test } from '../src/routes/test/VSpacer';
+import { testing as WizardLayout__test } from '../src/routes/test/WizardLayout';
 import { testing as WizardStepper__test } from '../src/routes/test/WizardStepper';
 
 /* eslint-enable import/first */
@@ -185,6 +186,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   TextBlock: TextBlock__test,
   TextInput: TextInput__test,
   VSpacer: VSpacer__test,
+  WizardLayout: WizardLayout__test,
   WizardStepper: WizardStepper__test,
 };
 // ---------------------------------------------------------------------------

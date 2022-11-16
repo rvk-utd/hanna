@@ -8,8 +8,8 @@ import { Link } from './_abstract/_Link';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar';
 
 type WizardLayoutProps = {
-  wizardStepper?: ReactNode;
-  wizardFooter?: ReactNode;
+  wizardStepper?: ReactNode | false;
+  wizardFooter?: ReactNode | false;
   colorTheme?: HannaColorTheme;
   siteName?: string;
   logoLink?: string;
