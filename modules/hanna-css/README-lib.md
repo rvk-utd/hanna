@@ -235,7 +235,7 @@ Object containing the names of the Hanna color themes.
 import { colorThemes } from '@reykjavik/hanna-css';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 
-const themeName: HannaColorTheme = colorThemes.trustworty;
+const themeName: HannaColorTheme = colorThemes.trustworthy;
 
 console.log(themeName);
 // "trustworthy"
@@ -339,7 +339,7 @@ You must pass a list of `cssTokens` corresponding to the Hanna design
 components you use on your page(s).
 
 ```js
-import { isDevMode } from '@reykjavik/hanna-css';
+import { getCssBundleUrl } from '@reykjavik/hanna-css';
 
 const cssTokens = [
   '-basics', // The required base style reset
@@ -371,11 +371,11 @@ ways.
 
 The default is always the most recent major version of the Hanna CSS files.
 
-Use this option if you, for some reason, wish/need to pin your CSS files to a
-specific version folder.
+Use this option if you, for some reason, wish/need to pin your CSS files to an
+older, or more specific version folder.
 
 ```js
-const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.8.20' });
+const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.7' });
 ```
 
 ### `styleServerUrl`
@@ -505,9 +505,9 @@ drastic measure reserved for highly unusual situations.
 
 ## Raw Design Constants
 
-Using the [Hanna CSS variables](#hannavars) is **highly** preferrable,
-whenever possible. However, there are always edge cases where you need access
-to the raw values the CSS variables build on.
+Using the [Hanna CSS variables](#hannavars) is **highly** preferable, whenever
+possible. However, there are always edge cases where you need access to the
+raw values the CSS variables build on.
 
 For that this library exports some helpful objects.
 

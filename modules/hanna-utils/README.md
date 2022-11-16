@@ -56,7 +56,7 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
 
 **Syntax:** `getSVGtext(url: string | undefined): Promise<string>`
 
-Fetches a remote SVG file and returns its markup contents — exlcuding any
+Fetches a remote SVG file and returns its markup contents — excluding any
 leading `<?xml />` directives or "Generator" comments.
 
 ```ts
@@ -67,6 +67,16 @@ const svgUrl = 'https://styles.reykjavik.is/assets/reykjavik-logo.svg';
 getSVGtext(svgUrl).then((svgMarkup) => {
   document.body.insertAdjacentHTML('beforeend', svgMarkup);
 });
+```
+
+To check if file is svg:
+
+```ts
+import { getSVGtext } from '@reykjavik/hanna-utils';
+
+const svgUrl = 'https://styles.reykjavik.is/assets/reykjavik-logo.svg';
+// true
+const isSVG = getSVGtext.isSvgUrl(svgUrl);
 ```
 
 ### `formatMonitor`
@@ -115,8 +125,9 @@ options.
 ```ts
 import { printDate } from '@reykjavik/hanna-utils';
 
-printDate('2022-04-30', 'is'); // 31. apríl 2022
-printDate(new Date('2022-04-30'), 'en'); // April 31, 2022
+printDate('2022-04-30', 'is'); // 30. apríl 2022
+printDate(new Date('2022-04-30'), 'en'); // April 30, 2022
+printDate('2022-04-30', 'pl'); // 30. kwietnia 2022
 ```
 
 ### `getPageScrollElm`
@@ -419,9 +430,9 @@ Simple type-guarding filter function that filters out "falsy" values (`""`,
 ```ts
 import { notFalsy } from '@reykjavik/hanna-utils';
 
-const mixed = ['hi', null, undefined, '', 0, false] as const;
-const strings: Array<'hi', 'ho'> = mixed.filter(notFalsy);
-// ['hi']
+const mixed = ['hi', null, undefined, '', 0, false, 'ho'] as const;
+const strings: Array<'hi' | 'ho'> = mixed.filter(notFalsy);
+// ['hi', 'ho']
 ```
 
 ### `ObjectKeys`, `ObjectEntries`, `ObjectFromEntries`
@@ -529,9 +540,9 @@ The `EitherObj` accepts between 2 and 4 type parameters.
 Example with three inputs: `A`, `B` and `C`:
 
 ```ts
-type A { type: 'profit', gain: number },
-type B { type: 'loss', loss: number }
-type C { type: 'even', panic: boolean }
+type A = { type: 'profit'; gain: number };
+type B = { type: 'loss'; loss: number };
+type C = { type: 'even'; panic: boolean };
 
 type MyProps = EitherObj<A, B, C>;
 ```
@@ -540,8 +551,8 @@ is equivalent to:
 
 ```ts
 type MyProps =
-  | { type: 'profit'; gain: number; loss?: never; panic?: never }
-  | { type: 'loss'; gain?: never; loss: number; panic?: never }
+  | { type: 'profit'; gain: number; loss?: never; panic?: never };
+  | { type: 'loss'; gain?: never; loss: number; panic?: never };
   | { type: 'even'; gain?: never; loss?: never; panic: boolean };
 ```
 
