@@ -235,7 +235,7 @@ Object containing the names of the Hanna color themes.
 import { colorThemes } from '@reykjavik/hanna-css';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 
-const themeName: HannaColorTheme = colorThemes.trustworty;
+const themeName: HannaColorTheme = colorThemes.trustworthy;
 
 console.log(themeName);
 // "trustworthy"
@@ -339,7 +339,7 @@ You must pass a list of `cssTokens` corresponding to the Hanna design
 components you use on your page(s).
 
 ```js
-import { isDevMode } from '@reykjavik/hanna-css';
+import { getCssBundleUrl } from '@reykjavik/hanna-css';
 
 const cssTokens = [
   '-basics', // The required base style reset
