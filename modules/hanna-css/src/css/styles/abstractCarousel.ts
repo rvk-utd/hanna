@@ -5,15 +5,16 @@ import { hannaVars as vars } from '../../lib/hannavars';
 import { iconStyle } from '../../lib/icons';
 import { avoidCssnanoMerging } from '../utils/miscUtils';
 
+const extend = (f = 1) => `calc(${f * 50}vw - ${f * 50}%)`;
+
 export const carouselItemsScrollSnapStyles = () => css`
   & {
     display: flex;
     flex-flow: row;
     overflow-x: scroll;
     scroll-behavior: smooth;
-    --paddingLeft: calc(50vw - 50%);
-    padding-left: var(--paddingLeft);
-    margin: 0 calc(-1 * var(--paddingLeft));
+    padding-left: ${extend};
+    margin: 0 ${extend(-1)};
     scroll-padding-left: var(--Carousel--leftOffset, ${px(grid.margin__phone)});
     width: 100vw;
     ${
@@ -36,14 +37,13 @@ export const carouselItemsScrollSnapStyles = () => css`
 
   &-wrapper {
     position: relative;
-    --paddingLeft: calc(50vw - 50%);
   }
   &-goRight,
   &-goLeft {
     position: absolute;
     width: 3rem;
     ${avoidCssnanoMerging(css`
-      width: max(calc(0.4 * var(--paddingLeft)), calc(1.2 * ${vars.grid_margin}), 2rem);
+      width: max(${extend(0.4)}, calc(1.2 * ${vars.grid_margin}), 2rem);
     `)}
     top: -0.67rem;
     bottom: -0.67rem;
@@ -82,12 +82,12 @@ export const carouselItemsScrollSnapStyles = () => css`
 
   &-goRight {
     cursor: e-resize;
-    right: calc(-1 * var(--paddingLeft) + ${vars.browser_scrollbar_width});
+    right: calc(${extend(-1)} + ${vars.browser_scrollbar_width});
   }
   &-goLeft {
     transform: rotate(180deg);
     cursor: w-resize;
-    left: calc(-1 * var(--paddingLeft));
+    left: ${extend(-1)};
   }
 
   // Ensure that the last item can scroll all the way to the left edge.
