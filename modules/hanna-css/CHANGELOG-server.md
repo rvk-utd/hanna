@@ -27,6 +27,7 @@
 - fix: Correct minor responsive rendering glitches in `.FeatureList`
 - fix: Make `--inline` `Checkbox` and `Radio` labels line wrap
 - fix: Right padding on `.ButtonTertiary--disabled`
+- fix: Height-scaling of `Layout` and `WizardLayout` with `__alerts` visible
 
 ## 0.8.70
 
