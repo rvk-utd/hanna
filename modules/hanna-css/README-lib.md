@@ -375,7 +375,7 @@ Use this option if you, for some reason, wish/need to pin your CSS files to a
 specific version folder.
 
 ```js
-const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.8.20' });
+const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.8' });
 ```
 
 ### `styleServerUrl`
