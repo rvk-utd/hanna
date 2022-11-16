@@ -1,5 +1,6 @@
 @use 'globals' as *;
 @use 'styles/font' as *;
+@use 'styles/links' as *;
 
 /*!@deps
 	WizardLayout
@@ -15,14 +16,28 @@
       color: $color-suld-200;
       font-weight: 700;
     }
+    a.WizardLayoutClose {
+      @include LinkStyle_Reset(true);
+    }
 
     .WizardLayoutClose::after {
       @include icon($icons-close);
       font-size: prem(13);
       margin-left: prem(13);
       padding-top: prem(1);
+      transition: transform $var--link-transition;
+    }
+
+    .WizardLayoutClose:hover,
+    .WizardLayoutClose:active {
+      color: $var--color-faxafloi-100;
+
+      &::after {
+        transform: scale(1.3);
+      }
     }
   }
+
   @media #{$mq-tablet_up} {
     .WizardLayoutClose {
       right: prem(30);

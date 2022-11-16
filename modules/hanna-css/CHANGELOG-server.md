@@ -28,6 +28,7 @@
 - fix: Make `--inline` `Checkbox` and `Radio` labels line wrap
 - fix: Right padding on `.ButtonTertiary--disabled`
 - fix: Height-scaling of `Layout` and `WizardLayout` with `__alerts` visible
+- fix: Hover styling of `.WizardLayoutClose`
 
 ## 0.8.70
 
