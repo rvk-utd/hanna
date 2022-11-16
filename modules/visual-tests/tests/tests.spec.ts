@@ -80,6 +80,7 @@ import { testing as InfoHero__test } from '../src/routes/test/InfoHero';
 import { testing as IslandBlock__test } from '../src/routes/test/IslandBlock';
 import { testing as IslandPageBlock__test } from '../src/routes/test/IslandPageBlock';
 import { testing as LabeledTextBlock__test } from '../src/routes/test/LabeledTextBlock';
+import { testing as Layout__test } from '../src/routes/test/Layout';
 import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
 import { testing as MiniMetrics__test } from '../src/routes/test/MiniMetrics';
 import { testing as Modal__test } from '../src/routes/test/Modal';
@@ -161,6 +162,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   IslandBlock: IslandBlock__test,
   IslandPageBlock: IslandPageBlock__test,
   LabeledTextBlock: LabeledTextBlock__test,
+  Layout: Layout__test,
   MainMenu: MainMenu__test,
   MiniMetrics: MiniMetrics__test,
   Modal: Modal__test,
