@@ -75,6 +75,7 @@ const createStyleServerInfoTsFile = async (cssVersion) => {
       ``,
       `export type CssVersionParam =`,
       `${cssVersionsStr};`,
+      ``,
     ].join('\n')
   );
 };
