@@ -39,6 +39,7 @@ const baseOpts = {
   watch: !!opts.dev,
 };
 
+/** @param {string} cssVersion */
 const createStyleServerInfoTsFile = async (cssVersion) => {
   const cssFolders = await readdir('../../style-server/public/css').then((dir) =>
     dir.filter((name) => name !== 'dev')
