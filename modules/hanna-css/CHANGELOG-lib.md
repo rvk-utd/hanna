@@ -18,6 +18,7 @@ _2022-11-03_
 - feat: Upgrade `es-in-css` for bugfixes and new features.
 - feat: Add new dev mixins `WARNING_border__`, `WARNING_border_soft__`
 - feat: Convert relevant `_raw` values to `PxValue`
+- feat(ts): Add type restrictions to `getCssBundleUrl`'s `version` option
 - fix(ts): Tighten signature of between helpers to use `PlainNumber` type
 - fix(ts): Make most constant objects readonly (`as const`)
 
