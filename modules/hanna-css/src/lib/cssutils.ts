@@ -1,7 +1,7 @@
 import { styleServerUrl } from '@reykjavik/hanna-utils/assets';
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
-import { cssVersion as fullCssVersion } from './style-server-info';
+import { cssVersion as fullCssVersion, CssVersionParam } from './style-server-info';
 
 // ---------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ const cssCurrentVersionFolder =
 
 type CssBundleOpts = {
   /** If you want to pin your CSS files to a specific version */
-  version?: string;
+  version?: CssVersionParam;
 
   /** @deprecated Use `setStyleServerUrl()` instead. (will be removed in v0.6) */
   testingServer?: string;
