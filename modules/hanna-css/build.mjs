@@ -40,9 +40,9 @@ const baseOpts = {
 };
 
 const createStyleServerInfoTsFile = async (cssVersion) => {
-  const cssFolders = await readdir('../../style-server/public/css').then((dir) => {
-    return dir.filter((name) => name !== 'dev');
-  });
+  const cssFolders = await readdir('../../style-server/public/css').then((dir) =>
+    dir.filter((name) => name !== 'dev')
+  );
   /** @type {Record<string, 1>} */
   const cssFoldersPlus = {};
   cssFolders.forEach((name) => {
