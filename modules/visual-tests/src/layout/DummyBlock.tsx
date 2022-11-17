@@ -64,13 +64,23 @@ export const checkeredBackground = (selector: string) => (
 
 // ===========================================================================
 
-export const GhostLabel = (props: { label: ReactNode }) => (
+export const GhostLabel = (props: { label: ReactNode; black?: boolean }) => (
   <div
     className="GhostLabel"
     style={{
       position: 'absolute',
+      zIndex: 1,
       font: `${vars.font_label}`,
-      color: `${vars.color_suld_100}`,
+      ...(props.black
+        ? {
+            color: 'black',
+            background: 'white',
+            opacity: '.33',
+            padding: '0 2px',
+          }
+        : {
+            color: `${vars.color_suld_100}`,
+          }),
     }}
   >
     {props.label}

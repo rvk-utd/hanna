@@ -88,6 +88,7 @@ import { testing as NameCards__test } from '../src/routes/test/NameCards';
 import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
 import { testing as PageFilter__test } from '../src/routes/test/PageFilter';
 import { testing as PageHeading__test } from '../src/routes/test/PageHeading';
+import { testing as Picture__test } from '../src/routes/test/Picture';
 import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
 import { testing as PullQuote__test } from '../src/routes/test/PullQuote';
 import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
@@ -95,6 +96,7 @@ import { testing as RadioGroup__test } from '../src/routes/test/RadioGroup';
 import { testing as RelatedLinks__test } from '../src/routes/test/RelatedLinks';
 import { testing as RowBlock__test } from '../src/routes/test/RowBlock';
 import { testing as SearchHeroParagraph__test } from '../src/routes/test/SearchHeroParagraph';
+import { testing as SearchInput__test } from '../src/routes/test/SearchInput';
 import { testing as SearchResults__test } from '../src/routes/test/SearchResults';
 import { testing as Selectbox__test } from '../src/routes/test/Selectbox';
 import { testing as ShareButtons__test } from '../src/routes/test/ShareButtons';
@@ -104,6 +106,7 @@ import { testing as SubHeading__test } from '../src/routes/test/SubHeading';
 import { testing as Tabs__test } from '../src/routes/test/Tabs';
 import { testing as TagPill__test } from '../src/routes/test/TagPill';
 import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
+import { testing as TextButton__test } from '../src/routes/test/TextButton';
 import { testing as TextInput__test } from '../src/routes/test/TextInput';
 import { testing as VSpacer__test } from '../src/routes/test/VSpacer';
 import { testing as WizardLayout__test } from '../src/routes/test/WizardLayout';
@@ -170,6 +173,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   NewsHero: NewsHero__test,
   PageFilter: PageFilter__test,
   PageHeading: PageHeading__test,
+  Picture: Picture__test,
   ProcessOverview: ProcessOverview__test,
   PullQuote: PullQuote__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
@@ -177,6 +181,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   RelatedLinks: RelatedLinks__test,
   RowBlock: RowBlock__test,
   SearchHeroParagraph: SearchHeroParagraph__test,
+  SearchInput: SearchInput__test,
   SearchResults: SearchResults__test,
   Selectbox: Selectbox__test,
   ShareButtons: ShareButtons__test,
@@ -186,6 +191,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Tabs: Tabs__test,
   TagPill: TagPill__test,
   TextBlock: TextBlock__test,
+  TextButton: TextButton__test,
   TextInput: TextInput__test,
   VSpacer: VSpacer__test,
   WizardLayout: WizardLayout__test,
