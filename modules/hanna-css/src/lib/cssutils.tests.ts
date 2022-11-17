@@ -36,12 +36,12 @@ o.spec('buildVariables helper', () => {
 
 o.spec('getCssBundleUrl', () => {
   o('works', () => {
-    o(getCssBundleUrl('Foo,Bar')).equals(`${styleServerUrl}/bundle/dev?m=Foo,Bar`)(
-      'Accepts string'
+    o(getCssBundleUrl(' Foo, \nBar ')).equals(`${styleServerUrl}/bundle/dev?m=Foo,Bar`)(
+      'Accepts string and trims them a bit'
     );
-    o(getCssBundleUrl(['Foo', 'Bar', 'A,B'])).equals(
+    o(getCssBundleUrl(['Foo ', '  Bar', 'A,B '])).equals(
       styleServerUrl + '/bundle/dev?m=Foo,Bar,A,B'
-    )('Accepts Array');
+    )('Accepts Array and trims them also');
   });
 
   o('accepts a version token', () => {

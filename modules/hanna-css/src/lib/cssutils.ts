@@ -115,5 +115,5 @@ export const getCssBundleUrl = <AcceptNewerVersion extends boolean = false>(
   const versionFolder = options.version || cssCurrentVersionFolder;
   const tokens = typeof cssTokens === 'string' ? cssTokens : cssTokens.join(',');
 
-  return host + '/bundle/' + versionFolder + '?m=' + tokens;
+  return host + '/bundle/' + versionFolder + '?m=' + tokens.replace(/\s/g, '');
 };
