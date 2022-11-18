@@ -48,6 +48,7 @@ import { testing as ArticleMeta__test } from '../src/routes/test/ArticleMeta';
 import { testing as Attention__test } from '../src/routes/test/Attention';
 import { testing as BasicTable__test } from '../src/routes/test/BasicTable';
 import { testing as BgBox__test } from '../src/routes/test/BgBox';
+import { testing as Bling__test } from '../src/routes/test/Bling';
 import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote';
 import { testing as BreadCrumbs__test } from '../src/routes/test/BreadCrumbs';
 import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
@@ -65,10 +66,12 @@ import { testing as ContentImage__test } from '../src/routes/test/ContentImage';
 import { testing as Datepicker__test } from '../src/routes/test/Datepicker';
 import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
 import { testing as FeatureList__test } from '../src/routes/test/FeatureList';
+import { testing as FieldGroup__test } from '../src/routes/test/FieldGroup';
 import { testing as FileInput__test } from '../src/routes/test/FileInput';
 import { testing as FooterBadges__test } from '../src/routes/test/FooterBadges';
 import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
 import { testing as Footnote__test } from '../src/routes/test/Footnote';
+import { testing as Form__test } from '../src/routes/test/Form';
 import { testing as Gallery__test } from '../src/routes/test/Gallery';
 import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks';
 import { testing as Heading__test } from '../src/routes/test/Heading';
@@ -133,6 +136,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Attention: Attention__test,
   BasicTable: BasicTable__test,
   BgBox: BgBox__test,
+  Bling: Bling__test,
   BlockQuote: BlockQuote__test,
   BreadCrumbs: BreadCrumbs__test,
   ButtonBack: ButtonBack__test,
@@ -150,10 +154,12 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Datepicker: Datepicker__test,
   ExtraLinks: ExtraLinks__test,
   FeatureList: FeatureList__test,
+  FieldGroup: FieldGroup__test,
   FileInput: FileInput__test,
   FooterBadges: FooterBadges__test,
   FooterInfo: FooterInfo__test,
   Footnote: Footnote__test,
+  Form: Form__test,
   Gallery: Gallery__test,
   GridBlocks: GridBlocks__test,
   Heading: Heading__test,

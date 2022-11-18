@@ -9,7 +9,17 @@ import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 const previewUri =
-  "data:image/svg+xml,%3Csvg width='375' height='271' viewBox='0 0 375 271' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.330078 270.54H375V8.19995H0.330078V270.54Z' fill='white'/%3E%3Cpath d='M0.330078 270.54H375V159.78H0.330078V270.54Z' fill='%23999'/%3E%3Cpath d='M0.330078 86.1899V210.43H71.5801H148.21H198.62H208.2L325.91 86.1899H0.330078Z' fill='black'/%3E%3Cpath d='M0 0V116H16.75H185.13H238.68H297.91L375 41.3963V0H0Z' fill='black'/%3E%3C/svg%3E";
+  'data:image/svg+xml,' +
+  encodeURIComponent(
+    `
+    <svg width='375' height='271' viewBox='0 0 375 271' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M0.330078 270.54H375V8.19995H0.330078V270.54Z' fill='white'/>
+      <path d='M0.330078 270.54H375V159.78H0.330078V270.54Z' fill='#999'/>
+      <path d='M0.330078 86.1899V210.43H71.5801H148.21H198.62H208.2L325.91 86.1899H0.330078Z' fill='black'/>
+      <path d='M0 0V116H16.75H185.13H238.68H297.91L375 41.3963V0H0Z' fill='black'/>
+    </svg>
+    `.trim()
+  );
 
 export const meta: MetaFunction = autoTitle;
 
