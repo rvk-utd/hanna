@@ -148,13 +148,21 @@ export type Resolve<T> = Cleanup<T>;
  * is equivalent to:
  *
  * ```ts
- * type MyProps =
- *   { type: 'profit', gain: number, loss?: never, panic?: never };
+ * type MyProps = { type: 'profit', gain: number, loss?: never, panic?: never };
+ * ```
+ *
+ * The second type parameter can also be a union of strings. Thus, the above
+ * example could be rewritten so:
+ *
+ * ```ts
+ * type MyProps = AllowKeys<A, 'type' | 'loss' | 'panic'>;
  * ```
  *
  * NOTE: This type helper is used by `EitherObj<A,B,…>` type.
  */
-export type AllowKeys<A, B> = Cleanup<A & { [Key in Exclude<keyof B, keyof A>]?: never }>;
+export type AllowKeys<A, B> = Cleanup<
+  A & { [Key in Exclude<B extends string ? B : keyof B, keyof A>]?: never }
+>;
 
 // ---------------------------------------------------------------------------
 
@@ -167,9 +175,9 @@ export type AllowKeys<A, B> = Cleanup<A & { [Key in Exclude<keyof B, keyof A>]?:
  * Example with three inputs: `A`, `B` and `C`:
  *
  * ```ts
- * type A { type: 'profit', gain: number },
- * type B { type: 'loss', loss: number }
- * type C { type: 'even', panic: boolean }
+ * type A = { type: 'profit', gain: number },
+ * type B = { type: 'loss', loss: number }
+ * type C = { type: 'even', panic: boolean }
  *
  * type MyProps = EitherObj<A, B, C>;
  * ```
@@ -186,9 +194,12 @@ export type AllowKeys<A, B> = Cleanup<A & { [Key in Exclude<keyof B, keyof A>]?:
 export type EitherObj<A, B, C = boolean, D = boolean> = C extends boolean
   ? AllowKeys<A, B> | AllowKeys<B, A>
   : D extends boolean
-  ? AllowKeys<A, B & C> | AllowKeys<B, A & C> | AllowKeys<C, A & B>
+  ?
+      | AllowKeys<A, keyof B | keyof C>
+      | AllowKeys<B, keyof A | keyof C>
+      | AllowKeys<C, keyof A | keyof B>
   :
-      | AllowKeys<A, B & C & D>
-      | AllowKeys<B, A & C & D>
-      | AllowKeys<C, A & B & D>
-      | AllowKeys<D, A & B & C>;
+      | AllowKeys<A, keyof B | keyof C | keyof D>
+      | AllowKeys<B, keyof A | keyof C | keyof D>
+      | AllowKeys<C, keyof A | keyof B | keyof D>
+      | AllowKeys<D, keyof A | keyof B | keyof C>;

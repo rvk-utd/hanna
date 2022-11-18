@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Make `ObjectFromEntries` accept readonly arrays
+- fix: `EitherObj` with 3-4 params
 
 ## 0.1.16
 
