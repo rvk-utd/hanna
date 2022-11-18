@@ -29,6 +29,7 @@
 - fix: Right padding on `.ButtonTertiary--disabled`
 - fix: Height-scaling of `Layout` and `WizardLayout` with `__alerts` visible
 - fix: Hover styling of `.WizardLayoutClose`
+- fix: Background-color of disabled and readonly `.SearchInput__button`
 
 ## 0.8.70
 
