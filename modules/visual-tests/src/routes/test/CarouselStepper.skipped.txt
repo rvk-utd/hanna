@@ -1,0 +1,1 @@
+Tested as part of `Carousel`, `ArticleCarousel`, et al.

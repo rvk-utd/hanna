@@ -1,4 +1,5 @@
 import { colorFamilies as _colorFamilies, colorThemes } from '@reykjavik/hanna-css';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 /** @depcrecated import `colorFamilies` from  `@reykjavik/hanna-css` instead  (Will be removed in v0.11) */
 export const colorFamilies = Object.assign(
@@ -42,16 +43,7 @@ export const aligns: Record<string, true | undefined> = {
 
 // ---------------------------------------------------------------------------
 
-export type ComponentLayoutProps<Align extends string = 'right'> =
-  | {
-      wide?: undefined;
-      align?: undefined;
-    }
-  | {
-      wide: boolean;
-      align?: undefined;
-    }
-  | {
-      wide?: undefined;
-      align: Align;
-    };
+export type ComponentLayoutProps<Align extends string = 'right'> = EitherObj<
+  { wide?: boolean },
+  { align?: Align }
+>;

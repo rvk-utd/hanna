@@ -21,6 +21,8 @@ export const photo = {
   banner: { src: host + '/media/photo-banner.png', altText: 'Photo, long banner' },
 };
 
+export const blingUrl = '/media/bling.svg';
+
 // ---------------------------------------------------------------------------
 
 export const lorem = {

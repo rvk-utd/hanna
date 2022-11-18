@@ -528,6 +528,13 @@ is equivalent to:
 type MyProps = { type: 'profit'; gain: number; loss?: never; panic?: never };
 ```
 
+The second type parameter can also be a union of strings. Thus, the above
+example could be rewritten so:
+
+```ts
+type MyProps = AllowKeys<A, 'type' | 'loss' | 'panic'>;
+```
+
 NOTE: This type helper is used by `EitherObj<A,B,…>` type.
 
 ### Type `EitherObj`

@@ -95,6 +95,7 @@ export default function () {
   return (
     <Minimal>
       <style>{`
+        /* Disable default \`float: left:\` behavior */
         .Tabs--vertical[class] {
           position: static;
         }

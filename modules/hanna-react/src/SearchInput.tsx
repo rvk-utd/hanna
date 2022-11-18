@@ -91,6 +91,7 @@ const SearchInput = (props: SearchInputProps) => {
               onClick={onButtonClick}
               title={buttonText}
               ref={props.buttonRef}
+              disabled={disabled || readOnly}
             >
               {buttonText}
             </button>

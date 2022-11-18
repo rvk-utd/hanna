@@ -19,6 +19,7 @@
   - fix: Make Icelandic the default/fallback locale
   - fix: Swap in Icelandic and English `emailSubject`s
 - fix: Suppress Autocomplete suggestion container until suggestions arrive
+- fix: Disable `button` element when `SearchInput` is disabled or readonly
 - fix: Add missing `title` prop on `IframeBlock`
 - fix: Set default value for empty `WizardStepper` step labels
 - fix: Add missing prop `name` to `DatePicker`

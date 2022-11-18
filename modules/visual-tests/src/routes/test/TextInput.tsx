@@ -106,33 +106,31 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
-    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
-      return;
+    if (project === 'firefox-wide' || project === 'firefox-phone') {
+      const inputsToHover = [
+        { id: 'normal', name: 'normal' },
+        { id: 'normal-placeholder', name: 'normalPlaceholder' },
+        { id: 'normal-empty', name: 'normalEmpty' },
+        { id: 'invalid', name: 'invalid' },
+        { id: 'textarea', name: 'textarea' },
+        { id: 'disabled', name: 'disabled' },
+        { id: 'readonly', name: 'readonly' },
+        { id: 'small-normal', name: 'smallNormal' },
+        { id: 'small-normal-placeholder', name: 'smallNormalPlaceholder' },
+        { id: 'small-normal-empty', name: 'small-NormalEmpty' },
+        { id: 'small-invalid', name: 'smallInvalid' },
+      ];
+
+      /* eslint-disable no-await-in-loop */
+      for (const { id, name } of inputsToHover) {
+        const input = page.locator(`#${id}`);
+        const formfield = input.locator('closest=.FormField');
+
+        await input.hover({ force: true });
+        await localScreenshot(formfield, `${name}-hover`, { margin: 10 });
+      }
+      /* eslint-enable no-await-in-loop */
     }
-
-    const inputsToHover = [
-      { id: 'normal', name: 'normal' },
-      { id: 'normal-placeholder', name: 'normalPlaceholder' },
-      { id: 'normal-empty', name: 'normalEmpty' },
-      { id: 'invalid', name: 'invalid' },
-      { id: 'textarea', name: 'textarea' },
-      { id: 'disabled', name: 'disabled' },
-      { id: 'readonly', name: 'readonly' },
-      { id: 'small-normal', name: 'smallNormal' },
-      { id: 'small-normal-placeholder', name: 'smallNormalPlaceholder' },
-      { id: 'small-normal-empty', name: 'small-NormalEmpty' },
-      { id: 'small-invalid', name: 'smallInvalid' },
-    ];
-
-    /* eslint-disable no-await-in-loop */
-    for (const { id, name } of inputsToHover) {
-      const input = page.locator(`#${id}`);
-      const formfield = input.locator('closest=.FormField');
-
-      await input.hover({ force: true });
-      await localScreenshot(formfield, `${name}-hover`, { margin: 10 });
-    }
-    /* eslint-enable no-await-in-loop */
 
     // Hack to screenshot all focus states at once
     await page.mouse.move(0, 0);

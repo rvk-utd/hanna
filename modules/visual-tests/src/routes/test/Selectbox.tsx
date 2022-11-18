@@ -14,7 +14,7 @@ export const meta: MetaFunction = autoTitle;
 // export const handle = { cssTokens: [], };
 
 const options = ['Option A', ''];
-const selectboxes: Record<string, SelectboxProps & { noTest?: true }> = {
+const selectboxes: Record<string, SelectboxProps> = {
   empty: { label: 'Empty', options, value: '' },
   placeholder: {
     label: 'Placeholder',
@@ -27,17 +27,20 @@ const selectboxes: Record<string, SelectboxProps & { noTest?: true }> = {
   disabled: { label: 'Disabled', options, disabled: true },
   readonly: { label: 'Readonly', options, readOnly: true },
   invalid: { label: 'Invalid', options, invalid: true },
+};
+
+const renderedSelects: Record<string, SelectboxProps> = {
+  ...selectboxes,
   overflowing: {
     label: 'Normal overflowing',
     options: [lorem.medium],
-    noTest: true,
   },
 };
 
 export default function () {
   return (
     <Minimal>
-      {ObjectEntries(selectboxes).map(([id, props]) => (
+      {ObjectEntries(renderedSelects).map(([id, props]) => (
         <Selectbox key={id} id={id} {...props} />
       ))}
     </Minimal>
@@ -46,22 +49,17 @@ export default function () {
 
 export const testing: TestingInfo = {
   extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
-    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
-      return;
-    }
-    const selectboxesToTest = ObjectEntries(selectboxes).filter(
-      ([, props]) => !props.noTest
-    );
+    if (project === 'firefox-wide' || project === 'firefox-phone') {
+      /* eslint-disable no-await-in-loop */
+      for (const id of Object.keys(selectboxes)) {
+        const select = page.locator(`#${id}`);
+        const formfield = select.locator('closest=.FormField');
 
-    /* eslint-disable no-await-in-loop */
-    for (const [id, props] of selectboxesToTest) {
-      const select = page.locator(`#${id}`);
-      const formfield = select.locator('closest=.FormField');
-
-      await select.hover({ force: true });
-      await localScreenshot(formfield, `${id}-hover`, { margin: 10 });
+        await select.hover({ force: true });
+        await localScreenshot(formfield, `${id}-hover`, { margin: 10 });
+      }
+      /* eslint-enable no-await-in-loop */
     }
-    /* eslint-enable no-await-in-loop */
 
     // Hack to screenshot all focus states at once
     await page.mouse.move(0, 0);

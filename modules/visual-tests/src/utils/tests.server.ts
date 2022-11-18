@@ -1,8 +1,7 @@
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { execSync } from 'child_process';
-import { existsSync, statSync } from 'fs';
+import { existsSync, readFileSync, statSync } from 'fs';
 import { stat } from 'fs/promises';
-import type { IOptions as GlobOptions } from 'glob';
 
 import { LABEL_SPLIT, NAME_SPLIT } from '../../tests/helpers/screeshots';
 
@@ -12,26 +11,43 @@ type TestPageInfo = {
   path: string;
   label: string;
 };
+type SkippedTestInfo = {
+  label: string;
+  reasons: string;
+};
 
-const _filesToTestList = (files: Array<string>) =>
+const cwd = 'src/routes';
+
+const _filesToTestList = (readSkipped?: true) => (files: Array<string>) =>
   files
-    .map((file) => '/' + file.replace(/\.tsx?$/, ''))
-    .map(
-      (path): TestPageInfo => ({
+    .map((file) => {
+      const path = file.slice(cwd.length).replace(/(?:\.tsx?|\.skipped\.txt)$/, '');
+      return {
+        file,
         path,
         label: path.replace(/^.+\//, ''),
-      })
-    );
+      };
+    })
+    .map(({ path, label, file }) => {
+      if (file.endsWith('.skipped.txt')) {
+        const skipped: SkippedTestInfo = {
+          label: label.replace(/\.skipped$/, ''),
+          reasons: (readSkipped && readFileSync(file).toString()) || '',
+        };
+        return skipped;
+      }
+      const testPage: TestPageInfo = { path, label };
+      return testPage;
+    });
 
-const _testPageGlob = 'test/**/*.tsx';
-const _testPageGlobOpts: GlobOptions = { cwd: 'src/routes' };
+const _testPageGlob = cwd + '/test/**/*{.tsx,.skipped.txt}';
 
-export const getTestList = (): Promise<Array<TestPageInfo>> =>
-  globP(_testPageGlob, _testPageGlobOpts).then(_filesToTestList);
+export const getTestList = (): Promise<Array<TestPageInfo | SkippedTestInfo>> =>
+  globP(_testPageGlob).then(_filesToTestList(true));
 
 export const getTestListSync = (): Array<TestPageInfo> => {
-  const files = globSync(_testPageGlob, _testPageGlobOpts);
-  return _filesToTestList(files);
+  const files = globSync(_testPageGlob);
+  return _filesToTestList()(files).filter((item): item is TestPageInfo => 'path' in item);
 };
 
 // ---------------------------------------------------------------------------
