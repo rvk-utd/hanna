@@ -60,9 +60,16 @@ export default function Index() {
             content: (
               <TextBlock>
                 <ul>
-                  {tests.map(({ label, path }) => (
-                    <li key={path}>
-                      <Link to={path}>{label}</Link>
+                  {tests.map((item, i) => (
+                    <li key={i}>
+                      {'path' in item ? (
+                        <Link to={item.path}>{item.label}</Link>
+                      ) : (
+                        <i key={i}>
+                          {item.label}{' '}
+                          {item.reasons && <small>({' ' + item.reasons})</small>}
+                        </i>
+                      )}
                     </li>
                   ))}
                 </ul>
