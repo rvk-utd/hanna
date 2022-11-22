@@ -18,6 +18,7 @@
   - fix: Add support for Polish
   - fix: Make Icelandic the default/fallback locale
   - fix: Swap in Icelandic and English `emailSubject`s
+- fix: Lingering `--focus` state when keyboard navigating from `DatePicker`
 - fix: Suppress Autocomplete suggestion container until suggestions arrive
 - fix: Disable `button` element when `SearchInput` is disabled or readonly
 - fix: Add missing `title` prop on `IframeBlock`
