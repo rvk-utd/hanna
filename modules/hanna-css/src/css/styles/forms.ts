@@ -1,6 +1,7 @@
 import { css, LengthValue, VariablePrinter } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints';
+import { buildVariables } from '../../lib/cssutils';
 import { hannaVars as vars } from '../../lib/hannavars';
 import { iconStyle } from '../../lib/icons';
 import { WARNING__ } from '../../lib/WARNING__';
@@ -29,6 +30,26 @@ export const FormField__error = (
     })};
   }
 `;
+
+export const FormFieldVariables = buildVariables(
+  [
+    'input__border_color',
+    'input__border_radius',
+    'input__border_inner_radius',
+    'input__height',
+    'input__height_inner',
+    'input__padding_top',
+    'input__padding_bottom',
+    'input__font_size',
+    'input__color',
+    'input__color_placeholder',
+    'input__line_height',
+    'input__paddingH',
+  ],
+  'FormField'
+);
+
+// ===========================================================================
 
 export const TogglerGroup = (bem: string) => css`
   .${bem}--inline > .FormField__options {

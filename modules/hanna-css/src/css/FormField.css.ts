@@ -1,8 +1,8 @@
-import { css } from 'es-in-css';
+import { css, px } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
 
-import { FormField__error } from './styles/forms';
+import { FormField__error, FormFieldVariables } from './styles/forms';
 import { sr_only } from './utils/a11y';
 import { grid_units, overflowEllipsis, prem } from './utils/miscUtils';
 
@@ -11,23 +11,27 @@ import { TextInput_css } from './TextInput.css';
 
 export const InputField_paddingTop = 12;
 
+const ff = FormFieldVariables.vars;
+
 export default css`
   @media screen {
     .FormField {
-      --input-border-color: ${vars.color_suld_100};
-      --input-border-radius: ${prem(3)};
-      --input-border-inner-radius: ${prem(2)};
-      --input-height: ${prem(56)};
-      --input-height-inner: calc(var(--input-height) - 2px);
-      --input-padding-top: ${prem(InputField_paddingTop)};
-      --input-padding-bottom: 0px;
-      --input-font-size: ${vars.font_bd_l_size};
-      --input-color: ${vars.color_suld_200};
-      --input-color-placeholder: ${vars.color_suld_150};
-      --input-line-height: calc(
-        var(--input-height-inner) - var(--input-padding-top) - var(--input-padding-bottom)
-      );
-      --input-paddingH: ${vars.space_2};
+      ${FormFieldVariables.declare({
+        input__border_color: vars.color_suld_100,
+        input__border_radius: prem(3),
+        input__border_inner_radius: prem(2),
+        input__height: prem(56),
+        input__height_inner: `calc(${ff.input__height} - 2px)`,
+        input__padding_top: prem(InputField_paddingTop),
+        input__padding_bottom: px(0),
+        input__font_size: vars.font_bd_l_size,
+        input__color: vars.color_suld_200,
+        input__color_placeholder: vars.color_suld_150,
+        input__line_height: `calc(
+          ${ff.input__height_inner} - ${ff.input__padding_top} - ${ff.input__padding_bottom}
+        )`,
+        input__paddingH: vars.space_2,
+      })};
 
       display: flex;
       flex-flow: column;
@@ -36,19 +40,25 @@ export default css`
     }
 
     .FormField--nolabel {
-      --input-padding-top: ${prem(InputField_paddingTop / 2)};
-      --input-padding-bottom: ${prem(InputField_paddingTop / 2)};
+      ${FormFieldVariables.override({
+        input__padding_top: prem(InputField_paddingTop / 2),
+        input__padding_bottom: prem(InputField_paddingTop / 2),
+      })}
     }
 
     .FormField--small {
-      --input-font-size: ${vars.font_bd_s_size};
-      --input-height: ${prem(40)};
-      --input-padding-top: 0px;
-      --input-padding-bottom: 0px;
+      ${FormFieldVariables.override({
+        input__font_size: vars.font_bd_s_size,
+        input__height: prem(40),
+        input__padding_top: px(0),
+        input__padding_bottom: px(0),
+      })}
     }
 
     .FormField--filled {
-      --input-border-color: ${vars.color_faxafloi_100};
+      ${FormFieldVariables.override({
+        input__border_color: vars.color_faxafloi_100,
+      })}
     }
 
     .FormField__label {
@@ -81,7 +91,7 @@ export default css`
     .FormField--empty:not(.FormField--small):not(.FormField--focused)
       > label.FormField__label {
       font-size: ${vars.font_bd_s_size};
-      line-height: var(--input-height-inner);
+      line-height: ${ff.input__height_inner};
     }
 
     .FormField--nolabel > .FormField__label {
@@ -102,49 +112,59 @@ export default css`
       display: flex;
       width: 100%;
       background-color: ${vars.color_suld_0};
-      color: var(--input-color);
-      border: ${prem(1)} solid var(--input-border-color);
+      color: ${ff.input__color};
+      border: ${prem(1)} solid ${ff.input__border_color};
       transition: all 400ms ease-in;
       transition-property: color, border-color, box-shadow, background-color;
-      border-radius: var(--input-border-radius);
-      padding: var(--input-padding-bottom) var(--input-paddingH);
-      padding-top: var(--input-padding-top);
-      height: var(--input-height);
-      font-size: var(--input-font-size);
-      line-height: var(--input-line-height);
+      border-radius: ${ff.input__border_radius};
+      padding: ${ff.input__padding_bottom} ${ff.input__paddingH};
+      padding-top: ${ff.input__padding_top};
+      height: ${ff.input__height};
+      font-size: ${ff.input__font_size};
+      line-height: ${ff.input__line_height};
     }
     .FormField--empty > .FormField__input,
     .FormField__input::placeholder,
     .FormField__input > *::placeholder {
       opacity: 1; // override browser default styling
-      color: var(--input-color-placeholder);
+      color: ${ff.input__color_placeholder};
     }
     .FormField--filled > .FormField__input {
-      --input-border-color: ${vars.color_faxafloi_100};
+      ${FormFieldVariables.override({
+        input__border_color: vars.color_faxafloi_100,
+      })}
     }
     .FormField--invalid > .FormField__input,
     .FormField__input[aria-invalid='true'] {
-      --input-border-color: ${vars.color_heidmork_100};
-      --input-color: ${vars.color_heidmork_100};
+      ${FormFieldVariables.override({
+        input__border_color: vars.color_heidmork_100,
+        input__color: vars.color_heidmork_100,
+      })}
     }
     .FormField--readonly > .FormField__input,
     .FormField__input[readonly] {
-      --input-border-color: ${vars.color_suld_100};
+      ${FormFieldVariables.override({
+        input__border_color: vars.color_suld_100,
+      })}
       background-color: ${vars.color_suld_50};
     }
     // .FormField__input--focused[class],
     .FormField--focused > .FormField__input,
     .FormField__input:hover,
     .FormField__input:focus {
-      --input-border-color: ${vars.color_faxafloi_100};
+      ${FormFieldVariables.override({
+        input__border_color: vars.color_faxafloi_100,
+      })}
       color: ${vars.color_suld_200};
-      box-shadow: inset 0 0 0 ${prem(1)} var(--input-border-color);
+      box-shadow: inset 0 0 0 1px ${ff.input__border_color};
       outline: 0;
     }
     // .FormField__input--disabled[class],
     .FormField--disabled > .FormField__input,
     .FormField__input[disabled] {
-      --input-border-color: ${vars.color_suld_100};
+      ${FormFieldVariables.override({
+        input__border_color: vars.color_suld_100,
+      })}
       background-color: ${vars.color_suld_50};
       opacity: 0.5;
       cursor: not-allowed;

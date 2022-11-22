@@ -5,10 +5,13 @@ import { mq } from '../lib/breakpoints';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
+import { FormFieldVariables } from './styles/forms';
 import { sr_only } from './utils/a11y';
 import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors';
 import { hideText_css } from './utils/hideText';
 import { grid_units, prem } from './utils/miscUtils';
+
+const ff = FormFieldVariables.vars;
 
 export default css`
   /*!@deps
@@ -19,8 +22,10 @@ export default css`
     .SiteSearchInput {
       margin-bottom: ${grid_units(7)};
       // Changes as evident in the "Frontpage" Figma document
-      // --input-border-color: ${vars.color_suld_75};
-      // --input-border-radius: 0;
+      // $ {FormFieldVariables.override({
+      //   input__border_color: vars.color_suld_75,
+      //   input__border_radius: 0,
+      // })}
       --ssi-height: ${between_phone_netbook(64, 96)};
       @media ${mq.wide} {
         --ssi-height: 96px;
@@ -57,7 +62,7 @@ export default css`
       width: var(--ssi-height);
       height: var(--ssi-height);
       background-color: ${vars.color_faxafloi_100};
-      border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
+      border-radius: 0 ${ff.input__border_radius} ${ff.input__border_radius} 0;
       color: ${vars.color_suld_0};
     }
     .SiteSearchInput__button {
