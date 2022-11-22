@@ -147,6 +147,7 @@ const Datepicker = (props: DatepickerProps) => {
                 return elm;
               })
             }
+            {...addFocusProps()}
           >
             <ReactDatePicker
               id={domid}
@@ -183,7 +184,7 @@ const Datepicker = (props: DatepickerProps) => {
               showMonthDropdown
               {...inputProps}
               {...txts}
-              {...addFocusProps(datepickerExtraProps)}
+              {...datepickerExtraProps}
             />
           </div>
         );
