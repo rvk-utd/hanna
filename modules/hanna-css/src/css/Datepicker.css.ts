@@ -51,13 +51,12 @@ export default css`
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      right: 0;
       box-sizing: content-box;
+      right: 1px;
       width: ${vars.space_8};
-      padding-left: ${vars.space_0$5};
-      line-height: ${vars.space_4};
-      color: ${vars.color_suld_150};
       border-left: 2px solid ${vars.color_suld_150};
+      color: ${vars.color_suld_150};
+      line-height: ${vars.space_4};
       pointer-events: none;
     }
     .FormField--small .react-datepicker__input-container::after {

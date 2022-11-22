@@ -1,11 +1,14 @@
-import { css, pct_f } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
+import { FormFieldVariables } from './styles/forms';
 import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors';
 import { hideText_css } from './utils/hideText';
 import { prem } from './utils/miscUtils';
+
+const ff = FormFieldVariables.vars;
 
 export default css`
   /*!@deps
@@ -14,10 +17,15 @@ export default css`
 
   @media screen {
     .SearchInput {
+      --buttonWidth: ${vars.space_8};
+      --buttonColor: ${vars.color_suld_150};
+    }
+    .SearchInput.FormField--small {
+      --buttonWidth: ${vars.space_6};
     }
 
-    input.SearchInput__input {
-      margin-right: ${prem(52 + 4)};
+    .SearchInput > .FormField__input {
+      padding-right: var(--buttonWidth);
     }
 
     // underlying inactive button-like icon
@@ -25,19 +33,14 @@ export default css`
       ${iconStyle(vars.icon__search)}
       display: block;
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: ${prem(20)};
-      width: ${prem(48)};
-      font-size: ${prem(20)};
-      line-height: ${prem(32)};
-      padding-left: ${prem(24)};
-      color: ${vars.color_suld_150};
-      border-left: 2px solid currentColor;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      font-size: 1em;
+      width: var(--buttonWidth);
+      line-height: ${ff.input__height_inner};
+      color: var(--buttonColor);
       pointer-events: none;
-    }
-    .SearchInput.FormField--small > .FormField__input::after {
-      line-height: ${prem(22)};
     }
     .SearchInput.FormField--focused:not(.FormField--readonly):not(.FormField--disabled)
       > .FormField__input::after {
@@ -48,16 +51,21 @@ export default css`
     .SearchInput__button {
       ${hideText_css('soft')}
       position: absolute;
-      top: 2px;
-      bottom: 2px;
-      right: 2px;
       z-index: 1;
-      width: ${prem(66)};
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      border: 1px solid transparent;
+      background-clip: padding-box;
+      font-size: 1em;
+      border-radius: ${ff.input__border_inner_radius};
+      /* border-top-left-radius: 0; */
+      /* border-top-right-radius: 0; */
+      width: var(--buttonWidth);
+      color: var(--buttonColor);
       display: flex;
       align-items: center;
       background-color: inherit;
-      color: ${vars.color_suld_150};
-      font-size: ${prem(20)};
     }
     :disabled + .SearchInput__button,
     [readonly] + .SearchInput__button {
@@ -67,29 +75,19 @@ export default css`
     .SearchInput__button:disabled {
       opacity: 0.5;
     }
-
     .SearchInput__button::before {
       ${iconStyle(vars.icon__search)}
-      width: calc(100% - 2px);
+      width: 100%;
       margin-right: 1px;
-      padding-left: ${prem(6)};
-      transition: all 200ms ease-in;
-    }
-    .SearchInput__button::after {
-      content: '';
-      order: -1;
-      position: relative;
-      z-index: 1;
-      height: ${pct_f(32 / 50)};
-      border-left: 2px solid currentColor;
+      transition: all 100ms ease-in;
     }
 
     .SearchInput__button:not(:disabled) {
       ${hoverActiveKeyboardFocus_selector(false)(css`
+        background-color: ${vars.color_suld_25};
         color: ${vars.color_faxafloi_100};
 
         &::before {
-          background-color: ${vars.color_suld_25};
           transform: scale(1.15);
         }
       `)}

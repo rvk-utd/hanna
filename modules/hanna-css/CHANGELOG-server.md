@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update styling of `.SearchInput__button`
 - feat: Add styling for `.Cell--text--(right|center)` inside `.BasicTable`
 - feat: Add dev warnings for missing text labels (i.e. `alt` attributes on
   iframes and multimedia elements)
