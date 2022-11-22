@@ -3,7 +3,6 @@ import { css } from 'es-in-css';
 import { hannaVars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
-import { InputField__placeholder } from './styles/forms';
 import { overflowEllipsis, prem } from './utils/miscUtils';
 
 // inlined by FormField
@@ -33,7 +32,7 @@ export const Selectbox_css = () => css`
     }
 
     .Selectbox:not(.FormField--filled):not(.FormField--empty) > .FormField__input {
-      ${InputField__placeholder}
+      color: var(--input-color-placeholder);
     }
     // select options are not necessarily visible on focus,
     // * leaving this arrow in reversed state with no visible dropdown

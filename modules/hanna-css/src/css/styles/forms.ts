@@ -7,11 +7,6 @@ import { WARNING__ } from '../../lib/WARNING__';
 import { sr_only } from '../utils/a11y';
 import { grid_units, prem } from '../utils/miscUtils';
 
-export const InputField_heightI = 42;
-export const InputField_paddingTop = 12;
-export const InputField_heightI__small = 38;
-export const InputField_paddingH = grid_units(2);
-
 export const FormField__error = (
   paddingLeft: LengthValue | VariablePrinter | 0 = vars.space_2,
   marginTop: LengthValue | VariablePrinter | 0 = prem(9)
@@ -266,70 +261,4 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
       padding-left: ${prem(36)};
     }
   `};
-`;
-
-// ===========================================================================
-
-// ===========================================================================
-
-export const InputField = () => css`
-  font-size: ${vars.font_bd_l_size};
-  position: relative;
-  display: flex;
-  width: 100%;
-  background-color: ${vars.color_suld_0};
-  color: ${vars.color_suld_200};
-  border: ${prem(1)} solid var(--input-border-color);
-  transition: all 400ms ease-in;
-  transition-property: color, border-color, box-shadow, background-color;
-  border-radius: var(--input-border-radius);
-  padding: 0 ${InputField_paddingH};
-  padding-top: ${prem(InputField_paddingTop)};
-  height: ${prem(InputField_heightI + InputField_paddingTop + 2)};
-  line-height: ${prem(InputField_heightI)};
-`;
-
-export const InputField__noLabel = () => css`
-  padding-top: ${prem(InputField_paddingTop / 2)};
-  padding-bottom: ${prem(InputField_paddingTop / 2)};
-`;
-
-export const InputField__small = () => css`
-  padding-top: 0;
-  font-size: ${vars.font_bd_s_size};
-  height: ${prem(InputField_heightI__small + 2)};
-  line-height: ${prem(InputField_heightI__small)};
-`;
-
-export const InputField__placeholder = () => css`
-  color: ${vars.color_suld_150};
-  opacity: 1; // override browser default styling
-`;
-
-export const InputField__filled = () => css`
-  --input-border-color: ${vars.color_faxafloi_100};
-`;
-
-export const InputField__invalid = () => css`
-  --input-border-color: ${vars.color_heidmork_100};
-  color: ${vars.color_heidmork_100};
-`;
-
-export const InputField__focused = () => css`
-  --input-border-color: ${vars.color_faxafloi_100};
-  color: ${vars.color_suld_200};
-  box-shadow: inset 0 0 0 ${prem(1)} var(--input-border-color);
-  outline: 0;
-`;
-
-export const InputField__disabled = () => css`
-  --input-border-color: ${vars.color_suld_100};
-  background-color: ${vars.color_suld_50};
-  opacity: 0.5;
-  cursor: not-allowed;
-`;
-
-export const InputField__readonly = () => css`
-  --input-border-color: ${vars.color_suld_100};
-  background-color: ${vars.color_suld_50};
 `;
