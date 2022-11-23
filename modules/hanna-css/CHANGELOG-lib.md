@@ -4,6 +4,13 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.3.10
+
+_2022-11-23_
+
+- feat: Trim whitespace from the tokens passed to `getCssBundleUrl`
+- feat(ts): Add type restrictions to `getCssBundleUrl`'s `version` option
+
 ## 0.3.8 – 0.3.9
 
 _2022-11-03_

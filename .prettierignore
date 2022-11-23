@@ -1,4 +1,5 @@
 ## Prettier only reads .prettierignore from the project root.
 ## Thus these unwieldy deep paths.
+**/hanna-css/src/**/style-server-info.ts
 **/hanna-css/src/**/iframeResizer.contentWindow@4.js
 **/hanna-css/src/**/normalize.scss
