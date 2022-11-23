@@ -19,6 +19,7 @@
   .ContentImage__text {
     flex-basis: auto;
     flex-shrink: 2; // the __credit content tends to be shorter so lets prioritize shrinking the __text
+    min-width: 60%;
   }
   .ContentImage__credit {
     font-size: 1em;
