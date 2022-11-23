@@ -26,7 +26,7 @@ execSync(
     `cd ${serverFolder}`,
     `yarn install`,
     `git reset`,
-    `git add ./*`,
+    `git add "./*"`,
     `git commit -m "release(css): v${pkg.cssVersion}"`,
     `git reset --hard`,
 
