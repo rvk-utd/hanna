@@ -117,7 +117,7 @@ export const testing: TestingInfo = {
         { id: 'readonly', name: 'readonly' },
         { id: 'small-normal', name: 'smallNormal' },
         { id: 'small-normal-placeholder', name: 'smallNormalPlaceholder' },
-        { id: 'small-normal-empty', name: 'small-NormalEmpty' },
+        { id: 'small-normal-empty', name: 'smallNormalEmpty' },
         { id: 'small-invalid', name: 'smallInvalid' },
       ];
 
