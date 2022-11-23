@@ -3,8 +3,6 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Convert relevant `_raw` values to `PxValue`
-- fix: Tighten signature of between helpers to use `PlainNumber` type
 
 ## 0.3.8 – 0.3.9
 

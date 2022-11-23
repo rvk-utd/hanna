@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Update styling of `.SearchInput__button`
+- fix: Font-size in `.FormField--small .FormField__input`s
 - feat: Add styling for `.Cell--text--(right|center)` inside `.BasicTable`
 - feat: Add dev warnings for missing text labels (i.e. `alt` attributes on
   iframes and multimedia elements)
@@ -28,7 +29,6 @@
 - fix: Correct minor responsive rendering glitches in `.FeatureList`
 - fix: Make `--inline` `Checkbox` and `Radio` labels line wrap
 - fix: Right padding on `.ButtonTertiary--disabled`
-- fix: Font-size in `.FormField--small .FormField__input`s
 - fix: Height-scaling of `Layout` and `WizardLayout` with `__alerts` visible
 - fix: Hover styling of `.WizardLayoutClose`
 - fix: Background-color of disabled and readonly `.SearchInput__button`
