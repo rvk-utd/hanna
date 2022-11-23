@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.1.17
+
+_2022-11-23_
+
 - fix: Make `ObjectFromEntries` accept readonly arrays
 - fix: `EitherObj` with 3-4 params
 
