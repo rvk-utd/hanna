@@ -5,6 +5,7 @@ import {
   getCssBundleUrl,
   setStyleServerUrl,
   styleServerUrl,
+  targetCssVersion,
 } from './cssutils';
 import { CssVersionToken } from './style-server-info';
 
@@ -35,12 +36,15 @@ o.spec('buildVariables helper', () => {
 // ---------------------------------------------------------------------------
 
 o.spec('getCssBundleUrl', () => {
+  // default version folder depends on NODE_ENV
+  const ver = process.env.NODE_ENV === 'production' ? `v${targetCssVersion}` : 'dev';
+
   o('works', () => {
-    o(getCssBundleUrl(' Foo, \nBar ')).equals(`${styleServerUrl}/bundle/dev?m=Foo,Bar`)(
-      'Accepts string and trims them a bit'
-    );
+    o(getCssBundleUrl(' Foo, \nBar ')).equals(
+      `${styleServerUrl}/bundle/${ver}?m=Foo,Bar`
+    )('Accepts string and trims them a bit');
     o(getCssBundleUrl(['Foo ', '  Bar', 'A,B '])).equals(
-      styleServerUrl + '/bundle/dev?m=Foo,Bar,A,B'
+      `${styleServerUrl}/bundle/${ver}?m=Foo,Bar,A,B`
     )('Accepts Array and trims them also');
   });
 
@@ -76,9 +80,9 @@ o.spec('getCssBundleUrl', () => {
     const oldServerUrl = styleServerUrl;
     const newServerUrl = 'https://foo.bar/baz/';
     setStyleServerUrl(newServerUrl);
-    o(getCssBundleUrl('Foo')).equals(`${newServerUrl}bundle/dev?m=Foo`);
+    o(getCssBundleUrl('Foo')).equals(`${newServerUrl}bundle/${ver}?m=Foo`);
     setStyleServerUrl.reset();
     o(styleServerUrl).equals(oldServerUrl)('resetting styleServerUrl works');
-    o(getCssBundleUrl('Foo')).equals(`${oldServerUrl}/bundle/dev?m=Foo`);
+    o(getCssBundleUrl('Foo')).equals(`${oldServerUrl}/bundle/${ver}?m=Foo`);
   });
 });
