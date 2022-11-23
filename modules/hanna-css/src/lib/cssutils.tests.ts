@@ -6,7 +6,7 @@ import {
   setStyleServerUrl,
   styleServerUrl,
 } from './cssutils';
-import { CssVersionParam } from './style-server-info';
+import { CssVersionToken } from './style-server-info';
 
 o.spec('buildVariables helper', () => {
   o('works', () => {
@@ -45,7 +45,7 @@ o.spec('getCssBundleUrl', () => {
   });
 
   o('accepts a version token', () => {
-    const version: CssVersionParam = 'v0.2';
+    const version: CssVersionToken = 'v0.2';
     o(getCssBundleUrl('Foo', { version })).equals(
       `${styleServerUrl}/bundle/${version}?m=Foo`
     )('for known version');
@@ -66,7 +66,7 @@ o.spec('getCssBundleUrl', () => {
     });
 
     // @ts-expect-error  (Testing wonky input)
-    const imaginary: CssVersionParam = 'imaginary/version';
+    const imaginary: CssVersionToken = 'imaginary/version';
     o(getCssBundleUrl('Foo', { version: imaginary })).equals(
       `${styleServerUrl}/bundle/${imaginary}?m=Foo`
     )('Allows bonkers versions even if TypeScript complains');

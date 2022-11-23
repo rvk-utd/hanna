@@ -367,7 +367,7 @@ ways.
 
 #### Type `CssBundleOpts`
 
-**`CssBundleOpts.version?: CssVersionParam`**
+**`CssBundleOpts.version?: CssVersionToken`**
 
 The default is always the most recent major version of the Hanna CSS files.
 

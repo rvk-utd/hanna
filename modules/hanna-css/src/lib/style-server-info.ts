@@ -2,7 +2,7 @@
 
 export const cssVersion = "0.8.70";
 
-export type CssVersionParam =
+export type CssVersionToken =
   | 'dev-v0'
   | 'v0'
   | 'v0.1'
