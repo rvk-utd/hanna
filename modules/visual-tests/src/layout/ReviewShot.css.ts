@@ -162,17 +162,19 @@ export default css`
     transform: translate(-50%, -50%);
     line-height: 2em;
     pointer-events: none;
-    transition: opacity 300ms ease-in-out;
   }
   .ReviewShot__primed--accept {
     background-color: ${vars.color_ellidaardalur_50};
+    transition: none;
   }
   .ReviewShot__primed--reject {
     background-color: ${vars.color_heidmork_25};
+    transition: none;
   }
 
   .ReviewShot__primed[hidden] {
     display: block;
     opacity: 0;
+    transition: opacity 300ms ease-in-out;
   }
 `;

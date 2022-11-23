@@ -108,16 +108,14 @@ const useReviewState = (change: Changeset) => {
       if (key === 'A' || key === 'R') {
         const action = key === 'A' ? 'accept' : 'reject';
         const submitButton = wrappeRref.current?.querySelector<HTMLButtonElement>(
-          `.ReviewShot__actionbutton--${action}:not(:disabled)`
+          `.ReviewShot__actionbutton--${action}`
         );
         if (!submitButton) {
           return;
         }
         if (doublePress) {
-          navigating = setTimeout(() => {
-            submitButton.click();
-            navigating = null;
-          }, 150);
+          submitButton.click();
+          navigating = null;
         } else {
           !isNew && setMode(key === 'A' ? 'actual' : 'expected');
           setPrimed({ on: true, letter: key });
@@ -228,7 +226,6 @@ export const ReviewShot = (props: ReviewShotProps) => {
             className="ReviewShot__actionbutton ReviewShot__actionbutton--accept"
             name="action"
             value="accept"
-            disabled={confirmedOk}
           >
             <strong>A</strong>ccept
           </button>{' '}
@@ -237,7 +234,6 @@ export const ReviewShot = (props: ReviewShotProps) => {
             className="ReviewShot__actionbutton ReviewShot__actionbutton--reject"
             name="action"
             value="reject"
-            disabled={confirmedBug}
           >
             <strong>R</strong>eject
           </button>{' '}
