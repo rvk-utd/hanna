@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.71
+
+_2022-11-23_
+
 - feat: Add styling for `.Cell--text--(right|center)` inside `.BasicTable`
 - feat: Add dev warnings for missing text labels (i.e. `alt` attributes on
   iframes and multimedia elements)
