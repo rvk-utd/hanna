@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.71
+
+_2022-11-23_
+
 - feat: Add prop `onFilesRejected` to `FileInputProps`
 - feat: Add prop `itemCount` for all Carousel-related components with
   `children` — drop requirement for children to be an Array.
