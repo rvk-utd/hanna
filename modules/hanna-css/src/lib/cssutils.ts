@@ -1,7 +1,7 @@
 import { styleServerUrl } from '@reykjavik/hanna-utils/assets';
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
-import { cssVersion as fullCssVersion } from './style-server-info';
+import { cssVersion as fullCssVersion, CssVersionToken } from './style-server-info';
 
 // ---------------------------------------------------------------------------
 
@@ -13,16 +13,24 @@ import { cssVersion as fullCssVersion } from './style-server-info';
  */
 export const isDevMode = process.env.NODE_ENV !== 'production';
 
+/** Extract the CSS major version from the curent target version constant */
+type CssMajorVersion = typeof fullCssVersion extends `0.${infer PreMajor}.${string}`
+  ? `0.${PreMajor}`
+  : typeof fullCssVersion extends `${infer Major}.${string}`
+  ? Major
+  : never;
+
 /**
- * The current version of the Hanna style-server CSS files this version of
+ * The current MAJOR version of the Hanna style-server CSS files this version of
  * `@reyjkjavik/hanna-css` package targets.
  *
  * Primary use is for debugging/informational purposes.
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#targetcssversion
  */
-export const targetCssVersion =
-  (fullCssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0] || '';
+export const targetCssVersion = ((fullCssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [
+  '',
+])[0] || '') as CssMajorVersion;
 
 /** @deprecated use `targetCssVersion` instead.  (Will be removed in v0.4) */
 export const cssVersion = targetCssVersion;
@@ -81,9 +89,13 @@ const cssCurrentVersionFolder =
     ? 'dev-v' + targetCssVersion.replace(/\..+/, '') // only the MAJOR version
     : 'dev'; // Use "live" compilation results during local dev.
 
-type CssBundleOpts = {
+type CssBundleOpts<AcceptNewerVersion extends boolean = false> = {
   /** If you want to pin your CSS files to a specific version */
-  version?: string;
+  version?:
+    | CssVersionToken
+    | (AcceptNewerVersion extends true
+        ? `v${CssMajorVersion}.${number}${string}`
+        : never);
 
   /** @deprecated Use `setStyleServerUrl()` instead. (will be removed in v0.6) */
   testingServer?: string;
@@ -94,14 +106,14 @@ type CssBundleOpts = {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getcssbundleurl
  */
-export const getCssBundleUrl = (
+export const getCssBundleUrl = <AcceptNewerVersion extends boolean = false>(
   cssTokens: string | Array<string>,
-  options?: CssBundleOpts
+  options?: CssBundleOpts<AcceptNewerVersion>
 ): string => {
   options = options || {};
   const host = (options.testingServer || styleServerUrl).replace(/\/$/, '');
   const versionFolder = options.version || cssCurrentVersionFolder;
   const tokens = typeof cssTokens === 'string' ? cssTokens : cssTokens.join(',');
 
-  return host + '/bundle/' + versionFolder + '?m=' + tokens;
+  return `${host}/bundle/${versionFolder}?m=${tokens.replace(/\s/g, '')}`;
 };

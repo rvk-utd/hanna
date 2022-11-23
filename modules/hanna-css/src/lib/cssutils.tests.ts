@@ -1,6 +1,12 @@
 import o from 'ospec';
 
-import { buildVariables } from './cssutils';
+import {
+  buildVariables,
+  getCssBundleUrl,
+  setStyleServerUrl,
+  styleServerUrl,
+} from './cssutils';
+import { CssVersionToken } from './style-server-info';
 
 o.spec('buildVariables helper', () => {
   o('works', () => {
@@ -23,5 +29,56 @@ o.spec('buildVariables helper', () => {
     o(buildVariables(['bar_baz'], 'FOO__').vars.bar_baz + '').equals(
       'var(--FOO__bar-baz)'
     )('accepts double-underscores as a suffix');
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+o.spec('getCssBundleUrl', () => {
+  o('works', () => {
+    o(getCssBundleUrl(' Foo, \nBar ')).equals(`${styleServerUrl}/bundle/dev?m=Foo,Bar`)(
+      'Accepts string and trims them a bit'
+    );
+    o(getCssBundleUrl(['Foo ', '  Bar', 'A,B '])).equals(
+      styleServerUrl + '/bundle/dev?m=Foo,Bar,A,B'
+    )('Accepts Array and trims them also');
+  });
+
+  o('accepts a version token', () => {
+    const version: CssVersionToken = 'v0.2';
+    o(getCssBundleUrl('Foo', { version })).equals(
+      `${styleServerUrl}/bundle/${version}?m=Foo`
+    )('for known version');
+
+    const newer = 'v0.8.99999';
+    // TS check less safe "AcceptNewerVersion" option activated via type generics
+    o(getCssBundleUrl<true>('Foo', { version: newer })).equals(
+      `${styleServerUrl}/bundle/${newer}?m=Foo`
+    )('Allows unsafe "newer version"');
+
+    getCssBundleUrl<true>('Foo', {
+      // @ts-expect-error  (Testing too-far-future version)
+      version: 'v0.9',
+    });
+    getCssBundleUrl<true>('Foo', {
+      // @ts-expect-error  (Testing too-far-future version)
+      version: 'v1.0',
+    });
+
+    // @ts-expect-error  (Testing wonky input)
+    const imaginary: CssVersionToken = 'imaginary/version';
+    o(getCssBundleUrl('Foo', { version: imaginary })).equals(
+      `${styleServerUrl}/bundle/${imaginary}?m=Foo`
+    )('Allows bonkers versions even if TypeScript complains');
+  });
+
+  o('respects setStyleServerUrl updates', () => {
+    const oldServerUrl = styleServerUrl;
+    const newServerUrl = 'https://foo.bar/baz/';
+    setStyleServerUrl(newServerUrl);
+    o(getCssBundleUrl('Foo')).equals(`${newServerUrl}bundle/dev?m=Foo`);
+    setStyleServerUrl.reset();
+    o(styleServerUrl).equals(oldServerUrl)('resetting styleServerUrl works');
+    o(getCssBundleUrl('Foo')).equals(`${oldServerUrl}/bundle/dev?m=Foo`);
   });
 });

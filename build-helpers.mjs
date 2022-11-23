@@ -7,7 +7,7 @@ import { access, mkdir, readFile, writeFile } from 'fs/promises';
 import glob from 'glob';
 import { dirname } from 'path';
 
-/** @type {Record<string,unknown>} */
+/** @type {Record<string, true | string | undefined>} */
 export const opts = process.argv.slice(2).reduce((map, arg) => {
   const [key, value] = arg.replace(/^-+/, '').split('=');
   map[key] = value == null ? true : value;

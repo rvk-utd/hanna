@@ -367,7 +367,7 @@ ways.
 
 #### Type `CssBundleOpts`
 
-**`CssBundleOpts.version?: string`**
+**`CssBundleOpts.version?: CssVersionToken`**
 
 The default is always the most recent major version of the Hanna CSS files.
 
@@ -376,6 +376,17 @@ older, or more specific version folder.
 
 ```js
 const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.7' });
+```
+
+**TypeScript Note:** The `version` option is by default type-restricted to the
+CSS versions known at the time when the library was published. If you need to
+set a newer (minor/patch) CSS version, you should ideally update `hanna-css`
+for an updated version list. If that's not possible, you can pass a type-level
+generics paramter of `true` which relaxes the type restrictions a bit.
+
+```ts
+getCssBundleUrl<true>(cssTokens, { version: 'v0.8.9' });
+/* Like this ———^^^^  */
 ```
 
 ### `styleServerUrl`
@@ -404,7 +415,7 @@ DEFAULT value.)_
 
 **Syntax:** `targetCssVersion: string`
 
-The current version of the Hanna style-server CSS files this version of
+The current MAJOR version of the Hanna style-server CSS files this version of
 `@reyjkjavik/hanna-css` package targets.
 
 Primary use is for debugging/informational purposes.
