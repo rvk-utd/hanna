@@ -369,7 +369,7 @@ export default css`
       z-index: calc(${vars.zindex__header} - 1);
 
       overflow-x: hidden;
-      overflow-y: auto;
+      overflow-y: scroll;
     }
     [data-sprinkled] > .MainMenu__panelsWrap--active {
       opacity: 1;
