@@ -12,19 +12,19 @@ export default css`
   @media screen {
     .BreadCrumbs {
       color: ${vars.color_suld_150};
-      font-size: ${vars.font_label_size};
-      line-height: ${prem(24)};
+      font: ${vars.font_label};
     }
 
     .Layout__nav .BreadCrumbs {
       position: absolute;
       top: ${vars.Layout$$header_height};
+      margin-top: 2px;
       left: 0;
       max-width: 100%;
     }
 
     .BreadCrumbs__title {
-      display: none; // ok if aria-label/aria-labelledby is used!
+      display: none; // ok as aria-label/aria-labelledby is also required!
     }
 
     .BreadCrumbs__item {
@@ -62,6 +62,8 @@ export default css`
       margin-right: 1px;
       font-size: ${prem(5)};
     }
+
+    /* ------------------------------------------------------------------------ */
 
     .BreadCrumbs__item:last-child:not([aria-current='true']) {
       ${WARNING__('You forgot aria-current="true"')};

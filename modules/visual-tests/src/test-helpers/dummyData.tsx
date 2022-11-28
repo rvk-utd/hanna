@@ -45,6 +45,15 @@ export const lorem = {
 
 // ---------------------------------------------------------------------------
 
+export const breadCrumbTrail = [
+  { href: '', label: 'Forsíða' },
+  { href: '', label: 'Fundargerðir nefnda og ráða' },
+  { href: undefined, label: 'Sparse unlinked/static item' },
+  { href: '', label: 'Mannréttindaráð' },
+];
+
+// ---------------------------------------------------------------------------
+
 type BProps = { on: boolean; children: ReactNode };
 const B = ({ on, children }: BProps) => {
   const Tag = on ? 'strong' : Fragment;
