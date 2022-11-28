@@ -3,11 +3,7 @@
 /_npm-lib
 
 /src/css/vars/$$*$$-*.css.js
-/src/css/vars/$$*$$-*.scss.js
-
 /src/lib/iconfonttokens.ts
-/src/css/vars/icons.scss
-/src/css/vars/cssvars.scss
 
 ## Misc notes and stuff...
 /assets-originals

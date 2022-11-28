@@ -45,8 +45,8 @@ yarn run publish:npmlib
 
 ### src/css/
 
-The `*.scss` and `*.css.ts` files directly inside this folder are treated as
-entry points for building to `../../style-server/public/css/dev/*.css`
+The `*.css.ts` files directly inside this folder are treated as entry points
+for building to `../../style-server/public/css/dev/*.css`
 
 Placing files into this folder allows stable (`<img src="..." />`) links to
 https://styles.reykjavik.is/assets/reykjavik-logo.svg, etc. – links that don't
