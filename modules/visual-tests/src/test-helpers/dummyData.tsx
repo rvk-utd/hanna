@@ -1,24 +1,24 @@
 import React, { Fragment, ReactNode } from 'react';
 
-const host =
+export const host =
   typeof location !== 'undefined'
     ? location.href.replace(/([^:/])\/.+/, '$1')
     : `http://localhost:${process.env.PORT || '8080'}`;
 
 export const illustr = {
-  short: { src: host + '/media/illustration-short.png', altText: 'Short illustration' },
+  short: { src: '/media/illustration-short.png', altText: 'Short illustration' },
   medium: {
-    src: host + '/media/illustration-medium.png',
+    src: '/media/illustration-medium.png',
     altText: 'Medium-high illustration',
   },
-  tall: { src: host + '/media/illustration-tall.png', altText: 'Tall illustration' },
+  tall: { src: '/media/illustration-tall.png', altText: 'Tall illustration' },
 };
 
 export const photo = {
-  landscape: { src: host + '/media/photo-landscape.png', altText: 'Photo, landscape' },
-  square: { src: host + '/media/photo-square.png', altText: 'Photo, square' },
-  portrait: { src: host + '/media/photo-portrait.png', altText: 'Photo, portrait' },
-  banner: { src: host + '/media/photo-banner.png', altText: 'Photo, long banner' },
+  landscape: { src: '/media/photo-landscape.png', altText: 'Photo, landscape' },
+  square: { src: '/media/photo-square.png', altText: 'Photo, square' },
+  portrait: { src: '/media/photo-portrait.png', altText: 'Photo, portrait' },
+  banner: { src: '/media/photo-banner.png', altText: 'Photo, long banner' },
 };
 
 export const blingUrl = '/media/bling.svg';

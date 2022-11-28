@@ -4,7 +4,7 @@ import type { MetaFunction } from '@remix-run/node';
 import ArticleCards, { ArticleCardsItemProps } from '@reykjavik/hanna-react/ArticleCards';
 
 import { Minimal } from '../../layout/Minimal';
-import { illustr, lorem, photo } from '../../test-helpers/dummyData';
+import { host, illustr, lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -30,7 +30,7 @@ const cards = range(1, 5).map(
 export default function () {
   return (
     <Minimal>
-      <ArticleCards cards={cards} imgPlaceholder={illustr.short.src} />
+      <ArticleCards cards={cards} imgPlaceholder={host + illustr.short.src} />
     </Minimal>
   );
 }
