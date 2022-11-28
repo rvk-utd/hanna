@@ -21,6 +21,13 @@ const buttonProps = {
 const searchInputs: Record<string, SearchInputProps> = {
   empty: { label: 'Empty', value: '' },
   normal: { label: 'Normal', value },
+  // nolabel: { hideLabel: true, label: 'No Label', value },
+  // nolabelph: {
+  //   hideLabel: true,
+  //   label: 'No Label',
+  //   placeholder: 'Placeholder',
+  //   value: '',
+  // },
   small: { label: 'Small', value, small: true },
   disabled: { label: 'Disabled', value, disabled: true },
   readonly: { label: 'Readonly', value, readOnly: true },

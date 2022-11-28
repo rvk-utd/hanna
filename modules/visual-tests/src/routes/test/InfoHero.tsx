@@ -16,10 +16,7 @@ export const meta: MetaFunction = autoTitle;
 const buttonProps = [
   { href: '', label: 'Lorem Ipsum' },
   { href: '', label: 'Leebur deroor iehroom,' },
-  {
-    href: '',
-    label: 'Foo bar',
-  },
+  { href: '', label: 'Foo bar' },
 ];
 export default function () {
   return (

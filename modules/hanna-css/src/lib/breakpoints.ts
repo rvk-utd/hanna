@@ -1,18 +1,18 @@
 import { Expect, Extends } from '@reykjavik/hanna-utils';
 import { px, RawMediaQuery } from 'es-in-css';
 
-// Starting breakpoints **including* $grid-margin--*
+// Starting breakpoints **including* grid.margin__*
 export const bp = {
-  wide: px(1368), // $grid-margin--wide: 80;
+  wide: px(1368), // grid.margin__wide: 80;
   netbook: px(980),
   tablet: px(760),
   phablet: px(480),
-  phone: px(320), // $grid-margin--phone: 20;
+  phone: px(320), // grid.margin__phone: 20;
 } as const;
 // NOTE: 20px at 320px is equivalent to
 // 24px at 375px,`+` and 26px at 415px
 
-const wide: RawMediaQuery = `(min-width: ${bp.wide}px)`;
+const wide: RawMediaQuery = `(min-width: ${bp.wide})`;
 const netbook: RawMediaQuery =
   `(min-width: ${bp.netbook})` + ` and (max-width: ${px(bp.wide - 1)})`;
 const tablet: RawMediaQuery =
@@ -59,6 +59,18 @@ export const mq = {
   Hamburger,
   Topmenu,
 } as const;
+
+/**
+ * Useful for appending `screen and ` in front of `mq.*` variables
+ * without triggering CSS warnings in VSCode.
+ *
+ * ```css
+ * ·@media ${screen_and + mq.tablet} {
+ * ·  div { display: block; }
+ * ·}
+ * ```
+ */
+export const screen_and = 'screen and ';
 
 // TODO: Use `satisfies` as soon as TypeScript 4.9 is out
 export const baseMQs = ['phone', 'phablet', 'tablet', 'netbook', 'wide'] as const;

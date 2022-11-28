@@ -14,7 +14,7 @@ export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = {
-  cssTokens: ['Checkbox,RadioGroup,RowBlock,RowBlockColumn'],
+  cssTokens: ['Checkbox', 'RadioGroup', 'RowBlock', 'RowBlockColumn'],
 };
 
 export default function () {
@@ -37,6 +37,7 @@ export default function () {
             checked={false}
             errorMessage="Error message here"
           />
+          <Checkbox label="Required" required checked={false} />
         </RowBlockColumn>
         <RowBlockColumn>
           <RadioGroup__Radio label={lorem.short} />
@@ -49,7 +50,7 @@ export default function () {
         </RowBlockColumn>{' '}
       </RowBlock>
       <style>{`
-        .RowBlock { margin-bottom: 0; }
+        .RowBlock { margin-bottom: 0; align-items: flex-start }
         .RowBlockColumn { padding-block: 0; }
         .Radio { margin-bottom: .5em; }
       `}</style>

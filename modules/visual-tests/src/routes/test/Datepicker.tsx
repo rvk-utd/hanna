@@ -4,7 +4,6 @@ import Datepicker from '@reykjavik/hanna-react/Datepicker';
 import RowBlock from '@reykjavik/hanna-react/RowBlock';
 import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
 
-import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
@@ -31,7 +30,6 @@ export default function () {
             onChange={() => undefined}
             required
           />
-          <DummyBlock thin />
           <Datepicker
             label={'Error'}
             localeCode="is"
@@ -52,7 +50,6 @@ export default function () {
             onChange={() => undefined}
             small
           />
-          <DummyBlock thin />
           <Datepicker
             label={'Disabled'}
             localeCode="is"
@@ -63,7 +60,6 @@ export default function () {
             onChange={() => undefined}
             disabled
           />
-          <DummyBlock thin />
           <Datepicker
             label={'Read only'}
             localeCode="is"
@@ -94,12 +90,12 @@ export const testing: TestingInfo = {
     const datepicker = page.locator('.react-datepicker');
 
     await datepicker.locator('span:text-is("október"), span:text-is("Október")').hover();
-    await localScreenshot(datepicker, 'dp-hover-month');
+    await localScreenshot(datepicker, 'dp-hover-month', { margin: -1 });
 
     await datepicker.locator('[role="button"]:text-is("5") >> nth=0').hover();
-    await localScreenshot(datepicker, 'dp-hover-today');
+    await localScreenshot(datepicker, 'dp-hover-today', { margin: -1 });
 
     await datepicker.locator('[role="button"]:text-is("21") >> nth=0').hover();
-    await localScreenshot(datepicker, 'dp-hover-weekend');
+    await localScreenshot(datepicker, 'dp-hover-weekend', { margin: -1 });
   },
 };

@@ -1,4 +1,5 @@
-import { css, em, px, rem } from 'es-in-css';
+import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
+import { css, em, px, rem, str } from 'es-in-css';
 
 import {
   between_cols,
@@ -28,6 +29,9 @@ import {
 } from '../../lib/hannavars';
 import iconfonttokens from '../../lib/iconfonttokens';
 import { cssVersion } from '../../lib/style-server-info';
+import { grid_units } from '../utils/miscUtils';
+
+import { ButtonTertiaryVarDeclarations } from './buttons';
 
 const _c = colorVars.vars;
 const _g = gridVars.vars;
@@ -37,7 +41,7 @@ const _fsz = font.sizes;
 // ---------------------------------------------------------------------------
 
 const envVarDeclarations = envVars.declare({
-  cssVersion: `"${cssVersion}"`,
+  cssVersion: str(cssVersion),
   // NOTE: This variable receives its actual value
   // somewhere off in JavaScript-land.
   // (Likely set by `@hugsmidjan/qj/getScrollbarWidth.setCSSvar()`)
@@ -129,7 +133,7 @@ const colorVarDeclarations =
 // ---------------------------------------------------------------------------
 
 const themeVarDeclarations = css`
-  @at-root {
+  @escape {
     :root:root,
     [data-color-theme][data-color-theme],
     [data-color-theme][data-color-theme='trustworthy'] {
@@ -304,7 +308,7 @@ const fontVarDeclarations = css`
     font_bd_l: `${_f.font_bd_l_size} / ${_f.font_bd_l_leading} ${_f.font_family}`,
     font_bd_s: `${_f.font_bd_s_size} / ${_f.font_bd_s_leading} ${_f.font_family}`,
     font_button: `${_f.font_button_size} / ${_f.font_button_leading} ${_f.font_family}`,
-    font_label: `${_f.font_label_size} / ${_f.font_label_leading}) ${_f.font_family}`,
+    font_label: `${_f.font_label_size} / ${_f.font_label_leading} ${_f.font_family}`,
 
     font_hd_xl_size: px(_fsz.hd_xl_size__phone),
     font_hd_xl_leading: px(_fsz.hd_xl_leading__phone),
@@ -483,31 +487,31 @@ const gridVarDeclarations = css`
 // ---------------------------------------------------------------------------
 
 const spaceVarDeclarations = spaceVars.declare({
-  space_1: grid.unit * 1,
-  space_2: grid.unit * 2,
-  space_3: grid.unit * 3,
-  space_4: grid.unit * 4,
-  space_5: grid.unit * 5,
-  space_6: grid.unit * 6,
-  space_7: grid.unit * 7,
-  space_8: grid.unit * 8,
-  space_9: grid.unit * 9,
+  space_1: grid_units(1),
+  space_2: grid_units(2),
+  space_3: grid_units(3),
+  space_4: grid_units(4),
+  space_5: grid_units(5),
+  space_6: grid_units(6),
+  space_7: grid_units(7),
+  space_8: grid_units(8),
+  space_9: grid_units(9),
 
-  space_0$5: grid.unit * 0.5,
-  space_1$5: grid.unit * 1.5,
+  space_0$5: grid_units(0.5),
+  space_1$5: grid_units(1.5),
 
-  space_1__neg: grid.unit * -1,
-  space_2__neg: grid.unit * -2,
-  space_3__neg: grid.unit * -3,
-  space_4__neg: grid.unit * -4,
-  space_5__neg: grid.unit * -5,
-  space_6__neg: grid.unit * -6,
-  space_7__neg: grid.unit * -7,
-  space_8__neg: grid.unit * -8,
-  space_9__neg: grid.unit * -9,
+  space_1__neg: grid_units(-1),
+  space_2__neg: grid_units(-2),
+  space_3__neg: grid_units(-3),
+  space_4__neg: grid_units(-4),
+  space_5__neg: grid_units(-5),
+  space_6__neg: grid_units(-6),
+  space_7__neg: grid_units(-7),
+  space_8__neg: grid_units(-8),
+  space_9__neg: grid_units(-9),
 
-  space_0$5__neg: grid.unit * -0.5,
-  space_1$5__neg: grid.unit * -1.5,
+  space_0$5__neg: grid_units(-0.5),
+  space_1$5__neg: grid_units(-1.5),
 
   component_vspace__small: between_cols(30, 70),
   component_vspace__medium: between_cols(40, 100),
@@ -568,23 +572,33 @@ const buttonVarDeclarations = css`
 
 // ---------------------------------------------------------------------------
 
-const iconVarDeclarations = iconVars.declare(iconfonttokens);
+const iconVarDeclarations = iconVars.declare(
+  ObjectFromEntries(
+    ObjectEntries(iconfonttokens).map(([name, char]) => [name, str(char)])
+  )
+);
 
 // ---------------------------------------------------------------------------
 
-export const hannaVarDeclarations = [
-  envVarDeclarations,
-  breakpointVarDeclarations,
-  colorVarDeclarations,
-  themeVarDeclarations,
-  linkVarDeclarations,
-  fontVarDeclarations,
-  zIndexVarDeclarations,
-  gridVarDeclarations,
-  spaceVarDeclarations,
-  layoutVarDeclarations,
-  mainMenuVarDeclarations,
-  borderEffectVarDeclarations,
-  buttonVarDeclarations,
-  iconVarDeclarations,
-].join('');
+export const hannaVarDeclarations = () => css`
+  :root {
+    ${[
+      envVarDeclarations,
+      breakpointVarDeclarations,
+      colorVarDeclarations,
+      themeVarDeclarations,
+      linkVarDeclarations,
+      fontVarDeclarations,
+      zIndexVarDeclarations,
+      gridVarDeclarations,
+      spaceVarDeclarations,
+      layoutVarDeclarations,
+      mainMenuVarDeclarations,
+      borderEffectVarDeclarations,
+      buttonVarDeclarations,
+      iconVarDeclarations,
+
+      ButtonTertiaryVarDeclarations(),
+    ].join('')}
+  }
+`;

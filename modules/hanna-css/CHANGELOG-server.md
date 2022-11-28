@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update styling of `.SearchInput__button`
+- fix: Font-size in `.FormField--small .FormField__input`s
 
 ## 0.8.71
 

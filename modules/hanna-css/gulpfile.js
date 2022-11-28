@@ -3,8 +3,6 @@ const del = require('del');
 const { existsSync, writeFileSync } = require('fs');
 const iconfontTaskFactory = require('@hugsmidjan/gulp-iconfont');
 const imagesTaskFactory = require('@hugsmidjan/gulp-images');
-const sassTaskFactory = require('@hugsmidjan/gulp-sass');
-const sassFunctions = require('./scripts/sassFunctions');
 const { execSync } = require('child_process');
 
 // ---------------------------------------------------------------------------
@@ -19,8 +17,6 @@ const {
   publishDevCssFolder,
   assetsDistFolder,
 } = require('./scripts/config');
-
-const isProd = process.env.NODE_ENV === 'production';
 
 // ---------------------------------------------------------------------------
 
@@ -60,16 +56,6 @@ const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
         `export default ${JSON.stringify(icons, null, 2)}\n`
     );
   },
-});
-
-const [sassBuild, sassWatch] = sassTaskFactory({
-  src: sourceFolder + 'css/',
-  dist: devDistCssFolder,
-  // glob: ['*.{scss,sass}']
-  // watchGlob: ['*/**/*.{scss,sass}'],
-  sassOptions: { functions: sassFunctions },
-  sourcemaps: false,
-  minify: isProd,
 });
 
 const makeGitCommitTask = (folder) => (done) => {
@@ -141,10 +127,7 @@ const cleanupPublicDevCss = () => del([publishDevCssFolder], { force: true });
 
 // ===========================================================================
 
-const buildCss = series(
-  // Don't run `iconfontBundle`, as that task is run from inside `build.ts`
-  parallel(imagesCompress, sassBuild)
-);
+const compressImages = series(imagesCompress);
 const buildAssets = series(cleanupAssets, staticAssetsCompress);
 
 // -------------------------
@@ -175,22 +158,24 @@ exports.publishAssets = series(
 
 // -------------------------
 
-exports.buildCss = buildCss;
+exports.compressImages = compressImages;
 exports.buildAssets = buildAssets;
 
+// (Used by build.mjs)
 exports.iconfont = iconfontBundle;
 
-exports.buildAll = parallel(buildAssets, buildCss);
+exports.buildAll = parallel(buildAssets, compressImages);
 
 exports.watch = series([
-  // buildAssets
-  buildCss,
   parallel(
-    sassWatch,
+    compressImages
+    // buildAssets,
+  ),
+  parallel(
     imagesWatch,
+    iconfontWatch
     /* Uncomment when needed */
     // staticAssetsWatch,
-    iconfontWatch
   ),
 ]);
 

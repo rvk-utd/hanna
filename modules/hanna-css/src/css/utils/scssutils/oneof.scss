@@ -1,6 +1,0 @@
-@use 'sass:math';
-
-@function oneof($n) {
-  // Returns -1 for values < 0 and 1 for values > 0.
-  @return if($n, ($n / math.abs($n)), 0);
-}

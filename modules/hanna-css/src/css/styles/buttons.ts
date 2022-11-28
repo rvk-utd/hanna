@@ -1,0 +1,309 @@
+/* eslint-disable unused-imports/no-unused-imports-ts */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { color, css, px } from 'es-in-css';
+
+import { between_phone_netbook, between_tablet_netbook } from '../../lib/between';
+import { mq } from '../../lib/breakpoints';
+import { buildVariables } from '../../lib/cssutils';
+import { hannaVars as vars } from '../../lib/hannavars';
+import { iconStyle } from '../../lib/icons';
+import { WARNING__ } from '../../lib/WARNING__';
+import {
+  hoverActiveKeyboardFocus_selector,
+  keyboardFocus_selector,
+} from '../utils/focus-selectors';
+import { prem } from '../utils/miscUtils';
+
+import { LinkStyle_Reset } from './links';
+
+import { enableDataIcon } from '../Icon.css';
+
+// ---------------------------------------------------------------------------
+
+export const ButtonVariables = buildVariables(
+  [
+    'color',
+    'color__active',
+    'textColor',
+    'textColor__active',
+    'backgroundColor',
+    'backgroundColor__active',
+    'border',
+    'height',
+    'iconOutdent',
+    'iconSpace',
+  ],
+  'Button'
+);
+const bVars = ButtonVariables.vars;
+
+export const ButtonStyle = () => css`
+  ${LinkStyle_Reset(true)}
+  ${ButtonVariables.declare({
+    color: vars.color_faxafloi_100,
+    color__active: vars.color_faxafloi_150,
+    textColor: vars.color_suld_0,
+    textColor__active: vars.color_suld_0,
+    backgroundColor: bVars.color,
+    backgroundColor__active: bVars.color__active,
+    border: px(0), // Must have a unit, because it gets used inside a calc()
+    height: vars.space_8,
+    iconOutdent: vars.space_0$5__neg,
+    iconSpace: vars.space_1,
+  })}
+
+  // normalize links
+  white-space: nowrap;
+  vertical-align: middle;
+
+  color: ${bVars.textColor};
+
+  background-color: ${bVars.backgroundColor};
+  display: inline-block;
+  font: ${vars.font_button};
+  font-weight: ${vars.font_weight__bold};
+  border: ${bVars.border} solid ${bVars.color};
+  line-height: calc(${bVars.height} - 2 * ${bVars.border});
+  margin-right: ${vars.Button__gapH};
+  margin-bottom: ${vars.Button__gapV};
+  text-align: center;
+  border-radius: ${prem(3)};
+  position: relative;
+  transition: all 200ms ease-in;
+  transition-property: border-color, background-color, color, text-shadow, box-shadow;
+  padding: 0 ${between_phone_netbook(24, 32)};
+  width: max-content;
+  max-width: 100%;
+  min-width: ${between_phone_netbook(80, 128)};
+
+  @media ${mq.wide} {
+    min-width: 128px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  ${hoverActiveKeyboardFocus_selector()(css`
+    outline: 0;
+    text-decoration: none;
+    // box-shadow: 0 ${prem(12)} ${prem(16)} rgba(0, 0, 0, 0.09);
+    box-shadow: 0 ${prem(8)} ${prem(16)} rgba(0, 0, 0, 0.15);
+    color: var(--Button--textColor);
+    border: var(--Button--border) solid var(--Button--color);
+  `)}
+
+  &:active,
+  &[aria-pressed='true'] {
+    text-decoration: none;
+    ${ButtonVariables.override({
+      color: bVars.color__active,
+      textColor: bVars.textColor__active,
+      backgroundColor: bVars.backgroundColor__active,
+    })}
+  }
+
+  ${keyboardFocus_selector(css`
+    outline: ${prem(2)} solid ${bVars.color};
+    outline-offset: ${prem(2)};
+  `)}
+
+  &[disabled],
+  &[aria-disabled='true'] {
+    box-shadow: none;
+    opacity: 0.3;
+  }
+
+  &--wide {
+    min-width: ${between_tablet_netbook(275, 312)};
+
+    @media ${mq.phone_phablet} {
+      width: 100%;
+    }
+    @media ${mq.wide} {
+      min-width: 312px;
+    }
+  }
+  &--small {
+    ${ButtonVariables.override({
+      iconOutdent: vars.space_0$5__neg,
+      iconSpace: vars.space_1,
+      height: prem(40),
+    })}
+    padding-left: ${between_phone_netbook(16, 24)};
+    padding-right: ${between_phone_netbook(16, 24)};
+
+    @media ${mq.wide} {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  &--go--back {
+    order: -10;
+  }
+  &--go--back::before {
+    ${iconStyle(vars.icon__arrow_left)}
+    margin-left: ${bVars.iconOutdent};
+    margin-right: ${bVars.iconSpace};
+  }
+  &--go--forward {
+    order: 10;
+    margin-left: auto;
+  }
+  &--go--forward::after {
+    ${iconStyle(vars.icon__arrow_right)}
+    margin-right: ${bVars.iconOutdent};
+    margin-left: ${bVars.iconSpace};
+  }
+
+  &[data-icon]::before {
+    ${enableDataIcon}
+    margin-left: var(--Button--iconOutdent);
+    margin-right: var(--Button--iconSpace);
+  }
+
+  // ---------------------------------------------------------------------------
+
+  &--small&--wide {
+    ${WARNING__('`--small` and `--wide` do NOT mix.')}
+  }
+  &--go--back[data-icon],
+  &--go--forward[data-icon] {
+    ${WARNING__('Icons and `--go--(back|forward)` do NOT mix.')}
+  }
+  &--go-back&--destructive,
+  &--go--forward&--destructive {
+    ${WARNING__('`--destructive` and `--go--(back|forward)` do NOT mix')}
+  }
+`;
+
+// ===========================================================================
+//
+// ===========================================================================
+//
+// ===========================================================================
+
+export const ButtonTertiaryVariables = buildVariables(
+  [
+    'height',
+    'color',
+    'dashColor',
+    'dashWidth',
+    'hover__dashWidth',
+    'dashSpace',
+    'dashHeight',
+    'gapH',
+  ],
+  'ButtonTertiary'
+);
+const btVars = ButtonTertiaryVariables.vars;
+
+/**
+ * `ButtonTertiaryStyle()` is a mixin that is used in multiple situations —
+ * a bit similar to `LinkStyle()` and friends.
+ * Therefore these declarations are inlined in `-basics.css.ts`
+ * (via `hannaVarDeclarations.ts`)
+ */
+export const ButtonTertiaryVarDeclarations = () => css`
+  ${ButtonTertiaryVariables.declare({
+    height: `calc(${vars.font_button_leading} + 4px)`,
+    color: '_inherit',
+    dashColor: vars.color_faxafloi_100,
+    dashWidth: vars.space_2,
+    hover__dashWidth: vars.space_4,
+    dashSpace: vars.space_2,
+    dashHeight: px(2),
+    gapH: between_phone_netbook(16, 24),
+  })}
+
+  @media ${mq.wide} {
+    ${ButtonTertiaryVariables.override({
+      gapH: px(24),
+    })}
+  }
+`;
+
+export const ButtonTertiaryStyle__hoverFocus = () => css`
+  ${hoverActiveKeyboardFocus_selector()(css`
+    --dashWidth: ${btVars.hover__dashWidth};
+    color: ${btVars.color};
+    outline: 0;
+  `)}
+
+  &:active::before {
+    width: ${btVars.dashWidth};
+  }
+
+  ${keyboardFocus_selector(css`
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: ${prem(-13)} ${prem(-16)};
+      border: ${prem(1)} dotted ${btVars.dashColor};
+      border-radius: ${prem(8)};
+    }
+  `)}
+`;
+
+export const ButtonTertiaryStyle__disabled = () => css`
+  &[disabled],
+  &[aria-disabled='true'] {
+    --dashWidth: ${btVars.dashWidth};
+    ${ButtonTertiaryVariables.override({
+      dashColor: 'currentColor',
+      color: '_inherit',
+    })}
+    opacity: 0.5;
+    pointer-events: none;
+  }
+`;
+
+// ---------------------------------------------------------------------------
+
+export const ButtonTertiaryStyle = (isStatic = false) => css`
+  ${LinkStyle_Reset(true)}
+
+  color: ${btVars.color};
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  vertical-align: middle;
+  font: ${vars.font_button};
+  padding: 2px 0;
+  --dashWidth: ${btVars.dashWidth};
+  padding-left: calc(${btVars.dashSpace} + var(--dashWidth));
+  padding-right: calc(${btVars.hover__dashWidth} - var(--dashWidth));
+  margin-right: ${btVars.gapH};
+  margin-bottom: ${vars.space_1};
+  font-weight: 700;
+  transition: all 100ms ease-in;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: var(--dashWidth);
+    height: ${btVars.dashHeight};
+    display: inline-block;
+    vertical-align: middle;
+    background-color: currentColor;
+    color: ${btVars.dashColor};
+    transform: translateY(-50%);
+    transition: inherit;
+  }
+
+  ${!isStatic && ButtonTertiaryStyle__hoverFocus}
+`;
+
+export const ButtonTertiaryStyle__backArrow = () => css`
+  ${iconStyle(vars.icon__arrow_left_long)}
+  background: 0;
+  height: auto;
+  font-size: 0.75em;
+  overflow: hidden;
+`;

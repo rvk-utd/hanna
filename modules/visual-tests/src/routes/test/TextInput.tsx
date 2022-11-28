@@ -29,12 +29,12 @@ const contents: PartialProps = [
     placeholder: 'Placeholder text',
   },
   { id: 'empty', label: ' (empty)' },
+  { id: 'nolabel', label: ' (no-label)', hideLabel: true, value: 'Some value' },
 ];
 
 const baseStates: PartialProps = [
   { id: 'normal', label: 'Normal' },
   { id: 'required', label: 'Required', required: true, assistText: 'Assist text here' },
-  { id: 'hidelabel', label: 'hidelabel', hideLabel: true },
   { id: 'invalid', label: 'Error', invalid: true, errorMessage: 'Error message here' },
   { id: 'textarea', type: 'textarea', label: 'Textarea' },
   { id: 'disabled', label: 'Disabled', disabled: true },

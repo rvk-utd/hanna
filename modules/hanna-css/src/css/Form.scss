@@ -1,8 +1,0 @@
-@use '_globals' as *;
-@use 'styles/componentLayout' as *;
-
-@media screen {
-  .Form {
-    @include ComponentLayout();
-  }
-}

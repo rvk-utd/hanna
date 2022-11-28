@@ -115,9 +115,11 @@ buildNpmLib('css', {
 // ---------------------------------------------------------------------------
 
 if (!opts.onlyLib) {
+  execSync(`yarn run gulp compressImages`);
+
   //
   // ---------------------------------------------------------------------------
-  // Build CSS/SCSS files
+  // Build CSS files
 
   let fileMem = {};
   const toCSSSources = (res) => {
@@ -138,6 +140,7 @@ if (!opts.onlyLib) {
       redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
       minify: process.env.NODE_ENV === 'production',
       prettify: process.env.NODE_ENV !== 'production',
+      nested: { rootRuleName: 'escape' },
     });
 
   esbuild
@@ -161,36 +164,6 @@ if (!opts.onlyLib) {
       },
     })
     .then(cssCompile)
-    // FIXME: cleanup temporary .js files on error
-    .catch(logError);
-
-  // -------------------
-
-  const scssCompile = (results) =>
-    compileCSSFromJS(toCSSSources(results), {
-      ext: 'scss',
-      redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
-      banner: '// This file is auto-generated. DO NOT EDIT!\n',
-    });
-
-  esbuild
-    .build({
-      ...baseOpts,
-      external: externalDeps,
-      entryPoints: glob('src/css/**/*.scss.ts'),
-      entryNames: '[dir]/$$[hash]$$-[name]',
-      outbase: 'src/css',
-      outdir: 'src/css',
-      watch: !!opts.dev && {
-        onRebuild: (error, results) => {
-          if (!error) {
-            return scssCompile(results).catch(logError);
-          }
-        },
-      },
-      write: false,
-    })
-    .then(scssCompile)
     // FIXME: cleanup temporary .js files on error
     .catch(logError);
 }

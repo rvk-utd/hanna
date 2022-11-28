@@ -52,10 +52,7 @@ export const makeSnapLocalScreeshot =
       } else {
         margins = marginOpt;
       }
-      // Check for negative values
-      const marginV = Math.max(0, margins[0]);
-      const marginH = Math.max(0, margins[1]);
-
+      const [marginV, marginH] = margins;
       const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
       return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
         ...opts,
