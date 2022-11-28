@@ -161,7 +161,7 @@ export default css`
     }
     // .FormField__input--disabled[class],
     .FormField--disabled > .FormField__input,
-    .FormField__input[disabled] {
+    .FormField__input:disabled {
       ${FormFieldVariables.override({
         input__border_color: vars.color_suld_100,
       })}

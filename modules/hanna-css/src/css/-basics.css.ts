@@ -268,7 +268,7 @@ export default css`
   input:invalid {
     box-shadow: none; // reset red default browser stylesheet box-shadow
   }
-  [disabled],
+  :disabled,
   [aria-disabled='true'] {
     cursor: default;
   }

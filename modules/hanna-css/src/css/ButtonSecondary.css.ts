@@ -22,7 +22,7 @@ export default css`
       border: px(1),
     })}
 
-    &[disabled],
+    &:disabled,
     &[aria-disabled='true'] {
       // opacity: 0.5;
     }

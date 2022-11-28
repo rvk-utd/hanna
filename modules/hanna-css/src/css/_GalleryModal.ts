@@ -91,7 +91,7 @@ export const GalleryModal_css = () => css`
     .GalleryModalPager__button--next::before {
       content: ${vars.icon__arrow_right};
     }
-    .GalleryModalPager__button[disabled] {
+    .GalleryModalPager__button:disabled {
       display: none;
     }
     .GalleryModalPager__button--prev {

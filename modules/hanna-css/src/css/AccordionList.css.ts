@@ -62,7 +62,7 @@ export default css`
     .AccordionList__button:active {
       color: ${vars.color_faxafloi_100};
     }
-    .AccordionList__button[disabled] {
+    .AccordionList__button:disabled {
       color: inherit;
     }
 

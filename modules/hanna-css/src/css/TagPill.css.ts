@@ -119,13 +119,13 @@ export default css`
       color: ${vars.color_suld_0};
     }
 
-    .TagPill[disabled],
+    .TagPill:disabled,
     .TagPill[aria-disabled],
     .TagPill[aria-pressed],
-    .TagPill__button[disabled],
+    .TagPill__button:disabled,
     .TagPill__button[aria-disabled],
     .TagPill__button[aria-pressed],
-    .TagPill__remove[disabled],
+    .TagPill__remove:disabled,
     .TagPill__remove[aria-disabled],
     .TagPill__remove[aria-pressed] {
       ${WARNING__('.TagPill buttons/links can not be disabled')};

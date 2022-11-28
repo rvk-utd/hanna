@@ -106,7 +106,7 @@ export const ButtonStyle = () => css`
     outline-offset: ${prem(2)};
   `)}
 
-  &[disabled],
+  &:disabled,
   &[aria-disabled='true'] {
     box-shadow: none;
     opacity: 0.3;
@@ -249,7 +249,7 @@ export const ButtonTertiaryStyle__hoverFocus = () => css`
 `;
 
 export const ButtonTertiaryStyle__disabled = () => css`
-  &[disabled],
+  &:disabled,
   &[aria-disabled='true'] {
     --dashWidth: ${btVars.dashWidth};
     ${ButtonTertiaryVariables.override({
