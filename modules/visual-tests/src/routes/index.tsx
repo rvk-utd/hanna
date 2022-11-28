@@ -2,7 +2,6 @@ import React from 'react';
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
-import AccordionList from '@reykjavik/hanna-react/AccordionList';
 import HeroBlock from '@reykjavik/hanna-react/HeroBlock';
 import Layout from '@reykjavik/hanna-react/Layout';
 import TextBlock from '@reykjavik/hanna-react/TextBlock';
@@ -28,7 +27,7 @@ export const loader: LoaderFunction = async (): Promise<Response> => {
 };
 
 export const handle = {
-  cssTokens: ['Layout', 'HeroBlock', 'AccordionList', 'TextBlock', 'Datepicker'],
+  cssTokens: ['Layout', 'HeroBlock', 'TextBlock', 'Datepicker'],
 };
 
 export default function Index() {
@@ -51,35 +50,22 @@ export default function Index() {
 
       <TextBlock startSeen>
         <Link to="/review">Review VRT results</Link>
-      </TextBlock>
 
-      <AccordionList
-        items={[
-          {
-            title: 'Test Pages',
-            content: (
-              <TextBlock>
-                <ul>
-                  {tests.map((item, i) => (
-                    <li key={i}>
-                      {'path' in item ? (
-                        <Link to={item.path}>{item.label}</Link>
-                      ) : (
-                        <i key={i}>
-                          {item.label}{' '}
-                          {item.reasons && <small>({' ' + item.reasons})</small>}
-                        </i>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </TextBlock>
-            ),
-          },
-        ]}
-        startSeen
-        defaultOpen={[0]}
-      />
+        <h2>Test Pages</h2>
+        <ul>
+          {tests.map((item, i) => (
+            <li key={i}>
+              {'path' in item ? (
+                <Link to={item.path}>{item.label}</Link>
+              ) : (
+                <i key={i}>
+                  {item.label} {item.reasons && <small>({' ' + item.reasons})</small>}
+                </i>
+              )}
+            </li>
+          ))}
+        </ul>
+      </TextBlock>
     </Layout>
   );
 }
