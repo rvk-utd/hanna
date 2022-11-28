@@ -94,11 +94,11 @@ export default css`
   /**/
 
   ${hannaVarDeclarations}
-  ${normalizeCss}
+  ${normalizeCss};
 
-    *,
-    *::before,
-    *::after {
+  *,
+  *::before,
+  *::after {
     flex-shrink: 0;
     box-sizing: border-box;
   }
@@ -108,14 +108,14 @@ export default css`
 
   ${setDefaultKeyboardFocusStyle(css`
     ${LinkStyle__focusOutline}
-  `)}
+  `)};
 
   ${setDefaultNonKeyboardFocusStyle(css`
     outline: none;
     outline-offset: 0;
-  `)}
+  `)};
 
-    html {
+  html {
     min-height: 100vh;
     min-width: calc(${bp.phone} - ${vars.browser_scrollbar_width});
     box-sizing: border-box;
