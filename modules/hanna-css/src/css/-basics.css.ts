@@ -119,8 +119,13 @@ export default css`
     min-height: 100vh;
     min-width: calc(${bp.phone} - ${vars.browser_scrollbar_width});
     box-sizing: border-box;
-    overflow: hidden; // rely on body
     position: relative;
+    overflow-x: hidden; // rely on <body/> for scrolling
+    // NOTE: when the virtual keyboard appears in iphone/mobile safari and an input needs to be
+    // shifted upwards, then mobile-safari force-scrolls the <html/> element
+    // If overflow-y is hidden, then the <html/> element remains stuck in the scrolled state
+    // and thereafter clipping the top off the page... #❤️🍎
+    overflow-y: auto;
 
     // "Fix" nasty/smudgy font rendering on mac
     -webkit-font-smoothing: antialiased;

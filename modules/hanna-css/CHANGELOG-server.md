@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Update styling of `.SearchInput__button`
 - fix: Font-size in `.FormField--small .FormField__input`s
+- fix: Page header cutoff after input field focus on iPhones
 
 ## 0.8.71
 
