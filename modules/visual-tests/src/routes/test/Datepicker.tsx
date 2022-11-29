@@ -5,6 +5,7 @@ import RowBlock from '@reykjavik/hanna-react/RowBlock';
 import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
 
 import { Minimal } from '../../layout/Minimal';
+import { focusAllFormFields } from '../../test-helpers/focusAllFormFields';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -106,13 +107,7 @@ export const testing: TestingInfo = {
 
       await page.keyboard.press('Escape'); // close the calendar before focusing
 
-      // Hack to screenshot all focus states at once
-      await page.mouse.move(0, 0);
-      await page.locator('.FormField:not(.FormField--disabled)').evaluateAll((elms) => {
-        elms.forEach((elm) => {
-          elm.classList.add('FormField--focused');
-        });
-      });
+      await focusAllFormFields(page);
       await pageScreenshot('allFocused');
     }
   },

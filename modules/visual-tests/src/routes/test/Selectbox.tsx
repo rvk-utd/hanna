@@ -5,6 +5,7 @@ import { ObjectEntries } from '@reykjavik/hanna-utils';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';
+import { focusAllFormFields } from '../../test-helpers/focusAllFormFields';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
@@ -61,13 +62,7 @@ export const testing: TestingInfo = {
       /* eslint-enable no-await-in-loop */
     }
 
-    // Hack to screenshot all focus states at once
-    await page.mouse.move(0, 0);
-    await page.locator('.FormField:not(.FormField--disabled)').evaluateAll((elms) => {
-      elms.forEach((elm) => {
-        elm.classList.add('FormField--focused');
-      });
-    });
+    await focusAllFormFields(page);
     await pageScreenshot('focused');
   },
 };
