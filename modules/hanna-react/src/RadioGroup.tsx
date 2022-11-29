@@ -7,16 +7,17 @@ import TogglerGroupField, {
 } from './_abstract/_TogglerGroupField';
 import TogglerInput, { TogglerInputProps } from './_abstract/_TogglerInput';
 
+type RadioProps = Omit<TogglerInputProps, 'reqText'>;
+const Radio = (props: RadioProps) => <TogglerInput {...props} bem="Radio" type="radio" />;
+
+// ---------------------------------------------------------------------------
+
 export type RadioGroupProps = TogglerGroupFieldProps & {
   layout?: 'inline';
   value?: string;
 };
 export type RadioGroupOption = TogglerGroupFieldOption;
 export type RadioGroupOptions = TogglerGroupFieldOptions;
-
-const Radio = (props: TogglerInputProps) => (
-  <TogglerInput {...props} bem="Radio" type="radio" />
-);
 
 const RadioGroup = (props: RadioGroupProps) => (
   <TogglerGroupField
@@ -26,6 +27,7 @@ const RadioGroup = (props: RadioGroupProps) => (
     Toggler={Radio}
   />
 );
+
 /** @deprecated Exposed for testing purposes only. This may disappear at any time. */
 RadioGroup.__Radio = Radio;
 
