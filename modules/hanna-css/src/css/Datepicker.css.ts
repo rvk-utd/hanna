@@ -465,6 +465,10 @@ export default css`
       position: absolute;
       left: ${prem(5)};
     }
+
+    .react-datepicker__tab-loop__end {
+      opacity: 0.0001;
+    }
   }
 
   @media ${mq.tablet_up} {
