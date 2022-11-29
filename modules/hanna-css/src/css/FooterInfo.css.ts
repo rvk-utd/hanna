@@ -5,8 +5,8 @@ import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
 
 import { afterClear_css } from './utils/afterClear';
+import { logo_notext_url } from './utils/logo';
 import { prem } from './utils/miscUtils';
-import { logo_notext_url } from './vars/logo';
 
 export default css`
   @media screen {
