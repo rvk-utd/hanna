@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Update styling of `.SearchInput__button`
+- fix: Apply disabled styles to `.FormField`s inside disabled `.FieldGroup`
+- fix: Suppress border effect when `:hover`ing `.FormField__input`s
 - fix: Font-size in `.FormField--small .FormField__input`s
 - fix: Page header cutoff after input field focus on iPhones
 - fix: Reduce line-height within `BreadCrumbs`

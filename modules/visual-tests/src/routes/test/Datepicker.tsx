@@ -83,19 +83,37 @@ export default function () {
 
 export const testing: TestingInfo = {
   viewportMinHeight: 700,
-  extras: async ({ page, localScreenshot, pageScreenshot }) => {
+  extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
     await page.locator('.FormField__input input >> nth=0').click();
     await pageScreenshot('opened');
 
-    const datepicker = page.locator('.react-datepicker');
+    if (project === 'firefox-wide') {
+      const datepicker = page.locator('.react-datepicker');
 
-    await datepicker.locator('span:text-is("október"), span:text-is("Október")').hover();
-    await localScreenshot(datepicker, 'dp-hover-month', { margin: -1 });
+      await datepicker
+        .locator('span:text-is("október"), span:text-is("Október")')
+        .hover();
+      await localScreenshot(datepicker, 'dp-hover-month', { margin: -1 });
 
-    await datepicker.locator('[role="button"]:text-is("5") >> nth=0').hover();
-    await localScreenshot(datepicker, 'dp-hover-today', { margin: -1 });
+      await datepicker.locator('[role="button"]:text-is("5") >> nth=0').hover();
+      await localScreenshot(datepicker, 'dp-hover-today', { margin: -1 });
 
-    await datepicker.locator('[role="button"]:text-is("21") >> nth=0').hover();
-    await localScreenshot(datepicker, 'dp-hover-weekend', { margin: -1 });
+      await datepicker.locator('[role="button"]:text-is("21") >> nth=0').hover();
+      await localScreenshot(datepicker, 'dp-hover-weekday', { margin: -1 });
+
+      await datepicker.locator('[role="button"]:text-is("22") >> nth=0').hover();
+      await localScreenshot(datepicker, 'dp-hover-weekend', { margin: -1 });
+
+      await page.keyboard.press('Escape'); // close the calendar before focusing
+
+      // Hack to screenshot all focus states at once
+      await page.mouse.move(0, 0);
+      await page.locator('.FormField:not(.FormField--disabled)').evaluateAll((elms) => {
+        elms.forEach((elm) => {
+          elm.classList.add('FormField--focused');
+        });
+      });
+      await pageScreenshot('allFocused');
+    }
   },
 };

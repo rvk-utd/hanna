@@ -68,6 +68,7 @@ export default css`
       margin-bottom: ${prem(10)};
       align-self: flex-start;
     }
+    :disabled > .FormField__label,
     .FormField--disabled > .FormField__label {
       opacity: 0.5;
     }
@@ -159,15 +160,15 @@ export default css`
       box-shadow: inset 0 0 0 1px ${ff.input__border_color};
       outline: 0;
     }
-    // .FormField__input--disabled[class],
+    :disabled .FormField__input,
     .FormField--disabled > .FormField__input,
     .FormField__input:disabled {
       ${FormFieldVariables.override({
         input__border_color: vars.color_suld_100,
       })}
+      box-shadow: none;
       background-color: ${vars.color_suld_50};
       opacity: 0.5;
-      cursor: not-allowed;
     }
 
     // Reset contained field elements by default ...

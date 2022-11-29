@@ -20,14 +20,14 @@ export default function () {
     <Minimal>
       <FieldGroup legend="Group Headline">
         <Checkbox label="Tick me please" />
-        <TextInput label="Enter text please" />
-        <Selectbox label="Enter text please" options={[]} />
+        <TextInput label="Enter text please" value="" />
+        <Selectbox label="Enter text please" options={['', 'Hi!']} value="" />
       </FieldGroup>
       <DummyBlock thin />
       <FieldGroup legend="Disabled Group Headline" disabled>
         <Checkbox label="Tick me please" />
-        <TextInput label="Enter text please" />
-        <Selectbox label="Enter text please" options={[]} />
+        <TextInput label="Enter text please" value="" />
+        <Selectbox label="Enter text please" options={['', 'Hi!']} value="" />
         {/** /
         <TextInput label="Enter text please" disabled />
         <Selectbox label="Enter text please" options={[]} disabled />

@@ -91,13 +91,11 @@ export const testing: TestingInfo = {
 
     // Hack to screenshot all focus states at once
     await page.mouse.move(0, 0);
-    await page
-      .locator('.FormField:not(.FormField__input--disabled)')
-      .evaluateAll((elms) => {
-        elms.forEach((elm) => {
-          elm.classList.add('FormField--focused');
-        });
+    await page.locator('.FormField:not(.FormField--disabled)').evaluateAll((elms) => {
+      elms.forEach((elm) => {
+        elm.classList.add('FormField--focused');
       });
+    });
     await pageScreenshot('focused');
   },
 };
