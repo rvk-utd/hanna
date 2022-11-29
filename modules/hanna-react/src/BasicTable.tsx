@@ -9,7 +9,6 @@ import { SeenProp, useSeenEffect } from './utils/seenEffect';
 export type BasicTableProps = {
   compact?: boolean;
   type?: 'text' | 'number';
-  children?: undefined;
   modifier?: string;
 } & EitherObj<{ fullWidth?: boolean }, { align?: 'right' }> &
   SeenProp &

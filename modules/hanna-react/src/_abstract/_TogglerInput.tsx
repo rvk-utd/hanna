@@ -5,7 +5,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 export type TogglerInputProps = {
   label: string | JSX.Element;
-  children?: undefined;
+  children?: never;
   Wrapper?: 'div' | 'li';
   invalid?: boolean;
   /** Hidden label prefix text to indicate that the field is required.

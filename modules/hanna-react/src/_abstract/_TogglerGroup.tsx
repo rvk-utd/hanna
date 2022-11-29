@@ -29,7 +29,6 @@ export type TogglerGroupProps = {
   options: TogglerGroupOptions;
   className?: string;
   name: string;
-  children?: undefined;
   disabled?: boolean | ReadonlyArray<number>;
   inputProps?: RestrictedInputProps;
   onSelected?: (payload: {

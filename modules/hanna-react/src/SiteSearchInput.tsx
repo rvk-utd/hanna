@@ -24,7 +24,7 @@ export type SiteSearchInputProps = {
    */
   onButtonClick?: () => boolean | void;
   buttonText?: string;
-  children?: undefined;
+  children?: never;
   ssr?: SSRSupport;
 } & WrappingProps &
   InputElmProps;

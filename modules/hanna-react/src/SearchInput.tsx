@@ -7,7 +7,7 @@ type InputElmProps = JSX.IntrinsicElements['input'];
 
 type BaseProps<Type extends { type?: string }, InputProps extends object> = {
   small?: boolean;
-  children?: undefined;
+  children?: never;
   onButtonClick?: () => void;
   buttonText?: string;
   inputRef?: RefObject<HTMLInputElement>;
