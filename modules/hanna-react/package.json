@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@hugsmidjan/qj": "^4.10.2",
-    "@hugsmidjan/react": "^0.4.17",
+    "@hugsmidjan/react": "^0.4.19",
     "@reykjavik/hanna-css": "^0.3.10",
     "@reykjavik/hanna-utils": "^0.1.17",
     "@types/react": "^17.0.24",

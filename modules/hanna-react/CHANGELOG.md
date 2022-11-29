@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Disable all non-selected options in `readOnly` `Selectbox`es
 
 ## 0.10.71
 
