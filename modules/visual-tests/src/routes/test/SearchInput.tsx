@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import SearchInput, { SearchInputProps } from '@reykjavik/hanna-react/SearchInput';
+import { SearchInput, SearchInputProps } from '@reykjavik/hanna-react/SearchInput';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 
 import { DummyBlock } from '../../layout/DummyBlock';

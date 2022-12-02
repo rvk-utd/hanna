@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import BasicTable, { BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
+import { BasicTable, BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

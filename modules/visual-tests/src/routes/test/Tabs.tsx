@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Tabs, { TabItemProps, TabsProps } from '@reykjavik/hanna-react/Tabs';
+import { TabItemProps, Tabs, TabsProps } from '@reykjavik/hanna-react/Tabs';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

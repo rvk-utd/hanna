@@ -1,8 +1,8 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
-import ActionCards, { ActionCardsItemProps } from '@reykjavik/hanna-react/ActionCards';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
+import { ActionCards, ActionCardsItemProps } from '@reykjavik/hanna-react/ActionCards';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

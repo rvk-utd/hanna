@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
-import ButtonSecondary from '@reykjavik/hanna-react/ButtonSecondary';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
+import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
+import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { optionsKnob } from '@storybook/addon-knobs';
 

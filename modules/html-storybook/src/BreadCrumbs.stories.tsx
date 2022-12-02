@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import BreadCrumbs from '@reykjavik/hanna-react/BreadCrumbs';
+import { BreadCrumbs } from '@reykjavik/hanna-react/BreadCrumbs';
 import { boolean, number } from '@storybook/addon-knobs';
 
 import { crumbTrail } from './utils/_dummyData';

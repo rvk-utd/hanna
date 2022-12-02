@@ -1,5 +1,5 @@
 import React from 'react';
-import Gallery, { GalleryItemProps } from '@reykjavik/hanna-react/Gallery';
+import { Gallery, GalleryItemProps } from '@reykjavik/hanna-react/Gallery';
 
 import landscapeImage from './example_assets/Gallery--landscape.jpg';
 import landscapeImageLarge from './example_assets/Gallery--landscape--large.jpg';

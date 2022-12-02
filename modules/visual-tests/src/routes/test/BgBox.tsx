@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import BgBox from '@reykjavik/hanna-react/BgBox';
+import { BgBox } from '@reykjavik/hanna-react/BgBox';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';

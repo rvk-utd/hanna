@@ -1,9 +1,9 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Checkbox from '@reykjavik/hanna-react/Checkbox';
-import RadioGroup from '@reykjavik/hanna-react/RadioGroup';
-import RowBlock from '@reykjavik/hanna-react/RowBlock';
-import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
+import { Checkbox } from '@reykjavik/hanna-react/Checkbox';
+import { RadioGroup } from '@reykjavik/hanna-react/RadioGroup';
+import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
+import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';

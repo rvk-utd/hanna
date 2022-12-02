@@ -1,5 +1,5 @@
 import React from 'react';
-import Bling, { BlingProps as _BlingProps } from '@reykjavik/hanna-react/Bling';
+import { Bling, BlingProps as _BlingProps } from '@reykjavik/hanna-react/Bling';
 import { blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean, optionsKnob, select } from '@storybook/addon-knobs';
 

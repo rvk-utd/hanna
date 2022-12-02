@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import IslandBlock, { IslandBlockProps } from '@reykjavik/hanna-react/IslandBlock';
+import { IslandBlock, IslandBlockProps } from '@reykjavik/hanna-react/IslandBlock';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import SiteSearchInput from '@reykjavik/hanna-react/SiteSearchInput';
+import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 
 import { getFormFieldKnobs } from './utils/knobs';
 import { StoryComponent, StoryParameters } from './storytypes';

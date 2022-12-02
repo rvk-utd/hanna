@@ -1,6 +1,7 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import ExtraLinks, {
+import {
+  ExtraLinks,
   ExtraLinksCardProps,
   RelatedLink,
 } from '@reykjavik/hanna-react/ExtraLinks';

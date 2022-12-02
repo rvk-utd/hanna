@@ -1,6 +1,6 @@
 import React from 'react';
-import CenterColumn from '@reykjavik/hanna-react/CenterColumn';
-import ContentImage, { ContentImageProps } from '@reykjavik/hanna-react/ContentImage';
+import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
+import { ContentImage, ContentImageProps } from '@reykjavik/hanna-react/ContentImage';
 import { boolean } from '@storybook/addon-knobs';
 
 import dummyImage from './example_assets/Gallery--landscape--large.jpg';

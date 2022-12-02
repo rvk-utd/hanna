@@ -1,6 +1,6 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import GridBlocks from '@reykjavik/hanna-react/GridBlocks';
+import { GridBlocks } from '@reykjavik/hanna-react/GridBlocks';
 import { efnistakn } from '@reykjavik/hanna-utils/assets';
 import { boolean } from '@storybook/addon-knobs';
 

@@ -7,9 +7,9 @@ import {
   redirect,
 } from '@remix-run/node';
 import { Link, useCatch, useLoaderData } from '@remix-run/react';
-import Layout from '@reykjavik/hanna-react/Layout';
-import PageHeading from '@reykjavik/hanna-react/PageHeading';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { Layout } from '@reykjavik/hanna-react/Layout';
+import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
 import { Minimal } from '../layout/Minimal';
 import { ReviewShot } from '../layout/ReviewShot';

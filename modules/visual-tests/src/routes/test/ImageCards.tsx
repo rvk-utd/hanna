@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
-import ImageCards, { ImageCardsItemProps } from '@reykjavik/hanna-react/ImageCards';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
+import { ImageCards, ImageCardsItemProps } from '@reykjavik/hanna-react/ImageCards';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';

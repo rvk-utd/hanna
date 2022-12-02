@@ -1,9 +1,9 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Checkbox from '@reykjavik/hanna-react/Checkbox';
-import FieldGroup from '@reykjavik/hanna-react/FieldGroup';
-import Selectbox from '@reykjavik/hanna-react/Selectbox';
-import TextInput from '@reykjavik/hanna-react/TextInput';
+import { Checkbox } from '@reykjavik/hanna-react/Checkbox';
+import { FieldGroup } from '@reykjavik/hanna-react/FieldGroup';
+import { Selectbox } from '@reykjavik/hanna-react/Selectbox';
+import { TextInput } from '@reykjavik/hanna-react/TextInput';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

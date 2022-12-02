@@ -2,11 +2,11 @@ import React from 'react';
 import type { LinksFunction, LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, useLoaderData, useSearchParams } from '@remix-run/react';
-import Layout from '@reykjavik/hanna-react/Layout';
-import PageHeading from '@reykjavik/hanna-react/PageHeading';
-import SeenEffect from '@reykjavik/hanna-react/SeenEffect';
-import TagPill from '@reykjavik/hanna-react/TagPill';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { Layout } from '@reykjavik/hanna-react/Layout';
+import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
+import { SeenEffect } from '@reykjavik/hanna-react/SeenEffect';
+import { TagPill } from '@reykjavik/hanna-react/TagPill';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
 import { getChangesToReview, getReportDate } from '../utils/tests.server';
 

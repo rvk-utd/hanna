@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactBubble, { ContactBubbleItem } from '@reykjavik/hanna-react/ContactBubble';
+import { ContactBubble, ContactBubbleItem } from '@reykjavik/hanna-react/ContactBubble';
 import { boolean } from '@storybook/addon-knobs';
 
 import { HiddenTiger } from './utils/HiddenTiger';

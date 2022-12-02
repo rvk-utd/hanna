@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import BlockQuote from '@reykjavik/hanna-react/BlockQuote';
+import { BlockQuote } from '@reykjavik/hanna-react/BlockQuote';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, loremRT } from '../../test-helpers/dummyData';

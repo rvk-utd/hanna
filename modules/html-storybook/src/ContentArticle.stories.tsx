@@ -1,5 +1,6 @@
 import React from 'react';
-import ContentArticle, {
+import {
+  ContentArticle,
   ContentArticleProps,
 } from '@reykjavik/hanna-react/ContentArticle';
 

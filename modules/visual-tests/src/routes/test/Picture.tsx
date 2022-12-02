@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Picture from '@reykjavik/hanna-react/Picture';
+import { Picture } from '@reykjavik/hanna-react/Picture';
 
 import { GhostLabel } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

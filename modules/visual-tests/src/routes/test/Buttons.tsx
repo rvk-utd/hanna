@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
-import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
-import ButtonSecondary from '@reykjavik/hanna-react/ButtonSecondary';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
+import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
+import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 
 import { Minimal } from '../../layout/Minimal';

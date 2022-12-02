@@ -1,6 +1,6 @@
 import React from 'react';
-import CenterColumn from '@reykjavik/hanna-react/CenterColumn';
-import RelatedLinks, { RelatedLinkItem } from '@reykjavik/hanna-react/RelatedLinks';
+import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
+import { RelatedLinkItem, RelatedLinks } from '@reykjavik/hanna-react/RelatedLinks';
 import { boolean } from '@storybook/addon-knobs';
 
 import { HiddenTiger } from './utils/HiddenTiger';

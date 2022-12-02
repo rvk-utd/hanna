@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Form from '@reykjavik/hanna-react/Form';
+import { Form } from '@reykjavik/hanna-react/Form';
 
 import { checkeredBackground, DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

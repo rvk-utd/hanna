@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import FooterInfo, { FooterInfoBoxes } from '@reykjavik/hanna-react/FooterInfo';
+import { FooterInfo, FooterInfoBoxes } from '@reykjavik/hanna-react/FooterInfo';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

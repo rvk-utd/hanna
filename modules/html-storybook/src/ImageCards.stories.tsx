@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
-import ImageCards from '@reykjavik/hanna-react/ImageCards';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
+import { ImageCards } from '@reykjavik/hanna-react/ImageCards';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean } from '@storybook/addon-knobs';
 

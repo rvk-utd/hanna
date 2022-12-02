@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import BlockBreak from '@reykjavik/hanna-react/BlockBreak';
-import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
-import ImageCards from '@reykjavik/hanna-react/ImageCards';
-import PageFilter from '@reykjavik/hanna-react/PageFilter';
-import Selectbox from '@reykjavik/hanna-react/Selectbox';
-import TextInput from '@reykjavik/hanna-react/TextInput';
+import { BlockBreak } from '@reykjavik/hanna-react/BlockBreak';
+import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
+import { ImageCards } from '@reykjavik/hanna-react/ImageCards';
+import { PageFilter } from '@reykjavik/hanna-react/PageFilter';
+import { Selectbox } from '@reykjavik/hanna-react/Selectbox';
+import { TextInput } from '@reykjavik/hanna-react/TextInput';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';

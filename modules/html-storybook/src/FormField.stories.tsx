@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import FormField from '@reykjavik/hanna-react/FormField';
+import { FormField } from '@reykjavik/hanna-react/FormField';
 import { boolean, select } from '@storybook/addon-knobs';
 
 import { HiddenTiger } from './utils/HiddenTiger';

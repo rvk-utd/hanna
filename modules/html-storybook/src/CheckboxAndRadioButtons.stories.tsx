@@ -1,6 +1,6 @@
 import React from 'react';
-import CheckboxButtonsGroup from '@reykjavik/hanna-react/CheckboxButtonsGroup';
-import RadioButtonsGroup from '@reykjavik/hanna-react/RadioButtonsGroup';
+import { CheckboxButtonsGroup } from '@reykjavik/hanna-react/CheckboxButtonsGroup';
+import { RadioButtonsGroup } from '@reykjavik/hanna-react/RadioButtonsGroup';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
 import { StoryParameters } from './storytypes';

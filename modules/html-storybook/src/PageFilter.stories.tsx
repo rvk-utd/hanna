@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import BlockBreak from '@reykjavik/hanna-react/BlockBreak';
-import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
-import PageFilter from '@reykjavik/hanna-react/PageFilter';
-import Selectbox from '@reykjavik/hanna-react/Selectbox';
-import TextInput from '@reykjavik/hanna-react/TextInput';
+import { BlockBreak } from '@reykjavik/hanna-react/BlockBreak';
+import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
+import { PageFilter } from '@reykjavik/hanna-react/PageFilter';
+import { Selectbox } from '@reykjavik/hanna-react/Selectbox';
+import { TextInput } from '@reykjavik/hanna-react/TextInput';
 import { boolean } from '@storybook/addon-knobs';
 
 import { HiddenTiger } from './utils/HiddenTiger';

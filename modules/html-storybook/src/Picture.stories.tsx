@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@reykjavik/hanna-css';
-import Picture from '@reykjavik/hanna-react/Picture';
+import { Picture } from '@reykjavik/hanna-react/Picture';
 import { boolean } from '@storybook/addon-knobs';
 
 import landscapeImage from './example_assets/NewsHero__landscape.jpg';

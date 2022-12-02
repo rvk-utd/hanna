@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
-import Checkbox from '@reykjavik/hanna-react/Checkbox';
-import CheckboxGroup, {
+import { Checkbox } from '@reykjavik/hanna-react/Checkbox';
+import {
+  CheckboxGroup,
   CheckboxGroupOptions,
   CheckboxGroupProps,
 } from '@reykjavik/hanna-react/CheckboxGroup';
-import RadioGroup, { RadioGroupProps } from '@reykjavik/hanna-react/RadioGroup';
-import RowBlock from '@reykjavik/hanna-react/RowBlock';
-import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
+import { RadioGroup, RadioGroupProps } from '@reykjavik/hanna-react/RadioGroup';
+import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
+import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

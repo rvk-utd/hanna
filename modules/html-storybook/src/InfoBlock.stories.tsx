@@ -1,5 +1,5 @@
 import React from 'react';
-import InfoBlock from '@reykjavik/hanna-react/InfoBlock';
+import { InfoBlock } from '@reykjavik/hanna-react/InfoBlock';
 import { optionsKnob } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

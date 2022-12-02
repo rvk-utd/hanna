@@ -1,5 +1,5 @@
 import React from 'react';
-import TextButton from '@reykjavik/hanna-react/TextButton';
+import { TextButton } from '@reykjavik/hanna-react/TextButton';
 
 import { StoryComponent, StoryParameters } from './storytypes';
 

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
-import HeroBlock from '@reykjavik/hanna-react/HeroBlock';
+import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
 
 import { Minimal } from '../../layout/Minimal';
 import { illustr } from '../../test-helpers/dummyData';

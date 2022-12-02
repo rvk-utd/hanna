@@ -1,11 +1,11 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import ContentImage from '@reykjavik/hanna-react/ContentImage';
-import PageHeading from '@reykjavik/hanna-react/PageHeading';
-import RowBlock from '@reykjavik/hanna-react/RowBlock';
-import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
-import SiteSearchAutocomplete from '@reykjavik/hanna-react/SiteSearchAutocomplete';
-import SiteSearchCurtain from '@reykjavik/hanna-react/SiteSearchCurtain';
+import { ContentImage } from '@reykjavik/hanna-react/ContentImage';
+import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
+import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
+import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
+import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
+import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
 import { HiddenTiger } from 'modules/html-storybook/src/utils/HiddenTiger';
 
 import { Minimal } from '../../layout/Minimal';

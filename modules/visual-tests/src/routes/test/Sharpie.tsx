@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Sharpie from '@reykjavik/hanna-react/Sharpie';
+import { Sharpie } from '@reykjavik/hanna-react/Sharpie';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

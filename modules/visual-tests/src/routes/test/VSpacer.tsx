@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import VSpacer from '@reykjavik/hanna-react/VSpacer';
+import { VSpacer } from '@reykjavik/hanna-react/VSpacer';
 
 import { DummyBlock, GhostLabel } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

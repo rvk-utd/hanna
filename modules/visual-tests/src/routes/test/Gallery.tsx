@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Gallery from '@reykjavik/hanna-react/Gallery';
+import { Gallery } from '@reykjavik/hanna-react/Gallery';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';

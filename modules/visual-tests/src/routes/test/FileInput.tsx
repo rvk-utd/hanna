@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import FileInput from '@reykjavik/hanna-react/FileInput';
+import { FileInput } from '@reykjavik/hanna-react/FileInput';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

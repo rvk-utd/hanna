@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import FooterBadges, { FooterBadgesProps } from '@reykjavik/hanna-react/FooterBadges';
+import { FooterBadges, FooterBadgesProps } from '@reykjavik/hanna-react/FooterBadges';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

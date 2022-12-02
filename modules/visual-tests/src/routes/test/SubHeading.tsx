@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Subheading from '@reykjavik/hanna-react/SubHeading';
+import { SubHeading } from '@reykjavik/hanna-react/SubHeading';
 
 import { checkeredBackground, DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
@@ -16,26 +16,26 @@ export default function () {
   return (
     <Minimal>
       {checkeredBackground('.SubHeading')}
-      <Subheading startSeen align="right">
+      <SubHeading startSeen align="right">
         Right aligned
-      </Subheading>
+      </SubHeading>
       <DummyBlock thin />
-      <Subheading startSeen align="right" small>
+      <SubHeading startSeen align="right" small>
         Right aligned and small
-      </Subheading>
+      </SubHeading>
       <DummyBlock thin />
-      <Subheading startSeen>Left aligned</Subheading>
-      <Subheading startSeen small>
+      <SubHeading startSeen>Left aligned</SubHeading>
+      <SubHeading startSeen small>
         Left aligned and small
-      </Subheading>
+      </SubHeading>
       <DummyBlock thin />
-      <Subheading startSeen wide>
+      <SubHeading startSeen wide>
         Wide Subheading
-      </Subheading>
+      </SubHeading>
       <DummyBlock thin />
-      <Subheading startSeen Tag="h3">
+      <SubHeading startSeen Tag="h3">
         Heading level H3
-      </Subheading>
+      </SubHeading>
     </Minimal>
   );
 }

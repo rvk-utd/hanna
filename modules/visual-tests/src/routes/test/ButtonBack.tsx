@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import ButtonBack from '@reykjavik/hanna-react/ButtonBack';
+import { ButtonBack } from '@reykjavik/hanna-react/ButtonBack';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

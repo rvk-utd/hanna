@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Heading from '@reykjavik/hanna-react/Heading';
+import { Heading } from '@reykjavik/hanna-react/Heading';
 
 import { checkeredBackground, DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

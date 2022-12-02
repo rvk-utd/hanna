@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import FeatureList, { FeatureListProps } from '@reykjavik/hanna-react/FeatureList';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { FeatureList, FeatureListProps } from '@reykjavik/hanna-react/FeatureList';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 
 import { HiddenTiger } from './utils/HiddenTiger';

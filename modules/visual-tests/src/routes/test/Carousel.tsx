@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Carousel from '@reykjavik/hanna-react/Carousel';
+import { Carousel } from '@reykjavik/hanna-react/Carousel';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import SiteSearchAutocomplete from '@reykjavik/hanna-react/SiteSearchAutocomplete';
+import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';

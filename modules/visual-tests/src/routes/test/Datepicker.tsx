@@ -1,8 +1,8 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Datepicker from '@reykjavik/hanna-react/Datepicker';
-import RowBlock from '@reykjavik/hanna-react/RowBlock';
-import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
+import { Datepicker } from '@reykjavik/hanna-react/Datepicker';
+import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
+import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 
 import { Minimal } from '../../layout/Minimal';
 import { focusAllFormFields } from '../../test-helpers/focusAllFormFields';

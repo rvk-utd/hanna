@@ -1,8 +1,9 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Layout from '@reykjavik/hanna-react/Layout';
-import MainMenu, {
+import { Layout } from '@reykjavik/hanna-react/Layout';
+import {
   AuxiliaryPanelProps,
+  MainMenu,
   MainMenuItemList,
   MegaMenuItem,
   MegaMenuPanel,

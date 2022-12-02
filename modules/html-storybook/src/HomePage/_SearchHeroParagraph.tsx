@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import range from '@hugsmidjan/qj/range';
-import Illustration from '@reykjavik/hanna-react/Illustration';
-import PageHeading from '@reykjavik/hanna-react/PageHeading';
-import RowBlock from '@reykjavik/hanna-react/RowBlock';
-import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
-import SiteSearchAutocomplete from '@reykjavik/hanna-react/SiteSearchAutocomplete';
-import SiteSearchCurtain from '@reykjavik/hanna-react/SiteSearchCurtain';
+import { Illustration } from '@reykjavik/hanna-react/Illustration';
+import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
+import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
+import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
+import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
+import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 
 import { HiddenTiger } from '../utils/HiddenTiger';

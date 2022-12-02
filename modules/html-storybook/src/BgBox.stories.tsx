@@ -1,5 +1,5 @@
 import React from 'react';
-import BgBox from '@reykjavik/hanna-react/BgBox';
+import { BgBox } from '@reykjavik/hanna-react/BgBox';
 
 import { StoryComponent, StoryParameters } from './storytypes';
 

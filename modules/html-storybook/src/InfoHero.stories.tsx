@@ -1,6 +1,6 @@
 import React from 'react';
-import InfoHero, { InfoHeroProps } from '@reykjavik/hanna-react/InfoHero';
-import Sharpie from '@reykjavik/hanna-react/Sharpie';
+import { InfoHero, InfoHeroProps } from '@reykjavik/hanna-react/InfoHero';
+import { Sharpie } from '@reykjavik/hanna-react/Sharpie';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
 import cityCouncilMemberImage from './example_assets/Dagur-b.jpg';

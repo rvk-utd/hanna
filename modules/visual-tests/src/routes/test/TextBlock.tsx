@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

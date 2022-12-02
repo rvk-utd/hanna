@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleCards from '@reykjavik/hanna-react/ArticleCards';
+import { ArticleCards } from '@reykjavik/hanna-react/ArticleCards';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean } from '@storybook/addon-knobs';
 

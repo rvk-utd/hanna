@@ -1,7 +1,7 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import ActionCards, { ActionCardsItemProps } from '@reykjavik/hanna-react/ActionCards';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
+import { ActionCards, ActionCardsItemProps } from '@reykjavik/hanna-react/ActionCards';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { boolean } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

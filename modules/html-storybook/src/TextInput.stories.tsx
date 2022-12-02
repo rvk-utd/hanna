@@ -1,6 +1,6 @@
 import React, { ChangeEvent, Fragment, useState } from 'react';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import TextInput from '@reykjavik/hanna-react/TextInput';
+import { TextInput } from '@reykjavik/hanna-react/TextInput';
 import { boolean } from '@storybook/addon-knobs';
 
 import { HiddenTiger } from './utils/HiddenTiger';

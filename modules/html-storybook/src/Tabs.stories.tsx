@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { getFrag } from '@hugsmidjan/qj/frag';
 import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
-import Tabs, { TabItemProps } from '@reykjavik/hanna-react/Tabs';
+import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
 import { boolean } from '@storybook/addon-knobs';
 
 import { HiddenTiger } from './utils/HiddenTiger';

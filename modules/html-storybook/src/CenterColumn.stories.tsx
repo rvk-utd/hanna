@@ -1,7 +1,7 @@
 import React from 'react';
-import CenterColumn from '@reykjavik/hanna-react/CenterColumn';
-import PageHeading from '@reykjavik/hanna-react/PageHeading';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
+import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
 import { HiddenTiger } from './utils/HiddenTiger';
 import { StoryComponent, StoryParameters } from './storytypes';

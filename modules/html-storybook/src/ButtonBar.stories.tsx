@@ -1,8 +1,8 @@
 import React from 'react';
-import ButtonBar from '@reykjavik/hanna-react/ButtonBar';
-import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
-import ButtonSecondary from '@reykjavik/hanna-react/ButtonSecondary';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
+import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
+import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
+import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { boolean } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

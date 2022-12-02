@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import ContactBubble, { ContactBubbleItem } from '@reykjavik/hanna-react/ContactBubble';
+import { ContactBubble, ContactBubbleItem } from '@reykjavik/hanna-react/ContactBubble';
 import { boolean } from '@storybook/addon-knobs';
 
 import { Minimal } from '../../layout/Minimal';

@@ -1,10 +1,11 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
-import SearchResults, {
+import {
+  SearchResults,
   SearchResultsItemProps,
 } from '@reykjavik/hanna-react/SearchResults';
-import SiteSearchInput from '@reykjavik/hanna-react/SiteSearchInput';
+import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';

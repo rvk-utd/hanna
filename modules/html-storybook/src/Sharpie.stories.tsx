@@ -1,5 +1,5 @@
 import React from 'react';
-import Sharpie from '@reykjavik/hanna-react/Sharpie';
+import { Sharpie } from '@reykjavik/hanna-react/Sharpie';
 
 import { StoryComponent, StoryParameters } from './storytypes';
 

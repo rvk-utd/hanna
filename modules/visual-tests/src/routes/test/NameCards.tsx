@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import NameCards from '@reykjavik/hanna-react/NameCards';
+import { NameCards } from '@reykjavik/hanna-react/NameCards';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';

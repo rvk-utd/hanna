@@ -1,5 +1,5 @@
 import React from 'react';
-import Skeleton from '@reykjavik/hanna-react/Skeleton';
+import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 
 import { StoryComponent, StoryParameters } from './storytypes';
 

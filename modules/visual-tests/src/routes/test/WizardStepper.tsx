@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import WizardStepper from '@reykjavik/hanna-react/WizardStepper';
+import { WizardStepper } from '@reykjavik/hanna-react/WizardStepper';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Bling from '@reykjavik/hanna-react/Bling';
-import ButtonBar from '@reykjavik/hanna-react/ButtonBar';
-import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
-import Heading from '@reykjavik/hanna-react/Heading';
-import Modal from '@reykjavik/hanna-react/Modal';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { Bling } from '@reykjavik/hanna-react/Bling';
+import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
+import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
+import { Heading } from '@reykjavik/hanna-react/Heading';
+import { Modal } from '@reykjavik/hanna-react/Modal';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

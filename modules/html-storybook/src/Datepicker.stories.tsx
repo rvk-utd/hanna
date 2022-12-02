@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Datepicker, { getDateDiff } from '@reykjavik/hanna-react/Datepicker';
+import { Datepicker, getDateDiff } from '@reykjavik/hanna-react/Datepicker';
 import { boolean, number, optionsKnob } from '@storybook/addon-knobs';
 
 import { getFormFieldKnobs } from './utils/knobs';

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Textinput, { TextInputProps } from '@reykjavik/hanna-react/TextInput';
+import { TextInput, TextInputProps } from '@reykjavik/hanna-react/TextInput';
 import { notFalsy } from '@reykjavik/hanna-utils';
 
 import { DummyBlock } from '../../layout/DummyBlock';
@@ -91,7 +91,7 @@ const overflowInputs: Array<TextInputProps> = [
 
 const render = (inputs: Array<TextInputProps | 'split'>) =>
   inputs.map((props, i) =>
-    props === 'split' ? <DummyBlock thin key={i} /> : <Textinput key={i} {...props} />
+    props === 'split' ? <DummyBlock thin key={i} /> : <TextInput key={i} {...props} />
   );
 
 // ---------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Attention from '@reykjavik/hanna-react/Attention';
-import LabeledTextBlock from '@reykjavik/hanna-react/LabeledTextBlock';
+import { Attention } from '@reykjavik/hanna-react/Attention';
+import { LabeledTextBlock } from '@reykjavik/hanna-react/LabeledTextBlock';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

@@ -1,5 +1,6 @@
 import React from 'react';
-import ProcessOverview, {
+import {
+  ProcessOverview,
   ProcessOverviewItemProps,
 } from '@reykjavik/hanna-react/ProcessOverview';
 import { boolean } from '@storybook/addon-knobs';

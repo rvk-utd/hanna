@@ -1,8 +1,8 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import CenterColumn from '@reykjavik/hanna-react/CenterColumn';
-import PageHeading from '@reykjavik/hanna-react/PageHeading';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
+import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { HiddenTiger } from 'modules/html-storybook/src/utils/HiddenTiger';
 
 import { Minimal } from '../../layout/Minimal';

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import ContentArticle, {
+import {
+  ContentArticle,
   ContentArticleProps,
 } from '@reykjavik/hanna-react/ContentArticle';
 

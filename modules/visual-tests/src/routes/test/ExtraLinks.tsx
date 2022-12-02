@@ -1,7 +1,8 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
-import ExtraLinks, {
+import {
+  ExtraLinks,
   ExtraLinksCardProps,
   RelatedLink,
 } from '@reykjavik/hanna-react/ExtraLinks';

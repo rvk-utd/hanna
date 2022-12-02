@@ -1,11 +1,11 @@
 import React from 'react';
 import { css, getCssBundleUrl, hannaVars, mq } from '@reykjavik/hanna-css';
-import ArticleCards from '@reykjavik/hanna-react/ArticleCards';
-import ArticleMeta from '@reykjavik/hanna-react/ArticleMeta';
-import BgBox from '@reykjavik/hanna-react/BgBox';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
-import Heading from '@reykjavik/hanna-react/Heading';
-import Picture from '@reykjavik/hanna-react/Picture';
+import { ArticleCards } from '@reykjavik/hanna-react/ArticleCards';
+import { ArticleMeta } from '@reykjavik/hanna-react/ArticleMeta';
+import { BgBox } from '@reykjavik/hanna-react/BgBox';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
+import { Heading } from '@reykjavik/hanna-react/Heading';
+import { Picture } from '@reykjavik/hanna-react/Picture';
 
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import { StoryComponent, StoryParameters } from '../storytypes';

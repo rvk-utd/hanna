@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import IframeBlock from '@reykjavik/hanna-react/IframeBlock';
+import { IframeBlock } from '@reykjavik/hanna-react/IframeBlock';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

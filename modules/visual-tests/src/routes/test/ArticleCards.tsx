@@ -1,7 +1,7 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
-import ArticleCards, { ArticleCardsItemProps } from '@reykjavik/hanna-react/ArticleCards';
+import { ArticleCards, ArticleCardsItemProps } from '@reykjavik/hanna-react/ArticleCards';
 
 import { Minimal } from '../../layout/Minimal';
 import { host, illustr, lorem, photo } from '../../test-helpers/dummyData';

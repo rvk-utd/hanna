@@ -1,5 +1,5 @@
 import React from 'react';
-import PullQuote from '@reykjavik/hanna-react/PullQuote';
+import { PullQuote } from '@reykjavik/hanna-react/PullQuote';
 
 import { StoryComponent, StoryParameters } from './storytypes';
 

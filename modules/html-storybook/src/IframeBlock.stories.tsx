@@ -1,5 +1,5 @@
 import React from 'react';
-import IframeBlock from '@reykjavik/hanna-react/IframeBlock';
+import { IframeBlock } from '@reykjavik/hanna-react/IframeBlock';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean } from '@storybook/addon-knobs';
 

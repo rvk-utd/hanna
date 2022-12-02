@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import RelatedLinks, { RelatedLinkItem } from '@reykjavik/hanna-react/RelatedLinks';
+import { RelatedLinkItem, RelatedLinks } from '@reykjavik/hanna-react/RelatedLinks';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem } from '../../test-helpers/dummyData';

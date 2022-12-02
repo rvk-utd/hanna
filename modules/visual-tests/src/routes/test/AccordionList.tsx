@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import AccordionList from '@reykjavik/hanna-react/AccordionList';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { AccordionList } from '@reykjavik/hanna-react/AccordionList';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, loremRT } from '../../test-helpers/dummyData';

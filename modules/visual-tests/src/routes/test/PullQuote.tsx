@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import PullQuote from '@reykjavik/hanna-react/PullQuote';
+import { PullQuote } from '@reykjavik/hanna-react/PullQuote';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import RadioGroup from '@reykjavik/hanna-react/RadioGroup';
+import { RadioGroup } from '@reykjavik/hanna-react/RadioGroup';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Heading from '@reykjavik/hanna-react/Heading';
+import { Heading } from '@reykjavik/hanna-react/Heading';
 import { optionsKnob } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

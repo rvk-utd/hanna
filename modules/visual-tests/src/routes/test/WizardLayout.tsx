@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Alert from '@reykjavik/hanna-react/Alert';
-import WizardLayout from '@reykjavik/hanna-react/WizardLayout';
-import WizardLayoutClose from '@reykjavik/hanna-react/WizardLayoutClose';
+import { Alert } from '@reykjavik/hanna-react/Alert';
+import { WizardLayout } from '@reykjavik/hanna-react/WizardLayout';
+import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
 
 import { DummyBlock, GhostLabel } from '../../layout/DummyBlock';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

@@ -1,5 +1,5 @@
 import React from 'react';
-import IslandBlock, { IslandBlockProps } from '@reykjavik/hanna-react/IslandBlock';
+import { IslandBlock, IslandBlockProps } from '@reykjavik/hanna-react/IslandBlock';
 import { formheimur } from '@reykjavik/hanna-utils/assets';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 

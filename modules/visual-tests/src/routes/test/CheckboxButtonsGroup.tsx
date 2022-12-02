@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
-import CheckboxButtonsGroup from '@reykjavik/hanna-react/CheckboxButtonsGroup';
+import { CheckboxButtonsGroup } from '@reykjavik/hanna-react/CheckboxButtonsGroup';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

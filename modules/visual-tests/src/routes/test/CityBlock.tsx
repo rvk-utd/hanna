@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import CityBlock, { CityBlockProps } from '@reykjavik/hanna-react/CityBlock';
+import { CityBlock, CityBlockProps } from '@reykjavik/hanna-react/CityBlock';
 
 import { Minimal } from '../../layout/Minimal';
 import { illustr, lorem, loremRT, photo } from '../../test-helpers/dummyData';

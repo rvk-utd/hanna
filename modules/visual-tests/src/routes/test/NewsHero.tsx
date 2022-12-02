@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import NewsHero from '@reykjavik/hanna-react/NewsHero';
+import { NewsHero } from '@reykjavik/hanna-react/NewsHero';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

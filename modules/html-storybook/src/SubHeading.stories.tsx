@@ -1,5 +1,5 @@
 import React from 'react';
-import SubHeading from '@reykjavik/hanna-react/SubHeading';
+import { SubHeading } from '@reykjavik/hanna-react/SubHeading';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

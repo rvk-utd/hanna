@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import ShareButtons from '@reykjavik/hanna-react/ShareButtons';
+import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
 
 import { Minimal } from '../../layout/Minimal';
 import { TestingInfo } from '../../test-helpers/testingInfo';

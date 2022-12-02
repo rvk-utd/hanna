@@ -1,5 +1,5 @@
 import React from 'react';
-import Footnote from '@reykjavik/hanna-react/Footnote';
+import { Footnote } from '@reykjavik/hanna-react/Footnote';
 
 import { HiddenTiger } from './utils/HiddenTiger';
 import { StoryComponent, StoryParameters } from './storytypes';

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import HeroBlock from '@reykjavik/hanna-react/HeroBlock';
+import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 import { select } from '@storybook/addon-knobs';
 

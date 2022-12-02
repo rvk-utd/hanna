@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import MiniMetrics from '@reykjavik/hanna-react/MiniMetrics';
+import { MiniMetrics } from '@reykjavik/hanna-react/MiniMetrics';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

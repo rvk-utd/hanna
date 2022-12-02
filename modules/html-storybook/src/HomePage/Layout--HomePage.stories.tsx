@@ -1,9 +1,9 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import ButtonTertiary from '@reykjavik/hanna-react/ButtonTertiary';
-import ExtraLinks from '@reykjavik/hanna-react/ExtraLinks';
-import GridBlocks from '@reykjavik/hanna-react/GridBlocks';
-import ImageCards from '@reykjavik/hanna-react/ImageCards';
+import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
+import { ExtraLinks } from '@reykjavik/hanna-react/ExtraLinks';
+import { GridBlocks } from '@reykjavik/hanna-react/GridBlocks';
+import { ImageCards } from '@reykjavik/hanna-react/ImageCards';
 import { efnistakn } from '@reykjavik/hanna-utils/assets';
 
 import { _ArticleCarousel } from '../ArticleCarousel.stories';

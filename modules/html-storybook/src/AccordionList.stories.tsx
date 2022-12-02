@@ -1,5 +1,5 @@
 import React from 'react';
-import AccordionList from '@reykjavik/hanna-react/AccordionList';
+import { AccordionList } from '@reykjavik/hanna-react/AccordionList';
 import { boolean } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

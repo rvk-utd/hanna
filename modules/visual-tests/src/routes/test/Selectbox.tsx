@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Selectbox, { SelectboxProps } from '@reykjavik/hanna-react/Selectbox';
+import { Selectbox, SelectboxProps } from '@reykjavik/hanna-react/Selectbox';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 
 import { Minimal } from '../../layout/Minimal';

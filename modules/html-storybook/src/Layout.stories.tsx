@@ -1,8 +1,8 @@
 import React from 'react';
-import Alert from '@reykjavik/hanna-react/Alert';
-import BreadCrumbs from '@reykjavik/hanna-react/BreadCrumbs';
-import Layout from '@reykjavik/hanna-react/Layout';
-import MainMenu from '@reykjavik/hanna-react/MainMenu';
+import { Alert } from '@reykjavik/hanna-react/Alert';
+import { BreadCrumbs } from '@reykjavik/hanna-react/BreadCrumbs';
+import { Layout } from '@reykjavik/hanna-react/Layout';
+import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { boolean } from '@storybook/addon-knobs';
 
 import { crumbTrail, mainMenuItems, megaMenuPanels } from './utils/_dummyData';

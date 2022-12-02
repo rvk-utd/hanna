@@ -1,5 +1,5 @@
 import React from 'react';
-import TagPill from '@reykjavik/hanna-react/TagPill';
+import { TagPill } from '@reykjavik/hanna-react/TagPill';
 
 import { StoryComponent, StoryParameters } from './storytypes';
 

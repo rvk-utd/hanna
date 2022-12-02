@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Bling, { BlingProps } from '@reykjavik/hanna-react/Bling';
+import { Bling, BlingProps } from '@reykjavik/hanna-react/Bling';
 
 import { Minimal } from '../../layout/Minimal';
 import { blingUrl } from '../../test-helpers/dummyData';

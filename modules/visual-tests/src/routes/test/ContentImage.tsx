@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import ContentImage from '@reykjavik/hanna-react/ContentImage';
+import { ContentImage } from '@reykjavik/hanna-react/ContentImage';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

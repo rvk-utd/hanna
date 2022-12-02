@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Alert from '@reykjavik/hanna-react/Alert';
+import { Alert } from '@reykjavik/hanna-react/Alert';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { boolean } from '@storybook/addon-knobs';
 

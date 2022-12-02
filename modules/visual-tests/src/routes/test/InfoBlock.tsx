@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import InfoBlock from '@reykjavik/hanna-react/InfoBlock';
+import { InfoBlock } from '@reykjavik/hanna-react/InfoBlock';
 
 import { Minimal } from '../../layout/Minimal';
 import { lorem, loremRT } from '../../test-helpers/dummyData';

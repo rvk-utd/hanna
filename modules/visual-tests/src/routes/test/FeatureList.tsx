@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import FeatureList, { FeatureListProps } from '@reykjavik/hanna-react/FeatureList';
+import { FeatureList, FeatureListProps } from '@reykjavik/hanna-react/FeatureList';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

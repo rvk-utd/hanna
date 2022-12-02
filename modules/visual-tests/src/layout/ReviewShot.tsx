@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LinksFunction } from '@remix-run/node';
 import { Form, Link, useTransition } from '@remix-run/react';
-import TagPill, { TagPillProps } from '@reykjavik/hanna-react/TagPill';
+import { TagPill, TagPillProps } from '@reykjavik/hanna-react/TagPill';
 import { capitalize } from '@reykjavik/hanna-utils';
 
 import { Changeset } from '../utils/tests.server';

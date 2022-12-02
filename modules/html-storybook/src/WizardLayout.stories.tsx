@@ -1,8 +1,8 @@
 import React from 'react';
-import Alert from '@reykjavik/hanna-react/Alert';
-import WizardLayout from '@reykjavik/hanna-react/WizardLayout';
-import WizardLayoutClose from '@reykjavik/hanna-react/WizardLayoutClose';
-import WizardStepper from '@reykjavik/hanna-react/WizardStepper';
+import { Alert } from '@reykjavik/hanna-react/Alert';
+import { WizardLayout } from '@reykjavik/hanna-react/WizardLayout';
+import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
+import { WizardStepper } from '@reykjavik/hanna-react/WizardStepper';
 import { boolean } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes';

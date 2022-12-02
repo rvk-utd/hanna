@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import SearchInput from '@reykjavik/hanna-react/SearchInput';
+import { SearchInput } from '@reykjavik/hanna-react/SearchInput';
 import { boolean } from '@storybook/addon-knobs';
 
 import { getFormFieldKnobs } from './utils/knobs';

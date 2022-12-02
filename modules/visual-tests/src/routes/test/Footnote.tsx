@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Footnote from '@reykjavik/hanna-react/Footnote';
+import { Footnote } from '@reykjavik/hanna-react/Footnote';
 
 import { Minimal } from '../../layout/Minimal';
 import { loremRT } from '../../test-helpers/dummyData';

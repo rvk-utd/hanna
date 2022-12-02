@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Skeleton from '@reykjavik/hanna-react/Skeleton';
+import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

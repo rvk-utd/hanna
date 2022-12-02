@@ -2,9 +2,9 @@ import React from 'react';
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
-import HeroBlock from '@reykjavik/hanna-react/HeroBlock';
-import Layout from '@reykjavik/hanna-react/Layout';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
+import { Layout } from '@reykjavik/hanna-react/Layout';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
 import { getTestList } from '../utils/tests.server';
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import ArticleCarousel, {
+import {
+  ArticleCarousel,
   ArticleCarouselProps,
 } from '@reykjavik/hanna-react/ArticleCarousel';
 

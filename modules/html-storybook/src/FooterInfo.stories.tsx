@@ -1,5 +1,8 @@
 import React from 'react';
-import _FooterInfo, { FooterInfoBoxes } from '@reykjavik/hanna-react/FooterInfo';
+import {
+  FooterInfo as _FooterInfo,
+  FooterInfoBoxes,
+} from '@reykjavik/hanna-react/FooterInfo';
 
 import { StoryComponent, StoryParameters } from './storytypes';
 

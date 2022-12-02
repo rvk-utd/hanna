@@ -1,6 +1,7 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import ArticleCarousel, {
+import {
+  ArticleCarousel,
   ArticleCarouselProps,
 } from '@reykjavik/hanna-react/ArticleCarousel';
 

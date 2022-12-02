@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import InfoHero from '@reykjavik/hanna-react/InfoHero';
+import { InfoHero } from '@reykjavik/hanna-react/InfoHero';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

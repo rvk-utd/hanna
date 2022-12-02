@@ -1,9 +1,10 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import SearchResults, {
+import {
+  SearchResults,
   SearchResultsItemProps,
 } from '@reykjavik/hanna-react/SearchResults';
-import SiteSearchInput from '@reykjavik/hanna-react/SiteSearchInput';
+import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 
 // ===========================================================================

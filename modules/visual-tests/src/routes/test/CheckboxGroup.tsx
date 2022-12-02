@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import CheckboxGroup from '@reykjavik/hanna-react/CheckboxGroup';
+import { CheckboxGroup } from '@reykjavik/hanna-react/CheckboxGroup';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

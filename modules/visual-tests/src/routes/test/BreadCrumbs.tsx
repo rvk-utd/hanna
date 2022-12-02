@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import BreadCrumbs from '@reykjavik/hanna-react/BreadCrumbs';
+import { BreadCrumbs } from '@reykjavik/hanna-react/BreadCrumbs';
 
 import { Minimal } from '../../layout/Minimal';
 import { breadCrumbTrail } from '../../test-helpers/dummyData';

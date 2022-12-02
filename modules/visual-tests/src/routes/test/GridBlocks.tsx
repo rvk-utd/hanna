@@ -1,7 +1,7 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
 import type { MetaFunction } from '@remix-run/node';
-import GridBlocks from '@reykjavik/hanna-react/GridBlocks';
+import { GridBlocks } from '@reykjavik/hanna-react/GridBlocks';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';

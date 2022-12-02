@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Alert from '@reykjavik/hanna-react/Alert';
-import BreadCrumbs from '@reykjavik/hanna-react/BreadCrumbs';
-import Layout from '@reykjavik/hanna-react/Layout';
+import { Alert } from '@reykjavik/hanna-react/Alert';
+import { BreadCrumbs } from '@reykjavik/hanna-react/BreadCrumbs';
+import { Layout } from '@reykjavik/hanna-react/Layout';
 
 import { DummyBlock } from '../../layout/DummyBlock';
 import { breadCrumbTrail } from '../../test-helpers/dummyData';

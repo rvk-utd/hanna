@@ -1,7 +1,7 @@
 import React from 'react';
 import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
-import RadioButtonsGroup from '@reykjavik/hanna-react/RadioButtonsGroup';
+import { RadioButtonsGroup } from '@reykjavik/hanna-react/RadioButtonsGroup';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

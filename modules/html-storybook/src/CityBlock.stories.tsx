@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import CityBlock, { CityBlockProps } from '@reykjavik/hanna-react/CityBlock';
+import { CityBlock, CityBlockProps } from '@reykjavik/hanna-react/CityBlock';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 

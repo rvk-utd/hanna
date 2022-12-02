@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import Bling from '@reykjavik/hanna-react/Bling';
-import ButtonBar from '@reykjavik/hanna-react/ButtonBar';
-import ButtonSecondary from '@reykjavik/hanna-react/ButtonSecondary';
-import Heading from '@reykjavik/hanna-react/Heading';
-import Modal, { ModalProps } from '@reykjavik/hanna-react/Modal';
-import TextBlock from '@reykjavik/hanna-react/TextBlock';
+import { Bling } from '@reykjavik/hanna-react/Bling';
+import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
+import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
+import { Heading } from '@reykjavik/hanna-react/Heading';
+import { Modal, ModalProps } from '@reykjavik/hanna-react/Modal';
+import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
 import { Minimal } from '../../layout/Minimal';
 import { loremRT } from '../../test-helpers/dummyData';
