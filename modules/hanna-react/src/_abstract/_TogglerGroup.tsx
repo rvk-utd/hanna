@@ -45,7 +45,7 @@ type _TogglerGroupProps = {
   value?: ReadonlyArray<string>;
 };
 
-const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
+export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
   const {
     // id,
     className,
@@ -110,5 +110,3 @@ const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     </ul>
   );
 };
-
-export default TogglerGroup;

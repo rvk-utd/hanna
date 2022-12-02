@@ -67,7 +67,7 @@ type AbstractCarouselProps<
   P extends Record<string, unknown> | undefined = Record<string, unknown>
 > = CarouselProps<I, P> & BemProps & { title?: string };
 
-const AbstractCarousel = <
+export const AbstractCarousel = <
   I extends Record<string, unknown> = Record<string, unknown>,
   P extends Record<string, unknown> | undefined = Record<string, unknown>
 >(
@@ -231,5 +231,3 @@ const AbstractCarousel = <
     </div>
   );
 };
-
-export default AbstractCarousel;

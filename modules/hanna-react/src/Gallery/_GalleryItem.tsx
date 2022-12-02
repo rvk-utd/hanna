@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 
-import Button from '../_abstract/_Button';
-import Image, { ImageProps } from '../_abstract/_Image';
+import { Button } from '../_abstract/_Button';
+import { Image, ImageProps } from '../_abstract/_Image';
 
-import GalleryModalContext from './_GalleryModalContext';
+import { GalleryModalContext } from './_GalleryModalContext';
 
 // ---------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ export type GalleryItemProps = {
   largeImageSrc?: string;
 } & ImageProps;
 
-const GalleryItem = (props: GalleryItemProps) => {
+export const GalleryItem = (props: GalleryItemProps) => {
   const { caption, description, largeImageSrc, ...image } = props;
   const { setCurrentImage } = useContext(GalleryModalContext);
 
@@ -39,5 +39,3 @@ const GalleryItem = (props: GalleryItemProps) => {
     </figure>
   );
 };
-
-export default GalleryItem;

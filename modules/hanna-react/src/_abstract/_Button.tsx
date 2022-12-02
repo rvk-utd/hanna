@@ -73,7 +73,7 @@ type _ButtonProps = ButtonProps &
   ButtonVariantProps &
   BemProps & { children?: ReactNode };
 
-const Button = (props: _ButtonProps) => {
+export const Button = (props: _ButtonProps) => {
   const {
     bem,
     small,
@@ -112,5 +112,3 @@ const Button = (props: _ButtonProps) => {
     );
   }
 };
-
-export default Button;

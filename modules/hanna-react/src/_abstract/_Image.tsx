@@ -42,7 +42,7 @@ type _ImageProps = {
 };
 
 // eslint-disable-next-line complexity
-const Image = (props: ImageProps & _ImageProps) => {
+export const Image = (props: ImageProps & _ImageProps) => {
   const {
     src,
     altText = '',
@@ -89,5 +89,3 @@ const Image = (props: ImageProps & _ImageProps) => {
     </picture>
   );
 };
-
-export default Image;

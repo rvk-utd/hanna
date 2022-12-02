@@ -4,8 +4,8 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from '../utils/seenEffect';
 
-import Button, { ButtonProps } from './_Button';
-import Image, { ImageProps } from './_Image';
+import { Button, ButtonProps } from './_Button';
+import { Image, ImageProps } from './_Image';
 
 export type BlockItem = {
   title: string;
@@ -25,7 +25,7 @@ export type ContentBlock = {
 
 export type BlockProps = BemPropsModifier & (ContentBlock | ContentImageBlock);
 
-const Block = (props: BlockProps & { bem: string }) => {
+export const Block = (props: BlockProps & { bem: string }) => {
   const { image, modifier, bem, content, startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 
@@ -55,4 +55,3 @@ const Block = (props: BlockProps & { bem: string }) => {
     </div>
   );
 };
-export default Block;

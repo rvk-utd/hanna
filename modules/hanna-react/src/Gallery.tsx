@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { SSRSupport } from '@hugsmidjan/react/hooks';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import AbstractCarousel from './_abstract/_AbstractCarousel';
-import GalleryItem, { GalleryItemProps } from './Gallery/_GalleryItem';
-import GalleryModal from './Gallery/_GalleryModal';
-import GalleryModalContext from './Gallery/_GalleryModalContext';
+import { AbstractCarousel } from './_abstract/_AbstractCarousel';
+import { GalleryItem, GalleryItemProps } from './Gallery/_GalleryItem';
+import { GalleryModal } from './Gallery/_GalleryModal';
+import { GalleryModalContext } from './Gallery/_GalleryModalContext';
 import { SeenProp } from './utils/seenEffect';
 
 export type { GalleryItemProps } from './Gallery/_GalleryItem';

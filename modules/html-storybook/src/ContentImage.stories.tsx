@@ -4,7 +4,7 @@ import ContentImage, { ContentImageProps } from '@reykjavik/hanna-react/ContentI
 import { boolean } from '@storybook/addon-knobs';
 
 import dummyImage from './example_assets/Gallery--landscape--large.jpg';
-import HiddenTiger from './utils/HiddenTiger';
+import { HiddenTiger } from './utils/HiddenTiger';
 import { StoryComponent, StoryParameters } from './storytypes';
 
 export default {

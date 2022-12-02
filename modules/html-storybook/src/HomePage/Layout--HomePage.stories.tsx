@@ -11,7 +11,7 @@ import { _MiniMetrics } from '../MiniMetrics.stories';
 import { StoryComponent, StoryParameters } from '../storytypes';
 import { imageCards } from '../utils/_dummyData';
 
-import _SearchHeroParagraph from './_SearchHeroParagraph';
+import { SearchHeroParagraph as _SearchHeroParagraph } from './_SearchHeroParagraph';
 
 export default {
   title: '_misc/HomePage',

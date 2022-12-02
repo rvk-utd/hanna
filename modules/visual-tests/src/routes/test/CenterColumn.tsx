@@ -3,7 +3,7 @@ import type { MetaFunction } from '@remix-run/node';
 import CenterColumn from '@reykjavik/hanna-react/CenterColumn';
 import PageHeading from '@reykjavik/hanna-react/PageHeading';
 import TextBlock from '@reykjavik/hanna-react/TextBlock';
-import HiddenTiger from 'modules/html-storybook/src/utils/HiddenTiger';
+import { HiddenTiger } from 'modules/html-storybook/src/utils/HiddenTiger';
 
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';

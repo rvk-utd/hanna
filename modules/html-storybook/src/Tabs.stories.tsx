@@ -4,7 +4,7 @@ import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import Tabs, { TabItemProps } from '@reykjavik/hanna-react/Tabs';
 import { boolean } from '@storybook/addon-knobs';
 
-import HiddenTiger from './utils/HiddenTiger';
+import { HiddenTiger } from './utils/HiddenTiger';
 import { useLink } from './utils/knobs';
 import { StoryComponent, StoryParameters } from './storytypes';
 

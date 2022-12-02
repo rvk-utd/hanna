@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-import Button, { ButtonProps } from './_abstract/_Button';
+import { Button, ButtonProps } from './_abstract/_Button';
 
 const colors = {
   normal: '',

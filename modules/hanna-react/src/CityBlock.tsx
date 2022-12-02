@@ -2,7 +2,7 @@ import React from 'react';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
-import Block, { BlockItem } from './_abstract/_Block';
+import { Block, BlockItem } from './_abstract/_Block';
 import { ImageProps } from './_abstract/_Image';
 import { SeenProp } from './utils/seenEffect';
 import { Alignment, aligns } from './constants';

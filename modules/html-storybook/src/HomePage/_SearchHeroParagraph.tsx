@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import range from '@hugsmidjan/qj/range';
 import Illustration from '@reykjavik/hanna-react/Illustration';
 import PageHeading from '@reykjavik/hanna-react/PageHeading';
@@ -8,7 +8,7 @@ import SiteSearchAutocomplete from '@reykjavik/hanna-react/SiteSearchAutocomplet
 import SiteSearchCurtain from '@reykjavik/hanna-react/SiteSearchCurtain';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 
-import HiddenTiger from '../utils/HiddenTiger';
+import { HiddenTiger } from '../utils/HiddenTiger';
 
 const items = range(1, 5).map((value) => `Suggestion ${value}`);
 
@@ -18,12 +18,7 @@ const getSuggestions = (value: string): Array<string> => {
   );
 };
 
-type CSSTokenInfo = {
-  cssTokens: string;
-  cssTokens_server?: string;
-};
-
-const SearchHeroParagraph: FC & CSSTokenInfo = () => {
+export const SearchHeroParagraph = () => {
   const [suggestions, setSuggestions] = useState(items);
 
   return (
@@ -64,5 +59,3 @@ const SearchHeroParagraph: FC & CSSTokenInfo = () => {
 const cssTokens_server = 'RowBlock,RowBlockColumn,PageHeading,Illustration,';
 SearchHeroParagraph.cssTokens_server = cssTokens_server;
 SearchHeroParagraph.cssTokens = cssTokens_server + 'SiteSearchCurtain,';
-
-export default SearchHeroParagraph;

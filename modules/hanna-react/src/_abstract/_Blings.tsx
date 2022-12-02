@@ -23,7 +23,7 @@ type BlingsProps = {
   mirror?: boolean;
 };
 
-const Blings = (props: BlingsProps) => (
+export const Blings = (props: BlingsProps) => (
   <>
     {props.blings.map(({ type, align, vertical, color, overlay, parent }, i) => (
       <Bling
@@ -38,5 +38,3 @@ const Blings = (props: BlingsProps) => (
     ))}
   </>
 );
-
-export default Blings;

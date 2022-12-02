@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Image from '../_abstract/_Image';
+import { Image } from '../_abstract/_Image';
 
 import { GalleryItemProps } from './_GalleryItem';
 
-const GalleryModalItem = (props: GalleryItemProps) => {
+export const GalleryModalItem = (props: GalleryItemProps) => {
   const { caption, description, ...image } = props;
 
   return (
@@ -19,5 +19,3 @@ const GalleryModalItem = (props: GalleryItemProps) => {
     </div>
   );
 };
-
-export default GalleryModalItem;

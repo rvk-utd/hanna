@@ -1,10 +1,11 @@
 import React from 'react';
 
-import TogglerGroupField, {
+import {
+  TogglerGroupField,
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
 } from './_abstract/_TogglerGroupField';
-import TogglerInput, { TogglerInputProps } from './_abstract/_TogglerInput';
+import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput';
 
 export type CheckboxButtonsGroupProps = TogglerGroupFieldProps & {
   value?: Array<string>;

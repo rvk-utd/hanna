@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AbstractCarousel, { CarouselProps } from './_abstract/_AbstractCarousel';
+import { AbstractCarousel, CarouselProps } from './_abstract/_AbstractCarousel';
 
 export type { CarouselProps } from './_abstract/_AbstractCarousel';
 

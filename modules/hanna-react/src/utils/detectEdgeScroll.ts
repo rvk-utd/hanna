@@ -5,7 +5,7 @@ type AtState = {
   end: boolean;
 };
 
-type Options = {
+export type DetectEdgeScrollOptions = {
   /**
    * Default: `"vertical"`
    */
@@ -57,7 +57,7 @@ type Actions = {
 const tolerance = 5; // px
 const throttleMs = 100;
 
-const detectEdgeScroll = (opts: Options): Actions => {
+export const detectEdgeScroll = (opts: DetectEdgeScrollOptions): Actions => {
   const { axis, scrollerElm, classedElm, bem, onChange, setClasses } = opts;
 
   let at = { start: true, end: true };
@@ -135,7 +135,5 @@ const detectEdgeScroll = (opts: Options): Actions => {
     },
   };
 };
-
-export type DetectEdgeScrollOptions = Options;
 
 export default detectEdgeScroll;

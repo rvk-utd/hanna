@@ -3,7 +3,7 @@ import IframeBlock from '@reykjavik/hanna-react/IframeBlock';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean } from '@storybook/addon-knobs';
 
-import HiddenTiger from './utils/HiddenTiger';
+import { HiddenTiger } from './utils/HiddenTiger';
 import { StoryComponent, StoryParameters } from './storytypes';
 
 export default {

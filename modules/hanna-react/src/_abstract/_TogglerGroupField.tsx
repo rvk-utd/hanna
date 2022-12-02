@@ -4,7 +4,8 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import FormField, { FormFieldGroupWrappingProps } from '../FormField';
 
-import TogglerGroup, {
+import {
+  TogglerGroup,
   TogglerGroupOption,
   TogglerGroupOptions,
   TogglerGroupProps,
@@ -25,7 +26,9 @@ type _TogglerGroupFieldProps = {
 export type TogglerGroupFieldOption = TogglerGroupOption;
 export type TogglerGroupFieldOptions = TogglerGroupOptions;
 
-const TogglerGroupField = (props: TogglerGroupFieldProps & _TogglerGroupFieldProps) => {
+export const TogglerGroupField = (
+  props: TogglerGroupFieldProps & _TogglerGroupFieldProps
+) => {
   const {
     bem,
     Toggler,
@@ -76,5 +79,3 @@ const TogglerGroupField = (props: TogglerGroupFieldProps & _TogglerGroupFieldPro
     />
   );
 };
-
-export default TogglerGroupField;

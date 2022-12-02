@@ -6,7 +6,7 @@ import RowBlock from '@reykjavik/hanna-react/RowBlock';
 import RowBlockColumn from '@reykjavik/hanna-react/RowBlockColumn';
 import SiteSearchAutocomplete from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 import SiteSearchCurtain from '@reykjavik/hanna-react/SiteSearchCurtain';
-import HiddenTiger from 'modules/html-storybook/src/utils/HiddenTiger';
+import { HiddenTiger } from 'modules/html-storybook/src/utils/HiddenTiger';
 
 import { Minimal } from '../../layout/Minimal';
 import { illustr } from '../../test-helpers/dummyData';

@@ -10,7 +10,9 @@ const styles = {
 
 type _ViewportNames = 'wide' | 'netbook' | 'tablet' | 'phablet' | 'phone' | 'phone_s';
 
-const viewports: Record<_ViewportNames, Viewport> = {
+export type ViewportOptions = _ViewportNames | 'responsive';
+
+export const viewports: Record<_ViewportNames, Viewport> = {
   wide: {
     name: 'Wide desktop',
     styles: {
@@ -72,7 +74,3 @@ const viewports: Record<_ViewportNames, Viewport> = {
     type: 'mobile',
   },
 };
-
-export type ViewportOptions = _ViewportNames | 'responsive';
-
-export default viewports;

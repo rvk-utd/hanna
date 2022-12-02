@@ -1,7 +1,7 @@
 import React from 'react';
 import { SSRSupport } from '@hugsmidjan/react/hooks';
 
-import AbstractCarousel from './_abstract/_AbstractCarousel';
+import { AbstractCarousel } from './_abstract/_AbstractCarousel';
 import {
   ArticleCarouselCard,
   ArticleCarouselCardProps,

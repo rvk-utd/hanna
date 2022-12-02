@@ -3,9 +3,9 @@ import { addDecorator, addParameters } from '@storybook/react';
 // import { jsxDecorator } from 'storybook-addon-jsx';
 import { withHTML } from '@whitespace/storybook-addon-html/react';
 
-import addSimpleLayout from '../src/utils/addSimpleLayout';
-import cssImportDecorator from '../src/utils/cssImportDecorator';
-import viewports from '../src/utils/viewports';
+import { addSimpleLayout } from '../src/utils/addSimpleLayout';
+import { cssImportDecorator } from '../src/utils/cssImportDecorator';
+import { viewports } from '../src/utils/viewports';
 
 addDecorator(withKnobs);
 addDecorator(withHTML);

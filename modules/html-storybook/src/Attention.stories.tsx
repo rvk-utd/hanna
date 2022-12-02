@@ -1,7 +1,7 @@
 import React from 'react';
 import Attention from '@reykjavik/hanna-react/Attention';
 
-import HiddenTiger from './utils/HiddenTiger';
+import { HiddenTiger } from './utils/HiddenTiger';
 import { StoryComponent, StoryParameters } from './storytypes';
 
 // ===========================================================================

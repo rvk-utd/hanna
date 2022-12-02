@@ -6,12 +6,12 @@ import Modal from '@hugsmidjan/react/Modal';
 
 import { GalleryI18n } from '../Gallery';
 
-import GalleryModalContext from './_GalleryModalContext';
-import GalleryModalItem from './_GalleryModalItem';
+import { GalleryModalContext } from './_GalleryModalContext';
+import { GalleryModalItem } from './_GalleryModalItem';
 
 type GalleryModalProps = { texts: Readonly<GalleryI18n> };
 
-const GalleryModal = (props: GalleryModalProps) => {
+export const GalleryModal = (props: GalleryModalProps) => {
   const { texts } = props;
 
   const { currentImage, items, setCurrentImage } = useContext(GalleryModalContext);
@@ -85,5 +85,3 @@ const GalleryModal = (props: GalleryModalProps) => {
     </Modal>
   );
 };
-
-export default GalleryModal;

@@ -18,7 +18,7 @@ const hide = (selector: string) => {
 
 document.documentElement.lang = 'is';
 
-const addSimpleLayout = makeDecorator({
+export const addSimpleLayout = makeDecorator({
   name: 'addSimpleLayout',
   parameterName: 'layout',
   wrapper: (storyFn, context) => {
@@ -98,5 +98,3 @@ const addSimpleLayout = makeDecorator({
     );
   },
 });
-
-export default addSimpleLayout;

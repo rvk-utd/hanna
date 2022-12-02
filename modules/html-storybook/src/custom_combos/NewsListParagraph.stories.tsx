@@ -10,7 +10,7 @@ import Picture from '@reykjavik/hanna-react/Picture';
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import { StoryComponent, StoryParameters } from '../storytypes';
 import { imageCards as _imageCards } from '../utils/_dummyData';
-import HiddenTiger from '../utils/HiddenTiger';
+import { HiddenTiger } from '../utils/HiddenTiger';
 
 export default {
   title: '_misc/reykjavik-is',

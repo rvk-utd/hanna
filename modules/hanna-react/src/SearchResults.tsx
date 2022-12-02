@@ -6,7 +6,8 @@ import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import SearchResultsItem, {
+import {
+  SearchResultsItem,
   SearchResultsItemProps,
 } from './SearchResults/_SearchResultsItem';
 import Alert from './Alert';

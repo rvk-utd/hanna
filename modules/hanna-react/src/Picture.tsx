@@ -1,7 +1,7 @@
 import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import Image, { ImagePropsLinked } from './_abstract/_Image';
+import { Image, ImagePropsLinked } from './_abstract/_Image';
 
 export type PictureProps = ImagePropsLinked & {
   contain?: boolean;

@@ -7,7 +7,7 @@ type HiddenTigerProps = {
   serverSide?: ReactNode | (() => ReactNode);
 } & EitherObj<{ clientSide: ReactNode | (() => ReactNode) }, { children: ReactNode }>;
 
-const HiddenTiger = (props: HiddenTigerProps) => {
+export const HiddenTiger = (props: HiddenTigerProps) => {
   const { children, style, serverSide, clientSide } = props;
   const isBrowser = useIsBrowserSide();
   if (isBrowser) {
@@ -27,5 +27,3 @@ const HiddenTiger = (props: HiddenTigerProps) => {
   }
   return null;
 };
-
-export default HiddenTiger;

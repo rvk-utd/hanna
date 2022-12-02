@@ -10,7 +10,7 @@ const makeCssUrl = (module: string | undefined, noLayout?: boolean) => {
   return getCssBundleUrl('-basics,' + layout + module);
 };
 
-const cssImportDecorator = makeDecorator({
+export const cssImportDecorator = makeDecorator({
   name: 'cssImportDecorator',
   parameterName: 'css',
   wrapper: (storyFn, context) => {
@@ -36,5 +36,3 @@ const cssImportDecorator = makeDecorator({
     );
   },
 });
-
-export default cssImportDecorator;

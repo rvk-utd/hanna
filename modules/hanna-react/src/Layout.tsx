@@ -7,7 +7,7 @@ import { EitherObj } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import Image from './_abstract/_Image';
+import { Image } from './_abstract/_Image';
 import { Link } from './_abstract/_Link';
 import { useMenuToggling } from './utils/useMenuToggling';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar';

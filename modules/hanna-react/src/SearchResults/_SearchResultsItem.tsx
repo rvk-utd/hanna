@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Image from '../_abstract/_Image';
+import { Image } from '../_abstract/_Image';
 import { Link } from '../_abstract/_Link';
 
 type MetaValue = string | (() => JSX.Element | string | number);
@@ -21,7 +21,7 @@ export type SearchResultsItemProps = {
   highlight?: boolean;
 };
 
-const SearchResultsItem = (props: SearchResultsItemProps) => {
+export const SearchResultsItem = (props: SearchResultsItemProps) => {
   const { highlight, title, summary, href, meta, image } = props;
   const bem = highlight ? 'SearchResultsHighlightItem' : 'SearchResultsItem';
   const metaArr = (Array.isArray(meta) ? meta : [meta]) as ReadonlyArray<MetaValue>;
@@ -46,5 +46,3 @@ const SearchResultsItem = (props: SearchResultsItemProps) => {
     </li>
   );
 };
-
-export default SearchResultsItem;

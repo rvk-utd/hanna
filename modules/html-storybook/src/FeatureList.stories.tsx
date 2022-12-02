@@ -3,7 +3,7 @@ import FeatureList, { FeatureListProps } from '@reykjavik/hanna-react/FeatureLis
 import TextBlock from '@reykjavik/hanna-react/TextBlock';
 import { getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 
-import HiddenTiger from './utils/HiddenTiger';
+import { HiddenTiger } from './utils/HiddenTiger';
 import { StoryComponent, StoryParameters } from './storytypes';
 
 const title = 'Hvað er í boði í lauginni?';

@@ -25,7 +25,7 @@ type _TogglerInputProps = {
   type: 'radio' | 'checkbox';
 };
 
-const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
+export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
   const {
     bem,
     modifier,
@@ -76,4 +76,3 @@ const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     </Wrapper>
   );
 };
-export default TogglerInput;

@@ -9,8 +9,6 @@ type ModalContextProps = {
   currentImage: GalleryItemProps | undefined;
 } & GalleryProps;
 
-const GalleryModalContext = React.createContext<ModalContextProps>(
+export const GalleryModalContext = React.createContext<ModalContextProps>(
   {} as ModalContextProps
 );
-
-export default GalleryModalContext;

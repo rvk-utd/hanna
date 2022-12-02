@@ -1,6 +1,7 @@
 import React from 'react';
 
-import TogglerGroupField, {
+import {
+  TogglerGroupField,
   TogglerGroupFieldOption,
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
