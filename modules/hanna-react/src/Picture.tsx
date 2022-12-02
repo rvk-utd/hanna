@@ -8,7 +8,7 @@ export type PictureProps = ImagePropsLinked & {
   className?: string;
 };
 
-const Picture = (props: PictureProps) => {
+export const Picture = (props: PictureProps) => {
   const { contain, className } = props;
   return (
     <Image

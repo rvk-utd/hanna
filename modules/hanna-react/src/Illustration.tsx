@@ -9,7 +9,7 @@ import { Image, ImageProps } from './_abstract/_Image';
 
 type IllustrationProps = EitherObj<{ type: IllustrationName }, { image: ImageProps }>;
 
-const Illustration = (props: IllustrationProps) => {
+export const Illustration = (props: IllustrationProps) => {
   const imgProps = props.type ? { src: getIllustrationUrl(props.type) } : props.image;
 
   return <Image className="Illustration" {...imgProps} />;

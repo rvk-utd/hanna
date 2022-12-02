@@ -87,7 +87,7 @@ const arrayToFileList = (arr: Array<File>): FileList => {
   return fileList.files;
 };
 
-const FileInput = (props: FileInputProps) => {
+export const FileInput = (props: FileInputProps) => {
   const {
     className,
     id,

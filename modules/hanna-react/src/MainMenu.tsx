@@ -75,7 +75,7 @@ export type MainMenuProps = {
   ssr?: SSRSupport;
 };
 
-const MainMenu = (props: MainMenuProps) => {
+export const MainMenu = (props: MainMenuProps) => {
   const { title, megaPanels = [], onItemClick, ssr, auxiliaryPanel } = props;
 
   const isBrowser = useIsBrowserSide(ssr);

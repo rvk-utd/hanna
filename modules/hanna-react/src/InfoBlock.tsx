@@ -13,7 +13,7 @@ export type InfoBlockProps = {
 > &
   SeenProp;
 
-const InfoBlock = (props: InfoBlockProps) => {
+export const InfoBlock = (props: InfoBlockProps) => {
   const { title, subtitle, items, startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 

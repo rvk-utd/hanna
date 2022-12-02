@@ -8,7 +8,7 @@ export type SiteSearchCurtain = {
   children: ReactNode;
 };
 
-const SiteSearchCurtain = (props: SiteSearchCurtain) => {
+export const SiteSearchCurtain = (props: SiteSearchCurtain) => {
   const [focused, setFocused] = useState(false);
   let blurTimeout: NodeJS.Timeout | undefined;
 

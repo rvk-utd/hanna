@@ -233,7 +233,7 @@ export type SearchResultsProps = {
 };
 
 // TODO: add plural translation thingy for result string
-const SearchResults = (props: SearchResultsProps) => {
+export const SearchResults = (props: SearchResultsProps) => {
   const { filters, activeFilterIdx, setFilter, status, errorText } = props;
   const texts = getTexts(props, defaultTexts);
 

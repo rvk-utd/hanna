@@ -4,7 +4,7 @@ import { Button, ButtonProps } from './_abstract/_Button';
 
 export type ButtonBackProps = ButtonProps;
 
-const ButtonBack = (props: ButtonBackProps & { children?: ReactNode }) => (
+export const ButtonBack = (props: ButtonBackProps & { children?: ReactNode }) => (
   <Button bem="ButtonBack" {...props} />
 );
 

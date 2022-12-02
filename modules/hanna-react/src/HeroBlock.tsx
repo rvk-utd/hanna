@@ -19,7 +19,7 @@ export type HeroBlockProps = {
 } & HeroBlockImageProps &
   SeenProp;
 
-const HeroBlock = (props: HeroBlockProps) => {
+export const HeroBlock = (props: HeroBlockProps) => {
   const {
     title,
     summary,

@@ -24,7 +24,7 @@ export type RelatedLinksProps = {
   links: Array<RelatedLinkItem>;
 };
 
-const RelatedLinks = (props: RelatedLinksProps) => {
+export const RelatedLinks = (props: RelatedLinksProps) => {
   const { title, links } = props;
 
   if (links.length === 0) {

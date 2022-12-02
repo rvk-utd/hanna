@@ -27,7 +27,7 @@ export type IslandBlockProps = IslandBaseBlockProps &
   (IslandContentBlocks | IslandImageBlock) &
   SeenProp;
 
-const IslandBlock = (props: IslandBlockProps) => {
+export const IslandBlock = (props: IslandBlockProps) => {
   const { align, content, shapes, image, startSeen } = props;
   const alignment = align && aligns[align] ? align : 'right';
 

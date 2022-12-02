@@ -90,7 +90,7 @@ export type BlingProps = {
     }
 );
 
-const Bling = (props: BlingProps) => {
+export const Bling = (props: BlingProps) => {
   const { align, vertical, color, overlay, type, blingUrl, parent, className } = props;
   const imageUrl = type ? getBlingUrl(type) : blingUrl;
   const inlineSvg = useGetSVGtext(imageUrl);

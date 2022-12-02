@@ -11,7 +11,7 @@ export type SubHeadingProps = {
 } & ComponentLayoutProps &
   SeenProp;
 
-const SubHeading = (props: SubHeadingProps) => {
+export const SubHeading = (props: SubHeadingProps) => {
   const { small, Tag = 'h2', children, align, wide, startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 

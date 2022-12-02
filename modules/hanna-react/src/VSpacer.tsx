@@ -32,7 +32,7 @@ export type VSpacerProps = EitherObj<
   }
 >;
 
-const VSpacer = (props: VSpacerProps) => {
+export const VSpacer = (props: VSpacerProps) => {
   const { size, top, bottom, children } = props;
 
   const isWrapper = hasChildren(children);

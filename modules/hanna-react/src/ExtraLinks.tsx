@@ -46,7 +46,7 @@ export type ExtraLinksCardProps = TextCardListProps['cards'][number];
 export type ExtraLinksProps = TextCardListProps &
   RelatedProps & { className?: string } & SeenProp;
 
-const ExtraLinks = (props: ExtraLinksProps) => {
+export const ExtraLinks = (props: ExtraLinksProps) => {
   const { relatedTitle, relatedLinks, className, startSeen, ...cardListProps } = props;
   const hasRelated = !!(relatedLinks && relatedLinks.length);
   const [ref] = useSeenEffect(startSeen);

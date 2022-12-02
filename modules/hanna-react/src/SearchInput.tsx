@@ -20,7 +20,7 @@ type BaseProps<Type extends { type?: string }, InputProps extends object> = {
 
 export type SearchInputProps = BaseProps<{ type?: 'text' }, InputElmProps>;
 
-const SearchInput = (props: SearchInputProps) => {
+export const SearchInput = (props: SearchInputProps) => {
   const {
     className,
 

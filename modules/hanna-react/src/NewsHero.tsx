@@ -92,7 +92,7 @@ export type NewsHeroProps = {
   blingType?: BlingOptions;
 } & SeenProp;
 
-const NewsHero = (props: NewsHeroProps) => {
+export const NewsHero = (props: NewsHeroProps) => {
   const { title, sharing = true, meta, summary, image, blingType, startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 

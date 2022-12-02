@@ -96,7 +96,7 @@ export type AlertProps = {
   }
 >;
 
-const Alert = (props: AlertProps) => {
+export const Alert = (props: AlertProps) => {
   const {
     type,
     childrenHTML,

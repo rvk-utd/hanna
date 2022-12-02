@@ -8,7 +8,7 @@ export type FieldGroupProps = {
   children: ReactNode;
 };
 
-const FieldGroup = (props: FieldGroupProps) => {
+export const FieldGroup = (props: FieldGroupProps) => {
   const { legend, children, className, disabled } = props;
   return (
     <fieldset

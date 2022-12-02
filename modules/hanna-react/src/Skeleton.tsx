@@ -31,7 +31,7 @@ export type SkeletonProps = {
   gap?: 1 | 2 | 3 | 4 | 5;
 };
 
-const Skeleton = (props: SkeletonProps) => {
+export const Skeleton = (props: SkeletonProps) => {
   const height = minmax(props.height, 40);
 
   const renderSkeleton = makeRenderSkeleton({
@@ -49,6 +49,9 @@ const Skeleton = (props: SkeletonProps) => {
 
 export default Skeleton;
 
+// ---------------------------------------------------------------------------
+// TS sugar to allow components to specify something like
+// `string | SkeletonText` as their allowed input.
 // ---------------------------------------------------------------------------
 
 declare const _SkeletonBlock__Brand: unique symbol;

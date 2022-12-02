@@ -8,7 +8,7 @@ export type ModalProps = Omit<_ModalProps, 'bem' | 'bodyWrap' | 'modifier'> & {
   bling?: ReactElement;
 };
 
-const Modal = (props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
   const {
     closeDelay = 500,
     texts = {

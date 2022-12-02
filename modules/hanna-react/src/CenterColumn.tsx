@@ -8,7 +8,7 @@ export type CenterColumnProps = {
 } & SeenProp &
   EffectProp;
 
-const CenterColumn = (props: CenterColumnProps) => {
+export const CenterColumn = (props: CenterColumnProps) => {
   const { children, startSeen, effectType } = props;
 
   return startSeen == null ? (

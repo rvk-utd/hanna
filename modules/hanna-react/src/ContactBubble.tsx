@@ -98,7 +98,7 @@ export type ContactBubbleProps = {
     }
 );
 
-const ContactBubble = (props: ContactBubbleProps) => {
+export const ContactBubble = (props: ContactBubbleProps) => {
   const { title, links, onToggle, alwaysShow } = props;
   const txt = getTexts(props, defaultTexts);
 

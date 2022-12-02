@@ -22,7 +22,7 @@ export type ButtonTertiaryProps = ButtonProps &
     icon?: TertiaryIcon;
   };
 
-const ButtonTertiary = (props: ButtonTertiaryProps & { children?: ReactNode }) => {
+export const ButtonTertiary = (props: ButtonTertiaryProps & { children?: ReactNode }) => {
   const { size = 'normal', icon = 'none' } = props;
 
   return <Button bem="ButtonTertiary" {...props} size={sizes[size]} icon={icons[icon]} />;

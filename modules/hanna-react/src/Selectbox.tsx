@@ -28,7 +28,7 @@ export type SelectboxProps<O extends OptionOrValue = OptionOrValue> =
       small?: boolean;
     };
 
-const Selectbox = <O extends OptionOrValue>(props: SelectboxProps<O>) => {
+export const Selectbox = <O extends OptionOrValue>(props: SelectboxProps<O>) => {
   const {
     className,
 
@@ -104,4 +104,7 @@ const Selectbox = <O extends OptionOrValue>(props: SelectboxProps<O>) => {
   );
 };
 
+// /** @deprecated Use named export instead (The default export will be removed in v0.11+) */
+// const SelectboxDefault = Selectbox;
+// export default SelectboxDefault;
 export default Selectbox;

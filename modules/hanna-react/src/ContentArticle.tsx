@@ -18,7 +18,7 @@ export type ContentArticleProps = {
   relatedLinks?: RelatedLinksProps;
 } & SeenProp;
 
-const ContentArticle = (props: ContentArticleProps) => {
+export const ContentArticle = (props: ContentArticleProps) => {
   const { relatedLinks } = props;
   const [ref] = useSeenEffect(props.startSeen);
 

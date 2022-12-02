@@ -12,7 +12,7 @@ export type ArticleCardsProps = Cleanup<
   Pick<ImageCardListProps, 'cards' | 'imgPlaceholder'>
 >;
 
-const ArticleCards = (props: ArticleCardsProps) => (
+export const ArticleCards = (props: ArticleCardsProps) => (
   <CardList
     bemPrefix="ArticleCards"
     standalone

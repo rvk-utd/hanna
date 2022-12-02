@@ -17,7 +17,7 @@ export type ImageCardProps = ImageCardsItemProps;
 export type ImageCardsProps = ImageCardListProps &
   CardListSummaryProps & { background?: boolean } & SeenProp;
 
-const ImageCards = (props: ImageCardsProps) => {
+export const ImageCards = (props: ImageCardsProps) => {
   const { background, startSeen, ...cardListProps } = props;
   const [ref] = useSeenEffect(startSeen);
 

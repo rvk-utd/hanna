@@ -38,7 +38,7 @@ export type GalleryProps = {
   ssr?: SSRSupport;
 } & SeenProp;
 
-const Gallery = (props: GalleryProps) => {
+export const Gallery = (props: GalleryProps) => {
   const { items, ssr, startSeen } = props;
   const texts = getTexts(props, defaultTexts);
   const [modalImage, setModalImage] = useState<GalleryItemProps | undefined>(undefined);

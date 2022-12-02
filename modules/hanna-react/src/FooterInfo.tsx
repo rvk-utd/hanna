@@ -17,7 +17,7 @@ export type FooterInfoProps = {
   boxes: FooterInfoBoxes;
 };
 
-const FooterInfo = (props: FooterInfoProps) => {
+export const FooterInfo = (props: FooterInfoProps) => {
   const { boxes } = props;
 
   return (

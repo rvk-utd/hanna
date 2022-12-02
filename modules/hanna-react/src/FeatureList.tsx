@@ -13,7 +13,7 @@ export type FeatureListProps = {
   }>;
 } & SeenProp;
 
-const FeatureList = (props: FeatureListProps) => {
+export const FeatureList = (props: FeatureListProps) => {
   const { title, features, startSeen } = props;
 
   const [ref] = useSeenEffect(startSeen);

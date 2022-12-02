@@ -20,7 +20,7 @@ type IslandPageImageProps =
 export type IslandPageBlockProps = BlockItem &
   IslandPageImageProps & { align?: Alignment; background?: Background } & SeenProp;
 
-const IslandPageBlock = (props: IslandPageBlockProps) => {
+export const IslandPageBlock = (props: IslandPageBlockProps) => {
   const { title, summary, buttons, illustration, image, align, background, startSeen } =
     props;
   const alignment = align && aligns[align] ? align : 'right';

@@ -22,7 +22,7 @@ const CheckboxButton = (props: TogglerInputProps) => (
   <TogglerInput bem="CheckboxButton" {...props} type="checkbox" />
 );
 
-const CheckboxButtonsGroup = (props: CheckboxButtonsGroupProps) => {
+export const CheckboxButtonsGroup = (props: CheckboxButtonsGroupProps) => {
   if (props.layout) {
     console.warn('`CheckboxButtonsGroupProps.layout` is deprecated.');
   }

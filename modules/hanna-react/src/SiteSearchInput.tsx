@@ -30,7 +30,7 @@ export type SiteSearchInputProps = {
   InputElmProps;
 
 // ---------------------------------------------------------------------------
-const SiteSearchInput = React.forwardRef<HTMLInputElement, SiteSearchInputProps>(
+export const SiteSearchInput = React.forwardRef<HTMLInputElement, SiteSearchInputProps>(
   (props, ref) => {
     const {
       label,

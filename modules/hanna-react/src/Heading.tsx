@@ -23,7 +23,7 @@ export type HeadingProps = {
   forceH1?: boolean;
 } & ComponentLayoutProps;
 
-const Heading = (props: HeadingProps) => {
+export const Heading = (props: HeadingProps) => {
   const { size = 'normal', align, wide, children } = props;
   const Tag = props.Tag || (props.forceH1 ? 'h1' : 'h2');
   const suppressWarning =

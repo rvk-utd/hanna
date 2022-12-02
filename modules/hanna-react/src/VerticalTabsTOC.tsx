@@ -66,7 +66,7 @@ export type VerticalTabsTOCProps = {
   onItemSelect: (itemId: string) => void;
 } & Pick<TabsProps, 'aria-label' | 'ssr' | 'activateOnFocus' | 'id' | 'startSeen'>;
 
-const VerticalTabsTOC = (props: VerticalTabsTOCProps) => {
+export const VerticalTabsTOC = (props: VerticalTabsTOCProps) => {
   const { onItemSelect, items } = props;
 
   const _domid = useDomid();

@@ -4,7 +4,7 @@ import { AbstractCarousel, CarouselProps } from './_abstract/_AbstractCarousel';
 
 export type { CarouselProps } from './_abstract/_AbstractCarousel';
 
-const Carousel = <
+export const Carousel = <
   I extends Record<string, unknown> = {},
   P extends Record<string, unknown> | undefined = {}
 >(

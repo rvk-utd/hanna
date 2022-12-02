@@ -36,7 +36,7 @@ export type BreadCrumbsProps = {
   trail: BreadCrumbTrail;
 };
 
-const BreadCrumbs = (props: BreadCrumbsProps) => {
+export const BreadCrumbs = (props: BreadCrumbsProps) => {
   const { title, trail } = props;
 
   if (trail.length === 0) {

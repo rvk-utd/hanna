@@ -6,7 +6,7 @@ import { ComponentLayoutProps } from './constants';
 export type FormProps = ComponentLayoutProps &
   React.FormHTMLAttributes<HTMLFormElement> & { children: ReactNode };
 
-const Form = (props: FormProps) => {
+export const Form = (props: FormProps) => {
   const { children, align, wide } = props;
 
   return (

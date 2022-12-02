@@ -70,7 +70,7 @@ export type ShareButtonsProps = {
   lang?: string;
 } & Partial<Record<ShareButtonPlatforms, boolean>>;
 
-const ShareButtons = (props: ShareButtonsProps) => {
+export const ShareButtons = (props: ShareButtonsProps) => {
   const {
     texts,
     lang,

@@ -22,7 +22,7 @@ const RadioButton = (props: TogglerInputProps) => (
   <TogglerInput {...props} bem="RadioButton" type="radio" />
 );
 
-const RadioButtonsGroup = (props: RadioButtonsGroupProps) => {
+export const RadioButtonsGroup = (props: RadioButtonsGroupProps) => {
   if (props.layout) {
     console.warn('`RadioButtonsGroupProps.layout` is deprecated.');
   }

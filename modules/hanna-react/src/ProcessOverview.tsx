@@ -14,7 +14,7 @@ export type ProcessOverviewProps = {
   narrow?: boolean;
 };
 
-const ProcessOverview = (props: ProcessOverviewProps) => {
+export const ProcessOverview = (props: ProcessOverviewProps) => {
   const { title, items, attention, transparent, narrow } = props;
 
   return (

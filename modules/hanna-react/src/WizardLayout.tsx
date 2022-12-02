@@ -18,7 +18,7 @@ type WizardLayoutProps = {
   children?: ReactNode;
 };
 
-const WizardLayout = (props: WizardLayoutProps) => {
+export const WizardLayout = (props: WizardLayoutProps) => {
   useScrollbarWidthCSSVar();
   const {
     // ssr,

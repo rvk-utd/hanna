@@ -4,7 +4,7 @@ export type FootnoteProps = {
   children: ReactNode;
 };
 
-const Footnote = (props: FootnoteProps) => (
+export const Footnote = (props: FootnoteProps) => (
   <div className="Footnote">{props.children}</div>
 );
 

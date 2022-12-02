@@ -6,7 +6,7 @@ export type SeenEffectProps = Omit<JSX.IntrinsicElements['div'], 'ref'> &
   SeenProp &
   EffectProp;
 
-const SeenEffect = (props: SeenEffectProps) => {
+export const SeenEffect = (props: SeenEffectProps) => {
   const { effectType, startSeen, ...divProps } = props;
   const [ref] = useSeenEffect(startSeen);
 

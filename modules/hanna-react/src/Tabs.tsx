@@ -123,7 +123,7 @@ export type TablistProps<T extends TabItemProps = TabItemProps> = TabsProps<T>;
 // NOTE: This isBrowser tablist behavior is based on
 // https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-2/tabs.html
 
-const Tabs = (props: TabsProps) => {
+export const Tabs = (props: TabsProps) => {
   const {
     tabs,
     role,

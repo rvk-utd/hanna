@@ -14,7 +14,7 @@ export type PageFilterProps = {
 } & EitherObj<{ filters: React.ReactNode }, { children: React.ReactNode }> &
   SeenProp;
 
-const PageFilter = (props: PageFilterProps) => {
+export const PageFilter = (props: PageFilterProps) => {
   const { title, summary, footnote, filters, children, buttonRow, underlap, startSeen } =
     props;
   const [ref] = useSeenEffect(startSeen);

@@ -42,7 +42,7 @@ export type WizardStepperProps = {
   onClick: (clickedIndex: number) => void;
 };
 
-const WizardStepper = (props: WizardStepperProps) => {
+export const WizardStepper = (props: WizardStepperProps) => {
   const { steps, activeStep = -1, allowForwardSkip, disableBacktrack, onClick } = props;
   return (
     <div className={getBemClass('WizardStepper', activeStep === -1 && 'preview')}>

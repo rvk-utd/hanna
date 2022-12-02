@@ -18,7 +18,7 @@ export type ArticleCarouselProps = {
 
 export type { ArticleCarouselCardProps, ArticleCarouselImageProps };
 
-const ArticleCarousel = (props: ArticleCarouselProps) => {
+export const ArticleCarousel = (props: ArticleCarouselProps) => {
   const { title, items, moreLabel, ssr, startSeen } = props;
   return (
     <AbstractCarousel

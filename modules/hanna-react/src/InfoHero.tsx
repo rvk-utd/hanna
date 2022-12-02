@@ -82,7 +82,7 @@ export type InfoHeroProps = {
   blingType?: BlingOptions;
 };
 
-const InfoHero = (props: InfoHeroProps) => {
+export const InfoHero = (props: InfoHeroProps) => {
   const {
     title,
     titleBlurb,

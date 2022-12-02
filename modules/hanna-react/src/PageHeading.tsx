@@ -10,7 +10,7 @@ export type PageHeadingProps = {
   children: ReactNode;
 } & SeenProp;
 
-const PageHeading = (props: PageHeadingProps) => {
+export const PageHeading = (props: PageHeadingProps) => {
   const { Tag = 'h1', align, small, children, startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 

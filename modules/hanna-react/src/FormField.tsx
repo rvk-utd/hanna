@@ -101,7 +101,7 @@ export type FormFieldProps = FormFieldGroupWrappingProps & {
 // ---------------------------------------------------------------------------
 
 // eslint-disable-next-line complexity
-const FormField = (props: FormFieldProps) => {
+export const FormField = (props: FormFieldProps) => {
   const {
     className,
     small,

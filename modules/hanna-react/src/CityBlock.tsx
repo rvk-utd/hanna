@@ -19,7 +19,7 @@ export type CityBlockProps = {
 } & EitherObj<{ illustration: Illustration }, { image: ImageProps }> &
   SeenProp;
 
-const CityBlock = (props: CityBlockProps) => {
+export const CityBlock = (props: CityBlockProps) => {
   const align = props.align || 'right';
   const type = !props.illustration && props.type; // The presence of illustration prop suppresses type
   const modifier = [aligns[align] && 'align--' + align, type && types[type] && type];

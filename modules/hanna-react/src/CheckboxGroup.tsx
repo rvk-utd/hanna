@@ -15,7 +15,7 @@ export type CheckboxGroupProps = TogglerGroupFieldProps & {
 export type CheckboxGroupOption = TogglerGroupFieldOption;
 export type CheckboxGroupOptions = TogglerGroupFieldOptions;
 
-const CheckboxGroup = (props: CheckboxGroupProps) => {
+export const CheckboxGroup = (props: CheckboxGroupProps) => {
   return (
     <TogglerGroupField
       {...props}

@@ -13,7 +13,7 @@ export type RowBlockProps = {
 } & BemPropsModifier &
   SeenProp;
 
-const RowBlock = (props: RowBlockProps) => {
+export const RowBlock = (props: RowBlockProps) => {
   const { right, modifier, className, children, startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 

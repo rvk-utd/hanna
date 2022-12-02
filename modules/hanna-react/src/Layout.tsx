@@ -51,7 +51,7 @@ type LayoutProps = {
   lang?: string;
 } & EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
 
-const Layout = (props: LayoutProps) => {
+export const Layout = (props: LayoutProps) => {
   useScrollbarWidthCSSVar();
   const {
     ssr,

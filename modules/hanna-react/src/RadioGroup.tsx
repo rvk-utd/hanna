@@ -20,7 +20,7 @@ export type RadioGroupProps = TogglerGroupFieldProps & {
 export type RadioGroupOption = TogglerGroupFieldOption;
 export type RadioGroupOptions = TogglerGroupFieldOptions;
 
-const RadioGroup = (props: RadioGroupProps) => (
+export const RadioGroup = (props: RadioGroupProps) => (
   <TogglerGroupField
     {...props}
     bem="RadioGroup"

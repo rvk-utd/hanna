@@ -8,7 +8,7 @@ export type ContentImageProps = {
   credit?: string | JSX.Element;
 };
 
-const ContentImage = (props: ContentImageProps) => {
+export const ContentImage = (props: ContentImageProps) => {
   const { image, caption, credit } = props;
 
   return (

@@ -31,7 +31,7 @@ export type TextInputProps = {
       } & TextareaElmProps)
   );
 
-const TextInput = (props: TextInputProps) => {
+export const TextInput = (props: TextInputProps) => {
   const _inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
   const {

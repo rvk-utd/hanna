@@ -12,7 +12,7 @@ export type LabeledTextBlockProps = {
   buttons?: Array<ButtonProps>;
 } & SeenProp;
 
-const LabeledTextBlock = (props: LabeledTextBlockProps) => {
+export const LabeledTextBlock = (props: LabeledTextBlockProps) => {
   const { label, summary, wide, buttons = [], startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 

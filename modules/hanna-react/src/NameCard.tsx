@@ -118,7 +118,7 @@ export type NameCardProps = {
   tel?: string | Array<string>;
 };
 
-const NameCard = (props: NameCardProps) => {
+export const NameCard = (props: NameCardProps) => {
   const { name, location, hours, aboutText, available = props.vacancy, updated } = props;
 
   const renderMeta = () => {

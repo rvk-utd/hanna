@@ -7,7 +7,7 @@ export type RowBlockColumnProps = {
   children: ReactNode;
 };
 
-const RowBlockColumn = (props: RowBlockColumnProps) => {
+export const RowBlockColumn = (props: RowBlockColumnProps) => {
   const { background, narrow, children } = props;
 
   return (

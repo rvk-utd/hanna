@@ -10,7 +10,7 @@ export type FooterBadgesProps = {
   }>;
 };
 
-const FooterBadges = (props: FooterBadgesProps) => {
+export const FooterBadges = (props: FooterBadgesProps) => {
   if (!props.badges.length) {
     return null;
   }

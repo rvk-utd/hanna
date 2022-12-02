@@ -78,7 +78,7 @@ export type AccordionListProps = {
   ssr?: SSRSupport;
 } & SeenProp;
 
-const AccordionList = (props: AccordionListProps) => {
+export const AccordionList = (props: AccordionListProps) => {
   const { items, ssr, wide, startSeen, defaultOpen } = props;
   const [ref] = useSeenEffect(startSeen);
   const [open, setOpenArray, mode] = useMixedControlState(props, 'open', []);

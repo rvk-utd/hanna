@@ -66,7 +66,7 @@ export type SiteSearchAutocompleteProps<T> = {
   label?: string;
 } & BemProps;
 
-const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>) => {
+export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>) => {
   const {
     suggestions,
     setSuggestions,

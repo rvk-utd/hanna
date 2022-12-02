@@ -15,7 +15,7 @@ export type TextBlockProps = ComponentLayoutProps & {
   children: ReactNode;
 } & SeenProp;
 
-const TextBlock = (props: TextBlockProps) => {
+export const TextBlock = (props: TextBlockProps) => {
   const { children, align, labelled, wide, small, startSeen } = props;
 
   const rightAligned = align === 'right' || labelled;

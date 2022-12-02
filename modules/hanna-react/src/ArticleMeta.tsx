@@ -13,7 +13,7 @@ export type ArticleMetaProps = {
   small?: boolean;
 };
 
-const ArticleMeta = (props: ArticleMetaProps) => {
+export const ArticleMeta = (props: ArticleMetaProps) => {
   const { items, small } = props;
 
   if (items.length === 0) {

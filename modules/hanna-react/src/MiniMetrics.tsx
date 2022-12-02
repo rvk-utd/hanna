@@ -9,7 +9,7 @@ export type MiniMetricsProps = {
   moreButton: ButtonProps;
 } & SeenProp;
 
-const MiniMetrics = (props: MiniMetricsProps) => {
+export const MiniMetrics = (props: MiniMetricsProps) => {
   const { text, moreButton, startSeen } = props;
 
   return (

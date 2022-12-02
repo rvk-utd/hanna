@@ -24,7 +24,7 @@ export type SharpieProps = {
   children: ReactNode;
 };
 
-const Sharpie = (props: SharpieProps) => {
+export const Sharpie = (props: SharpieProps) => {
   const { color, tag, children } = props;
 
   const colorModifier = colors[color] ? color : 'green';

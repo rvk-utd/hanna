@@ -9,7 +9,7 @@ export type BgBoxProps = {
 } & SeenProp &
   EffectProp;
 
-const BgBox = (props: BgBoxProps) => {
+export const BgBox = (props: BgBoxProps) => {
   const { className, children, effectType, startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 

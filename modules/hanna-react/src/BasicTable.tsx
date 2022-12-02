@@ -14,7 +14,7 @@ export type BasicTableProps = {
   SeenProp &
   Omit<TableProps, 'className' | 'children'>;
 
-const BasicTable = (props: BasicTableProps) => {
+export const BasicTable = (props: BasicTableProps) => {
   const { cols, caption, thead, tfoot, align, fullWidth, startSeen } = props;
 
   const tbodyProps = props.tbodies

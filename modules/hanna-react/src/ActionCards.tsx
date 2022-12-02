@@ -12,7 +12,7 @@ export type ActionCardsProps = TextCardListProps & CardListSummaryProps & SeenPr
 
 export type ActionCardsItemProps = TextCardProps;
 
-const ActionCards = (props: ActionCardsProps) => {
+export const ActionCards = (props: ActionCardsProps) => {
   const [ref] = useSeenEffect(props.startSeen);
 
   return (

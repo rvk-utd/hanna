@@ -34,7 +34,7 @@ export type GridBlocksProp1s = {
   twocol?: boolean;
 };
 
-const GridBlocks = (props: GridBlocksProps) => {
+export const GridBlocks = (props: GridBlocksProps) => {
   const { blocks, twocol, startSeen } = props;
   const [ref] = useSeenEffect(startSeen);
 

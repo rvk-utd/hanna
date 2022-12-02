@@ -29,7 +29,7 @@ export type TagPillProps = ButtonProps & {
     }
   >;
 
-const TagPill = (props: TagPillProps) => {
+export const TagPill = (props: TagPillProps) => {
   const {
     modifier,
     large,

@@ -6,7 +6,7 @@ type NameCardsProps = {
   items: Array<NameCardProps>;
 };
 
-const NameCards = (props: NameCardsProps) => {
+export const NameCards = (props: NameCardsProps) => {
   const { items } = props;
   return (
     <div className="NameCards">

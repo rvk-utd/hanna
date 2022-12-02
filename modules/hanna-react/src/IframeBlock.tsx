@@ -32,7 +32,7 @@ export type IframeBlockProps = {
  * ```
  */
 
-const IframeBlock = (props: IframeBlockProps) => {
+export const IframeBlock = (props: IframeBlockProps) => {
   const {
     title,
     src,

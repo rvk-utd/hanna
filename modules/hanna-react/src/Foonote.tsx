@@ -10,6 +10,6 @@ export type FootnoteProps = _FootnoteProps;
  *
  * This module file is a typo. import from `Footnote` instead
  */
-const Footnote = _Footnote;
+export const Footnote = _Footnote;
 
 export default Footnote;

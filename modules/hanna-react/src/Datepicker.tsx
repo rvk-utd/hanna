@@ -78,7 +78,7 @@ const i18n: Record<string, DatepickerLocaleProps> = {
   },
 };
 
-const Datepicker = (props: DatepickerProps) => {
+export const Datepicker = (props: DatepickerProps) => {
   const {
     className,
     id,
