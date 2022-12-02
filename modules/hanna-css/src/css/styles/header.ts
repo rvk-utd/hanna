@@ -1,4 +1,4 @@
-import { css } from 'es-in-css';
+import { css, VariablePrinter } from 'es-in-css';
 import Color from 'es-in-css/_/color.types';
 
 import { mq } from '../../lib/breakpoints';
@@ -100,7 +100,7 @@ export const freezeScroll_css = ({
   `}
 `;
 
-export const LayoutHeaderUnderlay_css = (color: Color) => css`
+export const LayoutHeaderUnderlay_css = (color: Color | VariablePrinter) => css`
   content: '';
   position: fixed;
   z-index: 1;
