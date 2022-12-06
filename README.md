@@ -26,7 +26,8 @@ push static build-results into them.
 - [Setup / Contribution](#setup--contribution)
   - [System requirements](#system-requirements)
   - [Installation](#installation)
-  <!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-end -->
 
 ## Modules in This Repo
 
