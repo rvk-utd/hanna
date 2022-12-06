@@ -103,7 +103,11 @@ export default css`
       */
     }
 
+    .MainMenu[data-sprinkled] {
+      display: none;
+    }
     html.menu-is-active .MainMenu {
+      display: flex;
       position: fixed;
       z-index: calc(${vars.zindex__header} - 1);
       top: 0;

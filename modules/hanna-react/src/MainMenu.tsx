@@ -93,6 +93,9 @@ export const MainMenu = (props: MainMenuProps) => {
 
   const setActivePanel = useCallback(
     (newActive: MegaMenuPanel | undefined, setFocus = true) => {
+      if (!isBrowser) {
+        return;
+      }
       const htmlElmDataset = document.documentElement.dataset;
 
       // const menuElm = menuElmRef.current as HTMLElement;
@@ -129,7 +132,7 @@ export const MainMenu = (props: MainMenuProps) => {
         return newActive;
       });
     },
-    [setLaggyActivePanel]
+    [setLaggyActivePanel, isBrowser]
   );
 
   useFormatMonitor((media) => {
@@ -164,7 +167,7 @@ export const MainMenu = (props: MainMenuProps) => {
 
   useEffect(() => {
     const menuElm = menuElmRef.current;
-    if (!hasActivePanel || !menuElm) {
+    if (!isBrowser || !hasActivePanel || !menuElm) {
       return;
     }
 
@@ -185,7 +188,7 @@ export const MainMenu = (props: MainMenuProps) => {
       document.removeEventListener('keydown', escHandler);
       document.removeEventListener('click', clickHandler, true);
     };
-  }, [hasActivePanel, setActivePanel]);
+  }, [hasActivePanel, setActivePanel, isBrowser]);
 
   if (menuItems.length === 0) {
     return null;
@@ -214,7 +217,7 @@ export const MainMenu = (props: MainMenuProps) => {
               aria-current={item.current || undefined}
             >
               {
-                onClick || (!!item.megaPanel && (isBrowser || item.href != null)) ? (
+                onClick || (!!item.megaPanel && (isBrowser || !item.href)) ? (
                   // only print script-driven buttons in the browser
                   <button
                     className="MainMenu__link"
