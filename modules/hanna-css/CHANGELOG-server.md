@@ -9,7 +9,7 @@
 - fix: Font-size in `.FormField--small .FormField__input`s
 - fix: Page header cutoff after input field focus on iPhones
 - fix: Reduce line-height within `BreadCrumbs`
-- fix: Suppress MainMenu flicker on window resize
+- fix: Suppress `.MainMenu` flicker on window resize
 
 ## 0.8.71
 
