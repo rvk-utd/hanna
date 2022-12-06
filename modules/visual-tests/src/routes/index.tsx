@@ -32,6 +32,7 @@ export const handle = {
 
 export default function Index() {
   const { tests } = useLoaderData<LoaderData>();
+  console.log('tests: ', tests);
 
   return (
     <Layout>
