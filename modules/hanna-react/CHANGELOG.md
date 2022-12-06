@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.72
+
+_2022-12-07_
+
 - feat: Add named exports to all component modules (heralds default export
   deprecation)
 - fix: Disable all non-selected options in `readOnly` `Selectbox`es
