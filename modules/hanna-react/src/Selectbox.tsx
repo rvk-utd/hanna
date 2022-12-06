@@ -59,12 +59,14 @@ export const Selectbox = <O extends OptionOrValue>(props: SelectboxProps<O>) => 
   const [isEmpty, setIsEmpty] = useState(() => !getInitialValue() && !placeholder);
 
   useEffect(() => {
-    const selectElm = selectRef.current;
-    if (selectElm) {
-      setIsFilled(!!selectElm.value);
-      setIsEmpty(!selectElm.selectedOptions[0]?.text);
-    }
-  }, [selectRef.current?.value]);
+    setTimeout(() => {
+      const selectElm = selectRef.current;
+      if (selectElm) {
+        setIsFilled(!!selectElm.value);
+        setIsEmpty(!selectElm.selectedOptions[0]?.text);
+      }
+    }, 0);
+  }, [selectRef, value, defaultValue, options]);
 
   const _onChange: typeof onChange = (e) => {
     const selectElm = e.currentTarget;

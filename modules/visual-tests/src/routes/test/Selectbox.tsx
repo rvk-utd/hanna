@@ -17,12 +17,7 @@ export const meta: MetaFunction = autoTitle;
 const options = ['Option A', ''];
 const selectboxes: Record<string, SelectboxProps> = {
   empty: { label: 'Empty', options, value: '' },
-  placeholder: {
-    label: 'Placeholder',
-    options,
-    value: '',
-    placeholder: 'Placeholder',
-  },
+  placeholder: { label: 'Placeholder', options, value: '', placeholder: 'Placeholder' },
   normal: { label: 'Normal', options },
   small: { label: 'Small', options, small: true },
   disabled: { label: 'Disabled', options, disabled: true },
