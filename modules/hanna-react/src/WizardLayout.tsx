@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
-import { HannaColorTheme } from '@reykjavik/hanna-css';
+import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
 import { Image } from './_abstract/_Image';

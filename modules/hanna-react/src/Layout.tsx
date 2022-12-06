@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import { BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { HannaColorTheme } from '@reykjavik/hanna-css';
+import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';

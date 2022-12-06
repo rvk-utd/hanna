@@ -1,6 +1,6 @@
 import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { HannaColorTheme } from '@reykjavik/hanna-css';
+import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
 import { Image, ImageProps } from '../_abstract/_Image';
