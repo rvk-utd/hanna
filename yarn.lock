@@ -2477,7 +2477,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-react@^0.10.71, @reykjavik/hanna-react@workspace:*, @reykjavik/hanna-react@workspace:modules/hanna-react":
+"@reykjavik/hanna-react@^0.10.73, @reykjavik/hanna-react@workspace:*, @reykjavik/hanna-react@workspace:modules/hanna-react":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-react@workspace:modules/hanna-react"
   dependencies:
@@ -11676,7 +11676,7 @@ __metadata:
     "@babel/core": ^7.8.4
     "@hugsmidjan/qj": ^4.10.2
     "@reykjavik/hanna-css": ^0.3.10
-    "@reykjavik/hanna-react": ^0.10.71
+    "@reykjavik/hanna-react": ^0.10.73
     "@storybook/addon-knobs": ^5.3.14
     "@storybook/addon-viewport": ^5.3.17
     "@storybook/addons": ^5.3.14
