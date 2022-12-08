@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `Datepicker` calendar not closing when date is selected
 
 ## 0.10.72
 
