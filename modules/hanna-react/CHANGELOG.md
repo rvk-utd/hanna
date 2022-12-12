@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.74
+
+_2022-12-12_
+
 - feat: Add support for Polish to `DatePicker`
 - fix: Make Icelandic the default `DatePicker` locale
 
