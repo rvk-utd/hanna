@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Update styling of `.SearchInput__button`
+- fix: Remove automatic quotations off `.PullQuote__quote`
 - fix: Apply disabled styles to `.FormField`s inside disabled `.FieldGroup`
 - fix: Suppress border effect when `:hover`ing `.FormField__input`s
 - fix: Font-size in `.FormField--small .FormField__input`s

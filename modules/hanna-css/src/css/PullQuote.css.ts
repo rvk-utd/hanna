@@ -42,18 +42,6 @@ export default css`
       font-size: 32px;
     }
   }
-  .PullQuote__quote::before {
-    content: open-quote;
-    float: left; // float before child <p/>s
-  }
-  .PullQuote__quote::after {
-    content: close-quote;
-  }
-
-  .PullQuote__quote > *:last-child {
-    margin-bottom: 0;
-    display: inline; // make close-quote flow against last word
-  }
 
   .PullQuote__quote > *:not(p) {
     ${WARNING__('Only <p> is allowed inside `.PullQuote`')};
