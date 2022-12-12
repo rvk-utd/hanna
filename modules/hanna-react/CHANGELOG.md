@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add support for Polish to `DatePicker`
+- fix: Make Icelandic the default `DatePicker` locale
 
 ## 0.10.73
 

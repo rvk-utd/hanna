@@ -112,7 +112,7 @@ export const Datepicker = (props: DatepickerProps) => {
     placeholder,
     small,
 
-    localeCode,
+    localeCode = 'is',
     dateFormat = 'd.M.yyy',
     initialDate,
     value = initialDate,
