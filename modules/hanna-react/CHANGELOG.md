@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add support for Polish to `DatePicker`
 
 ## 0.10.73
 

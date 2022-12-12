@@ -8,10 +8,12 @@ import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
 import is from 'date-fns/locale/is';
+import pl from 'date-fns/locale/pl';
 
 import FormField, { FormFieldWrappingProps } from './FormField';
 
 registerLocale('is', is);
+registerLocale('pl', pl);
 // NOTE: `setDefaultLocale` might be needed for the i18n to actually function...
 // setDefaultLocale('is');
 
@@ -24,7 +26,7 @@ export type DatepickerProps = {
   endDate?: Date;
   minDate?: Date;
   maxDate?: Date;
-  localeCode?: 'is' | 'en'; // default 'en', we can add more langs later...
+  localeCode?: 'is' | 'en' | 'pl'; // default 'is', we can add more langs later...
   dateFormat?: string;
   isStartDate?: boolean;
   isEndDate?: boolean;
@@ -75,6 +77,22 @@ const i18n: Record<string, DatepickerLocaleProps> = {
     ariaLabelPrefix: 'Mánuður:',
     chooseDayAriaLabelPrefix: 'Veldu:',
     disabledDayAriaLabelPrefix: 'Dagsetning ekki í boði',
+  },
+  pl: {
+    nextMonthAriaLabel: 'Następny miesiącu',
+    nextMonthButtonLabel: 'Następny miesiącu',
+    nextYearAriaLabel: 'Następny rok',
+    nextYearButtonLabel: 'Następny rok',
+    previousMonthAriaLabel: 'Poprzedni miesiac',
+    previousMonthButtonLabel: 'Poprzedni miesiac',
+    previousYearAriaLabel: 'Poprzedni rok',
+    previousYearButtonLabel: 'Poprzedni rok',
+    timeInputLabel: 'Czas: ',
+    weekAriaLabelPrefix: 'Tydzień: ',
+    weekLabel: 'Tydzień',
+    ariaLabelPrefix: 'Miesiąc:',
+    chooseDayAriaLabelPrefix: 'Wybierać:',
+    disabledDayAriaLabelPrefix: 'Data niedostępna',
   },
 };
 

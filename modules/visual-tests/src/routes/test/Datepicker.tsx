@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import { Datepicker } from '@reykjavik/hanna-react/Datepicker';
+import { Datepicker, DatepickerProps } from '@reykjavik/hanna-react/Datepicker';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 
@@ -13,8 +13,10 @@ export const meta: MetaFunction = autoTitle;
 
 const startDate = new Date('2022-10-05');
 
+const lang: DatepickerProps['localeCode'] = undefined;
+
 // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['RowBlock', 'RowBlockColumn'] };
+export const handle = { lang, cssTokens: ['RowBlock', 'RowBlockColumn'] };
 
 export default function () {
   return (
@@ -23,7 +25,7 @@ export default function () {
         <RowBlockColumn>
           <Datepicker
             label={'Normal'}
-            localeCode="is"
+            localeCode={lang}
             // name="date"
             placeholder={'d. mmm. yyyy'}
             dateFormat="d. MMM yyyy"
@@ -33,7 +35,7 @@ export default function () {
           />
           <Datepicker
             label={'Error'}
-            localeCode="is"
+            localeCode={lang}
             // name="date"
             placeholder={'d. mmm. yyyy'}
             dateFormat="d. MMM yyyy"
@@ -43,7 +45,7 @@ export default function () {
           />
           <Datepicker
             label={'Small'}
-            localeCode="is"
+            localeCode={lang}
             // name="date"
             placeholder={'d. mmm. yyyy'}
             dateFormat="d. MMM yyyy"
@@ -53,7 +55,7 @@ export default function () {
           />
           <Datepicker
             label={'Disabled'}
-            localeCode="is"
+            localeCode={lang}
             // name="date"
             placeholder={'d. mmm. yyyy'}
             dateFormat="d. MMM yyyy"
@@ -63,7 +65,7 @@ export default function () {
           />
           <Datepicker
             label={'Read only'}
-            localeCode="is"
+            localeCode={lang}
             // name="date"
             placeholder={'d. mmm. yyyy'}
             dateFormat="d. MMM yyyy"
