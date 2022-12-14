@@ -2507,7 +2507,7 @@ __metadata:
   dependencies:
     "@hugsmidjan/qj": ^4.10.2
     focus-visible: ^5.2.0
-    formatchange: ^1.8.1
+    formatchange: ^2.0.2
   languageName: unknown
   linkType: soft
 
@@ -10677,10 +10677,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"formatchange@npm:^1.8.1":
-  version: 1.8.1
-  resolution: "formatchange@npm:1.8.1"
-  checksum: 6e2a23b5c649a3b6539f18a84d1cc3279b12dae00c784970e3f27688d23b9a6040c741a8b60f9fb15150f015da7f5f8a7078cc25bea6ad76c3511281d8155482
+"formatchange@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "formatchange@npm:2.0.2"
+  checksum: c5cb50dd402be20925168b113d733ab3faf37ec127a66ab69966d2487fe0686b2166ddba7b8c827ca9535dfb43ae67b3f1b8c20cf1de0478d6ee6a544a6da18d
   languageName: node
   linkType: hard
 

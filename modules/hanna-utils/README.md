@@ -90,7 +90,8 @@ breakpoints with human-friendly names (i.e. "phone", "phablet", "tablet",
 "netbook", "wide")
 
 NOTE: In server-side environments (without `window` and `document` objects)
-the exported `formatMonitor` object is always `undefined`.
+the exported `formatMonitor` object will not "start" and remains completely
+inactive.
 
 ```ts
 import { formatMonitor } from '@reykjavik/hanna-utils';

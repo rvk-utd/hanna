@@ -15,12 +15,6 @@ export const writeMediaFormatMarkers = (opts?: Options) => {
     ${baseMQs.map(
       (format) => css`
         @media ${mq[format]} {
-          ${
-            ''
-            // ${selector} {
-            // 	font-family: ${format};
-            // }
-          }
           ${selector}::after {
             content: ${str(format)};
           }

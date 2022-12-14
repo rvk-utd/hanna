@@ -1,4 +1,4 @@
-import FormatChange from 'formatchange';
+import { FormatChange } from 'formatchange';
 
 /**
  * A module that contains info about the currently active screen media format
@@ -10,9 +10,6 @@ import FormatChange from 'formatchange';
  *
  * See https://github.com/maranomynet/formatchange#3-getting-the-current-media-format
  * for more info.
- *
- * NOTE: In server-side environments (without `window` and `document` objects)
- * the exported `formatMonitor` object is always `undefined`.
  *
  * ```ts
  * import { formatMonitor } from '@reykjavik/hanna-utils';
@@ -30,22 +27,17 @@ import FormatChange from 'formatchange';
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formatmonitor
  */
-export const formatMonitor =
-  // When running in CommonJS context (e.g. during server-side rendering)
-  // FormatChange exports `undefined`
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  FormatChange &&
-  new FormatChange({
-    Hamburger: {
-      phone: true,
-      phablet: true,
-      tablet: true,
-    },
-    Topmenu: {
-      netbook: true,
-      // desktop: true,
-      wide: true,
-    },
-  });
+export const formatMonitor = new FormatChange({
+  Hamburger: {
+    phone: true,
+    phablet: true,
+    tablet: true,
+  },
+  Topmenu: {
+    netbook: true,
+    // desktop: true,
+    wide: true,
+  },
+});
 
 export type MediaFormat = typeof formatMonitor.media;
