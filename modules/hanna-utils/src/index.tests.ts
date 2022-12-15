@@ -20,7 +20,7 @@ o.spec('hanna-utils lib', () => {
       focusElement: true,
 
       /* formatMonitor.ts */
-      formatMonitor: true,
+      getFormatMonitor: true,
 
       /* getPageScrollElm.ts */
       getPageScrollElm: true,

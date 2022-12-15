@@ -1,4 +1,4 @@
-import { formatMonitor } from '@reykjavik/hanna-utils';
+import { getFormatMonitor } from '@reykjavik/hanna-utils';
 import { makeFormatMonitorHook } from 'formatchange/react';
 
 // ==================================================
@@ -40,4 +40,4 @@ import { makeFormatMonitorHook } from 'formatchange/react';
  *  media.leftHamburger
  * ```
  */
-export const useFormatMonitor = makeFormatMonitorHook(formatMonitor);
+export const useFormatMonitor = makeFormatMonitorHook(getFormatMonitor);

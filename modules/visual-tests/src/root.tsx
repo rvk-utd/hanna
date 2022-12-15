@@ -96,6 +96,8 @@ export default function App() {
   //   window.getPageScrollElm = _getPageScrollElm;
   // }
 
+  const noAnimation = q.get('noAnimation') != null || undefined;
+
   return (
     <html lang={lang}>
       <head>
@@ -123,7 +125,7 @@ export default function App() {
           }
         />
         <Links />
-        {q.get('noAnimation') != null && (
+        {noAnimation && (
           <style>{css`
             *,
             *::before,
@@ -153,6 +155,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
+        {!noAnimation && <div id="mediaformat" />}
       </body>
     </html>
   );

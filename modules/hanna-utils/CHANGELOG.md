@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: Replace `formatMonitor` with `getFormatMonitor` getter —
+  for side-effect-less `import`s
 
 ## 0.1.18
 

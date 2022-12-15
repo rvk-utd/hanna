@@ -1,5 +1,20 @@
 import { FormatChange } from 'formatchange';
 
+const formatGroups = {
+  Hamburger: {
+    phone: true,
+    phablet: true,
+    tablet: true,
+  },
+  Topmenu: {
+    netbook: true,
+    // desktop: true,
+    wide: true,
+  },
+} as const;
+
+let _formatMonitor: FormatChange<typeof formatGroups>;
+
 /**
  * A module that contains info about the currently active screen media format
  * and a way to subscribe/unsubscribe callbacks to whenever the window
@@ -11,8 +26,10 @@ import { FormatChange } from 'formatchange';
  * See https://github.com/maranomynet/formatchange#3-getting-the-current-media-format
  * for more info.
  *
- * ```ts
- * import { formatMonitor } from '@reykjavik/hanna-utils';
+ * ```js
+ * import { getFormatMonitor } from '@reykjavik/hanna-utils';
+ *
+ * formatMonitor = getFormatMonitor();
  *
  * formatMonitor.media.is // e.g. 'wide';
  *
@@ -27,17 +44,11 @@ import { FormatChange } from 'formatchange';
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formatmonitor
  */
-export const formatMonitor = new FormatChange({
-  Hamburger: {
-    phone: true,
-    phablet: true,
-    tablet: true,
-  },
-  Topmenu: {
-    netbook: true,
-    // desktop: true,
-    wide: true,
-  },
-});
+export const getFormatMonitor = () => {
+  if (!_formatMonitor) {
+    _formatMonitor = new FormatChange(formatGroups);
+  }
+  return _formatMonitor;
+};
 
-export type MediaFormat = typeof formatMonitor.media;
+export type MediaFormat = typeof _formatMonitor.media;

@@ -12,7 +12,7 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
 
 - [Misc Utilities](#misc-utilities)
   - [`getSVGtext`](#getsvgtext)
-  - [`formatMonitor`](#formatmonitor)
+  - [`getFormatMonitor`](#getformatmonitor)
   - [`printDate`](#printdate)
   - [`getPageScrollElm`](#getpagescrollelm)
   - [`getStableRandomItem`](#getstablerandomitem)
@@ -79,23 +79,25 @@ const svgUrl = 'https://styles.reykjavik.is/assets/reykjavik-logo.svg';
 const isSVG = getSVGtext.isSvgUrl(svgUrl);
 ```
 
-### `formatMonitor`
+### `getFormatMonitor`
 
-A module that contains info about the currently active screen media format and
-a way to subscribe/unsubscribe callbacks to whenever the window switches over
-to another "media-format"
+Returns an object that contains info about the currently active screen media
+format and a way to subscribe/unsubscribe callbacks to whenever the window
+switches over to another "media-format"
 
 The Hanna CSS module/token `-basics` configures certain media-query
 breakpoints with human-friendly names (i.e. "phone", "phablet", "tablet",
 "netbook", "wide")
 
 NOTE: In server-side environments (without `window` and `document` objects)
-the exported `formatMonitor` object will not "start" and remains completely
+the exported "formatMonitor" object will not "start" and remains completely
 inactive.
 
 ```ts
-import { formatMonitor } from '@reykjavik/hanna-utils';
+import { getFormatMonitor } from '@reykjavik/hanna-utils';
 import type { MediaFormat } from '@reykjavik/hanna-utils';
+
+formatMonitor = getFormatMonitor();
 
 formatMonitor.media.is; // e.g. 'wide';
 

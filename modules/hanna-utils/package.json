@@ -16,7 +16,7 @@
   "dependencies": {
     "@hugsmidjan/qj": "^4.10.2",
     "focus-visible": "^5.2.0",
-    "formatchange": "^2.0.2"
+    "formatchange": "^2.1.0"
   },
   "publishConfig": {
     "engines": {
