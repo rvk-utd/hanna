@@ -3,16 +3,16 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add `setLinkRenderer.pop()` to unset the last custom renderer
-- fix: Suppress react warning about mixed-case `data-*` attributes
-- fix: Update props type of `LinkRenderer` to use "modern" `ref`
 
-## 0.10.75
+## 0.10.75 – 0.10.76
 
 _2022-12-15_
 
+- feat: Add `setLinkRenderer.pop()` to unset the last custom renderer
 - feat: Add `setLinkRenderer`, exported from `/utils` — to allow hooking
   `hanna-react` into custom routing components
+- fix: Suppress react warning about mixed-case `data-*` attributes
+- fix: Update props type of `LinkRenderer` to use "modern" `ref`
 
 ## 0.10.74
 
