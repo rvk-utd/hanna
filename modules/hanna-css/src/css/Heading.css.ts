@@ -42,7 +42,7 @@ export const Heading_css = () => css`
     })}
   }
 
-  h1.Heading:not([data-dev-forcedH1]) {
+  h1.Heading:not([data-dev-forcedh1]) {
     ${WARNING__('Only use <H2/> or lower for .Heading')}
   }
 `;

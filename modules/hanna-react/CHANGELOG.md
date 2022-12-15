@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Suppress react warning about mixed-case `data-*` attributes
 
 ## 0.10.75
 

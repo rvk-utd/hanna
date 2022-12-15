@@ -30,7 +30,7 @@ export const Heading = (props: HeadingProps) => {
     process.env.NODE_ENV !== 'production' && Tag === 'h1' ? true : undefined;
   return (
     <Tag
-      data-dev-forcedH1={suppressWarning}
+      data-dev-forcedh1={suppressWarning}
       className={getBemClass('Heading', [
         sizes[size],
         align === 'right' && 'align--' + align,
