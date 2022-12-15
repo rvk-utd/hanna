@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.1.18
+
+_2022-12-15_
+
 - feat: `formatMonitor` export is now defined in server-side environments —
   but permanently dormant
 
