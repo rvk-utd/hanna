@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.0
+
+_2022-12-15_
+
 - **BREAKING** feat: Replace `formatMonitor` with `getFormatMonitor` getter —
   for side-effect-less `import`s
 
