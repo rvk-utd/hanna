@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `setLinkRenderer`, exported from `/utils` — to allow hooking
+  `hanna-react` into custom routing components
 
 ## 0.10.74
 
@@ -405,8 +407,6 @@ _2022-02-15_
 
 _2022-02-08_
 
-- feat: Add `setLinkRenderer`, exported from `utils/config` — to allow hooking
-  `hanna-react` into custom routing components
 - feat: Add optional prop `lang` to `MegaMenuItem` (and export that type)
 - feat(ts): Export type `MainMenuSeparator`
 - fix: `ContactBubble` not reacting/appearing on scroll on mobile browsers
