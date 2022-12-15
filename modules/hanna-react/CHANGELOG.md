@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.75
+
+_2022-12-15_
+
 - feat: Add `setLinkRenderer`, exported from `/utils` — to allow hooking
   `hanna-react` into custom routing components
 
