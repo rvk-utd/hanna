@@ -1,6 +1,7 @@
 import React from 'react';
 import { LinksFunction, MetaFunction } from '@remix-run/node';
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -11,10 +12,15 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 import { css, getCssBundleUrl, HannaColorTheme } from '@reykjavik/hanna-css';
+import { setLinkRenderer } from '@reykjavik/hanna-react/utils';
 import { getPageScrollElm as _getPageScrollElm } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
 import { useGetCssTokens } from './utils/useGetCssTokens';
+
+setLinkRenderer((props) =>
+  /^[a-z]+:/.test(props.href) ? <a {...props} /> : <Link to={props.href} {...props} />
+);
 
 const THEME: HannaColorTheme = 'colorful';
 

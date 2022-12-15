@@ -1,16 +1,24 @@
 import React from 'react';
 
+type HTMLAnchorProps = JSX.IntrinsicElements['a'];
+
+type LinkProps = HTMLAnchorProps & { href: string };
+type _LinkRenderer_internal = (props: LinkProps) => JSX.Element;
+
+const DefaultLinkRenderer: _LinkRenderer_internal = (props) =>
+  React.createElement('a', props);
+export let Link = DefaultLinkRenderer;
+
 /**
  * Props object ready to be ..spread onto an anchor element
  * */
-export type LinkProps = JSX.IntrinsicElements['a'] & { href: string };
-export type LinkRenderer = (props: LinkProps) => JSX.Element;
+export type LinkRendererProps = Omit<LinkProps, 'ref'> & {
+  ref: Exclude<HTMLAnchorProps['ref'], string>;
+};
 
-const DefaultLinkRenderer: LinkRenderer = (props) => React.createElement('a', props);
+export type LinkRenderer = (props: LinkRendererProps) => JSX.Element;
 
-export let Link = DefaultLinkRenderer;
-
-const history: Array<LinkRenderer> = [];
+const history: Array<_LinkRenderer_internal> = [];
 
 /**
  * Allows you to set a callback function to wrapp <a href=""/> links with
@@ -38,7 +46,8 @@ const history: Array<LinkRenderer> = [];
  * setLinkRenderer.pop(); // reset link rendering
  * ```
  *
- * The Default linkrenderer defined as:
+ * The Default linkrenderer is defined as:
+ *
  * ```js
  * 	(linkProps) => React.createElement('a', linkProps);
  * ```
@@ -51,7 +60,17 @@ const history: Array<LinkRenderer> = [];
  * ```
  */
 export const setLinkRenderer = (linkRenderer: LinkRenderer | undefined) => {
-  Link = linkRenderer || DefaultLinkRenderer;
+  // Here we tell a "white" lie. Nobody uses string-type `ref` attributes
+  // anymore. With this lie we're able to provide nice type signature for modern
+  // use-cases (e.g. Next.js and Remix.run <Link> elements) while still
+  // providing easy to use (easy to Type `JSX.IntrinsicElements['a']` signatures)
+  // internally within the hanna-react codebase.
+  //
+  // This decision may need to be reversed if scream-test results are negative.
+  //
+  // TODO: Add a project-global `HTMLAnchorProps` with modern `ref` and use it
+  // everywhere, and then remove this hack.
+  Link = (linkRenderer as _LinkRenderer_internal) || DefaultLinkRenderer;
   history.unshift(Link);
 };
 

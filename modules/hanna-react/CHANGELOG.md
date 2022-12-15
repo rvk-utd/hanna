@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add `setLinkRenderer.pop()` to unset the last custom renderer
 - fix: Suppress react warning about mixed-case `data-*` attributes
+- fix: Update props type of `LinkRenderer` to use "modern" `ref`
 
 ## 0.10.75
 
