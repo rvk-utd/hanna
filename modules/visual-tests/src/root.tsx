@@ -18,9 +18,13 @@ import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
 import { useGetCssTokens } from './utils/useGetCssTokens';
 
-setLinkRenderer((props) =>
-  /^[a-z]+:/.test(props.href) ? <a {...props} /> : <Link to={props.href} {...props} />
-);
+setLinkRenderer((props) => {
+  // Check if the URL starts with a protocol (https:, mailto:, tel:)
+  if (/^[a-z]+:/.test(props.href)) {
+    return <a {...props} />;
+  }
+  return <Link to={props.href} {...props} />;
+});
 
 const THEME: HannaColorTheme = 'colorful';
 
@@ -78,6 +82,12 @@ export const links: LinksFunction = () => [
   },
 ];
 
+// Remix's highly script-managed environment doesn't REALLY need the class-name to be removed.
+// But this is still a bit icky.
+const noFlickerSnippet = `document.documentElement.classList.add('before-sprinkling');`;
+
+/* * /
+// TODO: Hook this more complete function into a routing event handler something, something.
 const noFlickerSnippet = `
   (function (c, n) {
     c.add(n);
@@ -86,6 +96,7 @@ const noFlickerSnippet = `
     }, 8000);
   })(document.documentElement.classList, 'before-sprinkling');
 `.replace(/\s/g, '');
+*/
 
 export default function App() {
   const cssTokens = useGetCssTokens();
