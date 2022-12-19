@@ -25,18 +25,18 @@ export default function () {
             {i > 0 && <DummyBlock thin />}
             <RadioGroup
               layout={layout}
-              label={'Checkbox Group'}
+              label="Checkbox Group"
               options={opts}
-              value={'text'}
+              value="text"
               required={true}
               name={name + 'normal'}
             />
             <DummyBlock thin />
             <RadioGroup
               layout={layout}
-              label={'Invalid Checkbox Group'}
+              label="Invalid Checkbox Group"
               options={opts}
-              value={'text'}
+              value="text"
               invalid
               name={name + 'invalid'}
               errorMessage="This is an error message"
@@ -44,10 +44,10 @@ export default function () {
             <DummyBlock thin />
             <RadioGroup
               layout={layout}
-              label={'Checkbox Group'}
+              label="Checkbox Group"
               disabled
               options={opts}
-              value={'text'}
+              value="text"
               required={true}
               name={name + 'disabled'}
             />

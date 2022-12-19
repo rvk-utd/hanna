@@ -18,26 +18,26 @@ export default function () {
   return (
     <Minimal>
       <RadioButtonsGroup
-        label={'Radio Buttons Group'}
+        label="Radio Buttons Group"
         options={options}
-        value={'text'}
+        value="text"
         required={true}
-        name={'normal'}
+        name="normal"
       />
       <RadioButtonsGroup
-        label={'Invalid Radio buttons Group'}
+        label="Invalid Radio buttons Group"
         options={options.slice(0, 4)}
-        value={'text'}
+        value="text"
         invalid
-        name={'invalid'}
+        name="invalid"
         errorMessage="This is an error message"
       />
       <RadioButtonsGroup
-        label={'Disabled Radio buttons Group'}
+        label="Disabled Radio buttons Group"
         options={options.slice(0, 2)}
-        value={'text'}
+        value="text"
         disabled
-        name={'disabled'}
+        name="disabled"
         assistText="This is an error message"
       />
     </Minimal>

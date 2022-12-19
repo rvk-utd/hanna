@@ -57,7 +57,7 @@ export default function () {
       <div className="SiteSearchPage">
         <SiteSearchInput label="leit" name="q" />
         <SearchResults
-          status={'results'}
+          status="results"
           pageSize={0}
           hits={items.length}
           query="leitarorð"

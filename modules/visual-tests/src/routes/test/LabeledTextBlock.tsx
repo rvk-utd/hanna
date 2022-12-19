@@ -23,20 +23,20 @@ export default function () {
     <Minimal>
       <LabeledTextBlock
         startSeen
-        label={'Labeled Text Block'}
+        label="Labeled Text Block"
         summary={<p>{lorem.medium}</p>}
       />
       <DummyBlock thin />
       <LabeledTextBlock
         startSeen
-        label={'Labeled Text Block with buttons '}
+        label="Labeled Text Block with buttons "
         buttons={buttons}
         summary={<p>{lorem.medium}</p>}
       />
       <DummyBlock thin />
       <LabeledTextBlock
         startSeen
-        label={'Wide with buttons'}
+        label="Wide with buttons"
         wide
         buttons={buttons}
         summary={<p>{lorem.medium}</p>}
@@ -44,7 +44,7 @@ export default function () {
       <DummyBlock thin />
       <LabeledTextBlock
         startSeen
-        label={'Wide with Attention message'}
+        label="Wide with Attention message"
         wide
         summary={
           <Fragment>

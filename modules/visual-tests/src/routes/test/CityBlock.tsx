@@ -37,13 +37,13 @@ export default function () {
       <CityBlock
         {...content('Large image and right aligned', 3, loremRT.medium(true))}
         image={photo.portrait}
-        type={'largeimage'}
+        type="largeimage"
       />
       <CityBlock
         {...content('Large image and left aligned', 1, lorem.tiny)}
         image={photo.portrait}
-        align={'left'}
-        type={'largeimage'}
+        align="left"
+        type="largeimage"
       />
       <CityBlock
         {...content('Large illustration and right aligned', 4)}
@@ -52,18 +52,18 @@ export default function () {
       <CityBlock
         {...content('Large illustration and left aligned', 2)}
         image={illustr.tall}
-        align={'left'}
+        align="left"
       />
       <CityBlock
         {...content('Largebox and left aligned', 0)}
         image={photo.landscape}
-        type={'largebox'}
+        type="largebox"
       />
       <CityBlock
         {...content('Largebox and right aligned', 2)}
         image={illustr.tall}
-        align={'left'}
-        type={'largebox'}
+        align="left"
+        type="largebox"
       />
     </Minimal>
   );

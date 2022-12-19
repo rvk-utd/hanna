@@ -56,7 +56,7 @@ export default function () {
             {i > 0 && <DummyBlock thin />}
             <CheckboxGroup
               layout={layout}
-              label={'Checkbox Group'}
+              label="Checkbox Group"
               options={opts}
               value={['text']}
               required={true}
@@ -65,7 +65,7 @@ export default function () {
             <DummyBlock thin />
             <CheckboxGroup
               layout={layout}
-              label={'Invalid Checkbox Group'}
+              label="Invalid Checkbox Group"
               options={opts}
               value={['text']}
               invalid
@@ -75,7 +75,7 @@ export default function () {
             <DummyBlock thin />
             <CheckboxGroup
               layout={layout}
-              label={'Checkbox Group'}
+              label="Checkbox Group"
               disabled
               value={['text']}
               options={opts}

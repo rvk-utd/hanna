@@ -43,14 +43,14 @@ export default function () {
   return (
     <Minimal>
       <FileInput
-        label={'Normal'}
+        label="Normal"
         dropzoneText={dropzoneText()}
         onFilesUpdated={setFiles}
         showFileSize
       />
       <DummyBlock thin />
       <FileInput
-        label={'Files + Assist text'}
+        label="Files + Assist text"
         dropzoneText={dropzoneText()}
         value={files}
         onFilesUpdated={setFiles}
@@ -61,15 +61,15 @@ export default function () {
       />
       <DummyBlock thin />
       <FileInput
-        label={'Invalid'}
+        label="Invalid"
         dropzoneText={dropzoneText()}
-        removeFileText={''}
+        removeFileText=""
         invalid
         errorMessage="Your input has errors"
       />
       <DummyBlock thin />
       <FileInput
-        label={'Disabled'}
+        label="Disabled"
         dropzoneText={dropzoneText()}
         disabled
         assistText="This is an assist text."

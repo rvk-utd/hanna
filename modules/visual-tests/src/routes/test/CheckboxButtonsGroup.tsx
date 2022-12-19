@@ -71,28 +71,28 @@ export default function () {
   return (
     <Minimal>
       <CheckboxButtonsGroup
-        label={'Checkbox Group'}
+        label="Checkbox Group"
         options={options}
         value={['text']}
         required={true}
-        name={'normal'}
+        name="normal"
       />
       <DummyBlock thin />
       <CheckboxButtonsGroup
-        label={'Invalid Checkbox Group'}
+        label="Invalid Checkbox Group"
         options={options.slice(0, 4)}
         value={['text']}
         invalid
-        name={'invalid'}
+        name="invalid"
         errorMessage="This is an error message"
       />
       <DummyBlock thin />
       <CheckboxButtonsGroup
-        label={'Disabled Checkbox Group'}
+        label="Disabled Checkbox Group"
         options={options.slice(0, 2)}
         value={['text']}
         disabled
-        name={'disabled'}
+        name="disabled"
         assistText="This is an assist text..."
       />
     </Minimal>

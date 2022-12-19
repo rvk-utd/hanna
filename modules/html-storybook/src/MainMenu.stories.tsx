@@ -21,7 +21,7 @@ export default {
 export const _MainMenu: StoryComponent = () => {
   return (
     <MainMenu
-      title={'Aðalvalmynd'}
+      title="Aðalvalmynd"
       items={mainMenuItems}
       megaPanels={megaMenuPanels}
       auxiliaryPanel={auxiliaryPanel}
@@ -46,7 +46,7 @@ export const _MegaMenu: StoryComponent = () => {
   return (
     <MainMenu
       // ssr="ssr-only"
-      title={'Aðalvalmynd'}
+      title="Aðalvalmynd"
       items={mainMenuItems}
       megaPanels={megaMenuPanels}
       activePanelId={megaMenuPanels[0]!.id}

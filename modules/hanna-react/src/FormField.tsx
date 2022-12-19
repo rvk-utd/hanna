@@ -181,7 +181,7 @@ export const FormField = (props: FormFieldProps) => {
 
   const reqStar = required && reqText !== false && (
     <abbr
-      className={'FormField__label__reqstar'}
+      className="FormField__label__reqstar"
       // TODO: add mo-better i18n thinking
       title={(reqText || 'Þarf að fylla út') + ': '}
     >
@@ -220,24 +220,24 @@ export const FormField = (props: FormFieldProps) => {
       ref={props.wrapperRef as RefObject<HTMLDivElement>}
     >
       {LabelTag ? (
-        <LabelTag className={'FormField__label'} id={labelId}>
+        <LabelTag className="FormField__label" id={labelId}>
           {' '}
           {reqStar} {label}{' '}
         </LabelTag>
       ) : (
-        <label className={'FormField__label'} htmlFor={domid}>
+        <label className="FormField__label" htmlFor={domid}>
           {' '}
           {reqStar} {label}{' '}
         </label>
       )}{' '}
       {renderInput(inputClassNames, inputProps, addFocusProps, isBrowser)}
       {assistText && (
-        <div id={assistTextId} className={'FormField__assist'}>
+        <div id={assistTextId} className="FormField__assist">
           {assistText}
         </div>
       )}
       {errorMessage && (
-        <div id={errorId} className={'FormField__error'}>
+        <div id={errorId} className="FormField__error">
           {errorMessage}
         </div>
       )}

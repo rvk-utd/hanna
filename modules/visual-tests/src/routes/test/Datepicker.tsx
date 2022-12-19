@@ -24,50 +24,50 @@ export default function () {
       <RowBlock>
         <RowBlockColumn>
           <Datepicker
-            label={'Normal'}
+            label="Normal"
             localeCode={lang}
             // name="date"
-            placeholder={'d. mmm. yyyy'}
+            placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             value={startDate}
             onChange={() => undefined}
             required
           />
           <Datepicker
-            label={'Error'}
+            label="Error"
             localeCode={lang}
             // name="date"
-            placeholder={'d. mmm. yyyy'}
+            placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             value={startDate}
             onChange={() => undefined}
             invalid
           />
           <Datepicker
-            label={'Small'}
+            label="Small"
             localeCode={lang}
             // name="date"
-            placeholder={'d. mmm. yyyy'}
+            placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             // value={undefined}
             onChange={() => undefined}
             small
           />
           <Datepicker
-            label={'Disabled'}
+            label="Disabled"
             localeCode={lang}
             // name="date"
-            placeholder={'d. mmm. yyyy'}
+            placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             // value={undefined}
             onChange={() => undefined}
             disabled
           />
           <Datepicker
-            label={'Read only'}
+            label="Read only"
             localeCode={lang}
             // name="date"
-            placeholder={'d. mmm. yyyy'}
+            placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             // value={undefined}
             onChange={() => undefined}

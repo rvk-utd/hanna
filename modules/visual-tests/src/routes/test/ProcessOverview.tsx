@@ -26,21 +26,21 @@ export default function () {
   return (
     <Minimal>
       <ProcessOverview
-        title={'Overview with attention message'}
+        title="Overview with attention message"
         items={props.items1}
         attention={lorem.short}
       />
       <DummyBlock thin />
       <ProcessOverview
-        title={'Translucent Background'}
+        title="Translucent Background"
         transparent={true}
         items={props.items2}
       />
       <DummyBlock thin />
-      <ProcessOverview title={'Narrow layout'} items={props.items2} narrow={true} />
+      <ProcessOverview title="Narrow layout" items={props.items2} narrow={true} />
       <DummyBlock thin />
       <ProcessOverview
-        title={'Narrow layout with attention message'}
+        title="Narrow layout with attention message"
         items={props.items1}
         narrow={true}
         attention={lorem.short}

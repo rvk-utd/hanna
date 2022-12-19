@@ -22,14 +22,14 @@ export default function () {
   return (
     <Minimal>
       <InfoHero
-        title={'Align left'}
-        subTitle={'Lorem ipsum dolor sit amet'}
+        title="Align left"
+        subTitle="Lorem ipsum dolor sit amet"
         image={photo.portrait}
         align="left"
       />
       <DummyBlock thin />
       <InfoHero
-        title={'Long, long, looong title'}
+        title="Long, long, looong title"
         titleBlurb="Title blurb"
         subTitle={lorem.tiny}
         image={photo.portrait}
@@ -48,20 +48,20 @@ export default function () {
       />
       <DummyBlock thin />
       <InfoHero
-        title={'Align right'}
-        subTitle={'Lörem ipsum dolor sit amet, dedeeshka duu.'}
+        title="Align right"
+        subTitle="Lörem ipsum dolor sit amet, dedeeshka duu."
         image={photo.landscape}
         blurb="Foo bar"
         buttons={buttonProps.slice(0, 2)}
-        blingType={'sunny-waves'}
+        blingType="sunny-waves"
       />
       <DummyBlock thin />
       <InfoHero
-        title={'Align right with buttons'}
-        subTitle={'Lorem ipsum dolor sit amet'}
+        title="Align right with buttons"
+        subTitle="Lorem ipsum dolor sit amet"
         image={photo.landscape}
         buttons={buttonProps}
-        blingType={'triangles'}
+        blingType="triangles"
       />
     </Minimal>
   );

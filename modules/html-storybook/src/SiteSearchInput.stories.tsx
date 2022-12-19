@@ -27,7 +27,7 @@ export const _SiteSearchInput: StoryComponent = () => {
           setValue(e.currentTarget.value);
         }}
         onButtonClick={() => alert('Perform Search!')}
-        buttonText={'Leita'}
+        buttonText="Leita"
       />
       ...
     </>

@@ -34,11 +34,11 @@ export default function () {
     <Minimal>
       <NewsHero {...prop.short} image={photo.landscape} startSeen />
       <DummyBlock thin />
-      <NewsHero {...prop.medium} blingType={'balls-small'} startSeen />
+      <NewsHero {...prop.medium} blingType="balls-small" startSeen />
       <DummyBlock thin />
-      <NewsHero {...prop.long} blingType={'dome'} sharing={false} startSeen />
+      <NewsHero {...prop.long} blingType="dome" sharing={false} startSeen />
       <DummyBlock thin />
-      <NewsHero {...prop.medium} summary={undefined} blingType={'snake'} startSeen />
+      <NewsHero {...prop.medium} summary={undefined} blingType="snake" startSeen />
     </Minimal>
   );
 }
