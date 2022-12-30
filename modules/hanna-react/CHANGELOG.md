@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Typo in `Datpicker`'s default `dateFormat`, broke typed input parsing
 
 ## 0.10.75 – 0.10.76
 
