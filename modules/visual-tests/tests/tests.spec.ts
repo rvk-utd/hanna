@@ -279,6 +279,9 @@ allComponentTests.forEach(([name, testInfo]) => {
 
       await page.goto(testPagePath + '?noAnimation');
 
+      // HACK: Wait for Remix's <Script/> hydration to finish
+      await page.locator('html[style^="--browser-scrollbar-width"]').waitFor();
+
       let expanded = false;
       if (testInfo.prep) {
         expanded = true;
