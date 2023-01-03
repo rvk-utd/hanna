@@ -76,4 +76,4 @@ corresponding branches in the git repo.
 ## Changelog
 
 See
-[CHANGELOG.md](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-react/CHANGELOG-lib.md)
+[CHANGELOG.md](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-react/CHANGELOG.md)
