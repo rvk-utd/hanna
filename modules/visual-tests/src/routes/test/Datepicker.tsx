@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { Datepicker, DatepickerProps } from '@reykjavik/hanna-react/Datepicker';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
@@ -19,6 +19,8 @@ const lang: DatepickerProps['localeCode'] = undefined;
 export const handle = { lang, cssTokens: ['RowBlock', 'RowBlockColumn'] };
 
 export default function () {
+  const [date, setDate] = useState<Date | undefined>(startDate);
+
   return (
     <Minimal>
       <RowBlock>
@@ -29,8 +31,12 @@ export default function () {
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            value={startDate}
-            onChange={() => undefined}
+            value={date}
+            onChange={(newDate) => {
+              console.log(newDate);
+              setDate(newDate);
+              return undefined;
+            }}
             required
           />
           <Datepicker
@@ -87,7 +93,7 @@ export default function () {
 export const testing: TestingInfo = {
   viewportMinHeight: 700,
   extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
-    await page.locator('.FormField__input input >> nth=0').click();
+    await page.getByLabel('Normal').click();
     await pageScreenshot('opened');
 
     if (project === 'firefox-wide') {
@@ -98,13 +104,13 @@ export const testing: TestingInfo = {
         .hover();
       await localScreenshot(datepicker, 'dp-hover-month', { margin: -1 });
 
-      await datepicker.locator('[role="button"]:text-is("5") >> nth=0').hover();
+      await datepicker.locator('.react-datepicker__day:text-is("5") >> nth=0').hover();
       await localScreenshot(datepicker, 'dp-hover-today', { margin: -1 });
 
-      await datepicker.locator('[role="button"]:text-is("21") >> nth=0').hover();
+      await datepicker.locator('.react-datepicker__day:text-is("21") >> nth=0').hover();
       await localScreenshot(datepicker, 'dp-hover-weekday', { margin: -1 });
 
-      await datepicker.locator('[role="button"]:text-is("22") >> nth=0').hover();
+      await datepicker.locator('.react-datepicker__day:text-is("22") >> nth=0').hover();
       await localScreenshot(datepicker, 'dp-hover-weekend', { margin: -1 });
 
       await page.keyboard.press('Escape'); // close the calendar before focusing
