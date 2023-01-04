@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.72
+
+_2022-12-30_
+
 - feat: Update styling of `.SearchInput__button`
 - fix: Remove automatic quotations off `.PullQuote__quote`
 - fix: Apply disabled styles to `.FormField`s inside disabled `.FieldGroup`
