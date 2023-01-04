@@ -13,8 +13,9 @@
     "webserver:build": "yarn run remix build",
     "webserver:dev": "PORT=7357  yarn run remix dev",
     "webserver:start": "PORT=7357 yarn run remix-serve _remix-build",
-    "webserver:testingmode": "yarn run webserver:dev",
-    "test": "echo \"Running Visual Regression Tests.  Please wait...\"  &&  npx playwright test  ||  (((cd ../hanna-css && yarn run dev:server) & yarn run webserver:dev & (sleep 2.5 && open http://localhost:7357/review?errored))  &&  (exit 1))"
+    "webserver:testingmode": "yarn run webserver:build && yarn run webserver:start",
+    "__webserver:testingmode": "yarn run webserver:dev",
+    "test": "echo \"Running Visual Regression Tests.  Please wait...\n\"  &&  npx playwright test  ||  (((cd ../hanna-css && yarn run dev:server) & yarn run webserver:dev & (sleep 2.5 && open http://localhost:7357/review?errored))  &&  (exit 1))"
   },
   "dependencies": {
     "@remix-run/node": "^1.8.2",

@@ -157,13 +157,13 @@ const config: PlaywrightTestConfig = {
     {
       command: 'yarn run webserver:testingmode',
       port: 7357,
-      reuseExistingServer: true,
+      reuseExistingServer: false,
     },
     {
-      command: 'yarn run build:css:dev  &&  yarn run dev:server',
+      command: 'yarn run dev:server',
       cwd: '../hanna-css',
       port: 4000,
-      reuseExistingServer: true,
+      reuseExistingServer: false,
     },
   ],
 };

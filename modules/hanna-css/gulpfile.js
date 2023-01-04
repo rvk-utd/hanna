@@ -135,7 +135,7 @@ const buildAssets = series(cleanupAssets, staticAssetsCompress);
 exports.publishCss = series(
   updateDistFolder,
   gulpExec(`yarn run build:css`),
-  // visuallyTest, // NOTE: Visual tests should test the dev-css
+  visuallyTest,
   () => cssVersion.startsWith('v0.') && del([publishCssFolder], { force: true }), // NOTE: only do this before v1.0
   copyToCssFolder,
   commitCssToGit
@@ -144,7 +144,7 @@ exports.publishCss = series(
 exports.publishDevCss = series(
   updateDistFolder,
   gulpExec(`yarn run build:css:dev`),
-  visuallyTest,
+  // visuallyTest, // NOTE: Visual tests should test the production CSS
   cleanupPublicDevCss,
   copyToDevCssFolder,
   commitDevCssToGit

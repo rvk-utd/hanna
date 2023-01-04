@@ -128,6 +128,7 @@ export default function App() {
           href={
             getCssBundleUrl(cssTokens, {
               testingServer: 'http://localhost:4000',
+              version: 'dev' as 'v0.8',
               // testingServer: 'https://styles.prod.thon.is/',
               // version: 'dev-v0', // or 'v0.8'
             }) +
