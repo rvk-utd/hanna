@@ -22,10 +22,20 @@ export const ContentArticle = (props: ContentArticleProps) => {
   const { relatedLinks } = props;
   const [ref] = useSeenEffect(props.startSeen);
 
+  const headingElm = (
+    <Heading forceH1={props.headlineTag === 'h1'}>{props.headline}</Heading>
+  );
+
   return (
     <div className="ContentArticle" ref={ref}>
-      {props.meta && <ArticleMeta items={props.meta} />}
-      <Heading forceH1={props.headlineTag === 'h1'}>{props.headline}</Heading>
+      {props.meta ? (
+        <div className="ContentArticle__header">
+          {headingElm}
+          {<ArticleMeta items={props.meta} />}
+        </div>
+      ) : (
+        headingElm
+      )}
       <TextBlock startSeen>
         {props.topImage && <ContentImage {...props.topImage} />}
         {props.body}

@@ -16,14 +16,25 @@
 {% endset %}
 
 <div class="ContentArticle">
-	{% include "@storybook/ArticleMeta/ArticleMeta.twig" with {
-		items: articleMeta
-	}%}
+	<div class="ContentArticle__header">
+		{% include "@storybook/Heading/Heading.twig" with {
+      forceH1: 'true',
+      title: label
+    }%}
 
-	{% include "@storybook/Heading/Heading.twig" with {
-		forceH1: 'true',
-		title: label
-	}%}
+		{% include "@storybook/ArticleMeta/ArticleMeta.twig" with {
+      items: articleMeta,
+    }%}
+
+		{% if sector_tag_1 is not empty %}
+			<p>
+				<span class="TagPill TagPill--large">{{ sector_tag_1}}</span>
+				{% if sector_tag_2 is not empty %}
+					<span class="TagPill TagPill--large">{{ sector_tag_2}}</span>
+				{% endif %}
+			</p>
+		{% endif %}
+	</div>
 
 	{% include "@storybook/TextBlock/TextBlock.twig" with {
 		content: contentText

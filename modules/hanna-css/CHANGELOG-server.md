@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.ContentArticle__header`
+- feat: Improve `*Header` styling inside `.ContentArticle` and `.CenterColumn`
 
 ## 0.8.72
 
@@ -10,7 +12,7 @@ _2022-12-30_
 
 - feat: Update styling of `.SearchInput__button`
 - fix: Remove automatic quotations off `.PullQuote__quote`
-- fix: Apply disabled styles to `.FormField`s inside disabled `.FieldGroup`
+- fix: Apply disabled styles to `.FormField`s insidøe disabled `.FieldGroup`
 - fix: Suppress border effect when `:hover`ing `.FormField__input`s
 - fix: Font-size in `.FormField--small .FormField__input`s
 - fix: Page header cutoff after input field focus on iPhones

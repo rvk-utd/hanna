@@ -49,8 +49,8 @@ export default function () {
   return (
     <Minimal>
       <ContentArticle
-        meta={META}
         headline={lorem.tiny.slice(0, 52)}
+        meta={META}
         topImage={CONTENTIMAGE_PROPS}
         body={
           <Fragment>

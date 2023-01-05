@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add optional `.ContentArticle__header` wrapper
 - feat: Add support for rich text directly inside `.ArticleList__content`
 - feat: Add `.ActionCards__summary`
 - feat: Add `.FooterInfo__group--main`, deprecate `[role]` styling
