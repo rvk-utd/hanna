@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `utils` hooks `useIsBrowserSide`, `useIsServerSide` — for
+  progressive enhancement
 - feat: Add `utils` helper `setDefaultSSR()`
 - feat: `ContentArticle` emits `__header` wrapper
 - fix: Typo in `Datpicker`'s default `dateFormat`, broke typed input parsing

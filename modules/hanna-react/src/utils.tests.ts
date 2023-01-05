@@ -12,6 +12,10 @@ o.spec('hanna-react/utils lib', () => {
       setLinkRenderer: true,
       setDefaultSSR: true,
 
+      /* utils/browserSide.ts */
+      useIsBrowserSide: true,
+      useIsServerSide: true,
+
       /* utils/useDidChange.ts */
       useDidChange: true,
 
@@ -38,6 +42,8 @@ import type {
   /* utils/config.ts */
   LinkRenderer,
   SSRSupport,
+
+  /* utils/browserSide.ts */
 
   /* utils/useDidChange.ts */
 
