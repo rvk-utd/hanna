@@ -3,5 +3,5 @@ export { setLinkRenderer } from '../_abstract/_Link';
 
 // ---------------------------------------------------------------------------
 
-// TODO:
-//  * Add defaultSSR variable that can be set globally for
+export type { SSRSupport } from '@hugsmidjan/react/hooks';
+export { setDefaultSSR } from '@hugsmidjan/react/hooks';

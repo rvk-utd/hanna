@@ -10,6 +10,7 @@ o.spec('hanna-react/utils lib', () => {
     const expectedTokens: Record<ExpectedExports, true> = {
       /* utils/config.ts */
       setLinkRenderer: true,
+      setDefaultSSR: true,
 
       /* utils/useDidChange.ts */
       useDidChange: true,
@@ -36,6 +37,7 @@ o.spec('hanna-react/utils lib', () => {
 import type {
   /* utils/config.ts */
   LinkRenderer,
+  SSRSupport,
 
   /* utils/useDidChange.ts */
 
