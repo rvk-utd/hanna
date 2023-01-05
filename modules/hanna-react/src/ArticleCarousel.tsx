@@ -1,5 +1,4 @@
 import React from 'react';
-import { SSRSupport } from '@hugsmidjan/react/hooks';
 
 import { AbstractCarousel } from './_abstract/_AbstractCarousel';
 import {
@@ -8,6 +7,7 @@ import {
   ArticleCarouselImageProps,
 } from './ArticleCarousel/_ArticleCarouselCard';
 import { SeenProp } from './utils/seenEffect';
+import { SSRSupport } from './utils';
 
 export type ArticleCarouselProps = {
   items: Array<ArticleCarouselCardProps>;

@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import { BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
@@ -11,6 +10,7 @@ import { Image } from './_abstract/_Image';
 import { Link } from './_abstract/_Link';
 import { useMenuToggling } from './utils/useMenuToggling';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar';
+import { SSRSupport, useIsBrowserSide } from './utils';
 
 export type LayoutI18n = {
   lang?: string;

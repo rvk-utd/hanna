@@ -6,13 +6,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { SSRSupport, useIsBrowserSide, useOnMount } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button';
 import { isPreact } from './utils/env';
+import { SSRSupport, useIsBrowserSide } from './utils';
 
 // FIXME: Eventually import from @reykjavik/hanna-css
 const AlertCloseTransitionDuration = 400;
@@ -115,9 +115,9 @@ export const Alert = (props: AlertProps) => {
   const showCloseButton = closable && (isBrowser || closeUrl != null);
   const { closeLabel, closeLabelLong } = getTexts(props, defaultAlertTexts);
 
-  useOnMount(() => {
+  useEffect(() => {
     setOpen(true);
-  });
+  }, []);
 
   const closeAlert = useCallback(
     (event?: MouseEvent) => {

@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import focusElm from '@hugsmidjan/qj/focusElm';
-import { SSRSupport, useDomid, useIsBrowserSide } from '@hugsmidjan/react/hooks';
+import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { getPageScrollElm } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link';
+import { SSRSupport, useIsBrowserSide } from './utils';
 
 export type ContactBubbleI18n = {
   lang?: string;

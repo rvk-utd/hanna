@@ -11,12 +11,12 @@ import A from '@hugsmidjan/qj/A';
 import debounce from '@hugsmidjan/qj/debounce';
 import focusElm from '@hugsmidjan/qj/focusElm';
 import throttle from '@hugsmidjan/qj/throttle';
-import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import { BemProps } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj, notNully } from '@reykjavik/hanna-utils';
 
 import CarouselStepper from '../CarouselStepper';
+import { SSRSupport, useIsBrowserSide } from '../utils';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect';
 
 // ---------------------------------------------------------------------------

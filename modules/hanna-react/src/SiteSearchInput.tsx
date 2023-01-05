@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SSRSupport } from '@hugsmidjan/react/hooks';
 
 import FormField, { FormFieldWrappingProps } from './FormField';
+import { SSRSupport } from './utils';
 
 type InputElmProps = Omit<
   JSX.IntrinsicElements['input'],

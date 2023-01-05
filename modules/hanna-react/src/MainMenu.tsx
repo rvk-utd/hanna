@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import focusElm from '@hugsmidjan/qj/focusElm';
-import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import useShortState from '@hugsmidjan/react/hooks/useShortState';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { getPageScrollElm } from '@reykjavik/hanna-utils';
@@ -14,6 +13,7 @@ import {
 } from './MainMenu/_Auxiliary';
 import { PrimaryPanel } from './MainMenu/_PrimaryPanel';
 import { useFormatMonitor } from './utils/useFormatMonitor';
+import { SSRSupport, useIsBrowserSide } from './utils';
 
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>
   activeId ? megaPanels.find((panel) => activeId === panel.id) : undefined;

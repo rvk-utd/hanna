@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import { SSRSupport, useDomid, useIsBrowserSide } from '@hugsmidjan/react/hooks';
+import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import { useMixedControlState } from './utils';
+import { SSRSupport, useIsBrowserSide, useMixedControlState } from './utils';
 
 // ---------------------------------------------------------------------------
 

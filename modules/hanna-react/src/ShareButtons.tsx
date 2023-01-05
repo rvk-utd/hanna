@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { SSRSupport } from '@hugsmidjan/react/hooks';
 import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 import {
   DocMeta,
@@ -13,6 +12,7 @@ import {
 } from '@reykjavik/hanna-utils/shareButtonsUtils';
 
 import { Link } from './_abstract/_Link';
+import { SSRSupport } from './utils';
 
 const generateTypeList = (
   facebook: boolean | undefined,

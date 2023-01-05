@@ -1,9 +1,9 @@
 import React, { KeyboardEvent, useState } from 'react';
 import { getFrag } from '@hugsmidjan/qj/frag';
-import { SSRSupport, useIsBrowserSide } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect';
+import { SSRSupport, useIsBrowserSide } from './utils';
 
 const navKeyEffects: Record<string, 1 | -1> = {
   ArrowUp: -1,
