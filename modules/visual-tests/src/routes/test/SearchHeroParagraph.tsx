@@ -6,7 +6,6 @@ import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
-import { HiddenTiger } from 'modules/html-storybook/src/utils/HiddenTiger';
 
 import { Minimal } from '../../layout/Minimal';
 import { illustr } from '../../test-helpers/dummyData';
@@ -34,19 +33,15 @@ export default function () {
           <ContentImage image={illustr.tall} />
         </RowBlockColumn>
         <RowBlockColumn>
-          <HiddenTiger
-            clientSide={() => (
-              <SiteSearchCurtain>
-                <PageHeading>Hæ! Hvernig getum við aðstoðað?</PageHeading>
-                <SiteSearchAutocomplete
-                  suggestions={[]}
-                  setSuggestions={() => undefined}
-                  getSuggestionValue={() => ''}
-                  onSuggestionsFetchRequested={() => undefined}
-                />
-              </SiteSearchCurtain>
-            )}
-          />
+          <SiteSearchCurtain>
+            <PageHeading>Hæ! Hvernig getum við aðstoðað?</PageHeading>
+            <SiteSearchAutocomplete
+              suggestions={[]}
+              setSuggestions={() => undefined}
+              getSuggestionValue={() => ''}
+              onSuggestionsFetchRequested={() => undefined}
+            />
+          </SiteSearchCurtain>
         </RowBlockColumn>
       </RowBlock>
     </Minimal>
