@@ -8,7 +8,7 @@
 
 ## 0.8.72
 
-_2022-12-30_
+_2023-01-05_
 
 - feat: Update styling of `.SearchInput__button`
 - fix: Remove automatic quotations off `.PullQuote__quote`
