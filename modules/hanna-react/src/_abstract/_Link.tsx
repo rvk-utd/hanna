@@ -75,7 +75,7 @@ export const setLinkRenderer = (linkRenderer: LinkRenderer | undefined) => {
 };
 
 /**
- *
+ * Unsets the last pushed custom renderer
  */
 setLinkRenderer.pop = () => {
   history.shift();
