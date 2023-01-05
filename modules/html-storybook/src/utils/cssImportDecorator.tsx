@@ -1,6 +1,6 @@
 import React from 'react';
 import { getCssBundleUrl } from '@reykjavik/hanna-css';
-import { formatMonitor } from '@reykjavik/hanna-utils';
+import { getFormatMonitor } from '@reykjavik/hanna-utils';
 import { makeDecorator } from '@storybook/addons';
 
 import { StoryParameters } from '../storytypes';
@@ -24,7 +24,7 @@ export const cssImportDecorator = makeDecorator({
             rel="stylesheet"
             href={cssUrl}
             onLoad={() => {
-              formatMonitor.check();
+              getFormatMonitor().check();
               css.onLoad && css.onLoad();
               // for AbstractCarousel's left-offset calculations
               window.dispatchEvent(new Event('resize'));
