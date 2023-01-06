@@ -161,7 +161,7 @@ export default css`
   // ===========================================================================
   // BEGIN @deprecated  (remove in v0.9)
   // Styles to make the addition of .WizardLayout__content non-breaking
-  .Layout {
+  .WizardLayout {
     display: flex;
     flex-flow: column nowrap;
   }
