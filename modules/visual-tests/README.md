@@ -49,7 +49,7 @@ Running the PlayWright tests standalone is also possible with `yarn run test`.
 
 BTW, the PlayWright test-runner automatically starts up a (Remix run)
 webserver in "testing" mode on port `7347` and the CSS style-server on port
-`4000`. If either of those servers are already running it re-uses them.
+`4000`.
 
 ## Reviewing Changed Screenshots
 

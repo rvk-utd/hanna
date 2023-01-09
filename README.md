@@ -6,16 +6,15 @@ Hanna design system, together in one happy monorepo.
 This repo only contains source code, tests, and documentation sources.
 
 The code in this repo **manages** a couple of production servers. One
-([styles.reykjavik.is](https://styles.reykjavik.is)) for centralized hosting
-of CSS files, and various Hanna-related assets, and another
+([styles.reykjavik.is][]) for centralized hosting of CSS files, and various
+Hanna-related assets, and another
 ([hanna-docs.reykjavik.is](https://hanna-docs.reykjavik.is)) serving published
 code documentation.
 
 The contents of the servers are stored in their own git repositories
-([hanna-styles](https://github.com/rvk-utd/hanna-styles) and
-[hanna-server-docs](https://github.com/rvk-utd/hanna-server-docs)). Both of
-these repos are set up as git submodules in this monorepo, and build scripts
-push static build-results into them.
+([hanna-server-styles][] and [hanna-server-docs][]). Both of these repos are
+set up as git submodules in this monorepo, and build scripts push static
+build-results into them.
 
 **Chapters below:**
 
@@ -26,6 +25,7 @@ push static build-results into them.
 - [Setup / Contribution](#setup--contribution)
   - [System requirements](#system-requirements)
   - [Installation](#installation)
+  - [Contributions](#contributions)
 
 <!-- prettier-ignore-end -->
 
@@ -39,9 +39,9 @@ push static build-results into them.
   - Publishes a TypeScript helper library as the npm package
     [@reykjavik/hanna-css](https://www.npmjs.com/package/@reykjavik/hanna-css)
   - Publishes CSS files and related (typo)graphic assets to
-    [styles.reykjavik.is](https://styles.reykjavik.is).  
+    [styles.reykjavik.is][].  
     (Builds into `/style-server/public/css/v${version}`, a part of the
-    submodule repo [hanna-styles](https://github.com/rvk-utd/hanna-styles).)
+    submodule repo [hanna-server-styles][].)
 
 - **[`hanna-react`](modules/hanna-react/)**
 
@@ -63,10 +63,9 @@ push static build-results into them.
   - Vanilla JavaScript "sprinkles" that progressively enhance server-rendered
     HTML components.
   - **TODO:**
-    - Publishes JavaScript module files to
-      [styles.reykjavik.is](https://styles.reykjavik.is).  
+    - Publishes JavaScript module files to [styles.reykjavik.is][].  
       (Builds into `/style-server/public/sprinkles/v${version}`, a part of the
-      submodule repo [hanna-styles](https://github.com/rvk-utd/hanna-styles).)
+      submodule repo [hanna-server-styles][].)
     - Published as the npm package
       [@reykjavik/hanna-sprinkles](https://www.npmjs.com/package/@reykjavik/hanna-sprinkles).
 
@@ -89,7 +88,7 @@ push static build-results into them.
   - Publishes to
     [hanna-docs.reykjavik.is](https://hanna-docs.reykjavik.is/html).  
      (Builds into `/servers/docs/html/${version}`, a part of the submodule repo
-    [hanna-server-docs](https://github.com/rvk-utd/hanna-server-docs).)
+    [hanna-server-docs][].)
 
 - **More coming…**
   - …including storybook for `hanna-react`.
@@ -110,18 +109,24 @@ push static build-results into them.
 
 ## Overall Design Principles
 
-- Be accessibile and robust
+- **Be generic and presentational**
+  - Components should also be independent of any specific public policy.
+  - Components should not depend on a specific state-management framework or
+    API servers.
+  - (Only allowed exception is the relative loose-coupling to the design-asset
+    server [styles.reykjavik.is][])
+- **Be accessibile and robust.**
   - All components should be as accessibility friendly by default.
   - Components should strive to work even when JavaScript fails. (Google:
     "Progressive enhancement")
   - Components/tools must support translations/localization, but Icelandic is
     the default UI language.
-- Support the stupid simple cases
+- **Support the stupid simple cases.**
   - Old-school Server-side rendering and progressive enhancement will remain
     valid use-cases for many years.
   - Be build-stack agnostic. Allow for hand-rolled pages, as well as
     "deep-magic" bundlers.
-- Scale gracefully over time.
+- **Scale gracefully over time.**
   - Version everything, religiously.
   - Tech-specific libraries have their own independant version numbers, but
     must clearly state which Hanna (HTML) version they target.
@@ -133,16 +138,16 @@ push static build-results into them.
     `yarn add @reykjavik/hanna-svelte` would be **so** cool.)
   - Be framework agnostic. Today we may like Next.js, but tomorrow always
     brings new things.
-- Scale gracefully in size.
+- **Scale gracefully in size.**
   - Payloads for tiny pages should be tiny. The "kitchen sink" should always
     be optional **and opt-in**.
   - Make it cheap to add new components.
   - Make it easy to silently (and unceremoniously!) drop use of certain
     components, while maintaining legacy support (until next major version
     bump).
-- Prefer opionionated, prescriptive components
+- **Prefer opionionated, prescriptive components.**
   - Flexible low-level styling components are nice and should be on offer too,
-    but on a tight leash.
+    but kept on a tight leash.
   - Prefer tightly controlled vocabularies over open-ended values.
   - CSS custom properties (a.k.a. CSS variables) are our primary medium for
     design-tokens
@@ -178,3 +183,15 @@ called WARNING--SUB-MODULES.txt.
 If you plan on running the CSS dev server, or work on the documentation
 servers, you probably want to run `sh scripts/submodule-install.sh` straight
 away.
+
+### Contributions
+
+PRs are welcome. To increase the likelyhood of them being accepted, make sure
+you read all the relevant README files, and follow the style-conventions and
+design principles outlined therein.
+
+<!-- -------------------------------------------------------------- -->
+
+[styles.reykjavik.is]: https://styles.reykjavik.is
+[hanna-server-styles]: https://github.com/reykjavikcity/hanna-server-styles
+[hanna-server-docs]: https://github.com/reykjavikcity/hanna-server-docs
