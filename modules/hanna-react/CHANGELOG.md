@@ -7,6 +7,7 @@
   progressive enhancement
 - feat: Add `utils` helper `setDefaultSSR()`
 - feat: `ContentArticle` emits `__header` wrapper
+- fix: Edge-case bugs in `SiteSearchCurtain` focus-detection
 - fix: Typo in `Datpicker`'s default `dateFormat`, broke typed input parsing
 
 ## 0.10.75 – 0.10.76
