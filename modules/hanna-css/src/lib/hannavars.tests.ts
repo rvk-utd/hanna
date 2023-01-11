@@ -227,7 +227,7 @@ o.spec('cssVars', () => {
       icon__link: true,
       icon__location: true,
       icon__menu: true,
-      icon__pen: true,
+      icon__pen: true, // deprecated
       icon__radioball: true,
       icon__search: true,
       icon__text: true,

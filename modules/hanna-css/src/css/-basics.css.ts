@@ -39,8 +39,6 @@ const quotes = (lang: 'IS' | 'EN' | 'PL') => {
   return `${str(q.open)} ${str(q.close)} ${str(q.openSingle)} ${str(q.closeSingle)}`;
 };
 
-const q = characters.quotes;
-
 const iconFontVersion = fileChecksum('../../style-server/public/css/dev/i/icons.woff2');
 const esjaFolder = '/assets/fonts/Esja';
 

@@ -9,6 +9,7 @@
 - feat: Add component `CheckboxButton`
 - feat: Add styling for `.ContentArticle__header`
 - feat: Improve `*Header` styling inside `.ContentArticle` and `.CenterColumn`
+- feat: Update shape of icons `checkmark`, `edit`, `pen`
 - fix: Add workaround for Next.js + Chrome/Blink scrollbar bug
 - fix: Case-sensitivity typo in filename of `CheckboxButtonsGroup.css`
 

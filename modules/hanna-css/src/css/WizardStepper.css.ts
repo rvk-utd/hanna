@@ -97,7 +97,7 @@ export default css`
     .WizardStepper__step[aria-current='step'] {
       ${WizardStepperVariables.override({
         ballBackground: vars.color_faxafloi_100,
-        ballIcon: vars.icon__pen,
+        ballIcon: vars.icon__edit,
         lineColor: vars.color_suld_75,
       })}
     }
@@ -118,8 +118,9 @@ export default css`
     // ---------------------------------------------------------------------------
 
     :not(.WizardStepper--preview)
-      > .WizardStepper__step:last-child:not([aria-current='step']):not([aria-current='step']
-        ~ *) {
+      > .WizardStepper__step:last-child:not([aria-current='step']):not(
+        [aria-current='step'] ~ *
+      ) {
       ${WARNING__('You forgot aria-current="step".')};
     }
     .WizardStepper--preview > .WizardStepper__step[aria-current='step'] {
