@@ -393,7 +393,8 @@ getCssBundleUrl<true>(cssTokens, { version: 'v0.8.9' });
 
 **Syntax:** `styleServerUrl: string`
 
-Re-export from [`@reykjavik/hanna-utils/assets`](../hanna-utils).
+Re-export from
+[`@reykjavik/hanna-utils/assets` ](https://github.com/rvk-utd/hanna/tree/main/modules/hanna-utils#styleserverurl).
 
 This URL is useful when building links linking to assets, etc, and is used
 internally by [`getCssBundleUrl()`](#getcssbundleurl)
@@ -402,14 +403,12 @@ internally by [`getCssBundleUrl()`](#getcssbundleurl)
 
 **Syntax:** `setStyleServerUrl(url: string | URL)`
 
-Re-export from [`@reykjavik/hanna-utils/assets`](../hanna-utils).
+Re-export from
+[`@reykjavik/hanna-utils/assets`](<[../hanna-utils](https://github.com/rvk-utd/hanna/tree/main/modules/hanna-utils#setstyleserverurl)>).
 
 This updates the value of `styleServerUrl` globally. Use it at the top of your
 application if you want to load assets and CSS bundles from a custom
 style-server instance, e.g. during testing/staging/etc.
-
-_(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
-DEFAULT value.)_
 
 ### `targetCssVersion`
 

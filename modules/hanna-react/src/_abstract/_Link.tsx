@@ -46,7 +46,7 @@ const history: Array<_LinkRenderer_internal> = [];
  * setLinkRenderer.pop(); // reset link rendering
  * ```
  *
- * The Default linkrenderer is defined as:
+ * The default linkrenderer is defined as:
  *
  * ```js
  * 	(linkProps) => React.createElement('a', linkProps);
@@ -56,7 +56,7 @@ const history: Array<_LinkRenderer_internal> = [];
  * as an argument — like so:
  *
  * ```js
- * setLinkRenderer(undefined);
+ * setLinkRenderer(undefined); // pushes the default linkrenderer to the stack
  * ```
  */
 export const setLinkRenderer = (linkRenderer: LinkRenderer | undefined) => {

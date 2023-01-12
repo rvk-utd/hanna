@@ -128,7 +128,7 @@ export type OptionalKeys<T> = keyof PickOptionalLiteralKeys<T>;
  */
 export type Cleanup<T> = { [K in keyof T]: T[K] };
 
-/** @deprecated Use `Cleanup<T>` instead.  (will be removed in v0.11) */
+/** @deprecated Use `Cleanup<T>` instead.  (Will be removed in v0.3) */
 export type Resolve<T> = Cleanup<T>;
 
 // ---------------------------------------------------------------------------
