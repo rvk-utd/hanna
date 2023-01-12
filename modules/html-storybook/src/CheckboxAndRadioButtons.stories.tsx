@@ -1,9 +1,10 @@
 import React from 'react';
+import CheckboxButton from '@reykjavik/hanna-react/CheckboxButton';
 import { CheckboxButtonsGroup } from '@reykjavik/hanna-react/CheckboxButtonsGroup';
 import { RadioButtonsGroup } from '@reykjavik/hanna-react/RadioButtonsGroup';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes';
 
 export default {
   title: 'Forms/Checkbox & Radio Buttons',
@@ -12,6 +13,45 @@ export default {
     knobs: { disabled: false },
   } as StoryParameters,
 };
+
+// ---------------------------------------------------------------------------
+
+export const _CheckboxButton: StoryComponent = () => {
+  const subtext = boolean('Sub-text (small print)', true);
+  const required = boolean('Required', false);
+  const invalid = boolean('Invalid', false);
+  const errorMessage = boolean('Error message', false)
+    ? 'You must accept this nice offer.'
+    : undefined;
+  const disabled = boolean('Disabled', false);
+
+  const labelText = 'Add me to your professional network on LinkedIn';
+  const label = subtext ? (
+    <>
+      {labelText} <small>(Just kidding)</small>
+    </>
+  ) : (
+    labelText
+  );
+
+  return (
+    <CheckboxButton
+      label={label}
+      required={required}
+      invalid={invalid}
+      disabled={disabled}
+      errorMessage={errorMessage}
+    />
+  );
+};
+_CheckboxButton.story = {
+  name: 'CheckboxButton',
+  parameters: {
+    css: { tokens: CheckboxButton.name },
+  },
+};
+
+// ---------------------------------------------------------------------------
 
 const names = [
   {
@@ -84,7 +124,7 @@ const getProps = () => {
   };
 };
 
-export const _CheckboxButtonsGroup = () => (
+export const _CheckboxButtonsGroup: StoryComponent = () => (
   <CheckboxButtonsGroup
     label="Pick your fruits"
     name="fruits"
@@ -93,16 +133,18 @@ export const _CheckboxButtonsGroup = () => (
   />
 );
 _CheckboxButtonsGroup.story = {
+  name: 'CheckboxButtonsGroup',
   parameters: {
     css: { tokens: 'CheckboxButtonsGroup' },
   },
 };
 
-export const _RadioButtonsGroup = () => (
+export const _RadioButtonsGroup: StoryComponent = () => (
   <RadioButtonsGroup label="Pick your fruit" name="fruit" value="Anna" {...getProps()} />
 );
 
 _RadioButtonsGroup.story = {
+  name: 'RadioButtonsGroup',
   parameters: {
     css: { tokens: 'RadioButtonsGroup' },
   },

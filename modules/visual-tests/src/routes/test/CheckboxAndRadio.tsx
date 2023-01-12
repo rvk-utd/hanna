@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { Checkbox } from '@reykjavik/hanna-react/Checkbox';
 import { RadioGroup } from '@reykjavik/hanna-react/RadioGroup';
@@ -25,33 +25,79 @@ export default function () {
     <Minimal>
       <RowBlock>
         <RowBlockColumn>
-          <Checkbox label={lorem.short} />
-          <Checkbox label="Normal" checked={false} />
-          <Checkbox label="Checked" checked />
-          <Checkbox label="Disabled" disabled checked={false} />
-          <Checkbox label="Disabled + checked" disabled checked />
-          <Checkbox label="Invalid" invalid checked={false} />
-          <Checkbox label="Invalid + checked" invalid checked />
           <Checkbox
-            label="Invalid + message"
+            label={
+              <Fragment>
+                Normal <a href="">link</a>
+              </Fragment>
+            }
+            checked={false}
+            data-testid="normal"
+          />
+          <Checkbox label="Checked Normal" checked required data-testid="normalChecked" />
+          <Checkbox
+            label={
+              <Fragment>
+                Disabled <a href="">link</a>
+              </Fragment>
+            }
+            disabled
+            checked={false}
+            data-testid="disabled"
+          />
+          <Checkbox label="Checked Disabled" disabled checked />
+          <Checkbox
+            label={
+              <Fragment>
+                Invalid <a href="">link</a>
+              </Fragment>
+            }
+            invalid
+            checked={false}
+            required
+            data-testid="invalid"
+          />
+          <Checkbox
+            label="Checked Invalid"
+            invalid
+            checked
+            data-testid="invalidChecked"
+          />
+          <Checkbox
+            label="With error message"
             checked={false}
             errorMessage="Error message here"
           />
-          <Checkbox label="Required" required checked={false} />
+          <Checkbox label={lorem.short} />
         </RowBlockColumn>
         <RowBlockColumn>
+          <RadioGroup__Radio label="Normal" checked={false} data-testid="normal" />
+          <RadioGroup__Radio label="Checked Normal" checked data-testid="normalChecked" />
+          <RadioGroup__Radio
+            label="Disabled"
+            disabled
+            checked={false}
+            data-testid="disabled"
+          />
+          <RadioGroup__Radio label="Checked Disabled" disabled checked />
+          <RadioGroup__Radio
+            label="Invalid"
+            invalid
+            checked={false}
+            data-testid="invalid"
+          />
+          <RadioGroup__Radio
+            label="Checked Invalid"
+            invalid
+            checked
+            data-testid="invalidChecked"
+          />
           <RadioGroup__Radio label={lorem.short} />
-          <RadioGroup__Radio label="Normal" checked={false} />
-          <RadioGroup__Radio label="Checked" checked />
-          <RadioGroup__Radio label="Disabled" disabled checked={false} />
-          <RadioGroup__Radio label="Disabled + checked" disabled checked />
-          <RadioGroup__Radio label="Invalid" invalid checked={false} />
-          <RadioGroup__Radio label="Invalid + checked" invalid checked />
-        </RowBlockColumn>{' '}
+        </RowBlockColumn>
       </RowBlock>
       <style>{`
         .RowBlock { margin-bottom: 0; align-items: flex-start }
-        .RowBlockColumn { padding-block: 0; }
+        .RowBlockColumn { padding-top: 16px; padding-bottom: 0; }
         .Radio { margin-bottom: .5em; }
       `}</style>
     </Minimal>
@@ -66,25 +112,23 @@ export const testing: TestingInfo = {
 
     /* eslint-disable no-await-in-loop */
     for (const type of ['Checkbox', 'Radio'] as const) {
-      const normal = page.locator('.' + type + '__label:text("Normal")');
-      const checked = page.locator('.' + type + '__label:text("Checked") >> nth = 0');
-      const disabled = page.locator('.' + type + '__label:text("Disabled") >> nth =0');
-      const invalid = page.locator('.' + type + '__label:text("Invalid") >> nth =0');
-      const invalidChecked = page.locator(
-        '.' + type + '__label:text("Invalid + checked") >> nth =0'
+      const normal = page.locator(`[data-testid="normal"] + .${type}__label`);
+      const normalChecked = page.locator(
+        `[data-testid="normalChecked"] + .${type}__label`
       );
+      const disabled = page.locator('[data-testid="disabled"] + .' + type + '__label');
+      const invalid = page.locator('[data-testid="invalid"] +.' + type + '__label');
+      const invalidChecked = page.locator(
+        '[data-testid="invalidChecked"] + .' + type + '__label'
+      );
+
       for (const action of ['hover', 'focus'] as const) {
         // Hover things
         await normal[action]();
         await localScreenshot(normal, type + '-normal-' + action, { margin: 8 });
 
-        await checked[action]();
-        await localScreenshot(checked, type + '-checked-' + action, { margin: 8 });
-
-        if (action !== 'focus') {
-          await disabled[action]();
-          await localScreenshot(disabled, type + '-disabled-' + action, { margin: 8 });
-        }
+        await normalChecked[action]();
+        await localScreenshot(normalChecked, type + '-checked-' + action, { margin: 8 });
 
         await invalid[action]();
         await localScreenshot(invalid, type + '-invalid-' + action, { margin: 8 });
@@ -93,6 +137,20 @@ export const testing: TestingInfo = {
         await localScreenshot(invalidChecked, type + '-invalidchecked-' + action, {
           margin: 8,
         });
+      }
+
+      await disabled.hover();
+      await localScreenshot(disabled, type + '-disabled-hover', { margin: 8 });
+
+      if (type === 'Checkbox') {
+        await normal.locator('a').hover();
+        await localScreenshot(normal, type + '-normal-hover-link', { margin: 8 });
+
+        await invalid.locator('a').hover();
+        await localScreenshot(invalid, type + '-invalid-hover-link', { margin: 8 });
+
+        await disabled.locator('a').hover();
+        await localScreenshot(disabled, type + '-disabled-hover-link', { margin: 8 });
       }
     }
     /* eslint-enable no-await-in-loop */

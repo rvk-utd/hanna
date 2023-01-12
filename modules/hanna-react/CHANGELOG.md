@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add standalone component `.CheckboxButton`
+- feat: Add `.CheckboxButton__label__wrap` and `.RadioButton__label__wrap`
 - feat: Add `utils` hooks `useIsBrowserSide`, `useIsServerSide` — for
   progressive enhancement
 - feat: Add `utils` helper `setDefaultSSR()`

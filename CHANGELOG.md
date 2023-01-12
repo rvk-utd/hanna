@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add standalone component `.CheckboxButton`
+- feat: Add `.CheckboxButton__label__wrap` and `.RadioButton__label__wrap`
 - feat: Add optional `.ContentArticle__header` wrapper
 - feat: Add support for rich text directly inside `.ArticleList__content`
 - feat: Add `.ActionCards__summary`

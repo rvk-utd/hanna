@@ -1,26 +1,21 @@
 import { css } from 'es-in-css';
 
 import { TogglerKnob } from './styles/forms';
-import { grid_units } from './utils/miscUtils';
+
+import { CheckboxGroup_css } from './CheckboxGroup.css';
+import { RadioGroup_css } from './RadioGroup.css';
 
 export default css`
   /*!@deps
-    CheckboxGroup
+    FormField
   */
-`;
 
-// inlined by CheckboxGroup.css.ts
-export const Checkbox_css = () => css`
   @media screen {
     ${TogglerKnob('Checkbox')}
-
-    .Checkbox:not(.FormField__options__item) {
-      margin-bottom: ${grid_units(3)};
-    }
-    .Checkbox__label__reqstar {
-      border-bottom: none;
-      float: left;
-      margin-right: 0.15em;
-    }
   }
+
+  // ===========================================================================
+  // Inline for better compression and loading speed
+  ${CheckboxGroup_css}
+  ${RadioGroup_css}
 `;

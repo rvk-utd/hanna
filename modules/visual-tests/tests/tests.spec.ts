@@ -57,6 +57,7 @@ import { testing as Buttons__test } from '../src/routes/test/Buttons';
 import { testing as Carousel__test } from '../src/routes/test/Carousel';
 import { testing as CenterColumn__test } from '../src/routes/test/CenterColumn';
 import { testing as CheckboxAndRadio__test } from '../src/routes/test/CheckboxAndRadio';
+import { testing as CheckboxButton__test } from '../src/routes/test/CheckboxButton';
 import { testing as CheckboxButtonsGroup__test } from '../src/routes/test/CheckboxButtonsGroup';
 import { testing as CheckboxGroup__test } from '../src/routes/test/CheckboxGroup';
 import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
@@ -145,6 +146,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Carousel: Carousel__test,
   CenterColumn: CenterColumn__test,
   CheckboxAndRadio: CheckboxAndRadio__test,
+  CheckboxButton: CheckboxButton__test,
   CheckboxButtonsGroup: CheckboxButtonsGroup__test,
   CheckboxGroup: CheckboxGroup__test,
   CityBlock: CityBlock__test,

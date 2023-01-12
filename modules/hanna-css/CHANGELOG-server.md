@@ -3,9 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add standalone component `.CheckboxButton`
+- feat: Update styling of invalid `Checkbox*`s and `Radio*`s
+- feat: Styling of `.CheckboxButton__label__wrap`, `.RadioButton__label__wrap`
+- feat: Add component `CheckboxButton`
 - feat: Add styling for `.ContentArticle__header`
 - feat: Improve `*Header` styling inside `.ContentArticle` and `.CenterColumn`
 - fix: Add workaround for Next.js + Chrome/Blink scrollbar bug
+- fix: Case-sensitivity typo in filename of `CheckboxButtonsGroup.css`
 
 ## 0.8.72
 

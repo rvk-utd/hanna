@@ -19,7 +19,7 @@ export type RadioButtonsGroupProps = TogglerGroupFieldProps & {
 export type RadioButtonsGroupOptions = TogglerGroupFieldOptions;
 
 const RadioButton = (props: TogglerInputProps) => (
-  <TogglerInput {...props} bem="RadioButton" type="radio" />
+  <TogglerInput {...props} bem="RadioButton" type="radio" innerWrap />
 );
 
 export const RadioButtonsGroup = (props: RadioButtonsGroupProps) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useDomid } from '@hugsmidjan/react/hooks';
 import { BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
@@ -23,6 +23,7 @@ export type TogglerInputProps = {
 type _TogglerInputProps = {
   bem: string;
   type: 'radio' | 'checkbox';
+  innerWrap?: boolean;
 };
 
 export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
@@ -38,6 +39,7 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     reqText,
     type,
     id,
+    innerWrap,
     ...inputProps
   } = props;
 
@@ -54,6 +56,8 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     </abbr>
   );
 
+  const InnerWrap = innerWrap ? 'span' : Fragment;
+
   return (
     <Wrapper className={getBemClass(bem, modifier, className)}>
       <input
@@ -65,8 +69,10 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
         {...inputProps}
       />{' '}
       <label className={bem + '__label'} htmlFor={domid}>
-        {' '}
-        {reqStar} {label}{' '}
+        <InnerWrap className={bem + '__label__wrap'}>
+          {' '}
+          {reqStar} {label}{' '}
+        </InnerWrap>
       </label>
       {errorMessage && (
         <div className={bem + '__error'} id={errorId}>

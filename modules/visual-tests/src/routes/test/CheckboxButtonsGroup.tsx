@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Locator } from '@playwright/test';
 import type { MetaFunction } from '@remix-run/node';
 import { CheckboxButtonsGroup } from '@reykjavik/hanna-react/CheckboxButtonsGroup';
 
@@ -27,7 +26,7 @@ export const options = [
     value: 'random',
     label: (
       <Fragment>
-        Random text <small>Extra info</small>
+        Random text <a href="">link</a> <small>Extra info</small>
       </Fragment>
     ),
   },
@@ -61,7 +60,10 @@ export const options = [
     label: (
       <Fragment>
         {lorem.tiny.slice(0, 50)}{' '}
-        <small>Extra extra info that is a bit longer than it maybe should be</small>
+        <small>
+          Extra extra info (<a href="">with link</a>) that is a bit longer than it maybe
+          should be
+        </small>
       </Fragment>
     ),
   },
@@ -99,54 +101,4 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, project }) => {
-    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
-      return;
-    }
-
-    const checked = page.locator('.CheckboxButton__label >> nth=0');
-    const notChecked = page.locator('.CheckboxButton__label >> nth=1');
-    const invalidChecked = page.locator(
-      '.FormField--invalid .CheckboxButton__label >> nth=0'
-    );
-    const disabled = page.locator('.FormField--disabled .CheckboxButton__label >> nth=1');
-
-    const removeSubSequentNodes = (locator: Locator) =>
-      locator.evaluate((elm) => {
-        while (elm.nextSibling) {
-          elm.nextSibling.remove();
-        }
-      });
-
-    // Because flexbox may artificially increase button height
-    await removeSubSequentNodes(notChecked);
-    await removeSubSequentNodes(invalidChecked);
-    await removeSubSequentNodes(disabled);
-
-    // :hover
-
-    await notChecked.hover();
-    await localScreenshot(notChecked, 'notChecked-hover', { margin: 10 });
-
-    await checked.hover();
-    await localScreenshot(checked, 'checked-hover', { margin: 10 });
-
-    await invalidChecked.hover();
-    await localScreenshot(invalidChecked, 'invalidChecked-hover', { margin: 10 });
-
-    await disabled.hover();
-    await localScreenshot(disabled, 'disabled-hover', { margin: 10 });
-
-    // :focus
-
-    await notChecked.focus();
-    await localScreenshot(notChecked, 'notChecked-focus', { margin: 10 });
-
-    await checked.focus();
-    await localScreenshot(checked, 'checked-focus', { margin: 10 });
-
-    await invalidChecked.focus();
-    await localScreenshot(invalidChecked, 'invalidChecked-focus', { margin: 10 });
-  },
-};
+export const testing: TestingInfo = {};

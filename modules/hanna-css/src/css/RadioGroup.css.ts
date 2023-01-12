@@ -5,11 +5,11 @@ import { TogglerGroup, TogglerKnob } from './styles/forms';
 export default css`
   /*!@deps
     FormField
-    CheckboxGroup
+    Checkbox
   */
 `;
 
-// inlined by CheckboxGroup.css.ts
+// inlined by Checkbox.css.ts
 export const RadioGroup_css = () => css`
   @media screen {
     ${TogglerKnob('Radio')}

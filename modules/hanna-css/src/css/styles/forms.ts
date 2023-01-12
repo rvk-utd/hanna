@@ -2,7 +2,7 @@ import { css, LengthValue, VariablePrinter } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints';
 import { buildVariables } from '../../lib/cssutils';
-import { hannaVars as vars } from '../../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars';
 import { iconStyle } from '../../lib/icons';
 import { WARNING__ } from '../../lib/WARNING__';
 import { sr_only } from '../utils/a11y';
@@ -64,16 +64,28 @@ export const TogglerGroup = (bem: string) => css`
   }
 `;
 
+const TogglerVariables = buildVariables(
+  ['knob__color', 'knob__color_active', 'label__color'],
+  'Toggler'
+);
+const tglVars = TogglerVariables.vars;
+
 export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
   .${bem}__input {
     ${sr_only}
   }
   .${bem}__label {
+    ${TogglerVariables.declare({
+      knob__color: vars.color_suld_100,
+      knob__color_active: vars.color_faxafloi_100,
+      label__color: '_inherit',
+    })}
     display: inline-block;
     font: ${vars.font_button};
     padding: ${vars.space_1} 0;
     padding-left: ${prem(36)};
     position: relative;
+    color: ${tglVars.label__color};
   }
   .${bem}__label::before {
     ${iconStyle('')}
@@ -83,71 +95,60 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     width: ${prem(20)};
     height: ${prem(20)};
     line-height: ${prem(18)};
-    ${radio
-      ? css`
-          border-radius: 50%;
-          font-size: ${prem(14)};
-        `
-      : css`
-          font-size: ${prem(12)};
-        `}
-    border: ${prem(1)} solid ${vars.color_suld_100};
+    font-size: ${prem(14)};
+    ${radio &&
+    css`
+      border-radius: 50%;
+    `}
+    border: ${prem(1)} solid ${tglVars.knob__color};
     transition: all 200ms ease-in;
     transition-property: box-shadow, border-color, background-color, outline;
     outline: 0 solid transparent;
   }
 
-  // Invalid
-  .${bem}__input[aria-invalid='true'] + .${bem}__label {
-    color: ${vars.color_heidmork_100};
-  }
-  .${bem}__input[aria-invalid='true'] + .${bem}__label::before {
-    border-color: ${vars.color_heidmork_100};
-  }
-
   // Focus/Hover
-  .${bem}__label[class][class]:hover, .${bem}__input[class]:focus + .${bem}__label {
-    color: ${vars.color_suld_200};
+  .${bem}__label[class]:hover, //
+  .${bem}__input:focus + .${bem}__label {
+    color: ${tglVars.label__color};
   }
-  .${bem}__label[class][class]:hover::before,
-    .${bem}__input[class]:focus
-    + .${bem}__label::before {
-    border-color: ${vars.color_faxafloi_100};
-    box-shadow: inset 0 0 0 2px ${vars.color_faxafloi_100};
+  .${bem}__label[class]:hover::before, //
+  .${bem}__input:focus + .${bem}__label::before {
+    border-color: ${tglVars.knob__color_active};
+    box-shadow: inset 0 0 0 2px ${tglVars.knob__color_active};
   }
 
   // Checked
   .${bem}__input:checked + .${bem}__label::before {
-    ${radio
-      ? css`
-          content: ${vars.icon__radioball};
-        `
-      : css`
-          content: ${vars.icon__checkmark};
-        `}
-
+    content: ${radio ? vars.icon__radioball : vars.icon__checkmark};
     border-color: transparent;
-    background-color: ${vars.color_faxafloi_100};
+    background-color: ${tglVars.knob__color_active};
     color: ${vars.color_suld_0};
-  }
-  // Checked + Invalid
-  .${bem}__input[aria-invalid='true']:checked + .${bem}__label::before {
-    background-color: ${vars.color_heidmork_100};
   }
 
   // Checked + Focus/Hover
-  .${bem}__input:checked
-    + .${bem}__label:hover::before,
-    .${bem}__input:checked:focus
-    + .${bem}__label::before {
-    background-color: ${vars.color_faxafloi_100};
-    outline: ${prem(1)} solid ${vars.color_faxafloi_100};
+  .${bem}__input:checked + .${bem}__label:hover::before, //
+  .${bem}__input:checked:focus + .${bem}__label::before {
+    outline: ${prem(1)} solid ${tglVars.knob__color_active};
     outline-offset: ${prem(1)};
+  }
+
+  // Invalid
+  .${bem}__input[aria-invalid='true'] + .${bem}__label {
+    ${TogglerVariables.override({
+      knob__color: vars.color_heidmork_100,
+      knob__color_active: vars.color_heidmork_100,
+      label__color: vars.color_heidmork_100,
+    })}
+    ${hannaVarOverride({
+      link_color: vars.color_faxafloi_150,
+    })}
   }
 
   // Disabled
   .${bem}__input[class]:disabled + .${bem}__label {
-    color: ${vars.color_suld_200};
+    ${TogglerVariables.override({
+      label__color: vars.color_suld_200,
+    })}
     opacity: 0.5;
   }
   .${bem}__input[class]:disabled + .${bem}__label::before {
@@ -157,6 +158,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     box-shadow: none;
     outline: 0;
   }
+
   // Disabled + Checked
   ${radio &&
   css`
@@ -166,9 +168,18 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     }
   `}
 
-  // __error
   ${!radio &&
   css`
+    .${bem}:not(.FormField__options__item) {
+      margin-bottom: ${vars.space_3};
+    }
+    .${bem}__label__reqstar {
+      border-bottom: none;
+      float: left;
+      margin-right: 0.15em;
+    }
+
+    .${bem}__note, //
     .${bem}__error {
       ${FormField__error(prem(36), 0)};
     }
@@ -225,18 +236,20 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
     font-weight: ${vars.font_weight__bold};
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
     padding: ${vars.space_3};
     padding-left: ${prem(60)};
     border: ${prem(1)} solid ${vars.color_suld_100};
     transition: all 200ms ease-in;
     transition-property: box-shadow, color, border-color, background-color;
+    // @deprecated support for old non-inner-wrapped markup (Remove in v0.9)
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
   }
-  .${bem}__label > small {
-    margin-top: ${vars.space_0$5};
+  .${bem}__label > small, // @deprecated support for old non-inner-wrapped markup (Remove in v0.9)
+  .${bem}__label__wrap > small {
     display: block;
+    margin-top: ${vars.space_0$5};
     font: ${vars.font_label};
     font-weight: ${vars.font_weight__normal};
   }
@@ -250,35 +263,34 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
   }
 
   // Focus + Hover
-  .${bem}__label:hover, .${bem}__input:focus + .${bem}__label {
-    border-color: ${vars.color_faxafloi_100};
-    box-shadow: inset 0 0 0 2px ${vars.color_faxafloi_100};
+  .${bem}__label:hover, //
+  .${bem}__input:focus + .${bem}__label {
+    border-color: ${tglVars.knob__color_active};
+    box-shadow: inset 0 0 0 2px ${tglVars.knob__color_active};
   }
 
   // Checked + Focus/Hover
-  .${bem}__input:checked
-    + .${bem}__label:hover::before,
-    .${bem}__input:checked:focus
-    + .${bem}__label::before {
+  .${bem}__input:checked + .${bem}__label:hover::before, //
+  .${bem}__input:checked:focus + .${bem}__label::before {
     outline: 0;
   }
 
   // Disabled
   .${bem}__input[class]:disabled + .${bem}__label {
-    color: ${vars.color_suld_150};
+    ${TogglerVariables.override({
+      label__color: vars.color_suld_150,
+    })}
     border-color: ${vars.color_suld_100};
     background-color: ${vars.color_suld_50};
     box-shadow: none;
     opacity: 0.5;
   }
-  .${bem}__input:disabled + .${bem}__label > small {
-    color: ${vars.color_suld_150};
-  }
 
   ${!radio &&
   css`
+    .${bem}__note, //
     .${bem}__error {
-      color: ${vars.color_heidmork_150};
+      margin-top: ${vars.space_1};
       padding-left: ${prem(36)};
     }
   `};

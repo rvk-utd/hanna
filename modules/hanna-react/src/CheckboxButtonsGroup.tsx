@@ -5,7 +5,7 @@ import {
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
 } from './_abstract/_TogglerGroupField';
-import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput';
+import CheckboxButton from './CheckboxButton';
 
 export type CheckboxButtonsGroupProps = TogglerGroupFieldProps & {
   value?: Array<string>;
@@ -17,10 +17,6 @@ export type CheckboxButtonsGroupProps = TogglerGroupFieldProps & {
 };
 
 export type CheckboxButtonsGroupOptions = TogglerGroupFieldOptions;
-
-const CheckboxButton = (props: TogglerInputProps) => (
-  <TogglerInput bem="CheckboxButton" {...props} type="checkbox" />
-);
 
 export const CheckboxButtonsGroup = (props: CheckboxButtonsGroupProps) => {
   if (props.layout) {
