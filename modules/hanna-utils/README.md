@@ -302,14 +302,41 @@ used internally by all of the above asset getter functions
 
 #### `setStyleServerUrl`
 
-**Syntax:** `setStyleServerUrl(url: string | URL): void`
+**Syntax:** `setStyleServerUrl(url: string | URL | undefined): void`
 
 This updates the value of `styleServerUrl` globally. Use it at the top of your
 application if you want to load assets and CSS bundles from a custom
 style-server instance, e.g. during testing/staging/etc.
 
-_(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
-DEFAULT value.)_
+The URLs are pushed to a simple stack, and if you want to unset a custom URL,
+use the `setLinkRenderer.pop()` method to revert back to the previous one.
+Example:
+
+```js
+import {
+  setStyleServerUrl,
+  styleServerURL,
+} from '@reykjavik/hanna-utils/assets';
+
+setStyleServerUrl('https://styles.test.thon.is/');
+
+console.log(styleServerURL); // 'https://styles.test.thon.is'
+const illustrationUrl1 = getIllustrationUrl('esjan');
+// 'https://styles.test.thon.is/assets/illustrations/esjan.png'
+
+setStyleServerUrl.pop(); // reset `styleServerUrl` to previous value
+
+console.log(styleServerURL); // 'https://styles.reykjavik.is'
+const illustrationUrl = getIllustrationUrl('esjan');
+// 'https://styles.reykjavik.is/assets/illustrations/esjan.png'
+```
+
+You can explicitly switch to using the library's default `styleServerURL` by
+passing `undefined` as an argument — like so:
+
+```js
+setStyleServerUrl(undefined); // pushes the default URL to the stack
+```
 
 ## I18N helpers
 

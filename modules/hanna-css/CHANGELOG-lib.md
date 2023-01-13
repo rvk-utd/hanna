@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make `setStyleServerURL()`s stack. Add `setStyleServerURL.pop()`
 
 ## 0.3.10
 

@@ -19,24 +19,34 @@ const _defaultStyleServerUrl =
  */
 export let styleServerUrl = _defaultStyleServerUrl;
 
+const history: Array<string> = [];
+
 /**
- * This updates the value of `styleServerUrl` globally. Use it when you want to
- * load assets and CSS bundles from a custom style-server instance, e.g. during
- * testing/staging/etc.
- *
- * _(NOTE: `setStyleServerUrl.reset()` resets the `styleServerUrl` back to its
- * DEFAULT value.)_
+ * This updates the value of `styleServerUrl` globally. Use it at the top of your
+ * application if you want to load assets and CSS bundles from a custom
+ * style-server instance, e.g. during testing/staging/etc.
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#setstyleserverurl
  */
-export const setStyleServerUrl = (url: string | URL) => {
-  // NOTE: This DOES throw if user passes an invalid URL string
+export const setStyleServerUrl = (url: string | URL | undefined) => {
+  // NOTE: This THROWS if user passes an invalid URL string
   url = typeof url === 'string' ? new URL(url) : url;
-  styleServerUrl = url.toString();
+  styleServerUrl = url
+    ? (url.toString().split(/[#?]/) as [string])[0].replace(/\/+$/, '')
+    : _defaultStyleServerUrl;
+  history.unshift(styleServerUrl);
 };
-setStyleServerUrl.reset = () => {
-  styleServerUrl = _defaultStyleServerUrl;
+
+/**
+ * Unsets the last pushed `setStyleServerUrl`
+ */
+setStyleServerUrl.pop = () => {
+  history.shift();
+  styleServerUrl = history[0] || _defaultStyleServerUrl;
 };
+
+/** @deprecated Use `setStyleServerUrl.pop()` instead (Will be removed in v0.3) */
+setStyleServerUrl.reset = setStyleServerUrl.pop;
 
 // ---------------------------------------------------------------------------
 
@@ -349,7 +359,7 @@ export type BlingType = typeof blingTypes[number];
 /**
  * Generates a URL to arbitrary asset on on the style server.
  *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#getasseturl
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#misc-style-server-assets
  */
 export const getAssetUrl = (file: string): string => styleServerUrl + '/assets/' + file;
 
