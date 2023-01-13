@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add styling for `.ContentArticle__header`
 - feat: Improve `*Header` styling inside `.ContentArticle` and `.CenterColumn`
+- fix: Add workaround for Next.js + Chrome/Blink scrollbar bug
 
 ## 0.8.72
 
