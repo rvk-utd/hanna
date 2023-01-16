@@ -2649,7 +2649,7 @@ __metadata:
   dependencies:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
-    "@reykjavik/hanna-utils": ^0.2.0
+    "@reykjavik/hanna-utils": ^0.2.1
     "@types/md5-file": ^5
     del: ^6.0.0
     es-in-css: ^0.5.22
@@ -2665,7 +2665,7 @@ __metadata:
     "@hugsmidjan/qj": ^4.10.2
     "@hugsmidjan/react": ^0.4.23
     "@reykjavik/hanna-css": ^0.3.10
-    "@reykjavik/hanna-utils": ^0.2.0
+    "@reykjavik/hanna-utils": ^0.2.1
     "@types/react": ^17.0.24
     "@types/react-autosuggest": ^10.1.0
     "@types/react-datepicker": ^4.8.0
@@ -2682,7 +2682,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-utils@^0.2.0, @reykjavik/hanna-utils@workspace:*, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
+"@reykjavik/hanna-utils@^0.2.1, @reykjavik/hanna-utils@workspace:*, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
