@@ -9,6 +9,7 @@ import CheckboxButton from './CheckboxButton';
 
 export type CheckboxButtonsGroupProps = TogglerGroupFieldProps & {
   value?: Array<string>;
+  defaultValue?: Array<string>;
 
   /** @deprecated (Will be removed in v0.11) */
   columns?: '2col' | '3col';

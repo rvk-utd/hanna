@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { CheckboxButtonsGroup } from '@reykjavik/hanna-react/CheckboxButtonsGroup';
 
@@ -48,7 +48,7 @@ export const options = [
     ),
   },
   {
-    value: 'great',
+    value: 'tiny',
     label: lorem.tiny,
   },
   {
@@ -70,12 +70,13 @@ export const options = [
 ];
 
 export default function () {
+  const [value, setValue] = useState(['text']);
   return (
     <Minimal>
       <CheckboxButtonsGroup
         label="Checkbox Group"
         options={options}
-        value={['text']}
+        defaultValue={['text']}
         required={true}
         name="normal"
       />
@@ -83,7 +84,8 @@ export default function () {
       <CheckboxButtonsGroup
         label="Invalid Checkbox Group"
         options={options.slice(0, 4)}
-        value={['text']}
+        value={value}
+        onSelected={({ selectedValues }) => setValue(selectedValues)}
         invalid
         name="invalid"
         errorMessage="This is an error message"

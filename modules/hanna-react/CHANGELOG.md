@@ -9,6 +9,7 @@
   progressive enhancement
 - feat: Add `utils` helper `setDefaultSSR()`
 - feat: `ContentArticle` emits `__header` wrapper
+- fix: Support "uncontrolled" use of all `Checkbox` and `Radio` groups
 - fix: Edge-case bugs in `SiteSearchCurtain` focus-detection
 - fix: Typo in `Datpicker`'s default `dateFormat`, broke typed input parsing
 
@@ -160,7 +161,7 @@ _2022-08-11_
 _2022-06-24_
 
 - fix: Add missing prop `checkOrigin` on `IframeBlock` (default: `false`)
-- fix: Suppot "uncontrolled" use of `CheckboxGroup`, `RadioGroup`, et al.
+- fix: Support "uncontrolled" use of `CheckboxGroup`, `RadioGroup`, et al.
 - fix: Change build to only export CommonJS
 
 ## 0.10.59

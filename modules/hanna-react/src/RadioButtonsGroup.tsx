@@ -9,6 +9,7 @@ import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput';
 
 export type RadioButtonsGroupProps = TogglerGroupFieldProps & {
   value?: string;
+  defaultValue?: string;
 
   /** @deprecated (Will be removed in v0.11) */
   columns?: '2col' | '3col';
@@ -29,7 +30,9 @@ export const RadioButtonsGroup = (props: RadioButtonsGroupProps) => {
   if (props.columns) {
     console.warn('`RadioButtonsGroupProps.columns` is deprecated.');
   }
-  return <TogglerGroupField {...props} bem="RadioButtonsGroup" Toggler={RadioButton} />;
+  return (
+    <TogglerGroupField {...props} bem="RadioButtonsGroup" Toggler={RadioButton} isRadio />
+  );
 };
 
 export default RadioButtonsGroup;

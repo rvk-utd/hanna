@@ -2,6 +2,7 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { FormFieldInputProps } from '../FormField';
+import { useMixedControlState } from '../utils';
 
 import { TogglerInputProps } from './_TogglerInput';
 
@@ -17,6 +18,7 @@ type RestrictedInputProps = Omit<
   JSX.IntrinsicElements['input'],
   | 'type'
   | 'value'
+  | 'defaultValue'
   | 'checked'
   | 'defaultChecked'
   | 'className'
@@ -43,6 +45,8 @@ type _TogglerGroupProps = {
   bem: string;
   Toggler: (props: TogglerInputProps) => JSX.Element;
   value?: ReadonlyArray<string>;
+  defaultValue?: ReadonlyArray<string>;
+  isRadio?: true;
 };
 
 export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
@@ -55,9 +59,10 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     Toggler,
     onSelected,
     options,
+    isRadio,
     inputProps = {},
   } = props;
-  const values = props.value;
+  const [values, setValues] = useMixedControlState(props, 'value', []);
 
   return (
     <ul
@@ -74,7 +79,7 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
             : disabled && typeof disabled !== 'boolean'
             ? disabled.includes(i)
             : disabled;
-        const isChecked = values && values.includes(option.value);
+        const isChecked = values.includes(option.value);
 
         return (
           <Toggler
@@ -85,22 +90,17 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
             Wrapper="li"
             {...option}
             label={option.label || option.value}
-            onChange={
-              onSelected
-                ? (e) => {
-                    const { value } = option;
-                    const checked = e.currentTarget.checked;
-                    inputProps.onChange && inputProps.onChange(e);
-                    const selectedValues = values
-                      ? values.filter((val) => val !== value)
-                      : [];
-                    if (checked) {
-                      selectedValues.push(value);
-                    }
-                    onSelected({ value, checked, option, selectedValues });
-                  }
-                : inputProps.onChange
-            }
+            onChange={(e) => {
+              inputProps.onChange && inputProps.onChange(e);
+              const { value } = option;
+              const checked = e.currentTarget.checked;
+              const selectedValues = isRadio ? [] : values.filter((val) => val !== value);
+              if (checked) {
+                selectedValues.push(value);
+              }
+              setValues(selectedValues);
+              onSelected && onSelected({ value, checked, option, selectedValues });
+            }}
             disabled={isDisabled}
             aria-invalid={props['aria-invalid']}
             checked={isChecked}

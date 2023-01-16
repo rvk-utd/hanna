@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { RadioGroup } from '@reykjavik/hanna-react/RadioGroup';
 
@@ -15,6 +15,7 @@ export const meta: MetaFunction = autoTitle;
 //export const handle = { cssTokens: [] };
 
 export default function () {
+  const [value, setValue] = useState('text');
   return (
     <Minimal>
       {([undefined, 'inline'] as const).map((layout, i) => {
@@ -27,7 +28,7 @@ export default function () {
               layout={layout}
               label="Checkbox Group"
               options={opts}
-              value="text"
+              defaultValue="text"
               required={true}
               name={name + 'normal'}
             />
@@ -36,7 +37,8 @@ export default function () {
               layout={layout}
               label="Invalid Checkbox Group"
               options={opts}
-              value="text"
+              value={value}
+              onSelected={({ value }) => setValue(value)}
               invalid
               name={name + 'invalid'}
               errorMessage="This is an error message"
@@ -47,7 +49,7 @@ export default function () {
               label="Checkbox Group"
               disabled
               options={opts}
-              value="text"
+              defaultValue="text"
               required={true}
               name={name + 'disabled'}
             />

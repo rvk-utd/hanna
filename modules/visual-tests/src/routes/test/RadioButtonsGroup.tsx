@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { RadioButtonsGroup } from '@reykjavik/hanna-react/RadioButtonsGroup';
 
@@ -15,12 +15,13 @@ export const meta: MetaFunction = autoTitle;
 // export const handle = { cssTokens: [], };
 
 export default function () {
+  const [value, setValue] = useState('text');
   return (
     <Minimal>
       <RadioButtonsGroup
         label="Radio Buttons Group"
         options={options}
-        value="text"
+        defaultValue="text"
         required={true}
         name="normal"
       />
@@ -28,7 +29,8 @@ export default function () {
       <RadioButtonsGroup
         label="Invalid Radio buttons Group"
         options={options.slice(0, 4)}
-        value="text"
+        value={value}
+        onSelected={({ value }) => setValue(value)}
         invalid
         name="invalid"
         errorMessage="This is an error message"
@@ -37,7 +39,7 @@ export default function () {
       <RadioButtonsGroup
         label="Disabled Radio buttons Group"
         options={options.slice(0, 2)}
-        value="text"
+        defaultValue="text"
         disabled
         name="disabled"
         assistText="This is an error message"
@@ -46,6 +48,4 @@ export default function () {
   );
 }
 
-export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
-};
+export const testing: TestingInfo = {};

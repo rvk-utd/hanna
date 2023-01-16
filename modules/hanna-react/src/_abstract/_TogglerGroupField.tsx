@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useMemo } from 'react';
 import { BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
@@ -19,7 +19,9 @@ export type TogglerGroupFieldProps = {
 
 type _TogglerGroupFieldProps = {
   Toggler: (props: TogglerInputProps) => ReactElement;
+  isRadio?: true;
   value?: string | ReadonlyArray<string>;
+  defaultValue?: string | ReadonlyArray<string>;
   bem: string;
 } & BemPropsModifier;
 
@@ -47,8 +49,23 @@ export const TogglerGroupField = (
     reqText,
     id,
     value,
+    defaultValue,
     ...togglerGroupProps
   } = props;
+
+  const _value = useMemo(
+    () => (value == null ? undefined : typeof value === 'string' ? [value] : value),
+    [value]
+  );
+  const _defaultValue = useMemo(
+    () =>
+      defaultValue == null
+        ? undefined
+        : typeof defaultValue === 'string'
+        ? [defaultValue]
+        : defaultValue,
+    [defaultValue]
+  );
 
   return (
     <FormField
@@ -71,7 +88,8 @@ export const TogglerGroupField = (
             bem={className.options}
             {...inputProps}
             {...togglerGroupProps}
-            value={Array.isArray(value) ? value : value != null ? [value] : undefined}
+            value={_value}
+            defaultValue={_defaultValue}
             Toggler={Toggler}
           />
         );
