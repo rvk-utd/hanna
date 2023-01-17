@@ -273,6 +273,7 @@ const linkVarDeclarations = linkVars.declare({
   link_weight: fontVars.vars.font_weight__bold,
 
   link_underline__thickness: rem(2 / 16),
+  link_underline__hairline: '1px dotted currentColor',
   link_underline: `${linkVars.vars.link_underline__thickness} solid transparent`,
   link_underline__hover: `${linkVars.vars.link_underline__thickness} solid currentColor`,
   link_underline_offset: em(0.15), // 2.4px

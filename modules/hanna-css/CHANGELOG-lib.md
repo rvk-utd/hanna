@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `hannaVars.link_underline__hairline`
 
 ## 0.3.11
 

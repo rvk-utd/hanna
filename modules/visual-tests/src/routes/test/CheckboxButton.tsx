@@ -24,7 +24,10 @@ export default function () {
           <CheckboxButton
             label={
               <Fragment>
-                Normal <a href="">link</a> <small>Extra info</small>
+                Normal <a href="">link</a>{' '}
+                <small>
+                  Extra info with <a href="">a link</a>
+                </small>
               </Fragment>
             }
             checked={false}
@@ -52,7 +55,10 @@ export default function () {
           <CheckboxButton
             label={
               <Fragment>
-                Invalid <a href="">link</a>
+                Invalid <a href="">link</a>{' '}
+                <small>
+                  Extra info with <a href="">a link</a>
+                </small>
               </Fragment>
             }
             invalid
@@ -129,10 +135,10 @@ export const testing: TestingInfo = {
     await disabled.hover();
     await localScreenshot(disabled, 'CheckboxButton-disabled-hover', { margin: 8 });
 
-    await normal.locator('a').hover();
+    await normal.locator('a').first().hover();
     await localScreenshot(normal, 'CheckboxButton-normal-hover-link', { margin: 8 });
 
-    await invalid.locator('a').hover();
+    await invalid.locator('a').first().hover();
     await localScreenshot(invalid, 'CheckboxButton-invalid-hover-link', { margin: 8 });
 
     await disabled.locator('a').hover();

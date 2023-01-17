@@ -61,7 +61,7 @@ export const LinkStyle_SameColor = () => css`
   ${hannaVarOverride({
     link_color: '_inherit',
     link_color__hover: vars.link_color,
-    link_underline: '1px dotted currentColor',
+    link_underline: vars.link_underline__hairline,
     link_underline__hover: '2px solid currentColor',
   })}
   ${/* TODO: figure out if we can safely remove this */ ''}

@@ -241,6 +241,7 @@ o.spec('cssVars', () => {
       link_color__hover: true,
       link_weight: true,
       link_underline__thickness: true,
+      link_underline__hairline: true,
       link_underline: true,
       link_underline__hover: true,
       link_underline_offset: true,

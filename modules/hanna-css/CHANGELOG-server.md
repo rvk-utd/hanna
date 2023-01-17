@@ -10,6 +10,7 @@
 - feat: Add styling for `.ContentArticle__header`
 - feat: Improve `*Header` styling inside `.ContentArticle` and `.CenterColumn`
 - feat: Update shape of icons `checkmark`, `edit`, `pen`
+- feat: Add CSS variable `--link-underline--hairline`
 - fix: Add workaround for Next.js + Chrome/Blink scrollbar bug
 - fix: Case-sensitivity typo in filename of `CheckboxButtonsGroup.css`
 - fix: Add missing vendor-prefixes to CSS files

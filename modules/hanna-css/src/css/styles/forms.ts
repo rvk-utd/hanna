@@ -140,7 +140,8 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
       label__color: vars.color_heidmork_100,
     })}
     ${hannaVarOverride({
-      link_color: vars.color_faxafloi_150,
+      link_color: vars.color_heidmork_150,
+      link_underline: vars.link_underline__hairline,
     })}
   }
 
@@ -229,6 +230,8 @@ export const TogglerButtonsGroup = (bem: string) => css`
   }
 `;
 
+// ===========================================================================
+
 export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') => css`
   ${TogglerKnob(bem, radio)}
 
@@ -291,7 +294,7 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
     .${bem}__note, //
     .${bem}__error {
       margin-top: ${vars.space_1};
-      padding-left: ${prem(36)};
+      padding-left: ${vars.space_3};
     }
   `};
 `;

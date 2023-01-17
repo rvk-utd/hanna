@@ -124,6 +124,7 @@ export const linkVars = buildVariables([
   'link_weight',
 
   'link_underline__thickness',
+  'link_underline__hairline',
   'link_underline',
   'link_underline__hover',
   'link_underline_offset',
