@@ -30,7 +30,7 @@ export default css`
       @media ${mq_Fullscreen} {
         z-index: calc(${vars.zindex__header} - 1);
       }
-      @media ($_mq-Popup) {
+      @media ${mq_Popup} {
         z-index: calc(${vars.zindex__header} + 5);
       }
     }
