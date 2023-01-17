@@ -12,6 +12,7 @@
 - feat: Update shape of icons `checkmark`, `edit`, `pen`
 - fix: Add workaround for Next.js + Chrome/Blink scrollbar bug
 - fix: Case-sensitivity typo in filename of `CheckboxButtonsGroup.css`
+- fix: Add missing vendor-prefixes to CSS files
 
 ## 0.8.72
 
