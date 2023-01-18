@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.73
+
+_2023-01-18_
+
 - feat: Add standalone component `.CheckboxButton`
 - feat: Update styling of invalid `Checkbox*`s and `Radio*`s
 - feat: Styling of `.CheckboxButton__label__wrap`, `.RadioButton__label__wrap`
