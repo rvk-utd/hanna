@@ -37,7 +37,7 @@
     "publish:lib": "yarn run build:lib  &&  cd _npm-lib  &&  npm publish",
     "publish:server": "yarn run publish:server:assets  &&  yarn run publish:server:css",
     "publish:server:assets": "NODE_ENV=production  yarn run gulp publishAssets",
-    "publish:server:css": "yarn run gulp publishDevCss  &&  NODE_ENV=production  yarn run gulp publishCss  &&  yarn run publish:server:release",
+    "publish:server:css": "NODE_ENV=production  yarn run gulp publishCss  &&  NODE_ENV=development yarn run gulp publishDevCss  &&  yarn run publish:server:release",
     "publish:server:css:dev": "yarn run gulp publishDevCss",
     "publish:server:release": "node ./build-server-release.mjs",
     "test:dev": "sleep 1  &&  (yarn run test || true)  &&  yarn run test:watch",
