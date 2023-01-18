@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.77
+
+_2022-12-18_
+
 - feat: Add standalone component `.CheckboxButton`
 - feat: Add `.CheckboxButton__label__wrap` and `.RadioButton__label__wrap`
 - feat: Add `utils` hooks `useIsBrowserSide`, `useIsServerSide` — for
