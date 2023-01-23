@@ -131,7 +131,7 @@ export const Datepicker = (props: DatepickerProps) => {
 
   const domid = useDomid(id);
 
-  const txts = (localeCode && i18n[localeCode]) || {};
+  const txts = i18n[localeCode] || {};
 
   const filled = !!value;
   const empty = !filled && !placeholder;
@@ -157,7 +157,7 @@ export const Datepicker = (props: DatepickerProps) => {
           <div
             className={className.input}
             onClick={({ target, currentTarget }) =>
-              target === currentTarget && currentTarget.querySelector('input')!.focus()
+              target === currentTarget && currentTarget.querySelector('input')?.focus()
             }
             ref={
               inputRef &&
@@ -194,10 +194,7 @@ export const Datepicker = (props: DatepickerProps) => {
               endDate={endDate}
               selectsStart={isStartDate}
               selectsEnd={isEndDate}
-              formatWeekDay={(weekday) => {
-                // TODO: if we use costom locale we don't need this
-                return weekday.charAt(0).toUpperCase();
-              }}
+              formatWeekDay={(weekday) => weekday.charAt(0).toUpperCase()}
               showYearDropdown
               scrollableYearDropdown
               yearDropdownItemNumber={15}
