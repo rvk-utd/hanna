@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Spacing below logo in `.FooterInfo` on mobile screens
 
 ## 0.8.73
 

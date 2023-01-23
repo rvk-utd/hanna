@@ -25,7 +25,7 @@ export default css`
   .FooterInfo::before {
     content: '';
     display: block;
-    margin: 0 auto calc(2 * ${vars.space_6}) auto;
+    margin: 0 auto ${vars.space_4} auto;
     background: url(${logo_notext_url}) 50% 50% no-repeat;
     background-size: auto 100%;
     width: ${prem(35)};
