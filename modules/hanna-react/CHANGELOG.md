@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.79
+
+_2023-01-23_
+
 - feat: Support passing Array of `dateFormat`s to `Datepicker`
 
 ## 0.10.77 – 0.10.78
