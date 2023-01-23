@@ -7,7 +7,7 @@
 
 ## 0.10.77 – 0.10.78
 
-_2022-12-18_
+_2023-01-18_
 
 - feat: Add standalone component `.CheckboxButton`
 - feat: Add `.CheckboxButton__label__wrap` and `.RadioButton__label__wrap`
