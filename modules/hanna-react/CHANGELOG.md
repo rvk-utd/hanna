@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support passing Array of `dateFormat`s to `Datepicker`
 
 ## 0.10.77 – 0.10.78
 
