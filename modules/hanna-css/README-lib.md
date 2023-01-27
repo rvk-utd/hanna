@@ -32,12 +32,12 @@ yarn add --dev @reykjavik/hanna-css
   - [`icons`](#icons)
   - [`mq`](#mq)
 - [Hanna CSS Env](#hanna-css-env)
-  - [`isDevMode`](#isdevmode)
   - [`getCssBundleUrl`](#getcssbundleurl)
     - [Type `CssBundleOpts`](#type-cssbundleopts)
   - [`styleServerUrl`](#styleserverurl)
   - [`setStyleServerUrl`](#setstyleserverurl)
   - [`targetCssVersion`](#targetcssversion)
+  - [`isDevMode`](#isdevmode)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
   - [`WARNING_soft__`](#warning_soft__)
@@ -310,23 +310,6 @@ const myCss = css`
 
 ## Hanna CSS Env
 
-### `isDevMode`
-
-**Syntax:** `isDevMode: boolean`
-
-Convenience shorthand for `process.env.NODE_ENV !== 'production'`, used
-internally in some of the exported mixins, etc.
-
-```js
-import { isDevMode } from '@reykjavik/hanna-css';
-
-const myCss = css`
-  .SomeComponent {
-    color: ${isDevMode ? 'red' : 'blue'};
-  }
-`;
-```
-
 ### `getCssBundleUrl`
 
 **Syntax:**
@@ -418,6 +401,23 @@ The current MAJOR version of the Hanna style-server CSS files this version of
 `@reyjkjavik/hanna-css` package targets.
 
 Primary use is for debugging/informational purposes.
+
+### `isDevMode`
+
+**Syntax:** `isDevMode: boolean`
+
+Convenience shorthand for `process.env.NODE_ENV !== 'production'`, used
+internally in some of the exported mixins, etc.
+
+```js
+import { isDevMode } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .SomeComponent {
+    color: ${isDevMode ? 'red' : 'blue'};
+  }
+`;
+```
 
 ## Markup Warning Helpers
 
