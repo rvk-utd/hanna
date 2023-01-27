@@ -25,8 +25,8 @@ o.spec('hanna-css lib', () => {
       targetCssVersion: true,
       styleServerUrl: true,
       setStyleServerUrl: true,
-      getEssentialHeaderScripts: true,
-      getEssentialHeaderScripts_MultiPage: true,
+      getEssentialHannaScripts: true,
+      getEssentialHannaScripts_MultiPage: true,
 
       /* hannavars.ts */
       hannaVars: true,

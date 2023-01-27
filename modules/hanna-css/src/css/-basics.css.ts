@@ -135,8 +135,10 @@ export default css`
       })(document, navigator.userAgent);
       \`\`\`
 
-      This script is also part of \`getEssentialHeaderScripts\` helper
+      This script is also part of \`getEssentialHannaScripts\` helper
       exported from '@reykjavik/hanna-css'.
+
+      See: https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialhannascripts
     */
     overflow-x: clip; // For Safari 16+
 

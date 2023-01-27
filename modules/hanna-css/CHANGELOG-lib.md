@@ -8,7 +8,7 @@
 
 _2023-01-27_
 
-- feat: Add `getEssentialHeaderScripts` styling assist helper
+- feat: Add `getEssentialHannaScripts` styling assist helper
 - feat: Add `hannaVars.link_underline__hairline`
 
 ## 0.3.11

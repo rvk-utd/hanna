@@ -5,7 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Shift overflow-x rules off `<body/>` up to `<html/>` — this reverts a
   Safari bug workaround that has caused unacceptable drip-torturous grief. Use
-  [`getEssentialHeaderScripts`](https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialheaderscripts)
+  [`getEssentialHannaScripts`](https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialhannascripts)
   from `@reykjavik/hanna-css` stop side-scrolling in older Safaris.
   [More info here](https://mastodon.online/@maranomynet/109755659925602531)
 - fix: Spacing below logo in `.FooterInfo` on mobile screens

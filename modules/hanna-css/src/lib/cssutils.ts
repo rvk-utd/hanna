@@ -204,9 +204,9 @@ const cmprss = (script: string) =>
  * progressive enhancement for server-rendered dynamic Hanna UI compoennts,
  * and fix some Safari-related styling issues.
  *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialheaderscripts
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialhannascripts
  */
-export const getEssentialHeaderScripts = () =>
+export const getEssentialHannaScripts = () =>
   cmprss(safariSidescrollFix + noFlickerSnippet);
 
 /**
@@ -214,7 +214,7 @@ export const getEssentialHeaderScripts = () =>
  * progressive enhancement for server-rendered dynamic Hanna UI compoennts,
  * and fix some Safari-related styling issues.
  *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialheaderscripts
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialhannascripts
  */
-export const getEssentialHeaderScripts_MultiPage = () =>
+export const getEssentialHannaScripts_MultiPage = () =>
   cmprss(safariSidescrollFix + noFlickerSnippet_multiPage);

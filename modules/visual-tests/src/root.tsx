@@ -14,7 +14,7 @@ import {
 import {
   css,
   getCssBundleUrl,
-  getEssentialHeaderScripts,
+  getEssentialHannaScripts,
   HannaColorTheme,
 } from '@reykjavik/hanna-css';
 import { setLinkRenderer } from '@reykjavik/hanna-react/utils';
@@ -105,7 +105,7 @@ export default function App() {
         <script
           dangerouslySetInnerHTML={{
             __html:
-              getEssentialHeaderScripts() +
+              getEssentialHannaScripts() +
               // NOTE: Hacky injection of a utility function into the page's global scope,
               // in order to make life easier for tests/tests.spec.ts
               ';\nwindow.getPageScrollElm = ' +

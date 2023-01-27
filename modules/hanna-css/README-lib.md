@@ -34,7 +34,7 @@ yarn add --dev @reykjavik/hanna-css
 - [Hanna CSS Env](#hanna-css-env)
   - [`getCssBundleUrl`](#getcssbundleurl)
     - [Type `CssBundleOpts`](#type-cssbundleopts)
-  - [`getEssentialHeaderScripts`](#getessentialheaderscripts)
+  - [`getEssentialHannaScripts`](#getessentialhannascripts)
   - [`styleServerUrl`](#styleserverurl)
   - [`setStyleServerUrl`](#setstyleserverurl)
   - [`targetCssVersion`](#targetcssversion)
@@ -373,9 +373,9 @@ getCssBundleUrl<true>(cssTokens, { version: 'v0.8.9' });
 /* Like this ———^^^^  */
 ```
 
-### `getEssentialHeaderScripts`
+### `getEssentialHannaScripts`
 
-**Syntax:** `getEssentialHeaderScripts: () => string`
+**Syntax:** `getEssentialHannaScripts: () => string`
 
 Essential Hanna styling assisting scripts. These provide flicker-free
 progressive enhancement for server-rendered dynamic Hanna UI compoennts, and
@@ -385,7 +385,7 @@ Inline this script snippet as close to the top of your page's `<head/>`
 element as you can.
 
 **NOTE:** In full-page-reload multi-page applications, you should use
-`getEssentialHeaderScripts_MultiPage` instead of this.
+`getEssentialHannaScripts_MultiPage` instead of this.
 
 ### `styleServerUrl`
 
