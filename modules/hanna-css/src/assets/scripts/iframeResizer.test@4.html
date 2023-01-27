@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script>
-			window.iFrameResizer = { targetOrigin: '*' };
-		</script>
-		<script src="./iframeResizer.contentWindow@4.js"></script>
-	</head>
-	<body>
-		<p>Test iframe (click, to change the content height)</p>
-		<p>. . .</p>
-		<p>. . .</p>
-		<p>. . .</p>
-		<p>. . .</p>
-		<p>. . .</p>
-		<p>. . .</p>
-		<div id="foo">
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-			<p>. . .</p>
-		</div>
-		<p>Bottommost paragraph</p>
-		<script>
-			document.body.addEventListener('click', function () {
-				const elm = document.getElementById('foo');
-				elm.hidden = !elm.hidden;
-			});
-		</script>
-	</body>
+  <head>
+    <script>
+      window.iFrameResizer = { targetOrigin: "*" };
+    </script>
+    <script src="./iframeResizer.contentWindow@4.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/bundle/dev?m=-basics" />
+  </head>
+  <body>
+    <p>Test iframe (click, to change the content height)</p>
+    <p>. . . .</p>
+    <p>. . .</p>
+    <p>. . .</p>
+    <p>. . .</p>
+    <p>. . .</p>
+    <p>. . .</p>
+    <div id="foo">
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+      <p>. . .</p>
+    </div>
+    <p>Bottommost paragraph</p>
+    <script>
+      document.body.addEventListener("click", function () {
+        const elm = document.getElementById("foo");
+        elm.hidden = !elm.hidden;
+      });
+    </script>
+  </body>
 </html>

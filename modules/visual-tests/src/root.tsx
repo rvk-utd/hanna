@@ -11,7 +11,12 @@ import {
   useMatches,
   useSearchParams,
 } from '@remix-run/react';
-import { css, getCssBundleUrl, HannaColorTheme } from '@reykjavik/hanna-css';
+import {
+  css,
+  getCssBundleUrl,
+  getEssentialHeaderScripts,
+  HannaColorTheme,
+} from '@reykjavik/hanna-css';
 import { setLinkRenderer } from '@reykjavik/hanna-react/utils';
 import { getPageScrollElm as _getPageScrollElm } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
@@ -82,22 +87,6 @@ export const links: LinksFunction = () => [
   },
 ];
 
-// Remix's highly script-managed environment doesn't REALLY need the class-name to be removed.
-// But this is still a bit icky.
-const noFlickerSnippet = `document.documentElement.classList.add('before-sprinkling');`;
-
-/* * /
-// TODO: Hook this more complete function into a routing event handler something, something.
-const noFlickerSnippet = `
-  (function (c, n) {
-    c.add(n);
-    setTimeout(function () {
-      c.remove(n);
-    }, 8000);
-  })(document.documentElement.classList, 'before-sprinkling');
-`.replace(/\s/g, '');
-*/
-
 export default function App() {
   const cssTokens = useGetCssTokens();
   const [q] = useSearchParams();
@@ -116,7 +105,7 @@ export default function App() {
         <script
           dangerouslySetInnerHTML={{
             __html:
-              noFlickerSnippet +
+              getEssentialHeaderScripts() +
               // NOTE: Hacky injection of a utility function into the page's global scope,
               // in order to make life easier for tests/tests.spec.ts
               ';\nwindow.getPageScrollElm = ' +

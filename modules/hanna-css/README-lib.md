@@ -34,6 +34,7 @@ yarn add --dev @reykjavik/hanna-css
 - [Hanna CSS Env](#hanna-css-env)
   - [`getCssBundleUrl`](#getcssbundleurl)
     - [Type `CssBundleOpts`](#type-cssbundleopts)
+  - [`getEssentialHeaderScripts`](#getessentialheaderscripts)
   - [`styleServerUrl`](#styleserverurl)
   - [`setStyleServerUrl`](#setstyleserverurl)
   - [`targetCssVersion`](#targetcssversion)
@@ -371,6 +372,20 @@ generics paramter of `true` which relaxes the type restrictions a bit.
 getCssBundleUrl<true>(cssTokens, { version: 'v0.8.9' });
 /* Like this ———^^^^  */
 ```
+
+### `getEssentialHeaderScripts`
+
+**Syntax:** `getEssentialHeaderScripts: () => string`
+
+Essential Hanna styling assisting scripts. These provide flicker-free
+progressive enhancement for server-rendered dynamic Hanna UI compoennts, and
+fix some Safari-related styling issues.
+
+Inline this script snippet as close to the top of your page's `<head/>`
+element as you can.
+
+**NOTE:** In full-page-reload multi-page applications, you should use
+`getEssentialHeaderScripts_MultiPage` instead of this.
 
 ### `styleServerUrl`
 

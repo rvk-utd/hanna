@@ -118,12 +118,27 @@ export default css`
     min-width: calc(${bp.phone} - ${vars.browser_scrollbar_width});
     box-sizing: border-box;
     position: relative;
-    overflow-x: hidden; // rely on <body/> for scrolling
-    // NOTE: when the virtual keyboard appears in iphone/mobile safari and an input needs to be
-    // shifted upwards, then mobile-safari force-scrolls the <html/> element
-    // If overflow-y is hidden, then the <html/> element remains stuck in the scrolled state
-    // and thereafter clipping the top off the page... #❤️🍎
-    overflow-y: auto;
+    overflow-y: scroll;
+    overflow-x: hidden; // Normal browsers respect this.
+    /**
+      **NOTE:**
+      Older Safari versions need to register this side-scroll-killer
+      script to prevent side-scrolling on the <html/> element.
+
+      \`\`\`js
+      (function (d, u, h) {
+        u.indexOf('Chrome') < 0 && u.indexOf('Safari') > 0 &&
+        d.addEventListener("scroll", function () {
+          (h = d.documentElement).scrollLeft > 0 &&
+            (h.scrollLeft = 0);
+        });
+      })(document, navigator.userAgent);
+      \`\`\`
+
+      This script is also part of \`getEssentialHeaderScripts\` helper
+      exported from '@reykjavik/hanna-css'.
+    */
+    overflow-x: clip; // For Safari 16+
 
     // "Fix" nasty/smudgy font rendering on mac
     -webkit-font-smoothing: antialiased;
@@ -144,14 +159,6 @@ export default css`
   }
   *:lang(pl) {
     quotes: ${quotes('PL')};
-  }
-
-  body {
-    // Placing the overflow rule on the <body> prevents sideways scrolling
-    // in Safari – which "helpfully" ignores \`overflow-x:hidden;\` on \`<html>\`.
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 100vh;
   }
 
   // nextjs@11 injects this and it triggers scrolling bugs
