@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.3.12
+
+_2023-01-27_
+
 - feat: Add `getEssentialHeaderScripts` styling assist helper
 - feat: Add `hannaVars.link_underline__hairline`
 

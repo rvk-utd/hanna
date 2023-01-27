@@ -16,7 +16,7 @@
   "dependencies": {
     "@hugsmidjan/qj": "^4.10.2",
     "@hugsmidjan/react": "^0.4.23",
-    "@reykjavik/hanna-css": "^0.3.11",
+    "@reykjavik/hanna-css": "^0.3.12",
     "@reykjavik/hanna-utils": "^0.2.1",
     "@types/react": "^17.0.24",
     "@types/react-autosuggest": "^10.1.0",
