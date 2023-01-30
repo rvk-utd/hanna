@@ -4,9 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.8.74-rc
+## 0.8.74
 
-_2023-01-27_
+_2023-01-30_
 
 - feat: Shift overflow-x rules off `<body/>` up to `<html/>` — this reverts a
   Safari bug workaround that has caused unacceptable drip-torturous grief. Use
