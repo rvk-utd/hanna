@@ -16,7 +16,7 @@ import {
   srcDir,
 } from '../../build-helpers.mjs';
 
-import { devDistCssFolder } from './scripts/config.js';
+import { devDistCssFolder, serverFolder } from './scripts/config.js';
 
 const glob = globPkg.sync;
 
@@ -41,7 +41,7 @@ const baseOpts = {
 
 /** @param {string} cssVersion */
 const createStyleServerInfoTsFile = async (cssVersion) => {
-  const cssFolders = await readdir('../../style-server/public/css').then((dir) =>
+  const cssFolders = await readdir(`${serverFolder}public/css`).then((dir) =>
     dir.filter((name) => name !== 'dev')
   );
   /** @type {Record<string, 1>} */

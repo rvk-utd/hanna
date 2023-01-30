@@ -40,7 +40,7 @@ build-results into them.
     [@reykjavik/hanna-css](https://www.npmjs.com/package/@reykjavik/hanna-css)
   - Publishes CSS files and related (typo)graphic assets to
     [styles.reykjavik.is][].  
-    (Builds into `/style-server/public/css/v${version}`, a part of the
+    (Builds into `/servers/styles/public/css/v${version}`, a part of the
     submodule repo [hanna-server-styles][].)
 
 - **[`hanna-react`](modules/hanna-react/)**
@@ -64,8 +64,8 @@ build-results into them.
     HTML components.
   - **TODO:**
     - Publishes JavaScript module files to [styles.reykjavik.is][].  
-      (Builds into `/style-server/public/sprinkles/v${version}`, a part of the
-      submodule repo [hanna-server-styles][].)
+      (Builds into `/servers/styles/public/sprinkles/v${version}`, a part of
+      the submodule repo [hanna-server-styles][].)
     - Published as the npm package
       [@reykjavik/hanna-sprinkles](https://www.npmjs.com/package/@reykjavik/hanna-sprinkles).
 

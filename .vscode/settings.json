@@ -7,8 +7,8 @@
   "search.exclude": {
     "**/.yarn": true,
     "**/.pnp.*": true,
-    "style-server/*": true,
     "servers/docs/*": true,
+    "servers/styles/*": true,
     "modules/visual-tests/tests/**/*.png": true
   }
 }

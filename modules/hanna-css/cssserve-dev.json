@@ -1,5 +1,5 @@
 {
-  "staticFolder": "../../style-server/public/",
+  "staticFolder": "../../servers/styles/public/",
 
   "ttl_static": 0,
   "ttl_bundle": 0,

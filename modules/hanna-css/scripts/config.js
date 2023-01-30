@@ -1,7 +1,7 @@
 const pkg = require('../package-server.json');
 
 const cssVersion = 'v' + (pkg.cssVersion.match(/^0\.\d+/) || [pkg.cssVersion])[0];
-const serverFolder = '../../style-server/';
+const serverFolder = '../../servers/styles/';
 const publicFolder = serverFolder + 'public/';
 const sourceFolder = 'src/';
 

@@ -28,17 +28,14 @@ System requirements:
 - `yarn >= 1.22`
 
 ```sh
-git clone -b master git@github.com:rvk-utd/hanna-styles.git style-server
-cd style-server
+git clone -b master git@github.com:reykjavikcity/hanna-server-styles.git hanna-server-styles
+cd hanna-server-styles
 ```
 
 ```sh
 yarn install --production
 yarn run start
 ```
-
-The `master` branch is the "live" branch, whereas the most recent
-content/features are on `feature/style-server`
 
 This starts a HTTP server with the config specified in
 [cssserve-prod.json](./cssserve-prod.json).

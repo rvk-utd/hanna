@@ -1,8 +1,8 @@
 #! /bin/sh
 
 ### Make sure all local submodule changes are also pushed
-if [ -e "style-server/package.json" ]; then
-  cd style-server
+if [ -e "servers/styles/package.json" ]; then
+  cd servers/styles
   git stash
   git checkout feature/style-server
   git push

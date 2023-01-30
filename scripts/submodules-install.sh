@@ -2,7 +2,7 @@
 
 git submodule update --init
 
-cd style-server
+cd servers/styles
 git stash
 git checkout feature/style-server
 yarn install
