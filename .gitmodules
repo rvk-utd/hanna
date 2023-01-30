@@ -1,8 +1,8 @@
-[submodule "style-server"]
+[submodule "servers/styles"]
 	path = servers/styles
-	url = git@github.com:rvk-utd/hanna-styles.git
-	branch = feature/style-server
+	url = git@github.com:reykjavikcity/hanna-server-styles.git
+	branch = main
 [submodule "servers/docs"]
 	path = servers/docs
-	url = git@github.com:rvk-utd/hanna-server-docs.git
+	url = git@github.com:reykjavikcity/hanna-server-docs.git
 	branch = main

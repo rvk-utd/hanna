@@ -85,7 +85,7 @@ const updateDistFolder = (done) => {
       `git submodule update --init`,
 
       `cd ${serverFolder}`,
-      `git checkout feature/style-server`,
+      `git checkout main`,
       `cd -`,
 
       `git submodule update --remote --rebase`,

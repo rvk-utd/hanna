@@ -26,13 +26,13 @@ yarn run dev:server
 
 This builds a static copy of the documenation and adds new commits to the
 ["html" section](../../servers/docs/public/html) of
-[hanna-server-docs](https://github.com/rvk-utd/hanna-server-docs) repo (a
-submodule of this monorepo, located at [/servers/docs](../../servers/docs))
+[hanna-server-docs](https://github.com/reykjavikcity/hanna-server-docs) repo
+(a submodule of this monorepo, located at [/servers/docs](../../servers/docs))
 
 1. `cd modules/html-storybook`
 2. `yarn run publish`
 
 (NOTE: The "hanna-docs" server is automatically redeployed whenever new
 commits are pushed to the
-[`main` branch](https://github.com/rvk-utd/hanna-server-docs/tree/main) of
-`hanna-server-docs`.)
+[`main` branch](https://github.com/reykjavikcity/hanna-server-docs/tree/main)
+of `hanna-server-docs`.)

@@ -76,7 +76,7 @@ Steps to adding a new test page (e.g. when you add a new component to Hanna):
 2. Make sure the module exports a `testing` token of type
    [`TestingInfo`](src/testingInfo.ts)
 
-3. Add your new test module to the master `testingInfos` list:
+3. Add your new test module to The Big List of `testingInfos`:
 
    1. Open [tests/tests.spec.ts](tests/tests.spec.ts)
    2. Locate the declaration of the `testingInfos` object

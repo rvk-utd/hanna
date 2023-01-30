@@ -4,7 +4,7 @@
 if [ -e "servers/styles/package.json" ]; then
   cd servers/styles
   git stash
-  git checkout feature/style-server
+  git checkout main
   git push
   cd -
 fi

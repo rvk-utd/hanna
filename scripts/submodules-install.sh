@@ -4,12 +4,12 @@ git submodule update --init
 
 cd servers/styles
 git stash
-git checkout feature/style-server
+git checkout main
 yarn install
 cd -
 
 cd server/docs
 git stash
-git checkout master
+git checkout main
 yarn install
 cd -

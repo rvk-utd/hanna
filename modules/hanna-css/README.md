@@ -5,7 +5,8 @@ This module publishes two separate, yet tightly related assets:
 1. CSS files and related (typo)graphic assets to
    [styles.reykjavik.is](https://styles.reykjavik.is).  
    (Builds into `/servers/styles/public/css/v${version}`, a part of the
-   submodule repo [hanna-styles](https://github.com/rvk-utd/hanna-styles).)
+   submodule repo
+   [hanna-server-styles](https://github.com/reykjavikcity/hanna-server-styles).)
 2. The npm package `@reykjavik/hanna-css` — a CSS authoring helper library
    written in TypeScript
 
@@ -26,7 +27,7 @@ yarn run dev
 
 The dev style-server has both HTTP and bundler caching turned off, which
 allows you to instantly see the latest SASS build results from the
-`../../style-sever/public/css/dev` folder, like so:
+`../../severs/styles/public/css/dev` folder, like so:
 
 ```
 https://localhost:4000/bundle/dev?m=-basics,Layout-full,HeroBlock

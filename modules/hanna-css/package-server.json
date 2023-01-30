@@ -10,8 +10,8 @@
     "Már Örlygsson <mar@hugsmidjan.is>",
     "Valur Sverrisson <valur@hugsmidjan.is>"
   ],
-  "repository": "ssh://git@github.com:rvk-utd/hanna-styles.git",
-  "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/hanna-css",
+  "repository": "ssh://git@github.com:ç/hanna-server-styles.git",
+  "homepage": "https://github.com/reykjavikcity/hanna-server-styles",
   "private": true,
   "license": "MIT",
   "engines": {

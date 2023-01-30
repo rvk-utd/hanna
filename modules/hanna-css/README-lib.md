@@ -317,7 +317,7 @@ const myCss = css`
 `getCssBundleUrl(cssTokens: string | Array<string>, options?: CssBundleOpts): string`
 
 This methods generates a URL to load a correctly versioned CSS bundle from the
-[Hanna Style Server](https://github.com/rvk-utd/hanna-styles).
+[Hanna Style Server](https://github.com/reykjavikcity/hanna-server-styles).
 
 You must pass a list of `cssTokens` corresponding to the Hanna design
 components you use on your page(s).
