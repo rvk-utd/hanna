@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.29
+
+_2023-01-30_
+
 - feat: Add standalone component `.CheckboxButton`
 - feat: Add `.CheckboxButton__label__wrap` and `.RadioButton__label__wrap`
 - feat: Add optional `.ContentArticle__header` wrapper
