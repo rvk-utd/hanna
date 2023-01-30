@@ -68,8 +68,10 @@ export const freezeScroll_css = ({
   hideSkiplink = false,
   hideAlerts = true,
 }: FreezeScrollProps) => css`
-  > body {
+  & {
     overflow-y: hidden;
+  }
+  > body {
     padding-right: ${vars.grid_margin};
   }
   ${hideAlerts &&
