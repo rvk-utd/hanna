@@ -194,6 +194,13 @@ export const MainMenu = (props: MainMenuProps) => {
     return null;
   }
 
+  /** Close mega panels on successful clicks their links. */
+  const handleMegaPanelClicks = (e: React.MouseEvent<HTMLElement>) => {
+    if (!e.defaultPrevented && (e.target as HTMLElement).closest('a[href]')) {
+      setTimeout(() => setActivePanel(undefined), 200);
+    }
+  };
+
   return (
     <nav
       className="MainMenu"
@@ -257,7 +264,7 @@ export const MainMenu = (props: MainMenuProps) => {
       {'\n\n'}
       {megaPanels.length > 0 && (
         <div className={getBemClass('MainMenu__panelsWrap', [activePanel && 'active'])}>
-          <ul className="MainMenu__panels">
+          <ul className="MainMenu__panels" onClick={handleMegaPanelClicks}>
             {megaPanels.map((panel, i) => {
               if (!panel.items.length) {
                 return;

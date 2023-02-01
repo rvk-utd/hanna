@@ -69,7 +69,7 @@ const createPanelItems = (title: string, length: number, current?: number) => ({
   items: Array.from({ length }).map(
     (_, i): MegaMenuItem => ({
       label: title + (i === 2 ? ' lorem impsum dolor sit' : '') + ' item ' + (i + 1),
-      href: '',
+      href: `?blu=${i + 1}`,
       current: current === i || undefined,
       summary: getStableRandomItem(
         [

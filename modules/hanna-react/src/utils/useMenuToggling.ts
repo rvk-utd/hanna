@@ -24,9 +24,9 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState<true | undefined>();
 
-  const state = { isMenuOpen, isMenuActive };
-  const stateRef = useRef(state);
-  stateRef.current = state;
+  const _state = { isMenuOpen, isMenuActive };
+  const stateRef = useRef(_state);
+  stateRef.current = _state;
 
   const _openMenu = () => {
     if (!stateRef.current.isMenuOpen) {

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Close the currently open/active `MainMenu` mega panels on link click
 - fix: Update `react-datepicker` for latest upstream bugfixes
 
 ## 0.10.79
