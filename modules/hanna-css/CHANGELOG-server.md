@@ -6,7 +6,7 @@
 
 ## 0.8.74
 
-_2023-01-30_
+_2023-02-08_
 
 - feat: Shift overflow-x rules off `<body/>` up to `<html/>` — this reverts a
   Safari bug workaround that has caused unacceptable drip-torturous grief. Use
