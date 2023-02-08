@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Automatically close "Hamburger menu" when user clicks `MainMenu` links
+- feat: Support `MainMenuProps.onItemClick` `MainMenuItem.onClick` returning
+  `false` to prevent auto-closing of "Hamburger menu".
 - feat: Add `useHannaUIState` hook to "utils" — exposing `isHamburgerMenuOpen`
   and `closeHamburgerMenu()`.
 - fix: Toggle `MainMenu` mega panels on repeated top-level link clicks

@@ -12,6 +12,7 @@ import {
   AuxiliaryPanelProps,
 } from './MainMenu/_Auxiliary';
 import { PrimaryPanel } from './MainMenu/_PrimaryPanel';
+import { useHannaUIState } from './utils/HannaUIState';
 import { useFormatMonitor } from './utils/useFormatMonitor';
 import { SSRSupport, useIsBrowserSide } from './utils';
 
@@ -42,7 +43,14 @@ export type MainMenuItem = {
   modifier?: string;
   current?: boolean;
   href?: string;
-  onClick?: (index: number, item: MainMenuItem) => void;
+  /**
+   * Adding `onClick` automatically results in a <button/> element being rendered.
+   *
+   * NOTE: Clicking a MainMenu item will automatically close HannaUIState's
+   * "Hamburger menu" (a.k.a. "Mobile menu")
+   * … unless the `onClick` function explicitly returns `false`.
+   */
+  onClick?: (index: number, item: MainMenuItem) => undefined | boolean;
   controlsId?: string;
 };
 export type MainMenuSeparator = '---';
@@ -68,7 +76,12 @@ export type MainMenuProps = {
   items: MainMenuItemList;
   megaPanels?: Array<MegaMenuPanel>;
   auxiliaryPanel?: AuxiliaryPanelProps;
-  onItemClick?: (index: number, item: MainMenuItem) => void;
+  /**
+   * NOTE: Clicking a MainMenu item will automatically close HannaUIState's
+   * "Hamburger menu" (a.k.a. "Mobile menu")
+   * … unless the `onItemClick` function explicitly returns `false`.
+   */
+  onItemClick?: (index: number, item: MainMenuItem) => undefined | boolean;
   activePanelId?: string;
   texts?: MainMenuI18n;
   lang?: string;
@@ -77,6 +90,8 @@ export type MainMenuProps = {
 
 export const MainMenu = (props: MainMenuProps) => {
   const { title, megaPanels = [], onItemClick, ssr, auxiliaryPanel } = props;
+
+  const { closeHamburgerMenu } = useHannaUIState();
 
   const isBrowser = useIsBrowserSide(ssr);
 
@@ -203,6 +218,7 @@ export const MainMenu = (props: MainMenuProps) => {
       (e.target as HTMLElement).closest('a[href]')
     ) {
       setActivePanel(undefined);
+      closeHamburgerMenu();
     }
   };
 
@@ -234,11 +250,14 @@ export const MainMenu = (props: MainMenuProps) => {
                   <button
                     className="MainMenu__link"
                     onClick={() => {
+                      const keepOpen1 = onClick && onClick(i, item) === false;
+                      const keepOpen2 = onItemClick && onItemClick(i, item) === false;
                       const { megaPanel } = item;
-                      megaPanel &&
+                      if (megaPanel) {
                         setActivePanel(megaPanel !== activePanel ? megaPanel : undefined);
-                      onClick && onClick(i, item);
-                      onItemClick && onItemClick(i, item);
+                      } else {
+                        !(keepOpen1 || keepOpen2) && closeHamburgerMenu();
+                      }
                     }}
                     ref={pressed && pressedLinkRef}
                     aria-pressed={pressed}
@@ -257,7 +276,10 @@ export const MainMenu = (props: MainMenuProps) => {
                     href={item.href}
                     aria-label={labelLong}
                     title={labelLong} // For auto-tooltips on desktop
-                    onClick={onItemClick && (() => onItemClick(i, item))}
+                    onClick={() => {
+                      const keepOpen = onItemClick && onItemClick(i, item) === false;
+                      !keepOpen && closeHamburgerMenu();
+                    }}
                     lang={lang}
                   >
                     {label}
