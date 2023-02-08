@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Toggle `MainMenu` mega panels on repeated top-level link clicks
 - fix: Close the currently open `MainMenu` mega panels on intra-link click
 - fix: Update `react-datepicker` for latest upstream bugfixes
 

@@ -234,7 +234,9 @@ export const MainMenu = (props: MainMenuProps) => {
                   <button
                     className="MainMenu__link"
                     onClick={() => {
-                      item.megaPanel && setActivePanel(item.megaPanel);
+                      const { megaPanel } = item;
+                      megaPanel &&
+                        setActivePanel(megaPanel !== activePanel ? megaPanel : undefined);
                       onClick && onClick(i, item);
                       onItemClick && onItemClick(i, item);
                     }}
