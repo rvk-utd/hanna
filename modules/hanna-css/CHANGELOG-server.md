@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.75
+
+_2023-02-09_
+
 - feat: Tweak thickness of `checkmark` icon and its size in `Checkbox`es
 - fix: Add back `Tabs` css as required dependency for `SearchResults`
 - fix: Add back `Footnote` css as required dependency for `BasicTable`
