@@ -5,6 +5,7 @@ import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 
 import { sr_only } from './utils/a11y';
 import { grid_units, prem } from './utils/miscUtils';
+import { Transition__long } from './utils/seenEffects';
 
 const pPanelCols = 8;
 
@@ -52,6 +53,11 @@ export const PrimaryPanel_css = () => css`
     }
     .PrimaryPanel__summary {
       ${sr_only}
+    }
+
+    :not(.MainMenu__panelsWrap--active) > * > .PrimaryPanel--active {
+      opacity: 0;
+      ${Transition__long()}
     }
   }
 
