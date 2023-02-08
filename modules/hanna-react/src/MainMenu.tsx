@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import focusElm from '@hugsmidjan/qj/focusElm';
 import useShortState from '@hugsmidjan/react/hooks/useShortState';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
@@ -91,47 +91,47 @@ export const MainMenu = (props: MainMenuProps) => {
     MegaMenuPanel | undefined
   >();
 
-  const setActivePanel = useCallback(
-    (newActive: MegaMenuPanel | undefined, setFocus = true) => {
-      if (!isBrowser) {
-        return;
-      }
-      const htmlElmDataset = document.documentElement.dataset;
+  const setActivePanel = useMemo(
+    () =>
+      isBrowser
+        ? (newActive: MegaMenuPanel | undefined, setFocus = true) => {
+            const htmlElmDataset = document.documentElement.dataset;
 
-      // const menuElm = menuElmRef.current as HTMLElement;
-      _setActivePanel((activePanel) => {
-        const scrollElm = getPageScrollElm();
-        if (!newActive) {
-          activePanel && setLaggyActivePanel(activePanel, 1000);
-          scrollElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
-          delete htmlElmDataset.scrollTop;
-          delete htmlElmDataset.megaPanelActive;
-        } else {
-          setLaggyActivePanel(undefined, 0);
-          htmlElmDataset.scrollTop = String(scrollElm.scrollTop);
-          scrollElm.scrollTop = 0;
-          htmlElmDataset.megaPanelActive = '';
-        }
+            // const menuElm = menuElmRef.current as HTMLElement;
+            _setActivePanel((activePanel) => {
+              const scrollElm = getPageScrollElm();
+              if (!newActive) {
+                activePanel && setLaggyActivePanel(activePanel, 1000);
+                scrollElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
+                delete htmlElmDataset.scrollTop;
+                delete htmlElmDataset.megaPanelActive;
+              } else {
+                setLaggyActivePanel(undefined, 0);
+                htmlElmDataset.scrollTop = String(scrollElm.scrollTop);
+                scrollElm.scrollTop = 0;
+                htmlElmDataset.megaPanelActive = '';
+              }
 
-        if (setFocus) {
-          const pressedLinkElm = pressedLinkRef.current; // pressedLinkElm will be undefined when setTimeout fires
-          setTimeout(() => {
-            if (!newActive) {
-              // const buttonElm = menuElm.querySelector<HTMLButtonElement>(
-              // 	'button.MainMenu__link[aria-pressed="true"]'
-              // );
-              focusElm(pressedLinkElm);
-            } else if (newActive !== activePanel) {
-              // const panelElm = menuElm.querySelector<HTMLButtonElement>(
-              // 	'.PrimaryPanel--active'
-              // );
-              focusElm(activePanelRef.current);
-            }
-          }, 100);
-        }
-        return newActive;
-      });
-    },
+              if (setFocus) {
+                const pressedLinkElm = pressedLinkRef.current; // pressedLinkElm will be undefined when setTimeout fires
+                setTimeout(() => {
+                  if (!newActive) {
+                    // const buttonElm = menuElm.querySelector<HTMLButtonElement>(
+                    // 	'button.MainMenu__link[aria-pressed="true"]'
+                    // );
+                    focusElm(pressedLinkElm);
+                  } else if (newActive !== activePanel) {
+                    // const panelElm = menuElm.querySelector<HTMLButtonElement>(
+                    // 	'.PrimaryPanel--active'
+                    // );
+                    focusElm(activePanelRef.current);
+                  }
+                }, 100);
+              }
+              return newActive;
+            });
+          }
+        : () => undefined,
     [setLaggyActivePanel, isBrowser]
   );
 
@@ -194,10 +194,15 @@ export const MainMenu = (props: MainMenuProps) => {
     return null;
   }
 
-  /** Close mega panels on successful clicks their links. */
+  /** Close mega panels on clicks their links. */
   const handleMegaPanelClicks = (e: React.MouseEvent<HTMLElement>) => {
-    if (!e.defaultPrevented && (e.target as HTMLElement).closest('a[href]')) {
-      setTimeout(() => setActivePanel(undefined), 200);
+    if (
+      // NOTE: We can NOT check for `e.defaultPrevented` because if the current
+      // LinkRenderer is something like Next.js or Remix's <Link/> compponent
+      // then default is ALWAYS prevented
+      (e.target as HTMLElement).closest('a[href]')
+    ) {
+      setActivePanel(undefined);
     }
   };
 
