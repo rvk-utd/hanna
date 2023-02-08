@@ -27,6 +27,11 @@ const flexDash = (pxWidth: number) => {
 };
 
 export default css`
+  /*!@deps
+    Tabs,
+    Alert
+  */
+
   @media screen {
     .SiteSearchPage {
       position: relative;
