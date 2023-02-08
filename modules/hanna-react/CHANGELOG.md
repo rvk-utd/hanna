@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.80
+
+_2023-02-08_
+
 - feat: Automatically close "Hamburger menu" when user clicks `MainMenu` links
 - feat: Support `MainMenuProps.onItemClick` `MainMenuItem.onClick` returning
   `false` to prevent auto-closing of "Hamburger menu".
