@@ -1,4 +1,4 @@
-import React from 'react';
+import { createContext } from 'react';
 
 import { GalleryProps } from '../Gallery';
 
@@ -9,6 +9,6 @@ type ModalContextProps = {
   currentImage: GalleryItemProps | undefined;
 } & GalleryProps;
 
-export const GalleryModalContext = React.createContext<ModalContextProps>(
+export const GalleryModalContext = createContext<ModalContextProps>(
   {} as ModalContextProps
 );
