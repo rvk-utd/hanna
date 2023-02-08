@@ -8,9 +8,6 @@ import { LinkStyle_Reset } from './styles/links';
 import { hideText_css } from './utils/hideText';
 
 export default css`
-  // TODO: Empty deps below. Should it be removed?
-  /*!@deps
-  */
   @media screen {
     .TagPill {
       ${LinkStyle_Reset(true)}
