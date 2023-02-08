@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - fix: Toggle `MainMenu` mega panels on repeated top-level link clicks
 - fix: Close the currently open `MainMenu` mega panels on intra-link click
+- fix: Close `ContactBubble` on intra-link/button click
 - fix: Update `react-datepicker` for latest upstream bugfixes
 
 ## 0.10.79

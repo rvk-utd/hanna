@@ -213,14 +213,15 @@ export const ContactBubble = (props: ContactBubbleProps) => {
           const { href, label, extraLabel, target, onClick } = linkInfo;
           const icon = ensureIcon(linkInfo.icon);
           const itemClass = getBemClass('ContactBubble__item', icon && 'type--' + icon);
-          const onClickHandler =
-            onClick &&
-            ((e: React.MouseEvent) => {
-              if (!onClick()) {
+          const onClickHandler = (e: React.MouseEvent) => {
+            if (onClick) {
+              const doPreventDefault = onClick() !== true;
+              if (doPreventDefault) {
                 e.preventDefault();
-                closeBubble(false);
               }
-            });
+            }
+            closeBubble(false);
+          };
 
           const content = [
             ' ',
