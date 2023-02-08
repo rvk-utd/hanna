@@ -216,7 +216,9 @@ export type SearchResultsFilter = {
 export type { SearchResultsItemProps } from './SearchResults/_SearchResultsItem';
 
 export type SearchResultsProps = {
+  /** Grand total number of searach results */
   totalHits?: number;
+  /** Grand total number of searach results */
   hits?: number;
   query?: string;
   items?: Array<SearchResultsItemProps>;
@@ -225,7 +227,9 @@ export type SearchResultsProps = {
   setFilter?: (activeTab: number) => void;
   status: SearchStatus;
   errorText?: string | ReactNode;
+  /** Number of results returned in each page/batch */
   pageSize: number;
+  /** Total number of pages */
   pages?: number;
   loadMore?: () => void;
   texts?: SearchReesultI18n;

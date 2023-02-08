@@ -7,6 +7,7 @@ import {
 } from '@reykjavik/hanna-react/SearchResults';
 import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 
+import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
@@ -26,7 +27,7 @@ const items = range(1, 4).map(
   })
 );
 
-items.unshift(
+const fancyItems = [
   {
     highlight: true,
     href: '',
@@ -48,8 +49,9 @@ items.unshift(
     summary: lorem.short,
     image: photo.portrait.src,
     meta: '10. október 2022',
-  }
-);
+  },
+  ...items,
+];
 
 export default function () {
   return (
@@ -58,12 +60,27 @@ export default function () {
         <SiteSearchInput label="leit" name="q" />
         <SearchResults
           status="results"
-          pageSize={0}
-          hits={items.length}
+          pageSize={10}
+          totalHits={1234}
+          hits={fancyItems.length}
           query="leitarorð"
-          items={items}
+          items={fancyItems}
         />
       </div>
+      <DummyBlock thin />
+      <SearchResults
+        status="results"
+        pageSize={2}
+        totalHits={45}
+        pages={23}
+        hits={45}
+        query="leitarorð"
+        items={items.slice(0, 2)}
+        filters={[
+          { label: 'Lorem', count: 42 },
+          { label: 'Ipsum', count: 3 },
+        ]}
+      />
     </Minimal>
   );
 }
