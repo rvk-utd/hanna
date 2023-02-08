@@ -95,7 +95,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     width: ${prem(20)};
     height: ${prem(20)};
     line-height: ${prem(18)};
-    font-size: ${prem(14)};
+    font-size: ${prem(radio ? 14 : 16)};
     ${radio &&
     css`
       border-radius: 50%;
