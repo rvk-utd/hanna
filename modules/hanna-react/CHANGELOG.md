@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `useHannaUIState` hook to "utils" — exposing `isHamburgerMenuOpen`
+  and `closeHamburgerMenu()`.
 - fix: Toggle `MainMenu` mega panels on repeated top-level link clicks
 - fix: Close the currently open `MainMenu` mega panels on intra-link click
 - fix: Close `ContactBubble` on intra-link/button click

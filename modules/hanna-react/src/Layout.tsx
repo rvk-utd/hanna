@@ -8,6 +8,7 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Image } from './_abstract/_Image';
 import { Link } from './_abstract/_Link';
+import { HannaUIState } from './utils/HannaUIState';
 import { useMenuToggling } from './utils/useMenuToggling';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar';
 import { SSRSupport, useIsBrowserSide } from './utils';
@@ -65,7 +66,9 @@ export const Layout = (props: LayoutProps) => {
     logoLink = '/',
   } = props;
 
-  const { isMenuActive, closeMenu, toggleMenu } = useMenuToggling(ssr !== 'ssr-only');
+  const { isMenuActive, isMenuOpen, closeMenu, toggleMenu } = useMenuToggling(
+    ssr !== 'ssr-only'
+  );
   const isBrowser = useIsBrowserSide(/* ssr */);
 
   const txt = getTexts(props, defaultLayoutTexts);
@@ -114,7 +117,14 @@ export const Layout = (props: LayoutProps) => {
         </div>
         {navChildren && (
           <div className="Layout__nav" id="pagenav" role="navigation">
-            {navChildren}
+            <HannaUIState
+              value={{
+                closeHamburgerMenu: closeMenu,
+                isHamburgerMenuOpen: isMenuOpen,
+              }}
+            >
+              {navChildren}
+            </HannaUIState>
             {isMenuActive && (
               <button
                 className="Layout__nav__closebutton"

@@ -16,6 +16,10 @@ o.spec('hanna-react/utils lib', () => {
       useIsBrowserSide: true,
       useIsServerSide: true,
 
+      /* utils/HannaUIState.ts */
+      HannaUIState: true,
+      useHannaUIState: true,
+
       /* utils/useDidChange.ts */
       useDidChange: true,
 
