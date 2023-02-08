@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Tweak thickness of `checkmark` icon and its size in `Checkbox`es
 - fix: Add back `Tabs` css as required dependency for `SearchResults`
+- fix: Add back `Footnote` css as required dependency for `BasicTable`
 
 ## 0.8.74
 

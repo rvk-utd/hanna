@@ -20,6 +20,10 @@ export const BasicTableVariables = buildVariables(
 const bt = BasicTableVariables;
 
 export default css`
+  /*!@deps
+    Footnote
+  */
+
   @media screen {
     .TableWrapper {
       ${SeenEffect__fadeup}
