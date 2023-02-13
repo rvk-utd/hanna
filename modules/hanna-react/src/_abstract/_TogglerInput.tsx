@@ -56,7 +56,12 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     </abbr>
   );
 
-  const InnerWrap = innerWrap ? 'span' : Fragment;
+  const labelContent = (
+    <>
+      {' '}
+      {reqStar} {label}{' '}
+    </>
+  );
 
   return (
     <Wrapper className={getBemClass(bem, modifier, className)}>
@@ -69,10 +74,11 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
         {...inputProps}
       />{' '}
       <label className={bem + '__label'} htmlFor={domid}>
-        <InnerWrap className={bem + '__label__wrap'}>
-          {' '}
-          {reqStar} {label}{' '}
-        </InnerWrap>
+        {innerWrap ? (
+          <span className={bem + '__label__wrap'}>{labelContent}</span>
+        ) : (
+          labelContent
+        )}
       </label>
       {errorMessage && (
         <div className={bem + '__error'} id={errorId}>

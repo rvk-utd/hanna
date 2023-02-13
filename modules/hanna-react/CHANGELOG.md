@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Suppress accidental dev-mode warnings for
+  `CheckboxButton`/`RadioButtonGroup`s
 
 ## 0.10.80
 
