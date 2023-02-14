@@ -26,7 +26,7 @@ const InputOption = ({
   children,
   innerProps,
   ...rest
-}: OptionProps<OptionGaur>) => {
+}: OptionProps<OptionGaur, false>) => {
   const [isActive, setIsActive] = useState(false);
   const onMouseDown = () => setIsActive(true);
   const onMouseUp = () => setIsActive(false);
