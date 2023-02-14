@@ -87,6 +87,7 @@ const MultiSelect = () => {
     <div>
       <p>MultiSelect</p>
       <Select<OptionGaur>
+        placeholder="Select a flavour..."
         defaultValue={[]}
         isMulti
         closeMenuOnSelect={false}
