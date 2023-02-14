@@ -14,6 +14,15 @@ const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
+  { value: 'coffee', label: 'Coffee' },
+  { value: 'mint-chocolate-chip', label: 'Mint Chocolate Chip' },
+  { value: 'rocky-road', label: 'Rocky Road' },
+  { value: 'cookies-and-cream', label: 'Cookies and Cream' },
+  { value: 'butter-pecan', label: 'Butter Pecan' },
+  { value: 'pistachio', label: 'Pistachio' },
+  { value: 'maple-walnut', label: 'Maple Walnut' },
+  { value: 'caramel', label: 'Caramel' },
+  { value: 'fudge', label: 'Fudge' },
 ];
 
 // const animatedComponents = makeAnimated();
@@ -71,13 +80,6 @@ const InputOption = ({
     </components.Option>
   );
 };
-
-const allOptions = [
-  { value: 'option 1', label: 'option 1' },
-  { value: 'option 2', label: 'option 2' },
-  { value: 'option 3', label: 'option 3' },
-  { value: 'option 4', label: 'option 4' },
-];
 
 const MultiSelect = () => {
   const [selectedOptions, setSelectedOptions] = useState<Array<OptionGaur>>([]);
