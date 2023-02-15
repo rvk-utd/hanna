@@ -9,8 +9,7 @@ import {
   Side,
   useFloating,
 } from '@floating-ui/react';
-import { useCallbackOnEsc } from '@hugsmidjan/react/hooks';
-import useLaggyState from '@hugsmidjan/react/hooks/useLaggyState';
+import { useCallbackOnEsc, useLaggedState } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 type TooltipElement = HTMLDetailsElement & {
@@ -34,7 +33,7 @@ export type TooltipProps = {
 const ToolTip = (props: TooltipProps) => {
   const { text, label, iconOnly } = props;
   const arrowRef = useRef(null);
-  const [isOpen, _, setIsOpen] = useLaggyState(false, 300);
+  const [isOpen, setIsOpen] = useLaggedState(false, 300);
 
   const { x, y, reference, floating, middlewareData, placement } = useFloating({
     placement: 'top',
