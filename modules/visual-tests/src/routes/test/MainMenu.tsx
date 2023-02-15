@@ -35,10 +35,10 @@ export const mainMenuItems: MainMenuItemList = [
     label: 'Mannlíf',
     href: '#MegaMenu:Mannlíf',
   },
-  {
-    label: 'Link test',
-    href: '?blu=blu',
-  },
+  // {
+  //   label: 'Link test',
+  //   href: '?blu=blu',
+  // },
   '---',
   {
     label: 'EN',
