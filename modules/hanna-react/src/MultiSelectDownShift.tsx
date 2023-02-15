@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import Downshift from 'downshift';
+import React from 'react';
+import { useMultipleSelection, useSelect } from 'downshift';
 
-import './MultiSelect.css';
-
-type Option = {
+type ItemGaur = {
   value: string;
   label: string;
 };
 
-// https://codesandbox.io/s/downshift-typescript-basic-n73f0?from-embed=&file=/src/index.tsx:262-271
-
-const options: Array<Option> = [
+const itemsList = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
@@ -25,30 +21,36 @@ const options: Array<Option> = [
   { value: 'fudge', label: 'Fudge' },
 ];
 
-const MultiSelect = () => {
-  const [selectedItems, setSelectedItems] = useState<Array<Option>>([]);
+const MultiSelectDownshift = () => {
+  const { getSelectedItemProps, selectedItems, removeSelectedItem } =
+    useMultipleSelection<ItemGaur | undefined>({
+      initialSelectedItems: [itemsList[0], itemsList[1]],
+    });
 
-  const handleSelection = (selectedItem: Option) => {
-    const selected = selectedItems.includes(selectedItem)
-      ? selectedItems.filter((item) => item !== selectedItem)
-      : [...selectedItems, selectedItem];
-    setSelectedItems(selected);
-  };
-
+  const { getLabelProps, getMenuProps, getItemProps } = useSelect({ items: itemsList });
   return (
     <div>
-      <p>Huga buga</p>
-      <Downshift
-        itemToString={(item) => (item ? item.label : '')}
-        onChange={(selectedItem) => handleSelection(selectedItem)}
-        selectedItem={selectedItems}
-        isOpen={true}
-        multiple={true}
-      >
-        <p>hugabuga</p>
-      </Downshift>
+      <p>MultiSelect</p>
+      <label {...getLabelProps()}>Choose a flavour</label>
+      {selectedItems.map((selectedItem, index) => (
+        <span
+          key={`selected-item-${index}`}
+          {...getSelectedItemProps({ selectedItem, index })}
+        >
+          {selectedItem?.label}
+          <span onClick={() => removeSelectedItem(selectedItem)}>&#10005;</span>
+        </span>
+      ))}
+
+      <ul {...getMenuProps()}>
+        {itemsList.map((item, index) => (
+          <li key={`${item}${index}`} {...getItemProps({ item, index })}>
+            {item.label}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default MultiSelect;
+export default MultiSelectDownshift;

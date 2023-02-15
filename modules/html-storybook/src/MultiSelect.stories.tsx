@@ -1,5 +1,6 @@
 import React from 'react';
 import MultiSelect from '@reykjavik/hanna-react/MultiSelect';
+import MultiSelectDownshift from '@reykjavik/hanna-react/MultiSelectDownShift';
 
 import { StoryComponent, StoryParameters } from './storytypes';
 
@@ -14,5 +15,9 @@ export default {
 };
 
 export const _Multiselect: StoryComponent = () => {
-  return <MultiSelect />;
+  return (
+    <>
+      <MultiSelect /> <MultiSelectDownshift />
+    </>
+  );
 };
