@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `getFavicon()` asset helper
 
 ## 0.2.2
 

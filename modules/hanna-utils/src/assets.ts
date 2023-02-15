@@ -396,3 +396,23 @@ export const getFormheimurUrl = (shapes: Formheimur): string =>
  */
 export const getBlingUrl = (blingType: BlingType): string =>
   getAssetUrl('bling/' + blingType + '.svg');
+
+// ===========================================================================
+
+type Favicon =
+  | 'favicon.svg'
+  | 'favicon.png'
+  | 'favicon-large.png' // same as favicon-144
+  | 'favicon-144.png'
+  | 'favicon-288.png'
+  | 'favicon-maskable.svg'
+  | 'favicon-black.svg'
+  | 'favicon-black-maskable.svg'
+  | 'favicon.ico';
+
+/**
+ * Generates a URL to a Hanna favicon/webmanifest icon on the style server.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#favicons
+ */
+export const getFavicon = (faviconFile: Favicon): string => getAssetUrl(faviconFile);

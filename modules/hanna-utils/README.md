@@ -18,6 +18,7 @@ including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
 - [Asset helpers](#asset-helpers)
+  - [Favicons](#favicons)
   - [Illustrations](#illustrations)
   - [Efnistákn Icons](#efnistákn-icons)
   - [Formheimur Shapes](#formheimur-shapes)
@@ -208,6 +209,20 @@ focusElement('.TextBlock a');
 -->
 
 ## Asset helpers
+
+### Favicons
+
+Helper to generate URLs for various types of "favicons" or "webmanifest
+icons", etc...
+
+```ts
+import { getFavicon } from '@reykjavik/hanna-utils/assets';
+
+const url = getFavicon('favicon.svg');
+```
+
+The function is typed to provide auto-completion of all the available icon
+types.
 
 ### Illustrations
 

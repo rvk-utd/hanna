@@ -21,6 +21,8 @@ o.spec('hanna-utils/assets', () => {
       illustrations: true,
       getIllustrationUrl: true,
 
+      getFavicon: true,
+
       getAssetUrl: true,
 
       setStyleServerUrl: true,
