@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Default `styleServerUrl` to <https://styles.test.thon.is> in dev mode
 
 ## 0.2.1
 

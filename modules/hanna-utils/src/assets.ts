@@ -6,9 +6,11 @@
 declare const _NPM_PUB_: boolean;
 
 const _defaultStyleServerUrl =
-  typeof _NPM_PUB_ !== 'undefined' || process.env.NODE_ENV === 'production'
+  process.env.NODE_ENV === 'production'
     ? 'https://styles.reykjavik.is'
-    : 'http://localhost:4000';
+    : typeof _NPM_PUB_ !== 'undefined'
+    ? 'https://styles.test.thon.is' // <-- dev mode for consumers of `@reykjavik/hanna-*`
+    : 'http://localhost:4000'; // <-- dev mode for hanna monorepo dvelopers
 
 /**
  * This URL is used when building links to graphic/styling assets, etc.
