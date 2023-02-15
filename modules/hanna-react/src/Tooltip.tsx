@@ -85,12 +85,14 @@ const ToolTip = (props: TooltipProps) => {
         }, 300);
       }}
       style={
-        {
-          '--tooltip-content-pos-y': `${y || 0}px`,
-          '--tooltip-content-pos-x': `${x || 0}px`,
-          '--tooltip-arrow-pos-x': `${arrowX || 0}px`,
-          '--tooltip-arrow-pos-y': `${arrowY || -4}px`,
-        } as CSSProperties
+        x == null
+          ? undefined
+          : ({
+              '--tooltip-content-pos-y': `${y}px`,
+              '--tooltip-content-pos-x': `${x}px`,
+              '--tooltip-arrow-pos-x': `${arrowX}px`,
+              '--tooltip-arrow-pos-y': `${arrowY}px`,
+            } as CSSProperties)
       }
     >
       <summary
@@ -105,12 +107,14 @@ const ToolTip = (props: TooltipProps) => {
         ref={floating}
       >
         {/* implementation detail for floating-ui */}
-        <div
-          data-floating-ui-hack-plz-ignore=""
-          style={{ position: 'absolute', display: 'none' }}
-          ref={arrowRef}
-        />
-        <p>{text}</p>
+        {x !== null && (
+          <div
+            data-floating-ui-hack-plz-ignore=""
+            style={{ position: 'absolute', display: 'none' }}
+            ref={arrowRef}
+          />
+        )}
+        {text}
       </div>
     </details>
   );

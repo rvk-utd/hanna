@@ -21,7 +21,7 @@ export default function () {
       <VSpacer size="large" />
       <ToolTip
         label="What is this?"
-        text={<Fragment>{loremRT.tiny()}</Fragment>}
+        text={<Fragment>{loremRT.tiny(true)}</Fragment>}
         iconOnly
       />
 

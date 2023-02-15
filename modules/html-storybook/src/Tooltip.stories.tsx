@@ -18,5 +18,5 @@ export default {
 
 export const _Tooltip: StoryComponent = () => {
   const iconOnlyKnob = boolean('Icon only', false);
-  return <Tooltip label="Hover me" text={loremRT.tiny(true)} iconOnly={iconOnlyKnob} />;
+  return <Tooltip label="Hover me" text={loremRT.short(true)} iconOnly={iconOnlyKnob} />;
 };
