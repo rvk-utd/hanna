@@ -124,30 +124,22 @@ const MultiSelectDownshift = () => {
           Pick some books:
         </label>
         <div className="shadow-sm bg-white inline-flex gap-2 items-center flex-wrap p-1.5">
-          <TagPill type="button" removable onRemove={() => undefined}>
-            Green TagPill
-          </TagPill>
           {selectedItems.map(function renderSelectedItem(selectedItemForRender, index) {
             return (
-              <span
-                className="bg-gray-100 rounded-md px-1 focus:bg-red-400"
+              <TagPill
                 key={`selected-item-${index}`}
+                type="button"
+                removable
+                onRemove={() => {
+                  removeSelectedItem(selectedItemForRender);
+                }}
                 {...getSelectedItemProps({
                   selectedItem: selectedItemForRender,
                   index,
                 })}
               >
                 {selectedItemForRender.title}
-                <span
-                  className="px-1 cursor-pointer"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeSelectedItem(selectedItemForRender);
-                  }}
-                >
-                  &#10005;
-                </span>
-              </span>
+              </TagPill>
             );
           })}
           <div className="Multiselect__inputcontainer">
