@@ -6,7 +6,7 @@
 
 ## 0.8.75
 
-_2023-02-09_
+_2023-02-15_
 
 - feat: Tweak thickness of `checkmark` icon and its size in `Checkbox`es
 - fix: Add back `Tabs` css as required dependency for `SearchResults`
