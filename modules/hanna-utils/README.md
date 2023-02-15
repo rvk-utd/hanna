@@ -300,6 +300,12 @@ This URL is used when building links to graphic/styling assets, etc. It is
 used internally by all of the above asset getter functions
 (`getIllustrationUrl`, `getIllustrationUrl`).
 
+The default value depends on `NODE_ENV`:
+
+- Production mode:
+  [`https://styles.reykjavik.is`](https://styles.reykjavik.is)
+- Dev mode: [`https://styles.test.thon.is`](https://styles.test.thon.is)
+
 #### `setStyleServerUrl`
 
 **Syntax:** `setStyleServerUrl(url: string | URL | undefined): void`
