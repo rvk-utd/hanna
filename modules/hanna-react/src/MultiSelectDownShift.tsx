@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMultipleSelection, useSelect } from 'downshift';
+import { useMultipleSelection, useSelect, UseSelectStateChangeTypes } from 'downshift';
 
 type ItemGaur = {
   value: string;
@@ -22,12 +22,30 @@ const itemsList = [
 ];
 
 const MultiSelectDownshift = () => {
-  const { getSelectedItemProps, selectedItems, removeSelectedItem } =
+  const { getSelectedItemProps, selectedItems, removeSelectedItem, addSelectedItem } =
     useMultipleSelection<ItemGaur | undefined>({
       initialSelectedItems: [itemsList[0], itemsList[1]],
     });
 
-  const { getLabelProps, getMenuProps, getItemProps } = useSelect({ items: itemsList });
+  const { getLabelProps, getMenuProps, getItemProps, selectItem } = useSelect({
+    items: itemsList,
+    onStateChange: ({ type, selectedItem }) => {
+      switch (type) {
+        case UseSelectStateChangeTypes.ToggleButtonKeyDownEnter:
+        case UseSelectStateChangeTypes.ToggleButtonKeyDownSpaceButton:
+        case UseSelectStateChangeTypes.ItemClick:
+        case UseSelectStateChangeTypes.ToggleButtonBlur:
+          if (selectedItem) {
+            addSelectedItem(selectedItem);
+            selectItem(null);
+          }
+          break;
+        default:
+          break;
+      }
+    },
+  });
+
   return (
     <div>
       <p>MultiSelect</p>
