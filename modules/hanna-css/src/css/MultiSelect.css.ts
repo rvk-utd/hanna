@@ -3,6 +3,8 @@ import { css } from 'es-in-css';
 export default css`
   /*!@deps
     Tagpill
+    TextInput
+    Checkbox
   */
 
   .Multiselect {
@@ -25,5 +27,13 @@ export default css`
     flex-shrink: 0;
     box-sizing: border-box;
     padding: 0 0.5rem;
+  }
+
+  .Multiselect__options {
+    border: 1px solid gray;
+  }
+
+  .Multiselect__option {
+    padding: 0.5rem;
   }
 `;

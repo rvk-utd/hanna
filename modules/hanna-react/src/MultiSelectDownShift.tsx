@@ -168,14 +168,18 @@ const MultiSelectDownshift = () => {
         </div>
       </div>
       <ul
-        className={`absolute w-inherit bg-white mt-1 shadow-md max-h-80 overflow-scroll p-0 ${
+        className={`Multiselect__options absolute w-inherit bg-white mt-1 shadow-md max-h-80 overflow-scroll p-0 ${
           !(isOpen && items.length) && 'hidden'
         }`}
         {...getMenuProps()}
       >
         {isOpen &&
           items.map((item, index) => (
-            <li key={`${item.title}${index}`} {...getItemProps({ item, index })}>
+            <li
+              className="Multiselect__option"
+              key={`${item.title}${index}`}
+              {...getItemProps({ item, index })}
+            >
               <span>{item.title}</span>
               <span className="text-sm text-gray-700">{item.author}</span>
             </li>
