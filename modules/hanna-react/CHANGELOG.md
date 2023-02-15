@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Tooltip`
 - fix: Suppress accidental dev-mode warnings for
   `CheckboxButton`/`RadioButtonGroup`s
 
