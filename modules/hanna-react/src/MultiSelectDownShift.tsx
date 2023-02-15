@@ -22,6 +22,7 @@ const books = [
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const initialSelectedItems: Array<Book> = [books[0]!, books[1]!];
 
+/*
 const getFilteredBooks = (selectedItems: Array<Book>, inputValue: string) => {
   const lowerCasedInputValue = inputValue.toLowerCase();
 
@@ -32,6 +33,21 @@ const getFilteredBooks = (selectedItems: Array<Book>, inputValue: string) => {
         book.author.toLowerCase().includes(lowerCasedInputValue))
     );
   });
+};
+*/
+
+const getFilteredBooks = (selectedItems: Array<Book>, inputValue: string) => {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+
+  return books
+    .map((book) => ({ ...book } as Book))
+    .filter(function filterBook(book: Book) {
+      return (
+        !selectedItems.includes(book) &&
+        (book.title.toLowerCase().includes(lowerCasedInputValue) ||
+          book.author.toLowerCase().includes(lowerCasedInputValue))
+      );
+    });
 };
 
 const MultiSelectDownshift = () => {
@@ -96,7 +112,7 @@ const MultiSelectDownshift = () => {
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick: {
-          const newArray = [...selectedItems, newSelectedItem];
+          const newArray = [...selectedItems, newSelectedItem] as Array<Book>;
           setSelectedItems(newArray);
           break;
         }
