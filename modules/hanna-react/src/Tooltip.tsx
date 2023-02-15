@@ -21,8 +21,8 @@ type SideFromPlacement<place = Placement> = place extends `${infer side}-${strin
   ? side
   : never;
 
-const getSide = (placement: Placement): Side =>
-  placement.split('-')[0] as SideFromPlacement;
+const getSide = <P extends Placement>(placement: P): Side =>
+  placement.split('-')[0] as SideFromPlacement<P>;
 
 export type TooltipProps = {
   label: string;
