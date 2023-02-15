@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add svg favicon assets:
+  - `favicon.svg`
+  - `favicon-maskable.svg`
+  - `favicon-black.svg`
+  - `favicon-black-maskable.svg`
 - feat: Add component `Tooltip`
 
 ## 0.8.75
