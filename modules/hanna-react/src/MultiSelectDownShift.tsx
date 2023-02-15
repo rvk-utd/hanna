@@ -22,29 +22,35 @@ const itemsList = [
 ];
 
 const MultiSelectDownshift = () => {
-  const { getSelectedItemProps, selectedItems, removeSelectedItem, addSelectedItem } =
-    useMultipleSelection<ItemGaur | undefined>({
-      initialSelectedItems: [itemsList[0], itemsList[1]],
-    });
-
-  const { getLabelProps, getMenuProps, getItemProps, selectItem } = useSelect({
-    items: itemsList,
-    onStateChange: ({ type, selectedItem }) => {
-      switch (type) {
-        case UseSelectStateChangeTypes.ToggleButtonKeyDownEnter:
-        case UseSelectStateChangeTypes.ToggleButtonKeyDownSpaceButton:
-        case UseSelectStateChangeTypes.ItemClick:
-        case UseSelectStateChangeTypes.ToggleButtonBlur:
-          if (selectedItem) {
-            addSelectedItem(selectedItem);
-            selectItem(null);
-          }
-          break;
-        default:
-          break;
-      }
-    },
+  const {
+    getSelectedItemProps,
+    selectedItems,
+    removeSelectedItem,
+    addSelectedItem,
+    getDropdownProps,
+  } = useMultipleSelection<ItemGaur | undefined>({
+    initialSelectedItems: [itemsList[0], itemsList[1]],
   });
+
+  const { getLabelProps, getMenuProps, getItemProps, selectItem, getToggleButtonProps } =
+    useSelect({
+      items: itemsList,
+      onStateChange: ({ type, selectedItem }) => {
+        switch (type) {
+          case UseSelectStateChangeTypes.ToggleButtonKeyDownEnter:
+          case UseSelectStateChangeTypes.ToggleButtonKeyDownSpaceButton:
+          case UseSelectStateChangeTypes.ItemClick:
+          case UseSelectStateChangeTypes.ToggleButtonBlur:
+            if (selectedItem) {
+              addSelectedItem(selectedItem);
+              selectItem(null);
+            }
+            break;
+          default:
+            break;
+        }
+      },
+    });
 
   return (
     <div>
@@ -60,6 +66,7 @@ const MultiSelectDownshift = () => {
         </span>
       ))}
 
+      <button {...getToggleButtonProps(getDropdownProps())}>Elements</button>
       <ul {...getMenuProps()}>
         {itemsList.map((item, index) => (
           <li key={`${item}${index}`} {...getItemProps({ item, index })}>
