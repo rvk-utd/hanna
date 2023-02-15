@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.2
+
+_2023-02-15_
+
 - feat: Default `styleServerUrl` to <https://styles.test.thon.is> in dev mode
 
 ## 0.2.1
