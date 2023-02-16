@@ -4,37 +4,39 @@ import { useCombobox, useMultipleSelection } from 'downshift';
 import Checkbox from './Checkbox';
 import TagPill from './TagPill';
 
-type Book = {
-  author: string;
-  title: string;
+type Option = {
+  label: string;
+  value: string;
 };
 
-const books = [
-  { author: 'Harper Lee', title: 'To Kill a Mockingbird' },
-  { author: 'Lev Tolstoy', title: 'War and Peace' },
-  { author: 'Fyodor Dostoyevsy', title: 'The Idiot' },
-  { author: 'Oscar Wilde', title: 'A Picture of Dorian Gray' },
-  { author: 'George Orwell', title: '1984' },
-  { author: 'Jane Austen', title: 'Pride and Prejudice' },
-  { author: 'Marcus Aurelius', title: 'Meditations' },
-  { author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov' },
-  { author: 'Lev Tolstoy', title: 'Anna Karenina' },
-  { author: 'Fyodor Dostoevsky', title: 'Crime and Punishment' },
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'coffee', label: 'Coffee' },
+  { value: 'mint-chocolate-chip', label: 'Mint Chocolate Chip' },
+  { value: 'rocky-road', label: 'Rocky Road' },
+  { value: 'cookies-and-cream', label: 'Cookies and Cream' },
+  { value: 'butter-pecan', label: 'Butter Pecan' },
+  { value: 'pistachio', label: 'Pistachio' },
+  { value: 'maple-walnut', label: 'Maple Walnut' },
+  { value: 'caramel', label: 'Caramel' },
+  { value: 'fudge', label: 'Fudge' },
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const initialSelectedItems: Array<Book> = [books[0]!, books[1]!];
+const initialSelectedItems: Array<Option> = [options[0]!, options[1]!];
 
-const getFilteredBooks = (selectedItems: Array<Book>, inputValue: string) => {
+const getFilteredBooks = (selectedItems: Array<Option>, inputValue: string) => {
   const lowerCasedInputValue = inputValue.toLowerCase();
 
-  return books
-    .map((book) => ({ ...book } as Book))
-    .filter(function filterBook(book: Book) {
+  return options
+    .map((option) => ({ ...option } as Option))
+    .filter(function filterBook(book: Option) {
       return (
         !selectedItems.includes(book) &&
-        (book.title.toLowerCase().includes(lowerCasedInputValue) ||
-          book.author.toLowerCase().includes(lowerCasedInputValue))
+        (book.label.toLowerCase().includes(lowerCasedInputValue) ||
+          book.value.toLowerCase().includes(lowerCasedInputValue))
       );
     });
 };
@@ -49,7 +51,7 @@ const svgImage = () => {
 
 const MultiSelectDownshift = () => {
   const [inputValue, setInputValue] = useState('');
-  const [selectedItems, setSelectedItems] = useState<Array<Book>>(initialSelectedItems);
+  const [selectedItems, setSelectedItems] = useState<Array<Option>>(initialSelectedItems);
   const items = useMemo(
     () => getFilteredBooks(selectedItems, inputValue),
     [selectedItems, inputValue]
@@ -86,7 +88,7 @@ const MultiSelectDownshift = () => {
   } = useCombobox({
     items,
     itemToString(item) {
-      return item ? item.title : '';
+      return item ? item.label : '';
     },
     defaultHighlightedIndex: 0, // after selection, highlight the first item.
     selectedItem: null,
@@ -109,7 +111,7 @@ const MultiSelectDownshift = () => {
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick: {
-          const newArray = [...selectedItems, newSelectedItem] as Array<Book>;
+          const newArray = [...selectedItems, newSelectedItem] as Array<Option>;
           setSelectedItems(newArray);
           break;
         }
@@ -128,6 +130,8 @@ const MultiSelectDownshift = () => {
   return (
     <div>
       <p>MultiSelect with Downshift</p>
+      <br />
+      <br />
       <div className="Multiselect flex flex-col gap-1">
         <div className="shadow-sm bg-white inline-flex gap-2 items-center flex-wrap p-1.5">
           {selectedItems.map(function renderSelectedItem(selectedItemForRender, index) {
@@ -144,7 +148,7 @@ const MultiSelectDownshift = () => {
                   index,
                 })}
               >
-                {selectedItemForRender.title}
+                {selectedItemForRender.label}
               </TagPill>
             );
           })}
@@ -166,9 +170,7 @@ const MultiSelectDownshift = () => {
         </div>
       </div>
       <ul
-        className={`Multiselect__options absolute w-inherit bg-white mt-1 shadow-md max-h-80 overflow-scroll p-0 ${
-          !(isOpen && items.length) && 'hidden'
-        }`}
+        className={`Multiselect__options ${isOpen || 'Multiselect__options--hidden'}`}
         {...getMenuProps()}
       >
         {isOpen &&
@@ -177,10 +179,14 @@ const MultiSelectDownshift = () => {
               className={`Multiselect__option ${
                 highlightedIndex === index && 'Multiselect__option--selected'
               }`}
-              key={`${item.title}${index}`}
-              {...getItemProps({ item, index })}
+              {...getItemProps({
+                item,
+                index,
+                checked: selectedItems.includes(item),
+              })}
+              key={`${item.label}${index}`}
             >
-              <Checkbox label={item.title} checked={false} />
+              <Checkbox label={item.label} value={item.value} onChange={() => null} />
             </li>
           ))}
       </ul>

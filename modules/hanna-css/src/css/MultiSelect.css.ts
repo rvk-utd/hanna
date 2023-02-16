@@ -35,12 +35,20 @@ export default css`
     border: 1px solid gray;
   }
 
+  .Multiselect__options--hidden {
+    display: none;
+  }
+
   .Multiselect__option {
     padding: var(--space-1);
   }
 
   .Multiselect__option .Checkbox {
     margin-bottom: 0;
+  }
+
+  .Multiselect__option .Checkbox__label {
+    width: 100%;
   }
 
   .Multiselect__option--selected {
