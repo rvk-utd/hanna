@@ -40,7 +40,6 @@ export default css`
 
   .MultiselectDownshift__options {
     border: 1px solid ${vars.color_suld_100};
-    box-shadow: 0 0 0 2px ${vars.color_suld_100};
     margin-top: var(--space-1);
     border-radius: 4px;
   }

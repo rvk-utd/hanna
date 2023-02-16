@@ -9,25 +9,15 @@ type Option = {
   value: string;
 };
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-  { value: 'coffee', label: 'Coffee' },
-  { value: 'mint-chocolate-chip', label: 'Mint Chocolate Chip' },
-  { value: 'rocky-road', label: 'Rocky Road' },
-  { value: 'cookies-and-cream', label: 'Cookies and Cream' },
-  { value: 'butter-pecan', label: 'Butter Pecan' },
-  { value: 'pistachio', label: 'Pistachio' },
-  { value: 'maple-walnut', label: 'Maple Walnut' },
-  { value: 'caramel', label: 'Caramel' },
-  { value: 'fudge', label: 'Fudge' },
-];
+type MultiSelectDownshiftProps = {
+  options: Array<Option>;
+};
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const initialSelectedItems: Array<Option> = [options[0]!, options[1]!];
-
-const getFilteredItems = (selectedItems: Array<Option>, inputValue: string) => {
+const getFilteredItems = (
+  selectedItems: Array<Option>,
+  inputValue: string,
+  options: Array<Option>
+) => {
   const lowerCasedInputValue = inputValue.toLowerCase();
 
   return options
@@ -49,12 +39,15 @@ const svgImage = () => {
   );
 };
 
-const MultiSelectDownshift = () => {
+const MultiSelectDownshift = (props: MultiSelectDownshiftProps) => {
+  const { options } = props;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const initialSelectedItems: Array<Option> = [options[0]!, options[1]!];
   const [inputValue, setInputValue] = useState('');
   const [selectedItems, setSelectedItems] = useState<Array<Option>>(initialSelectedItems);
   const items = useMemo(
-    () => getFilteredItems(selectedItems, inputValue),
-    [selectedItems, inputValue]
+    () => getFilteredItems(selectedItems, inputValue, options),
+    [selectedItems, inputValue, options]
   );
 
   const { getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem } =
