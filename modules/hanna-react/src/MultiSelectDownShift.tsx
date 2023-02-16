@@ -133,8 +133,8 @@ const MultiSelectDownshift = () => {
       <p>MultiSelect with Downshift</p>
       <br />
       <br />
-      <div className="Multiselect flex flex-col gap-1">
-        <div className="shadow-sm bg-white inline-flex gap-2 items-center flex-wrap p-1.5">
+      <div className="MultiselectDownshift">
+        <div>
           {selectedItems.map(function renderSelectedItem(selectedItemForRender, index) {
             return (
               <TagPill
@@ -153,15 +153,15 @@ const MultiSelectDownshift = () => {
               </TagPill>
             );
           })}
-          <div className="Multiselect__inputcontainer">
+          <div className="MultiselectDownshift_inputcontainer">
             <input
               placeholder="Select an option..."
-              className="Multiselect_input"
+              className="MultiselectDownshift_input"
               {...getInputProps(getDropdownProps({ preventKeyAction: isOpen }))}
             />
             <button
               aria-label="toggle menu"
-              className="Multiselect_inputButton"
+              className="MultiselectDownshift_inputButton"
               type="button"
               {...getToggleButtonProps()}
             >
@@ -171,13 +171,15 @@ const MultiSelectDownshift = () => {
         </div>
       </div>
       <ul
-        className={`Multiselect__options ${isOpen || 'Multiselect__options--hidden'}`}
+        className={`MultiselectDownshift__options ${
+          isOpen || 'MultiselectDownshift__options--hidden'
+        }`}
         {...getMenuProps()}
       >
         {items.map((item, index) => (
           <li
-            className={`Multiselect__option ${
-              highlightedIndex === index && 'Multiselect__option--selected'
+            className={`MultiselectDownshift__option ${
+              highlightedIndex === index && 'MultiselectDownshift__option--selected'
             }`}
             {...getItemProps({
               item,

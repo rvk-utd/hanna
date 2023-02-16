@@ -9,27 +9,27 @@ export default css`
     Checkbox
   */
 
-  .Multiselect {
+  .MultiselectDownshift {
   }
 
-  .Multiselect__inputcontainer {
+  .MultiselectDownshift_inputcontainer {
     display: flex;
     flex-wrap: wrap;
     border: 1px solid ${vars.color_suld_100};
     border-radius: 4px;
   }
 
-  .Multiselect_input {
+  .MultiselectDownshift_input {
     flex: 1;
     padding: 5px;
     border: none;
   }
 
-  .Multiselect_input:focus-visible {
+  .MultiselectDownshift_input:focus-visible {
     outline: none;
   }
 
-  .Multiselect_inputButton {
+  .MultiselectDownshift_inputButton {
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -38,30 +38,30 @@ export default css`
     padding: 0 0.5rem;
   }
 
-  .Multiselect__options {
+  .MultiselectDownshift__options {
     border: 1px solid ${vars.color_suld_100};
     box-shadow: 0 0 0 2px ${vars.color_suld_100};
     margin-top: var(--space-1);
     border-radius: 4px;
   }
 
-  .Multiselect__options--hidden {
+  .MultiselectDownshift__options--hidden {
     display: none;
   }
 
-  .Multiselect__option {
+  .MultiselectDownshift__option {
     padding: var(--space-1);
   }
 
-  .Multiselect__option .Checkbox {
+  .MultiselectDownshift__option .Checkbox {
     margin-bottom: 0;
   }
 
-  .Multiselect__option .Checkbox__label {
+  .MultiselectDownshift__option .Checkbox__label {
     width: 100%;
   }
 
-  .Multiselect__option--selected {
+  .MultiselectDownshift__option--selected {
     background-color: ${vars.color_suld_50};
   }
 `;
