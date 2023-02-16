@@ -81,7 +81,7 @@ const InputOption = ({
   );
 };
 
-const MultiSelect = () => {
+const MultiSelectReactSelect = () => {
   const [selectedOptions, setSelectedOptions] = useState<Array<OptionGaur>>([]);
   return (
     <div>
@@ -107,4 +107,4 @@ const MultiSelect = () => {
   );
 };
 
-export default MultiSelect;
+export default MultiSelectReactSelect;
