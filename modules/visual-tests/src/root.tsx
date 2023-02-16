@@ -25,6 +25,8 @@ import { useGetCssTokens } from './utils/useGetCssTokens';
 
 setLinkRenderer((props) => {
   // Check if the URL starts with a protocol (https:, mailto:, tel:)
+  // TOOD: Remove this faffing once we update to Remix v1.12
+  // https://github.com/remix-run/remix/blob/main/packages/remix-react/CHANGELOG.md#1120
   if (/^[a-z]+:/.test(props.href)) {
     return <a {...props} />;
   }
