@@ -3,6 +3,13 @@ import React from 'react';
 import Checkbox from './Checkbox';
 import TextInput from './TextInput';
 
+type GroupObject = {
+  name: string;
+  items: Array<Item>;
+};
+
+type GroupObjects = Array<GroupObject>;
+
 type Item = {
   label: string;
   value: string;
@@ -11,6 +18,7 @@ type Item = {
 
 type MultiSelectProps = {
   items: Array<Item>;
+  groups?: Array<string>;
 };
 
 const svgImage = () => {
@@ -22,7 +30,22 @@ const svgImage = () => {
 };
 
 const MultiSelect = (props: MultiSelectProps) => {
-  const { items } = props;
+  const { items, groups } = props;
+  const groupObjects: GroupObjects = [
+    { name: 'vegan', items: items.filter((f) => f.group === 'vegan') },
+    { name: 'keto', items: items.filter((f) => f.group === 'keto') },
+    { name: 'protein', items: items.filter((f) => f.group === 'protein') },
+  ];
+  console.log('hugabuga: ', groupObjects);
+
+  const groupObjectsDynamic: GroupObjects = groups
+    ? groups.map((item) => {
+        return { name: item, items: items.filter((f) => f.group === item) };
+      })
+    : [];
+
+  console.log('groupObjectsDynamic: ', groupObjectsDynamic);
+
   return (
     <div>
       <br />
