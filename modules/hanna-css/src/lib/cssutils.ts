@@ -101,6 +101,10 @@ type CssBundleOpts<AcceptNewerVersion extends boolean = false> = {
   testingServer?: string;
 };
 
+// TODO: Change typing of `getCssBundleUrl` to accept only `string | Array<CssToken>`
+// ...or even replace `string` with `type CssTokenString = `${CssToken},${CssTokenString}`;`
+// when `AcceptNewerVersion extends true`)
+
 /**
  * This methods generates a URL to load a correctly versioned CSS bundle from the Hanna Style Server.
  *

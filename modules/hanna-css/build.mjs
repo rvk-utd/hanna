@@ -45,8 +45,10 @@ const baseOpts = {
 const getCssVersionTokenUnion = async (cssVersion) => {
   // Read all css version folders currently the built style server.
   // NOTE: We assume the CSS folder contains only folders.
-  const cssFolders = await readdir(`${serverFolder}public/css`).then((contents) =>
-    contents.filter((name) => name !== 'dev')
+  const cssFolders = await readdir(`${serverFolder}public/css`).then(
+    (contents) => contents.filter((name) => name !== 'dev')
+    // TODO: Limit `CssVersionToken` to just the currently supported version-range
+    // Filter for current major cssVersion (and it's "dev-V" variant).
   );
   /** @type {Record<string, 1>} */
   const cssFoldersPlus = {};
@@ -73,9 +75,17 @@ const getCssVersionTokenUnion = async (cssVersion) => {
     .join('\n');
 };
 
+const geCssTokenUnion = async () => {
+  // TODO: Generate `CssToken` type listing all the current files matching
+  // `modules/hanna-css/src/css/[A-Z]*.css.ts` files (plus `-basics`)
+  const isNamespaceExport = [];
+  return isNamespaceExport.map((key) => `  | '${key}'`).join('\n');
+};
+
 /** @param {string} cssVersion */
 const createStyleServerInfoTsFile = async (cssVersion) => {
   const CssVersionTokenUnion = await getCssVersionTokenUnion(cssVersion);
+  const CssTokenUnion = await geCssTokenUnion();
 
   await writeFile(
     `${srcDir}/lib/style-server-info.ts`,
@@ -87,6 +97,9 @@ const createStyleServerInfoTsFile = async (cssVersion) => {
       `export type CssVersionToken =`,
       `${CssVersionTokenUnion};`,
       ``,
+      // `export type CssToken =`,
+      // `${CssTokenUnion};`,
+      // ``,
     ].join('\n')
   );
 };
