@@ -45,6 +45,7 @@
   },
   "scripts": {
     "publish:lib": "yarn run build  &&  yarn workspace hanna-visual-tests run test  &&  cd _npm-lib  &&  npm publish",
+    "publish:lib:dangerously_skipVRT": "yarn run build  &&  cd _npm-lib  &&  npm publish",
     "prepublishOnly": "echo \"\nRun 'yarn run publish:lib' to publish this package\n\n\"  && exit 1",
     "build": "yarn install  &&  node build.mjs  &&  yarn run test",
     "dev": "yarn run -T concurrently -k \"node build.mjs --dev\"  \"yarn run test:dev\"",
