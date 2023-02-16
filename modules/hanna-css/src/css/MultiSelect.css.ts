@@ -10,16 +10,23 @@ export default css`
   */
 
   .Multiselect {
-    border: 1px solid red;
   }
 
   .Multiselect__inputcontainer {
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid ${vars.color_suld_100};
+    border-radius: 4px;
   }
 
   .Multiselect_input {
     flex: 1;
+    padding: 5px;
+    border: none;
+  }
+
+  .Multiselect_input:focus-visible {
+    outline: none;
   }
 
   .Multiselect_inputButton {
@@ -32,7 +39,10 @@ export default css`
   }
 
   .Multiselect__options {
-    border: 1px solid gray;
+    border: 1px solid ${vars.color_suld_100};
+    box-shadow: 0 0 0 2px ${vars.color_suld_100};
+    margin-top: var(--space-1);
+    border-radius: 4px;
   }
 
   .Multiselect__options--hidden {
