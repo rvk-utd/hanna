@@ -50,7 +50,7 @@ export type MainMenuItem = {
    * "Hamburger menu" (a.k.a. "Mobile menu")
    * … unless the `onClick` function explicitly returns `false`.
    */
-  onClick?: (index: number, item: MainMenuItem) => undefined | boolean;
+  onClick?: (index: number, item: MainMenuItem) => void | boolean;
   controlsId?: string;
 };
 export type MainMenuSeparator = '---';
@@ -81,7 +81,7 @@ export type MainMenuProps = {
    * "Hamburger menu" (a.k.a. "Mobile menu")
    * … unless the `onItemClick` function explicitly returns `false`.
    */
-  onItemClick?: (index: number, item: MainMenuItem) => undefined | boolean;
+  onItemClick?: (index: number, item: MainMenuItem) => void | boolean;
   activePanelId?: string;
   texts?: MainMenuI18n;
   lang?: string;

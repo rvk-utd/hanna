@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Tooltip`
+- fix(ts): Make `MainMenu` onClick handlers return `void`, not `undefined`
 - fix: Suppress accidental dev-mode warnings for
   `CheckboxButton`/`RadioButtonGroup`s
 
