@@ -175,24 +175,24 @@ const MultiSelectDownshift = () => {
         {...getMenuProps()}
       >
         {items.map((item, index) => (
-            <li
-              className={`Multiselect__option ${
-                highlightedIndex === index && 'Multiselect__option--selected'
-              }`}
-              {...getItemProps({
-                item,
-                index,
-                checked: selectedItems.includes(item),
-              })}
-              key={`${item.label}${index}`}
-            >
-              <Checkbox
-                label={item.label}
-                value={item.value}
-                onChange={() => selectItem(item)}
-              />
-            </li>
-          ))}}
+          <li
+            className={`Multiselect__option ${
+              highlightedIndex === index && 'Multiselect__option--selected'
+            }`}
+            {...getItemProps({
+              item,
+              index,
+              checked: selectedItems.includes(item),
+            })}
+            key={`${item.label}${index}`}
+          >
+            <Checkbox
+              label={item.label}
+              value={item.value}
+              onChange={() => selectItem(item)}
+            />
+          </li>
+        ))}
       </ul>
     </div>
   );
