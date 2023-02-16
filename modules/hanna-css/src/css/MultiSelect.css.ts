@@ -87,4 +87,26 @@ export default css`
     right: 0;
     top: 37%;
   }
+
+  .MultiSelect__button svg path {
+    fill: ${vars.color_suld_150};
+  }
+
+  .MultiSelect__options {
+    border: 1px solid ${vars.color_suld_100};
+    margin-top: var(--space-1);
+    border-radius: 4px;
+  }
+
+  .MultiSelect__options .Checkbox {
+    margin: 0;
+  }
+
+  .MultiSelect__option {
+    padding: var(--space-1);
+  }
+
+  .MultiSelect__option:hover {
+    background-color: ${vars.color_suld_50};
+  }
 `;

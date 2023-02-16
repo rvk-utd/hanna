@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Checkbox from './Checkbox';
 import TextInput from './TextInput';
 
 type Item = {
@@ -36,6 +37,16 @@ const MultiSelect = (props: MultiSelectProps) => {
           {svgImage()}
         </button>
       </div>
+
+      <ul className="MultiSelect__options">
+        {items.map((item, indx) => {
+          return (
+            <li className="MultiSelect__option" key={`${item.label}${indx}`}>
+              <Checkbox label={item.label} value={item.value} />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
