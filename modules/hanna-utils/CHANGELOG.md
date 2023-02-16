@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.3
+
+_2023-02-16_
+
 - feat: Add `getFavicon()` asset helper
 
 ## 0.2.2
