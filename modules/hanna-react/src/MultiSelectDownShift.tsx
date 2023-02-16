@@ -85,6 +85,7 @@ const MultiSelectDownshift = () => {
     highlightedIndex,
     getItemProps,
     selectedItem,
+    selectItem,
   } = useCombobox({
     items,
     itemToString(item) {
@@ -186,7 +187,11 @@ const MultiSelectDownshift = () => {
               })}
               key={`${item.label}${index}`}
             >
-              <Checkbox label={item.label} value={item.value} onChange={() => null} />
+              <Checkbox
+                label={item.label}
+                value={item.value}
+                onChange={() => selectItem(item)}
+              />
             </li>
           ))}
       </ul>
