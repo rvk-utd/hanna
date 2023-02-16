@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.81
+
+_2023-02-16_
+
 - feat: Add component `Tooltip`
 - fix(ts): Make `MainMenu` onClick handlers return `void`, not `undefined`
 - fix: Suppress accidental dev-mode warnings for
