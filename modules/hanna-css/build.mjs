@@ -39,14 +39,20 @@ const baseOpts = {
   watch: !!opts.dev,
 };
 
+// ---------------------------------------------------------------------------
+
 /** @param {string} cssVersion */
-const createStyleServerInfoTsFile = async (cssVersion) => {
-  const cssFolders = await readdir(`${serverFolder}public/css`).then((dir) =>
-    dir.filter((name) => name !== 'dev')
+const getCssVersionTokenUnion = async (cssVersion) => {
+  // Read all css version folders currently the built style server.
+  // NOTE: We assume the CSS folder contains only folders.
+  const cssFolders = await readdir(`${serverFolder}public/css`).then((contents) =>
+    contents.filter((name) => name !== 'dev')
   );
   /** @type {Record<string, 1>} */
   const cssFoldersPlus = {};
   cssFolders.forEach((name) => {
+    // collect all the version substrings of each version folder
+    // ( i.e. turn `"v1.3.4"` into `["v1.3.4", "v1.3", "v1"]` )
     cssFoldersPlus[name] = 1;
     const nameBits = name.split('.');
     let i = nameBits.length - 1;
@@ -54,17 +60,22 @@ const createStyleServerInfoTsFile = async (cssVersion) => {
       nameBits.pop();
       const shortName = nameBits.join('.');
       if (shortName in cssFoldersPlus) {
-        break;
+        break; // because we're reached already covered territory
       }
       cssFoldersPlus[shortName] = 1;
       i--;
     }
   });
 
-  const cssVersionsStr = Object.keys(cssFoldersPlus)
+  return Object.keys(cssFoldersPlus)
     .sort()
     .map((key) => `  | '${key}'`)
     .join('\n');
+};
+
+/** @param {string} cssVersion */
+const createStyleServerInfoTsFile = async (cssVersion) => {
+  const CssVersionTokenUnion = await getCssVersionTokenUnion(cssVersion);
 
   await writeFile(
     `${srcDir}/lib/style-server-info.ts`,
@@ -74,7 +85,7 @@ const createStyleServerInfoTsFile = async (cssVersion) => {
       `export const cssVersion = ${JSON.stringify(cssVersion)};`,
       ``,
       `export type CssVersionToken =`,
-      `${cssVersionsStr};`,
+      `${CssVersionTokenUnion};`,
       ``,
     ].join('\n')
   );
