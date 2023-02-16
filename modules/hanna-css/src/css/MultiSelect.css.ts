@@ -63,4 +63,28 @@ export default css`
   .MultiselectDownshift__option--selected {
     background-color: ${vars.color_suld_50};
   }
+
+  /* ------------------- custom --------------------- */
+  .MultiSelect__header {
+    display: flex;
+    position: relative;
+  }
+
+  .MultiSelect__textInput {
+    flex: 1;
+    margin: 0;
+  }
+
+  .MultiSelect__button {
+    display: flex;
+    border-left: 1px solid ${vars.color_suld_100};
+    align-items: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 37%;
+  }
 `;

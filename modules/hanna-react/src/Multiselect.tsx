@@ -1,8 +1,11 @@
 import React from 'react';
 
+import TextInput from './TextInput';
+
 type Item = {
   label: string;
   value: string;
+  group?: string;
 };
 
 type MultiSelectProps = {
@@ -25,6 +28,14 @@ const MultiSelect = (props: MultiSelectProps) => {
       <br />
       <br />
       <p>MultiSelect</p>
+      <br />
+      <br />
+      <div className="MultiSelect__header">
+        <TextInput className="MultiSelect__textInput" label="Select a flavour.." />
+        <button className="MultiSelect__button" type="button">
+          {svgImage()}
+        </button>
+      </div>
     </div>
   );
 };
