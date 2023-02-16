@@ -174,8 +174,7 @@ const MultiSelectDownshift = () => {
         className={`Multiselect__options ${isOpen || 'Multiselect__options--hidden'}`}
         {...getMenuProps()}
       >
-        {isOpen &&
-          items.map((item, index) => (
+        {items.map((item, index) => (
             <li
               className={`Multiselect__option ${
                 highlightedIndex === index && 'Multiselect__option--selected'
@@ -193,7 +192,7 @@ const MultiSelectDownshift = () => {
                 onChange={() => selectItem(item)}
               />
             </li>
-          ))}
+          ))}}
       </ul>
     </div>
   );
