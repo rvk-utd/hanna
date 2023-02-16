@@ -1,4 +1,5 @@
 import { css } from 'es-in-css';
+
 import { hannaVars as vars } from '../lib/hannavars';
 
 export default css`
@@ -35,7 +36,11 @@ export default css`
   }
 
   .Multiselect__option {
-    padding: 0.5rem;
+    padding: var(--space-1);
+  }
+
+  .Multiselect__option .Checkbox {
+    margin-bottom: 0;
   }
 
   .Multiselect__option--selected {

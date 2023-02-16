@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useCombobox, useMultipleSelection } from 'downshift';
 
+import Checkbox from './Checkbox';
 import TagPill from './TagPill';
 
 type Book = {
@@ -128,9 +129,6 @@ const MultiSelectDownshift = () => {
     <div>
       <p>MultiSelect with Downshift</p>
       <div className="Multiselect flex flex-col gap-1">
-        <label className="w-fit" {...getLabelProps()}>
-          Pick some books:
-        </label>
         <div className="shadow-sm bg-white inline-flex gap-2 items-center flex-wrap p-1.5">
           {selectedItems.map(function renderSelectedItem(selectedItemForRender, index) {
             return (
@@ -152,7 +150,7 @@ const MultiSelectDownshift = () => {
           })}
           <div className="Multiselect__inputcontainer">
             <input
-              placeholder="Best book ever"
+              placeholder="Select an option..."
               className="Multiselect_input"
               {...getInputProps(getDropdownProps({ preventKeyAction: isOpen }))}
             />
@@ -182,7 +180,7 @@ const MultiSelectDownshift = () => {
               key={`${item.title}${index}`}
               {...getItemProps({ item, index })}
             >
-              <span>{item.title}</span>
+              <Checkbox label={item.title} checked={false} />
             </li>
           ))}
       </ul>
