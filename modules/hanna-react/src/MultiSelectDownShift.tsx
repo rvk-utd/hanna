@@ -27,16 +27,16 @@ const options = [
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const initialSelectedItems: Array<Option> = [options[0]!, options[1]!];
 
-const getFilteredBooks = (selectedItems: Array<Option>, inputValue: string) => {
+const getFilteredItems = (selectedItems: Array<Option>, inputValue: string) => {
   const lowerCasedInputValue = inputValue.toLowerCase();
 
   return options
     .map((option) => ({ ...option } as Option))
-    .filter(function filterBook(book: Option) {
+    .filter((option: Option) => {
       return (
-        !selectedItems.includes(book) &&
-        (book.label.toLowerCase().includes(lowerCasedInputValue) ||
-          book.value.toLowerCase().includes(lowerCasedInputValue))
+        !selectedItems.includes(option) &&
+        (option.label.toLowerCase().includes(lowerCasedInputValue) ||
+          option.value.toLowerCase().includes(lowerCasedInputValue))
       );
     });
 };
@@ -53,7 +53,7 @@ const MultiSelectDownshift = () => {
   const [inputValue, setInputValue] = useState('');
   const [selectedItems, setSelectedItems] = useState<Array<Option>>(initialSelectedItems);
   const items = useMemo(
-    () => getFilteredBooks(selectedItems, inputValue),
+    () => getFilteredItems(selectedItems, inputValue),
     [selectedItems, inputValue]
   );
 
