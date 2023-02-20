@@ -32,6 +32,7 @@ const svgImage = () => {
 const MultiSelect = (props: MultiSelectProps) => {
   const { items, groups } = props;
 
+  const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredItems = items.filter((item) =>
@@ -48,6 +49,10 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
+  };
+
+  const handleItemClick = (item: Item) => {
+    console.log('handleItemClick: ', item);
   };
 
   return (
@@ -73,7 +78,11 @@ const MultiSelect = (props: MultiSelectProps) => {
         {filteredItems.map((item, indx) => {
           return (
             <li className="MultiSelect__option" key={`${item.label}${indx}`}>
-              <Checkbox label={item.label} value={item.value} />
+              <Checkbox
+                label={item.label}
+                value={item.value}
+                onChange={() => handleItemClick(item)}
+              />
             </li>
           );
         })}
