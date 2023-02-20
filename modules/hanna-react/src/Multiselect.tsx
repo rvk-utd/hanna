@@ -6,7 +6,6 @@ import TextInput from './TextInput';
 type Item = {
   label: string;
   value: string;
-  group?: string;
 };
 
 type MultiSelectProps = {
@@ -36,10 +35,14 @@ const MultiSelect = (props: MultiSelectProps) => {
   };
 
   const handleItemClick = (item: Item) => {
-    console.log('handleItemClick: ', item);
-
-    if (!selectedItems.find((selected) => selected.value === item.value)) {
+    const itemHasNotBeenSelected = !selectedItems.find(
+      (selected) => selected.value === item.value
+    );
+    if (itemHasNotBeenSelected) {
       setSelectedItems([...selectedItems, item]);
+    } else {
+      // TODO: Remove item from selectedItems
+      setSelectedItems(selectedItems.filter((selected) => selected.value !== item.value));
     }
   };
 
@@ -66,11 +69,7 @@ const MultiSelect = (props: MultiSelectProps) => {
         {filteredItems.map((item, indx) => {
           return (
             <li className="MultiSelect__option" key={`${item.label}${indx}`}>
-              <Checkbox
-                label={item.label}
-                value={item.value}
-                onChange={() => handleItemClick(item)}
-              />
+              <Checkbox label={item.label} onChange={() => handleItemClick(item)} />
             </li>
           );
         })}
