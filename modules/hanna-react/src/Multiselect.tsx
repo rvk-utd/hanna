@@ -41,7 +41,6 @@ const MultiSelect = (props: MultiSelectProps) => {
     if (itemHasNotBeenSelected) {
       setSelectedItems([...selectedItems, item]);
     } else {
-      // TODO: Remove item from selectedItems
       setSelectedItems(selectedItems.filter((selected) => selected.value !== item.value));
     }
   };
@@ -69,7 +68,11 @@ const MultiSelect = (props: MultiSelectProps) => {
         {filteredItems.map((item, indx) => {
           return (
             <li className="MultiSelect__option" key={`${item.label}${indx}`}>
-              <Checkbox label={item.label} onChange={() => handleItemClick(item)} />
+              <Checkbox
+                label={item.label}
+                onChange={() => handleItemClick(item)}
+                checked={selectedItems.includes(item)}
+              />
             </li>
           );
         })}
