@@ -49,7 +49,7 @@ export const _Multiselect: StoryComponent = () => {
   return (
     <>
       <MultiSelectReactSelect /> <MultiSelectDownshift options={options} />{' '}
-      <MultiSelect items={customOptions} groups={['vegan', 'keto', 'protein']} />
+      <MultiSelect items={customOptions} />
     </>
   );
 };

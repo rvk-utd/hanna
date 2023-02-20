@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Checkbox from './Checkbox';
 import TextInput from './TextInput';
@@ -31,20 +31,24 @@ const svgImage = () => {
 
 const MultiSelect = (props: MultiSelectProps) => {
   const { items, groups } = props;
-  const groupObjects: GroupObjects = [
-    { name: 'vegan', items: items.filter((f) => f.group === 'vegan') },
-    { name: 'keto', items: items.filter((f) => f.group === 'keto') },
-    { name: 'protein', items: items.filter((f) => f.group === 'protein') },
-  ];
-  console.log('hugabuga: ', groupObjects);
 
-  const groupObjectsDynamic: GroupObjects = groups
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredItems = items.filter((item) =>
+    item.label.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  /*
+  const groupObjects: GroupObjects = groups
     ? groups.map((item) => {
         return { name: item, items: items.filter((f) => f.group === item) };
       })
     : [];
+    */
 
-  console.log('groupObjectsDynamic: ', groupObjectsDynamic);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
 
   return (
     <div>
@@ -55,14 +59,18 @@ const MultiSelect = (props: MultiSelectProps) => {
       <br />
       <br />
       <div className="MultiSelect__header">
-        <TextInput className="MultiSelect__textInput" label="Select a flavour.." />
+        <TextInput
+          onChange={handleSearchChange}
+          className="MultiSelect__textInput"
+          label="Select a flavour.."
+        />
         <button className="MultiSelect__button" type="button">
           {svgImage()}
         </button>
       </div>
 
       <ul className="MultiSelect__options">
-        {items.map((item, indx) => {
+        {filteredItems.map((item, indx) => {
           return (
             <li className="MultiSelect__option" key={`${item.label}${indx}`}>
               <Checkbox label={item.label} value={item.value} />
