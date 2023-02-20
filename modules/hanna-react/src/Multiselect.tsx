@@ -53,6 +53,10 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   const handleItemClick = (item: Item) => {
     console.log('handleItemClick: ', item);
+
+    if (!selectedItems.find((selected) => selected.value === item.value)) {
+      setSelectedItems([...selectedItems, item]);
+    }
   };
 
   return (
@@ -87,6 +91,10 @@ const MultiSelect = (props: MultiSelectProps) => {
           );
         })}
       </ul>
+
+      <pre>
+        <code>{JSON.stringify(selectedItems, null, 2)}</code>
+      </pre>
     </div>
   );
 };
