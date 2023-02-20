@@ -102,6 +102,10 @@ export default css`
     margin: 0;
   }
 
+  .MultiSelect__options .Checkbox__label {
+    width: 100%;
+  }
+
   .MultiSelect__option {
     padding: var(--space-1);
   }
