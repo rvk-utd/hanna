@@ -3,13 +3,6 @@ import React, { useState } from 'react';
 import Checkbox from './Checkbox';
 import TextInput from './TextInput';
 
-type GroupObject = {
-  name: string;
-  items: Array<Item>;
-};
-
-type GroupObjects = Array<GroupObject>;
-
 type Item = {
   label: string;
   value: string;
@@ -18,7 +11,6 @@ type Item = {
 
 type MultiSelectProps = {
   items: Array<Item>;
-  groups?: Array<string>;
 };
 
 const svgImage = () => {
@@ -30,7 +22,7 @@ const svgImage = () => {
 };
 
 const MultiSelect = (props: MultiSelectProps) => {
-  const { items, groups } = props;
+  const { items } = props;
 
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,14 +30,6 @@ const MultiSelect = (props: MultiSelectProps) => {
   const filteredItems = items.filter((item) =>
     item.label.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  /*
-  const groupObjects: GroupObjects = groups
-    ? groups.map((item) => {
-        return { name: item, items: items.filter((f) => f.group === item) };
-      })
-    : [];
-    */
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
