@@ -65,17 +65,31 @@ export default css`
   }
 
   /* ------------------- custom --------------------- */
-  .MultiSelect__header {
+
+  .Multiselect__inputcontainer {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    grid-gap: 0.5rem;
+  }
+
+  .Multiselect__inputcontainer .TagPill {
+    margin: 0;
+  }
+
+  .Multiselect__input {
+    display: flex;
+    flex: 1 1 auto;
     position: relative;
   }
 
-  .MultiSelect__textInput {
+  .Multiselect__textInput {
     flex: 1;
     margin: 0;
   }
 
-  .MultiSelect__button {
+  .Multiselect__button {
     display: flex;
     border-left: 1px solid ${vars.color_suld_100};
     align-items: center;
@@ -88,29 +102,33 @@ export default css`
     top: 37%;
   }
 
-  .MultiSelect__button svg path {
+  .Multiselect__button svg path {
     fill: ${vars.color_suld_150};
   }
 
-  .MultiSelect__options {
+  .Multiselect__options {
     border: 1px solid ${vars.color_suld_100};
     margin-top: var(--space-1);
     border-radius: 4px;
   }
 
-  .MultiSelect__options .Checkbox {
+  .Multiselect__options--hidden {
+    display: none;
+  }
+
+  .Multiselect__options .Checkbox {
     margin: 0;
   }
 
-  .MultiSelect__options .Checkbox__label {
+  .Multiselect__options .Checkbox__label {
     width: 100%;
   }
 
-  .MultiSelect__option {
+  .Multiselect__option {
     padding: var(--space-1);
   }
 
-  .MultiSelect__option:hover {
+  .Multiselect__option:hover {
     background-color: ${vars.color_suld_50};
   }
 `;

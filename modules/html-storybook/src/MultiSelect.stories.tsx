@@ -33,8 +33,8 @@ const options = [
 export const _Multiselect: StoryComponent = () => {
   return (
     <>
-      <MultiSelectReactSelect /> <MultiSelectDownshift options={options} />{' '}
-      <MultiSelect items={options} />
+      <MultiSelectReactSelect />
+      <MultiSelectDownshift options={options} /> <MultiSelect items={options} />
     </>
   );
 };

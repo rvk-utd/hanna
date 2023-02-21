@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Checkbox from './Checkbox';
+import TagPill from './TagPill';
 import TextInput from './TextInput';
 
 type Item = {
@@ -25,6 +26,7 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const filteredItems = items.filter((item) =>
     item.label.toLowerCase().includes(searchQuery.toLowerCase())
@@ -45,6 +47,10 @@ const MultiSelect = (props: MultiSelectProps) => {
     }
   };
 
+  const removeSelectedItem = (item: Item) => {
+    setSelectedItems(selectedItems.filter((i) => i !== item));
+  };
+
   return (
     <div>
       <br />
@@ -53,21 +59,39 @@ const MultiSelect = (props: MultiSelectProps) => {
       <p>MultiSelect</p>
       <br />
       <br />
-      <div className="MultiSelect__header">
-        <TextInput
-          onChange={handleSearchChange}
-          className="MultiSelect__textInput"
-          label="Select a flavour.."
-        />
-        <button className="MultiSelect__button" type="button">
-          {svgImage()}
-        </button>
+      <div className="Multiselect__inputcontainer">
+        {selectedItems.map((item, indx) => (
+          <TagPill
+            key={`tagpill-${indx}`}
+            type="button"
+            removable
+            label={item.label}
+            onRemove={() => {
+              removeSelectedItem(item);
+            }}
+          />
+        ))}
+        <div className="Multiselect__input">
+          <TextInput
+            onChange={handleSearchChange}
+            className="Multiselect__textInput"
+            label="Select a flavour.."
+            onClick={() => setIsDropdownOpen(true)}
+          />
+          <button className="Multiselect__button" type="button">
+            {svgImage()}
+          </button>
+        </div>
       </div>
 
-      <ul className="MultiSelect__options">
+      <ul
+        className={`Multiselect__options ${
+          isDropdownOpen || 'Multiselect__options--hidden'
+        }`}
+      >
         {filteredItems.map((item, indx) => {
           return (
-            <li className="MultiSelect__option" key={`${item.label}${indx}`}>
+            <li className="Multiselect__option" key={`${item.label}${indx}`}>
               <Checkbox
                 label={item.label}
                 onChange={() => handleItemClick(item)}
