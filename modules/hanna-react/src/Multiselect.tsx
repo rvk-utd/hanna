@@ -66,9 +66,9 @@ const MultiSelect = (props: MultiSelectProps) => {
             setIsDropdownOpen(true);
           }}
         >
-          {selectedItems.map((item, indx) => (
+          {selectedItems.map((item) => (
             <TagPill
-              key={`tagpill-${indx}`}
+              key={item.label}
               type="button"
               removable
               label={item.label}
@@ -82,8 +82,6 @@ const MultiSelect = (props: MultiSelectProps) => {
               onChange={handleSearchChange}
               className="Multiselect__textInput"
               label="Select a flavour.."
-              // onClick={() => setIsDropdownOpen(true)}
-              // onFocus={() => setIsDropdownOpen(true)}
               ref={textInputRef}
             />
             <button className="Multiselect__button" type="button" tabIndex={-1}>
@@ -97,9 +95,9 @@ const MultiSelect = (props: MultiSelectProps) => {
             isDropdownOpen || 'Multiselect__options--hidden'
           }`}
         >
-          {filteredItems.map((item, indx) => {
+          {filteredItems.map((item) => {
             return (
-              <li className="Multiselect__option" key={`${item.label}${indx}`}>
+              <li className="Multiselect__option" key={item.label}>
                 <Checkbox
                   label={item.label}
                   onChange={() => handleItemClick(item)}
