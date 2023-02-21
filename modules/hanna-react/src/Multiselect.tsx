@@ -53,9 +53,14 @@ const MultiSelect = (props: MultiSelectProps) => {
   };
 
   return (
-    <div>
+    <>
       <SubHeading startSeen={false}>Multiselect - Custom </SubHeading>
-      <div className="Multiselect__inputcontainer">
+
+      <div
+        className="Multiselect__inputcontainer"
+        tabIndex={0}
+        onFocus={() => setIsDropdownOpen(true)}
+      >
         {selectedItems.map((item, indx) => (
           <TagPill
             key={`tagpill-${indx}`}
@@ -72,9 +77,10 @@ const MultiSelect = (props: MultiSelectProps) => {
             onChange={handleSearchChange}
             className="Multiselect__textInput"
             label="Select a flavour.."
-            onClick={() => setIsDropdownOpen(true)}
+            // onClick={() => setIsDropdownOpen(true)}
+            onFocus={() => setIsDropdownOpen(true)}
           />
-          <button className="Multiselect__button" type="button">
+          <button className="Multiselect__button" type="button" tabIndex={-1}>
             {svgImage()}
           </button>
         </div>
@@ -101,7 +107,7 @@ const MultiSelect = (props: MultiSelectProps) => {
       <pre>
         <code>{JSON.stringify(selectedItems, null, 2)}</code>
       </pre>
-    </div>
+    </>
   );
 };
 

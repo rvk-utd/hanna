@@ -77,6 +77,12 @@ export default css`
     grid-gap: 0.5rem;
     border: ${prem(1)} solid ${vars.color_suld_100};
     border-radius: 4px;
+    padding-left: 0.5rem;
+  }
+
+  .Multiselect__inputcontainer:focus-within {
+    border: 1px solid ${vars.color_faxafloi_100};
+    outline: none !important;
   }
 
   .Multiselect__inputcontainer .TagPill {
