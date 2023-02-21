@@ -98,6 +98,10 @@ export default css`
     border: none;
   }
 
+  .Multiselect__textInput .FormField__input:hover {
+    box-shadow: none;
+  }
+
   .Multiselect__button {
     display: flex;
     border-left: 1px solid ${vars.color_suld_100};

@@ -54,7 +54,7 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   return (
     <div>
-      <SubHeading>Multiselect - Custom</SubHeading>
+      <SubHeading startSeen={false}>Multiselect - Custom </SubHeading>
       <div className="Multiselect__inputcontainer">
         {selectedItems.map((item, indx) => (
           <TagPill
