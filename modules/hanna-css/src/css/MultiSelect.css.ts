@@ -98,7 +98,8 @@ export default css`
     border: none;
   }
 
-  .Multiselect__textInput .FormField__input:hover {
+  .Multiselect__textInput .FormField__input:hover,
+  .Multiselect__textInput .FormField__input:focus {
     box-shadow: none;
   }
 

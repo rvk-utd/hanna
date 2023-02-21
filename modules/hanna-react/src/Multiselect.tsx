@@ -39,7 +39,7 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   const handleItemClick = (item: Item) => {
     const itemHasNotBeenSelected = !selectedItems.find(
-      (selected) => selected.value === item.value
+      (selItem) => selItem.value === item.value
     );
     const updatedSelectedItems = itemHasNotBeenSelected
       ? [...selectedItems, item]
