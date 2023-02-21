@@ -2,6 +2,8 @@ import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
 
+import { prem } from './utils/miscUtils';
+
 export default css`
   /*!@deps
     Heading
@@ -73,6 +75,8 @@ export default css`
     flex-wrap: wrap;
     justify-content: space-between;
     grid-gap: 0.5rem;
+    border: ${prem(1)} solid ${vars.color_suld_100};
+    border-radius: 4px;
   }
 
   .Multiselect__inputcontainer .TagPill {
@@ -88,6 +92,10 @@ export default css`
   .Multiselect__textInput {
     flex: 1;
     margin: 0;
+  }
+
+  .Multiselect__textInput input {
+    border: none;
   }
 
   .Multiselect__button {
