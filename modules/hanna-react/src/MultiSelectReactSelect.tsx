@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Select, { components, OptionProps } from 'react-select';
+
+import SubHeading from './SubHeading';
 // import makeAnimated from 'react-select/animated';
 
 // https://codesandbox.io/s/bedj8?file=/src/App.js:109-1274
@@ -85,7 +87,7 @@ const MultiSelectReactSelect = () => {
   const [selectedOptions, setSelectedOptions] = useState<Array<OptionGaur>>([]);
   return (
     <div>
-      <p>MultiSelect</p>
+      <SubHeading>Multiselect - React Select</SubHeading>
       <Select<OptionGaur>
         placeholder="Select a flavour..."
         defaultValue={[]}

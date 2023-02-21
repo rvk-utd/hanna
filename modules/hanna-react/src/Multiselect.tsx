@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Checkbox from './Checkbox';
+import SubHeading from './SubHeading';
 import TagPill from './TagPill';
 import TextInput from './TextInput';
 
@@ -53,12 +54,7 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      <p>MultiSelect</p>
-      <br />
-      <br />
+      <SubHeading>Multiselect - Custom</SubHeading>
       <div className="Multiselect__inputcontainer">
         {selectedItems.map((item, indx) => (
           <TagPill

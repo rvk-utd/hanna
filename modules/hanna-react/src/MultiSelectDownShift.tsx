@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { useCombobox, useMultipleSelection } from 'downshift';
 
 import Checkbox from './Checkbox';
+import SubHeading from './SubHeading';
 import TagPill from './TagPill';
 
 type Option = {
@@ -123,9 +124,7 @@ const MultiSelectDownshift = (props: MultiSelectDownshiftProps) => {
 
   return (
     <div>
-      <p>MultiSelect with Downshift</p>
-      <br />
-      <br />
+      <SubHeading>Multiselect - Downshift</SubHeading>
       <div className="MultiselectDownshift">
         <div>
           {selectedItems.map(function renderSelectedItem(selectedItemForRender, index) {

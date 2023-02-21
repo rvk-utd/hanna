@@ -4,6 +4,7 @@ import { hannaVars as vars } from '../lib/hannavars';
 
 export default css`
   /*!@deps
+    Heading
     Tagpill
     TextInput
     Checkbox
