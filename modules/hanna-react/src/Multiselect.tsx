@@ -41,10 +41,11 @@ const MultiSelect = (props: MultiSelectProps) => {
     const itemHasNotBeenSelected = !selectedItems.find(
       (selected) => selected.value === item.value
     );
-    const newItemList = itemHasNotBeenSelected
+    const updatedSelectedItems = itemHasNotBeenSelected
       ? [...selectedItems, item]
       : selectedItems.filter((selected) => selected.value !== item.value);
-    setSelectedItems(newItemList);
+
+    setSelectedItems(updatedSelectedItems);
   };
 
   const removeSelectedItem = (item: Item) => {
