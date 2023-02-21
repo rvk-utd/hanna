@@ -69,6 +69,10 @@ export default css`
 
   /* ------------------- custom --------------------- */
 
+  .Multiselect {
+    position: relative;
+  }
+
   .Multiselect__inputcontainer {
     display: flex;
     align-items: center;
@@ -130,6 +134,14 @@ export default css`
     border: 1px solid ${vars.color_suld_100};
     margin-top: var(--space-1);
     border-radius: 4px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    max-height: 380px;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .Multiselect__options--hidden {

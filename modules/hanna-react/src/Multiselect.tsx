@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import Checkbox from './Checkbox';
 import SubHeading from './SubHeading';
@@ -28,6 +28,7 @@ const MultiSelect = (props: MultiSelectProps) => {
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const textInputRef = useRef<HTMLInputElement>(null);
 
   const filteredItems = items.filter((item) =>
     item.label.toLowerCase().includes(searchQuery.toLowerCase())
@@ -56,53 +57,59 @@ const MultiSelect = (props: MultiSelectProps) => {
     <>
       <SubHeading startSeen={false}>Multiselect - Custom </SubHeading>
 
-      <div
-        className="Multiselect__inputcontainer"
-        tabIndex={0}
-        onFocus={() => setIsDropdownOpen(true)}
-      >
-        {selectedItems.map((item, indx) => (
-          <TagPill
-            key={`tagpill-${indx}`}
-            type="button"
-            removable
-            label={item.label}
-            onRemove={() => {
-              removeSelectedItem(item);
-            }}
-          />
-        ))}
-        <div className="Multiselect__input">
-          <TextInput
-            onChange={handleSearchChange}
-            className="Multiselect__textInput"
-            label="Select a flavour.."
-            // onClick={() => setIsDropdownOpen(true)}
-            onFocus={() => setIsDropdownOpen(true)}
-          />
-          <button className="Multiselect__button" type="button" tabIndex={-1}>
-            {svgImage()}
-          </button>
+      <div className="Multiselect">
+        <div
+          className="Multiselect__inputcontainer"
+          tabIndex={0}
+          onFocus={() => {
+            textInputRef.current?.focus();
+            setIsDropdownOpen(true);
+          }}
+        >
+          {selectedItems.map((item, indx) => (
+            <TagPill
+              key={`tagpill-${indx}`}
+              type="button"
+              removable
+              label={item.label}
+              onRemove={() => {
+                removeSelectedItem(item);
+              }}
+            />
+          ))}
+          <div className="Multiselect__input">
+            <TextInput
+              onChange={handleSearchChange}
+              className="Multiselect__textInput"
+              label="Select a flavour.."
+              // onClick={() => setIsDropdownOpen(true)}
+              // onFocus={() => setIsDropdownOpen(true)}
+              ref={textInputRef}
+            />
+            <button className="Multiselect__button" type="button" tabIndex={-1}>
+              {svgImage()}
+            </button>
+          </div>
         </div>
-      </div>
 
-      <ul
-        className={`Multiselect__options ${
-          isDropdownOpen || 'Multiselect__options--hidden'
-        }`}
-      >
-        {filteredItems.map((item, indx) => {
-          return (
-            <li className="Multiselect__option" key={`${item.label}${indx}`}>
-              <Checkbox
-                label={item.label}
-                onChange={() => handleItemClick(item)}
-                checked={selectedItems.includes(item)}
-              />
-            </li>
-          );
-        })}
-      </ul>
+        <ul
+          className={`Multiselect__options ${
+            isDropdownOpen || 'Multiselect__options--hidden'
+          }`}
+        >
+          {filteredItems.map((item, indx) => {
+            return (
+              <li className="Multiselect__option" key={`${item.label}${indx}`}>
+                <Checkbox
+                  label={item.label}
+                  onChange={() => handleItemClick(item)}
+                  checked={selectedItems.includes(item)}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
       <pre>
         <code>{JSON.stringify(selectedItems, null, 2)}</code>
