@@ -30,12 +30,15 @@ const MultiSelect = (props: MultiSelectProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const textInputRef = useRef<HTMLInputElement>(null);
 
-  const filteredItems = items.filter((item) =>
-    item.label.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredItems = items.filter((item) => {
+    const sq = searchQuery.toLowerCase();
+    const result = item.label.toLowerCase().includes(sq);
+    return result;
+  });
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
+    const val = event.target.value;
+    setSearchQuery(val.trimEnd());
   };
 
   const handleItemClick = (item: Item) => {
@@ -117,7 +120,7 @@ const MultiSelect = (props: MultiSelectProps) => {
       </div>
 
       <pre>
-        <code>{JSON.stringify(selectedItems, null, 2)}</code>
+        <code>{JSON.stringify(filteredItems, null, 2)}</code>
       </pre>
     </>
   );
