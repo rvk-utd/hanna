@@ -104,10 +104,19 @@ const MultiSelect = (props: MultiSelectProps) => {
           className={`Multiselect__options ${
             isDropdownOpen || 'Multiselect__options--hidden'
           }`}
+          role="listbox"
+          aria-multiselectable="true"
+          aria-activedescendant="multiselect-option-0"
         >
-          {filteredItems.map((item) => {
+          {filteredItems.map((item, indx) => {
             return (
-              <li className="Multiselect__option" key={item.label}>
+              <li
+                className="Multiselect__option"
+                key={item.label}
+                role="option"
+                aria-selected={selectedItems.includes(item)}
+                id={`multiselect-option-${indx}`}
+              >
                 <Checkbox
                   label={item.label}
                   onChange={() => handleItemClick(item)}
