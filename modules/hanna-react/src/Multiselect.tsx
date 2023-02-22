@@ -49,6 +49,12 @@ const MultiSelect = (props: MultiSelectProps) => {
     setSelectedItems(updatedSelectedItems);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === ' ') {
+      setIsDropdownOpen(true);
+    }
+  };
+
   const removeSelectedItem = (item: Item) => {
     setSelectedItems(selectedItems.filter((i) => i !== item));
   };
@@ -63,7 +69,6 @@ const MultiSelect = (props: MultiSelectProps) => {
           tabIndex={0}
           onFocus={() => {
             textInputRef.current?.focus();
-            setIsDropdownOpen(true);
           }}
         >
           {selectedItems.map((item) => (
@@ -83,6 +88,8 @@ const MultiSelect = (props: MultiSelectProps) => {
               className="Multiselect__textInput"
               label="Select a flavour.."
               ref={textInputRef}
+              onClick={() => setIsDropdownOpen(true)}
+              onKeyDown={handleKeyDown}
             />
             <button className="Multiselect__button" type="button" tabIndex={-1}>
               {svgImage()}
