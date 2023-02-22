@@ -73,6 +73,10 @@ const MultiSelect = (props: MultiSelectProps) => {
           onFocus={() => {
             textInputRef.current?.focus();
           }}
+          role="listbox"
+          aria-multiselectable="true"
+          aria-owns="multi-select-dropdown"
+          aria-activedescendant="multiselect-option-0"
         >
           {selectedItems.map((item) => (
             <TagPill
@@ -104,9 +108,8 @@ const MultiSelect = (props: MultiSelectProps) => {
           className={`Multiselect__options ${
             isDropdownOpen || 'Multiselect__options--hidden'
           }`}
-          role="listbox"
-          aria-multiselectable="true"
-          aria-activedescendant="multiselect-option-0"
+          id="multi-select-dropdown"
+          role="menu"
         >
           {filteredItems.map((item, indx) => {
             return (
