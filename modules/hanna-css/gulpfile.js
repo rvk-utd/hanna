@@ -136,7 +136,7 @@ exports.publishCss = series(
   updateDistFolder,
   gulpExec(`yarn run build:css`),
   visuallyTest,
-  () => cssVersion.startsWith('v0.') && del([publishCssFolder], { force: true }), // NOTE: only do this before v1.0
+  () => cssVersion.startsWith('0.') && del([publishCssFolder], { force: true }), // NOTE: only do this before v1.0
   copyToCssFolder,
   commitCssToGit
 );

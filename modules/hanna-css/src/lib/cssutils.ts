@@ -1,7 +1,11 @@
 import { styleServerUrl } from '@reykjavik/hanna-utils/assets';
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
-import { cssVersion as fullCssVersion, CssVersionToken } from './style-server-info';
+import {
+  cssVersion as fullCssVersion,
+  CssVersionToken,
+  majorCssVersion,
+} from './style-server-info';
 
 // ---------------------------------------------------------------------------
 
@@ -28,9 +32,7 @@ type CssMajorVersion = typeof fullCssVersion extends `0.${infer PreMajor}.${stri
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#targetcssversion
  */
-export const targetCssVersion = ((fullCssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [
-  '',
-])[0] || '') as CssMajorVersion;
+export const targetCssVersion = majorCssVersion as CssMajorVersion;
 
 /** @deprecated use `targetCssVersion` instead.  (Will be removed in v0.4) */
 export const cssVersion = targetCssVersion;
@@ -86,7 +88,7 @@ const cssCurrentVersionFolder =
   process.env.NODE_ENV === 'production'
     ? 'v' + targetCssVersion
     : styleServerUrl.indexOf('://localhost') === -1
-    ? 'dev-v' + targetCssVersion.replace(/\..+/, '') // only the MAJOR version
+    ? 'dev-v' + targetCssVersion
     : 'dev'; // Use "live" compilation results during local dev.
 
 type CssBundleOpts<AcceptNewerVersion extends boolean = false> = {

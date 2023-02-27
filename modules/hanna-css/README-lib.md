@@ -359,7 +359,7 @@ Use this option if you, for some reason, wish/need to pin your CSS files to an
 older, or more specific version folder.
 
 ```js
-const cssUrl = getCssBundleUrl(cssTokens, { version: 'v0.7' });
+const cssUrl = getCssBundleUrl(cssTokens, { version: 'v1.0.3' });
 ```
 
 **TypeScript Note:** The `version` option is by default type-restricted to the
@@ -369,7 +369,7 @@ for an updated version list. If that's not possible, you can pass a type-level
 generics paramter of `true` which relaxes the type restrictions a bit.
 
 ```ts
-getCssBundleUrl<true>(cssTokens, { version: 'v0.8.9' });
+getCssBundleUrl<true>(cssTokens, { version: 'v1.13' });
 /* Like this ———^^^^  */
 ```
 

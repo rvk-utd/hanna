@@ -49,30 +49,41 @@ o.spec('getCssBundleUrl', () => {
   });
 
   o('accepts a version token', () => {
-    const version: CssVersionToken = 'v0.2';
+    const version: CssVersionToken = 'v0.8';
+
     o(getCssBundleUrl('Foo', { version })).equals(
       `${styleServerUrl}/bundle/${version}?m=Foo`
     )('for known version');
 
-    const newer = 'v0.8.99999';
+    const newer = `${version}.99999` as const;
     // TS check less safe "AcceptNewerVersion" option activated via type generics
     o(getCssBundleUrl<true>('Foo', { version: newer })).equals(
       `${styleServerUrl}/bundle/${newer}?m=Foo`
     )('Allows unsafe "newer version"');
 
-    getCssBundleUrl<true>('Foo', {
-      // @ts-expect-error  (Testing too-far-future version)
-      version: 'v0.9',
-    });
-    getCssBundleUrl<true>('Foo', {
-      // @ts-expect-error  (Testing too-far-future version)
-      version: 'v1.0',
-    });
+    if (false as boolean) {
+      const outdatedVersion = 'v0.7';
+      const futureVersion = 'v0.9';
+      const farFutureVersion = 'v1.0';
+
+      getCssBundleUrl<true>('Foo', {
+        // @ts-expect-error  (Testing bad input)
+        version: outdatedVersion,
+      });
+      getCssBundleUrl<true>('Foo', {
+        // @ts-expect-error  (Testing bad input)
+        version: futureVersion,
+      });
+      getCssBundleUrl<true>('Foo', {
+        // @ts-expect-error  (Testing bad input)
+        version: farFutureVersion,
+      });
+    }
 
     // @ts-expect-error  (Testing wonky input)
-    const imaginary: CssVersionToken = 'imaginary/version';
-    o(getCssBundleUrl('Foo', { version: imaginary })).equals(
-      `${styleServerUrl}/bundle/${imaginary}?m=Foo`
+    const imaginaryVersion: CssVersionToken = 'imaginary/version';
+    o(getCssBundleUrl('Foo', { version: imaginaryVersion })).equals(
+      `${styleServerUrl}/bundle/${imaginaryVersion}?m=Foo`
     )('Allows bonkers versions even if TypeScript complains');
   });
 
