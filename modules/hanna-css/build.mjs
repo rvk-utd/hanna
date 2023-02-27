@@ -20,6 +20,10 @@ import { devDistCssFolder, serverFolder } from './scripts/config.js';
 
 const glob = globPkg.sync;
 
+const cssSrcDir = `${srcDir}/css`;
+const cssSourceExtension = '.css.ts';
+const cssModuleFiles = glob(`**/*${cssSourceExtension}`, { cwd: cssSrcDir });
+
 const logError = (err) => {
   if (!opts.dev) {
     exit1(err);
@@ -76,18 +80,17 @@ const getCssVersionTokenUnion = (majorCssVersion) => {
     .join('\n');
 };
 
-const geCssTokenUnion = async () => {
-  // TODO: Generate `CssToken` type listing all the current files matching
-  // `modules/hanna-css/src/css/[A-Z]*.css.ts` files (plus `-basics`)
-  const isNamespaceExport = [];
-  return isNamespaceExport.map((key) => `  | '${key}'`).join('\n');
-};
+const geCssModuleTokenUnion = async () =>
+  cssModuleFiles
+    .map((fileName) => fileName.slice(0, -cssSourceExtension.length))
+    .map((token) => `  | '${token}'`)
+    .join('\n');
 
 /** @param {string} cssVersion */
 const createStyleServerInfoTsFile = async (cssVersion) => {
   const majorCssVersion = (cssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0] || '';
   const CssVersionTokenUnion = getCssVersionTokenUnion(majorCssVersion);
-  const CssTokenUnion = await geCssTokenUnion();
+  const CssModuleTokenUnion = await geCssModuleTokenUnion();
 
   await writeFile(
     `${srcDir}/lib/style-server-info.ts`,
@@ -100,9 +103,9 @@ const createStyleServerInfoTsFile = async (cssVersion) => {
       `export type CssVersionToken =`,
       `${CssVersionTokenUnion};`,
       ``,
-      // `export type CssToken =`,
-      // `${CssTokenUnion};`,
-      // ``,
+      `export type CssModuleToken =`,
+      `${CssModuleTokenUnion};`,
+      ``,
     ].join('\n')
   );
 };
@@ -162,7 +165,7 @@ if (!opts.onlyLib) {
 
   const cssCompile = (results) =>
     compileCSSFromJS(toCSSSources(results), {
-      outbase: 'src/css',
+      outbase: cssSrcDir,
       outdir: devDistCssFolder,
       redirect: (outFile) => outFile.replace(/\/\$\$.+?\$\$-/, '/'),
       minify: process.env.NODE_ENV === 'production',
@@ -174,10 +177,10 @@ if (!opts.onlyLib) {
     .build({
       ...baseOpts,
       external: externalDeps,
-      entryPoints: glob('src/css/**/*.css.ts'),
+      entryPoints: cssModuleFiles.map((file) => cssSrcDir + '/' + file),
       entryNames: '[dir]/$$[hash]$$-[name]',
-      outbase: 'src/css',
-      outdir: 'src/css',
+      outbase: cssSrcDir,
+      outdir: cssSrcDir,
       write: false,
       watch: !!opts.dev && {
         onRebuild: (error, results) => {

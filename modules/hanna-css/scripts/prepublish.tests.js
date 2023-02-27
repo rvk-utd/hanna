@@ -8,7 +8,7 @@ const { cssVersion, publishCssFolder, devDistCssFolder } = require('./config');
 o.spec('Publishing', () => {
   o('package has a valid CSS version', () => {
     o(cssVersion != null).equals(true);
-    o(/^v\d+\.\d+/.test(cssVersion)).equals(true); // Technically redundant, but hey!
+    o(/^\d+\.\d+/.test(cssVersion)).equals(true); // Technically redundant, but hey!
   });
 
   o('no CSS folder exists for the current CSS version', () => {

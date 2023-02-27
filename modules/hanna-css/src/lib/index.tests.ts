@@ -72,6 +72,7 @@ import type {
 
   // cssvars.ts
   HannaCssVarToken,
+  CssModuleToken,
 
   // icons.ts
   IconName,

@@ -40,12 +40,19 @@ o.spec('getCssBundleUrl', () => {
   const ver = process.env.NODE_ENV === 'production' ? `v${targetCssVersion}` : 'dev';
 
   o('works', () => {
+    o(getCssBundleUrl(['-basics', 'ButtonPrimary'])).equals(
+      `${styleServerUrl}/bundle/${ver}?m=-basics,ButtonPrimary`
+    )('Accepts CssModuleToken array');
+
     o(getCssBundleUrl(' Foo, \nBar ')).equals(
       `${styleServerUrl}/bundle/${ver}?m=Foo,Bar`
     )('Accepts string and trims them a bit');
-    o(getCssBundleUrl(['Foo ', '  Bar', 'A,B '])).equals(
+
+    // @ts-expect-error  (Testing wonky input)
+    const borkedTokenArr: Array<CssModuleToken> = ['Foo ', '  Bar', 'A,B '];
+    o(getCssBundleUrl(borkedTokenArr)).equals(
       `${styleServerUrl}/bundle/${ver}?m=Foo,Bar,A,B`
-    )('Accepts Array and trims them also');
+    )('Also trims wonky array items a bit');
   });
 
   o('accepts a version token', () => {

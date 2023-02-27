@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add type `CssModuleToken` and use it in `getCssBundleUrl([...tokens])`
+- feat: Change dev css folder to `dev-v0.8`
 - fix: Limit `getCssBundleUrl`'s `CssVersionToken`s to supported versions
 
 ## 0.3.12 – 0.3.13

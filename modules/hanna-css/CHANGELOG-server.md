@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Rename dev css folder to `dev-v0.8`
 - feat: Add svg favicon assets:
   - `favicon.svg`
   - `favicon-maskable.svg`

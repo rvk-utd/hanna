@@ -2,6 +2,7 @@ import { styleServerUrl } from '@reykjavik/hanna-utils/assets';
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
 import {
+  CssModuleToken,
   cssVersion as fullCssVersion,
   CssVersionToken,
   majorCssVersion,
@@ -103,9 +104,10 @@ type CssBundleOpts<AcceptNewerVersion extends boolean = false> = {
   testingServer?: string;
 };
 
-// TODO: Change typing of `getCssBundleUrl` to accept only `string | Array<CssToken>`
-// ...or even replace `string` with `type CssTokenString = `${CssToken},${CssTokenString}`;`
-// when `AcceptNewerVersion extends true`)
+export type {
+  /** CSS tokens to use with `getCssBundleUrl()` */
+  CssModuleToken,
+};
 
 /**
  * This methods generates a URL to load a correctly versioned CSS bundle from the Hanna Style Server.
@@ -113,7 +115,7 @@ type CssBundleOpts<AcceptNewerVersion extends boolean = false> = {
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getcssbundleurl
  */
 export const getCssBundleUrl = <AcceptNewerVersion extends boolean = false>(
-  cssTokens: string | Array<string>,
+  cssTokens: string | Array<CssModuleToken>,
   options?: CssBundleOpts<AcceptNewerVersion>
 ): string => {
   options = options || {};

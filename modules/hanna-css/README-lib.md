@@ -34,6 +34,7 @@ yarn add --dev @reykjavik/hanna-css
 - [Hanna CSS Env](#hanna-css-env)
   - [`getCssBundleUrl`](#getcssbundleurl)
     - [Type `CssBundleOpts`](#type-cssbundleopts)
+    - [Type `CssModuleToken`](#type-cssmoduletoken)
   - [`getEssentialHannaScripts`](#getessentialhannascripts)
   - [`styleServerUrl`](#styleserverurl)
   - [`setStyleServerUrl`](#setstyleserverurl)
@@ -314,7 +315,7 @@ const myCss = css`
 ### `getCssBundleUrl`
 
 **Syntax:**
-`getCssBundleUrl(cssTokens: string | Array<string>, options?: CssBundleOpts): string`
+`getCssBundleUrl(cssTokens: string | Array<CssModuleToken>, options?: CssBundleOpts): string`
 
 This methods generates a URL to load a correctly versioned CSS bundle from the
 [Hanna Style Server](https://github.com/reykjavikcity/hanna-server-styles).
@@ -372,6 +373,14 @@ generics paramter of `true` which relaxes the type restrictions a bit.
 getCssBundleUrl<true>(cssTokens, { version: 'v1.13' });
 /* Like this ———^^^^  */
 ```
+
+#### Type `CssModuleToken`
+
+All the currently known CSS module tokens that are available on the
+[Hanna Style Server](https://github.com/reykjavikcity/hanna-server-styles) at
+the time when the library was published. If you need to load newer tokens, you
+should ideally update `hanna-css` for an updated token list. If that's not
+possible, you can convert your token Array to comma-delimited string.
 
 ### `getEssentialHannaScripts`
 
