@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react';
 
 import Checkbox from './Checkbox';
-import SubHeading from './SubHeading';
-import TagPill from './TagPill';
 import TextInput from './TextInput';
 
 type Item = {
@@ -12,14 +10,6 @@ type Item = {
 
 type MultiSelectProps = {
   items: Array<Item>;
-};
-
-const svgImage = () => {
-  return (
-    <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-      <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z" />
-    </svg>
-  );
 };
 
 const MultiSelect = (props: MultiSelectProps) => {
@@ -64,32 +54,9 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   return (
     <>
-      <SubHeading startSeen={false}>Multiselect - Custom </SubHeading>
-
       <div className="Multiselect">
-        <div
-          className="Multiselect__inputcontainer"
-          tabIndex={0}
-          onFocus={() => {
-            textInputRef.current?.focus();
-          }}
-          role="listbox"
-          aria-multiselectable="true"
-          aria-owns="multi-select-dropdown"
-          aria-activedescendant="multiselect-option-0"
-        >
-          {selectedItems.map((item) => (
-            <TagPill
-              key={item.label}
-              type="button"
-              removable
-              label={item.label}
-              onRemove={() => {
-                removeSelectedItem(item);
-              }}
-            />
-          ))}
-          <div className="Multiselect__input">
+        <div className="Multiselect__input">
+          {items.length > 10 && (
             <TextInput
               onChange={handleSearchChange}
               className="Multiselect__textInput"
@@ -98,37 +65,38 @@ const MultiSelect = (props: MultiSelectProps) => {
               onClick={() => setIsDropdownOpen(true)}
               onKeyDown={handleKeyDown}
             />
-            <button className="Multiselect__button" type="button" tabIndex={-1}>
-              {svgImage()}
-            </button>
-          </div>
-        </div>
+          )}
 
-        <ul
-          className={`Multiselect__options ${
-            isDropdownOpen || 'Multiselect__options--hidden'
-          }`}
-          id="multi-select-dropdown"
-          role="menu"
-        >
-          {filteredItems.map((item, indx) => {
-            return (
-              <li
-                className="Multiselect__option"
-                key={item.label}
-                role="option"
-                aria-selected={selectedItems.includes(item)}
-                id={`multiselect-option-${indx}`}
-              >
-                <Checkbox
-                  label={item.label}
-                  onChange={() => handleItemClick(item)}
-                  checked={selectedItems.includes(item)}
-                />
-              </li>
-            );
-          })}
-        </ul>
+          <ul
+            className={`Multiselect__options ${
+              isDropdownOpen || 'Multiselect__options--hidden'
+            }`}
+            id="multi-select-dropdown"
+            tabIndex={-1}
+            role="menu"
+          >
+            <li>
+              <hr className="Multiselect__hr" />
+            </li>
+            {filteredItems.map((item, indx) => {
+              return (
+                <li
+                  className="Multiselect__option"
+                  key={item.label}
+                  role="option"
+                  aria-selected={selectedItems.includes(item)}
+                  id={`multiselect-option-${indx}`}
+                >
+                  <Checkbox
+                    label={item.label}
+                    onChange={() => handleItemClick(item)}
+                    checked={selectedItems.includes(item)}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
 
       <pre>

@@ -1,12 +1,17 @@
 import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
+import { iconStyle } from '../lib/icons';
 
+import { FormFieldVariables } from './styles/forms';
 import { prem } from './utils/miscUtils';
+
+const ff = FormFieldVariables.vars;
 
 export default css`
   /*!@deps
     Heading
+    VSpacer
     Tagpill
     TextInput
     Checkbox
@@ -73,75 +78,42 @@ export default css`
     position: relative;
   }
 
-  .Multiselect__inputcontainer {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    grid-gap: 0.5rem;
-    border: ${prem(1)} solid ${vars.color_suld_100};
-    border-radius: 4px;
-    padding-left: 0.5rem;
-  }
-
-  .Multiselect__inputcontainer:focus-within {
-    border: 1px solid ${vars.color_faxafloi_100};
-    outline: none !important;
-  }
-
-  .Multiselect__inputcontainer .TagPill {
-    margin: 0;
-  }
-
   .Multiselect__input {
-    display: flex;
-    flex: 1 1 auto;
     position: relative;
   }
 
-  .Multiselect__textInput {
-    flex: 1;
-    margin: 0;
-  }
-
-  .Multiselect__textInput input {
-    border: none;
-  }
-
-  .Multiselect__textInput .FormField__input:hover,
-  .Multiselect__textInput .FormField__input:focus {
-    box-shadow: none;
-  }
-
-  .Multiselect__button {
-    display: flex;
-    border-left: 1px solid ${vars.color_suld_100};
-    align-items: center;
-    align-self: stretch;
-    flex-shrink: 0;
-    box-sizing: border-box;
-    padding: 0 0.5rem;
+  // Todo: Refactor with Selectbox.css.ts
+  .Multiselect__input::after {
+    ${iconStyle(vars.icon__chevron_down)}
     position: absolute;
-    right: 0;
-    top: 37%;
-  }
-
-  .Multiselect__button svg path {
-    fill: ${vars.color_suld_150};
+    top: 0;
+    bottom: 0;
+    right: ${prem(20)};
+    pointer-events: none;
+    margin: auto;
+    color: ${ff.input__border_color};
+    transition: all 200ms ease-in;
+    font-size: ${prem(16)};
+    height: 1em;
+    line-height: 1em;
   }
 
   .Multiselect__options {
     border: 1px solid ${vars.color_suld_100};
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     margin-top: var(--space-1);
     border-radius: 4px;
     position: absolute;
-    top: 60px;
+    top: 48px;
     left: 0;
     width: 100%;
     background: white;
     max-height: 380px;
     overflow-y: scroll;
     overflow-x: hidden;
+    box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
   }
 
   .Multiselect__options--hidden {
@@ -154,6 +126,11 @@ export default css`
 
   .Multiselect__options .Checkbox__label {
     width: 100%;
+  }
+
+  .Multiselect__hr {
+    border-bottom: 1px solid red;
+    padding: var(--space-1);
   }
 
   .Multiselect__option {
