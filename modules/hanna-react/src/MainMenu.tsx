@@ -222,6 +222,25 @@ export const MainMenu = (props: MainMenuProps) => {
     }
   };
 
+  if (process.env.NODE_ENV !== 'production') {
+    const firstItem = menuItems[0]!;
+    if (firstItem === '---' || firstItem.modifier !== 'home') {
+      console.warn(
+        [
+          '`The first item of <MainMenu/>` must be a "Home" link.',
+          'Please add a `MainMenuItem` with `modifier: "home"`',
+          '',
+          'Example:',
+          '  {',
+          '    href: "/",',
+          '    label: "Forsíða",',
+          '    modifier: "home",',
+          '  }',
+        ].join('\n')
+      );
+    }
+  }
+
   return (
     <nav
       className="MainMenu"
