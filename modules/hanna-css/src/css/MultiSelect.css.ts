@@ -7,8 +7,6 @@ import { prem } from './utils/miscUtils';
 
 export default css`
   /*!@deps
-    Heading
-    VSpacer
     Tagpill
     TextInput
     Checkbox
