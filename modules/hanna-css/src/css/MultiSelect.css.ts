@@ -128,13 +128,16 @@ export default css`
     width: 100%;
   }
 
-  .Multiselect__hr {
-    border-bottom: 1px solid red;
-    padding: var(--space-1);
+  .Multiselect__tags {
+    padding: 16px;
+  }
+
+  .Multiselect__divider {
+    margin: 0;
   }
 
   .Multiselect__option {
-    padding: var(--space-1);
+    padding: 8px 16px;
   }
 
   .Multiselect__option:hover {

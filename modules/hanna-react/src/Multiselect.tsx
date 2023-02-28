@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import Checkbox from './Checkbox';
+import TagPill from './TagPill';
 import TextInput from './TextInput';
 
 type Item = {
@@ -75,9 +76,26 @@ const MultiSelect = (props: MultiSelectProps) => {
             tabIndex={-1}
             role="menu"
           >
-            <li>
-              <hr className="Multiselect__hr" />
-            </li>
+            {selectedItems.length > 0 && (
+              <li>
+                <div className="Multiselect__tags">
+                  {selectedItems.map((tag) => (
+                    <TagPill
+                      key={tag.label}
+                      type="button"
+                      removable
+                      onRemove={() => {
+                        removeSelectedItem(tag);
+                      }}
+                    >
+                      {tag.label}
+                    </TagPill>
+                  ))}
+                  <hr className="Multiselect__divider" />
+                </div>
+              </li>
+            )}
+
             {filteredItems.map((item, indx) => {
               return (
                 <li
