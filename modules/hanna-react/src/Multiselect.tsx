@@ -77,8 +77,8 @@ const MultiSelect = (props: MultiSelectProps) => {
             role="menu"
           >
             {selectedItems.length > 0 && (
-              <li>
-                <div className="Multiselect__tags">
+              <li className="Multiselect__tags">
+                <div>
                   {selectedItems.map((tag) => (
                     <TagPill
                       key={tag.label}

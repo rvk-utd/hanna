@@ -129,6 +129,11 @@ export default css`
   }
 
   .Multiselect__tags {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 99;
     padding: 16px;
   }
 
