@@ -3,10 +3,7 @@ import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
-import { FormFieldVariables } from './styles/forms';
 import { prem } from './utils/miscUtils';
-
-const ff = FormFieldVariables.vars;
 
 export default css`
   /*!@deps
@@ -91,9 +88,9 @@ export default css`
     right: ${prem(20)};
     pointer-events: none;
     margin: auto;
-    color: ${ff.input__border_color};
+    color: ${vars.color_faxafloi_100};
     transition: all 200ms ease-in;
-    font-size: ${prem(16)};
+    font-size: ${prem(12)};
     height: 1em;
     line-height: 1em;
   }
@@ -134,7 +131,7 @@ export default css`
     left: 0;
     background-color: white;
     z-index: 99;
-    padding: 16px;
+    padding: 16px 16px 0 16px;
   }
 
   .Multiselect__divider {
