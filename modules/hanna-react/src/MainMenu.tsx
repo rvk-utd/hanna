@@ -40,6 +40,15 @@ export type MainMenuItem = {
   label: string;
   labelLong?: string;
   lang?: string;
+  /**
+   * Puts a modifier className on the menu item element.
+   *
+   * Example:
+   *
+   * ```html
+   * <li class="MainMenu__item MainMenu__item--${modifier}">
+   * ```
+   * */
   modifier?: string;
   current?: boolean;
   href?: string;
@@ -228,7 +237,7 @@ export const MainMenu = (props: MainMenuProps) => {
       console.warn(
         [
           '`The first item of <MainMenu/>` must be a "Home" link.',
-          'Please add a `MainMenuItem` with `modifier: "home"`',
+          'Please add a `MainMenuItem` with `modifier: "home"`.',
           '',
           'Example:',
           '  {',
@@ -236,6 +245,9 @@ export const MainMenu = (props: MainMenuProps) => {
           '    label: "Forsíða",',
           '    modifier: "home",',
           '  }',
+          '',
+          "(Don't worry, the home link remains invisible for anyone" +
+            ' not using a screen-reader or navigating by keyboard.)',
         ].join('\n')
       );
     }
