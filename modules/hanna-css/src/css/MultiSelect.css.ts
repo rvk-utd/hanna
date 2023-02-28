@@ -89,7 +89,7 @@ export default css`
     pointer-events: none;
     margin: auto;
     color: ${vars.color_faxafloi_100};
-    transition: all 200ms ease-in;
+    transition: all 450ms ease-in;
     font-size: ${prem(12)};
     height: 1em;
     line-height: 1em;

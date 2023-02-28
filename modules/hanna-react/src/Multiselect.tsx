@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Checkbox from './Checkbox';
 import TagPill from './TagPill';
@@ -19,7 +19,7 @@ const MultiSelect = (props: MultiSelectProps) => {
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const textInputRef = useRef<HTMLInputElement>(null);
+  const selectRef = useRef<HTMLDivElement>(null);
 
   const filteredItems = items.filter((item) => {
     const sq = searchQuery.toLowerCase();
@@ -53,74 +53,89 @@ const MultiSelect = (props: MultiSelectProps) => {
     setSelectedItems(selectedItems.filter((i) => i !== item));
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const isClickOutside =
+        selectRef.current &&
+        !selectRef.current.contains(target) &&
+        !['TagPill', 'TagPill__button', 'TagPill__remove'].some((className) =>
+          target.classList.contains(className)
+        );
+      if (isClickOutside) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('click', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, [selectRef]);
+
   return (
-    <>
-      <div
-        className={`Multiselect ${isOpen ? 'Multiselect--open' : 'Multiselect--closed'}`}
-      >
-        <div className="Multiselect__input">
-          {items.length > 10 && (
-            <TextInput
-              onChange={handleSearchChange}
-              className="Multiselect__textInput"
-              label="Select a flavour.."
-              ref={textInputRef}
-              onClick={() => setIsOpen(true)}
-              onKeyDown={handleKeyDown}
-            />
+    <div
+      className={`Multiselect ${isOpen ? 'Multiselect--open' : 'Multiselect--closed'}`}
+      ref={selectRef}
+    >
+      <div className="Multiselect__input">
+        {items.length > 10 && (
+          <TextInput
+            onChange={handleSearchChange}
+            className="Multiselect__textInput"
+            label="Select a flavour.."
+            onClick={() => setIsOpen(true)}
+            onKeyDown={handleKeyDown}
+          />
+        )}
+
+        <ul
+          className="Multiselect__options"
+          id="multi-select-dropdown"
+          tabIndex={-1}
+          role="menu"
+        >
+          {selectedItems.length > 0 && (
+            <li className="Multiselect__tags">
+              <div>
+                {selectedItems.map((tag) => (
+                  <TagPill
+                    key={tag.label}
+                    type="button"
+                    removable
+                    onRemove={() => {
+                      removeSelectedItem(tag);
+                    }}
+                  >
+                    {tag.label}
+                  </TagPill>
+                ))}
+                <hr className="Multiselect__divider" />
+              </div>
+            </li>
           )}
 
-          <ul
-            className="Multiselect__options"
-            id="multi-select-dropdown"
-            tabIndex={-1}
-            role="menu"
-          >
-            {selectedItems.length > 0 && (
-              <li className="Multiselect__tags">
-                <div>
-                  {selectedItems.map((tag) => (
-                    <TagPill
-                      key={tag.label}
-                      type="button"
-                      removable
-                      onRemove={() => {
-                        removeSelectedItem(tag);
-                      }}
-                    >
-                      {tag.label}
-                    </TagPill>
-                  ))}
-                  <hr className="Multiselect__divider" />
-                </div>
+          {filteredItems.map((item, indx) => {
+            return (
+              <li
+                className="Multiselect__option"
+                key={item.label}
+                role="option"
+                aria-selected={selectedItems.includes(item)}
+                id={`multiselect-option-${indx}`}
+              >
+                <Checkbox
+                  label={item.label}
+                  onChange={() => handleItemClick(item)}
+                  checked={selectedItems.includes(item)}
+                />
               </li>
-            )}
-
-            {filteredItems.map((item, indx) => {
-              return (
-                <li
-                  className="Multiselect__option"
-                  key={item.label}
-                  role="option"
-                  aria-selected={selectedItems.includes(item)}
-                  id={`multiselect-option-${indx}`}
-                >
-                  <Checkbox
-                    label={item.label}
-                    onChange={() => handleItemClick(item)}
-                    checked={selectedItems.includes(item)}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+            );
+          })}
+        </ul>
       </div>
-
-      <pre>
-        <code>{JSON.stringify(filteredItems, null, 2)}</code>
-      </pre>
-    </>
+    </div>
   );
 };
 
