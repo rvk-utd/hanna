@@ -95,6 +95,11 @@ export default css`
     line-height: 1em;
   }
 
+  .Multiselect--open .Multiselect__input::after {
+    transform: rotateX(180deg);
+    transition: all 450ms ease-in;
+  }
+
   .Multiselect__options {
     border: 1px solid ${vars.color_suld_100};
     border-top: none;

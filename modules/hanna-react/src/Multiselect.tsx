@@ -55,7 +55,11 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   return (
     <>
-      <div className="Multiselect">
+      <div
+        className={`Multiselect ${
+          isDropdownOpen ? 'Multiselect--open' : 'Multiselect--closed'
+        }`}
+      >
         <div className="Multiselect__input">
           {items.length > 10 && (
             <TextInput
