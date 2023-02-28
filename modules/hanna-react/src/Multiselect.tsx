@@ -18,7 +18,7 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const textInputRef = useRef<HTMLInputElement>(null);
 
   const filteredItems = items.filter((item) => {
@@ -45,7 +45,7 @@ const MultiSelect = (props: MultiSelectProps) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === ' ') {
-      setIsDropdownOpen(true);
+      setIsOpen(true);
     }
   };
 
@@ -56,9 +56,7 @@ const MultiSelect = (props: MultiSelectProps) => {
   return (
     <>
       <div
-        className={`Multiselect ${
-          isDropdownOpen ? 'Multiselect--open' : 'Multiselect--closed'
-        }`}
+        className={`Multiselect ${isOpen ? 'Multiselect--open' : 'Multiselect--closed'}`}
       >
         <div className="Multiselect__input">
           {items.length > 10 && (
@@ -67,15 +65,13 @@ const MultiSelect = (props: MultiSelectProps) => {
               className="Multiselect__textInput"
               label="Select a flavour.."
               ref={textInputRef}
-              onClick={() => setIsDropdownOpen(true)}
+              onClick={() => setIsOpen(true)}
               onKeyDown={handleKeyDown}
             />
           )}
 
           <ul
-            className={`Multiselect__options ${
-              isDropdownOpen || 'Multiselect__options--hidden'
-            }`}
+            className="Multiselect__options"
             id="multi-select-dropdown"
             tabIndex={-1}
             role="menu"

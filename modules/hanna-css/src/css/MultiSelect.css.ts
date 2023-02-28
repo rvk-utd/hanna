@@ -118,7 +118,7 @@ export default css`
     box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
   }
 
-  .Multiselect__options--hidden {
+  .Multiselect--closed .Multiselect__options {
     display: none;
   }
 
