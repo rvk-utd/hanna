@@ -6,4 +6,4 @@ export const breakOnNL = (text: string | undefined) =>
     .trim()
     .replace(/(?:\n\s*)+/g, '\n\n')
     .split(/\n/)
-    .map((bit) => bit || <br />);
+    .map((bit, i) => bit || <br key={i} />);

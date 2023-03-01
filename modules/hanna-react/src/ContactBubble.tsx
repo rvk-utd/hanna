@@ -6,6 +6,7 @@ import { getPageScrollElm } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link';
+import { breakOnNL } from './_abstract/breakOnNL';
 import { SSRSupport, useIsBrowserSide } from './utils';
 
 export type ContactBubbleI18n = {
@@ -227,7 +228,7 @@ export const ContactBubble = (props: ContactBubbleProps) => {
             ' ',
             label,
             '\n',
-            extraLabel && <small key="🤡">{extraLabel}</small>,
+            extraLabel && <small key="🤡">{breakOnNL(extraLabel)}</small>,
             '\n',
           ];
 

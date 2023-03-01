@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Convert newlines in `ContactBubbleItem.extraLabel` into `<br/>`s
 
 ## 0.10.81
 
