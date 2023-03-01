@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Tooltip`
+- fix: Remove `role="group"` off all Checkbox and Radio Group containers
 
 ## 0.8.29
 

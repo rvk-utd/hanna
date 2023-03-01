@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Convert newlines in `ContactBubbleItem.extraLabel` into `<br/>`s
+- fix: Remove `role="group"` off all Checkbox and Radio Group containers
 
 ## 0.10.81
 

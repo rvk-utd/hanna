@@ -217,7 +217,6 @@ export const FormField = (props: FormFieldProps) => {
         ],
         className
       )}
-      role={group ? 'group' : undefined}
       ref={props.wrapperRef as RefObject<HTMLDivElement>}
     >
       {LabelTag ? (
