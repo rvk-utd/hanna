@@ -138,6 +138,14 @@ export default css`
     padding: 16px 16px 0 16px;
   }
 
+  .Multiselect__tagpills {
+    max-height: 50px;
+    display: flex;
+    overflow-y: hidden;
+    scrollbar-color: ${vars.color_faxafloi_75} white;
+    scrollbar-width: thin;
+  }
+
   .Multiselect__divider {
     margin: 0;
   }

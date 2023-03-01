@@ -98,7 +98,7 @@ const MultiSelect = (props: MultiSelectProps) => {
         >
           {selectedItems.length > 0 && (
             <li className="Multiselect__tags">
-              <div>
+              <div className="Multiselect__tagpills">
                 {selectedItems.map((tag) => (
                   <TagPill
                     key={tag.label}
@@ -111,7 +111,6 @@ const MultiSelect = (props: MultiSelectProps) => {
                     {tag.label}
                   </TagPill>
                 ))}
-                <hr className="Multiselect__divider" />
               </div>
             </li>
           )}
