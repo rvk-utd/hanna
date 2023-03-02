@@ -12,5 +12,5 @@ if [ ! -e "servers/styles/package.json" ] && [ ! -e "servers/docs/package.json" 
   echo "\n" >> "$OUTFILE"
   echo "If you want to fix that, then run the following command:\n" >> "$OUTFILE"
   echo "\n" >> "$OUTFILE"
-  echo "  sh scripts/submodule-install.sh\n" >> "$OUTFILE"
+  echo "  sh scripts/submodules-install.sh\n" >> "$OUTFILE"
 fi

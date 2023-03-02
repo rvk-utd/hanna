@@ -181,7 +181,7 @@ notifications explaining the presence of the git submodules, into a file
 called WARNING--SUB-MODULES.txt.
 
 If you plan on running the CSS dev server, or work on the documentation
-servers, you probably want to run `sh scripts/submodule-install.sh` straight
+servers, you probably want to run `sh scripts/submodules-install.sh` straight
 away.
 
 ### Contributions
