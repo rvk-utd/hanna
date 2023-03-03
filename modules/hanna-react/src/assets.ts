@@ -16,7 +16,10 @@ import {
   illustrations,
 } from '@reykjavik/hanna-utils/assets';
 
-import { CssVersionToken } from '../../hanna-css/src/lib/style-server-info';
+import {
+  CssModuleToken,
+  CssVersionToken,
+} from '../../hanna-css/src/lib/style-server-info';
 
 export type {
   /** @deprecated  Instead `import type { BlingType } from '@reykjavik/hanna-utils/assets';` (Will be removed in v0.11) */
@@ -53,7 +56,10 @@ export const getCssBundleUrl = (
   cssTokens: string | Array<string>,
   /** If you want to pin your CSS files to a specific version */
   version?: string
-) => _getCssBundleUrl(cssTokens, { version: version as CssVersionToken });
+) =>
+  _getCssBundleUrl(cssTokens as string | Array<CssModuleToken>, {
+    version: version as CssVersionToken,
+  });
 
 // ---------------------------------------------------------------------------
 
