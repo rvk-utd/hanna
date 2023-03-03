@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.82
+
+_2023-03-03_
+
 - `MainMenu`:
   - feat: Add prop `homeLink` to `MainMenuProps` for convenience
   - feat: Add built-in support for Polish language to `MainMenu`
