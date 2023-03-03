@@ -17,11 +17,12 @@ import { autoTitle } from '../../utils/meta';
 const showAuxState = makeStateBridge<true | undefined>('showAux');
 
 export const mainMenuItems: MainMenuItemList = [
-  {
-    label: 'Forsíða',
-    href: '',
-    modifier: 'home',
-  },
+  // // Optional - as a default "Home" link is automatically inserted
+  // {
+  //   label: 'Forsíða',
+  //   href: '/',
+  //   modifier: 'home',
+  // },
   {
     label: 'Íbúar',
     href: '#MegaMenu:Íbúar',

@@ -3,6 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu`:
+  - feat: Add prop `homeLink` to `MainMenuProps` for convenience
+  - feat: Add built-in support for Polish language to `MainMenu`
+  - feat: Add optional `homeLink` prop to `MainMenuI18n`
 - feat: Convert newlines in `ContactBubbleItem.extraLabel` into `<br/>`s
 - fix: Remove `role="group"` off all Checkbox and Radio Group containers
 

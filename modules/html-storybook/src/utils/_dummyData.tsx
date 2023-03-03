@@ -27,11 +27,12 @@ export const someButtons: Array<ButtonTertiaryProps> = [
 ];
 
 export const mainMenuItems: MainMenuItemList = [
-  {
-    label: 'Forsíða',
-    href: '',
-    modifier: 'home',
-  },
+  // // Optional - as a default "Home" link is automatically inserted
+  // {
+  //   label: 'Forsíða',
+  //   href: '/',
+  //   modifier: 'home',
+  // },
   {
     label: 'Íbúar',
     href: '#MegaMenu:Íbúar',

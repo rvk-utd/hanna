@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import focusElm from '@hugsmidjan/qj/focusElm';
 import useShortState from '@hugsmidjan/react/hooks/useShortState';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { getPageScrollElm } from '@reykjavik/hanna-utils';
+import { Cleanup, getPageScrollElm } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link';
@@ -11,7 +11,12 @@ import {
   AuxiliaryPanel,
   AuxiliaryPanelProps,
 } from './MainMenu/_Auxiliary';
-import { PrimaryPanel } from './MainMenu/_PrimaryPanel';
+import {
+  MegaMenuItem,
+  MegaMenuPanel,
+  PrimaryPanel,
+  PrimaryPanelI18n,
+} from './MainMenu/_PrimaryPanel';
 import { useHannaUIState } from './utils/HannaUIState';
 import { useFormatMonitor } from './utils/useFormatMonitor';
 import { SSRSupport, useIsBrowserSide } from './utils';
@@ -21,20 +26,113 @@ const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: st
 
 // ---------------------------------------------------------------------------
 
-export type MainMenuI18n = {
-  lang?: string;
-  backToMenu: string;
-  backToMenuLong?: string;
-};
+export type MainMenuI18n = Cleanup<
+  { lang?: string; homeLabel?: string } & PrimaryPanelI18n
+>;
 
-export const defaultMainMenuTexts: DefaultTexts<MainMenuI18n> = {
-  is: { lang: 'is', backToMenu: 'Loka', backToMenuLong: 'Til baka í valmynd' },
-  en: { lang: 'en', backToMenu: 'Close', backToMenuLong: 'Close and return to menu' },
+export const defaultMainMenuTexts: DefaultTexts<Required<MainMenuI18n>> = {
+  is: {
+    lang: 'is',
+    homeLabel: 'Forsíða',
+    backToMenu: 'Loka',
+    backToMenuLong: 'Til baka í valmynd',
+  },
+  en: {
+    lang: 'en',
+    homeLabel: 'Home page',
+    backToMenu: 'Close',
+    backToMenuLong: 'Close and return to menu',
+  },
+  pl: {
+    lang: 'pl',
+    homeLabel: 'Strona główna',
+    backToMenu: 'Zamknij',
+    backToMenuLong: 'Zamknij i wróć do menu',
+  },
 };
 
 // ---------------------------------------------------------------------------
 
-export type { AuxilaryPanelIllustration, AuxiliaryPanelProps };
+const _issueHomeLinkWarnings = (hasHomeItem: boolean, hasHomeLinkProp: boolean) => {
+  const bothDefined = hasHomeItem && hasHomeLinkProp;
+  const neitherDefined = !hasHomeItem && !hasHomeLinkProp;
+
+  if (bothDefined) {
+    console.warn(
+      'Ignoring a redundant `MainMenuProps.homeLink` value. ' +
+        '(As `MainMenuProps.items` already starts with a "Home" item.)'
+    );
+  } else if (neitherDefined) {
+    console.warn(
+      '`MainMenuProps.homeLink` is missing. Auto-inserting a generic "home link" with `href="/"`.'
+    );
+  }
+};
+
+const normalizeMenuItems = (
+  itemsProp: MainMenuProps['items'],
+  megaPanels: NonNullable<MainMenuProps['megaPanels']>,
+  homeLink: MainMenuProps['homeLink'],
+  texts: NonNullable<MainMenuProps['texts']>
+) => {
+  type MenuItemNormalized =
+    | MainMenuSeparator
+    | (MainMenuItem & {
+        megaPanel?: MegaMenuPanel;
+        controlsId?: string;
+      });
+
+  const items = itemsProp.map((item): MenuItemNormalized => {
+    if (item === '---') {
+      return item;
+    }
+    const href = item.href;
+    const controlsId =
+      item.controlsId || (href && /^#/.test(href) && href.slice(1)) || undefined;
+    const megaPanel = controlsId
+      ? megaPanels.find((panel) => panel.id === controlsId)
+      : undefined;
+    return { ...item, controlsId, megaPanel };
+  });
+
+  const firstItem = items[0];
+  if (firstItem) {
+    // Prepend menu item list with a "home link", unless it's already there
+    const hasHomeItem = typeof firstItem === 'object' && firstItem.modifier === 'home';
+
+    if (process.env.NODE_ENV !== 'production') {
+      _issueHomeLinkWarnings(hasHomeItem, !!homeLink);
+    }
+
+    if (!hasHomeItem) {
+      if (!homeLink || typeof homeLink === 'string') {
+        let label = texts.homeLabel;
+        let lang: string | undefined;
+        if (label == null) {
+          const def =
+            defaultMainMenuTexts[texts.lang || 'en'] ||
+            defaultMainMenuTexts.en ||
+            defaultMainMenuTexts.is;
+          label = def.homeLabel;
+          lang = def.lang;
+        }
+        homeLink = { href: homeLink || '/', label, lang };
+      }
+      items.unshift({ ...homeLink, modifier: 'home' });
+    }
+  }
+
+  return items;
+};
+
+// ---------------------------------------------------------------------------
+
+export type {
+  AuxilaryPanelIllustration,
+  AuxiliaryPanelProps,
+  MegaMenuItem,
+  MegaMenuPanel,
+};
 
 export type MainMenuItem = {
   label: string;
@@ -65,24 +163,14 @@ export type MainMenuItem = {
 export type MainMenuSeparator = '---';
 export type MainMenuItemList = Array<MainMenuItem | MainMenuSeparator>;
 
-export type MegaMenuItem = {
-  label: string;
-  summary?: string;
-  href: string;
-  lang?: string;
-  current?: boolean;
-  target?: string;
-};
-
-export type MegaMenuPanel = {
-  title: string;
-  items: Array<MegaMenuItem>;
-  id: string;
-};
-
 export type MainMenuProps = {
   title: string;
   items: MainMenuItemList;
+  /**
+   * Link for the homepage - defaults to `"/"` adding a
+   * generic sounding "Home"/"Forsíða" label
+   */
+  homeLink?: string | Omit<MainMenuItem, 'modifier'>;
   megaPanels?: Array<MegaMenuPanel>;
   auxiliaryPanel?: AuxiliaryPanelProps;
   /**
@@ -99,6 +187,8 @@ export type MainMenuProps = {
 
 export const MainMenu = (props: MainMenuProps) => {
   const { title, megaPanels = [], onItemClick, ssr, auxiliaryPanel } = props;
+
+  const texts = getTexts(props, defaultMainMenuTexts);
 
   const { closeHamburgerMenu } = useHannaUIState();
 
@@ -168,21 +258,8 @@ export const MainMenu = (props: MainMenuProps) => {
   const hasActivePanel = !!activePanel;
 
   const menuItems = useMemo(
-    () =>
-      props.items.map((item) => {
-        if (item === '---') {
-          return item;
-        }
-        const href = item.href;
-        const controlsId =
-          item.controlsId || (href && /^#/.test(href) && href.slice(1)) || undefined;
-        return {
-          ...item,
-          controlsId,
-          megaPanel: controlsId && megaPanels.find((panel) => panel.id === controlsId),
-        };
-      }),
-    [props.items, megaPanels]
+    () => normalizeMenuItems(props.items, megaPanels, props.homeLink, texts),
+    [props.items, props.homeLink, megaPanels, texts]
   );
 
   useEffect(() => {
@@ -230,28 +307,6 @@ export const MainMenu = (props: MainMenuProps) => {
       closeHamburgerMenu();
     }
   };
-
-  if (process.env.NODE_ENV !== 'production') {
-    const firstItem = menuItems[0]!;
-    if (firstItem === '---' || firstItem.modifier !== 'home') {
-      console.warn(
-        [
-          '`The first item of <MainMenu/>` must be a "Home" link.',
-          'Please add a `MainMenuItem` with `modifier: "home"`.',
-          '',
-          'Example:',
-          '  {',
-          '    href: "/",',
-          '    label: "Forsíða",',
-          '    modifier: "home",',
-          '  }',
-          '',
-          "(Don't worry, the home link remains invisible for anyone" +
-            ' not using a screen-reader or navigating by keyboard.)',
-        ].join('\n')
-      );
-    }
-  }
 
   return (
     <nav
@@ -341,7 +396,7 @@ export const MainMenu = (props: MainMenuProps) => {
                   panel={panel}
                   isBrowser={isBrowser}
                   setActivePanel={setActivePanel}
-                  texts={getTexts(props, defaultMainMenuTexts)}
+                  texts={texts}
                   activeRef={activePanelRef}
                 />
               );

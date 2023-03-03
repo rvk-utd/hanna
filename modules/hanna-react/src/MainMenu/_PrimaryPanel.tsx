@@ -2,14 +2,33 @@ import React, { RefObject } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { Link } from '../_abstract/_Link';
-import { MainMenuI18n, MegaMenuPanel } from '../MainMenu';
+
+export type PrimaryPanelI18n = {
+  backToMenu: string;
+  backToMenuLong?: string;
+};
+
+export type MegaMenuItem = {
+  label: string;
+  summary?: string;
+  href: string;
+  lang?: string;
+  current?: boolean;
+  target?: string;
+};
+
+export type MegaMenuPanel = {
+  title: string;
+  items: Array<MegaMenuItem>;
+  id: string;
+};
 
 type PrimaryPanelProps = {
   setActivePanel: (panel: MegaMenuPanel | undefined, setFocus?: boolean) => void;
   isParent?: boolean;
   isActive?: boolean;
   panel: MegaMenuPanel;
-  texts: MainMenuI18n;
+  texts: PrimaryPanelI18n;
   activeRef: RefObject<HTMLLIElement>;
   isBrowser: true | undefined;
 };
