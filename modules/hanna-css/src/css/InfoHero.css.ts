@@ -111,6 +111,11 @@ export default css`
       display: block;
     }
 
+    .InfoHero__footer {
+      font: ${vars.font_bd_l};
+      margin-top: ${prem(32)};
+    }
+
     /* ------------------------------------------------------------------------ */
     /*
       BEGIN: Styling for weird custom markup changes in some places on www.reykjavik.is

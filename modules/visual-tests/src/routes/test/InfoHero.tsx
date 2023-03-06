@@ -61,6 +61,7 @@ export default function () {
         subTitle="Lorem ipsum dolor sit amet"
         image={photo.landscape}
         buttons={buttonProps}
+        footer={loremRT.short()}
         blingType="triangles"
       />
     </Minimal>

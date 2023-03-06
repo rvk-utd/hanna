@@ -77,6 +77,7 @@ export type InfoHeroProps = {
   subTitle?: string;
   blurb?: string | JSX.Element;
   buttons?: Array<ButtonProps>;
+  footer?: string | JSX.Element;
   align?: Alignment;
   image?: ImageProps;
   blingType?: BlingOptions;
@@ -90,6 +91,7 @@ export const InfoHero = (props: InfoHeroProps) => {
     blurb,
     image,
     buttons = [],
+    footer,
     align,
     blingType,
   } = props;
@@ -116,6 +118,7 @@ export const InfoHero = (props: InfoHeroProps) => {
             ))}
           </div>
         )}
+        {footer && <div className="InfoHero__footer">{footer}</div>}
       </div>
       <Image className="InfoHero__image" altText={title} {...image} placeholder />
       <Blings blings={blings} mirror={alignment === 'right'} />

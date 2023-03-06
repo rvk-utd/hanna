@@ -80,6 +80,17 @@ export const _InfoHero: StoryComponent = () => {
     ? swimmingpoolContent
     : cityCouncilContent;
 
+  const blurb = boolean('Blurb text', false) ? (
+    <>
+      Lorem ipsum
+      <br />
+      Dolor sit
+    </>
+  ) : undefined;
+  const footer = boolean('Footer text', false)
+    ? 'Leebur deroor iehroom, minim chokolat moose.'
+    : undefined;
+
   return (
     <InfoHero
       key={align + (image !== '') + blingType}
@@ -94,6 +105,8 @@ export const _InfoHero: StoryComponent = () => {
           label: 'borgarstjori@reykjavik.is',
         },
       ]}
+      blurb={blurb}
+      footer={footer}
       blingType={blingType}
     />
   );
