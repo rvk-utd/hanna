@@ -115,6 +115,7 @@ export default css`
     overflow-y: scroll;
     overflow-x: hidden;
     box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
+    z-index: 99;
   }
 
   .Multiselect--closed .Multiselect__options {
@@ -156,5 +157,27 @@ export default css`
 
   .Multiselect__option:hover {
     background-color: ${vars.color_suld_50};
+  }
+
+  /* ------------------- Hanna FormSelect --------------------- */
+
+  .MultiSelectHanna__container {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    background: white;
+    max-height: 380px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
+    z-index: 99;
+  }
+
+  .MultiSelectHanna__option {
+    padding: 8px 16px;
+  }
+
+  .MultiSelectHanna__option .Checkbox {
+    margin: 0;
   }
 `;

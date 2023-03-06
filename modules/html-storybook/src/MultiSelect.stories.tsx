@@ -1,6 +1,7 @@
 import React from 'react';
 import MultiSelect from '@reykjavik/hanna-react/Multiselect';
 import MultiSelectDownshift from '@reykjavik/hanna-react/MultiSelectDownShift';
+import MultiSelectHanna from '@reykjavik/hanna-react/MultiSelectHanna';
 import MultiSelectReactSelect from '@reykjavik/hanna-react/MultiSelectReactSelect';
 import SubHeading from '@reykjavik/hanna-react/SubHeading';
 
@@ -40,6 +41,13 @@ export const _Multiselect: StoryComponent = () => {
       <MultiSelectDownshift options={options} />
       <SubHeading startSeen>Multiselect - Custom </SubHeading>
       <MultiSelect items={options} />
+      <SubHeading startSeen>Multiselect - Hanna</SubHeading>
+      <MultiSelectHanna items={options} />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };
