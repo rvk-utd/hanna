@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import Checkbox from './Checkbox';
@@ -18,31 +18,62 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
   const { onChange, ...inputElementProps } = props;
   const { value, items } = inputElementProps;
 
-  const [hasValue, setHasValue] = useState<boolean | undefined>(undefined);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
-  const _onChange: typeof onChange =
-    value != null
-      ? onChange
-      : (e) => {
-          setHasValue(!!e.target.value);
-          onChange && onChange(e);
-        };
+  const filteredItems = items.filter((item) => {
+    const sq = searchQuery.toLowerCase();
+    const result = item.label.toLowerCase().includes(sq);
+    return result;
+  });
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const val = event.target.value;
+    setSearchQuery(val.trimEnd());
+  };
+
+  const handleCheckboxSelection = (item: Item) => {
+    const itemHasNotBeenSelected = !selectedItems.find(
+      (selItem) => selItem.value === item.value
+    );
+    const updatedSelectedItems = itemHasNotBeenSelected
+      ? [...selectedItems, item]
+      : selectedItems.filter((selected) => selected.value !== item.value);
+
+    setSelectedItems(updatedSelectedItems);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const clickIsInside = wrapperRef.current?.contains(target);
+      if (!clickIsInside) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('click', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, [wrapperRef]);
 
   return (
     <FormField
       className={getBemClass('MultiSelectHanna', null)}
       label="Select an option"
       LabelTag="h4"
+      wrapperRef={wrapperRef}
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
-        console.log('className: ', className);
         return (
           <div className={className.input} {...addFocusProps()}>
             {isBrowser && (
               <input
-                onChange={_onChange}
+                onChange={handleSearchChange}
                 onFocus={() => setIsOpen(true)}
-                onBlur={() => setIsOpen(false)}
                 {...inputProps}
                 {...inputElementProps}
                 ref={props.inputRef}
@@ -56,13 +87,13 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
                 aria-expanded={isOpen}
                 hidden={!isOpen}
               >
-                {items.map((item, indx) => {
+                {filteredItems.map((item, indx) => {
                   return (
                     <li className="MultiSelectHanna__option" key={item.label}>
                       <Checkbox
                         label={item.label}
-                        onChange={() => console.log(item)}
-                        checked={false}
+                        onChange={() => handleCheckboxSelection(item)}
+                        checked={selectedItems.includes(item)}
                       />
                     </li>
                   );

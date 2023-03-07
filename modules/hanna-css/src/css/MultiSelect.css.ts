@@ -180,8 +180,16 @@ export default css`
     padding: 8px 16px;
   }
 
+  .MultiSelectHanna__option:hover {
+    background-color: ${vars.color_suld_50};
+  }
+
   .MultiSelectHanna__option .Checkbox {
     margin: 0;
+  }
+
+  .MultiSelectHanna__option .Checkbox__label {
+    width: 100%;
   }
 
   /* TODO: Refactor with Selectbox */
