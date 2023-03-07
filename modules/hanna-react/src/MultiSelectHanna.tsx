@@ -19,6 +19,7 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
   const { value, items } = inputElementProps;
 
   const [hasValue, setHasValue] = useState<boolean | undefined>(undefined);
+  const [isOpen, setIsOpen] = useState(false);
 
   const _onChange: typeof onChange =
     value != null
@@ -30,7 +31,7 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
 
   return (
     <FormField
-      className={getBemClass('MultiSelect', null)}
+      className={getBemClass('MultiSelectHanna', null)}
       label="Select an option"
       LabelTag="h4"
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
@@ -40,6 +41,8 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
             {isBrowser && (
               <input
                 onChange={_onChange}
+                onFocus={() => setIsOpen(true)}
+                onBlur={() => setIsOpen(false)}
                 {...inputProps}
                 {...inputElementProps}
                 ref={props.inputRef}
@@ -50,7 +53,8 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
                 className="MultiSelectHanna__options"
                 aria-labelledby="my-heading-id"
                 role="group"
-                aria-expanded="true"
+                aria-expanded={isOpen}
+                hidden={!isOpen}
               >
                 {items.map((item, indx) => {
                   return (

@@ -42,7 +42,7 @@ export const _Multiselect: StoryComponent = () => {
       <SubHeading startSeen>Multiselect - Custom </SubHeading>
       <MultiSelect items={options} />
       <SubHeading startSeen>Multiselect - Hanna</SubHeading>
-      <MultiSelectHanna items={options} />
+      <MultiSelectHanna items={options} label="Veldu tegund" />
       <br />
       <br />
       <br />

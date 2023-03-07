@@ -3,7 +3,10 @@ import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
+import { FormFieldVariables } from './styles/forms';
 import { prem } from './utils/miscUtils';
+
+const ff = FormFieldVariables.vars;
 
 export default css`
   /*!@deps
@@ -179,5 +182,26 @@ export default css`
 
   .MultiSelectHanna__option .Checkbox {
     margin: 0;
+  }
+
+  /* TODO: Refactor with Selectbox */
+  .MultiSelectHanna > .FormField__input::after {
+    ${iconStyle(vars.icon__chevron_down)}
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: ${prem(20)};
+    pointer-events: none;
+    margin: auto;
+    color: ${ff.input__border_color};
+    transition: all 200ms ease-in;
+    font-size: ${prem(16)};
+    height: 1em;
+    line-height: 1em;
+  }
+
+  .MultiSelectHanna.FormField--focused > .FormField__input::after {
+    transform: rotateX(180deg);
+    transition: all 200ms ease-in;
   }
 `;
