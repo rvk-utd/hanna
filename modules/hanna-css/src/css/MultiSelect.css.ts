@@ -163,15 +163,17 @@ export default css`
   }
 
   /* ------------------- Hanna FormSelect --------------------- */
-
   .MultiSelectHanna__container {
     position: absolute;
     top: 54px;
     left: 0;
+  }
+  .MultiSelectHanna__options {
     background: white;
+    width: 100%;
     max-height: 380px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-y: auto;
+    // overflow-x: hidden;
     box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
     z-index: 99;
   }
@@ -190,6 +192,10 @@ export default css`
 
   .MultiSelectHanna__option .Checkbox__label {
     width: 100%;
+  }
+
+  .MultiSelectHanna__option[role='option'].focused {
+    background-color: ${vars.color_suld_50};
   }
 
   /* TODO: Refactor with Selectbox */
