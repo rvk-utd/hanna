@@ -529,6 +529,7 @@ const layoutVarDeclarations = css`
   ${layoutVars.declare({
     Layout$$header_height: px(_lHead_min),
     Layout$$header_backgroundColor: 'transparent',
+    Layout$$main_paddingTop: spaceVars.vars.space_4,
   })}
   @media ${mq.Topmenu} {
     ${layoutVars.override({

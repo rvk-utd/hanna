@@ -17,8 +17,9 @@ export default css`
 
     .Layout__nav .BreadCrumbs {
       position: absolute;
-      top: ${vars.Layout$$header_height};
-      margin-top: 2px;
+      bottom: calc(
+        100% + -1 * ${vars.Layout$$header_height} + -0.5 * ${vars.font_label_leading}
+      );
       left: 0;
       max-width: 100%;
     }

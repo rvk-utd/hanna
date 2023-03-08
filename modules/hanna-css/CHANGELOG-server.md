@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Decrease top padding of `Layout__main`, shift `BreadCrumbs` a bit
+- feat: Add CSS variable `--Layout__main--paddingTop`
 - feat: Add styling for `.InfoHero__footer`
 
 ## 0.8.76

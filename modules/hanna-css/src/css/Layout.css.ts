@@ -89,9 +89,9 @@ export default css`
     }
 
     .Layout__main {
-      padding-top: ${prem(50)};
+      padding-top: ${vars.Layout$$main_paddingTop};
       flex-grow: 1;
-      padding-bottom: ${prem(30)};
+      padding-bottom: ${vars.space_4};
       min-height: 60vh;
     }
 

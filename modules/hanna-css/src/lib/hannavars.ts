@@ -287,6 +287,7 @@ export const spaceVars = buildVariables([
 export const layoutVars = buildVariables([
   'Layout$$header_height',
   'Layout$$header_backgroundColor',
+  'Layout$$main_paddingTop',
 ]);
 
 // ---------------------------------------------------------------------------
