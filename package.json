@@ -3,7 +3,7 @@
   "version": "0.8.29",
   "description": "Monorepo for all code related to development tooling for Hanna (Reykjavík's design system)",
   "repository": "ssh://git@github.com:rvk-utd/hanna.git",
-  "author": "Reykjavík (http://www.reykjavik.is",
+  "author": "Reykjavík (http://www.reykjavik.is)",
   "license": "MIT",
   "private": true,
   "engines": {

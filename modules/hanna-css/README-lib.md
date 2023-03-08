@@ -12,7 +12,7 @@ Developers using CSS-in-JS libraries, such as
 useful.
 
 ```sh
-yarn add --dev @reykjavik/hanna-css
+yarn add @reykjavik/hanna-css
 ```
 
 **Table of Contents:**

@@ -6,6 +6,10 @@ helpful when working with (or within) the Hanna design system.
 This library is also a core dependency of most other packages in this repo,
 including [hanna-react](../hanna-react), [hanna-css](../hanna-css), and more.
 
+```sh
+yarn add @reykjavik/hanna-utils
+```
+
 **Table of Contents:**
 
 <!-- prettier-ignore-start -->
