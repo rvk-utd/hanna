@@ -182,19 +182,19 @@ export default css`
     padding: 8px 16px;
   }
 
-  .MultiSelectHanna__option:hover {
-    background-color: ${vars.color_suld_50};
+  .MultiSelectHanna__option.Checkbox {
+    margin: 0;
   }
 
-  .MultiSelectHanna__option .Checkbox {
-    margin: 0;
+  .MultiSelectHanna__option:hover {
+    background-color: ${vars.color_suld_50};
   }
 
   .MultiSelectHanna__option .Checkbox__label {
     width: 100%;
   }
 
-  .MultiSelectHanna__option[role='option'].focused {
+  .MultiSelectHanna__option--focus {
     background-color: ${vars.color_suld_50};
   }
 

@@ -46,6 +46,12 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
     setSelectedItems(updatedSelectedItems);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === ' ') {
+      setIsOpen(true);
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -124,7 +130,8 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
               <input
                 aria-owns="MultiselectHanna_options"
                 onChange={handleSearchChange}
-                onFocus={() => setIsOpen(true)}
+                onKeyDown={handleKeyDown}
+                onClick={() => setIsOpen(true)}
                 {...inputProps}
                 {...inputElementProps}
                 ref={props.inputRef}
@@ -132,31 +139,26 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
             )}
             <div className="MultiSelectHanna__container">
               <ul
-                role="listbox"
                 id="MultiselectHanna_options"
-                aria-activedescendant={`MultiSelectHanna__option-${focusedIndex}`}
-                aria-multiselectable={true}
                 className="MultiSelectHanna__options"
+                role="group"
+                aria-expanded={isOpen}
                 hidden={!isOpen}
               >
                 {filteredItems.map((item, indx) => {
                   return (
-                    <li
-                      role="option"
-                      id={`MultiSelectHanna__option-${indx}`}
-                      className={`MultiSelectHanna__option ${
-                        indx === focusedIndex ? 'focused' : ''
-                      }`}
-                      aria-selected={selectedItems.includes(item)}
-                      key={item.label}
-                    >
-                      <Checkbox
-                        tabIndex={-1}
-                        label={item.label}
-                        onChange={() => handleCheckboxSelection(item)}
-                        checked={selectedItems.includes(item)}
-                      />
-                    </li>
+                    <Checkbox
+                      className={getBemClass(
+                        'MultiSelectHanna__option',
+                        focusedIndex === indx && 'focus'
+                      )}
+                      key={indx}
+                      Wrapper="li"
+                      label={item.label}
+                      onChange={() => handleCheckboxSelection(item)}
+                      checked={selectedItems.includes(item)}
+                      onFocus={() => setFocusedIndex(indx)}
+                    />
                   );
                 })}
               </ul>
