@@ -1,5 +1,5 @@
 import React from 'react';
-import MultiSelect from '@reykjavik/hanna-react/MultiSelect';
+import MultiSelect from '@reykjavik/hanna-react/Multiselect';
 import MultiSelectCustom from '@reykjavik/hanna-react/MultiselectCustom';
 import MultiSelectDownshift from '@reykjavik/hanna-react/MultiSelectDownShift';
 import MultiSelectReactSelect from '@reykjavik/hanna-react/MultiSelectReactSelect';

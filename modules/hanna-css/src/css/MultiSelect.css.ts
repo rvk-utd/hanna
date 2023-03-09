@@ -192,7 +192,7 @@ export default css`
     width: 100%;
   }
 
-  .MultiSelectHanna__option--focus {
+  .MultiSelect__option--focus {
     background-color: ${vars.color_suld_50};
   }
 
