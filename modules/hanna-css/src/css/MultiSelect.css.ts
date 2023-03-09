@@ -167,13 +167,11 @@ export default css`
     position: absolute;
     top: 54px;
     left: 0;
+    max-height: 380px;
+    overflow-y: auto;
   }
   .MultiSelectHanna__options {
     background: white;
-    width: 100%;
-    max-height: 380px;
-    overflow-y: auto;
-    // overflow-x: hidden;
     box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
     z-index: 99;
   }

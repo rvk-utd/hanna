@@ -128,10 +128,13 @@ const MultiSelectHanna = (props: MultiSelectHannaProps & SearchInputProps) => {
           <div className={className.input} {...addFocusProps()}>
             {isBrowser && (
               <input
-                aria-owns="MultiselectHanna_options"
+                aria-controls="MultiselectHanna_options"
                 onChange={handleSearchChange}
-                onKeyDown={handleKeyDown}
-                onClick={() => setIsOpen(true)}
+                // onKeyDown={handleKeyDown}
+                onClick={() => {
+                  setIsOpen(true);
+                  setFocusedIndex(0);
+                }}
                 {...inputProps}
                 {...inputElementProps}
                 ref={props.inputRef}

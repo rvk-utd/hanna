@@ -89,7 +89,6 @@ const MultiSelectReactSelect = () => {
       <Select<OptionGaur>
         placeholder="Select a flavour..."
         defaultValue={[]}
-        menuIsOpen
         isMulti
         closeMenuOnSelect={false}
         hideSelectedOptions={false}
