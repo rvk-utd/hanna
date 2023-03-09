@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import Checkbox from './Checkbox';
-import TagPill from './TagPill';
-import TextInput from './TextInput';
+import FormField from './FormField';
+import { SearchInputProps } from './SearchInput';
 
 type Item = {
   label: string;
@@ -13,13 +14,15 @@ type MultiSelectProps = {
   items: Array<Item>;
 };
 
-const MultiSelect = (props: MultiSelectProps) => {
-  const { items } = props;
+const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
+  const { onChange, ...inputElementProps } = props;
+  const { value, items } = inputElementProps;
 
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
+  const [focusedIndex, setFocusedIndex] = useState(-1);
   const [searchQuery, setSearchQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const selectRef = useRef<HTMLDivElement>(null);
 
   const filteredItems = items.filter((item) => {
     const sq = searchQuery.toLowerCase();
@@ -32,7 +35,7 @@ const MultiSelect = (props: MultiSelectProps) => {
     setSearchQuery(val.trimEnd());
   };
 
-  const handleItemClick = (item: Item) => {
+  const handleCheckboxSelection = (item: Item) => {
     const itemHasNotBeenSelected = !selectedItems.find(
       (selItem) => selItem.value === item.value
     );
@@ -49,20 +52,11 @@ const MultiSelect = (props: MultiSelectProps) => {
     }
   };
 
-  const removeSelectedItem = (item: Item) => {
-    setSelectedItems(selectedItems.filter((i) => i !== item));
-  };
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      const isClickOutside =
-        selectRef.current &&
-        !selectRef.current.contains(target) &&
-        !['TagPill', 'TagPill__button', 'TagPill__remove'].some((className) =>
-          target.classList.contains(className)
-        );
-      if (isClickOutside) {
+      const clickIsInside = wrapperRef.current?.contains(target);
+      if (!clickIsInside) {
         setIsOpen(false);
       }
     };
@@ -72,69 +66,110 @@ const MultiSelect = (props: MultiSelectProps) => {
     return () => {
       window.removeEventListener('click', handleClickOutside);
     };
-  }, [selectRef]);
+  }, [wrapperRef]);
+
+  useEffect(() => {
+    const handleCheckboxSelectionByKeyboard = (index: number) => {
+      const selectedItem = filteredItems[index];
+      const itemHasBeenSelected = selectedItems.some((p) => p === selectedItem);
+
+      const updatedSelectedItems =
+        selectedItem && !itemHasBeenSelected
+          ? [...selectedItems, selectedItem]
+          : selectedItems.filter((selected) => selected !== selectedItem);
+
+      setSelectedItems(updatedSelectedItems);
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      console.log('event.key: ', event.key);
+      switch (event.key) {
+        case 'ArrowDown': {
+          setFocusedIndex((prevIndex) =>
+            prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
+          );
+          break;
+        }
+        case 'ArrowUp': {
+          setFocusedIndex((prevIndex) =>
+            prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
+          );
+          break;
+        }
+        case 'Enter': {
+          handleCheckboxSelectionByKeyboard(focusedIndex);
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, filteredItems.length, focusedIndex, filteredItems, selectedItems]);
 
   return (
-    <div
-      className={`Multiselect ${isOpen ? 'Multiselect--open' : 'Multiselect--closed'}`}
-      ref={selectRef}
-    >
-      <div className="Multiselect__input">
-        {items.length > 10 && (
-          <TextInput
-            onChange={handleSearchChange}
-            className="Multiselect__textInput"
-            label="Select a flavour.."
-            onClick={() => setIsOpen(true)}
-            onKeyDown={handleKeyDown}
-          />
-        )}
-
-        <ul
-          className="Multiselect__options"
-          id="multi-select-dropdown"
-          tabIndex={-1}
-          role="menu"
-        >
-          {selectedItems.length > 0 && (
-            <li className="Multiselect__tags">
-              <div className="Multiselect__tagpills">
-                {selectedItems.map((tag) => (
-                  <TagPill
-                    key={tag.label}
-                    type="button"
-                    removable
-                    onRemove={() => {
-                      removeSelectedItem(tag);
-                    }}
-                  >
-                    {tag.label}
-                  </TagPill>
-                ))}
-              </div>
-            </li>
-          )}
-
-          {filteredItems.map((item, indx) => {
-            return (
-              <li
-                className="Multiselect__option"
-                key={item.label}
-                role="option"
-                aria-selected={selectedItems.includes(item)}
-                id={`multiselect-option-${indx}`}
+    <FormField
+      className="MultiSelect"
+      label="Select an option"
+      LabelTag="h4"
+      wrapperRef={wrapperRef}
+      renderInput={(className, inputProps, addFocusProps, isBrowser) => {
+        return (
+          <div className={className.input} {...addFocusProps()}>
+            {isBrowser && (
+              <input
+                aria-controls="Multiselect_options"
+                onChange={handleSearchChange}
+                onKeyDown={handleKeyDown}
+                onClick={() => {
+                  setIsOpen(true);
+                  setFocusedIndex(0);
+                }}
+                {...inputProps}
+                {...inputElementProps}
+                ref={props.inputRef}
+              />
+            )}
+            <div className="MultiSelect__container">
+              <ul
+                id="Multiselect_options"
+                className="MultiSelect__options"
+                role="group"
+                aria-expanded={isOpen}
+                hidden={!isOpen}
               >
-                <Checkbox
-                  label={item.label}
-                  onChange={() => handleItemClick(item)}
-                  checked={selectedItems.includes(item)}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </div>
+                {filteredItems.map((item, indx) => {
+                  return (
+                    <Checkbox
+                      className={getBemClass(
+                        'MultiSelect__option',
+                        focusedIndex === indx && 'focus'
+                      )}
+                      key={indx}
+                      Wrapper="li"
+                      label={item.label}
+                      onChange={() => handleCheckboxSelection(item)}
+                      checked={selectedItems.includes(item)}
+                      onFocus={() => setFocusedIndex(indx)}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        );
+      }}
+    />
   );
 };
 
