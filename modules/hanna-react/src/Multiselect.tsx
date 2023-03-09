@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { useOnClickOutside } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import Checkbox from './Checkbox';
@@ -19,10 +20,20 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const { value, items } = inputElementProps;
 
   const wrapperRef = useRef<HTMLDivElement>(null);
+
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [searchQuery, setSearchQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
+    const target = event.target as HTMLElement;
+    const clickIsInside = wrapperRef.current?.contains(target);
+    if (!clickIsInside) {
+      setIsOpen(false);
+    }
+  };
+  useOnClickOutside(wrapperRef, handleOutsideClick);
 
   const filteredItems = items.filter((item) => {
     const sq = searchQuery.toLowerCase();
@@ -51,22 +62,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       setIsOpen(true);
     }
   };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      const clickIsInside = wrapperRef.current?.contains(target);
-      if (!clickIsInside) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener('click', handleClickOutside);
-
-    return () => {
-      window.removeEventListener('click', handleClickOutside);
-    };
-  }, [wrapperRef]);
 
   return (
     <FormField
