@@ -26,14 +26,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
-    const target = event.target as HTMLElement;
-    const clickIsInside = wrapperRef.current?.contains(target);
-    if (!clickIsInside) {
-      setIsOpen(false);
-    }
-  };
-  useOnClickOutside(wrapperRef, handleOutsideClick);
+  useOnClickOutside(wrapperRef, () => setIsOpen(false));
 
   const filteredItems = items.filter((item) => {
     const sq = searchQuery.toLowerCase();
