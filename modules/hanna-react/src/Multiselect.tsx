@@ -68,55 +68,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     };
   }, [wrapperRef]);
 
-  useEffect(() => {
-    const handleCheckboxSelectionByKeyboard = (index: number) => {
-      const selectedItem = filteredItems[index];
-      const itemHasBeenSelected = selectedItems.some((p) => p === selectedItem);
-
-      const updatedSelectedItems =
-        selectedItem && !itemHasBeenSelected
-          ? [...selectedItems, selectedItem]
-          : selectedItems.filter((selected) => selected !== selectedItem);
-
-      setSelectedItems(updatedSelectedItems);
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      console.log('event.key: ', event.key);
-      switch (event.key) {
-        case 'ArrowDown': {
-          setFocusedIndex((prevIndex) =>
-            prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
-          );
-          break;
-        }
-        case 'ArrowUp': {
-          setFocusedIndex((prevIndex) =>
-            prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
-          );
-          break;
-        }
-        case 'Enter': {
-          handleCheckboxSelectionByKeyboard(focusedIndex);
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.removeEventListener('keydown', handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, filteredItems.length, focusedIndex, filteredItems, selectedItems]);
-
   return (
     <FormField
       className="MultiSelect"
