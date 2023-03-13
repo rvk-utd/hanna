@@ -1,0 +1,13 @@
+{{ attach_library('storybook/FieldGroup') }}
+
+{% set smallClass = small is defined and small ?
+    ? ' FieldGroup--small'
+    : ''
+%}
+
+<fieldset class="FieldGroup{{smallClass}}">
+  <legend>{{ legend }}</legend>
+	{% block content %}
+		{{ content }}
+	{% endblock %}
+</fieldset>
