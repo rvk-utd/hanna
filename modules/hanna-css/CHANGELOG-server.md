@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Decrease top padding of `Layout__main`, shift `BreadCrumbs` a bit
+- feat: Add styling for `.FieldGroup--small`
 - feat: Add CSS variable `--Layout__main--paddingTop`
 - feat: Add styling for `.InfoHero__footer`
 

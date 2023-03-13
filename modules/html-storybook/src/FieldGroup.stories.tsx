@@ -13,10 +13,11 @@ export default {
 };
 
 export const _FieldGroup: StoryComponent = () => {
+  const small = boolean('Small Legend', false);
   const disabled = boolean('Disabled', false);
 
   return (
-    <FieldGroup legend="Group headline" disabled={disabled}>
+    <FieldGroup legend="Group headline" small={small} disabled={disabled}>
       <p>...FormFields and other content goes here...</p>
     </FieldGroup>
   );

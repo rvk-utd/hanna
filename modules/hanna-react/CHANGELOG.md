@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `small` to `FieldGroup`
 - feat: Add prop `footer` to `InfoHero`
 
 ## 0.10.82

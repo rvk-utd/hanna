@@ -4,7 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Tooltip`
+- feat: Add modifier `.FieldGroup--small` for smaller label
 - feat: Add optional `.InfoHero__footer` element
+- fix: Remove redundant `role="group"` off `FieldGroup`'s `fieldset` element
 - fix: Remove `role="group"` off all Checkbox and Radio Group containers
 
 ## 0.8.29

@@ -19,19 +19,24 @@ export default function () {
   return (
     <Minimal>
       <FieldGroup legend="Group Headline">
-        <Checkbox label="Tick me please" />
         <TextInput label="Enter text please" value="" />
         <Selectbox label="Enter text please" options={['', 'Hi!']} value="" />
+        <Checkbox label="Tick me please" />
       </FieldGroup>
       <DummyBlock thin />
       <FieldGroup legend="Disabled Group Headline" disabled>
-        <Checkbox label="Tick me please" />
         <TextInput label="Enter text please" value="" />
         <Selectbox label="Enter text please" options={['', 'Hi!']} value="" />
+        <Checkbox label="Tick me please" />
         {/** /
         <TextInput label="Enter text please" disabled />
         <Selectbox label="Enter text please" options={[]} disabled />
         /**/}
+      </FieldGroup>
+      <DummyBlock thin />
+      <FieldGroup legend="Small Legend" small>
+        <TextInput label="Enter text please" value="" />
+        <p>Other fields...</p>
       </FieldGroup>
     </Minimal>
   );

@@ -4,16 +4,16 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 export type FieldGroupProps = {
   legend: string;
   disabled?: boolean;
+  small?: boolean;
   className?: string;
   children: ReactNode;
 };
 
 export const FieldGroup = (props: FieldGroupProps) => {
-  const { legend, children, className, disabled } = props;
+  const { legend, children, className, disabled, small } = props;
   return (
     <fieldset
-      className={getBemClass('FieldGroup', null, className)}
-      role="group"
+      className={getBemClass('FieldGroup', small && 'small', className)}
       disabled={disabled}
     >
       <legend className="FieldGroup__legend">{legend}</legend>
