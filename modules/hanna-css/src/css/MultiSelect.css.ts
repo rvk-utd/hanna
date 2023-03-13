@@ -169,11 +169,19 @@ export default css`
     left: 0;
     max-height: 380px;
     overflow-y: auto;
-  }
-  .MultiSelect__options {
     background: white;
     box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
+    border: 1px solid ${vars.color_suld_100};
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-radius: 4px;
     z-index: 99;
+    scroll-padding: 50px 0;
+  }
+  .MultiSelect__options {
+    // overflow: hidden;
+    // max-height: 380px;
   }
 
   .MultiSelect__option {

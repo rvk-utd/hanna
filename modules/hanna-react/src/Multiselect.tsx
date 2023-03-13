@@ -16,7 +16,9 @@ type MultiSelectProps = {
 };
 
 const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
-  const { onChange, ...inputElementProps } = props;
+  const _inputRef = useRef<HTMLInputElement>(null);
+
+  const { onChange, inputRef = _inputRef, ...inputElementProps } = props;
   const { value, items } = inputElementProps;
 
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -40,6 +42,8 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   };
 
   const handleCheckboxSelection = (item: Item) => {
+    // inputRef.current?.focus();
+
     const itemHasNotBeenSelected = !selectedItems.find(
       (selItem) => selItem.value === item.value
     );
@@ -76,7 +80,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                 }}
                 {...inputProps}
                 {...inputElementProps}
-                ref={props.inputRef}
+                ref={inputRef}
               />
             )}
             <div className="MultiSelect__container">
