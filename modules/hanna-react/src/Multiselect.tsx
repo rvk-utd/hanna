@@ -56,6 +56,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === ' ') {
+      setSearchQuery('');
       setIsOpen(true);
     }
   };
@@ -74,6 +75,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                 aria-controls="Multiselect_options"
                 onChange={handleSearchChange}
                 onKeyDown={handleKeyDown}
+                value={searchQuery}
                 onClick={() => {
                   setIsOpen(true);
                   setFocusedIndex(0);
