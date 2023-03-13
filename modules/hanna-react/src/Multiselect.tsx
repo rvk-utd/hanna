@@ -19,7 +19,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const _inputRef = useRef<HTMLInputElement>(null);
 
   const { onChange, inputRef = _inputRef, ...inputElementProps } = props;
-  const { value, items } = inputElementProps;
+  const { items } = inputElementProps;
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -83,7 +83,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                 ref={inputRef}
               />
             )}
-            <div className="MultiSelect__container">
+            <div className="MultiSelect__container" tabIndex={-1}>
               <ul
                 id="Multiselect_options"
                 className="MultiSelect__options"
