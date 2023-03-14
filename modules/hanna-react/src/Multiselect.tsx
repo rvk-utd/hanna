@@ -62,7 +62,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     }
   };
 
-  const handleInputBlur = () => {
+  const handleBlur = () => {
     wait(30).then(() => {
       const classList = wrapperRef.current?.classList;
       const isFocused = classList && classList.contains('FormField--focused');
@@ -86,7 +86,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                 aria-controls="Multiselect_options"
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
-                onBlur={handleInputBlur}
+                onBlur={handleBlur}
                 value={searchQuery}
                 onClick={() => {
                   setIsOpen(true);
@@ -120,7 +120,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       onFocus={() => setFocusedIndex(indx)}
                       onBlur={() => {
                         if (indx === filteredItems.length - 1) {
-                          setIsOpen(false);
+                          handleBlur();
                         }
                       }}
                     />
