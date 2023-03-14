@@ -37,11 +37,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     return result;
   });
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const val = event.target.value;
-    setSearchQuery(val.trimEnd());
-  };
-
   const handleCheckboxSelection = (item: Item) => {
     inputRef.current?.focus();
 
@@ -55,12 +50,26 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     setSelectedItems(updatedSelectedItems);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log('handleKeyDown()');
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const val = event.target.value;
+    setSearchQuery(val.trimEnd());
+  };
+
+  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === ' ') {
       setSearchQuery('');
       setIsOpen(true);
     }
+  };
+
+  const handleInputBlur = () => {
+    wait(30).then(() => {
+      const classList = wrapperRef.current?.classList;
+      const isFocused = classList && classList.contains('FormField--focused');
+      if (!isFocused) {
+        setIsOpen(false);
+      }
+    });
   };
 
   return (
@@ -75,18 +84,9 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
             {isBrowser && (
               <input
                 aria-controls="Multiselect_options"
-                onChange={handleSearchChange}
-                onKeyDown={handleKeyDown}
-                onBlur={() => {
-                  wait(30).then(() => {
-                    const classList = wrapperRef.current?.classList;
-                    const isFocused =
-                      classList && classList.contains('FormField--focused');
-                    if (!isFocused) {
-                      setIsOpen(false);
-                    }
-                  });
-                }}
+                onChange={handleInputChange}
+                onKeyDown={handleInputKeyDown}
+                onBlur={handleInputBlur}
                 value={searchQuery}
                 onClick={() => {
                   setIsOpen(true);
