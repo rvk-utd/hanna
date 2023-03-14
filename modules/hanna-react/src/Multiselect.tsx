@@ -42,7 +42,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   };
 
   const handleCheckboxSelection = (item: Item) => {
-    // inputRef.current?.focus();
+    inputRef.current?.focus();
 
     const itemHasNotBeenSelected = !selectedItems.find(
       (selItem) => selItem.value === item.value
