@@ -173,9 +173,7 @@ export default css`
     box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
     border: 1px solid ${vars.color_suld_100};
     border-top: none;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-radius: 4px;
+    border-radius: 0 0 4px 4px;
     z-index: 99;
     scroll-padding: 50px 0;
   }

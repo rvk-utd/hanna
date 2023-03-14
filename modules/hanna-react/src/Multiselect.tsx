@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { wait } from '@hugsmidjan/qj/wait';
 import { useOnClickOutside } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
@@ -55,6 +56,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log('handleKeyDown()');
     if (event.key === ' ') {
       setSearchQuery('');
       setIsOpen(true);
@@ -75,6 +77,16 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                 aria-controls="Multiselect_options"
                 onChange={handleSearchChange}
                 onKeyDown={handleKeyDown}
+                onBlur={() => {
+                  wait(30).then(() => {
+                    const classList = wrapperRef.current?.classList;
+                    const isFocused =
+                      classList && classList.contains('FormField--focused');
+                    if (!isFocused) {
+                      setIsOpen(false);
+                    }
+                  });
+                }}
                 value={searchQuery}
                 onClick={() => {
                   setIsOpen(true);
