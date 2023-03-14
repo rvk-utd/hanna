@@ -118,6 +118,11 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       onChange={() => handleCheckboxSelection(item)}
                       checked={selectedItems.includes(item)}
                       onFocus={() => setFocusedIndex(indx)}
+                      onBlur={() => {
+                        if (indx === filteredItems.length - 1) {
+                          setIsOpen(false);
+                        }
+                      }}
                     />
                   );
                 })}
