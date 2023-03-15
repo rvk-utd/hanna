@@ -61,6 +61,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === ' ') {
       setSearchQuery('');
+      setFocusedIndex(0);
       setIsOpen(true);
     }
   };
