@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - feat: Add prop `small` to `FieldGroup`
 - feat: Add prop `footer` to `InfoHero`
+- fix: Error in `DatePicker` caused by
+  [upstream regression](https://github.com/Hacker0x01/react-datepicker/issues/3918)
 
 ## 0.10.82
 
