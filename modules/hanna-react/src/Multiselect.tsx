@@ -104,10 +104,10 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       document.removeEventListener('keydown', handleKeyDown);
     }
 
-    if (focusedIndex >= 0 && focusedIndex < filteredItems.length) {
-      if (checkboxes && checkboxes[focusedIndex]) {
-        (checkboxes[focusedIndex] as HTMLElement).focus();
-      }
+    const focusInRange = focusedIndex >= 0 && focusedIndex < filteredItems.length;
+
+    if (focusInRange && checkboxes && checkboxes[focusedIndex]) {
+      (checkboxes[focusedIndex] as HTMLElement).focus();
     }
 
     return () => {
