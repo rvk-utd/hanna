@@ -105,7 +105,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     if (focusedIndex >= 0 && focusedIndex < filteredItems.length) {
       const checkboxes = wrapperRef.current?.querySelectorAll('input[type="checkbox"]');
       if (checkboxes && checkboxes[focusedIndex]) {
-        checkboxes[focusedIndex].focus();
+        (checkboxes[focusedIndex] as HTMLElement).focus();
       }
     }
 
