@@ -153,10 +153,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                 onKeyDown={handleInputKeyDown}
                 onBlur={handleBlur}
                 value={searchQuery}
-                onClick={() => {
-                  setIsOpen(true);
-                  setFocusedIndex(0);
-                }}
+                onClick={() => setIsOpen(true)}
                 {...inputProps}
                 {...inputElementProps}
                 ref={inputRef}
