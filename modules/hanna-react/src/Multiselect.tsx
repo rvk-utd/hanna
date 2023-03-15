@@ -105,6 +105,10 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
           }
           break;
         }
+        case 'Escape': {
+          setIsOpen(false);
+          break;
+        }
         default: {
           break;
         }
