@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { wait } from '@hugsmidjan/qj/wait';
 import { useOnClickOutside } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
@@ -38,6 +38,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   });
 
   const handleCheckboxSelection = (item: Item) => {
+    // TODO: only apply on mouse click
     inputRef.current?.focus();
 
     const itemHasNotBeenSelected = !selectedItems.find(
@@ -71,6 +72,47 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       }
     });
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case 'ArrowDown': {
+          event.preventDefault();
+          setFocusedIndex((prevIndex) =>
+            prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
+          );
+          break;
+        }
+        case 'ArrowUp': {
+          event.preventDefault();
+          setFocusedIndex((prevIndex) =>
+            prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
+          );
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+
+    if (focusedIndex >= 0 && focusedIndex < filteredItems.length) {
+      const checkboxes = wrapperRef.current?.querySelectorAll('input[type="checkbox"]');
+      if (checkboxes && checkboxes[focusedIndex]) {
+        checkboxes[focusedIndex].focus();
+      }
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, focusedIndex, filteredItems, wrapperRef]);
 
   return (
     <FormField
