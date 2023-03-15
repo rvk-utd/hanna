@@ -76,6 +76,8 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   };
 
   useEffect(() => {
+    const focusInRange = focusedIndex >= 0 && focusedIndex < filteredItems.length;
+
     const handleKeyDown = (event: KeyboardEvent) => {
       switch (event.key) {
         case 'ArrowDown': {
@@ -92,6 +94,15 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
           );
           break;
         }
+        case 'Enter': {
+          if (focusInRange) {
+            const selItem = filteredItems[focusedIndex];
+            if (selItem) {
+              handleCheckboxSelection(selItem);
+            }
+          }
+          break;
+        }
         default: {
           break;
         }
@@ -103,8 +114,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     } else {
       document.removeEventListener('keydown', handleKeyDown);
     }
-
-    const focusInRange = focusedIndex >= 0 && focusedIndex < filteredItems.length;
 
     if (focusInRange && checkboxes && checkboxes[focusedIndex]) {
       (checkboxes[focusedIndex] as HTMLElement).focus();
