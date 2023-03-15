@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import domId from '@hugsmidjan/qj/domid';
 import { wait } from '@hugsmidjan/qj/wait';
 import { useOnClickOutside } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
@@ -23,6 +24,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const { items } = inputElementProps;
 
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const checkboxes = wrapperRef.current?.querySelectorAll('input[type="checkbox"]');
 
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [focusedIndex, setFocusedIndex] = useState(-1);
@@ -103,7 +105,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     }
 
     if (focusedIndex >= 0 && focusedIndex < filteredItems.length) {
-      const checkboxes = wrapperRef.current?.querySelectorAll('input[type="checkbox"]');
       if (checkboxes && checkboxes[focusedIndex]) {
         (checkboxes[focusedIndex] as HTMLElement).focus();
       }
@@ -112,7 +113,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, focusedIndex, filteredItems, wrapperRef]);
+  }, [isOpen, focusedIndex, filteredItems, wrapperRef, checkboxes]);
 
   return (
     <FormField
@@ -125,7 +126,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
           <div className={className.input} {...addFocusProps()}>
             {isBrowser && (
               <input
-                aria-controls="Multiselect_options"
+                aria-controls={domId()}
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
                 onBlur={handleBlur}
@@ -141,7 +142,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
             )}
             <div className="MultiSelect__container" tabIndex={-1}>
               <ul
-                id="Multiselect_options"
+                id={domId()}
                 className="MultiSelect__options"
                 role="group"
                 aria-expanded={isOpen}
@@ -161,8 +162,9 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       checked={selectedItems.includes(item)}
                       onFocus={() => setFocusedIndex(indx)}
                       onBlur={() => {
-                        if (indx === filteredItems.length - 1) {
+                        if (checkboxes && indx === filteredItems.length - 1) {
                           handleBlur();
+                          // setFocusedIndex(0);
                         }
                       }}
                     />
