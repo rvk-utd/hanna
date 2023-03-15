@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import domId from '@hugsmidjan/qj/domid';
 import { wait } from '@hugsmidjan/qj/wait';
 import { useOnClickOutside } from '@hugsmidjan/react/hooks';
@@ -39,19 +39,19 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     return result;
   });
 
-  const handleCheckboxSelection = (item: Item) => {
-    // TODO: only apply on mouse click
-    inputRef.current?.focus();
+  const handleCheckboxSelection = useCallback(
+    (item: Item) => {
+      const itemHasNotBeenSelected = !selectedItems.find(
+        (selItem) => selItem.value === item.value
+      );
+      const updatedSelectedItems = itemHasNotBeenSelected
+        ? [...selectedItems, item]
+        : selectedItems.filter((selected) => selected.value !== item.value);
 
-    const itemHasNotBeenSelected = !selectedItems.find(
-      (selItem) => selItem.value === item.value
-    );
-    const updatedSelectedItems = itemHasNotBeenSelected
-      ? [...selectedItems, item]
-      : selectedItems.filter((selected) => selected.value !== item.value);
-
-    setSelectedItems(updatedSelectedItems);
-  };
+      setSelectedItems(updatedSelectedItems);
+    },
+    [selectedItems]
+  );
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const val = event.target.value;
@@ -122,7 +122,14 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, focusedIndex, filteredItems, wrapperRef, checkboxes]);
+  }, [
+    isOpen,
+    focusedIndex,
+    filteredItems,
+    wrapperRef,
+    checkboxes,
+    handleCheckboxSelection,
+  ]);
 
   return (
     <FormField
