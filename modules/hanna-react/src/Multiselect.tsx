@@ -55,13 +55,14 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const val = event.target.value;
-    setSearchQuery(val.trimEnd());
+    const fixVal = val === ' ' ? val.trimEnd() : val;
+    setSearchQuery(fixVal);
   };
 
   const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === ' ') {
+    if (event.key === ' ' && searchQuery.length === 0) {
       setSearchQuery('');
-      setFocusedIndex(0);
+      // setFocusedIndex(0);
       setIsOpen(true);
     }
   };
