@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.30
+
+_2023-03-15_
+
 - feat: Add component `Tooltip`
 - feat: Add modifier `.FieldGroup--small` for smaller label
 - feat: Add optional `.InfoHero__footer` element
