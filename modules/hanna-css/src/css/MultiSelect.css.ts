@@ -44,7 +44,7 @@ export default css`
   }
 
   .MultiSelect__option:hover {
-    background-color: ${vars.color_suld_50};
+    // background-color: ${vars.color_suld_50};
   }
 
   .MultiSelect__option .Checkbox__label {

@@ -80,38 +80,23 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   useEffect(() => {
     const focusInRange = focusedIndex >= 0 && focusedIndex < filteredItems.length;
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      switch (event.key) {
-        case 'ArrowDown': {
-          event.preventDefault();
-          setFocusedIndex((prevIndex) =>
-            prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
-          );
-          break;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      e.preventDefault();
+      if (e.key === 'ArrowUp' || (e.shiftKey && e.key === 'Tab')) {
+        setFocusedIndex((prevIndex) =>
+          prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
+        );
+      } else if (e.key === 'ArrowDown' || e.key === 'Tab') {
+        setFocusedIndex((prevIndex) =>
+          prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
+        );
+      } else if ((e.key === 'Enter' || e.key === ' ') && focusInRange) {
+        const selItem = filteredItems[focusedIndex];
+        if (selItem) {
+          handleCheckboxSelection(selItem);
         }
-        case 'ArrowUp': {
-          event.preventDefault();
-          setFocusedIndex((prevIndex) =>
-            prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
-          );
-          break;
-        }
-        case 'Enter': {
-          if (focusInRange) {
-            const selItem = filteredItems[focusedIndex];
-            if (selItem) {
-              handleCheckboxSelection(selItem);
-            }
-          }
-          break;
-        }
-        case 'Escape': {
-          setIsOpen(false);
-          break;
-        }
-        default: {
-          break;
-        }
+      } else if (e.key === 'Escape') {
+        setIsOpen(false);
       }
     };
 
@@ -180,12 +165,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       onChange={() => handleCheckboxSelection(item)}
                       checked={selectedItems.includes(item)}
                       onFocus={() => setFocusedIndex(indx)}
-                      onBlur={() => {
-                        if (checkboxes && indx === filteredItems.length - 1) {
-                          handleBlur();
-                          // setFocusedIndex(0);
-                        }
-                      }}
                     />
                   );
                 })}
