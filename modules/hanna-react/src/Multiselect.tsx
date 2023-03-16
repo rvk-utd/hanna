@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import domId from '@hugsmidjan/qj/domid';
-import { wait } from '@hugsmidjan/qj/wait';
 import { useOnClickOutside } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
@@ -24,20 +23,23 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const { items } = inputElementProps;
 
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const checkboxes = wrapperRef.current?.querySelectorAll('input[type="checkbox"]');
 
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
-  const [focusedIndex, setFocusedIndex] = useState(-1);
+  const [activeItemIndex, setActiveItemIndex] = useState(-1);
   const [searchQuery, setSearchQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
   useOnClickOutside(wrapperRef, () => setIsOpen(false));
 
-  const filteredItems = items.filter((item) => {
-    const sq = searchQuery.toLowerCase();
-    const result = item.label.toLowerCase().includes(sq);
-    return result;
-  });
+  const filteredItems = useMemo(
+    () =>
+      items.filter((item) => {
+        const sq = searchQuery.toLowerCase();
+        const result = item.label.toLowerCase().includes(sq);
+        return result;
+      }),
+    [searchQuery, items]
+  );
 
   const handleCheckboxSelection = useCallback(
     (item: Item) => {
@@ -62,65 +64,61 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === ' ' && searchQuery.length === 0) {
       setSearchQuery('');
-      // setFocusedIndex(0);
-      setIsOpen(true);
+      // setActiveItemIndex(0);
+      setIsOpen((isOpen) => (activeItemIndex > -1 ? true : !isOpen));
     }
   };
 
-  const handleBlur = () => {
-    wait(30).then(() => {
-      const classList = wrapperRef.current?.classList;
-      const isFocused = classList && classList.contains('FormField--focused');
-      if (!isFocused) {
-        setIsOpen(false);
-      }
-    });
-  };
-
   useEffect(() => {
-    const focusInRange = focusedIndex >= 0 && focusedIndex < filteredItems.length;
-
+    if (!isOpen) {
+      return;
+    }
     const handleKeyDown = (e: KeyboardEvent) => {
-      e.preventDefault();
-      if (e.key === 'ArrowUp' || (e.shiftKey && e.key === 'Tab')) {
-        setFocusedIndex((prevIndex) =>
+      const focusInRange = activeItemIndex >= 0 && activeItemIndex < filteredItems.length;
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActiveItemIndex((prevIndex) =>
           prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
         );
-      } else if (e.key === 'ArrowDown' || e.key === 'Tab') {
-        setFocusedIndex((prevIndex) =>
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActiveItemIndex((prevIndex) =>
           prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
         );
       } else if ((e.key === 'Enter' || e.key === ' ') && focusInRange) {
-        const selItem = filteredItems[focusedIndex];
+        e.preventDefault();
+        const selItem = filteredItems[activeItemIndex];
         if (selItem) {
           handleCheckboxSelection(selItem);
         }
       } else if (e.key === 'Escape') {
+        e.preventDefault();
         setIsOpen(false);
       }
     };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.removeEventListener('keydown', handleKeyDown);
-    }
-
-    if (focusInRange && checkboxes && checkboxes[focusedIndex]) {
-      (checkboxes[focusedIndex] as HTMLElement).focus();
-    }
-
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [
-    isOpen,
-    focusedIndex,
-    filteredItems,
-    wrapperRef,
-    checkboxes,
-    handleCheckboxSelection,
-  ]);
+  }, [activeItemIndex, filteredItems, isOpen, handleCheckboxSelection]);
+
+  // Auto-close the dropdown when focus has left the building
+  useEffect(() => {
+    const wrapperDiv = wrapperRef.current;
+    let closing: ReturnType<typeof setTimeout>;
+    const cancelClose = () => clearTimeout(closing);
+    const closeDropdown = () => {
+      closing = setTimeout(() => {
+        setIsOpen(false);
+      }, 200);
+    };
+    wrapperDiv?.addEventListener('focusout', closeDropdown);
+    wrapperDiv?.addEventListener('focusin', cancelClose);
+    return () => {
+      wrapperDiv?.removeEventListener('focusout', closeDropdown);
+      wrapperDiv?.removeEventListener('focusin', cancelClose);
+    };
+  }, []);
 
   return (
     <FormField
@@ -136,15 +134,21 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                 aria-controls={domId()}
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
-                onBlur={handleBlur}
                 value={searchQuery}
-                onClick={() => setIsOpen(true)}
+                onFocus={() => setActiveItemIndex(-1)}
+                onClick={() =>
+                  setIsOpen((isOpen) => {
+                    // TODO: Make this more nuanced ... maybe for active searches.?
+                    return !isOpen;
+                  })
+                }
                 {...inputProps}
                 {...inputElementProps}
                 ref={inputRef}
               />
             )}
             <div className="MultiSelect__container" tabIndex={-1}>
+              {/* TOOD: Insert currently selected tagpills here */}
               <ul
                 id={domId()}
                 className="MultiSelect__options"
@@ -157,17 +161,33 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                     <Checkbox
                       className={getBemClass(
                         'MultiSelect__option',
-                        focusedIndex === indx && 'focus'
+                        activeItemIndex === indx && 'focus'
                       )}
                       key={indx}
                       Wrapper="li"
                       label={item.label}
                       onChange={() => handleCheckboxSelection(item)}
                       checked={selectedItems.includes(item)}
-                      onFocus={() => setFocusedIndex(indx)}
+                      onFocus={() => setActiveItemIndex(indx)}
+                      wrapperProps={{
+                        onMouseEnter: () => {
+                          setActiveItemIndex(indx);
+                        },
+                      }}
                     />
                   );
                 })}
+                <li
+                  // "focus trap"
+                  tabIndex={0}
+                  onFocus={(e) => {
+                    e.currentTarget.parentElement?.querySelector('input')?.focus();
+                    // e.currentTarget
+                    //   .closest('.FormField__input')
+                    //   ?.querySelector<HTMLButtonElement | HTMLInputElement>('input, button')
+                    //   ?.focus();
+                  }}
+                />
               </ul>
             </div>
           </div>
