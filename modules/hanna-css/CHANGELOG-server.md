@@ -6,7 +6,7 @@
 
 ## 0.8.77
 
-_2023-03-15_
+_2023-03-16_
 
 - feat: Decrease top padding of `Layout__main`, shift `BreadCrumbs` a bit
 - feat: Add styling for `.FieldGroup--small`

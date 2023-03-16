@@ -6,7 +6,7 @@
 
 ## 0.8.30
 
-_2023-03-15_
+_2023-03-16_
 
 - feat: Add component `Tooltip`
 - feat: Add modifier `.FieldGroup--small` for smaller label
