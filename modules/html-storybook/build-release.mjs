@@ -26,8 +26,9 @@ try {
       `git submodule update --remote --rebase`,
 
       // update submodule files
-      `rm -rf ${htmlDocsFolder + htmlVersionFolder}`,
-      `cp -R ${tempDistFolder} ${htmlDocsFolder}latest`,
+      `rm -rf ${htmlDocsFolder + htmlVersionFolder} ${htmlDocsFolder}latest`,
+      `(mkdir ${htmlDocsFolder}latest || exit 0)`,
+      `cp -R ${tempDistFolder}/* ${htmlDocsFolder}latest`,
       `mv ${tempDistFolder} ${htmlDocsFolder + htmlVersionFolder}`,
 
       // submodule commit
