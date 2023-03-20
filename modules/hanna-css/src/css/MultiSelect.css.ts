@@ -16,6 +16,10 @@ export default css`
     Checkbox
   */
 
+  .MultiSelect__closed {
+    overflow: hidden;
+  }
+
   .MultiSelect__container {
     position: absolute;
     top: 54px;
@@ -32,7 +36,16 @@ export default css`
   }
 
   .MultiSelect__currentvalues {
+    position: sticky;
+    top: 0;
+    left: 0;
     padding: 8px 16px 0 16px;
+    background-color: white;
+    z-index: 100;
+  }
+
+  .MultiSelect__seperator {
+    margin: 5px 0;
   }
 
   .MultiSelect__currentvalues .TagPill {

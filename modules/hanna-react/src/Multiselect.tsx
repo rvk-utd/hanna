@@ -135,30 +135,39 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
         return (
           <div className={className.input} {...addFocusProps()}>
-            {isBrowser && !isSearchable && (
+            {isBrowser && !isOpen && (
+              <button
+                className="MultiSelect__closed"
+                onClick={() => {
+                  setIsOpen(true);
+                  setTimeout(() => {
+                    inputRef.current?.focus();
+                  }, 200);
+                }}
+              >
+                {selectedItems.map((selItem, indx) => (
+                  <TagPill key={indx} label={selItem.label} />
+                ))}
+              </button>
+            )}
+            {isBrowser && !isSearchable && isOpen && (
               <button
                 type="button"
                 aria-label="Birta valkosti"
                 value="Valfrjáls placeholder"
                 aria-controls={domId()}
                 aria-expanded="false"
-                onClick={() => setIsOpen((isOpen) => !isOpen)}
+                onClick={() => setIsOpen(false)}
                 // position absolute; inset: 0; opacity: 0.00001
               />
             )}
-            {isBrowser && isSearchable && (
+            {isBrowser && isSearchable && isOpen && (
               <input
                 aria-controls={domId()}
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
                 value={searchQuery}
                 onFocus={() => setActiveItemIndex(-1)}
-                onClick={() =>
-                  setIsOpen((isOpen) => {
-                    // TODO: Make this more nuanced ... maybe for active searches.?
-                    return !isOpen;
-                  })
-                }
                 {...inputProps}
                 {...inputElementProps}
                 ref={inputRef}
@@ -177,6 +186,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       {selItem.label}
                     </TagPill>
                   ))}
+                  <hr className="MultiSelect__seperator" />
                 </div>
               )}
               <ul
