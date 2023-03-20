@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.83
+
+_2023-03-20_
+
 - feat: Add prop `small` to `FieldGroup`
 - feat: Add prop `footer` to `InfoHero`
 - fix: Error in `DatePicker` caused by
