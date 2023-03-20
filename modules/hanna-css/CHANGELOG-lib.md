@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.3.15
+
+_2023-03-20_
+
 - feat: Add `hannaVars.Layout$$main__paddingTop`
 
 ## 0.3.14

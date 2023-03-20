@@ -17,7 +17,7 @@
     "@floating-ui/react": "^0.19.2",
     "@hugsmidjan/qj": "^4.10.2",
     "@hugsmidjan/react": "^0.4.23",
-    "@reykjavik/hanna-css": "^0.3.14",
+    "@reykjavik/hanna-css": "^0.3.15",
     "@reykjavik/hanna-utils": "^0.2.3",
     "@types/react": "^17.0.24",
     "@types/react-autosuggest": "^10.1.0",
