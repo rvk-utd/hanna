@@ -1,27 +1,26 @@
 {# NOTE: Don't forget to run window.Hanna.loadSprinkle('ContactBubble') #}
-{# TODO: Set up dynamic content #}
 {# TODO: Make alwaysShow configurable #}
 
 {% set alwaysShowAttr = true ? ' data-always-show="true"' %}
 
 
 <div class="ContactBubble"{{ alwaysShowAttr|raw }}>
-  <h2 class="ContactBubble__title">{{ title }}</h2>
+	<h2 class="ContactBubble__title">{{ title }}</h2>
 
-  <ul class="ContactBubble__list">
-  {% for key, item in bubble_items %}
-    <li class="{{'ContactBubble__item ContactBubble__item--type--' ~ item.icon }}">
-      <a
-        class="ContactBubble__link"
-        href="{{ item.href }}"
-        {% if item.target %}
-          target="{{ item.target }}"
-        {% endif %}
-      >
-        {{ item.title }}
-        <small>{{ item.description }}</small>
-      </a>
-    </li>
-  {% endfor %}
-  </ul>
+	<ul class="ContactBubble__list">
+	{% for key, item in contact_us_menu %}
+		<li class="{{'ContactBubble__item ContactBubble__item--type--' ~ item.icon }}">
+			<a
+				class="ContactBubble__link"
+				href="{{ item.live_chat_trigger ? '#' : item.href }}"
+				{{ item.target ? 'target=' ~ item.target  }}
+			>
+				{{ item.label }}
+				<small>
+					{{ item.link_info|nl2br }}
+				</small>
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
 </div>
