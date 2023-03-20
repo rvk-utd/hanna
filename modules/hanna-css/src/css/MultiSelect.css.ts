@@ -30,6 +30,15 @@ export default css`
     z-index: 99;
     scroll-padding: 50px 0;
   }
+
+  .MultiSelect__currentvalues {
+    padding: 8px 16px 0 16px;
+  }
+
+  .MultiSelect__currentvalues .TagPill {
+    margin-bottom: 0;
+  }
+
   .MultiSelect__options {
     // overflow: hidden;
     // max-height: 380px;

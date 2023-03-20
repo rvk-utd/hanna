@@ -6,6 +6,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import Checkbox from './Checkbox';
 import FormField from './FormField';
 import { SearchInputProps } from './SearchInput';
+import TagPill from './TagPill';
 
 type Item = {
   label: string;
@@ -24,6 +25,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  const isSearchable = items.length > 8;
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [activeItemIndex, setActiveItemIndex] = useState(-1);
   const [searchQuery, setSearchQuery] = useState('');
@@ -67,6 +69,10 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       // setActiveItemIndex(0);
       setIsOpen((isOpen) => (activeItemIndex > -1 ? true : !isOpen));
     }
+  };
+
+  const removeSelectedItem = (item: Item) => {
+    setSelectedItems(selectedItems.filter((i) => i !== item));
   };
 
   useEffect(() => {
@@ -129,7 +135,18 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
         return (
           <div className={className.input} {...addFocusProps()}>
-            {isBrowser && (
+            {isBrowser && !isSearchable && (
+              <button
+                type="button"
+                aria-label="Birta valkosti"
+                value="Valfrjáls placeholder"
+                aria-controls={domId()}
+                aria-expanded="false"
+                onClick={() => setIsOpen((isOpen) => !isOpen)}
+                // position absolute; inset: 0; opacity: 0.00001
+              />
+            )}
+            {isBrowser && isSearchable && (
               <input
                 aria-controls={domId()}
                 onChange={handleInputChange}
@@ -148,7 +165,20 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
               />
             )}
             <div className="MultiSelect__container" tabIndex={-1}>
-              {/* TOOD: Insert currently selected tagpills here */}
+              {isBrowser && selectedItems.length > 0 && isOpen && (
+                <div className="MultiSelect__currentvalues" aria-label="Valin gildi:">
+                  {selectedItems.map((selItem, indx) => (
+                    <TagPill
+                      key={indx}
+                      type="button"
+                      removable
+                      onRemove={() => removeSelectedItem(selItem)}
+                    >
+                      {selItem.label}
+                    </TagPill>
+                  ))}
+                </div>
+              )}
               <ul
                 id={domId()}
                 className="MultiSelect__options"
