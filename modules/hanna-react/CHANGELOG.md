@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.84
+
+_2023-03-21_
+
 - feat: Suppress hydration warnings for auto-generated DOM `id`s in React@18
 
 ## 0.10.83
