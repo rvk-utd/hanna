@@ -135,7 +135,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
         return (
           <div className={className.input} {...addFocusProps()}>
-            {isBrowser && ((!isSearchable && !isOpen) || (isSearchable && !isOpen)) && (
+            {isBrowser && (!isSearchable || (isSearchable && !isOpen)) && (
               <button
                 className="MultiSelect__inputbutton"
                 type="button"
