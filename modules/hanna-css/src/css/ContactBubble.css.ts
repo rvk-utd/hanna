@@ -2,6 +2,7 @@ import { css, pct_f } from 'es-in-css';
 
 import { between } from '../lib/between';
 import { mq } from '../lib/breakpoints';
+import { htmlCl } from '../lib/classNames';
 import { grid } from '../lib/grid';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
@@ -35,10 +36,10 @@ export default css`
       }
     }
 
-    html.before-sprinkling .ContactBubble__wrapper:not([data-show]) {
+    ${htmlCl.beforeSprinkling} .ContactBubble__wrapper:not([data-show]) {
       display: none;
     }
-    html.menu-is-open .ContactBubble__wrapper,
+    ${htmlCl.menuIsOpen} .ContactBubble__wrapper,
     .ContactBubble__wrapper[data-show='false'] {
       opacity: 0;
       visibility: hidden;
@@ -140,7 +141,7 @@ export default css`
 
     // ---------------------------------------------------------------------------
 
-    html.before-sprinkling .ContactBubble:not([data-sprinkled]) {
+    ${htmlCl.beforeSprinkling} .ContactBubble:not([data-sprinkled]) {
       display: none;
     }
     .ContactBubble {

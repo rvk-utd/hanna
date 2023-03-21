@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `htmlCl` object, with global-state selectors for `<html/>`
 - feat: Add `Layout$$header_logo_color`, `Layout$$header_color` to `hannaVars`
 
 ## 0.3.15

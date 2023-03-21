@@ -25,6 +25,8 @@ yarn add @reykjavik/hanna-css
   - [`hannaVars`](#hannavars)
   - [`hannaVarOverride`](#hannavaroverride)
   - [`buildVariables`](#buildvariables)
+- [Class-Name constants](#class-name-constants)
+  - [`htmlCl`](#htmlcl)
 - [Helpful Constants](#helpful-constants)
   - [`colorThemes`](#colorthemes)
   - [`colorFamilies`](#colorfamilies)
@@ -177,7 +179,7 @@ component styling, using the same naming pattern as the Hanna CSS varibles,
 and the same type-safety as `hannaVars`.
 
 ```js
-import { buildVariables, rem } from '@reykjavik/hanna-css';
+import { buildVariables, rem, css } from '@reykjavik/hanna-css';
 
 const myVars = buildVariables(['Component$$title__fontSize']);
 
@@ -226,6 +228,45 @@ const myCss = css`
   }
 `*/
 ```
+
+## Class-Name constants
+
+### `htmlCl`
+
+Collection of selectors with class-name-states that the ´<html/>´ element can
+take.
+
+Here's how you'd use the `beforeSprinkling` selector to suppress flicker of
+unstyled/unscripted content in your server-rendered HTML, while you
+"progressively enhance" them after useEffect.
+
+```js
+import { htmlCl, css } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  ${htmlCl.beforeSprinkling} .MyComponent__details:not([data-sprinkled]) {
+    display: none;
+  }
+  .MyComponent__details[data-sprinkled] {
+    opacity: 0;
+    height: 0;
+  }
+`;
+/*`
+  html.before-sprinkling .MyComponent__details:not([data-sprinkled]) {
+    display: none;
+  }
+  .MyComponent__details[data-sprinkled] {
+    opacity: 0;
+    height: 0;
+  }
+`*/
+```
+
+Other selectors: `menuIsActive`, `menuIsOpen`, `menuIsClosed`
+
+Each of these properties has JSDoc comments associated with them. Refer to
+those for more info.
 
 ## Helpful Constants
 

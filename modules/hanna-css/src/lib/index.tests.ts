@@ -17,6 +17,9 @@ o.spec('hanna-css lib', () => {
       colors_raw: true,
       colorFamilies: true,
 
+      /* classnames.ts */
+      htmlCl: true,
+
       /* cssutils.ts */
       buildVariables: true,
       isDevMode: true,

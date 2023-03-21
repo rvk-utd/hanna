@@ -2,6 +2,7 @@ import { color, css, px } from 'es-in-css';
 
 import { between_Topmenu } from '../lib/between';
 import { mq } from '../lib/breakpoints';
+import { htmlCl } from '../lib/classNames';
 import { colors } from '../lib/colors';
 import { buildVariables } from '../lib/cssutils';
 import { font } from '../lib/font';
@@ -77,7 +78,7 @@ export default css`
   // ===========================================================================
 
   @media ${mq.Hamburger} {
-    html.before-sprinkling .MainMenu:not([data-sprinkled]) {
+    ${htmlCl.beforeSprinkling} .MainMenu:not([data-sprinkled]) {
       display: none;
     }
     .MainMenu {
@@ -108,7 +109,7 @@ export default css`
     .MainMenu[data-sprinkled] {
       display: none;
     }
-    html.menu-is-active .MainMenu {
+    ${htmlCl.menuIsActive} .MainMenu {
       display: flex;
       position: fixed;
       z-index: calc(${vars.zindex__header} - 1);
@@ -129,16 +130,16 @@ export default css`
       );
     }
 
-    html.menu-is-active:not(.menu-is-open) .MainMenu, // @deprecated (.menu-is-closed is always set now) Remove this selector in v0.9
-	  html.menu-is-closed .MainMenu {
+    ${htmlCl.menuIsActive}:not(${htmlCl.menuIsOpen}) .MainMenu, // @deprecated ('htmlCl.menuIsOpen' is always set now) Remove this selector in v0.9
+	  ${htmlCl.menuIsClosed} .MainMenu {
       visibility: hidden;
       opacity: 0;
       margin-top: -100vh;
     }
-    html.menu-is-open {
+    ${htmlCl.menuIsOpen} {
       ${whiteHeader}
     }
-    html.menu-is-open .MainMenu {
+    ${htmlCl.menuIsOpen} .MainMenu {
       transition-delay: 0ms;
 
       visibility: visible;
@@ -295,7 +296,7 @@ export default css`
         item_padding: prem(10),
       })}
     }
-    html.menu-is-open .MainMenu__item:not(.MainMenu__separator ~ *),
+    ${htmlCl.menuIsOpen} .MainMenu__item:not(.MainMenu__separator ~ *),
     html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
       ${hannaVarOverride({
         link_color__hover: vars.color_suld_0,
@@ -338,7 +339,7 @@ export default css`
       ${freezeScroll_css({ immediate: true })}
     }
 
-    html.before-sprinkling *:not([data-sprinkled]) > .MainMenu__panelsWrap {
+    ${htmlCl.beforeSprinkling} *:not([data-sprinkled]) > .MainMenu__panelsWrap {
       display: none;
     }
 

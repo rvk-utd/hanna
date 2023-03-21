@@ -2,6 +2,7 @@ import { css } from 'es-in-css';
 
 import { between_phone_netbook } from '../lib/between';
 import { mq } from '../lib/breakpoints';
+import { htmlCl } from '../lib/classNames';
 import { cols_px } from '../lib/grid';
 import { hannaVars as vars } from '../lib/hannavars';
 import { WARNING__ } from '../lib/WARNING__';
@@ -66,7 +67,7 @@ export default css`
       margin-right: ${vars.space_1__neg};
     }
 
-    .before-sprinkling .TabPanel:not([data-sprinkled]) {
+    ${htmlCl.beforeSprinkling} .TabPanel:not([data-sprinkled]) {
       display: none;
     }
     .TabPanel {

@@ -1,6 +1,7 @@
 import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints';
+import { htmlCl } from '../lib/classNames';
 import { isDevMode } from '../lib/cssutils';
 import { grid, showColumnGridLines } from '../lib/grid';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
@@ -119,10 +120,10 @@ export default css`
       transition: all 200ms ease-in;
       transition-property: background-color, box-shadow;
     }
-    html.menu-is-open {
+    ${htmlCl.menuIsOpen} {
       ${freezeScroll_css({ fixHeader: true })}
     }
-    html.menu-is-open .Layout__header {
+    ${htmlCl.menuIsOpen} .Layout__header {
       transition-duration: 400ms;
     }
 
@@ -139,7 +140,7 @@ export default css`
       --open-icon-color: _inherit;
       --close-icon-color: transparent;
     }
-    html.menu-is-open .Layout__header__skiplink {
+    ${htmlCl.menuIsOpen} .Layout__header__skiplink {
       color: ${vars.color_suld_0};
       --open-icon-color: transparent;
       --close-icon-color: _inherit;
@@ -173,7 +174,7 @@ export default css`
     }
 
     // Page content fadeout during menu open
-    html.menu-is-active .Layout__nav::before {
+    ${htmlCl.menuIsActive} .Layout__nav::before {
       content: '';
       position: fixed;
       z-index: calc(${vars.zindex__header} - 1);
@@ -186,7 +187,7 @@ export default css`
       visibility: hidden;
       transition: (opacity 400ms 200ms ease-in-out, visibility 0ms (400ms + 200ms));
     }
-    html.menu-is-open .Layout__nav::before {
+    ${htmlCl.menuIsOpen} .Layout__nav::before {
       transition-delay: 0ms;
       opacity: 1;
       visibility: visible;

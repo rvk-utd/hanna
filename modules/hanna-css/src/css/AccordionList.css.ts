@@ -2,6 +2,7 @@ import { css, em } from 'es-in-css';
 
 import { between_container, between_phone_phablet } from '../lib/between';
 import { mq } from '../lib/breakpoints';
+import { htmlCl } from '../lib/classNames';
 import { buildVariables } from '../lib/cssutils';
 import { font } from '../lib/font';
 import { cols_px } from '../lib/grid';
@@ -111,8 +112,8 @@ export default css`
       margin: 0;
     }
 
-    html.before-sprinkling
-      .AccordionList__item:not([data-sprinkled])
+    ${htmlCl.beforeSprinkling}
+    .AccordionList__item:not([data-sprinkled])
       > .AccordionList__content {
       display: none;
     }

@@ -1,5 +1,6 @@
 import { css } from 'es-in-css';
 
+import { htmlCl } from '../lib/classNames';
 import { buildVariables } from '../lib/cssutils';
 import { hannaVars as vars } from '../lib/hannavars';
 
@@ -7,7 +8,7 @@ export const CarouselStepperVariables = buildVariables(['height'], 'CarouselStep
 const csVars = CarouselStepperVariables.vars;
 
 export const carouselStepperBeforeSprinklingPadding = () => css`
-  html.before-sprinkling &:not([data-sprinkled]) {
+  ${htmlCl.beforeSprinkling} &:not([data-sprinkled]) {
     padding-bottom: ${csVars.height};
   }
 `;
