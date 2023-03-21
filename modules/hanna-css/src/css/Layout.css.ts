@@ -12,16 +12,12 @@ import { sr_only_focusable_css } from './utils/a11y';
 import { hideText_css } from './utils/hideText';
 import { grid_units, prem } from './utils/miscUtils';
 
-const whiteLogo = () => css`
-  --logo-fill-color: ${vars.color_suld_0};
-  --logo-text-color: ${vars.color_suld_0};
-  --logo-transition-delay: 0ms;
-  --logo-background-color: ${vars.color_faxafloi_100};
-
-  ${hannaVarOverride({
-    link_focus_outline: vars.color_suld_0,
-  })}
-`;
+export const whiteHeader = () =>
+  hannaVarOverride({
+    Layout$$header_logo_color: vars.color_suld_0,
+    Layout$$header_color: vars.color_suld_0,
+    Layout$$header_backgroundColor: vars.color_faxafloi_100,
+  });
 
 export default css`
   @media screen {
@@ -79,6 +75,16 @@ export default css`
       height: ${vars.Layout$$header_height};
       background-color: ${vars.Layout$$header_backgroundColor};
       pointer-events: none;
+      color: ${vars.Layout$$header_color};
+
+      --logo-fill-color: ${vars.Layout$$header_logo_color};
+      --logo-text-color: ${vars.Layout$$header_color};
+      --logo-background-color: ${vars.Layout$$header_backgroundColor};
+      /* --logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in; */
+      /* --logo-transition-delay: 0ms; */
+      ${hannaVarOverride({
+        link_focus_outline: vars.Layout$$header_color,
+      })}
     }
     .Layout__header > * {
       pointer-events: auto;
@@ -108,7 +114,6 @@ export default css`
 
   @media ${mq.Hamburger} {
     .Layout__header {
-      --logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
       box-shadow: 0 0 0.33em 0.33em ${vars.Layout$$header_backgroundColor};
 
       transition: all 200ms ease-in;
@@ -118,9 +123,7 @@ export default css`
       ${freezeScroll_css({ fixHeader: true })}
     }
     html.menu-is-open .Layout__header {
-      ${whiteLogo}
       transition-duration: 400ms;
-      --Layout__header-backgroundColor: ${vars.color_faxafloi_100};
     }
 
     .Layout__header__skiplink[class] {
@@ -201,9 +204,6 @@ export default css`
   @media ${mq.Topmenu} {
     .Layout__header__skiplink {
       ${sr_only_focusable_css({})}
-    }
-    html[data-mega-panel-active] .Layout__header__logo {
-      ${whiteLogo}
     }
   }
 

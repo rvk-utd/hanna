@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `Layout$$header_logo_color`, `Layout$$header_color` to `hannaVars`
 
 ## 0.3.15
 

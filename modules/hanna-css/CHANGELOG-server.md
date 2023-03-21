@@ -3,6 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make `MainMenu` responsible for changing `Layout__header` colors on
+  `html.menu-is-open`
+- feat: Add CSS variables `--Layout__header-logo-color`,
+  `--Layout__header-color`
 
 ## 0.8.77
 

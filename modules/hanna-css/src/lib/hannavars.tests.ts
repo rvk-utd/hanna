@@ -46,6 +46,8 @@ o.spec('cssVars', () => {
       // layoutVars
       Layout$$header_height: true,
       Layout$$header_backgroundColor: true,
+      Layout$$header_color: true,
+      Layout$$header_logo_color: true,
       Layout$$main_paddingTop: true,
       // mainMenuVars
       MainMenu_accentcolor: true,
