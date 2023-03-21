@@ -126,6 +126,13 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    wrapperRef.current?.querySelectorAll('.MultiSelect__options > *')[activeItemIndex]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest'
+    })
+  }, [activeItemIndex]);
+
   return (
     <FormField
       className="MultiSelect"
@@ -142,7 +149,15 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                 aria-label={isOpen ? 'Fela valkosti' : 'Birta valkosti'}
                 aria-controls={domId()}
                 aria-expanded={isOpen}
-                onClick={() => setIsOpen(prevIsOpen => !prevIsOpen)}
+                onClick={() => {
+                  /*
+                  if (isSearchable) {
+                    setTimeout(() => {
+                      inputRef.current?.focus();
+                    }, 200);
+                    }*/
+                  setIsOpen(prevIsOpen => !prevIsOpen)
+                }}
               >
                 {!isOpen && selectedItems.map((selItem, indx) => (
                   <TagPill key={indx} label={selItem.label} />
