@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Suppress hydration warnings for auto-generated DOM `id`s in React@18
 
 ## 0.10.83
 
