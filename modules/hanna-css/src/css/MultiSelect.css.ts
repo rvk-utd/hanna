@@ -16,7 +16,7 @@ export default css`
     Checkbox
   */
 
-  .MultiSelect__closed {
+  .MultiSelect__inputbutton {
     overflow: hidden;
   }
 

@@ -135,31 +135,19 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
         return (
           <div className={className.input} {...addFocusProps()}>
-            {isBrowser && !isOpen && (
+            {isBrowser && (
               <button
-                className="MultiSelect__closed"
-                onClick={() => {
-                  setIsOpen(true);
-                  setTimeout(() => {
-                    inputRef.current?.focus();
-                  }, 200);
-                }}
+                className="MultiSelect__inputbutton"
+                type="button"
+                aria-label={isOpen ? 'Fela valkosti' : 'Birta valkosti'}
+                aria-controls={domId()}
+                aria-expanded={isOpen}
+                onClick={() => setIsOpen(prevIsOpen => !prevIsOpen)}
               >
-                {selectedItems.map((selItem, indx) => (
+                {!isOpen && selectedItems.map((selItem, indx) => (
                   <TagPill key={indx} label={selItem.label} />
                 ))}
               </button>
-            )}
-            {isBrowser && !isSearchable && isOpen && (
-              <button
-                type="button"
-                aria-label="Birta valkosti"
-                value="Valfrjáls placeholder"
-                aria-controls={domId()}
-                aria-expanded="false"
-                onClick={() => setIsOpen(false)}
-                // position absolute; inset: 0; opacity: 0.00001
-              />
             )}
             {isBrowser && isSearchable && isOpen && (
               <input
@@ -222,10 +210,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                   tabIndex={0}
                   onFocus={(e) => {
                     e.currentTarget.parentElement?.querySelector('input')?.focus();
-                    // e.currentTarget
-                    //   .closest('.FormField__input')
-                    //   ?.querySelector<HTMLButtonElement | HTMLInputElement>('input, button')
-                    //   ?.focus();
                   }}
                 />
               </ul>
