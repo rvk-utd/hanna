@@ -13,10 +13,14 @@ import { sr_only_focusable_css } from './utils/a11y';
 import { hideText_css } from './utils/hideText';
 import { grid_units, prem } from './utils/miscUtils';
 
-export const whiteHeader = () =>
+export const whiteLogo = () =>
   hannaVarOverride({
     Layout$$header_logo_color: vars.color_suld_0,
     Layout$$header_color: vars.color_suld_0,
+  });
+export const whiteHeader = () =>
+  whiteLogo() +
+  hannaVarOverride({
     Layout$$header_backgroundColor: vars.color_faxafloi_100,
   });
 

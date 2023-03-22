@@ -19,7 +19,7 @@ import { grid_units, prem } from './utils/miscUtils';
 import { AuxiliaryPanel_css } from './_AuxiliaryPanel';
 import { PrimaryPanel_css } from './_PrimaryPanel';
 
-import { whiteHeader } from './Layout.css';
+import { whiteHeader, whiteLogo } from './Layout.css';
 
 const HamburgerVariables = buildVariables(['offsetLeft', 'list__padTop'], 'MainMenu');
 const hmVars = HamburgerVariables.vars;
@@ -231,7 +231,7 @@ export default css`
 
   @media ${mq.Topmenu} {
     html[data-mega-panel-active] {
-      ${whiteHeader}
+      ${whiteLogo}
     }
 
     .MainMenu {

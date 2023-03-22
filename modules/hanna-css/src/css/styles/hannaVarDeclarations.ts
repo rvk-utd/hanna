@@ -529,8 +529,8 @@ const layoutVarDeclarations = css`
   ${layoutVars.declare({
     Layout$$header_height: px(_lHead_min),
     Layout$$header_backgroundColor: 'transparent',
-    Layout$$header_logo_color: ' ',
-    Layout$$header_color: ' ',
+    Layout$$header_logo_color: 'initial',
+    Layout$$header_color: 'initial',
     Layout$$main_paddingTop: spaceVars.vars.space_4,
   })}
   @media ${mq.Topmenu} {
