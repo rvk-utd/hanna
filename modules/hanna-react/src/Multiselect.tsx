@@ -24,7 +24,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const { items } = inputElementProps;
 
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const checkboxes = wrapperRef.current?.querySelectorAll('input[type="checkbox"]');
 
   const isSearchable = items.length > 8;
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
@@ -76,12 +75,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     setSelectedItems(selectedItems.filter((i) => i !== item));
   };
 
-  const focusCheckbox = (index: number) => {
-    if (checkboxes && checkboxes[index]) {
-      (checkboxes[index] as HTMLElement).focus();
-    }
-  };
-
   useEffect(() => {
     if (!isOpen) {
       return;
@@ -91,18 +84,14 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       const focusInRange = activeItemIndex >= 0 && activeItemIndex < filteredItems.length;
       if (e.key === 'ArrowUp') {
         e.preventDefault();
-        setActiveItemIndex((prevIndex) => {
-          const newIndx = prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1;
-          // focusCheckbox(newIndx);
-          return newIndx;
-        });
+        setActiveItemIndex((prevIndex) =>
+          prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
+        );
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setActiveItemIndex((prevIndex) => {
-          const newIndx = prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1;
-          // focusCheckbox(newIndx);
-          return newIndx;
-        });
+        setActiveItemIndex((prevIndex) =>
+          prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
+        );
       } else if ((e.key === 'Enter' || e.key === ' ') && focusInRange) {
         e.preventDefault();
         const selItem = filteredItems[activeItemIndex];
@@ -227,13 +216,9 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       label={item.label}
                       onChange={() => handleCheckboxSelection(item)}
                       checked={selectedItems.includes(item)}
-                      // focus={activeItemIndex === indx}
                       onFocus={() => setActiveItemIndex(indx)}
                       wrapperProps={{
-                        onMouseEnter: () => {
-                          // focusCheckbox(indx);
-                          setActiveItemIndex(indx);
-                        },
+                        onMouseEnter: () => setActiveItemIndex(indx),
                       }}
                     />
                   );
