@@ -80,7 +80,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     if (checkboxes && checkboxes[index]) {
       (checkboxes[index] as HTMLElement).focus();
     }
-  }
+  };
 
   useEffect(() => {
     if (!isOpen) {
@@ -93,18 +93,16 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
         e.preventDefault();
         setActiveItemIndex((prevIndex) => {
           const newIndx = prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1;
-          focusCheckbox(newIndx);
+          // focusCheckbox(newIndx);
           return newIndx;
-        }
-        );
+        });
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
         setActiveItemIndex((prevIndex) => {
           const newIndx = prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1;
-          focusCheckbox(newIndx);
+          // focusCheckbox(newIndx);
           return newIndx;
-        }
-        );
+        });
       } else if ((e.key === 'Enter' || e.key === ' ') && focusInRange) {
         e.preventDefault();
         const selItem = filteredItems[activeItemIndex];
@@ -141,6 +139,15 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    wrapperRef.current
+      ?.querySelectorAll('.MultiSelect__options > *')
+      [activeItemIndex]?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      });
+  }, [activeItemIndex]);
+
   return (
     <FormField
       className="MultiSelect"
@@ -150,7 +157,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
         return (
           <div className={className.input} {...addFocusProps()}>
-            {isBrowser && (!isSearchable || (isSearchable && !isOpen)) && (
+            {isBrowser && (!isSearchable || !isOpen) && (
               <button
                 className="MultiSelect__inputbutton"
                 type="button"
@@ -164,12 +171,13 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       inputRef.current?.focus();
                     }, 200);
                     }*/
-                  setIsOpen(prevIsOpen => !prevIsOpen)
+                  setIsOpen((prevIsOpen) => !prevIsOpen);
                 }}
               >
-                {!isOpen && selectedItems.map((selItem, indx) => (
-                  <TagPill key={indx} label={selItem.label} />
-                ))}
+                {!isOpen &&
+                  selectedItems.map((selItem, indx) => (
+                    <TagPill key={indx} label={selItem.label} />
+                  ))}
               </button>
             )}
             {isBrowser && isSearchable && isOpen && (
@@ -223,7 +231,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       onFocus={() => setActiveItemIndex(indx)}
                       wrapperProps={{
                         onMouseEnter: () => {
-                          focusCheckbox(indx);
+                          // focusCheckbox(indx);
                           setActiveItemIndex(indx);
                         },
                       }}
