@@ -24,6 +24,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
   const { items } = inputElementProps;
 
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const checkboxes = wrapperRef.current?.querySelectorAll('input[type="checkbox"]');
 
   const isSearchable = items.length > 8;
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
@@ -75,21 +76,34 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     setSelectedItems(selectedItems.filter((i) => i !== item));
   };
 
+  const selectCheckbox = (index: number) => {
+    if (checkboxes && checkboxes[index]) {
+      (checkboxes[index] as HTMLElement).focus();
+    }
+  }
+
   useEffect(() => {
     if (!isOpen) {
       return;
     }
+
     const handleKeyDown = (e: KeyboardEvent) => {
       const focusInRange = activeItemIndex >= 0 && activeItemIndex < filteredItems.length;
       if (e.key === 'ArrowUp') {
         e.preventDefault();
-        setActiveItemIndex((prevIndex) =>
-          prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
+        setActiveItemIndex((prevIndex) => {
+          const newIndx = prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1;
+          selectCheckbox(newIndx);
+          return newIndx;
+        }
         );
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setActiveItemIndex((prevIndex) =>
-          prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
+        setActiveItemIndex((prevIndex) => {
+          const newIndx = prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1;
+          selectCheckbox(newIndx);
+          return newIndx;
+        }
         );
       } else if ((e.key === 'Enter' || e.key === ' ') && focusInRange) {
         e.preventDefault();
@@ -102,6 +116,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
         setIsOpen(false);
       }
     };
+
     document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
@@ -125,13 +140,6 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
       wrapperDiv?.removeEventListener('focusin', cancelClose);
     };
   }, []);
-
-  useEffect(() => {
-    wrapperRef.current?.querySelectorAll('.MultiSelect__options > *')[activeItemIndex]?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest'
-    })
-  }, [activeItemIndex]);
 
   return (
     <FormField
@@ -211,6 +219,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       label={item.label}
                       onChange={() => handleCheckboxSelection(item)}
                       checked={selectedItems.includes(item)}
+                      // focus={activeItemIndex === indx}
                       onFocus={() => setActiveItemIndex(indx)}
                       wrapperProps={{
                         onMouseEnter: () => {
