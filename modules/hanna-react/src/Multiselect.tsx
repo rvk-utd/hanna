@@ -223,6 +223,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
                       onFocus={() => setActiveItemIndex(indx)}
                       wrapperProps={{
                         onMouseEnter: () => {
+                          focusCheckbox(indx);
                           setActiveItemIndex(indx);
                         },
                       }}

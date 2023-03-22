@@ -90,6 +90,7 @@ const MultiSelectReactSelect = () => {
         placeholder="Select a flavour..."
         defaultValue={[]}
         isMulti
+        id="react-select-temp"
         closeMenuOnSelect={false}
         hideSelectedOptions={false}
         onChange={(options) => {

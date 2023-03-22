@@ -16,6 +16,10 @@ export default css`
     Checkbox
   */
 
+  #react-select-2-listbox {
+    z-index: 999;
+  }
+
   .MultiSelect__inputbutton {
     overflow: hidden;
   }
