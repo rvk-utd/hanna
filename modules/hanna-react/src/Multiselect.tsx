@@ -76,7 +76,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
     setSelectedItems(selectedItems.filter((i) => i !== item));
   };
 
-  const selectCheckbox = (index: number) => {
+  const focusCheckbox = (index: number) => {
     if (checkboxes && checkboxes[index]) {
       (checkboxes[index] as HTMLElement).focus();
     }
@@ -93,7 +93,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
         e.preventDefault();
         setActiveItemIndex((prevIndex) => {
           const newIndx = prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1;
-          selectCheckbox(newIndx);
+          focusCheckbox(newIndx);
           return newIndx;
         }
         );
@@ -101,7 +101,7 @@ const MultiSelect = (props: MultiSelectProps & SearchInputProps) => {
         e.preventDefault();
         setActiveItemIndex((prevIndex) => {
           const newIndx = prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1;
-          selectCheckbox(newIndx);
+          focusCheckbox(newIndx);
           return newIndx;
         }
         );
