@@ -165,16 +165,6 @@ export default css`
     quotes: ${quotes('PL')};
   }
 
-  // nextjs@11 injects this and it triggers scrolling bugs
-  // (including double-scrollbar) in Chrome/Blink.
-  // (Relevant PR: https://github.com/vercel/next.js/pull/44853)
-  // Next.js is common-enough consumer of the Hanna CSS
-  // to justify special handling here.
-  next-route-announcer {
-    position: absolute;
-    top: 0;
-  }
-
   *:first-child {
     margin-top: 0;
   }
