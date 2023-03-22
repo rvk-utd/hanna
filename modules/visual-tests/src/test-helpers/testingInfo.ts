@@ -6,6 +6,7 @@ import type {
   PageScreenshotOptions,
   test,
 } from '@playwright/test';
+import { CssModuleToken } from '@reykjavik/hanna-css';
 
 /**
  * Meta-data/configuration for how a test-page should be tested.
@@ -175,3 +176,9 @@ export type ProjectName =
 // | 'iphone';
 
 export type TestTag = ProjectName | 'firefox' | 'chrome' | 'safari';
+
+// ---------------------------------------------------------------------------
+
+export type TestPageHandle = {
+  cssTokens: Array<CssModuleToken>;
+};

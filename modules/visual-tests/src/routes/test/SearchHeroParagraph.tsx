@@ -9,16 +9,17 @@ import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
 
 import { Minimal } from '../../layout/Minimal';
 import { illustr } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
+import type { TestingInfo, TestPageHandle } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
 
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = {
+export const handle: TestPageHandle = {
   cssTokens: [
     'RowBlock',
     'RowBlockColumn',
+    'ContentImage',
     'PageHeading',
     'SiteSearchAutocomplete',
     'SiteSearchCurtain',
