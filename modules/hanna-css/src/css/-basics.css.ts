@@ -141,7 +141,9 @@ export default css`
       See: https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialhannascripts
     */
     overflow-x: clip; // For Safari 16+
+  }
 
+  body {
     // "Fix" nasty/smudgy font rendering on mac
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
