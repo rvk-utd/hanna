@@ -4,7 +4,7 @@ import { between_phone_netbook } from '../lib/between';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
 
 import { CardList_css } from './styles/cards';
-import { avoidCssnanoMerging, prem } from './utils/miscUtils';
+import { avoidCssnanoMerging, prem, resetImageChild } from './utils/miscUtils';
 
 const borderW = prem(12);
 
@@ -60,6 +60,8 @@ export default css`
         margin-bottom: min(${between_phone_netbook(12, 24)}, ${vars.space_3});
       `
     )}
+
+    ${resetImageChild}
   }
   .ArticleCards__image--missing {
     border: ${borderW} solid transparent;

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Remove aggressive global reset for all `img` and `video` elements
 - feat: Make `MainMenu` responsible for changing `Layout__header` colors on
   `html.menu-is-open`
 - feat: Add CSS variables `--Layout__header-logo-color`,

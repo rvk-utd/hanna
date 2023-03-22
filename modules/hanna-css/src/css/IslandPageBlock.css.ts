@@ -5,7 +5,7 @@ import { mq } from '../lib/breakpoints';
 import { hannaVars as vars } from '../lib/hannavars';
 
 import { ButtonTertiaryStyle } from './styles/buttons';
-import { extendBackgroundWithUnderlay } from './utils/miscUtils';
+import { extendBackgroundWithUnderlay, resetImageChild } from './utils/miscUtils';
 import { SeenEffect__fadeup } from './utils/seenEffects';
 
 export default css`
@@ -35,6 +35,7 @@ export default css`
       }
     }
     .IslandPageBlock__image {
+      ${resetImageChild}
       margin: 0 ${vars.grid_0_1__neg};
 
       @media ${mq.phone_phablet} {

@@ -6,7 +6,7 @@ import { mq } from '../lib/breakpoints';
 import { cols_pct, grid } from '../lib/grid';
 import { hannaVars } from '../lib/hannavars';
 
-import { grid_units, prem } from './utils/miscUtils';
+import { grid_units, prem, resetImageChild } from './utils/miscUtils';
 import {
   SeenEffect__delay,
   SeenEffect__fadeup,
@@ -51,6 +51,7 @@ export default css`
     }
 
     .GridBlocks__illustration {
+      ${resetImageChild}
       width: ${prem(80)};
       margin-top: ${prem(10)};
 

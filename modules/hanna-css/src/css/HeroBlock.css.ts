@@ -6,7 +6,7 @@ import { cols_pct, cols_px, grid } from '../lib/grid';
 import { hannaVars } from '../lib/hannavars';
 import { WARNING_soft__ } from '../lib/WARNING__';
 
-import { prem } from './utils/miscUtils';
+import { prem, resetImageChild } from './utils/miscUtils';
 import { SeenEffect__fadeup } from './utils/seenEffects';
 
 export default css`
@@ -29,6 +29,7 @@ export default css`
     }
 
     .HeroBlock__image {
+      ${resetImageChild};
       display: block;
       margin: ${hannaVars.space_2} calc(0.5 * ${hannaVars.grid_margin__neg});
       order: 1;

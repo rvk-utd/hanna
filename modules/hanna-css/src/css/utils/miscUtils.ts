@@ -65,3 +65,20 @@ export const overflowEllipsis = () => css`
   white-space: nowrap;
   overflow: hidden;
 `;
+
+export const resetImageProps = () => css`
+  width: 100%;
+  height: auto;
+  display: block;
+`;
+
+export const resetImageDecendant = () => css`
+  img {
+    ${resetImageProps}
+  }
+`;
+export const resetImageChild = () => css`
+  > img {
+    ${resetImageProps}
+  }
+`;

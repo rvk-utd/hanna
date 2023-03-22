@@ -2,7 +2,7 @@ import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars';
 
-import { grid_units } from './utils/miscUtils';
+import { grid_units, resetImageChild } from './utils/miscUtils';
 
 export default css`
   @media screen {
@@ -34,6 +34,7 @@ export default css`
       flex-shrink: 1;
     }
     .ContentImage__image {
+      ${resetImageChild};
     }
   }
 `;

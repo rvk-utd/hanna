@@ -29,7 +29,7 @@ export default css`
     }
     .FooterBadges__badge img,
     .FooterBadges__badge svg {
-      width: auto;
+      display: block;
     }
   }
 `;

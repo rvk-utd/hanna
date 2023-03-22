@@ -215,9 +215,6 @@ export default css`
   }
   img,
   video {
-    width: 100%;
-    height: auto;
-    display: block;
   }
   iframe {
     width: 100%;
