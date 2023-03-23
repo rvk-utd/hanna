@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `MegaMenu` render thrashing and accidental scrolling to top of page
 
 ## 0.10.84
 

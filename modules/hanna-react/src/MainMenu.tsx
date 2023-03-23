@@ -127,6 +127,10 @@ const normalizeMenuItems = (
 
 // ---------------------------------------------------------------------------
 
+const emptyPanelList: Array<MegaMenuPanel> = [];
+
+// ---------------------------------------------------------------------------
+
 export type {
   AuxilaryPanelIllustration,
   AuxiliaryPanelProps,
@@ -186,7 +190,7 @@ export type MainMenuProps = {
 };
 
 export const MainMenu = (props: MainMenuProps) => {
-  const { title, megaPanels = [], onItemClick, ssr, auxiliaryPanel } = props;
+  const { title, megaPanels = emptyPanelList, onItemClick, ssr, auxiliaryPanel } = props;
 
   const texts = getTexts(props, defaultMainMenuTexts);
 
