@@ -3,6 +3,7 @@ import domId from '@hugsmidjan/qj/domid';
 import { useOnClickOutside } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
+import { FocusTrap } from './_abstract/_FocusTrap';
 import Checkbox from './Checkbox';
 import FormField from './FormField';
 import { SearchInputProps } from './SearchInput';
@@ -228,13 +229,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
                     />
                   );
                 })}
-                <li
-                  // "focus trap"
-                  tabIndex={0}
-                  onFocus={(e) => {
-                    e.currentTarget.parentElement?.querySelector('input')?.focus();
-                  }}
-                />
+                <FocusTrap Tag="li" />
               </ul>
             </div>
           </div>
