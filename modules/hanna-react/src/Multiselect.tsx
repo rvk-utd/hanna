@@ -100,11 +100,14 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
     setSelectedItems(selectedItems.filter((i) => i !== item));
   };
 
+  // FIXME: Only the Escape handler should be scoped on the `document`.
+  // (NOTE: Take advantage of `useCallbackOnEsc(()` for this.)
+  // The rest of the keydown handlers should be scoped on the
+  // `.FormField__input` wrapper element
   useEffect(() => {
     if (!isOpen) {
       return;
     }
-
     const handleKeyDown = (e: KeyboardEvent) => {
       const focusInRange = activeItemIndex >= 0 && activeItemIndex < filteredItems.length;
       if (e.key === 'ArrowUp') {
