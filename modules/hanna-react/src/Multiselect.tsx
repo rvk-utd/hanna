@@ -8,6 +8,11 @@ import FormField from './FormField';
 import { SearchInputProps } from './SearchInput';
 import TagPill from './TagPill';
 
+/** The item-count where the list becomes searchable */
+const searchableLimit = 20;
+
+// ---------------------------------------------------------------------------
+
 type Item = {
   label: string;
   value: string;
@@ -25,7 +30,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const isSearchable = items.length > 8;
+  const isSearchable = items.length >= searchableLimit;
   const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
   const [activeItemIndex, setActiveItemIndex] = useState(-1);
   const [searchQuery, setSearchQuery] = useState('');
