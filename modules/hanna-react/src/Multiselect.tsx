@@ -11,6 +11,11 @@ import TagPill from './TagPill';
 
 /** The item-count where the list becomes searchable */
 const searchableLimit = 20;
+/**
+ * The item-count where we display a summary of "current" values
+ * at the top of the drop-down list
+ */
+const summaryLimit = 10;
 
 // ---------------------------------------------------------------------------
 
@@ -43,6 +48,15 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useOnClickOutside(wrapperRef, () => setIsOpen(false));
+
+  /*
+    NOTE: he `.MultiSelect__currentvalues` should only be visible when
+    there are some items selected, and multiselect is either collapsed,
+    or the dropdown has reached `summaryLimit` number of items.
+    (For fewer items, the "summary" is just in the way.)
+  */
+  const showCurrentValues =
+    selectedItems.length > 0 && (!isOpen || items.length >= summaryLimit);
 
   const filteredItems = useMemo(
     () =>
@@ -157,30 +171,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
         return (
           <div className={className.input} {...addFocusProps()}>
-            {isBrowser && (!isSearchable || !isOpen) && (
-              <button
-                className="Multiselect__inputbutton"
-                type="button"
-                aria-label={isOpen ? 'Fela valkosti' : 'Birta valkosti'}
-                aria-controls={domId()}
-                aria-expanded={isOpen}
-                onClick={() => {
-                  /*
-                  if (isSearchable) {
-                    setTimeout(() => {
-                      inputRef.current?.focus();
-                    }, 200);
-                    }*/
-                  setIsOpen((prevIsOpen) => !prevIsOpen);
-                }}
-              >
-                {!isOpen &&
-                  selectedItems.map((selItem, indx) => (
-                    <TagPill key={indx} label={selItem.label} />
-                  ))}
-              </button>
-            )}
-            {isBrowser && isSearchable && isOpen && (
+            {!isBrowser ? null : isSearchable ? (
               <input
                 aria-controls={domId()}
                 onChange={handleInputChange}
@@ -191,21 +182,33 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
                 {...inputElementProps}
                 ref={inputRef}
               />
+            ) : (
+              <button
+                className="Multiselect__inputbutton"
+                type="button"
+                aria-label={isOpen ? 'Fela valkosti' : 'Birta valkosti'}
+                aria-controls={domId()}
+                aria-expanded={isOpen}
+                onClick={() => setIsOpen((prevIsOpen) => !prevIsOpen)}
+              ></button>
             )}
             <div className="Multiselect__container" tabIndex={-1}>
-              {isBrowser && selectedItems.length > 0 && isOpen && (
+              {isBrowser && showCurrentValues && (
                 <div className="Multiselect__currentvalues" aria-label="Valin gildi:">
                   {selectedItems.map((selItem, indx) => (
                     <TagPill
                       key={indx}
-                      type="button"
-                      removable
-                      onRemove={() => removeSelectedItem(selItem)}
-                    >
-                      {selItem.label}
-                    </TagPill>
+                      label={selItem.label}
+                      {...(isOpen
+                        ? {
+                            removable: true,
+                            onRemove: () => {
+                              removeSelectedItem(selItem);
+                            },
+                          }
+                        : { removable: false })}
+                    />
                   ))}
-                  <hr className="Multiselect__seperator" />
                 </div>
               )}
               <ul

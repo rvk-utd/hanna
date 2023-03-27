@@ -10,7 +10,10 @@ const ff = FormFieldVariables.vars;
 
 /*
   FIXME:
-   - Add styling tweaks for `.Multiselect--nowrap`
+  - Add styling tweaks for `.Multiselect--nowrap`
+  - Implement the `.Multiselect__separator` styling
+  directly on `.Multiselect__currentvalues`
+  - Tweak CSS rules to correctly display `.Multiselect__currentvalues` in "closed state"
 */
 
 export default css`
@@ -52,10 +55,6 @@ export default css`
     padding: 8px 16px 0 16px;
     background-color: white;
     z-index: 100;
-  }
-
-  .Multiselect__seperator {
-    margin: 5px 0;
   }
 
   .Multiselect__currentvalues .TagPill {
