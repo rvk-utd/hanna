@@ -129,6 +129,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
       } else if (e.key === 'Escape') {
         e.preventDefault();
         setIsOpen(false);
+        inputRef.current?.focus();
       }
     };
 
@@ -197,6 +198,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
                 // Seems like an innocent hack for visible "placeholder" value.
                 // For scren-readers aria-label should take precedence.
                 value={selectedItems.length > 0 ? undefined : props.placeholder}
+                ref={inputRef as React.RefObject<HTMLButtonElement>}
               ></button>
             )}
             <div className="Multiselect__container" tabIndex={-1}>
