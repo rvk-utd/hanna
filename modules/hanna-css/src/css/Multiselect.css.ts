@@ -8,6 +8,11 @@ import { prem } from './utils/miscUtils';
 
 const ff = FormFieldVariables.vars;
 
+/*
+  FIXME:
+   - Add styling tweaks for `.Multiselect--nowrap`
+*/
+
 export default css`
   /*!@deps
     Heading
@@ -16,6 +21,7 @@ export default css`
     Checkbox
   */
 
+  // TODO: Remove this before release
   #react-select-2-listbox {
     z-index: 999;
   }

@@ -21,6 +21,11 @@ type Item = {
 
 type MultiselectProps = {
   items: Array<Item>;
+  /**
+   * Prevent the selected items from wrapping into multiple lines.
+   * Use this option when vertical space is limited.
+   */
+  nowrap?: boolean;
 };
 
 const Multiselect = (props: MultiselectProps & SearchInputProps) => {
@@ -145,7 +150,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
 
   return (
     <FormField
-      className="Multiselect"
+      className={getBemClass('Multiselect', props.nowrap && 'nowrap')}
       label="Select an option"
       LabelTag="h4"
       wrapperRef={wrapperRef}
