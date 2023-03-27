@@ -181,8 +181,9 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
                 onKeyDown={handleInputKeyDown}
                 value={searchQuery}
                 onFocus={() => setActiveItemIndex(-1)}
-                {...inputProps}
                 {...inputElementProps}
+                {...inputProps}
+                placeholder={selectedItems.length > 0 ? undefined : props.placeholder}
                 ref={inputRef}
               />
             ) : (
@@ -193,6 +194,9 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
                 aria-controls={domId()}
                 aria-expanded={isOpen}
                 onClick={() => setIsOpen((prevIsOpen) => !prevIsOpen)}
+                // Seems like an innocent hack for visible "placeholder" value.
+                // For scren-readers aria-label should take precedence.
+                value={selectedItems.length > 0 ? undefined : props.placeholder}
               ></button>
             )}
             <div className="Multiselect__container" tabIndex={-1}>
