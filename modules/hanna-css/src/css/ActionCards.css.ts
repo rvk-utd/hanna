@@ -27,6 +27,8 @@ export default css`
     .ActionCards__list {
       ${CardList_css}
     }
+    .ActionCards__item {
+    }
     .ActionCards__card {
       ${Card_css}
       ${hannaVarOverride({

@@ -44,6 +44,7 @@ export const CardList_css = () => css`
 export const Card_css = () => css`
   ${LinkStyle_Reset}
   display: block;
+  width: 100%;
   padding: ${prem(24)} ${prem(24)} ${prem(32)} ${prem(24)};
   min-height: ${prem(168)};
   height: 100%;
