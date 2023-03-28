@@ -11,12 +11,20 @@ import { Minimal } from '../../layout/Minimal';
 import { loremRT } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;
+
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = {
-  cssTokens: ['Modal,ButtonSecondary,ButtonTertiary,Heading,TextBlock, Bling'],
-};
+export const handle = cssTokens(
+  'Modal',
+  'ButtonSecondary',
+  'ButtonTertiary',
+  'Heading',
+  'TextBlock',
+  'Bling'
+);
+
 const renderBling = () => (
   <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
 );

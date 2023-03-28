@@ -46,7 +46,7 @@ const blings: TestBlingList = [
   { align: 'right-center', vertical: 'up', color: 'primary' },
 ];
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// export const handle = cssTokens('Token');
 
 export default function () {
   return (

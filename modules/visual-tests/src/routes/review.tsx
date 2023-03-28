@@ -8,6 +8,7 @@ import { SeenEffect } from '@reykjavik/hanna-react/SeenEffect';
 import { TagPill } from '@reykjavik/hanna-react/TagPill';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
+import { copyCacheControl, cssTokens } from '../utils/route.server';
 import { getChangesToReview, getReportDate } from '../utils/tests.server';
 
 import styles from './review.css';
@@ -33,6 +34,8 @@ export const loader: LoaderFunction = async () => {
 
 // ---------------------------------------------------------------------------
 
+export const headers = copyCacheControl;
+
 export const links: LinksFunction = () => [
   {
     rel: 'stylesheet',
@@ -42,9 +45,7 @@ export const links: LinksFunction = () => [
 
 // ---------------------------------------------------------------------------
 
-export const handle = {
-  cssTokens: ['PageHeading', 'TextBlock', 'TagPill', 'SeenEffect'],
-};
+export const handle = cssTokens('PageHeading', 'TextBlock', 'TagPill', 'SeenEffect');
 
 // ---------------------------------------------------------------------------
 

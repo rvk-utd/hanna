@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LinksFunction } from '@remix-run/node';
 import { Form, Link, useTransition } from '@remix-run/react';
+import { CssModuleToken } from '@reykjavik/hanna-css';
 import { TagPill, TagPillProps } from '@reykjavik/hanna-react/TagPill';
 import { capitalize } from '@reykjavik/hanna-utils';
 
@@ -293,4 +294,4 @@ const links: LinksFunction = () => [
 ];
 
 ReviewShot.links = links;
-ReviewShot.cssTokens = ['TagPill'];
+ReviewShot.cssTokens = ['TagPill'] satisfies Array<CssModuleToken>;

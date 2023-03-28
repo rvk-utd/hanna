@@ -7,6 +7,7 @@ import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;
 
@@ -27,7 +28,7 @@ const cards = range(1, 5).map(
 );
 
 // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['ButtonTertiary'] };
+export const handle = cssTokens('ButtonTertiary');
 
 export default function () {
   return (

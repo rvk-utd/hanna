@@ -9,11 +9,12 @@ import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;
 
 // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['Checkbox', 'TextInput', 'Selectbox'] };
+export const handle = cssTokens('Checkbox', 'TextInput', 'Selectbox');
 
 export default function () {
   return (

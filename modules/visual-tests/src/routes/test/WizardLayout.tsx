@@ -7,13 +7,14 @@ import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
 import { DummyBlock, GhostLabel } from '../../layout/DummyBlock';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;
 
 const toggle = (on: true | undefined) => !on || undefined;
 
 // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['Alert', 'WizardLayoutClose'] };
+export const handle = cssTokens('Alert', 'WizardLayoutClose');
 
 export default function () {
   const [globalAlerts, setGlobalAlerts] = useState<true | undefined>();

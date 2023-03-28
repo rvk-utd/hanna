@@ -11,7 +11,7 @@ import { autoTitle } from '../../utils/meta';
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// export const handle = cssTokens('Token');
 const props = {
   items1: [
     { title: 'Dagur 1-5 (mán, þri, mið, fim, fös)', content: lorem.short },

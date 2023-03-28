@@ -11,7 +11,7 @@ import { autoTitle } from '../../utils/meta';
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// export const handle = cssTokens('Token');
 
 const cards = range(1, 5).map(
   (i): ArticleCardsItemProps => ({

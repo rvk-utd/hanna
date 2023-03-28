@@ -9,12 +9,11 @@ import { DummyBlock } from '../../layout/DummyBlock';
 import { Minimal } from '../../layout/Minimal';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;
 
-export const handle = {
-  cssTokens: ['ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary'],
-};
+export const handle = cssTokens('ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary');
 
 const buttons = (align: 'right' | undefined) => {
   // alias here to appease PlayWright's weirdly limited build config

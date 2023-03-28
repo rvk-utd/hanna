@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import React from 'react';
+import { CssModuleToken } from '@reykjavik/hanna-css';
 import { useScrollbarWidthCSSVar } from '@reykjavik/hanna-react/utils';
 
 import { DummyBlock } from './DummyBlock';
@@ -39,4 +40,4 @@ export const Minimal = (props: MinimalProps) => {
   );
 };
 
-Minimal.cssTokens = 'Layout';
+Minimal.cssTokens = ['Layout'] satisfies Array<CssModuleToken>;

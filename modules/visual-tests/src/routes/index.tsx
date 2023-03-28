@@ -6,6 +6,7 @@ import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
+import { copyCacheControl, cssTokens } from '../utils/route.server';
 import { getTestList } from '../utils/tests.server';
 
 type LoaderData = {
@@ -26,9 +27,9 @@ export const loader: LoaderFunction = async (): Promise<Response> => {
   );
 };
 
-export const handle = {
-  cssTokens: ['Layout', 'HeroBlock', 'TextBlock', 'Datepicker'],
-};
+export const headers = copyCacheControl;
+
+export const handle = cssTokens('Layout', 'HeroBlock', 'TextBlock', 'Datepicker');
 
 export default function Index() {
   const { tests } = useLoaderData<LoaderData>();

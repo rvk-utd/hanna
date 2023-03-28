@@ -14,6 +14,7 @@ import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { Minimal } from '../layout/Minimal';
 import { ReviewShot } from '../layout/ReviewShot';
 import { ensureString } from '../utils/ensure';
+import { copyCacheControl, cssTokens } from '../utils/route.server';
 import { Changeset, getChangeById, updateScreenshotsFor } from '../utils/tests.server';
 
 type LoaderData = {
@@ -64,11 +65,11 @@ export const loader: LoaderFunction = async ({ params }) => {
   // ---------------------------------------------------------------------------
 };
 
+export const headers = copyCacheControl;
+
 export const links: LinksFunction = () => [...ReviewShot.links()];
 
-export const handle = {
-  cssTokens: ['PageHeading', 'TextBlock', ...ReviewShot.cssTokens],
-};
+export const handle = cssTokens('PageHeading', 'TextBlock', ...ReviewShot.cssTokens);
 
 // ---------------------------------------------------------------------------
 

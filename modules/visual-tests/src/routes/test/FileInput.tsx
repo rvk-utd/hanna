@@ -24,7 +24,7 @@ const previewUri =
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// export const handle = cssTokens('Token');
 const dropzoneText = () => (
   <Fragment>
     Dragðu gögn hingað eða <strong>bættu</strong> þeim við.

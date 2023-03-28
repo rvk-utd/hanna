@@ -7,6 +7,7 @@ import { Minimal } from '../../layout/Minimal';
 import { lorem, loremRT } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 const makeItems = () => [
   {
@@ -43,7 +44,7 @@ const makeItems = () => [
 export const meta: MetaFunction = autoTitle;
 
 // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['TextBlock'] };
+export const handle = cssTokens('TextBlock');
 
 export default function () {
   return (

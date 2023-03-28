@@ -10,13 +10,13 @@ import { Minimal } from '../../layout/Minimal';
 import { keyboardFocus } from '../../test-helpers/keyboardFocus';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = {
-  cssTokens: ['ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary'],
-};
+export const handle = cssTokens('ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary');
+
 const buttons = (
   buttonSize: 'small' | 'wide' | 'normal',
   variantType: 'normal' | 'destructive',
@@ -222,7 +222,7 @@ export const testing: TestingInfo = {
       { loc: destrTertiaryLink, name: 'destr-TertiaryLink', tertiary: true },
     ];
 
-    let cfg: typeof buttons[number] | undefined;
+    let cfg: (typeof buttons)[number] | undefined;
 
     let i = 0;
     /* eslint-disable no-await-in-loop */

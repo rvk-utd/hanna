@@ -8,6 +8,7 @@ import { Minimal } from '../../layout/Minimal';
 import { focusAllFormFields } from '../../test-helpers/focusAllFormFields';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;
 
@@ -16,7 +17,7 @@ const startDate = new Date('2022-10-05');
 const lang: DatepickerProps['localeCode'] = undefined;
 
 // Use `handle` if you're using multiple Hanna compnents
-export const handle = { lang, cssTokens: ['RowBlock', 'RowBlockColumn'] };
+export const handle = { lang, ...cssTokens('RowBlock', 'RowBlockColumn') };
 
 export default function () {
   const [date, setDate] = useState<Date | undefined>(startDate);

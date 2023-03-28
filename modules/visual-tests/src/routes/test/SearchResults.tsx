@@ -12,11 +12,12 @@ import { Minimal } from '../../layout/Minimal';
 import { lorem, photo } from '../../test-helpers/dummyData';
 import type { TestingInfo } from '../../test-helpers/testingInfo';
 import { autoTitle } from '../../utils/meta';
+import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['SiteSearchInput'] };
+export const handle = cssTokens('SiteSearchInput');
 
 const items = range(1, 4).map(
   (item): SearchResultsItemProps => ({
