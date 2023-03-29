@@ -1,7 +1,7 @@
 import React from 'react';
 import { TagPill } from '@reykjavik/hanna-react/TagPill';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'TagPill',

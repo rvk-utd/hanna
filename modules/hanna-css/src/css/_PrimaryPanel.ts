@@ -1,11 +1,11 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
-import { sr_only } from './utils/a11y';
-import { grid_units, prem } from './utils/miscUtils';
-import { Transition__long } from './utils/seenEffects';
+import { sr_only } from './utils/a11y.js';
+import { grid_units, prem } from './utils/miscUtils.js';
+import { Transition__long } from './utils/seenEffects.js';
 
 const pPanelCols = 8;
 

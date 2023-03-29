@@ -10,7 +10,7 @@ import { useRef } from 'react';
  * but resets/changes its internal state whenever a certain prop value changes.
  *
  * ```tsx
- * import { useDidChange } from './utils';
+ * import { useDidChange } from './utils.js';
  * // import { useDidChange } from '@reykjavik/hanna-react/utils';
  *
  * // inside your component/hook

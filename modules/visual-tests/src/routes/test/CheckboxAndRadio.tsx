@@ -5,10 +5,10 @@ import { RadioGroup } from '@reykjavik/hanna-react/RadioGroup';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 
-import { Minimal } from '../../layout/Minimal';
-import { lorem } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;

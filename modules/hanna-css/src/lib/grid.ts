@@ -1,7 +1,7 @@
 import { color, css, pct_f, PlainNumber, px, PxValue } from 'es-in-css';
 
-import { bp } from './breakpoints';
-import { isDevMode } from './cssutils';
+import { bp } from './breakpoints.js';
+import { isDevMode } from './cssutils.js';
 
 const unit = px(8);
 const gutter = px(40);

@@ -7,8 +7,8 @@ import { Selectbox } from '@reykjavik/hanna-react/Selectbox';
 import { TextInput } from '@reykjavik/hanna-react/TextInput';
 import { boolean } from '@storybook/addon-knobs';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'PageFilter',

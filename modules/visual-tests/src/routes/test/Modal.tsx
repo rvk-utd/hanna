@@ -7,10 +7,10 @@ import { Heading } from '@reykjavik/hanna-react/Heading';
 import { Modal, ModalProps } from '@reykjavik/hanna-react/Modal';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
-import { Minimal } from '../../layout/Minimal';
-import { loremRT } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { loremRT } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;

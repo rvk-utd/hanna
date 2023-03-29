@@ -4,9 +4,9 @@ import type { MetaFunction } from '@remix-run/node';
 import { ActionCards, ActionCardsItemProps } from '@reykjavik/hanna-react/ActionCards';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 
-import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;

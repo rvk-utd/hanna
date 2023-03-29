@@ -3,7 +3,7 @@ import { getCssBundleUrl } from '@reykjavik/hanna-css';
 import { getFormatMonitor } from '@reykjavik/hanna-utils';
 import { makeDecorator } from '@storybook/addons';
 
-import { StoryParameters } from '../storytypes';
+import { StoryParameters } from '../storytypes.js';
 
 const makeCssUrl = (module: string | undefined, noLayout?: boolean) => {
   const layout = noLayout ? '' : 'Layout,';

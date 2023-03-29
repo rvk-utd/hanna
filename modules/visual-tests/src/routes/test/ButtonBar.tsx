@@ -5,10 +5,10 @@ import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 
-import { DummyBlock } from '../../layout/DummyBlock';
-import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock } from '../../layout/DummyBlock.js';
+import { Minimal } from '../../layout/Minimal.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;

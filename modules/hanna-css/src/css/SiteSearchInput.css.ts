@@ -1,15 +1,15 @@
 import { css, rem } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { FormFieldVariables } from './styles/forms';
-import { sr_only } from './utils/a11y';
-import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors';
-import { hideText_css } from './utils/hideText';
-import { grid_units, prem } from './utils/miscUtils';
+import { FormFieldVariables } from './styles/forms.js';
+import { sr_only } from './utils/a11y.js';
+import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors.js';
+import { hideText_css } from './utils/hideText.js';
+import { grid_units, prem } from './utils/miscUtils.js';
 
 const ff = FormFieldVariables.vars;
 

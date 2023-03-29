@@ -3,7 +3,7 @@ import { Alert } from '@reykjavik/hanna-react/Alert';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 const alertDemos = {
   info: () => (

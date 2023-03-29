@@ -2,9 +2,9 @@ import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
 
-import { Minimal } from '../../layout/Minimal';
-import { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 export const meta: MetaFunction = autoTitle;
 

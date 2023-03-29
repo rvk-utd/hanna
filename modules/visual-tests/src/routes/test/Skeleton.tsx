@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 
-import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 export const meta: MetaFunction = autoTitle;
 

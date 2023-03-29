@@ -2,8 +2,8 @@ import React from 'react';
 import { ContactBubble, ContactBubbleItem } from '@reykjavik/hanna-react/ContactBubble';
 import { boolean } from '@storybook/addon-knobs';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'ContactBubble',

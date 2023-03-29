@@ -4,8 +4,8 @@ import {
   TogglerGroupField,
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
-} from './_abstract/_TogglerGroupField';
-import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput';
+} from './_abstract/_TogglerGroupField.js';
+import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput.js';
 
 export type RadioButtonsGroupProps = TogglerGroupFieldProps & {
   value?: string;

@@ -4,10 +4,10 @@ import { objectClean, objectIsSame } from '@hugsmidjan/qj/object';
 import CarouselPaging from '@hugsmidjan/react/CarouselPaging';
 import Modal from '@hugsmidjan/react/Modal';
 
-import { GalleryI18n } from '../Gallery';
+import { GalleryI18n } from '../Gallery.js';
 
-import { GalleryModalContext } from './_GalleryModalContext';
-import { GalleryModalItem } from './_GalleryModalItem';
+import { GalleryModalContext } from './_GalleryModalContext.js';
+import { GalleryModalItem } from './_GalleryModalItem.js';
 
 type GalleryModalProps = { texts: Readonly<GalleryI18n> };
 

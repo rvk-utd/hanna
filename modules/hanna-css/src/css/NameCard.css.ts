@@ -1,12 +1,12 @@
 import { css } from 'es-in-css';
 
-import { cols_px } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { cols_px } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { ButtonTertiaryStyle } from './styles/buttons';
-import { prem } from './utils/miscUtils';
+import { ButtonTertiaryStyle } from './styles/buttons.js';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {

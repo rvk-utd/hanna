@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { EffectProp, getEffectAttr, SeenProp, useSeenEffect } from './utils/seenEffect';
+import {
+  EffectProp,
+  getEffectAttr,
+  SeenProp,
+  useSeenEffect,
+} from './utils/seenEffect.js';
 
 export type SeenEffectProps = Omit<JSX.IntrinsicElements['div'], 'ref'> &
   SeenProp &

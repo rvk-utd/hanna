@@ -1,10 +1,10 @@
 import { css, pct_f } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { cols_pct } from '../lib/grid';
-import { hannaVars as vars, linkVars } from '../lib/hannavars';
+import { mq } from '../lib/breakpoints.js';
+import { cols_pct } from '../lib/grid.js';
+import { hannaVars as vars, linkVars } from '../lib/hannavars.js';
 
-import { grid_units, prem } from './utils/miscUtils';
+import { grid_units, prem } from './utils/miscUtils.js';
 
 export const AuxiliaryPanel_css = () => css`
   @media screen {

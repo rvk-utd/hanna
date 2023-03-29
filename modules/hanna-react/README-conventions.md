@@ -29,12 +29,12 @@ For the sake of consistency and ease of use:
 
 ```ts
 // ✅ Good
-import { MyComponent } from './MyComponent';
-import { useMyHook } from './utils/useMyHook';
+import { MyComponent } from './MyComponent.js';
+import { useMyHook } from './utils/useMyHook.js';
 // ❌ Bad
-import { myMapper } from './utils/mymapper'; // case mismatch
-import { myHelperFn } from './utils/myHelperFunction'; // naming mismatch
-import MyOtherComponent from './MyOtherComponent'; // no default exports
+import { myMapper } from './utils/mymapper.js'; // case mismatch
+import { myHelperFn } from './utils/myHelperFunction.js'; // naming mismatch
+import MyOtherComponent from './MyOtherComponent.js'; // no default exports
 ```
 
 **NOTE:** Earlier versions of the Hanna codebase used default exports for
@@ -81,7 +81,7 @@ specifically designed to help "Keep It Simple and Sane" in such cases.
 
 ```tsx
 import React, { FC, ReactNode } from 'react';
-import { useMixedControlState } from './utils';
+import { useMixedControlState } from './utils.js';
 // import { useMixedControlState } from '@reykjavik/hanna-react/utils';
 
 type FooBarProps = {
@@ -119,7 +119,7 @@ an internal useState and the [`useDidChange` hook](src/utils/useDidChange.ts)
 to reset it whenever the prop changes.
 
 ```tsx
-import { useDidChange } from './utils';
+import { useDidChange } from './utils.js';
 // import { useDidChange } from '@reykjavik/hanna-react/utils';
 
 // inside your component/hook
@@ -285,7 +285,7 @@ BTW, hanna-react has an `isPreact` utility flag that you can use for this
 purpose.
 
 ```tsx
-import { isPreact } from './utils/env';
+import { isPreact } from './utils/env.js';
 // ...
 
 <div

@@ -5,10 +5,10 @@ import {
   ArticleCarouselProps,
 } from '@reykjavik/hanna-react/ArticleCarousel';
 
-import { Minimal } from '../../layout/Minimal';
-import { illustr, lorem, photo } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { illustr, lorem, photo } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 const items: ArticleCarouselProps['items'] = [
   {

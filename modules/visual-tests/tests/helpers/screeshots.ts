@@ -1,9 +1,9 @@
 import type { Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 
-import type { TestFnArgs } from '../../src/test-helpers/testingInfo';
+import type { TestFnArgs } from '../../src/test-helpers/testingInfo.js';
 
-import { expandViewport } from './viewport';
+import { expandViewport } from './viewport.js';
 
 // NOTE: using greek letter "ι" to make a stable splitter ("-ι-")
 // between different portions of the screenshot filename, because

@@ -1,16 +1,16 @@
 import { css } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { htmlCl } from '../lib/classNames';
-import { cols_px } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { htmlCl } from '../lib/classNames.js';
+import { cols_px } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_Reset } from './styles/links';
-import { keyboardFocus_selector } from './utils/focus-selectors';
-import { prem } from './utils/miscUtils';
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects';
+import { LinkStyle_Reset } from './styles/links.js';
+import { keyboardFocus_selector } from './utils/focus-selectors.js';
+import { prem } from './utils/miscUtils.js';
+import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   @media screen {

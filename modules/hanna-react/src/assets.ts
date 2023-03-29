@@ -19,7 +19,7 @@ import {
 import {
   CssModuleToken,
   CssVersionToken,
-} from '../../hanna-css/src/lib/style-server-info';
+} from '../../hanna-css/src/lib/style-server-info.js';
 
 export type {
   /** @deprecated  Instead `import type { BlingType } from '@reykjavik/hanna-utils/assets';` (Will be removed in v0.11) */
@@ -83,7 +83,7 @@ export const efnistakn_menu = [
   'menu/velferd_fjolskylda',
 ] as const;
 /** @deprecated  (Will be removed in v0.11) */
-export type Efnistakn_Menu = typeof efnistakn_menu[number];
+export type Efnistakn_Menu = (typeof efnistakn_menu)[number];
 
 // ---------------------------------------------------------------------------
 
@@ -100,7 +100,7 @@ export const auxiliary_menu_images: Array<Illustration> = [
   'hanna-benda',
 ];
 /** @deprecated  Instead `import type { AuxilaryPanelIllustration } from '@reykjavik/hanna-react/MainMenu';` (Will be removed in v0.11) */
-export type Auxilary_MenuImages = typeof auxiliary_menu_images[number];
+export type Auxilary_MenuImages = (typeof auxiliary_menu_images)[number];
 
 // ---------------------------------------------------------------------------
 

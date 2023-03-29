@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 import { existsSync, readFileSync, statSync } from 'fs';
 import { stat } from 'fs/promises';
 
-import { LABEL_SPLIT, NAME_SPLIT } from '../../tests/helpers/screeshots';
+import { LABEL_SPLIT, NAME_SPLIT } from '../../tests/helpers/screeshots.js';
 
 import { globP, globSync } from './glob.server';
 

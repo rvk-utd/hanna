@@ -3,10 +3,10 @@ import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
 import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
 
-import { Minimal } from '../../layout/Minimal';
-import { illustr } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { illustr } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 export const meta: MetaFunction = autoTitle;
 

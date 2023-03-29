@@ -1,8 +1,8 @@
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
-import { setStyleServerUrl, styleServerUrl } from './assets';
-import * as lib from './assets';
+import { setStyleServerUrl, styleServerUrl } from './assets.js';
+import * as lib from './assets.js';
 
 type ExpectedExports = keyof typeof lib;
 
@@ -41,7 +41,7 @@ import type {
   Efnistakn,
   Formheimur,
   Illustration,
-} from './assets';
+} from './assets.js';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
 
 // ===========================================================================

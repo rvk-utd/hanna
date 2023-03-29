@@ -2,19 +2,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { color, css, px } from 'es-in-css';
 
-import { between_phone_netbook, between_tablet_netbook } from '../../lib/between';
-import { mq } from '../../lib/breakpoints';
-import { buildVariables } from '../../lib/cssutils';
-import { hannaVars as vars } from '../../lib/hannavars';
-import { iconStyle } from '../../lib/icons';
-import { WARNING__ } from '../../lib/WARNING__';
+import { between_phone_netbook, between_tablet_netbook } from '../../lib/between.js';
+import { mq } from '../../lib/breakpoints.js';
+import { buildVariables } from '../../lib/cssutils.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
+import { iconStyle } from '../../lib/icons.js';
+import { WARNING__ } from '../../lib/WARNING__.js';
 import {
   hoverActiveKeyboardFocus_selector,
   keyboardFocus_selector,
-} from '../utils/focus-selectors';
-import { prem } from '../utils/miscUtils';
+} from '../utils/focus-selectors.js';
+import { prem } from '../utils/miscUtils.js';
 
-import { LinkStyle_Reset } from './links';
+import { LinkStyle_Reset } from './links.js';
 
 import { enableDataIcon } from '../Icon.css';
 

@@ -1,23 +1,23 @@
 import { color, css, px } from 'es-in-css';
 
-import { between_Topmenu } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { htmlCl } from '../lib/classNames';
-import { colors } from '../lib/colors';
-import { buildVariables } from '../lib/cssutils';
-import { font } from '../lib/font';
-import { cols_pct, grid } from '../lib/grid';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_Topmenu } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { htmlCl } from '../lib/classNames.js';
+import { colors } from '../lib/colors.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { font } from '../lib/font.js';
+import { cols_pct, grid } from '../lib/grid.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { freezeScroll_css } from './styles/header';
-import { LinkStyle } from './styles/links';
-import { sr_only_content_focusable, sr_only_focusable_css } from './utils/a11y';
-import { extendSides } from './utils/extendSides';
-import { grid_units, prem } from './utils/miscUtils';
-import { AuxiliaryPanel_css } from './_AuxiliaryPanel';
-import { PrimaryPanel_css } from './_PrimaryPanel';
+import { freezeScroll_css } from './styles/header.js';
+import { LinkStyle } from './styles/links.js';
+import { sr_only_content_focusable, sr_only_focusable_css } from './utils/a11y.js';
+import { extendSides } from './utils/extendSides.js';
+import { grid_units, prem } from './utils/miscUtils.js';
+import { AuxiliaryPanel_css } from './_AuxiliaryPanel.js';
+import { PrimaryPanel_css } from './_PrimaryPanel.js';
 
 import { whiteHeader, whiteLogo } from './Layout.css';
 

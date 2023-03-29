@@ -12,8 +12,8 @@ import {
   getFileListUpdate,
   releasePreview,
 } from './FileInput/_FileInput.utils';
-import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList';
-import FormField, { FormFieldWrappingProps } from './FormField';
+import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList.js';
+import FormField, { FormFieldWrappingProps } from './FormField.js';
 
 const defaultRemoveFileText: OpenRecord<'is' | 'en' | 'pl', string> = {
   is: 'Fjarlægja',

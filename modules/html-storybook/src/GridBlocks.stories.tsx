@@ -4,7 +4,7 @@ import { GridBlocks } from '@reykjavik/hanna-react/GridBlocks';
 import { efnistakn } from '@reykjavik/hanna-utils/assets';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'GridBlocks',

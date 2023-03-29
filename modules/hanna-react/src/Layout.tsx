@@ -6,12 +6,12 @@ import { EitherObj } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { Image } from './_abstract/_Image';
-import { Link } from './_abstract/_Link';
-import { HannaUIState } from './utils/HannaUIState';
-import { useMenuToggling } from './utils/useMenuToggling';
-import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar';
-import { SSRSupport, useIsBrowserSide } from './utils';
+import { Image } from './_abstract/_Image.js';
+import { Link } from './_abstract/_Link.js';
+import { HannaUIState } from './utils/HannaUIState.js';
+import { useMenuToggling } from './utils/useMenuToggling.js';
+import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
+import { SSRSupport, useIsBrowserSide } from './utils.js';
 
 export type LayoutI18n = {
   lang?: string;

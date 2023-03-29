@@ -1,17 +1,17 @@
 import { css, em } from 'es-in-css';
 
-import { between_container, between_phone_phablet } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { htmlCl } from '../lib/classNames';
-import { buildVariables } from '../lib/cssutils';
-import { font } from '../lib/font';
-import { cols_px } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_container, between_phone_phablet } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { htmlCl } from '../lib/classNames.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { font } from '../lib/font.js';
+import { cols_px } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { SeenEffect__fadeup } from './utils/seenEffects';
-import { textContent } from './utils/textContent';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
+import { textContent } from './utils/textContent.js';
 
 const a = buildVariables(['leftIndent', 'iconWidth']);
 

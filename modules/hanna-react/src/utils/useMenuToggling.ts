@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { focusElement } from '@reykjavik/hanna-utils';
 
-import { useFormatMonitor } from './useFormatMonitor';
+import { useFormatMonitor } from './useFormatMonitor.js';
 
 const htmlClass = (className: string, add: boolean) => {
   document.documentElement.classList[add ? 'add' : 'remove'](className);

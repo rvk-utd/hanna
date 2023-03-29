@@ -1,8 +1,8 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { buildVariables } from '../lib/cssutils';
-import { hannaVars as vars } from '../lib/hannavars';
+import { between_cols } from '../lib/between.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
 const FieldGroupVariables = buildVariables(['legendSize', 'legendMargin'], 'FieldGroup');
 const fgVars = FieldGroupVariables.vars;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Image, ImageProps } from './_abstract/_Image';
+import { Image, ImageProps } from './_abstract/_Image.js';
 
 export type ContentImageProps = {
   image?: ImageProps;

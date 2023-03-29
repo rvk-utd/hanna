@@ -3,8 +3,8 @@ import { Bling, BlingProps as _BlingProps } from '@reykjavik/hanna-react/Bling';
 import { blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean, optionsKnob, select } from '@storybook/addon-knobs';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 type BlingProps = Required<_BlingProps>;
 

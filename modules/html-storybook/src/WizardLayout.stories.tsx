@@ -5,7 +5,7 @@ import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
 import { WizardStepper } from '@reykjavik/hanna-react/WizardStepper';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Layout/WizardLayout',

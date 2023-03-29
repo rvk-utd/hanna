@@ -1,7 +1,7 @@
 import { css, str } from 'es-in-css';
 
-import { baseMQs, mq } from '../../lib/breakpoints';
-import { isDevMode } from '../../lib/cssutils';
+import { baseMQs, mq } from '../../lib/breakpoints.js';
+import { isDevMode } from '../../lib/cssutils.js';
 
 type Options = {
   selector?: '#mediaformat';

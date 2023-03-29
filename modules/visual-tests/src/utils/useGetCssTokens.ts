@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useMatches } from '@remix-run/react';
 
-import { ensureStringArray } from './ensure';
+import { ensureStringArray } from './ensure.js';
 
 /**
  * Builds a list of CSS module tokens from a Remix.run root route's

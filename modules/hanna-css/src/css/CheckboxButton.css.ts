@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { TogglerButtonsKnob } from './styles/forms';
+import { TogglerButtonsKnob } from './styles/forms.js';
 
 import { CheckboxButtonsGroup_css } from './CheckboxButtonsGroup.css';
 import { RadioButtonsGroup_css } from './RadioButtonsGroup.css';

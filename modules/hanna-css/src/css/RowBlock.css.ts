@@ -1,14 +1,14 @@
 import { css, ms } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { hannaVars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import {
   SeenEffect__delay,
   SeenEffect__fadeup,
   SeenEffect__transition,
-} from './utils/seenEffects';
+} from './utils/seenEffects.js';
 
 import { RowBlockColumn_css } from './RowBlockColumn.css';
 

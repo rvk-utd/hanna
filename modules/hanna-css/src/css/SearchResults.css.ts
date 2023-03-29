@@ -1,18 +1,18 @@
 import { css } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { font } from '../lib/font';
-import { cols_px, grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { font } from '../lib/font.js';
+import { cols_px, grid } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { ButtonTertiaryStyle } from './styles/buttons';
-import { LabeledTitleStyle__basics } from './styles/labeledTitle';
-import { LinkStyle_Reset } from './styles/links';
-import { sr_only } from './utils/a11y';
-import { afterClear_css } from './utils/afterClear';
-import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors';
-import { grid_units, prem } from './utils/miscUtils';
+import { ButtonTertiaryStyle } from './styles/buttons.js';
+import { LabeledTitleStyle__basics } from './styles/labeledTitle.js';
+import { LinkStyle_Reset } from './styles/links.js';
+import { sr_only } from './utils/a11y.js';
+import { afterClear_css } from './utils/afterClear.js';
+import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors.js';
+import { grid_units, prem } from './utils/miscUtils.js';
 
 const baseDashWidth = 24;
 const hoverDashWidth = 48;

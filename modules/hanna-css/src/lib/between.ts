@@ -1,8 +1,8 @@
 import type { PctValue, PlainNumber, PxValue, RawCssValue } from 'es-in-css';
 import { pct_f, px, unitOf, vh_f, vw_f } from 'es-in-css';
 
-import { bp } from './breakpoints';
-import { cols_px, grid } from './grid';
+import { bp } from './breakpoints.js';
+import { cols_px, grid } from './grid.js';
 
 const { phone, phablet, tablet, netbook, wide } = bp;
 

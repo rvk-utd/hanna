@@ -1,14 +1,14 @@
 import { css, em } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_cols } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel';
-import { LinkStyle_Reset } from './styles/links';
-import { SeenEffect__fadeup } from './utils/seenEffects';
-import { GalleryModal_css, GalleryModalItem_css } from './_GalleryModal';
+import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
+import { LinkStyle_Reset } from './styles/links.js';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
+import { GalleryModal_css, GalleryModalItem_css } from './_GalleryModal.js';
 
 import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css';
 

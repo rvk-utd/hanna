@@ -6,8 +6,8 @@ import {
   CardListSummaryProps,
   ImageCardListProps,
   ImageCardProps as _ImageCardProps,
-} from './_abstract/_CardList';
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
+} from './_abstract/_CardList.js';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
 export type ImageCardsItemProps = _ImageCardProps;
 

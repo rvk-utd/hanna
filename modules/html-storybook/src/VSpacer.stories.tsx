@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { VSpacer, VSpacerProps } from '@reykjavik/hanna-react/VSpacer';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 // ===========================================================================
 

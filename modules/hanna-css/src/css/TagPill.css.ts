@@ -1,11 +1,11 @@
 import { css, em } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_Reset } from './styles/links';
-import { hideText_css } from './utils/hideText';
+import { LinkStyle_Reset } from './styles/links.js';
+import { hideText_css } from './utils/hideText.js';
 
 export default css`
   @media screen {

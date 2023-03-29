@@ -2,10 +2,10 @@ import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { Attention } from '@reykjavik/hanna-react/Attention';
 
-import { Minimal } from '../../layout/Minimal';
-import { loremRT } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { loremRT } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 export const meta: MetaFunction = autoTitle;
 

@@ -4,10 +4,10 @@ import { Datepicker, DatepickerProps } from '@reykjavik/hanna-react/Datepicker';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 
-import { Minimal } from '../../layout/Minimal';
-import { focusAllFormFields } from '../../test-helpers/focusAllFormFields';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { focusAllFormFields } from '../../test-helpers/focusAllFormFields.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;

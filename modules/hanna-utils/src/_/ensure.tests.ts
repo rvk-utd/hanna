@@ -1,6 +1,6 @@
 import o from 'ospec';
 
-import { ensurePosInt, PositiveInteger } from './ensure';
+import { ensurePosInt, PositiveInteger } from './ensure.js';
 
 o.spec('ensurePosInt', () => {
   o('works', () => {

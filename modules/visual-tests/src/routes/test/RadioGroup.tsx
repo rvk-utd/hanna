@@ -2,12 +2,12 @@ import React, { Fragment, useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { RadioGroup } from '@reykjavik/hanna-react/RadioGroup';
 
-import { DummyBlock } from '../../layout/DummyBlock';
-import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock } from '../../layout/DummyBlock.js';
+import { Minimal } from '../../layout/Minimal.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
-import { options } from './CheckboxGroup';
+import { options } from './CheckboxGroup.js';
 
 export const meta: MetaFunction = autoTitle;
 

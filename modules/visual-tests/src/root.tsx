@@ -21,7 +21,7 @@ import { setLinkRenderer } from '@reykjavik/hanna-react/utils';
 import { getPageScrollElm as _getPageScrollElm } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
-import { useGetCssTokens } from './utils/useGetCssTokens';
+import { useGetCssTokens } from './utils/useGetCssTokens.js';
 
 setLinkRenderer((props) => {
   // Check if the URL starts with a protocol (https:, mailto:, tel:)

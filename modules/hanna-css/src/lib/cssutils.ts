@@ -6,7 +6,7 @@ import {
   cssVersion as fullCssVersion,
   CssVersionToken,
   majorCssVersion,
-} from './style-server-info';
+} from './style-server-info.js';
 
 // ---------------------------------------------------------------------------
 

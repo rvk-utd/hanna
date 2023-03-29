@@ -1,10 +1,10 @@
 import { css, px } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { FormField__error, FormFieldVariables } from './styles/forms';
-import { sr_only } from './utils/a11y';
-import { grid_units, overflowEllipsis, prem } from './utils/miscUtils';
+import { FormField__error, FormFieldVariables } from './styles/forms.js';
+import { sr_only } from './utils/a11y.js';
+import { grid_units, overflowEllipsis, prem } from './utils/miscUtils.js';
 
 import { Selectbox_css } from './Selectbox.css';
 import { TextInput_css } from './TextInput.css';

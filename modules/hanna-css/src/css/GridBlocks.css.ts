@@ -1,17 +1,17 @@
 import range from '@hugsmidjan/qj/range';
 import { css, ms } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { cols_pct, grid } from '../lib/grid';
-import { hannaVars } from '../lib/hannavars';
+import { between_cols } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { cols_pct, grid } from '../lib/grid.js';
+import { hannaVars } from '../lib/hannavars.js';
 
-import { grid_units, prem, resetImageChild } from './utils/miscUtils';
+import { grid_units, prem, resetImageChild } from './utils/miscUtils.js';
 import {
   SeenEffect__delay,
   SeenEffect__fadeup,
   SeenEffect__transition,
-} from './utils/seenEffects';
+} from './utils/seenEffects.js';
 
 export default css`
   /*!@deps

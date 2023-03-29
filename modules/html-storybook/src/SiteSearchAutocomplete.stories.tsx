@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import range from '@hugsmidjan/qj/range';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Forms/SiteSearchAutocomplete',

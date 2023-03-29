@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { ButtonProps } from './_abstract/_Button';
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import ButtonTertiary from './ButtonTertiary';
+import { ButtonProps } from './_abstract/_Button.js';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import ButtonTertiary from './ButtonTertiary.js';
 
 export type LabeledTextBlockProps = {
   label: string;

@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { useGetSVGtext } from '../utils/useGetSVGtext';
+import { useGetSVGtext } from '../utils/useGetSVGtext.js';
 
 export type Source = {
   srcset: string;

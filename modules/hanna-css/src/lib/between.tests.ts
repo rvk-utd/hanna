@@ -1,6 +1,6 @@
 import o from 'ospec';
 
-import { between } from './between';
+import { between } from './between.js';
 
 o.spec('between helper', () => {
   o('works', () => {

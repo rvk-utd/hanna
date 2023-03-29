@@ -1,12 +1,12 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { suppress_WARNING__ } from '../lib/WARNING__';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { suppress_WARNING__ } from '../lib/WARNING__.js';
 
-import { hideText_css } from './utils/hideText';
-import { prem } from './utils/miscUtils';
+import { hideText_css } from './utils/hideText.js';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   /*!@deps

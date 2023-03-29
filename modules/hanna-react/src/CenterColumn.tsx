@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import { EffectProp, SeenProp } from './utils/seenEffect';
-import SeenEffect from './SeenEffect';
+import { EffectProp, SeenProp } from './utils/seenEffect.js';
+import SeenEffect from './SeenEffect.js';
 
 export type CenterColumnProps = {
   children: ReactNode;

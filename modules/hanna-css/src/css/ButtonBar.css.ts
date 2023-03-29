@@ -1,7 +1,7 @@
 import { css } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 export default css`
   .ButtonBar {
@@ -52,8 +52,9 @@ export default css`
     ${WARNING__('No `<hr/>` children in `.ButtonBar`')};
   }
   .ButtonBar
-    > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(.ButtonPrimary
-      ~ *):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *) {
+    > :last-child:not(.ButtonPrimary):not(.ButtonSecondary):not(.ButtonTertiary):not(
+      .ButtonPrimary ~ *
+    ):not(.ButtonSecondary ~ *):not(.ButtonTertiary ~ *) {
     ${WARNING__('`.ButtonBar` should contain Buttons')};
   }
 `;

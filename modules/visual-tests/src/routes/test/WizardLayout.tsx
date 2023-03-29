@@ -4,9 +4,9 @@ import { Alert } from '@reykjavik/hanna-react/Alert';
 import { WizardLayout } from '@reykjavik/hanna-react/WizardLayout';
 import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
 
-import { DummyBlock, GhostLabel } from '../../layout/DummyBlock';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock, GhostLabel } from '../../layout/DummyBlock.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.server';
 
 export const meta: MetaFunction = autoTitle;

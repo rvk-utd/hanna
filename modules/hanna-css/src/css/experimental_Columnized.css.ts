@@ -1,8 +1,8 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { cols_pct } from '../lib/grid';
-import { WARNING__ } from '../lib/WARNING__';
+import { mq } from '../lib/breakpoints.js';
+import { cols_pct } from '../lib/grid.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 export default css`
   // @deprecated  Remove this module in v0.9

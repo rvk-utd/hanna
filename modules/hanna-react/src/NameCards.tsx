@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NameCard, { NameCardProps } from './NameCard';
+import NameCard, { NameCardProps } from './NameCard.js';
 
 type NameCardsProps = {
   items: Array<NameCardProps>;

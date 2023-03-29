@@ -7,10 +7,10 @@ import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
 
-import { Minimal } from '../../layout/Minimal';
-import { illustr } from '../../test-helpers/dummyData';
-import type { TestingInfo, TestPageHandle } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { illustr } from '../../test-helpers/dummyData.js';
+import type { TestingInfo, TestPageHandle } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 export const meta: MetaFunction = autoTitle;
 

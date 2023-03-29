@@ -6,8 +6,8 @@ import {
   setStyleServerUrl,
   styleServerUrl,
   targetCssVersion,
-} from './cssutils';
-import { CssVersionToken } from './style-server-info';
+} from './cssutils.js';
+import { CssVersionToken } from './style-server-info.js';
 
 o.spec('buildVariables helper', () => {
   o('works', () => {

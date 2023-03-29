@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { AbstractCarousel } from './_abstract/_AbstractCarousel';
+import { AbstractCarousel } from './_abstract/_AbstractCarousel.js';
 import {
   ArticleCarouselCard,
   ArticleCarouselCardProps,
   ArticleCarouselImageProps,
-} from './ArticleCarousel/_ArticleCarouselCard';
-import { SeenProp } from './utils/seenEffect';
-import { SSRSupport } from './utils';
+} from './ArticleCarousel/_ArticleCarouselCard.js';
+import { SeenProp } from './utils/seenEffect.js';
+import { SSRSupport } from './utils.js';
 
 export type ArticleCarouselProps = {
   items: Array<ArticleCarouselCardProps>;

@@ -1,7 +1,7 @@
 import { css, PlainNumber, PxValue, RawCssString, rem } from 'es-in-css';
 
-import { grid } from '../../lib/grid';
-import { hannaVars as vars } from '../../lib/hannavars';
+import { grid } from '../../lib/grid.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
 
 /**
  * Converts a pixel size to a rem value.

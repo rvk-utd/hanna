@@ -6,7 +6,7 @@ import Selectbox, {
   SelectboxOptionList,
   SelectboxOptions,
   SelectboxProps,
-} from './Selectbox';
+} from './Selectbox.js';
 
 o.spec('Selectbox', () => {
   o('is exported', () => {

@@ -5,7 +5,7 @@ import {
 } from '@reykjavik/hanna-react/ContentArticle';
 
 import contentImageUrl from './example_assets/Gallery--landscape--large.jpg';
-import { StoryComponent } from './storytypes';
+import { StoryComponent } from './storytypes.js';
 
 export default {
   title: 'ContentArticle',

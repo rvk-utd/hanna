@@ -10,9 +10,9 @@ import {
 } from '@reykjavik/hanna-react/MainMenu';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
-import { makeStateBridge } from '../../test-helpers/makeStateBridge';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { makeStateBridge } from '../../test-helpers/makeStateBridge.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 const showAuxState = makeStateBridge<true | undefined>('showAux');
 

@@ -1,8 +1,8 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
-import { hannaVars as vars } from '../lib/hannavars';
+import { mq } from '../lib/breakpoints.js';
+import { colors } from '../lib/colors.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
 export default css`
   /*!@deps

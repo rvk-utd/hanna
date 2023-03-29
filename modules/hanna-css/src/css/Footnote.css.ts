@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { hannaVars as vars } from '../lib/hannavars';
+import { between_cols } from '../lib/between.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { prem } from './utils/miscUtils';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {

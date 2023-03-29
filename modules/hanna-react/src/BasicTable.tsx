@@ -4,7 +4,7 @@ import TableWrapper from '@hugsmidjan/react/TableWrapper';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
 export type BasicTableProps = {
   compact?: boolean;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 
-import { auxiliaryPanel, mainMenuItems, megaMenuPanels } from './utils/_dummyData';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { auxiliaryPanel, mainMenuItems, megaMenuPanels } from './utils/_dummyData.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Layout/MainMenu',

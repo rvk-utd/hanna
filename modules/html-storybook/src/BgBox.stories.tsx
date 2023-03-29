@@ -1,7 +1,7 @@
 import React from 'react';
 import { BgBox } from '@reykjavik/hanna-react/BgBox';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'BgBox',

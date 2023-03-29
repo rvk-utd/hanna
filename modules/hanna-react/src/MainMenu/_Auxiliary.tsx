@@ -1,9 +1,9 @@
 import React, { CSSProperties } from 'react';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 
-import { Link } from '../_abstract/_Link';
+import { Link } from '../_abstract/_Link.js';
 
-import { MegaMenuPanel } from './_PrimaryPanel';
+import { MegaMenuPanel } from './_PrimaryPanel.js';
 
 // ---------------------------------------------------------------------------
 

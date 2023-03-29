@@ -5,21 +5,21 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { Cleanup, getPageScrollElm } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { Link } from './_abstract/_Link';
+import { Link } from './_abstract/_Link.js';
 import {
   AuxilaryPanelIllustration,
   AuxiliaryPanel,
   AuxiliaryPanelProps,
-} from './MainMenu/_Auxiliary';
+} from './MainMenu/_Auxiliary.js';
 import {
   MegaMenuItem,
   MegaMenuPanel,
   PrimaryPanel,
   PrimaryPanelI18n,
-} from './MainMenu/_PrimaryPanel';
-import { useHannaUIState } from './utils/HannaUIState';
-import { useFormatMonitor } from './utils/useFormatMonitor';
-import { SSRSupport, useIsBrowserSide } from './utils';
+} from './MainMenu/_PrimaryPanel.js';
+import { useHannaUIState } from './utils/HannaUIState.js';
+import { useFormatMonitor } from './utils/useFormatMonitor.js';
+import { SSRSupport, useIsBrowserSide } from './utils.js';
 
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>
   activeId ? megaPanels.find((panel) => activeId === panel.id) : undefined;

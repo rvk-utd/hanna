@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import ArticleMeta, { ArticleMetaProps } from './ArticleMeta';
-import ContentImage, { ContentImageProps } from './ContentImage';
-import Heading from './Heading';
-import RelatedLinks, { RelatedLinksProps } from './RelatedLinks';
-import TextBlock from './TextBlock';
-import VSpacer from './VSpacer';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import ArticleMeta, { ArticleMetaProps } from './ArticleMeta.js';
+import ContentImage, { ContentImageProps } from './ContentImage.js';
+import Heading from './Heading.js';
+import RelatedLinks, { RelatedLinksProps } from './RelatedLinks.js';
+import TextBlock from './TextBlock.js';
+import VSpacer from './VSpacer.js';
 
 export type ContentArticleProps = {
   /** Date, author, etc. */

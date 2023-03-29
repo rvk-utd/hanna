@@ -1,7 +1,12 @@
 import React, { ReactNode } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { EffectProp, getEffectAttr, SeenProp, useSeenEffect } from './utils/seenEffect';
+import {
+  EffectProp,
+  getEffectAttr,
+  SeenProp,
+  useSeenEffect,
+} from './utils/seenEffect.js';
 
 export type BgBoxProps = {
   className?: string;

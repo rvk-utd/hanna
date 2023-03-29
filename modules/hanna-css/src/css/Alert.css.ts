@@ -1,15 +1,15 @@
 import { color, css, ms } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
-import { buildVariables } from '../lib/cssutils';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { mq } from '../lib/breakpoints.js';
+import { colors } from '../lib/colors.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_Reset } from './styles/links';
-import { hideText_css } from './utils/hideText';
-import { prem } from './utils/miscUtils';
+import { LinkStyle_Reset } from './styles/links.js';
+import { hideText_css } from './utils/hideText.js';
+import { prem } from './utils/miscUtils.js';
 
 const AlertVariables = buildVariables(['background', 'icon_color', 'icon'], 'Alert');
 const alertVars = AlertVariables.vars;
@@ -61,7 +61,9 @@ export default css`
         left: ${prem(25)};
       }
     }
-    .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical) {
+    .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(
+        .Alert--error
+      ):not(.Alert--critical) {
       ${WARNING__('"Type" modifier class-name is missing', { pos: 'after' })};
     }
     .Alert:not([role='alert']) {

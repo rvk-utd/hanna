@@ -7,20 +7,20 @@ import {
 import { css, str } from 'es-in-css';
 import md5File from 'md5-file';
 
-import { bp } from '../lib/breakpoints';
-import { characters, iconfont_raw } from '../lib/icons';
-import { WARNING_border__ } from '../lib/WARNING__';
+import { bp } from '../lib/breakpoints.js';
+import { characters, iconfont_raw } from '../lib/icons.js';
+import { WARNING_border__ } from '../lib/WARNING__.js';
 
-import { hannaVarDeclarations } from './styles/hannaVarDeclarations';
-import { LinkStyle, LinkStyle__focusOutline } from './styles/links';
-import { sr_only } from './utils/a11y';
-import { buttonReset } from './utils/buttonReset';
+import { hannaVarDeclarations } from './styles/hannaVarDeclarations.js';
+import { LinkStyle, LinkStyle__focusOutline } from './styles/links.js';
+import { sr_only } from './utils/a11y.js';
+import { buttonReset } from './utils/buttonReset.js';
 import {
   setDefaultKeyboardFocusStyle,
   setDefaultNonKeyboardFocusStyle,
-} from './utils/focus-selectors';
-import { normalizeCss } from './utils/normalize';
-import { writeMediaFormatMarkers } from './utils/writeMediaFormatMarkers';
+} from './utils/focus-selectors.js';
+import { normalizeCss } from './utils/normalize.js';
+import { writeMediaFormatMarkers } from './utils/writeMediaFormatMarkers.js';
 
 import { BlockBreak_css } from './BlockBreak.css';
 import { SeenEffect_css } from './SeenEffect.css';

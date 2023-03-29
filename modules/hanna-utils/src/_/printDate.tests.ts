@@ -1,6 +1,6 @@
 import o from 'ospec';
 
-import { printDate } from './printDate';
+import { printDate } from './printDate.js';
 
 o.spec('printDate', () => {
   const june17_2022_iso = '2022-06-17T12:34:56';

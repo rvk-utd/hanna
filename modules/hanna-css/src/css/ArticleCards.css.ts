@@ -1,10 +1,10 @@
 import { css, pct, pct_f } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
+import { between_phone_netbook } from '../lib/between.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
-import { CardList_css } from './styles/cards';
-import { avoidCssnanoMerging, prem, resetImageChild } from './utils/miscUtils';
+import { CardList_css } from './styles/cards.js';
+import { avoidCssnanoMerging, prem, resetImageChild } from './utils/miscUtils.js';
 
 const borderW = prem(12);
 

@@ -3,7 +3,7 @@ import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 import { select } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'HeroBlock',

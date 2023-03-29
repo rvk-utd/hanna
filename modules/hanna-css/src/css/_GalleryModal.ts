@@ -1,13 +1,13 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { between_cols } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { grid } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { hideText_css } from './utils/hideText';
-import { grid_units, prem } from './utils/miscUtils';
+import { hideText_css } from './utils/hideText.js';
+import { grid_units, prem } from './utils/miscUtils.js';
 
 export const GalleryModal_css = () => css`
   @media screen {

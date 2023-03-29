@@ -8,7 +8,7 @@ import { Modal } from '@reykjavik/hanna-react/Modal';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Modal',

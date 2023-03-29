@@ -2,10 +2,10 @@ import React from 'react';
 import { BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { SeenProp, useSeenEffect } from '../utils/seenEffect';
+import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
 
-import { Button, ButtonProps } from './_Button';
-import { Image, ImageProps } from './_Image';
+import { Button, ButtonProps } from './_Button.js';
+import { Image, ImageProps } from './_Image.js';
 
 export type BlockItem = {
   title: string;

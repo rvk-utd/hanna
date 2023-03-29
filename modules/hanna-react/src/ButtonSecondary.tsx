@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { Button, ButtonProps, ButtonVariantProps } from './_abstract/_Button';
+import { Button, ButtonProps, ButtonVariantProps } from './_abstract/_Button.js';
 
 export type ButtonSecondaryProps = ButtonProps & ButtonVariantProps;
 

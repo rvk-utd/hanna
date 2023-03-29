@@ -10,7 +10,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import is from 'date-fns/locale/is';
 import pl from 'date-fns/locale/pl';
 
-import FormField, { FormFieldWrappingProps } from './FormField';
+import FormField, { FormFieldWrappingProps } from './FormField.js';
 
 registerLocale('is', is);
 registerLocale('pl', pl);

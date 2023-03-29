@@ -1,4 +1,4 @@
-import _Footnote, { FootnoteProps as _FootnoteProps } from './Footnote';
+import _Footnote, { FootnoteProps as _FootnoteProps } from './Footnote.js';
 
 /** @deprecated  (Will be removed in v0.11)
  *

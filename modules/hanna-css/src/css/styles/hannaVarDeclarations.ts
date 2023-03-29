@@ -6,11 +6,11 @@ import {
   between_phablet_netbook,
   between_phone_netbook,
   between_Topmenu,
-} from '../../lib/between';
-import { bp, mq } from '../../lib/breakpoints';
-import { colors } from '../../lib/colors';
-import { font } from '../../lib/font';
-import { cols_pct, cols_px, grid } from '../../lib/grid';
+} from '../../lib/between.js';
+import { bp, mq } from '../../lib/breakpoints.js';
+import { colors } from '../../lib/colors.js';
+import { font } from '../../lib/font.js';
+import { cols_pct, cols_px, grid } from '../../lib/grid.js';
 import {
   borderEffectVars,
   breakpointVars,
@@ -26,12 +26,12 @@ import {
   spaceVars,
   themeVars,
   zIndexVars,
-} from '../../lib/hannavars';
-import iconfonttokens from '../../lib/iconfonttokens';
-import { cssVersion } from '../../lib/style-server-info';
-import { grid_units } from '../utils/miscUtils';
+} from '../../lib/hannavars.js';
+import iconfonttokens from '../../lib/iconfonttokens.js';
+import { cssVersion } from '../../lib/style-server-info.js';
+import { grid_units } from '../utils/miscUtils.js';
 
-import { ButtonTertiaryVarDeclarations } from './buttons';
+import { ButtonTertiaryVarDeclarations } from './buttons.js';
 
 const _c = colorVars.vars;
 const _g = gridVars.vars;

@@ -9,7 +9,7 @@ import { Layout } from '@reykjavik/hanna-react/Layout';
 import { select } from '@storybook/addon-knobs';
 import { makeDecorator } from '@storybook/addons';
 
-import { StoryParameters } from '../storytypes';
+import { StoryParameters } from '../storytypes.js';
 
 const hide = (selector: string) => {
   const elm = document.querySelector<HTMLElement>(selector);

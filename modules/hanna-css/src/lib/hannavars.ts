@@ -1,7 +1,7 @@
 import { ObjectKeys } from '@reykjavik/hanna-utils';
 
-import { buildVariables } from './cssutils';
-import iconfonttokens from './iconfonttokens';
+import { buildVariables } from './cssutils.js';
+import iconfonttokens from './iconfonttokens.js';
 
 export const envVars = buildVariables(['cssVersion', 'browser_scrollbar_width']);
 

@@ -2,10 +2,10 @@ import React from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { NameCards } from '@reykjavik/hanna-react/NameCards';
 
-import { Minimal } from '../../layout/Minimal';
-import { lorem } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 export const meta: MetaFunction = autoTitle;
 

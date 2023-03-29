@@ -3,8 +3,8 @@ import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
 import { RelatedLinkItem, RelatedLinks } from '@reykjavik/hanna-react/RelatedLinks';
 import { boolean } from '@storybook/addon-knobs';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'RelatedLinks',

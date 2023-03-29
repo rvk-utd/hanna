@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
-import { between_phone_netbook } from '../../lib/between';
-import { mq } from '../../lib/breakpoints';
-import { hannaVars as vars } from '../../lib/hannavars';
-import { grid_units } from '../utils/miscUtils';
+import { between_phone_netbook } from '../../lib/between.js';
+import { mq } from '../../lib/breakpoints.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
+import { grid_units } from '../utils/miscUtils.js';
 
 export const AttentionStyle = (border = true) => css`
   font: ${vars.font_bd_l};

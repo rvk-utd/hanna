@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 
-import { Minimal } from '../../layout/Minimal';
-import { lorem } from '../../test-helpers/dummyData';
-import { keyboardFocus } from '../../test-helpers/keyboardFocus';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem } from '../../test-helpers/dummyData.js';
+import { keyboardFocus } from '../../test-helpers/keyboardFocus.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 export const meta: MetaFunction = autoTitle;
 

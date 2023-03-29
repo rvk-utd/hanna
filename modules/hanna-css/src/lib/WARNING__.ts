@@ -1,6 +1,6 @@
 import { color, ColorName, css, str } from 'es-in-css';
 
-import { buildVariables, isDevMode } from './cssutils';
+import { buildVariables, isDevMode } from './cssutils.js';
 
 type Mode = 'normal' | 'soft';
 

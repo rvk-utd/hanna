@@ -1,8 +1,8 @@
 import { ColorValue, css, VariablePrinter } from 'es-in-css';
 
-import { hannaVars as vars } from '../../lib/hannavars';
+import { hannaVars as vars } from '../../lib/hannavars.js';
 
-import { keyboardFocus_selector } from './focus-selectors';
+import { keyboardFocus_selector } from './focus-selectors.js';
 
 const defaultLink = vars.link_color__hover;
 const defaultBg = vars.color_suld_0;

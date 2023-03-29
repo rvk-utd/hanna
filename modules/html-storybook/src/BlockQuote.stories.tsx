@@ -1,7 +1,7 @@
 import React from 'react';
 import { BlockQuote } from '@reykjavik/hanna-react/BlockQuote';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'text/BlockQuote',

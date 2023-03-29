@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sharpie } from '@reykjavik/hanna-react/Sharpie';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 // ===========================================================================
 

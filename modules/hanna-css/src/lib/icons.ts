@@ -1,8 +1,8 @@
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { css, str, VariablePrinter } from 'es-in-css';
 
-import { font } from './font';
-import iconfonttokens from './iconfonttokens';
+import { font } from './font.js';
+import iconfonttokens from './iconfonttokens.js';
 
 // ---------------------------------------------------------------------------
 

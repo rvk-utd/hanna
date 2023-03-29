@@ -5,8 +5,8 @@ import {
   CardListSummaryProps,
   TextCardListProps,
   TextCardProps,
-} from './_abstract/_CardList';
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
+} from './_abstract/_CardList.js';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
 export type ActionCardsProps = TextCardListProps & CardListSummaryProps & SeenProp;
 

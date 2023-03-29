@@ -1,14 +1,14 @@
 import { css } from 'es-in-css';
 
-import { between, RangeEdge } from '../lib/between';
-import { bp, mq } from '../lib/breakpoints';
-import { buildVariables } from '../lib/cssutils';
-import { grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { between, RangeEdge } from '../lib/between.js';
+import { bp, mq } from '../lib/breakpoints.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { grid } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { prem } from './utils/miscUtils';
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects';
+import { prem } from './utils/miscUtils.js';
+import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
 const _between = (from: RangeEdge, to: RangeEdge) =>
   between(from, to, bp.phone, grid.contentMaxWidth, '%');

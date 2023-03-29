@@ -2,7 +2,7 @@ import React, { FocusEvent, ReactNode, useEffect } from 'react';
 import { useLaggedState } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { isPreact } from './utils/env';
+import { isPreact } from './utils/env.js';
 
 export type SiteSearchCurtainProps = {
   children: ReactNode;

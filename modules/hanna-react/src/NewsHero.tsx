@@ -2,10 +2,10 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
-import { BlingComboProps, Blings } from './_abstract/_Blings';
-import { Image, ImageProps } from './_abstract/_Image';
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import ShareButtons from './ShareButtons';
+import { BlingComboProps, Blings } from './_abstract/_Blings.js';
+import { Image, ImageProps } from './_abstract/_Image.js';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import ShareButtons from './ShareButtons.js';
 
 type BlingOptions =
   | 'interesting'

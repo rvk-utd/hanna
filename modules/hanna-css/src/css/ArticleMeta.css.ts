@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
 export default css`
   /*!@deps

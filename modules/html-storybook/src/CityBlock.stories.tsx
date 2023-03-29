@@ -5,8 +5,8 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
 import imageLarge from './example_assets/CityBlock__image--large.jpg';
 import imageSmall from './example_assets/CityBlock__image--small.jpg';
-import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from './utils/_dummyData';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from './utils/_dummyData.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'CityBlock',

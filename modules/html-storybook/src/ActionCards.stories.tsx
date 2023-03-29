@@ -4,7 +4,7 @@ import { ActionCards, ActionCardsItemProps } from '@reykjavik/hanna-react/Action
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'ActionCards',

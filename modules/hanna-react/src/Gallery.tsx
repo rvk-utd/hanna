@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { AbstractCarousel } from './_abstract/_AbstractCarousel';
-import { GalleryItem, GalleryItemProps } from './Gallery/_GalleryItem';
-import { GalleryModal } from './Gallery/_GalleryModal';
-import { GalleryModalContext } from './Gallery/_GalleryModalContext';
-import { SeenProp } from './utils/seenEffect';
-import { SSRSupport } from './utils';
+import { AbstractCarousel } from './_abstract/_AbstractCarousel.js';
+import { GalleryItem, GalleryItemProps } from './Gallery/_GalleryItem.js';
+import { GalleryModal } from './Gallery/_GalleryModal.js';
+import { GalleryModalContext } from './Gallery/_GalleryModalContext.js';
+import { SeenProp } from './utils/seenEffect.js';
+import { SSRSupport } from './utils.js';
 
-export type { GalleryItemProps } from './Gallery/_GalleryItem';
+export type { GalleryItemProps } from './Gallery/_GalleryItem.js';
 
 export type GalleryI18n = {
   modalNextLabel: string;

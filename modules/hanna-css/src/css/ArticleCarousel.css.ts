@@ -1,18 +1,18 @@
 import { ObjectKeys } from '@reykjavik/hanna-utils';
 import { css, pct_f } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { colorFamilies } from '../lib/colors';
-import { grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { colorFamilies } from '../lib/colors.js';
+import { grid } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel';
-import { ButtonTertiaryStyle } from './styles/buttons';
-import { LinkStyle_Reset } from './styles/links';
-import { prem } from './utils/miscUtils';
-import { SeenEffect__fadeup } from './utils/seenEffects';
+import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
+import { ButtonTertiaryStyle } from './styles/buttons.js';
+import { LinkStyle_Reset } from './styles/links.js';
+import { prem } from './utils/miscUtils.js';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css';
 

@@ -1,8 +1,8 @@
 import { css, px } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { ButtonStyle, ButtonVariables as b } from './styles/buttons';
+import { ButtonStyle, ButtonVariables as b } from './styles/buttons.js';
 
 export default css`
   /*!@deps

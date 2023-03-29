@@ -2,15 +2,15 @@ import React, { ReactElement, useMemo } from 'react';
 import { BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import FormField, { FormFieldGroupWrappingProps } from '../FormField';
+import FormField, { FormFieldGroupWrappingProps } from '../FormField.js';
 
 import {
   TogglerGroup,
   TogglerGroupOption,
   TogglerGroupOptions,
   TogglerGroupProps,
-} from './_TogglerGroup';
-import { TogglerInputProps } from './_TogglerInput';
+} from './_TogglerGroup.js';
+import { TogglerInputProps } from './_TogglerInput.js';
 
 export type TogglerGroupFieldProps = {
   className?: string;

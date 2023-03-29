@@ -3,12 +3,12 @@ import type { MetaFunction } from '@remix-run/node';
 import { TextInput, TextInputProps } from '@reykjavik/hanna-react/TextInput';
 import { notFalsy } from '@reykjavik/hanna-utils';
 
-import { DummyBlock } from '../../layout/DummyBlock';
-import { Minimal } from '../../layout/Minimal';
-import { lorem } from '../../test-helpers/dummyData';
-import { focusAllFormFields } from '../../test-helpers/focusAllFormFields';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock } from '../../layout/DummyBlock.js';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem } from '../../test-helpers/dummyData.js';
+import { focusAllFormFields } from '../../test-helpers/focusAllFormFields.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 export const meta: MetaFunction = autoTitle;
 

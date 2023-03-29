@@ -1,9 +1,9 @@
 import { devices, PlaywrightTestConfig } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 
-import { ProjectName, TestTag } from './src/test-helpers/testingInfo';
-import { TAG_PREFIX, TAG_SUFFIX } from './tests/helpers/screeshots';
-import { registerCustomSelectorsEngines } from './tests/helpers/selectorEngines';
+import { ProjectName, TestTag } from './src/test-helpers/testingInfo.js';
+import { TAG_PREFIX, TAG_SUFFIX } from './tests/helpers/screeshots.js';
+import { registerCustomSelectorsEngines } from './tests/helpers/selectorEngines.js';
 
 registerCustomSelectorsEngines();
 

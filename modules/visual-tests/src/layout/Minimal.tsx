@@ -3,7 +3,7 @@ import React from 'react';
 import { CssModuleToken } from '@reykjavik/hanna-css';
 import { useScrollbarWidthCSSVar } from '@reykjavik/hanna-react/utils';
 
-import { DummyBlock } from './DummyBlock';
+import { DummyBlock } from './DummyBlock.js';
 
 const roles = {
   main: 'main',

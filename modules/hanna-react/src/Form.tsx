@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { ComponentLayoutProps } from './constants';
+import { ComponentLayoutProps } from './constants.js';
 
 export type FormProps = ComponentLayoutProps &
   React.FormHTMLAttributes<HTMLFormElement> & { children: ReactNode };

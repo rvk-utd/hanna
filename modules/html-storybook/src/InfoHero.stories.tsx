@@ -6,7 +6,7 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import cityCouncilMemberImage from './example_assets/Dagur-b.jpg';
 import landScapeImage from './example_assets/Gallery--landscape--large.jpg';
 import swimmingpoolImage from './example_assets/sundlaug.jpg';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 // ---------------------------------------------------------------------------
 

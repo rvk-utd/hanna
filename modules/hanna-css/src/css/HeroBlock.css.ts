@@ -1,13 +1,13 @@
 import { css, em } from 'es-in-css';
 
-import { between_cols, between_phablet_tablet } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { cols_pct, cols_px, grid } from '../lib/grid';
-import { hannaVars } from '../lib/hannavars';
-import { WARNING_soft__ } from '../lib/WARNING__';
+import { between_cols, between_phablet_tablet } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { cols_pct, cols_px, grid } from '../lib/grid.js';
+import { hannaVars } from '../lib/hannavars.js';
+import { WARNING_soft__ } from '../lib/WARNING__.js';
 
-import { prem, resetImageChild } from './utils/miscUtils';
-import { SeenEffect__fadeup } from './utils/seenEffects';
+import { prem, resetImageChild } from './utils/miscUtils.js';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps

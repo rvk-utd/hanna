@@ -1,11 +1,11 @@
 import { css, px } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { cols_pct, px_pct } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { between_cols } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { cols_pct, px_pct } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { prem } from './utils/miscUtils';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   /*!@deps

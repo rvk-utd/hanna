@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { TogglerKnob } from './styles/forms';
+import { TogglerKnob } from './styles/forms.js';
 
 import { CheckboxGroup_css } from './CheckboxGroup.css';
 import { RadioGroup_css } from './RadioGroup.css';

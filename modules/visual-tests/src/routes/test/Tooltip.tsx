@@ -3,10 +3,10 @@ import type { MetaFunction } from '@remix-run/node';
 import ToolTip from '@reykjavik/hanna-react/Tooltip';
 import VSpacer from '@reykjavik/hanna-react/VSpacer';
 
-import { Minimal } from '../../layout/Minimal';
-import { lorem, loremRT } from '../../test-helpers/dummyData';
-import { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem, loremRT } from '../../test-helpers/dummyData.js';
+import { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.server';
 
 // ---------------------------------------------------------------------------

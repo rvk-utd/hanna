@@ -1,12 +1,12 @@
 import { color, css } from 'es-in-css';
 
-import { colors } from '../lib/colors';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { colors } from '../lib/colors.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { LinkStyle, LinkStyle_SameColor } from './styles/links';
-import { hideText_css } from './utils/hideText';
-import { prem } from './utils/miscUtils';
+import { LinkStyle, LinkStyle_SameColor } from './styles/links.js';
+import { hideText_css } from './utils/hideText.js';
+import { prem } from './utils/miscUtils.js';
 
 const tooltipBgColor = color('rgb(0,0,0)').alpha(0.7);
 

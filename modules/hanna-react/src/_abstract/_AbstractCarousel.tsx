@@ -15,9 +15,9 @@ import { BemProps } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj, notNully } from '@reykjavik/hanna-utils';
 
-import CarouselStepper from '../CarouselStepper';
-import { SSRSupport, useIsBrowserSide } from '../utils';
-import { SeenProp, useSeenEffect } from '../utils/seenEffect';
+import CarouselStepper from '../CarouselStepper.js';
+import { SSRSupport, useIsBrowserSide } from '../utils.js';
+import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
 
 // ---------------------------------------------------------------------------
 

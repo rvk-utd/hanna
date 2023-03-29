@@ -11,9 +11,9 @@ import { Layout } from '@reykjavik/hanna-react/Layout';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
-import { Minimal } from '../layout/Minimal';
-import { ReviewShot } from '../layout/ReviewShot';
-import { ensureString } from '../utils/ensure';
+import { Minimal } from '../layout/Minimal.js';
+import { ReviewShot } from '../layout/ReviewShot.js';
+import { ensureString } from '../utils/ensure.js';
 import { copyCacheControl, cssTokens } from '../utils/route.server';
 import { Changeset, getChangeById, updateScreenshotsFor } from '../utils/tests.server';
 

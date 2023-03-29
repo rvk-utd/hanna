@@ -1,15 +1,15 @@
 import { css } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import {
   ButtonTertiaryStyle,
   ButtonTertiaryStyle__backArrow,
   ButtonTertiaryStyle__disabled,
   ButtonTertiaryVariables as bt,
-} from './styles/buttons';
-import { prem } from './utils/miscUtils';
+} from './styles/buttons.js';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   /*!@deps

@@ -4,9 +4,9 @@ import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
 import { SSRSupport, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
 import { boolean } from '@storybook/addon-knobs';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { useLink } from './utils/knobs';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { useLink } from './utils/knobs.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Tabs',

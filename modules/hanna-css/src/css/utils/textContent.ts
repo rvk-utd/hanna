@@ -1,12 +1,12 @@
 import { css, em, str } from 'es-in-css';
 
-import { mq } from '../../lib/breakpoints';
-import { buildVariables } from '../../lib/cssutils';
-import { cols_px } from '../../lib/grid';
-import { hannaVars as vars } from '../../lib/hannavars';
-import { characters } from '../../lib/icons';
+import { mq } from '../../lib/breakpoints.js';
+import { buildVariables } from '../../lib/cssutils.js';
+import { cols_px } from '../../lib/grid.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
+import { characters } from '../../lib/icons.js';
 
-import { prem } from './miscUtils';
+import { prem } from './miscUtils.js';
 
 export const defaultULStyle = () => css`
   list-style: none;

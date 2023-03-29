@@ -1,8 +1,8 @@
 import { expect, Locator, Page } from '@playwright/test';
 
-import { TestFnArgs } from '../../src/test-helpers/testingInfo';
+import { TestFnArgs } from '../../src/test-helpers/testingInfo.js';
 
-import { getPageScrollHeight } from './scrolling';
+import { getPageScrollHeight } from './scrolling.js';
 
 // ---------------------------------------------------------------------------
 

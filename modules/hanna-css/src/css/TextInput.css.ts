@@ -1,10 +1,10 @@
 import range from '@hugsmidjan/qj/range';
 import { css } from 'es-in-css';
 
-import { buildVariables } from '../lib/cssutils';
-import { hannaVars as vars } from '../lib/hannavars';
+import { buildVariables } from '../lib/cssutils.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { FormFieldVariables } from './styles/forms';
+import { FormFieldVariables } from './styles/forms.js';
 
 const ff = FormFieldVariables.vars;
 

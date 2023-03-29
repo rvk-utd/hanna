@@ -1,7 +1,7 @@
 import React, { ChangeEvent, RefObject, useEffect, useRef, useState } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import FormField, { FormFieldWrappingProps } from './FormField';
+import FormField, { FormFieldWrappingProps } from './FormField.js';
 
 type InputElmProps = JSX.IntrinsicElements['input'];
 type TextareaElmProps = JSX.IntrinsicElements['textarea'];

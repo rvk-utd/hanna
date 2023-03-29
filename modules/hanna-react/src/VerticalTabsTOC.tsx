@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { setFrag } from '@hugsmidjan/qj/frag';
 import { useDomid } from '@hugsmidjan/react/hooks';
 
-import Tabs, { TabItemProps, TabsProps } from './Tabs';
+import Tabs, { TabItemProps, TabsProps } from './Tabs.js';
 
 const getId = (url: string | undefined) =>
   (url && decodeURIComponent(url.split('#')[1] || '')) || '';

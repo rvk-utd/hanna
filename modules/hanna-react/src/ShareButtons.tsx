@@ -11,8 +11,8 @@ import {
   shareButtonTypes,
 } from '@reykjavik/hanna-utils/shareButtonsUtils';
 
-import { Link } from './_abstract/_Link';
-import { SSRSupport } from './utils';
+import { Link } from './_abstract/_Link.js';
+import { SSRSupport } from './utils.js';
 
 const generateTypeList = (
   facebook: boolean | undefined,

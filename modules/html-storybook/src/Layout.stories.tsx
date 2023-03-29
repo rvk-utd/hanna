@@ -5,11 +5,11 @@ import { Layout } from '@reykjavik/hanna-react/Layout';
 import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { boolean } from '@storybook/addon-knobs';
 
-import { crumbTrail, mainMenuItems, megaMenuPanels } from './utils/_dummyData';
+import { crumbTrail, mainMenuItems, megaMenuPanels } from './utils/_dummyData.js';
 import { _ContactBubble as ContactBubble } from './ContactBubble.stories';
 import { _FooterBadges as FooterBadges } from './FooterBadges.stories';
 import { FooterInfo } from './FooterInfo.stories';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Layout',

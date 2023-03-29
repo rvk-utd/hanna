@@ -1,9 +1,9 @@
 import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { CardList, TextCardListProps } from './_abstract/_CardList';
-import { Link } from './_abstract/_Link';
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
+import { CardList, TextCardListProps } from './_abstract/_CardList.js';
+import { Link } from './_abstract/_Link.js';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
 export type RelatedLink = {
   href: string;

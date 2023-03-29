@@ -4,7 +4,7 @@ import {
   SeenEffect__fadein,
   SeenEffect__fadeleft,
   SeenEffect__fadeup,
-} from './utils/seenEffects';
+} from './utils/seenEffects.js';
 
 export default css``;
 

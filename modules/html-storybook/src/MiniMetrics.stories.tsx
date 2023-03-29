@@ -1,7 +1,7 @@
 import React from 'react';
 import { MiniMetrics } from '@reykjavik/hanna-react/MiniMetrics';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 // ===========================================================================
 

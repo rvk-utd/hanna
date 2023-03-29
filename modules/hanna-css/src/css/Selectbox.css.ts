@@ -1,10 +1,10 @@
 import { css } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { FormFieldVariables } from './styles/forms';
-import { overflowEllipsis, prem } from './utils/miscUtils';
+import { FormFieldVariables } from './styles/forms.js';
+import { overflowEllipsis, prem } from './utils/miscUtils.js';
 
 const ff = FormFieldVariables.vars;
 
