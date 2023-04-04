@@ -193,7 +193,7 @@ const noFlickerSnippet_multiPage = `
     c.add(n);
     setTimeout(function () {
       c.remove(n);
-    }, 8000);
+    }, 6000);
   })(document.documentElement.classList, 'before-sprinkling');
 `;
 
