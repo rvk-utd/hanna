@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.85
+
+_2023-04-04_
+
 - feat: Re-enable ESM exports in published build
 - fix: `MegaMenu` render thrashing and accidental scrolling to top of page
 
