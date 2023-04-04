@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `VerticalTabsTOCProps.activateOnFocus` now works as intended
 
 ## 0.10.85
 

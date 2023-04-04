@@ -106,6 +106,7 @@ export const VerticalTabsTOC = (props: VerticalTabsTOCProps) => {
       }}
       tabs={updatedItems}
       role="tablist"
+      activateOnFocus={props.activateOnFocus}
       activeIdx={state.activeIdx}
       subTabs={state.subTabs}
     />
