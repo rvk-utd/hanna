@@ -1822,6 +1822,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bramus/pagination-sequence@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@bramus/pagination-sequence@npm:1.2.0"
+  dependencies:
+    "@bramus/range": ^1.1.2
+  checksum: afefbd4919f27fd0014848f596b7549d0e18c1caf7fa1cee82e9c2fabc2c42b2961994d5f730f422b49e15c41f6f8190c51888abd13c4e56bd8b5cf818b2f02f
+  languageName: node
+  linkType: hard
+
+"@bramus/range@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@bramus/range@npm:1.1.2"
+  checksum: 2f2ab51d1974e15cd059ceba7ce7f24d7037b117cd93083b41e6c395ded87e7e79c792fb08aa96c615a4df95a9f6b370c8515206b62fbdf03d1cf82821e0a2f4
+  languageName: node
+  linkType: hard
+
 "@emotion/cache@npm:^10.0.27, @emotion/cache@npm:^10.0.9":
   version: 10.0.29
   resolution: "@emotion/cache@npm:10.0.29"
@@ -2972,6 +2988,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-react@workspace:modules/hanna-react"
   dependencies:
+    "@bramus/pagination-sequence": ^1.2.0
     "@floating-ui/react": ^0.19.2
     "@hugsmidjan/qj": ^4.10.2
     "@hugsmidjan/react": ^0.4.24
