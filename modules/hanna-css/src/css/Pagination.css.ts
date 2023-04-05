@@ -49,7 +49,7 @@ export default css`
     height: 32px;
   }
 
-  .Pagination__button:hover {
+  .Pagination__button:not([disabled]):hover {
     background-color: ${vars.color_suld_50};
   }
 

@@ -10,7 +10,7 @@ export type PaginationProps = {
 const Pagination = (props: PaginationProps) => {
   const { currentItem, itemsLength } = props;
   const [currentPage, setCurrentPage] = useState<number>(currentItem);
-  const paginationItems = generate(currentPage, itemsLength) as Array<number | string>;
+  const paginationItems = generate(currentPage, itemsLength);
 
   return (
     <nav className="Pagination" aria-label="Pagination">
