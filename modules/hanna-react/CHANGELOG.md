@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: `VerticalTabsTOCProps.activateOnFocus` now works as intended
+- fix: Upstream regression in typed-input parsing in `react-datepicker`
 
 ## 0.10.85
 
