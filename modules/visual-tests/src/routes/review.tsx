@@ -8,7 +8,7 @@ import { SeenEffect } from '@reykjavik/hanna-react/SeenEffect';
 import { TagPill } from '@reykjavik/hanna-react/TagPill';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
-import { copyCacheControl, cssTokens } from '../utils/route.server';
+import { copyCacheControl, cssTokens } from '../utils/route';
 import { getChangesToReview, getReportDate } from '../utils/tests.server';
 
 import styles from './review.css';

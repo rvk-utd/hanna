@@ -11,7 +11,7 @@ import { Minimal } from '../../layout/Minimal.js';
 import { lorem, loremRT } from '../../test-helpers/dummyData.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
-import { cssTokens } from '../../utils/route.server';
+import { cssTokens } from '../../utils/route';
 
 export const meta: MetaFunction = autoTitle;
 

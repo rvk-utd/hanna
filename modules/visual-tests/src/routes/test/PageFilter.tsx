@@ -12,7 +12,7 @@ import { Minimal } from '../../layout/Minimal.js';
 import { lorem } from '../../test-helpers/dummyData.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
-import { cssTokens } from '../../utils/route.server';
+import { cssTokens } from '../../utils/route';
 
 import { imageCards } from './ImageCards.js';
 
