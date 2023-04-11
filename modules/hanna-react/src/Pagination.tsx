@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { generate } from '@bramus/pagination-sequence';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
@@ -11,6 +11,11 @@ export type PaginationProps = {
 const Pagination = (props: PaginationProps) => {
   const { activePage, pageCount, onChange } = props;
   const paginationItems = generate(activePage, pageCount, 1, 1);
+  const activeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    activeButtonRef.current?.focus();
+  }, [paginationItems]);
 
   return (
     <nav className="Pagination" aria-label="Pagination">
@@ -35,6 +40,7 @@ const Pagination = (props: PaginationProps) => {
             }}
             disabled={!isNumber}
             type="button"
+            ref={pagItem === activePage ? activeButtonRef : undefined}
           >
             {pagItem}
           </button>
