@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import ToolTip from '@reykjavik/hanna-react/Tooltip';
 import VSpacer from '@reykjavik/hanna-react/VSpacer';
 
@@ -11,7 +11,7 @@ import { cssTokens } from '../../utils/route';
 
 // ---------------------------------------------------------------------------
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('VSpacer');

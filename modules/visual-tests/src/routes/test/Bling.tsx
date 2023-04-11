@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { Bling, BlingProps } from '@reykjavik/hanna-react/Bling';
 
 import { Minimal } from '../../layout/Minimal.js';
@@ -7,7 +7,7 @@ import { blingUrl } from '../../test-helpers/dummyData.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 const Blocks = (props: { borderTop?: boolean }) => (
   <div

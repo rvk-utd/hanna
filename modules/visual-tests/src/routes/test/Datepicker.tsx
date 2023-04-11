@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { Datepicker, DatepickerProps } from '@reykjavik/hanna-react/Datepicker';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
@@ -10,7 +10,7 @@ import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 const startDate = new Date('2022-10-05');
 

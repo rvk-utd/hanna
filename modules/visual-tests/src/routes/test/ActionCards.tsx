@@ -1,6 +1,6 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { ActionCards, ActionCardsItemProps } from '@reykjavik/hanna-react/ActionCards';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 
@@ -9,7 +9,7 @@ import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 const cards = range(1, 5).map(
   (n): ActionCardsItemProps => ({

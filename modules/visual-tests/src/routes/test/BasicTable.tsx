@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { BasicTable, BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
 
 import { DummyBlock } from '../../layout/DummyBlock.js';
@@ -8,7 +8,7 @@ import { lorem, loremRT } from '../../test-helpers/dummyData.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = cssTokens('Token');
 

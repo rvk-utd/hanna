@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { TabItemProps, Tabs, TabsProps } from '@reykjavik/hanna-react/Tabs';
 
 import { DummyBlock } from '../../layout/DummyBlock.js';
@@ -8,7 +8,7 @@ import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('VSpacer');

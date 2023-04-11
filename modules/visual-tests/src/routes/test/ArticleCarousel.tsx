@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import {
   ArticleCarousel,
   ArticleCarouselProps,
@@ -63,7 +63,7 @@ const items: ArticleCarouselProps['items'] = [
 
 // ---------------------------------------------------------------------------
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = cssTokens('Token');

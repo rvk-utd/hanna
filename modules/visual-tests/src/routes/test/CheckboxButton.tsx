@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import CheckboxButton from '@reykjavik/hanna-react/CheckboxButton';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
@@ -10,7 +10,7 @@ import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('Checkbox', 'RadioGroup', 'RowBlock', 'RowBlockColumn');

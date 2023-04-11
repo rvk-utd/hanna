@@ -1,6 +1,6 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import {
   SearchResults,
   SearchResultsItemProps,
@@ -14,7 +14,7 @@ import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('SiteSearchInput');

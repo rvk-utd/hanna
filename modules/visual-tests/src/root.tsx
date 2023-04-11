@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinksFunction, MetaFunction } from '@remix-run/node';
+import { LinksFunction, V2_MetaFunction } from '@remix-run/node';
 import {
   Link,
   Links,
@@ -69,12 +69,8 @@ declare global {
 
 // ---------------------------------------------------------------------------
 
-export const meta: MetaFunction = () => {
-  return {
-    charSet: 'utf-8',
-    title: 'Hanna Visual Regression Testing',
-    viewport: 'width=device-width, initial-scale=1.0',
-  };
+export const meta: V2_MetaFunction = () => {
+  return [{ title: 'Hanna Visual Regression Testing' }];
 };
 
 export const links: LinksFunction = () => [
@@ -103,6 +99,8 @@ export default function App() {
   return (
     <html lang={lang}>
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <script
           dangerouslySetInnerHTML={{

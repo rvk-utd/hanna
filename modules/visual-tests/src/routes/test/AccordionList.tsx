@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { AccordionList } from '@reykjavik/hanna-react/AccordionList';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
@@ -41,7 +41,7 @@ const makeItems = () => [
 
 // ---------------------------------------------------------------------------
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('TextBlock');

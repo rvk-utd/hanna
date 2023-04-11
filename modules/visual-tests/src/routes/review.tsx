@@ -1,5 +1,5 @@
 import React from 'react';
-import type { LinksFunction, LoaderFunction } from '@remix-run/node';
+import type { LinksFunction, V2_MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, useLoaderData, useSearchParams } from '@remix-run/react';
 import { Layout } from '@reykjavik/hanna-react/Layout';
@@ -23,7 +23,7 @@ export type LoaderData = {
   reportCreatedDate: number | undefined;
 };
 
-export const loader: LoaderFunction = async () => {
+export const loader = async () => {
   const [changed, reportCreatedDate] = await Promise.all([
     getChangesToReview(),
     getReportDate(),
@@ -43,6 +43,8 @@ export const links: LinksFunction = () => [
   },
 ];
 
+export const meta: V2_MetaFunction = () => [{ title: 'Review Changed Screenshots' }];
+
 // ---------------------------------------------------------------------------
 
 export const handle = cssTokens('PageHeading', 'TextBlock', 'TagPill', 'SeenEffect');
@@ -50,7 +52,7 @@ export const handle = cssTokens('PageHeading', 'TextBlock', 'TagPill', 'SeenEffe
 // ---------------------------------------------------------------------------
 
 export default function () {
-  const { changed, reportCreatedDate } = useLoaderData<LoaderData>();
+  const { changed, reportCreatedDate } = useLoaderData<typeof loader>();
   const [q] = useSearchParams();
 
   const reportUrl = `/report/index.html?t=${reportCreatedDate}`;

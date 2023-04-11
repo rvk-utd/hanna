@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { ContentImage } from '@reykjavik/hanna-react/ContentImage';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
@@ -12,7 +12,7 @@ import { illustr } from '../../test-helpers/dummyData.js';
 import type { TestingInfo, TestPageHandle } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle: TestPageHandle = {

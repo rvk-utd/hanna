@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { BlockBreak } from '@reykjavik/hanna-react/BlockBreak';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
@@ -16,7 +16,7 @@ import { cssTokens } from '../../utils/route';
 
 import { imageCards } from './ImageCards.js';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('BlockBreak', 'ImageCards');

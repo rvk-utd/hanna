@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
@@ -11,7 +11,7 @@ import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 export const handle = cssTokens('ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary');
 

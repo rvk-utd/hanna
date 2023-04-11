@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LinksFunction } from '@remix-run/node';
-import { Form, Link, useTransition } from '@remix-run/react';
+import { Form, Link, useNavigation } from '@remix-run/react';
 import { CssModuleToken } from '@reykjavik/hanna-css';
 import { TagPill, TagPillProps } from '@reykjavik/hanna-react/TagPill';
 import { capitalize } from '@reykjavik/hanna-utils';
@@ -54,7 +54,7 @@ const SkipLink = (props: SkipLinkProps) => {
 const useReviewState = (change: Changeset) => {
   const isNew = !change.expectedUrl;
   const wrappeRref = useRef<HTMLDivElement>(null);
-  const isLoading = useTransition().state !== 'idle';
+  const isLoading = useNavigation().state !== 'idle';
   const [mode, setMode] = useState<Mode>(isNew ? 'actual' : 'difference');
   const [zoomed, setZoom] = useState<true | undefined>();
   const [transp, setTransp] = useState<true | undefined>();

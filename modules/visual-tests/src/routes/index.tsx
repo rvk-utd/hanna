@@ -1,5 +1,4 @@
 import React from 'react';
-import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
@@ -13,17 +12,13 @@ type LoaderData = {
   tests: Awaited<ReturnType<typeof getTestList>>;
 };
 
-export const loader: LoaderFunction = async (): Promise<Response> => {
+export const loader = async () => {
   const tests = await getTestList();
   const TTL = process.env.NODE_ENV === 'production' ? 36_000 : 10;
 
   return json<LoaderData>(
     { tests },
-    {
-      headers: {
-        'Cache-Control': `public, max-age=${TTL}, immutable`,
-      },
-    }
+    { headers: { 'Cache-Control': `public, max-age=${TTL}, immutable` } }
   );
 };
 
@@ -32,7 +27,7 @@ export const headers = copyCacheControl;
 export const handle = cssTokens('Layout', 'HeroBlock', 'TextBlock', 'Datepicker');
 
 export default function Index() {
-  const { tests } = useLoaderData<LoaderData>();
+  const { tests } = useLoaderData<typeof loader>();
 
   return (
     <Layout>
