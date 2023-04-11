@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `Tag` to `SeenEffect`
 - fix: `VerticalTabsTOCProps.activateOnFocus` now works as intended
 - fix: Upstream regression in typed-input parsing in `react-datepicker`
 
