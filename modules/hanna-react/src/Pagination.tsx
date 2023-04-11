@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { generate } from '@bramus/pagination-sequence';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 export type PaginationProps = {
-  currentItem: number;
-  itemsLength: number;
+  activePage: number;
+  pageCount: number;
+  onChange: (page: number) => void;
 };
 
 const Pagination = (props: PaginationProps) => {
-  const { currentItem, itemsLength } = props;
-  const [currentPage, setCurrentPage] = useState<number>(currentItem);
-  const paginationItems = generate(currentPage, itemsLength);
+  const { activePage, pageCount, onChange } = props;
+  const paginationItems = generate(activePage, pageCount, 1, 1);
 
   return (
     <nav className="Pagination" aria-label="Pagination">
       <button
-        disabled={currentPage === 1}
-        onClick={() => setCurrentPage(currentPage - 1)}
+        disabled={activePage === 1}
+        onClick={() => onChange(activePage - 1)}
         className="Pagination__button Pagination__button--back"
       ></button>
       {paginationItems.map((pagItem, indx) => {
@@ -26,11 +26,11 @@ const Pagination = (props: PaginationProps) => {
             key={indx}
             className={getBemClass(
               'Pagination__button',
-              pagItem === currentPage && 'active'
+              pagItem === activePage && 'active'
             )}
             onClick={() => {
               if (isNumber) {
-                setCurrentPage(pagItem);
+                onChange(pagItem);
               }
             }}
             disabled={!isNumber}
@@ -41,8 +41,8 @@ const Pagination = (props: PaginationProps) => {
         );
       })}
       <button
-        disabled={currentPage === itemsLength}
-        onClick={() => setCurrentPage(currentPage + 1)}
+        disabled={activePage === pageCount}
+        onClick={() => onChange(activePage + 1)}
         className="Pagination__button Pagination__button--forward"
       ></button>
     </nav>

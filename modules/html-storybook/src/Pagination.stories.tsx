@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Pagination from '@reykjavik/hanna-react/Pagination';
 
 import { StoryComponent, StoryParameters } from './storytypes';
@@ -14,5 +14,12 @@ export default {
 };
 
 export const _Pagination: StoryComponent = () => {
-  return <Pagination currentItem={1} itemsLength={25} />;
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  return (
+    <Pagination
+      activePage={currentPage}
+      pageCount={25}
+      onChange={(page) => setCurrentPage(page)}
+    />
+  );
 };
