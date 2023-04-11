@@ -3,6 +3,8 @@ import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
+import { ButtonStyle, ButtonVariables } from './styles/buttons';
+
 export default css`
   /*!@deps
     ButtonPrimary
@@ -45,12 +47,26 @@ export default css`
   }
 
   .Pagination__button {
+    ${ButtonStyle};
+    /*
     padding: 0 11px;
     height: 32px;
+    */
+    ${ButtonVariables.override({
+      backgroundColor: 'white',
+      textColor: 'black',
+      height: vars.space_4,
+    })}
+
+    padding: 0 15px;
+    min-width: auto;
+    margin: 0;
   }
 
-  .Pagination__button:not([disabled]):hover {
+  .Pagination__button:not([disabled]):hover,
+  .Pagination__button:not(.Pagination__button--active):hover {
     background-color: ${vars.color_suld_50};
+    box-shadow: none;
   }
 
   .Pagination__button--active {
