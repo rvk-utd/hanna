@@ -12,26 +12,26 @@ const Pagination = (props: PaginationProps) => {
   const { activePage, pageCount, onChange } = props;
   const paginationItems = generate(activePage, pageCount, 1, 1);
   const activeButtonRef = useRef<HTMLButtonElement>(null);
-  const [lastClickedButton, setLastClickedButton] = useState<'back' | 'forward' | null>(
+  const [lastClickedButton, setLastClickedButton] = useState<'arrow' | 'normal' | null>(
     null
   );
 
   useEffect(() => {
-    if (lastClickedButton === null) {
+    if (lastClickedButton === 'normal') {
       activeButtonRef.current?.focus();
     }
   }, [paginationItems, lastClickedButton]);
 
-  const handleButtonClick = (button: 'back' | 'forward') => {
+  const handleButtonClick = (button: 'arrow' | 'normal', pageCount: number) => {
     setLastClickedButton(button);
-    onChange(button === 'back' ? activePage - 1 : activePage + 1);
+    onChange(pageCount);
   };
 
   return (
     <nav className="Pagination" aria-label="Pagination">
       <button
         disabled={activePage === 1}
-        onClick={() => handleButtonClick('back')}
+        onClick={() => handleButtonClick('arrow', activePage - 1)}
         className="Pagination__button Pagination__button--back"
       ></button>
       {paginationItems.map((pagItem, indx) => {
@@ -44,9 +44,8 @@ const Pagination = (props: PaginationProps) => {
               pagItem === activePage && 'active'
             )}
             onClick={() => {
-              setLastClickedButton(null);
               if (isNumber) {
-                onChange(pagItem);
+                handleButtonClick('normal', pagItem);
               }
             }}
             disabled={!isNumber}
@@ -59,7 +58,7 @@ const Pagination = (props: PaginationProps) => {
       })}
       <button
         disabled={activePage === pageCount}
-        onClick={() => handleButtonClick('forward')}
+        onClick={() => handleButtonClick('arrow', activePage + 1)}
         className="Pagination__button Pagination__button--forward"
       ></button>
     </nav>
