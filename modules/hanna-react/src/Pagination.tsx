@@ -22,9 +22,9 @@ const Pagination = (props: PaginationProps) => {
     }
   }, [paginationItems, lastClickedButton]);
 
-  const handleButtonClick = (button: 'arrow' | 'normal', pageCount: number) => {
+  const handleButtonClick = (button: 'arrow' | 'normal', pageIndex: number) => {
     setLastClickedButton(button);
-    onChange(pageCount);
+    onChange(pageIndex);
   };
 
   return (
