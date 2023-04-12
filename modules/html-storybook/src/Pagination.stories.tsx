@@ -14,7 +14,7 @@ export default {
 };
 
 export const _Pagination: StoryComponent = () => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState(1);
   return (
     <Pagination
       activePage={currentPage}
