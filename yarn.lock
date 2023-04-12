@@ -3109,6 +3109,7 @@ __metadata:
   dependencies:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
+    "@hugsmidjan/qj": ^4.10.2
     "@reykjavik/hanna-utils": ^0.2.3
     "@types/md5-file": ^5
     del: ^6.0.0
@@ -12723,6 +12724,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hanna-visual-tests@workspace:modules/visual-tests"
   dependencies:
+    "@hugsmidjan/qj": ^4.10.2
     "@playwright/test": ^1.27.1
     "@remix-run/dev": ^1.15.0
     "@remix-run/eslint-config": ^1.15.0
