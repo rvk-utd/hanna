@@ -2,10 +2,9 @@ import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { execSync } from 'child_process';
 import { existsSync, readFileSync, statSync } from 'fs';
 import { stat } from 'fs/promises';
+import { glob, sync as globSync } from 'glob';
 
 import { LABEL_SPLIT, NAME_SPLIT } from '../../tests/helpers/screeshots.js';
-
-import { globP, globSync } from './glob.server';
 
 type TestPageInfo = {
   path: string;
@@ -43,7 +42,7 @@ const _filesToTestList = (readSkipped?: true) => (files: Array<string>) =>
 const _testPageGlob = cwd + '/test/**/*{.tsx,.skipped.txt}';
 
 export const getTestList = (): Promise<Array<TestPageInfo | SkippedTestInfo>> =>
-  globP(_testPageGlob).then(_filesToTestList(true));
+  glob(_testPageGlob).then(_filesToTestList(true));
 
 export const getTestListSync = (): Array<TestPageInfo> => {
   const files = globSync(_testPageGlob);
@@ -111,7 +110,7 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
     console.warn(`Can't find folder "${cwd}"`);
     return [];
   }
-  const fileList = await globP('*/*.{png,bug,ok}', { cwd });
+  const fileList = await glob('*/*.{png,bug,ok}', { cwd });
   const filesByTest: Record<
     string,
     Pick<

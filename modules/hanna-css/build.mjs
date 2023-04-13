@@ -4,7 +4,7 @@ import { execSync } from 'child_process';
 import { compileCSSFromJS } from 'es-in-css/compiler';
 import esbuild from 'esbuild';
 import { readFile, writeFile } from 'fs/promises';
-import globPkg from 'glob';
+import { sync as glob } from 'glob';
 
 import {
   buildNpmLib,
@@ -17,8 +17,6 @@ import {
 } from '../../build-helpers.mjs';
 
 import { devDistCssFolder, serverFolder } from './scripts/config.js';
-
-const glob = globPkg.sync;
 
 const cssSrcDir = `${srcDir}/css`;
 const cssSourceExtension = '.css.ts';

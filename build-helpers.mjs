@@ -4,7 +4,7 @@ import { execSync } from 'child_process';
 import esbuild from 'esbuild';
 import { readFileSync, writeFileSync } from 'fs';
 import { access, mkdir, readFile, writeFile } from 'fs/promises';
-import glob from 'glob';
+import { sync as globSync } from 'glob';
 import { dirname } from 'path';
 
 /** @type {Record<string, true | string | undefined>} */
@@ -133,7 +133,7 @@ export const buildTests = () => {
       format: 'cjs',
       platform: 'node',
       target: ['node16'],
-      entryPoints: glob.sync(`${globPrefix}{js,ts,tsx}`),
+      entryPoints: globSync(`${globPrefix}{js,ts,tsx}`),
       entryNames: '[dir]/$$[hash]$$-[name]',
       write: false,
       watch: !!opts.dev && {
@@ -184,7 +184,7 @@ export const buildNpmLib = (libName, custom) => {
   } = custom || {};
 
   const entryPoints = entryGlobs.flatMap((entryGlob) =>
-    glob.sync(entryGlob, {
+    globSync(entryGlob, {
       cwd: src,
       ignore: ['**/*.{tests,privates}.{ts,tsx}', '**/_*'],
     })

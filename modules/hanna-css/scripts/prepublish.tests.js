@@ -1,7 +1,7 @@
 const o = require('ospec');
 const { existsSync, rmdirSync } = require('fs');
 const glob = require('glob').sync;
-const { cssVersion, publishCssFolder, devDistCssFolder } = require('./config');
+const { cssVersion, publishCssFolder, devDistCssFolder } = require('./config.js');
 
 // ---------------------------------------------------------------------------
 

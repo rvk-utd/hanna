@@ -25,7 +25,6 @@
   "devDependencies": {
     "@hugsmidjan/hxmstyle": "^7.0.0",
     "@types/eslint": "^8",
-    "@types/glob": "^7",
     "@types/gulp": "^4",
     "@types/jsdom": "^16.2.14",
     "@types/node": "^16",
@@ -34,7 +33,7 @@
     "concurrently": "^7.0.0",
     "esbuild": "^0.15.18",
     "eslint": "^8.35.0",
-    "glob": "^8.0.3",
+    "glob": "^10.0.0",
     "husky": "^7.0.0",
     "jsdom": "^19.0.0",
     "node-gyp": "^9.0.0",

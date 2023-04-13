@@ -26,7 +26,7 @@
     "@reykjavik/hanna-css": "workspace:*",
     "@reykjavik/hanna-react": "workspace:*",
     "@reykjavik/hanna-utils": "workspace:*",
-    "glob": "^8.0.3",
+    "glob": "^10.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
