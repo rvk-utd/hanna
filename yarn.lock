@@ -2554,9 +2554,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hugsmidjan/hxmstyle@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@hugsmidjan/hxmstyle@npm:7.0.0"
+"@hugsmidjan/hxmstyle@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "@hugsmidjan/hxmstyle@npm:7.1.1"
   dependencies:
     "@rushstack/eslint-patch": ^1.2.0
     "@typescript-eslint/eslint-plugin": ^5.52.0
@@ -2575,16 +2575,9 @@ __metadata:
   peerDependencies:
     eslint: ^8.35.0
     prettier: ^2.8.2
-    react: ">=16.8"
-    typescript: ^4.5.4
-  peerDependenciesMeta:
-    react:
-      optional: true
-    typescript:
-      optional: true
   bin:
     hxmstyle: bin/installer.js
-  checksum: 5f45b86ce73718dc5693b2b6a3705a19f939e32fea0d835ec10377c5cc9f3f000cca1f6a9a23d955804c34e93d8bd7c12bbd5b25026ce450480fa521f7567251
+  checksum: 5b613fd9e5c2bfe4389366ac6d63d971faa6904ebf0307856c7e5124afdee6b50159f6683cc34ec130ff145d350b2ccb7596c52be498db5f1c9aaab4de5c8a06
   languageName: node
   linkType: hard
 
@@ -12759,7 +12752,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hanna@workspace:."
   dependencies:
-    "@hugsmidjan/hxmstyle": ^7.0.0
+    "@hugsmidjan/hxmstyle": ^7.1.1
     "@types/eslint": ^8
     "@types/gulp": ^4
     "@types/jsdom": ^16.2.14
