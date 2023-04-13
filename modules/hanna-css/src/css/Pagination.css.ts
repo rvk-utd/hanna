@@ -47,8 +47,9 @@ export default css`
     color: ${_colorWhite};
   }
 
+  .Pagination__button--active:focus-visible,
   .Pagination__button--active:hover {
-    background-color: ${vars.color_faxafloi_100};
+    color: ${_colorWhite};
   }
 
   .Pagination__button--back {
