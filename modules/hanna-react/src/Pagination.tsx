@@ -53,7 +53,7 @@ const Pagination = (props: PaginationProps) => {
               disabled={!isNumber}
               type="button"
               ref={pagItem === activePage ? activeButtonRef : undefined}
-              aria-current={pagItem === activePage ? 'page' : undefined}
+              aria-current={pagItem === activePage || undefined}
             >
               {pagItem}
             </button>
