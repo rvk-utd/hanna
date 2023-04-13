@@ -5,40 +5,14 @@ import { iconStyle } from '../lib/icons';
 
 import { ButtonStyle, ButtonVariables } from './styles/buttons';
 
+const _colorWhite = vars.color_white;
+const _colorBlack = vars.color_blackish;
+
 export default css`
   /*!@deps
     ButtonPrimary
   */
-  .ReactPaginate ul {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    list-style: none;
-  }
 
-  .ReactPaginate ul li a {
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
-    height: 32px;
-    padding: 0 11px;
-    background: transparent;
-    cursor: pointer;
-    margin-right: 8px;
-    border: 1px solid transparent;
-    transition: color 150ms, background-color 150ms, border-color 150ms;
-    color: #2a2b2c;
-    font-weight: 500;
-    font-size: 1em;
-    border-radius: 2px;
-  }
-
-  .ReactPaginate ul li.selected a {
-    background: ${vars.color_faxafloi_100};
-    color: white;
-  }
-
-  /* =========================== Custom ======================= */
   .Pagination {
     display: flex;
     align-items: center;
@@ -49,8 +23,8 @@ export default css`
   .Pagination__button {
     ${ButtonStyle};
     ${ButtonVariables.override({
-      backgroundColor: 'white',
-      textColor: 'black',
+      backgroundColor: _colorWhite,
+      textColor: _colorBlack,
       height: vars.space_4,
     })}
     padding: 0 15px;
@@ -64,13 +38,13 @@ export default css`
   }
 
   .Pagination__button:disabled:active {
-    background-color: white;
-    color: black;
+    background-color: ${_colorWhite};
+    color: ${_colorBlack};
   }
 
   .Pagination__button--active {
     background-color: ${vars.color_faxafloi_100};
-    color: white;
+    color: ${_colorWhite};
   }
 
   .Pagination__button--active:hover {
