@@ -12,18 +12,16 @@ const Pagination = (props: PaginationProps) => {
   const { activePage, pageCount, onChange } = props;
   const paginationItems = generate(activePage, pageCount, 1, 1);
   const activeButtonRef = useRef<HTMLButtonElement>(null);
-  const [lastClickedButton, setLastClickedButton] = useState<'arrow' | 'normal' | null>(
-    null
-  );
+  const [preventFocus, setPreventFocus] = useState(false);
 
   useEffect(() => {
-    if (lastClickedButton === 'normal') {
+    if (!preventFocus) {
       activeButtonRef.current?.focus();
     }
-  }, [paginationItems, lastClickedButton]);
+  }, [paginationItems, preventFocus]);
 
-  const handleButtonClick = (button: 'arrow' | 'normal', pageIndex: number) => {
-    setLastClickedButton(button);
+  const handleButtonClick = (focus: boolean, pageIndex: number) => {
+    setPreventFocus(!focus);
     onChange(pageIndex);
   };
 
@@ -31,7 +29,7 @@ const Pagination = (props: PaginationProps) => {
     <nav className="Pagination" aria-label="Pagination">
       <button
         disabled={activePage === 1}
-        onClick={() => handleButtonClick('arrow', activePage - 1)}
+        onClick={() => handleButtonClick(false, activePage - 1)}
         className="Pagination__button Pagination__button--back"
       ></button>
       {paginationItems.map((pagItem, indx) => {
@@ -45,7 +43,7 @@ const Pagination = (props: PaginationProps) => {
             )}
             onClick={() => {
               if (isNumber) {
-                handleButtonClick('normal', pagItem);
+                handleButtonClick(true, pagItem);
               }
             }}
             disabled={!isNumber}
@@ -58,7 +56,7 @@ const Pagination = (props: PaginationProps) => {
       })}
       <button
         disabled={activePage === pageCount}
-        onClick={() => handleButtonClick('arrow', activePage + 1)}
+        onClick={() => handleButtonClick(false, activePage + 1)}
         className="Pagination__button Pagination__button--forward"
       ></button>
     </nav>
