@@ -15,7 +15,7 @@ const AlertVariables = buildVariables(['background', 'icon_color', 'icon'], 'Ale
 const alertVars = AlertVariables.vars;
 
 const pureWhite = color('#fff');
-const linkColor = color(colors.faxafloi_100).mix(colors.faxafloi_150, 0.2);
+const linkColor = color(colors.faxafloi_100).mix(color(colors.faxafloi_150), 0.2);
 const closing_duration = ms(400);
 const ease_out_quartic = 'cubic-bezier(0.165, 0.84, 0.44, 1)';
 
@@ -85,14 +85,20 @@ export default css`
     .Alert--warning {
       ${AlertVariables.override({
         background: vars.color_nautholsvik_50,
-        icon_color: color(colors.nautholsvik_100).mix(colors.nautholsvik_150, 0.33),
+        icon_color: color(colors.nautholsvik_100).mix(
+          color(colors.nautholsvik_150),
+          0.33
+        ),
         icon: vars.icon__warning,
       })}
     }
     .Alert--success {
       ${AlertVariables.override({
         background: color(colors.ellidaardalur_50).mix(pureWhite, 0.4),
-        icon_color: color(colors.ellidaardalur_100).mix(colors.ellidaardalur_150, 0.33),
+        icon_color: color(colors.ellidaardalur_100).mix(
+          color(colors.ellidaardalur_150),
+          0.33
+        ),
         icon: vars.icon__checkmark,
       })}
     }

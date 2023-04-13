@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- **BREAKING** feat: `colors_raw` contains hex-color strings not `ColorValue`
+- feat: Add `/*#__PURE__*/` markers to aid down-stream bundle tree-shaking
 
 ## 0.3.16 – 0.3.17
 

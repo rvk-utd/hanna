@@ -1,4 +1,4 @@
-import { color, css } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { colors } from '../lib/colors.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -8,7 +8,7 @@ import { LinkStyle, LinkStyle_SameColor } from './styles/links.js';
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
 
-const tooltipBgColor = color('rgb(0,0,0)').alpha(0.7);
+const tooltipBgColor = 'rgba(0, 0, 0, 0.7)';
 
 const triangleH = 4;
 const triangleW = 12;

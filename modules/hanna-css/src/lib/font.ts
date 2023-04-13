@@ -1,4 +1,6 @@
-import { px } from 'es-in-css';
+import { px as _px } from 'es-in-css';
+
+const px = (value: number) => /*#__PURE__*/ _px(value);
 
 const familyName = 'Esja';
 

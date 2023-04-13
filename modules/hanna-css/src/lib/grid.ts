@@ -1,7 +1,9 @@
-import { color, css, pct_f, PlainNumber, px, PxValue } from 'es-in-css';
+import { css, pct_f, PlainNumber, px as _px, PxValue } from 'es-in-css';
 
 import { bp } from './breakpoints.js';
 import { isDevMode } from './cssutils.js';
+
+const px = (value: number) => /*#__PURE__*/ _px(value);
 
 const unit = px(8);
 const gutter = px(40);
@@ -73,7 +75,7 @@ export const px_pct = (
 
 /** pixel length - by columns */
 export const cols_px = (numCols: PlainNumber, numGutters: PlainNumber = numCols - 1) =>
-  px(numCols * column + numGutters * gutter);
+  /*#__PURE__*/ px(numCols * column + numGutters * gutter);
 
 // ===========================================================================
 
@@ -81,8 +83,8 @@ export const cols_px = (numCols: PlainNumber, numGutters: PlainNumber = numCols 
  * Helper that renders horizontal grid as a semi-transparent background
  */
 export const showColumnGridLines = (
-  columnColor = color('black').alpha(0.04),
-  gutterColor = color('white').alpha(0.06)
+  columnColor = 'rgba(0, 0, 0, 0.04)',
+  gutterColor = 'rgba(255, 255, 255, 0.06)'
 ) => {
   if (isDevMode) {
     const colPct = pct_f(column / (column + gutter));

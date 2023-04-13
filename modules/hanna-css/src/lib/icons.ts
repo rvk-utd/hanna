@@ -119,15 +119,16 @@ type TrimmedIconName = keyof typeof iconfonttokens extends `icon__${infer ShortN
   ? ShortName
   : never;
 
-export const iconfont_raw = {
-  name: iconfontName,
-  chars: ObjectFromEntries(
-    ObjectEntries(iconfonttokens).map(([name, char]) => [
-      name.replace(/^icon__/, '') as TrimmedIconName,
-      char,
-    ])
-  ),
-} as const;
+export const iconfont_raw = /*#__PURE__*/ (() =>
+  ({
+    name: iconfontName,
+    chars: ObjectFromEntries(
+      ObjectEntries(iconfonttokens).map(([name, char]) => [
+        name.replace(/^icon__/, '') as TrimmedIconName,
+        char,
+      ])
+    ),
+  } as const))();
 
 /**
  * Icon names available for data-icon="" attributes

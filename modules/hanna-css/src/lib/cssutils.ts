@@ -72,14 +72,19 @@ export const buildVariables = <T extends string>(
     }
 
     options = {
-      ...variableOptions,
+      ...options,
       namespace: variableOptions.namespace + namespace,
     };
   }
   return makeVariables(input, options);
 };
-buildVariables.isVar = makeVariables.isVar;
-buildVariables.join = makeVariables.join;
+
+// Using destructuring, rather than direct assignment, as it seems to reduce
+// the chance of bundlers (e.g. Rollup) treating getting the methods on
+// `makeVariables` as a side-effect
+const { isVar, join } = makeVariables;
+buildVariables.isVar = isVar;
+buildVariables.join = join;
 
 // ---------------------------------------------------------------------------
 
