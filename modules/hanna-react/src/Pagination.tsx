@@ -26,40 +26,49 @@ const Pagination = (props: PaginationProps) => {
   };
 
   return (
-    <nav className="Pagination" aria-label="Pagination">
-      <button
-        disabled={activePage === 1}
-        onClick={() => handleButtonClick(false, activePage - 1)}
-        className="Pagination__button Pagination__button--back"
-      ></button>
+    <ul className="Pagination" aria-label="Pagination">
+      <li>
+        <button
+          disabled={activePage === 1}
+          onClick={() => handleButtonClick(false, activePage - 1)}
+          className="Pagination__button Pagination__button--back"
+          aria-label="Previous page"
+        ></button>
+      </li>
       {paginationItems.map((pagItem, indx) => {
         const isNumber = typeof pagItem === 'number' && !isNaN(pagItem);
         return (
-          <button
-            key={indx}
-            className={getBemClass(
-              'Pagination__button',
-              pagItem === activePage && 'active'
-            )}
-            onClick={() => {
-              if (isNumber) {
-                handleButtonClick(true, pagItem);
-              }
-            }}
-            disabled={!isNumber}
-            type="button"
-            ref={pagItem === activePage ? activeButtonRef : undefined}
-          >
-            {pagItem}
-          </button>
+          <li>
+            <button
+              key={indx}
+              className={getBemClass(
+                'Pagination__button',
+                pagItem === activePage && 'active'
+              )}
+              onClick={() => {
+                if (isNumber) {
+                  handleButtonClick(true, pagItem);
+                }
+              }}
+              disabled={!isNumber}
+              type="button"
+              ref={pagItem === activePage ? activeButtonRef : undefined}
+              aria-current={pagItem === activePage ? 'page' : undefined}
+            >
+              {pagItem}
+            </button>
+          </li>
         );
       })}
-      <button
-        disabled={activePage === pageCount}
-        onClick={() => handleButtonClick(false, activePage + 1)}
-        className="Pagination__button Pagination__button--forward"
-      ></button>
-    </nav>
+      <li>
+        <button
+          disabled={activePage === pageCount}
+          onClick={() => handleButtonClick(false, activePage + 1)}
+          className="Pagination__button Pagination__button--forward"
+          aria-label="Next page"
+        ></button>
+      </li>
+    </ul>
   );
 };
 
