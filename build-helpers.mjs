@@ -18,6 +18,8 @@ export const testsDir = '__tests';
 export const distDir = '_npm-lib';
 export const srcDir = 'src';
 
+export const testGlobs = `${srcDir}/**/*.tests.{ts,tsx}`;
+
 // ---------------------------------------------------------------------------
 
 export const exit1 = (/** @type {object} */ err) => {
@@ -118,11 +120,10 @@ const tscBuild = (/** @type {TSConfig | undefined} */ config) => {
 export const buildTests = () => {
   execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
 
-  const globPrefix = `${srcDir}/**/*.tests.`;
   if (!opts.dev) {
     tscBuild({
       compilerOptions: { noEmit: true },
-      include: [`${globPrefix}ts`],
+      include: [testGlobs.replace(/\.[^.]+$/g, '.*')],
     });
   }
 
@@ -133,7 +134,7 @@ export const buildTests = () => {
       format: 'cjs',
       platform: 'node',
       target: ['node16'],
-      entryPoints: globSync(`${globPrefix}{js,ts,tsx}`),
+      entryPoints: globSync(testGlobs),
       entryNames: '[dir]/$$[hash]$$-[name]',
       write: false,
       watch: !!opts.dev && {
