@@ -1,5 +1,5 @@
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
-import { css, em, px, rem, str } from 'es-in-css';
+import { color, css, em, px, rem, str } from 'es-in-css';
 
 import {
   between_cols,
@@ -205,9 +205,11 @@ const themeVarDeclarations = css`
 
         theme_color_primary__text: _c.color_blackish,
         theme_color_primary__dark: _c.color_ellidaardalur_150,
-        theme_color_primary__safe: colors.ellidaardalur_100.saturate(0.4).darken(0.52),
+        theme_color_primary__safe: color(colors.ellidaardalur_100)
+          .saturate(0.4)
+          .darken(0.52),
 
-        theme_color_primary__safeish: colors.ellidaardalur_100
+        theme_color_primary__safeish: color(colors.ellidaardalur_100)
           .saturate(0.25)
           .darken(0.25),
       })}
@@ -232,9 +234,9 @@ const themeVarDeclarations = css`
 
         theme_color_primary__text: _c.color_blackish,
         theme_color_primary__dark: _c.color_sund_150,
-        theme_color_primary__safe: colors.sund_100.saturate(0.55).darken(0.52),
+        theme_color_primary__safe: color(colors.sund_100).saturate(0.55).darken(0.52),
 
-        theme_color_primary__safeish: colors.sund_100.saturate(0.35).darken(0.27),
+        theme_color_primary__safeish: color(colors.sund_100).saturate(0.35).darken(0.27),
       })}
     }
 
@@ -257,9 +259,13 @@ const themeVarDeclarations = css`
 
         theme_color_primary__text: _c.color_blackish,
         theme_color_primary__dark: _c.color_nautholsvik_150,
-        theme_color_primary__safe: colors.nautholsvik_100.saturate(0.55).darken(0.565),
+        theme_color_primary__safe: color(colors.nautholsvik_100)
+          .saturate(0.55)
+          .darken(0.565),
 
-        theme_color_primary__safeish: colors.nautholsvik_100.saturate(0.25).darken(0.33),
+        theme_color_primary__safeish: color(colors.nautholsvik_100)
+          .saturate(0.25)
+          .darken(0.33),
       })}
     }
   }
