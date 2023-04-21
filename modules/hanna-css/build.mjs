@@ -47,7 +47,9 @@ const baseOpts = {
 const getCssVersionTokenUnion = (majorCssVersion) => {
   // Read all css majorCssVersion folders currently on the built style server.
   // NOTE: We assume the CSS folder contains only folders.
-  const cssVFolders = glob(`v${majorCssVersion}*`, { cwd: `${serverFolder}public/css` });
+  const cssVFolders = glob(`v${majorCssVersion}*`, {
+    cwd: `${serverFolder}public/css`,
+  }).sort();
 
   /** @type {Record<string, 1>} */
   const cssFoldersPlus = {};
@@ -73,7 +75,7 @@ const getCssVersionTokenUnion = (majorCssVersion) => {
   delete cssFoldersPlus.v0; // never a good idea
 
   return Object.keys(cssFoldersPlus)
-    .sort()
+    .sort(Intl.Collator('en').compare)
     .map((key) => `  | '${key}'`)
     .join('\n');
 };
@@ -81,6 +83,7 @@ const getCssVersionTokenUnion = (majorCssVersion) => {
 const geCssModuleTokenUnion = async () =>
   cssModuleFiles
     .map((fileName) => fileName.slice(0, -cssSourceExtension.length))
+    .sort(Intl.Collator('en').compare)
     .map((token) => `  | '${token}'`)
     .join('\n');
 

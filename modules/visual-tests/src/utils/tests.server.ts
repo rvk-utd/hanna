@@ -37,7 +37,8 @@ const _filesToTestList = (readSkipped?: true) => (files: Array<string>) =>
       }
       const testPage: TestPageInfo = { path, label };
       return testPage;
-    });
+    })
+    .sort((a, b) => Intl.Collator('en').compare(a.label, b.label));
 
 const _testPageGlob = cwd + '/test/**/*{.tsx,.skipped.txt}';
 
