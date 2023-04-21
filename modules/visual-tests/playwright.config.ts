@@ -1,4 +1,4 @@
-import { devices, PlaywrightTestConfig } from '@playwright/test';
+import { defineConfig, devices, PlaywrightTestConfig } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 
 import { ProjectName, TestTag } from './src/test-helpers/testingInfo.js';
@@ -62,6 +62,7 @@ const projects: Array<ProjectCfg> = [
           viewport,
         },
         grep: [tagREs.firefox, tagREs[`firefox-${label}`]],
+        dependencies: ['meta'],
       },
       {
         name: `chrome-${label}`,
@@ -70,6 +71,7 @@ const projects: Array<ProjectCfg> = [
           viewport,
         },
         grep: [tagREs.chrome, tagREs[`chrome-${label}`]],
+        dependencies: ['meta'],
       },
       {
         name: `safari-${label}`,
@@ -78,6 +80,7 @@ const projects: Array<ProjectCfg> = [
           viewport,
         },
         grep: [tagREs.safari, tagREs[`safari-${label}`]],
+        dependencies: ['meta'],
       },
     ]
   ),
@@ -112,7 +115,7 @@ const projects: Array<ProjectCfg> = [
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const config: PlaywrightTestConfig = {
+export default defineConfig({
   testDir: './tests',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
@@ -166,6 +169,4 @@ const config: PlaywrightTestConfig = {
       reuseExistingServer: false,
     },
   ],
-};
-
-export default config;
+});
