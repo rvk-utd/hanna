@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@reykjavik/hanna-utils": "^0.2.3",
-    "es-in-css": "^0.6.0"
+    "es-in-css": "^0.7.1"
   },
   "publishConfig": {
     "engines": {

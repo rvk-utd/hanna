@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Regression in ` css``  ` array inlining
 
 ## 0.3.16 – 0.3.17
 
