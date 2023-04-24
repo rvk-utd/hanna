@@ -3,7 +3,6 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Apply missing `z-index` defaults inside `.Layout__nav`
 
 ## 0.8.78
 
@@ -16,6 +15,7 @@ _2023-04-25_
   `html.menu-is-open`
 - feat: Add CSS variables `--Layout__header-logo-color`,
   `--Layout__header-color`
+- fix: Apply missing `z-index` defaults inside `.Layout__nav`
 
 ## 0.8.77
 
