@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.78
+
+_2023-04-25_
+
 - Global `-basics` styles:
   - feat: Remove aggressive global reset for all `img` and `video` elements
   - feat: Shift typography style declarations from `html` to `body`
