@@ -35,10 +35,10 @@ const Pagination = (props: PaginationProps) => {
           aria-label="Previous page"
         ></button>
       </li>
-      {paginationItems.map((pagItem) => {
+      {paginationItems.map((pagItem, indx) => {
         const isNumber = typeof pagItem === 'number' && !isNaN(pagItem);
         return (
-          <li key={pagItem}>
+          <li key={indx}>
             <button
               className={getBemClass(
                 'Pagination__button',
