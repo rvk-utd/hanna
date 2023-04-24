@@ -1,5 +1,4 @@
-import { css, VariablePrinter } from 'es-in-css';
-import Color from 'es-in-css/_/color.types';
+import { ColorValue, css, VariablePrinter } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
@@ -102,7 +101,7 @@ export const freezeScroll_css = ({
   `}
 `;
 
-export const LayoutHeaderUnderlay_css = (color: Color | VariablePrinter) => css`
+export const LayoutHeaderUnderlay_css = (color: ColorValue | VariablePrinter) => css`
   content: '';
   position: fixed;
   z-index: 1;
