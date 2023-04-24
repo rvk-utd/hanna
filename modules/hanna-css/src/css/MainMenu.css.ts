@@ -6,7 +6,7 @@ import { htmlCl } from '../lib/classNames.js';
 import { colors } from '../lib/colors.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { font } from '../lib/font.js';
-import { cols_pct, grid } from '../lib/grid.js';
+import { grid } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -247,7 +247,7 @@ export default css`
       z-index: ${vars.zindex__header};
       top: 0;
       right: 0;
-      left: ${cols_pct(3, 3)};
+      left: ${vars.grid_3_3};
       height: ${vars.Layout$$header_height};
       padding-bottom: ${prem(10)};
       margin-right: ${between_Topmenu(-8, -20)};

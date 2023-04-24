@@ -3,13 +3,12 @@ import { css } from 'es-in-css';
 import { between_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
-import { cols_px } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LinkStyle_Reset } from './styles/links.js';
 import { keyboardFocus_selector } from './utils/focus-selectors.js';
-import { prem } from './utils/miscUtils.js';
+import { cols_px, prem } from './utils/miscUtils.js';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`

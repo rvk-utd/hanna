@@ -2,10 +2,15 @@ import { css, em } from 'es-in-css';
 
 import { between_cols, between_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { cols_pct, cols_px } from '../lib/grid.js';
 import { hannaVars, hannaVars as vars } from '../lib/hannavars.js';
 
-import { extendBackgroundWithUnderlay, grid_units, prem } from './utils/miscUtils.js';
+import {
+  cols_pct,
+  cols_px,
+  extendBackgroundWithUnderlay,
+  grid_units,
+  prem,
+} from './utils/miscUtils.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`

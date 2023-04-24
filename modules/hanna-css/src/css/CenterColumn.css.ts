@@ -1,7 +1,8 @@
 import { css } from 'es-in-css';
 
-import { cols_px } from '../lib/grid.js';
 import { WARNING__, WARNING_message__ } from '../lib/WARNING__.js';
+
+import { cols_px } from './utils/miscUtils.js';
 
 const not = (selectors?: Array<string>) =>
   selectors ? `:not(${selectors.join('):not(')})` : '';

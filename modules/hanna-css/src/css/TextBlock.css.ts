@@ -2,7 +2,6 @@ import { css, em } from 'es-in-css';
 
 import { between_cols } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { cols_pct } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
@@ -11,6 +10,7 @@ import {
   LabeledTitleStyle__basics,
   LabeledTitleStyle__outdented,
 } from './styles/labeledTitle.js';
+import { cols_pct } from './utils/miscUtils.js';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 import { textContent, textContentVars } from './utils/textContent.js';
 

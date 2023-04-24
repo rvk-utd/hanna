@@ -2,10 +2,9 @@ import { css } from 'es-in-css';
 
 import { between_cols, between_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { cols_px } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { prem } from './utils/miscUtils.js';
+import { cols_px, prem } from './utils/miscUtils.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`

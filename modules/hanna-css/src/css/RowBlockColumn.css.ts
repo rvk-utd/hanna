@@ -2,11 +2,11 @@ import { css } from 'es-in-css';
 
 import { between_cols } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { cols_pct } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LinkStyle_SameColor } from './styles/links.js';
+import { cols_pct } from './utils/miscUtils.js';
 
 export default css`
   /*!@deps

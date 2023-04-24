@@ -3,10 +3,10 @@ import { css, ms } from 'es-in-css';
 
 import { between_cols } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { cols_pct, grid } from '../lib/grid.js';
+import { grid } from '../lib/grid.js';
 import { hannaVars } from '../lib/hannavars.js';
 
-import { grid_units, prem, resetImageChild } from './utils/miscUtils.js';
+import { cols_pct, grid_units, prem, resetImageChild } from './utils/miscUtils.js';
 import {
   SeenEffect__delay,
   SeenEffect__fadeup,

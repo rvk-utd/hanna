@@ -3,11 +3,10 @@ import { css, em, rem } from 'es-in-css';
 import { between_cols } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
-import { cols_px, px_pct } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
-import { prem } from './utils/miscUtils.js';
+import { cols_px, prem, px_pct } from './utils/miscUtils.js';
 
 export default css`
   @media screen {

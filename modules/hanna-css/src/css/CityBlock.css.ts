@@ -7,13 +7,13 @@ import {
   between_phone_phablet,
 } from '../lib/between.js';
 import { bp, mq } from '../lib/breakpoints.js';
-import { cols_pct, cols_px, grid } from '../lib/grid.js';
+import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING_soft__ } from '../lib/WARNING__.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_SameColor } from './styles/links.js';
-import { grid_units, prem } from './utils/miscUtils.js';
+import { cols_pct, cols_px, grid_units, prem } from './utils/miscUtils.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 const minH = px(480 - 2 * grid.column);

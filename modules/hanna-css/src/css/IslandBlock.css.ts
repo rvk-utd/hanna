@@ -6,12 +6,11 @@ import {
   between_tablet_netbook,
 } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { cols_pct } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_SameColor } from './styles/links.js';
-import { extendBackgroundWithUnderlay, grid_units } from './utils/miscUtils.js';
+import { cols_pct, extendBackgroundWithUnderlay, grid_units } from './utils/miscUtils.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 const offset = between_phone_phablet(0, 60);

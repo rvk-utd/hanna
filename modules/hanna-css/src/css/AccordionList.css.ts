@@ -5,11 +5,11 @@ import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { font } from '../lib/font.js';
-import { cols_px } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
+import { cols_px } from './utils/miscUtils.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
 import { textContent } from './utils/textContent.js';
 

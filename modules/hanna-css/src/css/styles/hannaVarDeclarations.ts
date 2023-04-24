@@ -10,7 +10,7 @@ import {
 import { bp, mq } from '../../lib/breakpoints.js';
 import { colors } from '../../lib/colors.js';
 import { font } from '../../lib/font.js';
-import { cols_pct, cols_px, grid } from '../../lib/grid.js';
+import { grid } from '../../lib/grid.js';
 import {
   borderEffectVars,
   breakpointVars,
@@ -29,7 +29,7 @@ import {
 } from '../../lib/hannavars.js';
 import iconfonttokens from '../../lib/iconfonttokens.js';
 import { cssVersion } from '../../lib/style-server-info.js';
-import { grid_units } from '../utils/miscUtils.js';
+import { cols_pct, cols_px, grid_units } from '../utils/miscUtils.js';
 
 import { ButtonTertiaryVarDeclarations } from './buttons.js';
 

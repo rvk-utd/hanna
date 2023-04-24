@@ -2,13 +2,12 @@ import { css } from 'es-in-css';
 
 import { between_cols, between_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { cols_pct, cols_px } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { AttentionStyle } from './styles/attention.js';
-import { grid_units, prem } from './utils/miscUtils.js';
+import { cols_pct, cols_px, grid_units, prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {
