@@ -177,6 +177,9 @@ export default css`
       color: var(--close-icon-color);
     }
 
+    ${htmlCl.menuIsActive} .Layout__nav > * {
+      z-index: calc(${vars.zindex__header} - 1);
+    }
     // Page content fadeout during menu open
     ${htmlCl.menuIsActive} .Layout__nav::before {
       content: '';

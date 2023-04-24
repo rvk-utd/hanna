@@ -112,6 +112,7 @@ export default css`
     ${htmlCl.menuIsActive} .MainMenu {
       display: flex;
       position: fixed;
+      /* Technically redundant but makes the component more resilient to extraneous div wrappers */
       z-index: calc(${vars.zindex__header} - 1);
       top: 0;
       bottom: 0;

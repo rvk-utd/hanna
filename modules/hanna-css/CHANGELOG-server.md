@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Apply missing `z-index` defaults inside `.Layout__nav`
 
 ## 0.8.78
 
