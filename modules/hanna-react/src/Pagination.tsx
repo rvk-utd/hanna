@@ -18,7 +18,7 @@ const Pagination = (props: PaginationProps) => {
     if (!preventFocus) {
       activeButtonRef.current?.focus();
     }
-  }, [paginationItems, preventFocus]);
+  }, [activePage, preventFocus]);
 
   const handleButtonClick = (focus: boolean, pageIndex: number) => {
     setPreventFocus(!focus);
@@ -30,17 +30,16 @@ const Pagination = (props: PaginationProps) => {
       <li>
         <button
           disabled={activePage === 1}
-          onClick={() => handleButtonClick(false, activePage - 1)}
+          onClick={() => handleButtonClick(activePage === 2, activePage - 1)}
           className="Pagination__button Pagination__button--back"
           aria-label="Previous page"
         ></button>
       </li>
-      {paginationItems.map((pagItem, indx) => {
+      {paginationItems.map((pagItem) => {
         const isNumber = typeof pagItem === 'number' && !isNaN(pagItem);
         return (
-          <li>
+          <li key={pagItem}>
             <button
-              key={indx}
               className={getBemClass(
                 'Pagination__button',
                 pagItem === activePage && 'active'
@@ -63,7 +62,7 @@ const Pagination = (props: PaginationProps) => {
       <li>
         <button
           disabled={activePage === pageCount}
-          onClick={() => handleButtonClick(false, activePage + 1)}
+          onClick={() => handleButtonClick(activePage + 1 === pageCount, activePage + 1)}
           className="Pagination__button Pagination__button--forward"
           aria-label="Next page"
         ></button>
