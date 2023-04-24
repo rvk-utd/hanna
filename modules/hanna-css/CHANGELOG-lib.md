@@ -6,6 +6,12 @@
 - **BREAKING** feat: `colors_raw` contains hex-color strings not `ColorValue`
 - feat: Add `/*#__PURE__*/` markers to aid down-stream bundle tree-shaking
 
+## 0.3.18
+
+_2023-04-24_
+
+- fix: Regression in ` css``  ` array inlining
+
 ## 0.3.16 – 0.3.17
 
 _2023-04-04_
