@@ -7,6 +7,12 @@ export type { HannaColorTheme } from './themes.js';
 export { colorThemes } from './themes.js';
 export { WARNING__, WARNING_message__, WARNING_soft__ } from './WARNING__.js';
 // Re-export all of es-in-css for convenience
+export {
+  srOnly,
+  srOnly__undo,
+  srOnly_focusable,
+  srOnly_focusableContent,
+} from './a11y.js';
 export { bp as breakpoints_raw, mq } from './breakpoints.js';
 export { htmlCl } from './classNames.js';
 export type { ColorFamily } from './colors.js';

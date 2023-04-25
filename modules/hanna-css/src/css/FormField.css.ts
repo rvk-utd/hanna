@@ -1,9 +1,9 @@
 import { css, px } from 'es-in-css';
 
+import { srOnly } from '../lib/a11y.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { FormField__error, FormFieldVariables } from './styles/forms.js';
-import { sr_only } from './utils/a11y.js';
 import { grid_units, overflowEllipsis, prem } from './utils/miscUtils.js';
 
 import { Selectbox_css } from './Selectbox.css';
@@ -96,7 +96,7 @@ export default css`
     }
 
     .FormField--nolabel > .FormField__label {
-      ${sr_only}
+      ${srOnly}
     }
 
     .FormField__label__reqstar {

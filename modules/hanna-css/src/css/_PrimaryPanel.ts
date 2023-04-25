@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
+import { srOnly } from '../lib/a11y.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
-import { sr_only } from './utils/a11y.js';
 import { grid_units, prem } from './utils/miscUtils.js';
 import { Transition__long } from './utils/seenEffects.js';
 
@@ -52,7 +52,7 @@ export const PrimaryPanel_css = () => css`
       margin-bottom: ${prem(16)};
     }
     .PrimaryPanel__summary {
-      ${sr_only}
+      ${srOnly}
     }
 
     :not(.MainMenu__panelsWrap--active) > * > .PrimaryPanel--active {

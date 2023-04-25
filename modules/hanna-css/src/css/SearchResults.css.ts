@@ -1,5 +1,6 @@
 import { css } from 'es-in-css';
 
+import { srOnly } from '../lib/a11y.js';
 import { between_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
@@ -9,7 +10,6 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LabeledTitleStyle__basics } from './styles/labeledTitle.js';
 import { LinkStyle_Reset } from './styles/links.js';
-import { sr_only } from './utils/a11y.js';
 import { afterClear_css } from './utils/afterClear.js';
 import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors.js';
 import { cols_px, grid_units, prem } from './utils/miscUtils.js';
@@ -110,7 +110,7 @@ export default css`
 
     ol.SearchResults__list > li::before {
       // hide <ol><li> counter markers
-      ${sr_only}
+      ${srOnly}
     }
 
     .SearchResultsItem {

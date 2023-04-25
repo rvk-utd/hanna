@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add various `srOnly_*` accessibility mixins
 
 ## 0.4.0
 

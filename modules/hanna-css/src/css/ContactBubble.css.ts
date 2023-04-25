@@ -1,5 +1,6 @@
 import { css, pct_f } from 'es-in-css';
 
+import { srOnly_focusable } from '../lib/a11y.js';
 import { between } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
@@ -8,7 +9,6 @@ import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
 import { freezeScroll_css, LayoutHeaderUnderlay_css } from './styles/header.js';
-import { sr_only_focusable_css } from './utils/a11y.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem } from './utils/miscUtils.js';
 
@@ -323,7 +323,7 @@ export default css`
 
     @media ${mq_Popup} {
       .ContactBubble__closebtn {
-        ${sr_only_focusable_css({})}
+        ${srOnly_focusable({})}
       }
     }
   }

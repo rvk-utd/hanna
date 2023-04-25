@@ -7,13 +7,13 @@ import {
 import { css, str } from 'es-in-css';
 import md5File from 'md5-file';
 
+import { srOnly } from '../lib/a11y.js';
 import { bp } from '../lib/breakpoints.js';
 import { characters, iconfont_raw } from '../lib/icons.js';
 import { WARNING_border__ } from '../lib/WARNING__.js';
 
 import { hannaVarDeclarations } from './styles/hannaVarDeclarations.js';
 import { LinkStyle, LinkStyle__focusOutline } from './styles/links.js';
-import { sr_only } from './utils/a11y.js';
 import { buttonReset } from './utils/buttonReset.js';
 import {
   setDefaultKeyboardFocusStyle,
@@ -395,7 +395,7 @@ export default css`
   // ===========================================================================
   @media screen {
     [class].visually-hidden {
-      ${sr_only};
+      ${srOnly};
     }
     .local-tasks {
       position: fixed;

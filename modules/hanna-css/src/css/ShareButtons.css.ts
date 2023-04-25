@@ -3,7 +3,7 @@ import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
-import { sr_only } from './utils/a11y.js';
+import { srOnly } from '../lib/a11y.js';
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
 
@@ -15,7 +15,7 @@ export default css`
     }
 
     .ShareButtons__label {
-      ${sr_only}
+      ${srOnly}
     }
 
     .ShareButtons__link {

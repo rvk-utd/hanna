@@ -6,7 +6,7 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
 import { FormFieldVariables } from './styles/forms.js';
-import { sr_only } from './utils/a11y.js';
+import { srOnly } from '../lib/a11y.js';
 import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem } from './utils/miscUtils.js';
@@ -32,7 +32,7 @@ export default css`
       }
     }
     .SiteSearchInput > .FormField__label {
-      ${sr_only}
+      ${srOnly}
     }
 
     .SiteSearchInput > .FormField__input {

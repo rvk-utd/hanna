@@ -1,27 +1,9 @@
 import { css, RawCssString } from 'es-in-css';
 
-export const keyboardFocus_selector = (content: RawCssString) => css`
-  &[data-focus-visible-added] {
-    ${content};
-  }
-  &:focus-visible {
-    ${content};
-  }
-`;
-
-export const hoverActiveKeyboardFocus_selector =
-  (active = true) =>
-  (content: RawCssString) =>
-    css`
-      ${active && '&:active'},
-      &:hover,
-      &[data-focus-visible-added] {
-        ${content};
-      }
-      &:focus-visible {
-        ${content};
-      }
-    `;
+export {
+  hoverActiveKeyboardFocus_selector,
+  keyboardFocus_selector,
+} from '../../lib/a11y.js';
 
 /**
  * If you already set a universal (old-school) :focus style and

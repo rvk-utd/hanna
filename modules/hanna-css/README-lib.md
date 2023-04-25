@@ -42,6 +42,10 @@ yarn add @reykjavik/hanna-css
   - [`setStyleServerUrl`](#setstyleserverurl)
   - [`targetCssVersion`](#targetcssversion)
   - [`isDevMode`](#isdevmode)
+- [Accessibility Helpers](#accessibility-helpers)
+  - [`srOnly` mixin](#sronly-mixin)
+  - [`srOnly_focusable` mixin](#sronly_focusable-mixin)
+  - [`srOnly_focusableContent` mixin](#sronly_focusablecontent-mixin)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
   - [`WARNING_soft__`](#warning_soft__)
@@ -449,7 +453,7 @@ internally by [`getCssBundleUrl()`](#getcssbundleurl)
 
 ### `setStyleServerUrl`
 
-**Syntax:** `setStyleServerUrl(url: string | URL)`
+**Syntax:** `setStyleServerUrl: (url: string | URL) => void`
 
 Re-export from
 [`@reykjavik/hanna-utils/assets`](<[../hanna-utils](https://github.com/rvk-utd/hanna/tree/main/modules/hanna-utils#setstyleserverurl)>).
@@ -480,6 +484,64 @@ import { isDevMode } from '@reykjavik/hanna-css';
 const myCss = css`
   .SomeComponent {
     color: ${isDevMode ? 'red' : 'blue'};
+  }
+`;
+```
+
+## Accessibility Helpers
+
+### `srOnly` mixin
+
+**Syntax** `srOnly: () => string`
+
+Mixin that hides an element visually, but still makes it accessible to screen
+readers.
+
+```js
+import { css, srOnly } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyComponent__label {
+    ${srOnly};
+  }
+`;
+```
+
+In the rare cases where you might need to make a sr-only element visible
+again, there's `srOnly__undo` that you can import and apply. (This can usually
+be avoided by using more precise selectors for the `srOnly` mixin.)
+
+### `srOnly_focusable` mixin
+
+**Syntax** `srOnly_focusable: () => string`
+
+Similar to the `srOnly` mixin, but intended for links/buttons that should
+become visible on keyboard focus (`:focus-visible`).
+
+```js
+import { css, srOnly_focusable } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyComponent__skipLink {
+    ${srOnly_focusable};
+  }
+`;
+```
+
+### `srOnly_focusableContent` mixin
+
+**Syntax** `srOnly_focusableContent: () => string`
+
+Similar to the `srOnly_focusable` mixin above, but for non-interactive
+elements that **contain** buttons/links that should become visible on keyboard
+focus.
+
+```js
+import { css, srOnly_focusableContent } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyComponent__dragdrop-controls {
+    ${srOnly_focusableContent};
   }
 `;
 ```

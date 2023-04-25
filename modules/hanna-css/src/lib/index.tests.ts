@@ -9,6 +9,12 @@ type ExpectedExports = Exclude<keyof typeof lib, keyof typeof esincss>;
 o.spec('hanna-css lib', () => {
   o('exports the correct tokens', () => {
     const expectedTokens: Record<ExpectedExports, true> = {
+      /* a11y.ts */
+      srOnly: true,
+      srOnly__undo: true,
+      srOnly_focusable: true,
+      srOnly_focusableContent: true,
+
       /* breakpints.ts */
       mq: true,
       breakpoints_raw: true,

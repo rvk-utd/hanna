@@ -1,5 +1,6 @@
 import { css } from 'es-in-css';
 
+import { srOnly_focusable } from '../lib/a11y.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { isDevMode } from '../lib/cssutils.js';
@@ -9,7 +10,6 @@ import { iconStyle } from '../lib/icons.js';
 
 import { freezeScroll_css, LayoutHeaderLogo } from './styles/header.js';
 import { LinkStyle_Reset } from './styles/links.js';
-import { sr_only_focusable_css } from './utils/a11y.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem, showColumnGridLines } from './utils/miscUtils.js';
 
@@ -201,7 +201,7 @@ export default css`
     }
 
     .Layout__nav__closebutton {
-      ${sr_only_focusable_css({})}
+      ${srOnly_focusable({})}
     }
   }
 
@@ -211,7 +211,7 @@ export default css`
 
   @media ${mq.Topmenu} {
     .Layout__header__skiplink {
-      ${sr_only_focusable_css({})}
+      ${srOnly_focusable({})}
     }
   }
 

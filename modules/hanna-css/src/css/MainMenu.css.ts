@@ -1,5 +1,6 @@
 import { color, css, px } from 'es-in-css';
 
+import { srOnly_focusableContent, srOnly_focusable } from '../lib/a11y.js';
 import { between_Topmenu } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
@@ -13,7 +14,6 @@ import { WARNING__ } from '../lib/WARNING__.js';
 
 import { freezeScroll_css } from './styles/header.js';
 import { LinkStyle } from './styles/links.js';
-import { sr_only_content_focusable, sr_only_focusable_css } from './utils/a11y.js';
 import { extendSides } from './utils/extendSides.js';
 import { grid_units, prem } from './utils/miscUtils.js';
 import { AuxiliaryPanel_css } from './_AuxiliaryPanel.js';
@@ -48,7 +48,7 @@ export default css`
       display: none; // ok if aria-label/aria-labelled by is used!
     }
     .MainMenu__item--home[class] {
-      ${sr_only_content_focusable({})};
+      ${srOnly_focusableContent({})};
     }
 
     .MainMenu__link {
@@ -220,7 +220,7 @@ export default css`
     }
 
     .MainMenu__megapanel__backtomenu {
-      ${sr_only_focusable_css({})}
+      ${srOnly_focusable({})}
     }
   }
 
