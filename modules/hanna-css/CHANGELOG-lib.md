@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.1
+
+_2023-04-25_
+
 - feat: Add various `srOnly_*` accessibility mixins
 
 ## 0.4.0
