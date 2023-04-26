@@ -6,7 +6,7 @@
 
 ## 0.8.78
 
-_2023-04-25_
+_2023-04-26_
 
 - Global `-basics` styles:
   - feat: Remove aggressive global reset for all `img` and `video` elements
