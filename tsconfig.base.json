@@ -6,7 +6,7 @@
 
   "compilerOptions": {
     "target": "ES2015",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "DOM.Iterable", "esnext"],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,

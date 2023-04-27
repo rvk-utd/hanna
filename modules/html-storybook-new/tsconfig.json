@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // somehow setting this is "../../tsconfig.base.json" doesn't work
+    // "jsx": "react",
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler", // 😬
+    "allowImportingTsExtensions": true,
+    "noEmit": true
+  },
+  "references": [{ "path": "./tsconfig.node.json" }],
+  //"include": ["src"],
+  "include": ["../**/*.ts", "../**/*.tsx"]
+}
