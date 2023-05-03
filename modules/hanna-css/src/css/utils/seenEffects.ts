@@ -149,7 +149,7 @@ export const SeenEffect__reset = (opts?: Opts) => css`
 
 /**
  * Resets the default data-seen-effect="" styling of a target element
- * (or the current & selector) to override the default "fadeup" effect.
+ * (or the current `&` selector) to override the default "fadeup" effect.
  *
  * This allows you to set an empty data-seen-effect="" attribute
  * (or use an unmodified "<SeenEffect />" component wrapper) to trigger

@@ -300,10 +300,7 @@ const makeVerticalTabsTOC = (
   };
 
   const whenReady = ensureCSS('Tabs').then(() => {
-    ReactDOM.render(
-      <VerticalTabsTOC {...props} ssr={false} startSeen={false} />,
-      rootElm
-    );
+    ReactDOM.render(<VerticalTabsTOC {...props} ssr={false} />, rootElm);
     return readyArgs;
   }) as MakeTOCMeta;
 
