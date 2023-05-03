@@ -163,6 +163,7 @@ export type MainMenuItem = {
    */
   onClick?: (index: number, item: MainMenuItem) => void | boolean;
   controlsId?: string;
+  target?: JSX.IntrinsicElements['a']['target'];
 };
 export type MainMenuSeparator = '---';
 export type MainMenuItemList = Array<MainMenuItem | MainMenuSeparator>;
@@ -364,6 +365,7 @@ export const MainMenu = (props: MainMenuProps) => {
                   <Link
                     className="MainMenu__link"
                     href={item.href}
+                    target={item.target}
                     aria-label={labelLong}
                     title={labelLong} // For auto-tooltips on desktop
                     onClick={() => {

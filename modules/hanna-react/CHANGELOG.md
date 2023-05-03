@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `target` to `MainMenuItem` type
 
 ## 0.10.86
 
