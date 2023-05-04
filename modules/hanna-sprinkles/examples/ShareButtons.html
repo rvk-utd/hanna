@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ShareButtons/NewHero sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,NewsHero,Bling"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('NewsHero', 'Bling'); // NewsHero is an alias for the ShareButtons sprinkle
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="NewsHero NewsHero--align--right">
+            <div class="NewsHero__content">
+              <h1 class="NewsHero__title">Útivistarsvæðin í borginni iða af lífi</h1>
+              <span class="NewsHero__meta">14. oktober</span>
+              <div class="NewsHero__summary">
+                Reykvíkingar eru heppnir að geta valið milli margra spennandi
+                útivistarsvæða þar sem er hægt að viðra sig og næra líkama og sál. Þessi
+                svæði eru sérstaklega mikilvæg nú á tímum samkomu- banns og aflýstra
+                viðburða. Náttúran er enn opin og á útivistar- svæðum er auðvelt að hlýða
+                Víði og virða tveggja metra regluna en á sama tíma finna fyrir ákveðinni
+                nálægð við annað fólk.
+              </div>
+              <div class="ShareButtons" aria-label="Deildu fréttinni">
+                Text content should be wiped.
+              </div>
+              <div class="ShareButtons" data-button-types="" data-buttonlabel="Deila á">
+                Text content should be wiped.
+              </div>
+              <div
+                class="ShareButtons"
+                data-button-types="facebook,twitter"
+                data-buttonlabel="${name} deiling"
+              >
+                Text content should be wiped.
+              </div>
+              <div class="ShareButtons" data-button-types="facebook">
+                Text content should be wiped.
+              </div>
+              <div class="ShareButtons" data-button-types="twitter">
+                Text content should be wiped.
+              </div>
+            </div>
+            <div
+              class="Bling Bling--align--left Bling--vertical--up Bling--parent--bottom"
+              data-bling-type="halfcircle-down-large"
+            ></div>
+            <div
+              class="Bling Bling--align--left-center Bling--color--secondary Bling--parent--bottom"
+              data-bling-type="circle-medium"
+            ></div>
+          </div>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

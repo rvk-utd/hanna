@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>FormField sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,TextInput,Selectbox"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('FormField');
+    </script>
+
+    <style>
+      .group {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 0 var(--grid-gutter);
+        margin-bottom: var(--baseVerticalMargin-2);
+      }
+      .group > .FormField {
+        width: var(--grid-4);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__main">
+        <!-- -->
+
+        <div class="group">
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="T-1"> Normal (empty)</label>
+            <input class="FormField__input" id="T-1" />
+          </div>
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="T-p1"> Normal (placeholder)</label>
+            <input class="FormField__input" id="T-p1" placeholder="Placeholder" />
+          </div>
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="T-v1"> Normal (prefilled)</label>
+            <input class="FormField__input" id="T-v1" value="Value" />
+          </div>
+
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="TD-1"> Disabled</label>
+            <input class="FormField__input" id="TD-1" disabled />
+          </div>
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="TD-p1"> Disabled (placeholder)</label>
+            <input
+              class="FormField__input"
+              id="TD-p1"
+              disabled
+              placeholder="Placeholder"
+            />
+          </div>
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="TD-v1"> Disabled (prefilled)</label>
+            <input class="FormField__input" id="TD-v1" disabled value="Value" />
+          </div>
+
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="TR-1"> Readonly</label>
+            <input class="FormField__input" id="TR-1" readonly />
+          </div>
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="TR-p1"> Readonly (placeholder)</label>
+            <input
+              class="FormField__input"
+              id="TR-p1"
+              readonly
+              placeholder="Placeholder"
+            />
+          </div>
+          <div class="FormField TextInput">
+            <label class="FormField__label" for="TR-v1"> Readonly (prefilled)</label>
+            <input class="FormField__input" id="TR-v1" readonly value="Value" />
+          </div>
+        </div>
+
+        <!-- -->
+
+        <div class="group">
+          <div class="FormField Selectbox">
+            <label class="FormField__label" for="S-1"> Normal</label>
+            <select class="FormField__input" id="S-1">
+              <option></option>
+              <option>Apple</option>
+              <option>Banana</option>
+              <option>Orange</option>
+              <option>Tomato</option>
+            </select>
+          </div>
+          <div class="FormField Selectbox">
+            <label class="FormField__label" for="S-p1"> Normal (placeholder)</label>
+            <select class="FormField__input" id="S-p1">
+              <option value="">Placeholder</option>
+              <option>Apple</option>
+              <option>Banana</option>
+              <option>Orange</option>
+              <option>Tomato</option>
+            </select>
+          </div>
+          <div class="FormField Selectbox">
+            <label class="FormField__label" for="S-v1"> Normal (prefilled)</label>
+            <select class="FormField__input" id="S-v1">
+              <option></option>
+              <option>Apple</option>
+              <option>Banana</option>
+              <option>Orange</option>
+              <option selected>Tomato</option>
+            </select>
+          </div>
+
+          <div class="FormField Selectbox">
+            <label class="FormField__label" for="SD-1"> Disabled</label>
+            <select class="FormField__input" id="SD-1" disabled>
+              <option></option>
+              <option>Apple</option>
+              <option>Banana</option>
+              <option>Orange</option>
+              <option>Tomato</option>
+            </select>
+          </div>
+          <div class="FormField Selectbox">
+            <label class="FormField__label" for="SD-p1"> Disabled (placeholder)</label>
+            <select class="FormField__input" id="SD-p1" disabled>
+              <option value="">Placeholder</option>
+              <option>Apple</option>
+              <option>Banana</option>
+              <option>Orange</option>
+              <option>Tomato</option>
+            </select>
+          </div>
+          <div class="FormField Selectbox">
+            <label class="FormField__label" for="SD-v1"> Disabled (prefilled)</label>
+            <select class="FormField__input" id="SD-v1" disabled>
+              <option></option>
+              <option>Apple</option>
+              <option>Banana</option>
+              <option>Orange</option>
+              <option selected>Tomato</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- -->
+
+        <div class="group">
+          <div class="FormField TextInput TextInput--multiline">
+            <label class="FormField__label" for="TM-1"> Normal (empty)</label>
+            <textarea class="FormField__input" id="TM-1"></textarea>
+          </div>
+        </div>
+
+        <!-- -->
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

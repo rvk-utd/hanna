@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>BasicTable sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,BasicTable"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('BasicTable');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="TableWrapper TableWrapper--BasicTable">
+            <table class="BasicTable">
+              <caption>
+                Pre-wrapped .BasicTable
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="row">Erindi nr.</th>
+                  <th>Lýsing</th>
+                  <th>Sent dags. / kl</th>
+                  <th class="Cell--tel">Sími</th>
+                  <th class="Cell--number">Verð</th>
+                  <th>Staða máls</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Umsókn 123</th>
+                  <td>Umsókn um lengri stuðningsþjónustu</td>
+                  <td>16.009.2019 / kl. 18:45</td>
+                  <td class="Cell--tel">800&nbsp;9000</td>
+                  <td class="Cell--number">45.663 kr</td>
+                  <td>Vinnslublah</td>
+                </tr>
+                <tr>
+                  <th scope="row">123</th>
+                  <td>Umsókn um stuðningsþjónustu</td>
+                  <td>16.009.2019 / kl. 18:45</td>
+                  <td class="Cell--tel"></td>
+                  <td class="Cell--number">5.663 kr</td>
+                  <td>Í vinnslu</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="TableWrapper TableWrapper--BasicTable">
+            <table>
+              <caption>
+                Pre-wrapped plain &lt;table/>
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="row">Erindi nr.</th>
+                  <th>Lýsing</th>
+                  <th>Sent dags. / kl</th>
+                  <th class="Cell--tel">Sími</th>
+                  <th class="Cell--number">Verð</th>
+                  <th>Staða máls</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Umsókn 123</th>
+                  <td>Umsókn um lengri stuðningsþjónustu</td>
+                  <td>16.009.2019 / kl. 18:45</td>
+                  <td class="Cell--tel">800&nbsp;9000</td>
+                  <td class="Cell--number">45.663 kr</td>
+                  <td>Vinnslublah</td>
+                </tr>
+                <tr>
+                  <th scope="row">123</th>
+                  <td>Umsókn um stuðningsþjónustu</td>
+                  <td>16.009.2019 / kl. 18:45</td>
+                  <td class="Cell--tel"></td>
+                  <td class="Cell--number">5.663 kr</td>
+                  <td>Í vinnslu</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="Footnote">Some footnote here</div>
+
+          <table class="BasicTable">
+            <caption>
+              Un-wrapped .BasicTable
+            </caption>
+            <thead>
+              <tr>
+                <th scope="row">Erindi nr.</th>
+                <th>Lýsing</th>
+                <th>Sent dags. / kl</th>
+                <th class="Cell--tel">Sími</th>
+                <th class="Cell--number">Verð</th>
+                <th>Staða máls</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Umsókn 123</th>
+                <td>Umsókn um lengri stuðningsþjónustu</td>
+                <td>16.009.2019 / kl. 18:45</td>
+                <td class="Cell--tel">800&nbsp;9000</td>
+                <td class="Cell--number">45.663 kr</td>
+                <td>Vinnslublah</td>
+              </tr>
+              <tr>
+                <th scope="row">123</th>
+                <td>Umsókn um stuðningsþjónustu</td>
+                <td>16.009.2019 / kl. 18:45</td>
+                <td class="Cell--tel"></td>
+                <td class="Cell--number">5.663 kr</td>
+                <td>Í vinnslu</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="Footnote">Some footnote here</div>
+
+          <table class="some-class">
+            <caption>
+              Plain, un-wrapped &lt;table/>
+            </caption>
+            <thead>
+              <tr>
+                <th scope="row">Erindi nr.</th>
+                <th>Lýsing</th>
+                <th>Sent dags. / kl</th>
+                <th class="Cell--tel">Sími</th>
+                <th class="Cell--number">Verð</th>
+                <th>Staða máls</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Umsókn 123</th>
+                <td>Umsókn um lengri stuðningsþjónustu</td>
+                <td>16.009.2019 / kl. 18:45</td>
+                <td class="Cell--tel">800&nbsp;9000</td>
+                <td class="Cell--number">45.663 kr</td>
+                <td>Vinnslublah</td>
+              </tr>
+              <tr>
+                <th scope="row">123</th>
+                <td>Umsókn um stuðningsþjónustu</td>
+                <td>16.009.2019 / kl. 18:45</td>
+                <td class="Cell--tel"></td>
+                <td class="Cell--number">5.663 kr</td>
+                <td>Í vinnslu</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

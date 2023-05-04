@@ -135,5 +135,3 @@ export const detectEdgeScroll = (opts: DetectEdgeScrollOptions): Actions => {
     },
   };
 };
-
-export default detectEdgeScroll;

@@ -87,6 +87,8 @@ const [pkg, rootPkg] = await Promise.all([
   readFile('../../package.json').then((str) => JSON.parse(str.toString())),
 ]);
 
+export { pkg as pkgJson, rootPkg as rootPkgJson };
+
 export const externalDeps = [
   ...Object.keys(pkg.dependencies || {}),
   ...Object.keys(pkg.devDependencies || {}),

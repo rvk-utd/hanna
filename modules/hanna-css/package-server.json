@@ -23,6 +23,6 @@
     "start:dev": "sh scripts/start-dev.sh"
   },
   "dependencies": {
-    "cssserve": "^2.2.2"
+    "cssserve": "^2.4.0"
   }
 }

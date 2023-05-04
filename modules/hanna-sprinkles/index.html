@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Sprinkles!</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,PageHeading"
+    />
+
+    <script id="headscript" src="../src/index.ts"></script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <h1 class="PageHeading">Sprinkles! 🪄</h1>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector('#headscript').onload = () => {
+        window.Hanna.loadSprinkles('Layout');
+        window.Hanna.refresh();
+      };
+    </script>
+  </body>
+</html>

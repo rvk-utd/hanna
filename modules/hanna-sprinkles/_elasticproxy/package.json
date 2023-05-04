@@ -1,0 +1,14 @@
+{
+  "name": "_elasticproxy",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Már Örlygsson <mar@hugsmidjan.is> (http://mar.anomy.net)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "fastify": "^3.6.0",
+    "fastify-compress": "^3.3.1",
+    "fastify-cors": "^4.1.0",
+    "fastify-raw-body": "^3.0.0"
+  }
+}
