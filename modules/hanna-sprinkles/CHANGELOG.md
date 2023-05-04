@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.43
+
+_2023-05-05_
+
 - feat: Add `version` property to `window.Hanna` object
 - feat: Publish sprinkle scripts on styles.reykjavik.is/sprinkles
   - Update README.md with new, shorter initialization guidelines.
