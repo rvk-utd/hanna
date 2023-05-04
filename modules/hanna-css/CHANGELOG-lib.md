@@ -15,7 +15,7 @@ _2023-04-25_
 _2023-04-24_
 
 - **BREAKING** feat: `colors_raw` contains hex-color strings not `ColorValue`
-- feat: Add `/*#__PURE__*/` markers to aid down-stream bundle tree-shaking
+- feat: Add `/*#__PURE__*/` markers to help down-stream bundle tree-shaking
 
 ## 0.3.18
 

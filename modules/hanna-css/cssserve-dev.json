@@ -8,5 +8,7 @@
 
   "proxied": true,
 
-  "sslKeyPath": null
+  "sslKeyPath": null,
+
+  "redirectsFile": ["./redirects-sprinkles.json"]
 }

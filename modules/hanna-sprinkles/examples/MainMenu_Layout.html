@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MainMenu (and Layout + ContactBubble) sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout-full,ContactBubble"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      // const sleep = (duration, payload) =>
+      // 	new Promise((resume) => {
+      // 		setTimeout(() => resume(payload), duration);
+      // 	});
+
+      Hanna.loadSprinkles('Layout', 'MainMenu', 'ContactBubble');
+      // .then(() => sleep(500))
+      // .then((e) => {
+      // 	document.querySelector('.Layout__header__skiplink').click();
+      // });
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__alerts">
+        <div class="Alert Alert--error" role="alert">Alert...</div>
+      </div>
+      <div class="Layout__content">
+        <div class="Layout__header">
+          <a class="Layout__header__logo" href="/">
+            <picture>
+              <img
+                src="http://localhost:4000/assets/reykjavik-logo.svg"
+                alt=""
+                loading="lazy"
+              />
+            </picture>
+            Reykjavík
+          </a>
+          <a class="Layout__header__skiplink" href="#pagenav" aria-label="Valmynd"
+            >Valmynd</a
+          >
+        </div>
+        <div class="Layout__main" style="height: 600px">
+          ...Main Content Components...
+        </div>
+        <div class="Layout__nav" id="pagenav">
+          <div class="ContactBubble">
+            <h2 class="ContactBubble__title">Hvað getum við gert fyrir þig?</h2>
+
+            <ul class="ContactBubble__list">
+              <li class="ContactBubble__item ContactBubble__item--type--suggestions">
+                <a
+                  class="ContactBubble__link"
+                  href="https://abendingar.reykjavik.is/"
+                  target="_blank"
+                >
+                  Ábendingar
+                  <small>Sendu okkur línu</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--livechat">
+                <a
+                  class="ContactBubble__link"
+                  href="https://svarbox.teljari.is/?c=1030"
+                  target="_blank"
+                >
+                  Netspjall
+                  <small>Opið virka daga kl. 8:30–16:00</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--faq">
+                <a class="ContactBubble__link" href="/spurt-og-svarad">
+                  Spurt og svarað
+                  <small>Algengar spurningar og svör</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--phone">
+                <a class="ContactBubble__link" href="tel:+3544111111">
+                  Þjónustuver 411-1111
+                  <small>Opið virka daga kl. 8:30–16:00</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--suggestions">
+                <a class="ContactBubble__link" href="mailto:upplysingar@reykjavik.is">
+                  upplysingar@reykjavik.is
+                  <small>Sendu okkur línu</small>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- -->
+
+          <nav class="BreadCrumbs" aria-label="Þú ert hér">
+            <span class="BreadCrumbs__title">Þú ert hér:</span>
+            <a class="BreadCrumbs__item" href="">Forsíða</a>
+            <span class="BreadCrumbs__separator" aria-label="">&gt;</span>
+            <a class="BreadCrumbs__item" href="">Stjórnkerfið</a>
+            <span class="BreadCrumbs__separator" aria-label="">&gt;</span>
+            <a class="BreadCrumbs__item" href="" aria-current="true">Stjórnkerfið</a>
+          </nav>
+
+          <nav class="MainMenu" aria-label="Aðalvalmynd">
+            <h2 class="MainMenu__title">Aðalvalmynd</h2>
+
+            <ul class="MainMenu__items">
+              <li class="MainMenu__item MainMenu__item--home">
+                <a class="MainMenu__link" href="" aria-label="Forsíða">Forsíða</a>
+              </li>
+              <li class="MainMenu__item">
+                <a class="MainMenu__link" href="#MegaMenu:Íbúar" aria-label="Íbúar"
+                  >Íbúar</a
+                >
+              </li>
+              <li class="MainMenu__item">
+                <a
+                  class="MainMenu__link"
+                  href="#MegaMenu:Stjórnkerfið"
+                  aria-label="Stjórnkerfið"
+                  >Stjórnkerfið</a
+                >
+              </li>
+              <li class="MainMenu__item">
+                <a class="MainMenu__link" href="#MegaMenu:Mannlíf" aria-label="Mannlíf"
+                  >Mannlíf</a
+                >
+              </li>
+
+              <li class="MainMenu__separator" aria-hidden="true"></li>
+
+              <li class="MainMenu__item MainMenu__item--lang">
+                <a
+                  class="MainMenu__link"
+                  href=""
+                  aria-label="English"
+                  title="English"
+                  lang="en"
+                  >EN</a
+                >
+              </li>
+              <li class="MainMenu__item MainMenu__item--lang">
+                <a
+                  class="MainMenu__link"
+                  href=""
+                  aria-label="Polski"
+                  title="Polski"
+                  lang="pl"
+                  >PL</a
+                >
+              </li>
+
+              <li class="MainMenu__item MainMenu__item--mypages">
+                <a class="MainMenu__link" href="" aria-label="Mínar síður">Mínar síður</a>
+              </li>
+              <li class="MainMenu__item MainMenu__item--search">
+                <a class="MainMenu__link" href="" aria-label="Leita á vefnum">Leita</a>
+              </li>
+            </ul>
+
+            <div class="MainMenu__panelsWrap">
+              <ul class="MainMenu__panels">
+                <li
+                  class="PrimaryPanel PrimaryPanel--parent PrimaryPanel--twocol"
+                  id="MegaMenu:Íbúar"
+                >
+                  <h3 class="PrimaryPanel__title">Íbúar</h3>
+                  <ul class="PrimaryPanel__items">
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Íbúar item 1</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit dolore amet foo bleargh.</small
+                        >
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Íbúar item 2</span>
+                        <small class="PrimaryPanel__summary"></small>
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Íbúar item 3</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit dolore amet foo bleargh.</small
+                        >
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Íbúar item 4</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit</small
+                        >
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Íbúar item 5</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit dolore amet foo bleargh.</small
+                        >
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Íbúar item 6</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit dolore amet foo bleargh.</small
+                        >
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Íbúar item 7</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit</small
+                        >
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Íbúar item 8</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit dolore amet</small
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="PrimaryPanel" id="MegaMenu:Stjórnkerfið">
+                  <h3 class="PrimaryPanel__title">Stjórnkerfið</h3>
+                  <ul class="PrimaryPanel__items">
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Stjórnkerfið item 1</span>
+                        <small class="PrimaryPanel__summary"></small>
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Stjórnkerfið item 2</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit</small
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="PrimaryPanel" id="MegaMenu:Mannlíf">
+                  <h3 class="PrimaryPanel__title">Mannlíf</h3>
+                  <ul class="PrimaryPanel__items">
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Mannlíf item 1</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit</small
+                        >
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Mannlíf item 2</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit</small
+                        >
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Mannlíf item 3</span>
+                        <small class="PrimaryPanel__summary"></small>
+                      </a>
+                    </li>
+                    <li class="PrimaryPanel__item">
+                      <a class="PrimaryPanel__link" href="/"
+                        ><span class="PrimaryPanel__linkTitle">Mannlíf item 4</span>
+                        <small class="PrimaryPanel__summary"
+                          >Lorem impsum dolor sit dolore amet foo bleargh.</small
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li
+                  class="AuxiliaryPanel"
+                  id="MegaMenu:Sérvefir"
+                  style="
+                    --menu-auxiliary-image: url(http\:\/\/localhost\:4000\/assets\/illustrations\/hanna-veitiggi\.png);
+                  "
+                >
+                  <h3 class="AuxiliaryPanel__title">Sérvefir</h3>
+                  <ul class="AuxiliaryPanel__items">
+                    <li class="AuxiliaryPanel__item">
+                      <a href="" class="AuxiliaryPanel__link">Sérvefir item 1</a>
+                    </li>
+                    <li class="AuxiliaryPanel__item">
+                      <a href="" class="AuxiliaryPanel__link">Sérvefir item 2</a>
+                    </li>
+                    <li class="AuxiliaryPanel__item">
+                      <a href="" class="AuxiliaryPanel__link">Sérvefir item 3</a>
+                    </li>
+                    <li class="AuxiliaryPanel__item">
+                      <a href="" class="AuxiliaryPanel__link">Sérvefir item 4</a>
+                    </li>
+                    <li class="AuxiliaryPanel__item">
+                      <a href="" class="AuxiliaryPanel__link">Sérvefir item 5</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="Layout__footer">
+          <div class="FooterInfo">
+            <div class="FooterInfo__group" role="contactinfo">
+              <h3 class="FooterInfo__grouptitle">Opnunartímar</h3>
+              <div class="FooterInfo__groupcontent">
+                <p>
+                  <strong>Borgartún 12–14, 105 Reykjavik</strong><br />
+                  Alla daga 08:20&nbsp;–&nbsp;16:15
+                </p>
+                <p>
+                  <strong>Tjarnargata 11, 101 Reykjavík</strong><br />
+                  Mánudag – Föstudag 8:00&nbsp;–&nbsp;18:00<br />
+                  Laugardaga 10.00&nbsp;–&nbsp;18.00<br />
+                  Sunnudaga 12.00&nbsp;–&nbsp;18.00
+                </p>
+                <p>
+                  <strong>Kennitala Reykjavíkurborgar</strong><br />
+                  530269-7609
+                </p>
+              </div>
+            </div>
+            <div class="FooterInfo__group">
+              <h3 class="FooterInfo__grouptitle">Þjónustuver</h3>
+              <div class="FooterInfo__groupcontent">
+                <ul>
+                  <li><a href="">Ábendingar</a></li>
+                  <li><a href="">Netspjall (8:20&nbsp;–&nbsp;16:15)</a></li>
+                  <li><a href="">Spurt og svarað</a></li>
+                  <li><a href="tel:+3544111111">411-1111 (8:20&nbsp;–&nbsp;16:15)</a></li>
+                  <li>
+                    <a href="mailto:upplysingar@reykjavik.is">upplysingar@reykjavik.is</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="FooterInfo__group">
+              <h3 class="FooterInfo__grouptitle">Alls konar</h3>
+              <div class="FooterInfo__groupcontent">
+                <ul>
+                  <li><a href="">Algengar spurningar og svör</a></li>
+                  <li><a href="">Mínar síður</a></li>
+                  <li><a href="">Laus störf</a></li>
+                  <li><a href="">Þjónustuver</a></li>
+                  <li><a href="">Fréttir</a></li>
+                  <li><a href="">Gjaldskrár</a></li>
+                  <li><a href="">Teikningavefur</a></li>
+                  <li><a href="">Persónuvernd</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Transition (+sprinkle) test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout-full,RowBlock,PageHeading,GridBlocks,ExtraLinks,ArticleCarousel,MiniMetrics,ImageCards,IslandPageBlock"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('Layout', 'MainMenu', 'ArticleCarousel');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__header">
+          <a class="Layout__header__logo" href=""
+            ><img src="http://localhost:4000/assets/reykjavik-logo.svg" alt="" />
+            Reykjavík</a
+          >
+          <a class="Layout__header__skiplink" href="#pagenav" aria-label="Valmynd"
+            >Valmynd</a
+          >
+        </div>
+
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="RowBlock">
+            <div class="RowBlockColumn">
+              <h1 class="PageHeading">Hæ! Hvernig getum við aðstoðað?</h1>
+              <script id="SiteSearchRoot">
+                window.Hanna.import('utils/elsearch/renderSiteSearchAutocomplete').then(
+                  function (modules) {
+                    modules[0].default({
+                      insertAt: '#SiteSearchRoot',
+                      apiUri: 'http://localhost:4000', // window.drupalSettings.elasticsearch.search_indexes_uri,
+                      searchPagePath: '/examples/SearchPage.html', // window.drupalSettings.searchPagePath,
+                    });
+                  }
+                );
+              </script>
+            </div>
+            <div class="RowBlockColumn">
+              <picture class="Illustration">
+                <img
+                  src="https://styles.reykjavik.is/assets/illustrations/bekkur.png"
+                  alt=""
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+          </div>
+
+          <div class="ScrollCTA">Meira efni</div>
+
+          <div class="GridBlocks">
+            <div class="GridBlocks__item">
+              <picture class="GridBlocks__illustration">
+                <img
+                  src="http://localhost:4000/assets/efnistakn/download_01.svg"
+                  alt=""
+                  loading="lazy"
+                />
+              </picture>
+              <div class="GridBlocks__textwrap">
+                <h3 class="GridBlocks__item__title">
+                  <a class="GridBlocks__item__titlelink" href="">Heading</a>
+                </h3>
+                <div class="GridBlocks__item__summary">
+                  Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                  ullamco.
+                </div>
+                <ul class="GridBlocks__links"></ul>
+              </div>
+            </div>
+            <div class="GridBlocks__item">
+              <picture class="GridBlocks__illustration">
+                <img
+                  src="http://localhost:4000/assets/efnistakn/dyrahald_01.svg"
+                  alt=""
+                  loading="lazy"
+                />
+              </picture>
+              <div class="GridBlocks__textwrap">
+                <h3 class="GridBlocks__item__title">
+                  <a class="GridBlocks__item__titlelink" href="">Heading</a>
+                </h3>
+                <div class="GridBlocks__item__summary">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doasdasd
+                  eiusmod tempor incididunt. Ut labore et.
+                </div>
+                <ul class="GridBlocks__links"></ul>
+              </div>
+            </div>
+            <div class="GridBlocks__item">
+              <picture class="GridBlocks__illustration">
+                <img
+                  src="http://localhost:4000/assets/efnistakn/ferdalag_01.svg"
+                  alt=""
+                  loading="lazy"
+                />
+              </picture>
+              <div class="GridBlocks__textwrap">
+                <h3 class="GridBlocks__item__title">
+                  <a class="GridBlocks__item__titlelink" href="">Heading</a>
+                </h3>
+                <div class="GridBlocks__item__summary">
+                  Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                  ullamco.
+                </div>
+                <ul class="GridBlocks__links"></ul>
+              </div>
+            </div>
+            <div class="GridBlocks__item">
+              <picture class="GridBlocks__illustration">
+                <img
+                  src="http://localhost:4000/assets/efnistakn/fjarmal_01.svg"
+                  alt=""
+                  loading="lazy"
+                />
+              </picture>
+              <div class="GridBlocks__textwrap">
+                <h3 class="GridBlocks__item__title">
+                  <a class="GridBlocks__item__titlelink" href="">Heading</a>
+                </h3>
+                <div class="GridBlocks__item__summary">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doasdasd
+                  eiusmod tempor incididunt. Ut labore et.
+                </div>
+                <ul class="GridBlocks__links"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="ExtraLinks">
+            <div class="ExtraLinks__main">
+              <h2 class="ExtraLinks__title">Framundan</h2>
+              <ul class="ExtraLinks__list">
+                <li class="ExtraLinks__item">
+                  <a class="ExtraLinks__card" href="">
+                    <span class="ExtraLinks__card__title">Eignaskiptayfirlýsing</span>
+                    <span class="ExtraLinks__card__summary"
+                      >Lögboðinn skriflegur gerningur um skiptingu fjöleignarhúss.</span
+                    >
+                  </a>
+                </li>
+                <li class="ExtraLinks__item">
+                  <a class="ExtraLinks__card" href="">
+                    <span class="ExtraLinks__card__title">Eignaskiptayfirlýsing</span>
+                    <span class="ExtraLinks__card__summary"
+                      >Lögboðinn skriflegur gerningur um skiptingu fjöleignarhúss.</span
+                    >
+                  </a>
+                </li>
+                <li class="ExtraLinks__item">
+                  <a class="ExtraLinks__card" href="">
+                    <span class="ExtraLinks__card__title">Eignaskiptayfirlýsing</span>
+                    <span class="ExtraLinks__card__summary"
+                      >Lögboðinn skriflegur gerningur um skiptingu fjöleignarhúss.</span
+                    >
+                  </a>
+                </li>
+                <li class="ExtraLinks__item">
+                  <a class="ExtraLinks__card" href="">
+                    <span class="ExtraLinks__card__title">Eignaskiptayfirlýsing</span>
+                    <span class="ExtraLinks__card__summary"
+                      >Lögboðinn skriflegur gerningur um skiptingu fjöleignarhúss.</span
+                    >
+                  </a>
+                </li>
+                <li class="ExtraLinks__item">
+                  <a class="ExtraLinks__card" href="">
+                    <span class="ExtraLinks__card__title">Eignaskiptayfirlýsing</span>
+                    <span class="ExtraLinks__card__summary"
+                      >Lögboðinn skriflegur gerningur um skiptingu fjöleignarhúss.</span
+                    >
+                  </a>
+                </li>
+                <li class="ExtraLinks__item">
+                  <a class="ExtraLinks__card" href="">
+                    <span class="ExtraLinks__card__title">Eignaskiptayfirlýsing</span>
+                    <span class="ExtraLinks__card__summary"
+                      >Lögboðinn skriflegur gerningur um skiptingu fjöleignarhúss.</span
+                    >
+                  </a>
+                </li>
+                <li class="ExtraLinks__item">
+                  <a class="ExtraLinks__card" href="">
+                    <span class="ExtraLinks__card__title">Eignaskiptayfirlýsing</span>
+                    <span class="ExtraLinks__card__summary"
+                      >Lögboðinn skriflegur gerningur um skiptingu fjöleignarhúss.</span
+                    >
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="IslandPageBlock IslandPageBlock--align--right">
+            <div class="IslandPageBlock__content">
+              <h2 class="IslandPageBlock__title">
+                Block title lorem ipsum dolor sit ament foobar
+              </h2>
+              <div class="IslandPageBlock__summary">
+                <p>
+                  Block summary text <strong>lorem ipsum dolor</strong> sit ament foobar.
+                  Blah blah blah.
+                </p>
+              </div>
+              <div class="IslandPageBlock__buttons">
+                <a class="IslandPageBlock__button" href="">Dagskrá næsta fundar</a>
+                <a class="IslandPageBlock__button" href="">Stjórnkerfi</a>
+              </div>
+            </div>
+            <picture class="IslandPageBlock__image">
+              <img
+                src="https://styles.reykjavik.is/assets/illustrations/arstid_vor.png"
+                alt=""
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div class="IslandPageBlock IslandPageBlock--align--left">
+            <div class="IslandPageBlock__content">
+              <h2 class="IslandPageBlock__title">
+                Block title lorem ipsum dolor sit ament foobar
+              </h2>
+              <div class="IslandPageBlock__summary">
+                <p>
+                  Block summary text <strong>lorem ipsum dolor</strong> sit ament foobar.
+                  Blah blah blah.
+                </p>
+              </div>
+              <div class="IslandPageBlock__buttons">
+                <a class="IslandPageBlock__button" href="">Dagskrá næsta fundar</a>
+                <a class="IslandPageBlock__button" href="">Stjórnkerfi</a>
+              </div>
+            </div>
+            <picture class="IslandPageBlock__image">
+              <img
+                src="https://styles.reykjavik.is/assets/illustrations/arstid_vor.png"
+                alt=""
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div class="IslandPageBlock IslandPageBlock--align--right">
+            <div class="IslandPageBlock__content">
+              <h2 class="IslandPageBlock__title">
+                Block title lorem ipsum dolor sit ament foobar
+              </h2>
+              <div class="IslandPageBlock__summary">
+                <p>
+                  Block summary text <strong>lorem ipsum dolor</strong> sit ament foobar.
+                  Blah blah blah.
+                </p>
+              </div>
+              <div class="IslandPageBlock__buttons">
+                <a class="IslandPageBlock__button" href="">Dagskrá næsta fundar</a>
+                <a class="IslandPageBlock__button" href="">Stjórnkerfi</a>
+              </div>
+            </div>
+            <picture class="IslandPageBlock__image">
+              <img
+                src="https://styles.reykjavik.is/assets/illustrations/arstid_vor.png"
+                alt=""
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <div class="ArticleCarousel">
+            <h2 class="ArticleCarousel__title">Article Carousel</h2>
+            <div class="ArticleCarousel__items">
+              <div class="ArticleCarouselCard" data-color-theme="colorful">
+                <a class="ArticleCarouselCard__link" href="/">
+                  <picture class="ArticleCarouselCard__illustration">
+                    <img
+                      src="http://localhost:4000/assets/illustrations/tomstundir3.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h3 class="ArticleCarouselCard__title">Borgarlínan</h3>
+                </a>
+                <span class="ArticleCarouselCard__date">30. mar 2020</span>
+                <div class="ArticleCarouselCard__summary">
+                  Veðrið hafði lítil áhrif á 88 íbúa og starfsfólk Seljahlíðar í gærmorgun
+                  þegar þau gengu þríeykisgöngu í kringum hjúkrunarheimilið.
+                </div>
+                <a
+                  class="ArticleCarouselCard__morelink"
+                  href="/"
+                  aria-label="Borgarlínan"
+                >
+                  Lesa meira
+                </a>
+              </div>
+              <div class="ArticleCarouselCard" data-color="ellidaardalur">
+                <a class="ArticleCarouselCard__link" href="/">
+                  <picture class="ArticleCarouselCard__illustration">
+                    <img
+                      src="http://localhost:4000/assets/illustrations/velferd1.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h3 class="ArticleCarouselCard__title">Borgarlínan</h3>
+                </a>
+                <div class="ArticleCarouselCard__summary">
+                  Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar.
+                  Tilgangurinn er að skapa aukið og betra rými fyrir gangandi vegfarendur,
+                  mannlíf og starfsemi.
+                </div>
+                <a
+                  class="ArticleCarouselCard__morelink"
+                  href="/"
+                  aria-label="Borgarlínan"
+                >
+                  Lesa meira
+                </a>
+              </div>
+              <div class="ArticleCarouselCard">
+                <a class="ArticleCarouselCard__link" href="/">
+                  <picture class="ArticleCarouselCard__illustration">
+                    <img
+                      src="http://localhost:4000/assets/illustrations/borgarstjori2.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h3 class="ArticleCarouselCard__title">Borgarlínan</h3>
+                </a>
+                <span class="ArticleCarouselCard__date">20. feb 2021</span>
+                <div class="ArticleCarouselCard__summary">
+                  Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar.
+                  Tilgangurinn er að skapa aukið og betra rými fyrir gangandi vegfarendur,
+                  mannlíf og starfsemi.
+                </div>
+                <a
+                  class="ArticleCarouselCard__morelink"
+                  href="/"
+                  aria-label="Borgarlínan"
+                >
+                  Lesa meira
+                </a>
+              </div>
+              <div class="ArticleCarouselCard" data-color="sund">
+                <a class="ArticleCarouselCard__link" href="/">
+                  <picture class="ArticleCarouselCard__illustration">
+                    <img
+                      src="http://localhost:4000/assets/illustrations/born2.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h3 class="ArticleCarouselCard__title">Borgarlínan</h3>
+                </a>
+                <span class="ArticleCarouselCard__date">20. feb 2021</span>
+                <div class="ArticleCarouselCard__summary">
+                  Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar.
+                  Tilgangurinn er að skapa aukið og betra rými fyrir gangandi vegfarendur,
+                  mannlíf og starfsemi.
+                </div>
+                <a
+                  class="ArticleCarouselCard__morelink"
+                  href="/"
+                  aria-label="Borgarlínan"
+                >
+                  Lesa meira
+                </a>
+              </div>
+              <div class="ArticleCarouselCard" data-color="nautholsvik">
+                <a class="ArticleCarouselCard__link" href="/">
+                  <picture class="ArticleCarouselCard__illustration">
+                    <img
+                      src="http://localhost:4000/assets/illustrations/atvinna2.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h3 class="ArticleCarouselCard__title">Borgarlínan</h3>
+                </a>
+                <span class="ArticleCarouselCard__date">30. mar 2020</span>
+                <div class="ArticleCarouselCard__summary">
+                  Veðrið hafði lítil áhrif á 88 íbúa og starfsfólk Seljahlíðar í gærmorgun
+                  þegar þau gengu þríeykisgöngu í kringum hjúkrunarheimilið.
+                </div>
+                <a
+                  class="ArticleCarouselCard__morelink"
+                  href="/"
+                  aria-label="Borgarlínan"
+                >
+                  Lesa meira
+                </a>
+              </div>
+              <div class="ArticleCarouselCard" data-color="ellidaardalur">
+                <a class="ArticleCarouselCard__link" href="/">
+                  <picture class="ArticleCarouselCard__illustration">
+                    <img
+                      src="http://localhost:4000/assets/illustrations/velferd1.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h3 class="ArticleCarouselCard__title">Borgarlínan</h3>
+                </a>
+                <span class="ArticleCarouselCard__date">20. feb 2021</span>
+                <div class="ArticleCarouselCard__summary">
+                  Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar.
+                  Tilgangurinn er að skapa aukið og betra rými fyrir gangandi vegfarendur,
+                  mannlíf og starfsemi.
+                </div>
+                <a
+                  class="ArticleCarouselCard__morelink"
+                  href="/"
+                  aria-label="Borgarlínan"
+                >
+                  Lesa meira
+                </a>
+              </div>
+              <div class="ArticleCarouselCard" data-color="ellidaardalur">
+                <a class="ArticleCarouselCard__link" href="/">
+                  <picture class="ArticleCarouselCard__illustration">
+                    <img
+                      src="http://localhost:4000/assets/illustrations/velferd1.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h3 class="ArticleCarouselCard__title">Borgarlínan</h3>
+                </a>
+                <span class="ArticleCarouselCard__date">20. feb 2021</span>
+                <div class="ArticleCarouselCard__summary">
+                  Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar.
+                  Tilgangurinn er að skapa aukið og betra rými fyrir gangandi vegfarendur,
+                  mannlíf og starfsemi.
+                </div>
+                <a
+                  class="ArticleCarouselCard__morelink"
+                  href="/"
+                  aria-label="Borgarlínan"
+                >
+                  Lesa meira
+                </a>
+              </div>
+              <div class="ArticleCarouselCard" data-color="ellidaardalur">
+                <a class="ArticleCarouselCard__link" href="/">
+                  <picture class="ArticleCarouselCard__illustration">
+                    <img
+                      src="http://localhost:4000/assets/illustrations/velferd1.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h3 class="ArticleCarouselCard__title">Borgarlínan</h3>
+                </a>
+                <span class="ArticleCarouselCard__date">20. feb 2021</span>
+                <div class="ArticleCarouselCard__summary">
+                  Nokkrar götur í miðborginni verða tímabundnar göngugötur í sumar.
+                  Tilgangurinn er að skapa aukið og betra rými fyrir gangandi vegfarendur,
+                  mannlíf og starfsemi.
+                </div>
+                <a
+                  class="ArticleCarouselCard__morelink"
+                  href="/"
+                  aria-label="Borgarlínan"
+                >
+                  Lesa meira
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="MiniMetrics" data-seen-effect>
+            <strong class="MiniMetrics__text">78% nemanda upplifðu gleði 2019</strong>
+            <a class="MiniMetrics__more" href="">Skoða mælaborðið</a>
+          </div>
+
+          <div class="ImageCards ImageCards--background">
+            <div class="ImageCards__summary">
+              <h2 class="ImageCards__title">Fréttir</h2>
+              <a class="ButtonTertiary" href="">Sjá allar fréttir</a>
+            </div>
+            <ul class="ImageCards__list">
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <picture class="ImageCards__image">
+                    <img
+                      src="static/media/ImageCard__image.7a5de636.jpg"
+                      alt=""
+                      loading="lazy"
+                    /> </picture
+                  ><span class="ImageCards__card__title">Block title</span>
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <picture class="ImageCards__image">
+                    <img
+                      src="static/media/ImageCard__image.7a5de636.jpg"
+                      alt=""
+                      loading="lazy"
+                    /> </picture
+                  ><span class="ImageCards__card__title"
+                    >Block title lorem ipsum dolor sit ament foobar</span
+                  >
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <picture class="ImageCards__image">
+                    <img
+                      src="static/media/ImageCard__image.7a5de636.jpg"
+                      alt=""
+                      loading="lazy"
+                    /> </picture
+                  ><span class="ImageCards__card__title"
+                    >Tré ársins er rauðgreni í Elliðaárhólma</span
+                  >
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <picture class="ImageCards__image">
+                    <img
+                      src="static/media/ImageCard__image.7a5de636.jpg"
+                      alt=""
+                      loading="lazy"
+                    /> </picture
+                  ><span class="ImageCards__card__title">Block title</span>
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <div class="ImageCards__image ImageCards__image--missing"></div>
+                  <span class="ImageCards__card__title"
+                    >Block title lorem ipsum dolor sit ament foobar</span
+                  >
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <picture class="ImageCards__image">
+                    <img
+                      src="static/media/ImageCard__image.7a5de636.jpg"
+                      alt=""
+                      loading="lazy"
+                    /> </picture
+                  ><span class="ImageCards__card__title"
+                    >Tré ársins er rauðgreni í Elliðaárhólma</span
+                  >
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <div class="ImageCards__image ImageCards__image--missing"></div>
+                  <span class="ImageCards__card__title">Block title</span>
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <picture class="ImageCards__image">
+                    <img
+                      src="static/media/ImageCard__image.7a5de636.jpg"
+                      alt=""
+                      loading="lazy"
+                    /> </picture
+                  ><span class="ImageCards__card__title"
+                    >Block title lorem ipsum dolor sit ament foobar</span
+                  >
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <picture class="ImageCards__image">
+                    <img
+                      src="static/media/ImageCard__image.7a5de636.jpg"
+                      alt=""
+                      loading="lazy"
+                    /> </picture
+                  ><span class="ImageCards__card__title"
+                    >Tré ársins er rauðgreni í Elliðaárhólma</span
+                  >
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+              <li class="ImageCards__item">
+                <a class="ImageCards__card" href="">
+                  <picture class="ImageCards__image">
+                    <img
+                      src="static/media/ImageCard__image.7a5de636.jpg"
+                      alt=""
+                      loading="lazy"
+                    /> </picture
+                  ><span class="ImageCards__card__title">Block title</span>
+                  <span class="ImageCards__card__meta">14. október</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- -->
+        </div>
+
+        <div class="Layout__nav" id="pagenav">
+          <!-- -->
+
+          <nav class="BreadCrumbs" aria-label="Þú ert hér">
+            <span class="BreadCrumbs__title">Þú ert hér:</span>
+            <a class="BreadCrumbs__item" href="">Forsíða</a>
+            <span class="BreadCrumbs__separator" aria-label="">&gt;</span>
+            <a class="BreadCrumbs__item" href="">Stjórnkerfið</a>
+            <span class="BreadCrumbs__separator" aria-label="">&gt;</span>
+            <a class="BreadCrumbs__item" href="" aria-current="true">Stjórnkerfið</a>
+          </nav>
+
+          <nav class="MainMenu" aria-label="Aðalvalmynd">
+            <h2 class="MainMenu__title">Aðalvalmynd</h2>
+
+            <ul class="MainMenu__items">
+              <li class="MainMenu__item MainMenu__item--home">
+                <a class="MainMenu__link" href="" aria-label="Forsíða">Forsíða</a>
+              </li>
+              <li class="MainMenu__item">
+                <a class="MainMenu__link" href="#MegaMenu:Íbúar" aria-label="Íbúar"
+                  >Íbúar</a
+                >
+              </li>
+              <li class="MainMenu__item" aria-current="true">
+                <a
+                  class="MainMenu__link"
+                  href="#MegaMenu:Stjórnkerfið"
+                  aria-label="Stjórnkerfið"
+                  >Stjórnkerfið</a
+                >
+              </li>
+              <li class="MainMenu__item">
+                <a class="MainMenu__link" href="#MegaMenu:Mannlíf" aria-label="Mannlíf"
+                  >Mannlíf</a
+                >
+              </li>
+
+              <li class="MainMenu__separator" aria-hidden="true"></li>
+
+              <li class="MainMenu__item MainMenu__item--mypages">
+                <a class="MainMenu__link" href="" aria-label="Mínar síður">Mínar síður</a>
+              </li>
+              <li class="MainMenu__item MainMenu__item--search">
+                <a class="MainMenu__link" href="" aria-label="Leita á vefnum">Leita</a>
+              </li>
+            </ul>
+
+            <ul class="MainMenu__panels">
+              <li class="PrimaryPanel" id="MegaMenu:Íbúar">
+                <h3 class="PrimaryPanel__title">Íbúar</h3>
+                <ul class="PrimaryPanel__items">
+                  <li class="PrimaryPanel__item">
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Íbúar item 1</span>
+                      <small class="PrimaryPanel__summary"
+                        >Lorem impsum dolor sit dolore amet</small
+                      >
+                    </a>
+                  </li>
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/borgarstjori.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Íbúar item 2</span>
+                      <small class="PrimaryPanel__summary"
+                        >Lorem impsum dolor sit dolore amet</small
+                      >
+                    </a>
+                  </li>
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/bygg_framkv.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Íbúar item 3</span>
+                      <small class="PrimaryPanel__summary">Lorem impsum dolor sit</small>
+                    </a>
+                  </li>
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/itrottir_aftreying.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Íbúar item 4</span>
+                      <small class="PrimaryPanel__summary"></small>
+                    </a>
+                  </li>
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/svid_deildir.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Íbúar item 5</span>
+                      <small class="PrimaryPanel__summary"></small>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="PrimaryPanel PrimaryPanel--parent" id="MegaMenu:Stjórnkerfið">
+                <h3 class="PrimaryPanel__title">Stjórnkerfið</h3>
+                <ul class="PrimaryPanel__items">
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/rad_nefndir.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Stjórnkerfið item 1</span>
+                      <small class="PrimaryPanel__summary"
+                        >Lorem impsum dolor sit dolore amet</small
+                      >
+                    </a>
+                  </li>
+                  <li
+                    class="PrimaryPanel__item"
+                    aria-current="true"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/itrottir_aftreying.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Stjórnkerfið item 2</span>
+                      <small class="PrimaryPanel__summary"
+                        >Lorem impsum dolor sit dolore amet</small
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="PrimaryPanel" id="MegaMenu:Mannlíf">
+                <h3 class="PrimaryPanel__title">Mannlíf</h3>
+                <ul class="PrimaryPanel__items">
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/velferd_fjolskylda.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Mannlíf item 1</span>
+                      <small class="PrimaryPanel__summary"
+                        >Lorem impsum dolor sit dolore amet foo bleargh.</small
+                      >
+                    </a>
+                  </li>
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/mannaudur.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Mannlíf item 2</span>
+                      <small class="PrimaryPanel__summary"
+                        >Lorem impsum dolor sit dolore amet</small
+                      >
+                    </a>
+                  </li>
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/skipulag.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Mannlíf item 3</span>
+                      <small class="PrimaryPanel__summary"
+                        >Lorem impsum dolor sit dolore amet</small
+                      >
+                    </a>
+                  </li>
+                  <li
+                    class="PrimaryPanel__item"
+                    style="
+                      --menu-item-icon: url('http://localhost:4000/assets/efnistakn/menu/svid_deildir.svg');
+                    "
+                  >
+                    <a class="PrimaryPanel__link" href="">
+                      <span class="PrimaryPanel__linkTitle">Mannlíf item 4</span>
+                      <small class="PrimaryPanel__summary"
+                        >Lorem impsum dolor sit dolore amet foo bleargh.</small
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // This is an example code that initiates Hanna-markup-compatible site-wide alerts.
+    </script>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

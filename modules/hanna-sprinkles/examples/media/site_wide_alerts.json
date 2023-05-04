@@ -1,0 +1,49 @@
+{
+	"sitewideAlerts": [
+		{
+			"uuid": "142db2ad-f163-4650-9d9f-c5680168d10e",
+			"message": "\n\n\n\n\n      \u003Cp\u003EWarning alert with link (can be added without link). \u003Ca href=\u0022www.covid.is\u0022 target=\u0022_blank\u0022\u003EHyperlink in normal state\u003C/a\u003E\u003C/p\u003E\n\n  ",
+			"dismissible": true,
+			"dismissalIgnoreBefore": 0,
+			"styleClass": "alert-warning",
+			"showOnPages": [],
+			"negateShowOnPages": false
+		},
+		{
+			"uuid": "d18bfb9b-69fa-413d-9291-58d0b97bbf0b",
+			"message": "\n\n\n\n\n      \u003Cp\u003EAttention alert with link (can be added without link) \u003Ca href=\u0022www.covid.is\u0022\u003EHyperlink in normal state\u003C/a\u003E\u003C/p\u003E\n\n  ",
+			"dismissible": true,
+			"dismissalIgnoreBefore": 1603733115,
+			"styleClass": "alert-attention",
+			"showOnPages": [],
+			"negateShowOnPages": false
+		},
+		{
+			"uuid": "c386e0ff-0f1e-4278-9bc8-31051a3beee5",
+			"message": "\n\n\n\n\n      \u003Cp\u003ESuccess alert with link\u00a0Hyperlink in normal state \u003Ca href=\u0022www.covid.is\u0022 target=\u0022_blank\u0022\u003Ewww.covid.is\u003C/a\u003E\u003C/p\u003E\n\n  ",
+			"dismissible": true,
+			"dismissalIgnoreBefore": 0,
+			"styleClass": "alert-success",
+			"showOnPages": [],
+			"negateShowOnPages": false
+		},
+		{
+			"uuid": "d35ae4ce-b8ed-4cfd-a89d-d58c92c1ad61",
+			"message": "\n\n\n\n\n      \u003Cp\u003EInformation alert with hyperlink (can be added without link). \u003Ca href=\u0022www.covid.is\u0022\u003EHyperlink in normal state\u003C/a\u003E\u003C/p\u003E\n\n  ",
+			"dismissible": true,
+			"dismissalIgnoreBefore": 0,
+			"styleClass": "alert-info",
+			"showOnPages": [],
+			"negateShowOnPages": false
+		},
+		{
+			"uuid": "f8abef0f-6861-4a50-b570-9b980760c703",
+			"message": "\n\n\n\n\n      \u003Cp\u003EError alert with link\u00a0\u00a0\u003Ca href=\u0022www.covid.is\u0022\u003EHyperlink in normal state\u003C/a\u003E\u003C/p\u003E\n\n  ",
+			"dismissible": true,
+			"dismissalIgnoreBefore": 1603733115,
+			"styleClass": "alert-warning",
+			"showOnPages": [],
+			"negateShowOnPages": false
+		}
+	]
+}
