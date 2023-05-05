@@ -34,7 +34,7 @@ top** of your page's `<head/>`:
 ```html
 <script>
   // Suppress Flicker of Unstyled Content Before Scripts
-  // (Must be INLINED in `<head/>`)
+  // (Inline in `<head/>` for best performance.)
   ((c, n) => {
     c.add(n);
     setTimeout(() => c.remove(n), 6000);
