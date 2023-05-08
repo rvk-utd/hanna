@@ -4,5 +4,5 @@
     // somehow setting this is "../../tsconfig.base.json" doesn't work
     "jsx": "react"
   },
-  "include": ["../**/*.ts", "../**/*.tsx"]
+  "include": ["../**/*.ts", "../**/*.tsx", "../html-storybook-new/vite.config.mjs"]
 }
