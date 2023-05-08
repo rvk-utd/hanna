@@ -1,6 +1,6 @@
-import { DEFAULT_LANG } from '../i18n';
+import { DEFAULT_LANG } from '../i18n.js';
 
-import { OpenRecord } from './types';
+import { OpenRecord } from './types.js';
 
 const monthsByLang: OpenRecord<'is' | 'en' | 'pl', Array<string>> = {
   is: [

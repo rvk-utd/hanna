@@ -1,10 +1,10 @@
 import { color, ColorName, css, str } from 'es-in-css';
 
-import { buildVariables, isDevMode } from './cssutils';
+import { buildVariables, isDevMode } from './cssutils.js';
 
 type Mode = 'normal' | 'soft';
 
-const warn = buildVariables(['message'], 'WARNING');
+const warn = /*#__PURE__*/ buildVariables(['message'], 'WARNING');
 
 const modeValues: Record<Mode, { _color: ColorName; hover?: string }> = {
   normal: { _color: 'red', hover: ':hover' },

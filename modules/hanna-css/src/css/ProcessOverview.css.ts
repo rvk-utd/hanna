@@ -1,16 +1,15 @@
 import { css } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { cols_pct } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { AttentionStyle } from './styles/attention';
+import { AttentionStyle } from './styles/attention.js';
 import {
   LabeledTitleStyle__basics,
   LabeledTitleStyle__outdented,
-} from './styles/labeledTitle';
-import { grid_units, prem } from './utils/miscUtils';
+} from './styles/labeledTitle.js';
+import { cols_pct, grid_units, prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {

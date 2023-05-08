@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonBack } from '@reykjavik/hanna-react/ButtonBack';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'ButtonBack',

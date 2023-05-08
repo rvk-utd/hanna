@@ -1,16 +1,16 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { ContactBubble, ContactBubbleItem } from '@reykjavik/hanna-react/ContactBubble';
 import { boolean } from '@storybook/addon-knobs';
 
-import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// export const handle = cssTokens('Token');
 const LINKS: Array<ContactBubbleItem> = [
   {
     href: 'https://abendingar.reykjavik.is/',

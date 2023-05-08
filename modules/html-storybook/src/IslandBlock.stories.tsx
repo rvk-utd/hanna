@@ -3,8 +3,8 @@ import { IslandBlock, IslandBlockProps } from '@reykjavik/hanna-react/IslandBloc
 import { formheimur } from '@reykjavik/hanna-utils/assets';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from './utils/_dummyData';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from './utils/_dummyData.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'IslandBlock',

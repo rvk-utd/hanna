@@ -1,12 +1,12 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { cols_pct, grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { between_cols } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { grid } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { grid_units, prem } from './utils/miscUtils';
-import { SeenEffect__fadeup } from './utils/seenEffects';
+import { cols_pct, grid_units, prem } from './utils/miscUtils.js';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps

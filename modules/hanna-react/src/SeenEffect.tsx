@@ -1,16 +1,48 @@
 import React from 'react';
 
-import { EffectProp, getEffectAttr, SeenProp, useSeenEffect } from './utils/seenEffect';
+import {
+  EffectProp,
+  getEffectAttr,
+  SeenProp,
+  useSeenEffect,
+} from './utils/seenEffect.js';
 
-export type SeenEffectProps = Omit<JSX.IntrinsicElements['div'], 'ref'> &
-  SeenProp &
-  EffectProp;
+type TagProps<Tag extends keyof JSX.IntrinsicElements = 'div'> = Omit<
+  JSX.IntrinsicElements[Tag],
+  'ref'
+>;
 
-export const SeenEffect = (props: SeenEffectProps) => {
-  const { effectType, startSeen, ...divProps } = props;
-  const [ref] = useSeenEffect(startSeen);
+type SeenEffectPropsBase<Tag extends keyof JSX.IntrinsicElements = 'div'> = {
+  Tag?: Tag;
+} & EffectProp;
 
-  return <div {...divProps} ref={ref} {...getEffectAttr(effectType)} />;
+// ---------------------------------------------------------------------------
+
+type _SeenEffectProps = SeenEffectPropsBase & { tagProps: TagProps };
+
+const _SeenEffect = (props: _SeenEffectProps) => {
+  const { Tag = 'div', effectType, tagProps } = props;
+  const [ref] = useSeenEffect();
+
+  return <Tag {...tagProps} ref={ref} {...getEffectAttr(effectType)} />;
+};
+
+// ---------------------------------------------------------------------------
+
+export type SeenEffectProps<Tag extends keyof JSX.IntrinsicElements = 'div'> =
+  SeenEffectPropsBase<Tag> & SeenProp & TagProps<Tag>;
+
+export const SeenEffect = <Tag extends keyof JSX.IntrinsicElements>(
+  props: SeenEffectProps<Tag>
+) => {
+  const { Tag = 'div', effectType, startSeen, ...tagProps } = props as SeenEffectProps;
+  const addEffects = (effectType || '') !== 'none' || startSeen !== true;
+
+  return addEffects ? (
+    <_SeenEffect Tag={Tag} effectType={effectType} tagProps={tagProps} />
+  ) : (
+    <Tag {...tagProps} />
+  );
 };
 
 export default SeenEffect;

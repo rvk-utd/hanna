@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinksFunction, MetaFunction } from '@remix-run/node';
+import { LinksFunction, V2_MetaFunction } from '@remix-run/node';
 import {
   Link,
   Links,
@@ -21,17 +21,9 @@ import { setLinkRenderer } from '@reykjavik/hanna-react/utils';
 import { getPageScrollElm as _getPageScrollElm } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
-import { useGetCssTokens } from './utils/useGetCssTokens';
+import { useGetCssTokens } from './utils/useGetCssTokens.js';
 
-setLinkRenderer((props) => {
-  // Check if the URL starts with a protocol (https:, mailto:, tel:)
-  // TOOD: Remove this faffing once we update to Remix v1.12
-  // https://github.com/remix-run/remix/blob/main/packages/remix-react/CHANGELOG.md#1120
-  if (/^[a-z]+:/.test(props.href)) {
-    return <a {...props} />;
-  }
-  return <Link to={props.href} {...props} />;
-});
+setLinkRenderer((props) => <Link to={props.href} {...props} />);
 
 const THEME: HannaColorTheme = 'colorful';
 
@@ -69,12 +61,8 @@ declare global {
 
 // ---------------------------------------------------------------------------
 
-export const meta: MetaFunction = () => {
-  return {
-    charSet: 'utf-8',
-    title: 'Hanna Visual Regression Testing',
-    viewport: 'width=device-width, initial-scale=1.0',
-  };
+export const meta: V2_MetaFunction = () => {
+  return [{ title: 'Hanna Visual Regression Testing' }];
 };
 
 export const links: LinksFunction = () => [
@@ -103,6 +91,8 @@ export default function App() {
   return (
     <html lang={lang}>
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <script
           dangerouslySetInnerHTML={{

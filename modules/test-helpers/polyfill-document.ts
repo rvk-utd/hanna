@@ -36,12 +36,14 @@ if (!('window' in global)) {
   };
   /* END: rAF polyfill */
 
-  // @ts-ignore  (we're willfully extending the global object)
+  // @ts-expect-error  (we're willfully extending the global object)
+  global.Node = window.Node;
+  // @ts-expect-error  (we're willfully extending the global object)
   global.navigator = window.navigator;
-  // @ts-ignore  (we're willfully extending the global object)
+  // @ts-expect-error  (we're willfully extending the global object)
   global.window = window.window;
-  // @ts-ignore  (we're willfully extending the global object)
+  // @ts-expect-error  (we're willfully extending the global object)
   global.document = window.document;
-  // @ts-ignore  (we're willfully extending the global object)
+  // @ts-expect-error  (we're willfully extending the global object)
   global.Element = window.Element;
 }

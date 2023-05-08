@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
-import { Image } from './_abstract/_Image';
-import { Link } from './_abstract/_Link';
-import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar';
-import { SSRSupport, useIsBrowserSide } from './utils';
+import { Image } from './_abstract/_Image.js';
+import { Link } from './_abstract/_Link.js';
+import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
+import { SSRSupport, useIsBrowserSide } from './utils.js';
 
 type WizardLayoutProps = {
   wizardStepper?: ReactNode | false;

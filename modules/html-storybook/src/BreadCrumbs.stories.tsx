@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { BreadCrumbs } from '@reykjavik/hanna-react/BreadCrumbs';
 import { boolean, number } from '@storybook/addon-knobs';
 
-import { crumbTrail } from './utils/_dummyData';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { crumbTrail } from './utils/_dummyData.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Layout/BreadCrumbs',

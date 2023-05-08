@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { Datepicker, DatepickerProps } from '@reykjavik/hanna-react/Datepicker';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 
-import { Minimal } from '../../layout/Minimal';
-import { focusAllFormFields } from '../../test-helpers/focusAllFormFields';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { focusAllFormFields } from '../../test-helpers/focusAllFormFields.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 const startDate = new Date('2022-10-05');
 
 const lang: DatepickerProps['localeCode'] = undefined;
 
 // Use `handle` if you're using multiple Hanna compnents
-export const handle = { lang, cssTokens: ['RowBlock', 'RowBlockColumn'] };
+export const handle = { lang, ...cssTokens('RowBlock', 'RowBlockColumn') };
 
 export default function () {
   const [date, setDate] = useState<Date | undefined>(startDate);

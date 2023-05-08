@@ -1,22 +1,22 @@
 import React, { Fragment, useState } from 'react';
 import { Locator } from '@playwright/test';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 
-import { Minimal } from '../../layout/Minimal';
-import { keyboardFocus } from '../../test-helpers/keyboardFocus';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { keyboardFocus } from '../../test-helpers/keyboardFocus.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = {
-  cssTokens: ['ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary'],
-};
+export const handle = cssTokens('ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary');
+
 const buttons = (
   buttonSize: 'small' | 'wide' | 'normal',
   variantType: 'normal' | 'destructive',
@@ -222,7 +222,7 @@ export const testing: TestingInfo = {
       { loc: destrTertiaryLink, name: 'destr-TertiaryLink', tertiary: true },
     ];
 
-    let cfg: typeof buttons[number] | undefined;
+    let cfg: (typeof buttons)[number] | undefined;
 
     let i = 0;
     /* eslint-disable no-await-in-loop */

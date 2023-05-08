@@ -1,8 +1,8 @@
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
-import * as lib from './i18n';
-import { getTexts } from './i18n';
+import * as lib from './i18n.js';
+import { getTexts } from './i18n.js';
 
 type ExpectedExports = keyof typeof lib;
 
@@ -23,8 +23,8 @@ o.spec('hanna-utils/i18n', () => {
 import type {
   // i18n.ts
   DefaultTexts,
-} from './i18n';
-import { Equals, Expect } from './_/testing';
+} from './i18n.js';
+import { Equals, Expect } from './_/testing.js';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
 
 // ---------------------------------------------------------------------------

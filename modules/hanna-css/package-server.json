@@ -1,6 +1,6 @@
 {
   "name": "hanna-server-styles",
-  "cssVersion": "0.8.77",
+  "cssVersion": "0.8.78",
   "version": "0.0.0",
   "author": "Reykjavík (http://www.reykjavik.is)",
   "contributors": [
@@ -23,6 +23,6 @@
     "start:dev": "sh scripts/start-dev.sh"
   },
   "dependencies": {
-    "cssserve": "^2.2.2"
+    "cssserve": "^2.4.0"
   }
 }

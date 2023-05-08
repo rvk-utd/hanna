@@ -5,7 +5,7 @@ import {
   Illustration as IllustrationName,
 } from '@reykjavik/hanna-utils/assets';
 
-import { Image, ImageProps } from './_abstract/_Image';
+import { Image, ImageProps } from './_abstract/_Image.js';
 
 type IllustrationProps = EitherObj<{ type: IllustrationName }, { image: ImageProps }>;
 

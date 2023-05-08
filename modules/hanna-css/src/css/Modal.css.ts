@@ -1,16 +1,15 @@
 import { css, em } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { buildVariables } from '../lib/cssutils';
-import { cols_px } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { freezeScroll_css } from './styles/header';
-import { hideText_css } from './utils/hideText';
-import { prem } from './utils/miscUtils';
+import { freezeScroll_css } from './styles/header.js';
+import { hideText_css } from './utils/hideText.js';
+import { cols_px, prem } from './utils/miscUtils.js';
 
 const ModalVariables = buildVariables(['paddingV', 'paddingH'], 'Modal');
 const mVars = ModalVariables.vars;

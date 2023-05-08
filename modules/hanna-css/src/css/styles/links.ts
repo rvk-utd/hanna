@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars';
+import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars.js';
 
 export const LinkStyle__basic = () => css`
   text-decoration: none;

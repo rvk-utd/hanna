@@ -8,9 +8,9 @@ import { Heading } from '@reykjavik/hanna-react/Heading';
 import { Picture } from '@reykjavik/hanna-react/Picture';
 
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
-import { StoryComponent, StoryParameters } from '../storytypes';
-import { imageCards as _imageCards } from '../utils/_dummyData';
-import { HiddenTiger } from '../utils/HiddenTiger';
+import { StoryComponent, StoryParameters } from '../storytypes.js';
+import { imageCards as _imageCards } from '../utils/_dummyData.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 export default {
   title: '_misc/reykjavik-is',

@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { FeatureList, FeatureListProps } from '@reykjavik/hanna-react/FeatureList';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 const title = 'Hvað er í boði í lauginni?';
 

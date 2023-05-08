@@ -2,9 +2,9 @@ import React, { Fragment, useState } from 'react';
 import { useDomid } from '@hugsmidjan/react/hooks';
 import { Selectbox, SelectboxOptionList } from '@reykjavik/hanna-react/Selectbox';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { getFormFieldKnobs } from './utils/knobs';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { getFormFieldKnobs } from './utils/knobs.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Forms/Selectbox',

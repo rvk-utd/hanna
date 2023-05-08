@@ -1,23 +1,28 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import ArticleMeta from '@reykjavik/hanna-react/ArticleMeta';
 import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
 import Heading from '@reykjavik/hanna-react/Heading';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
-import { DummyBlock } from '../../layout/DummyBlock';
-import { Minimal } from '../../layout/Minimal';
-import { lorem, loremRT } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock } from '../../layout/DummyBlock.js';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem, loremRT } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = {
-  cssTokens: ['CenterColumn,PageHeading,TextBlock,ArticleMeta,Heading'],
-};
+export const handle = cssTokens(
+  'CenterColumn',
+  'PageHeading',
+  'TextBlock',
+  'ArticleMeta',
+  'Heading'
+);
 
 export default function () {
   return (

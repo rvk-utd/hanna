@@ -1,7 +1,7 @@
 import React from 'react';
 import { PullQuote } from '@reykjavik/hanna-react/PullQuote';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'text/PullQuote',

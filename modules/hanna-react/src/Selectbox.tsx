@@ -6,7 +6,7 @@ import type {
 import _Selectbox from '@hugsmidjan/react/Selectbox';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import FormField, { FormFieldWrappingProps } from './FormField';
+import FormField, { FormFieldWrappingProps } from './FormField.js';
 
 export {
   type SelectboxOption,

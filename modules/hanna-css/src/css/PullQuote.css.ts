@@ -1,16 +1,16 @@
 import { css } from 'es-in-css';
 
-import { between_phablet_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_phablet_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import {
   ButtonTertiaryStyle,
   ButtonTertiaryStyle__hoverFocus,
   ButtonTertiaryVariables,
-} from './styles/buttons';
-import { pullQuoteContainerStyle } from './utils/textContent';
+} from './styles/buttons.js';
+import { pullQuoteContainerStyle } from './utils/textContent.js';
 
 const btVars = ButtonTertiaryVariables.vars;
 

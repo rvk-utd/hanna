@@ -1,16 +1,16 @@
 import { css, pct_f } from 'es-in-css';
 
-import { between } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { htmlCl } from '../lib/classNames';
-import { grid } from '../lib/grid';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { srOnly_focusable } from '../lib/a11y.js';
+import { between } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { htmlCl } from '../lib/classNames.js';
+import { grid } from '../lib/grid.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { freezeScroll_css, LayoutHeaderUnderlay_css } from './styles/header';
-import { sr_only_focusable_css } from './utils/a11y';
-import { hideText_css } from './utils/hideText';
-import { grid_units, prem } from './utils/miscUtils';
+import { freezeScroll_css, LayoutHeaderUnderlay_css } from './styles/header.js';
+import { hideText_css } from './utils/hideText.js';
+import { grid_units, prem } from './utils/miscUtils.js';
 
 const mq_Fullscreen = mq.phone_phablet;
 const mq_Popup = mq.tablet_up;
@@ -323,7 +323,7 @@ export default css`
 
     @media ${mq_Popup} {
       .ContactBubble__closebtn {
-        ${sr_only_focusable_css({})}
+        ${srOnly_focusable({})}
       }
     }
   }

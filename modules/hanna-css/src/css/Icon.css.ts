@@ -1,9 +1,9 @@
 import { ObjectKeys } from '@reykjavik/hanna-utils';
 import { css } from 'es-in-css';
 
-import { buildVariables } from '../lib/cssutils';
-import { hannaVars as vars } from '../lib/hannavars';
-import { icons, iconStyle } from '../lib/icons';
+import { buildVariables } from '../lib/cssutils.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { icons, iconStyle } from '../lib/icons.js';
 
 const iconVariables = buildVariables(['Icon', 'Icon__size', 'Icon__enabled']);
 const iVars = iconVariables.vars;

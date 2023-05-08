@@ -5,7 +5,7 @@ import landscapeImage from './example_assets/Gallery--landscape.jpg';
 import landscapeImageLarge from './example_assets/Gallery--landscape--large.jpg';
 import portraitImage from './example_assets/Gallery--portrait.jpg';
 import portraitImageLarge from './example_assets/Gallery--portrait--large.jpg';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 // ===========================================================================
 

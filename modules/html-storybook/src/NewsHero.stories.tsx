@@ -6,7 +6,7 @@ import { optionsKnob } from '@storybook/addon-knobs';
 
 import landscapeImage from './example_assets/NewsHero__landscape.jpg';
 import portraitImage from './example_assets/NewsHero__portrait.jpg';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'NewsHero',

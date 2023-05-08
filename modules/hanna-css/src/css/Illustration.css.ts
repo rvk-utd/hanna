@@ -1,7 +1,7 @@
 import { hannaVars as vars, isDevMode, mq } from '@reykjavik/hanna-css';
 import { css } from 'es-in-css';
 
-import { WARNING__ } from '../lib/WARNING__';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 export default css`
   /*!@deps

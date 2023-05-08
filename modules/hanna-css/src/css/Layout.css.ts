@@ -1,17 +1,17 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { htmlCl } from '../lib/classNames';
-import { isDevMode } from '../lib/cssutils';
-import { grid, showColumnGridLines } from '../lib/grid';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { srOnly_focusable } from '../lib/a11y.js';
+import { mq } from '../lib/breakpoints.js';
+import { htmlCl } from '../lib/classNames.js';
+import { isDevMode } from '../lib/cssutils.js';
+import { grid } from '../lib/grid.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { freezeScroll_css, LayoutHeaderLogo } from './styles/header';
-import { LinkStyle_Reset } from './styles/links';
-import { sr_only_focusable_css } from './utils/a11y';
-import { hideText_css } from './utils/hideText';
-import { grid_units, prem } from './utils/miscUtils';
+import { freezeScroll_css, LayoutHeaderLogo } from './styles/header.js';
+import { LinkStyle_Reset } from './styles/links.js';
+import { hideText_css } from './utils/hideText.js';
+import { grid_units, prem, showColumnGridLines } from './utils/miscUtils.js';
 
 export const whiteLogo = () =>
   hannaVarOverride({
@@ -177,6 +177,9 @@ export default css`
       color: var(--close-icon-color);
     }
 
+    ${htmlCl.menuIsActive} .Layout__nav > * {
+      z-index: calc(${vars.zindex__header} - 1);
+    }
     // Page content fadeout during menu open
     ${htmlCl.menuIsActive} .Layout__nav::before {
       content: '';
@@ -198,7 +201,7 @@ export default css`
     }
 
     .Layout__nav__closebutton {
-      ${sr_only_focusable_css({})}
+      ${srOnly_focusable({})}
     }
   }
 
@@ -208,7 +211,7 @@ export default css`
 
   @media ${mq.Topmenu} {
     .Layout__header__skiplink {
-      ${sr_only_focusable_css({})}
+      ${srOnly_focusable({})}
     }
   }
 

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { Bling } from '@reykjavik/hanna-react/Bling';
 import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
 import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
@@ -7,16 +7,24 @@ import { Heading } from '@reykjavik/hanna-react/Heading';
 import { Modal, ModalProps } from '@reykjavik/hanna-react/Modal';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
-import { Minimal } from '../../layout/Minimal';
-import { loremRT } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { loremRT } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
+
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = {
-  cssTokens: ['Modal,ButtonSecondary,ButtonTertiary,Heading,TextBlock, Bling'],
-};
+export const handle = cssTokens(
+  'Modal',
+  'ButtonSecondary',
+  'ButtonTertiary',
+  'Heading',
+  'TextBlock',
+  'Bling'
+);
+
 const renderBling = () => (
   <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
 );

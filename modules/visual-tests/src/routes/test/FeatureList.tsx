@@ -1,15 +1,15 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { FeatureList, FeatureListProps } from '@reykjavik/hanna-react/FeatureList';
 
-import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-//export const handle = { cssTokens: ['FeatureList', 'TextBlock'] };
+// export const handle = cssTokens('FeatureList', 'TextBlock');
 
 const features: FeatureListProps['features'] = [
   { name: 'Útiklefar', icon: 'sund_utiklefi' },

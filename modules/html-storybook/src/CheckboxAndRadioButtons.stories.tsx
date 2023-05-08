@@ -4,7 +4,7 @@ import { CheckboxButtonsGroup } from '@reykjavik/hanna-react/CheckboxButtonsGrou
 import { RadioButtonsGroup } from '@reykjavik/hanna-react/RadioButtonsGroup';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Forms/Checkbox & Radio Buttons',

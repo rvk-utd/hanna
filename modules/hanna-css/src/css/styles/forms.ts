@@ -1,12 +1,12 @@
 import { css, LengthValue, VariablePrinter } from 'es-in-css';
 
-import { mq } from '../../lib/breakpoints';
-import { buildVariables } from '../../lib/cssutils';
-import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars';
-import { iconStyle } from '../../lib/icons';
-import { WARNING__ } from '../../lib/WARNING__';
-import { sr_only } from '../utils/a11y';
-import { grid_units, prem } from '../utils/miscUtils';
+import { srOnly } from '../../lib/a11y.js';
+import { mq } from '../../lib/breakpoints.js';
+import { buildVariables } from '../../lib/cssutils.js';
+import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars.js';
+import { iconStyle } from '../../lib/icons.js';
+import { WARNING__ } from '../../lib/WARNING__.js';
+import { grid_units, prem } from '../utils/miscUtils.js';
 
 export const FormField__error = (
   paddingLeft: LengthValue | VariablePrinter | 0 = vars.space_2,
@@ -72,7 +72,7 @@ const tglVars = TogglerVariables.vars;
 
 export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
   .${bem}__input {
-    ${sr_only}
+    ${srOnly}
   }
   .${bem}__label {
     ${TogglerVariables.declare({

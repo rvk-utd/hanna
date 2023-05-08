@@ -1,9 +1,9 @@
 import { css, px } from 'es-in-css';
 
-import { grid } from '../../lib/grid';
-import { hannaVars as vars } from '../../lib/hannavars';
-import { iconStyle } from '../../lib/icons';
-import { avoidCssnanoMerging } from '../utils/miscUtils';
+import { grid } from '../../lib/grid.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
+import { iconStyle } from '../../lib/icons.js';
+import { avoidCssnanoMerging } from '../utils/miscUtils.js';
 
 const extend = (f = 1) => `calc(${f * 50}vw - ${f * 50}%)`;
 

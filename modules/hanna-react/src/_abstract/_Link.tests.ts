@@ -1,7 +1,7 @@
 import { createElement as h } from 'react';
 import o from 'ospec';
 
-import { Link, setLinkRenderer } from './_Link';
+import { Link, setLinkRenderer } from './_Link.js';
 
 const Default_Link = Link; // Store initial default link for later comparison
 

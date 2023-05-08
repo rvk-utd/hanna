@@ -1,8 +1,8 @@
 import { css } from 'es-in-css';
 
-import { htmlCl } from '../lib/classNames';
-import { buildVariables } from '../lib/cssutils';
-import { hannaVars as vars } from '../lib/hannavars';
+import { htmlCl } from '../lib/classNames.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
 export const CarouselStepperVariables = buildVariables(['height'], 'CarouselStepper');
 const csVars = CarouselStepperVariables.vars;

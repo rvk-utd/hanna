@@ -5,8 +5,8 @@ import {
   TogglerGroupFieldOption,
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
-} from './_abstract/_TogglerGroupField';
-import Checkbox from './Checkbox';
+} from './_abstract/_TogglerGroupField.js';
+import Checkbox from './Checkbox.js';
 
 export type CheckboxGroupProps = TogglerGroupFieldProps & {
   layout?: 'inline';

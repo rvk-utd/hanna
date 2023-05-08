@@ -4,8 +4,8 @@ import {
   TogglerGroupField,
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
-} from './_abstract/_TogglerGroupField';
-import CheckboxButton from './CheckboxButton';
+} from './_abstract/_TogglerGroupField.js';
+import CheckboxButton from './CheckboxButton.js';
 
 export type CheckboxButtonsGroupProps = TogglerGroupFieldProps & {
   value?: Array<string>;

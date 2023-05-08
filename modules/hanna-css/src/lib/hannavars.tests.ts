@@ -1,7 +1,7 @@
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
-import { HannaCssVarToken, hannaVarOverride, hannaVars } from './hannavars';
+import { HannaCssVarToken, hannaVarOverride, hannaVars } from './hannavars.js';
 
 o.spec('cssVars', () => {
   o('exposes known CSS variable tokens', () => {

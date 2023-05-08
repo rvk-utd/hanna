@@ -1,13 +1,13 @@
 import { color, css } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { between_cols } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { colors } from '../lib/colors.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { hideText_css } from './utils/hideText';
-import { overflowEllipsis, prem } from './utils/miscUtils';
+import { hideText_css } from './utils/hideText.js';
+import { overflowEllipsis, prem } from './utils/miscUtils.js';
 
 export default css`
   /*!@deps

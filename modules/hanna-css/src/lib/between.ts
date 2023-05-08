@@ -1,8 +1,8 @@
 import type { PctValue, PlainNumber, PxValue, RawCssValue } from 'es-in-css';
 import { pct_f, px, unitOf, vh_f, vw_f } from 'es-in-css';
 
-import { bp } from './breakpoints';
-import { cols_px, grid } from './grid';
+import { bp } from './breakpoints.js';
+import { grid } from './grid.js';
 
 const { phone, phablet, tablet, netbook, wide } = bp;
 
@@ -100,9 +100,9 @@ export const between_cols = (
   from: RangeEdge,
   to: RangeEdge,
   cols: PlainNumber = grid.numCols,
-  gutters?: PlainNumber
+  gutters: PlainNumber = cols - 1
 ) => {
-  const max = cols_px(cols, gutters);
+  const max = cols * grid.column + gutters * grid.gutter;
   const min = _scaleDown * max;
   return between(from, to, min, max, '%');
 };

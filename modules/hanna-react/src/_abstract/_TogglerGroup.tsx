@@ -1,10 +1,10 @@
 import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { FormFieldInputProps } from '../FormField';
-import { useMixedControlState } from '../utils';
+import { FormFieldInputProps } from '../FormField.js';
+import { useMixedControlState } from '../utils.js';
 
-import { TogglerInputProps } from './_TogglerInput';
+import { TogglerInputProps } from './_TogglerInput.js';
 
 export type TogglerGroupOption = {
   value: string;

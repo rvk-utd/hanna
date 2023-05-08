@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AccordionList sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,AccordionList"
+    />
+
+    <script src="/dist/index.js"></script>
+    <script>
+      Hanna.loadSprinkles('AccordionList');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="AccordionList">
+            <div class="AccordionList__item" data-start-open="true">
+              <h3 class="AccordionList__title">
+                AccordionList list with label spreading over 2 lines spreading over 2
+                lines spreading over 2 lines
+              </h3>
+              <div class="AccordionList__content">Hello content</div>
+            </div>
+            <div class="AccordionList__item">
+              <h3 class="AccordionList__title">AccordionList item</h3>
+              <div class="AccordionList__content">
+                Reri goðaheill renni, söfnum akratungu óvirða hofgarða-refs dyflini.
+                Sigvaldi frekust lögfengið vífi, barðan sveinung ódáðamanninn, firðinum
+                skipkaup sæmdina tjóar kníf geldur ræna ójafnað. Gjósa þiðrandason, þrotin
+                mannafarar styggðist. Kærðu skegg, bárðarsonar sektar mjaðmárdal. Gjörvast
+                húsaviðar útfiri, bænarorð ekið, skalla-grímur auðhnykkjanda
+                askmannsstöðum víkingi bræðrunga gerðinu allmikilli. Dirf vífi hróp, úlfa
+                skyldleikar, hauginn fremi hnútu færir geirþjófsfirði reginmóðs. Svefnsel
+                sundsins, lamb ryðst meðallok siglt. Kviðling orfið bróklindahaldið, sorti
+                skipbrotsmönnum, eirði flusti rignir lýkst þrotin. Jafnnýtt málstefnuna
+                allhjaldrjúgt, ynnist konungsþræll, þorviðar senn leiru klæðahlaðann
+                gestbeinlega gininn rauðgrani. Hýrmælt þveraðist leikmótsins, bræðrunga
+                mannvandur laxakarl mælist hvalurinn. Kanntu fljúga færist, binda
+                handviðris, svartar keppa hylli hleypir fjölkynngi aldur.
+              </div>
+            </div>
+            <div class="AccordionList__item">
+              <h3 class="AccordionList__title">AccordionList items</h3>
+              <div class="AccordionList__content">Hello content</div>
+            </div>
+          </div>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

@@ -3,12 +3,19 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Remove aggressive global reset for all `img` and `video` elements
-- feat: Shift typography style declarations from `html` to `body`
+
+## 0.8.78
+
+_2023-04-26_
+
+- Global `-basics` styles:
+  - feat: Remove aggressive global reset for all `img` and `video` elements
+  - feat: Shift typography style declarations from `html` to `body`
 - feat: Make `MainMenu` responsible for changing `Layout__header` colors on
   `html.menu-is-open`
 - feat: Add CSS variables `--Layout__header-logo-color`,
   `--Layout__header-color`
+- fix: Apply missing `z-index` defaults inside `.Layout__nav`
 
 ## 0.8.77
 

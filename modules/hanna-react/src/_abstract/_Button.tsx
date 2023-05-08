@@ -3,7 +3,7 @@ import { BemProps, BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { OpenStringMap } from '@reykjavik/hanna-utils';
 
-import { Link } from './_Link';
+import { Link } from './_Link.js';
 
 type ButtonElmProps = {
   href?: never;

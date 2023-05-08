@@ -1,7 +1,7 @@
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
-import * as lib from './shareButtonsUtils';
+import * as lib from './shareButtonsUtils.js';
 
 type ExpectedExports = keyof typeof lib;
 
@@ -26,5 +26,5 @@ import type {
   DocMeta,
   ShareButtonI18n,
   ShareButtonPlatforms,
-} from './shareButtonsUtils';
+} from './shareButtonsUtils.js';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */

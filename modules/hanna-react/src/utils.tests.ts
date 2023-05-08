@@ -1,7 +1,7 @@
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
-import * as lib from './utils';
+import * as lib from './utils.js';
 
 type ExpectedExports = keyof typeof lib;
 
@@ -58,5 +58,5 @@ import type {
   /* utils/useMixedControlState.ts */
 
   /* utils/useScrollbarWidthCSSVar.ts */
-} from './utils';
+} from './utils.js';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */

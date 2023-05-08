@@ -1,12 +1,12 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { hannaVars as vars } from '../lib/hannavars';
+import { between_cols } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { ButtonTertiaryStyle } from './styles/buttons';
-import { extendBackgroundWithUnderlay, resetImageChild } from './utils/miscUtils';
-import { SeenEffect__fadeup } from './utils/seenEffects';
+import { ButtonTertiaryStyle } from './styles/buttons.js';
+import { extendBackgroundWithUnderlay, resetImageChild } from './utils/miscUtils.js';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   @media screen {

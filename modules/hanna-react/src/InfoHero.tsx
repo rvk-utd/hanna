@@ -1,12 +1,12 @@
 import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { BlingComboProps, Blings } from './_abstract/_Blings';
-import { ButtonProps } from './_abstract/_Button';
-import { Image, ImageProps } from './_abstract/_Image';
-import { breakOnNL } from './_abstract/breakOnNL';
-import ButtonTertiary from './ButtonTertiary';
-import { Alignment, aligns } from './constants';
+import { BlingComboProps, Blings } from './_abstract/_Blings.js';
+import { ButtonProps } from './_abstract/_Button.js';
+import { Image, ImageProps } from './_abstract/_Image.js';
+import { breakOnNL } from './_abstract/breakOnNL.js';
+import ButtonTertiary from './ButtonTertiary.js';
+import { Alignment, aligns } from './constants.js';
 
 type BlingOptions = 'waves' | 'sunny-waves' | 'triangles' | 'circles';
 

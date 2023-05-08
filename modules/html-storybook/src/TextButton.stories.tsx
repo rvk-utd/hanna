@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextButton } from '@reykjavik/hanna-react/TextButton';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Buttons',

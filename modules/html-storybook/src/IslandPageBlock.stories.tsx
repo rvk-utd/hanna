@@ -3,8 +3,8 @@ import { IslandPageBlock } from '@reykjavik/hanna-react/IslandPageBlock';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { getSummary, someButtons, TITLE_LONG } from './utils/_dummyData';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { getSummary, someButtons, TITLE_LONG } from './utils/_dummyData.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'IslandPageBlock',

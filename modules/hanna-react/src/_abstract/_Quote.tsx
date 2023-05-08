@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-import { Link } from './_Link';
+import { Link } from './_Link.js';
 
 export type QuoteProps = {
   children: ReactNode;

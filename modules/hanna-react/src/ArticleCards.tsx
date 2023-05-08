@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Cleanup } from '@reykjavik/hanna-utils';
 
-import { CardList, ImageCardListProps, ImageCardProps } from './_abstract/_CardList';
+import { CardList, ImageCardListProps, ImageCardProps } from './_abstract/_CardList.js';
 
 export type ArticleCardsItemProps = ImageCardProps;
 

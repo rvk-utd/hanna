@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { SeenEffect__fadeup } from './utils/seenEffects';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 import { centerColumnsStyling } from './CenterColumn.css';
 

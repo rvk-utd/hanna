@@ -2,7 +2,7 @@ import React from 'react';
 import { NameCardProps } from '@reykjavik/hanna-react/NameCard';
 import { NameCards } from '@reykjavik/hanna-react/NameCards';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'NameCards',

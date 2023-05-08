@@ -5,21 +5,21 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { Cleanup, getPageScrollElm } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { Link } from './_abstract/_Link';
+import { Link } from './_abstract/_Link.js';
 import {
   AuxilaryPanelIllustration,
   AuxiliaryPanel,
   AuxiliaryPanelProps,
-} from './MainMenu/_Auxiliary';
+} from './MainMenu/_Auxiliary.js';
 import {
   MegaMenuItem,
   MegaMenuPanel,
   PrimaryPanel,
   PrimaryPanelI18n,
-} from './MainMenu/_PrimaryPanel';
-import { useHannaUIState } from './utils/HannaUIState';
-import { useFormatMonitor } from './utils/useFormatMonitor';
-import { SSRSupport, useIsBrowserSide } from './utils';
+} from './MainMenu/_PrimaryPanel.js';
+import { useHannaUIState } from './utils/HannaUIState.js';
+import { useFormatMonitor } from './utils/useFormatMonitor.js';
+import { SSRSupport, useIsBrowserSide } from './utils.js';
 
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>
   activeId ? megaPanels.find((panel) => activeId === panel.id) : undefined;
@@ -127,6 +127,10 @@ const normalizeMenuItems = (
 
 // ---------------------------------------------------------------------------
 
+const emptyPanelList: Array<MegaMenuPanel> = [];
+
+// ---------------------------------------------------------------------------
+
 export type {
   AuxilaryPanelIllustration,
   AuxiliaryPanelProps,
@@ -159,6 +163,7 @@ export type MainMenuItem = {
    */
   onClick?: (index: number, item: MainMenuItem) => void | boolean;
   controlsId?: string;
+  target?: JSX.IntrinsicElements['a']['target'];
 };
 export type MainMenuSeparator = '---';
 export type MainMenuItemList = Array<MainMenuItem | MainMenuSeparator>;
@@ -186,7 +191,7 @@ export type MainMenuProps = {
 };
 
 export const MainMenu = (props: MainMenuProps) => {
-  const { title, megaPanels = [], onItemClick, ssr, auxiliaryPanel } = props;
+  const { title, megaPanels = emptyPanelList, onItemClick, ssr, auxiliaryPanel } = props;
 
   const texts = getTexts(props, defaultMainMenuTexts);
 
@@ -360,6 +365,7 @@ export const MainMenu = (props: MainMenuProps) => {
                   <Link
                     className="MainMenu__link"
                     href={item.href}
+                    target={item.target}
                     aria-label={labelLong}
                     title={labelLong} // For auto-tooltips on desktop
                     onClick={() => {

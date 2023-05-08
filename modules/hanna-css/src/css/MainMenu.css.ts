@@ -1,23 +1,23 @@
 import { color, css, px } from 'es-in-css';
 
-import { between_Topmenu } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { htmlCl } from '../lib/classNames';
-import { colors } from '../lib/colors';
-import { buildVariables } from '../lib/cssutils';
-import { font } from '../lib/font';
-import { cols_pct, grid } from '../lib/grid';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { srOnly_focusableContent, srOnly_focusable } from '../lib/a11y.js';
+import { between_Topmenu } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { htmlCl } from '../lib/classNames.js';
+import { colors } from '../lib/colors.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { font } from '../lib/font.js';
+import { grid } from '../lib/grid.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { freezeScroll_css } from './styles/header';
-import { LinkStyle } from './styles/links';
-import { sr_only_content_focusable, sr_only_focusable_css } from './utils/a11y';
-import { extendSides } from './utils/extendSides';
-import { grid_units, prem } from './utils/miscUtils';
-import { AuxiliaryPanel_css } from './_AuxiliaryPanel';
-import { PrimaryPanel_css } from './_PrimaryPanel';
+import { freezeScroll_css } from './styles/header.js';
+import { LinkStyle } from './styles/links.js';
+import { extendSides } from './utils/extendSides.js';
+import { grid_units, prem } from './utils/miscUtils.js';
+import { AuxiliaryPanel_css } from './_AuxiliaryPanel.js';
+import { PrimaryPanel_css } from './_PrimaryPanel.js';
 
 import { whiteHeader, whiteLogo } from './Layout.css';
 
@@ -48,7 +48,7 @@ export default css`
       display: none; // ok if aria-label/aria-labelled by is used!
     }
     .MainMenu__item--home[class] {
-      ${sr_only_content_focusable({})};
+      ${srOnly_focusableContent({})};
     }
 
     .MainMenu__link {
@@ -112,6 +112,7 @@ export default css`
     ${htmlCl.menuIsActive} .MainMenu {
       display: flex;
       position: fixed;
+      /* Technically redundant but makes the component more resilient to extraneous div wrappers */
       z-index: calc(${vars.zindex__header} - 1);
       top: 0;
       bottom: 0;
@@ -219,7 +220,7 @@ export default css`
     }
 
     .MainMenu__megapanel__backtomenu {
-      ${sr_only_focusable_css({})}
+      ${srOnly_focusable({})}
     }
   }
 
@@ -246,7 +247,7 @@ export default css`
       z-index: ${vars.zindex__header};
       top: 0;
       right: 0;
-      left: ${cols_pct(3, 3)};
+      left: ${vars.grid_3_3};
       height: ${vars.Layout$$header_height};
       padding-bottom: ${prem(10)};
       margin-right: ${between_Topmenu(-8, -20)};

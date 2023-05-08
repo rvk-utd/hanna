@@ -1,13 +1,13 @@
 import { css } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
 import {
   ButtonTertiaryStyle,
   ButtonTertiaryStyle__backArrow,
   ButtonTertiaryStyle__disabled,
   ButtonTertiaryVariables,
-} from './styles/buttons';
+} from './styles/buttons.js';
 
 export default css`
   @media screen {

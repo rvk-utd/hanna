@@ -2,11 +2,11 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { Efnistakn, getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 
-import { ButtonProps } from './_abstract/_Button';
-import { Image, ImageProps } from './_abstract/_Image';
-import { Link } from './_abstract/_Link';
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import ButtonTertiary from './ButtonTertiary';
+import { ButtonProps } from './_abstract/_Button.js';
+import { Image, ImageProps } from './_abstract/_Image.js';
+import { Link } from './_abstract/_Link.js';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import ButtonTertiary from './ButtonTertiary.js';
 
 export type GridBlockItem = {
   title: string;

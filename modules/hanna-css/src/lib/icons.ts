@@ -1,8 +1,8 @@
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { css, str, VariablePrinter } from 'es-in-css';
 
-import { font } from './font';
-import iconfonttokens from './iconfonttokens';
+import { font } from './font.js';
+import iconfonttokens from './iconfonttokens.js';
 
 // ---------------------------------------------------------------------------
 
@@ -119,15 +119,16 @@ type TrimmedIconName = keyof typeof iconfonttokens extends `icon__${infer ShortN
   ? ShortName
   : never;
 
-export const iconfont_raw = {
-  name: iconfontName,
-  chars: ObjectFromEntries(
-    ObjectEntries(iconfonttokens).map(([name, char]) => [
-      name.replace(/^icon__/, '') as TrimmedIconName,
-      char,
-    ])
-  ),
-} as const;
+export const iconfont_raw = /*#__PURE__*/ (() =>
+  ({
+    name: iconfontName,
+    chars: ObjectFromEntries(
+      ObjectEntries(iconfonttokens).map(([name, char]) => [
+        name.replace(/^icon__/, '') as TrimmedIconName,
+        char,
+      ])
+    ),
+  } as const))();
 
 /**
  * Icon names available for data-icon="" attributes

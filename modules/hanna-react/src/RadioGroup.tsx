@@ -5,8 +5,8 @@ import {
   TogglerGroupFieldOption,
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
-} from './_abstract/_TogglerGroupField';
-import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput';
+} from './_abstract/_TogglerGroupField.js';
+import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput.js';
 
 type RadioProps = Omit<TogglerInputProps, 'reqText'>;
 const Radio = (props: RadioProps) => <TogglerInput {...props} bem="Radio" type="radio" />;

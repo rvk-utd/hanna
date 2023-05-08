@@ -1,11 +1,11 @@
 import React from 'react';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
-import { ButtonProps } from './_abstract/_Button';
-import { Image, ImageProps } from './_abstract/_Image';
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import ButtonPrimary from './ButtonPrimary';
-import ButtonTertiary from './ButtonTertiary';
+import { ButtonProps } from './_abstract/_Button.js';
+import { Image, ImageProps } from './_abstract/_Image.js';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import ButtonPrimary from './ButtonPrimary.js';
+import ButtonTertiary from './ButtonTertiary.js';
 
 type HeroBlockImageProps =
   | { illustration: Illustration; image?: undefined }

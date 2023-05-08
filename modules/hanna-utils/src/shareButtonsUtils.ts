@@ -1,8 +1,8 @@
 import addUrlParams from '@hugsmidjan/qj/addUrlParams';
 import htmlLang from '@hugsmidjan/qj/htmlLang';
 
-import { ObjectKeys } from './_/ObjectHelpers';
-import { DEFAULT_LANG } from './i18n';
+import { ObjectKeys } from './_/ObjectHelpers.js';
+import { DEFAULT_LANG } from './i18n.js';
 
 const shareButtonPlatforms = {
   facebook: 'Facebook',

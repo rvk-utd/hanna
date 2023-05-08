@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
 export type PageHeadingProps = {
   Tag?: 'h1' | 'h2';

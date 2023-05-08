@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { BlockBreak } from '@reykjavik/hanna-react/BlockBreak';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
@@ -8,17 +8,18 @@ import { PageFilter } from '@reykjavik/hanna-react/PageFilter';
 import { Selectbox } from '@reykjavik/hanna-react/Selectbox';
 import { TextInput } from '@reykjavik/hanna-react/TextInput';
 
-import { Minimal } from '../../layout/Minimal';
-import { lorem } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route';
 
-import { imageCards } from './ImageCards';
+import { imageCards } from './ImageCards.js';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['BlockBreak', 'ImageCards'] };
+export const handle = cssTokens('BlockBreak', 'ImageCards');
 
 export default function () {
   return (

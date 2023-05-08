@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
-import { GalleryProps } from '../Gallery';
+import { GalleryProps } from '../Gallery.js';
 
-import { GalleryItemProps } from './_GalleryItem';
+import { GalleryItemProps } from './_GalleryItem.js';
 
 type ModalContextProps = {
   setCurrentImage: (item: GalleryItemProps | undefined) => void;

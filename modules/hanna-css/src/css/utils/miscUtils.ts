@@ -1,7 +1,8 @@
-import { css, PlainNumber, PxValue, RawCssString, rem } from 'es-in-css';
+import { css, pct_f, PlainNumber, px, PxValue, RawCssString, rem } from 'es-in-css';
 
-import { grid } from '../../lib/grid';
-import { hannaVars as vars } from '../../lib/hannavars';
+import { isDevMode } from '../../lib/cssutils.js';
+import { grid } from '../../lib/grid.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
 
 /**
  * Converts a pixel size to a rem value.
@@ -13,6 +14,79 @@ export const prem = (px: PlainNumber | PxValue) => {
 export const grid_units = (units = 1) => {
   return prem(units * grid.unit);
 };
+
+// ===========================================================================
+
+const oneof = (n: number) => (n < 0 ? -1 : n > 0 ? 1 : 0);
+
+const { numCols, column, gutter } = grid;
+
+/** Percentage length - by columns */
+export const cols_pct = (
+  cols: PlainNumber,
+  gutters = cols - oneof(cols),
+  opts?: {
+    ofCols?: PlainNumber;
+    ofGutters?: PlainNumber;
+    /** Custom container width in pixels. When specified, this overrides the default column-based container width. */
+    width?: PlainNumber | PxValue;
+    /** Pixel-based modifier for the column-based container width. (Useful for gridded-containers with non-standard padding/margin) */
+    edge?: PlainNumber | PxValue;
+  }
+) => {
+  opts = opts || {};
+  const {
+    ofCols = numCols,
+    ofGutters = ofCols - oneof(ofCols),
+    edge = 0,
+    width = ofCols * column + ofGutters * gutter + edge,
+  } = opts;
+
+  return pct_f((cols * column + gutters * gutter) / width);
+};
+
+// ---------------------------------------------------------------------------
+
+/** Percentage length - pixels to page-width */
+export const px_pct = (
+  nPx: PlainNumber | PxValue,
+  ofCols: PlainNumber = numCols,
+  ofGutters: PlainNumber = ofCols - oneof(ofCols),
+  /** Pixel-based modifier for the column-based container width. (Useful for gridded-containers with non-standard padding/margin) */
+  edge: PlainNumber | PxValue = 0
+) => pct_f(nPx / (ofCols * column + ofGutters * gutter + edge));
+
+/** pixel length - by columns */
+export const cols_px = (numCols: PlainNumber, numGutters: PlainNumber = numCols - 1) =>
+  px(numCols * column + numGutters * gutter);
+
+// ===========================================================================
+
+/**
+ * Helper that renders horizontal grid as a semi-transparent background
+ */
+export const showColumnGridLines = (
+  columnColor = 'rgba(0, 0, 0, 0.04)',
+  gutterColor = 'rgba(255, 255, 255, 0.06)'
+) => {
+  if (isDevMode) {
+    const colPct = pct_f(column / (column + gutter));
+
+    return css`
+      background-image: linear-gradient(
+        90deg,
+        ${columnColor} 0,
+        ${columnColor} ${colPct},
+        ${gutterColor} ${colPct},
+        ${gutterColor} 100%
+      );
+      background-size: ${cols_pct(1, 1)} 100%;
+    `;
+  }
+  return '';
+};
+
+// ---------------------------------------------------------------------------
 
 // TODO: Fix ugly syntax
 export const extendBackgroundWithUnderlay = (
@@ -82,3 +156,5 @@ export const resetImageChild = () => css`
     ${resetImageProps}
   }
 `;
+
+// ---------------------------------------------------------------------------

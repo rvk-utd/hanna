@@ -8,10 +8,10 @@ import { efnistakn } from '@reykjavik/hanna-utils/assets';
 
 import { _ArticleCarousel } from '../ArticleCarousel.stories';
 import { _MiniMetrics } from '../MiniMetrics.stories';
-import { StoryComponent, StoryParameters } from '../storytypes';
-import { imageCards } from '../utils/_dummyData';
+import { StoryComponent, StoryParameters } from '../storytypes.js';
+import { imageCards } from '../utils/_dummyData.js';
 
-import { SearchHeroParagraph as _SearchHeroParagraph } from './_SearchHeroParagraph';
+import { SearchHeroParagraph as _SearchHeroParagraph } from './_SearchHeroParagraph.js';
 
 export default {
   title: '_misc/HomePage',

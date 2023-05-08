@@ -3,7 +3,7 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { wait } from '@hugsmidjan/qj/wait';
 import o, { Spy } from 'ospec';
 
-import { useMixedControlState } from './useMixedControlState';
+import { useMixedControlState } from './useMixedControlState.js';
 
 type CtrlMode = ReturnType<typeof useMixedControlState>[2];
 

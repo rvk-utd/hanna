@@ -1,8 +1,8 @@
 import React, { CSSProperties } from 'react';
 import { Efnistakn } from '@reykjavik/hanna-utils/assets';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import Bling from './Bling';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import Bling from './Bling.js';
 
 export type FeatureListProps = {
   title: string;

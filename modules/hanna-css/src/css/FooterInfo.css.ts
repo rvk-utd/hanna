@@ -1,12 +1,12 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { afterClear_css } from './utils/afterClear';
-import { logo_notext_url } from './utils/logo';
-import { prem } from './utils/miscUtils';
+import { afterClear_css } from './utils/afterClear.js';
+import { logo_notext_url } from './utils/logo.js';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {

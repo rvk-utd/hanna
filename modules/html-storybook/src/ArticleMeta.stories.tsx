@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArticleMeta, ArticleMetaItem } from '@reykjavik/hanna-react/ArticleMeta';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'ArticleMeta',

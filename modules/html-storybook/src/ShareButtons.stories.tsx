@@ -3,7 +3,7 @@ import { useIsServerSide } from '@hugsmidjan/react/hooks';
 import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'ShareButtons',

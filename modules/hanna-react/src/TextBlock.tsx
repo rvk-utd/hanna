@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import { ComponentLayoutProps } from './constants';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { ComponentLayoutProps } from './constants.js';
 
 export type TextBlockProps = ComponentLayoutProps & {
   /** Make H2 headings float to the left

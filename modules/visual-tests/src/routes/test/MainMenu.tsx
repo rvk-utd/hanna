@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import {
   AuxiliaryPanelProps,
@@ -10,9 +10,9 @@ import {
 } from '@reykjavik/hanna-react/MainMenu';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
-import { makeStateBridge } from '../../test-helpers/makeStateBridge';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { makeStateBridge } from '../../test-helpers/makeStateBridge.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
 const showAuxState = makeStateBridge<true | undefined>('showAux');
 
@@ -101,10 +101,10 @@ export const auxiliaryPanel: AuxiliaryPanelProps = {
   image: 'hanna-veitiggi',
 };
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// export const handle = cssTokens('Token');
 
 // ---------------------------------------------------------------------------
 

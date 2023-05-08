@@ -1,21 +1,21 @@
 import range from '@hugsmidjan/qj/range';
 import { css, ms, pct, pct_f } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
+import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
-import { CardBlock_css, CardList_css, CardListTitle_css } from './styles/cards';
+import { CardBlock_css, CardList_css, CardListTitle_css } from './styles/cards.js';
 import {
   avoidCssnanoMerging,
   extendBackgroundWithUnderlay,
   prem,
-} from './utils/miscUtils';
+} from './utils/miscUtils.js';
 import {
   SeenEffect__delay,
   SeenEffect__fadein,
   SeenEffect__fadeup,
   SeenEffect__transition,
-} from './utils/seenEffects';
+} from './utils/seenEffects.js';
 
 const borderW = prem(12);
 

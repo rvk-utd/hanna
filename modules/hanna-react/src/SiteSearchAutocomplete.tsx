@@ -3,7 +3,7 @@ import Autosuggest, { RenderSuggestion } from 'react-autosuggest';
 import { BemProps } from '@hugsmidjan/react/types';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import SiteSearchInput from './SiteSearchInput';
+import SiteSearchInput from './SiteSearchInput.js';
 
 // ---------------------------------------------------------------------------
 

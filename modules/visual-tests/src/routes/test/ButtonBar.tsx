@@ -1,20 +1,19 @@
 import React, { Fragment } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 
-import { DummyBlock } from '../../layout/DummyBlock';
-import { Minimal } from '../../layout/Minimal';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock } from '../../layout/DummyBlock.js';
+import { Minimal } from '../../layout/Minimal.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
-export const handle = {
-  cssTokens: ['ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary'],
-};
+export const handle = cssTokens('ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary');
 
 const buttons = (align: 'right' | undefined) => {
   // alias here to appease PlayWright's weirdly limited build config

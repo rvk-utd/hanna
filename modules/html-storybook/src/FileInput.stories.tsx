@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { FileInput } from '@reykjavik/hanna-react/FileInput';
 import { boolean, text } from '@storybook/addon-knobs';
 
-import { getFormFieldKnobs } from './utils/knobs';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { getFormFieldKnobs } from './utils/knobs.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Forms/FileInput',

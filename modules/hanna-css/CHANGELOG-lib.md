@@ -3,8 +3,34 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.1
+
+_2023-04-25_
+
+- feat: Add various `srOnly_*` accessibility mixins
+
+## 0.4.0
+
+_2023-04-24_
+
+- **BREAKING** feat: `colors_raw` contains hex-color strings not `ColorValue`
+- feat: Add `/*#__PURE__*/` markers to help down-stream bundle tree-shaking
+
+## 0.3.18
+
+_2023-04-24_
+
+- fix: Regression in ` css``  ` array inlining
+
+## 0.3.16 – 0.3.17
+
+_2023-04-04_
+
 - feat: Add `htmlCl` object, with global-state selectors for `<html/>`
 - feat: Add `Layout$$header_logo_color`, `Layout$$header_color` to `hannaVars`
+- feat: Re-enable ESM exports in published build
+- feat: Shorten `noFlickerSnippet_multiPage` timeout to 6 seconds
 
 ## 0.3.15
 

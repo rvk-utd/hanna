@@ -1,10 +1,10 @@
 import React from 'react';
 import { Formheimur, getFormheimurUrl } from '@reykjavik/hanna-utils/assets';
 
-import { Block, BlockItem } from './_abstract/_Block';
-import { ImageProps } from './_abstract/_Image';
-import { SeenProp } from './utils/seenEffect';
-import { Alignment, aligns } from './constants';
+import { Block, BlockItem } from './_abstract/_Block.js';
+import { ImageProps } from './_abstract/_Image.js';
+import { SeenProp } from './utils/seenEffect.js';
+import { Alignment, aligns } from './constants.js';
 
 type IslandBaseBlockProps = {
   align?: Alignment;

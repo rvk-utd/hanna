@@ -1,7 +1,7 @@
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
-import * as lib from './index';
+import * as lib from './index.js';
 
 type ExpectedExports = keyof typeof lib;
 
@@ -88,5 +88,5 @@ import type {
   // PickIndexed,
   // RequiredKeys,
   // OptionalKeys,
-} from './index';
+} from './index.js';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */

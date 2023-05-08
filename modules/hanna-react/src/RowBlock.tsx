@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { BemPropsModifier } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
 export type RowBlockProps = {
   /** Float the first RowBlockColumn to the right on larger screens. */

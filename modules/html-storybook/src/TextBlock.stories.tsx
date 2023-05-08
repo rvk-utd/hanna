@@ -2,7 +2,7 @@ import React from 'react';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'text/TextBlock',

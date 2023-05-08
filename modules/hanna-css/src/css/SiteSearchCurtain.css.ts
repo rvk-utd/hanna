@@ -1,8 +1,8 @@
-import { css } from 'es-in-css';
+import { color, css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
-import { hannaVars as vars } from '../lib/hannavars';
+import { mq } from '../lib/breakpoints.js';
+import { colors } from '../lib/colors.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
 export default css`
   /*!@deps
@@ -34,7 +34,7 @@ export default css`
       bottom: 0;
       left: 0;
       pointer-events: none;
-      background-color: ${colors.suld_0.alpha(0.9)};
+      background-color: ${color(colors.suld_0).alpha(0.9)};
 
       opacity: 0;
       visibility: hidden;

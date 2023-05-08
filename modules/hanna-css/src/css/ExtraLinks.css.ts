@@ -1,14 +1,18 @@
 import range from '@hugsmidjan/qj/range';
 import { css, em, ms } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { cols_pct, px_pct } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { Card_css, CardList_css, CardListTitle_css } from './styles/cards';
-import { extendBackgroundWithUnderlay, prem } from './utils/miscUtils';
+import { Card_css, CardList_css, CardListTitle_css } from './styles/cards.js';
+import {
+  cols_pct,
+  extendBackgroundWithUnderlay,
+  prem,
+  px_pct,
+} from './utils/miscUtils.js';
 import {
   SeenEffect__delay,
   SeenEffect__fadein,
@@ -18,7 +22,7 @@ import {
   SeenEffect__transition,
   Transition__long,
   Transition__properties,
-} from './utils/seenEffects';
+} from './utils/seenEffects.js';
 
 const icon_indent = prem(26);
 const iconList = [

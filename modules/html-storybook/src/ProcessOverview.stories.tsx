@@ -5,7 +5,7 @@ import {
 } from '@reykjavik/hanna-react/ProcessOverview';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'ProcessOverview',

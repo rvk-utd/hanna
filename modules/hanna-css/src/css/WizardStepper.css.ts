@@ -1,12 +1,12 @@
 import { css, str } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { buildVariables } from '../lib/cssutils';
-import { hannaVars as vars } from '../lib/hannavars';
-import { characters, iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { mq } from '../lib/breakpoints.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { characters, iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { prem } from './utils/miscUtils';
+import { prem } from './utils/miscUtils.js';
 
 const WizardStepperVariables = buildVariables(
   ['ballBackground', 'ballColor', 'ballIcon', 'lineColor'],

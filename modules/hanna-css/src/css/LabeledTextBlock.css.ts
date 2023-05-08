@@ -1,19 +1,18 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { cols_pct } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_cols } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import {
   LabeledTitleStyle__basics,
   LabeledTitleStyle__floating,
   LabeledTitleStyle__outdented,
-} from './styles/labeledTitle';
-import { grid_units } from './utils/miscUtils';
-import { SeenEffect__fadeup } from './utils/seenEffects';
-import { textContent } from './utils/textContent';
+} from './styles/labeledTitle.js';
+import { cols_pct, grid_units } from './utils/miscUtils.js';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
+import { textContent } from './utils/textContent.js';
 
 export default css`
   /*!@deps

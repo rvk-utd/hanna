@@ -1,8 +1,8 @@
 import range from '@hugsmidjan/qj/range';
 import { css, em, pct } from 'es-in-css';
 
-import { font } from '../lib/font';
-import { hannaVars, hannaVars as vars } from '../lib/hannavars';
+import { font } from '../lib/font.js';
+import { hannaVars, hannaVars as vars } from '../lib/hannavars.js';
 
 // Top/bottom offset spacing for mock text skeleton background
 const sp = pct(15);

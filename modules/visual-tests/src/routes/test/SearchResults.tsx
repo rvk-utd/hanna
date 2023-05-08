@@ -1,22 +1,23 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import {
   SearchResults,
   SearchResultsItemProps,
 } from '@reykjavik/hanna-react/SearchResults';
 import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 
-import { DummyBlock } from '../../layout/DummyBlock';
-import { Minimal } from '../../layout/Minimal';
-import { lorem, photo } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock } from '../../layout/DummyBlock.js';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem, photo } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['SiteSearchInput'] };
+export const handle = cssTokens('SiteSearchInput');
 
 const items = range(1, 4).map(
   (item): SearchResultsItemProps => ({

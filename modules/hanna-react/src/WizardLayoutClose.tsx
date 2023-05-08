@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, ButtonProps } from './_abstract/_Button';
+import { Button, ButtonProps } from './_abstract/_Button.js';
 
 export const WizardLayoutClose = (props: ButtonProps) => (
   <Button bem="WizardLayoutClose" {...props} />

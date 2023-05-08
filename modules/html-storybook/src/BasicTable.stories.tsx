@@ -3,7 +3,7 @@ import { BasicTable } from '@reykjavik/hanna-react/BasicTable';
 import { Footnote } from '@reykjavik/hanna-react/Footnote';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'BasicTable',

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Alert sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,Alert"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('Alert');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="Alert Alert--error Alert--closable" role="alert">
+            <strong>Error</strong> - Veðurviðvörun fyrir höfuðborgarsvæðið.
+            <a href="">Sjá nánar á vedur.is</a>
+          </div>
+
+          <div class="Alert Alert--error Alert--closable" role="alert">
+            <strong>Error</strong> - Veðurviðvörun fyrir höfuðborgarsvæðið.
+            <a href="">Sjá nánar á vedur.is</a>
+
+            <a class="Alert__close" href="?closeAlert=foobar" title="fela">Fela</a>
+          </div>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // This is an example code that initiates Hanna-markup-compatible site-wide alerts.
+
+      Hanna.import('utils/sitewideAlerts').then(function (modules) {
+        modules[0].default({
+          alertsUri: 'media/site_wide_alerts.json',
+          // alertsUri:
+          // 	drupalSettings.path.baseUrl +
+          // 	drupalSettings.path.pathPrefix +
+          // 	'sitewide_alert/load',
+          baseUrl: '/', // drupalSettings.path.baseUrl,
+          refreshInterval: 10000, // drupalSettings.sitewideAlert.refreshInterval,
+          // rootElm: document.querySelector('#sitewidealerts'), // custom container
+          // layoutName: 'WizardLayout', // Defaults to `Layout`
+        });
+      });
+    </script>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

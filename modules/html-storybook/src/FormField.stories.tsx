@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { FormField } from '@reykjavik/hanna-react/FormField';
 import { boolean, select } from '@storybook/addon-knobs';
 
-import { HiddenTiger } from './utils/HiddenTiger';
-import { getFormFieldKnobs } from './utils/knobs';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { HiddenTiger } from './utils/HiddenTiger.js';
+import { getFormFieldKnobs } from './utils/knobs.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Forms/FormField',

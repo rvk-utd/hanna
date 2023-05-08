@@ -1,7 +1,7 @@
 import React from 'react';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
 export type InfoBlockProps = {
   title: string;

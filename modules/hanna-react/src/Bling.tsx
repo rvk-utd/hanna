@@ -2,7 +2,7 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { BlingType, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 
-import { useGetSVGtext } from './utils/useGetSVGtext';
+import { useGetSVGtext } from './utils/useGetSVGtext.js';
 
 const colors = {
   tertiary: true,

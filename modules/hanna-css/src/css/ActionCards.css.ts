@@ -1,10 +1,15 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
+import { between_cols } from '../lib/between.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
-import { Card_css, CardBlock_css, CardList_css, CardListTitle_css } from './styles/cards';
-import { SeenEffect__fadeup } from './utils/seenEffects';
+import {
+  Card_css,
+  CardBlock_css,
+  CardList_css,
+  CardListTitle_css,
+} from './styles/cards.js';
+import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   @media screen {

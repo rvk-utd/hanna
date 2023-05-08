@@ -1,7 +1,7 @@
 import React from 'react';
 import { BlingType } from '@reykjavik/hanna-utils/assets';
 
-import Bling, { BlingAlignment, BlingProps } from '../Bling';
+import Bling, { BlingAlignment, BlingProps } from '../Bling.js';
 
 export type BlingComboProps = Array<
   Omit<BlingProps, 'type' | 'blingUrl'> & {

@@ -1,4 +1,4 @@
-import { htmlCl } from './classNames';
+import { htmlCl } from './classNames.js';
 
 if (false as boolean) {
   /* eslint-disable @typescript-eslint/no-unused-vars */

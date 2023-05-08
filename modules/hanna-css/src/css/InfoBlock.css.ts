@@ -1,14 +1,13 @@
 import { css } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { cols_pct, cols_px } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { AttentionStyle } from './styles/attention';
-import { grid_units, prem } from './utils/miscUtils';
+import { AttentionStyle } from './styles/attention.js';
+import { cols_pct, cols_px, grid_units, prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {

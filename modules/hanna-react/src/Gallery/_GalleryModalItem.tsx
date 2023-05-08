@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Image } from '../_abstract/_Image';
+import { Image } from '../_abstract/_Image.js';
 
-import { GalleryItemProps } from './_GalleryItem';
+import { GalleryItemProps } from './_GalleryItem.js';
 
 export const GalleryModalItem = (props: GalleryItemProps) => {
   const { caption, description, ...image } = props;

@@ -3,7 +3,7 @@ import 'hanna-test-helpers/polyfill-document';
 import { Equals, Expect } from '@reykjavik/hanna-utils';
 import o from 'ospec';
 
-import { useMixedControlState } from './useMixedControlState';
+import { useMixedControlState } from './useMixedControlState.js';
 import { createTest } from './useMixedControlState.tests.privates';
 
 // ---------------------------------------------------------------------------

@@ -1,12 +1,11 @@
-import { css, VariablePrinter } from 'es-in-css';
-import Color from 'es-in-css/_/color.types';
+import { ColorValue, css, VariablePrinter } from 'es-in-css';
 
-import { mq } from '../../lib/breakpoints';
-import { hannaVars as vars } from '../../lib/hannavars';
-import { hideText_css } from '../utils/hideText';
-import { prem } from '../utils/miscUtils';
+import { mq } from '../../lib/breakpoints.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
+import { hideText_css } from '../utils/hideText.js';
+import { prem } from '../utils/miscUtils.js';
 
-import { LinkStyle_Reset } from './links';
+import { LinkStyle_Reset } from './links.js';
 
 type FreezeScrollProps = {
   immediate?: boolean;
@@ -102,7 +101,7 @@ export const freezeScroll_css = ({
   `}
 `;
 
-export const LayoutHeaderUnderlay_css = (color: Color | VariablePrinter) => css`
+export const LayoutHeaderUnderlay_css = (color: ColorValue | VariablePrinter) => css`
   content: '';
   position: fixed;
   z-index: 1;

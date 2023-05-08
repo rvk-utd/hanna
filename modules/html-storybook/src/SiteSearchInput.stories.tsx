@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useState } from 'react';
 import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 
-import { getFormFieldKnobs } from './utils/knobs';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { getFormFieldKnobs } from './utils/knobs.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Forms/SiteSearchInput',

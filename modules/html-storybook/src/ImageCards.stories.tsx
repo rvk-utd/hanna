@@ -4,8 +4,8 @@ import { ImageCards } from '@reykjavik/hanna-react/ImageCards';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean } from '@storybook/addon-knobs';
 
-import { imageCards } from './utils/_dummyData';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { imageCards } from './utils/_dummyData.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'ImageCards',

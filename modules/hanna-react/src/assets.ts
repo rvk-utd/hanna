@@ -16,11 +16,6 @@ import {
   illustrations,
 } from '@reykjavik/hanna-utils/assets';
 
-import {
-  CssModuleToken,
-  CssVersionToken,
-} from '../../hanna-css/src/lib/style-server-info';
-
 export type {
   /** @deprecated  Instead `import type { BlingType } from '@reykjavik/hanna-utils/assets';` (Will be removed in v0.11) */
   BlingType,
@@ -57,9 +52,10 @@ export const getCssBundleUrl = (
   /** If you want to pin your CSS files to a specific version */
   version?: string
 ) =>
-  _getCssBundleUrl(cssTokens as string | Array<CssModuleToken>, {
-    version: version as CssVersionToken,
-  });
+  _getCssBundleUrl(
+    cssTokens as Parameters<typeof _getCssBundleUrl>[0],
+    { version } as Parameters<typeof _getCssBundleUrl>[1]
+  );
 
 // ---------------------------------------------------------------------------
 
@@ -83,7 +79,7 @@ export const efnistakn_menu = [
   'menu/velferd_fjolskylda',
 ] as const;
 /** @deprecated  (Will be removed in v0.11) */
-export type Efnistakn_Menu = typeof efnistakn_menu[number];
+export type Efnistakn_Menu = (typeof efnistakn_menu)[number];
 
 // ---------------------------------------------------------------------------
 
@@ -100,7 +96,7 @@ export const auxiliary_menu_images: Array<Illustration> = [
   'hanna-benda',
 ];
 /** @deprecated  Instead `import type { AuxilaryPanelIllustration } from '@reykjavik/hanna-react/MainMenu';` (Will be removed in v0.11) */
-export type Auxilary_MenuImages = typeof auxiliary_menu_images[number];
+export type Auxilary_MenuImages = (typeof auxiliary_menu_images)[number];
 
 // ---------------------------------------------------------------------------
 

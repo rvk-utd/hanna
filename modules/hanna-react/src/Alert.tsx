@@ -10,9 +10,9 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { Button } from './_abstract/_Button';
-import { isPreact } from './utils/env';
-import { SSRSupport, useIsBrowserSide } from './utils';
+import { Button } from './_abstract/_Button.js';
+import { isPreact } from './utils/env.js';
+import { SSRSupport, useIsBrowserSide } from './utils.js';
 
 // FIXME: Eventually import from @reykjavik/hanna-css
 const AlertCloseTransitionDuration = 400;

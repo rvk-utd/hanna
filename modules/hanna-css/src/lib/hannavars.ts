@@ -1,9 +1,12 @@
 import { ObjectKeys } from '@reykjavik/hanna-utils';
 
-import { buildVariables } from './cssutils';
-import iconfonttokens from './iconfonttokens';
+import { buildVariables } from './cssutils.js';
+import iconfonttokens from './iconfonttokens.js';
 
-export const envVars = buildVariables(['cssVersion', 'browser_scrollbar_width']);
+export const envVars = /*@__PURE__*/ buildVariables([
+  'cssVersion',
+  'browser_scrollbar_width',
+]);
 
 // ---------------------------------------------------------------------------
 
@@ -16,7 +19,7 @@ export const envVars = buildVariables(['cssVersion', 'browser_scrollbar_width'])
  * BTW 2: `bp_w_Hamburger` is the **upper** limit of where the Hamburger
  * menu turns into a Topmenu
  */
-export const breakpointVars = buildVariables([
+export const breakpointVars = /*@__PURE__*/ buildVariables([
   'bp_w_phone',
   'bp_w_phablet',
   'bp_w_tablet',
@@ -28,7 +31,7 @@ export const breakpointVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables for the Hanna color pallette */
-export const colorVars = buildVariables([
+export const colorVars = /*@__PURE__*/ buildVariables([
   'color_esja_25',
   'color_esja_50',
   'color_esja_75',
@@ -92,7 +95,7 @@ export const colorVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables for semantic color-theme values */
-export const themeVars = buildVariables([
+export const themeVars = /*@__PURE__*/ buildVariables([
   'theme_color_primary',
   'theme_color_primary_75',
   'theme_color_primary_50',
@@ -118,7 +121,7 @@ export const themeVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables for default text-link styling */
-export const linkVars = buildVariables([
+export const linkVars = /*@__PURE__*/ buildVariables([
   'link_color',
   'link_color__hover',
   'link_weight',
@@ -139,7 +142,7 @@ export const linkVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables for Hanna typhography */
-export const fontVars = buildVariables([
+export const fontVars = /*@__PURE__*/ buildVariables([
   'font_family',
   'font_weight__normal',
   'font_weight__bold',
@@ -197,7 +200,7 @@ export const fontVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables for semantic z-index layering */
-export const zIndexVars = buildVariables([
+export const zIndexVars = /*@__PURE__*/ buildVariables([
   'zindex__sr_only',
   'zindex__modal',
   'zindex__header',
@@ -209,7 +212,7 @@ export const zIndexVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables for the hanna 12 column grid system */
-export const gridVars = buildVariables([
+export const gridVars = /*@__PURE__*/ buildVariables([
   'grid_margin',
   'grid_margin__neg',
   'grid_margin__right',
@@ -252,7 +255,7 @@ export const gridVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables for standard spacing (combine with `calc()` for even more profit) */
-export const spaceVars = buildVariables([
+export const spaceVars = /*@__PURE__*/ buildVariables([
   'space_1',
   'space_2',
   'space_3',
@@ -284,7 +287,7 @@ export const spaceVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables with global Layout values */
-export const layoutVars = buildVariables([
+export const layoutVars = /*@__PURE__*/ buildVariables([
   'Layout$$header_height',
   'Layout$$header_logo_color',
   'Layout$$header_color',
@@ -295,7 +298,7 @@ export const layoutVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables with global MainMenu values  */
-export const mainMenuVars = buildVariables([
+export const mainMenuVars = /*@__PURE__*/ buildVariables([
   'MainMenu_accentcolor',
   'MainMenu_background',
 ]);
@@ -303,21 +306,26 @@ export const mainMenuVars = buildVariables([
 // ---------------------------------------------------------------------------
 
 /** CSS variables for borders */
-export const borderEffectVars = buildVariables(['border_default', 'border_dark']);
+export const borderEffectVars = /*@__PURE__*/ buildVariables([
+  'border_default',
+  'border_dark',
+]);
 
 // ---------------------------------------------------------------------------
 
 /** CSS variables for Button* spacing */
-export const buttonVars = buildVariables(['Button__gapH', 'Button__gapV']);
+export const buttonVars = /*@__PURE__*/ buildVariables(['Button__gapH', 'Button__gapV']);
 
 // ---------------------------------------------------------------------------
 
 /** CSS variables for Hanna icon types */
-export const iconVars = buildVariables(ObjectKeys(iconfonttokens));
+export const iconVars = /*@__PURE__*/ buildVariables(
+  /*#__PURE__*/ ObjectKeys(iconfonttokens)
+);
 
 // ---------------------------------------------------------------------------
 
-const _hannaVars = buildVariables.join(
+const _hannaVars = /*@__PURE__*/ buildVariables.join(
   envVars,
   breakpointVars,
   colorVars,
@@ -334,12 +342,17 @@ const _hannaVars = buildVariables.join(
   iconVars
 );
 
+// Using destructuring, rather than direct assignment, as it seems to reduce
+// the chance of bundlers (e.g. Rollup) treating getting the methods on
+// `makeVariables` as a side-effect
+const { vars, override } = _hannaVars;
+
 /**
  * Type-safe collection of CSS variables for use in your CSS code.
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hannavars
  */
-export const hannaVars = _hannaVars.vars;
+export const hannaVars = vars;
 
 /**
  * This function provides a type-safe way to write local overrides for the Hanna
@@ -347,6 +360,6 @@ export const hannaVars = _hannaVars.vars;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hannavaroverride
  */
-export const hannaVarOverride = _hannaVars.override;
+export const hannaVarOverride = override;
 
 export type HannaCssVarToken = keyof typeof hannaVars;

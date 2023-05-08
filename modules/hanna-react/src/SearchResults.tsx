@@ -9,9 +9,9 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 import {
   SearchResultsItem,
   SearchResultsItemProps,
-} from './SearchResults/_SearchResultsItem';
-import Alert from './Alert';
-import Tabs, { TabItemProps } from './Tabs';
+} from './SearchResults/_SearchResultsItem.js';
+import Alert from './Alert.js';
+import Tabs, { TabItemProps } from './Tabs.js';
 
 const renderDefaultErrorText = () => (
   <>
@@ -213,7 +213,7 @@ export type SearchResultsFilter = {
   count?: number;
 };
 
-export type { SearchResultsItemProps } from './SearchResults/_SearchResultsItem';
+export type { SearchResultsItemProps } from './SearchResults/_SearchResultsItem.js';
 
 export type SearchResultsProps = {
   /** Grand total number of searach results */

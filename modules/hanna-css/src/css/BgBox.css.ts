@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between';
-import { hannaVars as vars } from '../lib/hannavars';
+import { between_phone_netbook } from '../lib/between.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { avoidCssnanoMerging, extendBackgroundWithUnderlay } from './utils/miscUtils';
+import { avoidCssnanoMerging, extendBackgroundWithUnderlay } from './utils/miscUtils.js';
 
 export default css`
   .BgBox {

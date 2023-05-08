@@ -1,10 +1,9 @@
 import { css, em } from 'es-in-css';
 
-import { buildVariables } from '../../lib/cssutils';
-import { font } from '../../lib/font';
-import { cols_pct } from '../../lib/grid';
-import { hannaVars as vars } from '../../lib/hannavars';
-import { prem } from '../utils/miscUtils';
+import { buildVariables } from '../../lib/cssutils.js';
+import { font } from '../../lib/font.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
+import { cols_pct, prem } from '../utils/miscUtils.js';
 
 const fontSize = font.sizes.sh_l_size;
 

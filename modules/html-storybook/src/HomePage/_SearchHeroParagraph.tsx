@@ -8,7 +8,7 @@ import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocom
 import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 
-import { HiddenTiger } from '../utils/HiddenTiger';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 const items = range(1, 5).map((value) => `Suggestion ${value}`);
 

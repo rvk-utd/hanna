@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>ContactBubble sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,ContactBubble"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('ContactBubble');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main" style="height: 200vh">
+          ...Scroll down to see the ContactBubble...
+        </div>
+
+        <div class="Layout__nav">
+          <!-- -->
+
+          <!-- <div class="ContactBubble" data-always-show="true"> -->
+          <div class="ContactBubble">
+            <h2 class="ContactBubble__title">Hvað getum við gert fyrir þig?</h2>
+
+            <ul class="ContactBubble__list">
+              <li class="ContactBubble__item ContactBubble__item--type--suggestions">
+                <a
+                  class="ContactBubble__link"
+                  href="https://abendingar.reykjavik.is/"
+                  target="_blank"
+                >
+                  Ábendingar
+                  <small>Sendu okkur línu</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--livechat">
+                <a
+                  class="ContactBubble__link"
+                  href="https://svarbox.teljari.is/?c=1030"
+                  target="_blank"
+                >
+                  Netspjall
+                  <small>Opið virka daga kl. 8:30–16:00</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--faq">
+                <a class="ContactBubble__link" href="/spurt-og-svarad">
+                  Spurt og svarað
+                  <small>Algengar spurningar og svör</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--phone">
+                <a class="ContactBubble__link" href="tel:+3544111111">
+                  Þjónustuver 411-1111
+                  <small>Opið virka daga kl. 8:30–16:00</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--suggestions">
+                <a class="ContactBubble__link" href="mailto:upplysingar@reykjavik.is">
+                  upplysingar@reykjavik.is
+                  <small>Sendu okkur línu</small>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- -->
+        </div>
+
+        <div class="Layout__footer">
+          <p>&nbsp;</p>
+          <p>
+            BTW, the ContactBubble disappears when the paged is scrolled all the way to
+            the bottom.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../../lib/breakpoints';
-import { cols_px } from '../../lib/grid';
-import { hannaVars as vars } from '../../lib/hannavars';
-import { WARNING__ } from '../../lib/WARNING__';
+import { mq } from '../../lib/breakpoints.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
+import { WARNING__ } from '../../lib/WARNING__.js';
+import { cols_px } from '../utils/miscUtils.js';
 
 export const ComponentLayout = (wide = true) => css`
   @media screen {

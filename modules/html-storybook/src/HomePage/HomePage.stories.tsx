@@ -1,10 +1,10 @@
 import React from 'react';
 import { getCssBundleUrl } from '@reykjavik/hanna-css';
 
-import { StoryComponent, StoryParameters } from '../storytypes';
-import { HiddenTiger } from '../utils/HiddenTiger';
+import { StoryComponent, StoryParameters } from '../storytypes.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
-import { SearchHeroParagraph as _SearchHeroParagraph } from './_SearchHeroParagraph';
+import { SearchHeroParagraph as _SearchHeroParagraph } from './_SearchHeroParagraph.js';
 
 export default {
   title: '_misc/HomePage',

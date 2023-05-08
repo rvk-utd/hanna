@@ -2,8 +2,8 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect';
-import Footnote from './Footnote';
+import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import Footnote from './Footnote.js';
 
 export type PageFilterProps = {
   title: string;

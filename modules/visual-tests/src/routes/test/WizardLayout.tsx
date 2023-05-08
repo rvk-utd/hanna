@@ -1,19 +1,20 @@
 import React, { Fragment, useState } from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { Alert } from '@reykjavik/hanna-react/Alert';
 import { WizardLayout } from '@reykjavik/hanna-react/WizardLayout';
 import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
 
-import { DummyBlock, GhostLabel } from '../../layout/DummyBlock';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock, GhostLabel } from '../../layout/DummyBlock.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 const toggle = (on: true | undefined) => !on || undefined;
 
 // Use `handle` if you're using multiple Hanna compnents
-export const handle = { cssTokens: ['Alert', 'WizardLayoutClose'] };
+export const handle = cssTokens('Alert', 'WizardLayoutClose');
 
 export default function () {
   const [globalAlerts, setGlobalAlerts] = useState<true | undefined>();

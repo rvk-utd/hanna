@@ -10,7 +10,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import is from 'date-fns/locale/is';
 import pl from 'date-fns/locale/pl';
 
-import FormField, { FormFieldWrappingProps } from './FormField';
+import FormField, { FormFieldWrappingProps } from './FormField.js';
 
 registerLocale('is', is);
 registerLocale('pl', pl);
@@ -177,7 +177,19 @@ export const Datepicker = (props: DatepickerProps) => {
               selected={value}
               name={name}
               locale={localeCode}
-              dateFormat={dateFormat}
+              dateFormat={
+                // NOTE: Force all dateFormat values into Array<string> to temporarily work around
+                // a bug in the current version of react-datepicker where invalid **string** values
+                // are re-parsed with `new Date()`, causing surprising (weird) false positives
+                // AND where Arrayed formats get parsed in order of "increasing priority".
+                //
+                // TODO: Revert back to the plain `dateFormat={dateFormat}` pass-through once
+                // https://github.com/Hacker0x01/react-datepicker/pull/3988 has been accepted and released.
+                typeof dateFormat === 'string'
+                  ? [dateFormat]
+                  : dateFormat.slice(0).reverse()
+                // dateFormat
+              }
               onChange={(date: Date | null) => {
                 onChange(date || undefined);
                 const inputElm = inputRef?.current;

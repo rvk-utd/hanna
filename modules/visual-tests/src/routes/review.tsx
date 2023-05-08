@@ -1,5 +1,5 @@
 import React from 'react';
-import type { LinksFunction, LoaderFunction } from '@remix-run/node';
+import type { LinksFunction, V2_MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, useLoaderData, useSearchParams } from '@remix-run/react';
 import { Layout } from '@reykjavik/hanna-react/Layout';
@@ -8,6 +8,7 @@ import { SeenEffect } from '@reykjavik/hanna-react/SeenEffect';
 import { TagPill } from '@reykjavik/hanna-react/TagPill';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
+import { copyCacheControl, cssTokens } from '../utils/route';
 import { getChangesToReview, getReportDate } from '../utils/tests.server';
 
 import styles from './review.css';
@@ -22,7 +23,7 @@ export type LoaderData = {
   reportCreatedDate: number | undefined;
 };
 
-export const loader: LoaderFunction = async () => {
+export const loader = async () => {
   const [changed, reportCreatedDate] = await Promise.all([
     getChangesToReview(),
     getReportDate(),
@@ -33,6 +34,8 @@ export const loader: LoaderFunction = async () => {
 
 // ---------------------------------------------------------------------------
 
+export const headers = copyCacheControl;
+
 export const links: LinksFunction = () => [
   {
     rel: 'stylesheet',
@@ -40,16 +43,16 @@ export const links: LinksFunction = () => [
   },
 ];
 
+export const meta: V2_MetaFunction = () => [{ title: 'Review Changed Screenshots' }];
+
 // ---------------------------------------------------------------------------
 
-export const handle = {
-  cssTokens: ['PageHeading', 'TextBlock', 'TagPill', 'SeenEffect'],
-};
+export const handle = cssTokens('PageHeading', 'TextBlock', 'TagPill', 'SeenEffect');
 
 // ---------------------------------------------------------------------------
 
 export default function () {
-  const { changed, reportCreatedDate } = useLoaderData<LoaderData>();
+  const { changed, reportCreatedDate } = useLoaderData<typeof loader>();
   const [q] = useSearchParams();
 
   const reportUrl = `/report/index.html?t=${reportCreatedDate}`;

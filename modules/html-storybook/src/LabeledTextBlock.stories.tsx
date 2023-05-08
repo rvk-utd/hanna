@@ -3,7 +3,7 @@ import { Attention } from '@reykjavik/hanna-react/Attention';
 import { LabeledTextBlock } from '@reykjavik/hanna-react/LabeledTextBlock';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'LabeledTextBlock',

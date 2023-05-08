@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Tabs sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,Tabs"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('Tabs');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <p>
+            This example shows the Markup pattern for anchor-link driven tablist actions:
+          </p>
+
+          <div class="Tabs" aria-label="Optional label text">
+            <a class="Tabs__tab" data-active="true" href="#tab-1"
+              >Tab 1 <small class="Tabs__tab__badge">(34)</small></a
+            >
+            <a class="Tabs__tab" href="#tab-2">Tab number 2 <small>(10)</small></a>
+            <a class="Tabs__tab" id="suppplies" href="#tab-3">Tab 3</a>
+            <a
+              class="Tabs__tab"
+              href="#tab-4"
+              aria-label="Tab 4 has longer label"
+              title="Tab 4 has longer label"
+              >Tab 4</a
+            >
+          </div>
+
+          <div class="TabPanel" id="tab-1">
+            <p><strong>Tab 1</strong></p>
+            …
+          </div>
+
+          <div class="TabPanel" id="tab-2">
+            <p><strong>Tab 2</strong></p>
+            …
+          </div>
+
+          <div class="TabPanel" id="tab-3">
+            <p><strong>Tab 3</strong></p>
+            …
+          </div>
+
+          <div class="TabPanel" id="tab-4">
+            <p><strong>Tab 4 has longer label</strong></p>
+            …
+          </div>
+
+          <!-- ------------------------------------------------------------ -->
+
+          <br /><br /><br />
+          <p>This is an example of <code>utils/makeTabs</code> helper in action:</p>
+
+          <div id="single-tab-panel">
+            This is the tab panel element.<br />
+            The tabs have not been initialized yet...
+          </div>
+
+          <script>
+            (function () {
+              const panelElm = document.getElementById('single-tab-panel');
+              // initialize the tab panel contents...
+              panelElm.textContent = 'Listing all the fruits!';
+
+              window.Hanna.import('utils/makeTabs').then(function ([makeTabsModule]) {
+                const props = {
+                  'aria-controls': 'single-tab-panel', // points to the panelElm, for a11y
+                  'aria-label': 'Fruits', // nice to have accessible label for the tablist
+                  activeIdx: 0, // Sets the starting tab
+                  tabs: [
+                    {
+                      label: 'All fruits',
+                      badge: '99+',
+                      // Custom tab-click behavior
+                      onActivated: function () {
+                        panelElm.textContent = 'Listing all the fruits!';
+                        return false; // cancel the default/global onSetActive callback
+                      },
+                    },
+                    { label: 'Apples', badge: '12' },
+                    { label: 'Oranges', badge: '29' },
+                    { label: 'Bananas', badge: '100' },
+                  ],
+                  // callback that triggers whenever the user clicks/selects a tab
+                  onSetActive: function (idx, tabData) {
+                    panelElm.textContent = tabData.label + ' contents... lorem ipsum';
+                  },
+                };
+                // initialize the Tabs with props
+                const meta = makeTabsModule.default(props);
+                const rootElm = meta.rootElm;
+                const setPanelDisplay = meta.setPanelDisplay;
+                const unmount = meta.unmount;
+                const update = meta.update;
+
+                // insert the Tabs into the page DOM
+                meta.ready.then(function () {
+                  document
+                    .getElementById('single-tab-panel')
+                    .insertAdjacentElement('beforebegin', rootElm);
+                });
+
+                // Helper to make the tab panel focusable (and visible)
+                makeTabsModule.setPanelDisplay(panelElm, true);
+
+                // Make changes to the tabs
+                setTimeout(function () {
+                  const newTabs = [
+                    Object.assign({}, props.tabs[0], { badge: '100+' }), // change the first tab's badge (count)
+                  ].concat(props.tabs.slice(1));
+
+                  update({ tabs: newTabs });
+                }, 1000);
+
+                // Create an "unmount" button to remove/kill the tabs
+                // (BTW: You must "bring your own" tab panel reset routines, though.)
+                const killButton = document.createElement('button');
+                killButton.value = 'Kill the tabs!';
+                killButton.onClick = function () {
+                  unmount();
+                };
+                panelElm.insertAdjacentElement('afterend', killButton);
+              });
+            })();
+          </script>
+
+          <!-- ------------------------------------------------------------ -->
+
+          <br /><br /><br />
+          <p>
+            Another example of <code>utils/makeTabs</code> helper – now toggling visibily,
+            with an "show all" button:
+          </p>
+          <!-- Quick-and-dirty add `ActionCards` CSS -->
+          <link rel="stylesheet" href="http://localhost:4000/bundle/dev?m=ActionCards" />
+
+          <div class="TabPanel" id="red-items">
+            <div class="ActionCards">
+              <h2 class="ActionCards__title">Red</h2>
+              <ul class="ActionCards__list">
+                <li class="ActionCards__item">red content...</li>
+              </ul>
+            </div>
+          </div>
+          <div class="TabPanel" id="green-items">
+            <div class="ActionCards">
+              <h2 class="ActionCards__title">Green</h2>
+              <ul class="ActionCards__list">
+                <li class="ActionCards__item">green content blah blah blah...</li>
+              </ul>
+            </div>
+          </div>
+          <div class="TabPanel" id="blue-items">
+            <div class="ActionCards">
+              <h2 class="ActionCards__title">Blue</h2>
+              <ul class="ActionCards__list">
+                <li class="ActionCards__item">blue content is here...</li>
+              </ul>
+            </div>
+          </div>
+
+          <script>
+            (function () {
+              const texts = {
+                // tablistLabel: '...',
+                // allLabel: '...',
+              };
+
+              const panelElm = document.getElementById('single-tab-panel');
+              // initialize the tab panel contents...
+              const panelElms = Array.from(
+                document.querySelectorAll('.TabPanel .ActionCards')
+              ).map(function (elm) {
+                return elm.closest('.TabPanel');
+              });
+
+              if (panelElms.length <= 1) {
+                return;
+              }
+
+              window.Hanna.import('utils/makeTabs').then(function ([makeTabsModule]) {
+                let startingIdx = 0;
+                const startingFrag = decodeURIComponent(document.location.hash.slice(1));
+
+                panelElms.forEach(function (panelElm, i) {
+                  const titleElm = panelElm.querySelector('.ActionCards__title');
+                  const title = titleElm && titleElm.textContent;
+                  title && panelElm.setAttribute('aria-label', title);
+                  panelElm.id =
+                    panelElm.id || title || 'tab--' + ('' + Math.random()).slice(1);
+                  if (startingFrag === panelElm.id) {
+                    startingIdx = i + 1;
+                  }
+                  panelElm.dataset.sprinkled = 'true';
+                });
+
+                const tabs = panelElms.map(function (panelElm) {
+                  return {
+                    label: panelElm.getAttribute('aria-label'),
+                    'aria-controls': panelElm.id,
+                  };
+                });
+
+                tabs.unshift({
+                  label:
+                    texts.allLabel ||
+                    (/^is/i.test(document.documentElement.lang) ? 'Allt' : 'All'),
+                  'aria-controls': panelElms
+                    .map(function (panelElm) {
+                      return panelElm.id;
+                    })
+                    .join(' '),
+                });
+
+                const setPanelElmsDisplay = function (activeIdx) {
+                  panelElms.forEach(function (panelElm, i) {
+                    const isActive = activeIdx === 0 || activeIdx === i + 1;
+                    makeTabsModule.setPanelDisplay(panelElm, isActive);
+                  });
+                };
+
+                const meta = makeTabsModule.default({
+                  'aria-label': texts.tablistLabel,
+                  activeIdx: startingIdx, // Sets °he starting tab
+                  tabs: tabs,
+                  onSetActive: function (activeIdx, tabData) {
+                    const scrollElm = document.body; // ideally: `getPageScrollElm() from @reykjavik/hanna-utils`
+                    document.location.replace(
+                      '#' + (activeIdx ? tabData['aria-controls'] : '')
+                    );
+                    setPanelElmsDisplay(activeIdx);
+                    scrollElm.scrollTo(0, scrollElm.scrollHeight);
+                  },
+                });
+                meta.ready.then(() => {
+                  panelElms[0].insertAdjacentElement('beforebegin', meta.rootElm);
+                });
+
+                setPanelElmsDisplay(startingIdx);
+              });
+            })();
+          </script>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

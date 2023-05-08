@@ -2,7 +2,7 @@ import { Expect, Extends, NotExtends } from '@reykjavik/hanna-utils';
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
-import { iconfont_raw, IconName, icons } from './icons';
+import { iconfont_raw, IconName, icons } from './icons.js';
 
 o.spec('icons', () => {
   o('icon names match predetermined list', () => {

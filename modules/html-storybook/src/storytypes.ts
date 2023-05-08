@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { HannaColorTheme } from '@reykjavik/hanna-css';
 
-import { ViewportOptions } from './utils/viewports';
+import { ViewportOptions } from './utils/viewports.js';
 
 export type StoryParameters = {
   knobs?: {

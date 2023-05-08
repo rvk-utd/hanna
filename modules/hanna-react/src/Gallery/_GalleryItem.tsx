@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 
-import { Button } from '../_abstract/_Button';
-import { Image, ImageProps } from '../_abstract/_Image';
+import { Button } from '../_abstract/_Button.js';
+import { Image, ImageProps } from '../_abstract/_Image.js';
 
-import { GalleryModalContext } from './_GalleryModalContext';
+import { GalleryModalContext } from './_GalleryModalContext.js';
 
 // ---------------------------------------------------------------------------
 

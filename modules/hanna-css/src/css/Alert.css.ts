@@ -1,21 +1,21 @@
 import { color, css, ms } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { colors } from '../lib/colors';
-import { buildVariables } from '../lib/cssutils';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
-import { WARNING__ } from '../lib/WARNING__';
+import { mq } from '../lib/breakpoints.js';
+import { colors } from '../lib/colors.js';
+import { buildVariables } from '../lib/cssutils.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_Reset } from './styles/links';
-import { hideText_css } from './utils/hideText';
-import { prem } from './utils/miscUtils';
+import { LinkStyle_Reset } from './styles/links.js';
+import { hideText_css } from './utils/hideText.js';
+import { prem } from './utils/miscUtils.js';
 
 const AlertVariables = buildVariables(['background', 'icon_color', 'icon'], 'Alert');
 const alertVars = AlertVariables.vars;
 
 const pureWhite = color('#fff');
-const linkColor = color(colors.faxafloi_100).mix(colors.faxafloi_150, 0.2);
+const linkColor = color(colors.faxafloi_100).mix(color(colors.faxafloi_150), 0.2);
 const closing_duration = ms(400);
 const ease_out_quartic = 'cubic-bezier(0.165, 0.84, 0.44, 1)';
 
@@ -61,7 +61,9 @@ export default css`
         left: ${prem(25)};
       }
     }
-    .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(.Alert--error):not(.Alert--critical) {
+    .Alert:not(.Alert--info):not(.Alert--success):not(.Alert--warning):not(
+        .Alert--error
+      ):not(.Alert--critical) {
       ${WARNING__('"Type" modifier class-name is missing', { pos: 'after' })};
     }
     .Alert:not([role='alert']) {
@@ -83,14 +85,20 @@ export default css`
     .Alert--warning {
       ${AlertVariables.override({
         background: vars.color_nautholsvik_50,
-        icon_color: color(colors.nautholsvik_100).mix(colors.nautholsvik_150, 0.33),
+        icon_color: color(colors.nautholsvik_100).mix(
+          color(colors.nautholsvik_150),
+          0.33
+        ),
         icon: vars.icon__warning,
       })}
     }
     .Alert--success {
       ${AlertVariables.override({
         background: color(colors.ellidaardalur_50).mix(pureWhite, 0.4),
-        icon_color: color(colors.ellidaardalur_100).mix(colors.ellidaardalur_150, 0.33),
+        icon_color: color(colors.ellidaardalur_100).mix(
+          color(colors.ellidaardalur_150),
+          0.33
+        ),
         icon: vars.icon__checkmark,
       })}
     }

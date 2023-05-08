@@ -1,15 +1,19 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import {
   ButtonTertiaryStyle,
   ButtonTertiaryStyle__hoverFocus,
   ButtonTertiaryVariables,
-} from './styles/buttons';
-import { pullQuoteContainerStyle, pullQuoteVars, textContent } from './utils/textContent';
+} from './styles/buttons.js';
+import {
+  pullQuoteContainerStyle,
+  pullQuoteVars,
+  textContent,
+} from './utils/textContent.js';
 
 const bVars = ButtonTertiaryVariables.vars;
 const pqVars = pullQuoteVars.vars;

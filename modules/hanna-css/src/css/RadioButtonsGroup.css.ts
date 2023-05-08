@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { TogglerButtonsGroup, TogglerButtonsKnob } from './styles/forms';
+import { TogglerButtonsGroup, TogglerButtonsKnob } from './styles/forms.js';
 
 export default css`
   /*!@deps

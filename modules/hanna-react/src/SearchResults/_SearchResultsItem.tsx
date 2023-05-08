@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Image } from '../_abstract/_Image';
-import { Link } from '../_abstract/_Link';
+import { Image } from '../_abstract/_Image.js';
+import { Link } from '../_abstract/_Link.js';
 
 type MetaValue = string | (() => JSX.Element | string | number);
 

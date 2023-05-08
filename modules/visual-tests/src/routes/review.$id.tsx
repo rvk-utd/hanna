@@ -1,19 +1,20 @@
 import React from 'react';
+import { ActionArgs, json, LinksFunction, LoaderArgs, redirect } from '@remix-run/node';
 import {
-  ActionFunction,
-  json,
-  LinksFunction,
-  LoaderFunction,
-  redirect,
-} from '@remix-run/node';
-import { Link, useCatch, useLoaderData } from '@remix-run/react';
+  isRouteErrorResponse,
+  Link,
+  useLoaderData,
+  useRouteError,
+  V2_MetaFunction,
+} from '@remix-run/react';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
-import { Minimal } from '../layout/Minimal';
-import { ReviewShot } from '../layout/ReviewShot';
-import { ensureString } from '../utils/ensure';
+import { Minimal } from '../layout/Minimal.js';
+import { ReviewShot } from '../layout/ReviewShot.js';
+import { ensureString } from '../utils/ensure.js';
+import { copyCacheControl, cssTokens } from '../utils/route';
 import { Changeset, getChangeById, updateScreenshotsFor } from '../utils/tests.server';
 
 type LoaderData = {
@@ -27,7 +28,7 @@ const ensureAction = (cand: unknown) => {
   }
 };
 
-export const action: ActionFunction = async ({ params, request }) => {
+export const action = async ({ params, request }: ActionArgs) => {
   const formData = await request.formData();
   const action = ensureAction(formData.get('action'));
 
@@ -44,7 +45,7 @@ export const action: ActionFunction = async ({ params, request }) => {
 
 // ---------------------------------------------------------------------------
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader = async ({ params }: LoaderArgs) => {
   const id = ensureString(params.id) || '';
   const change = await getChangeById(id);
   const TTL = 10;
@@ -64,23 +65,32 @@ export const loader: LoaderFunction = async ({ params }) => {
   // ---------------------------------------------------------------------------
 };
 
+export const headers = copyCacheControl;
+
 export const links: LinksFunction = () => [...ReviewShot.links()];
 
-export const handle = {
-  cssTokens: ['PageHeading', 'TextBlock', ...ReviewShot.cssTokens],
+export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
+  const { testName, project, label } = data.change;
+  return [{ title: `Review: ${testName} ${project} ${label}` }];
 };
+
+export const handle = cssTokens('PageHeading', 'TextBlock', ...ReviewShot.cssTokens);
 
 // ---------------------------------------------------------------------------
 
-export const CatchBoundary = () => {
+export const ErrorBoundary = () => {
   // const { id = '' } = useParams<'id'>();
-  const cought = useCatch();
+  const error = useRouteError();
+
+  const isRouteError = isRouteErrorResponse(error);
+  const title = isRouteError ? error.statusText : 'Error';
+  const message = isRouteError ? error.data : (error as Error).message || 'Unknown error';
 
   return (
     <Layout>
-      <PageHeading small>{cought.statusText}</PageHeading>
+      <PageHeading small>{title}</PageHeading>
       <TextBlock>
-        <p>{cought.data}</p>
+        <p>{message}</p>
       </TextBlock>
     </Layout>
   );
@@ -89,7 +99,7 @@ export const CatchBoundary = () => {
 // ---------------------------------------------------------------------------
 
 export default function () {
-  const { change } = useLoaderData<LoaderData>();
+  const { change } = useLoaderData<typeof loader>();
 
   return (
     <Minimal bare key={change.id}>

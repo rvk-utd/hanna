@@ -2,8 +2,8 @@ import React, { ChangeEvent, useState } from 'react';
 import { SearchInput } from '@reykjavik/hanna-react/SearchInput';
 import { boolean } from '@storybook/addon-knobs';
 
-import { getFormFieldKnobs } from './utils/knobs';
-import { StoryComponent, StoryParameters } from './storytypes';
+import { getFormFieldKnobs } from './utils/knobs.js';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Forms/SearchInput',

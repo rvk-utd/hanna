@@ -8,7 +8,7 @@ import type {
   TestInfoObj,
   TestingInfo,
   TestTag,
-} from '../src/test-helpers/testingInfo';
+} from '../src/test-helpers/testingInfo.js';
 import { getTestListSync } from '../src/utils/tests.server';
 
 import {
@@ -17,11 +17,11 @@ import {
   NAME_SPLIT,
   TAG_PREFIX,
   TAG_SUFFIX,
-} from './helpers/screeshots';
+} from './helpers/screeshots.js';
 import {
   expandViewport as _expandViewport,
   setViewportSize as _setViewportSize,
-} from './helpers/viewport';
+} from './helpers/viewport.js';
 
 const expectSoft = expect.soft;
 
@@ -39,83 +39,83 @@ type TestPageLabel = keyof typeof testPagePaths;
 // ---------------------------------------------------------------------------
 
 /* eslint-disable import/first */
-import { testing as AccordionList__test } from '../src/routes/test/AccordionList';
-import { testing as ActionCards__test } from '../src/routes/test/ActionCards';
-import { testing as Alert__test } from '../src/routes/test/Alert';
-import { testing as ArticleCards__test } from '../src/routes/test/ArticleCards';
-import { testing as ArticleCarousel__test } from '../src/routes/test/ArticleCarousel';
-import { testing as ArticleMeta__test } from '../src/routes/test/ArticleMeta';
-import { testing as Attention__test } from '../src/routes/test/Attention';
-import { testing as BasicTable__test } from '../src/routes/test/BasicTable';
-import { testing as BgBox__test } from '../src/routes/test/BgBox';
-import { testing as Bling__test } from '../src/routes/test/Bling';
-import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote';
-import { testing as BreadCrumbs__test } from '../src/routes/test/BreadCrumbs';
-import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack';
-import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar';
-import { testing as Buttons__test } from '../src/routes/test/Buttons';
-import { testing as Carousel__test } from '../src/routes/test/Carousel';
-import { testing as CenterColumn__test } from '../src/routes/test/CenterColumn';
-import { testing as CheckboxAndRadio__test } from '../src/routes/test/CheckboxAndRadio';
-import { testing as CheckboxButton__test } from '../src/routes/test/CheckboxButton';
-import { testing as CheckboxButtonsGroup__test } from '../src/routes/test/CheckboxButtonsGroup';
-import { testing as CheckboxGroup__test } from '../src/routes/test/CheckboxGroup';
-import { testing as CityBlock__test } from '../src/routes/test/CityBlock';
-import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble';
-import { testing as ContentArticle__test } from '../src/routes/test/ContentArticle';
-import { testing as ContentImage__test } from '../src/routes/test/ContentImage';
-import { testing as Datepicker__test } from '../src/routes/test/Datepicker';
-import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks';
-import { testing as FeatureList__test } from '../src/routes/test/FeatureList';
-import { testing as FieldGroup__test } from '../src/routes/test/FieldGroup';
-import { testing as FileInput__test } from '../src/routes/test/FileInput';
-import { testing as FooterBadges__test } from '../src/routes/test/FooterBadges';
-import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo';
-import { testing as Footnote__test } from '../src/routes/test/Footnote';
-import { testing as Form__test } from '../src/routes/test/Form';
-import { testing as Gallery__test } from '../src/routes/test/Gallery';
-import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks';
-import { testing as Heading__test } from '../src/routes/test/Heading';
-import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock';
-import { testing as IframeBlock__test } from '../src/routes/test/IframeBlock';
-import { testing as ImageCards__test } from '../src/routes/test/ImageCards';
-import { testing as InfoBlock__test } from '../src/routes/test/InfoBlock';
-import { testing as InfoHero__test } from '../src/routes/test/InfoHero';
-import { testing as IslandBlock__test } from '../src/routes/test/IslandBlock';
-import { testing as IslandPageBlock__test } from '../src/routes/test/IslandPageBlock';
-import { testing as LabeledTextBlock__test } from '../src/routes/test/LabeledTextBlock';
-import { testing as Layout__test } from '../src/routes/test/Layout';
-import { testing as MainMenu__test } from '../src/routes/test/MainMenu';
-import { testing as MiniMetrics__test } from '../src/routes/test/MiniMetrics';
-import { testing as Modal__test } from '../src/routes/test/Modal';
-import { testing as NameCards__test } from '../src/routes/test/NameCards';
-import { testing as NewsHero__test } from '../src/routes/test/NewsHero';
-import { testing as PageFilter__test } from '../src/routes/test/PageFilter';
-import { testing as PageHeading__test } from '../src/routes/test/PageHeading';
-import { testing as Picture__test } from '../src/routes/test/Picture';
-import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview';
-import { testing as PullQuote__test } from '../src/routes/test/PullQuote';
-import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup';
-import { testing as RadioGroup__test } from '../src/routes/test/RadioGroup';
-import { testing as RelatedLinks__test } from '../src/routes/test/RelatedLinks';
-import { testing as RowBlock__test } from '../src/routes/test/RowBlock';
-import { testing as SearchHeroParagraph__test } from '../src/routes/test/SearchHeroParagraph';
-import { testing as SearchInput__test } from '../src/routes/test/SearchInput';
-import { testing as SearchResults__test } from '../src/routes/test/SearchResults';
-import { testing as Selectbox__test } from '../src/routes/test/Selectbox';
-import { testing as ShareButtons__test } from '../src/routes/test/ShareButtons';
-import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete';
-import { testing as Skeleton__test } from '../src/routes/test/Skeleton';
-import { testing as SubHeading__test } from '../src/routes/test/SubHeading';
-import { testing as Tabs__test } from '../src/routes/test/Tabs';
-import { testing as TagPill__test } from '../src/routes/test/TagPill';
-import { testing as TextBlock__test } from '../src/routes/test/TextBlock';
-import { testing as TextButton__test } from '../src/routes/test/TextButton';
-import { testing as TextInput__test } from '../src/routes/test/TextInput';
-import { testing as Tooltip__test } from '../src/routes/test/Tooltip';
-import { testing as VSpacer__test } from '../src/routes/test/VSpacer';
-import { testing as WizardLayout__test } from '../src/routes/test/WizardLayout';
-import { testing as WizardStepper__test } from '../src/routes/test/WizardStepper';
+import { testing as AccordionList__test } from '../src/routes/test/AccordionList.js';
+import { testing as ActionCards__test } from '../src/routes/test/ActionCards.js';
+import { testing as Alert__test } from '../src/routes/test/Alert.js';
+import { testing as ArticleCards__test } from '../src/routes/test/ArticleCards.js';
+import { testing as ArticleCarousel__test } from '../src/routes/test/ArticleCarousel.js';
+import { testing as ArticleMeta__test } from '../src/routes/test/ArticleMeta.js';
+import { testing as Attention__test } from '../src/routes/test/Attention.js';
+import { testing as BasicTable__test } from '../src/routes/test/BasicTable.js';
+import { testing as BgBox__test } from '../src/routes/test/BgBox.js';
+import { testing as Bling__test } from '../src/routes/test/Bling.js';
+import { testing as BlockQuote__test } from '../src/routes/test/BlockQuote.js';
+import { testing as BreadCrumbs__test } from '../src/routes/test/BreadCrumbs.js';
+import { testing as ButtonBack__test } from '../src/routes/test/ButtonBack.js';
+import { testing as ButtonBar__test } from '../src/routes/test/ButtonBar.js';
+import { testing as Buttons__test } from '../src/routes/test/Buttons.js';
+import { testing as Carousel__test } from '../src/routes/test/Carousel.js';
+import { testing as CenterColumn__test } from '../src/routes/test/CenterColumn.js';
+import { testing as CheckboxAndRadio__test } from '../src/routes/test/CheckboxAndRadio.js';
+import { testing as CheckboxButton__test } from '../src/routes/test/CheckboxButton.js';
+import { testing as CheckboxButtonsGroup__test } from '../src/routes/test/CheckboxButtonsGroup.js';
+import { testing as CheckboxGroup__test } from '../src/routes/test/CheckboxGroup.js';
+import { testing as CityBlock__test } from '../src/routes/test/CityBlock.js';
+import { testing as ContactBubble__test } from '../src/routes/test/ContactBubble.js';
+import { testing as ContentArticle__test } from '../src/routes/test/ContentArticle.js';
+import { testing as ContentImage__test } from '../src/routes/test/ContentImage.js';
+import { testing as Datepicker__test } from '../src/routes/test/Datepicker.js';
+import { testing as ExtraLinks__test } from '../src/routes/test/ExtraLinks.js';
+import { testing as FeatureList__test } from '../src/routes/test/FeatureList.js';
+import { testing as FieldGroup__test } from '../src/routes/test/FieldGroup.js';
+import { testing as FileInput__test } from '../src/routes/test/FileInput.js';
+import { testing as FooterBadges__test } from '../src/routes/test/FooterBadges.js';
+import { testing as FooterInfo__test } from '../src/routes/test/FooterInfo.js';
+import { testing as Footnote__test } from '../src/routes/test/Footnote.js';
+import { testing as Form__test } from '../src/routes/test/Form.js';
+import { testing as Gallery__test } from '../src/routes/test/Gallery.js';
+import { testing as GridBlocks__test } from '../src/routes/test/GridBlocks.js';
+import { testing as Heading__test } from '../src/routes/test/Heading.js';
+import { testing as HeroBlock__test } from '../src/routes/test/HeroBlock.js';
+import { testing as IframeBlock__test } from '../src/routes/test/IframeBlock.js';
+import { testing as ImageCards__test } from '../src/routes/test/ImageCards.js';
+import { testing as InfoBlock__test } from '../src/routes/test/InfoBlock.js';
+import { testing as InfoHero__test } from '../src/routes/test/InfoHero.js';
+import { testing as IslandBlock__test } from '../src/routes/test/IslandBlock.js';
+import { testing as IslandPageBlock__test } from '../src/routes/test/IslandPageBlock.js';
+import { testing as LabeledTextBlock__test } from '../src/routes/test/LabeledTextBlock.js';
+import { testing as Layout__test } from '../src/routes/test/Layout.js';
+import { testing as MainMenu__test } from '../src/routes/test/MainMenu.js';
+import { testing as MiniMetrics__test } from '../src/routes/test/MiniMetrics.js';
+import { testing as Modal__test } from '../src/routes/test/Modal.js';
+import { testing as NameCards__test } from '../src/routes/test/NameCards.js';
+import { testing as NewsHero__test } from '../src/routes/test/NewsHero.js';
+import { testing as PageFilter__test } from '../src/routes/test/PageFilter.js';
+import { testing as PageHeading__test } from '../src/routes/test/PageHeading.js';
+import { testing as Picture__test } from '../src/routes/test/Picture.js';
+import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOverview.js';
+import { testing as PullQuote__test } from '../src/routes/test/PullQuote.js';
+import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup.js';
+import { testing as RadioGroup__test } from '../src/routes/test/RadioGroup.js';
+import { testing as RelatedLinks__test } from '../src/routes/test/RelatedLinks.js';
+import { testing as RowBlock__test } from '../src/routes/test/RowBlock.js';
+import { testing as SearchHeroParagraph__test } from '../src/routes/test/SearchHeroParagraph.js';
+import { testing as SearchInput__test } from '../src/routes/test/SearchInput.js';
+import { testing as SearchResults__test } from '../src/routes/test/SearchResults.js';
+import { testing as Selectbox__test } from '../src/routes/test/Selectbox.js';
+import { testing as ShareButtons__test } from '../src/routes/test/ShareButtons.js';
+import { testing as SiteSearchAutocomplete__test } from '../src/routes/test/SiteSearchAutocomplete.js';
+import { testing as Skeleton__test } from '../src/routes/test/Skeleton.js';
+import { testing as SubHeading__test } from '../src/routes/test/SubHeading.js';
+import { testing as Tabs__test } from '../src/routes/test/Tabs.js';
+import { testing as TagPill__test } from '../src/routes/test/TagPill.js';
+import { testing as TextBlock__test } from '../src/routes/test/TextBlock.js';
+import { testing as TextButton__test } from '../src/routes/test/TextButton.js';
+import { testing as TextInput__test } from '../src/routes/test/TextInput.js';
+import { testing as Tooltip__test } from '../src/routes/test/Tooltip.js';
+import { testing as VSpacer__test } from '../src/routes/test/VSpacer.js';
+import { testing as WizardLayout__test } from '../src/routes/test/WizardLayout.js';
+import { testing as WizardStepper__test } from '../src/routes/test/WizardStepper.js';
 
 /* eslint-enable import/first */
 

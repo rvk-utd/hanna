@@ -1,13 +1,13 @@
 import { css } from 'es-in-css';
 
-import { between_tablet_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import { between_tablet_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { grid } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 
-import { LinkStyle_Reset } from './styles/links';
-import { prem } from './utils/miscUtils';
+import { LinkStyle_Reset } from './styles/links.js';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   /*!@deps

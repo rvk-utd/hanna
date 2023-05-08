@@ -5,7 +5,7 @@ import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { optionsKnob } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Buttons',

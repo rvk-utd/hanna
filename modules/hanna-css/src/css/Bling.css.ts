@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
-import { mq, screen_and } from '../lib/breakpoints';
-import { buildVariables, isDevMode } from '../lib/cssutils';
-import { grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { mq, screen_and } from '../lib/breakpoints.js';
+import { buildVariables, isDevMode } from '../lib/cssutils.js';
+import { grid } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
 const baseW = grid.contentMaxWidth.value;
 

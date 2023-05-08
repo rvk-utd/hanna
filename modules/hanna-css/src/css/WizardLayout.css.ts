@@ -1,11 +1,11 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../lib/breakpoints';
-import { cols_px, grid } from '../lib/grid';
-import { hannaVars as vars } from '../lib/hannavars';
+import { mq } from '../lib/breakpoints.js';
+import { grid } from '../lib/grid.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { LayoutHeaderLogo } from './styles/header';
-import { grid_units, prem } from './utils/miscUtils';
+import { LayoutHeaderLogo } from './styles/header.js';
+import { cols_px, grid_units, prem } from './utils/miscUtils.js';
 
 import { WizardLayoutClose_css } from './WizardLayoutClose.css';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 // ===========================================================================
 

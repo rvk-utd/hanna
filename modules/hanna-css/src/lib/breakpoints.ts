@@ -1,64 +1,71 @@
-import { Expect, Extends } from '@reykjavik/hanna-utils';
 import { px, RawMediaQuery } from 'es-in-css';
 
 // Starting breakpoints **including* grid.margin__*
-export const bp = {
-  wide: px(1368), // grid.margin__wide: 80;
-  netbook: px(980),
-  tablet: px(760),
-  phablet: px(480),
-  phone: px(320), // grid.margin__phone: 20;
-} as const;
+export const bp = /*#__PURE__*/ (() =>
+  ({
+    wide: px(1368), // grid.margin__wide: 80;
+    netbook: px(980),
+    tablet: px(760),
+    phablet: px(480),
+    phone: px(320), // grid.margin__phone: 20;
+  } as const))();
 // NOTE: 20px at 320px is equivalent to
 // 24px at 375px,`+` and 26px at 415px
 
-const wide: RawMediaQuery = `(min-width: ${bp.wide})`;
-const netbook: RawMediaQuery =
-  `(min-width: ${bp.netbook})` + ` and (max-width: ${px(bp.wide - 1)})`;
-const tablet: RawMediaQuery =
-  `(min-width: ${bp.tablet})` + ` and (max-width: ${px(bp.netbook - 1)})`;
-const phablet: RawMediaQuery =
-  `(min-width: ${bp.phablet})` + ` and (max-width: ${px(bp.tablet - 1)})`;
-const phone: RawMediaQuery = `(max-width: ${px(bp.phablet - 1)})`;
+export const mq = /*#__PURE__*/ (() => {
+  const maxBp_netbook = px(bp.wide - 1); // grid.margin__wide: 80;
+  const maxBp_tablet = px(bp.netbook - 1);
+  const maxBp_phablet = px(bp.tablet - 1);
+  const maxBp_phone = px(bp.phablet - 1);
 
-const netbook_up: RawMediaQuery = `(min-width: ${bp.netbook})`;
+  const wide: RawMediaQuery = `(min-width: ${bp.wide})`;
+  const netbook: RawMediaQuery =
+    `(min-width: ${bp.netbook})` + ` and (max-width: ${maxBp_netbook})`;
+  const tablet: RawMediaQuery =
+    `(min-width: ${bp.tablet})` + ` and (max-width: ${maxBp_tablet})`;
+  const phablet: RawMediaQuery =
+    `(min-width: ${bp.phablet})` + ` and (max-width: ${maxBp_phablet})`;
+  const phone: RawMediaQuery = `(max-width: ${maxBp_phone})`;
 
-const tablet_netbook: RawMediaQuery =
-  `(min-width: ${bp.tablet})` + ` and (max-width: ${px(bp.wide - 1)})`;
-const tablet_up: RawMediaQuery = `(min-width: ${bp.tablet})`;
+  const netbook_up: RawMediaQuery = `(min-width: ${bp.netbook})`;
 
-const phablet_tablet: RawMediaQuery =
-  `(min-width: ${bp.phablet})` + ` and (max-width: ${px(bp.netbook - 1)})`;
-const phablet_netbook: RawMediaQuery =
-  `(min-width: ${bp.phablet})` + ` and (max-width: ${px(bp.wide - 1)})`;
-const phablet_up: RawMediaQuery = `(min-width: ${bp.phablet})`;
+  const tablet_netbook: RawMediaQuery =
+    `(min-width: ${bp.tablet})` + ` and (max-width: ${maxBp_netbook})`;
+  const tablet_up: RawMediaQuery = `(min-width: ${bp.tablet})`;
 
-const phone_phablet: RawMediaQuery = `(max-width: ${px(bp.tablet - 1)})`;
-const phone_tablet: RawMediaQuery = `(max-width: ${px(bp.netbook - 1)})`;
-const phone_netbook: RawMediaQuery = `(max-width: ${px(bp.wide - 1)})`;
+  const phablet_tablet: RawMediaQuery =
+    `(min-width: ${bp.phablet})` + ` and (max-width: ${maxBp_tablet})`;
+  const phablet_netbook: RawMediaQuery =
+    `(min-width: ${bp.phablet})` + ` and (max-width: ${maxBp_netbook})`;
+  const phablet_up: RawMediaQuery = `(min-width: ${bp.phablet})`;
 
-// High level media-formats
-const Hamburger = phone_tablet;
-const Topmenu = netbook_up;
+  const phone_phablet: RawMediaQuery = `(max-width: ${maxBp_phablet})`;
+  const phone_tablet: RawMediaQuery = `(max-width: ${maxBp_tablet})`;
+  const phone_netbook: RawMediaQuery = `(max-width: ${maxBp_netbook})`;
 
-export const mq = {
-  wide,
-  netbook,
-  tablet,
-  phablet,
-  phone,
-  netbook_up,
-  tablet_netbook,
-  tablet_up,
-  phablet_tablet,
-  phablet_netbook,
-  phablet_up,
-  phone_phablet,
-  phone_tablet,
-  phone_netbook,
-  Hamburger,
-  Topmenu,
-} as const;
+  // High level media-formats
+  const Hamburger = phone_tablet;
+  const Topmenu = netbook_up;
+
+  return {
+    wide,
+    netbook,
+    tablet,
+    phablet,
+    phone,
+    netbook_up,
+    tablet_netbook,
+    tablet_up,
+    phablet_tablet,
+    phablet_netbook,
+    phablet_up,
+    phone_phablet,
+    phone_tablet,
+    phone_netbook,
+    Hamburger,
+    Topmenu,
+  } as const;
+})();
 
 /**
  * Useful for appending `screen and ` in front of `mq.*` variables
@@ -72,7 +79,6 @@ export const mq = {
  */
 export const screen_and = 'screen and ';
 
-// TODO: Use `satisfies` as soon as TypeScript 4.9 is out
-export const baseMQs = ['phone', 'phablet', 'tablet', 'netbook', 'wide'] as const;
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type Satisfies_baseMQs = Expect<Extends<typeof baseMQs[number], keyof typeof mq>>;
+export const baseMQs = ['phone', 'phablet', 'tablet', 'netbook', 'wide'] satisfies Array<
+  keyof typeof mq
+>;

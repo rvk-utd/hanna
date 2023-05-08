@@ -16,7 +16,7 @@ const {
   publishCssFolder,
   publishDevCssFolder,
   assetsDistFolder,
-} = require('./scripts/config');
+} = require('./scripts/config.js');
 
 // ---------------------------------------------------------------------------
 

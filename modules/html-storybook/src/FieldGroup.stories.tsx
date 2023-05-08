@@ -2,7 +2,7 @@ import React from 'react';
 import { FieldGroup } from '@reykjavik/hanna-react/FieldGroup';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Forms/FieldGroup',

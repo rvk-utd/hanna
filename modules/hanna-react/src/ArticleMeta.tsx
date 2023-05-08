@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { Link } from './_abstract/_Link';
+import { Link } from './_abstract/_Link.js';
 
 export type ArticleMetaItem = {
   label: string;

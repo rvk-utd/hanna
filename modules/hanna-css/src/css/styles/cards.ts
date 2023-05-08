@@ -1,10 +1,10 @@
 import { css } from 'es-in-css';
 
-import { mq } from '../../lib/breakpoints';
-import { hannaVars as vars } from '../../lib/hannavars';
-import { grid_units, prem } from '../utils/miscUtils';
+import { mq } from '../../lib/breakpoints.js';
+import { hannaVars as vars } from '../../lib/hannavars.js';
+import { grid_units, prem } from '../utils/miscUtils.js';
 
-import { LinkStyle_Reset } from './links';
+import { LinkStyle_Reset } from './links.js';
 
 export const CardBlock_css = () => css`
   @media ${mq.tablet_up} {

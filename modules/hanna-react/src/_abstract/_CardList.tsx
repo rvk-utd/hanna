@@ -1,8 +1,8 @@
 import React, { CSSProperties, ReactElement, ReactNode } from 'react';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-import { Button } from './_Button';
-import { Image, ImageProps } from './_Image';
+import { Button } from './_Button.js';
+import { Image, ImageProps } from './_Image.js';
 
 type Bem = {
   bem: string;

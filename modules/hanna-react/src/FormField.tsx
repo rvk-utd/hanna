@@ -2,8 +2,8 @@ import React, { FocusEvent, RefObject, useCallback, useState } from 'react';
 import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { isPreact } from './utils/env';
-import { SSRSupport, useIsBrowserSide } from './utils';
+import { isPreact } from './utils/env.js';
+import { SSRSupport, useIsBrowserSide } from './utils.js';
 
 type InputClassNames = {
   /** Basic/raw FormField BEM name */

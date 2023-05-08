@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { WizardStepper, WizardStepperStep } from '@reykjavik/hanna-react/WizardStepper';
 import { optionsKnob } from '@storybook/addon-knobs';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'WizardStepper',

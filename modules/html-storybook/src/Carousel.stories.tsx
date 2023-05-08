@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from '@reykjavik/hanna-react/Carousel';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 // ===========================================================================
 

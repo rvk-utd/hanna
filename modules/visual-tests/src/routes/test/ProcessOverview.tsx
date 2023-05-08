@@ -1,17 +1,17 @@
 import React from 'react';
-import type { MetaFunction } from '@remix-run/node';
+import type { V2_MetaFunction } from '@remix-run/node';
 import { ProcessOverview } from '@reykjavik/hanna-react/ProcessOverview';
 
-import { DummyBlock } from '../../layout/DummyBlock';
-import { Minimal } from '../../layout/Minimal';
-import { lorem, loremRT } from '../../test-helpers/dummyData';
-import type { TestingInfo } from '../../test-helpers/testingInfo';
-import { autoTitle } from '../../utils/meta';
+import { DummyBlock } from '../../layout/DummyBlock.js';
+import { Minimal } from '../../layout/Minimal.js';
+import { lorem, loremRT } from '../../test-helpers/dummyData.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
+import { autoTitle } from '../../utils/meta.js';
 
-export const meta: MetaFunction = autoTitle;
+export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = { cssTokens: [], };
+// export const handle = cssTokens('Token');
 const props = {
   items1: [
     { title: 'Dagur 1-5 (mán, þri, mið, fim, fös)', content: lorem.short },

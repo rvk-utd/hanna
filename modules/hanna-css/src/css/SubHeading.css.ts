@@ -1,12 +1,12 @@
 import { css } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between';
-import { mq } from '../lib/breakpoints';
-import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars';
-import { WARNING__ } from '../lib/WARNING__';
+import { between_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
-import { ComponentLayout } from './styles/componentLayout';
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects';
+import { ComponentLayout } from './styles/componentLayout.js';
+import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps

@@ -4,7 +4,7 @@ import {
   FooterInfoBoxes,
 } from '@reykjavik/hanna-react/FooterInfo';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 export default {
   title: 'Layout/FooterInfo',

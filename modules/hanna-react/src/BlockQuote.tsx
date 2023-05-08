@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { _Quote, QuoteProps } from './_abstract/_Quote';
+import { _Quote, QuoteProps } from './_abstract/_Quote.js';
 
 export type BlockQuoteProps = QuoteProps;
 
