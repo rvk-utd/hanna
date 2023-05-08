@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build",
     "//dev": "vite",
     "//build": "tsc && vite build",
@@ -26,8 +26,10 @@
     "@storybook/react": "^7.0.7",
     "@storybook/react-vite": "^7.0.7",
     "@storybook/testing-library": "^0.0.14-next.2",
-    "@types/prop-types": "^15",
-    "prop-types": "^15.8.1",
     "storybook": "^7.0.7"
+  },
+  "// devDependencies": {
+    "@types/prop-types": "^15",
+    "prop-types": "^15.8.1"
   }
 }

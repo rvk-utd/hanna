@@ -1,12 +1,23 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    // somehow setting this is "../../tsconfig.base.json" doesn't work
-    // "jsx": "react",
+    // "target": "ESNext",
+    // "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    // "module": "ESNext",
+    // "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "nodenext",
+    // "resolveJsonModule": true,
+    // "isolatedModules": true,
+    "noEmit": true,
     "jsx": "react-jsx",
-    "moduleResolution": "bundler", // 😬
-    "allowImportingTsExtensions": true,
-    "noEmit": true
+
+    /* Linting */
+    // "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
   "references": [{ "path": "./tsconfig.node.json" }],
   //"include": ["src"],
