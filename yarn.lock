@@ -3428,19 +3428,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/types@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "@jest/types@npm:27.5.1"
-  dependencies:
-    "@types/istanbul-lib-coverage": ^2.0.0
-    "@types/istanbul-reports": ^3.0.0
-    "@types/node": "*"
-    "@types/yargs": ^16.0.0
-    chalk: ^4.0.0
-  checksum: d1f43cc946d87543ddd79d49547aab2399481d34025d5c5f2025d3d99c573e1d9832fa83cef25e9d9b07a8583500229d15bbb07b8e233d127d911d133e2f14b1
-  languageName: node
-  linkType: hard
-
 "@jest/types@npm:^29.5.0":
   version: 29.5.0
   resolution: "@jest/types@npm:29.5.0"
@@ -4216,35 +4203,6 @@ __metadata:
     "@storybook/global": ^5.0.0
     "@storybook/preview-api": 7.0.7
   checksum: 0d8ec57f259dadb2de9b5a99af8c81b9c86a2cfa60f12c4e139a8ab851ef3a5237bcedf1673724480c0bc6ef4a95c59ed18040dcec66e324f2120d63d449be1c
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-interactions@npm:^7.0.7":
-  version: 7.0.7
-  resolution: "@storybook/addon-interactions@npm:7.0.7"
-  dependencies:
-    "@storybook/client-logger": 7.0.7
-    "@storybook/components": 7.0.7
-    "@storybook/core-common": 7.0.7
-    "@storybook/core-events": 7.0.7
-    "@storybook/global": ^5.0.0
-    "@storybook/instrumenter": 7.0.7
-    "@storybook/manager-api": 7.0.7
-    "@storybook/preview-api": 7.0.7
-    "@storybook/theming": 7.0.7
-    "@storybook/types": 7.0.7
-    jest-mock: ^27.0.6
-    polished: ^4.2.2
-    ts-dedent: ^2.2.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: 9f639f119cf204c38c27a12c813aeafcca6dd1d58d56d03c36f6aa8ce488b285b6319109de223d7240916865d40a5e784bccb0aab19a27f2d50a8b0e7044782d
   languageName: node
   linkType: hard
 
@@ -5144,7 +5102,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/instrumenter@npm:7.0.7, @storybook/instrumenter@npm:^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0":
+"@storybook/instrumenter@npm:^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0":
   version: 7.0.7
   resolution: "@storybook/instrumenter@npm:7.0.7"
   dependencies:
@@ -6644,15 +6602,6 @@ __metadata:
   version: 21.0.0
   resolution: "@types/yargs-parser@npm:21.0.0"
   checksum: b2f4c8d12ac18a567440379909127cf2cec393daffb73f246d0a25df36ea983b93b7e9e824251f959e9f928cbc7c1aab6728d0a0ff15d6145f66cec2be67d9a2
-  languageName: node
-  linkType: hard
-
-"@types/yargs@npm:^16.0.0":
-  version: 16.0.5
-  resolution: "@types/yargs@npm:16.0.5"
-  dependencies:
-    "@types/yargs-parser": "*"
-  checksum: 22697f7cc8aa32dcc10981a87f035e183303a58351c537c81fb450270d5c494b1d918186210e445b0eb2e4a8b34a8bda2a595f346bdb1c9ed2b63d193cb00430
   languageName: node
   linkType: hard
 
@@ -15842,7 +15791,6 @@ __metadata:
   resolution: "html-storybook-new@workspace:modules/html-storybook-new"
   dependencies:
     "@storybook/addon-essentials": ^7.0.7
-    "@storybook/addon-interactions": ^7.0.7
     "@storybook/addon-links": ^7.0.7
     "@storybook/blocks": ^7.0.7
     "@storybook/react": ^7.0.7
@@ -17375,16 +17323,6 @@ __metadata:
     fsevents:
       optional: true
   checksum: 3828ff7783f168e34be2c63887f82a01634261f605dcae062d83f979a61c37739e21b9607ecb962256aea3fbe5a530a1acee062d0026fcb47c607c12796cf3b7
-  languageName: node
-  linkType: hard
-
-"jest-mock@npm:^27.0.6":
-  version: 27.5.1
-  resolution: "jest-mock@npm:27.5.1"
-  dependencies:
-    "@jest/types": ^27.5.1
-    "@types/node": "*"
-  checksum: f5b5904bb1741b4a1687a5f492535b7b1758dc26534c72a5423305f8711292e96a601dec966df81bb313269fb52d47227e29f9c2e08324d79529172f67311be0
   languageName: node
   linkType: hard
 

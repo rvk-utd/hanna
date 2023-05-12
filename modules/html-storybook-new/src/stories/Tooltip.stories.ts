@@ -1,20 +1,24 @@
 import Tooltip from '@reykjavik/hanna-react/Tooltip';
 import type { Meta, StoryObj } from '@storybook/react';
-// import Tooltip from '../../../hanna-react/src/Tooltip.js';
+
+import { loremRT } from '../../../visual-tests/src/test-helpers/dummyData';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
-const meta = {
-  title: 'Tooltip',
+const meta: Meta<typeof Tooltip> = {
+  title: 'Components/Tooltip',
   component: Tooltip,
-} satisfies Meta<typeof Tooltip>;
+  args: {
+    label: 'Hover me',
+    text: loremRT.short(true),
+  },
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Tooltip>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Primary: Story = {
+export const _Tooltip: Story = {
   args: {
-    label: 'huga buga',
-    text: 'suga',
+    iconOnly: false,
   },
 };
