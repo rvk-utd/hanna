@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Tooltip from '@reykjavik/hanna-react/Tooltip';
 import { WizardStepper, WizardStepperStep } from '@reykjavik/hanna-react/WizardStepper';
 import { optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
@@ -39,13 +38,13 @@ for (let i = 0; i < steps.length; i++) {
   demoSteps[i ? 'Step ' + i : 'Intro'] = String(i);
 }
 
-const meta: Meta<typeof Tooltip> = {
+const meta: Meta<typeof WizardStepper> = {
   title: 'components/WizardStepper',
-  component: Tooltip,
+  component: WizardStepper,
 };
 export default meta;
 
-type Story = StoryObj<typeof Tooltip>;
+type Story = StoryObj<typeof WizardStepper>;
 
 const WizardStepperComponent = () => {
   let activeStepFromKnob: number | undefined = Number(
