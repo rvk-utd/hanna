@@ -78,6 +78,10 @@ export const _WizardStepper: Story = {
     controls: { hideNoControlsWarning: true },
   },
   argTypes: {
+    activeStep: {
+      options: ['None', 'Intro', 'Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'],
+      control: { type: 'radio' },
+    },
     allowForwardSkip: {
       table: {
         disable: true,
