@@ -74,4 +74,29 @@ const WizardStepperComponent = () => {
 
 export const _WizardStepper: Story = {
   render: () => <WizardStepperComponent />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
+  argTypes: {
+    allowForwardSkip: {
+      table: {
+        disable: true,
+      },
+    },
+    steps: {
+      table: {
+        disable: true,
+      },
+    },
+    disableBacktrack: {
+      table: {
+        disable: true,
+      },
+    },
+    onClick: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 };
