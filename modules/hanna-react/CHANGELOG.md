@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add prop `target` to `MainMenuItem` type
+- fix: Prevent nested/multpile `Modal`s from clashing with each other
 
 ## 0.10.86
 
