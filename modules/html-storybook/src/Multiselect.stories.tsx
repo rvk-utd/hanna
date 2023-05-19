@@ -1,9 +1,7 @@
 import React from 'react';
-import MultiSelect from '@reykjavik/hanna-react/Multiselect';
-import MultiselectReactSelect from '@reykjavik/hanna-react/MultiselectReactSelect';
-import SubHeading from '@reykjavik/hanna-react/SubHeading';
+import { Multiselect } from '@reykjavik/hanna-react/Multiselect';
 
-import { StoryComponent, StoryParameters } from './storytypes';
+import { StoryComponent, StoryParameters } from './storytypes.js';
 
 // ===========================================================================
 
@@ -33,10 +31,7 @@ const options = [
 export const _Multiselect: StoryComponent = () => {
   return (
     <>
-      <SubHeading startSeen>Multiselect - React select </SubHeading>
-      <MultiselectReactSelect />
-      <SubHeading startSeen>Multiselect - Hanna</SubHeading>
-      <MultiSelect items={options} label="Veldu tegund" />
+      <Multiselect items={options} label="Veldu tegund" />
       <br />
       <br />
       <br />

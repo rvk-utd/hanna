@@ -88,6 +88,7 @@ import { testing as Layout__test } from '../src/routes/test/Layout.js';
 import { testing as MainMenu__test } from '../src/routes/test/MainMenu.js';
 import { testing as MiniMetrics__test } from '../src/routes/test/MiniMetrics.js';
 import { testing as Modal__test } from '../src/routes/test/Modal.js';
+import { testing as Multiselect__test } from '../src/routes/test/Multiselect.js';
 import { testing as NameCards__test } from '../src/routes/test/NameCards.js';
 import { testing as NewsHero__test } from '../src/routes/test/NewsHero.js';
 import { testing as PageFilter__test } from '../src/routes/test/PageFilter.js';
@@ -177,6 +178,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Layout: Layout__test,
   MainMenu: MainMenu__test,
   MiniMetrics: MiniMetrics__test,
+  Multiselect: Multiselect__test,
   Modal: Modal__test,
   NameCards: NameCards__test,
   NewsHero: NewsHero__test,

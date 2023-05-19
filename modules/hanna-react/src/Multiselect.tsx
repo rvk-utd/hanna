@@ -3,11 +3,11 @@ import domId from '@hugsmidjan/qj/domid';
 import { useOnClickOutside } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import { FocusTrap } from './_abstract/_FocusTrap';
-import Checkbox from './Checkbox';
-import FormField from './FormField';
-import { SearchInputProps } from './SearchInput';
-import TagPill from './TagPill';
+import { FocusTrap } from './_abstract/_FocusTrap.js';
+import Checkbox from './Checkbox.js';
+import FormField from './FormField.js';
+import { SearchInputProps } from './SearchInput.js';
+import TagPill from './TagPill.js';
 
 /** The item-count where the list becomes searchable */
 const searchableLimit = 20;
@@ -19,13 +19,13 @@ const summaryLimit = 10;
 
 // ---------------------------------------------------------------------------
 
-type Item = {
-  label: string;
+export type MultiselectItem = {
+  label?: string;
   value: string;
 };
 
-type MultiselectProps = {
-  items: Array<Item>;
+export type MultiselectProps = {
+  items: Array<MultiselectItem>;
   /**
    * Prevent the selected items from wrapping into multiple lines.
    * Use this option when vertical space is limited.
@@ -33,7 +33,7 @@ type MultiselectProps = {
   nowrap?: boolean;
 };
 
-const Multiselect = (props: MultiselectProps & SearchInputProps) => {
+export const Multiselect = (props: MultiselectProps & SearchInputProps) => {
   const _inputRef = useRef<HTMLInputElement>(null);
 
   const { onChange, inputRef = _inputRef, ...inputElementProps } = props;
@@ -42,7 +42,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const isSearchable = items.length >= searchableLimit;
-  const [selectedItems, setSelectedItems] = useState<Array<Item>>([]);
+  const [selectedItems, setSelectedItems] = useState<Array<MultiselectItem>>([]);
   const [activeItemIndex, setActiveItemIndex] = useState(-1);
   const [searchQuery, setSearchQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -62,14 +62,14 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
     () =>
       items.filter((item) => {
         const sq = searchQuery.toLowerCase();
-        const result = item.label.toLowerCase().includes(sq);
+        const result = (item.label || item.value).toLowerCase().includes(sq);
         return result;
       }),
     [searchQuery, items]
   );
 
   const handleCheckboxSelection = useCallback(
-    (item: Item) => {
+    (item: MultiselectItem) => {
       const itemHasNotBeenSelected = !selectedItems.find(
         (selItem) => selItem.value === item.value
       );
@@ -96,7 +96,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
     }
   };
 
-  const removeSelectedItem = (item: Item) => {
+  const removeSelectedItem = (item: MultiselectItem) => {
     setSelectedItems(selectedItems.filter((i) => i !== item));
   };
 
@@ -199,7 +199,7 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
                 // For scren-readers aria-label should take precedence.
                 value={selectedItems.length > 0 ? undefined : props.placeholder}
                 ref={inputRef as React.RefObject<HTMLButtonElement>}
-              ></button>
+              />
             )}
             <div className="Multiselect__container" tabIndex={-1}>
               {isBrowser && showCurrentValues && (
@@ -255,5 +255,3 @@ const Multiselect = (props: MultiselectProps & SearchInputProps) => {
     />
   );
 };
-
-export default Multiselect;
