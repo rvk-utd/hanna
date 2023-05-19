@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.87
+
+_2023-05-19_
+
 - feat: Add prop `target` to `MainMenuItem` type
 - fix: Prevent nested/multpile `Modal`s from clashing with each other
 
