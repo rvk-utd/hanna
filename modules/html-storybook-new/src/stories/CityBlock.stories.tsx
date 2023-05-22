@@ -1,12 +1,12 @@
-import React from 'react';
-import { CityBlock } from '@reykjavik/hanna-react/CityBlock';
+import React, { Fragment } from 'react';
+import { CityBlock, CityBlockProps } from '@reykjavik/hanna-react/CityBlock';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import imageLarge from '../example_assets/CityBlock__image--large.jpg';
 import imageSmall from '../example_assets/CityBlock__image--small.jpg';
-import { getSummary, someButtons, TITLE_LONG } from '../utils/_dummyData.js';
+import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
 
 const meta: Meta<typeof CityBlock> = {
   title: 'components/CityBlock',
@@ -22,7 +22,7 @@ const IMAGES = {
   largeimage: { image: { src: imageLarge, altText: 'Alt text!' } },
 };
 
-const Component = () => {
+const CityBlockomponent = () => {
   const type =
     optionsKnob(
       'Type',
@@ -53,6 +53,45 @@ const Component = () => {
   );
 };
 
+const testCombos = (['largeimage', undefined, 'largebox'] as const).reduce<
+  // const testCombos = ([undefined, 'largebox', 'largeimage'] as const).reduce<
+  Array<CityBlockProps>
+>((list, type) => {
+  (['right', 'left'] as const).forEach((align) => {
+    const c = list.length + 1;
+    const summaryType = c % 3 ? 'html' : c % 2 ? 'text' : undefined;
+    list.push({
+      align,
+      type,
+      content: {
+        title: c % 2 ? TITLE_LONG : TITLE_SHORT,
+        summary: getSummary(summaryType),
+        buttons: someButtons.slice(0, 1 + ((c + 2) % 3)),
+      },
+      ...IMAGES[type || ''],
+    });
+  });
+  return list;
+}, []);
+
+const CityBlockExamplesComponent = () => {
+  return (
+    <>
+      {' '}
+      {testCombos.map((props, i) => (
+        <Fragment key={i}>
+          <CityBlock {...props} startSeen />
+          {'\n\n'}
+        </Fragment>
+      ))}
+    </>
+  );
+};
+
 export const _CityBlock: Story = {
-  render: () => <Component />,
+  render: () => <CityBlockomponent />,
+};
+
+export const _CityBlockExamples: Story = {
+  render: () => <CityBlockExamplesComponent />,
 };
