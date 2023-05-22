@@ -9,8 +9,7 @@ import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
 import { GalleryModal_css, GalleryModalItem_css } from './_GalleryModal.js';
-
-import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css';
+import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css.js';
 
 export default css`
   /*!@deps

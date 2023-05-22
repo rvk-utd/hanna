@@ -4,7 +4,7 @@ import { Equals, Expect } from '@reykjavik/hanna-utils';
 import o from 'ospec';
 
 import { useMixedControlState } from './useMixedControlState.js';
-import { createTest } from './useMixedControlState.tests.privates';
+import { createTest } from './useMixedControlState.tests.privates.js';
 
 // ---------------------------------------------------------------------------
 

@@ -8,7 +8,7 @@ import { Minimal } from '../../layout/Minimal.js';
 import { focusAllFormFields } from '../../test-helpers/focusAllFormFields.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
-import { cssTokens } from '../../utils/route';
+import { cssTokens } from '../../utils/route.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 

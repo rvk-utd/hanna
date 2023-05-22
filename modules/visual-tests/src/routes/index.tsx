@@ -5,8 +5,8 @@ import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
-import { copyCacheControl, cssTokens } from '../utils/route';
-import { getTestList } from '../utils/tests.server';
+import { copyCacheControl, cssTokens } from '../utils/route.js';
+import { getTestList } from '../utils/tests.server.js';
 
 type LoaderData = {
   tests: Awaited<ReturnType<typeof getTestList>>;

@@ -13,13 +13,12 @@ import {
 import { cols_pct } from './utils/miscUtils.js';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 import { textContent, textContentVars } from './utils/textContent.js';
-
-import { ArticleMeta_css } from './ArticleMeta.css';
-import { Heading_css } from './Heading.css';
-import { PageHeading_css } from './PageHeading.css';
-import { Sharpie_css } from './Sharpie.css';
-import { SubHeading_css } from './SubHeading.css';
-import { VSpacer_css } from './VSpacer.css';
+import { ArticleMeta_css } from './ArticleMeta.css.js';
+import { Heading_css } from './Heading.css.js';
+import { PageHeading_css } from './PageHeading.css.js';
+import { Sharpie_css } from './Sharpie.css.js';
+import { SubHeading_css } from './SubHeading.css.js';
+import { VSpacer_css } from './VSpacer.css.js';
 
 export default css`
   /*!@deps

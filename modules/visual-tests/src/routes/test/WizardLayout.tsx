@@ -7,7 +7,7 @@ import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
 import { DummyBlock, GhostLabel } from '../../layout/DummyBlock.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
-import { cssTokens } from '../../utils/route';
+import { cssTokens } from '../../utils/route.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 

@@ -5,9 +5,8 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { FormField__error, FormFieldVariables } from './styles/forms.js';
 import { grid_units, overflowEllipsis, prem } from './utils/miscUtils.js';
-
-import { Selectbox_css } from './Selectbox.css';
-import { TextInput_css } from './TextInput.css';
+import { Selectbox_css } from './Selectbox.css.js';
+import { TextInput_css } from './TextInput.css.js';
 
 export const InputField_paddingTop = 12;
 
