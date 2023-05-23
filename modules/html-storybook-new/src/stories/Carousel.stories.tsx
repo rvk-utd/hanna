@@ -3,7 +3,7 @@ import { Carousel } from '@reykjavik/hanna-react/Carousel';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Carousel> = {
-  title: 'components/Carousel',
+  title: 'Carousel',
   component: Carousel,
 };
 export default meta;

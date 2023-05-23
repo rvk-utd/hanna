@@ -7,7 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof IframeBlock> = {
-  title: 'components/IframeBlock',
+  title: 'IframeBlock',
   component: IframeBlock,
 };
 export default meta;

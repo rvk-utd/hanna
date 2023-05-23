@@ -9,7 +9,7 @@ import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import portraitImage from '../example_assets/NewsHero__portrait.jpg';
 
 const meta: Meta<typeof NewsHero> = {
-  title: 'components/NewsHero',
+  title: 'NewsHero',
   component: NewsHero,
 };
 export default meta;

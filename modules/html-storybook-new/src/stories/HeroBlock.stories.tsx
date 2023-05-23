@@ -5,7 +5,7 @@ import { select } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof HeroBlock> = {
-  title: 'components/HeroBlock',
+  title: 'HeroBlock',
   component: HeroBlock,
 };
 export default meta;

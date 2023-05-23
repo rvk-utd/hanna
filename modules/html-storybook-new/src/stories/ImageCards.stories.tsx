@@ -8,7 +8,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { imageCards } from '../utils/_dummyData.js';
 
 const meta: Meta<typeof ImageCards> = {
-  title: 'components/ImageCards',
+  title: 'ImageCards',
   component: ImageCards,
 };
 export default meta;

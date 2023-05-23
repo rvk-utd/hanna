@@ -3,7 +3,7 @@ import { FooterInfo, FooterInfoBoxes } from '@reykjavik/hanna-react/FooterInfo';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof FooterInfo> = {
-  title: 'components/Layout/FooterInfo',
+  title: 'Layout/FooterInfo',
   component: FooterInfo,
 };
 export default meta;

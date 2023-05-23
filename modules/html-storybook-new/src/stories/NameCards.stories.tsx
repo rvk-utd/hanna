@@ -4,7 +4,7 @@ import { NameCards } from '@reykjavik/hanna-react/NameCards';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof NameCards> = {
-  title: 'components/NameCards',
+  title: 'NameCards',
   component: NameCards,
 };
 export default meta;

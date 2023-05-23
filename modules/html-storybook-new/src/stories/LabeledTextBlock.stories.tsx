@@ -5,7 +5,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof LabeledTextBlock> = {
-  title: 'components/LabeledTextBlock',
+  title: 'LabeledTextBlock',
   component: LabeledTextBlock,
 };
 export default meta;

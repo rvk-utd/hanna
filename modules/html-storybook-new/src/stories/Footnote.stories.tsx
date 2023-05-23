@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof Footnote> = {
-  title: 'components/Footnote',
+  title: 'Footnote',
   component: Footnote,
 };
 export default meta;

@@ -4,7 +4,7 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof TextBlock> = {
-  title: 'components/text/TextBlock',
+  title: 'text/TextBlock',
   component: TextBlock,
 };
 export default meta;

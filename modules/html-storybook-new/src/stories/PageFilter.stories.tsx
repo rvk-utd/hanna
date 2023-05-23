@@ -11,7 +11,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof PageFilter> = {
-  title: 'components/PageFilter',
+  title: 'PageFilter',
   component: PageFilter,
 };
 export default meta;

@@ -5,7 +5,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ShareButtons> = {
-  title: 'components/ShareButtons',
+  title: 'ShareButtons',
   component: ShareButtons,
 };
 export default meta;

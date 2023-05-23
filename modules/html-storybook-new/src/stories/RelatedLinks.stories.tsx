@@ -7,7 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof RelatedLinks> = {
-  title: 'components/RelatedLinks',
+  title: 'RelatedLinks',
   component: RelatedLinks,
 };
 export default meta;

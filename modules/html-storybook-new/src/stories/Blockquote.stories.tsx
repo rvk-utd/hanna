@@ -3,7 +3,7 @@ import { BlockQuote } from '@reykjavik/hanna-react/BlockQuote';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof BlockQuote> = {
-  title: 'components/text/BlockQuote',
+  title: 'text/BlockQuote',
   component: BlockQuote,
 };
 export default meta;

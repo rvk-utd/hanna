@@ -4,7 +4,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Layout> = {
-  title: 'components/Layout/MinimalLayout',
+  title: 'Layout/MinimalLayout',
   component: Layout,
 };
 export default meta;

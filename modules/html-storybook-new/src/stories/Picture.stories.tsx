@@ -7,7 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 
 const meta: Meta<typeof Picture> = {
-  title: 'components/Picture',
+  title: 'Picture',
   component: Picture,
 };
 export default meta;

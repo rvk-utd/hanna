@@ -5,7 +5,7 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof RowBlock> = {
-  title: 'components/grid/RowBlock',
+  title: 'grid/RowBlock',
   component: RowBlock,
 };
 export default meta;

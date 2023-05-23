@@ -7,7 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof CenterColumn> = {
-  title: 'components/grid/CenterColumn',
+  title: 'grid/CenterColumn',
   component: CenterColumn,
 };
 export default meta;

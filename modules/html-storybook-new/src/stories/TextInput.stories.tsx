@@ -8,7 +8,7 @@ import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { getFormFieldKnobs } from '../utils/knobs.js';
 
 const meta: Meta<typeof TextInput> = {
-  title: 'Components/Forms/TextInput',
+  title: 'Forms/TextInput',
   component: TextInput,
 };
 export default meta;

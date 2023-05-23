@@ -9,7 +9,7 @@ import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { useLink } from '../utils/knobs.js';
 
 const meta: Meta = {
-  title: 'components/Tabs',
+  title: 'Tabs',
 };
 export default meta;
 

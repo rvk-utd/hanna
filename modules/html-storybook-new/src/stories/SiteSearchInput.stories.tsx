@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { getFormFieldKnobs } from '../utils/knobs.js';
 
 const meta: Meta = {
-  title: 'components/Forms/SiteSearchInput',
+  title: 'Forms/SiteSearchInput',
 };
 export default meta;
 

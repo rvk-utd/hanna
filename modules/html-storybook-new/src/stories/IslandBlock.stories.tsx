@@ -7,7 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
 
 const meta: Meta<typeof IslandBlock> = {
-  title: 'components/IslandBlock',
+  title: 'IslandBlock',
   component: IslandBlock,
 };
 export default meta;

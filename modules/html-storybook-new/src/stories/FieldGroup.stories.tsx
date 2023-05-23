@@ -4,7 +4,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof FieldGroup> = {
-  title: 'components/Forms/FieldGroup',
+  title: 'Forms/FieldGroup',
   component: FieldGroup,
 };
 export default meta;

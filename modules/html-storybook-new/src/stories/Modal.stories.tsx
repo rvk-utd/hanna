@@ -10,7 +10,7 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Modal> = {
-  title: 'components/Modal',
+  title: 'Modal',
   component: Modal,
 };
 export default meta;

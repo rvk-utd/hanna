@@ -3,7 +3,7 @@ import { ArticleMeta, ArticleMetaItem } from '@reykjavik/hanna-react/ArticleMeta
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ArticleMeta> = {
-  title: 'components/ArticleMeta',
+  title: 'ArticleMeta',
   component: ArticleMeta,
 };
 export default meta;

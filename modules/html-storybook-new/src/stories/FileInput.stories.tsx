@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { getFormFieldKnobs } from '../utils/knobs.js';
 
 const meta: Meta<typeof FileInput> = {
-  title: 'components/Forms/FileInput',
+  title: 'Forms/FileInput',
   component: FileInput,
 };
 export default meta;

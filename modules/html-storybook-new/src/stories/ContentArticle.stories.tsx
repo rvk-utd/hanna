@@ -8,7 +8,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import contentImageUrl from '../example_assets/Gallery--landscape--large.jpg';
 
 const meta: Meta<typeof ContentArticle> = {
-  title: 'components/ContentArticle',
+  title: 'ContentArticle',
   component: ContentArticle,
 };
 export default meta;

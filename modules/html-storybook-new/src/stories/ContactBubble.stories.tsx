@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof ContactBubble> = {
-  title: 'components/ContactBubble',
+  title: 'ContactBubble',
   component: ContactBubble,
 };
 export default meta;

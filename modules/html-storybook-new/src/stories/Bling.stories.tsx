@@ -7,7 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof Bling> = {
-  title: 'components/Bling',
+  title: 'Bling',
   component: Bling,
 };
 export default meta;

@@ -3,6 +3,14 @@ import { WizardStepper, WizardStepperStep } from '@reykjavik/hanna-react/WizardS
 import { optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
+const meta: Meta<typeof WizardStepper> = {
+  title: 'WizardStepper',
+  component: WizardStepper,
+};
+export default meta;
+
+type Story = StoryObj<typeof WizardStepper>;
+
 const steps: Array<WizardStepperStep> = [
   {
     label: 'Inngangur',
@@ -37,14 +45,6 @@ const demoSteps: Record<string, string> = {
 for (let i = 0; i < steps.length; i++) {
   demoSteps[i ? 'Step ' + i : 'Intro'] = String(i);
 }
-
-const meta: Meta<typeof WizardStepper> = {
-  title: 'components/WizardStepper',
-  component: WizardStepper,
-};
-export default meta;
-
-type Story = StoryObj<typeof WizardStepper>;
 
 const WizardStepperComponent = () => {
   let activeStepFromKnob: number | undefined = Number(

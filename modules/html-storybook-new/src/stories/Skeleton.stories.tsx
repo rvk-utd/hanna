@@ -3,7 +3,7 @@ import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
-  title: 'components/Skeleton',
+  title: 'Skeleton',
 };
 export default meta;
 

@@ -4,7 +4,7 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof PageHeading> = {
-  title: 'components/text/PageHeading',
+  title: 'text/PageHeading',
   component: PageHeading,
 };
 export default meta;

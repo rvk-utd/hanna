@@ -5,7 +5,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Alert> = {
-  title: 'components/Alert',
+  title: 'Alert',
   component: Alert,
 };
 export default meta;

@@ -3,7 +3,7 @@ import { PullQuote } from '@reykjavik/hanna-react/PullQuote';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof PullQuote> = {
-  title: 'components/text/PullQuote',
+  title: 'text/PullQuote',
   component: PullQuote,
 };
 export default meta;

@@ -8,7 +8,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import photohUrl from '../example_assets/NewsHero__landscape.jpg';
 
 const meta: Meta<typeof ArticleCarousel> = {
-  title: 'components/ArticleCarousel',
+  title: 'ArticleCarousel',
   component: ArticleCarousel,
 };
 export default meta;

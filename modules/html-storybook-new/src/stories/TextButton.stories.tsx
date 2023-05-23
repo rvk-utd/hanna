@@ -3,7 +3,7 @@ import { TextButton } from '@reykjavik/hanna-react/TextButton';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof TextButton> = {
-  title: 'components/buttons/TextButtons',
+  title: 'buttons/TextButtons',
   component: TextButton,
 };
 export default meta;

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import dummyImage from '../example_assets/FooterBadges__image.jpg';
 
 const meta: Meta<typeof FooterBadges> = {
-  title: 'components/Layout/FooterBadges',
+  title: 'Layout/FooterBadges',
   component: FooterBadges,
 };
 export default meta;

@@ -7,7 +7,7 @@ import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { getFormFieldKnobs } from '../utils/knobs.js';
 
 const meta: Meta = {
-  title: 'components/Forms/FormField',
+  title: 'Forms/FormField',
 };
 export default meta;
 

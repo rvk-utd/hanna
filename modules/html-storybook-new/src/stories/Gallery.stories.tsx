@@ -8,7 +8,7 @@ import portraitImage from '../example_assets/Gallery--portrait.jpg';
 import portraitImageLarge from '../example_assets/Gallery--portrait--large.jpg';
 
 const meta: Meta<typeof Gallery> = {
-  title: 'components/Gallery',
+  title: 'Gallery',
   component: Gallery,
 };
 export default meta;

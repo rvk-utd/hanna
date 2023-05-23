@@ -3,7 +3,7 @@ import { ButtonBack } from '@reykjavik/hanna-react/ButtonBack';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ButtonBack> = {
-  title: 'components/buttons/ButtonBack',
+  title: 'buttons/ButtonBack',
   component: ButtonBack,
 };
 export default meta;

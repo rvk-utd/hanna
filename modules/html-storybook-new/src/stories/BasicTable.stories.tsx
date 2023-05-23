@@ -5,7 +5,7 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof BasicTable> = {
-  title: 'components/BasicTable',
+  title: 'BasicTable',
   component: BasicTable,
 };
 export default meta;

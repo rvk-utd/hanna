@@ -7,7 +7,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof WizardLayout> = {
-  title: 'components/Layout/WizardLayout',
+  title: 'Layout/WizardLayout',
   component: WizardLayout,
 };
 export default meta;

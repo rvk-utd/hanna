@@ -7,7 +7,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ProcessOverview> = {
-  title: 'components/ProcessOverview',
+  title: 'ProcessOverview',
   component: ProcessOverview,
 };
 export default meta;

@@ -7,7 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof FeatureList> = {
-  title: 'components/FeatureList',
+  title: 'FeatureList',
   component: FeatureList,
 };
 export default meta;

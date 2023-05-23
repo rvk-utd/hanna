@@ -5,7 +5,7 @@ import { loremRT } from '../../../visual-tests/src/test-helpers/dummyData.js';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Tooltip> = {
-  title: 'Components/Tooltip',
+  title: 'Tooltip',
   component: Tooltip,
   // decorators: [withCSS('https://styles.reykjavik.is/css/v0.8/Tooltip.css')],
   args: {

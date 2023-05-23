@@ -8,7 +8,7 @@ import dummyImage from '../example_assets/Gallery--landscape--large.jpg';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof ContentImage> = {
-  title: 'components/ContentImage',
+  title: 'ContentImage',
   component: ContentImage,
 };
 export default meta;

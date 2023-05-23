@@ -6,7 +6,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ActionCards> = {
-  title: 'components/ActionCards',
+  title: 'ActionCards',
   component: ActionCards,
 };
 export default meta;

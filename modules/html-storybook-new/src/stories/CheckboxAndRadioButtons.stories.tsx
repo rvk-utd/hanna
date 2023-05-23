@@ -6,7 +6,7 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
-  title: 'components/Forms/Checkbox & Radio Buttons',
+  title: 'Forms/Checkbox & Radio Buttons',
 };
 export default meta;
 

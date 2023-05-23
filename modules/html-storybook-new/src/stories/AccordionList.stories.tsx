@@ -4,7 +4,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof AccordionList> = {
-  title: 'components/AccordionList',
+  title: 'AccordionList',
   component: AccordionList,
 };
 

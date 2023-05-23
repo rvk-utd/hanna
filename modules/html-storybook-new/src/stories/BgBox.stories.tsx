@@ -3,7 +3,7 @@ import { BgBox } from '@reykjavik/hanna-react/BgBox';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof BgBox> = {
-  title: 'components/BgBox',
+  title: 'BgBox',
   component: BgBox,
 };
 export default meta;

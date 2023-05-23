@@ -6,7 +6,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof GridBlocks> = {
-  title: 'components/GridBlocks',
+  title: 'GridBlocks',
   component: GridBlocks,
 };
 export default meta;

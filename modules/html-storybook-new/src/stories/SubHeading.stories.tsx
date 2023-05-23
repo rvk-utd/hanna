@@ -4,7 +4,7 @@ import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof SubHeading> = {
-  title: 'components/text/SubHeading',
+  title: 'text/SubHeading',
   component: SubHeading,
 };
 export default meta;

@@ -7,7 +7,7 @@ import { optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
-  title: 'components/buttons/Buttons',
+  title: 'buttons/Buttons',
 };
 export default meta;
 

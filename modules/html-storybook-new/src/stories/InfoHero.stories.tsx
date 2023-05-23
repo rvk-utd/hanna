@@ -34,7 +34,7 @@ const swimmingpoolContent: InfoHeroProps = {
 // ---------------------------------------------------------------------------
 
 const meta: Meta<typeof InfoHero> = {
-  title: 'components/InfoHero',
+  title: 'InfoHero',
   component: InfoHero,
 };
 export default meta;

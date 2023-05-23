@@ -3,7 +3,7 @@ import { Sharpie } from '@reykjavik/hanna-react/Sharpie';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
-  title: 'components/Sharpie',
+  title: 'Sharpie',
 };
 export default meta;
 

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { auxiliaryPanel, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
 
 const meta: Meta<typeof MainMenu> = {
-  title: 'components/Layout/MainMenu',
+  title: 'Layout/MainMenu',
   component: MainMenu,
 };
 export default meta;

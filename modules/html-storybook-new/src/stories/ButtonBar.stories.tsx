@@ -7,7 +7,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ButtonBar> = {
-  title: 'components/buttons/ButtonBar',
+  title: 'buttons/ButtonBar',
   component: ButtonBar,
 };
 export default meta;

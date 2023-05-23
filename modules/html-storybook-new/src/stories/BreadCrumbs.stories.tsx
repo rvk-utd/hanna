@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { crumbTrail } from '../utils/_dummyData.js';
 
 const meta: Meta<typeof BreadCrumbs> = {
-  title: 'components/Layout/BreadCrumbs',
+  title: 'Layout/BreadCrumbs',
   component: BreadCrumbs,
 };
 export default meta;

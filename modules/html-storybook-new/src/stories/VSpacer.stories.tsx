@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof VSpacer> = {
-  title: 'components/VSpacer',
+  title: 'VSpacer',
   component: VSpacer,
 };
 export default meta;

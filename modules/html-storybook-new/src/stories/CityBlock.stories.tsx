@@ -9,7 +9,7 @@ import imageSmall from '../example_assets/CityBlock__image--small.jpg';
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
 
 const meta: Meta<typeof CityBlock> = {
-  title: 'components/CityBlock',
+  title: 'CityBlock',
   component: CityBlock,
 };
 export default meta;

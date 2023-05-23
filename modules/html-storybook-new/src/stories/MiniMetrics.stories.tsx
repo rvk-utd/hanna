@@ -3,7 +3,7 @@ import { MiniMetrics } from '@reykjavik/hanna-react/MiniMetrics';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof MiniMetrics> = {
-  title: 'components/MiniMetrics',
+  title: 'MiniMetrics',
   component: MiniMetrics,
 };
 export default meta;

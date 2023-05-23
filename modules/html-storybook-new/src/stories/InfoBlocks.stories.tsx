@@ -35,7 +35,7 @@ const getExtraProps = () => {
 // ---------------------------------------------------------------------------
 
 const meta: Meta<typeof InfoBlock> = {
-  title: 'components/InfoBlock',
+  title: 'InfoBlock',
   component: InfoBlock,
 };
 export default meta;

@@ -4,7 +4,7 @@ import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocom
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof SiteSearchAutocomplete> = {
-  title: 'components/Forms/Site Search Autocomplete',
+  title: 'Forms/Site Search Autocomplete',
   component: SiteSearchAutocomplete,
 };
 export default meta;

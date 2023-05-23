@@ -8,7 +8,7 @@ import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof SearchResults> = {
-  title: 'components/SearchResults',
+  title: 'SearchResults',
   component: SearchResults,
 };
 export default meta;

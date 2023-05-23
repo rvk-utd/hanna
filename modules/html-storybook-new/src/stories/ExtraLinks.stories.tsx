@@ -9,7 +9,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ExtraLinks> = {
-  title: 'components/ExtraLinks',
+  title: 'ExtraLinks',
   component: ExtraLinks,
 };
 export default meta;

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const meta: Meta<typeof Attention> = {
-  title: 'components/Attention',
+  title: 'Attention',
   component: Attention,
 };
 export default meta;

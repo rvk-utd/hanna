@@ -3,7 +3,7 @@ import { TagPill } from '@reykjavik/hanna-react/TagPill';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
-  title: 'components/TagPill',
+  title: 'TagPill',
 };
 export default meta;
 
