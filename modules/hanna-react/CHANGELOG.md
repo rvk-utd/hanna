@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat(ts): Export utility type `HtmlProps` from `utils` module — for adding
+  HTML attributes (including `data-*`) to React components.
 
 ## 0.10.87
 
