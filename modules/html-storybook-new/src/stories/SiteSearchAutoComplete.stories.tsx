@@ -13,6 +13,12 @@ type Story = StoryObj<typeof SiteSearchAutocomplete>;
 
 const items = range(1, 5).map((value) => `Suggestion ${value}`);
 
+// const getSuggestions = (value: string): Array<string> => {
+// 	return items.filter((item) =>
+// 		item.toLowerCase().startsWith(value.trim().toLowerCase())
+// 	);
+// };
+
 const Component = () => {
   const [suggestions, setSuggestions] = useState<Array<string>>([]);
   return (
