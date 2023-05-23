@@ -3409,7 +3409,7 @@ __metadata:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
     "@hugsmidjan/qj": ^4.10.2
-    "@reykjavik/hanna-utils": ^0.2.3
+    "@reykjavik/hanna-utils": ^0.2.4
     "@types/md5-file": ^5
     del: ^6.0.0
     es-in-css: ^0.7.1
@@ -3436,7 +3436,7 @@ __metadata:
     "@hugsmidjan/qj": ^4.10.2
     "@hugsmidjan/react": ^0.4.27
     "@reykjavik/hanna-css": ^0.4.1
-    "@reykjavik/hanna-utils": ^0.2.3
+    "@reykjavik/hanna-utils": ^0.2.4
     "@types/react": ^17.0.24
     "@types/react-autosuggest": ^10.1.0
     "@types/react-datepicker": ^4.8.0
@@ -3453,7 +3453,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-utils@^0.2.3, @reykjavik/hanna-utils@workspace:*, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
+"@reykjavik/hanna-utils@^0.2.3, @reykjavik/hanna-utils@^0.2.4, @reykjavik/hanna-utils@workspace:*, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
@@ -13085,7 +13085,7 @@ __metadata:
     "@preact/preset-vite": ^2.5.0
     "@reykjavik/hanna-css": ^0.3.17
     "@reykjavik/hanna-react": ^0.10.85
-    "@reykjavik/hanna-utils": ^0.2.3
+    "@reykjavik/hanna-utils": ^0.2.4
     "@types/iframe-resizer": ^3.5.9
     http-server: ^14.1.1
     iframe-resizer: ^4.3.6

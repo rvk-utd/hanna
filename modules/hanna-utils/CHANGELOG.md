@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.4
+
+_2023-05-23_
+
 - feat: Re-enable ESM exports in published build
 
 ## 0.2.3
