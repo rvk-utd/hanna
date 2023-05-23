@@ -4,7 +4,7 @@ import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-// import { imageCards } from '../utils/_dummyData.js';
+import { imageCards } from '../utils/_dummyData.js';
 
 const meta: Meta<typeof ArticleCards> = {
   title: 'ArticleCards',
@@ -19,8 +19,7 @@ const Component = () => {
     ? getIllustrationUrl('framkvaemdir2')
     : undefined;
 
-  // return <ArticleCards cards={imageCards} imgPlaceholder={imgPlaceholder} />
-  return <p>Huga buga</p>;
+  return <ArticleCards cards={imageCards} imgPlaceholder={imgPlaceholder} />;
 };
 
 export const _ArticleCards: Story = {
