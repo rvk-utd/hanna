@@ -31,7 +31,7 @@
     "@hugsmidjan/qj": "^4.18.0",
     "@reykjavik/hanna-css": "^0.3.17",
     "@reykjavik/hanna-react": "^0.10.87",
-    "@reykjavik/hanna-utils": "^0.2.4",
+    "@reykjavik/hanna-utils": "^0.2.5",
     "@types/iframe-resizer": "^3.5.9",
     "iframe-resizer": "^4.3.6",
     "selectybox": "^1.4.0"
