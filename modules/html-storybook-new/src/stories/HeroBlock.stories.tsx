@@ -100,4 +100,9 @@ export const _HeroBlock: Story = {
 
 export const _HeroBlockExamples: Story = {
   render: () => <HeroBlockExamplesComponent />,
+  parameters: {
+    css: {
+      tokens: 'HeroBlock',
+    },
+  },
 };
