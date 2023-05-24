@@ -94,4 +94,9 @@ export const _CityBlock: Story = {
 
 export const _CityBlockExamples: Story = {
   render: () => <CityBlockExamplesComponent />,
+  parameters: {
+    css: {
+      tokens: 'CityBlock',
+    },
+  },
 };

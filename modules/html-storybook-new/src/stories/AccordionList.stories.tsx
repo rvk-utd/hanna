@@ -72,5 +72,9 @@ export const AccordionListStyling: Story = {
       <AccordionList items={items()} wide startSeen />
     </>
   ),
-  name: 'AccordionList',
+  parameters: {
+    css: {
+      tokens: 'AccordionList',
+    },
+  },
 };
