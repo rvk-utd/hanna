@@ -9,6 +9,9 @@ import { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof ButtonBar> = {
   title: 'buttons/ButtonBar',
   component: ButtonBar,
+  parameters: {
+    css: { tokens: 'ButtonBar,ButtonPrimary,ButtonSecondary,ButtonTertiary' },
+  },
 };
 export default meta;
 

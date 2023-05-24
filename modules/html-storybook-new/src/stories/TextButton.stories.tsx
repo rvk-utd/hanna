@@ -25,4 +25,5 @@ const TextButtonsComponent = () => {
 
 export const _TextButtons: Story = {
   render: () => <TextButtonsComponent />,
+  name: 'TextButton',
 };

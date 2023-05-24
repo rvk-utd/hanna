@@ -27,4 +27,5 @@ const Component = () => {
 
 export const _ButtonBack: Story = {
   render: () => <Component />,
+  name: 'ButtonBack',
 };
