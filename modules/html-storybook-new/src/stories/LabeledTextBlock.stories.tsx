@@ -88,4 +88,9 @@ const LabeledTextBlockExamplesComponent = () => {
 
 export const _LabeledTextBlockExamples: Story = {
   render: () => <LabeledTextBlockExamplesComponent />,
+  parameters: {
+    css: {
+      tokens: 'LabeledTextBlock',
+    },
+  },
 };
