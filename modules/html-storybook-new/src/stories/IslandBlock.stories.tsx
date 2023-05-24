@@ -108,4 +108,9 @@ const IslandBlockExamplesComponent = () => {
 
 export const _IslandBlock_Examples: Story = {
   render: () => <IslandBlockExamplesComponent />,
+  parameters: {
+    css: {
+      tokens: 'IslandBlock',
+    },
+  },
 };
