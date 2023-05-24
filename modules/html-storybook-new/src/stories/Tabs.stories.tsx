@@ -150,4 +150,9 @@ const TabsAnchorsComponent = () => {
 
 export const _TabsAnchors: Story = {
   render: () => <TabsAnchorsComponent />,
+  parameters: {
+    css: {
+      tokens: 'Tabs',
+    },
+  },
 };
