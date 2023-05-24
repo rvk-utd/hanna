@@ -114,4 +114,7 @@ const NewsListParagraphComponent = () => {
 
 export const _NewsListParagraph: Story = {
   render: () => <NewsListParagraphComponent />,
+  parameters: {
+    css: { tokens: cssTokens },
+  },
 };
