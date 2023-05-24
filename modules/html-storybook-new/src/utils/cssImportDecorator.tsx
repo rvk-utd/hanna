@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { getCssBundleUrl } from '@reykjavik/hanna-css';
 import type { StoryContext } from '@storybook/react';
 
@@ -9,10 +9,7 @@ const makeCssUrl = (module: string | undefined, noLayout?: boolean) => {
   return getCssBundleUrl('-basics,' + layout + module);
 };
 
-export const cssImportDecorator = (
-  story: () => React.ReactNode,
-  context: StoryContext
-) => {
+export const cssImportDecorator = (story: () => ReactElement, context: StoryContext) => {
   const css = (context.parameters as StoryParameters).css || {};
   const componentName = context.name;
   const cssTokens = css.tokens || componentName;

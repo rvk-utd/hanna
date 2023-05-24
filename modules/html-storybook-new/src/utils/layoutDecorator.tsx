@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { themeOptions } from '@reykjavik/hanna-react/constants';
@@ -13,7 +13,7 @@ const hide = (selector: string) => {
   elm && (elm.hidden = true);
 };
 
-export const layoutDecorator = (story: () => React.ReactNode, context: StoryContext) => {
+export const layoutDecorator = (story: () => ReactElement, context: StoryContext) => {
   const params = context.parameters as StoryParameters;
   const layout = params.layout || {};
   const modifier = layout.modifier;
