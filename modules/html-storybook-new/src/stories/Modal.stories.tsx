@@ -109,5 +109,10 @@ const ModalDynamicsComponent = () => {
 };
 
 export const _ModalDynamics: Story = {
-  render: () => <ModalComponent />,
+  render: () => <ModalDynamicsComponent />,
+  parameters: {
+    css: {
+      tokens: 'Modal,ButtonPrimary,ButtonTertiary,Heading,TextBlock,Bling',
+    },
+  },
 };
