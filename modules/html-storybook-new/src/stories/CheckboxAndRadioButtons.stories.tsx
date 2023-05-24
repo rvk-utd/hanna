@@ -128,7 +128,6 @@ export const _CheckboxButtonsGroup: Story = {
       {...getProps()}
     />
   ),
-  name: 'CheckboxButtonsGroup',
 };
 
 // ---------------------------------------------------------------------------
@@ -142,5 +141,4 @@ export const _RadioButtonsGroup: Story = {
       {...getProps()}
     />
   ),
-  name: 'RadioButtonsGroup',
 };

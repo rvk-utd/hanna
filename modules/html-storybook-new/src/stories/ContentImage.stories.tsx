@@ -6,10 +6,15 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import dummyImage from '../example_assets/Gallery--landscape--large.jpg';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 const meta: Meta<typeof ContentImage> = {
   title: 'ContentImage',
   component: ContentImage,
+  parameters: {
+    knobs: { disabled: false },
+    css: { tokens: 'ContentImage,CenterColumn' },
+  } as StoryParameters,
 };
 export default meta;
 

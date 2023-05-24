@@ -5,10 +5,16 @@ import { getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 const meta: Meta<typeof FeatureList> = {
   title: 'FeatureList',
   component: FeatureList,
+  parameters: {
+    css: {
+      tokens: 'FeatureList,TextBlock',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

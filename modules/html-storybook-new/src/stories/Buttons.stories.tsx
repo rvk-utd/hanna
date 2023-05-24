@@ -124,4 +124,7 @@ const Component = () => {
 
 export const _Buttons: Story = {
   render: () => <Component />,
+  parameters: {
+    css: { tokens: 'ButtonPrimary,ButtonSecondary,ButtonTertiary' },
+  },
 };

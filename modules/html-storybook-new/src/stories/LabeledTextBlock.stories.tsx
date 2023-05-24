@@ -4,9 +4,15 @@ import { LabeledTextBlock } from '@reykjavik/hanna-react/LabeledTextBlock';
 import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta<typeof LabeledTextBlock> = {
   title: 'LabeledTextBlock',
   component: LabeledTextBlock,
+  parameters: {
+    css: { tokens: 'LabeledTextBlock,Attention' },
+    knobs: { disabled: false },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -88,9 +94,4 @@ const LabeledTextBlockExamplesComponent = () => {
 
 export const _LabeledTextBlockExamples: Story = {
   render: () => <LabeledTextBlockExamplesComponent />,
-  parameters: {
-    css: {
-      tokens: 'LabeledTextBlock',
-    },
-  },
 };

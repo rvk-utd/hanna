@@ -9,6 +9,9 @@ import { HiddenTiger } from '../utils/HiddenTrigger.js';
 const meta: Meta<typeof CenterColumn> = {
   title: 'grid/CenterColumn',
   component: CenterColumn,
+  parameters: {
+    css: { tokens: 'CenterColumn,PageHeading,TextBlock' },
+  },
 };
 export default meta;
 

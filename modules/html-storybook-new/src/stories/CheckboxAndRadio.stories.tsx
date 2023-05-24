@@ -11,8 +11,14 @@ import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta = {
   title: 'Forms/Checkbox & Radio',
+  parameters: {
+    viewport: { defaultViewport: 'responsive' },
+    knobs: { disabled: false },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -148,4 +154,7 @@ const StylingTestsComponent = () => {
 
 export const _StylingTests: Story = {
   render: () => <StylingTestsComponent />,
+  parameters: {
+    css: { tokens: 'Checkbox,RadioGroup,RowBlock,RowBlockColumn' },
+  },
 };
