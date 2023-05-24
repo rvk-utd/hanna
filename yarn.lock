@@ -3409,7 +3409,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reykjavik/hanna-css@^0.4.1, @reykjavik/hanna-css@workspace:*, @reykjavik/hanna-css@workspace:modules/hanna-css":
+"@reykjavik/hanna-css@^0.4.2, @reykjavik/hanna-css@workspace:*, @reykjavik/hanna-css@workspace:modules/hanna-css":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-css@workspace:modules/hanna-css"
   dependencies:
@@ -3425,16 +3425,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-css@npm:^0.3.17":
-  version: 0.3.18
-  resolution: "@reykjavik/hanna-css@npm:0.3.18"
-  dependencies:
-    "@reykjavik/hanna-utils": ^0.2.3
-    es-in-css: ^0.7.1
-  checksum: 045e73d24bf688e1adb17e5ab88c81affcb713129f946fef430370c2219085acc0393e9d2a1b5f0249e89eda92a721cbb3de5a13d08f4537fda5f3466da8151a
-  languageName: node
-  linkType: hard
-
 "@reykjavik/hanna-react@^0.10.87, @reykjavik/hanna-react@workspace:*, @reykjavik/hanna-react@workspace:modules/hanna-react":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-react@workspace:modules/hanna-react"
@@ -3442,7 +3432,7 @@ __metadata:
     "@floating-ui/react": ^0.19.2
     "@hugsmidjan/qj": ^4.18.0
     "@hugsmidjan/react": ^0.4.29
-    "@reykjavik/hanna-css": ^0.4.1
+    "@reykjavik/hanna-css": ^0.4.2
     "@reykjavik/hanna-utils": ^0.2.5
     "@types/react": ^17.0.24
     "@types/react-autosuggest": ^10.1.0
@@ -3460,7 +3450,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reykjavik/hanna-utils@^0.2.3, @reykjavik/hanna-utils@^0.2.5, @reykjavik/hanna-utils@workspace:*, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
+"@reykjavik/hanna-utils@^0.2.5, @reykjavik/hanna-utils@workspace:*, @reykjavik/hanna-utils@workspace:modules/hanna-utils":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
@@ -13090,7 +13080,7 @@ __metadata:
   dependencies:
     "@hugsmidjan/qj": ^4.18.0
     "@preact/preset-vite": ^2.5.0
-    "@reykjavik/hanna-css": ^0.3.17
+    "@reykjavik/hanna-css": ^0.4.2
     "@reykjavik/hanna-react": ^0.10.87
     "@reykjavik/hanna-utils": ^0.2.5
     "@types/iframe-resizer": ^3.5.9

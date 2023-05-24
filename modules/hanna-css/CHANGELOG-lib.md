@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.2
+
+_2023-05-24_
+
 - fix: Update dependencies to fix import resolution errors in node@>=18
 
 ## 0.4.1
