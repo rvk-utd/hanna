@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Update dependencies to fix import resolution errors in node@>=18
 
 ## 0.2.4
 

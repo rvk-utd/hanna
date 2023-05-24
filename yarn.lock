@@ -2804,22 +2804,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hugsmidjan/qj@npm:^4.1.1, @hugsmidjan/qj@npm:^4.10.2":
+"@hugsmidjan/qj@npm:^4.1.1":
   version: 4.10.2
   resolution: "@hugsmidjan/qj@npm:4.10.2"
   checksum: 273dfcf351bcb081bf5e7fd8c37bf29e5c48098ba0b882697bd653f261d9e37d4528a054422ca9f42c0e18ea3965a70ef3e51f2d0be6ca4f444968092737cfa3
   languageName: node
   linkType: hard
 
-"@hugsmidjan/react@npm:^0.4.27":
-  version: 0.4.27
-  resolution: "@hugsmidjan/react@npm:0.4.27"
+"@hugsmidjan/qj@npm:^4.18.0":
+  version: 4.18.0
+  resolution: "@hugsmidjan/qj@npm:4.18.0"
+  checksum: 53d2a75747441c216053de327a331fe01b1a48a6a685f66f07af9d27d96e9db403bd23c77cfbfad212fbd25535eb3dd240f73e1ec63345e8e2c6dad5f8b14d15
+  languageName: node
+  linkType: hard
+
+"@hugsmidjan/react@npm:^0.4.29":
+  version: 0.4.29
+  resolution: "@hugsmidjan/react@npm:0.4.29"
   dependencies:
     "@hugsmidjan/qj": ^4.1.1
   peerDependencies:
     react: ">=16.8 <19"
     react-dom: ">=16.8 <19"
-  checksum: 8346aa4d56fd97504183ae8ceba2f3323fb8935473d00972fd4c6eea7b8fe9094af35ef66b7b17e30d12b69b8211d98b2d08afa6179f44121d3f21f3a0c70545
+  checksum: c19cd65e93399213df3313dc68e68dac9a1ad33e1a038ce65bdd1066ffefaeb7245cf4384fc558967ee16ad3ab292c2abe338bf32169f2bcd38bfb593f943e37
   languageName: node
   linkType: hard
 
@@ -3408,7 +3415,7 @@ __metadata:
   dependencies:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
-    "@hugsmidjan/qj": ^4.10.2
+    "@hugsmidjan/qj": ^4.18.0
     "@reykjavik/hanna-utils": ^0.2.4
     "@types/md5-file": ^5
     del: ^6.0.0
@@ -3428,13 +3435,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reykjavik/hanna-react@^0.10.85, @reykjavik/hanna-react@workspace:*, @reykjavik/hanna-react@workspace:modules/hanna-react":
+"@reykjavik/hanna-react@^0.10.87, @reykjavik/hanna-react@workspace:*, @reykjavik/hanna-react@workspace:modules/hanna-react":
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-react@workspace:modules/hanna-react"
   dependencies:
     "@floating-ui/react": ^0.19.2
-    "@hugsmidjan/qj": ^4.10.2
-    "@hugsmidjan/react": ^0.4.27
+    "@hugsmidjan/qj": ^4.18.0
+    "@hugsmidjan/react": ^0.4.29
     "@reykjavik/hanna-css": ^0.4.1
     "@reykjavik/hanna-utils": ^0.2.4
     "@types/react": ^17.0.24
@@ -3457,9 +3464,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
-    "@hugsmidjan/qj": ^4.10.2
+    "@hugsmidjan/qj": ^4.18.0
     focus-visible: ^5.2.0
-    formatchange: ^2.1.0
+    formatchange: ^2.2.0
   languageName: unknown
   linkType: soft
 
@@ -11971,10 +11978,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"formatchange@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "formatchange@npm:2.1.0"
-  checksum: 7b223dd5834f69a5aee834e7cecdf88e8aafc8370cda41fb7953b19c4610daa87b301e3b9ea959e607445066a4727ce532a28a1560e11e70f3b2219830d358ef
+"formatchange@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "formatchange@npm:2.2.0"
+  checksum: ac517518c2390df72257aee331261442139342fa833dae2b78b9ca5ffb7b6782ff863ebfcd3507bf01e0c30904f6e15170a1ef1296f395094c66e07ed616d3aa
   languageName: node
   linkType: hard
 
@@ -13056,7 +13063,7 @@ __metadata:
   resolution: "hanna-html-storybook@workspace:modules/html-storybook"
   dependencies:
     "@babel/core": ^7.8.4
-    "@hugsmidjan/qj": ^4.10.2
+    "@hugsmidjan/qj": ^4.18.0
     "@reykjavik/hanna-css": "workspace:*"
     "@reykjavik/hanna-react": "workspace:*"
     "@storybook/addon-knobs": ^5.3.14
@@ -13081,10 +13088,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hanna-sprinkles@workspace:modules/hanna-sprinkles"
   dependencies:
-    "@hugsmidjan/qj": ^4.10.2
+    "@hugsmidjan/qj": ^4.18.0
     "@preact/preset-vite": ^2.5.0
     "@reykjavik/hanna-css": ^0.3.17
-    "@reykjavik/hanna-react": ^0.10.85
+    "@reykjavik/hanna-react": ^0.10.87
     "@reykjavik/hanna-utils": ^0.2.4
     "@types/iframe-resizer": ^3.5.9
     http-server: ^14.1.1
@@ -13105,7 +13112,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hanna-visual-tests@workspace:modules/visual-tests"
   dependencies:
-    "@hugsmidjan/qj": ^4.10.2
+    "@hugsmidjan/qj": ^4.18.0
     "@playwright/test": ^1.32.3
     "@remix-run/dev": ^1.15.0
     "@remix-run/eslint-config": ^1.15.0
