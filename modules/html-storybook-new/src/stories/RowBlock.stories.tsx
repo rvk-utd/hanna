@@ -4,9 +4,15 @@ import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta<typeof RowBlock> = {
   title: 'grid/RowBlock',
   component: RowBlock,
+  parameters: {
+    css: { tokens: 'RowBlock,RowBlockColumn' },
+    knobs: { disabled: false },
+  } as StoryParameters,
 };
 export default meta;
 

@@ -7,9 +7,16 @@ import {
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta<typeof SearchResults> = {
   title: 'SearchResults',
   component: SearchResults,
+  parameters: {
+    css: {
+      tokens: 'SearchResults,SiteSearchInput',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

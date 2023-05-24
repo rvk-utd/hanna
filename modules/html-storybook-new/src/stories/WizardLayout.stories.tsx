@@ -6,9 +6,17 @@ import { WizardStepper } from '@reykjavik/hanna-react/WizardStepper';
 import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta<typeof WizardLayout> = {
   title: 'Layout/WizardLayout',
   component: WizardLayout,
+  parameters: {
+    knobs: { disabled: false },
+    layout: { disabled: true },
+    // viewport: { defaultViewport: 'phone' },
+    css: { noLayout: true },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -72,4 +80,9 @@ const WizardLayoutWithContentComponent = () => {
 
 export const _WizardLayoutWithContent: Story = {
   render: () => <WizardLayoutWithContentComponent />,
+  parameters: {
+    css: {
+      tokens: 'WizardLayout-full',
+    },
+  },
 };

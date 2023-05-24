@@ -2,9 +2,15 @@ import React from 'react';
 import { TextButton } from '@reykjavik/hanna-react/TextButton';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta<typeof TextButton> = {
   title: 'buttons/TextButtons',
   component: TextButton,
+  parameters: {
+    viewport: { defaultViewport: 'responsive' },
+    css: { tokens: 'TextButton' },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -25,5 +31,4 @@ const TextButtonsComponent = () => {
 
 export const _TextButtons: Story = {
   render: () => <TextButtonsComponent />,
-  name: 'TextButton',
 };
