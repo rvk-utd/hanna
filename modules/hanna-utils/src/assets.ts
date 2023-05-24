@@ -54,7 +54,7 @@ setStyleServerUrl.reset = setStyleServerUrl.pop;
 
 /**
  * List of "Illustration" names/ids
- * based on "https://styles.reykjavik.is/assets/illustrations/files.json"
+ * based on <https://styles.reykjavik.is/assets/illustrations/files.json>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#illustrations
  */
@@ -222,13 +222,13 @@ export const illustrations = [
   'vinir',
   'vinna',
 ] as const;
-export type Illustration = typeof illustrations[number];
+export type Illustration = (typeof illustrations)[number];
 
 // ---------------------------------------------------------------------------
 
 /**
  * List of "Efnistákn" icon names/ids
- * based on "https://styles.reykjavik.is/assets/efnistakn/files.json"
+ * based on <https://styles.reykjavik.is/assets/efnistakn/files.json>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#efnistákn-icons
  */
@@ -294,13 +294,13 @@ export const efnistakn = [
   'verdlaun_02',
   'wifi',
 ] as const;
-export type Efnistakn = typeof efnistakn[number];
+export type Efnistakn = (typeof efnistakn)[number];
 
 // ---------------------------------------------------------------------------
 
 /**
  * List of "Formheimur" shape names/ids
- * based on "https://styles.reykjavik.is/assets/formheimur/files.json"
+ * based on <https://styles.reykjavik.is/assets/formheimur/files.json>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formheimur-shapes
  */
@@ -322,13 +322,13 @@ export const formheimur = [
   'sjorinn',
   'sund',
 ] as const;
-export type Formheimur = typeof formheimur[number];
+export type Formheimur = (typeof formheimur)[number];
 
 // ---------------------------------------------------------------------------
 
 /**
  * List of "Bling" shape names/ids
- * based on "https://styles.reykjavik.is/assets/bling/files.json"
+ * based on <https://styles.reykjavik.is/assets/bling/files.json>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#bling-shapes
  */
@@ -354,7 +354,7 @@ export const blingTypes = [
   'box-triangle',
   'box-bowl',
 ] as const;
-export type BlingType = typeof blingTypes[number];
+export type BlingType = (typeof blingTypes)[number];
 
 // ===========================================================================
 
