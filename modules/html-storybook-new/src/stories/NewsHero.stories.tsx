@@ -97,4 +97,9 @@ const NewsHeroExamplesComponent = () => {
 
 export const _NewsHeroExamples: Story = {
   render: () => <NewsHeroExamplesComponent />,
+  parameters: {
+    css: {
+      tokens: 'NewsHero',
+    },
+  },
 };
