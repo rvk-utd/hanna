@@ -11,7 +11,7 @@ import {
   formatBytes,
   getFileListUpdate,
   releasePreview,
-} from './FileInput/_FileInput.utils';
+} from './FileInput/_FileInput.utils.js';
 import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList.js';
 import FormField, { FormFieldWrappingProps } from './FormField.js';
 
