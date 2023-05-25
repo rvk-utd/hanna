@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type {
+  OptionOrValue,
   SelectboxOption,
   SelectboxProps as _SelectboxProps,
 } from '@hugsmidjan/react/Selectbox';
@@ -19,8 +20,6 @@ const getValue = (opt: SelectboxOption | string | number | undefined) => {
   const val = typeof opt === 'object' ? opt.value : opt;
   return typeof val === 'number' ? String(val) : val;
 };
-
-type OptionOrValue = _SelectboxProps['options'][0];
 
 export type SelectboxProps<O extends OptionOrValue = OptionOrValue> =
   FormFieldWrappingProps &
