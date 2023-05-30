@@ -8,6 +8,8 @@ import {
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { disableControlProps } from '../utils/disableControlTypes.js';
+
 type ActionCardsControlsProps = {
   showTitle: boolean;
   showSummaryElement: boolean;
@@ -58,6 +60,14 @@ export const _ActionCards: Story = (args: ActionCardsStoryProps) => (
   <ActionCardsStory {...args} />
 );
 
+const disabledControlProps = disableControlProps([
+  'cards',
+  'startSeen',
+  'summaryElement',
+  'title',
+  'titleTag',
+]);
+
 _ActionCards.argTypes = {
   showTitle: {
     control: 'boolean',
@@ -67,31 +77,7 @@ _ActionCards.argTypes = {
     control: 'boolean',
     name: 'Summary text/More link',
   },
-  cards: {
-    table: {
-      disable: true,
-    },
-  },
-  startSeen: {
-    table: {
-      disable: true,
-    },
-  },
-  summaryElement: {
-    table: {
-      disable: true,
-    },
-  },
-  title: {
-    table: {
-      disable: true,
-    },
-  },
-  titleTag: {
-    table: {
-      disable: true,
-    },
-  },
+  ...disabledControlProps,
 };
 _ActionCards.args = {
   showTitle: true,
