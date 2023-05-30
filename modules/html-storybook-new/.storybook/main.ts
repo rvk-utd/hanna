@@ -5,6 +5,7 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-controls',
+    '@whitespace/storybook-addon-html',
   ],
   framework: {
     name: '@storybook/react-vite',

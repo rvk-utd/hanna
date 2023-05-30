@@ -6636,6 +6636,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-syntax-highlighter@npm:^15":
+  version: 15.5.7
+  resolution: "@types/react-syntax-highlighter@npm:15.5.7"
+  dependencies:
+    "@types/react": "*"
+  checksum: 1918d01baaa9bf485093fb04167d0dc87131be708bd68d32d3f614c0e7dba05de765fc62df139fa1972836b13e27983a2d89552eda5b5a38691a4ec300949648
+  languageName: node
+  linkType: hard
+
 "@types/react-textarea-autosize@npm:^4.3.3":
   version: 4.3.6
   resolution: "@types/react-textarea-autosize@npm:4.3.6"
@@ -7412,6 +7421,28 @@ __metadata:
     prismjs: ^1.20.0
     react-syntax-highlighter: ^13.2.1
   checksum: 7d09aebf6325bb749858725112174b32cc1a35e92e18c51380be1cb3aac905b46427f9ee37ee0472417c2434ec9df0a7b0fe092f04d135473bc59db8347d6b00
+  languageName: node
+  linkType: hard
+
+"@whitespace/storybook-addon-html@npm:^5.1.4":
+  version: 5.1.4
+  resolution: "@whitespace/storybook-addon-html@npm:5.1.4"
+  peerDependencies:
+    "@storybook/addons": ^6.5.8
+    "@storybook/api": ^6.5.8
+    "@storybook/components": ^6.5.8
+    "@storybook/core-events": ^6.5.8
+    "@storybook/theming": ^6.5.8
+    prettier: ^2.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-syntax-highlighter: ^15.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: cd2b3da31774bf44f6cda1f91e77d627f601caee4050a01afe2f3c61d0d7e87e27bb6d7a32dd36208b4a0992b77f537c48cc55c683d50b7334212e8131a3ee93
   languageName: node
   linkType: hard
 
@@ -15949,7 +15980,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:^10.1.1, highlight.js@npm:~10.7.0":
+"highlight.js@npm:^10.1.1, highlight.js@npm:^10.4.1, highlight.js@npm:~10.7.0":
   version: 10.7.3
   resolution: "highlight.js@npm:10.7.3"
   checksum: defeafcd546b535d710d8efb8e650af9e3b369ef53e28c3dc7893eacfe263200bba4c5fcf43524ae66d5c0c296b1af0870523ceae3e3104d24b7abf6374a4fea
@@ -16057,11 +16088,16 @@ __metadata:
     "@storybook/react": ^7.0.7
     "@storybook/react-vite": ^7.0.7
     "@storybook/testing-library": ^0.0.14-next.2
+    "@types/prettier": ^2
     "@types/react": ^17.0.24
     "@types/react-dom": ^17.0.9
+    "@types/react-syntax-highlighter": ^15
     "@vitejs/plugin-react": ^4.0.0
+    "@whitespace/storybook-addon-html": ^5.1.4
+    prettier: ^2.8.8
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-syntax-highlighter: ^15.5.0
     storybook: ^7.0.7
     vite: ^4.3.2
   languageName: unknown
@@ -18500,7 +18536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lowlight@npm:^1.14.0":
+"lowlight@npm:^1.14.0, lowlight@npm:^1.17.0":
   version: 1.20.0
   resolution: "lowlight@npm:1.20.0"
   dependencies:
@@ -22091,7 +22127,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.0":
+"prettier@npm:^2.8.0, prettier@npm:^2.8.8":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:
@@ -22153,7 +22189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.20.0, prismjs@npm:^1.21.0, prismjs@npm:^1.8.4":
+"prismjs@npm:^1.20.0, prismjs@npm:^1.21.0, prismjs@npm:^1.27.0, prismjs@npm:^1.8.4":
   version: 1.29.0
   resolution: "prismjs@npm:1.29.0"
   checksum: 007a8869d4456ff8049dc59404e32d5666a07d99c3b0e30a18bd3b7676dfa07d1daae9d0f407f20983865fd8da56de91d09cb08e6aa61f5bc420a27c0beeaf93
@@ -23048,6 +23084,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-syntax-highlighter@npm:^15.5.0":
+  version: 15.5.0
+  resolution: "react-syntax-highlighter@npm:15.5.0"
+  dependencies:
+    "@babel/runtime": ^7.3.1
+    highlight.js: ^10.4.1
+    lowlight: ^1.17.0
+    prismjs: ^1.27.0
+    refractor: ^3.6.0
+  peerDependencies:
+    react: ">= 0.14.0"
+  checksum: c082b48f30f8ba8d0c55ed1d761910630860077c7ff5793c4c912adcb5760df06436ed0ad62be0de28113aac9ad2af55eccd995f8eee98df53382e4ced2072fb
+  languageName: node
+  linkType: hard
+
 "react-textarea-autosize@npm:^7.1.0":
   version: 7.1.2
   resolution: "react-textarea-autosize@npm:7.1.2"
@@ -23279,7 +23330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"refractor@npm:^3.1.0":
+"refractor@npm:^3.1.0, refractor@npm:^3.6.0":
   version: 3.6.0
   resolution: "refractor@npm:3.6.0"
   dependencies:

@@ -26,6 +26,11 @@
     "@storybook/react": "^7.0.7",
     "@storybook/react-vite": "^7.0.7",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/prettier": "^2",
+    "@types/react-syntax-highlighter": "^15",
+    "@whitespace/storybook-addon-html": "^5.1.4",
+    "prettier": "^2.8.8",
+    "react-syntax-highlighter": "^15.5.0",
     "storybook": "^7.0.7"
   },
   "// devDependencies": {
