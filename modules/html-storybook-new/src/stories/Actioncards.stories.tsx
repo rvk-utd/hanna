@@ -1,17 +1,27 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import { ActionCards, ActionCardsItemProps } from '@reykjavik/hanna-react/ActionCards';
+import {
+  ActionCards,
+  ActionCardsItemProps,
+  ActionCardsProps,
+} from '@reykjavik/hanna-react/ActionCards';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof ActionCards> = {
+type ActionCardsControlsProps = {
+  showTitle: boolean;
+  showSummaryElement: boolean;
+};
+
+type ActionCardsStoryProps = ActionCardsProps & ActionCardsControlsProps;
+
+const meta: Meta<ActionCardsStoryProps> = {
   title: 'ActionCards',
   component: ActionCards,
 };
 export default meta;
 
-type Story = StoryObj<typeof ActionCards>;
+type Story = StoryObj<ActionCardsStoryProps>;
 
 const cards = range(1, 8).map(
   (n): ActionCardsItemProps => ({
@@ -26,19 +36,64 @@ const cards = range(1, 8).map(
   })
 );
 
-const ActionCardsStory = () => {
-  const title = boolean('Title', true) || undefined;
-  const summary = boolean('Summary text/More link', false) || undefined;
+const ActionCardsStory: React.FC<ActionCardsControlsProps> = ({
+  showTitle,
+  showSummaryElement,
+}) => {
   return (
     <ActionCards
-      title={title && 'Action Cards'}
-      summaryElement={summary && <ButtonTertiary href="">Sjá yfirlit</ButtonTertiary>}
+      title={showTitle ? 'Action Cards' : undefined}
+      summaryElement={
+        showSummaryElement ? (
+          <ButtonTertiary href="">Sjá yfirlit</ButtonTertiary>
+        ) : undefined
+      }
       cards={cards}
       startSeen
     />
   );
 };
 
-export const _ActionCards: Story = {
-  render: () => <ActionCardsStory />,
+export const _ActionCards: Story = (args: ActionCardsStoryProps) => (
+  <ActionCardsStory {...args} />
+);
+
+_ActionCards.argTypes = {
+  showTitle: {
+    control: 'boolean',
+    name: 'ShowTitle',
+  },
+  showSummaryElement: {
+    control: 'boolean',
+    name: 'Summary text/More link',
+  },
+  cards: {
+    table: {
+      disable: true,
+    },
+  },
+  startSeen: {
+    table: {
+      disable: true,
+    },
+  },
+  summaryElement: {
+    table: {
+      disable: true,
+    },
+  },
+  title: {
+    table: {
+      disable: true,
+    },
+  },
+  titleTag: {
+    table: {
+      disable: true,
+    },
+  },
+};
+_ActionCards.args = {
+  showTitle: true,
+  showSummaryElement: false,
 };
