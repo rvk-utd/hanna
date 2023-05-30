@@ -24,7 +24,7 @@ export default meta;
 
 type Story = StoryObj<typeof Layout>;
 
-const MinimalLayoutComponent = () => {
+const MinimalLayoutStory = () => {
   const globalAlerts = boolean('Global alerts container', false);
   const navChildren = boolean('Page has no menu or navigation', false) ? undefined : ' ';
   return (
@@ -39,7 +39,7 @@ const MinimalLayoutComponent = () => {
 };
 
 export const _MinimalLayout: Story = {
-  render: () => <MinimalLayoutComponent />,
+  render: () => <MinimalLayoutStory />,
   parameters: {
     css: {
       tokens: 'Layout',
@@ -47,7 +47,7 @@ export const _MinimalLayout: Story = {
   },
 };
 
-const LayoutWithContentComponent = () => {
+const LayoutWithContentStory = () => {
   const globalAlerts = boolean('Global alerts', false);
 
   return (
@@ -92,7 +92,7 @@ const LayoutWithContentComponent = () => {
 // ===========================================================================
 
 export const _LayoutWithContent: Story = {
-  render: () => <LayoutWithContentComponent />,
+  render: () => <LayoutWithContentStory />,
   parameters: {
     css: {
       noLayout: true,
