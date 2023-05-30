@@ -23,7 +23,7 @@ const newsHeroProps = {
     'Reykvíkingar eru heppnir að geta valið milli margra spennandi útivistarsvæða þar sem er hægt að viðra sig og næra líkama og sál. Þessi svæði eru sérstaklega mikilvæg nú á tímum samkomu- banns og aflýstra viðburða. Náttúran er enn opin og á útivistar- svæðum er auðvelt að hlýða Víði og virða tveggja metra regluna en á sama tíma finna fyrir ákveðinni nálægð við annað fólk.',
 };
 
-const NewsHeroComponent = () => {
+const NewsHeroStory = () => {
   const isServerSide = useIsServerSide();
 
   const renderShareButtons = useCallback(
@@ -67,12 +67,12 @@ const NewsHeroComponent = () => {
 };
 
 export const _NewsHero: Story = {
-  render: () => <NewsHeroComponent />,
+  render: () => <NewsHeroStory />,
 };
 
 // ===========================================================================
 
-const NewsHeroExamplesComponent = () => {
+const NewsHeroExamplesStory = () => {
   const isServerSide = useIsServerSide();
 
   const renderShareButtons = useCallback(
@@ -96,7 +96,7 @@ const NewsHeroExamplesComponent = () => {
 };
 
 export const _NewsHeroExamples: Story = {
-  render: () => <NewsHeroExamplesComponent />,
+  render: () => <NewsHeroExamplesStory />,
   parameters: {
     css: {
       tokens: 'NewsHero',

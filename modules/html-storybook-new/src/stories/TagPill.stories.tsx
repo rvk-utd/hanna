@@ -9,7 +9,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const Component = () => {
+const TagPillStory = () => {
   return (
     <>
       <p>
@@ -67,5 +67,5 @@ const Component = () => {
 };
 
 export const _TagPill: Story = {
-  render: () => <Component />,
+  render: () => <TagPillStory />,
 };

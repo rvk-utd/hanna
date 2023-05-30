@@ -13,7 +13,7 @@ export default meta;
 
 type Story = StoryObj<typeof SearchInput>;
 
-const Component = () => {
+const SearchInputStory = () => {
   const button = boolean('Physical search <button/>', false) || undefined;
   const ffProps = getFormFieldKnobs();
 
@@ -32,5 +32,5 @@ const Component = () => {
 };
 
 export const _SearchInput: Story = {
-  render: () => <Component />,
+  render: () => <SearchInputStory />,
 };

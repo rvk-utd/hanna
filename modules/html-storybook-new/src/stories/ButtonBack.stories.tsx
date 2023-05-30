@@ -10,7 +10,7 @@ export default meta;
 
 type Story = StoryObj<typeof ButtonBack>;
 
-const Component = () => {
+const ButtonBackStory = () => {
   return (
     <>
       <p>
@@ -26,6 +26,6 @@ const Component = () => {
 };
 
 export const _ButtonBack: Story = {
-  render: () => <Component />,
+  render: () => <ButtonBackStory />,
   name: 'ButtonBack',
 };

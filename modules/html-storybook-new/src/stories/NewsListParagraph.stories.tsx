@@ -23,7 +23,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const NewsListParagraphComponent = () => {
+const NewsListParagraphStory = () => {
   return (
     <>
       <style>{css`
@@ -113,7 +113,7 @@ const NewsListParagraphComponent = () => {
 };
 
 export const _NewsListParagraph: Story = {
-  render: () => <NewsListParagraphComponent />,
+  render: () => <NewsListParagraphStory />,
   parameters: {
     css: { tokens: cssTokens },
   },

@@ -13,7 +13,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const Component = () => {
+const FormFieldStory = () => {
   const ffProps = getFormFieldKnobs({ hideLabel: false });
 
   const group = boolean('Is a field-group', false);
@@ -64,5 +64,5 @@ const Component = () => {
 };
 
 export const _FormField: Story = {
-  render: () => <Component />,
+  render: () => <FormFieldStory />,
 };

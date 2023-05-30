@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof PageHeading>;
 
-const Component = () => {
+const PageHeadingStory = () => {
   const htmlTag =
     optionsKnob('Heading level', { 'H1 (default)': '', H2: 'h2' }, '', {
       display: 'inline-radio',
@@ -26,5 +26,5 @@ const Component = () => {
 };
 
 export const _PageHeading: Story = {
-  render: () => <Component />,
+  render: () => <PageHeadingStory />,
 };

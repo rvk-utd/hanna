@@ -22,7 +22,7 @@ const IMAGES = {
   largeimage: { image: { src: imageLarge, altText: 'Alt text!' } },
 };
 
-const CityBlockomponent = () => {
+const CityBlockStory = () => {
   const type =
     optionsKnob(
       'Type',
@@ -74,7 +74,7 @@ const testCombos = (['largeimage', undefined, 'largebox'] as const).reduce<
   return list;
 }, []);
 
-const CityBlockExamplesComponent = () => {
+const CityBlockExamplesStory = () => {
   return (
     <>
       {' '}
@@ -89,11 +89,11 @@ const CityBlockExamplesComponent = () => {
 };
 
 export const _CityBlock: Story = {
-  render: () => <CityBlockomponent />,
+  render: () => <CityBlockStory />,
 };
 
 export const _CityBlockExamples: Story = {
-  render: () => <CityBlockExamplesComponent />,
+  render: () => <CityBlockExamplesStory />,
   parameters: {
     css: {
       tokens: 'CityBlock',

@@ -10,7 +10,7 @@ export default meta;
 
 type Story = StoryObj<typeof PullQuote>;
 
-const Component = () => {
+const PullQuoteStory = () => {
   return (
     <>
       <PullQuote>
@@ -32,5 +32,5 @@ const Component = () => {
 };
 
 export const _PullQuote: Story = {
-  render: () => <Component />,
+  render: () => <PullQuoteStory />,
 };

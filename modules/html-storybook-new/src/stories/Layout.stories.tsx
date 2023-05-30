@@ -6,9 +6,9 @@ import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ContactBubbleComponent } from '../Shared/ContactBubble.js';
-import { FooterBadgesComponent } from '../Shared/FooterBadges.js';
-import { FooterInfoComponent } from '../Shared/FooterInfo.js';
+import { ContactBubbleStory as ContactBubble } from '../Shared/ContactBubble.js';
+import { FooterBadgesStory as FooterBadges } from '../Shared/FooterBadges.js';
+import { FooterInfoStory as FooterInfo } from '../Shared/FooterInfo.js';
 import { crumbTrail, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
@@ -78,9 +78,9 @@ const LayoutWithContentComponent = () => {
       }
       footerChildren={
         <>
-          <FooterInfoComponent />
-          <FooterBadgesComponent />
-          <ContactBubbleComponent />
+          <FooterInfo />
+          <FooterBadges />
+          <ContactBubble />
         </>
       }
     >

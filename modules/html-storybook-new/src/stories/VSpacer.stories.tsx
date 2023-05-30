@@ -31,7 +31,7 @@ const Component = (props: { highlight?: boolean }) => (
   />
 );
 
-const VSpacerComponent = () => {
+const VSpacerStory = () => {
   const wrapper = boolean('Wrapper around components', true) || undefined;
 
   const top: VSpacerProps['top'] =
@@ -99,5 +99,5 @@ const VSpacerComponent = () => {
 };
 
 export const _VSpacer: Story = {
-  render: () => <VSpacerComponent />,
+  render: () => <VSpacerStory />,
 };

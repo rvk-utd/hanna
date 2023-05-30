@@ -17,7 +17,7 @@ export default meta;
 
 type Story = StoryObj<typeof ButtonBar>;
 
-const Component = () => {
+const ButtonBarStory = () => {
   const align = boolean('Right-align buttons', false) ? 'right' : undefined;
   return (
     <>
@@ -116,5 +116,5 @@ const Component = () => {
 };
 
 export const _ButtonBar: Story = {
-  render: () => <Component />,
+  render: () => <ButtonBarStory />,
 };

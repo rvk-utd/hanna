@@ -42,7 +42,7 @@ export default meta;
 
 type Story = StoryObj<typeof InfoBlock>;
 
-const Component = () => {
+const InfoBlockStory = () => {
   const extraProps = getExtraProps();
   return (
     <InfoBlock
@@ -56,5 +56,5 @@ const Component = () => {
 };
 
 export const _InfoBlock: Story = {
-  render: () => <Component />,
+  render: () => <InfoBlockStory />,
 };

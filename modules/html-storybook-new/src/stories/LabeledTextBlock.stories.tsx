@@ -73,7 +73,7 @@ const combos: Array<{ button?: true; wide?: true; html?: true }> = [
   { wide: true, html: true },
 ];
 
-const LabeledTextBlockExamplesComponent = () => {
+const LabeledTextBlockExamplesStory = () => {
   return (
     <>
       {combos.map(({ button, wide, html }, i) => (
@@ -93,5 +93,5 @@ const LabeledTextBlockExamplesComponent = () => {
 };
 
 export const _LabeledTextBlockExamples: Story = {
-  render: () => <LabeledTextBlockExamplesComponent />,
+  render: () => <LabeledTextBlockExamplesStory />,
 };

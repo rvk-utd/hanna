@@ -32,7 +32,7 @@ const CAPTION =
 
 const CREDIT = '©2017 Jónína Jóhannesdóttir og Páll Pétursson';
 
-const Component = () => {
+const ContentImageStory = () => {
   const caption = boolean('Caption text', true) ? CAPTION : undefined;
   const credit = boolean('Photo credit', true) ? CREDIT : undefined;
 
@@ -49,5 +49,5 @@ const Component = () => {
 };
 
 export const _ContentImage: Story = {
-  render: () => <Component />,
+  render: () => <ContentImageStory />,
 };

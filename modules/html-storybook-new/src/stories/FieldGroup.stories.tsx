@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof FieldGroup>;
 
-const Component = () => {
+const FieldGroupStory = () => {
   const small = boolean('Small Legend', false);
   const disabled = boolean('Disabled', false);
   return (
@@ -22,5 +22,5 @@ const Component = () => {
 };
 
 export const _FieldGroup: Story = {
-  render: () => <Component />,
+  render: () => <FieldGroupStory />,
 };

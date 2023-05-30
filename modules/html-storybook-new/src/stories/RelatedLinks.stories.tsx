@@ -51,7 +51,7 @@ const LINKS: Array<RelatedLinkItem> = [
   },
 ];
 
-const Component = () => {
+const RelatedLinksStory = () => {
   const title = boolean('Title', true) ? TITLE : undefined;
   const children = <RelatedLinks title={title} links={LINKS} />;
 
@@ -64,5 +64,5 @@ const Component = () => {
 };
 
 export const _RelatedLinks: Story = {
-  render: () => <Component />,
+  render: () => <RelatedLinksStory />,
 };

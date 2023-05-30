@@ -9,7 +9,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const Component = () => {
+const SkeletonStory = () => {
   return (
     <>
       <p>
@@ -38,5 +38,5 @@ const Component = () => {
 };
 
 export const _Skeleton: Story = {
-  render: () => <Component />,
+  render: () => <SkeletonStory />,
 };

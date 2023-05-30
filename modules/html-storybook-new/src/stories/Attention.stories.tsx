@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof Attention>;
 
-const Component = () => {
+const AttentionStory = () => {
   return (
     <>
       <HiddenTiger>
@@ -35,5 +35,5 @@ const Component = () => {
 };
 
 export const _Attention: Story = {
-  render: () => <Component />,
+  render: () => <AttentionStory />,
 };

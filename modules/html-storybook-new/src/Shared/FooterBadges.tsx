@@ -13,4 +13,4 @@ const dummySubFooterLinks: FooterBadgesProps['badges'] = [
 
 dummySubFooterLinks.push(...dummySubFooterLinks);
 
-export const FooterBadgesComponent = () => <FooterBadges badges={dummySubFooterLinks} />;
+export const FooterBadgesStory = () => <FooterBadges badges={dummySubFooterLinks} />;

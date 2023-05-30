@@ -37,7 +37,7 @@ const features: FeatureListProps['features'] = [
 
 const token = (name: string) => '{' + name + '}';
 
-const Component = () => {
+const FeatureListStory = () => {
   return (
     <>
       <HiddenTiger>
@@ -68,5 +68,5 @@ const Component = () => {
 };
 
 export const _FeatureList: Story = {
-  render: () => <Component />,
+  render: () => <FeatureListStory />,
 };

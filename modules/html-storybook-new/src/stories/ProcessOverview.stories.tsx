@@ -40,7 +40,7 @@ const ITEMS = (): Array<ProcessOverviewItemProps> => [
   },
 ];
 
-const Component = () => {
+const ProcessOverviewStory = () => {
   const transparent = boolean('Translucent background', false);
   const narrow = boolean('Narrow layout', false);
   const attention = boolean('"Attention" message', false) || undefined;
@@ -56,5 +56,5 @@ const Component = () => {
 };
 
 export const _ProcessOverview: Story = {
-  render: () => <Component />,
+  render: () => <ProcessOverviewStory />,
 };

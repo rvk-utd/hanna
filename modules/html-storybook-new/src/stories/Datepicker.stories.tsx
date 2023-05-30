@@ -15,7 +15,7 @@ type Story = StoryObj;
 const dateFormat = 'd. MMM yyyy';
 const placeholder = dateFormat.toLowerCase();
 
-const Component = () => {
+const DatepickerStory = () => {
   const ffProps = getFormFieldKnobs();
 
   const isRange = boolean('Is date range', false);
@@ -75,5 +75,5 @@ const Component = () => {
 };
 
 export const _Datepicker: Story = {
-  render: () => <Component />,
+  render: () => <DatepickerStory />,
 };

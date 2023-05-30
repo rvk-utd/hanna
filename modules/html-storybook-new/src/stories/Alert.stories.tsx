@@ -41,7 +41,7 @@ const alertDemos = {
   ),
 };
 
-const Component = () => {
+const AlertStory = () => {
   const closable = boolean('Closable alert', true);
   const closeLink = closable && boolean('Server-side close buttons', false);
   return (
@@ -61,5 +61,5 @@ const Component = () => {
 };
 
 export const _Alert: Story = {
-  render: () => <Component />,
+  render: () => <AlertStory />,
 };

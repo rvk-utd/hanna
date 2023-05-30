@@ -35,7 +35,7 @@ const Spacer = () => (
   </HiddenTiger>
 );
 
-const Component = () => {
+const BlingStory = () => {
   const type = select<BlingProps['type'] | typeof customOption>(
     'Bling Type',
     blingOptions,
@@ -131,5 +131,5 @@ const Component = () => {
 };
 
 export const _Bling: Story = {
-  render: () => <Component />,
+  render: () => <BlingStory />,
 };

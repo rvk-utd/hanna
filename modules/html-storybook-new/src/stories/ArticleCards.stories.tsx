@@ -14,7 +14,7 @@ export default meta;
 
 type Story = StoryObj<typeof ArticleCards>;
 
-const Component = () => {
+const ArticleCardsStory = () => {
   const imgPlaceholder = boolean('Custom fallback image', false)
     ? getIllustrationUrl('framkvaemdir2')
     : undefined;
@@ -23,5 +23,5 @@ const Component = () => {
 };
 
 export const _ArticleCards: Story = {
-  render: () => <Component />,
+  render: () => <ArticleCardsStory />,
 };

@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof Heading>;
 
-const Component = () => {
+const HeadingStory = () => {
   const layout =
     optionsKnob(
       'Layout',
@@ -48,5 +48,5 @@ const Component = () => {
 };
 
 export const _Heading: Story = {
-  render: () => <Component />,
+  render: () => <HeadingStory />,
 };

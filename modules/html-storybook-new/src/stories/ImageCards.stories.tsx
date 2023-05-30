@@ -15,7 +15,7 @@ export default meta;
 
 type Story = StoryObj<typeof ImageCards>;
 
-const Component = () => {
+const ImageCardsStory = () => {
   const background = boolean('Background color', false) || undefined;
   const imgPlaceholder = boolean('Custom fallback image', false)
     ? getIllustrationUrl('framkvaemdir2')
@@ -35,5 +35,5 @@ const Component = () => {
 };
 
 export const _ImageCards: Story = {
-  render: () => <Component />,
+  render: () => <ImageCardsStory />,
 };

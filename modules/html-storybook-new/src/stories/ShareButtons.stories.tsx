@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof ShareButtons>;
 
-const Component = () => {
+const ShareButtonsStory = () => {
   // const showBrowserHTML = boolean('Show JavaScript rendered HTML', false);
   const label = boolean('Custom label', false) ? 'Deila frétt' : undefined;
   const buttonLabel = boolean('Custom button text', false)
@@ -59,5 +59,5 @@ const Component = () => {
 };
 
 export const _ShareButtons: Story = {
-  render: () => <Component />,
+  render: () => <ShareButtonsStory />,
 };

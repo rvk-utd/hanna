@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof BasicTable>;
 
-const Component = () => {
+const BasicTableStory = () => {
   const compact = boolean('Compact', false);
   const footer = boolean('Footer', false) || undefined;
   const footnote = boolean('Footnote', false);
@@ -102,5 +102,5 @@ const Component = () => {
 };
 
 export const _BasicTable: Story = {
-  render: () => <Component />,
+  render: () => <BasicTableStory />,
 };

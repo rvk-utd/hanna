@@ -10,7 +10,7 @@ export default meta;
 
 type Story = StoryObj<typeof BgBox>;
 
-const Component = () => {
+const BgBoxStory = () => {
   return (
     <BgBox>
       <p>Some content that needs a "background box".</p>
@@ -19,5 +19,5 @@ const Component = () => {
 };
 
 export const _BgBox: Story = {
-  render: () => <Component />,
+  render: () => <BgBoxStory />,
 };

@@ -25,7 +25,7 @@ const linkTabs: Array<TabItemProps & { href: string }> = buttonTabs.map((tab, i)
   href: '#tab-' + (i + 1),
 }));
 
-const TabsComponent = () => {
+const TabsStory = () => {
   const useButtons = !useLink(true);
   const showExample =
     (useButtons && boolean('Show contolled <div/> example', false)) || undefined;
@@ -74,7 +74,7 @@ const TabsComponent = () => {
 };
 
 export const _Tabs: Story = {
-  render: () => <TabsComponent />,
+  render: () => <TabsStory />,
 };
 
 // ===========================================================================
@@ -117,7 +117,7 @@ const _TabPanels = (props: _TabPanelsProps) => {
   );
 };
 
-const TabsAnchorsComponent = () => {
+const TabsAnchorsStory = () => {
   const ssr = boolean('Show only server-side HTML', true) ? 'ssr-only' : false;
   const startingIdx = boolean('First tab starts active', true) ? 0 : undefined;
   const [activeIdx, setActiveIdx] = useState(startingIdx);
@@ -149,7 +149,7 @@ const TabsAnchorsComponent = () => {
 };
 
 export const _TabsAnchors: Story = {
-  render: () => <TabsAnchorsComponent />,
+  render: () => <TabsAnchorsStory />,
   parameters: {
     css: {
       tokens: 'Tabs',

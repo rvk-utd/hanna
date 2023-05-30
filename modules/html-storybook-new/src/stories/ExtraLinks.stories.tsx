@@ -35,7 +35,7 @@ const RELATED_LINKS = range(1, 6).map(
   })
 );
 
-const Component = () => {
+const ExtraLinksStory = () => {
   const showRel = boolean('Show "Related" links', false) || undefined;
   return (
     <ExtraLinks
@@ -49,5 +49,5 @@ const Component = () => {
 };
 
 export const _ExtraLinks: Story = {
-  render: () => <Component />,
+  render: () => <ExtraLinksStory />,
 };

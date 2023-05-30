@@ -51,7 +51,7 @@ const getBg = (label: string) => {
   return bg === 'primary' ? 'primary' : bg === 'gray';
 };
 
-const Component = () => {
+const RowBlockStory = () => {
   const right = boolean('Right aligned', false);
   const colBg1 = getBg('First column');
   const colNarrow1 = boolean('Narrow first column', false);
@@ -70,5 +70,5 @@ const Component = () => {
 };
 
 export const _RowBlock: Story = {
-  render: () => <Component />,
+  render: () => <RowBlockStory />,
 };

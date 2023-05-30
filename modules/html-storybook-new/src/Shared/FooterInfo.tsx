@@ -53,4 +53,4 @@ const dummyContent: FooterInfoBoxes = [
   },
 ];
 
-export const FooterInfoComponent = () => <FooterInfo boxes={dummyContent} />;
+export const FooterInfoStory = () => <FooterInfo boxes={dummyContent} />;

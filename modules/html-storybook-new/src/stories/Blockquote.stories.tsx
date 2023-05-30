@@ -10,7 +10,7 @@ export default meta;
 
 type Story = StoryObj<typeof BlockQuote>;
 
-const Component = () => {
+const BlockQuoteStory = () => {
   return (
     <>
       <BlockQuote>
@@ -40,5 +40,5 @@ const Component = () => {
 };
 
 export const _BlockQuote: Story = {
-  render: () => <Component />,
+  render: () => <BlockQuoteStory />,
 };

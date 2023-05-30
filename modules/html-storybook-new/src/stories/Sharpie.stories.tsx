@@ -9,7 +9,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const Component = () => {
+const SharpieStory = () => {
   return (
     <p>
       {' '}
@@ -23,5 +23,5 @@ const Component = () => {
 };
 
 export const _Sharpie: Story = {
-  render: () => <Component />,
+  render: () => <SharpieStory />,
 };

@@ -47,7 +47,7 @@ const demoMarkup = () => {
   );
 };
 
-const Component = () => {
+const TextBlockStory = () => {
   const layout = optionsKnob(
     'Layout',
     {
@@ -78,5 +78,5 @@ const Component = () => {
 };
 
 export const _TextBlock: Story = {
-  render: () => <Component />,
+  render: () => <TextBlockStory />,
 };

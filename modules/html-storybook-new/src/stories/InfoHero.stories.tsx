@@ -41,7 +41,7 @@ export default meta;
 
 type Story = StoryObj<typeof InfoHero>;
 
-const Component = () => {
+const InfoHeroStory = () => {
   const align = optionsKnob(
     'Alignment',
     {
@@ -110,5 +110,5 @@ const Component = () => {
 };
 
 export const _InfoHero: Story = {
-  render: () => <Component />,
+  render: () => <InfoHeroStory />,
 };

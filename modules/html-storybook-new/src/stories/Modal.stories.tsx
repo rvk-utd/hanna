@@ -63,7 +63,7 @@ export const _Modal: Story = {
   render: () => <ModalComponent />,
 };
 
-const ModalDynamicsComponent = () => {
+const ModalDynamicsStory = () => {
   const { modifier, bling } = getKnobValues();
   const [open, setOpen] = useState(true);
   const openModal = () => setOpen(true);
@@ -109,7 +109,7 @@ const ModalDynamicsComponent = () => {
 };
 
 export const _ModalDynamics: Story = {
-  render: () => <ModalDynamicsComponent />,
+  render: () => <ModalDynamicsStory />,
   parameters: {
     css: {
       tokens: 'Modal,ButtonPrimary,ButtonTertiary,Heading,TextBlock,Bling',

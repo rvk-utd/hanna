@@ -18,7 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof PageFilter>;
 
-const Component = () => {
+const PageFilterStory = () => {
   const summary = boolean('Summary text', true)
     ? 'Veldu þér dagsetningu sem og frá hvaða ráði fundargerðin er'
     : undefined;
@@ -85,5 +85,5 @@ const Component = () => {
 };
 
 export const _PageFilter: Story = {
-  render: () => <Component />,
+  render: () => <PageFilterStory />,
 };

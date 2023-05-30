@@ -26,7 +26,7 @@ const cards = range(1, 8).map(
   })
 );
 
-const Component = () => {
+const ActionCardsStory = () => {
   const title = boolean('Title', true) || undefined;
   const summary = boolean('Summary text/More link', false) || undefined;
   return (
@@ -40,5 +40,5 @@ const Component = () => {
 };
 
 export const _ActionCards: Story = {
-  render: () => <Component />,
+  render: () => <ActionCardsStory />,
 };

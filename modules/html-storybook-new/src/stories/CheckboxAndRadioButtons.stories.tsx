@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const CheckboxButtonComponent = () => {
+const CheckboxButtonStory = () => {
   const subtext = boolean('Sub-text (small print)', true);
   const required = boolean('Required', false);
   const invalid = boolean('Invalid', false);
@@ -42,7 +42,7 @@ const CheckboxButtonComponent = () => {
 };
 
 export const _CheckboxButton: Story = {
-  render: () => <CheckboxButtonComponent />,
+  render: () => <CheckboxButtonStory />,
   name: 'CheckboxButton',
 };
 

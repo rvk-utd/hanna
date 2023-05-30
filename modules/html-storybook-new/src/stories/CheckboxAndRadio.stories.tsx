@@ -24,7 +24,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const CheckBoxComponent = () => {
+const CheckboxStory = () => {
   const required = boolean('Required', false);
   const invalid = boolean('Invalid', false);
   const errorMessage = boolean('Error message', false)
@@ -43,7 +43,7 @@ const CheckBoxComponent = () => {
 };
 
 export const _Checkbox: Story = {
-  render: () => <CheckBoxComponent />,
+  render: () => <CheckboxStory />,
 };
 
 // -----------------------------------------------------------------------
@@ -121,7 +121,7 @@ export const _RadioGroup: Story = {
 
 // -----------------------------------------------------------------------
 
-const StylingTestsComponent = () => {
+const StylingTestsStory = () => {
   return (
     <RowBlock>
       <RowBlockColumn>
@@ -153,7 +153,7 @@ const StylingTestsComponent = () => {
 };
 
 export const _StylingTests: Story = {
-  render: () => <StylingTestsComponent />,
+  render: () => <StylingTestsStory />,
   parameters: {
     css: { tokens: 'Checkbox,RadioGroup,RowBlock,RowBlockColumn' },
   },

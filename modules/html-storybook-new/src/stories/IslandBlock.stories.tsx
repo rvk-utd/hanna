@@ -14,7 +14,7 @@ export default meta;
 
 type Story = StoryObj<typeof IslandBlock>;
 
-const IslandBlockComponent = () => {
+const IslandBlockStory = () => {
   const type = optionsKnob(
     'Type',
     {
@@ -48,7 +48,7 @@ const IslandBlockComponent = () => {
 };
 
 export const _IslandBlock: Story = {
-  render: () => <IslandBlockComponent />,
+  render: () => <IslandBlockStory />,
 };
 
 // ===========================================================================
@@ -92,7 +92,7 @@ const testCombos = (['svg-asset', 'textonly'] as const).reduce<Array<IslandBlock
 
 // ===========================================================================
 
-const IslandBlockExamplesComponent = () => {
+const IslandBlockExamplesStory = () => {
   return (
     <>
       {' '}
@@ -107,7 +107,7 @@ const IslandBlockExamplesComponent = () => {
 };
 
 export const _IslandBlock_Examples: Story = {
-  render: () => <IslandBlockExamplesComponent />,
+  render: () => <IslandBlockExamplesStory />,
   parameters: {
     css: {
       tokens: 'IslandBlock',

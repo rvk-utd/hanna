@@ -52,7 +52,7 @@ const LINKS: Array<ContactBubbleItem> = [
   },
 ];
 
-export const ContactBubbleComponent = () => {
+export const ContactBubbleStory = () => {
   const ssr = !boolean('Show client-side markup', false);
   const alwaysShow = boolean('Set optional "alwaysShow" data-attribute', true);
 

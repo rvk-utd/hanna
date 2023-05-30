@@ -13,7 +13,7 @@ export default meta;
 
 type Story = StoryObj<typeof BreadCrumbs>;
 
-const Component = () => {
+const BreadCrumbsStory = () => {
   const trailLength = number('Length', 4, { min: 2, max: 4 });
   const sparse = boolean('Sparse links', false);
   const links = useMemo(() => {
@@ -28,5 +28,5 @@ const Component = () => {
 };
 
 export const _BreadCrumbs: Story = {
-  render: () => <Component />,
+  render: () => <BreadCrumbsStory />,
 };

@@ -46,7 +46,7 @@ for (let i = 0; i < steps.length; i++) {
   demoSteps[i ? 'Step ' + i : 'Intro'] = String(i);
 }
 
-const WizardStepperComponent = () => {
+const WizardStepperStory = () => {
   let activeStepFromKnob: number | undefined = Number(
     optionsKnob('Active step', demoSteps, '1', { display: 'inline-radio' })
   );
@@ -73,7 +73,7 @@ const WizardStepperComponent = () => {
 };
 
 export const _WizardStepper: Story = {
-  render: () => <WizardStepperComponent />,
+  render: () => <WizardStepperStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

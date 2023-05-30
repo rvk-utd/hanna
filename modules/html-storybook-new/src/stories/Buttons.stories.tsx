@@ -13,7 +13,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const Component = () => {
+const ButtonsStory = () => {
   const size = optionsKnob(
     'Size',
     {
@@ -123,7 +123,7 @@ const Component = () => {
 };
 
 export const _Buttons: Story = {
-  render: () => <Component />,
+  render: () => <ButtonsStory />,
   parameters: {
     css: { tokens: 'ButtonPrimary,ButtonSecondary,ButtonTertiary' },
   },

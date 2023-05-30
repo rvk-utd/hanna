@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof SubHeading>;
 
-const Component = () => {
+const SubHeadingStory = () => {
   const layout =
     optionsKnob(
       'Layout',
@@ -40,5 +40,5 @@ const Component = () => {
 };
 
 export const _SubHeading: Story = {
-  render: () => <Component />,
+  render: () => <SubHeadingStory />,
 };

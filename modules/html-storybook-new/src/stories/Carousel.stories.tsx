@@ -10,7 +10,7 @@ export default meta;
 
 type Story = StoryObj<typeof Carousel>;
 
-const Component = () => {
+const CarouselStory = () => {
   return (
     <>
       <style>
@@ -48,5 +48,5 @@ const Component = () => {
 };
 
 export const _Carousel: Story = {
-  render: () => <Component />,
+  render: () => <CarouselStory />,
 };

@@ -48,7 +48,7 @@ const items = () => [
   { title: 'Accordion items', content: 'Hello content', disabled: true },
 ];
 
-const Component = () => {
+const AccordionListStory = () => {
   const wide = boolean('Full width', false);
   return (
     <AccordionList
@@ -62,7 +62,7 @@ const Component = () => {
 };
 
 export const _AccordionList: Story = {
-  render: () => <Component />,
+  render: () => <AccordionListStory />,
 };
 
 export const AccordionListStyling: Story = {

@@ -16,7 +16,7 @@ export default meta;
 
 type Story = StoryObj<typeof TextButton>;
 
-const TextButtonsComponent = () => {
+const TextButtonsStory = () => {
   return (
     <>
       <p>
@@ -30,5 +30,5 @@ const TextButtonsComponent = () => {
 };
 
 export const _TextButtons: Story = {
-  render: () => <TextButtonsComponent />,
+  render: () => <TextButtonsStory />,
 };

@@ -31,11 +31,11 @@ const blocks = range(1, 5).map((n) => ({
   ].slice(0, (n + 1) % 6),
 }));
 
-const Component = () => {
+const GridBlocksStory = () => {
   const twocol = boolean('Two columns', false);
   return <GridBlocks blocks={blocks} twocol={twocol} startSeen />;
 };
 
 export const _GridBlocks: Story = {
-  render: () => <Component />,
+  render: () => <GridBlocksStory />,
 };

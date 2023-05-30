@@ -17,7 +17,7 @@ export default meta;
 
 type Story = StoryObj<typeof CenterColumn>;
 
-const Component = () => {
+const CenterColumnStory = () => {
   return (
     <CenterColumn>
       <PageHeading startSeen>
@@ -50,5 +50,5 @@ const Component = () => {
 };
 
 export const _CenterColumn: Story = {
-  render: () => <Component />,
+  render: () => <CenterColumnStory />,
 };

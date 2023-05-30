@@ -31,7 +31,7 @@ const SUMMARY_HTML = () => (
   </>
 );
 
-const Component = () => {
+const HeroBlockStory = () => {
   const illustration = select('Illustration', illustrations, illustrations[0]);
   return (
     <HeroBlock
@@ -61,7 +61,7 @@ const combos: Array<{
   { buttons: 0, html: true },
 ];
 
-const HeroBlockExamplesComponent = () => {
+const HeroBlockExamplesStory = () => {
   return (
     <>
       {combos.map(({ buttons, html }, i) => {
@@ -95,11 +95,11 @@ const HeroBlockExamplesComponent = () => {
 };
 
 export const _HeroBlock: Story = {
-  render: () => <Component />,
+  render: () => <HeroBlockStory />,
 };
 
 export const _HeroBlockExamples: Story = {
-  render: () => <HeroBlockExamplesComponent />,
+  render: () => <HeroBlockExamplesStory />,
   parameters: {
     css: {
       tokens: 'HeroBlock',

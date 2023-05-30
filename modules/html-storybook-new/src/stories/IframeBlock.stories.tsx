@@ -20,7 +20,7 @@ const codeExample = `
 <script src="https://styles.reykjavik.is/assets/scripts/iframeResizer.contentWindow@4.js"></script>
 `.trim();
 
-const Component = () => {
+const IframeBlockStory = () => {
   const align = boolean('Right-aligned', false) ? 'right' : undefined;
   const fixedHeight = boolean('Fixed height', false)
     ? { scrolling: true, height: 350 }
@@ -70,5 +70,5 @@ const Component = () => {
 };
 
 export const _IframeBlock: Story = {
-  render: () => <Component />,
+  render: () => <IframeBlockStory />,
 };

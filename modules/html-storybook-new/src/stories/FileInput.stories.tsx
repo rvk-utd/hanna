@@ -13,7 +13,7 @@ export default meta;
 
 type Story = StoryObj<typeof FileInput>;
 
-const Component = () => {
+const FileInputStory = () => {
   const ffProps = getFormFieldKnobs({ hideLabel: true, small: false, readOnly: false });
 
   const showFileSize = boolean('Show file size', false);
@@ -45,5 +45,5 @@ const Component = () => {
 };
 
 export const _FileInput: Story = {
-  render: () => <Component />,
+  render: () => <FileInputStory />,
 };

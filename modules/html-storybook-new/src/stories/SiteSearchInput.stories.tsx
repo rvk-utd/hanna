@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const Component = () => {
+const SiteSearchInputStory = () => {
   const ffProps = getFormFieldKnobs({ small: false, readOnly: false });
   const [value, setValue] = useState('');
 
@@ -33,5 +33,5 @@ const Component = () => {
 };
 
 export const _SiteSearchInput: Story = {
-  render: () => <Component />,
+  render: () => <SiteSearchInputStory />,
 };

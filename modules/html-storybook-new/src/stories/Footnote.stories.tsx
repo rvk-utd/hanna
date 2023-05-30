@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof Footnote>;
 
-const Component = () => {
+const FootnoteStory = () => {
   return (
     <>
       <HiddenTiger>
@@ -30,5 +30,5 @@ const Component = () => {
 };
 
 export const _Footnote: Story = {
-  render: () => <Component />,
+  render: () => <FootnoteStory />,
 };

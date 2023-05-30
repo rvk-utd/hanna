@@ -14,7 +14,7 @@ export default meta;
 
 type Story = StoryObj<typeof Picture>;
 
-const Component = () => {
+const PictureStory = () => {
   const focalPoint = boolean('Custom image focal point', false) ? '80% 80%' : undefined;
   return (
     <>
@@ -41,5 +41,5 @@ const Component = () => {
 };
 
 export const _Picture: Story = {
-  render: () => <Component />,
+  render: () => <PictureStory />,
 };

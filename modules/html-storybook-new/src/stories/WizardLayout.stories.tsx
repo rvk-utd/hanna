@@ -49,7 +49,7 @@ const steps = [
   },
 ];
 
-const WizardLayoutWithContentComponent = () => {
+const WizardLayoutWithContentStory = () => {
   const globalAlerts = boolean('Global alerts container', false);
   return (
     <WizardLayout
@@ -79,7 +79,7 @@ const WizardLayoutWithContentComponent = () => {
 };
 
 export const _WizardLayoutWithContent: Story = {
-  render: () => <WizardLayoutWithContentComponent />,
+  render: () => <WizardLayoutWithContentStory />,
   parameters: {
     css: {
       tokens: 'WizardLayout-full',
