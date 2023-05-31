@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Add missing named export of `Tooltip` compnent
 - fix: Update dependencies to fix esm–cjs import resolution errors
 
 ## 0.10.88 – 0.10.89
