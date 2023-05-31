@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import focusElm from '@hugsmidjan/qj/focusElm';
+import { focusElm } from '@hugsmidjan/qj/focusElm';
 import useShortState from '@hugsmidjan/react/hooks/useShortState';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { Cleanup, getPageScrollElm } from '@reykjavik/hanna-utils';

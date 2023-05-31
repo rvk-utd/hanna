@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.8.4",
-    "@hugsmidjan/qj": "^4.18.0",
+    "@hugsmidjan/qj": "^4.19.0",
     "@reykjavik/hanna-css": "workspace:*",
     "@reykjavik/hanna-react": "workspace:*",
     "@storybook/addon-knobs": "^5.3.14",

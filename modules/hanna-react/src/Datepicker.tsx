@@ -1,16 +1,12 @@
 import React, { MutableRefObject, RefObject } from 'react';
-// Documentation: https://reactdatepicker.com/
-import ReactDatePicker, {
-  registerLocale,
-  // setDefaultLocale,
-} from 'react-datepicker';
+import { ReactDatePicker, registerLocale } from 'react-datepicker'; // Docs: https://reactdatepicker.com/
 import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
-import is from 'date-fns/locale/is';
-import pl from 'date-fns/locale/pl';
+import is from 'date-fns/locale/is/index.js';
+import pl from 'date-fns/locale/pl/index.js';
 
-import FormField, { FormFieldWrappingProps } from './FormField.js';
+import { FormField, FormFieldWrappingProps } from './FormField.js';
 
 registerLocale('is', is);
 registerLocale('pl', pl);

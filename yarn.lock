@@ -2505,22 +2505,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hugsmidjan/qj@npm:^4.1.1, @hugsmidjan/qj@npm:^4.18.0":
-  version: 4.18.0
-  resolution: "@hugsmidjan/qj@npm:4.18.0"
-  checksum: 53d2a75747441c216053de327a331fe01b1a48a6a685f66f07af9d27d96e9db403bd23c77cfbfad212fbd25535eb3dd240f73e1ec63345e8e2c6dad5f8b14d15
+"@hugsmidjan/qj@npm:^4.19.0":
+  version: 4.19.0
+  resolution: "@hugsmidjan/qj@npm:4.19.0"
+  checksum: 44f18d2f5968fb9dcd12ab4d9d63b4867c32aefc73745efa3eb9c404eef4c770e8ee48c8cd0d8b77dacc5b70d10d237d11e0718fff90aa1c4f95cd10891b014d
   languageName: node
   linkType: hard
 
-"@hugsmidjan/react@npm:^0.4.30":
-  version: 0.4.30
-  resolution: "@hugsmidjan/react@npm:0.4.30"
+"@hugsmidjan/react@npm:^0.4.31":
+  version: 0.4.31
+  resolution: "@hugsmidjan/react@npm:0.4.31"
   dependencies:
-    "@hugsmidjan/qj": ^4.1.1
+    "@hugsmidjan/qj": ^4.19.0
   peerDependencies:
     react: ">=16.8 <19"
     react-dom: ">=16.8 <19"
-  checksum: 555ef3484aa4af551728c2bab09edee20867a3c0b3d7947fdb2c7684cf5ade9996ef7b81f40c1475f52ce2855eb30b5064fe65859586036e95e2a3361589801e
+  checksum: 72d453b0707f78538cb59cf2f4fde9451f9ef45a40202abacc1d26dd86bb19cefc80b6f8f9f0cfafc8c24d5fb31b3c6c54c3c3dcab34308ff6fc27871e765b8f
   languageName: node
   linkType: hard
 
@@ -3078,7 +3078,7 @@ __metadata:
   dependencies:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
-    "@hugsmidjan/qj": ^4.18.0
+    "@hugsmidjan/qj": ^4.19.0
     "@reykjavik/hanna-utils": ^0.2.5
     "@types/md5-file": ^5
     del: ^6.0.0
@@ -3093,8 +3093,8 @@ __metadata:
   resolution: "@reykjavik/hanna-react@workspace:modules/hanna-react"
   dependencies:
     "@floating-ui/react": ^0.19.2
-    "@hugsmidjan/qj": ^4.18.0
-    "@hugsmidjan/react": ^0.4.30
+    "@hugsmidjan/qj": ^4.19.0
+    "@hugsmidjan/react": ^0.4.31
     "@reykjavik/hanna-css": ^0.4.2
     "@reykjavik/hanna-utils": ^0.2.5
     "@types/react": ^17.0.24
@@ -3117,7 +3117,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
-    "@hugsmidjan/qj": ^4.18.0
+    "@hugsmidjan/qj": ^4.19.0
     focus-visible: ^5.2.0
     formatchange: ^2.2.0
   languageName: unknown
@@ -12591,7 +12591,7 @@ __metadata:
   resolution: "hanna-html-storybook@workspace:modules/html-storybook"
   dependencies:
     "@babel/core": ^7.8.4
-    "@hugsmidjan/qj": ^4.18.0
+    "@hugsmidjan/qj": ^4.19.0
     "@reykjavik/hanna-css": "workspace:*"
     "@reykjavik/hanna-react": "workspace:*"
     "@storybook/addon-knobs": ^5.3.14
@@ -12616,7 +12616,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hanna-sprinkles@workspace:modules/hanna-sprinkles"
   dependencies:
-    "@hugsmidjan/qj": ^4.18.0
+    "@hugsmidjan/qj": ^4.19.0
     "@preact/preset-vite": ^2.5.0
     "@reykjavik/hanna-css": "workspace:*"
     "@reykjavik/hanna-react": "workspace:*"
@@ -12640,7 +12640,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hanna-visual-tests@workspace:modules/visual-tests"
   dependencies:
-    "@hugsmidjan/qj": ^4.18.0
+    "@hugsmidjan/qj": ^4.19.0
     "@playwright/test": ^1.32.3
     "@remix-run/dev": ^1.15.0
     "@remix-run/eslint-config": ^1.15.0

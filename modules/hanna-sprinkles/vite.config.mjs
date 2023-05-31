@@ -22,8 +22,6 @@ const ignore = [
   testGlobs,
   // `*.privates.js` contain private bits that need testing
   `${srcDir}**/*.privates.{ts,tsx}`,
-  // POC scripts that should not be bundled/published yet
-  `${srcDir}**/*.WIP.{ts,tsx}`,
 ];
 
 const stripExt = (/** @type {string} */ path) => path.replace(/\.[^.]+$/, '');

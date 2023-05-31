@@ -9,6 +9,20 @@
     "lib": ["dom", "esnext"],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    /*
+      NOTE: If `esModuleInterop` is set to false,
+      then the commonjs output for these sort of import statements
+      ```esm
+        import getBemClass from '@hugsmidjan/react/utils/getBemClass'; // commonjs module
+        console.log(typeof getBemClass);  // 'function'
+      ```
+      will become:
+      ```cjs
+        const getBemClass_1 = require('@hugsmidjan/react/utils/getBemClass'); // commonjs module
+        console.log(typeof getBemClass_1.default);  // 'undefined'
+      ```
+      ...which breaks things.
+    */
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "nodenext",

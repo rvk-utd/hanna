@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Update dependencies to fix esm–cjs import resolution errors
 
 ## 0.10.88 – 0.10.89
 
@@ -10,7 +11,7 @@ _2023-05-25_
 
 - feat(ts): Export utility type `HtmlProps` from `utils` module — for adding
   HTML attributes (including `data-*`) to React components.
-- fix: Update dependencies to fix import resolution errors in node@>=18
+- fix: Update dependencies to fix esm–cjs import resolution errors
 
 ## 0.10.87
 

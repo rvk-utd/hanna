@@ -1,7 +1,7 @@
 import './initHannaNamespace.js';
 
 import E from '@hugsmidjan/qj/E';
-import focusElm from '@hugsmidjan/qj/focusElm';
+import { focusElm } from '@hugsmidjan/qj/focusElm';
 import htmlLang from '@hugsmidjan/qj/htmlLang';
 import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';

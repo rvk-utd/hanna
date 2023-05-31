@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import A from '@hugsmidjan/qj/A';
 import debounce from '@hugsmidjan/qj/debounce';
-import focusElm from '@hugsmidjan/qj/focusElm';
+import { focusElm } from '@hugsmidjan/qj/focusElm';
 import throttle from '@hugsmidjan/qj/throttle';
 import { BemProps } from '@hugsmidjan/react/types';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
