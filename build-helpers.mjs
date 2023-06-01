@@ -204,15 +204,19 @@ export const buildNpmLib = (libName, custom) => {
 
     makePackageJson(pkg, distDir, {
       sideEffects,
-      exports: entryPoints.reduce((exports, file) => {
-        const token = file.replace(/\.tsx?$/, '');
-        const expToken = token === 'index' ? '.' : `./${token}`;
-        exports[expToken] = {
-          import: `./esm/${token}.js`,
-          require: `./${token}.js`,
-        };
-        return exports;
-      }, {}),
+      exports: Object.fromEntries(
+        entryPoints.map((file) => {
+          const token = file.replace(/\.tsx?$/, '');
+          const expToken = `./${token}`.replace(/\/index$/, '');
+          return [
+            expToken,
+            {
+              import: `./esm/${token}.js`,
+              require: `./${token}.js`,
+            },
+          ];
+        })
+      ),
     });
 
     // -------

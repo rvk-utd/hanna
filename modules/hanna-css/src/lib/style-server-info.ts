@@ -79,6 +79,7 @@ export type CssModuleToken =
   | 'PullQuote'
   | 'RadioButtonsGroup'
   | 'RadioGroup'
+  | 'ReadSpeakerPlayer'
   | 'RelatedLinks'
   | 'RowBlock'
   | 'RowBlockColumn'

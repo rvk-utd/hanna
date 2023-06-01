@@ -97,6 +97,7 @@ import { testing as ProcessOverview__test } from '../src/routes/test/ProcessOver
 import { testing as PullQuote__test } from '../src/routes/test/PullQuote.js';
 import { testing as RadioButtonsGroup__test } from '../src/routes/test/RadioButtonsGroup.js';
 import { testing as RadioGroup__test } from '../src/routes/test/RadioGroup.js';
+import { testing as ReadSpeakerPlayer__test } from '../src/routes/test/ReadSpeakerPlayer.js';
 import { testing as RelatedLinks__test } from '../src/routes/test/RelatedLinks.js';
 import { testing as RowBlock__test } from '../src/routes/test/RowBlock.js';
 import { testing as SearchHeroParagraph__test } from '../src/routes/test/SearchHeroParagraph.js';
@@ -187,6 +188,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   PullQuote: PullQuote__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
   RadioGroup: RadioGroup__test,
+  ReadSpeakerPlayer: ReadSpeakerPlayer__test,
   RelatedLinks: RelatedLinks__test,
   RowBlock: RowBlock__test,
   SearchHeroParagraph: SearchHeroParagraph__test,

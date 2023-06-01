@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `ReadSpeakerPlayer` and a `stopReading` helper
 
 ## 0.10.90 – 0.10.91
 
