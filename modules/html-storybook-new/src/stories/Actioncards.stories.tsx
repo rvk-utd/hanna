@@ -60,6 +60,8 @@ export const _ActionCards: Story = (args: ActionCardsStoryProps) => (
   <ActionCardsStory {...args} />
 );
 
+// ----------------- Controls config --------------------------------
+
 const disabledControlProps = disableControlProps([
   'cards',
   'startSeen',

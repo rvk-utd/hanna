@@ -1,16 +1,24 @@
 import React from 'react';
-import { AccordionList } from '@reykjavik/hanna-react/AccordionList';
+import { AccordionList, AccordionListProps } from '@reykjavik/hanna-react/AccordionList';
 import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof AccordionList> = {
+import { disableControlProps } from '../utils/disableControlTypes.js';
+
+type AccordionListControlsProps = {
+  fullWidth: boolean;
+};
+
+type AccordionListStoryProps = AccordionListControlsProps & AccordionListProps;
+
+const meta: Meta<AccordionListStoryProps> = {
   title: 'AccordionList',
   component: AccordionList,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof AccordionList>;
+type Story = StoryObj<AccordionListStoryProps>;
 
 const items = () => [
   {
@@ -63,6 +71,24 @@ const AccordionListStory = () => {
 
 export const _AccordionList: Story = {
   render: () => <AccordionListStory />,
+  argTypes: {
+    fullWidth: {
+      control: 'boolean',
+      name: 'Full width',
+    },
+    ...disableControlProps([
+      'items',
+      'open',
+      'onToggle',
+      'defaultOpen',
+      'wide',
+      'ssr',
+      'startSeen',
+    ]),
+  },
+  args: {
+    fullWidth: false,
+  },
 };
 
 export const AccordionListStyling: Story = {
