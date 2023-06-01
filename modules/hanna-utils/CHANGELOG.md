@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.6
+
+_2023-06-01_
+
 - fix: styleServerUrl points to localhost in dev mode
 
 ## 0.2.5
