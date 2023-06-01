@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.90
+
+_2023-06-01_
+
 - fix: Add missing named export of `Tooltip` compnent
 - fix: Update dependencies to fix esm–cjs import resolution errors
 
