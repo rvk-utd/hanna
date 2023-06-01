@@ -4,6 +4,8 @@ import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { disableControlProps } from '../utils/disableControlTypes.js';
+
 const meta: Meta<typeof Alert> = {
   title: 'Alert',
   component: Alert,
@@ -62,4 +64,24 @@ const AlertStory = () => {
 
 export const _Alert: Story = {
   render: () => <AlertStory />,
+  argTypes: {
+    closable: {
+      control: 'boolean',
+      name: 'Closable alert',
+    },
+    ...disableControlProps([
+      'type',
+      'childrenHTML',
+      'closeUrl',
+      'texts',
+      'lang',
+      'ssr',
+      'autoClose',
+      'onClose',
+      'onClosed',
+    ]),
+  },
+  args: {
+    closable: true,
+  },
 };
