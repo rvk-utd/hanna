@@ -55,8 +55,8 @@ export const colors = {
   suld_150: '#707275' as string,
   suld_200: '#2a2b2c' as string,
 
-  white: '#ffffff', // colors.suld_0;
-  blackish: '#2a2b2c', // colors.suld_200;
+  white: '#ffffff' as string, // colors.suld_0;
+  blackish: '#2a2b2c' as string, // colors.suld_200;
 } as const;
 
 // ---------------------------------------------------------------------------
