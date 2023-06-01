@@ -69,6 +69,16 @@ const AccordionListStory = () => {
   );
 };
 
+const disabledControlProps = disableControlProps([
+  'items',
+  'open',
+  'onToggle',
+  'defaultOpen',
+  'wide',
+  'ssr',
+  'startSeen',
+]);
+
 export const _AccordionList: Story = {
   render: () => <AccordionListStory />,
   argTypes: {
@@ -76,15 +86,7 @@ export const _AccordionList: Story = {
       control: 'boolean',
       name: 'Full width',
     },
-    ...disableControlProps([
-      'items',
-      'open',
-      'onToggle',
-      'defaultOpen',
-      'wide',
-      'ssr',
-      'startSeen',
-    ]),
+    ...disabledControlProps,
   },
   args: {
     fullWidth: false,
@@ -98,6 +100,9 @@ export const AccordionListStyling: Story = {
       <AccordionList items={items()} wide startSeen />
     </>
   ),
+  argTypes: {
+    ...disabledControlProps,
+  },
   parameters: {
     css: {
       tokens: 'AccordionList',
