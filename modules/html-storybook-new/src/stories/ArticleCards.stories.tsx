@@ -1,27 +1,37 @@
 import React from 'react';
-import { ArticleCards } from '@reykjavik/hanna-react/ArticleCards';
+import { ArticleCards, ArticleCardsProps } from '@reykjavik/hanna-react/ArticleCards';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { imageCards } from '../utils/_dummyData.js';
+import { disableControlProps } from '../utils/disableControlTypes.js';
 
-const meta: Meta<typeof ArticleCards> = {
+type Story = StoryObj<ArticleCardsProps>;
+
+const meta: Meta<ArticleCardsProps> = {
   title: 'ArticleCards',
   component: ArticleCards,
 };
 export default meta;
 
-type Story = StoryObj<typeof ArticleCards>;
-
-const ArticleCardsStory = () => {
-  const imgPlaceholder = boolean('Custom fallback image', false)
+const ArticleCardsStory: React.FC<ArticleCardsProps> = ({ imgPlaceholder }) => {
+  const imgPlaceholderUrl = imgPlaceholder
     ? getIllustrationUrl('framkvaemdir2')
     : undefined;
 
-  return <ArticleCards cards={imageCards} imgPlaceholder={imgPlaceholder} />;
+  return <ArticleCards cards={imageCards} imgPlaceholder={imgPlaceholderUrl} />;
 };
 
 export const _ArticleCards: Story = {
-  render: () => <ArticleCardsStory />,
+  render: (args: ArticleCardsProps) => <ArticleCardsStory {...args} />,
+  argTypes: {
+    imgPlaceholder: {
+      control: 'boolean',
+      name: 'Custom fallback image',
+    },
+    ...disableControlProps(['cards']),
+  },
+  args: {
+    imgPlaceholder: false,
+  },
 };

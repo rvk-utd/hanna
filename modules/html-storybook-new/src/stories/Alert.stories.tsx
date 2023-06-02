@@ -5,15 +5,13 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { disableControlProps } from '../utils/disableControlTypes.js';
 
-// type AlertStoryControlsProps = { }
+type Story = StoryObj<AlertProps>;
 
-const meta: Meta<typeof Alert> = {
+const meta: Meta<AlertProps> = {
   title: 'Alert',
   component: Alert,
 };
 export default meta;
-
-type Story = StoryObj<typeof Alert>;
 
 const alertDemos = {
   info: () => (
