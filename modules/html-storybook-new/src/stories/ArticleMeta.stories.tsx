@@ -1,16 +1,21 @@
 import React from 'react';
-import { ArticleMeta, ArticleMetaItem } from '@reykjavik/hanna-react/ArticleMeta';
+import {
+  ArticleMeta,
+  ArticleMetaItem,
+  ArticleMetaProps,
+} from '@reykjavik/hanna-react/ArticleMeta';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { disableControlProps } from '../utils/disableControlTypes.js';
 
-const meta: Meta<typeof ArticleMeta> = {
+type Story = StoryObj<ArticleMetaProps>;
+
+const meta: Meta<ArticleMetaProps> = {
   title: 'ArticleMeta',
   component: ArticleMeta,
 };
-export default meta;
 
-type Story = StoryObj<typeof ArticleMeta>;
+export default meta;
 
 const ITEMS: Array<ArticleMetaItem> = [
   {
