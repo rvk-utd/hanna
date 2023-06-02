@@ -1,17 +1,27 @@
 import React from 'react';
-import { ArticleCarousel } from '@reykjavik/hanna-react/ArticleCarousel';
+import {
+  ArticleCarousel,
+  ArticleCarouselProps,
+} from '@reykjavik/hanna-react/ArticleCarousel';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleCarouselStory } from '../Shared/ArticleCarousel.js';
+import { disableControlProps } from '../utils/disableControlTypes.js';
 
-const meta: Meta<typeof ArticleCarousel> = {
+type Story = StoryObj<ArticleCarouselProps>;
+
+const meta: Meta<ArticleCarouselProps> = {
   title: 'ArticleCarousel',
   component: ArticleCarousel,
 };
 export default meta;
 
-type Story = StoryObj<typeof ArticleCarousel>;
-
 export const _ArticleCarousel: Story = {
   render: () => <ArticleCarouselStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
+  argTypes: {
+    ...disableControlProps(['items', 'title', 'moreLabel', 'ssr', 'startSeen']),
+  },
 };
