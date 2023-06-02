@@ -2,6 +2,8 @@ import React from 'react';
 import { ArticleMeta, ArticleMetaItem } from '@reykjavik/hanna-react/ArticleMeta';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { disableControlProps } from '../utils/disableControlTypes.js';
+
 const meta: Meta<typeof ArticleMeta> = {
   title: 'ArticleMeta',
   component: ArticleMeta,
@@ -22,4 +24,10 @@ const ITEMS: Array<ArticleMetaItem> = [
 
 export const _ArticleMeta: Story = {
   render: () => <ArticleMeta items={ITEMS} />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
+  argTypes: {
+    ...disableControlProps(['items', 'small']),
+  },
 };
