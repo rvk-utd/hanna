@@ -1,21 +1,32 @@
 import React from 'react';
-import { BasicTable } from '@reykjavik/hanna-react/BasicTable';
+import { BasicTable, BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
 import { Footnote } from '@reykjavik/hanna-react/Footnote';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
+import { optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof BasicTable> = {
+import { disableControlProps } from '../utils/disableControlTypes.js';
+
+type BasicTablePropsControlsProps = {
+  footer: boolean;
+  footnote: boolean;
+  variant: '' | 'right' | 'fullwidth';
+};
+type BasicTableStoryProps = BasicTableProps & BasicTablePropsControlsProps;
+type Story = StoryObj<BasicTableStoryProps>;
+
+const meta: Meta<BasicTableStoryProps> = {
   title: 'BasicTable',
   component: BasicTable,
 };
+
 export default meta;
 
-type Story = StoryObj<typeof BasicTable>;
-
-const BasicTableStory = () => {
-  const compact = boolean('Compact', false);
-  const footer = boolean('Footer', false) || undefined;
-  const footnote = boolean('Footnote', false);
+const BasicTableStory: React.FC<BasicTableStoryProps> = ({
+  compact,
+  footer,
+  footnote,
+}) => {
+  const showFooter = footer || undefined;
   const variant = optionsKnob(
     'Variant',
     {
@@ -86,7 +97,7 @@ const BasicTableStory = () => {
           ],
         ]}
         tfoot={
-          footer && [
+          showFooter && [
             [
               { value: 'Samtals:', number: false, colSpan: 4 },
               { value: '16.345 kr.', number: true },
@@ -102,5 +113,37 @@ const BasicTableStory = () => {
 };
 
 export const _BasicTable: Story = {
-  render: () => <BasicTableStory />,
+  render: (args: BasicTableStoryProps) => <BasicTableStory {...args} />,
+  argTypes: {
+    compact: {
+      control: 'boolean',
+      name: 'Compact',
+    },
+    footer: {
+      control: 'boolean',
+      name: 'Footer',
+    },
+    footnote: {
+      control: 'boolean',
+      name: 'Footnote',
+    },
+    ...disableControlProps([
+      'type',
+      'modifier',
+      'fullWidth',
+      'align',
+      'startSeen',
+      'caption',
+      'thead',
+      'tfoot',
+      'tbody',
+      'tbodies',
+      'cols',
+    ]),
+  },
+  args: {
+    compact: false,
+    footer: false,
+    footnote: false,
+  },
 };

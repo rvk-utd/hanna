@@ -8,8 +8,8 @@ import { disableControlProps } from '../utils/disableControlTypes.js';
 type AccordionListControlsProps = {
   fullWidth: boolean;
 };
-
 type AccordionListStoryProps = AccordionListControlsProps & AccordionListProps;
+type Story = StoryObj<AccordionListStoryProps>;
 
 const meta: Meta<AccordionListStoryProps> = {
   title: 'AccordionList',
@@ -17,8 +17,6 @@ const meta: Meta<AccordionListStoryProps> = {
 };
 
 export default meta;
-
-type Story = StoryObj<AccordionListStoryProps>;
 
 const items = () => [
   {
