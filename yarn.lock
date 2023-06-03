@@ -2512,6 +2512,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hugsmidjan/qj@npm:^4.20.0":
+  version: 4.20.0
+  resolution: "@hugsmidjan/qj@npm:4.20.0"
+  checksum: a4474f4a609e880fe5432b67f63767ed881eaaac4155d9389650cf20a0143a15e65a700901fac68ca39d22f766bdc5c51cfc670dbb25c6064bee37fe59b349e8
+  languageName: node
+  linkType: hard
+
 "@hugsmidjan/react@npm:^0.4.31":
   version: 0.4.31
   resolution: "@hugsmidjan/react@npm:0.4.31"
@@ -3078,7 +3085,7 @@ __metadata:
   dependencies:
     "@hugsmidjan/gulp-iconfont": ^0.4.0
     "@hugsmidjan/gulp-images": ^0.2.2
-    "@hugsmidjan/qj": ^4.19.0
+    "@hugsmidjan/qj": ^4.20.0
     "@reykjavik/hanna-utils": ^0.2.6
     "@types/md5-file": ^5
     del: ^6.0.0
@@ -3093,7 +3100,7 @@ __metadata:
   resolution: "@reykjavik/hanna-react@workspace:modules/hanna-react"
   dependencies:
     "@floating-ui/react": ^0.19.2
-    "@hugsmidjan/qj": ^4.19.0
+    "@hugsmidjan/qj": ^4.20.0
     "@hugsmidjan/react": ^0.4.31
     "@reykjavik/hanna-css": ^0.4.2
     "@reykjavik/hanna-utils": ^0.2.6
@@ -3117,7 +3124,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-utils@workspace:modules/hanna-utils"
   dependencies:
-    "@hugsmidjan/qj": ^4.19.0
+    "@hugsmidjan/qj": ^4.20.0
     focus-visible: ^5.2.0
     formatchange: ^2.2.0
   languageName: unknown
@@ -12591,7 +12598,7 @@ __metadata:
   resolution: "hanna-html-storybook@workspace:modules/html-storybook"
   dependencies:
     "@babel/core": ^7.8.4
-    "@hugsmidjan/qj": ^4.19.0
+    "@hugsmidjan/qj": ^4.20.0
     "@reykjavik/hanna-css": "workspace:*"
     "@reykjavik/hanna-react": "workspace:*"
     "@storybook/addon-knobs": ^5.3.14
@@ -12616,7 +12623,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hanna-sprinkles@workspace:modules/hanna-sprinkles"
   dependencies:
-    "@hugsmidjan/qj": ^4.19.0
+    "@hugsmidjan/qj": ^4.20.0
     "@preact/preset-vite": ^2.5.0
     "@reykjavik/hanna-css": "workspace:*"
     "@reykjavik/hanna-react": "workspace:*"
@@ -12640,7 +12647,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hanna-visual-tests@workspace:modules/visual-tests"
   dependencies:
-    "@hugsmidjan/qj": ^4.19.0
+    "@hugsmidjan/qj": ^4.20.0
     "@playwright/test": ^1.32.3
     "@remix-run/dev": ^1.15.0
     "@remix-run/eslint-config": ^1.15.0

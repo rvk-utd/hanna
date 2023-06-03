@@ -47,7 +47,7 @@
   "devDependencies": {
     "@hugsmidjan/gulp-iconfont": "^0.4.0",
     "@hugsmidjan/gulp-images": "^0.2.2",
-    "@hugsmidjan/qj": "^4.19.0",
+    "@hugsmidjan/qj": "^4.20.0",
     "@types/md5-file": "^5",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
