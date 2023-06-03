@@ -13,7 +13,7 @@ const replaceTokens = (/** @type {esbuild.BuildResult} */ res, /** unknown */ er
   }
   const isProd = process.env.NODE_ENV === 'production';
 
-  const sprinklesUrl = isProd
+  const fallbackSprinklesUrl = isProd
     ? `https://styles.reykjavik.is/${sprinklesFolder + versionFolder}`
     : '/dist';
 
@@ -22,7 +22,7 @@ const replaceTokens = (/** @type {esbuild.BuildResult} */ res, /** unknown */ er
       writeFile(
         file.path,
         file.text
-          .replace(/\${sprinklesUrl}/g, sprinklesUrl)
+          .replace(/\${fallbackSprinklesUrl}/g, fallbackSprinklesUrl)
           .replace(/\${version}/g, version)
       )
     ) || []
