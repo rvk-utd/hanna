@@ -1,7 +1,6 @@
 import React from 'react';
 import { BasicTable, BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
 import { Footnote } from '@reykjavik/hanna-react/Footnote';
-import { optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { disableControlProps } from '../utils/disableControlTypes.js';
@@ -9,7 +8,7 @@ import { disableControlProps } from '../utils/disableControlTypes.js';
 type BasicTablePropsControlsProps = {
   footer: boolean;
   footnote: boolean;
-  variant: '' | 'right' | 'fullwidth';
+  variant: 'normal' | 'right' | 'fullwidth';
 };
 type BasicTableStoryProps = BasicTableProps & BasicTablePropsControlsProps;
 type Story = StoryObj<BasicTableStoryProps>;
@@ -25,32 +24,14 @@ const BasicTableStory: React.FC<BasicTableStoryProps> = ({
   compact,
   footer,
   footnote,
+  variant,
 }) => {
   const showFooter = footer || undefined;
-  const variant = optionsKnob(
-    'Variant',
-    {
-      'Normal (fills the availble width)': '',
-      'Right-Aligned (matches "TextBlock--align-right")': 'right',
-      'Full-Width (breaks out of "TextBlock"s)': 'fullwidth',
-    },
-    '',
-    { display: 'radio' }
-  );
-
-  const variantProps = (
-    {
-      '': undefined,
-      right: { align: 'right' },
-      fullwidth: { fullWidth: true },
-    } as const
-  )[variant];
 
   return (
     <>
       <BasicTable
         key={'' + compact + footer + variant}
-        {...variantProps}
         compact={compact}
         cols={[{ number: true }, {}, {}, { tel: true }, { number: true }, {}]}
         thead={[
@@ -127,6 +108,11 @@ export const _BasicTable: Story = {
       control: 'boolean',
       name: 'Footnote',
     },
+    variant: {
+      control: 'radio',
+      options: ['normal', 'right', 'fullwidth'],
+      name: 'Variant',
+    },
     ...disableControlProps([
       'type',
       'modifier',
@@ -145,5 +131,6 @@ export const _BasicTable: Story = {
     compact: false,
     footer: false,
     footnote: false,
+    variant: 'normal',
   },
 };
