@@ -2,7 +2,7 @@
 // and the preferred method. This is just a fallback.
 ((c, n) => {
   c.add(n);
-  setTimeout(() => c.remove(n), 60000);
+  setTimeout(() => c.remove(n), 6000);
 })(document.documentElement.classList, 'before-sprinkling');
 
 !window.Hanna &&
