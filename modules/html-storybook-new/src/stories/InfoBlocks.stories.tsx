@@ -1,7 +1,16 @@
 import React from 'react';
 import { InfoBlock } from '@reykjavik/hanna-react/InfoBlock';
-import { optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
+
+type AppearanceOption = 'neither' | 'attention' | 'extra';
+
+type InfoBlockControlProps = {
+  appearance: AppearanceOption;
+};
+
+type Story = StoryObj<InfoBlockControlProps>;
+
+// ---------------------------------------------------------------------------
 
 const TITLE_TEXT = 'Info block title';
 const SUBTEXT_TEXT = 'Info block subtitle, lorem ipsum dolor sit ament foobar.';
@@ -18,32 +27,25 @@ const ITEMS = [
   'Lágmarkgjald vegna umsóknar sé greitt fyrir fund Byggingarfulltrúa.',
 ];
 
-const getExtraProps = () => {
-  const prop = optionsKnob(
-    'With attention/extralinks ',
-    { Neither: '', Attention: 'attention', 'Extra info': 'extraInfo' },
-    '',
-    { display: 'inline-radio' }
-  );
-  return prop === 'extraInfo'
-    ? { extraInfo: EXTRAINFO_TEXT }
-    : prop === 'attention'
-    ? { attention: ATTENTION_TEXT }
-    : undefined;
+const getExtraProps = (radioOption: AppearanceOption) => {
+  if (radioOption === 'extra') {
+    return { extraInfo: EXTRAINFO_TEXT };
+  }
+  if (radioOption === 'attention') {
+    return { attention: ATTENTION_TEXT };
+  }
+  return undefined;
 };
 
 // ---------------------------------------------------------------------------
 
-const meta: Meta<typeof InfoBlock> = {
+const meta: Meta<InfoBlockControlProps> = {
   title: 'InfoBlock',
-  component: InfoBlock,
 };
 export default meta;
 
-type Story = StoryObj<typeof InfoBlock>;
-
-const InfoBlockStory = () => {
-  const extraProps = getExtraProps();
+const InfoBlockStory: React.FC<InfoBlockControlProps> = ({ appearance }) => {
+  const extraProps = getExtraProps(appearance);
   return (
     <InfoBlock
       title={TITLE_TEXT}
@@ -56,5 +58,15 @@ const InfoBlockStory = () => {
 };
 
 export const _InfoBlock: Story = {
-  render: () => <InfoBlockStory />,
+  render: (args: InfoBlockControlProps) => <InfoBlockStory {...args} />,
+  argTypes: {
+    appearance: {
+      control: 'inline-radio',
+      options: ['neither', 'attention', 'extra'],
+      name: 'With attention/extralinks',
+    },
+  },
+  args: {
+    appearance: 'neither',
+  },
 };

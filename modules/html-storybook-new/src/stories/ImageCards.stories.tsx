@@ -13,12 +13,12 @@ type ImageCardsControlProps = {
   summaryText: boolean;
 };
 
+type Story = StoryObj<ImageCardsControlProps>;
+
 const meta: Meta<ImageCardsControlProps> = {
   title: 'ImageCards',
 };
 export default meta;
-
-type Story = StoryObj<ImageCardsControlProps>;
 
 const ImageCardsStory: React.FC<ImageCardsControlProps> = ({
   backgroundColor,
