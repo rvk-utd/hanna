@@ -9,7 +9,6 @@
   (() => {
     let path = '';
     let import_;
-    let sprinklesURL = '';
     const fallbackSprinklesUrl = '${fallbackSprinklesUrl}';
     const scriptElm = document.currentScript;
     if (scriptElm) {
@@ -26,15 +25,15 @@
         (provided below).
       */
       const src = scriptElm.src || fallbackSprinklesUrl;
-      sprinklesURL = new URL('.', src).href;
+      path = new URL('.', src).href;
     }
 
     try {
       import_ = new Function('url', 'return import(url)');
       import_('').catch(() => undefined);
-      path = (sprinklesURL || './') + 'esm/';
+      path = (path || './') + 'esm/';
     } catch (e) {
-      path = (sprinklesURL || fallbackSprinklesUrl) + 'systemjs/';
+      path = (path || fallbackSprinklesUrl) + 'systemjs/';
       const sjs = new Promise((resolve) => {
         const s = document.createElement('script');
         s.onload = s.onerror = resolve;
