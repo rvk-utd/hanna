@@ -1,14 +1,16 @@
 import React from 'react';
 import { Bling, BlingProps as _BlingProps } from '@reykjavik/hanna-react/Bling';
-import { blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
-import { boolean, optionsKnob, select } from '@storybook/addon-knobs';
+import { BlingType, blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
+import { select } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { disableControlProps } from '../utils/disableControlTypes.js';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
+const blingOptions = [...blingTypes] as const;
+
 type BlingControlsProps = {
-  blingType: string;
+  blingType: BlingType;
 };
 type BlingStoryProps = _BlingProps & BlingControlsProps;
 type Story = StoryObj<BlingStoryProps>;
@@ -21,7 +23,6 @@ export default meta;
 
 type BlingProps = Required<_BlingProps>;
 const customOption = '- Custom SVG URL -';
-const blingOptions = [...blingTypes, customOption] as const;
 
 const Spacer = () => (
   <HiddenTiger
@@ -41,75 +42,33 @@ const Spacer = () => (
   </HiddenTiger>
 );
 
-const BlingStory = () => {
+const BlingStory: React.FC<BlingStoryProps> = ({
+  blingType,
+  align,
+  vertical,
+  color,
+  overlay,
+  parent,
+}) => {
   const type = select<BlingProps['type'] | typeof customOption>(
     'Bling Type',
     blingOptions,
     blingTypes[0]
   );
 
-  const align = optionsKnob<BlingProps['align']>(
-    'Alignment',
-    {
-      left: 'left',
-      'left-ish': 'left-ish',
-      'left-center': 'left-center',
-      'right-center': 'right-center',
-      'right-ish': 'right-ish',
-      right: 'right',
-    },
-    'left',
-    { display: 'inline-radio' }
-  );
-
-  const vertical =
-    optionsKnob<'' | BlingProps['vertical']>(
-      'Vertical align',
-      {
-        up: 'up',
-        'up-ish': 'up-ish',
-        'center (default)': '',
-        'down-ish': 'down-ish',
-        down: 'down',
-      },
-      '',
-      { display: 'inline-radio' }
-    ) || undefined;
-
-  const color =
-    optionsKnob<'' | BlingProps['color']>(
-      'Color variant',
-      { 'Default (tertiary)': '', Secondary: 'secondary', Primary: 'primary' },
-      '',
-      { display: 'inline-radio' }
-    ) || undefined;
-
-  const overlay = boolean('Place in front of other content', false);
-
-  const parent =
-    optionsKnob<'' | BlingProps['parent']>(
-      'Insertion point',
-      {
-        'Default (inline)': '',
-        top: 'top',
-        'top-ish': 'top-ish',
-        center: 'center',
-        'bottom-ish': 'bottom-ish',
-        bottom: 'bottom',
-      },
-      '',
-      { display: 'inline-radio' }
-    ) || undefined;
-
+  /*
   const typeProps =
     type === customOption ? { blingUrl: getBlingUrl(blingTypes[2]) } : { type };
+    */
+
   return (
     <HiddenTiger
       key={type + align + vertical + color + overlay + parent}
       style={{ position: 'relative' }}
       serverSide={
         <Bling
-          {...typeProps}
+          // {...typeProps}
+          blingUrl={getBlingUrl(blingType)}
           align={align}
           vertical={vertical}
           color={color}
@@ -122,7 +81,8 @@ const BlingStory = () => {
       {'\n\n\n'}
 
       <Bling
-        {...typeProps}
+        // {...typeProps}
+        blingUrl={getBlingUrl(blingType)}
         align={align}
         vertical={vertical}
         color={color}
@@ -137,7 +97,7 @@ const BlingStory = () => {
 };
 
 export const _Bling: Story = {
-  render: () => <BlingStory />,
+  render: (args: BlingStoryProps) => <BlingStory {...args} />,
   argTypes: {
     blingType: {
       control: 'select',
