@@ -1,18 +1,22 @@
 import React from 'react';
-import { IframeBlock } from '@reykjavik/hanna-react/IframeBlock';
+import { IframeBlock, IframeBlockProps } from '@reykjavik/hanna-react/IframeBlock';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const meta: Meta<typeof IframeBlock> = {
+type IframeBlockPropsControlsProps = {
+  rightAligned: boolean;
+  fixedHeight: boolean;
+};
+
+type IframeBlockStoryProps = IframeBlockProps & IframeBlockPropsControlsProps;
+type Story = StoryObj<IframeBlockStoryProps>;
+
+const meta: Meta<IframeBlockStoryProps> = {
   title: 'IframeBlock',
-  component: IframeBlock,
 };
 export default meta;
-
-type Story = StoryObj<typeof IframeBlock>;
 
 const src = getAssetUrl('scripts/iframeResizer.test@4.html');
 const codeExample = `
@@ -20,13 +24,14 @@ const codeExample = `
 <script src="https://styles.reykjavik.is/assets/scripts/iframeResizer.contentWindow@4.js"></script>
 `.trim();
 
-const IframeBlockStory = () => {
-  const align = boolean('Right-aligned', false) ? 'right' : undefined;
-  const fixedHeight = boolean('Fixed height', false)
-    ? { scrolling: true, height: 350 }
-    : undefined;
-  const framed = boolean('Framed', false);
-  const compact = boolean('Compact (no outside margins)', false);
+const IframeBlockStory: React.FC<IframeBlockStoryProps> = ({
+  fixedHeight,
+  rightAligned,
+  framed,
+  compact,
+}) => {
+  const align = rightAligned ? 'right' : undefined;
+  const onFixedHeight = fixedHeight ? { scrolling: true, height: 350 } : undefined;
   return (
     <HiddenTiger
       clientSide={() => (
@@ -37,7 +42,7 @@ const IframeBlockStory = () => {
             align={align}
             framed={framed}
             compact={compact}
-            {...fixedHeight!} // weird TS bug/behavior requires this assertion
+            {...onFixedHeight!} // weird TS bug/behavior requires this assertion
           />
           {fixedHeight ? (
             <p>
@@ -62,7 +67,7 @@ const IframeBlockStory = () => {
           align={align}
           framed={framed}
           compact={compact}
-          {...(fixedHeight || { height: -1 })}
+          {...(onFixedHeight || { height: -1 })}
         />
       )}
     />
@@ -70,5 +75,29 @@ const IframeBlockStory = () => {
 };
 
 export const _IframeBlock: Story = {
-  render: () => <IframeBlockStory />,
+  render: (args: IframeBlockStoryProps) => <IframeBlockStory {...args} />,
+  argTypes: {
+    rightAligned: {
+      control: 'boolean',
+      name: 'Right-aligned',
+    },
+    fixedHeight: {
+      control: 'boolean',
+      name: 'Fixed height',
+    },
+    framed: {
+      control: 'boolean',
+      name: 'Framed',
+    },
+    compact: {
+      control: 'boolean',
+      name: 'Compact (no outside margins)',
+    },
+  },
+  args: {
+    rightAligned: false,
+    fixedHeight: false,
+    framed: false,
+    compact: false,
+  },
 };
