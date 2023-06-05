@@ -1,14 +1,16 @@
 import React from 'react';
-import { Carousel } from '@reykjavik/hanna-react/Carousel';
+import { Carousel, CarouselProps } from '@reykjavik/hanna-react/Carousel';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Carousel> = {
+import { disableControlProps } from '../utils/disableControlTypes.js';
+
+const meta: Meta<CarouselProps> = {
   title: 'Carousel',
   component: Carousel,
 };
 export default meta;
 
-type Story = StoryObj<typeof Carousel>;
+type Story = StoryObj<CarouselProps>;
 
 const CarouselStory = () => {
   return (
@@ -49,4 +51,19 @@ const CarouselStory = () => {
 
 export const _Carousel: Story = {
   render: () => <CarouselStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
+  argTypes: {
+    ...disableControlProps([
+      'className',
+      'ssr',
+      'scrollRight',
+      'items',
+      'Component',
+      'ComponentProps',
+      'itemCount',
+      'startSeen',
+    ]),
+  },
 };
