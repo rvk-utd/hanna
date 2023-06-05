@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react';
-import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
+import { HeroBlock, HeroBlockProps } from '@reykjavik/hanna-react/HeroBlock';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
-import { select } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof HeroBlock> = {
+import { disableControlProps } from '../utils/disableControlTypes.js';
+
+const meta: Meta<HeroBlockProps> = {
   title: 'HeroBlock',
   component: HeroBlock,
 };
 export default meta;
 
-type Story = StoryObj<typeof HeroBlock>;
+type Story = StoryObj<HeroBlockProps>;
 
 const TITLE_TEXT = 'HeroBlock title';
 const SUMMARY_TEXT = 'HeroBlock summary text, lorem ipsum dolor sit ament foobar.';
@@ -31,14 +32,15 @@ const SUMMARY_HTML = () => (
   </>
 );
 
-const HeroBlockStory = () => {
-  const illustration = select('Illustration', illustrations, illustrations[0]);
+const HeroBlockStory: React.FC<HeroBlockProps> = ({ illustration }) => {
+  const selectedIllustration = illustration ?? illustrations[0];
+
   return (
     <HeroBlock
-      key={illustration}
+      key={selectedIllustration}
       title={TITLE_TEXT}
       summary={SUMMARY_TEXT}
-      illustration={illustration}
+      illustration={selectedIllustration}
       primaryButton={{
         label: 'Primary button',
       }}
@@ -94,15 +96,40 @@ const HeroBlockExamplesStory = () => {
   );
 };
 
+const disabledControlProps = [
+  'title',
+  'summary',
+  'primaryButton',
+  'secondaryButton',
+  'image',
+  'startSeen',
+];
+const disabledExControlProps = disabledControlProps.concat(['illustration']);
+
 export const _HeroBlock: Story = {
-  render: () => <HeroBlockStory />,
+  render: (args: HeroBlockProps) => <HeroBlockStory {...args} />,
+  argTypes: {
+    illustration: {
+      control: 'select',
+      options: illustrations,
+      name: 'Illustration',
+    },
+    ...disableControlProps(disabledControlProps),
+  },
+  args: {
+    illustration: illustrations[0],
+  },
 };
 
 export const _HeroBlockExamples: Story = {
   render: () => <HeroBlockExamplesStory />,
+  argTypes: {
+    ...disableControlProps(disabledExControlProps),
+  },
   parameters: {
     css: {
       tokens: 'HeroBlock',
     },
+    controls: { hideNoControlsWarning: true },
   },
 };
