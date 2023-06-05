@@ -74,7 +74,7 @@ const testCombos = (['largeimage', undefined, 'largebox'] as const).reduce<
   return list;
 }, []);
 
-const CityBlockExamplesStory: React.FC<CityBlockStoryProps> = ({ blocktype }) => {
+const CityBlockExamplesStory: React.FC<CityBlockStoryProps> = () => {
   return (
     <>
       {' '}

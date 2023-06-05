@@ -80,7 +80,7 @@ const LayoutWithContentStory = () => {
         <>
           <FooterInfo />
           <FooterBadges />
-          <ContactBubble />
+          <ContactBubble ssr={false} alwaysShow={true} />
         </>
       }
     >

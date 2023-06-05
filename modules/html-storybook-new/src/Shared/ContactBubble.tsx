@@ -1,10 +1,15 @@
 import React from 'react';
-import { ContactBubble, ContactBubbleItem } from '@reykjavik/hanna-react/ContactBubble';
+import {
+  ContactBubble,
+  ContactBubbleItem,
+  ContactBubbleProps,
+} from '@reykjavik/hanna-react/ContactBubble';
 import { FooterBadgesProps } from '@reykjavik/hanna-react/FooterBadges';
-import { boolean } from '@storybook/addon-knobs';
 
 import dummyImage from '../example_assets/FooterBadges__image.jpg';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
+
+type Maur = Pick<ContactBubbleProps, 'ssr' | 'alwaysShow'>;
 
 const dummySubFooterLinks: FooterBadgesProps['badges'] = [
   {
@@ -52,10 +57,7 @@ const LINKS: Array<ContactBubbleItem> = [
   },
 ];
 
-export const ContactBubbleStory = () => {
-  const ssr = !boolean('Show client-side markup', false);
-  const alwaysShow = boolean('Set optional "alwaysShow" data-attribute', true);
-
+export const ContactBubbleStory: React.FC<Maur> = ({ ssr, alwaysShow }) => {
   // /* ONLY use during Development */
   // const [open, setOpen] = useState(false);
 
