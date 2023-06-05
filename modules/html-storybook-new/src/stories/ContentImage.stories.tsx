@@ -1,24 +1,28 @@
 import React from 'react';
 import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
 import { ContentImage, ContentImageProps } from '@reykjavik/hanna-react/ContentImage';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import dummyImage from '../example_assets/Gallery--landscape--large.jpg';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof ContentImage> = {
+type ContentImageControlsProps = {
+  captionText: boolean;
+  photoCredit: boolean;
+};
+
+type Story = StoryObj<ContentImageControlsProps>;
+
+const meta: Meta<ContentImageControlsProps> = {
   title: 'ContentImage',
-  component: ContentImage,
+  // component: ContentImage,
   parameters: {
     knobs: { disabled: false },
     css: { tokens: 'ContentImage,CenterColumn' },
   } as StoryParameters,
 };
 export default meta;
-
-type Story = StoryObj<typeof ContentImage>;
 
 const dummyImageProps: NonNullable<ContentImageProps['image']> = {
   src: dummyImage,
@@ -32,9 +36,12 @@ const CAPTION =
 
 const CREDIT = '©2017 Jónína Jóhannesdóttir og Páll Pétursson';
 
-const ContentImageStory = () => {
-  const caption = boolean('Caption text', true) ? CAPTION : undefined;
-  const credit = boolean('Photo credit', true) ? CREDIT : undefined;
+const ContentImageStory: React.FC<ContentImageControlsProps> = ({
+  captionText,
+  photoCredit,
+}) => {
+  const caption = captionText ? CAPTION : undefined;
+  const credit = photoCredit ? CREDIT : undefined;
 
   const children = (
     <ContentImage image={dummyImageProps} caption={caption} credit={credit} />
@@ -49,5 +56,19 @@ const ContentImageStory = () => {
 };
 
 export const _ContentImage: Story = {
-  render: () => <ContentImageStory />,
+  render: (args: ContentImageControlsProps) => <ContentImageStory {...args} />,
+  argTypes: {
+    captionText: {
+      control: 'boolean',
+      name: 'Caption text',
+    },
+    photoCredit: {
+      control: 'boolean',
+      name: 'Photo credit text',
+    },
+  },
+  args: {
+    captionText: true,
+    photoCredit: true,
+  },
 };

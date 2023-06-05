@@ -6,6 +6,7 @@ import {
 import { Meta, StoryObj } from '@storybook/react';
 
 import contentImageUrl from '../example_assets/Gallery--landscape--large.jpg';
+import { disableControlProps } from '../utils/disableControlTypes.js';
 
 const meta: Meta<typeof ContentArticle> = {
   title: 'ContentArticle',
@@ -94,4 +95,15 @@ export const _ContentArticle: Story = {
       startSeen
     />
   ),
+  argTypes: {
+    ...disableControlProps([
+      'meta',
+      'headline',
+      'headlineTag',
+      'topImage',
+      'body',
+      'relatedLinks',
+      'startSeen',
+    ]),
+  },
 };
