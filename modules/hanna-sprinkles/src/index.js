@@ -22,7 +22,8 @@
         `fallbackSprinklesUrl` value.
 
         If the script was loaded, say, via dynamic `import()` then we
-        can use a simple `"./"` relative path.
+        don't enter this branch, and can use a simple `"./"` relative path
+        (provided below).
       */
       const src = scriptElm.src || fallbackSprinklesUrl;
       sprinklesURL = new URL('.', src).href;
