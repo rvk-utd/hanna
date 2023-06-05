@@ -2,29 +2,39 @@ import React from 'react';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ImageCards } from '@reykjavik/hanna-react/ImageCards';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { imageCards } from '../utils/_dummyData.js';
 
-const meta: Meta<typeof ImageCards> = {
+type ImageCardsControlProps = {
+  backgroundColor: boolean;
+  customFallbackImage: boolean;
+  title: boolean;
+  summaryText: boolean;
+};
+
+const meta: Meta<ImageCardsControlProps> = {
   title: 'ImageCards',
-  component: ImageCards,
 };
 export default meta;
 
-type Story = StoryObj<typeof ImageCards>;
+type Story = StoryObj<ImageCardsControlProps>;
 
-const ImageCardsStory = () => {
-  const background = boolean('Background color', false) || undefined;
-  const imgPlaceholder = boolean('Custom fallback image', false)
+const ImageCardsStory: React.FC<ImageCardsControlProps> = ({
+  backgroundColor,
+  customFallbackImage,
+  title,
+  summaryText,
+}) => {
+  const background = backgroundColor || undefined;
+  const imgPlaceholder = customFallbackImage
     ? getIllustrationUrl('framkvaemdir2')
     : undefined;
-  const title = boolean('Title', true) || undefined;
-  const summary = boolean('Summary text/More link', false) || undefined;
+  const displayTitle = title || undefined;
+  const summary = summaryText || undefined;
   return (
     <ImageCards
-      title={title && 'Image Cards'}
+      title={displayTitle && 'Image Cards'}
       summaryElement={summary && <ButtonTertiary href="">Sjá yfirlit</ButtonTertiary>}
       background={background}
       cards={imageCards}
@@ -35,5 +45,29 @@ const ImageCardsStory = () => {
 };
 
 export const _ImageCards: Story = {
-  render: () => <ImageCardsStory />,
+  render: (args: ImageCardsControlProps) => <ImageCardsStory {...args} />,
+  argTypes: {
+    backgroundColor: {
+      control: 'boolean',
+      name: 'Background color',
+    },
+    customFallbackImage: {
+      control: 'boolean',
+      name: 'Custom fallback image',
+    },
+    title: {
+      control: 'boolean',
+      name: 'Title',
+    },
+    summaryText: {
+      control: 'boolean',
+      name: 'Summary text/More link',
+    },
+  },
+  args: {
+    backgroundColor: false,
+    customFallbackImage: false,
+    title: true,
+    summaryText: false,
+  },
 };
