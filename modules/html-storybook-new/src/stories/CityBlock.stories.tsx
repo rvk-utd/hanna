@@ -1,20 +1,28 @@
 import React, { Fragment } from 'react';
 import { CityBlock, CityBlockProps } from '@reykjavik/hanna-react/CityBlock';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import imageLarge from '../example_assets/CityBlock__image--large.jpg';
 import imageSmall from '../example_assets/CityBlock__image--small.jpg';
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
+import { disableControlProps } from '../utils/disableControlTypes.js';
 
-const meta: Meta<typeof CityBlock> = {
+type CityBlockControlProps = {
+  blocktype: 'normal' | 'largebox' | 'largeimage';
+  links: 0 | 1 | 2 | 3 | 4;
+  summaryText: boolean;
+};
+
+type CityBlockStoryProps = CityBlockProps & CityBlockControlProps;
+
+const meta: Meta<CityBlockStoryProps> = {
   title: 'CityBlock',
   component: CityBlock,
 };
 export default meta;
 
-type Story = StoryObj<typeof CityBlock>;
+type Story = StoryObj<CityBlockStoryProps>;
 
 const IMAGES = {
   '': { illustration: illustrations[5] },
@@ -22,30 +30,22 @@ const IMAGES = {
   largeimage: { image: { src: imageLarge, altText: 'Alt text!' } },
 };
 
-const CityBlockStory = () => {
-  const type =
-    optionsKnob(
-      'Type',
-      { Normal: '', Largebox: 'largebox', 'Large Image': 'largeimage' },
-      '',
-      { display: 'inline-radio' }
-    ) || undefined;
-  const align = optionsKnob('Layout', { Left: 'left', Right: 'right' }, 'right', {
-    display: 'inline-radio',
-  });
-  const numButtons = parseInt(
-    optionsKnob('Links', { 0: '0', 1: '1', 2: '2', 3: '3', 4: '4' }, '2', {
-      display: 'inline-radio',
-    })
-  );
+const CityBlockStory: React.FC<CityBlockStoryProps> = ({
+  blocktype,
+  align,
+  links,
+  summaryText,
+}) => {
+  const type = blocktype !== 'normal' ? blocktype : undefined;
+
   return (
     <CityBlock
       type={type}
       align={align}
       content={{
         title: TITLE_LONG,
-        summary: boolean('Summary text', true) ? getSummary('html', 'strong') : undefined,
-        buttons: someButtons.slice(0, numButtons),
+        summary: summaryText ? getSummary('html', 'strong') : undefined,
+        buttons: someButtons.slice(0, links),
       }}
       {...IMAGES[type || '']}
       startSeen
@@ -74,7 +74,7 @@ const testCombos = (['largeimage', undefined, 'largebox'] as const).reduce<
   return list;
 }, []);
 
-const CityBlockExamplesStory = () => {
+const CityBlockExamplesStory: React.FC<CityBlockStoryProps> = ({ blocktype }) => {
   return (
     <>
       {' '}
@@ -89,11 +89,49 @@ const CityBlockExamplesStory = () => {
 };
 
 export const _CityBlock: Story = {
-  render: () => <CityBlockStory />,
+  render: (args: CityBlockStoryProps) => <CityBlockStory {...args} />,
+  argTypes: {
+    blocktype: {
+      control: 'inline-radio',
+      options: ['normal', 'largebox', 'largeimage'],
+      name: 'Type',
+    },
+    align: {
+      control: 'inline-radio',
+      options: ['left', 'right'],
+      name: 'Layout',
+    },
+    links: {
+      control: 'inline-radio',
+      options: [0, 1, 2, 3, 4],
+      name: 'Links',
+    },
+    summaryText: {
+      control: 'boolean',
+      name: 'Summary text',
+    },
+    ...disableControlProps(['type', 'content', 'illustration', 'image', 'startSeen']),
+  },
+  args: {
+    blocktype: 'normal',
+    align: 'right',
+    links: 2,
+    summaryText: true,
+  },
 };
 
 export const _CityBlockExamples: Story = {
-  render: () => <CityBlockExamplesStory />,
+  render: (args: CityBlockStoryProps) => <CityBlockExamplesStory {...args} />,
+  argTypes: {
+    ...disableControlProps([
+      'align',
+      'type',
+      'content',
+      'illustration',
+      'image',
+      'startSeen',
+    ]),
+  },
   parameters: {
     css: {
       tokens: 'CityBlock',
