@@ -4,15 +4,21 @@ import { blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 import { boolean, optionsKnob, select } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { disableControlProps } from '../utils/disableControlTypes.js';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const meta: Meta<typeof Bling> = {
+type BlingControlsProps = {
+  blingType: string;
+};
+type BlingStoryProps = _BlingProps & BlingControlsProps;
+type Story = StoryObj<BlingStoryProps>;
+
+const meta: Meta<BlingStoryProps> = {
   title: 'Bling',
   component: Bling,
 };
 export default meta;
 
-type Story = StoryObj<typeof Bling>;
 type BlingProps = Required<_BlingProps>;
 const customOption = '- Custom SVG URL -';
 const blingOptions = [...blingTypes, customOption] as const;
@@ -132,4 +138,44 @@ const BlingStory = () => {
 
 export const _Bling: Story = {
   render: () => <BlingStory />,
+  argTypes: {
+    blingType: {
+      control: 'select',
+      options: blingOptions,
+      name: 'Bling Type',
+    },
+    align: {
+      control: 'radio',
+      options: ['left', 'left-ish', 'left-center', 'right-center', 'right'],
+      name: 'Alignment',
+    },
+    vertical: {
+      control: 'radio',
+      options: ['up', 'up-ish', 'center', 'down-ish', 'down'],
+      name: 'Vertical align',
+    },
+    color: {
+      control: 'radio',
+      options: ['tertiary', 'secondary', 'primary'],
+      name: 'Color variant',
+    },
+    overlay: {
+      control: 'boolean',
+      name: 'Place in front of other content',
+    },
+    parent: {
+      control: 'radio',
+      options: ['inline', 'top', 'top-ish', 'center', 'bottom-ish', 'bottom'],
+      name: 'Insertion point',
+    },
+    ...disableControlProps(['className', 'type', 'blingUrl']),
+  },
+  args: {
+    blingType: 'arrow-right-large',
+    align: 'left',
+    vertical: 'center',
+    color: 'tertiary',
+    overlay: false,
+    parent: 'bottom',
+  },
 };
