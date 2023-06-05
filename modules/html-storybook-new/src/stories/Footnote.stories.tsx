@@ -31,4 +31,7 @@ const FootnoteStory = () => {
 
 export const _Footnote: Story = {
   render: () => <FootnoteStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };

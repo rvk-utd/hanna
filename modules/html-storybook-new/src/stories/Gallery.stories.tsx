@@ -6,6 +6,7 @@ import landscapeImage from '../example_assets/Gallery--landscape.jpg';
 import landscapeImageLarge from '../example_assets/Gallery--landscape--large.jpg';
 import portraitImage from '../example_assets/Gallery--portrait.jpg';
 import portraitImageLarge from '../example_assets/Gallery--portrait--large.jpg';
+import { disableControlProps } from '../utils/disableControlTypes.js';
 
 const meta: Meta<typeof Gallery> = {
   title: 'Gallery',
@@ -46,4 +47,10 @@ const galleryData: Array<GalleryItemProps> = [
 
 export const _Gallery: Story = {
   render: () => <Gallery items={galleryData} startSeen />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
+  argTypes: {
+    ...disableControlProps(['items', 'texts', 'lang', 'ssr', 'startSeen']),
+  },
 };
