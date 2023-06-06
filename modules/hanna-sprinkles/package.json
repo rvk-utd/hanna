@@ -40,6 +40,6 @@
     "@preact/preset-vite": "^2.5.0",
     "http-server": "^14.1.1",
     "preact": "^10.11.2",
-    "vite": "^4.2.1"
+    "vite": "^4.3.9"
   }
 }
