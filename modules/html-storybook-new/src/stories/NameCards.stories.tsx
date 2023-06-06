@@ -3,13 +3,12 @@ import { NameCardProps } from '@reykjavik/hanna-react/NameCard';
 import { NameCards } from '@reykjavik/hanna-react/NameCards';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof NameCards> = {
+const meta: Meta = {
   title: 'NameCards',
-  component: NameCards,
 };
 export default meta;
 
-type Story = StoryObj<typeof NameCards>;
+type Story = StoryObj;
 
 const items: Array<NameCardProps> = [
   {
@@ -53,4 +52,7 @@ const items: Array<NameCardProps> = [
 
 export const _NameCards: Story = {
   render: () => <NameCards items={items} />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
