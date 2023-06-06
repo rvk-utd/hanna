@@ -1,39 +1,38 @@
 import React from 'react';
+import { colorThemes, HannaColorTheme } from '@reykjavik/hanna-css';
 import { IslandBlock, IslandBlockProps } from '@reykjavik/hanna-react/IslandBlock';
 import { formheimur } from '@reykjavik/hanna-utils/assets';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
 
-const meta: Meta<typeof IslandBlock> = {
+type IslandBlockControlProps = {
+  theme: string;
+  type: 'svg-asset' | 'textonly';
+  layout: 'left' | 'right';
+  summaryText: boolean;
+  links: 0 | 1 | 2 | 3;
+};
+
+const colorThemeKeys = Object.keys(colorThemes) as Array<HannaColorTheme>;
+const themeOptions = Object.values(colorThemes).concat(colorThemeKeys);
+
+const meta: Meta<IslandBlockControlProps> = {
   title: 'IslandBlock',
-  component: IslandBlock,
 };
 export default meta;
 
-type Story = StoryObj<typeof IslandBlock>;
+type Story = StoryObj<IslandBlockControlProps>;
 
-const IslandBlockStory = () => {
-  const type = optionsKnob(
-    'Type',
-    {
-      "'Formheimur' SVG image": 'svg-asset',
-      'Two text boxes': 'textonly',
-    },
-    'svg-asset',
-    { display: 'inline-radio' }
-  );
-
-  const align = optionsKnob('Layout', { Left: 'left', Right: 'right' }, 'right', {
-    display: 'inline-radio',
-  });
-  const summary = boolean('Summary text', true) || undefined;
-  const numButtons = parseInt(
-    optionsKnob('Links', { 0: '0', 1: '1', 2: '2', 3: '3' }, '2', {
-      display: 'inline-radio',
-    })
-  );
+const IslandBlockStory: React.FC<IslandBlockControlProps> = ({
+  type,
+  summaryText,
+  links,
+  layout,
+}) => {
+  const align = layout;
+  const summary = summaryText || undefined;
+  const numButtons = links;
   const content = {
     title: TITLE_LONG,
     summary: summary && getSummary('html', 'strong'),
@@ -48,7 +47,51 @@ const IslandBlockStory = () => {
 };
 
 export const _IslandBlock: Story = {
-  render: () => <IslandBlockStory />,
+  render: (args: IslandBlockControlProps) => <IslandBlockStory {...args} />,
+  argTypes: {
+    theme: {
+      control: 'select',
+      options: themeOptions,
+      name: 'Theme',
+    },
+    type: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          'svg-asset': 'Fornheimur SVG image',
+          textonly: 'Two text boxes',
+        },
+      },
+      options: ['svg-asset', 'textonly'],
+      name: 'Type',
+    },
+    layout: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          left: 'Left',
+          right: 'Right',
+        },
+      },
+      options: ['left', 'right'],
+      name: 'Layout',
+    },
+    summaryText: {
+      control: 'boolean',
+      name: 'Summary text',
+    },
+    links: {
+      control: 'inline-radio',
+      options: [0, 1, 2, 3],
+      name: 'Links',
+    },
+  },
+  args: {
+    type: 'svg-asset',
+    layout: 'right',
+    summaryText: true,
+    links: 2,
+  },
 };
 
 // ===========================================================================

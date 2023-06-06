@@ -62,8 +62,6 @@ const meta: Meta<InfoHeroControlProps> = {
 };
 export default meta;
 
-// type BlingOptions = 'waves' | 'sunny-waves' | 'triangles' | 'circles';
-
 const InfoHeroStory: React.FC<InfoHeroControlProps> = ({
   alignment,
   image,
