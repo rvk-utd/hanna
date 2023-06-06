@@ -8,13 +8,16 @@ import { Meta, StoryObj } from '@storybook/react';
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import portraitImage from '../example_assets/NewsHero__portrait.jpg';
 
-const meta: Meta<typeof NewsHero> = {
+type NewsHeroControlProps = {
+  imageType: 'image' | 'no-image';
+};
+
+const meta: Meta<NewsHeroControlProps> = {
   title: 'NewsHero',
-  component: NewsHero,
 };
 export default meta;
 
-type Story = StoryObj<typeof NewsHero>;
+type Story = StoryObj<NewsHeroControlProps>;
 
 const newsHeroProps = {
   title: 'Útivistarsvæðin í borginni iða af lífi',
@@ -23,21 +26,17 @@ const newsHeroProps = {
     'Reykvíkingar eru heppnir að geta valið milli margra spennandi útivistarsvæða þar sem er hægt að viðra sig og næra líkama og sál. Þessi svæði eru sérstaklega mikilvæg nú á tímum samkomu- banns og aflýstra viðburða. Náttúran er enn opin og á útivistar- svæðum er auðvelt að hlýða Víði og virða tveggja metra regluna en á sama tíma finna fyrir ákveðinni nálægð við annað fólk.',
 };
 
-const NewsHeroStory = () => {
+const NewsHeroStory: React.FC<NewsHeroControlProps> = ({ imageType }) => {
   const isServerSide = useIsServerSide();
 
   const renderShareButtons = useCallback(
     () => <ShareButtons ssr={isServerSide ? 'ssr-only' : false} />,
     [isServerSide]
   );
-
-  const imageType =
-    optionsKnob('Image type', { Image: 'image', 'No image (Bling)': '' }, 'image', {
-      display: 'inline-radio',
-    }) || undefined;
+  const imageTypeGaur = imageType === 'image' ? 'image' : undefined;
 
   const blingType =
-    (!imageType &&
+    (!imageTypeGaur &&
       optionsKnob<NewsHeroProps['blingType'] | ''>(
         'Bling type',
         {
@@ -56,9 +55,9 @@ const NewsHeroStory = () => {
 
   return (
     <NewsHero
-      key={'' + imageType + isServerSide + blingType}
+      key={'' + imageTypeGaur + isServerSide + blingType}
       {...newsHeroProps}
-      image={imageType && { src: landscapeImage }}
+      image={imageTypeGaur && { src: landscapeImage }}
       sharing={renderShareButtons}
       blingType={blingType}
       startSeen
@@ -67,7 +66,23 @@ const NewsHeroStory = () => {
 };
 
 export const _NewsHero: Story = {
-  render: () => <NewsHeroStory />,
+  render: (args: NewsHeroControlProps) => <NewsHeroStory {...args} />,
+  argTypes: {
+    imageType: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          image: 'Image',
+          'no-image': 'No image (Bling)',
+        },
+      },
+      options: ['image', 'no-image'],
+      name: 'Image',
+    },
+  },
+  args: {
+    imageType: 'image',
+  },
 };
 
 // ===========================================================================
