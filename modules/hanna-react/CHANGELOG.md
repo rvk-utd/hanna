@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `ReadSpeakerPlayer` and a `stopReading` helper
+- fix: Update dependencies for minor esm and `Modal`-related bugfixes
 
 ## 0.10.90 – 0.10.91
 

@@ -2519,15 +2519,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hugsmidjan/react@npm:^0.4.31":
-  version: 0.4.31
-  resolution: "@hugsmidjan/react@npm:0.4.31"
+"@hugsmidjan/react@npm:^0.4.32":
+  version: 0.4.32
+  resolution: "@hugsmidjan/react@npm:0.4.32"
   dependencies:
     "@hugsmidjan/qj": ^4.19.0
   peerDependencies:
     react: ">=16.8 <19"
     react-dom: ">=16.8 <19"
-  checksum: 72d453b0707f78538cb59cf2f4fde9451f9ef45a40202abacc1d26dd86bb19cefc80b6f8f9f0cfafc8c24d5fb31b3c6c54c3c3dcab34308ff6fc27871e765b8f
+  checksum: 96fcb17b57e1680e22c4ee75296ac8c872fdd86e7861d6eb4fa994205a6d8b53bf867ff1ad96a1d9b0e298bead54026273eb775c9018979899e9b7a3f105c9b8
   languageName: node
   linkType: hard
 
@@ -3101,7 +3101,7 @@ __metadata:
   dependencies:
     "@floating-ui/react": ^0.19.2
     "@hugsmidjan/qj": ^4.20.0
-    "@hugsmidjan/react": ^0.4.31
+    "@hugsmidjan/react": ^0.4.32
     "@reykjavik/hanna-css": ^0.4.2
     "@reykjavik/hanna-utils": ^0.2.6
     "@types/react": ^17.0.24
