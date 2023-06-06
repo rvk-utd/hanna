@@ -1,21 +1,23 @@
 import React from 'react';
 import { css } from '@reykjavik/hanna-css';
 import { Picture } from '@reykjavik/hanna-react/Picture';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 
-const meta: Meta<typeof Picture> = {
+type PictureControlProps = {
+  customImageFocalPoint: boolean;
+};
+
+type Story = StoryObj<PictureControlProps>;
+
+const meta: Meta<PictureControlProps> = {
   title: 'Picture',
-  component: Picture,
 };
 export default meta;
 
-type Story = StoryObj<typeof Picture>;
-
-const PictureStory = () => {
-  const focalPoint = boolean('Custom image focal point', false) ? '80% 80%' : undefined;
+const PictureStory: React.FC<PictureControlProps> = ({ customImageFocalPoint }) => {
+  const focalPoint = customImageFocalPoint ? '80% 80%' : undefined;
   return (
     <>
       <div className="demobox">
@@ -41,5 +43,14 @@ const PictureStory = () => {
 };
 
 export const _Picture: Story = {
-  render: () => <PictureStory />,
+  render: (args: PictureControlProps) => <PictureStory {...args} />,
+  argTypes: {
+    customImageFocalPoint: {
+      control: 'boolean',
+      name: 'Custom image focal point',
+    },
+  },
+  args: {
+    customImageFocalPoint: false,
+  },
 };

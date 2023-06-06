@@ -17,12 +17,12 @@ type PageFilterControlProps = {
   underlapNextSibling: boolean;
 };
 
+type Story = StoryObj<PageFilterControlProps>;
+
 const meta: Meta<PageFilterControlProps> = {
   title: 'PageFilter',
 };
 export default meta;
-
-type Story = StoryObj<PageFilterControlProps>;
 
 const PageFilterStory: React.FC<PageFilterControlProps> = ({
   summaryText,
