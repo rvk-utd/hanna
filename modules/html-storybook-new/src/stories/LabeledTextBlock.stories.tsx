@@ -1,14 +1,17 @@
 import React, { Fragment } from 'react';
 import { Attention } from '@reykjavik/hanna-react/Attention';
 import { LabeledTextBlock } from '@reykjavik/hanna-react/LabeledTextBlock';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof LabeledTextBlock> = {
+type LabeledTextBlockControlProps = {
+  button: boolean;
+  wideFormat: boolean;
+};
+
+const meta: Meta<LabeledTextBlockControlProps> = {
   title: 'LabeledTextBlock',
-  component: LabeledTextBlock,
   parameters: {
     css: { tokens: 'LabeledTextBlock,Attention' },
     knobs: { disabled: false },
@@ -16,7 +19,7 @@ const meta: Meta<typeof LabeledTextBlock> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof LabeledTextBlock>;
+type Story = StoryObj<LabeledTextBlockControlProps>;
 
 const LABEL_TEXT = 'LabeledTextBlock title';
 const SUMMARY_TEXT =
@@ -46,14 +49,17 @@ const buttons = [
   { href: '', label: 'See more' },
 ];
 
-const LabeledTextBlockComponent = () => {
-  const button = boolean('Button', false) || undefined;
-  const wide = boolean('Wide format', false) || undefined;
+const LabeledTextBlockStory: React.FC<LabeledTextBlockControlProps> = ({
+  button,
+  wideFormat,
+}) => {
+  const showButtons = button || undefined;
+  const wide = wideFormat || undefined;
   return (
     <LabeledTextBlock
       label={LABEL_TEXT}
       summary={SUMMARY_HTML()}
-      buttons={button && buttons}
+      buttons={showButtons && buttons}
       wide={wide}
       startSeen
     />
@@ -61,7 +67,21 @@ const LabeledTextBlockComponent = () => {
 };
 
 export const _LabeledTextBlock: Story = {
-  render: () => <LabeledTextBlockComponent />,
+  render: (args: LabeledTextBlockControlProps) => <LabeledTextBlockStory {...args} />,
+  argTypes: {
+    button: {
+      control: 'boolean',
+      name: 'Button',
+    },
+    wideFormat: {
+      control: 'boolean',
+      name: 'Wide format',
+    },
+  },
+  args: {
+    button: false,
+    wideFormat: false,
+  },
 };
 
 // ===========================================================================
@@ -94,4 +114,7 @@ const LabeledTextBlockExamplesStory = () => {
 
 export const _LabeledTextBlockExamples: Story = {
   render: () => <LabeledTextBlockExamplesStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };

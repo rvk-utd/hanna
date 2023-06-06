@@ -154,6 +154,7 @@ const IslandBlockExamplesStory = () => {
 export const _IslandBlock_Examples: Story = {
   render: () => <IslandBlockExamplesStory />,
   parameters: {
+    controls: { hideNoControlsWarning: true },
     css: {
       tokens: 'IslandBlock',
     },
