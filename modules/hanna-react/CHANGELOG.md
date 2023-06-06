@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.92
+
+_2023-06-06_
+
 - feat: Add component `ReadSpeakerPlayer` and a `stopReading` helper
 - fix: Update dependencies for minor esm and `Modal`-related bugfixes
 
