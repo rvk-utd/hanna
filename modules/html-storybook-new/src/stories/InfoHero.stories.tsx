@@ -7,7 +7,7 @@ import cityCouncilMemberImage from '../example_assets/Dagur-b.jpg';
 import landScapeImage from '../example_assets/Gallery--landscape--large.jpg';
 import swimmingpoolImage from '../example_assets/sundlaug.jpg';
 
-type InfoHeroImage = 'No image' | 'Portrait' | 'Landscape' | 'Pool';
+type InfoHeroImage = 'no-image' | 'portrait' | 'landscape' | 'pool';
 
 type InfoHeroControlProps = {
   alignment: 'left' | 'right';
@@ -43,13 +43,13 @@ const swimmingpoolContent: InfoHeroProps = {
 };
 
 const getImage = (image: InfoHeroImage) => {
-  if (image === 'Portrait') {
+  if (image === 'portrait') {
     return cityCouncilMemberImage;
   }
-  if (image === 'Landscape') {
+  if (image === 'landscape') {
     return landScapeImage;
   }
-  if (image === 'Pool') {
+  if (image === 'pool') {
     return swimmingpoolImage;
   }
   return '';
@@ -114,12 +114,28 @@ export const _InfoHero: Story = {
       name: 'Alignment',
     },
     image: {
-      control: 'inline-radio',
-      options: ['No image', 'Portrait', 'Landscape', 'Pool'],
+      control: {
+        type: 'inline-radio',
+        labels: {
+          'no-image': 'No image',
+          portrait: 'Portrait',
+          landscape: 'Landscape',
+          pool: 'Pool',
+        },
+      },
+      options: ['no-image', 'portrait', 'landscape', 'pool'],
       name: 'Image',
     },
     blingType: {
-      control: 'inline-radio',
+      control: {
+        type: 'inline-radio',
+        labels: {
+          waves: 'Waves',
+          'sunny-waves': 'Sunny Waves',
+          triangles: 'Triangles',
+          circles: 'Circles',
+        },
+      },
       options: ['waves', 'sunny-waves', 'triangles', 'circles'],
       name: 'Bling type',
     },
@@ -138,7 +154,7 @@ export const _InfoHero: Story = {
   },
   args: {
     alignment: 'right',
-    image: 'Portrait',
+    image: 'portrait',
     blingType: 'waves',
     swimmingPoolContent: false,
     blurbText: false,
