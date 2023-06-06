@@ -6,16 +6,16 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
 
+const colorThemeKeys = Object.keys(colorThemes) as Array<HannaColorTheme>;
+const themeOptions = Object.values(colorThemes).concat(colorThemeKeys);
+
 type IslandBlockControlProps = {
-  theme: string;
+  theme: HannaColorTheme;
   type: 'svg-asset' | 'textonly';
   layout: 'left' | 'right';
   summaryText: boolean;
   links: 0 | 1 | 2 | 3;
 };
-
-const colorThemeKeys = Object.keys(colorThemes) as Array<HannaColorTheme>;
-const themeOptions = Object.values(colorThemes).concat(colorThemeKeys);
 
 const meta: Meta<IslandBlockControlProps> = {
   title: 'IslandBlock',
@@ -25,6 +25,7 @@ export default meta;
 type Story = StoryObj<IslandBlockControlProps>;
 
 const IslandBlockStory: React.FC<IslandBlockControlProps> = ({
+  theme,
   type,
   summaryText,
   links,
@@ -51,6 +52,7 @@ export const _IslandBlock: Story = {
   argTypes: {
     theme: {
       control: 'select',
+      // TODO: Connect themeoptions
       options: themeOptions,
       name: 'Theme',
     },
