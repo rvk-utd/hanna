@@ -6,7 +6,7 @@ import htmlLang from '@hugsmidjan/qj/htmlLang';
 import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { defaultMainMenuTexts } from '@reykjavik/hanna-react/MainMenu';
-import { getFormatMonitor, getPageScrollElm, MediaFormat } from '@reykjavik/hanna-utils';
+import { getFormatMonitor, MediaFormat } from '@reykjavik/hanna-utils';
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
 
 const formatMonitor = getFormatMonitor();
@@ -74,15 +74,15 @@ const getMenuUpdater = (data: MegaData) =>
       newActive = undefined;
     }
 
-    const htmlElmDataset = document.documentElement.dataset;
-    const scrollElm = getPageScrollElm();
+    const htmlElm = document.documentElement;
+    const htmlElmDataset = htmlElm.dataset;
 
     // manage document events and close button
     if (!newActive) {
       backToMenuButton.remove();
       data.container.classList.remove('MainMenu__panelsWrap--active');
       removeDocumentEvents(data);
-      scrollElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
+      htmlElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
       delete htmlElmDataset.scrollTop;
       delete htmlElmDataset.megaPanelActive;
     } else {
@@ -90,8 +90,8 @@ const getMenuUpdater = (data: MegaData) =>
       newActive.panelElm.append(backToMenuButton);
       if (!activePanel) {
         setDocumentEvents(data);
-        htmlElmDataset.scrollTop = String(scrollElm.scrollTop);
-        scrollElm.scrollTop = 0;
+        htmlElmDataset.scrollTop = String(htmlElm.scrollTop);
+        htmlElm.scrollTop = 0;
         htmlElmDataset.megaPanelActive = '';
       }
     }

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Deprecate `getPageScrollElm`, as it's no longer needed
 
 ## 0.2.6
 

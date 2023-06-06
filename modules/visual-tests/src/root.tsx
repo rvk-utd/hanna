@@ -82,10 +82,6 @@ export default function App() {
   const [q] = useSearchParams();
   const lang = usePageLang();
 
-  // if (typeof window !== 'undefined') {
-  //   window.getPageScrollElm = _getPageScrollElm;
-  // }
-
   const noAnimation = q.get('noAnimation') != null || undefined;
 
   return (
