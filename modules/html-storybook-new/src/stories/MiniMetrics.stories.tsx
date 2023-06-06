@@ -1,17 +1,18 @@
 import React from 'react';
-import { MiniMetrics } from '@reykjavik/hanna-react/MiniMetrics';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { MiniMetricsStory } from '../Shared/MiniMetrics.js';
 
-const meta: Meta<typeof MiniMetrics> = {
+const meta: Meta = {
   title: 'MiniMetrics',
-  component: MiniMetrics,
 };
 export default meta;
 
-type Story = StoryObj<typeof MiniMetrics>;
+type Story = StoryObj;
 
 export const _MiniMetrics: Story = {
   render: () => <MiniMetricsStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
