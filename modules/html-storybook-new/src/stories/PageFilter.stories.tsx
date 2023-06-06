@@ -5,35 +5,46 @@ import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { PageFilter } from '@reykjavik/hanna-react/PageFilter';
 import { Selectbox } from '@reykjavik/hanna-react/Selectbox';
 import { TextInput } from '@reykjavik/hanna-react/TextInput';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const meta: Meta<typeof PageFilter> = {
+type PageFilterControlProps = {
+  summaryText: boolean;
+  resetButton: boolean;
+  footnote: boolean;
+  lineBreakInputs: boolean;
+  underlapNextSibling: boolean;
+};
+
+const meta: Meta<PageFilterControlProps> = {
   title: 'PageFilter',
-  component: PageFilter,
 };
 export default meta;
 
-type Story = StoryObj<typeof PageFilter>;
+type Story = StoryObj<PageFilterControlProps>;
 
-const PageFilterStory = () => {
-  const summary = boolean('Summary text', true)
+const PageFilterStory: React.FC<PageFilterControlProps> = ({
+  summaryText,
+  resetButton,
+  footnote,
+  lineBreakInputs,
+  underlapNextSibling,
+}) => {
+  const summary = summaryText
     ? 'Veldu þér dagsetningu sem og frá hvaða ráði fundargerðin er'
     : undefined;
-  const resetButton = boolean('Reset button', false);
-  const footnote = boolean('Footnote', false) ? (
+  const footnoteContent = footnote ? (
     <>
       ATH: Allar Fundargerðir byggingarfulltrúa og skipulagsfulltrúa má nálgast{' '}
       <a href="">hér</a>.
     </>
   ) : undefined;
 
-  const br = boolean('Line break inputs', false);
-  const underlap = boolean('Underlap next sibling', false);
+  const br = lineBreakInputs;
+  const underlap = underlapNextSibling;
   return (
-    <Fragment key={'' + summary + resetButton + footnote + underlap + br}>
+    <Fragment key={'' + summary + resetButton + footnoteContent + underlap + br}>
       <PageFilter
         title="Leita í fundargerðum"
         summary={summary}
@@ -55,7 +66,7 @@ const PageFilterStory = () => {
             {resetButton && <ButtonTertiary disabled>Hreinsa</ButtonTertiary>}
           </>
         }
-        footnote={footnote}
+        footnote={footnoteContent}
         underlap={underlap}
         startSeen
       />
@@ -85,5 +96,34 @@ const PageFilterStory = () => {
 };
 
 export const _PageFilter: Story = {
-  render: () => <PageFilterStory />,
+  render: (args: PageFilterControlProps) => <PageFilterStory {...args} />,
+  argTypes: {
+    summaryText: {
+      control: 'boolean',
+      name: 'Summary text',
+    },
+    resetButton: {
+      control: 'boolean',
+      name: 'Reset button',
+    },
+    footnote: {
+      control: 'boolean',
+      name: 'Footnote',
+    },
+    lineBreakInputs: {
+      control: 'boolean',
+      name: 'Line break inputs',
+    },
+    underlapNextSibling: {
+      control: 'boolean',
+      name: 'Underlap next sibling',
+    },
+  },
+  args: {
+    summaryText: true,
+    resetButton: false,
+    footnote: false,
+    lineBreakInputs: false,
+    underlapNextSibling: false,
+  },
 };

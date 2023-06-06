@@ -139,6 +139,7 @@ const NewsHeroExamplesStory = () => {
 export const _NewsHeroExamples: Story = {
   render: () => <NewsHeroExamplesStory />,
   parameters: {
+    controls: { hideNoControlsWarning: true },
     css: {
       tokens: 'NewsHero',
     },
