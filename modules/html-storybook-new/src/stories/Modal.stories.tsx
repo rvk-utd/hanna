@@ -6,42 +6,49 @@ import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { Heading } from '@reykjavik/hanna-react/Heading';
 import { Modal } from '@reykjavik/hanna-react/Modal';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Modal> = {
+type Width = 'auto' | 'narrow' | 'medium' | 'wide';
+
+type ModalControlProps = {
+  width: Width;
+  blingDecoration: boolean;
+  open: boolean;
+};
+type ModalDynamicsControlProps = Omit<ModalControlProps, 'open'>;
+type Story = StoryObj<ModalControlProps>;
+
+const meta: Meta<ModalControlProps> = {
   title: 'Modal',
-  component: Modal,
 };
 export default meta;
-
-type Story = StoryObj<typeof Modal>;
 
 const renderBling = () => (
   <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
 );
 
-const getKnobValues = () => ({
-  modifier:
-    optionsKnob(
-      'Width',
-      {
-        Auto: '',
-        Narrow: 'w6',
-        Medium: 'w8',
-        Wide: 'w10',
-      },
-      'w10',
-      {
-        display: 'inline-radio',
-      }
-    ) || undefined,
-  bling: boolean('"Bling" decoration', false) || undefined,
-});
+const getKnobValues = (blingDecoration: boolean, width: Width) => {
+  const bling = blingDecoration || undefined;
+  let modifier: 'w6' | 'w8' | 'w10' | undefined;
+  switch (width) {
+    case 'auto':
+      modifier = undefined;
+      break;
+    case 'narrow':
+      modifier = 'w6';
+      break;
+    case 'medium':
+      modifier = 'w8';
+      break;
+    case 'wide':
+      modifier = 'w10';
+      break;
+  }
+  return { modifier, bling };
+};
 
-const ModalComponent = () => {
-  const { modifier, bling } = getKnobValues();
-  const open = boolean('Open', true);
+const ModalStory: React.FC<ModalControlProps> = ({ width, open, blingDecoration }) => {
+  const { modifier, bling } = getKnobValues(blingDecoration, width);
 
   const key = open + (modifier || '');
   return (
@@ -59,12 +66,47 @@ const ModalComponent = () => {
   );
 };
 
-export const _Modal: Story = {
-  render: () => <ModalComponent />,
+const sharedArgTypes = {
+  width: {
+    control: {
+      type: 'inline-radio',
+      labels: {
+        auto: 'Auto',
+        narrow: 'Narrow',
+        medium: 'Medium',
+        wide: 'Wide',
+      },
+    },
+    options: ['auto', 'narrow', 'medium', 'wide'],
+    name: 'Width',
+  },
+  blingDecoration: {
+    control: 'boolean',
+    name: 'Bling decoration',
+  },
 };
 
-const ModalDynamicsStory = () => {
-  const { modifier, bling } = getKnobValues();
+export const _Modal: Story = {
+  render: (args: ModalControlProps) => <ModalStory {...args} />,
+  argTypes: {
+    ...sharedArgTypes,
+    open: {
+      control: 'boolean',
+      name: 'Open',
+    },
+  },
+  args: {
+    width: 'wide',
+    blingDecoration: false,
+    open: true,
+  },
+};
+
+const ModalDynamicsStory: React.FC<ModalDynamicsControlProps> = ({
+  blingDecoration,
+  width,
+}) => {
+  const { modifier, bling } = getKnobValues(blingDecoration, width);
   const [open, setOpen] = useState(true);
   const openModal = () => setOpen(true);
   // FIXME: fadeout is missing if closed by external triggers
@@ -109,7 +151,14 @@ const ModalDynamicsStory = () => {
 };
 
 export const _ModalDynamics: Story = {
-  render: () => <ModalDynamicsStory />,
+  render: (args: ModalDynamicsControlProps) => <ModalDynamicsStory {...args} />,
+  argTypes: {
+    ...sharedArgTypes,
+  },
+  args: {
+    width: 'wide',
+    blingDecoration: false,
+  },
   parameters: {
     css: {
       tokens: 'Modal,ButtonPrimary,ButtonTertiary,Heading,TextBlock,Bling',
