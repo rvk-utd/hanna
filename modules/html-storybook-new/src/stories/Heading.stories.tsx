@@ -2,10 +2,19 @@ import React from 'react';
 import { Heading } from '@reykjavik/hanna-react/Heading';
 import { Meta, StoryObj } from '@storybook/react';
 
+const layoutOptions = ['left', 'right', 'wide'] as const;
+type Layout = (typeof layoutOptions)[number];
+
+const sizeVariantOptions = ['normal', 'small', 'large'] as const;
+type SizeVariant = (typeof sizeVariantOptions)[number];
+
+const headingLevelOptions = ['h2', 'h3'] as const;
+type HeadingLevel = (typeof headingLevelOptions)[number];
+
 type HeadingControlProps = {
-  layout: 'left' | 'right' | 'wide';
-  sizeVariant: 'normal' | 'small' | 'large';
-  headingLevel: 'h2' | 'h3';
+  layout: Layout;
+  sizeVariant: SizeVariant;
+  headingLevel: HeadingLevel;
 };
 
 const meta: Meta<HeadingControlProps> = {
@@ -45,7 +54,7 @@ export const _Heading: Story = {
           wide: 'Wide',
         },
       },
-      options: ['left', 'right', 'wide'],
+      options: layoutOptions,
       name: 'Layout',
     },
     sizeVariant: {
@@ -57,7 +66,7 @@ export const _Heading: Story = {
           large: 'Large',
         },
       },
-      options: ['normal', 'small', 'large'],
+      options: sizeVariantOptions,
       name: 'Size variant',
     },
     headingLevel: {
@@ -68,7 +77,7 @@ export const _Heading: Story = {
           h3: 'H3',
         },
       },
-      options: ['h2', 'h3'],
+      options: headingLevelOptions,
       name: 'Heading level',
     },
   },
