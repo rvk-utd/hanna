@@ -2,12 +2,12 @@ import React from 'react';
 import { Sharpie } from '@reykjavik/hanna-react/Sharpie';
 import { Meta, StoryObj } from '@storybook/react';
 
+type Story = StoryObj;
+
 const meta: Meta = {
   title: 'Sharpie',
 };
 export default meta;
-
-type Story = StoryObj;
 
 const SharpieStory = () => {
   return (
@@ -24,4 +24,7 @@ const SharpieStory = () => {
 
 export const _Sharpie: Story = {
   render: () => <SharpieStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
