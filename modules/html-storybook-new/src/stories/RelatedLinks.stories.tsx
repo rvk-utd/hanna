@@ -1,22 +1,24 @@
 import React from 'react';
 import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
 import { RelatedLinkItem, RelatedLinks } from '@reykjavik/hanna-react/RelatedLinks';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof RelatedLinks> = {
+type RelatedLinksControlProps = {
+  title: boolean;
+};
+
+type Story = StoryObj<RelatedLinksControlProps>;
+
+const meta: Meta<RelatedLinksControlProps> = {
   title: 'RelatedLinks',
-  component: RelatedLinks,
   parameters: {
     css: { tokens: 'RelatedLinks,CenterColumn' },
   } as StoryParameters,
 };
 export default meta;
-
-type Story = StoryObj<typeof RelatedLinks>;
 
 const TITLE = 'Tengt efni';
 
@@ -51,9 +53,9 @@ const LINKS: Array<RelatedLinkItem> = [
   },
 ];
 
-const RelatedLinksStory = () => {
-  const title = boolean('Title', true) ? TITLE : undefined;
-  const children = <RelatedLinks title={title} links={LINKS} />;
+const RelatedLinksStory: React.FC<RelatedLinksControlProps> = ({ title }) => {
+  const displayTitle = title ? TITLE : undefined;
+  const children = <RelatedLinks title={displayTitle} links={LINKS} />;
 
   return (
     <HiddenTiger
@@ -64,5 +66,14 @@ const RelatedLinksStory = () => {
 };
 
 export const _RelatedLinks: Story = {
-  render: () => <RelatedLinksStory />,
+  render: (args: RelatedLinksControlProps) => <RelatedLinksStory {...args} />,
+  argTypes: {
+    title: {
+      control: 'boolean',
+      name: 'Title',
+    },
+  },
+  args: {
+    title: true,
+  },
 };
