@@ -7,12 +7,19 @@ import cityCouncilMemberImage from '../example_assets/Dagur-b.jpg';
 import landScapeImage from '../example_assets/Gallery--landscape--large.jpg';
 import swimmingpoolImage from '../example_assets/sundlaug.jpg';
 
-type InfoHeroImage = 'no-image' | 'portrait' | 'landscape' | 'pool';
+const alignmentOptions = ['left', 'right'] as const;
+type Alignment = (typeof alignmentOptions)[number];
+
+const imageOptions = ['no-image', 'portrait', 'landscape', 'pool'] as const;
+type Image = (typeof imageOptions)[number];
+
+const blingTypeOptions = ['waves', 'sunny-waves', 'triangles', 'circles'] as const;
+type BlingType = (typeof blingTypeOptions)[number];
 
 type InfoHeroControlProps = {
-  alignment: 'left' | 'right';
-  image: InfoHeroImage;
-  blingType: 'waves' | 'sunny-waves' | 'triangles' | 'circles';
+  alignment: Alignment;
+  image: Image;
+  blingType: BlingType;
   swimmingPoolContent: boolean;
   blurbText: boolean;
   footerText: boolean;
@@ -42,7 +49,7 @@ const swimmingpoolContent: InfoHeroProps = {
   ),
 };
 
-const getImage = (image: InfoHeroImage) => {
+const getImage = (image: Image) => {
   if (image === 'portrait') {
     return cityCouncilMemberImage;
   }
@@ -108,7 +115,7 @@ export const _InfoHero: Story = {
   argTypes: {
     alignment: {
       control: 'inline-radio',
-      options: ['left', 'right'],
+      options: alignmentOptions,
       name: 'Alignment',
     },
     image: {
@@ -121,7 +128,7 @@ export const _InfoHero: Story = {
           pool: 'Pool',
         },
       },
-      options: ['no-image', 'portrait', 'landscape', 'pool'],
+      options: imageOptions,
       name: 'Image',
     },
     blingType: {
@@ -134,7 +141,7 @@ export const _InfoHero: Story = {
           circles: 'Circles',
         },
       },
-      options: ['waves', 'sunny-waves', 'triangles', 'circles'],
+      options: blingTypeOptions,
       name: 'Bling type',
     },
     swimmingPoolContent: {
