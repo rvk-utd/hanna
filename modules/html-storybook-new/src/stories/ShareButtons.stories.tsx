@@ -3,15 +3,16 @@ import { useIsServerSide } from '@hugsmidjan/react/hooks';
 import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
 import { Meta, StoryObj } from '@storybook/react';
 
-type ShareButtonsControlProps = {
-  customLabel: boolean;
-  customButtonText: boolean;
-  facebook: boolean;
-  twitter: boolean;
-  linkedIn: boolean;
-  email: boolean;
-  customEmailSubject: boolean;
-};
+type ShareButtonsControlProps = Record<
+  | 'customLabel'
+  | 'customButtonText'
+  | 'facebook'
+  | 'twitter'
+  | 'linkedIn'
+  | 'email'
+  | 'customEmailSubject',
+  boolean
+>;
 
 const meta: Meta<ShareButtonsControlProps> = {
   title: 'ShareButtons',
