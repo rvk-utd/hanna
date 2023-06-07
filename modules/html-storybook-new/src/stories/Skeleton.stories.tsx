@@ -2,12 +2,12 @@ import React from 'react';
 import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 import { Meta, StoryObj } from '@storybook/react';
 
+type Story = StoryObj;
+
 const meta: Meta = {
   title: 'Skeleton',
 };
 export default meta;
-
-type Story = StoryObj;
 
 const SkeletonStory = () => {
   return (
@@ -39,4 +39,7 @@ const SkeletonStory = () => {
 
 export const _Skeleton: Story = {
   render: () => <SkeletonStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
