@@ -37,9 +37,13 @@ export type DatepickerProps = {
   initialDate?: Date;
 } & FormFieldWrappingProps;
 
-export const getDateDiff = (date: Date, diff: number): Date => {
-  const newDate = new Date(date);
-  newDate.setDate(newDate.getDate() + diff);
+/**
+ * Dumb utility function that returns a new Date that's `dayOffset` days away
+ * from the input `date`.
+ */
+export const getDateDiff = (refDate: Date, dayOffset: number): Date => {
+  const newDate = new Date(refDate);
+  newDate.setDate(newDate.getDate() + dayOffset);
   return newDate;
 };
 
