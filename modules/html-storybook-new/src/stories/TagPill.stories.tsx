@@ -68,4 +68,7 @@ const TagPillStory = () => {
 
 export const _TagPill: Story = {
   render: () => <TagPillStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
