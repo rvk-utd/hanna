@@ -3,7 +3,6 @@ import { Alert } from '@reykjavik/hanna-react/Alert';
 import { BreadCrumbs } from '@reykjavik/hanna-react/BreadCrumbs';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { ContactBubbleStory as ContactBubble } from '../Shared/ContactBubble.js';
@@ -12,9 +11,15 @@ import { FooterInfoStory as FooterInfo } from '../Shared/FooterInfo.js';
 import { crumbTrail, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof Layout> = {
+type MinimalLayoutControlProps = {
+  globalAlertsContainer: boolean;
+  pageHasNoMenuOrNav: boolean;
+};
+
+type MinimalLayoutStory = StoryObj<MinimalLayoutControlProps>;
+
+const meta: Meta = {
   title: 'Layout',
-  component: Layout,
   parameters: {
     knobs: { disabled: false },
     layout: { disabled: true },
@@ -22,11 +27,12 @@ const meta: Meta<typeof Layout> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof Layout>;
-
-const MinimalLayoutStory = () => {
-  const globalAlerts = boolean('Global alerts container', false);
-  const navChildren = boolean('Page has no menu or navigation', false) ? undefined : ' ';
+const MinimalLayoutStory: React.FC<MinimalLayoutControlProps> = ({
+  globalAlertsContainer,
+  pageHasNoMenuOrNav,
+}) => {
+  const globalAlerts = globalAlertsContainer;
+  const navChildren = pageHasNoMenuOrNav ? undefined : ' ';
   return (
     <Layout
       key={'' + globalAlerts + navChildren}
@@ -38,8 +44,22 @@ const MinimalLayoutStory = () => {
   );
 };
 
-export const _MinimalLayout: Story = {
-  render: () => <MinimalLayoutStory />,
+export const _MinimalLayout: MinimalLayoutStory = {
+  render: (args: MinimalLayoutControlProps) => <MinimalLayoutStory {...args} />,
+  argTypes: {
+    globalAlertsContainer: {
+      control: 'boolean',
+      name: 'Global alerts container',
+    },
+    pageHasNoMenuOrNav: {
+      control: 'boolean',
+      name: 'Page has no menu or navigation',
+    },
+  },
+  args: {
+    globalAlertsContainer: false,
+    pageHasNoMenuOrNav: false,
+  },
   parameters: {
     css: {
       tokens: 'Layout',
@@ -47,9 +67,11 @@ export const _MinimalLayout: Story = {
   },
 };
 
-const LayoutWithContentStory = () => {
-  const globalAlerts = boolean('Global alerts', false);
-
+const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
+  globalAlerts,
+  // TODO: Connect showClientsideMarkup,
+  // TODO: Connect setOptionalDataAttr,
+}) => {
   return (
     <Layout
       key={'' + globalAlerts}
@@ -91,8 +113,35 @@ const LayoutWithContentStory = () => {
 
 // ===========================================================================
 
-export const _LayoutWithContent: Story = {
-  render: () => <LayoutWithContentStory />,
+type LayoutWithContentControlProps = {
+  globalAlerts: boolean;
+  showClientsideMarkup: boolean;
+  setOptionalDataAttr: boolean;
+};
+
+type LayoutWithContStory = StoryObj<LayoutWithContentControlProps>;
+
+export const _LayoutWithContent: LayoutWithContStory = {
+  render: (args: LayoutWithContentControlProps) => <LayoutWithContentStory {...args} />,
+  argTypes: {
+    globalAlerts: {
+      control: 'boolean',
+      name: 'Global alerts',
+    },
+    showClientsideMarkup: {
+      control: 'boolean',
+      name: 'Show client-side markup',
+    },
+    setOptionalDataAttr: {
+      control: 'boolean',
+      name: 'Set optional "alwaysShow" data-attribute',
+    },
+  },
+  args: {
+    globalAlerts: false,
+    showClientsideMarkup: false,
+    setOptionalDataAttr: true,
+  },
   parameters: {
     css: {
       noLayout: true,
