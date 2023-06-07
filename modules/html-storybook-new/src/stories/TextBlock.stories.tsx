@@ -1,15 +1,18 @@
 import React from 'react';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof TextBlock> = {
+type PageHeadingControlProps = {
+  layout: 'left' | 'wide' | 'right' | 'labelled';
+  smallText: boolean;
+};
+
+type Story = StoryObj<PageHeadingControlProps>;
+
+const meta: Meta<PageHeadingControlProps> = {
   title: 'text/TextBlock',
-  component: TextBlock,
 };
 export default meta;
-
-type Story = StoryObj<typeof TextBlock>;
 
 const demoMarkup = () => {
   return (
@@ -47,36 +50,49 @@ const demoMarkup = () => {
   );
 };
 
-const TextBlockStory = () => {
-  const layout = optionsKnob(
-    'Layout',
-    {
-      Left: '',
-      Wide: 'wide',
-      'Right aligned': 'right',
-      'Labelled (H2 headings)': 'labelled',
-    },
-    '',
-    { display: 'inline-radio' }
-  );
+const TextBlockStory: React.FC<PageHeadingControlProps> = ({ layout, smallText }) => {
+  const _layout = layout !== 'left' ? layout : '';
 
   const layoutProps =
-    layout === 'wide'
+    _layout === 'wide'
       ? { wide: true }
-      : layout === 'right'
-      ? { align: layout }
-      : layout === 'labelled'
+      : _layout === 'right'
+      ? { align: _layout }
+      : _layout === 'labelled'
       ? { labelled: true }
       : {};
 
-  const small = boolean('Small text', false) || undefined;
+  const small = smallText || undefined;
   return (
-    <TextBlock key={layout + small} {...layoutProps} small={small} startSeen>
+    <TextBlock key={_layout + small} {...layoutProps} small={small} startSeen>
       {demoMarkup()}
     </TextBlock>
   );
 };
 
 export const _TextBlock: Story = {
-  render: () => <TextBlockStory />,
+  render: (args: PageHeadingControlProps) => <TextBlockStory {...args} />,
+  argTypes: {
+    layout: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          left: 'Left',
+          wide: 'Wide',
+          right: 'Right aligned',
+          labelled: 'Labelled (H2 headings)',
+        },
+      },
+      options: ['left', 'wide', 'right', 'labelled'],
+      name: 'Layout',
+    },
+    smallText: {
+      control: 'boolean',
+      name: 'Small text',
+    },
+  },
+  args: {
+    layout: 'left',
+    smallText: false,
+  },
 };
