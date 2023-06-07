@@ -1,44 +1,73 @@
 import React from 'react';
 import { SubHeading } from '@reykjavik/hanna-react/SubHeading';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof SubHeading> = {
+type SubHeadingControlProps = {
+  layout: 'left' | 'right' | 'wide';
+  small: boolean;
+  headingLevel: 'h2' | 'h3';
+};
+
+const meta: Meta<SubHeadingControlProps> = {
   title: 'text/SubHeading',
-  component: SubHeading,
 };
 export default meta;
 
-type Story = StoryObj<typeof SubHeading>;
+type Story = StoryObj<SubHeadingControlProps>;
 
-const SubHeadingStory = () => {
-  const layout =
-    optionsKnob(
-      'Layout',
-      {
-        Left: '',
-        'Right aligned': 'right',
-        Wide: 'wide',
-      },
-      '',
-      { display: 'inline-radio' }
-    ) || undefined;
+const SubHeadingStory: React.FC<SubHeadingControlProps> = ({
+  layout,
+  small,
+  headingLevel,
+}) => {
+  const _layout = layout !== 'left' ? layout : undefined;
 
-  const layoutProps = layout === 'wide' ? { wide: true } : { align: layout };
+  const layoutProps = _layout === 'wide' ? { wide: true } : { align: _layout };
 
-  const small = boolean('Small', false) || undefined;
+  const _small = small || undefined;
 
-  const htmlTag =
-    optionsKnob('Heading level', { 'H2 (default)': '', H3: 'h3' }, '', {
-      display: 'inline-radio',
-    }) || undefined;
+  const htmlTag = headingLevel !== 'h2' ? headingLevel : undefined;
   return (
-    <SubHeading {...layoutProps} small={small} Tag={htmlTag} startSeen>
+    <SubHeading {...layoutProps} small={_small} Tag={htmlTag} startSeen>
       Subheading title
     </SubHeading>
   );
 };
 
 export const _SubHeading: Story = {
-  render: () => <SubHeadingStory />,
+  render: (args: SubHeadingControlProps) => <SubHeadingStory {...args} />,
+  argTypes: {
+    layout: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          left: 'Left',
+          right: 'Right aligned',
+          wide: 'Wide',
+        },
+      },
+      options: ['left', 'right', 'wide'],
+      name: 'Layout',
+    },
+    small: {
+      control: 'boolean',
+      name: 'Small',
+    },
+    headingLevel: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          h2: 'H2 (default)',
+          h3: 'H3',
+        },
+      },
+      options: ['h2', 'h3'],
+      name: 'Heading level',
+    },
+  },
+  args: {
+    layout: 'left',
+    small: false,
+    headingLevel: 'h2',
+  },
 };
