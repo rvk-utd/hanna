@@ -2,13 +2,12 @@ import React from 'react';
 import { PullQuote } from '@reykjavik/hanna-react/PullQuote';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof PullQuote> = {
+const meta: Meta = {
   title: 'text/PullQuote',
-  component: PullQuote,
 };
 export default meta;
 
-type Story = StoryObj<typeof PullQuote>;
+type Story = StoryObj;
 
 const PullQuoteStory = () => {
   return (
@@ -33,4 +32,7 @@ const PullQuoteStory = () => {
 
 export const _PullQuote: Story = {
   render: () => <PullQuoteStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
