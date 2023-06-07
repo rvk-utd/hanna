@@ -4,8 +4,11 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { crumbTrail } from '../utils/_dummyData.js';
 
+const lengthOptions = [1, 2, 3, 4] as const;
+type Length = (typeof lengthOptions)[number];
+
 type BreadCrumbsControlProps = {
-  length: number;
+  length: Length;
   sparseLinks: boolean;
 };
 
@@ -32,7 +35,8 @@ export const _BreadCrumbs: Story = {
   render: (args: BreadCrumbsControlProps) => <BreadCrumbsStory {...args} />,
   argTypes: {
     length: {
-      control: 'number',
+      control: 'select',
+      options: lengthOptions,
       name: 'Length',
     },
     sparseLinks: {
