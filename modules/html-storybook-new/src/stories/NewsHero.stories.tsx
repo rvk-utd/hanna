@@ -23,7 +23,7 @@ type BlingType = (typeof blingTypeOptions)[number];
 
 type NewsHeroControlProps = {
   imageType: ImageType;
-  blingType?: BlingType;
+  blingType: BlingType;
 };
 
 const meta: Meta<NewsHeroControlProps> = {

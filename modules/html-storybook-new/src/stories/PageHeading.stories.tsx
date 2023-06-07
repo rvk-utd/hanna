@@ -2,8 +2,11 @@ import React from 'react';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { Meta, StoryObj } from '@storybook/react';
 
+const headingLevelOptions = ['h1', 'h2'] as const;
+type HeadingLevel = (typeof headingLevelOptions)[number];
+
 type PageHeadingControlProps = {
-  headingLevel: 'h1' | 'h2';
+  headingLevel: HeadingLevel;
   rightAligned: boolean;
   small: boolean;
 };
@@ -41,7 +44,7 @@ export const _PageHeading: Story = {
           h2: 'H2',
         },
       },
-      options: ['h1', 'h2'],
+      options: headingLevelOptions,
       name: 'Heading level',
     },
     rightAligned: {
