@@ -3,14 +3,18 @@ import { Alert } from '@reykjavik/hanna-react/Alert';
 import { WizardLayout } from '@reykjavik/hanna-react/WizardLayout';
 import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
 import { WizardStepper } from '@reykjavik/hanna-react/WizardStepper';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof WizardLayout> = {
+type ControlProps = {
+  globalAlertsContainer: boolean;
+};
+
+type Story = StoryObj<ControlProps>;
+
+const meta: Meta<ControlProps> = {
   title: 'Layout/WizardLayout',
-  component: WizardLayout,
   parameters: {
     knobs: { disabled: false },
     layout: { disabled: true },
@@ -20,15 +24,28 @@ const meta: Meta<typeof WizardLayout> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof WizardLayout>;
-
-const MinimalWizardLayoutComponent = () => {
-  const globalAlerts = boolean('Global alerts container', false);
+const MinimalWizardLayoutStory: React.FC<ControlProps> = ({ globalAlertsContainer }) => {
+  // TODO: Check if 'globalAlertsContainer' is connected
+  const globalAlerts = globalAlertsContainer;
   return <WizardLayout key={'' + globalAlerts} globalAlerts={globalAlerts && ' '} />;
 };
 
 export const _MinimalWizardLayout: Story = {
-  render: () => <MinimalWizardLayoutComponent />,
+  render: (args: ControlProps) => <MinimalWizardLayoutStory {...args} />,
+  argTypes: {
+    globalAlertsContainer: {
+      control: 'boolean',
+      name: 'Global alerts container',
+    },
+  },
+  args: {
+    globalAlertsContainer: false,
+  },
+  parameters: {
+    css: {
+      tokens: 'WizardLayout',
+    },
+  },
 };
 
 const steps = [
@@ -49,8 +66,12 @@ const steps = [
   },
 ];
 
-const WizardLayoutWithContentStory = () => {
-  const globalAlerts = boolean('Global alerts container', false);
+// -----------------------------------------------------------------------------------
+
+const WizardLayoutWithContentStory: React.FC<ControlProps> = ({
+  globalAlertsContainer,
+}) => {
+  const globalAlerts = globalAlertsContainer;
   return (
     <WizardLayout
       key={'' + globalAlerts}
@@ -79,7 +100,17 @@ const WizardLayoutWithContentStory = () => {
 };
 
 export const _WizardLayoutWithContent: Story = {
-  render: () => <WizardLayoutWithContentStory />,
+  render: (args: ControlProps) => <WizardLayoutWithContentStory {...args} />,
+  // TODO: Refactor argTypes and args (fix duplication)
+  argTypes: {
+    globalAlertsContainer: {
+      control: 'boolean',
+      name: 'Global alerts container',
+    },
+  },
+  args: {
+    globalAlertsContainer: false,
+  },
   parameters: {
     css: {
       tokens: 'WizardLayout-full',
