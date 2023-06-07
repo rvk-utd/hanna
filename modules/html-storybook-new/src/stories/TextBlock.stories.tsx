@@ -2,8 +2,11 @@ import React from 'react';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { Meta, StoryObj } from '@storybook/react';
 
+const layoutOptions = ['left', 'wide', 'right', 'labelled'] as const;
+type Layout = (typeof layoutOptions)[number];
+
 type PageHeadingControlProps = {
-  layout: 'left' | 'wide' | 'right' | 'labelled';
+  layout: Layout;
   smallText: boolean;
 };
 
@@ -83,7 +86,7 @@ export const _TextBlock: Story = {
           labelled: 'Labelled (H2 headings)',
         },
       },
-      options: ['left', 'wide', 'right', 'labelled'],
+      options: layoutOptions,
       name: 'Layout',
     },
     smallText: {
