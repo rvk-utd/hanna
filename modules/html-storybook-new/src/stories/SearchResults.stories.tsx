@@ -9,9 +9,10 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof SearchResults> = {
+type Story = StoryObj;
+
+const meta: Meta = {
   title: 'SearchResults',
-  component: SearchResults,
   parameters: {
     css: {
       tokens: 'SearchResults,SiteSearchInput',
@@ -19,8 +20,6 @@ const meta: Meta<typeof SearchResults> = {
   } as StoryParameters,
 };
 export default meta;
-
-type Story = StoryObj<typeof SearchResults>;
 
 // ===========================================================================
 
@@ -54,4 +53,7 @@ export const _SearchResults: Story = {
       items={items}
     />
   ),
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
