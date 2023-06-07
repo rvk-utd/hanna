@@ -6,23 +6,29 @@ import { Meta, StoryObj } from '@storybook/react';
 import imageLarge from '../example_assets/CityBlock__image--large.jpg';
 import imageSmall from '../example_assets/CityBlock__image--small.jpg';
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
-import { disableControlProps } from '../utils/disableControlTypes.js';
+
+const blockTypeOptions = ['normal', 'largebox', 'largeimage'] as const;
+type Blocktype = (typeof blockTypeOptions)[number];
+
+const alignOptions = ['left', 'right'] as const;
+type Align = (typeof alignOptions)[number];
+
+const linksOptions = [0, 1, 2, 3, 4] as const;
+type Links = (typeof linksOptions)[number];
 
 type CityBlockControlProps = {
-  blocktype: 'normal' | 'largebox' | 'largeimage';
-  links: 0 | 1 | 2 | 3 | 4;
+  blocktype: Blocktype;
+  align: Align;
+  links: Links;
   summaryText: boolean;
 };
 
-type CityBlockStoryProps = CityBlockProps & CityBlockControlProps;
+type Story = StoryObj<CityBlockControlProps>;
 
-const meta: Meta<CityBlockStoryProps> = {
+const meta: Meta<CityBlockControlProps> = {
   title: 'CityBlock',
-  component: CityBlock,
 };
 export default meta;
-
-type Story = StoryObj<CityBlockStoryProps>;
 
 const IMAGES = {
   '': { illustration: illustrations[5] },
@@ -30,7 +36,7 @@ const IMAGES = {
   largeimage: { image: { src: imageLarge, altText: 'Alt text!' } },
 };
 
-const CityBlockStory: React.FC<CityBlockStoryProps> = ({
+const CityBlockStory: React.FC<CityBlockControlProps> = ({
   blocktype,
   align,
   links,
@@ -74,7 +80,7 @@ const testCombos = (['largeimage', undefined, 'largebox'] as const).reduce<
   return list;
 }, []);
 
-const CityBlockExamplesStory: React.FC<CityBlockStoryProps> = () => {
+const CityBlockExamplesStory = () => {
   return (
     <>
       {' '}
@@ -89,28 +95,27 @@ const CityBlockExamplesStory: React.FC<CityBlockStoryProps> = () => {
 };
 
 export const _CityBlock: Story = {
-  render: (args: CityBlockStoryProps) => <CityBlockStory {...args} />,
+  render: (args: CityBlockControlProps) => <CityBlockStory {...args} />,
   argTypes: {
     blocktype: {
       control: 'inline-radio',
-      options: ['normal', 'largebox', 'largeimage'],
+      options: blockTypeOptions,
       name: 'Type',
     },
     align: {
       control: 'inline-radio',
-      options: ['left', 'right'],
+      options: alignOptions,
       name: 'Layout',
     },
     links: {
       control: 'inline-radio',
-      options: [0, 1, 2, 3, 4],
+      options: linksOptions,
       name: 'Links',
     },
     summaryText: {
       control: 'boolean',
       name: 'Summary text',
     },
-    ...disableControlProps(['type', 'content', 'illustration', 'image', 'startSeen']),
   },
   args: {
     blocktype: 'normal',
@@ -121,18 +126,9 @@ export const _CityBlock: Story = {
 };
 
 export const _CityBlockExamples: Story = {
-  render: (args: CityBlockStoryProps) => <CityBlockExamplesStory {...args} />,
-  argTypes: {
-    ...disableControlProps([
-      'align',
-      'type',
-      'content',
-      'illustration',
-      'image',
-      'startSeen',
-    ]),
-  },
+  render: () => <CityBlockExamplesStory />,
   parameters: {
+    controls: { hideNoControlsWarning: true },
     css: {
       tokens: 'CityBlock',
     },
