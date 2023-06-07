@@ -4,13 +4,15 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { auxiliaryPanel, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
 
-const meta: Meta<typeof MainMenu> = {
+type Story = StoryObj;
+
+const meta: Meta = {
   title: 'Layout/MainMenu',
-  component: MainMenu,
 };
 export default meta;
 
-type Story = StoryObj<typeof MainMenu>;
+// TODO: Maybe refactor to global usage
+const hideControlsWarning = { controls: { hideNoControlsWarning: true } };
 
 export const _MainMenu: Story = {
   render: () => (
@@ -21,6 +23,9 @@ export const _MainMenu: Story = {
       auxiliaryPanel={auxiliaryPanel}
     />
   ),
+  parameters: {
+    ...hideControlsWarning,
+  },
 };
 
 export const _MegaMenu: Story = {
@@ -34,4 +39,10 @@ export const _MegaMenu: Story = {
       auxiliaryPanel={auxiliaryPanel}
     />
   ),
+  parameters: {
+    ...hideControlsWarning,
+    css: {
+      tokens: 'MainMenu',
+    },
+  },
 };
