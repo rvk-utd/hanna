@@ -1,37 +1,48 @@
 import React from 'react';
-import { BasicTable, BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
+import { BasicTable } from '@reykjavik/hanna-react/BasicTable';
 import { Footnote } from '@reykjavik/hanna-react/Footnote';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
+const variantOptions = ['normal', 'right', 'fullwidth'] as const;
+type Variant = (typeof variantOptions)[number];
 
-type BasicTablePropsControlsProps = {
+type BasicTableControlsProps = {
+  compact: boolean;
   footer: boolean;
   footnote: boolean;
-  variant: 'normal' | 'right' | 'fullwidth';
+  variant: Variant;
 };
-type BasicTableStoryProps = BasicTableProps & BasicTablePropsControlsProps;
-type Story = StoryObj<BasicTableStoryProps>;
 
-const meta: Meta<BasicTableStoryProps> = {
+type Story = StoryObj<BasicTableControlsProps>;
+
+const meta: Meta<BasicTableControlsProps> = {
   title: 'BasicTable',
-  component: BasicTable,
 };
 
 export default meta;
 
-const BasicTableStory: React.FC<BasicTableStoryProps> = ({
+const BasicTableStory: React.FC<BasicTableControlsProps> = ({
   compact,
   footer,
   footnote,
   variant,
 }) => {
-  const showFooter = footer || undefined;
+  const _footer = footer || undefined;
+  const _variant = variant !== 'normal' ? variant : '';
+
+  const variantProps = (
+    {
+      '': undefined,
+      right: { align: 'right' },
+      fullwidth: { fullWidth: true },
+    } as const
+  )[_variant];
 
   return (
     <>
       <BasicTable
-        key={'' + compact + footer + variant}
+        key={'' + compact + _footer + _variant}
+        {...variantProps}
         compact={compact}
         cols={[{ number: true }, {}, {}, { tel: true }, { number: true }, {}]}
         thead={[
@@ -78,7 +89,7 @@ const BasicTableStory: React.FC<BasicTableStoryProps> = ({
           ],
         ]}
         tfoot={
-          showFooter && [
+          _footer && [
             [
               { value: 'Samtals:', number: false, colSpan: 4 },
               { value: '16.345 kr.', number: true },
@@ -94,7 +105,7 @@ const BasicTableStory: React.FC<BasicTableStoryProps> = ({
 };
 
 export const _BasicTable: Story = {
-  render: (args: BasicTableStoryProps) => <BasicTableStory {...args} />,
+  render: (args: BasicTableControlsProps) => <BasicTableStory {...args} />,
   argTypes: {
     compact: {
       control: 'boolean',
@@ -110,22 +121,9 @@ export const _BasicTable: Story = {
     },
     variant: {
       control: 'radio',
-      options: ['normal', 'right', 'fullwidth'],
+      options: variantOptions,
       name: 'Variant',
     },
-    ...disableControlProps([
-      'type',
-      'modifier',
-      'fullWidth',
-      'align',
-      'startSeen',
-      'caption',
-      'thead',
-      'tfoot',
-      'tbody',
-      'tbodies',
-      'cols',
-    ]),
   },
   args: {
     compact: false,
