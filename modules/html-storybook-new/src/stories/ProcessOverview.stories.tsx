@@ -3,16 +3,19 @@ import {
   ProcessOverview,
   ProcessOverviewItemProps,
 } from '@reykjavik/hanna-react/ProcessOverview';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof ProcessOverview> = {
+type ProcessOverviewControlProps = {
+  translucentBackground: boolean;
+  narrowLayout: boolean;
+  attentionMessage: boolean;
+};
+type Story = StoryObj<ProcessOverviewControlProps>;
+
+const meta: Meta<ProcessOverviewControlProps> = {
   title: 'ProcessOverview',
-  component: ProcessOverview,
 };
 export default meta;
-
-type Story = StoryObj<typeof ProcessOverview>;
 
 const TITLE = 'Hefðbundinn ferill umsóknar';
 const ATTENTION_TEXT =
@@ -40,10 +43,14 @@ const ITEMS = (): Array<ProcessOverviewItemProps> => [
   },
 ];
 
-const ProcessOverviewStory = () => {
-  const transparent = boolean('Translucent background', false);
-  const narrow = boolean('Narrow layout', false);
-  const attention = boolean('"Attention" message', false) || undefined;
+const ProcessOverviewStory: React.FC<ProcessOverviewControlProps> = ({
+  translucentBackground,
+  narrowLayout,
+  attentionMessage,
+}) => {
+  const transparent = translucentBackground;
+  const narrow = narrowLayout;
+  const attention = attentionMessage || undefined;
   return (
     <ProcessOverview
       title={TITLE}
@@ -56,5 +63,24 @@ const ProcessOverviewStory = () => {
 };
 
 export const _ProcessOverview: Story = {
-  render: () => <ProcessOverviewStory />,
+  render: (args: ProcessOverviewControlProps) => <ProcessOverviewStory {...args} />,
+  argTypes: {
+    translucentBackground: {
+      control: 'boolean',
+      name: 'Translucent background',
+    },
+    narrowLayout: {
+      control: 'boolean',
+      name: 'Narrow layout',
+    },
+    attentionMessage: {
+      control: 'boolean',
+      name: '"Attention" message',
+    },
+  },
+  args: {
+    translucentBackground: false,
+    narrowLayout: false,
+    attentionMessage: false,
+  },
 };
