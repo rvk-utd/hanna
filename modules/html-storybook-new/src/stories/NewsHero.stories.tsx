@@ -7,17 +7,22 @@ import { Meta, StoryObj } from '@storybook/react';
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import portraitImage from '../example_assets/NewsHero__portrait.jpg';
 
-type BlingType =
-  | 'auto'
-  | 'interesting'
-  | 'snake'
-  | 'pentagon'
-  | 'dome'
-  | 'balls-small'
-  | 'balls-large';
+const imageTypeOptions = ['image', 'no-image'] as const;
+type ImageType = (typeof imageTypeOptions)[number];
+
+const blingTypeOptions = [
+  'auto',
+  'interesting',
+  'snake',
+  'pentagon',
+  'dome',
+  'balls-small',
+  'balls-large',
+] as const;
+type BlingType = (typeof blingTypeOptions)[number];
 
 type NewsHeroControlProps = {
-  imageType: 'image' | 'no-image';
+  imageType: ImageType;
   blingType?: BlingType;
 };
 
@@ -76,7 +81,7 @@ export const _NewsHero: Story = {
           'no-image': 'No image (Bling)',
         },
       },
-      options: ['image', 'no-image'],
+      options: imageTypeOptions,
       name: 'Image',
     },
     blingType: {
@@ -93,15 +98,7 @@ export const _NewsHero: Story = {
           'balls-large': 'Balls-large',
         },
       },
-      options: [
-        'auto',
-        'interesting',
-        'snake',
-        'pentagon',
-        'dome',
-        'balls-small',
-        'balls-large',
-      ],
+      options: blingTypeOptions,
       name: 'Image',
     },
   },
