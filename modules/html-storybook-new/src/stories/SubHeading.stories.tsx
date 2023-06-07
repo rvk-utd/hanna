@@ -2,10 +2,16 @@ import React from 'react';
 import { SubHeading } from '@reykjavik/hanna-react/SubHeading';
 import { Meta, StoryObj } from '@storybook/react';
 
+const layoutOptions = ['left', 'right', 'wide'] as const;
+type Layout = (typeof layoutOptions)[number];
+
+const headingLevelOptions = ['h2', 'h3'] as const;
+type HeadingLevel = (typeof headingLevelOptions)[number];
+
 type SubHeadingControlProps = {
-  layout: 'left' | 'right' | 'wide';
+  layout: Layout;
   small: boolean;
-  headingLevel: 'h2' | 'h3';
+  headingLevel: HeadingLevel;
 };
 
 const meta: Meta<SubHeadingControlProps> = {
@@ -46,7 +52,7 @@ export const _SubHeading: Story = {
           wide: 'Wide',
         },
       },
-      options: ['left', 'right', 'wide'],
+      options: layoutOptions,
       name: 'Layout',
     },
     small: {
@@ -61,7 +67,7 @@ export const _SubHeading: Story = {
           h3: 'H3',
         },
       },
-      options: ['h2', 'h3'],
+      options: headingLevelOptions,
       name: 'Heading level',
     },
   },
