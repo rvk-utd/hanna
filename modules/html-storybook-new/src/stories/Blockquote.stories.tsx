@@ -2,13 +2,12 @@ import React from 'react';
 import { BlockQuote } from '@reykjavik/hanna-react/BlockQuote';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof BlockQuote> = {
+const meta: Meta = {
   title: 'text/BlockQuote',
-  component: BlockQuote,
 };
 export default meta;
 
-type Story = StoryObj<typeof BlockQuote>;
+type Story = StoryObj;
 
 const BlockQuoteStory = () => {
   return (
@@ -41,4 +40,7 @@ const BlockQuoteStory = () => {
 
 export const _BlockQuote: Story = {
   render: () => <BlockQuoteStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
