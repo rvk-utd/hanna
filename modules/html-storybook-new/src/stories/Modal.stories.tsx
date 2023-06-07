@@ -8,7 +8,8 @@ import { Modal } from '@reykjavik/hanna-react/Modal';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { Meta, StoryObj } from '@storybook/react';
 
-type Width = 'auto' | 'narrow' | 'medium' | 'wide';
+const widthOptions = ['auto', 'narrow', 'medium', 'wide'] as const;
+type Width = (typeof widthOptions)[number];
 
 type ModalControlProps = {
   width: Width;
@@ -77,7 +78,7 @@ const sharedArgTypes = {
         wide: 'Wide',
       },
     },
-    options: ['auto', 'narrow', 'medium', 'wide'],
+    options: widthOptions,
     name: 'Width',
   },
   blingDecoration: {
