@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { getFrag } from '@hugsmidjan/qj/frag';
 import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
 import { SSRSupport, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
@@ -127,6 +126,12 @@ export const _Tabs: Story = {
 
 // ===========================================================================
 
+type TabsAnchorsControlProps = {
+  showServerSideHtml: boolean;
+  firstTabStartsActive: boolean;
+};
+type TabsAnchorsStory = StoryObj<TabsAnchorsControlProps>;
+
 type _TabPanelsProps = {
   tabs: typeof linkTabs;
   activeIdx?: number;
@@ -165,9 +170,12 @@ const _TabPanels = (props: _TabPanelsProps) => {
   );
 };
 
-const TabsAnchorsStory = () => {
-  const ssr = boolean('Show only server-side HTML', true) ? 'ssr-only' : false;
-  const startingIdx = boolean('First tab starts active', true) ? 0 : undefined;
+const TabsAnchorsStory: React.FC<TabsAnchorsControlProps> = ({
+  firstTabStartsActive,
+  showServerSideHtml,
+}) => {
+  const ssr = showServerSideHtml ? 'ssr-only' : false;
+  const startingIdx = firstTabStartsActive ? 0 : undefined;
   const [activeIdx, setActiveIdx] = useState(startingIdx);
   useEffect(() => {
     setActiveIdx(startingIdx);
@@ -196,11 +204,25 @@ const TabsAnchorsStory = () => {
   );
 };
 
-export const _TabsAnchors: Story = {
-  render: () => <TabsAnchorsStory />,
+export const _TabsAnchors: TabsAnchorsStory = {
+  render: (args: TabsAnchorsControlProps) => <TabsAnchorsStory {...args} />,
   parameters: {
     css: {
       tokens: 'Tabs',
     },
+  },
+  argTypes: {
+    showServerSideHtml: {
+      control: 'boolean',
+      name: 'Show only server-side HTML',
+    },
+    firstTabStartsActive: {
+      control: 'boolean',
+      name: 'First tab starts active',
+    },
+  },
+  args: {
+    showServerSideHtml: true,
+    firstTabStartsActive: true,
   },
 };
