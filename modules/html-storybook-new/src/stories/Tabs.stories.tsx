@@ -6,14 +6,21 @@ import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { useLink } from '../utils/knobs.js';
 
-const meta: Meta = {
+type TabsControlProps = {
+  htmlElement: 'button' | 'link';
+  verticalLayout: boolean;
+  badges: boolean;
+  subTabs: boolean;
+  showControlledDivExample: boolean;
+};
+
+type Story = StoryObj<TabsControlProps>;
+
+const meta: Meta<TabsControlProps> = {
   title: 'Tabs',
 };
 export default meta;
-
-type Story = StoryObj;
 
 const buttonTabs: Array<TabItemProps> = [1, 2, 3, 4].map((num) => ({
   label: 'Tab ' + num + (num === 2 ? ' has very, very longwinded label' : ''),
@@ -25,17 +32,21 @@ const linkTabs: Array<TabItemProps & { href: string }> = buttonTabs.map((tab, i)
   href: '#tab-' + (i + 1),
 }));
 
-const TabsStory = () => {
-  const useButtons = !useLink(true);
-  const showExample =
-    (useButtons && boolean('Show contolled <div/> example', false)) || undefined;
-  const vertical = boolean('Vertical layout', false);
-  const badges = boolean('Badges', false);
+const TabsStory: React.FC<TabsControlProps> = ({
+  htmlElement,
+  verticalLayout,
+  badges,
+  subTabs,
+  showControlledDivExample,
+}) => {
+  const useButtons = htmlElement === 'button';
+  const showExample = (useButtons && showControlledDivExample) || undefined;
+  const vertical = verticalLayout;
 
   const _tabs = useButtons ? buttonTabs : linkTabs;
   const tabs = badges ? _tabs : _tabs.map((tab) => ({ ...tab, badge: undefined }));
 
-  const subTabs = boolean('Sub-tabs', false)
+  const _subTabs = subTabs
     ? {
         tabs: tabs.map((tab) => ({
           ...tab,
@@ -49,7 +60,7 @@ const TabsStory = () => {
     : undefined;
 
   return (
-    <Fragment key={'' + useButtons + showExample + vertical + badges + !!subTabs}>
+    <Fragment key={'' + useButtons + showExample + vertical + badges + !!_subTabs}>
       <Tabs
         role="tablist"
         activeIdx={1}
@@ -58,7 +69,7 @@ const TabsStory = () => {
         aria-controls={showExample && 'tab-target'}
         startSeen
         vertical={vertical}
-        subTabs={subTabs}
+        subTabs={_subTabs}
       />
 
       {showExample && (
@@ -74,7 +85,44 @@ const TabsStory = () => {
 };
 
 export const _Tabs: Story = {
-  render: () => <TabsStory />,
+  render: (args: TabsControlProps) => <TabsStory {...args} />,
+  argTypes: {
+    htmlElement: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          button: '<button/>',
+          link: '<a href="" />',
+        },
+      },
+      options: ['button', 'link'],
+      name: 'HTML Element',
+    },
+    verticalLayout: {
+      control: 'boolean',
+      name: 'Vertical layout',
+    },
+    badges: {
+      control: 'boolean',
+      name: 'Badges',
+    },
+    subTabs: {
+      control: 'boolean',
+      name: 'Sub-tabs',
+    },
+    showControlledDivExample: {
+      control: 'boolean',
+      name: 'Show contolled <div/> example',
+      if: { arg: 'htmlElement', eq: 'button' },
+    },
+  },
+  args: {
+    htmlElement: 'link',
+    verticalLayout: false,
+    badges: false,
+    subTabs: false,
+    showControlledDivExample: false,
+  },
 };
 
 // ===========================================================================

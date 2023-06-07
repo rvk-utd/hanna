@@ -1,5 +1,6 @@
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
+// TODO: Remove. Only used in Tabs
 export const useLink = (defaultLink?: boolean) =>
   optionsKnob(
     'HTML Element',
