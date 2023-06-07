@@ -9,12 +9,21 @@ import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dumm
 const colorThemeKeys = Object.keys(colorThemes) as Array<HannaColorTheme>;
 const themeOptions = Object.values(colorThemes).concat(colorThemeKeys);
 
+const typeOptions = ['svg-asset', 'textonly'] as const;
+type Type = (typeof typeOptions)[number];
+
+const layoutOptions = ['left', 'right'] as const;
+type Layout = (typeof layoutOptions)[number];
+
+const linksOptions = [0, 1, 2, 3] as const;
+type Links = (typeof linksOptions)[number];
+
 type IslandBlockControlProps = {
   theme: HannaColorTheme;
-  type: 'svg-asset' | 'textonly';
-  layout: 'left' | 'right';
+  type: Type;
+  layout: Layout;
   summaryText: boolean;
-  links: 0 | 1 | 2 | 3;
+  links: Links;
 };
 
 const meta: Meta<IslandBlockControlProps> = {
@@ -65,7 +74,7 @@ export const _IslandBlock: Story = {
           textonly: 'Two text boxes',
         },
       },
-      options: ['svg-asset', 'textonly'],
+      options: typeOptions,
       name: 'Type',
     },
     layout: {
@@ -76,7 +85,7 @@ export const _IslandBlock: Story = {
           right: 'Right',
         },
       },
-      options: ['left', 'right'],
+      options: layoutOptions,
       name: 'Layout',
     },
     summaryText: {
@@ -85,7 +94,7 @@ export const _IslandBlock: Story = {
     },
     links: {
       control: 'inline-radio',
-      options: [0, 1, 2, 3],
+      options: linksOptions,
       name: 'Links',
     },
   },
