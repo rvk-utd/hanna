@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import type {
   OptionOrValue,
   SelectboxOption,
+  SelectboxOptions as _SelectboxOptions,
   SelectboxProps as _SelectboxProps,
 } from '@hugsmidjan/react/Selectbox';
 import _Selectbox from '@hugsmidjan/react/Selectbox';
@@ -12,9 +13,10 @@ import FormField, { FormFieldWrappingProps } from './FormField.js';
 export {
   type SelectboxOption,
   type SelectboxOptions as SelectboxOptionList,
-  /** @deprecated Use `SelectboxOptionList` instead  (Will be removed in v0.11) */
-  type SelectboxOptions,
 } from '@hugsmidjan/react/Selectbox';
+
+/** @deprecated Use `SelectboxOptionList` instead  (Will be removed in v0.11) */
+export type SelectboxOptions = _SelectboxOptions;
 
 const getValue = (opt: SelectboxOption | string | number | undefined) => {
   const val = typeof opt === 'object' ? opt.value : opt;
