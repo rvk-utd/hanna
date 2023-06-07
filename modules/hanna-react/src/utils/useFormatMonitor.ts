@@ -10,6 +10,8 @@ import { makeFormatMonitorHook } from 'formatchange/react';
  * Exmple use:
  *
  * ```ts
+ * import { useFormatMonitor } from '@reykjavik/hanna-react/utils';
+ *
  * useFormatMonitor((media) => {
  *   if (media.is === 'phone') {
  *     // do something clever because the window
@@ -26,8 +28,8 @@ import { makeFormatMonitorHook } from 'formatchange/react';
  *
  * ```ts
  *  // type Formats = 'phone' | 'phablet' | 'tablet' | 'netbook' | 'wide'
- *  media.is //: Format
- *  media.was //?: Format
+ *  media.is // : Format
+ *  media.was // ?: Format
  *  // Category/mode boolean flags
  *  // (Hamburger refers to the "mobile menu" mode)
  *  media.isTopmenu
