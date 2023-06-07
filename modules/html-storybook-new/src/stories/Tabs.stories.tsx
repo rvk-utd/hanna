@@ -6,8 +6,11 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
+const htmlElementOptions = ['button', 'link'] as const;
+type HtmlElement = (typeof htmlElementOptions)[number];
+
 type TabsControlProps = {
-  htmlElement: 'button' | 'link';
+  htmlElement: HtmlElement;
   verticalLayout: boolean;
   badges: boolean;
   subTabs: boolean;
@@ -94,7 +97,7 @@ export const _Tabs: Story = {
           link: '<a href="" />',
         },
       },
-      options: ['button', 'link'],
+      options: htmlElementOptions,
       name: 'HTML Element',
     },
     verticalLayout: {
