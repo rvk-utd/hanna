@@ -1,30 +1,61 @@
 import React from 'react';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof PageHeading> = {
+type PageHeadingControlProps = {
+  headingLevel: 'h1' | 'h2';
+  rightAligned: boolean;
+  small: boolean;
+};
+
+const meta: Meta<PageHeadingControlProps> = {
   title: 'text/PageHeading',
-  component: PageHeading,
 };
 export default meta;
 
-type Story = StoryObj<typeof PageHeading>;
+type Story = StoryObj<PageHeadingControlProps>;
 
-const PageHeadingStory = () => {
-  const htmlTag =
-    optionsKnob('Heading level', { 'H1 (default)': '', H2: 'h2' }, '', {
-      display: 'inline-radio',
-    }) || undefined;
-  const align = boolean('Right-aligned', false) ? 'right' : undefined;
-  const small = boolean('Small', false) || undefined;
+const PageHeadingStory: React.FC<PageHeadingControlProps> = ({
+  headingLevel,
+  rightAligned,
+  small,
+}) => {
+  const htmlTag = headingLevel !== 'h1' ? headingLevel : undefined;
+  const align = rightAligned ? 'right' : undefined;
+  const _small = small || undefined;
   return (
-    <PageHeading Tag={htmlTag} align={align} small={small} startSeen>
+    <PageHeading Tag={htmlTag} align={align} small={_small} startSeen>
       Page Heading Title
     </PageHeading>
   );
 };
 
 export const _PageHeading: Story = {
-  render: () => <PageHeadingStory />,
+  render: (args: PageHeadingControlProps) => <PageHeadingStory {...args} />,
+  argTypes: {
+    headingLevel: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          h1: 'H1 (default)',
+          h2: 'H2',
+        },
+      },
+      options: ['h1', 'h2'],
+      name: 'Heading level',
+    },
+    rightAligned: {
+      control: 'boolean',
+      name: 'Right-aligned',
+    },
+    small: {
+      control: 'boolean',
+      name: 'Small',
+    },
+  },
+  args: {
+    headingLevel: 'h1',
+    rightAligned: false,
+    small: false,
+  },
 };

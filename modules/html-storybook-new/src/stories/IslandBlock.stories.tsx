@@ -24,6 +24,7 @@ export default meta;
 
 type Story = StoryObj<IslandBlockControlProps>;
 
+// TODO: connect theme property
 const IslandBlockStory: React.FC<IslandBlockControlProps> = ({
   theme,
   type,
