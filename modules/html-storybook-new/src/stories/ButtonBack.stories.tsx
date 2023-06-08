@@ -2,13 +2,12 @@ import React from 'react';
 import { ButtonBack } from '@reykjavik/hanna-react/ButtonBack';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof ButtonBack> = {
+const meta: Meta = {
   title: 'buttons/ButtonBack',
-  component: ButtonBack,
 };
 export default meta;
 
-type Story = StoryObj<typeof ButtonBack>;
+type Story = StoryObj;
 
 const ButtonBackStory = () => {
   return (
@@ -28,4 +27,7 @@ const ButtonBackStory = () => {
 export const _ButtonBack: Story = {
   render: () => <ButtonBackStory />,
   name: 'ButtonBack',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
