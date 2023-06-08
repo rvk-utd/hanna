@@ -1,22 +1,27 @@
 import React from 'react';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof RowBlock> = {
+const columnOptions = ['no-background', 'gray', 'dark'] as const;
+const columnLabels = { 'no-background': 'No background', gray: 'Gray', dark: 'Dark' };
+type Column = (typeof columnOptions)[number];
+
+type RowBlockControlProps = {
+  rightAligned: boolean;
+  firstColumn: Column;
+  narrowFirstColumn: boolean;
+  secondColumn: Column;
+  narrowSecondColumn: boolean;
+};
+type Story = StoryObj<RowBlockControlProps>;
+
+const meta: Meta<RowBlockControlProps> = {
   title: 'grid/RowBlock',
-  component: RowBlock,
-  parameters: {
-    css: { tokens: 'RowBlock,RowBlockColumn' },
-    knobs: { disabled: false },
-  } as StoryParameters,
 };
 export default meta;
-
-type Story = StoryObj<typeof RowBlock>;
 
 const COL_CONTENT = {
   first: () => (
@@ -37,26 +42,30 @@ const COL_CONTENT = {
   ),
 };
 
-const getBg = (label: string) => {
-  const bg = optionsKnob(
-    label,
-    {
-      'No background': '',
-      Gray: 'gray',
-      Dark: 'primary',
-    },
-    '',
-    { display: 'inline-radio' }
-  );
+const getBg = (column: Column) => {
+  const bgOptions: Record<Column, '' | 'gray' | 'primary'> = {
+    'no-background': '',
+    gray: 'gray',
+    dark: 'primary',
+  };
+  const bg = bgOptions[column];
   return bg === 'primary' ? 'primary' : bg === 'gray';
 };
 
-const RowBlockStory = () => {
-  const right = boolean('Right aligned', false);
-  const colBg1 = getBg('First column');
-  const colNarrow1 = boolean('Narrow first column', false);
-  const colBg2 = getBg('Second column');
-  const colNarrow2 = boolean('Narrow second column', false);
+const RowBlockStory: React.FC<RowBlockControlProps> = ({
+  rightAligned,
+  narrowFirstColumn,
+  narrowSecondColumn,
+  firstColumn,
+  secondColumn,
+}) => {
+  const right = rightAligned;
+  const colBg1 = getBg(firstColumn);
+
+  const colNarrow1 = narrowFirstColumn;
+  const colBg2 = getBg(secondColumn);
+
+  const colNarrow2 = narrowSecondColumn;
   return (
     <RowBlock right={right} startSeen>
       <RowBlockColumn background={colBg1} narrow={colNarrow1}>
@@ -70,5 +79,46 @@ const RowBlockStory = () => {
 };
 
 export const _RowBlock: Story = {
-  render: () => <RowBlockStory />,
+  render: (args: RowBlockControlProps) => <RowBlockStory {...args} />,
+  argTypes: {
+    rightAligned: {
+      control: 'boolean',
+      name: 'Right aligned',
+    },
+    firstColumn: {
+      control: {
+        type: 'inline-radio',
+        labels: columnLabels,
+      },
+      options: columnOptions,
+      name: 'First column',
+    },
+    narrowFirstColumn: {
+      control: 'boolean',
+      name: 'Narrow first column',
+    },
+    secondColumn: {
+      control: {
+        type: 'inline-radio',
+        labels: columnLabels,
+      },
+      options: columnOptions,
+      name: 'Second column',
+    },
+    narrowSecondColumn: {
+      control: 'boolean',
+      name: 'Narrow second column',
+    },
+  },
+  args: {
+    rightAligned: false,
+    firstColumn: 'no-background',
+    narrowFirstColumn: false,
+    secondColumn: 'no-background',
+    narrowSecondColumn: false,
+  },
+  parameters: {
+    css: { tokens: 'RowBlock,RowBlockColumn' },
+    knobs: { disabled: false },
+  } as StoryParameters,
 };
