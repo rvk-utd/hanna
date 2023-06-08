@@ -8,7 +8,6 @@ import {
 import { RadioGroup, RadioGroupProps } from '@reykjavik/hanna-react/RadioGroup';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
@@ -84,12 +83,58 @@ type Layout = (typeof layoutOptions)[number];
 const disabledOptions = ['none', 'all', 'some'] as const;
 type Disabled = (typeof disabledOptions)[number];
 
-type CheckboxGroupControlProps = Omit<CheckboxControlProps, 'disabled'> & {
+type CheckboxAndRadioGroupControlProps = Omit<CheckboxControlProps, 'disabled'> & {
   layout: Layout;
   disabled: Disabled;
 };
 
-type CheckboxGroupStory = StoryObj<CheckboxGroupControlProps>;
+type CheckboxAndRadioGroupStory = StoryObj<CheckboxAndRadioGroupControlProps>;
+
+const checkboxAndRadioGroupArgTypes = {
+  layout: {
+    control: {
+      type: 'inline-radio',
+      labels: {
+        normal: 'Normal',
+        inline: 'Inline',
+      },
+    },
+    options: layoutOptions,
+    name: 'Layout',
+  },
+  required: {
+    control: 'boolean',
+    name: 'Required',
+  },
+  invalid: {
+    control: 'boolean',
+    name: 'Invalid',
+  },
+  errorMessage: {
+    control: 'boolean',
+    name: 'Error message',
+  },
+  disabled: {
+    control: {
+      type: 'inline-radio',
+      labels: {
+        none: 'None',
+        all: 'All',
+        some: 'Some',
+      },
+    },
+    options: disabledOptions,
+    name: 'Disabled',
+  },
+};
+
+const checkboxAndRadioGroupArgs = {
+  layout: 'normal',
+  required: false,
+  invalid: false,
+  errorMessage: false,
+  disabled: 'none',
+};
 
 const fruits: CheckboxGroupOptions = [
   { value: 'a', label: 'Apple' },
@@ -117,58 +162,19 @@ const partialFruits: CheckboxGroupOptions = fruits.map((opt, i) => ({
 }));
 
 const makeTogglerGroupStory = (
-  Component: FC<CheckboxGroupProps> | FC<RadioGroupProps>
+  Component: FC<CheckboxGroupProps> | FC<RadioGroupProps>,
+  args: CheckboxAndRadioGroupControlProps
 ) => {
-  const layout =
-    optionsKnob('Layout', { Normal: '', Inline: 'inline' }, '', {
-      display: 'inline-radio',
-    }) || undefined;
-  const required = boolean('Required', false);
-  const invalid = boolean('Invalid', false);
-  const errorMessage = boolean('Error message', false)
-    ? 'You must accept this nice offer.'
-    : undefined;
-  const disabledOpt = optionsKnob(
-    'Disabled',
-    { None: '', All: 'all', Some: 'some' },
-    '',
-    {
-      display: 'inline-radio',
-    }
-  );
-
-  const disabled = disabledOpt === 'some' ? false : !!disabledOpt;
-  const options = disabledOpt === 'some' ? partialFruits : fruits;
-
-  return (
-    <Component
-      label="Pick your fruits"
-      invalid={invalid}
-      errorMessage={errorMessage}
-      name="fruits"
-      options={options}
-      required={required}
-      disabled={disabled}
-      layout={layout}
-    />
-  );
-};
-
-const MakeTogglerGroupStory1: React.FC<CheckboxGroupControlProps> = ({
-  layout,
-  required,
-  invalid,
-  errorMessage,
-  disabled,
-}) => {
+  const { layout, required, invalid, errorMessage, disabled } = args;
   const _layout = layout !== 'normal' ? layout : undefined;
   const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
   const disabledOpt = disabled === 'none' ? '' : disabled;
 
   const _disabled = disabledOpt === 'some' ? false : !!disabledOpt;
   const options = disabledOpt === 'some' ? partialFruits : fruits;
+
   return (
-    <CheckboxGroup
+    <Component
       label="Pick your fruits"
       invalid={invalid}
       errorMessage={_errorMessage}
@@ -181,44 +187,11 @@ const MakeTogglerGroupStory1: React.FC<CheckboxGroupControlProps> = ({
   );
 };
 
-export const _CheckboxGroup: CheckboxGroupStory = {
-  render: (args: CheckboxGroupControlProps) => <MakeTogglerGroupStory1 {...args} />,
+export const _CheckboxGroup: CheckboxAndRadioGroupStory = {
+  render: (args: CheckboxAndRadioGroupControlProps) =>
+    makeTogglerGroupStory(CheckboxGroup, args),
   argTypes: {
-    layout: {
-      control: {
-        type: 'inline-radio',
-        labels: {
-          normal: 'Normal',
-          inline: 'Inline',
-        },
-      },
-      options: layoutOptions,
-      name: 'Layout',
-    },
-    required: {
-      control: 'boolean',
-      name: 'Required',
-    },
-    invalid: {
-      control: 'boolean',
-      name: 'Invalid',
-    },
-    errorMessage: {
-      control: 'boolean',
-      name: 'Error message',
-    },
-    disabled: {
-      control: {
-        type: 'inline-radio',
-        labels: {
-          none: 'None',
-          all: 'All',
-          some: 'Some',
-        },
-      },
-      options: disabledOptions,
-      name: 'Disabled',
-    },
+    ...checkboxAndRadioGroupArgTypes,
   },
   args: {
     layout: 'normal',
@@ -229,8 +202,19 @@ export const _CheckboxGroup: CheckboxGroupStory = {
   },
 };
 
-export const _RadioGroup: Story = {
-  render: () => makeTogglerGroupStory(RadioGroup),
+export const _RadioGroup: CheckboxAndRadioGroupStory = {
+  render: (args: CheckboxAndRadioGroupControlProps) =>
+    makeTogglerGroupStory(RadioGroup, args),
+  argTypes: {
+    ...checkboxAndRadioGroupArgTypes,
+  },
+  args: {
+    layout: 'normal',
+    required: false,
+    invalid: false,
+    errorMessage: false,
+    disabled: 'none',
+  },
 };
 
 // -----------------------------------------------------------------------
