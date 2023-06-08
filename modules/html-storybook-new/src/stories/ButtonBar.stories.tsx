@@ -3,22 +3,23 @@ import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof ButtonBar> = {
+type ButtonBarControlProps = {
+  rightAlignedButtons: boolean;
+};
+type Story = StoryObj<ButtonBarControlProps>;
+
+const meta: Meta<ButtonBarControlProps> = {
   title: 'buttons/ButtonBar',
-  component: ButtonBar,
   parameters: {
     css: { tokens: 'ButtonBar,ButtonPrimary,ButtonSecondary,ButtonTertiary' },
   },
 };
 export default meta;
 
-type Story = StoryObj<typeof ButtonBar>;
-
-const ButtonBarStory = () => {
-  const align = boolean('Right-align buttons', false) ? 'right' : undefined;
+const ButtonBarStory: React.FC<ButtonBarControlProps> = ({ rightAlignedButtons }) => {
+  const align = rightAlignedButtons ? 'right' : undefined;
   return (
     <>
       <ButtonBar align={align}>
@@ -116,5 +117,14 @@ const ButtonBarStory = () => {
 };
 
 export const _ButtonBar: Story = {
-  render: () => <ButtonBarStory />,
+  render: (args: ButtonBarControlProps) => <ButtonBarStory {...args} />,
+  argTypes: {
+    rightAlignedButtons: {
+      control: 'boolean',
+      name: 'Right-aligned buttons',
+    },
+  },
+  args: {
+    rightAlignedButtons: false,
+  },
 };
