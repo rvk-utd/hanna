@@ -31,8 +31,6 @@ export const getFormFieldKnobs = (
     { display: 'inline-radio' }
   );
 
-  const gaur = Boolean(required);
-
   const invalid = boolean('Invalid', false);
   const errorMessage = boolean('Error message', false)
     ? 'Your input has the errors.'
@@ -70,9 +68,8 @@ type FormfieldsControlProps = {
   hideLabel?: boolean;
 };
 
-const getFormFieldKnobsNew = (args: FormfieldsControlProps) => {
+export const getFormFieldKnobsNew = (args: FormfieldsControlProps) => {
   const {
-    hideLabel,
     small,
     disabled,
     readOnly,
@@ -80,9 +77,10 @@ const getFormFieldKnobsNew = (args: FormfieldsControlProps) => {
     invalid,
     errorMessage,
     helpText,
+    hideLabel,
   } = args;
   const _hideLabel = hideLabel != null ? hideLabel : undefined;
-  const _small = small !== false ? small : undefined;
+  const _small = small ? small : undefined;
   const _disabled = disabled;
   const _readOnly = readOnly !== false ? readOnly : undefined;
 
@@ -100,14 +98,14 @@ const getFormFieldKnobsNew = (args: FormfieldsControlProps) => {
     : undefined;
 
   return {
-    _hideLabel,
-    _small,
-    _disabled,
-    _readOnly,
+    hideLabel: _hideLabel,
+    small: _small,
+    disabled: _disabled,
+    readOnly: _readOnly,
     required: Boolean(_required),
     reqText: _required !== 'subtle' && undefined,
     invalid,
-    _errorMessage,
+    errorMessage: _errorMessage,
     assistText,
   };
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Datepicker, getDateDiff } from '@reykjavik/hanna-react/Datepicker';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobs } from '../utils/knobs.js';
+import { getFormFieldKnobsNew } from '../utils/knobs.js';
 
 const requiredOptions = ['no', 'yes', 'yes-but-subtle'] as const;
 type Required = (typeof requiredOptions)[number];
@@ -48,9 +48,8 @@ const DatepickerStory: React.FC<DatepickerControlProps> = ({
   minimumNights,
 }) => {
   // small, disabled, readOnly, required, invalid, errorMessage, helpText
-  const ffProps = getFormFieldKnobs();
+  // const ffProps = getFormFieldKnobs();
 
-  /*
   const ffProps = getFormFieldKnobsNew({
     small,
     disabled,
@@ -59,7 +58,7 @@ const DatepickerStory: React.FC<DatepickerControlProps> = ({
     invalid,
     errorMessage,
     helpText,
-  });*/
+  });
 
   const isRange = isDateRange;
 
