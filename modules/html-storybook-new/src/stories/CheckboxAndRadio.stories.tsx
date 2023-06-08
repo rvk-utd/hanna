@@ -254,5 +254,6 @@ export const _StylingTests: Story = {
   render: () => <StylingTestsStory />,
   parameters: {
     css: { tokens: 'Checkbox,RadioGroup,RowBlock,RowBlockColumn' },
-  },
+    controls: { hideNoControlsWarning: true },
+  } as StoryParameters,
 };

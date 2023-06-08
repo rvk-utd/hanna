@@ -24,6 +24,9 @@ export type StoryParameters = {
     noLayout?: boolean;
     onLoad?: () => void;
   };
+  controls?: {
+    hideNoControlsWarning: boolean;
+  };
 };
 
 export type StoryComponent = FC & {
