@@ -6,16 +6,15 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const meta: Meta<typeof CenterColumn> = {
+type Story = StoryObj;
+
+const meta: Meta = {
   title: 'grid/CenterColumn',
-  component: CenterColumn,
   parameters: {
     css: { tokens: 'CenterColumn,PageHeading,TextBlock' },
   },
 };
 export default meta;
-
-type Story = StoryObj<typeof CenterColumn>;
 
 const CenterColumnStory = () => {
   return (
@@ -51,4 +50,7 @@ const CenterColumnStory = () => {
 
 export const _CenterColumn: Story = {
   render: () => <CenterColumnStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
