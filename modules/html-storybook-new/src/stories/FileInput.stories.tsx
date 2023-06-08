@@ -5,15 +5,30 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { getFormFieldKnobs } from '../utils/knobs.js';
 
-const meta: Meta<typeof FileInput> = {
+const requiredOptions = ['no', 'yes', 'yes-but-subtle'] as const;
+type Required = (typeof requiredOptions)[number];
+
+type FileInputControlProps = {
+  hideLabel: boolean;
+  disabled: boolean;
+  required: Required;
+  invalid: boolean;
+  errorMessage: boolean;
+  helpText: boolean;
+  showFileSize: boolean;
+  showImagePreviews: boolean;
+  allowMultipleFiles: boolean;
+  allowedFileTypes: string;
+};
+
+type Story = StoryObj<FileInputControlProps>;
+
+const meta: Meta<FileInputControlProps> = {
   title: 'Forms/FileInput',
-  component: FileInput,
 };
 export default meta;
 
-type Story = StoryObj<typeof FileInput>;
-
-const FileInputStory = () => {
+const FileInputStory: React.FC<FileInputControlProps> = () => {
   const ffProps = getFormFieldKnobs({ hideLabel: true, small: false, readOnly: false });
 
   const showFileSize = boolean('Show file size', false);
@@ -45,5 +60,67 @@ const FileInputStory = () => {
 };
 
 export const _FileInput: Story = {
-  render: () => <FileInputStory />,
+  render: (args: FileInputControlProps) => <FileInputStory {...args} />,
+  argTypes: {
+    hideLabel: {
+      control: 'boolean',
+      name: 'Hide <label/>',
+    },
+    disabled: {
+      control: 'boolean',
+      name: 'Disabled',
+    },
+    required: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          no: 'No',
+          yes: 'Yes',
+          'yes-but-subtle': 'Yes but subtle',
+        },
+      },
+      options: requiredOptions,
+      name: 'Required',
+    },
+    invalid: {
+      control: 'boolean',
+      name: 'Invalid',
+    },
+    errorMessage: {
+      control: 'boolean',
+      name: 'Error message',
+    },
+    helpText: {
+      control: 'boolean',
+      name: 'Help text',
+    },
+    showFileSize: {
+      control: 'boolean',
+      name: 'Show file size',
+    },
+    showImagePreviews: {
+      control: 'boolean',
+      name: 'Show image previews',
+    },
+    allowMultipleFiles: {
+      control: 'boolean',
+      name: 'Allow multiple files',
+    },
+    allowedFileTypes: {
+      control: 'text',
+      name: 'Allowed file types',
+    },
+  },
+  args: {
+    hideLabel: true,
+    disabled: false,
+    required: 'no',
+    invalid: false,
+    errorMessage: false,
+    helpText: false,
+    showFileSize: false,
+    showImagePreviews: false,
+    allowMultipleFiles: true,
+    allowedFileTypes: 'image/*',
+  },
 };
