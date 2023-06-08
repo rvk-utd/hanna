@@ -5,17 +5,37 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { getFormFieldKnobs } from '../utils/knobs.js';
 
+const requiredOptions = ['no', 'yes', 'yes-but-subtle'] as const;
+type Required = (typeof requiredOptions)[number];
+
+const languageOptions = ['icelandic', 'english'] as const;
+type Language = (typeof languageOptions)[number];
+
+type DatepickerControlProps = {
+  small: boolean;
+  disabled: boolean;
+  readOnly: boolean;
+  required: Required;
+  invalid: boolean;
+  errorMessage: boolean;
+  helpText: boolean;
+  isDateRange: boolean;
+  language: Language;
+  maxDaysBack: number;
+  minimumNights: number;
+};
+
+type Story = StoryObj<DatepickerControlProps>;
+
 const meta: Meta = {
   title: 'Forms/Datepicker',
 };
 export default meta;
 
-type Story = StoryObj;
-
 const dateFormat = 'd. MMM yyyy';
 const placeholder = dateFormat.toLowerCase();
 
-const DatepickerStory = () => {
+const DatepickerStory: React.FC<DatepickerControlProps> = () => {
   const ffProps = getFormFieldKnobs();
 
   const isRange = boolean('Is date range', false);
@@ -75,5 +95,79 @@ const DatepickerStory = () => {
 };
 
 export const _Datepicker: Story = {
-  render: () => <DatepickerStory />,
+  render: (args: DatepickerControlProps) => <DatepickerStory {...args} />,
+  argTypes: {
+    small: {
+      control: 'boolean',
+      name: 'Small',
+    },
+    disabled: {
+      control: 'boolean',
+      name: 'Disabled',
+    },
+    readOnly: {
+      control: 'boolean',
+      name: 'Read-only',
+    },
+    required: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          no: 'No',
+          yes: 'Yes',
+          'yes-but-subtle': 'Yes but subtle',
+        },
+      },
+      options: requiredOptions,
+      name: 'Required',
+    },
+    invalid: {
+      control: 'boolean',
+      name: 'Invalid',
+    },
+    errorMessage: {
+      control: 'boolean',
+      name: 'Error message',
+    },
+    helpText: {
+      control: 'boolean',
+      name: 'Help text',
+    },
+    isDateRange: {
+      control: 'boolean',
+      name: 'Is date range',
+    },
+    language: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          icelandic: 'Icelandic',
+          english: 'English',
+        },
+      },
+      options: languageOptions,
+      name: 'Required',
+    },
+    maxDaysBack: {
+      control: 'number',
+      name: 'Max days back',
+    },
+    minimumNights: {
+      control: 'number',
+      name: 'Minimum nights',
+    },
+  },
+  args: {
+    small: false,
+    disabled: false,
+    readOnly: false,
+    required: 'no',
+    invalid: false,
+    errorMessage: false,
+    helpText: false,
+    isDateRange: false,
+    language: 'icelandic',
+    maxDaysBack: -14,
+    minimumNights: 1,
+  },
 };
