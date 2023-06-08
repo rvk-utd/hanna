@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { getFormFieldKnobsNew } from '../utils/knobs.js';
 
-const requiredOptions = ['no', 'yes', 'yes-but-subtle'] as const;
+const requiredOptions = ['no', 'yes', 'subtle'] as const;
 type Required = (typeof requiredOptions)[number];
 
 const languageOptions = ['is', 'en'] as const;

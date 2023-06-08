@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { FileInput } from '@reykjavik/hanna-react/FileInput';
-import { boolean, text } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobs } from '../utils/knobs.js';
+import { getFormFieldKnobs, getFormFieldKnobsNew } from '../utils/knobs.js';
 
-const requiredOptions = ['no', 'yes', 'yes-but-subtle'] as const;
+const requiredOptions = ['no', 'yes', 'subtle'] as const;
 type Required = (typeof requiredOptions)[number];
 
-type FileInputControlProps = {
+type ControlProps = {
   hideLabel: boolean;
   disabled: boolean;
   required: Required;
@@ -21,21 +21,39 @@ type FileInputControlProps = {
   allowedFileTypes: string;
 };
 
-type Story = StoryObj<FileInputControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<FileInputControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Forms/FileInput',
 };
 export default meta;
 
-const FileInputStory: React.FC<FileInputControlProps> = () => {
+const FileInputStory: React.FC<ControlProps> = ({
+  hideLabel,
+  disabled,
+  required,
+  invalid,
+  errorMessage,
+  helpText,
+  showFileSize,
+  showImagePreviews,
+  allowMultipleFiles,
+  allowedFileTypes,
+}) => {
   const ffProps = getFormFieldKnobs({ hideLabel: true, small: false, readOnly: false });
 
-  const showFileSize = boolean('Show file size', false);
-  const showImagePreview = boolean('Show image previews', false);
+  const ffProps2 = getFormFieldKnobsNew({
+    small: undefined,
+    disabled,
+    readOnly: undefined,
+    required,
+    invalid,
+    errorMessage,
+    helpText,
+    hideLabel,
+  });
 
-  const allowMultipleFiles = boolean('Allow multiple files', true);
-  const allowedFileTypes = text('Allowed file types', 'image/*');
+  const showImagePreview = boolean('Show image previews', false);
 
   const [files, setFiles] = useState<Array<File>>([]);
   return (
@@ -60,7 +78,7 @@ const FileInputStory: React.FC<FileInputControlProps> = () => {
 };
 
 export const _FileInput: Story = {
-  render: (args: FileInputControlProps) => <FileInputStory {...args} />,
+  render: (args: ControlProps) => <FileInputStory {...args} />,
   argTypes: {
     hideLabel: {
       control: 'boolean',
@@ -76,7 +94,7 @@ export const _FileInput: Story = {
         labels: {
           no: 'No',
           yes: 'Yes',
-          'yes-but-subtle': 'Yes but subtle',
+          subtle: 'Yes but subtle',
         },
       },
       options: requiredOptions,

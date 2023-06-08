@@ -54,13 +54,13 @@ export const getFormFieldKnobs = (
 
 // ----------------------------- TODO: Refactor later -------------------
 
-const requiredOptions = ['no', 'yes', 'yes-but-subtle'] as const;
+const requiredOptions = ['no', 'yes', 'subtle'] as const;
 type Required = (typeof requiredOptions)[number];
 
 type FormfieldsControlProps = {
-  small: boolean;
+  small?: boolean;
   disabled: boolean;
-  readOnly: boolean;
+  readOnly?: boolean;
   required: Required;
   invalid: boolean;
   errorMessage: boolean;
