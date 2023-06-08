@@ -5,24 +5,29 @@ import { RadioButtonsGroup } from '@reykjavik/hanna-react/RadioButtonsGroup';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
+type CheckboxButtonControlProps = Record<
+  'subText' | 'required' | 'invalid' | 'errorMessage' | 'disabled',
+  boolean
+>;
+
+type Story = StoryObj<CheckboxButtonControlProps>;
+
 const meta: Meta = {
   title: 'Forms/Checkbox & Radio Buttons',
 };
 export default meta;
 
-type Story = StoryObj;
-
-const CheckboxButtonStory = () => {
-  const subtext = boolean('Sub-text (small print)', true);
-  const required = boolean('Required', false);
-  const invalid = boolean('Invalid', false);
-  const errorMessage = boolean('Error message', false)
-    ? 'You must accept this nice offer.'
-    : undefined;
-  const disabled = boolean('Disabled', false);
+const CheckboxButtonStory: React.FC<CheckboxButtonControlProps> = ({
+  subText,
+  required,
+  invalid,
+  errorMessage,
+  disabled,
+}) => {
+  const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
 
   const labelText = 'Add me to your professional network on LinkedIn';
-  const label = subtext ? (
+  const label = subText ? (
     <>
       {labelText} <small>(Just kidding)</small>
     </>
@@ -36,14 +41,43 @@ const CheckboxButtonStory = () => {
       required={required}
       invalid={invalid}
       disabled={disabled}
-      errorMessage={errorMessage}
+      errorMessage={_errorMessage}
     />
   );
 };
 
 export const _CheckboxButton: Story = {
-  render: () => <CheckboxButtonStory />,
+  render: (args: CheckboxButtonControlProps) => <CheckboxButtonStory {...args} />,
   name: 'CheckboxButton',
+  argTypes: {
+    subText: {
+      control: 'boolean',
+      name: 'Sub-text (small print)',
+    },
+    required: {
+      control: 'boolean',
+      name: 'Required',
+    },
+    invalid: {
+      control: 'boolean',
+      name: 'Invalid',
+    },
+    errorMessage: {
+      control: 'boolean',
+      name: 'Error message',
+    },
+    disabled: {
+      control: 'boolean',
+      name: 'Error message',
+    },
+  },
+  args: {
+    subText: true,
+    required: false,
+    invalid: false,
+    errorMessage: false,
+    disabled: false,
+  },
 };
 
 // ---------------------------------------------------------------------------
