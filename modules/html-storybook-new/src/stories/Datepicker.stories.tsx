@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Datepicker, getDateDiff } from '@reykjavik/hanna-react/Datepicker';
-import { boolean, number, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { getFormFieldKnobs } from '../utils/knobs.js';
@@ -8,7 +7,7 @@ import { getFormFieldKnobs } from '../utils/knobs.js';
 const requiredOptions = ['no', 'yes', 'yes-but-subtle'] as const;
 type Required = (typeof requiredOptions)[number];
 
-const languageOptions = ['icelandic', 'english'] as const;
+const languageOptions = ['is', 'en'] as const;
 type Language = (typeof languageOptions)[number];
 
 type DatepickerControlProps = {
@@ -35,14 +34,25 @@ export default meta;
 const dateFormat = 'd. MMM yyyy';
 const placeholder = dateFormat.toLowerCase();
 
-const DatepickerStory: React.FC<DatepickerControlProps> = () => {
+const DatepickerStory: React.FC<DatepickerControlProps> = ({
+  small,
+  disabled,
+  readOnly,
+  required,
+  invalid,
+  errorMessage,
+  helpText,
+  isDateRange,
+  language,
+  maxDaysBack,
+  minimumNights,
+}) => {
+  // small, disabled, readOnly, required, invalid, errorMessage, helpText
   const ffProps = getFormFieldKnobs();
 
-  const isRange = boolean('Is date range', false);
+  const isRange = isDateRange;
 
-  const locale = optionsKnob('Language', { Icelandic: 'is', English: 'en' }, 'is', {
-    display: 'inline-radio',
-  });
+  const locale = language;
 
   const initialStartDate = new Date();
   initialStartDate.setDate(initialStartDate.getDate() + 1);
@@ -50,8 +60,8 @@ const DatepickerStory: React.FC<DatepickerControlProps> = () => {
   const initialEndDate = new Date();
   initialEndDate.setDate(initialEndDate.getDate() + 7);
 
-  const nightsBack = number('Max days back', -14);
-  const minNights = number('Minimum nights', 1);
+  const nightsBack = maxDaysBack;
+  const minNights = minimumNights;
 
   const [startDate, setStartDate] = useState<Date | undefined>(undefined);
   const [endDate, setEndDate] = useState<Date | undefined>(undefined);
@@ -141,8 +151,8 @@ export const _Datepicker: Story = {
       control: {
         type: 'inline-radio',
         labels: {
-          icelandic: 'Icelandic',
-          english: 'English',
+          is: 'Icelandic',
+          en: 'English',
         },
       },
       options: languageOptions,
@@ -166,7 +176,7 @@ export const _Datepicker: Story = {
     errorMessage: false,
     helpText: false,
     isDateRange: false,
-    language: 'icelandic',
+    language: 'is',
     maxDaysBack: -14,
     minimumNights: 1,
   },
