@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { WizardStepper, WizardStepperStep } from '@reykjavik/hanna-react/WizardStepper';
-import { optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof WizardStepper> = {
+const stepsOptions = [
+  'none',
+  'intro',
+  'step1',
+  'step2',
+  'step3',
+  'step4',
+  'step5',
+] as const;
+type SelectedStep = (typeof stepsOptions)[number];
+
+type WizardStepperControlProps = {
+  selectedStep: SelectedStep;
+};
+type Story = StoryObj<WizardStepperControlProps>;
+
+const meta: Meta<WizardStepperControlProps> = {
   title: 'WizardStepper',
-  component: WizardStepper,
 };
 export default meta;
-
-type Story = StoryObj<typeof WizardStepper>;
 
 const steps: Array<WizardStepperStep> = [
   {
@@ -46,10 +58,21 @@ for (let i = 0; i < steps.length; i++) {
   demoSteps[i ? 'Step ' + i : 'Intro'] = String(i);
 }
 
-const WizardStepperStory = () => {
-  let activeStepFromKnob: number | undefined = Number(
-    optionsKnob('Active step', demoSteps, '1', { display: 'inline-radio' })
-  );
+const getActiveStep = (activeStep: SelectedStep) => {
+  const stepNumbers = {
+    none: -1,
+    intro: 0,
+    step1: 1,
+    step2: 2,
+    step3: 3,
+    step4: 4,
+    step5: 5,
+  };
+  return stepNumbers[activeStep];
+};
+
+const WizardStepperStory: React.FC<WizardStepperControlProps> = ({ selectedStep }) => {
+  let activeStepFromKnob: number | undefined = getActiveStep(selectedStep);
 
   if (isNaN(activeStepFromKnob)) {
     activeStepFromKnob = undefined;
@@ -73,34 +96,18 @@ const WizardStepperStory = () => {
 };
 
 export const _WizardStepper: Story = {
-  render: () => <WizardStepperStory />,
+  render: (args: WizardStepperControlProps) => <WizardStepperStory {...args} />,
   parameters: {
     controls: { hideNoControlsWarning: true },
   },
   argTypes: {
-    activeStep: {
-      options: ['None', 'Intro', 'Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'],
-      control: { type: 'radio' },
+    selectedStep: {
+      options: stepsOptions,
+      control: { type: 'inline-radio' },
+      name: 'Active step',
     },
-    allowForwardSkip: {
-      table: {
-        disable: true,
-      },
-    },
-    steps: {
-      table: {
-        disable: true,
-      },
-    },
-    disableBacktrack: {
-      table: {
-        disable: true,
-      },
-    },
-    onClick: {
-      table: {
-        disable: true,
-      },
-    },
+  },
+  args: {
+    selectedStep: 'step1',
   },
 };
