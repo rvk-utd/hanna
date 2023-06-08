@@ -14,6 +14,15 @@ const navKeyEffects: Record<string, 1 | -1> = {
 
 // ---------------------------------------------------------------------------
 
+type TabsVariant = 'compact' | 'stretched' | 'vertical' | 'default';
+
+const variantModifiers: Record<TabsVariant, string | undefined> = {
+  compact: 'compact',
+  stretched: 'stretched',
+  vertical: 'vertical',
+  default: undefined,
+};
+
 export type TabItemProps = {
   label: string;
   badge?: string | number;
@@ -112,6 +121,8 @@ type BaseTabsProps<T extends TabItemProps = TabItemProps> = {
 };
 
 export type TabsProps<T extends TabItemProps = TabItemProps> = BaseTabsProps<T> & {
+  variant?: TabsVariant;
+  /** @deprecated Use `variant="vertical"` instead  (Will be removed in v0.11) */
   vertical?: boolean;
   /** Optional <Tabs/> block connected to the currently active tab */
   subTabs?: BaseTabsProps;
@@ -137,6 +148,7 @@ export const Tabs = (props: TabsProps) => {
     ssr,
     startSeen,
     vertical,
+    variant = vertical ? 'vertical' : 'default',
     subTabs,
   } = props;
 
@@ -185,7 +197,7 @@ export const Tabs = (props: TabsProps) => {
 
   return (
     <div
-      className={getBemClass('Tabs', vertical && 'vertical')}
+      className={getBemClass('Tabs', variantModifiers[variant])}
       role={tabRole && role}
       id={id}
       // aria-owns={tabIdList.join(' ')}

@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Tabs`:
+  - feat: Add prop `variant` with options `compact`, `stretched`, `vertical`
+  - feat: Deprecate `vertical` prop in favor of `variant="vertical"`
 
 ## 0.10.92
 

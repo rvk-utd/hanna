@@ -52,6 +52,22 @@ const renderTabs = (
 ) => (
   <Fragment>
     <Tabs aria-label={`${tagType}-tabs`} tabs={tabs} activeIdx={1} startSeen />
+
+    <Tabs
+      aria-label={`${tagType}-tabs-compact`}
+      tabs={tabs}
+      activeIdx={1}
+      startSeen
+      variant="compact"
+    />
+    <Tabs
+      aria-label={`${tagType}-tabs-stretched`}
+      tabs={tabs}
+      activeIdx={1}
+      startSeen
+      variant="stretched"
+    />
+
     <DummyBlock thin />
     <Tabs
       aria-label={`${tagType}-subTabs`}

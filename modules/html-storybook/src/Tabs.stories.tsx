@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { getFrag } from '@hugsmidjan/qj/frag';
-import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
+import { TabItemProps, Tabs, TabsProps } from '@reykjavik/hanna-react/Tabs';
 import { SSRSupport, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
 import { HiddenTiger } from './utils/HiddenTiger.js';
 import { useLink } from './utils/knobs.js';
@@ -31,7 +31,17 @@ export const _Tabs: StoryComponent = () => {
   const useButtons = !useLink(true);
   const showExample =
     (useButtons && boolean('Show contolled <div/> example', false)) || undefined;
-  const vertical = boolean('Vertical layout', false);
+  const variant = optionsKnob<TabsProps['variant']>(
+    'Alignment',
+    {
+      Default: 'default',
+      Compact: 'compact',
+      Stretched: 'stretched',
+      Vertical: 'vertical',
+    },
+    'default',
+    { display: 'inline-radio' }
+  );
   const badges = boolean('Badges', false);
 
   const _tabs = useButtons ? buttonTabs : linkTabs;
@@ -51,7 +61,7 @@ export const _Tabs: StoryComponent = () => {
     : undefined;
 
   return (
-    <Fragment key={'' + useButtons + showExample + vertical + badges + !!subTabs}>
+    <Fragment key={'' + useButtons + showExample + variant + badges + !!subTabs}>
       <Tabs
         role="tablist"
         activeIdx={1}
@@ -59,7 +69,7 @@ export const _Tabs: StoryComponent = () => {
         aria-label="Optional label text"
         aria-controls={showExample && 'tab-target'}
         startSeen
-        vertical={vertical}
+        variant={variant}
         subTabs={subTabs}
       />
 

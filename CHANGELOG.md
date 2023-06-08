@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add variants `compact` and `stretched` to `Tabs`
 - feat: Add component `ReadSpeakerPlayer` — a thin div-wrapper around
   ReadSpeaker's embed code
 

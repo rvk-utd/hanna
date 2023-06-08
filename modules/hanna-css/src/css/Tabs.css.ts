@@ -16,10 +16,11 @@ export default css`
     .Tabs {
       --Tabs--borderWidth: 2px;
       --Tabs__tab--borderWidth: 4px;
-      ${SeenEffect__fadeup}
+      ${SeenEffect__fadeup};
       // @deprecated  Remove this mixin in v0.9
-    ${SeenEffect__disallowNesting}
-    display: flex;
+      ${SeenEffect__disallowNesting}
+
+      display: flex;
       flex-flow: row wrap;
       border-bottom: var(--Tabs--borderWidth) solid ${vars.color_suld_50};
       font: ${vars.font_button};
@@ -31,6 +32,19 @@ export default css`
       width: 100%;
       height: var(--Tabs--borderWidth);
       background-color: ${vars.color_suld_50};
+    }
+
+    .Tabs--stretched .Tabs__tab {
+      flex-grow: 1;
+      flex-basis: 1%; /* Make them equal length by default */
+    }
+
+    .Tabs--compact .Tabs__tab {
+      padding-left: ${vars.space_1};
+      padding-right: ${vars.space_1};
+    }
+    .Tabs--compact .Tabs__tab__badge {
+      margin-right: 0;
     }
 
     .Tabs__tab {

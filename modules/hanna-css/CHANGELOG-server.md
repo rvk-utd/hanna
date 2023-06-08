@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `ReadSpeakerPlayer`
+- feat: Add styling for `.Tabs--compact` and `.Tabs--stretched`
 
 ## 0.8.78
 
