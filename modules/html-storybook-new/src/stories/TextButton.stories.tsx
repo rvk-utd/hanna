@@ -4,17 +4,12 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof TextButton> = {
+type Story = StoryObj;
+
+const meta: Meta = {
   title: 'buttons/TextButtons',
-  component: TextButton,
-  parameters: {
-    viewport: { defaultViewport: 'responsive' },
-    css: { tokens: 'TextButton' },
-  } as StoryParameters,
 };
 export default meta;
-
-type Story = StoryObj<typeof TextButton>;
 
 const TextButtonsStory = () => {
   return (
@@ -31,4 +26,9 @@ const TextButtonsStory = () => {
 
 export const _TextButtons: Story = {
   render: () => <TextButtonsStory />,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: { defaultViewport: 'responsive' },
+    css: { tokens: 'TextButton' },
+  } as StoryParameters,
 };
