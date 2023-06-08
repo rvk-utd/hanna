@@ -154,8 +154,35 @@ const makeTogglerGroupStory = (
   );
 };
 
+const MakeTogglerGroupStory1: React.FC<CheckboxGroupControlProps> = ({
+  layout,
+  required,
+  invalid,
+  errorMessage,
+  disabled,
+}) => {
+  const _layout = layout !== 'normal' ? layout : undefined;
+  const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
+  const disabledOpt = disabled === 'none' ? '' : disabled;
+
+  const _disabled = disabledOpt === 'some' ? false : !!disabledOpt;
+  const options = disabledOpt === 'some' ? partialFruits : fruits;
+  return (
+    <CheckboxGroup
+      label="Pick your fruits"
+      invalid={invalid}
+      errorMessage={_errorMessage}
+      name="fruits"
+      options={options}
+      required={required}
+      disabled={_disabled}
+      layout={_layout}
+    />
+  );
+};
+
 export const _CheckboxGroup: CheckboxGroupStory = {
-  render: () => makeTogglerGroupStory(CheckboxGroup),
+  render: (args: CheckboxGroupControlProps) => <MakeTogglerGroupStory1 {...args} />,
   argTypes: {
     layout: {
       control: {
