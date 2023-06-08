@@ -13,6 +13,14 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
+type CheckboxControlProps = Record<
+  'required' | 'invalid' | 'errorMessage' | 'disabled',
+  boolean
+>;
+
+type CheckboxStory = StoryObj<CheckboxControlProps>;
+type Story = StoryObj;
+
 const meta: Meta = {
   title: 'Forms/Checkbox & Radio',
   parameters: {
@@ -22,31 +30,66 @@ const meta: Meta = {
 };
 export default meta;
 
-type Story = StoryObj;
-
-const CheckboxStory = () => {
-  const required = boolean('Required', false);
-  const invalid = boolean('Invalid', false);
-  const errorMessage = boolean('Error message', false)
-    ? 'You must accept this nice offer.'
-    : undefined;
-  const disabled = boolean('Disabled', false);
+const CheckboxStory: React.FC<CheckboxControlProps> = ({
+  required,
+  invalid,
+  errorMessage,
+  disabled,
+}) => {
+  const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
   return (
     <Checkbox
       label="Add me to your professional network on LinkedIn"
       required={required}
       invalid={invalid}
       disabled={disabled}
-      errorMessage={errorMessage}
+      errorMessage={_errorMessage}
     />
   );
 };
 
-export const _Checkbox: Story = {
-  render: () => <CheckboxStory />,
+export const _Checkbox: CheckboxStory = {
+  render: (args: CheckboxControlProps) => <CheckboxStory {...args} />,
+  argTypes: {
+    required: {
+      control: 'boolean',
+      name: 'Required',
+    },
+    invalid: {
+      control: 'boolean',
+      name: 'Invalid',
+    },
+    errorMessage: {
+      control: 'boolean',
+      name: 'Error message',
+    },
+    disabled: {
+      control: 'boolean',
+      name: 'Disabled',
+    },
+  },
+  args: {
+    required: false,
+    invalid: false,
+    errorMessage: false,
+    disabled: false,
+  },
 };
 
 // -----------------------------------------------------------------------
+
+const layoutOptions = ['normal', 'inline'] as const;
+type Layout = (typeof layoutOptions)[number];
+
+const disabledOptions = ['none', 'all', 'some'] as const;
+type Disabled = (typeof disabledOptions)[number];
+
+type CheckboxGroupControlProps = Omit<CheckboxControlProps, 'disabled'> & {
+  layout: Layout;
+  disabled: Disabled;
+};
+
+type CheckboxGroupStory = StoryObj<CheckboxGroupControlProps>;
 
 const fruits: CheckboxGroupOptions = [
   { value: 'a', label: 'Apple' },
@@ -111,8 +154,52 @@ const makeTogglerGroupStory = (
   );
 };
 
-export const _CheckboxGroup: Story = {
+export const _CheckboxGroup: CheckboxGroupStory = {
   render: () => makeTogglerGroupStory(CheckboxGroup),
+  argTypes: {
+    layout: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          normal: 'Normal',
+          inline: 'Inline',
+        },
+      },
+      options: layoutOptions,
+      name: 'Layout',
+    },
+    required: {
+      control: 'boolean',
+      name: 'Required',
+    },
+    invalid: {
+      control: 'boolean',
+      name: 'Invalid',
+    },
+    errorMessage: {
+      control: 'boolean',
+      name: 'Error message',
+    },
+    disabled: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          none: 'None',
+          all: 'All',
+          some: 'Some',
+        },
+      },
+      options: disabledOptions,
+      name: 'Disabled',
+    },
+  },
+  args: {
+    layout: 'normal',
+    required: false,
+    invalid: false,
+    errorMessage: false,
+    disabled: 'none',
+  },
 };
 
 export const _RadioGroup: Story = {
