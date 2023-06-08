@@ -50,6 +50,17 @@ const DatepickerStory: React.FC<DatepickerControlProps> = ({
   // small, disabled, readOnly, required, invalid, errorMessage, helpText
   const ffProps = getFormFieldKnobs();
 
+  /*
+  const ffProps = getFormFieldKnobsNew({
+    small,
+    disabled,
+    readOnly,
+    required,
+    invalid,
+    errorMessage,
+    helpText,
+  });*/
+
   const isRange = isDateRange;
 
   const locale = language;
