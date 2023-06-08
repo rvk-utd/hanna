@@ -90,14 +90,6 @@ type CheckboxAndRadioGroupControlProps = Omit<CheckboxControlProps, 'disabled'> 
 
 type CheckboxAndRadioGroupStory = StoryObj<CheckboxAndRadioGroupControlProps>;
 
-type CheckboxAndRadioGroupArgs = {
-  layout: Layout;
-  required: boolean;
-  invalid: boolean;
-  errorMessage: boolean;
-  disabled: Disabled;
-};
-
 const checkboxAndRadioGroupArgTypes = {
   layout: {
     control: {
@@ -136,7 +128,7 @@ const checkboxAndRadioGroupArgTypes = {
   },
 };
 
-const checkboxAndRadioGroupArgs: CheckboxAndRadioGroupArgs = {
+const checkboxAndRadioGroupArgs: CheckboxAndRadioGroupControlProps = {
   layout: 'normal',
   required: false,
   invalid: false,

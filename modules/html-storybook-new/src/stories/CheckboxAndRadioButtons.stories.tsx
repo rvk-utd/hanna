@@ -2,7 +2,6 @@ import React from 'react';
 import CheckboxButton from '@reykjavik/hanna-react/CheckboxButton';
 import { CheckboxButtonsGroup } from '@reykjavik/hanna-react/CheckboxButtonsGroup';
 import { RadioButtonsGroup } from '@reykjavik/hanna-react/RadioButtonsGroup';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 type CheckboxButtonControlProps = Record<
@@ -10,7 +9,7 @@ type CheckboxButtonControlProps = Record<
   boolean
 >;
 
-type Story = StoryObj<CheckboxButtonControlProps>;
+type CheckboxButtonStory = StoryObj<CheckboxButtonControlProps>;
 
 const meta: Meta = {
   title: 'Forms/Checkbox & Radio Buttons',
@@ -46,7 +45,7 @@ const CheckboxButtonStory: React.FC<CheckboxButtonControlProps> = ({
   );
 };
 
-export const _CheckboxButton: Story = {
+export const _CheckboxButton: CheckboxButtonStory = {
   render: (args: CheckboxButtonControlProps) => <CheckboxButtonStory {...args} />,
   name: 'CheckboxButton',
   argTypes: {
@@ -81,6 +80,58 @@ export const _CheckboxButton: Story = {
 };
 
 // ---------------------------------------------------------------------------
+
+const disabledOptions = ['none', 'some', 'all'] as const;
+type Disabled = (typeof disabledOptions)[number];
+
+type CheckboxAndRadioButtonsGroupControlProps = Omit<
+  CheckboxButtonControlProps,
+  'disabled'
+> & {
+  disabled: Disabled;
+};
+
+type CheckboxAndRadioButtonsGroupStory =
+  StoryObj<CheckboxAndRadioButtonsGroupControlProps>;
+
+type CheckboxAndRadioButtonsGroupArgs = Omit<
+  CheckboxAndRadioButtonsGroupControlProps,
+  'subText'
+>;
+
+const checkboxAndRadioButtonsGroupArgTypes = {
+  required: {
+    control: 'boolean',
+    name: 'Required',
+  },
+  invalid: {
+    control: 'boolean',
+    name: 'Invalid',
+  },
+  errorMessage: {
+    control: 'boolean',
+    name: 'Error message',
+  },
+  disabled: {
+    control: {
+      type: 'inline-radio',
+      labels: {
+        none: 'None',
+        some: 'Some',
+        all: 'All',
+      },
+    },
+    options: disabledOptions,
+    name: 'Disabled',
+  },
+};
+
+const checkboxAndRadioButtonsGroupArgs: CheckboxAndRadioButtonsGroupArgs = {
+  required: false,
+  invalid: false,
+  errorMessage: false,
+  disabled: 'none',
+};
 
 const names = [
   {
@@ -121,58 +172,53 @@ const partialNames = names.map((opt, i) => ({
   disabled: i >= 2,
 }));
 
-const getProps = () => {
-  const required = boolean('Required', false);
-  const invalid = boolean('Invalid', false);
-  const errorMessage = boolean('Error message', false)
-    ? 'You must accept this nice offer.'
-    : undefined;
-  const disabledOpt = optionsKnob(
-    'Disabled',
-    {
-      None: '',
-      Some: 'some',
-      All: 'all',
-    },
-    '',
-    {
-      display: 'inline-radio',
-    }
-  );
-
-  const disabled = disabledOpt === 'some' ? false : !!disabledOpt;
-
+const getProps = (args: CheckboxAndRadioButtonsGroupControlProps) => {
+  const { required, invalid, errorMessage, disabled } = args;
+  const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
+  const disabledOpt = disabled !== 'none' ? disabled : '';
+  const _disabled = disabledOpt === 'some' ? false : !!disabledOpt;
   const options = disabledOpt === 'some' ? partialNames : names;
 
   return {
     invalid,
-    errorMessage,
+    _errorMessage,
     options,
     required,
-    disabled,
+    _disabled,
   };
 };
 
-export const _CheckboxButtonsGroup: Story = {
-  render: () => (
+export const _CheckboxButtonsGroup: CheckboxAndRadioButtonsGroupStory = {
+  render: (args: CheckboxAndRadioButtonsGroupControlProps) => (
     <CheckboxButtonsGroup
       label="Pick your fruits"
       name="fruits"
       value={['Anna', 'Guðrún']}
-      {...getProps()}
+      {...getProps(args)}
     />
   ),
+  argTypes: {
+    ...checkboxAndRadioButtonsGroupArgTypes,
+  },
+  args: {
+    required: false,
+    invalid: false,
+    errorMessage: false,
+    disabled: 'none',
+  },
 };
 
 // ---------------------------------------------------------------------------
 
-export const _RadioButtonsGroup: Story = {
-  render: () => (
+export const _RadioButtonsGroup: CheckboxAndRadioButtonsGroupStory = {
+  render: (args: CheckboxAndRadioButtonsGroupControlProps) => (
     <RadioButtonsGroup
       label="Pick your fruit"
       name="fruit"
       value="Anna"
-      {...getProps()}
+      {...getProps(args)}
     />
   ),
+  argTypes: { ...checkboxAndRadioButtonsGroupArgTypes },
+  args: { ...checkboxAndRadioButtonsGroupArgs },
 };
