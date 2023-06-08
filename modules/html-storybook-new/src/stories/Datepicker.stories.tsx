@@ -47,7 +47,6 @@ const DatepickerStory: React.FC<DatepickerControlProps> = ({
   maxDaysBack,
   minimumNights,
 }) => {
-  // small, disabled, readOnly, required, invalid, errorMessage, helpText
   // const ffProps = getFormFieldKnobs();
 
   const ffProps = getFormFieldKnobsNew({
