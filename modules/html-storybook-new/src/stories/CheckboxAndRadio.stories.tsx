@@ -90,6 +90,14 @@ type CheckboxAndRadioGroupControlProps = Omit<CheckboxControlProps, 'disabled'> 
 
 type CheckboxAndRadioGroupStory = StoryObj<CheckboxAndRadioGroupControlProps>;
 
+type CheckboxAndRadioGroupArgs = {
+  layout: Layout;
+  required: boolean;
+  invalid: boolean;
+  errorMessage: boolean;
+  disabled: Disabled;
+};
+
 const checkboxAndRadioGroupArgTypes = {
   layout: {
     control: {
@@ -128,7 +136,7 @@ const checkboxAndRadioGroupArgTypes = {
   },
 };
 
-const checkboxAndRadioGroupArgs = {
+const checkboxAndRadioGroupArgs: CheckboxAndRadioGroupArgs = {
   layout: 'normal',
   required: false,
   invalid: false,
@@ -194,11 +202,7 @@ export const _CheckboxGroup: CheckboxAndRadioGroupStory = {
     ...checkboxAndRadioGroupArgTypes,
   },
   args: {
-    layout: 'normal',
-    required: false,
-    invalid: false,
-    errorMessage: false,
-    disabled: 'none',
+    ...checkboxAndRadioGroupArgs,
   },
 };
 
@@ -209,11 +213,7 @@ export const _RadioGroup: CheckboxAndRadioGroupStory = {
     ...checkboxAndRadioGroupArgTypes,
   },
   args: {
-    layout: 'normal',
-    required: false,
-    invalid: false,
-    errorMessage: false,
-    disabled: 'none',
+    ...checkboxAndRadioGroupArgs,
   },
 };
 
