@@ -1,22 +1,56 @@
 import React, { Fragment } from 'react';
 import { FormField } from '@reykjavik/hanna-react/FormField';
-import { boolean, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { getFormFieldKnobs } from '../utils/knobs.js';
+import { getFormFieldKnobsNew } from '../utils/knobs.js';
 
-const meta: Meta = {
+const requiredOptions = ['no', 'yes', 'subtle'] as const;
+type Required = (typeof requiredOptions)[number];
+
+type ControlProps = {
+  hideLabel: boolean;
+  small: boolean;
+  disabled: boolean;
+  readOnly: boolean;
+  required: Required;
+  invalid: boolean;
+  errorMessage: boolean;
+  helpText: boolean;
+  isAFieldGroup: boolean;
+};
+
+type Story = StoryObj<ControlProps>;
+
+const meta: Meta<ControlProps> = {
   title: 'Forms/FormField',
 };
 export default meta;
 
-type Story = StoryObj;
+const FormFieldStory: React.FC<ControlProps> = ({
+  hideLabel,
+  small,
+  disabled,
+  readOnly,
+  required,
+  invalid,
+  errorMessage,
+  helpText,
+  isAFieldGroup,
+}) => {
+  const ffProps = getFormFieldKnobsNew({
+    small,
+    disabled,
+    readOnly,
+    required,
+    invalid,
+    errorMessage,
+    helpText,
+    hideLabel,
+  });
 
-const FormFieldStory = () => {
-  const ffProps = getFormFieldKnobs({ hideLabel: false });
-
-  const group = boolean('Is a field-group', false);
+  const group = isAFieldGroup;
   const LabelTag = group
     ? select('Group Label Tag', ['h3', 'h4', 'h5'], 'h4')
     : undefined;
@@ -64,5 +98,62 @@ const FormFieldStory = () => {
 };
 
 export const _FormField: Story = {
-  render: () => <FormFieldStory />,
+  render: (args: ControlProps) => <FormFieldStory {...args} />,
+  argTypes: {
+    hideLabel: {
+      control: 'boolean',
+      name: 'Hide <label/>',
+    },
+    small: {
+      control: 'boolean',
+      name: 'Small',
+    },
+    disabled: {
+      control: 'boolean',
+      name: 'Disabled',
+    },
+    readOnly: {
+      control: 'boolean',
+      name: 'Read only',
+    },
+    required: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          no: 'No',
+          yes: 'Yes',
+          subtle: 'Yes but subtle',
+        },
+      },
+      options: requiredOptions,
+      name: 'Required',
+    },
+    invalid: {
+      control: 'boolean',
+      name: 'Invalid',
+    },
+    errorMessage: {
+      control: 'boolean',
+      name: 'Error message',
+    },
+    helpText: {
+      control: 'boolean',
+      name: 'Help text',
+    },
+    isAFieldGroup: {
+      control: 'boolean',
+      name: 'Is a field-group',
+    },
+  },
+  args: {
+    hideLabel: false,
+    small: false,
+    disabled: false,
+    readOnly: false,
+    required: 'no',
+    invalid: false,
+    errorMessage: false,
+    helpText: false,
+    isAFieldGroup: false,
+  },
 };
