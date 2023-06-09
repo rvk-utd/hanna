@@ -1,21 +1,50 @@
 import React, { ChangeEvent, useState } from 'react';
 import { SearchInput } from '@reykjavik/hanna-react/SearchInput';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobs } from '../utils/knobs.js';
+import { getFormFieldKnobsNew } from '../utils/knobs.js';
 
-const meta: Meta<typeof SearchInput> = {
+const requiredOptions = ['no', 'yes', 'subtle'] as const;
+type Required = (typeof requiredOptions)[number];
+
+type ControlProps = {
+  physicalSearchButton: boolean;
+  small: boolean;
+  disabled: boolean;
+  readOnly: boolean;
+  required: Required;
+  invalid: boolean;
+  errorMessage: boolean;
+  helpText: boolean;
+};
+
+type Story = StoryObj<ControlProps>;
+
+const meta: Meta<ControlProps> = {
   title: 'Forms/SearchInput',
-  component: SearchInput,
 };
 export default meta;
 
-type Story = StoryObj<typeof SearchInput>;
-
-const SearchInputStory = () => {
-  const button = boolean('Physical search <button/>', false) || undefined;
-  const ffProps = getFormFieldKnobs();
+const SearchInputStory: React.FC<ControlProps> = ({
+  physicalSearchButton,
+  small,
+  disabled,
+  readOnly,
+  required,
+  invalid,
+  errorMessage,
+  helpText,
+}) => {
+  const button = physicalSearchButton || undefined;
+  const ffProps = getFormFieldKnobsNew({
+    small,
+    disabled,
+    readOnly,
+    required,
+    invalid,
+    errorMessage,
+    helpText,
+  });
 
   const [value, setValue] = useState('');
   return (
@@ -32,5 +61,57 @@ const SearchInputStory = () => {
 };
 
 export const _SearchInput: Story = {
-  render: () => <SearchInputStory />,
+  render: (args: ControlProps) => <SearchInputStory {...args} />,
+  argTypes: {
+    physicalSearchButton: {
+      control: 'boolean',
+      name: 'Physical search <button/>',
+    },
+    small: {
+      control: 'boolean',
+      name: 'Small',
+    },
+    disabled: {
+      control: 'boolean',
+      name: 'Disabled',
+    },
+    readOnly: {
+      control: 'boolean',
+      name: 'Read-only',
+    },
+    required: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          no: 'No',
+          yes: 'Yes',
+          subtle: 'Yes but subtle',
+        },
+      },
+      options: requiredOptions,
+      name: 'Required',
+    },
+    invalid: {
+      control: 'boolean',
+      name: 'Invalid',
+    },
+    errorMessage: {
+      control: 'boolean',
+      name: 'Error message',
+    },
+    helpText: {
+      control: 'boolean',
+      name: 'Help text',
+    },
+  },
+  args: {
+    physicalSearchButton: false,
+    small: false,
+    disabled: false,
+    readOnly: false,
+    required: 'no',
+    invalid: false,
+    errorMessage: false,
+    helpText: false,
+  },
 };
