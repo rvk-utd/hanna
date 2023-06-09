@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `ReadSpeakerPlayer`
 - fix: Hide newly added visible screen-reader label in `Datepicker`
+- fix: Increase image–text spacing in `.IslandPageBlock--align--right`
 
 ## 0.8.78
 
