@@ -27,6 +27,9 @@ export type DatepickerProps = {
    * NOTE: Even though defaultValue and the `onChange` value are both `Date`
    * the `<input/>` element is still `type="text"` and it's `.value` is
    * the human-readable (parsed) date `string`.
+   *
+   * Use this incombination with the `isoMode` prop to submit ISO-8601
+   * formatted input values
    */
   defaultValue?: Date;
   name?: string;
@@ -34,6 +37,14 @@ export type DatepickerProps = {
   endDate?: Date;
   minDate?: Date;
   maxDate?: Date;
+  /**
+   * Turn this on to generate a form <input/> that contains (and submits)
+   * an ISO-date formatted string value, instead of the default "human
+   * readable" format.
+   *
+   * NOTE: This will be the default mode in v0.11.
+   */
+  isoMode?: boolean;
   localeCode?: 'is' | 'en' | 'pl'; // default 'is', we can add more langs later...
   dateFormat?: string | Array<string>;
   isStartDate?: boolean;
@@ -142,6 +153,7 @@ export const Datepicker = (props: DatepickerProps) => {
     datepickerExtraProps,
     ssr,
     inputRef,
+    isoMode,
   } = props;
 
   const [value, setValue] = useMixedControlState(props, 'value', props.initialDate);
@@ -186,13 +198,20 @@ export const Datepicker = (props: DatepickerProps) => {
             }
             {...addFocusProps()}
           >
+            {isoMode && (
+              <input
+                type="hidden"
+                name={name}
+                value={value?.toISOString().slice(0, 10)}
+              />
+            )}
             <ReactDatePicker
               id={domid}
               required={inputProps.required}
               disabled={inputProps.disabled}
               readOnly={inputProps.readOnly}
               selected={value}
-              name={name}
+              name={isoMode ? undefined : name}
               locale={localeCode}
               dateFormat={
                 // NOTE: Force all dateFormat values into Array<string> to temporarily work around

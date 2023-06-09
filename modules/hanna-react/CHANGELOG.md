@@ -6,6 +6,7 @@
 - `Datepicker`:
   - feat: Add support for "uncontrolled" mode — (add prop `defaultValue`, make
     `value` and `onChange` optional.)
+  - feat: Add prop `isoMode` to generate/submit ISO-8601 `<input/>` values
 
 ## 0.10.92
 

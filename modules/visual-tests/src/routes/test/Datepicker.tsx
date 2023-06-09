@@ -28,6 +28,7 @@ export default function () {
             label="Normal"
             localeCode={lang}
             // name="date"
+            // isoMode
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             defaultValue={startDate}
@@ -49,7 +50,7 @@ export default function () {
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            // value={undefined}
+            // value={startDate}
             small
           />
           <Datepicker
@@ -58,7 +59,7 @@ export default function () {
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            // value={undefined}
+            // value={startDate}
             disabled
           />
           <Datepicker
@@ -67,7 +68,7 @@ export default function () {
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            // value={undefined}
+            // value={startDate}
             readOnly
           />
         </RowBlockColumn>
