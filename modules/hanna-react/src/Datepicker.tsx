@@ -156,7 +156,16 @@ export const Datepicker = (props: DatepickerProps) => {
     isoMode,
   } = props;
 
-  const [value, setValue] = useMixedControlState(props, 'value', props.initialDate);
+  const [value, setValue] = useMixedControlState.raw(
+    props.value || props.initialDate,
+    props.defaultValue,
+    'value'
+  );
+  /*
+    TODO: Revert to this simpler pattern once we hit v0.11
+    and `props.initialDate` is removed:
+  */
+  // const [value, setValue] = useMixedControlState(props, 'value');
 
   const domid = useDomid(id);
 
