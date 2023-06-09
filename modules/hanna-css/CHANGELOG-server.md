@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `ReadSpeakerPlayer`
+- fix: Hide newly added visible screen-reader label in `Datepicker`
 
 ## 0.8.78
 

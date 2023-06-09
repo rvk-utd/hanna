@@ -1,5 +1,6 @@
 import { css } from 'es-in-css';
 
+import { srOnly } from '../lib/a11y.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
@@ -67,6 +68,10 @@ export default css`
     .FormField--focused .react-datepicker__input-container::after {
       border-color: ${vars.color_faxafloi_100};
       color: ${vars.color_faxafloi_100};
+    }
+
+    .react-datepicker__aria-live {
+      ${srOnly}
     }
 
     // The popper
