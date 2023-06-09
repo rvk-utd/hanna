@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { FileInput } from '@reykjavik/hanna-react/FileInput';
-import { boolean } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobs, getFormFieldKnobsNew } from '../utils/knobs.js';
+import { getFormFieldKnobsNew } from '../utils/knobs.js';
 
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
 type Required = (typeof requiredOptions)[number];
@@ -40,20 +39,14 @@ const FileInputStory: React.FC<ControlProps> = ({
   allowMultipleFiles,
   allowedFileTypes,
 }) => {
-  const ffProps = getFormFieldKnobs({ hideLabel: true, small: false, readOnly: false });
-
-  const ffProps2 = getFormFieldKnobsNew({
-    small: undefined,
+  const ffProps = getFormFieldKnobsNew({
     disabled,
-    readOnly: undefined,
     required,
     invalid,
     errorMessage,
     helpText,
     hideLabel,
   });
-
-  const showImagePreview = boolean('Show image previews', false);
 
   const [files, setFiles] = useState<Array<File>>([]);
   return (
@@ -62,7 +55,7 @@ const FileInputStory: React.FC<ControlProps> = ({
       label="Skrá skjöl"
       removeFileText="Fjarlægja skjal"
       showFileSize={showFileSize}
-      showImagePreviews={showImagePreview}
+      showImagePreviews={showImagePreviews}
       name="files"
       value={files}
       onFilesUpdated={setFiles}

@@ -85,12 +85,12 @@ export const getFormFieldKnobsNew = (args: FormfieldsControlProps) => {
   const _disabled = disabled;
   const _readOnly = readOnly !== false ? readOnly : undefined;
 
-  const requiredMapper: Record<Required, '' | 'normal' | 'subtle'> = {
+  const requiredMap: Record<Required, '' | 'normal' | 'subtle'> = {
     no: '',
     yes: 'normal',
-    'yes-but-subtle': 'subtle',
+    subtle: 'subtle',
   };
-  const _required = requiredMapper[required];
+  const _required = requiredMap[required];
 
   const _errorMessage = errorMessage ? 'Your input has the errors.' : undefined;
 
