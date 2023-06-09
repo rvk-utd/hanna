@@ -3,7 +3,7 @@ import range from '@hugsmidjan/qj/range';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes';
+import { StoryParameters } from '../utils/storytypes.js';
 
 const meta: Meta = {
   title: 'Forms/Site Search Autocomplete',
