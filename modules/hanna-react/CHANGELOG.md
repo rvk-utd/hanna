@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Datepicker`:
+  - feat: Add support for "uncontrolled" mode — (add prop `defaultValue`, make
+    `value` and `onChange` optional.)
 
 ## 0.10.92
 

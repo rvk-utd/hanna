@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { Datepicker, DatepickerProps } from '@reykjavik/hanna-react/Datepicker';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
@@ -20,8 +20,6 @@ const lang: DatepickerProps['localeCode'] = undefined;
 export const handle = { lang, ...cssTokens('RowBlock', 'RowBlockColumn') };
 
 export default function () {
-  const [date, setDate] = useState<Date | undefined>(startDate);
-
   return (
     <Minimal>
       <RowBlock>
@@ -32,12 +30,8 @@ export default function () {
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            value={date}
-            onChange={(newDate) => {
-              console.log(newDate);
-              setDate(newDate);
-              return undefined;
-            }}
+            defaultValue={startDate}
+            onChange={(newDate) => console.info('new date:', newDate)}
             required
           />
           <Datepicker
@@ -47,7 +41,6 @@ export default function () {
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             value={startDate}
-            onChange={() => undefined}
             invalid
           />
           <Datepicker
@@ -57,7 +50,6 @@ export default function () {
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             // value={undefined}
-            onChange={() => undefined}
             small
           />
           <Datepicker
@@ -67,7 +59,6 @@ export default function () {
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             // value={undefined}
-            onChange={() => undefined}
             disabled
           />
           <Datepicker
@@ -77,7 +68,6 @@ export default function () {
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             // value={undefined}
-            onChange={() => undefined}
             readOnly
           />
         </RowBlockColumn>

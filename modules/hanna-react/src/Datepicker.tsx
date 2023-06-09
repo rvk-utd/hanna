@@ -10,6 +10,7 @@ import {
   registerLocale,
 } from './_mixed_export_resolution_/ReactDatepicker.js'; // Docs: https://reactdatepicker.com/
 import { FormField, FormFieldWrappingProps } from './FormField.js';
+import { useMixedControlState } from './utils.js';
 
 registerLocale('is', is);
 registerLocale('pl', pl);
@@ -20,6 +21,14 @@ export type DatepickerProps = {
   small?: boolean;
   placeholder?: string;
   value?: Date;
+  /**
+   * Default value for "uncontrolled" mode.
+   *
+   * NOTE: Even though defaultValue and the `onChange` value are both `Date`
+   * the `<input/>` element is still `type="text"` and it's `.value` is
+   * the human-readable (parsed) date `string`.
+   */
+  defaultValue?: Date;
   name?: string;
   startDate?: Date;
   endDate?: Date;
@@ -30,10 +39,10 @@ export type DatepickerProps = {
   isStartDate?: boolean;
   isEndDate?: boolean;
   inputRef?: RefObject<HTMLInputElement>;
-  onChange: (date?: Date) => void;
+  onChange?: (date?: Date) => void;
   datepickerExtraProps?: Record<string, unknown>;
 
-  /** @deprecated  use value instead.  (Will be removed in v0.11) */
+  /** @deprecated  Use `value` or `defaultValue` instead.  (Will be removed in v0.11) */
   initialDate?: Date;
 } & FormFieldWrappingProps;
 
@@ -99,6 +108,11 @@ const i18n: Record<string, DatepickerLocaleProps> = {
   },
 };
 
+/**
+ * A compo
+ *
+ * Internally, this component uses the [`react-datepicker`](https://reactdatepicker.com/) component.
+ */
 export const Datepicker = (props: DatepickerProps) => {
   const {
     className,
@@ -117,8 +131,6 @@ export const Datepicker = (props: DatepickerProps) => {
 
     localeCode = 'is',
     dateFormat = 'd.M.yyyy',
-    initialDate,
-    value = initialDate,
     name,
     startDate,
     endDate,
@@ -131,6 +143,8 @@ export const Datepicker = (props: DatepickerProps) => {
     ssr,
     inputRef,
   } = props;
+
+  const [value, setValue] = useMixedControlState(props, 'value', props.initialDate);
 
   const domid = useDomid(id);
 
@@ -193,8 +207,10 @@ export const Datepicker = (props: DatepickerProps) => {
                   : dateFormat.slice(0).reverse()
                 // dateFormat
               }
-              onChange={(date: Date | null) => {
-                onChange(date || undefined);
+              onChange={(date: Date | undefined | null) => {
+                date = date || undefined;
+                setValue(date);
+                onChange && onChange(date);
                 const inputElm = inputRef?.current;
                 if (inputElm) {
                   inputElm.dispatchEvent(new Event('change', { bubbles: true }));
