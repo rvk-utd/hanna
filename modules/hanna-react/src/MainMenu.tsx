@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import focusElm from '@hugsmidjan/qj/focusElm';
+import { focusElm } from '@hugsmidjan/qj/focusElm';
 import useShortState from '@hugsmidjan/react/hooks/useShortState';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { Cleanup, getPageScrollElm } from '@reykjavik/hanna-utils';
+import { Cleanup } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
@@ -214,20 +214,20 @@ export const MainMenu = (props: MainMenuProps) => {
     () =>
       isBrowser
         ? (newActive: MegaMenuPanel | undefined, setFocus = true) => {
-            const htmlElmDataset = document.documentElement.dataset;
+            const htmlElm = document.documentElement;
+            const htmlElmDataset = htmlElm.dataset;
 
             // const menuElm = menuElmRef.current as HTMLElement;
             _setActivePanel((activePanel) => {
-              const scrollElm = getPageScrollElm();
               if (!newActive) {
                 activePanel && setLaggyActivePanel(activePanel, 1000);
-                scrollElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
+                htmlElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
                 delete htmlElmDataset.scrollTop;
                 delete htmlElmDataset.megaPanelActive;
               } else {
                 setLaggyActivePanel(undefined, 0);
-                htmlElmDataset.scrollTop = String(scrollElm.scrollTop);
-                scrollElm.scrollTop = 0;
+                htmlElmDataset.scrollTop = String(htmlElm.scrollTop);
+                htmlElm.scrollTop = 0;
                 htmlElmDataset.megaPanelActive = '';
               }
 

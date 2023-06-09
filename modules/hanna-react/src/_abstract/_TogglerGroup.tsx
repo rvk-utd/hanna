@@ -2,7 +2,7 @@ import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { FormFieldInputProps } from '../FormField.js';
-import { useMixedControlState } from '../utils.js';
+import { HTMLProps, useMixedControlState } from '../utils.js';
 
 import { TogglerInputProps } from './_TogglerInput.js';
 
@@ -15,7 +15,7 @@ export type TogglerGroupOption = {
 export type TogglerGroupOptions = Array<TogglerGroupOption>;
 
 type RestrictedInputProps = Omit<
-  JSX.IntrinsicElements['input'],
+  HTMLProps<'input'>,
   | 'type'
   | 'value'
   | 'defaultValue'

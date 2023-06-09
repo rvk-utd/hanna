@@ -18,7 +18,7 @@ const lacksIntersectionObserverSuppport =
 
 if (lacksIntersectionObserverSuppport) {
   // @ts-expect-error  (polyfill has no d.ts file)
-  import('@hugsmidjan/qj/polyfills/IntersectionObserver.js');
+  import('@hugsmidjan/qj/polyfills/IntersectionObserver');
 }
 
 // ---------------------------------------------------------------------------

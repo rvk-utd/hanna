@@ -30,7 +30,7 @@ export type TooltipProps = {
   iconOnly?: boolean;
 };
 
-const ToolTip = (props: TooltipProps) => {
+export const Tooltip = (props: TooltipProps) => {
   const { text, label, iconOnly } = props;
   const arrowRef = useRef(null);
   const [isOpen, setIsOpen] = useLaggedState(false, 300);
@@ -120,4 +120,4 @@ const ToolTip = (props: TooltipProps) => {
   );
 };
 
-export default ToolTip;
+export default Tooltip;

@@ -241,12 +241,12 @@
                   activeIdx: startingIdx, // Sets °he starting tab
                   tabs: tabs,
                   onSetActive: function (activeIdx, tabData) {
-                    const scrollElm = document.body; // ideally: `getPageScrollElm() from @reykjavik/hanna-utils`
                     document.location.replace(
                       '#' + (activeIdx ? tabData['aria-controls'] : '')
                     );
                     setPanelElmsDisplay(activeIdx);
-                    scrollElm.scrollTo(0, scrollElm.scrollHeight);
+                    const htmlElm = document.documentElement;
+                    htmlElm.scrollTo(0, htmlElm.scrollHeight);
                   },
                 });
                 meta.ready.then(() => {

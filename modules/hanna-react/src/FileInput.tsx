@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDropzone } from 'react-dropzone'; // https://react-dropzone.js.org/#!/Dropzone
 import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { OpenRecord } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 
+import { useDropzone } from './_mixed_export_resolution_/ReactDropzone.js';
 import {
   addPreview,
   CustomFile,
   formatBytes,
   getFileListUpdate,
   releasePreview,
-} from './FileInput/_FileInput.utils';
+} from './FileInput/_FileInput.utils.js';
 import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList.js';
 import FormField, { FormFieldWrappingProps } from './FormField.js';
 

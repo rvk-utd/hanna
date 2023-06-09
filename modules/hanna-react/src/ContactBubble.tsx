@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import focusElm from '@hugsmidjan/qj/focusElm';
+import { focusElm } from '@hugsmidjan/qj/focusElm';
 import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { getPageScrollElm } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
@@ -137,12 +136,11 @@ export const ContactBubble = (props: ContactBubbleProps) => {
       wrapperElm.dataset.show = 'true';
       return;
     }
-    const scrollElm = getPageScrollElm();
     let pending = 0;
     const checkScroll = () => {
       if (!pending) {
         pending = requestAnimationFrame(() => {
-          const { scrollTop, scrollHeight, clientHeight } = scrollElm;
+          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
           const scrollLength = scrollHeight - clientHeight;
           // const f = scrollLength > 600 ? 1 : (scrollLength - 200) / 600;
           const f = 1;
@@ -157,7 +155,7 @@ export const ContactBubble = (props: ContactBubbleProps) => {
 
     checkScroll();
 
-    // Set scroll-listeners on both the ´document` and the `scrollElm`
+    // Set scroll-listeners on both the ´document` and the `document.documentElement`
     // because mobile browsers seem to handle CSS height and overflow
     // rules on <html> and <body> differently from desktop browsers.
     // Only one of these two handlers seems to trigger though,
@@ -165,10 +163,10 @@ export const ContactBubble = (props: ContactBubbleProps) => {
     // and even if they did, the rAF throttling prevents that from
     // becoming a problem.
     document.addEventListener('scroll', checkScroll);
-    scrollElm.addEventListener('scroll', checkScroll);
+    document.documentElement.addEventListener('scroll', checkScroll);
     return () => {
       document.removeEventListener('scroll', checkScroll);
-      scrollElm.removeEventListener('scroll', checkScroll);
+      document.documentElement.removeEventListener('scroll', checkScroll);
     };
   }, [isBrowser, alwaysShow, closeBubble]);
 

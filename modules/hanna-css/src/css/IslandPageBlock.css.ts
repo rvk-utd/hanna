@@ -34,6 +34,7 @@ export default css`
         width: ${vars.grid_6};
       }
     }
+
     .IslandPageBlock__image {
       ${resetImageChild}
       margin: 0 ${vars.grid_0_1__neg};
@@ -45,6 +46,11 @@ export default css`
       }
       @media ${mq.tablet_up} {
         width: calc(${vars.grid_6_6} + ${vars.grid_0_1});
+      }
+    }
+    .IslandPageBlock--align--right > .IslandPageBlock__image {
+      @media ${mq.tablet_up} {
+        width: calc(${vars.grid_6_6} + 0.5 * ${vars.grid_0_1});
       }
     }
 

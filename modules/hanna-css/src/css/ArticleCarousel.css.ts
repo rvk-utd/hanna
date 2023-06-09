@@ -13,8 +13,7 @@ import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { prem } from './utils/miscUtils.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
-
-import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css';
+import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css.js';
 
 const topBorderW = prem(21);
 

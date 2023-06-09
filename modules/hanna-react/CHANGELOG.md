@@ -3,7 +3,39 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Datepicker`:
+  - feat: Add support for "uncontrolled" mode — (add prop `defaultValue`, make
+    `value` and `onChange` optional.)
+  - feat: Add prop `isoMode` to generate/submit ISO-8601 `<input/>` values
+
+## 0.10.92
+
+_2023-06-06_
+
+- feat: Add component `ReadSpeakerPlayer` and a `stopReading` helper
+- fix: Update dependencies for minor esm and `Modal`-related bugfixes
+
+## 0.10.90 – 0.10.91
+
+_2023-06-01_
+
+- fix: Add missing named export of `Tooltip` compnent
+- fix: Update dependencies to fix esm–cjs import resolution errors
+
+## 0.10.88 – 0.10.89
+
+_2023-05-25_
+
+- feat(ts): Export utility type `HtmlProps` from `utils` module — for adding
+  HTML attributes (including `data-*`) to React components.
+- fix: Update dependencies to fix esm–cjs import resolution errors
+
+## 0.10.87
+
+_2023-05-19_
+
 - feat: Add prop `target` to `MainMenuItem` type
+- fix: Prevent nested/multpile `Modal`s from clashing with each other
 
 ## 0.10.86
 

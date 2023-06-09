@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { Datepicker, DatepickerProps } from '@reykjavik/hanna-react/Datepicker';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
@@ -8,7 +8,7 @@ import { Minimal } from '../../layout/Minimal.js';
 import { focusAllFormFields } from '../../test-helpers/focusAllFormFields.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
-import { cssTokens } from '../../utils/route';
+import { cssTokens } from '../../utils/route.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 
@@ -20,8 +20,6 @@ const lang: DatepickerProps['localeCode'] = undefined;
 export const handle = { lang, ...cssTokens('RowBlock', 'RowBlockColumn') };
 
 export default function () {
-  const [date, setDate] = useState<Date | undefined>(startDate);
-
   return (
     <Minimal>
       <RowBlock>
@@ -30,14 +28,11 @@ export default function () {
             label="Normal"
             localeCode={lang}
             // name="date"
+            // isoMode
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            value={date}
-            onChange={(newDate) => {
-              console.log(newDate);
-              setDate(newDate);
-              return undefined;
-            }}
+            defaultValue={startDate}
+            onChange={(newDate) => console.info('new date:', newDate)}
             required
           />
           <Datepicker
@@ -47,7 +42,6 @@ export default function () {
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
             value={startDate}
-            onChange={() => undefined}
             invalid
           />
           <Datepicker
@@ -56,8 +50,7 @@ export default function () {
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            // value={undefined}
-            onChange={() => undefined}
+            // value={startDate}
             small
           />
           <Datepicker
@@ -66,8 +59,7 @@ export default function () {
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            // value={undefined}
-            onChange={() => undefined}
+            // value={startDate}
             disabled
           />
           <Datepicker
@@ -76,8 +68,7 @@ export default function () {
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
-            // value={undefined}
-            onChange={() => undefined}
+            // value={startDate}
             readOnly
           />
         </RowBlockColumn>

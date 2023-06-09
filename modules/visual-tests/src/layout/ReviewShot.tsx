@@ -5,9 +5,9 @@ import { CssModuleToken } from '@reykjavik/hanna-css';
 import { TagPill, TagPillProps } from '@reykjavik/hanna-react/TagPill';
 import { capitalize } from '@reykjavik/hanna-utils';
 
-import { Changeset } from '../utils/tests.server';
+import { Changeset } from '../utils/tests.server.js';
 
-import styles from './ReviewShot.css';
+import styles from './ReviewShot.css.js';
 
 export type Mode = 'difference' | 'differenceHL' | 'actual' | 'expected';
 

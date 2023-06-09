@@ -1,7 +1,7 @@
 import React from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj } from '@reykjavik/hanna-utils';
-import IframeResizer, { ResizerOptions } from 'iframe-resizer-react';
+import IframeResizer, { type ResizerOptions } from 'iframe-resizer-react';
 
 export type IframeBlockProps = {
   src: string;

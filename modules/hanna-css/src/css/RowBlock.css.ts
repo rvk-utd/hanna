@@ -9,8 +9,7 @@ import {
   SeenEffect__fadeup,
   SeenEffect__transition,
 } from './utils/seenEffects.js';
-
-import { RowBlockColumn_css } from './RowBlockColumn.css';
+import { RowBlockColumn_css } from './RowBlockColumn.css.js';
 
 export default css`
   /*!@deps

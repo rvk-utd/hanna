@@ -1,6 +1,6 @@
 import { color, css, px } from 'es-in-css';
 
-import { srOnly_focusableContent, srOnly_focusable } from '../lib/a11y.js';
+import { srOnly_focusable, srOnly_focusableContent } from '../lib/a11y.js';
 import { between_Topmenu } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
@@ -18,8 +18,7 @@ import { extendSides } from './utils/extendSides.js';
 import { grid_units, prem } from './utils/miscUtils.js';
 import { AuxiliaryPanel_css } from './_AuxiliaryPanel.js';
 import { PrimaryPanel_css } from './_PrimaryPanel.js';
-
-import { whiteHeader, whiteLogo } from './Layout.css';
+import { whiteHeader, whiteLogo } from './Layout.css.js';
 
 const HamburgerVariables = buildVariables(['offsetLeft', 'list__padTop'], 'MainMenu');
 const hmVars = HamburgerVariables.vars;

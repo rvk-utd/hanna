@@ -41,26 +41,29 @@ export const makeSnapLocalScreeshot =
 
     const marginOpt = (opts || {}).margin;
     if (marginOpt) {
-      let margins: [number, number] = [0, 0];
+      let margins: [number, number, number, number] = [0, 0, 0, 0];
 
       if (marginOpt === 'fullwidth') {
-        margins = [0, 10000];
+        margins = [0, 10000, 0, 10000];
       } else if (marginOpt === true) {
-        margins = [DEFAULT_MARGIN, DEFAULT_MARGIN];
+        margins = [DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN, DEFAULT_MARGIN];
       } else if (typeof marginOpt === 'number') {
-        margins = [marginOpt, marginOpt];
+        margins = [marginOpt, marginOpt, marginOpt, marginOpt];
+      } else if (marginOpt.length === 2) {
+        const [marginV, marginH] = marginOpt;
+        margins = [marginV, marginH, marginV, marginH];
       } else {
         margins = marginOpt;
       }
-      const [marginV, marginH] = margins;
+      const [marginT, marginR, marginB, marginL] = margins;
       const rect = await locator.evaluate((elm) => elm.getBoundingClientRect());
       return expectSoft(page).toHaveScreenshot(toFileName(testName, label), {
         ...opts,
         clip: {
-          x: rect.x - marginH,
-          y: rect.y - marginV,
-          width: rect.width + 2 * marginH,
-          height: rect.height + 2 * marginV,
+          x: rect.x - marginL,
+          y: rect.y - marginT,
+          width: rect.width + marginL + marginR,
+          height: rect.height + marginT + marginB,
         },
       });
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import type { formatBytes } from './_FileInput.utils';
-import { CustomFile } from './_FileInput.utils';
+import type { formatBytes } from './_FileInput.utils.js';
+import { CustomFile } from './_FileInput.utils.js';
 
 export type FileListProps = {
   files: Array<CustomFile>;

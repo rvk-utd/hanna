@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `ReadSpeakerPlayer` — a thin div-wrapper around
+  ReadSpeaker's embed code
 
 ## 0.8.30
 

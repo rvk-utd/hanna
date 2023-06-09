@@ -11,12 +11,13 @@ buildNpmLib('utils', {
 
 if (!opts.dev) {
   // poor man's tsc replace-string plugin
-  ['.' /* , 'esm' */].forEach((folder) => {
+  ['.', 'esm'].forEach((folder) => {
     const fileName = `${distDir}/${folder}/assets.js`;
-    readFile(fileName)
-      .then((contents) =>
+    readFile(fileName).then((contents) =>
+      writeFile(
+        fileName,
         contents.toString().replace(/typeof _NPM_PUB_ !== 'undefined'/g, 'true')
       )
-      .then((content) => writeFile(fileName, content));
+    );
   });
 }

@@ -8,10 +8,10 @@ import { SeenEffect } from '@reykjavik/hanna-react/SeenEffect';
 import { TagPill } from '@reykjavik/hanna-react/TagPill';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 
-import { copyCacheControl, cssTokens } from '../utils/route';
-import { getChangesToReview, getReportDate } from '../utils/tests.server';
+import { copyCacheControl, cssTokens } from '../utils/route.js';
+import { getChangesToReview, getReportDate } from '../utils/tests.server.js';
 
-import styles from './review.css';
+import styles from './review.css.js';
 
 const formatDate = (timestamp: number) =>
   new Date(timestamp).toISOString().substring(0, 16).replace('T', ' at ');

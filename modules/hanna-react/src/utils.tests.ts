@@ -43,6 +43,8 @@ o.spec('hanna-react/utils lib', () => {
 /* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
 // Also check exported types. (Ignoring re-exported types from es-in-css.)
 import type {
+  HTMLProps,
+
   /* utils/config.ts */
   LinkRenderer,
   SSRSupport,

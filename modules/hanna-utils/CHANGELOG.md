@@ -3,6 +3,24 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Deprecate `getPageScrollElm`, as it's no longer needed
+
+## 0.2.6
+
+_2023-06-01_
+
+- fix: ESM version of `styleServerUrl` points to localhost in dev mode
+
+## 0.2.5
+
+_2023-05-24_
+
+- fix: Update dependencies to fix import resolution errors in node@>=18
+
+## 0.2.4
+
+_2023-05-23_
+
 - feat: Re-enable ESM exports in published build
 
 ## 0.2.3

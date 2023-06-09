@@ -7,7 +7,6 @@
     // "baseUrl": "../../",
 
     // "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    // "esModuleInterop": false,
 
     "noEmit": true,
 

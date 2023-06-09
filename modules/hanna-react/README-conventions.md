@@ -211,15 +211,20 @@ miscellanious HTML attributes (e.g. `aria-*`, native `on*` handlers, etc.)
 without you having to enumerate every single one.
 
 In such cases add an explicitly named prop for that. (Something along the
-lines of `htmlProps`/`inputProps`/`buttonProps`/etc.) Avoid the temptation to
+lines of `htmlProps`/`wrapperProps`/`inputProps`/`buttonProps`/etc.)
+
+Avoid the temptation to mix/spread them directly into your component's
+top-level props type.
 
 **DO: ✅**
 
 ```ts
+import { HTMLProps } from '@reykjavik/hanna-react/utils';
+
 type KnobProps = {
   shape: 'square' | 'circle' | 'triangle';
   onClick: () => void;
-  htmlProps: Omit<JSX.IntrinsicElements['button'], 'type' | 'onClick'>;
+  htmlProps: Omit<HTMLProps<'button'>, 'type' | 'onClick'>;
 };
 ```
 
@@ -231,7 +236,7 @@ destructuring `...rest` properties inside your component source.)
 **DON'T: ❌**
 
 ```ts
-type KnobProps = Omit<JSX.IntrinsicElements['button'], 'type' | 'onClick'> & {
+type KnobProps = Omit<HTMLProps['button'], 'type' | 'onClick'> & {
   shape: 'square' | 'circle' | 'triangle';
   onClick: () => void;
 };
