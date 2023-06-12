@@ -101,8 +101,19 @@ export const _WizardStepper: Story = {
   render: (args: ControlProps) => <WizardStepperStory {...args} />,
   argTypes: {
     selectedStep: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          none: 'None',
+          intro: 'Intro',
+          step1: 'Step 1',
+          step2: 'Step 2',
+          step3: 'Step 3',
+          step4: 'Step 4',
+          step5: 'Step 5',
+        },
+      },
       options: stepsOptions,
-      control: { type: 'inline-radio' },
       name: 'Active step',
     },
   },
