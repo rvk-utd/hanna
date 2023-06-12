@@ -1,23 +1,56 @@
 import React from 'react';
-import { Bling, BlingProps as _BlingProps } from '@reykjavik/hanna-react/Bling';
+import {
+  Bling,
+  BlingParentOffset,
+  BlingProps as _BlingProps,
+} from '@reykjavik/hanna-react/Bling';
 import { BlingType, blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 import { select } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
+// TODO: Fix placement error
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const blingOptions = [...blingTypes] as const;
 
-type BlingControlsProps = {
-  blingType: BlingType;
-};
-type BlingStoryProps = _BlingProps & BlingControlsProps;
-type Story = StoryObj<BlingStoryProps>;
+const alignmentOptions = [
+  'left',
+  'left-ish',
+  'left-center',
+  'right-center',
+  'right-ish',
+  'right',
+] as const;
+type Alignment = (typeof alignmentOptions)[number];
 
-const meta: Meta<BlingStoryProps> = {
+const verticalAlignOptions = ['up', 'up-ish', 'center', 'down-ish', 'down'] as const;
+type Vertical = (typeof verticalAlignOptions)[number];
+
+const colorVariantOptions = ['tertiary', 'secondary', 'primary'] as const;
+type ColorVariant = (typeof colorVariantOptions)[number];
+
+const insertionPointOptions = [
+  'default',
+  'top',
+  'top-ish',
+  'center',
+  'bottom-ish',
+  'bottom',
+] as const;
+type InsertionPoint = (typeof insertionPointOptions)[number];
+
+type ControlsProps = {
+  blingType: BlingType;
+  alignment: Alignment;
+  verticalAlign: Vertical;
+  colorVariant: ColorVariant;
+  placeInFrontOfOtherContent: boolean;
+  insertionPoint: InsertionPoint;
+};
+type Story = StoryObj<ControlsProps>;
+
+const meta: Meta<ControlsProps> = {
   title: 'Bling',
-  component: Bling,
 };
 export default meta;
 
@@ -42,13 +75,13 @@ const Spacer = () => (
   </HiddenTiger>
 );
 
-const BlingStory: React.FC<BlingStoryProps> = ({
+const BlingStory: React.FC<ControlsProps> = ({
   blingType,
-  align,
-  vertical,
-  color,
-  overlay,
-  parent,
+  alignment, // align,
+  verticalAlign, // vertical,
+  colorVariant, // color,
+  placeInFrontOfOtherContent, // overlay,
+  insertionPoint, // parent,
 }) => {
   const type = select<BlingProps['type'] | typeof customOption>(
     'Bling Type',
@@ -61,18 +94,35 @@ const BlingStory: React.FC<BlingStoryProps> = ({
     type === customOption ? { blingUrl: getBlingUrl(blingTypes[2]) } : { type };
     */
 
+  const insertionPointMap: Record<InsertionPoint, BlingParentOffset> = {
+    default: 'center',
+    top: 'top',
+    'top-ish': 'top-ish',
+    center: 'center',
+    'bottom-ish': 'bottom-ish',
+    bottom: 'bottom',
+  };
+  const parent = insertionPointMap[insertionPoint];
+
   return (
     <HiddenTiger
-      key={type + align + vertical + color + overlay + parent}
+      key={
+        type +
+        alignment +
+        verticalAlign +
+        colorVariant +
+        placeInFrontOfOtherContent +
+        insertionPoint
+      }
       style={{ position: 'relative' }}
       serverSide={
         <Bling
           // {...typeProps}
           blingUrl={getBlingUrl(blingType)}
-          align={align}
-          vertical={vertical}
-          color={color}
-          overlay={overlay}
+          align={alignment}
+          vertical={verticalAlign}
+          color={colorVariant}
+          overlay={placeInFrontOfOtherContent}
           parent={parent}
         />
       }
@@ -83,10 +133,10 @@ const BlingStory: React.FC<BlingStoryProps> = ({
       <Bling
         // {...typeProps}
         blingUrl={getBlingUrl(blingType)}
-        align={align}
-        vertical={vertical}
-        color={color}
-        overlay={overlay}
+        align={alignment}
+        vertical={verticalAlign}
+        color={colorVariant}
+        overlay={placeInFrontOfOtherContent}
         parent={parent}
       />
 
@@ -97,45 +147,70 @@ const BlingStory: React.FC<BlingStoryProps> = ({
 };
 
 export const _Bling: Story = {
-  render: (args: BlingStoryProps) => <BlingStory {...args} />,
+  render: (args: ControlsProps) => <BlingStory {...args} />,
   argTypes: {
     blingType: {
       control: 'select',
       options: blingOptions,
       name: 'Bling Type',
     },
-    align: {
-      control: 'radio',
-      options: ['left', 'left-ish', 'left-center', 'right-center', 'right'],
+    alignment: {
+      control: 'inline-radio',
+      options: alignmentOptions,
       name: 'Alignment',
     },
-    vertical: {
-      control: 'radio',
-      options: ['up', 'up-ish', 'center', 'down-ish', 'down'],
+    verticalAlign: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          up: 'up',
+          'up-ish': 'up-ish',
+          center: 'center (default)',
+          'down-ish': 'down-ish',
+          down: 'down',
+        },
+      },
+      options: verticalAlignOptions,
       name: 'Vertical align',
     },
-    color: {
-      control: 'radio',
-      options: ['tertiary', 'secondary', 'primary'],
+    colorVariant: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          tertiary: 'Default (tertiary)',
+          secondary: 'Secondary',
+          primary: 'Primary',
+        },
+      },
+      options: colorVariantOptions,
       name: 'Color variant',
     },
-    overlay: {
+    placeInFrontOfOtherContent: {
       control: 'boolean',
       name: 'Place in front of other content',
     },
-    parent: {
-      control: 'radio',
-      options: ['inline', 'top', 'top-ish', 'center', 'bottom-ish', 'bottom'],
+    insertionPoint: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          default: 'Default (inline)',
+          top: 'top',
+          'top-ish': 'top-ish',
+          center: 'center',
+          'bottom-ish': 'botttom-ish',
+          bottom: 'bottom',
+        },
+      },
+      options: insertionPointOptions,
       name: 'Insertion point',
     },
-    ...disableControlProps(['className', 'type', 'blingUrl']),
   },
   args: {
     blingType: 'arrow-right-large',
-    align: 'left',
-    vertical: 'center',
-    color: 'tertiary',
-    overlay: false,
-    parent: 'bottom',
+    alignment: 'left',
+    verticalAlign: 'center',
+    colorVariant: 'tertiary',
+    placeInFrontOfOtherContent: false,
+    insertionPoint: 'bottom',
   },
 };
