@@ -12,6 +12,8 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
+// ==================== Checkbox ===========================================
+
 type CheckboxControlProps = Record<
   'required' | 'invalid' | 'errorMessage' | 'disabled',
   boolean
@@ -75,7 +77,7 @@ export const _Checkbox: CheckboxStory = {
   },
 };
 
-// -----------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 const layoutOptions = ['normal', 'inline'] as const;
 type Layout = (typeof layoutOptions)[number];
@@ -187,6 +189,8 @@ const makeTogglerGroupStory = (
   );
 };
 
+// ==================== Checkbox Group ===========================================
+
 export const _CheckboxGroup: CheckboxAndRadioGroupStory = {
   render: (args: CheckboxAndRadioGroupControlProps) =>
     makeTogglerGroupStory(CheckboxGroup, args),
@@ -197,6 +201,8 @@ export const _CheckboxGroup: CheckboxAndRadioGroupStory = {
     ...checkboxAndRadioGroupArgs,
   },
 };
+
+// ==================== Radio Group ===========================================
 
 export const _RadioGroup: CheckboxAndRadioGroupStory = {
   render: (args: CheckboxAndRadioGroupControlProps) =>
@@ -209,7 +215,7 @@ export const _RadioGroup: CheckboxAndRadioGroupStory = {
   },
 };
 
-// -----------------------------------------------------------------------
+// ==================== Styling Tests ===========================================
 
 const StylingTestsStory = () => {
   return (
