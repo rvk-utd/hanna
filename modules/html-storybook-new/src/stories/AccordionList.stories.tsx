@@ -1,19 +1,17 @@
 import React from 'react';
-import { AccordionList, AccordionListProps } from '@reykjavik/hanna-react/AccordionList';
-import { boolean } from '@storybook/addon-knobs';
+import { AccordionList } from '@reykjavik/hanna-react/AccordionList';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
-type AccordionListControlsProps = {
+type ControlsProps = {
   fullWidth: boolean;
 };
-type AccordionListStoryProps = AccordionListControlsProps & AccordionListProps;
-type Story = StoryObj<AccordionListStoryProps>;
+type AccordionListStory = StoryObj<ControlsProps>;
+type AccordionListStylingStory = StoryObj;
 
-const meta: Meta<AccordionListStoryProps> = {
+const meta: Meta<ControlsProps> = {
   title: 'AccordionList',
-  component: AccordionList,
 };
 
 export default meta;
@@ -54,8 +52,8 @@ const items = () => [
   { title: 'Accordion items', content: 'Hello content', disabled: true },
 ];
 
-const AccordionListStory = () => {
-  const wide = boolean('Full width', false);
+const AccordionListStory = ({ fullWidth }: ControlsProps) => {
+  const wide = fullWidth;
   return (
     <AccordionList
       key={String(wide)}
@@ -67,43 +65,30 @@ const AccordionListStory = () => {
   );
 };
 
-const disabledControlProps = disableControlProps([
-  'items',
-  'open',
-  'onToggle',
-  'defaultOpen',
-  'wide',
-  'ssr',
-  'startSeen',
-]);
-
-export const _AccordionList: Story = {
-  render: () => <AccordionListStory />,
+export const _AccordionList: AccordionListStory = {
+  render: (args: ControlsProps) => <AccordionListStory {...args} />,
   argTypes: {
     fullWidth: {
       control: 'boolean',
       name: 'Full width',
     },
-    ...disabledControlProps,
   },
   args: {
     fullWidth: false,
   },
 };
 
-export const AccordionListStyling: Story = {
+export const AccordionListStyling: AccordionListStylingStory = {
   render: () => (
     <>
       <AccordionList items={items()} startSeen />
       <AccordionList items={items()} wide startSeen />
     </>
   ),
-  argTypes: {
-    ...disabledControlProps,
-  },
   parameters: {
+    controls: { hideNoControlsWarning: true },
     css: {
       tokens: 'AccordionList',
     },
-  },
+  } as StoryParameters,
 };

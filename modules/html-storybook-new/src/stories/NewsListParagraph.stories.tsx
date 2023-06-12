@@ -114,7 +114,7 @@ const NewsListParagraphStory = () => {
 };
 
 export const _NewsListParagraph: Story = {
-  render: () => <NewsListParagraphStory />,
+  render: () => NewsListParagraphStory(),
   parameters: {
     css: { tokens: cssTokens },
     controls: { hideNoControlsWarning: true },
