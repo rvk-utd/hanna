@@ -11,25 +11,6 @@ import { Meta, StoryObj } from '@storybook/react';
 const widthOptions = ['auto', 'narrow', 'medium', 'wide'] as const;
 type Width = (typeof widthOptions)[number];
 
-type ModalControlProps = {
-  width: Width;
-  blingDecoration: boolean;
-  open: boolean;
-};
-type ModalDynamicsControlProps = Omit<ModalControlProps, 'open'>;
-
-type ModalStory = StoryObj<ModalControlProps>;
-type ModalDynamicsStory = StoryObj<ModalDynamicsControlProps>;
-
-const meta: Meta<ModalControlProps> = {
-  title: 'Modal',
-};
-export default meta;
-
-const renderBling = () => (
-  <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
-);
-
 const getKnobValues = (blingDecoration: boolean, width: Width) => {
   const bling = blingDecoration || undefined;
   let modifier: 'w6' | 'w8' | 'w10' | undefined;
@@ -50,24 +31,9 @@ const getKnobValues = (blingDecoration: boolean, width: Width) => {
   return { modifier, bling };
 };
 
-const ModalStory: React.FC<ModalControlProps> = ({ width, open, blingDecoration }) => {
-  const { modifier, bling } = getKnobValues(blingDecoration, width);
-
-  const key = open + (modifier || '');
-  return (
-    <Modal
-      key={key}
-      modifier={modifier}
-      open={open}
-      startOpen={open}
-      onClosed={() => undefined}
-      portal={false}
-      bling={bling && renderBling()}
-    >
-      <p>Modal content...</p>
-    </Modal>
-  );
-};
+const renderBling = () => (
+  <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
+);
 
 const sharedArgTypes = {
   width: {
@@ -89,6 +55,40 @@ const sharedArgTypes = {
   },
 };
 
+// ==================== Modal ===========================================
+
+type ModalControlProps = {
+  width: Width;
+  blingDecoration: boolean;
+  open: boolean;
+};
+
+type ModalStory = StoryObj<ModalControlProps>;
+
+const meta: Meta<ModalControlProps> = {
+  title: 'Modal',
+};
+export default meta;
+
+const ModalStory: React.FC<ModalControlProps> = ({ width, open, blingDecoration }) => {
+  const { modifier, bling } = getKnobValues(blingDecoration, width);
+
+  const key = open + (modifier || '');
+  return (
+    <Modal
+      key={key}
+      modifier={modifier}
+      open={open}
+      startOpen={open}
+      onClosed={() => undefined}
+      portal={false}
+      bling={bling && renderBling()}
+    >
+      <p>Modal content...</p>
+    </Modal>
+  );
+};
+
 export const _Modal: ModalStory = {
   render: (args: ModalControlProps) => <ModalStory {...args} />,
   argTypes: {
@@ -104,6 +104,11 @@ export const _Modal: ModalStory = {
     open: true,
   },
 };
+
+// ==================== Modal Dynamics ===========================================
+
+type ModalDynamicsControlProps = Omit<ModalControlProps, 'open'>;
+type ModalDynamicsStory = StoryObj<ModalDynamicsControlProps>;
 
 const ModalDynamicsStory: React.FC<ModalDynamicsControlProps> = ({
   blingDecoration,
@@ -155,9 +160,7 @@ const ModalDynamicsStory: React.FC<ModalDynamicsControlProps> = ({
 
 export const _ModalDynamics: ModalDynamicsStory = {
   render: (args: ModalDynamicsControlProps) => <ModalDynamicsStory {...args} />,
-  argTypes: {
-    ...sharedArgTypes,
-  },
+  argTypes: sharedArgTypes,
   args: {
     width: 'wide',
     blingDecoration: false,

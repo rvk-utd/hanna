@@ -7,19 +7,19 @@ import { crumbTrail } from '../utils/_dummyData.js';
 const lengthOptions = [1, 2, 3, 4] as const;
 type Length = (typeof lengthOptions)[number];
 
-type BreadCrumbsControlProps = {
+type ControlProps = {
   length: Length;
   sparseLinks: boolean;
 };
 
-type Story = StoryObj<BreadCrumbsControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<BreadCrumbsControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Layout/BreadCrumbs',
 };
 export default meta;
 
-const BreadCrumbsStory: React.FC<BreadCrumbsControlProps> = ({ length, sparseLinks }) => {
+const BreadCrumbsStory: React.FC<ControlProps> = ({ length, sparseLinks }) => {
   const links = useMemo(() => {
     const links = crumbTrail.slice(0, length);
     if (sparseLinks) {
@@ -32,7 +32,7 @@ const BreadCrumbsStory: React.FC<BreadCrumbsControlProps> = ({ length, sparseLin
 };
 
 export const _BreadCrumbs: Story = {
-  render: (args: BreadCrumbsControlProps) => <BreadCrumbsStory {...args} />,
+  render: (args: ControlProps) => <BreadCrumbsStory {...args} />,
   argTypes: {
     length: {
       control: 'select',

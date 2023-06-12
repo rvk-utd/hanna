@@ -5,25 +5,27 @@ import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const sizeOptions = ['normal', 'small', 'wide'] as const;
 type Size = (typeof sizeOptions)[number];
 
 const variantOptions = ['normal', 'destructive'] as const;
 type Variant = (typeof variantOptions)[number];
 
-type ButtonsControlProps = {
+type ControlProps = {
   size: Size;
   variant: Variant;
 };
 
-type Story = StoryObj<ButtonsControlProps>;
+type Story = StoryObj<ControlProps>;
 
 const meta: Meta = {
   title: 'buttons/Buttons',
 };
 export default meta;
 
-const ButtonsStory: React.FC<ButtonsControlProps> = ({ size, variant }) => {
+const ButtonsStory: React.FC<ControlProps> = ({ size, variant }) => {
   const _size = size !== 'normal' ? size : '';
 
   const _variant = variant === 'destructive' ? variant : undefined;
@@ -115,7 +117,7 @@ const ButtonsStory: React.FC<ButtonsControlProps> = ({ size, variant }) => {
 };
 
 export const _Buttons: Story = {
-  render: (args: ButtonsControlProps) => <ButtonsStory {...args} />,
+  render: (args: ControlProps) => <ButtonsStory {...args} />,
   argTypes: {
     size: {
       control: {
@@ -147,5 +149,5 @@ export const _Buttons: Story = {
   },
   parameters: {
     css: { tokens: 'ButtonPrimary,ButtonSecondary,ButtonTertiary' },
-  },
+  } as StoryParameters,
 };
