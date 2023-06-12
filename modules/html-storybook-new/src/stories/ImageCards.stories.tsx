@@ -6,21 +6,21 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { imageCards } from '../utils/_dummyData.js';
 
-type ImageCardsControlProps = {
+type ControlProps = {
   backgroundColor: boolean;
   customFallbackImage: boolean;
   title: boolean;
   summaryText: boolean;
 };
 
-type Story = StoryObj<ImageCardsControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<ImageCardsControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'ImageCards',
 };
 export default meta;
 
-const ImageCardsStory: React.FC<ImageCardsControlProps> = ({
+const ImageCardsStory: React.FC<ControlProps> = ({
   backgroundColor,
   customFallbackImage,
   title,
@@ -45,7 +45,7 @@ const ImageCardsStory: React.FC<ImageCardsControlProps> = ({
 };
 
 export const _ImageCards: Story = {
-  render: (args: ImageCardsControlProps) => <ImageCardsStory {...args} />,
+  render: (args: ControlProps) => <ImageCardsStory {...args} />,
   argTypes: {
     backgroundColor: {
       control: 'boolean',

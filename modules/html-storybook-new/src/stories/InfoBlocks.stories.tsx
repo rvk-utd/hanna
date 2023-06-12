@@ -5,11 +5,11 @@ import { Meta, StoryObj } from '@storybook/react';
 const appearanceOptions = ['neither', 'attention', 'extra'] as const;
 type Appearance = (typeof appearanceOptions)[number];
 
-type InfoBlockControlProps = {
+type ControlProps = {
   appearance: Appearance;
 };
 
-type Story = StoryObj<InfoBlockControlProps>;
+type Story = StoryObj<ControlProps>;
 
 // ---------------------------------------------------------------------------
 
@@ -40,12 +40,12 @@ const getExtraProps = (radioOption: Appearance) => {
 
 // ---------------------------------------------------------------------------
 
-const meta: Meta<InfoBlockControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'InfoBlock',
 };
 export default meta;
 
-const InfoBlockStory: React.FC<InfoBlockControlProps> = ({ appearance }) => {
+const InfoBlockStory: React.FC<ControlProps> = ({ appearance }) => {
   const extraProps = getExtraProps(appearance);
   return (
     <InfoBlock
@@ -59,7 +59,7 @@ const InfoBlockStory: React.FC<InfoBlockControlProps> = ({ appearance }) => {
 };
 
 export const _InfoBlock: Story = {
-  render: (args: InfoBlockControlProps) => <InfoBlockStory {...args} />,
+  render: (args: ControlProps) => <InfoBlockStory {...args} />,
   argTypes: {
     appearance: {
       control: {

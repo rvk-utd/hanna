@@ -1,19 +1,20 @@
 import React from 'react';
-import { IframeBlock, IframeBlockProps } from '@reykjavik/hanna-react/IframeBlock';
+import { IframeBlock } from '@reykjavik/hanna-react/IframeBlock';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-type IframeBlockPropsControlsProps = {
+type ControlProps = {
   rightAligned: boolean;
   fixedHeight: boolean;
+  framed: boolean;
+  compact: boolean;
 };
 
-type IframeBlockStoryProps = IframeBlockProps & IframeBlockPropsControlsProps;
-type Story = StoryObj<IframeBlockStoryProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<IframeBlockStoryProps> = {
+const meta: Meta<ControlProps> = {
   title: 'IframeBlock',
 };
 export default meta;
@@ -24,7 +25,7 @@ const codeExample = `
 <script src="https://styles.reykjavik.is/assets/scripts/iframeResizer.contentWindow@4.js"></script>
 `.trim();
 
-const IframeBlockStory: React.FC<IframeBlockStoryProps> = ({
+const IframeBlockStory: React.FC<ControlProps> = ({
   fixedHeight,
   rightAligned,
   framed,
@@ -75,7 +76,7 @@ const IframeBlockStory: React.FC<IframeBlockStoryProps> = ({
 };
 
 export const _IframeBlock: Story = {
-  render: (args: IframeBlockStoryProps) => <IframeBlockStory {...args} />,
+  render: (args: ControlProps) => <IframeBlockStory {...args} />,
   argTypes: {
     rightAligned: {
       control: 'boolean',

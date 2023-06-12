@@ -18,7 +18,7 @@ type Layout = (typeof layoutOptions)[number];
 const linksOptions = [0, 1, 2, 3] as const;
 type Links = (typeof linksOptions)[number];
 
-type IslandBlockControlProps = {
+type ControlProps = {
   theme: HannaColorTheme;
   type: Type;
   layout: Layout;
@@ -26,15 +26,15 @@ type IslandBlockControlProps = {
   links: Links;
 };
 
-const meta: Meta<IslandBlockControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'IslandBlock',
 };
 export default meta;
 
-type Story = StoryObj<IslandBlockControlProps>;
+type Story = StoryObj<ControlProps>;
 
 // TODO: connect theme property
-const IslandBlockStory: React.FC<IslandBlockControlProps> = ({
+const IslandBlockStory: React.FC<ControlProps> = ({
   theme,
   type,
   summaryText,
@@ -58,7 +58,7 @@ const IslandBlockStory: React.FC<IslandBlockControlProps> = ({
 };
 
 export const _IslandBlock: Story = {
-  render: (args: IslandBlockControlProps) => <IslandBlockStory {...args} />,
+  render: (args: ControlProps) => <IslandBlockStory {...args} />,
   argTypes: {
     theme: {
       control: 'select',

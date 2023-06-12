@@ -16,7 +16,7 @@ type Image = (typeof imageOptions)[number];
 const blingTypeOptions = ['waves', 'sunny-waves', 'triangles', 'circles'] as const;
 type BlingType = (typeof blingTypeOptions)[number];
 
-type InfoHeroControlProps = {
+type ControlProps = {
   alignment: Alignment;
   image: Image;
   blingType: BlingType;
@@ -24,7 +24,7 @@ type InfoHeroControlProps = {
   blurbText: boolean;
   footerText: boolean;
 };
-type Story = StoryObj<InfoHeroControlProps>;
+type Story = StoryObj<ControlProps>;
 
 const cityCouncilContent: InfoHeroProps = {
   title: 'Dagur B. Eggertsson',
@@ -64,12 +64,12 @@ const getImage = (image: Image) => {
 
 // ---------------------------------------------------------------------------
 
-const meta: Meta<InfoHeroControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'InfoHero',
 };
 export default meta;
 
-const InfoHeroStory: React.FC<InfoHeroControlProps> = ({
+const InfoHeroStory: React.FC<ControlProps> = ({
   alignment,
   image,
   blingType,
@@ -111,7 +111,7 @@ const InfoHeroStory: React.FC<InfoHeroControlProps> = ({
 };
 
 export const _InfoHero: Story = {
-  render: (args: InfoHeroControlProps) => <InfoHeroStory {...args} />,
+  render: (args: ControlProps) => <InfoHeroStory {...args} />,
   argTypes: {
     alignment: {
       control: 'inline-radio',

@@ -33,27 +33,6 @@ const SUMMARY_HTML = () => (
   </>
 );
 
-const HeroBlockStory: React.FC<ControlProps> = ({ illustration }) => {
-  const selectedIllustration = illustration;
-
-  return (
-    <HeroBlock
-      key={selectedIllustration}
-      title={TITLE_TEXT}
-      summary={SUMMARY_TEXT}
-      illustration={selectedIllustration}
-      primaryButton={{
-        label: 'Primary button',
-      }}
-      secondaryButton={{
-        href: '',
-        label: 'Tertiary button',
-      }}
-      startSeen
-    />
-  );
-};
-
 const combos: Array<{
   buttons: 0 | 1 | 2;
   html: boolean;
@@ -98,7 +77,22 @@ const HeroBlockExamplesStory = () => {
 };
 
 export const _HeroBlock: Story = {
-  render: (args: ControlProps) => <HeroBlockStory {...args} />,
+  render: (args: ControlProps) => (
+    <HeroBlock
+      key={args.illustration}
+      title={TITLE_TEXT}
+      summary={SUMMARY_TEXT}
+      illustration={args.illustration}
+      primaryButton={{
+        label: 'Primary button',
+      }}
+      secondaryButton={{
+        href: '',
+        label: 'Tertiary button',
+      }}
+      startSeen
+    />
+  ),
   argTypes: {
     illustration: {
       control: 'select',
