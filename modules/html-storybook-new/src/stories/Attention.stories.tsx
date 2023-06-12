@@ -1,17 +1,15 @@
 import React from 'react';
-import { Attention, AttentionProps } from '@reykjavik/hanna-react/Attention';
+import { Attention } from '@reykjavik/hanna-react/Attention';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const meta: Meta<AttentionProps> = {
+type Story = StoryObj;
+
+const meta: Meta = {
   title: 'Attention',
-  component: Attention,
 };
 export default meta;
-
-type Story = StoryObj<AttentionProps>;
 
 const AttentionStory = () => {
   return (
@@ -39,8 +37,5 @@ export const _Attention: Story = {
   render: () => <AttentionStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
-  argTypes: {
-    ...disableControlProps(['small']),
   },
 };

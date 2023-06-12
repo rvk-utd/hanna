@@ -2,15 +2,12 @@ import React from 'react';
 import { BgBox } from '@reykjavik/hanna-react/BgBox';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
-
-const meta: Meta<typeof BgBox> = {
+const meta: Meta = {
   title: 'BgBox',
-  component: BgBox,
 };
 export default meta;
 
-type Story = StoryObj<typeof BgBox>;
+type Story = StoryObj;
 
 const BgBoxStory = () => {
   return (
@@ -24,8 +21,5 @@ export const _BgBox: Story = {
   render: () => <BgBoxStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
-  argTypes: {
-    ...disableControlProps(['className', 'effectType', 'startSeen']),
   },
 };

@@ -6,22 +6,22 @@ import { Meta, StoryObj } from '@storybook/react';
 const variantOptions = ['normal', 'right', 'fullwidth'] as const;
 type Variant = (typeof variantOptions)[number];
 
-type BasicTableControlsProps = {
+type ControlsProps = {
   compact: boolean;
   footer: boolean;
   footnote: boolean;
   variant: Variant;
 };
 
-type Story = StoryObj<BasicTableControlsProps>;
+type Story = StoryObj<ControlsProps>;
 
-const meta: Meta<BasicTableControlsProps> = {
+const meta: Meta<ControlsProps> = {
   title: 'BasicTable',
 };
 
 export default meta;
 
-const BasicTableStory: React.FC<BasicTableControlsProps> = ({
+const BasicTableStory: React.FC<ControlsProps> = ({
   compact,
   footer,
   footnote,
@@ -105,7 +105,7 @@ const BasicTableStory: React.FC<BasicTableControlsProps> = ({
 };
 
 export const _BasicTable: Story = {
-  render: (args: BasicTableControlsProps) => <BasicTableStory {...args} />,
+  render: (args: ControlsProps) => <BasicTableStory {...args} />,
   argTypes: {
     compact: {
       control: 'boolean',

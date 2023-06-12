@@ -1,18 +1,13 @@
 import React from 'react';
-import {
-  ArticleMeta,
-  ArticleMetaItem,
-  ArticleMetaProps,
-} from '@reykjavik/hanna-react/ArticleMeta';
+import { ArticleMeta, ArticleMetaItem } from '@reykjavik/hanna-react/ArticleMeta';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
-type Story = StoryObj<ArticleMetaProps>;
+type Story = StoryObj;
 
-const meta: Meta<ArticleMetaProps> = {
+const meta: Meta = {
   title: 'ArticleMeta',
-  component: ArticleMeta,
 };
 
 export default meta;
@@ -31,8 +26,5 @@ export const _ArticleMeta: Story = {
   render: () => <ArticleMeta items={ITEMS} />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
-  argTypes: {
-    ...disableControlProps(['items', 'small']),
-  },
+  } as StoryParameters,
 };
