@@ -6,13 +6,13 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-type RelatedLinksControlProps = {
+type ControlProps = {
   title: boolean;
 };
 
-type Story = StoryObj<RelatedLinksControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<RelatedLinksControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'RelatedLinks',
   parameters: {
     css: { tokens: 'RelatedLinks,CenterColumn' },
@@ -53,7 +53,7 @@ const LINKS: Array<RelatedLinkItem> = [
   },
 ];
 
-const RelatedLinksStory: React.FC<RelatedLinksControlProps> = ({ title }) => {
+const RelatedLinksStory: React.FC<ControlProps> = ({ title }) => {
   const displayTitle = title ? TITLE : undefined;
   const children = <RelatedLinks title={displayTitle} links={LINKS} />;
 
@@ -66,7 +66,7 @@ const RelatedLinksStory: React.FC<RelatedLinksControlProps> = ({ title }) => {
 };
 
 export const _RelatedLinks: Story = {
-  render: (args: RelatedLinksControlProps) => <RelatedLinksStory {...args} />,
+  render: (args: ControlProps) => <RelatedLinksStory {...args} />,
   argTypes: {
     title: {
       control: 'boolean',

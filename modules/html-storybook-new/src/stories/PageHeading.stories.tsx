@@ -5,20 +5,20 @@ import { Meta, StoryObj } from '@storybook/react';
 const headingLevelOptions = ['h1', 'h2'] as const;
 type HeadingLevel = (typeof headingLevelOptions)[number];
 
-type PageHeadingControlProps = {
+type ControlProps = {
   headingLevel: HeadingLevel;
   rightAligned: boolean;
   small: boolean;
 };
 
-const meta: Meta<PageHeadingControlProps> = {
+type Story = StoryObj<ControlProps>;
+
+const meta: Meta<ControlProps> = {
   title: 'text/PageHeading',
 };
 export default meta;
 
-type Story = StoryObj<PageHeadingControlProps>;
-
-const PageHeadingStory: React.FC<PageHeadingControlProps> = ({
+const PageHeadingStory: React.FC<ControlProps> = ({
   headingLevel,
   rightAligned,
   small,
@@ -34,7 +34,7 @@ const PageHeadingStory: React.FC<PageHeadingControlProps> = ({
 };
 
 export const _PageHeading: Story = {
-  render: (args: PageHeadingControlProps) => <PageHeadingStory {...args} />,
+  render: (args: ControlProps) => <PageHeadingStory {...args} />,
   argTypes: {
     headingLevel: {
       control: {

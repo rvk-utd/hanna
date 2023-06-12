@@ -17,7 +17,9 @@ type ModalControlProps = {
   open: boolean;
 };
 type ModalDynamicsControlProps = Omit<ModalControlProps, 'open'>;
-type Story = StoryObj<ModalControlProps>;
+
+type ModalStory = StoryObj<ModalControlProps>;
+type ModalDynamicsStory = StoryObj<ModalDynamicsControlProps>;
 
 const meta: Meta<ModalControlProps> = {
   title: 'Modal',
@@ -87,7 +89,7 @@ const sharedArgTypes = {
   },
 };
 
-export const _Modal: Story = {
+export const _Modal: ModalStory = {
   render: (args: ModalControlProps) => <ModalStory {...args} />,
   argTypes: {
     ...sharedArgTypes,
@@ -151,7 +153,7 @@ const ModalDynamicsStory: React.FC<ModalDynamicsControlProps> = ({
   );
 };
 
-export const _ModalDynamics: Story = {
+export const _ModalDynamics: ModalDynamicsStory = {
   render: (args: ModalDynamicsControlProps) => <ModalDynamicsStory {...args} />,
   argTypes: {
     ...sharedArgTypes,

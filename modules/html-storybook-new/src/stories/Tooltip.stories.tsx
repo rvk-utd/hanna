@@ -5,19 +5,19 @@ import { Meta, StoryObj } from '@storybook/react';
 // TODO: Use an alias for visual-tests
 import { loremRT } from '../../../visual-tests/src/test-helpers/dummyData.js';
 
-type TooltipControlProps = {
+type ControlProps = {
   iconOnly: boolean;
 };
 
-type Story = StoryObj<TooltipControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<TooltipControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Tooltip',
 };
 export default meta;
 
 export const _Tooltip: Story = {
-  render: (args: TooltipControlProps) => (
+  render: (args: ControlProps) => (
     <Tooltip label="Hover me" text={loremRT.short(true)} iconOnly={args.iconOnly} />
   ),
   argTypes: {

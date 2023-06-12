@@ -17,6 +17,7 @@ const meta: Meta = {
     css: {
       tokens: 'SearchResults,SiteSearchInput',
     },
+    controls: { hideNoControlsWarning: true },
   } as StoryParameters,
 };
 export default meta;
@@ -53,7 +54,4 @@ export const _SearchResults: Story = {
       items={items}
     />
   ),
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  },
 };

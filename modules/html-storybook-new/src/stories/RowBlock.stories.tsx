@@ -9,16 +9,16 @@ const columnOptions = ['no-background', 'gray', 'dark'] as const;
 const columnLabels = { 'no-background': 'No background', gray: 'Gray', dark: 'Dark' };
 type Column = (typeof columnOptions)[number];
 
-type RowBlockControlProps = {
+type ControlProps = {
   rightAligned: boolean;
   firstColumn: Column;
   narrowFirstColumn: boolean;
   secondColumn: Column;
   narrowSecondColumn: boolean;
 };
-type Story = StoryObj<RowBlockControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<RowBlockControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'grid/RowBlock',
 };
 export default meta;
@@ -52,7 +52,7 @@ const getBg = (column: Column) => {
   return bg === 'primary' ? 'primary' : bg === 'gray';
 };
 
-const RowBlockStory: React.FC<RowBlockControlProps> = ({
+const RowBlockStory: React.FC<ControlProps> = ({
   rightAligned,
   narrowFirstColumn,
   narrowSecondColumn,
@@ -79,7 +79,7 @@ const RowBlockStory: React.FC<RowBlockControlProps> = ({
 };
 
 export const _RowBlock: Story = {
-  render: (args: RowBlockControlProps) => <RowBlockStory {...args} />,
+  render: (args: ControlProps) => <RowBlockStory {...args} />,
   argTypes: {
     rightAligned: {
       control: 'boolean',

@@ -5,14 +5,14 @@ import { Meta, StoryObj } from '@storybook/react';
 const layoutOptions = ['left', 'wide', 'right', 'labelled'] as const;
 type Layout = (typeof layoutOptions)[number];
 
-type PageHeadingControlProps = {
+type ControlProps = {
   layout: Layout;
   smallText: boolean;
 };
 
-type Story = StoryObj<PageHeadingControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<PageHeadingControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'text/TextBlock',
 };
 export default meta;
@@ -53,7 +53,7 @@ const demoMarkup = () => {
   );
 };
 
-const TextBlockStory: React.FC<PageHeadingControlProps> = ({ layout, smallText }) => {
+const TextBlockStory: React.FC<ControlProps> = ({ layout, smallText }) => {
   const _layout = layout !== 'left' ? layout : '';
 
   const layoutProps =
@@ -74,7 +74,7 @@ const TextBlockStory: React.FC<PageHeadingControlProps> = ({ layout, smallText }
 };
 
 export const _TextBlock: Story = {
-  render: (args: PageHeadingControlProps) => <TextBlockStory {...args} />,
+  render: (args: ControlProps) => <TextBlockStory {...args} />,
   argTypes: {
     layout: {
       control: {

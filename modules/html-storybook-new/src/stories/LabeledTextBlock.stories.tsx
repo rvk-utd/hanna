@@ -5,12 +5,12 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
-type LabeledTextBlockControlProps = {
+type ControlProps = {
   button: boolean;
   wideFormat: boolean;
 };
 
-const meta: Meta<LabeledTextBlockControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'LabeledTextBlock',
   parameters: {
     css: { tokens: 'LabeledTextBlock,Attention' },
@@ -19,7 +19,7 @@ const meta: Meta<LabeledTextBlockControlProps> = {
 };
 export default meta;
 
-type Story = StoryObj<LabeledTextBlockControlProps>;
+type Story = StoryObj<ControlProps>;
 
 const LABEL_TEXT = 'LabeledTextBlock title';
 const SUMMARY_TEXT =
@@ -49,10 +49,7 @@ const buttons = [
   { href: '', label: 'See more' },
 ];
 
-const LabeledTextBlockStory: React.FC<LabeledTextBlockControlProps> = ({
-  button,
-  wideFormat,
-}) => {
+const LabeledTextBlockStory: React.FC<ControlProps> = ({ button, wideFormat }) => {
   const showButtons = button || undefined;
   const wide = wideFormat || undefined;
   return (
@@ -67,7 +64,7 @@ const LabeledTextBlockStory: React.FC<LabeledTextBlockControlProps> = ({
 };
 
 export const _LabeledTextBlock: Story = {
-  render: (args: LabeledTextBlockControlProps) => <LabeledTextBlockStory {...args} />,
+  render: (args: ControlProps) => <LabeledTextBlockStory {...args} />,
   argTypes: {
     button: {
       control: 'boolean',

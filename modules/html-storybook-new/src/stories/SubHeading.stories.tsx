@@ -8,24 +8,20 @@ type Layout = (typeof layoutOptions)[number];
 const headingLevelOptions = ['h2', 'h3'] as const;
 type HeadingLevel = (typeof headingLevelOptions)[number];
 
-type SubHeadingControlProps = {
+type ControlProps = {
   layout: Layout;
   small: boolean;
   headingLevel: HeadingLevel;
 };
 
-const meta: Meta<SubHeadingControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'text/SubHeading',
 };
 export default meta;
 
-type Story = StoryObj<SubHeadingControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const SubHeadingStory: React.FC<SubHeadingControlProps> = ({
-  layout,
-  small,
-  headingLevel,
-}) => {
+const SubHeadingStory: React.FC<ControlProps> = ({ layout, small, headingLevel }) => {
   const _layout = layout !== 'left' ? layout : undefined;
 
   const layoutProps = _layout === 'wide' ? { wide: true } : { align: _layout };
@@ -41,7 +37,7 @@ const SubHeadingStory: React.FC<SubHeadingControlProps> = ({
 };
 
 export const _SubHeading: Story = {
-  render: (args: SubHeadingControlProps) => <SubHeadingStory {...args} />,
+  render: (args: ControlProps) => <SubHeadingStory {...args} />,
   argTypes: {
     layout: {
       control: {

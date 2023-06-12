@@ -2,6 +2,8 @@ import React from 'react';
 import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 type Story = StoryObj;
 
 const meta: Meta = {
@@ -41,5 +43,5 @@ export const _Skeleton: Story = {
   render: () => <SkeletonStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
+  } as StoryParameters,
 };

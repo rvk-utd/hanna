@@ -1,17 +1,29 @@
 import React, { Fragment } from 'react';
 import { VSpacer, VSpacerProps } from '@reykjavik/hanna-react/VSpacer';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const meta: Meta<typeof VSpacer> = {
+// TODO: Refactor types below:
+const sizes = ['small', 'default', 'large', 'x-large'] as const;
+type Size = (typeof sizes)[number];
+
+const marginOptions = ['none', 'small', 'default', 'large', 'x-large'] as const;
+type Margin = (typeof marginOptions)[number];
+
+type ControlProps = {
+  wrapperAroundComponents: boolean;
+  topMargin: Margin;
+  bottomMargin: Margin;
+  combinedMarginSize: Size;
+};
+
+type Story = StoryObj<ControlProps>;
+
+const meta: Meta<ControlProps> = {
   title: 'VSpacer',
-  component: VSpacer,
 };
 export default meta;
-
-type Story = StoryObj<typeof VSpacer>;
 
 const DummyContent = () => (
   <>
@@ -31,55 +43,39 @@ const Component = (props: { highlight?: boolean }) => (
   />
 );
 
-const VSpacerStory = () => {
-  const wrapper = boolean('Wrapper around components', true) || undefined;
+const getMarginValue = (margin: Margin) => {
+  const marginOptions: Record<Margin, VSpacerProps['top']> = {
+    none: 'none',
+    small: 'small',
+    default: 'default',
+    large: 'large',
+    'x-large': 'xlarge',
+  };
+  return marginOptions[margin];
+};
 
-  const top: VSpacerProps['top'] =
-    (wrapper &&
-      optionsKnob(
-        'Top margin',
-        {
-          None: 'none',
-          Small: 'small',
-          Default: '',
-          Large: 'large',
-          'X-Large': 'xlarge',
-        },
-        '',
-        { display: 'inline-radio' }
-      )) ||
-    undefined;
+const getSizeValue = (size: Size) => {
+  const sizeOptions: Record<Size, 'small' | 'large' | 'xlarge' | 'default' | 'medium'> = {
+    small: 'small',
+    default: 'default',
+    large: 'large',
+    'x-large': 'xlarge',
+  };
+  return sizeOptions[size];
+};
 
-  const bottom: VSpacerProps['bottom'] =
-    (wrapper &&
-      optionsKnob(
-        'Bottom margin',
-        {
-          None: 'none',
-          Small: 'small',
-          Default: '',
-          Large: 'large',
-          'X-Large': 'xlarge',
-        },
-        '',
-        { display: 'inline-radio' }
-      )) ||
-    undefined;
+const VSpacerStory: React.FC<ControlProps> = ({
+  wrapperAroundComponents,
+  topMargin,
+  bottomMargin,
+  combinedMarginSize,
+}) => {
+  const wrapper = wrapperAroundComponents || undefined;
 
-  const size: VSpacerProps['size'] =
-    ((!top || !bottom) &&
-      optionsKnob(
-        wrapper ? 'Combined margin-size' : 'Margin-size',
-        {
-          Small: 'small',
-          Default: '',
-          Large: 'large',
-          'X-Large': 'xlarge',
-        },
-        '',
-        { display: 'inline-radio' }
-      )) ||
-    undefined;
+  const top = getMarginValue(topMargin);
+  const bottom = getMarginValue(bottomMargin);
+
+  const size = getSizeValue(combinedMarginSize);
 
   return (
     <Fragment key={'' + wrapper + size + top + bottom}>
@@ -99,5 +95,58 @@ const VSpacerStory = () => {
 };
 
 export const _VSpacer: Story = {
-  render: () => <VSpacerStory />,
+  render: (args: ControlProps) => <VSpacerStory {...args} />,
+  argTypes: {
+    wrapperAroundComponents: {
+      control: 'boolean',
+      name: 'Wrapper around components',
+    },
+    topMargin: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          none: 'None',
+          small: 'Small',
+          default: 'Default',
+          large: 'Large',
+          'x-large': 'X-large',
+        },
+      },
+      options: marginOptions,
+      name: 'Top margin',
+    },
+    bottomMargin: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          none: 'None',
+          small: 'Small',
+          default: 'Default',
+          large: 'Large',
+          'x-large': 'X-large',
+        },
+      },
+      options: marginOptions,
+      name: 'Bottom margin',
+    },
+    combinedMarginSize: {
+      control: {
+        type: 'inline-radio',
+        labels: {
+          small: 'Small',
+          default: 'Default',
+          large: 'Large',
+          'x-large': 'X-large',
+        },
+      },
+      options: sizes,
+      name: 'Combined margin-size',
+    },
+  },
+  args: {
+    wrapperAroundComponents: true,
+    topMargin: 'default',
+    bottomMargin: 'default',
+    combinedMarginSize: 'default',
+  },
 };

@@ -2,6 +2,8 @@ import React from 'react';
 import { PullQuote } from '@reykjavik/hanna-react/PullQuote';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta = {
   title: 'text/PullQuote',
 };
@@ -34,5 +36,5 @@ export const _PullQuote: Story = {
   render: () => <PullQuoteStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
+  } as StoryParameters,
 };

@@ -6,6 +6,8 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
+// =========================== Tabs ==========================================
+
 const htmlElementOptions = ['button', 'link'] as const;
 type HtmlElement = (typeof htmlElementOptions)[number];
 
@@ -127,7 +129,7 @@ export const _Tabs: Story = {
   },
 };
 
-// ===========================================================================
+// =========================== Tabs Anchors ==========================================
 
 type TabsAnchorsControlProps = {
   showServerSideHtml: boolean;

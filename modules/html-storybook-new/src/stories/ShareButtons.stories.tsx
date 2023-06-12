@@ -3,7 +3,7 @@ import { useIsServerSide } from '@hugsmidjan/react/hooks';
 import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
 import { Meta, StoryObj } from '@storybook/react';
 
-type ShareButtonsControlProps = Record<
+type ControlProps = Record<
   | 'customLabel'
   | 'customButtonText'
   | 'facebook'
@@ -14,14 +14,14 @@ type ShareButtonsControlProps = Record<
   boolean
 >;
 
-const meta: Meta<ShareButtonsControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'ShareButtons',
 };
 export default meta;
 
-type Story = StoryObj<ShareButtonsControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const ShareButtonsStory: React.FC<ShareButtonsControlProps> = ({
+const ShareButtonsStory: React.FC<ControlProps> = ({
   customLabel,
   customButtonText,
   facebook,
@@ -69,7 +69,7 @@ const ShareButtonsStory: React.FC<ShareButtonsControlProps> = ({
 };
 
 export const _ShareButtons: Story = {
-  render: (args: ShareButtonsControlProps) => <ShareButtonsStory {...args} />,
+  render: (args: ControlProps) => <ShareButtonsStory {...args} />,
   argTypes: {
     customLabel: {
       control: 'boolean',

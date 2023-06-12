@@ -5,12 +5,12 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { StoryParameters } from '../utils/storytypes.js';
 
+type Story = StoryObj;
+
 const meta: Meta = {
   title: 'Forms/Site Search Autocomplete',
 };
 export default meta;
-
-type Story = StoryObj;
 
 const items = range(1, 5).map((value) => `Suggestion ${value}`);
 

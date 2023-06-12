@@ -17,12 +17,12 @@ const imageCards = _imageCards.slice(2).slice(0, 4);
 
 const cssTokens = 'ArticleCards,ArticleMeta,BgBox,ButtonTertiary,Heading,Picture';
 
+type Story = StoryObj;
+
 const meta: Meta = {
   title: '_misc/reykjavik-is',
 };
 export default meta;
-
-type Story = StoryObj;
 
 const NewsListParagraphStory = () => {
   return (

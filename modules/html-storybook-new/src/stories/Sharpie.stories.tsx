@@ -2,6 +2,8 @@ import React from 'react';
 import { Sharpie } from '@reykjavik/hanna-react/Sharpie';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 type Story = StoryObj;
 
 const meta: Meta = {
@@ -26,5 +28,5 @@ export const _Sharpie: Story = {
   render: () => <SharpieStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
+  } as StoryParameters,
 };

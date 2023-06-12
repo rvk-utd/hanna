@@ -9,7 +9,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-type PageFilterControlProps = {
+type ControlProps = {
   summaryText: boolean;
   resetButton: boolean;
   footnote: boolean;
@@ -17,14 +17,14 @@ type PageFilterControlProps = {
   underlapNextSibling: boolean;
 };
 
-type Story = StoryObj<PageFilterControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<PageFilterControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'PageFilter',
 };
 export default meta;
 
-const PageFilterStory: React.FC<PageFilterControlProps> = ({
+const PageFilterStory: React.FC<ControlProps> = ({
   summaryText,
   resetButton,
   footnote,
@@ -96,7 +96,7 @@ const PageFilterStory: React.FC<PageFilterControlProps> = ({
 };
 
 export const _PageFilter: Story = {
-  render: (args: PageFilterControlProps) => <PageFilterStory {...args} />,
+  render: (args: ControlProps) => <PageFilterStory {...args} />,
   argTypes: {
     summaryText: {
       control: 'boolean',

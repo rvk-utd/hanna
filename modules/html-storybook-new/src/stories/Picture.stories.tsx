@@ -5,18 +5,18 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 
-type PictureControlProps = {
+type ControlProps = {
   customImageFocalPoint: boolean;
 };
 
-type Story = StoryObj<PictureControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<PictureControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Picture',
 };
 export default meta;
 
-const PictureStory: React.FC<PictureControlProps> = ({ customImageFocalPoint }) => {
+const PictureStory: React.FC<ControlProps> = ({ customImageFocalPoint }) => {
   const focalPoint = customImageFocalPoint ? '80% 80%' : undefined;
   return (
     <>
@@ -43,7 +43,7 @@ const PictureStory: React.FC<PictureControlProps> = ({ customImageFocalPoint }) 
 };
 
 export const _Picture: Story = {
-  render: (args: PictureControlProps) => <PictureStory {...args} />,
+  render: (args: ControlProps) => <PictureStory {...args} />,
   argTypes: {
     customImageFocalPoint: {
       control: 'boolean',

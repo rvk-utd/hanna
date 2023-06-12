@@ -5,14 +5,14 @@ import {
 } from '@reykjavik/hanna-react/ProcessOverview';
 import { Meta, StoryObj } from '@storybook/react';
 
-type ProcessOverviewControlProps = {
+type ControlProps = {
   translucentBackground: boolean;
   narrowLayout: boolean;
   attentionMessage: boolean;
 };
-type Story = StoryObj<ProcessOverviewControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<ProcessOverviewControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'ProcessOverview',
 };
 export default meta;
@@ -43,7 +43,7 @@ const ITEMS = (): Array<ProcessOverviewItemProps> => [
   },
 ];
 
-const ProcessOverviewStory: React.FC<ProcessOverviewControlProps> = ({
+const ProcessOverviewStory: React.FC<ControlProps> = ({
   translucentBackground,
   narrowLayout,
   attentionMessage,
@@ -63,7 +63,7 @@ const ProcessOverviewStory: React.FC<ProcessOverviewControlProps> = ({
 };
 
 export const _ProcessOverview: Story = {
-  render: (args: ProcessOverviewControlProps) => <ProcessOverviewStory {...args} />,
+  render: (args: ControlProps) => <ProcessOverviewStory {...args} />,
   argTypes: {
     translucentBackground: {
       control: 'boolean',

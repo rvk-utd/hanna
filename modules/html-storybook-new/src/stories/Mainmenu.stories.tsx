@@ -3,16 +3,17 @@ import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { auxiliaryPanel, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 type Story = StoryObj;
 
 const meta: Meta = {
   title: 'Layout/MainMenu',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 export default meta;
-
-// TODO: Maybe refactor to global usage
-const hideControlsWarning = { controls: { hideNoControlsWarning: true } };
 
 export const _MainMenu: Story = {
   render: () => (
@@ -23,9 +24,6 @@ export const _MainMenu: Story = {
       auxiliaryPanel={auxiliaryPanel}
     />
   ),
-  parameters: {
-    ...hideControlsWarning,
-  },
 };
 
 export const _MegaMenu: Story = {
@@ -40,9 +38,8 @@ export const _MegaMenu: Story = {
     />
   ),
   parameters: {
-    ...hideControlsWarning,
     css: {
       tokens: 'MainMenu',
     },
-  },
+  } as StoryParameters,
 };

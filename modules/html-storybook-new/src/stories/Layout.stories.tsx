@@ -11,6 +11,8 @@ import { FooterInfoStory as FooterInfo } from '../Shared/FooterInfo.js';
 import { crumbTrail, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
+// ==================== Minimal Layout ===========================================
+
 type MinimalLayoutControlProps = {
   globalAlertsContainer: boolean;
   pageHasNoMenuOrNav: boolean;
@@ -67,6 +69,16 @@ export const _MinimalLayout: MinimalLayoutStory = {
   },
 };
 
+// ==================== Layout With Content ===========================================
+
+type LayoutWithContentControlProps = {
+  globalAlerts: boolean;
+  showClientsideMarkup: boolean;
+  setOptionalDataAttr: boolean;
+};
+
+type LayoutWithContStory = StoryObj<LayoutWithContentControlProps>;
+
 const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
   globalAlerts,
   // TODO: Connect showClientsideMarkup,
@@ -110,16 +122,6 @@ const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
     </Layout>
   );
 };
-
-// ===========================================================================
-
-type LayoutWithContentControlProps = {
-  globalAlerts: boolean;
-  showClientsideMarkup: boolean;
-  setOptionalDataAttr: boolean;
-};
-
-type LayoutWithContStory = StoryObj<LayoutWithContentControlProps>;
 
 export const _LayoutWithContent: LayoutWithContStory = {
   render: (args: LayoutWithContentControlProps) => <LayoutWithContentStory {...args} />,

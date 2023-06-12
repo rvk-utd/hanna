@@ -6,6 +6,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import portraitImage from '../example_assets/NewsHero__portrait.jpg';
+import { StoryParameters } from '../utils/storytypes.js';
 
 const imageTypeOptions = ['image', 'no-image'] as const;
 type ImageType = (typeof imageTypeOptions)[number];
@@ -21,17 +22,17 @@ const blingTypeOptions = [
 ] as const;
 type BlingType = (typeof blingTypeOptions)[number];
 
-type NewsHeroControlProps = {
+type ControlProps = {
   imageType: ImageType;
   blingType: BlingType;
 };
 
-const meta: Meta<NewsHeroControlProps> = {
+type Story = StoryObj<ControlProps>;
+
+const meta: Meta<ControlProps> = {
   title: 'NewsHero',
 };
 export default meta;
-
-type Story = StoryObj<NewsHeroControlProps>;
 
 const newsHeroProps = {
   title: 'Útivistarsvæðin í borginni iða af lífi',
@@ -47,7 +48,7 @@ const getBlingType = (blingType: BlingType | undefined): NewsHeroProps['blingTyp
   return blingType;
 };
 
-const NewsHeroStory: React.FC<NewsHeroControlProps> = ({ imageType, blingType }) => {
+const NewsHeroStory: React.FC<ControlProps> = ({ imageType, blingType }) => {
   const isServerSide = useIsServerSide();
 
   const renderShareButtons = useCallback(
@@ -71,7 +72,7 @@ const NewsHeroStory: React.FC<NewsHeroControlProps> = ({ imageType, blingType })
 };
 
 export const _NewsHero: Story = {
-  render: (args: NewsHeroControlProps) => <NewsHeroStory {...args} />,
+  render: (args: ControlProps) => <NewsHeroStory {...args} />,
   argTypes: {
     imageType: {
       control: {
@@ -140,5 +141,5 @@ export const _NewsHeroExamples: Story = {
     css: {
       tokens: 'NewsHero',
     },
-  },
+  } as StoryParameters,
 };
