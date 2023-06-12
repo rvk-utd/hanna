@@ -4,18 +4,11 @@ import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof FeatureList> = {
+const meta: Meta = {
   title: 'FeatureList',
-  component: FeatureList,
-  parameters: {
-    css: {
-      tokens: 'FeatureList,TextBlock',
-    },
-  } as StoryParameters,
 };
 export default meta;
 
@@ -72,8 +65,8 @@ export const _FeatureList: Story = {
   render: () => <FeatureListStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
-  argTypes: {
-    ...disableControlProps(['title', 'features', 'startSeen']),
-  },
+    css: {
+      tokens: 'FeatureList,TextBlock',
+    },
+  } as StoryParameters,
 };

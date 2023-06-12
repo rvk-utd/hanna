@@ -11,24 +11,20 @@ type SizeVariant = (typeof sizeVariantOptions)[number];
 const headingLevelOptions = ['h2', 'h3'] as const;
 type HeadingLevel = (typeof headingLevelOptions)[number];
 
-type HeadingControlProps = {
+type ControlProps = {
   layout: Layout;
   sizeVariant: SizeVariant;
   headingLevel: HeadingLevel;
 };
 
-const meta: Meta<HeadingControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'text/Heading',
 };
 export default meta;
 
-type Story = StoryObj<HeadingControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const HeadingStory: React.FC<HeadingControlProps> = ({
-  layout,
-  sizeVariant,
-  headingLevel,
-}) => {
+const HeadingStory: React.FC<ControlProps> = ({ layout, sizeVariant, headingLevel }) => {
   const _layout = layout !== 'left' ? layout : undefined;
   const size = sizeVariant !== 'normal' ? sizeVariant : undefined;
 
@@ -43,7 +39,7 @@ const HeadingStory: React.FC<HeadingControlProps> = ({
 };
 
 export const _Heading: Story = {
-  render: (args: HeadingControlProps) => <HeadingStory {...args} />,
+  render: (args: ControlProps) => <HeadingStory {...args} />,
   argTypes: {
     layout: {
       control: {

@@ -1,17 +1,18 @@
 import React, { Fragment } from 'react';
-import { HeroBlock, HeroBlockProps } from '@reykjavik/hanna-react/HeroBlock';
-import { illustrations } from '@reykjavik/hanna-utils/assets';
+import { HeroBlock } from '@reykjavik/hanna-react/HeroBlock';
+import { Illustration, illustrations } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
+type ControlProps = {
+  illustration: Illustration;
+};
 
-const meta: Meta<HeroBlockProps> = {
+const meta: Meta<ControlProps> = {
   title: 'HeroBlock',
-  component: HeroBlock,
 };
 export default meta;
 
-type Story = StoryObj<HeroBlockProps>;
+type Story = StoryObj<ControlProps>;
 
 const TITLE_TEXT = 'HeroBlock title';
 const SUMMARY_TEXT = 'HeroBlock summary text, lorem ipsum dolor sit ament foobar.';
@@ -32,8 +33,8 @@ const SUMMARY_HTML = () => (
   </>
 );
 
-const HeroBlockStory: React.FC<HeroBlockProps> = ({ illustration }) => {
-  const selectedIllustration = illustration ?? illustrations[0];
+const HeroBlockStory: React.FC<ControlProps> = ({ illustration }) => {
+  const selectedIllustration = illustration;
 
   return (
     <HeroBlock
@@ -96,25 +97,14 @@ const HeroBlockExamplesStory = () => {
   );
 };
 
-const disabledControlProps = [
-  'title',
-  'summary',
-  'primaryButton',
-  'secondaryButton',
-  'image',
-  'startSeen',
-];
-const disabledExControlProps = disabledControlProps.concat(['illustration']);
-
 export const _HeroBlock: Story = {
-  render: (args: HeroBlockProps) => <HeroBlockStory {...args} />,
+  render: (args: ControlProps) => <HeroBlockStory {...args} />,
   argTypes: {
     illustration: {
       control: 'select',
       options: illustrations,
       name: 'Illustration',
     },
-    ...disableControlProps(disabledControlProps),
   },
   args: {
     illustration: illustrations[0],
@@ -123,9 +113,6 @@ export const _HeroBlock: Story = {
 
 export const _HeroBlockExamples: Story = {
   render: () => <HeroBlockExamplesStory />,
-  argTypes: {
-    ...disableControlProps(disabledExControlProps),
-  },
   parameters: {
     css: {
       tokens: 'HeroBlock',

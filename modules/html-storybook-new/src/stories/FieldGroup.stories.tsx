@@ -2,16 +2,16 @@ import React from 'react';
 import { FieldGroup } from '@reykjavik/hanna-react/FieldGroup';
 import { Meta, StoryObj } from '@storybook/react';
 
-type FieldGroupControlProps = Record<'smallLegend' | 'disabled', boolean>;
+type ControlProps = Record<'smallLegend' | 'disabled', boolean>;
 
-type Story = StoryObj<FieldGroupControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<FieldGroupControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Forms/FieldGroup',
 };
 export default meta;
 
-const FieldGroupStory: React.FC<FieldGroupControlProps> = ({ smallLegend, disabled }) => {
+const FieldGroupStory: React.FC<ControlProps> = ({ smallLegend, disabled }) => {
   return (
     <FieldGroup legend="Group headline" small={smallLegend} disabled={disabled}>
       <p>...FormFields and other content goes here...</p>
@@ -20,7 +20,7 @@ const FieldGroupStory: React.FC<FieldGroupControlProps> = ({ smallLegend, disabl
 };
 
 export const _FieldGroup: Story = {
-  render: (args: FieldGroupControlProps) => <FieldGroupStory {...args} />,
+  render: (args: ControlProps) => <FieldGroupStory {...args} />,
   argTypes: {
     smallLegend: {
       control: 'boolean',

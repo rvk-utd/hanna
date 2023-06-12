@@ -1,16 +1,17 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import { GridBlocks, GridBlocksProps } from '@reykjavik/hanna-react/GridBlocks';
+import { GridBlocks } from '@reykjavik/hanna-react/GridBlocks';
 import { efnistakn } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
+type ControlProps = {
+  twoColumns: boolean;
+};
 
-type Story = StoryObj<GridBlocksProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<GridBlocksProps> = {
+const meta: Meta<ControlProps> = {
   title: 'GridBlocks',
-  component: GridBlocks,
 };
 export default meta;
 
@@ -32,20 +33,19 @@ const blocks = range(1, 5).map((n) => ({
   ].slice(0, (n + 1) % 6),
 }));
 
-const GridBlocksStory: React.FC<GridBlocksProps> = ({ twocol }) => {
-  return <GridBlocks blocks={blocks} twocol={twocol} startSeen />;
+const GridBlocksStory: React.FC<ControlProps> = ({ twoColumns }) => {
+  return <GridBlocks blocks={blocks} twocol={twoColumns} startSeen />;
 };
 
 export const _GridBlocks: Story = {
-  render: (args: GridBlocksProps) => <GridBlocksStory {...args} />,
+  render: (args: ControlProps) => <GridBlocksStory {...args} />,
   argTypes: {
-    twocol: {
+    twoColumns: {
       control: 'boolean',
       name: 'Two columns',
     },
-    ...disableControlProps(['blocks', 'startSeen']),
   },
   args: {
-    twocol: false,
+    twoColumns: false,
   },
 };

@@ -3,12 +3,12 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { FooterInfoStory } from '../Shared/FooterInfo.js';
 
+type Story = StoryObj;
+
 const meta: Meta = {
   title: 'Layout/FooterInfo',
 };
 export default meta;
-
-type Story = StoryObj;
 
 export const _FooterInfo: Story = {
   render: () => <FooterInfoStory />,
