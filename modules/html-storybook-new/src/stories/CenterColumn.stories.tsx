@@ -5,14 +5,12 @@ import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 type Story = StoryObj;
 
 const meta: Meta = {
   title: 'grid/CenterColumn',
-  parameters: {
-    css: { tokens: 'CenterColumn,PageHeading,TextBlock' },
-  },
 };
 export default meta;
 
@@ -52,5 +50,6 @@ export const _CenterColumn: Story = {
   render: () => <CenterColumnStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-  },
+    css: { tokens: 'CenterColumn,PageHeading,TextBlock' },
+  } as StoryParameters,
 };

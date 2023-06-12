@@ -1,20 +1,22 @@
 import React from 'react';
-import { ContactBubble, ContactBubbleProps } from '@reykjavik/hanna-react/ContactBubble';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { ContactBubbleStory } from '../Shared/ContactBubble.js';
-import { disableControlProps } from '../utils/disableControlTypes.js';
 
-const meta: Meta<ContactBubbleProps> = {
+type ControlProps = {
+  ssr: boolean;
+  alwaysShow: boolean;
+};
+
+type Story = StoryObj<ControlProps>;
+
+const meta: Meta<ControlProps> = {
   title: 'ContactBubble',
-  component: ContactBubble,
 };
 export default meta;
 
-type Story = StoryObj<ContactBubbleProps>;
-
 export const _ContactBubble: Story = {
-  render: (args: ContactBubbleProps) => <ContactBubbleStory {...args} />,
+  render: (args: ControlProps) => <ContactBubbleStory {...args} />,
   argTypes: {
     ssr: {
       control: 'boolean',
@@ -24,7 +26,6 @@ export const _ContactBubble: Story = {
       control: 'boolean',
       name: 'Set optional "alwaysShow" data-attribute',
     },
-    ...disableControlProps(['title', 'links', 'texts', 'lang', 'open', 'onToggle']),
   },
   args: {
     ssr: false,

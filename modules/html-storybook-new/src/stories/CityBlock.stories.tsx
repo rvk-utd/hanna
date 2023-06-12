@@ -16,16 +16,16 @@ type Align = (typeof alignOptions)[number];
 const linksOptions = [0, 1, 2, 3, 4] as const;
 type Links = (typeof linksOptions)[number];
 
-type CityBlockControlProps = {
+type ControlProps = {
   blocktype: Blocktype;
   align: Align;
   links: Links;
   summaryText: boolean;
 };
 
-type Story = StoryObj<CityBlockControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<CityBlockControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'CityBlock',
 };
 export default meta;
@@ -36,7 +36,7 @@ const IMAGES = {
   largeimage: { image: { src: imageLarge, altText: 'Alt text!' } },
 };
 
-const CityBlockStory: React.FC<CityBlockControlProps> = ({
+const CityBlockStory: React.FC<ControlProps> = ({
   blocktype,
   align,
   links,
@@ -95,7 +95,7 @@ const CityBlockExamplesStory = () => {
 };
 
 export const _CityBlock: Story = {
-  render: (args: CityBlockControlProps) => <CityBlockStory {...args} />,
+  render: (args: ControlProps) => <CityBlockStory {...args} />,
   argTypes: {
     blocktype: {
       control: 'inline-radio',

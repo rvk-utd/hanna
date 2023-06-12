@@ -6,15 +6,14 @@ import {
 import { Meta, StoryObj } from '@storybook/react';
 
 import contentImageUrl from '../example_assets/Gallery--landscape--large.jpg';
-import { disableControlProps } from '../utils/disableControlTypes.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
-const meta: Meta<typeof ContentArticle> = {
+const meta: Meta = {
   title: 'ContentArticle',
-  component: ContentArticle,
 };
 export default meta;
 
-type Story = StoryObj<typeof ContentArticle>;
+type Story = StoryObj;
 
 const demoMarkup = () => {
   return (
@@ -95,15 +94,9 @@ export const _ContentArticle: Story = {
       startSeen
     />
   ),
-  argTypes: {
-    ...disableControlProps([
-      'meta',
-      'headline',
-      'headlineTag',
-      'topImage',
-      'body',
-      'relatedLinks',
-      'startSeen',
-    ]),
-  },
+  parameters: {
+    controls: {
+      hideNoControlsWarning: true,
+    },
+  } as StoryParameters,
 };

@@ -10,7 +10,7 @@ type Required = (typeof requiredOptions)[number];
 const languageOptions = ['is', 'en'] as const;
 type Language = (typeof languageOptions)[number];
 
-type DatepickerControlProps = {
+type ControlProps = {
   small: boolean;
   disabled: boolean;
   readOnly: boolean;
@@ -24,7 +24,7 @@ type DatepickerControlProps = {
   minimumNights: number;
 };
 
-type Story = StoryObj<DatepickerControlProps>;
+type Story = StoryObj<ControlProps>;
 
 const meta: Meta = {
   title: 'Forms/Datepicker',
@@ -34,7 +34,7 @@ export default meta;
 const dateFormat = 'd. MMM yyyy';
 const placeholder = dateFormat.toLowerCase();
 
-const DatepickerStory: React.FC<DatepickerControlProps> = ({
+const DatepickerStory: React.FC<ControlProps> = ({
   small,
   disabled,
   readOnly,
@@ -114,7 +114,7 @@ const DatepickerStory: React.FC<DatepickerControlProps> = ({
 };
 
 export const _Datepicker: Story = {
-  render: (args: DatepickerControlProps) => <DatepickerStory {...args} />,
+  render: (args: ControlProps) => <DatepickerStory {...args} />,
   argTypes: {
     small: {
       control: 'boolean',
