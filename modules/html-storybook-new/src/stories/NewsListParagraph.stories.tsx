@@ -11,6 +11,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import { imageCards as _imageCards } from '../utils/_dummyData.js';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 const imageCards = _imageCards.slice(2).slice(0, 4);
 
@@ -116,5 +117,6 @@ export const _NewsListParagraph: Story = {
   render: () => <NewsListParagraphStory />,
   parameters: {
     css: { tokens: cssTokens },
-  },
+    controls: { hideNoControlsWarning: true },
+  } as StoryParameters,
 };

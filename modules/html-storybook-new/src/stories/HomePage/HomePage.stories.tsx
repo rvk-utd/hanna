@@ -3,6 +3,7 @@ import { getCssBundleUrl } from '@reykjavik/hanna-css';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../../utils/HiddenTrigger.js';
+import { StoryParameters } from '../../utils/storytypes.js';
 
 import { SearchHeroParagraph } from './_SearchHeroParagraph.js';
 
@@ -13,7 +14,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const SearchHeroParagraphComponent = () => {
+const SearchHeroParagraphStory = () => {
   const cssTokens = (
     SearchHeroParagraph.cssTokens_server || SearchHeroParagraph.cssTokens
   ).replace(/,$/, '');
@@ -30,8 +31,9 @@ const SearchHeroParagraphComponent = () => {
 };
 
 export const _SearchHeroParagraph: Story = {
-  render: () => <SearchHeroParagraphComponent />,
+  render: () => SearchHeroParagraphStory(),
   parameters: {
     css: { tokens: SearchHeroParagraph.cssTokens },
-  },
+    controls: { hideNoControlsWarning: true },
+  } as StoryParameters,
 };

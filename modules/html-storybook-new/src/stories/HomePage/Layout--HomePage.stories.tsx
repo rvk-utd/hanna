@@ -13,14 +13,14 @@ import { imageCards } from '../../utils/_dummyData.js';
 
 import { SearchHeroParagraph } from './_SearchHeroParagraph.js';
 
+type Story = StoryObj;
+
 const meta: Meta = {
   title: '_misc/HomePage',
 };
 export default meta;
 
-type Story = StoryObj;
-
-const HomePageComponent = () => {
+const HomePageStory = () => {
   return (
     <>
       <SearchHeroParagraph />
@@ -65,12 +65,13 @@ const HomePageComponent = () => {
 };
 
 export const _HomePage: Story = {
-  render: () => <HomePageComponent />,
+  render: () => HomePageStory(),
   parameters: {
     css: {
       tokens:
         'Layout--HomePage,GridBlocks,ExtraLinks,ArticleCarousel,MiniMetrics,ImageCards,' +
         SearchHeroParagraph.cssTokens,
+      controls: { hideNoControlsWarning: true },
     },
   },
 };

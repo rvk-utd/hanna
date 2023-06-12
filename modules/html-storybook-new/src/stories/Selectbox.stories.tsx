@@ -23,6 +23,11 @@ type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/Selectbox',
+  parameters: {
+    css: {
+      tokens: 'Selectbox',
+    },
+  },
 };
 export default meta;
 
