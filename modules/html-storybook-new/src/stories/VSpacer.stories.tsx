@@ -4,11 +4,10 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-// TODO: Refactor types below:
-const sizes = ['small', 'default', 'large', 'x-large'] as const;
-type Size = (typeof sizes)[number];
+const sizeOptions = ['small', 'default', 'large', 'x-large'] as const;
+type Size = (typeof sizeOptions)[number];
 
-const marginOptions = ['none', 'small', 'default', 'large', 'x-large'] as const;
+const marginOptions = ['none', ...sizeOptions] as const;
 type Margin = (typeof marginOptions)[number];
 
 type ControlProps = {
@@ -139,7 +138,7 @@ export const _VSpacer: Story = {
           'x-large': 'X-large',
         },
       },
-      options: sizes,
+      options: sizeOptions,
       name: 'Combined margin-size',
     },
   },

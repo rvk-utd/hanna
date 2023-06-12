@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { WizardStepper, WizardStepperStep } from '@reykjavik/hanna-react/WizardStepper';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const stepsOptions = [
   'none',
   'intro',
@@ -13,12 +15,12 @@ const stepsOptions = [
 ] as const;
 type SelectedStep = (typeof stepsOptions)[number];
 
-type WizardStepperControlProps = {
+type ControlProps = {
   selectedStep: SelectedStep;
 };
-type Story = StoryObj<WizardStepperControlProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<WizardStepperControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'WizardStepper',
 };
 export default meta;
@@ -71,7 +73,7 @@ const getActiveStep = (activeStep: SelectedStep) => {
   return stepNumbers[activeStep];
 };
 
-const WizardStepperStory: React.FC<WizardStepperControlProps> = ({ selectedStep }) => {
+const WizardStepperStory: React.FC<ControlProps> = ({ selectedStep }) => {
   let activeStepFromKnob: number | undefined = getActiveStep(selectedStep);
 
   if (isNaN(activeStepFromKnob)) {
@@ -96,10 +98,7 @@ const WizardStepperStory: React.FC<WizardStepperControlProps> = ({ selectedStep 
 };
 
 export const _WizardStepper: Story = {
-  render: (args: WizardStepperControlProps) => <WizardStepperStory {...args} />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  },
+  render: (args: ControlProps) => <WizardStepperStory {...args} />,
   argTypes: {
     selectedStep: {
       options: stepsOptions,
@@ -110,4 +109,7 @@ export const _WizardStepper: Story = {
   args: {
     selectedStep: 'step1',
   },
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  } as StoryParameters,
 };

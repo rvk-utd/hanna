@@ -24,6 +24,19 @@ const meta: Meta<ControlProps> = {
 };
 export default meta;
 
+const argTypes = {
+  globalAlertsContainer: {
+    control: 'boolean',
+    name: 'Global alerts container',
+  },
+};
+
+const args: ControlProps = {
+  globalAlertsContainer: false,
+};
+
+// =================== Minimal Wizard Layout ========================================
+
 const MinimalWizardLayoutStory: React.FC<ControlProps> = ({ globalAlertsContainer }) => {
   // TODO: Check if 'globalAlertsContainer' is connected
   const globalAlerts = globalAlertsContainer;
@@ -32,15 +45,8 @@ const MinimalWizardLayoutStory: React.FC<ControlProps> = ({ globalAlertsContaine
 
 export const _MinimalWizardLayout: Story = {
   render: (args: ControlProps) => <MinimalWizardLayoutStory {...args} />,
-  argTypes: {
-    globalAlertsContainer: {
-      control: 'boolean',
-      name: 'Global alerts container',
-    },
-  },
-  args: {
-    globalAlertsContainer: false,
-  },
+  argTypes: argTypes,
+  args: args,
   parameters: {
     css: {
       tokens: 'WizardLayout',
@@ -66,7 +72,7 @@ const steps = [
   },
 ];
 
-// -----------------------------------------------------------------------------------
+// =================== Wizard Layout With Content ========================================
 
 const WizardLayoutWithContentStory: React.FC<ControlProps> = ({
   globalAlertsContainer,
@@ -101,16 +107,8 @@ const WizardLayoutWithContentStory: React.FC<ControlProps> = ({
 
 export const _WizardLayoutWithContent: Story = {
   render: (args: ControlProps) => <WizardLayoutWithContentStory {...args} />,
-  // TODO: Refactor argTypes and args (fix duplication)
-  argTypes: {
-    globalAlertsContainer: {
-      control: 'boolean',
-      name: 'Global alerts container',
-    },
-  },
-  args: {
-    globalAlertsContainer: false,
-  },
+  argTypes: argTypes,
+  args: args,
   parameters: {
     css: {
       tokens: 'WizardLayout-full',
