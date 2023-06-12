@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react';
-import { Alert, AlertProps } from '@reykjavik/hanna-react/Alert';
+import { Alert } from '@reykjavik/hanna-react/Alert';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { disableControlProps } from '../utils/disableControlTypes.js';
+type ControlProps = {
+  closable: boolean;
+  ssr: boolean;
+};
 
-type Story = StoryObj<AlertProps>;
+type Story = StoryObj<ControlProps>;
 
-const meta: Meta<AlertProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Alert',
-  component: Alert,
 };
 export default meta;
 
@@ -42,7 +44,7 @@ const alertDemos = {
   ),
 };
 
-const AlertStory: React.FC<AlertProps> = ({ closable, ssr }) => {
+const AlertStory: React.FC<ControlProps> = ({ closable, ssr }) => {
   const closeLink = closable && ssr;
   return (
     <Fragment key={'' + closable + closeLink}>
@@ -61,7 +63,7 @@ const AlertStory: React.FC<AlertProps> = ({ closable, ssr }) => {
 };
 
 export const _Alert: Story = {
-  render: (args: AlertProps) => <AlertStory {...args} />,
+  render: (args: ControlProps) => <AlertStory {...args} />,
   argTypes: {
     closable: {
       control: 'boolean',
@@ -71,16 +73,6 @@ export const _Alert: Story = {
       control: 'boolean',
       name: 'Server-side close buttons',
     },
-    ...disableControlProps([
-      'type',
-      'childrenHTML',
-      'closeUrl',
-      'texts',
-      'lang',
-      'autoClose',
-      'onClose',
-      'onClosed',
-    ]),
   },
   args: {
     closable: true,
