@@ -17,9 +17,9 @@ const preview: Preview = {
     html: {
       root: '#story-root',
       prettier: {
-        tabWidth: 4,
+        tabWidth: 3,
         useTabs: false,
-        printWidth: 140,
+        printWidth: 75,
         htmlWhitespaceSensitivity: 'ignore',
       },
     },
