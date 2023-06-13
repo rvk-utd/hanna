@@ -19,7 +19,8 @@ const preview: Preview = {
       prettier: {
         tabWidth: 4,
         useTabs: false,
-        htmlWhitespaceSensitivity: 'strict',
+        printWidth: 140,
+        htmlWhitespaceSensitivity: 'ignore',
       },
     },
     controls: {
