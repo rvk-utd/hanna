@@ -6,6 +6,12 @@ import { StoryParameters } from '../utils/storytypes.js';
 
 const meta: Meta = {
   title: 'text/PullQuote',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -34,7 +40,4 @@ const PullQuoteStory = () => {
 
 export const _PullQuote: Story = {
   render: () => <PullQuoteStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
 };
