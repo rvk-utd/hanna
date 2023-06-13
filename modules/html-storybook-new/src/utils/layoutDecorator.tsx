@@ -79,7 +79,6 @@ export const layoutDecorator = (story: () => ReactElement, context: StoryContext
     >
       <div className="Layout__content">
         <div
-          id="Layout__main"
           className="Layout__main"
           style={{ paddingTop: '30px', paddingBottom: '30px' }}
         >

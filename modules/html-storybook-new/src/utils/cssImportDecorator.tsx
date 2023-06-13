@@ -17,7 +17,7 @@ export const cssImportDecorator = (story: () => ReactElement, context: StoryCont
   return (
     <>
       <link rel="stylesheet" href={cssUrl} />
-      {story()}
+      <div id="story-root">{story()}</div>
     </>
   );
 };
