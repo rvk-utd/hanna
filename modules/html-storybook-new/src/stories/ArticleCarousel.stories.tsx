@@ -8,12 +8,15 @@ type Story = StoryObj;
 
 const meta: Meta = {
   title: 'ArticleCarousel',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
 export const _ArticleCarousel: Story = {
   render: () => <ArticleCarouselStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
 };

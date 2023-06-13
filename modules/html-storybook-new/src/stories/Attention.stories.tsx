@@ -3,11 +3,18 @@ import { Attention } from '@reykjavik/hanna-react/Attention';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 type Story = StoryObj;
 
 const meta: Meta = {
   title: 'Attention',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -35,7 +42,4 @@ const AttentionStory = () => {
 
 export const _Attention: Story = {
   render: () => <AttentionStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  },
 };
