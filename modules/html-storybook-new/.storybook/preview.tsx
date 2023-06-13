@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
 import { decorators } from '../src/utils/decorators';
+import { customViewports } from '../src/utils/customViewPorts';
 
 const preview: Preview = {
   decorators: decorators,
@@ -11,6 +12,7 @@ const preview: Preview = {
         disable: true,
       },
     },
+    viewport: { viewports: customViewports },
     actions: { argTypesRegex: '^on[A-Z].*' },
     html: {
       root: '#story-root',
