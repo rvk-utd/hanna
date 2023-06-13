@@ -75,6 +75,7 @@ const VSpacerStory: React.FC<ControlProps> = ({
   const bottom = getMarginValue(bottomMargin);
 
   const size = getSizeValue(combinedMarginSize);
+  // TODO: Look at size!!
 
   return (
     <Fragment key={'' + wrapper + size + top + bottom}>
