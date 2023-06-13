@@ -2,6 +2,7 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { ContactBubbleStory } from '../Shared/ContactBubble.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 type ControlProps = {
   ssr: boolean;
@@ -12,6 +13,11 @@ type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'ContactBubble',
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

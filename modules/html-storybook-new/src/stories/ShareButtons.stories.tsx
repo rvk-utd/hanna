@@ -3,6 +3,8 @@ import { useIsServerSide } from '@hugsmidjan/react/hooks';
 import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 type ControlProps = Record<
   | 'customLabel'
   | 'customButtonText'
@@ -16,6 +18,11 @@ type ControlProps = Record<
 
 const meta: Meta<ControlProps> = {
   title: 'ShareButtons',
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

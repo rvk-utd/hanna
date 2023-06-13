@@ -22,6 +22,12 @@ type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'WizardStepper',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -120,7 +126,4 @@ export const _WizardStepper: Story = {
   args: {
     selectedStep: 'step1',
   },
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
 };

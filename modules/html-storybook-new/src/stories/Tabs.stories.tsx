@@ -5,6 +5,7 @@ import { SSRSupport, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 // =========================== Tabs ==========================================
 
@@ -23,6 +24,11 @@ type Story = StoryObj<TabsControlProps>;
 
 const meta: Meta<TabsControlProps> = {
   title: 'Tabs',
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -215,7 +221,7 @@ export const _TabsAnchors: TabsAnchorsStory = {
     css: {
       tokens: 'Tabs',
     },
-  },
+  } as StoryParameters,
   argTypes: {
     showServerSideHtml: {
       control: 'boolean',

@@ -8,6 +8,12 @@ type Story = StoryObj;
 
 const meta: Meta = {
   title: 'Skeleton',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -41,7 +47,4 @@ const SkeletonStory = () => {
 
 export const _Skeleton: Story = {
   render: () => <SkeletonStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
 };

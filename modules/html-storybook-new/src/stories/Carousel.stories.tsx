@@ -2,8 +2,16 @@ import React from 'react';
 import { Carousel } from '@reykjavik/hanna-react/Carousel';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta = {
   title: 'Carousel',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -48,7 +56,4 @@ const CarouselStory = () => {
 
 export const _Carousel: Story = {
   render: () => <CarouselStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  },
 };

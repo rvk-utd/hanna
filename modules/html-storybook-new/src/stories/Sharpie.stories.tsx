@@ -8,6 +8,12 @@ type Story = StoryObj;
 
 const meta: Meta = {
   title: 'Sharpie',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -26,7 +32,4 @@ const SharpieStory = () => {
 
 export const _Sharpie: Story = {
   render: () => <SharpieStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
 };

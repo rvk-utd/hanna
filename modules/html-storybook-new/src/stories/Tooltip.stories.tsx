@@ -4,6 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // TODO: Use an alias for visual-tests
 import { loremRT } from '../../../visual-tests/src/test-helpers/dummyData.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 type ControlProps = {
   iconOnly: boolean;
@@ -13,6 +14,11 @@ type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'Tooltip',
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

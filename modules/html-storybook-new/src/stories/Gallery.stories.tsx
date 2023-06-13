@@ -6,11 +6,18 @@ import landscapeImage from '../example_assets/Gallery--landscape.jpg';
 import landscapeImageLarge from '../example_assets/Gallery--landscape--large.jpg';
 import portraitImage from '../example_assets/Gallery--portrait.jpg';
 import portraitImageLarge from '../example_assets/Gallery--portrait--large.jpg';
+import { StoryParameters } from '../utils/storytypes.js';
 
 type Story = StoryObj;
 
 const meta: Meta = {
   title: 'Gallery',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -45,7 +52,4 @@ const galleryData: Array<GalleryItemProps> = [
 
 export const _Gallery: Story = {
   render: () => <Gallery items={galleryData} startSeen />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  },
 };

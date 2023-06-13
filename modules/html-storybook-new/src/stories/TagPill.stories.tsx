@@ -6,6 +6,12 @@ import { StoryParameters } from '../utils/storytypes.js';
 
 const meta: Meta = {
   title: 'TagPill',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -70,7 +76,4 @@ const TagPillStory = () => {
 
 export const _TagPill: Story = {
   render: () => <TagPillStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
 };
