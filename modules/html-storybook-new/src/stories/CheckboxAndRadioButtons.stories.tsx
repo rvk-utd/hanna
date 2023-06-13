@@ -16,6 +16,8 @@ const meta: Meta = {
 };
 export default meta;
 
+// ==================== CheckboxButton ===========================================
+
 const CheckboxButtonStory: React.FC<CheckboxButtonControlProps> = ({
   subText,
   required,
@@ -67,7 +69,7 @@ export const _CheckboxButton: CheckboxButtonStory = {
     },
     disabled: {
       control: 'boolean',
-      name: 'Error message',
+      name: 'Disabled',
     },
   },
   args: {
@@ -188,6 +190,8 @@ const getProps = (args: CheckboxAndRadioButtonsGroupControlProps) => {
   };
 };
 
+// ==================== Checkbox Buttons Group =======================================
+
 export const _CheckboxButtonsGroup: CheckboxAndRadioButtonsGroupStory = {
   render: (args: CheckboxAndRadioButtonsGroupControlProps) => (
     <CheckboxButtonsGroup
@@ -208,7 +212,7 @@ export const _CheckboxButtonsGroup: CheckboxAndRadioButtonsGroupStory = {
   },
 };
 
-// ---------------------------------------------------------------------------
+// ==================== Radio Buttons Group =======================================
 
 export const _RadioButtonsGroup: CheckboxAndRadioButtonsGroupStory = {
   render: (args: CheckboxAndRadioButtonsGroupControlProps) => (
