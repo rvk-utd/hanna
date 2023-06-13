@@ -5,6 +5,12 @@ import { decorators } from '../src/utils/decorators';
 const preview: Preview = {
   decorators: decorators,
   parameters: {
+    backgrounds: {
+      disable: true,
+      grid: {
+        disable: true,
+      },
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     html: {
       root: '#story-root',
