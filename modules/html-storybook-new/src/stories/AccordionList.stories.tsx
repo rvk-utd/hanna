@@ -12,6 +12,10 @@ type AccordionListStylingStory = StoryObj;
 
 const meta: Meta<ControlsProps> = {
   title: 'AccordionList',
+  parameters: {
+    knobs: { disabled: false },
+    viewport: { defaultViewport: 'responsive' },
+  } as StoryParameters,
 };
 
 export default meta;

@@ -7,6 +7,7 @@ const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     html: {
+      root: '#Layout__main',
       prettier: {
         tabWidth: 4,
         useTabs: false,
