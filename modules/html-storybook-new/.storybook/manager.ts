@@ -6,5 +6,8 @@ import { addons, API } from '@storybook/manager-api';
 addons.setConfig({
   toolbar: {
     zoom: { hidden: true },
+    fullscreen: { hidden: true },
+    measure: { hidden: true },
+    remount: { hidden: true },
   },
 });
