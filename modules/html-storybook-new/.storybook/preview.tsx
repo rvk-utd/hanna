@@ -12,7 +12,7 @@ const preview: Preview = {
         disable: true,
       },
     },
-    viewport: { viewports: customViewports },
+    viewport: { viewports: customViewports, defaultViewport: 'wide' },
     actions: { argTypesRegex: '^on[A-Z].*' },
     html: {
       root: '#story-root',
