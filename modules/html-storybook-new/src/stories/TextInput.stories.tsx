@@ -163,20 +163,12 @@ const args: ControlProps = {
 
 export const ServerTextInput: Story = {
   render: (args: ControlProps) => makeStory(true, args),
-  argTypes: {
-    ...argTypes,
-  },
-  args: {
-    ...args,
-  },
+  argTypes: argTypes,
+  args: args,
 };
 
 export const ClientTextInput: Story = {
   render: (args: ControlProps) => makeStory(false, args),
-  argTypes: {
-    ...argTypes,
-  },
-  args: {
-    ...args,
-  },
+  argTypes: argTypes,
+  args: args,
 };
