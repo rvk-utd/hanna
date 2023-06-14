@@ -22,6 +22,12 @@ type Story = StoryObj<ControlProps>;
 
 const meta: Meta = {
   title: 'buttons/Buttons',
+  parameters: {
+    css: { tokens: 'ButtonPrimary,ButtonSecondary,ButtonTertiary' },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -147,7 +153,4 @@ export const _Buttons: Story = {
     size: 'normal',
     variant: 'normal',
   },
-  parameters: {
-    css: { tokens: 'ButtonPrimary,ButtonSecondary,ButtonTertiary' },
-  } as StoryParameters,
 };

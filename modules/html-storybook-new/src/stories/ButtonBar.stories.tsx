@@ -5,6 +5,8 @@ import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 type ButtonBarControlProps = {
   rightAlignedButtons: boolean;
 };
@@ -14,7 +16,10 @@ const meta: Meta<ButtonBarControlProps> = {
   title: 'buttons/ButtonBar',
   parameters: {
     css: { tokens: 'ButtonBar,ButtonPrimary,ButtonSecondary,ButtonTertiary' },
-  },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

@@ -9,6 +9,12 @@ type Story = StoryObj;
 
 const meta: Meta = {
   title: 'Forms/Site Search Autocomplete',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -40,7 +46,4 @@ const SiteSearchAutocompleteStory = () => {
 
 export const _SiteSearchAutocomplete: Story = {
   render: () => <SiteSearchAutocompleteStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
 };

@@ -4,6 +4,8 @@ import { CheckboxButtonsGroup } from '@reykjavik/hanna-react/CheckboxButtonsGrou
 import { RadioButtonsGroup } from '@reykjavik/hanna-react/RadioButtonsGroup';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 type CheckboxButtonControlProps = Record<
   'subText' | 'required' | 'invalid' | 'errorMessage' | 'disabled',
   boolean
@@ -13,6 +15,12 @@ type CheckboxButtonStory = StoryObj<CheckboxButtonControlProps>;
 
 const meta: Meta = {
   title: 'Forms/Checkbox & Radio Buttons',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

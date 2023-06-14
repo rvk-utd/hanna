@@ -28,6 +28,9 @@ const meta: Meta<ControlProps> = {
   title: 'Forms/TextInput',
   parameters: {
     css: { tokens: 'TextInput' },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
   } as StoryParameters,
 };
 export default meta;

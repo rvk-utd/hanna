@@ -2,12 +2,19 @@ import React from 'react';
 import { FieldGroup } from '@reykjavik/hanna-react/FieldGroup';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 type ControlProps = Record<'smallLegend' | 'disabled', boolean>;
 
 type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/FieldGroup',
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

@@ -2,8 +2,16 @@ import React from 'react';
 import { ButtonBack } from '@reykjavik/hanna-react/ButtonBack';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { StoryParameters } from '../utils/storytypes.js';
+
 const meta: Meta = {
   title: 'buttons/ButtonBack',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -27,7 +35,4 @@ const ButtonBackStory = () => {
 export const _ButtonBack: Story = {
   render: () => <ButtonBackStory />,
   name: 'ButtonBack',
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  },
 };

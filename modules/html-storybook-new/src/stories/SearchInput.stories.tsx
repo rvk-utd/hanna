@@ -3,6 +3,7 @@ import { SearchInput } from '@reykjavik/hanna-react/SearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { getFormFieldKnobsNew } from '../utils/knobs.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
 type Required = (typeof requiredOptions)[number];
@@ -22,6 +23,11 @@ type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/SearchInput',
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

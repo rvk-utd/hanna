@@ -3,6 +3,7 @@ import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { getFormFieldKnobsNew } from '../utils/knobs.js';
+import { StoryParameters } from '../utils/storytypes.js';
 
 // TODO: Control props do not work (and not in Prod either)
 
@@ -21,6 +22,11 @@ type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/SiteSearchInput',
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  } as StoryParameters,
 };
 export default meta;
 

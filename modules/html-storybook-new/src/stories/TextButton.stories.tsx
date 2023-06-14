@@ -8,6 +8,11 @@ type Story = StoryObj;
 
 const meta: Meta = {
   title: 'buttons/TextButtons',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    viewport: { defaultViewport: 'responsive' },
+    css: { tokens: 'TextButton' },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -26,9 +31,4 @@ const TextButtonsStory = () => {
 
 export const _TextButtons: Story = {
   render: () => <TextButtonsStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-    viewport: { defaultViewport: 'responsive' },
-    css: { tokens: 'TextButton' },
-  } as StoryParameters,
 };
