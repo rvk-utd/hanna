@@ -1,9 +1,19 @@
-// .storybook/preview.js|ts
+// https://storybook.js.org/docs/react/essentials/viewport
+// TODO: Check: addon '@storybook/addon-viewport' is unnecessary
 
 const wideScale = 810 / 1400;
 const netbookScale = 810 / 1000;
 
-export const customViewports = {
+type ViewportNames = 'wide' | 'netbook' | 'tablet' | 'phablet' | 'phone' | 'phone_s';
+type Viewport = {
+  name: string;
+  styles: {
+    width: string;
+    height: string;
+  };
+};
+
+export const customViewports: Record<ViewportNames, Viewport> = {
   wide: {
     name: 'Wide desktop',
     styles: {
