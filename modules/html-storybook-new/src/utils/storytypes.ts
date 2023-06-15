@@ -25,7 +25,8 @@ export type StoryParameters = {
     onLoad?: () => void;
   };
   controls?: {
-    hideNoControlsWarning: boolean;
+    hideNoControlsWarning?: boolean;
+    disabled?: boolean;
   };
 };
 
