@@ -3,12 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "storybook": "storybook dev -p 6007",
-    "build-storybook": "storybook build",
-    "//dev": "vite",
-    "//build": "tsc && vite build",
-    "//preview": "vite preview",
-    "//lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "dev": "storybook dev -p 6007",
+    "build": "storybook build"
   },
   "dependencies": {
     "@types/react": "^17.0.24",
