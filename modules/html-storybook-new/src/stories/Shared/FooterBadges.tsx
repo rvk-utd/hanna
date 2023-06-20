@@ -1,7 +1,7 @@
 import React from 'react';
 import { FooterBadges, FooterBadgesProps } from '@reykjavik/hanna-react/FooterBadges';
 
-import dummyImage from '../example_assets/FooterBadges__image.jpg';
+import dummyImage from '../../example_assets/FooterBadges__image.jpg';
 
 const dummySubFooterLinks: FooterBadgesProps['badges'] = [
   {

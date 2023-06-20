@@ -6,8 +6,8 @@ import {
 } from '@reykjavik/hanna-react/ContactBubble';
 import { FooterBadgesProps } from '@reykjavik/hanna-react/FooterBadges';
 
+import dummyImage from '../../example_assets/FooterBadges__image.jpg';
 import { HiddenTiger } from '../../utils/HiddenTrigger.js';
-import dummyImage from '../example_assets/FooterBadges__image.jpg';
 
 type Maur = Pick<ContactBubbleProps, 'ssr' | 'alwaysShow'>;
 

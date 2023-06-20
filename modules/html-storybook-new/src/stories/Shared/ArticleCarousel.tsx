@@ -4,7 +4,7 @@ import {
   ArticleCarouselProps,
 } from '@reykjavik/hanna-react/ArticleCarousel';
 
-import photohUrl from '../example_assets/NewsHero__landscape.jpg';
+import photohUrl from '../../example_assets/NewsHero__landscape.jpg';
 
 const articleCarouselData: ArticleCarouselProps = {
   title: 'Article Carousel',
