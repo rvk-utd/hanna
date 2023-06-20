@@ -211,6 +211,6 @@ export const _Bling: Story = {
     verticalAlign: 'center',
     colorVariant: 'tertiary',
     placeInFrontOfOtherContent: false,
-    insertionPoint: 'bottom',
+    insertionPoint: 'default',
   },
 };
