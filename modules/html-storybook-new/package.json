@@ -29,9 +29,5 @@
     "prettier": "^2.8.8",
     "react-syntax-highlighter": "^15.5.0",
     "storybook": "^7.0.7"
-  },
-  "// devDependencies": {
-    "@types/prop-types": "^15",
-    "prop-types": "^15.8.1"
   }
 }

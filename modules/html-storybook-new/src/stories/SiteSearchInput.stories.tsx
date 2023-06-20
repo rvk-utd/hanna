@@ -72,7 +72,7 @@ export const _SiteSearchInput: Story = {
           no: 'No',
           yes: 'Yes',
           subtle: 'Yes but subtle',
-        },
+        } satisfies Record<Required, string>,
       },
       options: requiredOptions,
       name: 'Required',

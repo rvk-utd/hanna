@@ -84,7 +84,7 @@ export const _TextBlock: Story = {
           wide: 'Wide',
           right: 'Right aligned',
           labelled: 'Labelled (H2 headings)',
-        },
+        } satisfies Record<Layout, string>,
       },
       options: layoutOptions,
       name: 'Layout',

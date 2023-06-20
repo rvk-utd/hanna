@@ -10,10 +10,10 @@ import { StoryParameters } from '../utils/storytypes.js';
 // =========================== Tabs ==========================================
 
 const htmlElementOptions = ['button', 'link'] as const;
-type HtmlElement = (typeof htmlElementOptions)[number];
+type HtmlElementOpt = (typeof htmlElementOptions)[number];
 
 type TabsControlProps = {
-  htmlElement: HtmlElement;
+  htmlElement: HtmlElementOpt;
   verticalLayout: boolean;
   badges: boolean;
   subTabs: boolean;
@@ -103,7 +103,7 @@ export const _Tabs: Story = {
         labels: {
           button: '<button/>',
           link: '<a href="" />',
-        },
+        } satisfies Record<HtmlElementOpt, string>,
       },
       options: htmlElementOptions,
       name: 'HTML Element',

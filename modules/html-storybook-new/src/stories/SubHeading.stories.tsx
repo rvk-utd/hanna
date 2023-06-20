@@ -46,7 +46,7 @@ export const _SubHeading: Story = {
           left: 'Left',
           right: 'Right aligned',
           wide: 'Wide',
-        },
+        } satisfies Record<Layout, string>,
       },
       options: layoutOptions,
       name: 'Layout',
@@ -61,7 +61,7 @@ export const _SubHeading: Story = {
         labels: {
           h2: 'H2 (default)',
           h3: 'H3',
-        },
+        } satisfies Record<HeadingLevel, string>,
       },
       options: headingLevelOptions,
       name: 'Heading level',

@@ -117,7 +117,7 @@ export const _WizardStepper: Story = {
           step3: 'Step 3',
           step4: 'Step 4',
           step5: 'Step 5',
-        },
+        } satisfies Record<SelectedStep, string>,
       },
       options: stepsOptions,
       name: 'Active step',
