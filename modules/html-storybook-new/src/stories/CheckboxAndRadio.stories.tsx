@@ -99,7 +99,7 @@ const checkboxAndRadioGroupArgTypes = {
       labels: {
         normal: 'Normal',
         inline: 'Inline',
-      },
+      } satisfies Record<Layout, string>,
     },
     options: layoutOptions,
     name: 'Layout',
@@ -123,7 +123,7 @@ const checkboxAndRadioGroupArgTypes = {
         none: 'None',
         all: 'All',
         some: 'Some',
-      },
+      } satisfies Record<Disabled, string>,
     },
     options: disabledOptions,
     name: 'Disabled',

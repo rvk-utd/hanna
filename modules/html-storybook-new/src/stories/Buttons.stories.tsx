@@ -132,7 +132,7 @@ export const _Buttons: Story = {
           normal: 'Normal',
           small: 'Small size',
           wide: 'Wide variant',
-        },
+        } satisfies Record<Size, string>,
       },
       options: sizeOptions,
       name: 'Size',
@@ -143,7 +143,7 @@ export const _Buttons: Story = {
         labels: {
           normal: 'Normal',
           destructive: 'Destructive',
-        },
+        } satisfies Record<Variant, string>,
       },
       options: variantOptions,
       name: 'Variant',

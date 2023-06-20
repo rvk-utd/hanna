@@ -129,7 +129,7 @@ const checkboxAndRadioButtonsGroupArgTypes = {
         none: 'None',
         some: 'Some',
         all: 'All',
-      },
+      } satisfies Record<Disabled, string>,
     },
     options: disabledOptions,
     name: 'Disabled',

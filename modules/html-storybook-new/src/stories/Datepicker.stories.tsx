@@ -140,8 +140,8 @@ export const _Datepicker: Story = {
         labels: {
           no: 'No',
           yes: 'Yes',
-          'yes-but-subtle': 'Yes but subtle',
-        },
+          subtle: 'Yes but subtle',
+        } satisfies Record<Required, string>,
       },
       options: requiredOptions,
       name: 'Required',
@@ -168,7 +168,7 @@ export const _Datepicker: Story = {
         labels: {
           is: 'Icelandic',
           en: 'English',
-        },
+        } satisfies Record<Language, string>,
       },
       options: languageOptions,
       name: 'Required',
