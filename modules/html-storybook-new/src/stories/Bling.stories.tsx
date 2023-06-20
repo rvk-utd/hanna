@@ -8,7 +8,6 @@ import { BlingType, blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/asset
 import { select } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
-// TODO: Fix placement error
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const blingOptions = [...blingTypes] as const;
