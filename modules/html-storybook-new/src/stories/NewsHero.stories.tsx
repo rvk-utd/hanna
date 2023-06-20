@@ -80,7 +80,7 @@ export const _NewsHero: Story = {
         labels: {
           image: 'Image',
           'no-image': 'No image (Bling)',
-        },
+        } satisfies Record<ImageType, string>,
       },
       options: imageTypeOptions,
       name: 'Image',
@@ -97,7 +97,7 @@ export const _NewsHero: Story = {
           dome: 'Dome',
           'balls-small': 'Balls-small',
           'balls-large': 'Balls-large',
-        },
+        } satisfies Record<BlingType, string>,
       },
       options: blingTypeOptions,
       name: 'Image',

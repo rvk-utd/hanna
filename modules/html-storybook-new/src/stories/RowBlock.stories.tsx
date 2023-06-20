@@ -6,8 +6,12 @@ import { Meta, StoryObj } from '@storybook/react';
 import { StoryParameters } from '../utils/storytypes.js';
 
 const columnOptions = ['no-background', 'gray', 'dark'] as const;
-const columnLabels = { 'no-background': 'No background', gray: 'Gray', dark: 'Dark' };
 type Column = (typeof columnOptions)[number];
+const columnLabels: Record<Column, string> = {
+  'no-background': 'No background',
+  gray: 'Gray',
+  dark: 'Dark',
+};
 
 type ControlProps = {
   rightAligned: boolean;

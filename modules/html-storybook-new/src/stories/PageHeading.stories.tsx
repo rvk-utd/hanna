@@ -42,7 +42,7 @@ export const _PageHeading: Story = {
         labels: {
           h1: 'H1 (default)',
           h2: 'H2',
-        },
+        } satisfies Record<HeadingLevel, string>,
       },
       options: headingLevelOptions,
       name: 'Heading level',
