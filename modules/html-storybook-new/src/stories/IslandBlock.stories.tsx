@@ -10,7 +10,7 @@ const colorThemeKeys = Object.keys(colorThemes) as Array<HannaColorTheme>;
 const themeOptions = Object.values(colorThemes).concat(colorThemeKeys);
 
 const typeOptions = ['svg-asset', 'textonly'] as const;
-type Type = (typeof typeOptions)[number];
+type TypeOpt = (typeof typeOptions)[number];
 
 const layoutOptions = ['left', 'right'] as const;
 type Layout = (typeof layoutOptions)[number];
@@ -20,7 +20,7 @@ type Links = (typeof linksOptions)[number];
 
 type ControlProps = {
   theme: HannaColorTheme;
-  type: Type;
+  type: TypeOpt;
   layout: Layout;
   summaryText: boolean;
   links: Links;
@@ -72,7 +72,7 @@ export const _IslandBlock: Story = {
         labels: {
           'svg-asset': 'Fornheimur SVG image',
           textonly: 'Two text boxes',
-        },
+        } satisfies Record<TypeOpt, string>,
       },
       options: typeOptions,
       name: 'Type',
@@ -83,7 +83,7 @@ export const _IslandBlock: Story = {
         labels: {
           left: 'Left',
           right: 'Right',
-        },
+        } satisfies Record<Layout, string>,
       },
       options: layoutOptions,
       name: 'Layout',

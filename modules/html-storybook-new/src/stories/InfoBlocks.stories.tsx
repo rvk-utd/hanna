@@ -68,7 +68,7 @@ export const _InfoBlock: Story = {
           neither: 'Neither',
           attention: 'Attention',
           extra: 'Extra info',
-        },
+        } satisfies Record<Appearance, string>,
       },
       options: appearanceOptions,
       name: 'With attention/extralinks',

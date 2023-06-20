@@ -44,7 +44,7 @@ const sharedArgTypes = {
         narrow: 'Narrow',
         medium: 'Medium',
         wide: 'Wide',
-      },
+      } satisfies Record<Width, string>,
     },
     options: widthOptions,
     name: 'Width',
