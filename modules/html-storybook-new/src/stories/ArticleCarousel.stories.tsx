@@ -1,8 +1,9 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleCarouselStory } from '../Shared/ArticleCarousel.js';
 import { StoryParameters } from '../utils/storytypes.js';
+
+import { ArticleCarouselStory } from './Shared/ArticleCarousel.js';
 
 type Story = StoryObj;
 

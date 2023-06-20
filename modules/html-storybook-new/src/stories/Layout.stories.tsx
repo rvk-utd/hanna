@@ -5,11 +5,12 @@ import { Layout } from '@reykjavik/hanna-react/Layout';
 import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ContactBubbleStory as ContactBubble } from '../Shared/ContactBubble.js';
-import { FooterBadgesStory as FooterBadges } from '../Shared/FooterBadges.js';
-import { FooterInfoStory as FooterInfo } from '../Shared/FooterInfo.js';
 import { crumbTrail, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
 import { StoryParameters } from '../utils/storytypes.js';
+
+import { ContactBubbleStory as ContactBubble } from './Shared/ContactBubble.js';
+import { FooterBadgesStory as FooterBadges } from './Shared/FooterBadges.js';
+import { FooterInfoStory as FooterInfo } from './Shared/FooterInfo.js';
 
 // ==================== Minimal Layout ===========================================
 

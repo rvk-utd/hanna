@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { FooterInfoStory } from '../Shared/FooterInfo.js';
+import { FooterInfoStory } from './Shared/FooterInfo.js';
 
 type Story = StoryObj;
 

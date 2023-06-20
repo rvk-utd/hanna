@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { FooterBadgesStory } from '../Shared/FooterBadges.js';
+import { FooterBadgesStory } from './Shared/FooterBadges.js';
 
 const meta: Meta = {
   title: 'Layout/FooterBadges',

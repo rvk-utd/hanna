@@ -7,9 +7,9 @@ import { ImageCards } from '@reykjavik/hanna-react/ImageCards';
 import { efnistakn } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleCarouselStory } from '../../Shared/ArticleCarousel.js';
-import { MiniMetricsStory } from '../../Shared/MiniMetrics.js';
 import { imageCards } from '../../utils/_dummyData.js';
+import { ArticleCarouselStory } from '../Shared/ArticleCarousel.js';
+import { MiniMetricsStory } from '../Shared/MiniMetrics.js';
 
 import { SearchHeroParagraph } from './_SearchHeroParagraph.js';
 

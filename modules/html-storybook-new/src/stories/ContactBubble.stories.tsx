@@ -1,8 +1,9 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ContactBubbleStory } from '../Shared/ContactBubble.js';
 import { StoryParameters } from '../utils/storytypes.js';
+
+import { ContactBubbleStory } from './Shared/ContactBubble.js';
 
 type ControlProps = {
   ssr: boolean;

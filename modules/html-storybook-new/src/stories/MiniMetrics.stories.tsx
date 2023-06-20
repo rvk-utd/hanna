@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { MiniMetricsStory } from '../Shared/MiniMetrics.js';
+import { MiniMetricsStory } from './Shared/MiniMetrics.js';
 
 const meta: Meta = {
   title: 'MiniMetrics',
