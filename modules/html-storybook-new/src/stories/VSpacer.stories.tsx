@@ -54,7 +54,7 @@ const getMarginValue = (margin: Margin) => {
 };
 
 const getSizeValue = (size: Size) => {
-  const sizeOptions: Record<Size, 'small' | 'large' | 'xlarge' | 'default' | 'medium'> = {
+  const sizeOptions: Record<Size, VSpacerProps['size']> = {
     small: 'small',
     default: 'default',
     large: 'large',
@@ -73,9 +73,7 @@ const VSpacerStory: React.FC<ControlProps> = ({
 
   const top = getMarginValue(topMargin);
   const bottom = getMarginValue(bottomMargin);
-
   const size = getSizeValue(combinedMarginSize);
-  // TODO: Look at size!!
 
   return (
     <Fragment key={'' + wrapper + size + top + bottom}>
