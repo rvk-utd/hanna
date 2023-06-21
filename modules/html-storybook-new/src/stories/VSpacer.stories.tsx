@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { VSpacer, VSpacerProps } from '@reykjavik/hanna-react/VSpacer';
+import { VSpacer } from '@reykjavik/hanna-react/VSpacer';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const sizeOptions = ['small', 'default', 'large', 'x-large'] as const;
+const sizeOptions = ['small', 'default', 'large', 'xlarge'] as const;
 type Size = (typeof sizeOptions)[number];
 
 const marginOptions = ['none', ...sizeOptions] as const;
@@ -42,27 +42,6 @@ const Component = (props: { highlight?: boolean }) => (
   />
 );
 
-const getMarginValue = (margin: Margin) => {
-  const marginOptions: Record<Margin, VSpacerProps['top']> = {
-    none: 'none',
-    small: 'small',
-    default: 'default',
-    large: 'large',
-    'x-large': 'xlarge',
-  };
-  return marginOptions[margin];
-};
-
-const getSizeValue = (size: Size) => {
-  const sizeOptions: Record<Size, VSpacerProps['size']> = {
-    small: 'small',
-    default: 'default',
-    large: 'large',
-    'x-large': 'xlarge',
-  };
-  return sizeOptions[size];
-};
-
 const VSpacerStory: React.FC<ControlProps> = ({
   wrapperAroundComponents,
   topMargin,
@@ -71,9 +50,9 @@ const VSpacerStory: React.FC<ControlProps> = ({
 }) => {
   const wrapper = wrapperAroundComponents || undefined;
 
-  const top = getMarginValue(topMargin);
-  const bottom = getMarginValue(bottomMargin);
-  const size = getSizeValue(combinedMarginSize);
+  const top = topMargin;
+  const bottom = bottomMargin;
+  const size = combinedMarginSize;
 
   return (
     <Fragment key={'' + wrapper + size + top + bottom}>
@@ -107,7 +86,7 @@ export const _VSpacer: Story = {
           small: 'Small',
           default: 'Default',
           large: 'Large',
-          'x-large': 'X-large',
+          xlarge: 'X-large',
         } satisfies Record<Margin, string>,
       },
       options: marginOptions,
@@ -121,7 +100,7 @@ export const _VSpacer: Story = {
           small: 'Small',
           default: 'Default',
           large: 'Large',
-          'x-large': 'X-large',
+          xlarge: 'X-large',
         } satisfies Record<Margin, string>,
       },
       options: marginOptions,
@@ -134,7 +113,7 @@ export const _VSpacer: Story = {
           small: 'Small',
           default: 'Default',
           large: 'Large',
-          'x-large': 'X-large',
+          xlarge: 'X-large',
         } satisfies Record<Size, string>,
       },
       options: sizeOptions,
