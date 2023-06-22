@@ -1,9 +1,9 @@
 import React, { ReactElement, useEffect } from 'react';
 import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { HannaColorTheme } from '@reykjavik/hanna-css';
 import { themeOptions } from '@reykjavik/hanna-react/constants';
 import { Layout } from '@reykjavik/hanna-react/Layout';
-import { select } from '@storybook/addon-knobs';
 import type { StoryContext } from '@storybook/react';
 
 import { StoryParameters } from './storytypes.js';
@@ -19,7 +19,7 @@ export const layoutDecorator = (story: () => ReactElement, context: StoryContext
   const modifier = layout.modifier;
   const initialTheme = layout.theme || themeOptions[0];
   const colorTheme = params.knobs?.theming
-    ? select('Theme', themeOptions, initialTheme)
+    ? (context.args.theme as HannaColorTheme)
     : initialTheme;
   const pos = layout.pos;
   const fullLayout = layout.head != null || !!pos;
