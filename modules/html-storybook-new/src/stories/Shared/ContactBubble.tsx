@@ -9,7 +9,7 @@ import { FooterBadgesProps } from '@reykjavik/hanna-react/FooterBadges';
 import dummyImage from '../../example_assets/FooterBadges__image.jpg';
 import { HiddenTiger } from '../../utils/HiddenTrigger.js';
 
-type Maur = Pick<ContactBubbleProps, 'ssr' | 'alwaysShow'>;
+type CBControlProps = Pick<ContactBubbleProps, 'ssr' | 'alwaysShow'>;
 
 const dummySubFooterLinks: FooterBadgesProps['badges'] = [
   {
@@ -57,7 +57,7 @@ const LINKS: Array<ContactBubbleItem> = [
   },
 ];
 
-export const ContactBubbleStory: React.FC<Maur> = ({ ssr, alwaysShow }) => {
+export const ContactBubbleStory: React.FC<CBControlProps> = ({ ssr, alwaysShow }) => {
   // /* ONLY use during Development */
   // const [open, setOpen] = useState(false);
 
