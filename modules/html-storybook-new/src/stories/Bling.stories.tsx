@@ -70,18 +70,15 @@ const Spacer = () => (
 
 const BlingStory: React.FC<ControlsProps> = ({
   blingType,
-  alignment, // align,
-  verticalAlign, // vertical,
-  colorVariant, // color,
-  placeInFrontOfOtherContent, // overlay,
-  insertionPoint, // parent,
+  alignment,
+  verticalAlign,
+  colorVariant,
+  placeInFrontOfOtherContent,
+  insertionPoint,
 }) => {
-  // -------------------------------------------------
   const type = blingType;
-  const blingUrl =
-    blingType !== '- Custom SVG URL -'
-      ? getBlingUrl(blingType)
-      : getBlingUrl(blingTypes[2]);
+  const typeProps =
+    type === customOption ? { blingUrl: getBlingUrl(blingTypes[2]) } : { type };
 
   const insertionPointMap: Record<InsertionPoint, BlingParentOffset> = {
     default: 'center',
@@ -106,7 +103,7 @@ const BlingStory: React.FC<ControlsProps> = ({
       style={{ position: 'relative' }}
       serverSide={
         <Bling
-          blingUrl={blingUrl}
+          {...typeProps}
           align={alignment}
           vertical={verticalAlign}
           color={colorVariant}
@@ -119,7 +116,7 @@ const BlingStory: React.FC<ControlsProps> = ({
       {'\n\n\n'}
 
       <Bling
-        blingUrl={blingUrl}
+        {...typeProps}
         align={alignment}
         vertical={verticalAlign}
         color={colorVariant}
