@@ -1,16 +1,13 @@
 import React from 'react';
-import {
-  Bling,
-  BlingParentOffset,
-  BlingProps as _BlingProps,
-} from '@reykjavik/hanna-react/Bling';
-import { BlingType, blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
-import { select } from '@storybook/addon-knobs';
+import { Bling, BlingParentOffset } from '@reykjavik/hanna-react/Bling';
+import { blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const blingOptions = [...blingTypes] as const;
+const customOption = '- Custom SVG URL -';
+const blingOptions = [...blingTypes, customOption] as const;
+type Maur = (typeof blingOptions)[number];
 
 const alignmentOptions = [
   'left',
@@ -39,7 +36,7 @@ const insertionPointOptions = [
 type InsertionPoint = (typeof insertionPointOptions)[number];
 
 type ControlsProps = {
-  blingType: BlingType;
+  blingType: Maur;
   alignment: Alignment;
   verticalAlign: Vertical;
   colorVariant: ColorVariant;
@@ -52,9 +49,6 @@ const meta: Meta<ControlsProps> = {
   title: 'Bling',
 };
 export default meta;
-
-type BlingProps = Required<_BlingProps>;
-const customOption = '- Custom SVG URL -';
 
 const Spacer = () => (
   <HiddenTiger
@@ -82,16 +76,12 @@ const BlingStory: React.FC<ControlsProps> = ({
   placeInFrontOfOtherContent, // overlay,
   insertionPoint, // parent,
 }) => {
-  const type = select<BlingProps['type'] | typeof customOption>(
-    'Bling Type',
-    blingOptions,
-    blingTypes[0]
-  );
-
-  /*
-  const typeProps =
-    type === customOption ? { blingUrl: getBlingUrl(blingTypes[2]) } : { type };
-    */
+  // -------------------------------------------------
+  const type = blingType;
+  const blingUrl =
+    blingType !== '- Custom SVG URL -'
+      ? getBlingUrl(blingType)
+      : getBlingUrl(blingTypes[2]);
 
   const insertionPointMap: Record<InsertionPoint, BlingParentOffset> = {
     default: 'center',
@@ -116,8 +106,7 @@ const BlingStory: React.FC<ControlsProps> = ({
       style={{ position: 'relative' }}
       serverSide={
         <Bling
-          // {...typeProps}
-          blingUrl={getBlingUrl(blingType)}
+          blingUrl={blingUrl}
           align={alignment}
           vertical={verticalAlign}
           color={colorVariant}
@@ -130,8 +119,7 @@ const BlingStory: React.FC<ControlsProps> = ({
       {'\n\n\n'}
 
       <Bling
-        // {...typeProps}
-        blingUrl={getBlingUrl(blingType)}
+        blingUrl={blingUrl}
         align={alignment}
         vertical={verticalAlign}
         color={colorVariant}

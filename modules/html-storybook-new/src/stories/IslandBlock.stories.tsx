@@ -39,10 +39,7 @@ const meta: Meta<ControlProps> = {
 };
 export default meta;
 
-// TODO: connect theme property
-
 const IslandBlockStory: React.FC<ControlProps> = ({
-  theme,
   type,
   summaryText,
   links,
