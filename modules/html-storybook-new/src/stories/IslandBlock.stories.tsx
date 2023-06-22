@@ -5,6 +5,9 @@ import { formheimur } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
+import { StoryParameters } from '../utils/storytypes.js';
+
+// =================== IslandBlock ========================================
 
 const colorThemeKeys = Object.keys(colorThemes) as Array<HannaColorTheme>;
 const themeOptions = Object.values(colorThemes).concat(colorThemeKeys);
@@ -26,14 +29,18 @@ type ControlProps = {
   links: Links;
 };
 
+type Story = StoryObj<ControlProps>;
+
 const meta: Meta<ControlProps> = {
   title: 'IslandBlock',
+  parameters: {
+    knobs: { theming: true, disabled: false },
+  } as StoryParameters,
 };
 export default meta;
 
-type Story = StoryObj<ControlProps>;
-
 // TODO: connect theme property
+
 const IslandBlockStory: React.FC<ControlProps> = ({
   theme,
   type,
@@ -106,7 +113,7 @@ export const _IslandBlock: Story = {
   },
 };
 
-// ===========================================================================
+// =================== IslandBlockExamples ========================================
 
 const getSummaryType = (c: number) => (c % 3 ? 'html' : c % 2 ? 'text' : undefined);
 
@@ -145,8 +152,6 @@ const testCombos = (['svg-asset', 'textonly'] as const).reduce<Array<IslandBlock
   []
 );
 
-// ===========================================================================
-
 const IslandBlockExamplesStory = () => {
   return (
     <>
@@ -168,5 +173,5 @@ export const _IslandBlock_Examples: Story = {
     css: {
       tokens: 'IslandBlock',
     },
-  },
+  } as StoryParameters,
 };
