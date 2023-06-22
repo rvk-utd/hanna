@@ -7,7 +7,7 @@ import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const customOption = '- Custom SVG URL -';
 const blingOptions = [...blingTypes, customOption] as const;
-type Maur = (typeof blingOptions)[number];
+type BlingType = (typeof blingOptions)[number];
 
 const alignmentOptions = [
   'left',
@@ -36,7 +36,7 @@ const insertionPointOptions = [
 type InsertionPoint = (typeof insertionPointOptions)[number];
 
 type ControlsProps = {
-  blingType: Maur;
+  blingType: BlingType;
   alignment: Alignment;
   verticalAlign: Vertical;
   colorVariant: ColorVariant;
