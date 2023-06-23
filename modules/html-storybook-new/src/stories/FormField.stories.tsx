@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { FormField } from '@reykjavik/hanna-react/FormField';
-import { select } from '@storybook/addon-knobs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
@@ -9,6 +8,9 @@ import { StoryParameters } from '../utils/storytypes.js';
 
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
 type Required = (typeof requiredOptions)[number];
+
+const groupLabelTagOptions = ['h3', 'h4', 'h5'] as const;
+type GroupLabelTag = (typeof groupLabelTagOptions)[number];
 
 type ControlProps = {
   hideLabel: boolean;
@@ -20,6 +22,7 @@ type ControlProps = {
   errorMessage: boolean;
   helpText: boolean;
   isAFieldGroup: boolean;
+  GroupLabelTag: GroupLabelTag;
 };
 
 type Story = StoryObj<ControlProps>;
@@ -44,6 +47,7 @@ const FormFieldStory: React.FC<ControlProps> = ({
   errorMessage,
   helpText,
   isAFieldGroup,
+  GroupLabelTag,
 }) => {
   const ffProps = getFormFieldKnobsNew({
     small,
@@ -57,9 +61,7 @@ const FormFieldStory: React.FC<ControlProps> = ({
   });
 
   const group = isAFieldGroup;
-  const LabelTag = group
-    ? select('Group Label Tag', ['h3', 'h4', 'h5'], 'h4')
-    : undefined;
+  const LabelTag = group ? GroupLabelTag : undefined;
   return (
     <Fragment key={JSON.stringify(ffProps) + group + LabelTag}>
       <FormField
@@ -150,6 +152,11 @@ export const _FormField: Story = {
       control: 'boolean',
       name: 'Is a field-group',
     },
+    GroupLabelTag: {
+      if: { arg: 'isAFieldGroup', eq: true },
+      control: 'select',
+      options: groupLabelTagOptions,
+    },
   },
   args: {
     hideLabel: false,
@@ -161,5 +168,6 @@ export const _FormField: Story = {
     errorMessage: false,
     helpText: false,
     isAFieldGroup: false,
+    GroupLabelTag: 'h4',
   },
 };
