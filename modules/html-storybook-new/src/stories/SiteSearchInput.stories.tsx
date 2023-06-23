@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobsNew } from '../utils/knobs.js';
+import { getFormFieldKnobs } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
 // TODO: Control props do not work (and not in Prod either)
@@ -32,7 +32,7 @@ export default meta;
 
 const SiteSearchInputStory = (args: ControlProps) => {
   const { disabled, required, invalid, errorMessage, helpText } = args;
-  const ffProps = getFormFieldKnobsNew({
+  const ffProps = getFormFieldKnobs({
     disabled,
     required,
     invalid,

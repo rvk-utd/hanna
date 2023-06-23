@@ -4,7 +4,7 @@ import { Selectbox, SelectboxOptionList } from '@reykjavik/hanna-react/Selectbox
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { getFormFieldKnobsNew } from '../utils/knobs.js';
+import { getFormFieldKnobs } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
@@ -39,7 +39,7 @@ const MakeStory = (ssr: boolean, args: ControlProps) => {
   const { small, disabled, readOnly, required, invalid, errorMessage, helpText } = args;
   const domid = useDomid();
 
-  const ffProps = getFormFieldKnobsNew({
+  const ffProps = getFormFieldKnobs({
     small,
     disabled,
     readOnly,

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FileInput } from '@reykjavik/hanna-react/FileInput';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobsNew } from '../utils/knobs.js';
+import { getFormFieldKnobs } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
@@ -45,7 +45,7 @@ const FileInputStory: React.FC<ControlProps> = ({
   allowMultipleFiles,
   allowedFileTypes,
 }) => {
-  const ffProps = getFormFieldKnobsNew({
+  const ffProps = getFormFieldKnobs({
     disabled,
     required,
     invalid,

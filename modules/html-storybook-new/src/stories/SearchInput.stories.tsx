@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { SearchInput } from '@reykjavik/hanna-react/SearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobsNew } from '../utils/knobs.js';
+import { getFormFieldKnobs } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
@@ -42,7 +42,7 @@ const SearchInputStory: React.FC<ControlProps> = ({
   helpText,
 }) => {
   const button = physicalSearchButton || undefined;
-  const ffProps = getFormFieldKnobsNew({
+  const ffProps = getFormFieldKnobs({
     small,
     disabled,
     readOnly,

@@ -4,7 +4,7 @@ import TextInput from '@reykjavik/hanna-react/TextInput';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { getFormFieldKnobsNew } from '../utils/knobs.js';
+import { getFormFieldKnobs } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
@@ -50,7 +50,7 @@ const makeStory = (ssr: boolean, args: ControlProps) => {
     } = args;
     const domid = useDomid();
     const type = multiLine ? 'textarea' : 'text';
-    const ffProps = getFormFieldKnobsNew({
+    const ffProps = getFormFieldKnobs({
       small,
       disabled,
       readOnly,

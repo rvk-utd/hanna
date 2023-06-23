@@ -3,7 +3,7 @@ import { FormField } from '@reykjavik/hanna-react/FormField';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { getFormFieldKnobsNew } from '../utils/knobs.js';
+import { getFormFieldKnobs } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
@@ -49,7 +49,7 @@ const FormFieldStory: React.FC<ControlProps> = ({
   isAFieldGroup,
   GroupLabelTag,
 }) => {
-  const ffProps = getFormFieldKnobsNew({
+  const ffProps = getFormFieldKnobs({
     small,
     disabled,
     readOnly,
