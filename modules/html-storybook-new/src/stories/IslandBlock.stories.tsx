@@ -66,7 +66,6 @@ export const _IslandBlock: Story = {
   argTypes: {
     theme: {
       control: 'select',
-      // TODO: Connect themeoptions
       options: themeOptions,
       name: 'Theme',
     },
@@ -107,6 +106,7 @@ export const _IslandBlock: Story = {
     layout: 'right',
     summaryText: true,
     links: 2,
+    theme: 'trustworthy',
   },
 };
 
