@@ -1,18 +1,3 @@
-import { optionsKnob } from '@storybook/addon-knobs';
-
-// TODO: Remove. Only used in Tabs
-export const useLink = (defaultLink?: boolean) =>
-  optionsKnob(
-    'HTML Element',
-    { '<button/>': '', '<a href="" />': 'true' },
-    defaultLink ? 'true' : '',
-    { display: 'inline-radio' }
-  )
-    ? '/some-url'
-    : undefined;
-
-// ----------------------------- TODO: Refactor later -------------------
-
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
 type Required = (typeof requiredOptions)[number];
 
