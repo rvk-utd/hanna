@@ -50,7 +50,7 @@ const ButtonsStory: React.FC<ControlProps> = ({ size, variant }) => {
           '': undefined,
           small: 'small',
           wide: supportsWide ? 'wide' : undefined,
-        }[_size] as any;
+        }[_size] as any; // TODO: Fix this any
 
         return (
           <Fragment key={i}>

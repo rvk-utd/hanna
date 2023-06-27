@@ -1,7 +1,7 @@
 const requiredOptions = ['no', 'yes', 'subtle'] as const;
 type Required = (typeof requiredOptions)[number];
 
-type FormfieldsControlProps = {
+type FormFieldKnobsProps = {
   small?: boolean;
   disabled: boolean;
   readOnly?: boolean;
@@ -12,7 +12,7 @@ type FormfieldsControlProps = {
   hideLabel?: boolean;
 };
 
-export const getFormFieldKnobs = (args: FormfieldsControlProps) => {
+export const getFormFieldKnobs = (args: FormFieldKnobsProps) => {
   const {
     small,
     disabled,

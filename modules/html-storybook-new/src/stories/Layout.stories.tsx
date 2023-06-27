@@ -82,8 +82,8 @@ type LayoutWithContStory = StoryObj<LayoutWithContentControlProps>;
 
 const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
   globalAlerts,
-  // TODO: Connect showClientsideMarkup,
-  // TODO: Connect setOptionalDataAttr,
+  setOptionalDataAttr,
+  showClientsideMarkup,
 }) => {
   return (
     <Layout
@@ -115,7 +115,7 @@ const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
         <>
           <FooterInfo />
           <FooterBadges />
-          <ContactBubble ssr={false} alwaysShow={true} />
+          <ContactBubble ssr={!showClientsideMarkup} alwaysShow={setOptionalDataAttr} />
         </>
       }
     >
