@@ -51,13 +51,6 @@ const ButtonsStory: React.FC<ControlProps> = ({ size, variant }) => {
           small: 'small',
           wide: supportsWide ? 'wide' : undefined,
         }[_size] as any;
-        // TODO: Fix any. Could be fixed with: as TertiarySize | undefined ?
-
-        /*
-          ButtonPrimary size -> "small" | "wide" | "normal"
-          ButtonSecondary size -> "small" | "wide" | "normal"
-          ButtonTertiary -> "small" | "normal"
-        */
 
         return (
           <Fragment key={i}>
