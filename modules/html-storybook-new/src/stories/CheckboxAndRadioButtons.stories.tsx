@@ -209,15 +209,8 @@ export const _CheckboxButtonsGroup: CheckboxAndRadioButtonsGroupStory = {
       {...getProps(args)}
     />
   ),
-  argTypes: {
-    ...checkboxAndRadioButtonsGroupArgTypes,
-  },
-  args: {
-    required: false,
-    invalid: false,
-    errorMessage: false,
-    disabled: 'none',
-  },
+  argTypes: checkboxAndRadioButtonsGroupArgTypes,
+  args: checkboxAndRadioButtonsGroupArgs,
 };
 
 // ==================== Radio Buttons Group =======================================
@@ -231,6 +224,6 @@ export const _RadioButtonsGroup: CheckboxAndRadioButtonsGroupStory = {
       {...getProps(args)}
     />
   ),
-  argTypes: { ...checkboxAndRadioButtonsGroupArgTypes },
-  args: { ...checkboxAndRadioButtonsGroupArgs },
+  argTypes: checkboxAndRadioButtonsGroupArgTypes,
+  args: checkboxAndRadioButtonsGroupArgs,
 };
