@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import imageLarge from '../example_assets/CityBlock__image--large.jpg';
 import imageSmall from '../example_assets/CityBlock__image--small.jpg';
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
-import { StoryParameters } from '../utils/storytypes';
+import { StoryParameters } from '../utils/storytypes.js';
 
 const blockTypeOptions = ['normal', 'largebox', 'largeimage'] as const;
 type Blocktype = (typeof blockTypeOptions)[number];
@@ -28,6 +28,12 @@ type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'CityBlock',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    css: {
+      tokens: 'CityBlock',
+    },
+  } as StoryParameters,
 };
 export default meta;
 
@@ -128,10 +134,4 @@ export const _CityBlock: Story = {
 
 export const _CityBlockExamples: Story = {
   render: () => <CityBlockExamplesStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-    css: {
-      tokens: 'CityBlock',
-    },
-  } as StoryParameters,
 };
