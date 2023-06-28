@@ -6,6 +6,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import imageLarge from '../example_assets/CityBlock__image--large.jpg';
 import imageSmall from '../example_assets/CityBlock__image--small.jpg';
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
+import { StoryParameters } from '../utils/storytypes';
 
 const blockTypeOptions = ['normal', 'largebox', 'largeimage'] as const;
 type Blocktype = (typeof blockTypeOptions)[number];
@@ -132,5 +133,5 @@ export const _CityBlockExamples: Story = {
     css: {
       tokens: 'CityBlock',
     },
-  },
+  } as StoryParameters,
 };
