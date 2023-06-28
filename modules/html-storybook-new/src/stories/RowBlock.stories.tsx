@@ -23,7 +23,7 @@ type ControlProps = {
 type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
-  title: 'grid/RowBlock',
+  title: 'Grid',
 };
 export default meta;
 

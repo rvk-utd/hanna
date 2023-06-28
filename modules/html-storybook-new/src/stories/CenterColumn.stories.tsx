@@ -10,7 +10,7 @@ import { StoryParameters } from '../utils/storytypes.js';
 type Story = StoryObj;
 
 const meta: Meta = {
-  title: 'grid/CenterColumn',
+  title: 'Grid',
 };
 export default meta;
 
