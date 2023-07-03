@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Multiselect`
+- fix: Add `target` prop to all "\*Cards" components that have `href`s
 - `Datepicker`:
   - feat: Add support for "uncontrolled" mode — (add prop `defaultValue`, make
     `value` and `onChange` optional.)
