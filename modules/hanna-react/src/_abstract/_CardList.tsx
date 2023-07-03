@@ -21,15 +21,16 @@ export type ImageCardProps = BaseCardProps & {
 
 export type TextCardProps = BaseCardProps & {
   summary?: string;
+  target?: '_blank' | '_self';
 };
 
 const Card = (props: EitherObj<ImageCardProps, TextCardProps> & Bem) => {
-  const { bem, href, title, imgPlaceholder, image, meta, summary } = props;
+  const { bem, href, title, imgPlaceholder, image, meta, summary, target } = props;
   const cardClass = `${bem}__card`;
 
   return (
     <>
-      <Button bem={cardClass} href={href}>
+      <Button bem={cardClass} href={href} target={target}>
         {' '}
         <Image className={`${bem}__image`} {...image} placeholder={imgPlaceholder} />
         <span className={`${cardClass}__title`}>{title}</span>{' '}
