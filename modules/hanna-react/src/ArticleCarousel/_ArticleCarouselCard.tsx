@@ -14,7 +14,7 @@ export type ArticleCarouselCardProps = {
   title: string;
   summary: string;
   href: string;
-  target?: string;
+  target?: React.HTMLAttributeAnchorTarget;
   color?: ColorFamily;
   /** NOTE: if both `color` and `theme` are specified
    * then `color` takes precedence.

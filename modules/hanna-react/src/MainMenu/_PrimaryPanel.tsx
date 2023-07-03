@@ -14,7 +14,7 @@ export type MegaMenuItem = {
   href: string;
   lang?: string;
   current?: boolean;
-  target?: string;
+  target?: React.HTMLAttributeAnchorTarget;
 };
 
 export type MegaMenuPanel = {

@@ -21,7 +21,7 @@ export type ImageCardProps = BaseCardProps & {
 
 export type TextCardProps = BaseCardProps & {
   summary?: string;
-  target?: '_blank' | '_self';
+  target?: React.HTMLAttributeAnchorTarget;
 };
 
 const Card = (props: EitherObj<ImageCardProps, TextCardProps> & Bem) => {

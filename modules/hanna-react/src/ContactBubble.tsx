@@ -61,7 +61,7 @@ export type ContactBubbleItem = {
       href: string;
       /** Prevents default link behavior unless the handler function returns `true` */
       onClick?: () => void | boolean;
-      target?: string;
+      target?: React.HTMLAttributeAnchorTarget;
     }
   | {
       onClick: () => void | boolean;

@@ -163,7 +163,7 @@ export type MainMenuItem = {
    */
   onClick?: (index: number, item: MainMenuItem) => void | boolean;
   controlsId?: string;
-  target?: JSX.IntrinsicElements['a']['target'];
+  target?: React.HTMLAttributeAnchorTarget;
 };
 export type MainMenuSeparator = '---';
 export type MainMenuItemList = Array<MainMenuItem | MainMenuSeparator>;

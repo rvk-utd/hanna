@@ -14,7 +14,7 @@ export type RelatedLinkType = keyof typeof types;
 export type RelatedLinkItem = {
   href: string;
   label: string;
-  target?: string;
+  target?: React.HTMLAttributeAnchorTarget;
   type?: RelatedLinkType;
 };
 
