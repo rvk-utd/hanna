@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { FormFieldInputProps } from '../FormField.js';
@@ -30,7 +31,7 @@ type RestrictedInputProps = Omit<
 export type TogglerGroupProps = {
   options: Array<string> | TogglerGroupOptions;
   className?: string;
-  name: string;
+  name?: string;
   disabled?: boolean | ReadonlyArray<number>;
   inputProps?: RestrictedInputProps;
   onSelected?: (payload: {
@@ -58,7 +59,7 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     // id,
     className,
     bem,
-    name,
+
     disabled,
     readOnly,
     Toggler,
@@ -67,6 +68,8 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     inputProps = {},
   } = props;
   const [values, setValues] = useMixedControlState(props, 'value', []);
+
+  const name = useDomid(props.name);
 
   const options: Array<TogglerGroupOption> = useMemo(() => {
     const _options = props.options;

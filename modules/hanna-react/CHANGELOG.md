@@ -10,6 +10,7 @@
 - Checkboxes and Radio buttons
   - feat: Support `readOnly` — using `disabled` + `input[type=hidden]`
   - feat: Support passing `options` as simple string array
+  - feat: Make `name` prop optional for groups
   - fix: Handling of `disabled` as array of indexes
 
 ## 0.10.92
