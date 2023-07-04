@@ -14,7 +14,7 @@ import { TogglerInputProps } from './_TogglerInput.js';
 
 export type TogglerGroupFieldProps = {
   className?: string;
-} & FormFieldGroupWrappingProps &
+} & Omit<FormFieldGroupWrappingProps, 'disabled'> &
   TogglerGroupProps;
 
 type _TogglerGroupFieldProps = {
@@ -75,7 +75,7 @@ export const TogglerGroupField = (
       LabelTag={LabelTag}
       assistText={assistText}
       hideLabel={hideLabel}
-      disabled={disabled}
+      disabled={!!disabled}
       readOnly={readOnly}
       invalid={invalid}
       errorMessage={errorMessage}
@@ -88,6 +88,7 @@ export const TogglerGroupField = (
             bem={className.options}
             {...inputProps}
             {...togglerGroupProps}
+            disabled={disabled}
             value={_value}
             defaultValue={_defaultValue}
             Toggler={Toggler}

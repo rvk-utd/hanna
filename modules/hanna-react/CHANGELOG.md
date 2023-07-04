@@ -11,6 +11,7 @@
   `disabled` + `input[type=hidden]`
 - feat: Support simple string array `options` for all checkbox and radio
   groups
+- fix: Handling of `disabled` as index-array for checkboxes and radio buttons
 
 ## 0.10.92
 
