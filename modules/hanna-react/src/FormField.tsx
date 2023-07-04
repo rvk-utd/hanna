@@ -43,6 +43,10 @@ type FocusPropMaker = <P extends FocusEvents>(ownProps?: P) => P & Required<Focu
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Mixin base props type for components using the `FormField` to contain
+ * simple, singular input widgets. E.g. `TextInput`, `Seleccbox`, etc.
+ */
 export type FormFieldWrappingProps = {
   /** Container className - alongside "FormField" */
   className?: string;
@@ -77,6 +81,11 @@ export type FormFieldWrappingProps = {
   ssr?: SSRSupport;
 };
 
+/**
+ * Mixin base props type for components using `FormField` to contain
+ * more complex multi-element, grouped choices, that require a Heading
+ * E.g. `RadioGroup`, `CheckboxGroup`, etc.
+ */
 export type FormFieldGroupWrappingProps = FormFieldWrappingProps & {
   LabelTag?: 'h3' | 'h4' | 'h5';
 };

@@ -34,9 +34,13 @@ export type TogglerGroupProps = {
   disabled?: boolean | ReadonlyArray<number>;
   inputProps?: RestrictedInputProps;
   onSelected?: (payload: {
+    /** The value of being selected/updated */
     value: string;
+    /** The new checked state of the selected value */
     checked: boolean;
-    option: TogglerGroupOption;
+    /** The option object being selected */
+    option: TogglerGroupOption<T>;
+    /** The updated value array */
     selectedValues: Array<string>;
   }) => void;
 } & Omit<FormFieldInputProps, 'disabled'>;
