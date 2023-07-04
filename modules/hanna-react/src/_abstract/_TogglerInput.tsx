@@ -60,6 +60,8 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     </abbr>
   );
 
+  const readOnly = restInputProps.readOnly || (inputProps || {}).readOnly;
+
   const labelContent = (
     <>
       {' '}
@@ -77,12 +79,16 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
         aria-describedby={errorId}
         {...restInputProps}
         {...inputProps}
+        {...(readOnly && { disabled: true })}
       />{' '}
       <label className={bem + '__label'} htmlFor={domid}>
         {innerWrap ? (
           <span className={bem + '__label__wrap'}>{labelContent}</span>
         ) : (
           labelContent
+        )}
+        {readOnly && (
+          <input type="hidden" name={restInputProps.name} value={restInputProps.value} />
         )}
       </label>
       {errorMessage && (

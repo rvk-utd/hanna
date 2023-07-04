@@ -56,6 +56,7 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     bem,
     name,
     disabled,
+    readOnly,
     Toggler,
     onSelected,
     options,
@@ -102,6 +103,7 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
               onSelected && onSelected({ value, checked, option, selectedValues });
             }}
             disabled={isDisabled}
+            readOnly={readOnly}
             aria-invalid={props['aria-invalid']}
             checked={isChecked}
           />

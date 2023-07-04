@@ -152,6 +152,9 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     })}
     opacity: 0.5;
   }
+  .${bem}__input[class][readonly] + .${bem}__label {
+    opacity: 1;
+  }
   .${bem}__input[class]:disabled + .${bem}__label::before {
     border-color: ${vars.color_suld_100};
     background-color: ${vars.color_suld_50};

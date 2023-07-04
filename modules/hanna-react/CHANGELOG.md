@@ -7,6 +7,8 @@
   - feat: Add support for "uncontrolled" mode — (add prop `defaultValue`, make
     `value` and `onChange` optional.)
   - feat: Add prop `isoMode` to generate/submit ISO-8601 `<input/>` values
+- feat: Support `readOnly` on checkboxes and radio buttons — using
+  `disabled` + `input[type=hidden]`
 
 ## 0.10.92
 
