@@ -90,7 +90,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
   .${bem}__label::before {
     ${iconStyle('')}
     float: left;
-    margin-top: ${prem(2)};
+    /* margin-top: ${prem(2)}; */
     margin-left: ${prem(-36)};
     width: ${prem(20)};
     height: ${prem(20)};
