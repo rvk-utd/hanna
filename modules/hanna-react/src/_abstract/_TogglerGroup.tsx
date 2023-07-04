@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { FormFieldInputProps } from '../FormField.js';
