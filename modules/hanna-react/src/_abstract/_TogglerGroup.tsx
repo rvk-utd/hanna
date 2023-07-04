@@ -28,7 +28,7 @@ type RestrictedInputProps = Omit<
 >;
 
 export type TogglerGroupProps = {
-  options: TogglerGroupOptions;
+  options: Array<string> | TogglerGroupOptions;
   className?: string;
   name: string;
   disabled?: boolean | ReadonlyArray<number>;
@@ -59,11 +59,17 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     readOnly,
     Toggler,
     onSelected,
-    options,
     isRadio,
     inputProps = {},
   } = props;
   const [values, setValues] = useMixedControlState(props, 'value', []);
+
+  const options: Array<TogglerGroupOption> = useMemo(() => {
+    const _options = props.options;
+    return typeof _options[0] === 'string'
+      ? (_options as Array<string>).map((option) => ({ value: option }))
+      : (_options as Array<TogglerGroupOption>);
+  }, [props.options]);
 
   return (
     <ul

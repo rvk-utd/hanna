@@ -9,6 +9,8 @@
   - feat: Add prop `isoMode` to generate/submit ISO-8601 `<input/>` values
 - feat: Support `readOnly` on checkboxes and radio buttons — using
   `disabled` + `input[type=hidden]`
+- feat: Support simple string array `options` for all checkbox and radio
+  groups
 
 ## 0.10.92
 
