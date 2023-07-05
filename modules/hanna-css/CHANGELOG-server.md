@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Multiselect`
 - feat: Add component `ReadSpeakerPlayer`
 - feat: Add `[readonly]` styling on checkboxes and radio buttons
 - fix: Hide newly added visible screen-reader label in `Datepicker`

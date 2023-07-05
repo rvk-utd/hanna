@@ -12,10 +12,10 @@ import {
 } from './_TogglerGroup.js';
 import { TogglerInputProps } from './_TogglerInput.js';
 
-export type TogglerGroupFieldProps = {
+export type TogglerGroupFieldProps<T = 'default'> = {
   className?: string;
 } & Omit<FormFieldGroupWrappingProps, 'disabled'> &
-  TogglerGroupProps;
+  TogglerGroupProps<T>;
 
 type _TogglerGroupFieldProps = {
   Toggler: (props: TogglerInputProps) => ReactElement;
@@ -25,8 +25,8 @@ type _TogglerGroupFieldProps = {
   bem: string;
 } & BemPropsModifier;
 
-export type TogglerGroupFieldOption = TogglerGroupOption;
-export type TogglerGroupFieldOptions = TogglerGroupOptions;
+export type TogglerGroupFieldOption<T = 'default'> = TogglerGroupOption<T>;
+export type TogglerGroupFieldOptions<T = 'default'> = TogglerGroupOptions<T>;
 
 export const TogglerGroupField = (
   props: TogglerGroupFieldProps & _TogglerGroupFieldProps

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Multiselect`
 - `Datepicker`:
   - feat: Add support for "uncontrolled" mode — (add prop `defaultValue`, make
     `value` and `onChange` optional.)

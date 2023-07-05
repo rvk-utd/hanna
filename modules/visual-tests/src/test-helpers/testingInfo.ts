@@ -136,6 +136,10 @@ export type TestFnArgs = Pick<
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
     opts?: PageScreenshotOptions & {
+      /**
+       * Useful when dealing with components/pages that intentionally
+       * extend to outside the default viewport.
+       */
       clipViewport?: boolean;
       viewportMinHeight?: number;
       customScrollElement?: Locator;

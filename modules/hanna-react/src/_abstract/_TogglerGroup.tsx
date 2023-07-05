@@ -7,13 +7,13 @@ import { HTMLProps, useMixedControlState } from '../utils.js';
 
 import { TogglerInputProps } from './_TogglerInput.js';
 
-export type TogglerGroupOption = {
+export type TogglerGroupOption<T = 'default'> = {
   value: string;
-  label?: string | JSX.Element;
+  label?: T extends 'default' ? string | JSX.Element : T;
   disabled?: boolean;
   id?: string;
 };
-export type TogglerGroupOptions = Array<TogglerGroupOption>;
+export type TogglerGroupOptions<T = 'default'> = Array<TogglerGroupOption<T>>;
 
 type RestrictedInputProps = Omit<
   HTMLProps<'input'>,
@@ -28,8 +28,8 @@ type RestrictedInputProps = Omit<
   | 'children'
 >;
 
-export type TogglerGroupProps = {
-  options: Array<string> | TogglerGroupOptions;
+export type TogglerGroupProps<T = 'default'> = {
+  options: Array<string> | TogglerGroupOptions<T>;
   className?: string;
   name?: string;
   disabled?: boolean | ReadonlyArray<number>;

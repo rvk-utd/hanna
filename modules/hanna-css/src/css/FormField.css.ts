@@ -72,6 +72,7 @@ export default css`
       opacity: 0.5;
     }
 
+    [data-inputlabel].FormField__label,
     label.FormField__label {
       color: ${vars.color_suld_150};
       font-size: ${vars.font_label_size};
@@ -79,6 +80,7 @@ export default css`
       line-height: ${prem(14)};
       transition: all 200ms ease-in;
     }
+    :not(.FormField--small) > [data-inputlabel].FormField__label,
     :not(.FormField--small) > label.FormField__label {
       position: absolute;
       top: 1px;
@@ -88,6 +90,8 @@ export default css`
       max-width: calc(100% - ${grid_units(3)});
       ${overflowEllipsis}
     }
+    .FormField--empty:not(.FormField--small):not(.FormField--focused)
+      > [data-inputlabel].FormField__label,
     .FormField--empty:not(.FormField--small):not(.FormField--focused)
       > label.FormField__label {
       font-size: ${vars.font_bd_s_size};

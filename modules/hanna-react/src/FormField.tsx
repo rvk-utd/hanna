@@ -90,12 +90,12 @@ export type FormFieldGroupWrappingProps = FormFieldWrappingProps & {
   LabelTag?: 'h3' | 'h4' | 'h5';
 };
 
-export type FormFieldProps = FormFieldGroupWrappingProps & {
+type FormFieldProps = FormFieldGroupWrappingProps & {
   /** Container className - alongside "FormField" */
   className: string;
   small?: boolean;
 
-  group?: boolean;
+  group?: boolean | 'inputlike';
 
   empty?: boolean;
   filled?: boolean;
@@ -185,15 +185,15 @@ export const FormField = (props: FormFieldProps) => {
     return focusProps;
   }, []);
 
-  const errorId: string | undefined = errorMessage ? 'error:' + domid : undefined;
-  const assistTextId: string | undefined = assistText ? 'assist:' + domid : undefined;
-  const labelId: string | undefined = LabelTag ? 'label:' + domid : undefined;
+  const errorId: string | undefined = errorMessage ? `error:${domid}` : undefined;
+  const assistTextId: string | undefined = assistText ? `assist:${domid}` : undefined;
+  const labelId: string | undefined = LabelTag ? `label:${domid}` : undefined;
 
   const reqStar = required && reqText !== false && (
     <abbr
       className="FormField__label__reqstar"
       // TODO: add mo-better i18n thinking
-      title={(reqText || 'Þarf að fylla út') + ': '}
+      title={`${reqText || 'Þarf að fylla út'}: `}
     >
       *
     </abbr>
@@ -229,7 +229,11 @@ export const FormField = (props: FormFieldProps) => {
       ref={props.wrapperRef as RefObject<HTMLDivElement>}
     >
       {LabelTag ? (
-        <LabelTag className="FormField__label" id={labelId}>
+        <LabelTag
+          className="FormField__label"
+          data-inputlabel={group === 'inputlike' || undefined}
+          id={labelId}
+        >
           {' '}
           {reqStar} {label}{' '}
         </LabelTag>

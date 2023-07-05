@@ -4,8 +4,6 @@ import { Multiselect, MultiselectProps } from '@reykjavik/hanna-react/Multiselec
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 
 import { Minimal } from '../../layout/Minimal.js';
-import { lorem } from '../../test-helpers/dummyData.js';
-import { focusAllFormFields } from '../../test-helpers/focusAllFormFields.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 
@@ -14,29 +12,86 @@ export const meta: V2_MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = cssTokens('Token');
 
-const options = ['Option A', ''];
-const selectboxes: Record<string, MultiselectProps> = {
-  empty: { label: 'Empty', options, value: '' },
-  placeholder: { label: 'Placeholder', options, value: '', placeholder: 'Placeholder' },
-  normal: { label: 'Normal', options },
-  small: { label: 'Small', options, small: true },
-  disabled: { label: 'Disabled', options, disabled: true },
-  readonly: { label: 'Readonly', options, readOnly: true },
-  invalid: { label: 'Invalid', options, invalid: true },
+const opts = [
+  'Apple',
+  'Apricot',
+  'Banana',
+  'Blueberry',
+  'Cherry',
+  'Cranberry',
+  'Date',
+  'Durian',
+  'Elderberry',
+  'Eggplant',
+  'Fig',
+];
+const optsLong = opts.flatMap((val) => [val, `${val} (crate)`]);
+const optsShort = opts.slice(0, 4);
+const optsFew = opts.slice(5, 7);
+
+const multiselects: Record<string, MultiselectProps> = {
+  empty: {
+    label: 'Empty',
+    options: optsShort,
+  },
+  small: {
+    label: 'Small',
+    options: optsLong,
+    defaultValue: optsLong,
+    nowrap: true,
+    small: true,
+  },
+  normal: {
+    label: 'Normal',
+    options: optsLong,
+    defaultValue: optsLong,
+    nowrap: true,
+  },
+  placeholder: {
+    label: 'Placeholder',
+    options: opts,
+    placeholder: 'This is a placeholder',
+  },
+  disabled: {
+    label: 'Disabled',
+    options: optsLong,
+    defaultValue: optsFew,
+    disabled: true,
+  },
+  readonly: {
+    label: 'Readonly',
+    options: opts,
+    defaultValue: optsFew,
+    readOnly: true,
+  },
+  invalid: {
+    label: 'Invalid',
+    options: opts,
+    defaultValue: optsFew,
+    invalid: true,
+  },
 };
 
-const renderedSelects: Record<string, MultiselectProps> = {
-  ...selectboxes,
-  overflowing: {
-    label: 'Normal overflowing',
-    options: [lorem.medium],
+const multiselectsToRender: Record<string, MultiselectProps> = {
+  ...multiselects,
+  smallPlaceholder: {
+    label: 'Small w. placeholder',
+    placeholder: 'This is a placeholder',
+    options: opts,
+    forceSearchable: true,
+    small: true,
+  },
+  normalWrapped: {
+    label: 'Normal Wrapped',
+    options: optsLong,
+    defaultValue: optsLong,
   },
 };
 
 export default function () {
   return (
     <Minimal>
-      {ObjectEntries(renderedSelects).map(([id, props]) => (
+      {ObjectEntries(multiselectsToRender).map(([id, props]) => (
         <Multiselect key={id} id={id} {...props} />
       ))}
     </Minimal>
@@ -44,20 +99,27 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
+  extras: async ({ page, pageScreenshot, project }) => {
     if (project === 'firefox-wide' || project === 'firefox-phone') {
-      /* eslint-disable no-await-in-loop */
-      for (const id of Object.keys(selectboxes)) {
-        const select = page.locator(`#${id}`);
-        const formfield = select.locator('closest=.FormField');
+      const id1 = 'empty';
+      const togglerButton = page.locator(`button#toggler:${id1}`);
+      await togglerButton.click({ force: true });
+      await pageScreenshot(`${id1}-open`);
 
-        await select.hover({ force: true });
-        await localScreenshot(formfield, `${id}-hover`, { margin: 10 });
+      const id2 = 'normal';
+      const searchInput = page.locator(`input#toggler:${id2}`);
+      await searchInput.click({ force: true });
+      await searchInput.type('a');
+      await pageScreenshot(`${id2}-open`);
+
+      for (const id of ['empty', 'normal']) {
+        const toggler = page.locator(`#toggler:${id}`);
+        // const formfield = toggler.locator('closest=.FormField');
+
+        await toggler.click({ force: true });
+        await pageScreenshot(`${id}-open`);
       }
       /* eslint-enable no-await-in-loop */
     }
-
-    await focusAllFormFields(page);
-    await pageScreenshot('focused');
   },
 };
