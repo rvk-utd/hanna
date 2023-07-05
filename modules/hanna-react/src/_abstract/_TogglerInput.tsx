@@ -6,7 +6,6 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 export type TogglerInputProps = {
   label: string | JSX.Element;
   children?: never;
-  Wrapper?: 'div' | 'li';
   invalid?: boolean;
   /** Hidden label prefix text to indicate that the field is required.
    *
@@ -17,6 +16,9 @@ export type TogglerInputProps = {
    * */
   reqText?: string | false;
   errorMessage?: string | JSX.Element;
+  Wrapper?: 'div' | 'li';
+  wrapperProps?: JSX.IntrinsicElements['div'];
+  inputProps?: JSX.IntrinsicElements['input'];
 } & BemPropsModifier &
   Omit<JSX.IntrinsicElements['input'], 'type'>;
 
@@ -40,7 +42,9 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     type,
     id,
     innerWrap,
-    ...inputProps
+    wrapperProps,
+    inputProps,
+    ...restInputProps
   } = props;
 
   const domid = useDomid(id);
@@ -56,6 +60,8 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     </abbr>
   );
 
+  const readOnly = restInputProps.readOnly || (inputProps || {}).readOnly;
+
   const labelContent = (
     <>
       {' '}
@@ -64,20 +70,25 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
   );
 
   return (
-    <Wrapper className={getBemClass(bem, modifier, className)}>
+    <Wrapper {...(wrapperProps as {})} className={getBemClass(bem, modifier, className)}>
       <input
         className={bem + '__input'}
         type={type}
         id={domid}
         aria-invalid={invalid || !!errorMessage || undefined}
         aria-describedby={errorId}
+        {...restInputProps}
         {...inputProps}
+        {...(readOnly && { disabled: true })}
       />{' '}
       <label className={bem + '__label'} htmlFor={domid}>
         {innerWrap ? (
           <span className={bem + '__label__wrap'}>{labelContent}</span>
         ) : (
           labelContent
+        )}
+        {readOnly && (
+          <input type="hidden" name={restInputProps.name} value={restInputProps.value} />
         )}
       </label>
       {errorMessage && (

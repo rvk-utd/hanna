@@ -90,7 +90,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
   .${bem}__label::before {
     ${iconStyle('')}
     float: left;
-    margin-top: ${prem(2)};
+    /* margin-top: ${prem(2)}; */
     margin-left: ${prem(-36)};
     width: ${prem(20)};
     height: ${prem(20)};
@@ -151,6 +151,9 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
       label__color: vars.color_suld_200,
     })}
     opacity: 0.5;
+  }
+  .${bem}__input[class][readonly] + .${bem}__label {
+    opacity: 1;
   }
   .${bem}__input[class]:disabled + .${bem}__label::before {
     border-color: ${vars.color_suld_100};

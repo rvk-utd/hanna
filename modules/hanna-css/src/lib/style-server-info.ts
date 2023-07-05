@@ -69,6 +69,7 @@ export type CssModuleToken =
   | 'MainMenu'
   | 'MiniMetrics'
   | 'Modal'
+  | 'Multiselect'
   | 'NameCard'
   | 'NameCards'
   | 'NewsHero'

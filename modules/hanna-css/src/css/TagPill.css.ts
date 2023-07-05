@@ -1,11 +1,18 @@
 import { css, em } from 'es-in-css';
 
+import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LinkStyle_Reset } from './styles/links.js';
 import { hideText_css } from './utils/hideText.js';
+
+export const TagPillVariables = buildVariables(
+  ['background', 'background__hover', 'color', 'color__hover', 'height'],
+  'TagPill'
+);
+const Tv = TagPillVariables.vars;
 
 export default css`
   @media screen {
@@ -20,15 +27,19 @@ export default css`
 
       transition: none;
 
-      --TagPill--background: ${vars.color_suld_50};
-      --TagPill--background--hover: ${vars.color_suld_150};
-      background-color: var(--TagPill--background);
-      color: ${vars.color_suld_200};
+      ${TagPillVariables.declare({
+        background: vars.color_suld_50,
+        background__hover: vars.color_suld_150,
+        height: vars.space_3,
+        color: vars.color_suld_200,
+        color__hover: vars.color_suld_0,
+      })};
+      background-color: ${Tv.background};
+      color: ${Tv.color};
       border-radius: ${vars.space_0$5};
       text-align: center;
-      --TagPill--height: ${vars.space_3};
-      height: var(--TagPill--height);
-      line-height: var(--TagPill--height);
+      height: ${Tv.height};
+      line-height: ${Tv.height};
       font-size: ${vars.font_label_size};
       font-weight: ${vars.font_weight__bold};
 
@@ -40,25 +51,35 @@ export default css`
       margin-right: ${vars.space_2};
     }
     .TagPill--large {
-      --TagPill--height: calc(${vars.space_3} + ${vars.space_0$5});
+      ${TagPillVariables.override({
+        height: `calc(${vars.space_3} + ${vars.space_0$5})`,
+      })};
       font-size: ${vars.font_button_size};
       font-weight: ${vars.font_weight__normal};
     }
     .TagPill--color--green {
-      --TagPill--background: ${vars.color_ellidaardalur_50};
-      --TagPill--background--hover: ${vars.color_ellidaardalur_150};
+      ${TagPillVariables.override({
+        background: vars.color_ellidaardalur_50,
+        background__hover: vars.color_ellidaardalur_150,
+      })}
     }
     .TagPill--color--yellow {
-      --TagPill--background: ${vars.color_nautholsvik_50};
-      --TagPill--background--hover: ${vars.color_nautholsvik_150};
+      ${TagPillVariables.override({
+        background: vars.color_nautholsvik_50,
+        background__hover: vars.color_nautholsvik_150,
+      })}
     }
     .TagPill--color--orange {
-      --TagPill--background: ${vars.color_blafjoll_50};
-      --TagPill--background--hover: ${vars.color_blafjoll_150};
+      ${TagPillVariables.override({
+        background: vars.color_blafjoll_50,
+        background__hover: vars.color_blafjoll_150,
+      })}
     }
     .TagPill--color--red {
-      --TagPill--background: ${vars.color_heidmork_50};
-      --TagPill--background--hover: ${vars.color_heidmork_150};
+      ${TagPillVariables.override({
+        background: vars.color_heidmork_50,
+        background__hover: vars.color_heidmork_150,
+      })}
     }
 
     .TagPill__button {
@@ -84,8 +105,8 @@ export default css`
     button.TagPill__remove:hover {
       margin-left: ${vars.space_0$5__neg};
       padding-left: ${vars.space_1};
-      background-color: var(--TagPill--background--hover);
-      color: ${vars.color_suld_0};
+      background-color: ${Tv.background__hover};
+      color: ${Tv.color__hover};
     }
     .TagPill__button + .TagPill__remove {
       position: absolute;
@@ -96,8 +117,8 @@ export default css`
     .TagPill__button:hover + .TagPill__remove,
     .TagPill__button:active + .TagPill__remove {
       opacity: 0.33;
-      background-color: var(--TagPill--background--hover);
-      color: ${vars.color_suld_0};
+      background-color: ${Tv.background__hover};
+      color: ${Tv.color__hover};
     }
 
     .TagPill__remove::before {
@@ -112,8 +133,8 @@ export default css`
     button.TagPill:hover,
     .TagPill__button:hover,
     .TagPill__button:active {
-      background-color: var(--TagPill--background--hover);
-      color: ${vars.color_suld_0};
+      background-color: ${Tv.background__hover};
+      color: ${Tv.color__hover};
     }
 
     .TagPill:disabled,

@@ -10,7 +10,6 @@ type TextareaElmProps = JSX.IntrinsicElements['textarea'];
 
 export type TextInputProps = {
   small?: boolean;
-  children?: never;
 } & FormFieldWrappingProps &
   (
     | ({

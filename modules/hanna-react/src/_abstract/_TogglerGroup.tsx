@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { FormFieldInputProps } from '../FormField.js';
@@ -6,13 +7,13 @@ import { HTMLProps, useMixedControlState } from '../utils.js';
 
 import { TogglerInputProps } from './_TogglerInput.js';
 
-export type TogglerGroupOption = {
+export type TogglerGroupOption<T = 'default'> = {
   value: string;
-  label?: string | JSX.Element;
+  label?: T extends 'default' ? string | JSX.Element : T;
   disabled?: boolean;
   id?: string;
 };
-export type TogglerGroupOptions = Array<TogglerGroupOption>;
+export type TogglerGroupOptions<T = 'default'> = Array<TogglerGroupOption<T>>;
 
 type RestrictedInputProps = Omit<
   HTMLProps<'input'>,
@@ -27,16 +28,20 @@ type RestrictedInputProps = Omit<
   | 'children'
 >;
 
-export type TogglerGroupProps = {
-  options: TogglerGroupOptions;
+export type TogglerGroupProps<T = 'default'> = {
+  options: Array<string> | TogglerGroupOptions<T>;
   className?: string;
-  name: string;
+  name?: string;
   disabled?: boolean | ReadonlyArray<number>;
   inputProps?: RestrictedInputProps;
   onSelected?: (payload: {
+    /** The value of being selected/updated */
     value: string;
+    /** The new checked state of the selected value */
     checked: boolean;
-    option: TogglerGroupOption;
+    /** The option object being selected */
+    option: TogglerGroupOption<T>;
+    /** The updated value array */
     selectedValues: Array<string>;
   }) => void;
 } & Omit<FormFieldInputProps, 'disabled'>;
@@ -54,15 +59,24 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     // id,
     className,
     bem,
-    name,
+
     disabled,
+    readOnly,
     Toggler,
     onSelected,
-    options,
     isRadio,
     inputProps = {},
   } = props;
   const [values, setValues] = useMixedControlState(props, 'value', []);
+
+  const name = useDomid(props.name);
+
+  const options: Array<TogglerGroupOption> = useMemo(() => {
+    const _options = props.options;
+    return typeof _options[0] === 'string'
+      ? (_options as Array<string>).map((option) => ({ value: option }))
+      : (_options as Array<TogglerGroupOption>);
+  }, [props.options]);
 
   return (
     <ul
@@ -102,6 +116,7 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
               onSelected && onSelected({ value, checked, option, selectedValues });
             }}
             disabled={isDisabled}
+            readOnly={readOnly}
             aria-invalid={props['aria-invalid']}
             checked={isChecked}
           />

@@ -1,5 +1,7 @@
 import { css, MsValue, RawCssString } from 'es-in-css';
 
+import { htmlCl } from '../../lib/classNames.js';
+
 const pad = (selector: string) => {
   return selector.startsWith(':') ? selector : ` ${selector}`;
 };
@@ -30,7 +32,7 @@ export const SeenEffect__initial =
   (content: RawCssString) => {
     const sel = pad(childSelector);
     return css`
-      .before-sprinkling &${sel}, &[data-is-seen='false']${sel} {
+      ${htmlCl.beforeSprinkling} &${sel}, &[data-is-seen='false']${sel} {
         ${content}
       }
     `;
@@ -126,7 +128,7 @@ export const SeenEffect__delay = (delay: MsValue) => css`
 
 /** @deprecated  Remove this mixin in v0.9 */
 export const SeenEffect__disallowNesting = () => css`
-  .before-sprinkling [data-is-seen] &,
+  ${htmlCl.beforeSprinkling} [data-is-seen] &,
   [data-is-seen] &[data-is-seen='false'] {
     opacity: 1;
     transform: none;
