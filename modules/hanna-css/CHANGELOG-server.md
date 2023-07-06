@@ -12,7 +12,7 @@
 
 ## 0.8.78
 
-_2023-04-26_
+_2023-05-10_
 
 - Global `-basics` styles:
   - feat: Remove aggressive global reset for all `img` and `video` elements
@@ -25,7 +25,7 @@ _2023-04-26_
 
 ## 0.8.77
 
-_2023-03-16_
+_2023-03-20_
 
 - feat: Decrease top padding of `Layout__main`, shift `BreadCrumbs` a bit
 - feat: Add styling for `.FieldGroup--small`
