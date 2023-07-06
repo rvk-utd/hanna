@@ -6,7 +6,7 @@
 
 ## 0.8.44
 
-_2023-07-07_
+_2023-07-06_
 
 - feat: Make `loadSprinkles`' "base inport URL" resolution more resilient
 

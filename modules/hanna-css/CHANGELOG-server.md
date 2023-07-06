@@ -6,7 +6,7 @@
 
 ## 0.8.79
 
-_2023-07-07_
+_2023-07-06_
 
 - feat: Add component `Multiselect`
 - feat: Add component `ReadSpeakerPlayer`
