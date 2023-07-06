@@ -4,11 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.8.44
+## 0.8.44 — 0.8.45
 
 _2023-07-06_
 
-- feat: Make `loadSprinkles`' "base inport URL" resolution more resilient
+- feat: ~~Make `loadSprinkles`' "base inport URL" resolution more resilient~~
+  (Temporarily reverted)
 
 ## 0.8.43
 
