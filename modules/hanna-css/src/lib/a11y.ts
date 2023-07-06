@@ -138,6 +138,7 @@ export const srOnly_focusableContent = ({
   const opposite = dir === 'ltr' ? 'left' : 'right';
 
   return css`
+    position: absolute;
     ${edge}: 9999px;
     ${opposite}: auto;
 
