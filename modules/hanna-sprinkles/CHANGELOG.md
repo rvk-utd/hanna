@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.44
+
+_2023-07-07_
+
 - feat: Make `loadSprinkles`' "base inport URL" resolution more resilient
 
 ## 0.8.43
