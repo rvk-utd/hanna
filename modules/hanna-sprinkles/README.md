@@ -40,7 +40,7 @@ top** of your page's `<head/>`:
     setTimeout(() => c.remove(n), 6000);
   })(document.documentElement.classList, 'before-sprinkling');
 </script>
-<script src="https://styles.reykjavik.is/sprinkles/v0.8" />
+<script src="https://styles.reykjavik.is/sprinkles/v0.8"></script>
 ```
 
 Now you can call `window.Hanna.loadSprinkles` anywhere in your code to load
