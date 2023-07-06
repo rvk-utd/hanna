@@ -257,7 +257,7 @@ const myCss = css`
   }
 `;
 /*`
-  html.before-sprinkling .MyComponent__details:not([data-sprinkled]) {
+  .before-sprinkling .MyComponent__details:not([data-sprinkled]) {
     display: none;
   }
   .MyComponent__details[data-sprinkled] {

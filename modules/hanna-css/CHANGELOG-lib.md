@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Make `htmlCl.*` selectors less specific (remove the `html` prefix)`
 
 ## 0.4.2
 
