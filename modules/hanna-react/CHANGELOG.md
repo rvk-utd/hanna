@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.93
+
+_2023-07-06_
+
 - feat: Add component `Multiselect`
 - fix: Add `target` prop to all "\*Cards" components that have `href`s
 - `Datepicker`:
