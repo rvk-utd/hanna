@@ -46,7 +46,7 @@ export const ButtonStyle = () => css`
     backgroundColor: bVars.color,
     backgroundColor__active: bVars.color__active,
     border: px(0), // Must have a unit, because it gets used inside a calc()
-    height: vars.space_8,
+    height: vars.space_7,
     iconOutdent: vars.space_0$5__neg,
     iconSpace: vars.space_1,
   })}

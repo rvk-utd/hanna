@@ -19,7 +19,7 @@ export default css`
         input__border_color: vars.color_suld_100,
         input__border_radius: prem(3),
         input__border_inner_radius: prem(2),
-        input__height: prem(56),
+        input__height: vars.space_7,
         input__height_inner: `calc(${ff.input__height} - 2px)`,
         input__padding_top: prem(InputField_paddingTop),
         input__padding_bottom: px(0),
