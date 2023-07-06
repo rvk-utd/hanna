@@ -4,6 +4,11 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Multiselect`
+
+## 0.8.31
+
+_2023-06-06_
+
 - feat: Add component `ReadSpeakerPlayer` — a thin div-wrapper around
   ReadSpeaker's embed code
 
