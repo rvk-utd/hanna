@@ -237,7 +237,7 @@ const myCss = css`
 
 ### `htmlCl`
 
-Collection of selectors with class-name-states that the ´<html/>´ element can
+Collection of selectors with class-name-states that the `<html/>` element can
 take.
 
 Here's how you'd use the `beforeSprinkling` selector to suppress flicker of
