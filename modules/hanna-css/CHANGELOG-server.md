@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.79
+
+_2023-07-07_
+
 - feat: Add component `Multiselect`
 - feat: Add component `ReadSpeakerPlayer`
 - feat: Add `[readonly]` styling on checkboxes and radio buttons
