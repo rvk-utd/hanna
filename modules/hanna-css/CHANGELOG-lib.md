@@ -8,7 +8,7 @@
 
 _2023-07-06_
 
-- fix: Make `htmlCl.*` selectors less specific (remove the `html` prefix)`
+- fix: Make `htmlCl.*` selectors less specific (remove the `html` prefix)
 
 ## 0.4.2
 
