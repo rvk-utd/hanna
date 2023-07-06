@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.3
+
+_2023-07-06_
+
 - fix: Make `htmlCl.*` selectors less specific (remove the `html` prefix)`
 
 ## 0.4.2
