@@ -2,11 +2,9 @@
 
 ## Upcoming...
 
-fix: Runtime import errors in `FileInput` in ESM mode
-
 - ... <!-- Add new lines here. -->
 
-## 0.10.93
+## 0.10.93 – 0.10.94
 
 _2023-07-06_
 
@@ -21,6 +19,7 @@ _2023-07-06_
   - feat: Support passing `options` as simple string array
   - feat: Make `name` prop optional for groups
   - fix: Handling of `disabled` as array of indexes
+- fix: Runtime import errors in `FileInput` in ESM mode
 
 ## 0.10.92
 
