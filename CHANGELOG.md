@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.32
+
+_2023-07-06_
+
 - feat: Add component `Multiselect`
 
 ## 0.8.31
