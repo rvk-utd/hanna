@@ -2,6 +2,8 @@
 
 ## Upcoming...
 
+fix: Runtime import errors in `FileInput` in ESM mode
+
 - ... <!-- Add new lines here. -->
 
 ## 0.10.93
