@@ -14,8 +14,8 @@ const replaceTokens = (/** @type {esbuild.BuildResult} */ res, /** unknown */ er
   const isProd = process.env.NODE_ENV === 'production';
 
   const fallbackSprinklesUrl = isProd
-    ? `https://styles.reykjavik.is/${sprinklesFolder + versionFolder}`
-    : '/dist';
+    ? `https://styles.reykjavik.is/${sprinklesFolder + versionFolder}/`
+    : '__REMOVE__"new URL("/dist/", document.location.href)"__REMOVE__'; // hack to dynamically get the correct host in dev
 
   return Promise.all(
     res.outputFiles?.map((file) =>
@@ -23,6 +23,7 @@ const replaceTokens = (/** @type {esbuild.BuildResult} */ res, /** unknown */ er
         file.path,
         file.text
           .replace(/\${fallbackSprinklesUrl}/g, fallbackSprinklesUrl)
+          .replace(/['"]__REMOVE__['"]/g, '')
           .replace(/\${version}/g, version)
       )
     ) || []
