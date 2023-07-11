@@ -15,7 +15,7 @@
       /*
         NOTE: `document.currentScript` exists only if the script was loaded
         via a `<script/>` tag, and then only during the initial processing.
-        @see https://deve`loper.mozilla.org/en-US/docs/Web/API/Document/currentScript
+        @see https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript
 
         For inlined scripts (without `.src`) we fall back on a default
         `fallbackSprinklesUrl` value.
@@ -24,7 +24,9 @@
         don't enter this branch, and can use a simple `"./"` relative path
         (provided below).
       */
-      const src = scriptElm.src || fallbackSprinklesUrl;
+      const src =
+        (scriptElm.src || '').split('?')[0].replace(/\/$/, '/index.js') ||
+        fallbackSprinklesUrl;
       path = new URL('.', src).href;
     }
 
