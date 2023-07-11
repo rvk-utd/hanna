@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.46
+
+_2023-07-11_
+
 - feat: Upgrade `sitewideAlerts` to support renamed property `renderedAlert`
 - feat: Make `loadSprinkles`' "base inport URL" resolution more resilient
 
