@@ -24,9 +24,10 @@
         don't enter this branch, and can use a simple `"./"` relative path
         (provided below).
       */
-      const src =
-        (scriptElm.src || '').split('?')[0].replace(/\/$/, '/index.js') ||
-        fallbackSprinklesUrl;
+      let src = scriptElm.src;
+      src = src
+        ? src.split('?')[0].replace(/\/(?:index\.js)$/, '') + '/'
+        : fallbackSprinklesUrl;
       path = new URL('.', src).href;
     }
 
