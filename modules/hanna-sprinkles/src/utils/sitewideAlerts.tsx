@@ -5,6 +5,7 @@ import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { DAY, MINUTE, SECOND } from '@hugsmidjan/qj/time';
 import { Alert, AlertProps } from '@reykjavik/hanna-react/Alert';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import ensureCSS from './_ensureCSS.js';
 
@@ -126,13 +127,16 @@ const sitewideAlertTypes: Record<string, AlertProps['type'] | undefined> = {
 
 type SiteWideAlert = {
   uuid: string;
-  message: string;
   dismissible: boolean;
   dismissalIgnoreBefore?: number;
   styleClass: string;
   showOnPages?: Array<string>;
   negateShowOnPages?: boolean;
-};
+} & EitherObj<
+  { renderedAlert: string },
+  // The old name for `renderedAlert` was `message`, so we need to support that for a while.
+  { message: string }
+>;
 
 type SiteWideAlertsProps = {
   /** URL of the API endpoint to fetch alerts from */
@@ -204,13 +208,13 @@ const SiteWideAlerts = (props: SiteWideAlertsProps) => {
   return (
     <>
       {alerts.map((alert) => {
-        const { uuid, styleClass, message, dismissible } = alert;
+        const { uuid, styleClass, renderedAlert = alert.message, dismissible } = alert;
         const type = sitewideAlertTypes[styleClass] || 'info';
         return (
           <Alert
             key={uuid}
             type={type}
-            childrenHTML={message}
+            childrenHTML={renderedAlert}
             onClose={dismissible ? () => dismissAlert(alert) : undefined}
             lang={lang}
           />
