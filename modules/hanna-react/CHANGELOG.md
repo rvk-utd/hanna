@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Raise `Multiselect`'s internal `summaryLimit` to `20`
 
 ## 0.10.93 – 0.10.94
 

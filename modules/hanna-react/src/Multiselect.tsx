@@ -28,7 +28,7 @@ const metaData = {
    *
    * (This summary just gets in the way with ultra short option lists.)
    */
-  summaryLimit: 10 as number,
+  summaryLimit: 20 as number,
 };
 
 const { searchableLimit, summaryLimit } = metaData;
