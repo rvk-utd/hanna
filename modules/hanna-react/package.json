@@ -29,7 +29,8 @@
     "react-datepicker": "4.11.0",
     "react-dropzone": "^10.2.2",
     "react-intersection-observer": "^8.30.1",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "tslib": "^2.4.0"
   },
   "publishConfig": {
     "engines": {

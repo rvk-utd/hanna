@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: List `tslib` as dependency
 
 ## 0.2.7
 

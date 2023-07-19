@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Raise `Multiselect`'s internal `summaryLimit` to `20`
+- fix: List `tslib` as dependency
 
 ## 0.10.93 – 0.10.94
 
