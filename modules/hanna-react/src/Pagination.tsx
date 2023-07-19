@@ -33,7 +33,7 @@ const Pagination = (props: PaginationProps) => {
           onClick={() => handleButtonClick(activePage === 2, activePage - 1)}
           className="Pagination__button Pagination__button--back"
           aria-label="Previous page"
-        ></button>
+        />
       </li>
       {paginationItems.map((pagItem, indx) => {
         const isNumber = typeof pagItem === 'number' && !isNaN(pagItem);
@@ -65,7 +65,7 @@ const Pagination = (props: PaginationProps) => {
           onClick={() => handleButtonClick(activePage + 1 === pageCount, activePage + 1)}
           className="Pagination__button Pagination__button--forward"
           aria-label="Next page"
-        ></button>
+        />
       </li>
     </ul>
   );

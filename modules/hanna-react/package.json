@@ -14,7 +14,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@bramus/pagination-sequence": "^1.2.0",
+    "@bramus/pagination-sequence": "^1.2.1",
     "@floating-ui/react": "^0.19.2",
     "@hugsmidjan/qj": "^4.10.2",
     "@hugsmidjan/react": "^0.4.24",
