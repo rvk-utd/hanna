@@ -2994,6 +2994,7 @@ __metadata:
     "@hugsmidjan/react": ^0.4.24
     "@reykjavik/hanna-css": ^0.3.15
     "@reykjavik/hanna-utils": ^0.2.3
+    "@types/bramus__pagination-sequence": ^1.2.0
     "@types/react": ^17.0.24
     "@types/react-autosuggest": ^10.1.0
     "@types/react-datepicker": ^4.8.0
@@ -3830,6 +3831,13 @@ __metadata:
   version: 4.2.2
   resolution: "@types/aria-query@npm:4.2.2"
   checksum: 6f2ce11d91e2d665f3873258db19da752d91d85d3679eb5efcdf9c711d14492287e1e4eb52613b28e60375841a9e428594e745b68436c963d8bad4bf72188df3
+  languageName: node
+  linkType: hard
+
+"@types/bramus__pagination-sequence@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@types/bramus__pagination-sequence@npm:1.2.0"
+  checksum: 2fe209ff3d49440ecbeeabec4c456ccf0db075abc7ec7f63d21713954e0b9995857bb40e1f0499a9e369e545030869033583f7541a8528110a7c55ac775b506c
   languageName: node
   linkType: hard
 
