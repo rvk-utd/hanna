@@ -1,8 +1,8 @@
 import React, { ReactElement, useMemo } from 'react';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import FormField, { FormFieldGroupWrappingProps } from '../FormField.js';
+import { BemModifierProps } from '../utils/types.js';
 
 import {
   TogglerGroup,
@@ -23,7 +23,7 @@ type _TogglerGroupFieldProps = {
   value?: string | ReadonlyArray<string>;
   defaultValue?: string | ReadonlyArray<string>;
   bem: string;
-} & BemPropsModifier;
+} & BemModifierProps;
 
 export type TogglerGroupFieldOption<T = 'default'> = TogglerGroupOption<T>;
 export type TogglerGroupFieldOptions<T = 'default'> = TogglerGroupOptions<T>;
@@ -69,7 +69,7 @@ export const TogglerGroupField = (
 
   return (
     <FormField
-      className={getBemClass(bem, modifier, className)}
+      className={modifiedClass(bem, modifier, className)}
       group
       label={label}
       LabelTag={LabelTag}

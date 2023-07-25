@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 // ---------------------------------------------------------------------------
 
@@ -45,11 +45,11 @@ export type WizardStepperProps = {
 export const WizardStepper = (props: WizardStepperProps) => {
   const { steps, activeStep = -1, allowForwardSkip, disableBacktrack, onClick } = props;
   return (
-    <div className={getBemClass('WizardStepper', activeStep === -1 && 'preview')}>
+    <div className={modifiedClass('WizardStepper', activeStep === -1 && 'preview')}>
       {steps.map((step, i) => {
         const { clickable, done, neutral } = step;
         const label = step.label || '…';
-        const stepClass = getBemClass('WizardStepper__step', [
+        const stepClass = modifiedClass('WizardStepper__step', [
           (done || (done == null && i < activeStep)) && 'done',
           neutral && 'neutral',
         ]);

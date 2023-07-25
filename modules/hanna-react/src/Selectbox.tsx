@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type {
   OptionOrValue,
   SelectboxOption,
@@ -6,7 +7,6 @@ import type {
   SelectboxProps as _SelectboxProps,
 } from '@hugsmidjan/react/Selectbox';
 import _Selectbox from '@hugsmidjan/react/Selectbox';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import FormField, { FormFieldWrappingProps } from './FormField.js';
 
@@ -78,7 +78,7 @@ export const Selectbox = <O extends OptionOrValue>(props: SelectboxProps<O>) => 
 
   return (
     <FormField
-      className={getBemClass('Selectbox', null, className)}
+      className={modifiedClass('Selectbox', null, className)}
       ssr={ssr}
       small={small}
       label={label}

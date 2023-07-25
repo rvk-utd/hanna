@@ -10,7 +10,7 @@ import {
   useFloating,
 } from '@floating-ui/react';
 import { useCallbackOnEsc, useLaggedState } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 type TooltipElement = HTMLDetailsElement & {
   $contextClicked_firefox_fix?: ReturnType<typeof setTimeout>;
@@ -96,7 +96,7 @@ export const Tooltip = (props: TooltipProps) => {
       }
     >
       <summary
-        className={getBemClass('Tooltip__trigger', iconOnly && 'icononly')}
+        className={modifiedClass('Tooltip__trigger', iconOnly && 'icononly')}
         ref={reference}
       >
         {label}

@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+
+import { BemModifierProps } from '../utils/types.js';
 
 export type TogglerInputProps = {
   label: string | JSX.Element;
@@ -19,7 +20,7 @@ export type TogglerInputProps = {
   Wrapper?: 'div' | 'li';
   wrapperProps?: JSX.IntrinsicElements['div'];
   inputProps?: JSX.IntrinsicElements['input'];
-} & BemPropsModifier &
+} & BemModifierProps &
   Omit<JSX.IntrinsicElements['input'], 'type'>;
 
 type _TogglerInputProps = {
@@ -70,7 +71,10 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
   );
 
   return (
-    <Wrapper {...(wrapperProps as {})} className={getBemClass(bem, modifier, className)}>
+    <Wrapper
+      {...(wrapperProps as {})}
+      className={modifiedClass(bem, modifier, className)}
+    >
       <input
         className={bem + '__input'}
         type={type}

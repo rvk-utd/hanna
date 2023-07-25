@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
@@ -211,7 +211,7 @@ export const ContactBubble = (props: ContactBubbleProps) => {
         {links.map((linkInfo, i) => {
           const { href, label, extraLabel, target, onClick } = linkInfo;
           const icon = ensureIcon(linkInfo.icon);
-          const itemClass = getBemClass('ContactBubble__item', icon && 'type--' + icon);
+          const itemClass = modifiedClass('ContactBubble__item', icon && 'type--' + icon);
           const onClickHandler = (e: React.MouseEvent) => {
             if (onClick) {
               const doPreventDefault = onClick() !== true;

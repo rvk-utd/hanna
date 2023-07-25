@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 export type ProcessOverviewItemProps = {
   title: string;
@@ -19,7 +19,7 @@ export const ProcessOverview = (props: ProcessOverviewProps) => {
 
   return (
     <div
-      className={getBemClass('ProcessOverview', [
+      className={modifiedClass('ProcessOverview', [
         transparent && 'transparent',
         narrow && 'narrow',
       ])}

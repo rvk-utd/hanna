@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
@@ -16,7 +16,7 @@ export const PageHeading = (props: PageHeadingProps) => {
 
   return (
     <Tag
-      className={getBemClass('PageHeading', [
+      className={modifiedClass('PageHeading', [
         small && 'small',
         align === 'right' && 'align--' + align,
       ])}

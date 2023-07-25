@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { Image, ImagePropsLinked } from './_abstract/_Image.js';
 
@@ -13,7 +13,7 @@ export const Picture = (props: PictureProps) => {
   return (
     <Image
       {...props}
-      className={getBemClass('Picture', contain && 'contain', className)}
+      className={modifiedClass('Picture', contain && 'contain', className)}
     />
   );
 };

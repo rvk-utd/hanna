@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 const colors = {
   green: 1,
@@ -30,7 +30,7 @@ export const Sharpie = (props: SharpieProps) => {
   const colorModifier = colors[color] ? color : 'green';
   const Tag = tag && tags[tag] ? tag : 'span';
 
-  return <Tag className={getBemClass('Sharpie', colorModifier)}>{children}</Tag>;
+  return <Tag className={modifiedClass('Sharpie', colorModifier)}>{children}</Tag>;
 };
 
 export default Sharpie;

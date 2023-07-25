@@ -1,6 +1,6 @@
 import React, { MutableRefObject, RefObject } from 'react';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
 import is from 'date-fns/locale/is/index.js';
 import pl from 'date-fns/locale/pl/index.js';
@@ -176,7 +176,7 @@ export const Datepicker = (props: DatepickerProps) => {
 
   return (
     <FormField
-      className={getBemClass('Datepicker', [], className)}
+      className={modifiedClass('Datepicker', [], className)}
       ssr={ssr}
       label={label}
       small={small}

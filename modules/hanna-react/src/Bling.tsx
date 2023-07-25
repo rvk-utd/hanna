@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { BlingType, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 
 import { useGetSVGtext } from './utils/useGetSVGtext.js';
@@ -97,7 +97,7 @@ export const Bling = (props: BlingProps) => {
 
   return (
     <div
-      className={getBemClass(
+      className={modifiedClass(
         'Bling',
         [
           'align--' + (align && align in aligns ? align : 'left'),

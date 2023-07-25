@@ -1,8 +1,8 @@
 import React, { createRef, useState } from 'react';
 import Autosuggest, { RenderSuggestion } from 'react-autosuggest';
-import { BemProps } from '@hugsmidjan/react/types';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
+import { BemProps } from './utils/types.js';
 import SiteSearchInput from './SiteSearchInput.js';
 
 // ---------------------------------------------------------------------------

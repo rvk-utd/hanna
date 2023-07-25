@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 const sizes = {
@@ -56,7 +56,7 @@ export const VSpacer = (props: VSpacerProps) => {
     }
   }
 
-  const className = getBemClass('VSpacer', [
+  const className = modifiedClass('VSpacer', [
     sizeVal,
     topVal && 'top--' + topVal,
     bottomVal && 'bottom--' + bottomVal,

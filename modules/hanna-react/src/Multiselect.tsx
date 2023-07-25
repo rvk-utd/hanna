@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import domId from '@hugsmidjan/qj/domid';
 import { useDomid, useOnClickOutside } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { notNully } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
@@ -287,7 +287,7 @@ export const Multiselect = (props: MultiselectProps) => {
 
   return (
     <FormField
-      className={getBemClass('Multiselect', props.nowrap && 'nowrap', props.className)}
+      className={modifiedClass('Multiselect', props.nowrap && 'nowrap', props.className)}
       ssr={props.ssr}
       group="inputlike"
       label={props.label}
@@ -308,7 +308,7 @@ export const Multiselect = (props: MultiselectProps) => {
         const { id } = inputProps;
         return (
           <div
-            className={getBemClass(
+            className={modifiedClass(
               'Multiselect__input',
               [isOpen && 'open'],
               className.input
@@ -407,7 +407,7 @@ export const Multiselect = (props: MultiselectProps) => {
                     return (
                       <Checkbox
                         key={idx}
-                        className={getBemClass(
+                        className={modifiedClass(
                           'Multiselect__option',
                           activeItemIndex === idx && 'focused'
                         )}

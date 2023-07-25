@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { ComponentLayoutProps } from './constants.js';
 
@@ -31,7 +31,7 @@ export const Heading = (props: HeadingProps) => {
   return (
     <Tag
       data-dev-forcedh1={suppressWarning}
-      className={getBemClass('Heading', [
+      className={modifiedClass('Heading', [
         sizes[size],
         align === 'right' && 'align--' + align,
         !align && wide && 'wide',

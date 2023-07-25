@@ -8,16 +8,16 @@ import React, {
   useState,
 } from 'react';
 import A from '@hugsmidjan/qj/A';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import debounce from '@hugsmidjan/qj/debounce';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import throttle from '@hugsmidjan/qj/throttle';
-import { BemProps } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj, notNully } from '@reykjavik/hanna-utils';
 
 import CarouselStepper from '../CarouselStepper.js';
 import { SSRSupportProps, useIsBrowserSide } from '../utils.js';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
+import { BemProps } from '../utils/types.js';
 
 // ---------------------------------------------------------------------------
 
@@ -185,7 +185,7 @@ export const AbstractCarousel = <
 
   return (
     <div
-      className={getBemClass(bem, modifier, props.className)}
+      className={modifiedClass(bem, modifier, props.className)}
       ref={outerRef}
       data-sprinkled={isBrowser}
     >

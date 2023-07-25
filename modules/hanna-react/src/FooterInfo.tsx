@@ -1,6 +1,7 @@
 import React from 'react';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+
+import { BemModifierProps } from './utils/types.js';
 
 export type FooterInfoGroup = {
   title: string;
@@ -8,7 +9,7 @@ export type FooterInfoGroup = {
   main?: boolean;
   /** @deprecated (Will be removed in v0.11) */
   role?: JSX.IntrinsicElements['div']['role'];
-} & BemPropsModifier &
+} & BemModifierProps &
   ({ content: JSX.Element; html?: undefined } | { html: string; content?: undefined });
 
 export type FooterInfoBoxes = Array<FooterInfoGroup>;
@@ -24,7 +25,7 @@ export const FooterInfo = (props: FooterInfoProps) => {
     <div className="FooterInfo">
       {boxes.map((group, i) => (
         <div
-          className={getBemClass('FooterInfo__group', [
+          className={modifiedClass('FooterInfo__group', [
             group.main && 'main',
             group.modifier,
           ])}
@@ -32,12 +33,12 @@ export const FooterInfo = (props: FooterInfoProps) => {
         >
           <h3 className="FooterInfo__grouptitle">{group.title}</h3>
           {group.content ? (
-            <div className={getBemClass('FooterInfo__groupcontent', group.modifier)}>
+            <div className={modifiedClass('FooterInfo__groupcontent', group.modifier)}>
               {group.content}
             </div>
           ) : (
             <div
-              className={getBemClass('FooterInfo__groupcontent', group.modifier)}
+              className={modifiedClass('FooterInfo__groupcontent', group.modifier)}
               dangerouslySetInnerHTML={{ __html: group.html }}
             />
           )}

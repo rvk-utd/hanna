@@ -1,5 +1,5 @@
 import React, { RefObject } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { Link } from '../_abstract/_Link.js';
 
@@ -39,7 +39,7 @@ export const PrimaryPanel = (props: PrimaryPanelProps) => {
   return (
     <li
       ref={isActive ? props.activeRef : undefined}
-      className={getBemClass('PrimaryPanel', [
+      className={modifiedClass('PrimaryPanel', [
         isParent && 'parent',
         isActive && 'active',
         items.length > 5 && 'twocol', // TODO: allow setting twocol manually?

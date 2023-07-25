@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { ButtonProps } from './_abstract/_Button.js';
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
@@ -17,7 +17,7 @@ export const LabeledTextBlock = (props: LabeledTextBlockProps) => {
   const [ref] = useSeenEffect(startSeen);
 
   return (
-    <div className={getBemClass('LabeledTextBlock', wide && 'wide')} ref={ref}>
+    <div className={modifiedClass('LabeledTextBlock', wide && 'wide')} ref={ref}>
       <h2 className="LabeledTextBlock__label">{label}</h2>
       <div className="LabeledTextBlock__summary">
         {summary}

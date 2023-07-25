@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 export type ButtonBarProps = {
   align?: 'right';
@@ -9,7 +9,7 @@ export type ButtonBarProps = {
 export const ButtonBar = (props: ButtonBarProps) => {
   const { align, children } = props;
   return (
-    <div className={getBemClass('ButtonBar', align === 'right' && 'align--right')}>
+    <div className={modifiedClass('ButtonBar', align === 'right' && 'align--right')}>
       {children}
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
@@ -9,6 +8,7 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 import { Image } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
 import { HannaUIState } from './utils/HannaUIState.js';
+import { BemModifierProps } from './utils/types.js';
 import { useMenuToggling } from './utils/useMenuToggling.js';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
 import { SSRSupportProps, useIsBrowserSide } from './utils.js';
@@ -48,7 +48,7 @@ type LayoutProps = {
   texts?: LayoutI18n;
   lang?: string;
 } & SSRSupportProps &
-  Pick<BemPropsModifier, 'modifier'> &
+  BemModifierProps &
   EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
 
 export const Layout = (props: LayoutProps) => {
@@ -74,7 +74,7 @@ export const Layout = (props: LayoutProps) => {
 
   return (
     <div
-      className={getBemClass('Layout', props.modifier)}
+      className={modifiedClass('Layout', props.modifier)}
       data-sprinkled={isBrowser}
       data-color-theme={colorTheme}
     >

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import { ComponentLayoutProps } from './constants.js';
@@ -23,7 +23,7 @@ export const TextBlock = (props: TextBlockProps) => {
 
   return (
     <div
-      className={getBemClass('TextBlock', [
+      className={modifiedClass('TextBlock', [
         labelled && 'labelled',
         rightAligned && 'align--right',
         wide && !rightAligned && 'wide',

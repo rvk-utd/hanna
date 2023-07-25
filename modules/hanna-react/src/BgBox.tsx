@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import {
   EffectProp,
@@ -20,7 +20,7 @@ export const BgBox = (props: BgBoxProps) => {
 
   return (
     <div
-      className={getBemClass('BgBox', undefined, className)}
+      className={modifiedClass('BgBox', undefined, className)}
       ref={ref}
       {...getEffectAttr(effectType)}
     >

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { FormFieldInputProps } from '../FormField.js';
 import { HTMLProps, useMixedControlState } from '../utils.js';
@@ -80,7 +80,7 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
 
   return (
     <ul
-      className={getBemClass(bem, null, className)}
+      className={modifiedClass(bem, null, className)}
       role="group"
       aria-labelledby={props['aria-labelledby']}
       aria-describedby={props['aria-describedby']}

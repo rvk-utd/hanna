@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
@@ -60,7 +60,7 @@ export const ArticleCarouselCard = (
         {' '}
         <Image
           placeholder
-          className={getBemClass('ArticleCarouselCard__illustration', photo && 'photo')}
+          className={modifiedClass('ArticleCarouselCard__illustration', photo && 'photo')}
           {...imageProps}
         />
         <h3 className="ArticleCarouselCard__title">{title}</h3>{' '}

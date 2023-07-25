@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
@@ -163,7 +163,7 @@ export const Alert = (props: AlertProps) => {
 
   return (
     <div
-      className={getBemClass('Alert', [
+      className={modifiedClass('Alert', [
         !!alertTypes[type] && type,
         closable && 'closable',
       ])}

@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { BlingComboProps, Blings } from './_abstract/_Blings.js';
 import { ButtonProps } from './_abstract/_Button.js';
@@ -103,7 +103,7 @@ export const InfoHero = (props: InfoHeroProps) => {
     blingOptions.waves; // default to `waves`
 
   return (
-    <div className={getBemClass('InfoHero', 'align--' + alignment)}>
+    <div className={modifiedClass('InfoHero', 'align--' + alignment)}>
       <div className="InfoHero__content">
         <h1 className="InfoHero__title">{title}</h1>
         {titleBlurb && <div className="InfoHero__titleblurb">{titleBlurb}</div>}

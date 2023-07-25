@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { Efnistakn, getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 
 import { ButtonProps } from './_abstract/_Button.js';
@@ -39,7 +39,7 @@ export const GridBlocks = (props: GridBlocksProps) => {
   const [ref] = useSeenEffect(startSeen);
 
   return (
-    <div className={getBemClass('GridBlocks', [twocol && 'twocol'])} ref={ref}>
+    <div className={modifiedClass('GridBlocks', [twocol && 'twocol'])} ref={ref}>
       {blocks.map(({ title, summary, href, links = [], icon, image }, i) => {
         const imageProps = icon ? { src: getEfnistaknUrl(icon) } : image;
         return (

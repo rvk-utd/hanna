@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import useShortState from '@hugsmidjan/react/hooks/useShortState';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { Cleanup } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
@@ -331,7 +331,7 @@ export const MainMenu = (props: MainMenuProps) => {
           return (
             <li
               key={i}
-              className={getBemClass('MainMenu__item', item.modifier)}
+              className={modifiedClass('MainMenu__item', item.modifier)}
               aria-current={item.current || undefined}
             >
               {
@@ -383,7 +383,7 @@ export const MainMenu = (props: MainMenuProps) => {
       </ul>
       {'\n\n'}
       {megaPanels.length > 0 && (
-        <div className={getBemClass('MainMenu__panelsWrap', [activePanel && 'active'])}>
+        <div className={modifiedClass('MainMenu__panelsWrap', [activePanel && 'active'])}>
           <ul className="MainMenu__panels" onClick={handleMegaPanelClicks}>
             {megaPanels.map((panel, i) => {
               if (!panel.items.length) {

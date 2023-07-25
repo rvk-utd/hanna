@@ -1,5 +1,5 @@
 import React, { RefObject, useState } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import FormField, { FormFieldWrappingProps } from './FormField.js';
 
@@ -60,7 +60,7 @@ export const SearchInput = (props: SearchInputProps) => {
 
   return (
     <FormField
-      className={getBemClass('SearchInput', [], className)}
+      className={modifiedClass('SearchInput', [], className)}
       ssr={ssr}
       small={small}
       label={label}

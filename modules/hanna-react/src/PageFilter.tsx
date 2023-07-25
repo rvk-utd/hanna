@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
@@ -20,7 +20,7 @@ export const PageFilter = (props: PageFilterProps) => {
   const [ref] = useSeenEffect(startSeen);
 
   return (
-    <div className={getBemClass('PageFilter', underlap && 'underlap')} ref={ref}>
+    <div className={modifiedClass('PageFilter', underlap && 'underlap')} ref={ref}>
       <h2 className="PageFilter__title">{title}</h2>
       {summary && <div className="PageFilter__summary">{summary}</div>}
       <div className="PageFilter__filters">{filters || children}</div>

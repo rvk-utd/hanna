@@ -1,9 +1,9 @@
 import React, { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { prettyNum, PrettyNumOptions } from '@hugsmidjan/qj/prettyNum';
 import range from '@hugsmidjan/qj/range';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import {
@@ -244,7 +244,7 @@ export const SearchResults = (props: SearchResultsProps) => {
   const domid = useDomid();
 
   return (
-    <div className={getBemClass('SearchResults', status !== 'results' && status)}>
+    <div className={modifiedClass('SearchResults', status !== 'results' && status)}>
       {renderTitle(props, texts)}
 
       <SearchResults_Tabs

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { Link } from './_abstract/_Link.js';
 
@@ -21,7 +21,7 @@ export const ArticleMeta = (props: ArticleMetaProps) => {
   }
 
   return (
-    <div className={getBemClass('ArticleMeta', small && 'small')}>
+    <div className={modifiedClass('ArticleMeta', small && 'small')}>
       {items.map(({ label, href }, i) => (
         <Fragment key={i}>
           {href == null ? (

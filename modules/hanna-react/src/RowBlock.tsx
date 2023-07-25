@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { BemModifierProps } from './utils/types.js';
 
 export type RowBlockProps = {
   /** Float the first RowBlockColumn to the right on larger screens. */
@@ -10,7 +10,7 @@ export type RowBlockProps = {
   /** Custom **additional** class-name */
   className?: string;
   children: ReactNode;
-} & BemPropsModifier &
+} & BemModifierProps &
   SeenProp;
 
 export const RowBlock = (props: RowBlockProps) => {
@@ -19,7 +19,11 @@ export const RowBlock = (props: RowBlockProps) => {
 
   return (
     <div
-      className={getBemClass('RowBlock', [modifier, right && 'align--right'], className)}
+      className={modifiedClass(
+        'RowBlock',
+        [modifier, right && 'align--right'],
+        className
+      )}
       ref={ref}
     >
       {children}

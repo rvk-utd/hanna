@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { CardList, TextCardListProps } from './_abstract/_CardList.js';
 import { Link } from './_abstract/_Link.js';
@@ -27,7 +27,7 @@ const ExtraLinks__related = (props: RelatedProps) => {
           relatedLinks.map(({ href, label, blank = false, type }, i) => (
             <li className="ExtraLinks__related__item" key={i}>
               <Link
-                className={getBemClass('ExtraLinks__related__link', type)}
+                className={modifiedClass('ExtraLinks__related__link', type)}
                 href={href}
                 target={blank ? '_blank' : ''}
                 rel={blank ? 'noreferrer noopener' : ''}
@@ -53,7 +53,7 @@ export const ExtraLinks = (props: ExtraLinksProps) => {
 
   return (
     <div
-      className={getBemClass('ExtraLinks', hasRelated && 'related', className)}
+      className={modifiedClass('ExtraLinks', hasRelated && 'related', className)}
       ref={ref}
     >
       <div className="ExtraLinks__main">

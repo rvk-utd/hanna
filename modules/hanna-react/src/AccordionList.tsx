@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import { SSRSupportProps, useIsBrowserSide, useMixedControlState } from './utils.js';
@@ -31,7 +31,7 @@ const AccordionListItem = (props: _ALItemProps) => {
 
   return (
     <div
-      className={getBemClass('AccordionList__item', [itemDisabled && 'disabled'])}
+      className={modifiedClass('AccordionList__item', [itemDisabled && 'disabled'])}
       id={id}
       data-start-open={defaultOpen.current}
       data-sprinkled={isBrowser}
@@ -74,8 +74,8 @@ export type AccordionListProps = {
   /** Index of those items that should start open (uncontrolled use) */
   defaultOpen?: Array<number>;
   wide?: boolean;
-  ssr?: SSRSupport;
-} & SeenProp;
+} & SSRSupportProps &
+  SeenProp;
 
 export const AccordionList = (props: AccordionListProps) => {
   const { items, ssr, wide, startSeen, defaultOpen } = props;
@@ -94,7 +94,7 @@ export const AccordionList = (props: AccordionListProps) => {
   };
 
   return (
-    <div className={getBemClass('AccordionList', [wide && 'wide'])} ref={ref}>
+    <div className={modifiedClass('AccordionList', [wide && 'wide'])} ref={ref}>
       {items.map((item, i) => (
         <AccordionListItem
           key={i}

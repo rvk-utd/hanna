@@ -153,7 +153,7 @@ Abstract (private) components should, however, use this pattern:
 type Falsy = undefined | null | false | 0 | '';
 type Modifier = string | Falsy;
 
-type BemPropsModifier = {
+type BemModifierProps = {
   /** List of CSS BEM --modifier's to add to the component's main wrapper.
    * All falsy values are neatly skipped. */
   modifier?: Modifier | ReadonlyArray<Modifier>;
@@ -163,7 +163,7 @@ type BemProps = {
   bem?: string;
   /** Extra className to apply **in addition to** the component's BEM name. */
   className?: string;
-} & BemPropsModifier;
+} & BemModifierProps;
 ```
 
 ## Prefer props over nested components

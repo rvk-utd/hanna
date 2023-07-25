@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';
@@ -131,7 +131,7 @@ export const NameCard = (props: NameCardProps) => {
       <div className="NameCard__meta">
         {available != null && (
           <span
-            className={getBemClass('NameCard__availability', available && 'available')}
+            className={modifiedClass('NameCard__availability', available && 'available')}
           >
             {available
               ? availableLabel || texts.vacancyLabel

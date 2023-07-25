@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { HTMLProps } from './utils.js';
@@ -149,7 +149,7 @@ export const ReadSpeakerPlayer = (props: ReadSpeakerPlayerProps) => {
   return (
     <div
       {...wrapperProps}
-      className={getBemClass(
+      className={modifiedClass(
         'ReadSpeakerPlayer',
         [align === 'right' && `align-${align}`, float && 'float'],
         wrapperProps.className

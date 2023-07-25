@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import {
   CardList,
@@ -22,7 +22,7 @@ export const ImageCards = (props: ImageCardsProps) => {
   const [ref] = useSeenEffect(startSeen);
 
   return (
-    <div className={getBemClass('ImageCards', background && 'background')} ref={ref}>
+    <div className={modifiedClass('ImageCards', background && 'background')} ref={ref}>
       <CardList
         {...cardListProps}
         bemPrefix="ImageCards"

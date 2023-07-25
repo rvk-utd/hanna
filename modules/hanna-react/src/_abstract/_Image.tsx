@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { useGetSVGtext } from '../utils/useGetSVGtext.js';
 
@@ -62,7 +62,7 @@ export const Image = (props: ImageProps & _ImageProps) => {
 
   if (!imageSrc) {
     return placeholder ? (
-      <span className={className && getBemClass(className, 'missing')}>
+      <span className={className && modifiedClass(className, 'missing')}>
         {placeholder !== true && placeholder()}
       </span>
     ) : null;

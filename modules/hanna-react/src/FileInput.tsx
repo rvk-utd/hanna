@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { OpenRecord } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 
@@ -197,7 +197,7 @@ export const FileInput = (props: FileInputProps) => {
 
   return (
     <FormField
-      className={getBemClass('FileInput', [multiple && 'multi'], className)}
+      className={modifiedClass('FileInput', [multiple && 'multi'], className)}
       label={label}
       id={domid + '-fake'}
       LabelTag="h4"
@@ -243,7 +243,7 @@ export const FileInput = (props: FileInputProps) => {
               required={undefined}
             />{' '}
             <div
-              className={getBemClass('FileInput__dropzone', [isHover && 'highlight'])}
+              className={modifiedClass('FileInput__dropzone', [isHover && 'highlight'])}
               {...getRootProps({ isDragReject })}
               tabIndex={undefined}
             >

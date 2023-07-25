@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import IframeResizer, { type ResizerOptions } from 'iframe-resizer-react';
 
@@ -44,7 +44,7 @@ export const IframeBlock = (props: IframeBlockProps) => {
     checkOrigin = false,
   } = props;
 
-  const className = getBemClass('IframeBlock', [
+  const className = modifiedClass('IframeBlock', [
     framed && 'framed',
     compact && 'compact',
     align === 'right' && 'align--' + align,

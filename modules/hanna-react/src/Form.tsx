@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { ComponentLayoutProps } from './constants.js';
 
@@ -12,7 +12,7 @@ export const Form = (props: FormProps) => {
   return (
     <form
       {...props}
-      className={getBemClass('Form', [
+      className={modifiedClass('Form', [
         align === 'right' && 'align--' + align,
         !align && wide && 'wide',
       ])}

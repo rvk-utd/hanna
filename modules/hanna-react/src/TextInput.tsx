@@ -1,5 +1,5 @@
 import React, { ChangeEvent, RefObject, useEffect, useRef, useState } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import FormField, { FormFieldWrappingProps } from './FormField.js';
 
@@ -82,7 +82,7 @@ export const TextInput = (props: TextInputProps) => {
 
   return (
     <FormField
-      className={getBemClass('TextInput', modifiers, className)}
+      className={modifiedClass('TextInput', modifiers, className)}
       ssr={ssr}
       small={small}
       label={label}

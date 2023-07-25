@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 export type RowBlockColumnProps = {
   background?: boolean | 'primary';
@@ -12,7 +12,7 @@ export const RowBlockColumn = (props: RowBlockColumnProps) => {
 
   return (
     <div
-      className={getBemClass('RowBlockColumn', [
+      className={modifiedClass('RowBlockColumn', [
         narrow && 'narrow',
         background && 'background',
         background === 'primary' && 'background--primary',

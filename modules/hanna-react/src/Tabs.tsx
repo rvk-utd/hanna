@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, useState } from 'react';
 import { getFrag } from '@hugsmidjan/qj/frag';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import { SSRSupportProps, useIsBrowserSide } from './utils.js';
@@ -184,7 +184,7 @@ export const Tabs = (props: TabsProps) => {
 
   return (
     <div
-      className={getBemClass('Tabs', vertical && 'vertical')}
+      className={modifiedClass('Tabs', vertical && 'vertical')}
       role={tabRole && role}
       id={id}
       // aria-owns={tabIdList.join(' ')}

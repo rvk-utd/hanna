@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import range from '@hugsmidjan/qj/range';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 const makeRenderSkeleton =
   (props: { height?: number; text?: boolean; gap?: number }) => (key?: number) =>
     (
       <span
         key={key}
-        className={getBemClass('Skeleton', [
+        className={modifiedClass('Skeleton', [
           props.text && 'text',
           props.height && 'height--' + props.height,
           props.gap && 'gap--' + props.gap,

@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
 import { BlingComboProps, Blings } from './_abstract/_Blings.js';
@@ -100,7 +100,7 @@ export const NewsHero = (props: NewsHeroProps) => {
     (blingType && blingOptions[blingType]) || getStableRandomItem(blingOptions, title);
 
   return (
-    <div className={getBemClass('NewsHero', [!image && 'align--right'])} ref={ref}>
+    <div className={modifiedClass('NewsHero', [!image && 'align--right'])} ref={ref}>
       <div className="NewsHero__content">
         <h1 className="NewsHero__title">{title}</h1>
         {meta && <span className="NewsHero__meta">{meta}</span>}

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import { ComponentLayoutProps } from './constants.js';
@@ -17,7 +17,7 @@ export const SubHeading = (props: SubHeadingProps) => {
 
   return (
     <Tag
-      className={getBemClass('SubHeading', [
+      className={modifiedClass('SubHeading', [
         small && 'small',
         align === 'right' && 'align--' + align,
         !align && wide && 'wide',

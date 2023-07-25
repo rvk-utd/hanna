@@ -1,6 +1,6 @@
 import React, { FocusEvent, RefObject, useCallback, useState } from 'react';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { isPreact } from './utils/env.js';
 import { SSRSupportProps, useIsBrowserSide } from './utils.js';
@@ -210,7 +210,7 @@ export const FormField = (props: FormFieldProps) => {
 
   return (
     <div
-      className={getBemClass(
+      className={modifiedClass(
         'FormField',
         [
           small && 'small',
