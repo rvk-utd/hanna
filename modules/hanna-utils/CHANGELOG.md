@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.8
+
+_2023-07-25_
+
 - feat: Add optional `altText` parameter to `getSVGtext()`
 - fix: List `tslib` as dependency
 
