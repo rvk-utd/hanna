@@ -39,18 +39,17 @@ export const defaultLayoutTexts: DefaultTexts<LayoutI18n> = {
 
 type LayoutProps = {
   globalAlerts?: ReactNode;
-  mainChildren?: ReactNode;
   navChildren?: ReactNode;
   footerChildren?: ReactNode;
   colorTheme?: HannaColorTheme;
   logoLink?: string;
   siteName?: string;
-  modifier?: BemPropsModifier['modifier'];
   ssr?: SSRSupport;
 
   texts?: LayoutI18n;
   lang?: string;
-} & EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
+} & Pick<BemPropsModifier, 'modifier'> &
+  EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
 
 export const Layout = (props: LayoutProps) => {
   useScrollbarWidthCSSVar();
