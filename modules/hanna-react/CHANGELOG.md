@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.95
+
+_2023-07-25_
+
 - feat: Add optional `altText` parameter to `useGetSVGtext()`
 - feat: Export `useMenuToggling` from 'utils' module
 - feat: Export `SSRSupportProps` type
