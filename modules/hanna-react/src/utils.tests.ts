@@ -48,6 +48,7 @@ import type {
   /* utils/config.ts */
   LinkRenderer,
   SSRSupport,
+  SSRSupportProps,
 
   /* utils/browserSide.ts */
 
