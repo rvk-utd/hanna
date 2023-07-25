@@ -29,6 +29,9 @@ o.spec('hanna-react/utils lib', () => {
       /* utils/useGetSVGtext.ts */
       useGetSVGtext: true,
 
+      /* utils/useMenuToggling.ts */
+      useMenuToggling: true,
+
       /* utils/useMixedControlState.ts */
       useMixedControlState: true,
 
@@ -57,6 +60,8 @@ import type {
   /* utils/useFormatMonitor.ts */
 
   /* utils/useGetSVGtext.ts */
+
+  /* utils/useMenuToggling.ts */
 
   /* utils/useMixedControlState.ts */
 
