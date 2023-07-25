@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add optional `altText` parameter to `useGetSVGtext()`
+- fix: `Layout` components set `alt="Reykjavík"` text on their header logo
 - fix: Raise `Multiselect`'s internal `summaryLimit` to `20`
 - fix: List `tslib` as dependency
 

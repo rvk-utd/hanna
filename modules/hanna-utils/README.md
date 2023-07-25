@@ -59,10 +59,14 @@ yarn add @reykjavik/hanna-utils
 
 ### `getSVGtext`
 
-**Syntax:** `getSVGtext(url: string | undefined): Promise<string>`
+**Syntax:**
+`getSVGtext(url: string | undefined, altText?: string): Promise<string>`
 
 Fetches a remote SVG file and returns its markup contents — excluding any
 leading `<?xml />` directives or "Generator" comments.
+
+If you pass the optional `altText` parameter, it will attempt to inject a
+`<title/>` element into the SVG string. (First removing existing `<title/>`.)
 
 ```ts
 import { getSVGtext } from '@reykjavik/hanna-utils';
@@ -79,9 +83,9 @@ To check if file is svg:
 ```ts
 import { getSVGtext } from '@reykjavik/hanna-utils';
 
-const svgUrl = 'https://styles.reykjavik.is/assets/reykjavik-logo.svg';
-// true
-const isSVG = getSVGtext.isSvgUrl(svgUrl);
+const isSVG: true = getSVGtext.isSvgUrl(
+  'https://styles.reykjavik.is/assets/reykjavik-logo.svg'
+);
 ```
 
 ### `getFormatMonitor`

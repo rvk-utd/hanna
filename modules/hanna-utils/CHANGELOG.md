@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add optional `altText` parameter to `getSVGtext()`
 - fix: List `tslib` as dependency
 
 ## 0.2.7

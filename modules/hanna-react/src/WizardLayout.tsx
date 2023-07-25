@@ -27,7 +27,7 @@ export const WizardLayout = (props: WizardLayoutProps) => {
     children,
     colorTheme,
     logoLink = '/',
-    siteName = 'Reykjavík',
+    siteName = '',
     globalAlerts,
   } = props;
 
@@ -52,6 +52,7 @@ export const WizardLayout = (props: WizardLayoutProps) => {
               className={undefined}
               inline={true}
               src={getAssetUrl('reykjavik-logo.svg')}
+              altText="Reykjavík"
             />{' '}
             {siteName}{' '}
           </Link>{' '}

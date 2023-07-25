@@ -58,7 +58,7 @@ export const Image = (props: ImageProps & _ImageProps) => {
     _src || (sources[0] != null ? sources[0].srcset.split(' ')[0] : undefined);
   const imgLoading = preloadSrc ? 'eager' : 'lazy';
 
-  const inlineSvg = useGetSVGtext(inline ? imageSrc : undefined);
+  const inlineSvg = useGetSVGtext(inline ? imageSrc : undefined, altText);
 
   if (!imageSrc) {
     return placeholder ? (

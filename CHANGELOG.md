@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `Layout` components set `alt="Reykjavík"` on their header logo
 
 ## 0.8.32
 

@@ -62,7 +62,7 @@ export const Layout = (props: LayoutProps) => {
     footerChildren,
     colorTheme,
     children,
-    siteName = 'Reykjavík',
+    siteName = '',
     logoLink = '/',
   } = props;
 
@@ -92,6 +92,7 @@ export const Layout = (props: LayoutProps) => {
               className={undefined}
               inline={true}
               src={getAssetUrl('reykjavik-logo.svg')}
+              altText="Reykjavík"
             />{' '}
             {siteName}{' '}
           </Link>{' '}
