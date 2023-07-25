@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { focusElement } from '@reykjavik/hanna-utils';
 
+import { HannaUIStateState } from './HannaUIState.js';
 import { useFormatMonitor } from './useFormatMonitor.js';
 
 const htmlClass = (className: string, add: boolean) => {
@@ -16,6 +17,7 @@ type MenuTogglingState = {
   isMenuOpen: boolean;
   toggleMenu: () => void;
   closeMenu: () => void;
+  uiState: HannaUIStateState;
 };
 
 // ---------------------------------------------------------------------------
@@ -36,12 +38,17 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
     closeMenu: () => doInitialize && _closeMenu(),
   });
 
-  const [{ isMenuOpen, isMenuActive }, setMenuState] = useState<{
+  const [{ isMenuOpen, isMenuActive, uiState }, setMenuState] = useState<{
     isMenuOpen: boolean;
     isMenuActive: true | undefined;
+    uiState: HannaUIStateState;
   }>({
     isMenuOpen: false,
     isMenuActive: undefined,
+    uiState: {
+      closeHamburgerMenu: () => stateRef.current.closeMenu(),
+      isHamburgerMenuOpen: false,
+    },
   });
 
   stateRef.current.isMenuOpen = isMenuOpen;
@@ -49,7 +56,11 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
 
   const _openMenu = () => {
     if (!stateRef.current.isMenuOpen) {
-      setMenuState((state) => ({ ...state, isMenuOpen: true }));
+      setMenuState((state) => ({
+        ...state,
+        isMenuOpen: true,
+        uiState: { ...state.uiState, isHamburgerMenuOpen: true },
+      }));
       htmlClass('menu-is-open', true);
       htmlClass('menu-is-closed', false);
       focusElement('#pagenav');
@@ -57,7 +68,11 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
   };
   const _closeMenu = () => {
     if (stateRef.current.isMenuOpen) {
-      setMenuState((state) => ({ ...state, isMenuOpen: false }));
+      setMenuState((state) => ({
+        ...state,
+        isMenuOpen: false,
+        uiState: { ...state.uiState, isHamburgerMenuOpen: false },
+      }));
       htmlClass('menu-is-closed', true);
       htmlClass('menu-is-open', false);
       focusElement('.Layout__header__skiplink');
@@ -87,5 +102,6 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
     isMenuOpen,
     toggleMenu: stateRef.current.toggleMenu,
     closeMenu: stateRef.current.closeMenu,
+    uiState,
   };
 };

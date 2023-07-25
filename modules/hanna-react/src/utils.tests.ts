@@ -55,6 +55,10 @@ import type {
 
   /* utils/browserSide.ts */
 
+  /* utils/HannaUIState.ts */
+  // @ts-expect-error  (Should not be exported)
+  HannaUIStateState,
+
   /* utils/useDidChange.ts */
 
   /* utils/useFormatMonitor.ts */

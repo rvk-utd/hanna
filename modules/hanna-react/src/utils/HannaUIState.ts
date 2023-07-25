@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react';
 
-type HannaUIStateProps = {
+export type HannaUIStateState = {
   closeHamburgerMenu: () => void;
   isHamburgerMenuOpen: boolean | undefined;
 };
 
-const _HannaUIContext = createContext<HannaUIStateProps>({
+const _HannaUIContext = createContext<HannaUIStateState>({
   closeHamburgerMenu: () => undefined,
   isHamburgerMenuOpen: undefined,
 });

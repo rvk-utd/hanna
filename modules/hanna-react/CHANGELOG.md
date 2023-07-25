@@ -6,6 +6,7 @@
 - feat: Add optional `altText` parameter to `useGetSVGtext()`
 - feat: Export `useMenuToggling` from 'utils' module
 - feat: Export `SSRSupportProps` type
+- perf: Reduce render thrashing of `Layout`'s navChildren
 - fix: `Layout` components set `alt="Reykjavík"` text on their header logo
 - fix: Raise `Multiselect`'s internal `summaryLimit` to `20`
 - fix: List `tslib` as dependency

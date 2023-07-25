@@ -7,11 +7,14 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Image } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
-import { HannaUIState } from './utils/HannaUIState.js';
 import { BemModifierProps } from './utils/types.js';
-import { useMenuToggling } from './utils/useMenuToggling.js';
-import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
-import { SSRSupportProps, useIsBrowserSide } from './utils.js';
+import {
+  HannaUIState,
+  SSRSupportProps,
+  useIsBrowserSide,
+  useMenuToggling,
+  useScrollbarWidthCSSVar,
+} from './utils.js';
 
 export type LayoutI18n = {
   lang?: string;
@@ -65,7 +68,7 @@ export const Layout = (props: LayoutProps) => {
     logoLink = '/',
   } = props;
 
-  const { isMenuActive, isMenuOpen, closeMenu, toggleMenu } = useMenuToggling(
+  const { isMenuActive, uiState, closeMenu, toggleMenu } = useMenuToggling(
     ssr !== 'ssr-only'
   );
   const isBrowser = useIsBrowserSide(/* ssr */);
@@ -117,14 +120,7 @@ export const Layout = (props: LayoutProps) => {
         </div>
         {navChildren && (
           <div className="Layout__nav" id="pagenav" role="navigation">
-            <HannaUIState
-              value={{
-                closeHamburgerMenu: closeMenu,
-                isHamburgerMenuOpen: isMenuOpen,
-              }}
-            >
-              {navChildren}
-            </HannaUIState>
+            <HannaUIState value={uiState}>{navChildren}</HannaUIState>
             {isMenuActive && (
               <button
                 className="Layout__nav__closebutton"
