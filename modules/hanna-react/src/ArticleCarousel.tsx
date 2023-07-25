@@ -7,14 +7,14 @@ import {
   ArticleCarouselImageProps,
 } from './ArticleCarousel/_ArticleCarouselCard.js';
 import { SeenProp } from './utils/seenEffect.js';
-import { SSRSupport } from './utils.js';
+import { SSRSupportProps } from './utils.js';
 
 export type ArticleCarouselProps = {
   items: Array<ArticleCarouselCardProps>;
   title?: string;
   moreLabel?: string;
-  ssr?: SSRSupport;
-} & SeenProp;
+} & SSRSupportProps &
+  SeenProp;
 
 export type { ArticleCarouselCardProps, ArticleCarouselImageProps };
 

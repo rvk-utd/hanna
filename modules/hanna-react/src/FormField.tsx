@@ -3,7 +3,7 @@ import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { isPreact } from './utils/env.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide } from './utils.js';
 
 type InputClassNames = {
   /** Basic/raw FormField BEM name */
@@ -77,9 +77,7 @@ export type FormFieldWrappingProps = {
 
   /** Ref object pointing to the outermost `.FormField` element */
   wrapperRef?: RefObject<HTMLElement>;
-
-  ssr?: SSRSupport;
-};
+} & SSRSupportProps;
 
 /**
  * Mixin base props type for components using `FormField` to contain

@@ -6,7 +6,7 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide } from './utils.js';
 
 export type ContactBubbleI18n = {
   lang?: string;
@@ -87,17 +87,17 @@ export type ContactBubbleProps = {
   alwaysShow?: boolean;
   texts?: ContactBubbleI18n;
   lang?: string;
-  ssr?: SSRSupport;
-} & (
-  | {
-      open?: boolean;
-      onToggle: (isOpen: boolean) => void;
-    }
-  | {
-      open?: undefined;
-      onToggle?: (isOpen: boolean) => void;
-    }
-);
+} & SSRSupportProps &
+  (
+    | {
+        open?: boolean;
+        onToggle: (isOpen: boolean) => void;
+      }
+    | {
+        open?: undefined;
+        onToggle?: (isOpen: boolean) => void;
+      }
+  );
 
 export const ContactBubble = (props: ContactBubbleProps) => {
   const { title, links, onToggle, alwaysShow } = props;

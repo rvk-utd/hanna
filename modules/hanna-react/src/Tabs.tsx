@@ -3,7 +3,7 @@ import { getFrag } from '@hugsmidjan/qj/frag';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide } from './utils.js';
 
 const navKeyEffects: Record<string, 1 | -1> = {
   ArrowUp: -1,
@@ -108,8 +108,7 @@ type BaseTabsProps<T extends TabItemProps = TabItemProps> = {
   role?: 'tablist' | 'toc';
   'aria-controls'?: string;
   activateOnFocus?: boolean;
-  ssr?: SSRSupport;
-};
+} & SSRSupportProps;
 
 export type TabsProps<T extends TabItemProps = TabItemProps> = BaseTabsProps<T> & {
   vertical?: boolean;

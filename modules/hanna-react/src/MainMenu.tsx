@@ -19,7 +19,7 @@ import {
 } from './MainMenu/_PrimaryPanel.js';
 import { useHannaUIState } from './utils/HannaUIState.js';
 import { useFormatMonitor } from './utils/useFormatMonitor.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide } from './utils.js';
 
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>
   activeId ? megaPanels.find((panel) => activeId === panel.id) : undefined;
@@ -187,8 +187,7 @@ export type MainMenuProps = {
   activePanelId?: string;
   texts?: MainMenuI18n;
   lang?: string;
-  ssr?: SSRSupport;
-};
+} & SSRSupportProps;
 
 export const MainMenu = (props: MainMenuProps) => {
   const { title, megaPanels = emptyPanelList, onItemClick, ssr, auxiliaryPanel } = props;

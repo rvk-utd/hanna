@@ -5,7 +5,7 @@ import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { Image } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide } from './utils.js';
 
 type WizardLayoutProps = {
   wizardStepper?: ReactNode | false;
@@ -14,9 +14,8 @@ type WizardLayoutProps = {
   siteName?: string;
   logoLink?: string;
   globalAlerts?: ReactNode;
-  ssr?: SSRSupport;
   children?: ReactNode;
-};
+} & SSRSupportProps;
 
 export const WizardLayout = (props: WizardLayoutProps) => {
   useScrollbarWidthCSSVar();

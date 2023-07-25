@@ -6,7 +6,7 @@ import { GalleryItem, GalleryItemProps } from './Gallery/_GalleryItem.js';
 import { GalleryModal } from './Gallery/_GalleryModal.js';
 import { GalleryModalContext } from './Gallery/_GalleryModalContext.js';
 import { SeenProp } from './utils/seenEffect.js';
-import { SSRSupport } from './utils.js';
+import { SSRSupportProps } from './utils.js';
 
 export type { GalleryItemProps } from './Gallery/_GalleryItem.js';
 
@@ -35,8 +35,8 @@ export type GalleryProps = {
   items: Array<GalleryItemProps>;
   texts?: GalleryI18n;
   lang?: string;
-  ssr?: SSRSupport;
-} & SeenProp;
+} & SSRSupportProps &
+  SeenProp;
 
 export const Gallery = (props: GalleryProps) => {
   const { items, ssr, startSeen } = props;

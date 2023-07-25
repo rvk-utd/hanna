@@ -11,7 +11,7 @@ import { Link } from './_abstract/_Link.js';
 import { HannaUIState } from './utils/HannaUIState.js';
 import { useMenuToggling } from './utils/useMenuToggling.js';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide } from './utils.js';
 
 export type LayoutI18n = {
   lang?: string;
@@ -44,11 +44,11 @@ type LayoutProps = {
   colorTheme?: HannaColorTheme;
   logoLink?: string;
   siteName?: string;
-  ssr?: SSRSupport;
 
   texts?: LayoutI18n;
   lang?: string;
-} & Pick<BemPropsModifier, 'modifier'> &
+} & SSRSupportProps &
+  Pick<BemPropsModifier, 'modifier'> &
   EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
 
 export const Layout = (props: LayoutProps) => {

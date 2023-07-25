@@ -16,7 +16,7 @@ import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj, notNully } from '@reykjavik/hanna-utils';
 
 import CarouselStepper from '../CarouselStepper.js';
-import { SSRSupport, useIsBrowserSide } from '../utils.js';
+import { SSRSupportProps, useIsBrowserSide } from '../utils.js';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
 
 // ---------------------------------------------------------------------------
@@ -39,27 +39,27 @@ export type CarouselProps<
   P extends Record<string, unknown> | undefined = {}
 > = {
   className?: string;
-  ssr?: SSRSupport;
 
   /** @deprecated Ingored because never used (Will be removed in v0.11) */
   scrollRight?: boolean;
-} & EitherObj<
-  {
-    items: Array<I>;
-    Component: (props: P extends undefined ? I : I & P) => ReactElement | null;
-    ComponentProps?: P;
-  },
-  {
-    children: ReactNode;
-    /**
-     * Explicit number of items contained by the `children` prop
-     *
-     * Use this when your returned child elements are wrapped in a
-     * `<Fragment />` or some such.
-     */
-    itemCount?: number;
-  }
-> &
+} & SSRSupportProps &
+  EitherObj<
+    {
+      items: Array<I>;
+      Component: (props: P extends undefined ? I : I & P) => ReactElement | null;
+      ComponentProps?: P;
+    },
+    {
+      children: ReactNode;
+      /**
+       * Explicit number of items contained by the `children` prop
+       *
+       * Use this when your returned child elements are wrapped in a
+       * `<Fragment />` or some such.
+       */
+      itemCount?: number;
+    }
+  > &
   SeenProp;
 
 type AbstractCarouselProps<

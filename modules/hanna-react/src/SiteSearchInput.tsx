@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import FormField, { FormFieldWrappingProps } from './FormField.js';
-import { SSRSupport } from './utils.js';
+import { SSRSupportProps } from './utils.js';
 
 type InputElmProps = Omit<
   JSX.IntrinsicElements['input'],
@@ -25,8 +25,8 @@ export type SiteSearchInputProps = {
   onButtonClick?: () => boolean | void;
   buttonText?: string;
   children?: never;
-  ssr?: SSRSupport;
-} & WrappingProps &
+} & SSRSupportProps &
+  WrappingProps &
   InputElmProps;
 
 // ---------------------------------------------------------------------------

@@ -12,7 +12,7 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';
 import { isPreact } from './utils/env.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide } from './utils.js';
 
 // FIXME: Eventually import from @reykjavik/hanna-css
 const AlertCloseTransitionDuration = 400;
@@ -72,29 +72,29 @@ export type AlertProps = {
   closeUrl?: string;
   texts?: AlertI18n;
   lang?: string;
-  ssr?: SSRSupport;
-} & EitherObj<
-  {
-    /** Seconds until the Alert auto-closes.
-     *
-     * Mosueover and keyboard focus resets the timer.
-     */
-    autoClose: number;
-    /** Return `false` to prevent the alert from closing. */
-    onClose?: () => void | boolean;
-    /** Callback that fires when the alert has closed/transitoned out */
-    onClosed: () => void;
-  },
-  {
-    /** @deprecated This signature with the `event` argument will be removed in hanna-react v0.11
-     *
-     * Return `false` to prevent the alert from closing
-     */
-    onClose?(event: MouseEvent): void | boolean;
-    /** Callback that fires after the alert has closed/transitoned out */
-    onClosed?(): void;
-  }
->;
+} & SSRSupportProps &
+  EitherObj<
+    {
+      /** Seconds until the Alert auto-closes.
+       *
+       * Mosueover and keyboard focus resets the timer.
+       */
+      autoClose: number;
+      /** Return `false` to prevent the alert from closing. */
+      onClose?: () => void | boolean;
+      /** Callback that fires when the alert has closed/transitoned out */
+      onClosed: () => void;
+    },
+    {
+      /** @deprecated This signature with the `event` argument will be removed in hanna-react v0.11
+       *
+       * Return `false` to prevent the alert from closing
+       */
+      onClose?(event: MouseEvent): void | boolean;
+      /** Callback that fires after the alert has closed/transitoned out */
+      onClosed?(): void;
+    }
+  >;
 
 export const Alert = (props: AlertProps) => {
   const {

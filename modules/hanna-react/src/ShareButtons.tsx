@@ -12,7 +12,7 @@ import {
 } from '@reykjavik/hanna-utils/shareButtonsUtils';
 
 import { Link } from './_abstract/_Link.js';
-import { SSRSupport } from './utils.js';
+import { SSRSupportProps } from './utils.js';
 
 const generateTypeList = (
   facebook: boolean | undefined,
@@ -65,10 +65,10 @@ const ShareButtons__item = (props: SBP) => {
 // ============================================================
 
 export type ShareButtonsProps = {
-  ssr?: SSRSupport;
   texts?: Readonly<ShareButtonI18n>;
   lang?: string;
-} & Partial<Record<ShareButtonPlatforms, boolean>>;
+} & SSRSupportProps &
+  Partial<Record<ShareButtonPlatforms, boolean>>;
 
 export const ShareButtons = (props: ShareButtonsProps) => {
   const {

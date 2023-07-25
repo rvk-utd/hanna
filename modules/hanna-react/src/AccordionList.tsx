@@ -3,7 +3,7 @@ import { useDomid } from '@hugsmidjan/react/hooks';
 import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
-import { SSRSupport, useIsBrowserSide, useMixedControlState } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, useMixedControlState } from './utils.js';
 
 // ---------------------------------------------------------------------------
 
@@ -15,11 +15,10 @@ export type AccordionListItemProps = {
 };
 
 type _ALItemProps = AccordionListItemProps & {
-  ssr?: SSRSupport;
   open?: boolean;
   onToggle: () => void;
   defaultOpen?: boolean;
-};
+} & SSRSupportProps;
 
 const AccordionListItem = (props: _ALItemProps) => {
   const { title, content, id, disabled = false, ssr, open, onToggle } = props;
