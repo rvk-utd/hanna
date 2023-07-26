@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Remove `@types/react*` from `pkg.dependencies`
 
 ## 0.10.95
 
