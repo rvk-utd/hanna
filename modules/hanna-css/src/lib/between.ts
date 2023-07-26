@@ -21,11 +21,11 @@ const unitConverters = {
   vh: vh_f,
 };
 
-export type RangeEdge = PlainNumber | PxValue | PctValue;
+export type BetweenEdge = PlainNumber | PxValue | PctValue;
 
 export const between = (
-  from: RangeEdge,
-  to: RangeEdge,
+  from: BetweenEdge,
+  to: BetweenEdge,
   min: PlainNumber | PxValue,
   max: PlainNumber | PxValue,
   unit: '%' | 'vw' | 'vh'
@@ -55,36 +55,34 @@ export const between = (
 
 // ---------------------------------------------------------------------------
 
-type BetweenMediaFn = (from: RangeEdge, to: RangeEdge) => RawCssValue;
-
-export const between_phone: BetweenMediaFn = (from, to) =>
+export const between_phone = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, phone, phablet, 'vw');
-export const between_phablet: BetweenMediaFn = (from, to) =>
+export const between_phablet = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, phablet, tablet, 'vw');
-export const between_tablet: BetweenMediaFn = (from, to) =>
+export const between_tablet = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, tablet, netbook, 'vw');
-export const between_netbook: BetweenMediaFn = (from, to) =>
+export const between_netbook = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, netbook, wide, 'vw');
 
 // ---------------------------------------------------------------------------
 
-export const between_phone_netbook: BetweenMediaFn = (from, to) =>
+export const between_phone_netbook = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, phone, wide, 'vw');
-export const between_phablet_netbook: BetweenMediaFn = (from, to) =>
+export const between_phablet_netbook = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, phablet, wide, 'vw');
-export const between_tablet_netbook: BetweenMediaFn = (from, to) =>
+export const between_tablet_netbook = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, tablet, wide, 'vw');
 
 // ---------------------------------------------------------------------------
 
-export const between_phone_tablet: BetweenMediaFn = (from, to) =>
+export const between_phone_tablet = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, phone, netbook, 'vw');
-export const between_phablet_tablet: BetweenMediaFn = (from, to) =>
+export const between_phablet_tablet = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, phablet, netbook, 'vw');
 
 // ---------------------------------------------------------------------------
 
-export const between_phone_phablet: BetweenMediaFn = (from, to) =>
+export const between_phone_phablet = (from: BetweenEdge, to: BetweenEdge) =>
   between(from, to, phone, tablet, 'vw');
 
 // ---------------------------------------------------------------------------
@@ -97,8 +95,8 @@ export const between_Topmenu = between_netbook;
 const _scaleDown = grid.contentMinWidth / grid.contentMaxWidth;
 
 export const between_cols = (
-  from: RangeEdge,
-  to: RangeEdge,
+  from: BetweenEdge,
+  to: BetweenEdge,
   cols: PlainNumber = grid.numCols,
   gutters: PlainNumber = cols - 1
 ) => {
@@ -108,8 +106,8 @@ export const between_cols = (
 };
 
 export const between_container = (
-  from: RangeEdge,
-  to: RangeEdge,
+  from: BetweenEdge,
+  to: BetweenEdge,
   max = grid.contentMaxWidth,
   min = grid.contentMinWidth
 ) => between(from, to, min, max, '%');
