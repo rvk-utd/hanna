@@ -11,7 +11,6 @@ import { BemModifierProps } from './utils/types.js';
 import {
   HannaUIState,
   SSRSupportProps,
-  useIsBrowserSide,
   useMenuToggling,
   useScrollbarWidthCSSVar,
 } from './utils.js';
@@ -71,14 +70,12 @@ export const Layout = (props: LayoutProps) => {
   const { isMenuActive, uiState, closeMenu, toggleMenu } = useMenuToggling(
     ssr !== 'ssr-only'
   );
-  const isBrowser = useIsBrowserSide(/* ssr */);
 
   const txt = getTexts(props, defaultLayoutTexts);
 
   return (
     <div
       className={modifiedClass('Layout', props.modifier)}
-      data-sprinkled={isBrowser}
       data-color-theme={colorTheme}
     >
       {globalAlerts && (
