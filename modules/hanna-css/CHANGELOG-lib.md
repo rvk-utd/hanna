@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Don't require `srOnly_focusable` and `srOnly_focusableContent` options
 
 ## 0.4.4
 

@@ -47,7 +47,7 @@ export default css`
       display: none; // ok if aria-label/aria-labelled by is used!
     }
     .MainMenu__item--home[class] {
-      ${srOnly_focusableContent({})};
+      ${srOnly_focusableContent()};
     }
 
     .MainMenu__link {
@@ -219,7 +219,7 @@ export default css`
     }
 
     .MainMenu__megapanel__backtomenu {
-      ${srOnly_focusable({})}
+      ${srOnly_focusable()}
     }
   }
 

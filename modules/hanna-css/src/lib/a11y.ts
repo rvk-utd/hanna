@@ -105,7 +105,7 @@ export const srOnly_focusable = ({
   link = defaultLink(),
   border = defaultBorder(),
   bg = defaultBg(),
-}: SROnlyFocusProps) => {
+}: SROnlyFocusProps = {}) => {
   const focusStyling = css`
     ${srOnly__undo()}
     ${sr_focusStyling({ link, border, bg })}
@@ -133,7 +133,7 @@ export const srOnly_focusableContent = ({
   border = defaultBorder(),
   bg = defaultBg(),
   dir = 'ltr',
-}: SROnlyFocusProps & { dir?: Dir }) => {
+}: SROnlyFocusProps & { dir?: Dir } = {}) => {
   const edge = dir === 'ltr' ? 'right' : 'left';
   const opposite = dir === 'ltr' ? 'left' : 'right';
 

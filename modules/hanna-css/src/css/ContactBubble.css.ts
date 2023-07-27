@@ -323,7 +323,7 @@ export default css`
 
     @media ${mq_Popup} {
       .ContactBubble__closebtn {
-        ${srOnly_focusable({})}
+        ${srOnly_focusable()}
       }
     }
   }
