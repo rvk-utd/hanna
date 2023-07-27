@@ -9,6 +9,14 @@ o.spec('between helper', () => {
       'calc(0.7633587786259541% + 13.557251908396948px)'
     )('supports %');
 
+    o(scale(24, 16, 320, 1368, '%')).equals(
+      'calc(-0.7633587786259541% + 26.44274809160305px)'
+    )('allows negative slope');
+
+    o(scale(16, 32, 320, 480, '%')).equals('calc(10% - 16px)')(
+      'cleans up intercept negation sign'
+    );
+
     o(scale(16, 24, 320, 1368, 'vw')).equals(
       'calc(0.7633587786259541vw + 13.557251908396948px)'
     )('supports vw');

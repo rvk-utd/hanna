@@ -40,19 +40,25 @@ export const scale = (
   }
 
   const slopeFactor = (to - from) / (max - min);
-  const intercept = px(to - slopeFactor * max);
+  let intercept = to - slopeFactor * max;
 
   if (slopeFactor === 0) {
-    return `${intercept}`;
+    return `${px(intercept)}`;
   }
 
   const slope = unitConverters[unit](slopeFactor);
 
-  if (intercept.value === 0) {
+  if (intercept === 0) {
     return `${slope}`;
   }
 
-  return `calc(${slope} + ${intercept})`;
+  let operator = '+';
+  if (intercept < 0) {
+    operator = '-';
+    intercept = -intercept;
+  }
+
+  return `calc(${slope} ${operator} ${px(intercept)})`;
 };
 
 // ---------------------------------------------------------------------------
