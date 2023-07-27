@@ -27,24 +27,27 @@ const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: st
 // ---------------------------------------------------------------------------
 
 export type MainMenuI18n = Cleanup<
-  { lang?: string; homeLabel?: string } & PrimaryPanelI18n
+  { lang?: string; homeLabel?: string; title: string } & PrimaryPanelI18n
 >;
 
 export const defaultMainMenuTexts: DefaultTexts<Required<MainMenuI18n>> = {
   is: {
     lang: 'is',
+    title: 'Aðalvalmynd',
     homeLabel: 'Forsíða',
     backToMenu: 'Loka',
     backToMenuLong: 'Til baka í valmynd',
   },
   en: {
     lang: 'en',
+    title: 'Main Menu',
     homeLabel: 'Home page',
     backToMenu: 'Close',
     backToMenuLong: 'Close and return to menu',
   },
   pl: {
     lang: 'pl',
+    title: 'Menu główne',
     homeLabel: 'Strona główna',
     backToMenu: 'Zamknij',
     backToMenuLong: 'Zamknij i wróć do menu',
@@ -169,7 +172,11 @@ export type MainMenuSeparator = '---';
 export type MainMenuItemList = Array<MainMenuItem | MainMenuSeparator>;
 
 export type MainMenuProps = {
-  title: string;
+  /**
+   * Top-level screen-reader headline/label for the whole menu.
+   * Defaults to a translation of "Main Menu"
+   */
+  title?: string;
   items: MainMenuItemList;
   /**
    * Link for the homepage - defaults to `"/"` adding a
@@ -190,9 +197,10 @@ export type MainMenuProps = {
 } & SSRSupportProps;
 
 export const MainMenu = (props: MainMenuProps) => {
-  const { title, megaPanels = emptyPanelList, onItemClick, ssr, auxiliaryPanel } = props;
+  const { megaPanels = emptyPanelList, onItemClick, ssr, auxiliaryPanel } = props;
 
   const texts = getTexts(props, defaultMainMenuTexts);
+  const title = props.title || texts.title;
 
   const { closeHamburgerMenu } = useHannaUIState();
 

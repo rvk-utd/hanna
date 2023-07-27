@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make prop `title` optional for `MainMenu`
 
 ## 0.10.96
 
