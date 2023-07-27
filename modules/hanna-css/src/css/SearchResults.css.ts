@@ -1,7 +1,7 @@
 import { css } from 'es-in-css';
 
 import { srOnly } from '../lib/a11y.js';
-import { between_phone_netbook } from '../lib/between.js';
+import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
 import { grid } from '../lib/grid.js';
@@ -23,7 +23,7 @@ const flexDash = (pxWidth: number) => {
   // get the pxWidth as a ratio of `vw` based on a maxinum 64px width (i.e. ${vars.grid_column})
   // FIXME: calculated value will be just a hair off ${vars.grid_column}
   const from = (pxWidth / grid.column / grid.numCols) * grid.contentMinWidth;
-  return between_phone_netbook(Math.floor(from), pxWidth);
+  return scale_phone_netbook(Math.floor(from), pxWidth);
 };
 
 export default css`
@@ -36,7 +36,7 @@ export default css`
     .SiteSearchPage {
       position: relative;
       margin-left: auto;
-      padding-top: ${between_phone_netbook(64, 88)};
+      padding-top: ${scale_phone_netbook(64, 88)};
 
       @media ${mq.netbook_up} {
         width: ${vars.grid_9};
@@ -55,7 +55,7 @@ export default css`
 
     .SearchResults__title {
       font: ${vars.font_hd_m};
-      margin-bottom: ${between_phone_netbook(48, 64)};
+      margin-bottom: ${scale_phone_netbook(48, 64)};
 
       @media ${mq.wide} {
         margin-bottom: ${prem(64)};
@@ -114,7 +114,7 @@ export default css`
     }
 
     .SearchResultsItem {
-      margin-bottom: ${between_phone_netbook(48, 64)};
+      margin-bottom: ${scale_phone_netbook(48, 64)};
 
       @media ${mq.wide} {
         margin-bottom: ${prem(64)};
@@ -232,7 +232,7 @@ export default css`
 
   @media screen {
     .SearchResultsHighlightItem {
-      margin-bottom: ${between_phone_netbook(48, 64)};
+      margin-bottom: ${scale_phone_netbook(48, 64)};
 
       @media ${mq.wide} {
         margin-bottom: ${prem(64)};

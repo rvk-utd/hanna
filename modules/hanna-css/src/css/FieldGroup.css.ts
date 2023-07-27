@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
@@ -10,7 +10,7 @@ const fgVars = FieldGroupVariables.vars;
 export default css`
   @media screen {
     .FieldGroup {
-      margin-bottom: ${between_cols(30, 70)};
+      margin-bottom: ${scale_container(30, 70)};
       ${FieldGroupVariables.declare({
         legendSize: vars.font_sh_l,
         legendMargin: vars.space_2,

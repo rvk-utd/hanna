@@ -1,6 +1,6 @@
 import { css, px } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
@@ -16,7 +16,7 @@ export default css`
   @media screen {
     .InfoHero {
       position: relative;
-      margin-bottom: ${between_cols(30, 100)};
+      margin-bottom: ${scale_container(30, 100)};
       display: flex;
       flex-flow: column-reverse;
       justify-content: space-between;
@@ -66,7 +66,7 @@ export default css`
     }
 
     .InfoHero__content {
-      margin-top: ${between_cols(20, 40)};
+      margin-top: ${scale_container(20, 40)};
 
       @media ${mq.phablet_up} {
         width: ${cols_pct(6)};

@@ -1,10 +1,10 @@
 import { css, px } from 'es-in-css';
 
 import {
-  between,
-  between_cols,
-  between_phone_netbook,
-  between_phone_phablet,
+  scale,
+  scale_container,
+  scale_phone_netbook,
+  scale_phone_phablet,
 } from '../lib/between.js';
 import { bp, mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
@@ -31,7 +31,7 @@ export default css`
       ${SeenEffect__fadeup}
       display: flex;
       flex-flow: column-reverse;
-      margin-bottom: ${between_cols(30, 20 * grid.unit)};
+      margin-bottom: ${scale_container(30, 20 * grid.unit)};
     }
     .CityBlock__content {
       background-color: ${vars.theme_color_primary};
@@ -39,9 +39,9 @@ export default css`
       ${LinkStyle_SameColor}
 
       margin: 0 ${vars.grid_margin__neg};
-      padding: ${between_cols(30, grid.column)} ${vars.grid_margin};
+      padding: ${scale_container(30, grid.column)} ${vars.grid_margin};
 
-      min-height: ${between_phone_netbook(200, minH)};
+      min-height: ${scale_phone_netbook(200, minH)};
       @media ${mq.wide} {
         min-height: ${minH};
       }
@@ -94,13 +94,13 @@ export default css`
   @media ${mq.phone_phablet} {
     .CityBlock__image {
       margin: 0 ${cols_pct(-1)};
-      height: ${between_phone_phablet(230, 350)};
+      height: ${scale_phone_phablet(230, 350)};
       margin-bottom: ${prem(20)};
     }
     .CityBlock--largebox > .CityBlock__image,
     .CityBlock--largeimage > .CityBlock__image {
       margin: 0 ${vars.grid_margin__neg};
-      height: ${between_phone_phablet(200, 300)};
+      height: ${scale_phone_phablet(200, 300)};
     }
     .CityBlock--largebox > .CityBlock__image > img {
       object-fit: cover;
@@ -125,7 +125,7 @@ export default css`
       display: flex;
       flex-flow: column;
       box-sizing: content-box;
-      width: ${between(300, cols_px(5, 3), bp.tablet, grid.contentMaxWidth, '%')};
+      width: ${scale(300, cols_px(5, 3), bp.tablet, grid.contentMaxWidth, '%')};
       margin: ${cols_pct(0, 1)} 0;
       margin-left: auto;
       padding-left: ${cols_pct(0, 1)};
@@ -136,7 +136,7 @@ export default css`
       margin-top: 0;
       margin-bottom: 0;
 
-      min-height: ${between_phone_netbook(400, largebox_minH)};
+      min-height: ${scale_phone_netbook(400, largebox_minH)};
     }
     .CityBlock--largeimage > .CityBlock__content {
       margin-top: auto;
@@ -162,7 +162,7 @@ export default css`
       padding-left: ${vars.grid_margin};
     }
     .CityBlock--largeimage > .CityBlock__image {
-      min-height: ${between_phone_netbook(400, largeimage_minH)};
+      min-height: ${scale_phone_netbook(400, largeimage_minH)};
     }
     .CityBlock--align--left.CityBlock--largebox > .CityBlock__image,
     .CityBlock--align--left.CityBlock--largeimage > .CityBlock__image {

@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between.js';
+import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -45,7 +45,7 @@ export default css`
       // NOTE: left/right paddings must *NOT* be %-based because
       // it triggers a Chrome bug that collapses the width of <button/> flex-items
       // ARGH!...  --Már @ 2020-10-28
-      padding: ${between_phone_netbook(12, 24)} ${between_phone_netbook(15, 40)};
+      padding: ${scale_phone_netbook(12, 24)} ${scale_phone_netbook(15, 40)};
       @media ${mq.wide} {
         padding: 24px 40px;
       }

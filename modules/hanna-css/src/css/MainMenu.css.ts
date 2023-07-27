@@ -1,7 +1,7 @@
 import { color, css, px } from 'es-in-css';
 
 import { srOnly_focusable, srOnly_focusableContent } from '../lib/a11y.js';
-import { between_Topmenu } from '../lib/between.js';
+import { scale_Topmenu } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { colors } from '../lib/colors.js';
@@ -249,8 +249,8 @@ export default css`
       left: ${vars.grid_3_3};
       height: ${vars.Layout$$header_height};
       padding-bottom: ${prem(10)};
-      margin-right: ${between_Topmenu(-8, -20)};
-      margin-left: ${between_Topmenu(-14, -20)};
+      margin-right: ${scale_Topmenu(-8, -20)};
+      margin-left: ${scale_Topmenu(-14, -20)};
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -263,12 +263,12 @@ export default css`
 
     .MainMenu__item {
       ${TopMenuVariables.declare({
-        item_padding: between_Topmenu(4, 10),
+        item_padding: scale_Topmenu(4, 10),
       })}
 
       color: ${vars.color_suld_200};
       white-space: nowrap;
-      margin: 0 ${between_Topmenu(4, 10)};
+      margin: 0 ${scale_Topmenu(4, 10)};
 
       @media ${mq.wide} {
         margin-right: 10px;

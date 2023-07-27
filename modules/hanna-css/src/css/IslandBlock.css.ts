@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
 import {
-  between_cols,
-  between_phone_phablet,
-  between_tablet_netbook,
+  scale_container,
+  scale_phone_phablet,
+  scale_tablet_netbook,
 } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -13,7 +13,7 @@ import { LinkStyle_SameColor } from './styles/links.js';
 import { cols_pct, extendBackgroundWithUnderlay, grid_units } from './utils/miscUtils.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
-const offset = between_phone_phablet(0, 60);
+const offset = scale_phone_phablet(0, 60);
 
 export default css`
   @media screen {
@@ -22,15 +22,15 @@ export default css`
       display: flex;
       flex-flow: column-reverse;
       justify-content: space-between;
-      margin-top: ${between_cols(30, 100)};
-      margin-bottom: ${between_cols(40, 167)};
+      margin-top: ${scale_container(30, 100)};
+      margin-bottom: ${scale_container(40, 167)};
     }
 
     .IslandBlock__image,
     .IslandBlock__content {
       display: block;
       margin: 0 ${vars.grid_margin__neg};
-      padding: ${between_cols(20, 120)} ${vars.grid_margin};
+      padding: ${scale_container(20, 120)} ${vars.grid_margin};
     }
     .IslandBlock__content {
       background-color: ${vars.color_suld_25};
@@ -114,7 +114,7 @@ export default css`
       margin-left: ${offset};
     }
     .IslandBlock__image {
-      min-height: ${between_phone_phablet(210, 400)};
+      min-height: ${scale_phone_phablet(210, 400)};
     }
     .IslandBlock__image > svg {
       width: 100%;
@@ -137,8 +137,8 @@ export default css`
       box-sizing: content-box;
       // NOTE: ".01" part is to prevent rounding errors causing an ugly 1px gap between the columns
       width: ${cols_pct(5, 5.01)};
-      margin-bottom: ${between_cols(50, 105)};
-      min-height: ${between_tablet_netbook(280, 400)};
+      margin-bottom: ${scale_container(50, 105)};
+      min-height: ${scale_tablet_netbook(280, 400)};
 
       @media ${mq.wide} {
         min-height: 400px;
@@ -146,7 +146,7 @@ export default css`
     }
     .IslandBlock__content:last-child,
     .IslandBlock__image {
-      margin-top: ${between_cols(50, 105)};
+      margin-top: ${scale_container(50, 105)};
       margin-bottom: 0;
     }
     .IslandBlock--align--left > .IslandBlock__content:first-child,

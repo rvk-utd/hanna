@@ -1,6 +1,6 @@
 import { css, pct, pct_f } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between.js';
+import { scale_phone_netbook } from '../lib/between.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
 import { CardList_css } from './styles/cards.js';
@@ -16,13 +16,13 @@ export default css`
     margin-bottom: 60px;
     ${avoidCssnanoMerging(
       css`
-        margin-bottom: min(${between_phone_netbook(48, 80)}, 80px);
+        margin-bottom: min(${scale_phone_netbook(48, 80)}, 80px);
       `
     )}
     row-gap: 60px;
     ${avoidCssnanoMerging(
       css`
-        row-gap: min(${between_phone_netbook(48, 80)}, 80px);
+        row-gap: min(${scale_phone_netbook(48, 80)}, 80px);
       `
     )}
   }
@@ -44,7 +44,7 @@ export default css`
 
     ${avoidCssnanoMerging(
       css`
-        padding-bottom: min(${between_phone_netbook(16, 24)}, ${vars.space_3});
+        padding-bottom: min(${scale_phone_netbook(16, 24)}, ${vars.space_3});
       `
     )}
   }
@@ -57,7 +57,7 @@ export default css`
 
     ${avoidCssnanoMerging(
       css`
-        margin-bottom: min(${between_phone_netbook(12, 24)}, ${vars.space_3});
+        margin-bottom: min(${scale_phone_netbook(12, 24)}, ${vars.space_3});
       `
     )}
 

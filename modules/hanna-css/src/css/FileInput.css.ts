@@ -1,6 +1,6 @@
 import { color, css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { colors } from '../lib/colors.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -15,7 +15,7 @@ export default css`
   */
   @media screen {
     .FileInput {
-      margin-bottom: ${between_cols(30, 70)};
+      margin-bottom: ${scale_container(30, 70)};
       position: relative;
     }
 

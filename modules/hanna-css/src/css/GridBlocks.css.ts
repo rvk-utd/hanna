@@ -1,7 +1,7 @@
 import range from '@hugsmidjan/qj/range';
 import { css, ms } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars } from '../lib/hannavars.js';
@@ -22,8 +22,8 @@ export default css`
     .GridBlocks {
       display: flex;
       flex-flow: row wrap;
-      margin-top: ${between_cols(30, 100)};
-      margin-bottom: ${between_cols(40, 120)};
+      margin-top: ${scale_container(30, 100)};
+      margin-bottom: ${scale_container(40, 120)};
     }
 
     .GridBlocks__item {

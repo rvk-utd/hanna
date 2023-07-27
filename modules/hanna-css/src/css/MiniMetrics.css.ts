@@ -1,6 +1,6 @@
 import { css, em, rem } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -12,8 +12,8 @@ export default css`
   @media screen {
     .MiniMetrics {
       position: relative;
-      margin-top: ${between_cols(60, 240)};
-      margin-bottom: ${between_cols(60, 290)};
+      margin-top: ${scale_container(60, 240)};
+      margin-bottom: ${scale_container(60, 290)};
       display: flex;
       flex-flow: column;
       justify-content: center;

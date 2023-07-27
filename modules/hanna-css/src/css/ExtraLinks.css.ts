@@ -1,7 +1,7 @@
 import range from '@hugsmidjan/qj/range';
 import { css, em, ms } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
@@ -35,8 +35,8 @@ export default css`
   @media screen {
     .ExtraLinks {
       background-color: ${vars.color_suld_25};
-      padding: ${between_cols(30, 90)} 0;
-      margin-bottom: ${between_cols(60, 100)};
+      padding: ${scale_container(30, 90)} 0;
+      margin-bottom: ${scale_container(60, 100)};
       ${extendBackgroundWithUnderlay}
     }
 
@@ -47,7 +47,7 @@ export default css`
       ${extendBackgroundWithUnderlay('left', 'after')}
 
       ${SeenEffect__initial('::after')(css`
-        border-left: ${between_phone_netbook(8, 24)} solid ${vars.color_suld_25};
+        border-left: ${scale_phone_netbook(8, 24)} solid ${vars.color_suld_25};
       `)}
 
       ${SeenEffect__transition('::after')(css`
@@ -70,7 +70,7 @@ export default css`
     }
 
     .ExtraLinks::before {
-      border-left: ${between_phone_netbook(8, 24)} solid ${vars.theme_color_primary};
+      border-left: ${scale_phone_netbook(8, 24)} solid ${vars.theme_color_primary};
 
       @media ${mq.wide} {
         border-width: ${prem(24)};
@@ -83,7 +83,7 @@ export default css`
     .ExtraLinks__title {
       ${CardListTitle_css};
 
-      margin-bottom: ${between_phone_netbook(24, 57)};
+      margin-bottom: ${scale_phone_netbook(24, 57)};
       @media ${mq.wide} {
         margin-bottom: 57px;
       }
@@ -112,9 +112,9 @@ export default css`
       background-color: ${vars.color_suld_50};
       padding-right: ${cols_pct(1, 0)};
       padding-left: ${cols_pct(1, 1)};
-      margin-top: ${between_phone_netbook(40, 90)};
-      padding-top: ${between_phone_netbook(32, 64)};
-      padding-bottom: ${between_phone_netbook(80, 130)};
+      margin-top: ${scale_phone_netbook(40, 90)};
+      padding-top: ${scale_phone_netbook(32, 64)};
+      padding-bottom: ${scale_phone_netbook(80, 130)};
 
       @media ${mq.wide} {
         margin-top: ${prem(90)};
@@ -129,7 +129,7 @@ export default css`
 
     .ExtraLinks__related__title {
       font: ${vars.font_hd_s};
-      margin-bottom: ${between_phone_netbook(20, 53)};
+      margin-bottom: ${scale_phone_netbook(20, 53)};
     }
 
     .ExtraLinks__related__item {

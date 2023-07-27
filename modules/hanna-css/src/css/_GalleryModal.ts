@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -42,7 +42,7 @@ export const GalleryModal_css = () => css`
       flex-flow: column;
       align-items: center;
 
-      padding: ${between_cols(72, 104)} ${vars.grid_margin};
+      padding: ${scale_container(72, 104)} ${vars.grid_margin};
 
       @media ${mq.netbook_up} {
         flex-flow: row;

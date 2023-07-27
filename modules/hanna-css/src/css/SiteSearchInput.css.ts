@@ -1,12 +1,12 @@
 import { css, rem } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between.js';
+import { srOnly } from '../lib/a11y.js';
+import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
 import { FormFieldVariables } from './styles/forms.js';
-import { srOnly } from '../lib/a11y.js';
 import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem } from './utils/miscUtils.js';
@@ -26,7 +26,7 @@ export default css`
       //   input__border_color: vars.color_suld_75,
       //   input__border_radius: 0,
       // })}
-      --ssi-height: ${between_phone_netbook(64, 96)};
+      --ssi-height: ${scale_phone_netbook(64, 96)};
       @media ${mq.wide} {
         --ssi-height: 96px;
       }
@@ -40,8 +40,8 @@ export default css`
       height: auto;
     }
     .SiteSearchInput > .FormField__input > input {
-      padding: ${between_phone_netbook(10, 26)} 0;
-      padding-left: ${between_phone_netbook(16, 32)};
+      padding: ${scale_phone_netbook(10, 26)} 0;
+      padding-left: ${scale_phone_netbook(16, 32)};
 
       @media ${mq.wide} {
         padding: 26px 0;

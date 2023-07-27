@@ -2,10 +2,10 @@ import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { color, css, em, px, rem, str } from 'es-in-css';
 
 import {
-  between_cols,
-  between_phablet_netbook,
-  between_phone_netbook,
-  between_Topmenu,
+  scale_container,
+  scale_phablet_netbook,
+  scale_phone_netbook,
+  scale_Topmenu,
 } from '../../lib/between.js';
 import { bp, mq } from '../../lib/breakpoints.js';
 import { colors } from '../../lib/colors.js';
@@ -293,7 +293,7 @@ const linkVarDeclarations = linkVars.declare({
 
 // ---------------------------------------------------------------------------
 
-const scale = between_phablet_netbook;
+const scale = scale_phablet_netbook;
 
 const fontVarDeclarations = css`
   ${fontVars.declare({
@@ -341,8 +341,8 @@ const fontVarDeclarations = css`
     font_label_size: px(_fsz.label_size),
     font_label_leading: px(_fsz.label_leading),
 
-    baseVerticalMargin: between_phone_netbook(2 * grid.unit, 3 * grid.unit),
-    baseVerticalMargin_2: between_phone_netbook(4 * grid.unit, 6 * grid.unit),
+    baseVerticalMargin: scale_phone_netbook(2 * grid.unit, 3 * grid.unit),
+    baseVerticalMargin_2: scale_phone_netbook(4 * grid.unit, 6 * grid.unit),
   })}
 
   @media ${mq.phablet_netbook} {
@@ -401,13 +401,13 @@ const _flexCol = (cols: number, gutters = cols - 1) => {
   const f = cols_pct(cols, gutters) / 100;
   const from = f * grid.contentMinWidth;
   const to = f * grid.contentMaxWidth;
-  return between_phone_netbook(from, to);
+  return scale_phone_netbook(from, to);
 };
 
 const gridVarDeclarations = css`
   ${gridVars.declare({
-    grid_margin: between_phone_netbook(grid.margin__phone, grid.margin__wide),
-    grid_margin__neg: between_phone_netbook(
+    grid_margin: scale_phone_netbook(grid.margin__phone, grid.margin__wide),
+    grid_margin__neg: scale_phone_netbook(
       -1 * grid.margin__phone,
       -1 * grid.margin__wide
     ),
@@ -520,10 +520,10 @@ const spaceVarDeclarations = spaceVars.declare({
   space_0$5__neg: grid_units(-0.5),
   space_1$5__neg: grid_units(-1.5),
 
-  component_vspace__small: between_cols(30, 70),
-  component_vspace__medium: between_cols(40, 100),
-  component_vspace__large: between_cols(50, 130),
-  component_vspace__xlarge: between_cols(70, 200),
+  component_vspace__small: scale_container(30, 70),
+  component_vspace__medium: scale_container(40, 100),
+  component_vspace__large: scale_container(50, 130),
+  component_vspace__xlarge: scale_container(70, 200),
 });
 
 // ---------------------------------------------------------------------------
@@ -541,7 +541,7 @@ const layoutVarDeclarations = css`
   })}
   @media ${mq.Topmenu} {
     ${layoutVars.override({
-      Layout$$header_height: between_Topmenu(_lHead_min, _lHead_max),
+      Layout$$header_height: scale_Topmenu(_lHead_min, _lHead_max),
     })}
   }
   @media ${mq.wide} {
@@ -569,7 +569,7 @@ const borderEffectVarDeclarations = borderEffectVars.declare({
 
 const buttonVarDeclarations = css`
   ${buttonVars.declare({
-    Button__gapH: between_phone_netbook(16, 32),
+    Button__gapH: scale_phone_netbook(16, 32),
     Button__gapV: spaceVars.vars.space_2,
   })}
 

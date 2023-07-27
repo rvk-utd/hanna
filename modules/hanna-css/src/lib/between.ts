@@ -1,4 +1,4 @@
-import type { PctValue, PlainNumber, PxValue, RawCssValue } from 'es-in-css';
+import type { PctValue, PlainNumber, PxValue } from 'es-in-css';
 import { pct_f, px, unitOf, vh_f, vw_f } from 'es-in-css';
 
 import { bp } from './breakpoints.js';
@@ -21,11 +21,13 @@ const unitConverters = {
   vh: vh_f,
 };
 
-export type BetweenEdge = PlainNumber | PxValue | PctValue;
+type Edge = PlainNumber | PxValue | PctValue;
 
-export const between = (
-  from: BetweenEdge,
-  to: BetweenEdge,
+export type ScaleEdge = Edge;
+
+export const scale = (
+  from: Edge,
+  to: Edge,
   min: PlainNumber | PxValue,
   max: PlainNumber | PxValue,
   unit: '%' | 'vw' | 'vh'
@@ -55,59 +57,56 @@ export const between = (
 
 // ---------------------------------------------------------------------------
 
-export const between_phone = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, phone, phablet, 'vw');
-export const between_phablet = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, phablet, tablet, 'vw');
-export const between_tablet = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, tablet, netbook, 'vw');
-export const between_netbook = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, netbook, wide, 'vw');
+export const scale_phone = (from: Edge, to: Edge) =>
+  scale(from, to, phone, phablet, 'vw');
+export const scale_phablet = (from: Edge, to: Edge) =>
+  scale(from, to, phablet, tablet, 'vw');
+export const scale_tablet = (from: Edge, to: Edge) =>
+  scale(from, to, tablet, netbook, 'vw');
+export const scale_netbook = (from: Edge, to: Edge) =>
+  scale(from, to, netbook, wide, 'vw');
 
 // ---------------------------------------------------------------------------
 
-export const between_phone_netbook = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, phone, wide, 'vw');
-export const between_phablet_netbook = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, phablet, wide, 'vw');
-export const between_tablet_netbook = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, tablet, wide, 'vw');
+export const scale_phone_netbook = (from: Edge, to: Edge) =>
+  scale(from, to, phone, wide, 'vw');
+export const scale_phablet_netbook = (from: Edge, to: Edge) =>
+  scale(from, to, phablet, wide, 'vw');
+export const scale_tablet_netbook = (from: Edge, to: Edge) =>
+  scale(from, to, tablet, wide, 'vw');
 
 // ---------------------------------------------------------------------------
 
-export const between_phone_tablet = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, phone, netbook, 'vw');
-export const between_phablet_tablet = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, phablet, netbook, 'vw');
+export const scale_phone_tablet = (from: Edge, to: Edge) =>
+  scale(from, to, phone, netbook, 'vw');
+export const scale_phablet_tablet = (from: Edge, to: Edge) =>
+  scale(from, to, phablet, netbook, 'vw');
 
 // ---------------------------------------------------------------------------
 
-export const between_phone_phablet = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, phone, tablet, 'vw');
+export const scale_phone_phablet = (from: Edge, to: Edge) =>
+  scale(from, to, phone, tablet, 'vw');
 
 // ---------------------------------------------------------------------------
 
-export const between_Hamburger = between_phone_tablet;
-export const between_Topmenu = between_netbook;
+export const scale_Hamburger = scale_phone_tablet;
+export const scale_Topmenu = scale_netbook;
 
 // ===========================================================================
 
 const _scaleDown = grid.contentMinWidth / grid.contentMaxWidth;
 
-export const between_cols = (
-  from: BetweenEdge,
-  to: BetweenEdge,
-  cols: PlainNumber = grid.numCols,
+export const scale_cols = (
+  from: Edge,
+  to: Edge,
+
+  cols: PlainNumber,
+
   gutters: PlainNumber = cols - 1
 ) => {
   const max = cols * grid.column + gutters * grid.gutter;
   const min = _scaleDown * max;
-  return between(from, to, min, max, '%');
+  return scale(from, to, min, max, '%');
 };
-
-export const between_container = (
-  from: BetweenEdge,
-  to: BetweenEdge,
-  max = grid.contentMaxWidth,
-  min = grid.contentMinWidth
-) => between(from, to, min, max, '%');
+export const scale_container = (from: Edge, to: Edge) =>
+  scale(from, to, grid.contentMinWidth, grid.contentMaxWidth, '%');

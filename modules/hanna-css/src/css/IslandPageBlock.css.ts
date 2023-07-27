@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
@@ -12,7 +12,7 @@ export default css`
   @media screen {
     .IslandPageBlock {
       ${SeenEffect__fadeup}
-      margin-bottom: ${between_cols(40, 133)};
+      margin-bottom: ${scale_container(40, 133)};
       display: flex;
       flex-flow: column-reverse;
       justify-content: space-between;
@@ -73,7 +73,7 @@ export default css`
     .IslandPageBlock--background--gray,
     .IslandPageBlock--background--secondary {
       ${extendBackgroundWithUnderlay}
-      padding: ${between_cols(30, 48)} 0;
+      padding: ${scale_container(30, 48)} 0;
       background-color: ${vars.color_suld_25};
     }
     .IslandPageBlock--background--secondary {

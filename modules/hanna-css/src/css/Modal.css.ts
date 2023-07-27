@@ -1,6 +1,6 @@
 import { css, em } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between.js';
+import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -29,7 +29,7 @@ export default css`
       bottom: 0;
       overflow-y: auto;
       background-color: rgba(0, 0, 0, 0.5);
-      padding: ${between_phone_netbook(20, 100)} 0;
+      padding: ${scale_phone_netbook(20, 100)} 0;
 
       transition: all 200ms ease-in;
       transition-property: opacity, visibility;
@@ -136,7 +136,7 @@ export default css`
       top: ${vars.grid_1};
       right: ${vars.grid_1};
       color: ${vars.color_suld_200};
-      font-size: ${between_phone_netbook(36, 64)};
+      font-size: ${scale_phone_netbook(36, 64)};
       margin: -0.4em;
       width: 1em;
       height: 1em;

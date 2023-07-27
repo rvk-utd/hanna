@@ -1,7 +1,7 @@
 import range from '@hugsmidjan/qj/range';
 import { css, ms, pct, pct_f } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { scale_container, scale_phone_netbook } from '../lib/between.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
 import { CardBlock_css, CardList_css, CardListTitle_css } from './styles/cards.js';
@@ -27,7 +27,7 @@ export default css`
     .ImageCards {
       --ImageCards--fallback: url('/assets/illustrations/esjan.png');
       ${CardBlock_css}
-      margin-bottom: ${between_cols(60, 110)};
+      margin-bottom: ${scale_container(60, 110)};
 
       ${SeenEffect__fadeup('.ImageCards__summary')};
       ${SeenEffect__fadein('.ImageCards__item')};
@@ -50,7 +50,7 @@ export default css`
       padding: 100px 0;
       ${avoidCssnanoMerging(
         css`
-          padding: min(${between_phone_netbook(40, 136)}, 136px) 0;
+          padding: min(${scale_phone_netbook(40, 136)}, 136px) 0;
         `
       )}
     }
@@ -73,7 +73,7 @@ export default css`
 
       ${avoidCssnanoMerging(
         css`
-          row-gap: min(${between_phone_netbook(48, 80)}, 80px);
+          row-gap: min(${scale_phone_netbook(48, 80)}, 80px);
         `
       )}
     }
@@ -94,7 +94,7 @@ export default css`
       padding-bottom: ${vars.space_3};
       ${avoidCssnanoMerging(
         css`
-          padding-bottom: min(${between_phone_netbook(16, 32)}, ${vars.space_4});
+          padding-bottom: min(${scale_phone_netbook(16, 32)}, ${vars.space_4});
         `
       )}
     }
@@ -106,7 +106,7 @@ export default css`
       margin-bottom: ${vars.space_2};
       ${avoidCssnanoMerging(
         css`
-          margin-bottom: min(${between_phone_netbook(12, 24)}, ${vars.space_3});
+          margin-bottom: min(${scale_phone_netbook(12, 24)}, ${vars.space_3});
         `
       )}
     }

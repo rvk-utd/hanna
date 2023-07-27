@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -17,8 +17,8 @@ export default css`
 export const RowBlockColumn_css = () => css`
   @media screen {
     .RowBlockColumn {
-      padding-top: ${between_cols(30, 80)};
-      padding-bottom: ${between_cols(30, 80)};
+      padding-top: ${scale_container(30, 80)};
+      padding-bottom: ${scale_container(30, 80)};
       width: 100%; // to avoid flex item auto-sizing
     }
     .RowBlockColumn--background {

@@ -1,6 +1,6 @@
 import { css, em } from 'es-in-css';
 
-import { between_container, between_phone_phablet } from '../lib/between.js';
+import { scale_container, scale_phone_phablet } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
@@ -20,11 +20,11 @@ export default css`
     .AccordionList {
       ${SeenEffect__fadeup}
       max-width: ${cols_px(8)};
-      margin-top: ${between_container(32, 56)};
+      margin-top: ${scale_container(32, 56)};
 
       ${a.declare({
-        leftIndent: between_phone_phablet(32, 48),
-        iconWidth: between_phone_phablet(24, 36),
+        leftIndent: scale_phone_phablet(32, 48),
+        iconWidth: scale_phone_phablet(24, 36),
       })}
 
       @media ${mq.tablet_up} {

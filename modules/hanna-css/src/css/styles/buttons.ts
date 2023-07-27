@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { color, css, px } from 'es-in-css';
 
-import { between_phone_netbook, between_tablet_netbook } from '../../lib/between.js';
+import { scale_tablet_netbook, scale_phone_netbook } from '../../lib/between.js';
 import { mq } from '../../lib/breakpoints.js';
 import { buildVariables } from '../../lib/cssutils.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
@@ -70,10 +70,10 @@ export const ButtonStyle = () => css`
   position: relative;
   transition: all 200ms ease-in;
   transition-property: border-color, background-color, color, text-shadow, box-shadow;
-  padding: 0 ${between_phone_netbook(24, 32)};
+  padding: 0 ${scale_phone_netbook(24, 32)};
   width: max-content;
   max-width: 100%;
-  min-width: ${between_phone_netbook(80, 128)};
+  min-width: ${scale_phone_netbook(80, 128)};
 
   @media ${mq.wide} {
     min-width: 128px;
@@ -112,7 +112,7 @@ export const ButtonStyle = () => css`
   }
 
   &--wide {
-    min-width: ${between_tablet_netbook(275, 312)};
+    min-width: ${scale_tablet_netbook(275, 312)};
 
     @media ${mq.phone_phablet} {
       width: 100%;
@@ -127,8 +127,8 @@ export const ButtonStyle = () => css`
       iconSpace: vars.space_1,
       height: prem(40),
     })}
-    padding-left: ${between_phone_netbook(16, 24)};
-    padding-right: ${between_phone_netbook(16, 24)};
+    padding-left: ${scale_phone_netbook(16, 24)};
+    padding-right: ${scale_phone_netbook(16, 24)};
 
     @media ${mq.wide} {
       padding-left: 24px;
@@ -211,7 +211,7 @@ export const ButtonTertiaryVarDeclarations = () => css`
     hover__dashWidth: vars.space_4,
     dashSpace: vars.space_2,
     dashHeight: px(2),
-    gapH: between_phone_netbook(16, 24),
+    gapH: scale_phone_netbook(16, 24),
   })}
 
   @media ${mq.wide} {

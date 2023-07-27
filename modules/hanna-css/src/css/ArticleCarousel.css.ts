@@ -1,7 +1,7 @@
 import { ObjectKeys } from '@reykjavik/hanna-utils';
 import { css, pct_f } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { colorFamilies } from '../lib/colors.js';
 import { grid } from '../lib/grid.js';
@@ -32,12 +32,12 @@ export default css`
 
     .ArticleCarousel {
       ${SeenEffect__fadeup};
-      margin-bottom: ${between_cols(40, 130)};
+      margin-bottom: ${scale_container(40, 130)};
     }
 
     .ArticleCarousel__title {
       font: ${vars.font_hd_m};
-      margin-bottom: ${between_phone_netbook(32, 72)};
+      margin-bottom: ${scale_phone_netbook(32, 72)};
 
       @media ${mq.wide} {
         margin-bottom: ${vars.space_9};
@@ -66,7 +66,7 @@ export default css`
       width: ${vars.grid_5};
       min-width: 330px;
 
-      padding: ${topBorderW} ${vars.grid_column} ${between_phone_netbook(24, 72)};
+      padding: ${topBorderW} ${vars.grid_column} ${scale_phone_netbook(24, 72)};
       margin-right: ${vars.grid_gutter};
       position: relative;
 

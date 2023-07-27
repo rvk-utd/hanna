@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -23,7 +23,7 @@ export default css`
   @media screen {
     .LabeledTextBlock {
       ${SeenEffect__fadeup}
-      margin-bottom: ${between_cols(30, 100)};
+      margin-bottom: ${scale_container(30, 100)};
     }
 
     .LabeledTextBlock__label {

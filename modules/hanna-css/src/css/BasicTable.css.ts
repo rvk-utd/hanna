@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between, BetweenEdge } from '../lib/between.js';
+import { scale, ScaleEdge } from '../lib/between.js';
 import { bp, mq } from '../lib/breakpoints.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { grid } from '../lib/grid.js';
@@ -10,8 +10,8 @@ import { WARNING__ } from '../lib/WARNING__.js';
 import { prem } from './utils/miscUtils.js';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
-const _between = (from: BetweenEdge, to: BetweenEdge) =>
-  between(from, to, bp.phone, grid.contentMaxWidth, '%');
+const _between = (from: ScaleEdge, to: ScaleEdge) =>
+  scale(from, to, bp.phone, grid.contentMaxWidth, '%');
 
 export const BasicTableVariables = buildVariables(
   ['width', 'margin_left', 'pad_left', 'pad_right'],

@@ -1,6 +1,6 @@
 import { css, em } from 'es-in-css';
 
-import { between_cols, between_phablet_tablet } from '../lib/between.js';
+import { scale_phablet_tablet, scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars } from '../lib/hannavars.js';
@@ -17,8 +17,8 @@ export default css`
   @media screen {
     .HeroBlock {
       ${SeenEffect__fadeup}
-      padding: ${between_cols(0, 1 * grid.unit)} 0;
-      margin-bottom: ${between_cols(30, 100)};
+      padding: ${scale_container(0, 1 * grid.unit)} 0;
+      margin-bottom: ${scale_container(30, 100)};
       display: flex;
       flex-flow: column nowrap;
     }
@@ -58,7 +58,7 @@ export default css`
 
   @media ${mq.phablet_tablet} {
     .HeroBlock {
-      padding-right: ${between_phablet_tablet(0, cols_px(3, 3))};
+      padding-right: ${scale_phablet_tablet(0, cols_px(3, 3))};
     }
   }
 

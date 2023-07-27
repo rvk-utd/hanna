@@ -1,6 +1,6 @@
 import { css, em } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -20,7 +20,7 @@ export default css`
     .Gallery {
       ${carouselStepperBeforeSprinklingPadding}
       ${SeenEffect__fadeup};
-      margin-bottom: ${between_cols(32, 130)};
+      margin-bottom: ${scale_container(32, 130)};
     }
     .Gallery__itemlist {
       ${carouselItemsScrollSnapStyles};
