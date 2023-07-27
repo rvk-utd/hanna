@@ -1,7 +1,7 @@
 import { pct, px } from 'es-in-css';
 import o from 'ospec';
 
-import { scale } from './between.js';
+import { clamp_phone, scale } from './between.js';
 
 o.spec('between helper', () => {
   o('works', () => {
@@ -37,5 +37,19 @@ o.spec('between helper', () => {
     )('accepts `max` as px');
     o(scale(pct(5), 64, 320, 1280, 'vh')).equals('5vh')('accepts `from` as %');
     o(scale(16, pct(5), 320, 1280, 'vh')).equals('5vh')('accepts `to` as %');
+  });
+});
+
+o.spec('clamp_phone helper', () => {
+  o('works', () => {
+    o(clamp_phone(12, 16)).equals('clamp(12px, calc(2.5vw + 4px), 16px)')(
+      'creates clamp() expression'
+    );
+    o(clamp_phone(16, 16)).equals('16px')(
+      'returns bare intercept when slopeFactor is zero'
+    );
+    o(clamp_phone(16, 24)).equals('clamp(16px, 5vw, 24px)')(
+      'returns bare slope when intercept is zero'
+    );
   });
 });

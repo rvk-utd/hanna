@@ -110,3 +110,40 @@ export const scale_cols = (
 };
 export const scale_container = (from: Edge, to: Edge) =>
   scale(from, to, grid.contentMinWidth, grid.contentMaxWidth, '%');
+
+// ===========================================================================
+
+const _clamp = (from: Edge, to: Edge, scaler: (from: Edge, to: Edge) => string) => {
+  if (typeof from === 'number') {
+    from = px(from as number);
+  }
+  if (typeof to === 'number') {
+    to = px(to as number);
+  }
+  const fromStr = `${from}`;
+  const toStr = `${to}`;
+  if (fromStr === toStr) {
+    return fromStr;
+  }
+  return `clamp(${from}, ${scaler(from, to)}, ${to})`;
+};
+
+export const clamp_phone = (from: Edge, to: Edge) => _clamp(from, to, scale_phone);
+export const clamp_phablet = (from: Edge, to: Edge) => _clamp(from, to, scale_phablet);
+export const clamp_tablet = (from: Edge, to: Edge) => _clamp(from, to, scale_tablet);
+export const clamp_netbook = (from: Edge, to: Edge) => _clamp(from, to, scale_netbook);
+export const clamp_phone_netbook = (from: Edge, to: Edge) =>
+  _clamp(from, to, scale_phone_netbook);
+export const clamp_phablet_netbook = (from: Edge, to: Edge) =>
+  _clamp(from, to, scale_phablet_netbook);
+export const clamp_tablet_netbook = (from: Edge, to: Edge) =>
+  _clamp(from, to, scale_tablet_netbook);
+export const clamp_phone_tablet = (from: Edge, to: Edge) =>
+  _clamp(from, to, scale_phone_tablet);
+export const clamp_phablet_tablet = (from: Edge, to: Edge) =>
+  _clamp(from, to, scale_phablet_tablet);
+export const clamp_phone_phablet = (from: Edge, to: Edge) =>
+  _clamp(from, to, scale_phone_phablet);
+export const clamp_Hamburger = (from: Edge, to: Edge) =>
+  _clamp(from, to, scale_Hamburger);
+export const clamp_Topmenu = (from: Edge, to: Edge) => _clamp(from, to, scale_Topmenu);
