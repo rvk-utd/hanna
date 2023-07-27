@@ -55,6 +55,13 @@ yarn add @reykjavik/hanna-css
   - [`suppress_WARNING__`](#suppress_warning__)
   - [`suppress_WARNING_soft__`](#suppress_warning_soft__)
   - [Type `WarningOpts`](#type-warningopts)
+- [Scaling Helpers](#scaling-helpers)
+  - [Generic Scaler](#generic-scaler)
+    - [`scale`](#scale)
+  - [Media Bracket Scalers](#media-bracket-scalers)
+  - [Container Relative Scalers](#container-relative-scalers)
+    - [`scale_container`](#scale_container)
+    - [`scale_cols`](#scale_cols)
 - [Raw Design Constants](#raw-design-constants)
 - [Helpful VSCode Snippets](#helpful-vscode-snippets)
 - [Changelog](#changelog)
@@ -639,6 +646,149 @@ Default: `false`
 
 Optionally make the warning messages visible in production builds also. A
 drastic measure reserved for highly unusual situations.
+
+## Scaling Helpers
+
+Sometimes CSS lengths/sizes should scale lineraly with their viewport or
+container width. For this Hanna pprovides series of `scale*` and `clamp*`
+helper functions.
+
+The `clamp_` methods return a `clamp(A, calc(…), B)` value, while the
+lower-level `scale*` methods return a bare `calc(…)` value.
+
+All of these helpers accept `from` and `to` of
+`type ScaleEdge = PxValue | PctValue | number` as their first two parameters.
+
+### Generic Scaler
+
+#### `scale`
+
+**Syntax:**
+`scale(from: ScaleEdge, to: ScaleEdge, min: number | PxValue, max: number | PxValue, unit: '%' | 'vw' | 'vh'): string`
+
+This generic, low-level `scale` function lies at the heart of all of the other
+`scale*` and `clamp*` helpers.
+
+It returns a CSS `calc(…)` function with slope+intercept values, that scales
+from `from` at a container/viewport size of `min`, up to `to` at a
+container/viewport size of `max`.
+
+If the unit parameter is set to either `vw`/`vh`, then the `min` and `max`
+values refer to the viewport size.
+
+```js
+import { css, px, pct } from `@reykjavik/hanna-css`
+import { scale } from `@reykjavik/hanna-css/scale`
+
+const myCSS = css`
+  div {
+    /* Supports "%" */
+    height: ${scale(16, 24, 320, 1368, '%')};
+    /* Supports "vw" (and "vh") */
+    width: ${scale(16, 24, 320, 1368, 'vw')};
+
+    /* Returns bare intercept when slopeFactor is 0 */
+    margin-top: ${scale(16, 16, 320, 1368, '%')};
+    /* Returns bare slope when intercept is 0 */
+    margin-bottom: ${scale(16, 64, 320, 1280, 'vh')};
+  }
+`
+/*
+  div {
+    /* Supports "%" *​/
+    height: calc(0.7633587786259541% + 13.557251908396948px);
+    /* Supports "vw" (and "vh") *​/
+    width: calc(0.7633587786259541vw + 13.557251908396948px);
+
+    /* Returns bare intercept when slopeFactor is zero *​/
+    margin-top: 16px;
+    /* Returns bare slope when intercept is zero *​/
+    margin-bottom: 5vh;
+  }
+*/
+```
+
+### Media Bracket Scalers
+
+These generate `vw`-based responsive sizes, that scale linearly between two
+end-point sizes (`number`, `PxValue` or `PctValue`), within certain named
+media-query boundries.
+
+`clamp_phone`, `clamp_phablet`, `clamp_tablet`, `clamp_netbook`,
+`clamp_phone_netbook`, `clamp_phablet_netbook`, `clamp_tablet_netbook`,
+`clamp_phone_tablet`, `clamp_phablet_tablet`, `clamp_phone_phablet`,
+`clamp_Hamburger`, `clamp_Topmenu`.
+
+`scale_phone`, `scale_phablet`, `scale_tablet`, `scale_netbook`,
+`scale_phone_netbook`, `scale_phablet_netbook`, `scale_tablet_netbook`,
+`scale_phone_tablet`, `scale_phablet_tablet`, `scale_phone_phablet`,
+`scale_Hamburger`, `scale_Topmenu`.
+
+Example:
+
+```js
+import { css } from '@reykjavik/hanna-css';
+import { clamp_tablet_netbook } from '@reykjavik/hanna-css/scale';
+
+const myCSS = css`
+  .CustomHeader {
+    height: ${clamp_tablet_netbook(60, 120)};
+  }
+`;
+/*
+  .CustomHeader {
+    height: clamp(60px, calc(9.868421052631579vw + -15px), 120px)
+  }
+*/
+```
+
+Which is effectively the same as this using the corresponding `scale_*`
+function:
+
+```js
+import { css, mq, px } from '@reykjavik/hanna-css';
+import { scale_tablet_netbook } from '@reykjavik/hanna-css/scale';
+
+const from = px(60);
+const to = px(120);
+
+const myCSS = css`
+  @media screen {
+    .CustomHeader {
+      height: ${from};
+    }
+  }
+  @media screen and ${mq.tablet_netbook} {
+    .CustomHeader {
+      height: ${scale_tablet_netbook(from, to)};
+    }
+  }
+  @media screen and ${mq.wide} {
+    .CustomHeader {
+      height: ${to};
+    }
+  }
+`;
+```
+
+### Container Relative Scalers
+
+#### `scale_container`
+
+**Syntax:** `scale_container(from: ScaleEdge, to: ScaleEdge): string`
+
+This `%`-based scaler works for elements directly within a full-grid wide
+container. (As defined by Hanna's `grid_raw.contentMinWidth` and
+`grid_raw.contentMaxWidth`).
+
+#### `scale_cols`
+
+**Syntax:**
+`scale_cols(from: ScaleEdge, to: ScaleEdge, cols: number, gutters?: number): string`
+
+Generates a `%`-based `calc()` value that scales linearly between `from` and
+`to` inside a container whos width is certain nubmer of grid columns and
+gutters.
 
 ## Raw Design Constants
 

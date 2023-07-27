@@ -9,12 +9,6 @@ const { phone, phablet, tablet, netbook, wide } = bp;
 // $_between-minWidth: 320 !default;
 // $_between-maxWidth: 1440 !default;
 
-/**
-  Returns margin/padding value calc() function that delivers approximately
-  `from` pixel spacing when the element's container is `min` pixels wide
-  `to` pixel spacing when the element's container is `max` pixels wide.
-*/
-
 const unitConverters = {
   '%': pct_f,
   vw: vw_f,
@@ -25,6 +19,13 @@ type Edge = PlainNumber | PxValue | PctValue;
 
 export type ScaleEdge = Edge;
 
+/**
+ * Returns a `calc()` value with slope+intercept lengths,
+ * scaling from `from` at the `min` container/viewport size,
+ * up to `to` at the `max` container/viewport size.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#scale
+ */
 export const scale = (
   from: Edge,
   to: Edge,
@@ -63,57 +64,151 @@ export const scale = (
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * "phone" media-query.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_phone = (from: Edge, to: Edge) =>
   scale(from, to, phone, phablet, 'vw');
+
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * "phablet" media-query.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_phablet = (from: Edge, to: Edge) =>
   scale(from, to, phablet, tablet, 'vw');
+
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * "tablet" media-query.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_tablet = (from: Edge, to: Edge) =>
   scale(from, to, tablet, netbook, 'vw');
+
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * "netbook" media-query.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_netbook = (from: Edge, to: Edge) =>
   scale(from, to, netbook, wide, 'vw');
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * media-queries from "phone" up to "netbook" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_phone_netbook = (from: Edge, to: Edge) =>
   scale(from, to, phone, wide, 'vw');
+
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * media-queries from "phablet" up to "netbook" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_phablet_netbook = (from: Edge, to: Edge) =>
   scale(from, to, phablet, wide, 'vw');
+
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * media-queries from "tablet" up to "netbook" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_tablet_netbook = (from: Edge, to: Edge) =>
   scale(from, to, tablet, wide, 'vw');
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * media-queries from "phone" up to "tablet" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_phone_tablet = (from: Edge, to: Edge) =>
   scale(from, to, phone, netbook, 'vw');
+
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * media-queries from "phablet" up to "tablet" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_phablet_tablet = (from: Edge, to: Edge) =>
   scale(from, to, phablet, netbook, 'vw');
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * media-queries from "phone" up to "phablet" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_phone_phablet = (from: Edge, to: Edge) =>
   scale(from, to, phone, tablet, 'vw');
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * "Hamburger" media-query. (As opposed to "Topmenu".)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_Hamburger = scale_phone_tablet;
+
+/**
+ * Generates a `vw`-based `calc()` value that scales linearly within the
+ * "Topmenu" media-query. (As opposed to "Hamburger".)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const scale_Topmenu = scale_netbook;
 
 // ===========================================================================
 
 const _scaleDown = grid.contentMinWidth / grid.contentMaxWidth;
 
+/**
+ * Generates a `%`-based `calc()` value that scales linearly between
+ * `from` and `to` inside a container whos width is certain nubmer of
+ * grid columns and gutters.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#scale_cols
+ */
 export const scale_cols = (
   from: Edge,
   to: Edge,
-
+  /** Container's width in grid columns */
   cols: PlainNumber,
-
+  /** Container's width in grid gutters (defaults to `cols - 1`) */
   gutters: PlainNumber = cols - 1
 ) => {
   const max = cols * grid.column + gutters * grid.gutter;
   const min = _scaleDown * max;
   return scale(from, to, min, max, '%');
 };
+
+/**
+ * This `%`-based scaler works for elements directly within a full-grid wide
+ * container. (As defined by `grid_raw.contentMinWidth` and
+ * `grid_raw.contentMaxWidth`).
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#scale_container
+ */
 export const scale_container = (from: Edge, to: Edge) =>
   scale(from, to, grid.contentMinWidth, grid.contentMaxWidth, '%');
 
@@ -134,22 +229,105 @@ const _clamp = (from: Edge, to: Edge, scaler: (from: Edge, to: Edge) => string) 
   return `clamp(${from}, ${scaler(from, to)}, ${to})`;
 };
 
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * "phone" media-query.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_phone = (from: Edge, to: Edge) => _clamp(from, to, scale_phone);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * "phablet" media-query.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_phablet = (from: Edge, to: Edge) => _clamp(from, to, scale_phablet);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * "tablet" media-query.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_tablet = (from: Edge, to: Edge) => _clamp(from, to, scale_tablet);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * "netbook" media-query.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_netbook = (from: Edge, to: Edge) => _clamp(from, to, scale_netbook);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * media-queries from "phone" up to "netbook" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_phone_netbook = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phone_netbook);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * media-queries from "phablet" up to "netbook" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_phablet_netbook = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phablet_netbook);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * media-queries from "tablet" up to "netbook" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_tablet_netbook = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_tablet_netbook);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * media-queries from "phone" up to "tablet" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_phone_tablet = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phone_tablet);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * media-queries from "phablet" up to "tablet" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_phablet_tablet = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phablet_tablet);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * media-queries from "phone" up to "phablet" .
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_phone_phablet = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phone_phablet);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * "Hamburger" media-query. (As opposed to "Topmenu".)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_Hamburger = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_Hamburger);
+
+/**
+ * Generates a `vw`-based `clamp()` value that scales linearly within the
+ * "Topmenu" media-query. (As opposed to "Hamburger".)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
 export const clamp_Topmenu = (from: Edge, to: Edge) => _clamp(from, to, scale_Topmenu);
