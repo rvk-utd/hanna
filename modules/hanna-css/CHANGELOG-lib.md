@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.4
+
+_2023-07-26_
+
 - feat: Add `@reykjavik/hanna-css/scale` with `clamp*` and `scale*` helpers
 - fix: List `tslib` as dependency
 
