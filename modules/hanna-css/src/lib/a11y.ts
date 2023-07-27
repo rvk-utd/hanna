@@ -15,10 +15,10 @@ export const keyboardFocus_selector = (content: RawCssString) => css`
 `;
 
 export const hoverActiveKeyboardFocus_selector =
-  (active = true) =>
+  (alsoActive = true) =>
   (content: RawCssString) =>
     css`
-      ${active && '&:active'},
+      ${alsoActive && '&:active,'}
       &:hover,
       &[data-focus-visible-added] {
         ${content};
