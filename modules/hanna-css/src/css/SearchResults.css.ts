@@ -11,7 +11,7 @@ import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LabeledTitleStyle__basics } from './styles/labeledTitle.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { afterClear_css } from './utils/afterClear.js';
-import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors.js';
+import { hoverKeyboardFocusAndActive_selector } from './utils/focus-selectors.js';
 import { cols_px, grid_units, prem } from './utils/miscUtils.js';
 
 const baseDashWidth = 24;
@@ -166,7 +166,7 @@ export default css`
     }
 
     .SearchResultsItem__link {
-      ${hoverActiveKeyboardFocus_selector()(css`
+      ${hoverKeyboardFocusAndActive_selector(css`
         > .SearchResultsItem__title {
           padding-right: 0;
 

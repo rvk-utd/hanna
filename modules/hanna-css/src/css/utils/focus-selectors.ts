@@ -1,7 +1,7 @@
 import { css, RawCssString } from 'es-in-css';
 
 export {
-  hoverActiveKeyboardFocus_selector,
+  hoverKeyboardFocusAndActive_selector,
   keyboardFocus_selector,
 } from '../../lib/a11y.js';
 

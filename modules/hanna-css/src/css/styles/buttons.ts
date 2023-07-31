@@ -1,8 +1,8 @@
 /* eslint-disable unused-imports/no-unused-imports-ts */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { color, css, px } from 'es-in-css';
+import { css, px } from 'es-in-css';
 
-import { scale_tablet_netbook, scale_phone_netbook } from '../../lib/between.js';
+import { scale_phone_netbook, scale_tablet_netbook } from '../../lib/between.js';
 import { mq } from '../../lib/breakpoints.js';
 import { buildVariables } from '../../lib/cssutils.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
@@ -10,7 +10,7 @@ import { iconStyle } from '../../lib/icons.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
 import { enableDataIcon } from '../Icon.css.js';
 import {
-  hoverActiveKeyboardFocus_selector,
+  hoverKeyboardFocusAndActive_selector,
   keyboardFocus_selector,
 } from '../utils/focus-selectors.js';
 import { prem } from '../utils/miscUtils.js';
@@ -81,7 +81,7 @@ export const ButtonStyle = () => css`
     padding-right: 32px;
   }
 
-  ${hoverActiveKeyboardFocus_selector()(css`
+  ${hoverKeyboardFocusAndActive_selector(css`
     outline: 0;
     text-decoration: none;
     // box-shadow: 0 ${prem(12)} ${prem(16)} rgba(0, 0, 0, 0.09);
@@ -222,7 +222,7 @@ export const ButtonTertiaryVarDeclarations = () => css`
 `;
 
 export const ButtonTertiaryStyle__hoverFocus = () => css`
-  ${hoverActiveKeyboardFocus_selector()(css`
+  ${hoverKeyboardFocusAndActive_selector(css`
     --dashWidth: ${btVars.hover__dashWidth};
     color: ${btVars.color};
     outline: 0;

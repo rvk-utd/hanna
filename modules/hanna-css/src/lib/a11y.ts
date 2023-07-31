@@ -14,19 +14,21 @@ export const keyboardFocus_selector = (content: RawCssString) => css`
   }
 `;
 
-export const hoverActiveKeyboardFocus_selector =
-  (alsoActive = true) =>
-  (content: RawCssString) =>
-    css`
-      ${alsoActive && '&:active,'}
-      &:hover,
+export const hoverKeyboardFocusAndActive_selector = (
+  content?: RawCssString,
+  opts: { notActive?: boolean } = {}
+) => {
+  return css`
+    ${!opts.notActive && '&:active,'}
+    &:hover,
       &[data-focus-visible-added] {
-        ${content};
-      }
-      &:focus-visible {
-        ${content};
-      }
-    `;
+      ${content};
+    }
+    &:focus-visible {
+      ${content};
+    }
+  `;
+};
 
 // ---------------------------------------------------------------------------
 

@@ -4,7 +4,7 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
 import { FormFieldVariables } from './styles/forms.js';
-import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors.js';
+import { hoverKeyboardFocusAndActive_selector } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
 
@@ -83,14 +83,17 @@ export default css`
     }
 
     .SearchInput__button:not(:disabled) {
-      ${hoverActiveKeyboardFocus_selector(false)(css`
-        background-color: ${vars.color_suld_25};
-        color: ${vars.color_faxafloi_100};
+      ${hoverKeyboardFocusAndActive_selector(
+        css`
+          background-color: ${vars.color_suld_25};
+          color: ${vars.color_faxafloi_100};
 
-        &::before {
-          transform: scale(1.15);
-        }
-      `)}
+          &::before {
+            transform: scale(1.15);
+          }
+        `,
+        { notActive: true }
+      )}
     }
   }
 
