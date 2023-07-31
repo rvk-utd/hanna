@@ -7,7 +7,7 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
 import { FormFieldVariables } from './styles/forms.js';
-import { hoverKeyboardFocusAndActive_selector } from './utils/focus-selectors.js';
+import { hoverKeyboardFocusAndActiveStyling } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem } from './utils/miscUtils.js';
 
@@ -66,7 +66,7 @@ export default css`
       color: ${vars.color_suld_0};
     }
     .SiteSearchInput__button {
-      ${hoverKeyboardFocusAndActive_selector(css`
+      ${hoverKeyboardFocusAndActiveStyling(css`
         background-color: ${vars.color_faxafloi_150};
         color: ${vars.color_suld_0};
       `)}

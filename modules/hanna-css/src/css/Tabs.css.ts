@@ -7,7 +7,7 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LinkStyle_Reset } from './styles/links.js';
-import { keyboardFocus_selector } from './utils/focus-selectors.js';
+import { keyboardFocusStyling } from './utils/focus-selectors.js';
 import { cols_px, prem } from './utils/miscUtils.js';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
@@ -70,7 +70,7 @@ export default css`
       display: none;
     }
     .TabPanel {
-      ${keyboardFocus_selector(css`
+      ${keyboardFocusStyling(css`
         outline-color: ${vars.color_suld_100};
         outline-style: dotted;
         outline-offset: ${vars.space_1};
@@ -129,7 +129,7 @@ export default css`
       padding: ${vars.space_2} ${vars.space_1};
       white-space: normal;
 
-      ${keyboardFocus_selector(css`
+      ${keyboardFocusStyling(css`
         outline-offset: -3px;
       `)}
     }

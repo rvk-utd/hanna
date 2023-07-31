@@ -10,8 +10,8 @@ import { iconStyle } from '../../lib/icons.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
 import { enableDataIcon } from '../Icon.css.js';
 import {
-  hoverKeyboardFocusAndActive_selector,
-  keyboardFocus_selector,
+  hoverKeyboardFocusAndActiveStyling,
+  keyboardFocusStyling,
 } from '../utils/focus-selectors.js';
 import { prem } from '../utils/miscUtils.js';
 
@@ -81,7 +81,7 @@ export const ButtonStyle = () => css`
     padding-right: 32px;
   }
 
-  ${hoverKeyboardFocusAndActive_selector(css`
+  ${hoverKeyboardFocusAndActiveStyling(css`
     outline: 0;
     text-decoration: none;
     // box-shadow: 0 ${prem(12)} ${prem(16)} rgba(0, 0, 0, 0.09);
@@ -100,7 +100,7 @@ export const ButtonStyle = () => css`
     })}
   }
 
-  ${keyboardFocus_selector(css`
+  ${keyboardFocusStyling(css`
     outline: ${prem(2)} solid ${bVars.color};
     outline-offset: ${prem(2)};
   `)}
@@ -222,7 +222,7 @@ export const ButtonTertiaryVarDeclarations = () => css`
 `;
 
 export const ButtonTertiaryStyle__hoverFocus = () => css`
-  ${hoverKeyboardFocusAndActive_selector(css`
+  ${hoverKeyboardFocusAndActiveStyling(css`
     --dashWidth: ${btVars.hover__dashWidth};
     color: ${btVars.color};
     outline: 0;
@@ -232,7 +232,7 @@ export const ButtonTertiaryStyle__hoverFocus = () => css`
     width: ${btVars.dashWidth};
   }
 
-  ${keyboardFocus_selector(css`
+  ${keyboardFocusStyling(css`
     &::after {
       content: '';
       position: absolute;

@@ -5,7 +5,7 @@ import { hannaVars as vars } from './hannavars.js';
 // ---------------------------------------------------------------------------
 
 /**  */
-export const keyboardFocus_selector = (content: RawCssString) => css`
+export const keyboardFocusStyling = (content: RawCssString) => css`
   &[data-focus-visible-added] {
     ${content};
   }
@@ -14,7 +14,7 @@ export const keyboardFocus_selector = (content: RawCssString) => css`
   }
 `;
 
-export const hoverKeyboardFocusAndActive_selector = (
+export const hoverKeyboardFocusAndActiveStyling = (
   content?: RawCssString,
   opts: { notActive?: boolean } = {}
 ) => {
@@ -116,7 +116,7 @@ export const srOnly_focusable = ({
   return css`
     ${srOnly()};
 
-    ${keyboardFocus_selector(focusStyling)}
+    ${keyboardFocusStyling(focusStyling)}
     &:focus-within:not(:focus) {
       ${focusStyling}
     }
