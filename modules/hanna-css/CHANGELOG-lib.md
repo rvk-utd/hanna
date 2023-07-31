@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.5
+
+_2023-07-31_
+
 - feat: Add `keyboardFocusStyling` and `hoverKeyboardFocusAndActiveStyling`
 - fix: Don't require `srOnly_focusable` and `srOnly_focusableContent` options
 
