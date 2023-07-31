@@ -46,6 +46,8 @@ yarn add @reykjavik/hanna-css
   - [`srOnly` mixin](#sronly-mixin)
   - [`srOnly_focusable` mixin](#sronly_focusable-mixin)
   - [`srOnly_focusableContent` mixin](#sronly_focusablecontent-mixin)
+  - [`keyboardFocusStyling` mixin](#keyboardfocusstyling-mixin)
+  - [`hoverKeyboardFocusAndActiveStyling` mixin](#hoverkeyboardfocusandactivestyling-mixin)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
   - [`WARNING_soft__`](#warning_soft__)
@@ -499,7 +501,7 @@ const myCss = css`
 
 ### `srOnly` mixin
 
-**Syntax** `srOnly: () => string`
+**Syntax** `srOnly: () => RawCssString`
 
 Mixin that hides an element visually, but still makes it accessible to screen
 readers.
@@ -520,7 +522,7 @@ be avoided by using more precise selectors for the `srOnly` mixin.)
 
 ### `srOnly_focusable` mixin
 
-**Syntax** `srOnly_focusable: () => string`
+**Syntax** `srOnly_focusable: () => RawCssString`
 
 Similar to the `srOnly` mixin, but intended for links/buttons that should
 become visible on keyboard focus (`:focus-visible`).
@@ -537,7 +539,7 @@ const myCss = css`
 
 ### `srOnly_focusableContent` mixin
 
-**Syntax** `srOnly_focusableContent: () => string`
+**Syntax** `srOnly_focusableContent: () => RawCssString`
 
 Similar to the `srOnly_focusable` mixin above, but for non-interactive
 elements that **contain** buttons/links that should become visible on keyboard
@@ -552,6 +554,59 @@ const myCss = css`
   }
 `;
 ```
+
+### `keyboardFocusStyling` mixin
+
+**Syntax:** `keyboardFocusStyling: (css: string) => RawCssString`
+
+Generates backwards compatible selectors for `:focus-visible` — and also
+targets the class-names injected by the
+[`focus-visible` polyfill](https://www.npmjs.com/package/@reykjavik/hanna-utils#focus-visible-polyfill)
+
+```js
+import { css, keyboardFocusStyling } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyComponent__cardlink {
+    /* Card link styles ... */
+    /* :hover styles ... */
+
+    ${keyboardFocusStyling(css`
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    `)};
+  }
+`;
+```
+
+### `hoverKeyboardFocusAndActiveStyling` mixin
+
+**Syntax:**
+`hoverKeyboardFocusAndActiveStyling: (css: string, options?: { notActive?: stirng }) => RawCssString`
+
+Generates `:hover`, `:active` and `:focus-visible` selectors in a backwards
+compatible manner. (It also targets the class-names injected by the
+[`focus-visible` polyfill](https://www.npmjs.com/package/@reykjavik/hanna-utils#focus-visible-polyfill))
+
+```js
+import {
+  css,
+  hoverKeyboardFocusAndActiveStyling,
+} from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyComponent__cardlink {
+    /* Card link styles ... */
+
+    ${hoverKeyboardFocusAndActiveStyling(css`
+      border: 2px solid currentColor;
+    `)};
+  }
+`;
+```
+
+By passing a second `options` parameter, the `:active` selector can be
+skipped.
 
 ## Markup Warning Helpers
 

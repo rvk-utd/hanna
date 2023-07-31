@@ -1,11 +1,15 @@
-import { ColorValue, css, RawCssString, VariablePrinter } from 'es-in-css';
+import { ColorValue, css, VariablePrinter } from 'es-in-css';
 
 import { hannaVars as vars } from './hannavars.js';
 
 // ---------------------------------------------------------------------------
 
-/**  */
-export const keyboardFocusStyling = (content: RawCssString) => css`
+/**
+ * Generates backwards compatible selectors for `:focus-visible`
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#keyboardfocusstyling-mixin
+ */
+export const keyboardFocusStyling = (content: string) => css`
   &[data-focus-visible-added] {
     ${content};
   }
@@ -14,21 +18,25 @@ export const keyboardFocusStyling = (content: RawCssString) => css`
   }
 `;
 
+/**
+ * Generates `:hover`, `:active` and `:focus-visible` selectors in a
+ * backwards compatible manner.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hoverkeyboardfocusandactivestyling-mixin
+ */
 export const hoverKeyboardFocusAndActiveStyling = (
-  content?: RawCssString,
+  content?: string,
   opts: { notActive?: boolean } = {}
-) => {
-  return css`
-    ${!opts.notActive && '&:active,'}
-    &:hover,
-      &[data-focus-visible-added] {
-      ${content};
-    }
-    &:focus-visible {
-      ${content};
-    }
-  `;
-};
+) => css`
+  ${!opts.notActive && '&:active,'}
+  &:hover,
+  &[data-focus-visible-added] {
+    ${content};
+  }
+  &:focus-visible {
+    ${content};
+  }
+`;
 
 // ---------------------------------------------------------------------------
 
