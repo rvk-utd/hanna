@@ -84,7 +84,7 @@ export const ButtonStyle = () => css`
   ${hoverKeyboardFocusAndActiveStyling(css`
     outline: 0;
     text-decoration: none;
-    // box-shadow: 0 ${prem(12)} ${prem(16)} rgba(0, 0, 0, 0.09);
+    // box-shadow: ${vars.boxShadow_hover};
     box-shadow: 0 ${prem(8)} ${prem(16)} rgba(0, 0, 0, 0.15);
     color: var(--Button--textColor);
     border: var(--Button--border) solid var(--Button--color);

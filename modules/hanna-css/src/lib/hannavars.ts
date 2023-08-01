@@ -311,6 +311,9 @@ export const mainMenuVars = /*@__PURE__*/ buildVariables([
 export const borderEffectVars = /*@__PURE__*/ buildVariables([
   'border_default',
   'border_dark',
+  'boxShadow_subtle',
+  'boxShadow_hover',
+  'boxShadow_elevated',
 ]);
 
 // ---------------------------------------------------------------------------

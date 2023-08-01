@@ -105,7 +105,7 @@ export default css`
     max-height: 500px;
     overflow-y: auto;
     background: ${vars.color_white};
-    box-shadow: 0px 60px 120px rgba(0, 0, 0, 0.08), 0px 30px 60px rgba(0, 0, 0, 0.08);
+    box-shadow: ${vars.boxShadow_elevated};
     border: 1px solid ${vars.color_suld_100};
     border-top: none;
     border-radius: 0 0 4px 4px;

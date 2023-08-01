@@ -57,6 +57,9 @@ o.spec('cssVars', () => {
       // borderEffectVars
       border_default: true,
       border_dark: true,
+      boxShadow_subtle: true,
+      boxShadow_hover: true,
+      boxShadow_elevated: true,
       // buttonVars
       Button__gapH: true,
       Button__gapV: true,

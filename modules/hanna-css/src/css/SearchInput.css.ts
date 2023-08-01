@@ -108,7 +108,7 @@ export default css`
       max-height: 184px;
       overflow: auto;
       background: ${vars.color_suld_0};
-      box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.15), 0px 60px 120px rgba(0, 0, 0, 0.15);
+      box-shadow: ${vars.boxShadow_elevated};
     }
     .AutoComplete__list__item {
       color: ${vars.color_suld_150};
