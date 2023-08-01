@@ -503,6 +503,7 @@ const spaceVarDeclarations = spaceVars.declare({
   space_7: grid_units(7),
   space_8: grid_units(8),
   space_9: grid_units(9),
+  space_10: grid_units(10),
 
   space_0$5: grid_units(0.5),
   space_1$5: grid_units(1.5),
@@ -516,6 +517,7 @@ const spaceVarDeclarations = spaceVars.declare({
   space_7__neg: grid_units(-7),
   space_8__neg: grid_units(-8),
   space_9__neg: grid_units(-9),
+  space_10__neg: grid_units(-10),
 
   space_0$5__neg: grid_units(-0.5),
   space_1$5__neg: grid_units(-1.5),

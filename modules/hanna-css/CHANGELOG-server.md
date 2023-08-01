@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add CSS variables `--space-10` and `--space-10--neg`
 
 ## 0.8.79
 
