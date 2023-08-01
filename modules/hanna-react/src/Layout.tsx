@@ -35,6 +35,12 @@ export const defaultLayoutTexts: DefaultTexts<LayoutI18n> = {
     closeMenuLabel: 'Close',
     closeMenuLabelLong: 'Close menu',
   },
+  pl: {
+    lang: 'pl',
+    skipLinkLabel: 'Przejdź do nawigacji',
+    closeMenuLabel: 'Zamknij',
+    closeMenuLabelLong: 'Zamknij menu',
+  },
 };
 
 // ---------------------------------------------------------------------------
