@@ -407,12 +407,9 @@ const _flexCol = (cols: number, gutters = cols - 1) => {
 const gridVarDeclarations = css`
   ${gridVars.declare({
     grid_margin: scale_phone_netbook(grid.margin__phone, grid.margin__wide),
-    grid_margin__neg: scale_phone_netbook(
-      -1 * grid.margin__phone,
-      -1 * grid.margin__wide
-    ),
-    grid_margin__right: `calc(${_g.grid_margin} - var(--browser-scrollbar-width))`,
-    grid_margin__right__neg: `calc(${_g.grid_margin__neg} + var(--browser-scrollbar-width))`,
+    grid_margin__neg: `calc(-1 * ${_g.grid_margin})`,
+    grid_margin__right: `calc(${_g.grid_margin} - ${envVars.vars.browser_scrollbar_width})`,
+    grid_margin__right__neg: `calc(-1 * ${_g.grid_margin} + ${envVars.vars.browser_scrollbar_width})`,
 
     grid_0_1: _flexCol(0, 1),
     grid_1: _flexCol(1),

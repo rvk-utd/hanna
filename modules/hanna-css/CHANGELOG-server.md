@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add CSS variables `--space-10` and `--space-10--neg`
+- feat: Make `--grid-margin--neg` inherit from `--grid-margin`
 
 ## 0.8.79
 
