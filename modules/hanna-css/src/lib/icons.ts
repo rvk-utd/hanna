@@ -22,13 +22,13 @@ export const iconStyle = (icon?: string | VariablePrinter) => {
     text-indent: 0;
     text-align: center;
     vertical-align: top;
-    // iconFontStyling
+    /* iconFontStyling */
     font-family: ${`${iconfontName}, ${font.family_w_fallback}`};
-    speak: none; // speak property is deprecated
+    speak: none; /* speak property is deprecated */
     font-weight: normal;
     font-style: normal;
     white-space: nowrap;
-    -webkit-font-smoothing: antialiased; // fix for light text on dark background from beeing smudgy in webkit/mac
+    -webkit-font-smoothing: antialiased; /* fix for light text on dark background from beeing smudgy in webkit/mac */
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
     ${icon && `content: ${icon};`}
