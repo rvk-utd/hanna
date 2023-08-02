@@ -5,7 +5,6 @@
 - ... <!-- Add new lines here. -->
 - feat: Add `boxShadow_*` props to `hannaVars`
 - feat: Add vars `space_10` and `space_10__neg` to `hannaVars`
-- fix: Use CSS syntax for intra-mixin comments
 
 ## 0.4.5
 

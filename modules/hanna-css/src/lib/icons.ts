@@ -12,9 +12,9 @@ const iconfontName = 'icons';
  * Mixin to use in either `::before` or `:after` contexts
  * to set up iconfont styling
  */
-export const iconStyle = (icon?: string | VariablePrinter) => {
-  if (typeof icon === 'string') {
-    icon = str(icon);
+export const iconStyle = (iconChar?: string | VariablePrinter) => {
+  if (typeof iconChar === 'string') {
+    iconChar = str(iconChar);
   }
 
   return css`
@@ -22,16 +22,17 @@ export const iconStyle = (icon?: string | VariablePrinter) => {
     text-indent: 0;
     text-align: center;
     vertical-align: top;
-    /* iconFontStyling */
+    ${'' /* iconFontStyling */}
     font-family: ${`${iconfontName}, ${font.family_w_fallback}`};
-    speak: none; /* speak property is deprecated */
+    speak: none;
     font-weight: normal;
     font-style: normal;
     white-space: nowrap;
-    -webkit-font-smoothing: antialiased; /* fix for light text on dark background from beeing smudgy in webkit/mac */
+    ${'' /* fix for light text on dark background from beeing smudgy in webkit/mac */}
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
-    ${icon && `content: ${icon};`}
+    ${iconChar && `content: ${iconChar};`}
   `;
 };
 
