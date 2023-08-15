@@ -3,9 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.6
+
+_2023-08-15_
+
 - feat: Add `boxShadow_*` props to `hannaVars`
 - feat: Add vars `space_10` and `space_10__neg` to `hannaVars`
-- fix: `clamp*` methods inversed min–max values for negative slopes.
+- fix: `clamp*` methods inversed min–max values for negative slopes
 
 ## 0.4.5
 
