@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add utility types `OmitDistributive` and `PickDistributive`
 
 ## 0.2.8
 

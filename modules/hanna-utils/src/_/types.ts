@@ -203,3 +203,23 @@ export type EitherObj<A, B, C = boolean, D = boolean> = C extends boolean
       | AllowKeys<B, keyof A | keyof C | keyof D>
       | AllowKeys<C, keyof A | keyof B | keyof D>
       | AllowKeys<D, keyof A | keyof B | keyof C>;
+
+// ---------------------------------------------------------------------------
+
+/**
+ * A variant of `Omit` that distributes over unions.
+ *
+ * @see https://www.typescriptlang.org/play?ssl=14&ssc=1&pln=12&pc=1#code/PTAEEFQZwSwWwA4BsCmoBGBXALtg9gHagDuM2AFtHnGgMaHYoHagCGBAJm6ABRx5RsSAJ4B+AJSgOMKLQBO8GAVaMumAjEKh8UvCTKU5KKAkKwAbmnRHWAa1NLsUAFDZhCNACEc+AgAU5PAQoUABeUABvUHpmJmwALmhsBQIAcwBuUABfUAAyXmdQUAAfSNAjEzMYS1FEgDNWJCgUABoMG3s8R1rQdQ4UOqUULizCkrKK0wILFETkzBRM6xQ7B2ZEgCIoOA3xjbgOXdKNpFTd0fF05xAIUG9cLWJyGFpKTGaQijRWdDxLUAQgWCzjq6lo2E0RHuvh4gKCUES0MIAXhkgiYyM2EwciIGwAVlAAB4bK6jZyudxoADycDIABEZMkYFgIZYADwAFTaAGlQChCYxOCEUR45G5uShhAA+MKgDl8gVMDghdjCUCiUA0sicnkyxIEFCWORXNweUB+F62BmCBQs6ooHWgXn8wXK81AlBi4QS6Wy+UupUqghqjVa7CO7l60AGo1Xa5gDnPEIs3ygGTlYxTWDoVCgOp4ORppygPDEIgxQXYNpQPQcQgAchYqBYqsIaAQrCgQbVShBYIhWiRBAA6gY8DgAMIMOKwoEIzW07DWpl29lDkVQNobCtxDZStFjG7Dgu2FUhfkecHDDEoLE4u4+Qg8KKgAB077hwTaO-WoA25BQJAkDwc5LmcMkbgAZVYGhomnZhUC7DBHyId4lFSAEkFYJRQAAAzDNkpVwvsCHBSEHweEcx0neDsAAJlneFEgI9c5y3H9sD3A8ihuRNqUXQjQHITs8yw3AmGGHgJG0ADtEpNpljsdCZLQdRIRvO8oRQ58infV9P03ODYl-f9AOA0DSXJIA
+ */
+export type OmitDistributive<T, K extends PropertyKey> = T extends any
+  ? Omit<T, K>
+  : never;
+
+/**
+ * A variant of `Pick` that distributes over unions.
+ *
+ * @see https://www.typescriptlang.org/play?ssl=14&ssc=1&pln=12&pc=1#code/PTAEEFQZwSwWwA4BsCmoBGBXALtg9gHagDuM2AFtHnGgMaHYoHagCGBAJm6ABRx5RsSAJ4B+AJSgOMKLQBO8GAVaMumAjEKh8UvCTKU5KKAkKwAbmnRHWAa1NLsUAFDZhCNACEc+AgAU5PAQoUABeUABvUHpmJmwALmhsBQIAcwBuUABfUAAyXmdQUAAfSNAjEzMYS1FEgDNWJCgUABoMG3s8R1rQdQ4UOqUULizCkrKK0wILFETkzBRM6xQ7B2ZEgCIoOA3xjbgOXdKNpFTd0fF05xAIUG9cLWJyGFpKTGaQijRWdDxLUAQgWCzjq6lo2E0RHuvh4gKCUES0MIAXhkgiYyM2EwciIGwAVlAAB4bK6jZyudxoADycDIABEZMkYFgIZYADwAFTaAGlQChCYxOCEUR45G5uShhAA+MKgDl8gVMDghdjCUCiUA0sicnkyxIEFCWORXNweUB+F62BmCBQs6ooHWgXn8wXK81AlBi4QS6Wy+UupUqghqjVa7CO7l60AGo1Xa5gDnPEIs3ygGTlYxTWDoVCgOp4ORppygPDEIgxQXYNpQPQcQgAchYqBYqsIaAQrCgQbVShBYIhWiRBAA6gY8DgAMIMOKwoEIzW07DWpl29lDkVQNobCtxDZStFjG7Dgu2FUhfkecHDDEoLE4u4+Qg8KKgAB077hwTaO-WoA25BQJAkDwc5LmcMkbgAZVYGhomnZhUC7DBHyId4lFSAEkFYJRQAAAzDNkpVwvsCHBSEHweEcx0neDsAAJlneFEgI9c5y3H9sD3A8ihuRNqUXQjQHITs8yw3AmGGHgJG0ADtEpNpljsdCZLQdRIRvO8oRQ58infV9P03ODYl-f9AOA0DSXJIA
+ */
+export type PickDistributive<T, K extends PropertyKey> = T extends any
+  ? Omit<T, K>
+  : never;
