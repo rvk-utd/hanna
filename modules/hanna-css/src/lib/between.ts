@@ -226,7 +226,13 @@ const _clamp = (from: Edge, to: Edge, scaler: (from: Edge, to: Edge) => string) 
   if (fromStr === toStr) {
     return fromStr;
   }
-  return `clamp(${from}, ${scaler(from, to)}, ${to})`;
+  let min = from;
+  let max = to;
+  if (from > to) {
+    min = to;
+    max = from;
+  }
+  return `clamp(${min}, ${scaler(from, to)}, ${max})`;
 };
 
 /**

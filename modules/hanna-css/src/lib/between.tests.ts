@@ -53,6 +53,9 @@ o.spec('clamp_phone helper', () => {
     o(clamp_phone(12, 16)).equals('clamp(12px, calc(2.5vw + 4px), 16px)')(
       'creates clamp() expression'
     );
+    o(clamp_phone(16, 12)).equals('clamp(12px, calc(-2.5vw + 24px), 16px)')(
+      'negative slope'
+    );
     o(clamp_phone(16, 16)).equals('16px')(
       'returns bare intercept when slopeFactor is zero'
     );
