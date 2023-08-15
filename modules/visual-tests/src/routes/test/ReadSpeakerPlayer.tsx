@@ -20,12 +20,16 @@ export default function () {
         readId="1"
         wrapperProps={{ 'data-testid': 'rsp1' }}
       />
-      <p>Right float: {lorem.medium}</p>
+      <p>
+        <b>Right float:</b> {lorem.medium}
+      </p>
 
       <DummyBlock thin />
 
       <ReadSpeakerPlayer float readId="2" wrapperProps={{ 'data-testid': 'rsp2' }} />
-      <p>Left float: {lorem.medium}</p>
+      <p>
+        <b>Left float:</b> {lorem.medium}
+      </p>
 
       <DummyBlock thin />
 
@@ -34,18 +38,34 @@ export default function () {
         readId="3"
         wrapperProps={{ 'data-testid': 'rsp3' }}
       />
-      <p>Right: {lorem.medium}</p>
+      <p>
+        <b>Right block:</b> {lorem.medium}
+      </p>
 
       <DummyBlock thin />
 
       <ReadSpeakerPlayer readId="4" wrapperProps={{ 'data-testid': 'rsp4' }} />
-      <p>Left: {lorem.medium}</p>
+      <p>
+        <b>Left block:</b> {lorem.medium}
+      </p>
     </Minimal>
   );
 }
 
 export const testing: TestingInfo = {
-  async extras({ page, localScreenshot }) {
-    await localScreenshot();
+  initialHover: '[data-testId="rsp1"] .rsbtn_tooltoggle',
+  async extras({ page, pageScreenshot, project }) {
+    if (project !== 'firefox-tablet') {
+      return;
+    }
+
+    const rsp1 = page.getByTestId('rsp1');
+
+    await rsp1.locator('.rsbtn_tooltoggle').click();
+    await rsp1.locator('.rsbtn_toollist > li:nth-child(4)').hover();
+    await pageScreenshot('menu-open');
+
+    await rsp1.locator('.rsbtn_play').click({ clickCount: 3 });
+    await pageScreenshot('player-open');
   },
 };
