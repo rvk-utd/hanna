@@ -18,7 +18,6 @@ import {
   HannaColorTheme,
 } from '@reykjavik/hanna-css';
 import { setLinkRenderer } from '@reykjavik/hanna-react/utils';
-import { getPageScrollElm as _getPageScrollElm } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
 import { useGetCssTokens } from './utils/useGetCssTokens.js';
@@ -43,21 +42,6 @@ const usePageLang = (): string => {
   }
   return lang;
 };
-
-// ---------------------------------------------------------------------------
-
-declare global {
-  // NOTE: This helper function is added into the global scope to make the
-  // visual regression testing easier.
-  // Thing is, we can't easily inject functions into PlayWright's `.evaluate`
-  // methods because their arguments must be serializable.
-  //
-  // Also: half-hearted attempts to hack around this by passing a function's
-  // `.toString()`ed source and re-evaluating it with `new Function()`
-  // have failed.
-  //
-  var getPageScrollElm: typeof _getPageScrollElm; // eslint-disable-line no-var
-}
 
 // ---------------------------------------------------------------------------
 
@@ -90,16 +74,7 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              getEssentialHannaScripts() +
-              // NOTE: Hacky injection of a utility function into the page's global scope,
-              // in order to make life easier for tests/tests.spec.ts
-              ';\nwindow.getPageScrollElm = ' +
-              _getPageScrollElm.toString(),
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: getEssentialHannaScripts() }} />
         <link
           rel="stylesheet"
           href={
