@@ -59,8 +59,6 @@ import type {
   /* formatMonitor.ts */
   MediaFormat,
 
-  /* getPageScrollElm.ts */
-
   /* getSVGtext.ts */
 
   /* getStableRandomItem.ts */

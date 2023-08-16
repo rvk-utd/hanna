@@ -18,7 +18,6 @@ yarn add @reykjavik/hanna-utils
   - [`getSVGtext`](#getsvgtext)
   - [`getFormatMonitor`](#getformatmonitor)
   - [`printDate`](#printdate)
-  - [`getPageScrollElm`](#getpagescrollelm)
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
 - [Asset helpers](#asset-helpers)
@@ -142,23 +141,6 @@ import { printDate } from '@reykjavik/hanna-utils';
 printDate('2022-04-30', 'is'); // 30. apríl 2022
 printDate(new Date('2022-04-30'), 'en'); // April 30, 2022
 printDate('2022-04-30', 'pl'); // 30. kwietnia 2022
-```
-
-### `getPageScrollElm`
-
-**Syntax:** `getPageScrollElm(customWindow?: Window): HTMLElement`
-
-Returns the outermost scrollable element (as defined by the active CSS) —
-either `<html/>` or `<body/>`.
-
-Prefers `<body />` if both are scrollable.
-
-Use this helper when you want to reliably scroll the whole page.
-
-```ts
-import { getPageScrollElm } from '@reykjavik/hanna-utils';
-
-getPageScrollElm().scrollTo(0, 1200);
 ```
 
 ### `getStableRandomItem`
