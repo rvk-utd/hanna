@@ -1,5 +1,5 @@
 import { colors_raw } from '@reykjavik/hanna-css';
-import { color, css, LengthValue, px } from 'es-in-css';
+import { color, css } from 'es-in-css';
 
 import { htmlCl } from '../lib/classNames.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -10,25 +10,6 @@ import { prem } from './utils/miscUtils.js';
 import { TagPillVariables } from './TagPill.css.js';
 
 const tp = TagPillVariables.vars;
-
-type FadeOutRightOpts = {
-  pseudo?: 'after' | 'before';
-  width?: LengthValue;
-  vOffset?: LengthValue;
-};
-
-const fadeoutRight = (opts: FadeOutRightOpts = {}) => css`
-  &::${opts.pseudo || 'after'} {
-    content: '';
-    position: absolute;
-    top: ${opts.vOffset || 0};
-    bottom: ${opts.vOffset || 0};
-
-    right: 0;
-    width: ${opts.width || '2em'};
-    background-image: linear-gradient(90deg, ${color('white').alpha(0)} 0%, #fff 100%);
-  }
-`;
 
 /*
   Markup OUTLINE:
@@ -54,16 +35,39 @@ export default css`
   .Multiselect__input {
     height: auto;
     min-height: ${ff.input__height};
-    padding-right: ${vars.space_4};
+    min-width: 98px; /* to approximately match an empty Selectbox */
+    padding-right: calc(${vars.space_5} + ${ff.input__paddingH});
     flex-flow: row wrap;
+  }
+
+  .Multiselect__input[data-sprinkled]::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 1px;
+    bottom: 1px;
+    right: 1px;
+    width: ${vars.space_7};
+    pointer-events: none;
+    background-image: linear-gradient(
+      -90deg,
+      ${ff.input__background_color} ${vars.space_4},
+      transparent 100%
+    );
+  }
+  .Multiselect--nowrap:not(.FormField--empty)
+    > .Multiselect__input[data-sprinkled]::before {
+    width: ${vars.space_9};
   }
 
   .Multiselect__input[data-sprinkled]::after {
     ${iconStyle(vars.icon__chevron_down)}
     position: absolute;
+    z-index: 2;
     top: 0;
     bottom: 0;
-    right: ${prem(20)};
+    right: ${vars.space_2};
+    width: ${vars.space_3};
     pointer-events: none;
     margin: auto;
     color: ${ff.input__border_color};
@@ -78,12 +82,15 @@ export default css`
 
   .Multiselect__toggler {
     color: ${ff.input__color_placeholder};
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   :not(.Multiselect__input--open) > .Multiselect__search,
   :not(.Multiselect__input--open) > .Multiselect__toggler {
     position: absolute;
     z-index: 1;
+    width: calc(100% - 2 * ${ff.input__paddingH});
   }
 
   .FormField--focused > * > .Multiselect__search,
@@ -115,6 +122,9 @@ export default css`
     line-height: 1;
     padding-top: ${vars.space_1};
     margin-bottom: -2px;
+    overflow: hidden;
+    margin-right: ${vars.space_3__neg};
+    position: relative;
   }
   .FormField--small > :not(.Multiselect__input--open) > * > .Multiselect__currentvalues {
     margin-top: -2px;
@@ -133,12 +143,7 @@ export default css`
 
   /* prettier-ignore */
   .Multiselect--nowrap > :not(.Multiselect__input--open) > * > .Multiselect__currentvalues {
-    padding-right: ${vars.space_1};
     white-space: nowrap;
-    overflow: hidden;
-    position: relative;
-
-    ${fadeoutRight({ vOffset: px(5) })}
   }
 
   .Multiselect__currentvalues > .TagPill {

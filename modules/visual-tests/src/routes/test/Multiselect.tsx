@@ -4,6 +4,7 @@ import { Multiselect, MultiselectProps } from '@reykjavik/hanna-react/Multiselec
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 
 import { Minimal } from '../../layout/Minimal.js';
+import { focusAllFormFields } from '../../test-helpers/focusAllFormFields.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 
@@ -101,25 +102,28 @@ export default function () {
 export const testing: TestingInfo = {
   extras: async ({ page, pageScreenshot, project }) => {
     if (project === 'firefox-wide' || project === 'firefox-phone') {
-      const id1 = 'empty';
-      const togglerButton = page.locator(`button#toggler:${id1}`);
-      await togglerButton.click({ force: true });
-      await pageScreenshot(`${id1}-open`);
-
-      const id2 = 'normal';
-      const searchInput = page.locator(`input#toggler:${id2}`);
-      await searchInput.click({ force: true });
-      await searchInput.type('a');
-      await pageScreenshot(`${id2}-open`);
-
+      /* eslint-disable no-await-in-loop */
       for (const id of ['empty', 'normal']) {
-        const toggler = page.locator(`#toggler:${id}`);
-        // const formfield = toggler.locator('closest=.FormField');
+        const toggler = page.locator(`[id="toggler:${id}"]`);
+        const formfield = toggler.locator('closest=.FormField');
 
         await toggler.click({ force: true });
+        // remvoe bulk of the pre-selected values, to prevent scrollIntoView on .hover()
+        const pillIdx = project === 'firefox-phone' ? 6 : 11;
+        await formfield
+          .locator(`.TagPill:nth-child(n+${pillIdx})`)
+          .evaluateAll((tagPills) => {
+            tagPills.forEach((pill) => pill.remove());
+          });
+        await formfield.locator('.Multiselect__option:nth-child(2)').hover();
         await pageScreenshot(`${id}-open`);
+
+        await page.keyboard.press('Escape');
       }
       /* eslint-enable no-await-in-loop */
+
+      await focusAllFormFields(page);
+      await pageScreenshot('focused');
     }
   },
 };
