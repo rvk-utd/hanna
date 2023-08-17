@@ -69,6 +69,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
+  waitFor: '.Bling svg',
   initialHover: '.ButtonTertiary:has-text("Lorem Ipsum") >> nth=0',
   clipViewport: true,
 };

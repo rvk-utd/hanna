@@ -32,5 +32,6 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
+  waitFor: '.Bling svg',
   clipViewport: true,
 };
