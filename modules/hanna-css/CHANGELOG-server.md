@@ -6,6 +6,7 @@
 - feat: Add CSS variables `--boxShadow-(subtle|hover|elevated)`
 - feat: Add CSS variables `--space-10` and `--space-10--neg`
 - feat: Make `--grid-margin--neg` inherit from `--grid-margin`
+- fix: Tweak overflow styling of `Selectbox`
 
 ## 0.8.79
 
