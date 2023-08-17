@@ -290,15 +290,22 @@ allComponentTests.forEach(([name, testInfo]) => {
       // HACK: Wait for Remix's <Script/> hydration to finish
       await page.locator('html[style^="--browser-scrollbar-width"]').waitFor();
 
+      const { initialHover, waitFor, prep } = testInfo;
       let expanded = false;
-      if (testInfo.prep) {
+      if (prep) {
         expanded = true;
         await expandViewport();
-        await testInfo.prep(args);
-      } else if (testInfo.initialHover) {
+        await prep(args);
+      } else if (initialHover || waitFor) {
         expanded = true;
         await expandViewport();
-        await page.locator(testInfo.initialHover).hover();
+        const [waitSelector, waitState] =
+          typeof waitFor === 'string' ? [waitFor] : waitFor || [];
+        waitSelector &&
+          (await page
+            .locator(`${waitSelector} >> nth=0`)
+            .waitFor({ state: waitState || 'attached' }));
+        initialHover && (await page.locator(initialHover).hover());
       }
 
       if (testInfo.skipScreenshot) {

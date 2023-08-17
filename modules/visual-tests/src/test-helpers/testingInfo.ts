@@ -57,6 +57,20 @@ export type TestInfoObj = {
   initialHover?: string;
 
   /**
+   * Playwright locator selector for the element which should be awaited
+   * before the default screenshot is snapped.
+   *
+   * Alternatively pass a `[selector, state]` tuple.
+   *
+   * The default awaited `state` is `"attached"`
+   *
+   * **NOTE:** If a `prep` action is also defined, this option is ignored.
+   */
+  waitFor?:
+    | [selector: string, state: 'attached' | 'detached' | 'visible' | 'hidden']
+    | string;
+
+  /**
    * Sets the default value for `pageScreenshot()`'s clipvViewport option
    *
    * Use this for pages where you know you need to ignore elements
