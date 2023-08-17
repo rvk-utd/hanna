@@ -2,11 +2,9 @@ import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { FormFieldVariables } from './styles/forms.js';
 import { overflowEllipsis, prem } from './utils/miscUtils.js';
-
-const ff = FormFieldVariables.vars;
 
 // inlined by FormField.css.ts
 export const Selectbox_css = () => css`

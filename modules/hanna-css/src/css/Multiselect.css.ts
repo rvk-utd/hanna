@@ -4,12 +4,11 @@ import { color, css, LengthValue, px } from 'es-in-css';
 import { htmlCl } from '../lib/classNames.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { FormFieldVariables } from './styles/forms.js';
 import { prem } from './utils/miscUtils.js';
 import { TagPillVariables } from './TagPill.css.js';
 
-const ff = FormFieldVariables.vars;
 const tp = TagPillVariables.vars;
 
 type FadeOutRightOpts = {

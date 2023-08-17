@@ -24,6 +24,7 @@ yarn add @reykjavik/hanna-css
 - [Hanna CSS Variables](#hanna-css-variables)
   - [`hannaVars`](#hannavars)
   - [`hannaVarOverride`](#hannavaroverride)
+  - [`formFieldVars`](#formfieldvars)
   - [`buildVariables`](#buildvariables)
 - [Class-Name constants](#class-name-constants)
   - [`htmlCl`](#htmlcl)
@@ -174,6 +175,30 @@ const myCss = css`
 /*`
   .SomeComponent {
     --color-faxafloi-100: red;
+  }
+`*/
+```
+
+### `formFieldVars`
+
+**Syntax:** `formFieldVars: Record<string, VariablePrinter>`
+
+Type-safe collection of CSS variables for styling `FormField`-derived
+components.
+
+```js
+import { formFieldVars, css } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyFormField__input__dohicky {
+    background-color: ${formFieldVars.input__background_color};
+    ...other dohicky styling..
+  }
+`;
+/*`
+  .MyFormField__input__dohicky {
+    background-color: var(--FormField-input--background-color);
+    ...other dohicky styling...
   }
 `*/
 ```

@@ -5,13 +5,11 @@ import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { FormFieldVariables } from './styles/forms.js';
 import { hoverKeyboardFocusAndActiveStyling } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem } from './utils/miscUtils.js';
-
-const ff = FormFieldVariables.vars;
 
 export default css`
   /*!@deps

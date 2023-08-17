@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `formFieldVars` for custom styling `FormField`'s
 
 ## 0.4.6
 
