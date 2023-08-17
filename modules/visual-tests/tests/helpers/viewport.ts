@@ -2,8 +2,6 @@ import { expect, Locator, Page } from '@playwright/test';
 
 import { TestFnArgs } from '../../src/test-helpers/testingInfo.js';
 
-import { getPageScrollHeight } from './scrolling.js';
-
 // ---------------------------------------------------------------------------
 
 export const setViewportSize =
@@ -34,7 +32,8 @@ export const expandViewport =
 
     const getScrollHeight = customElm
       ? () => customElm.evaluate((elm) => elm.scrollHeight)
-      : () => getPageScrollHeight(page);
+      : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        () => page.evaluate(() => document.querySelector('#bodyinner')!.clientHeight);
 
     let scrollHeight = await getScrollHeight();
 
