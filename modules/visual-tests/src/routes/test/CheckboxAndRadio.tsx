@@ -17,9 +17,6 @@ export const meta: V2_MetaFunction = autoTitle;
 export const handle = cssTokens('Checkbox', 'RadioGroup', 'RowBlock', 'RowBlockColumn');
 
 export default function () {
-  // alias here to appease PlayWright's weirdly limited build config
-  const RadioGroup__Radio = RadioGroup.__Radio;
-
   return (
     <Minimal>
       <RowBlock>
@@ -70,28 +67,32 @@ export default function () {
           <Checkbox label={lorem.short} />
         </RowBlockColumn>
         <RowBlockColumn>
-          <RadioGroup__Radio label="Normal" checked={false} data-testid="normal" />
-          <RadioGroup__Radio label="Checked Normal" checked data-testid="normalChecked" />
-          <RadioGroup__Radio
+          <RadioGroup.__Radio label="Normal" checked={false} data-testid="normal" />
+          <RadioGroup.__Radio
+            label="Checked Normal"
+            checked
+            data-testid="normalChecked"
+          />
+          <RadioGroup.__Radio
             label="Disabled"
             disabled
             checked={false}
             data-testid="disabled"
           />
-          <RadioGroup__Radio label="Checked Disabled" disabled checked />
-          <RadioGroup__Radio
+          <RadioGroup.__Radio label="Checked Disabled" disabled checked />
+          <RadioGroup.__Radio
             label="Invalid"
             invalid
             checked={false}
             data-testid="invalid"
           />
-          <RadioGroup__Radio
+          <RadioGroup.__Radio
             label="Checked Invalid"
             invalid
             checked
             data-testid="invalidChecked"
           />
-          <RadioGroup__Radio label={lorem.short} />
+          <RadioGroup.__Radio label={lorem.short} />
         </RowBlockColumn>
       </RowBlock>
       <style>{`

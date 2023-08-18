@@ -16,8 +16,6 @@ export const meta: V2_MetaFunction = autoTitle;
 export const handle = cssTokens('ButtonPrimary', 'ButtonSecondary', 'ButtonTertiary');
 
 const buttons = (align: 'right' | undefined) => {
-  // alias here to appease PlayWright's weirdly limited build config
-  const ButtonBarSplit = ButtonBar.Split;
   return (
     <Fragment>
       <ButtonBar align={align}>
@@ -28,7 +26,7 @@ const buttons = (align: 'right' | undefined) => {
 
       <ButtonBar align={align}>
         <ButtonPrimary icon="go-forward">Continue</ButtonPrimary>
-        <ButtonBarSplit />
+        <ButtonBar.Split />
         <ButtonTertiary>To the Right</ButtonTertiary>
         <ButtonTertiary icon="go-back">Go Back</ButtonTertiary>
       </ButtonBar>
@@ -36,7 +34,7 @@ const buttons = (align: 'right' | undefined) => {
       <ButtonBar align={align}>
         <ButtonPrimary icon="go-forward">Continue</ButtonPrimary>
         <ButtonTertiary>To the Left</ButtonTertiary>
-        <ButtonBarSplit />
+        <ButtonBar.Split />
         <ButtonTertiary icon="go-back">Go Back</ButtonTertiary>
       </ButtonBar>
       <hr />
@@ -46,9 +44,9 @@ const buttons = (align: 'right' | undefined) => {
       <hr />
       <ButtonBar align={align}>
         <ButtonSecondary>To the left</ButtonSecondary>
-        <ButtonBarSplit />
+        <ButtonBar.Split />
         <ButtonSecondary>Middle</ButtonSecondary>
-        <ButtonBarSplit />
+        <ButtonBar.Split />
         <ButtonPrimary>To the Right</ButtonPrimary>
       </ButtonBar>
       <hr />
@@ -56,9 +54,9 @@ const buttons = (align: 'right' | undefined) => {
       <ButtonBar align={align}>
         <ButtonSecondary>To the left</ButtonSecondary>
         <span>Random content</span>
-        <ButtonBarSplit />
+        <ButtonBar.Split />
         <ButtonSecondary>Middle …ish</ButtonSecondary>
-        <ButtonBarSplit />
+        <ButtonBar.Split />
         <ButtonPrimary>To the Right</ButtonPrimary>
       </ButtonBar>
 
@@ -73,11 +71,11 @@ const buttons = (align: 'right' | undefined) => {
       <ButtonBar align={align}>
         <ButtonPrimary icon="go-forward">Continue</ButtonPrimary>
         <ButtonTertiary icon="go-back">Go Back</ButtonTertiary>
-        <ButtonBarSplit />
+        <ButtonBar.Split />
         <ButtonSecondary>Secondary</ButtonSecondary>
         <ButtonSecondary>Uno</ButtonSecondary>
         <ButtonSecondary>Dos</ButtonSecondary>
-        <ButtonBarSplit />
+        <ButtonBar.Split />
         <ButtonSecondary>Tres</ButtonSecondary>
       </ButtonBar>
     </Fragment>

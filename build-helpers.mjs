@@ -119,34 +119,52 @@ const tscBuild = (/** @type {TSConfig | undefined} */ config) => {
 
 // ---------------------------------------------------------------------------
 
-export const buildTests = () => {
+/** @typedef {{ watch?: boolean,  typeCheck?: boolean, emptyOutdir?: boolean, entryNames?: string }}  ESBuildBuilDOpts */
+export const esbuildBuild = (
+  /** @type {Array<string>} */ entryPoints,
+  /** @type {string} */ outdir,
+  /** @type {ESBuildBuilDOpts | undefined} */ options
+) => {
+  const { watch, typeCheck, emptyOutdir, entryNames } = options || {};
+
+  emptyOutdir && execSync(`rm -rf ${testsDir}`);
   execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
 
-  if (!opts.dev) {
+  if (typeCheck) {
     tscBuild({
       compilerOptions: { noEmit: true },
       include: [testGlobs.replace(/\.[^.]+$/g, '.*')],
     });
   }
 
-  esbuild
+  return esbuild
     .build({
       bundle: true,
       external: externalDeps,
       format: 'cjs',
       platform: 'node',
       target: ['node16'],
-      entryPoints: globSync(testGlobs),
-      entryNames: '[dir]/$$[hash]$$-[name]',
+      entryPoints,
+      entryNames,
       write: false,
-      watch: !!opts.dev && {
+      watch: watch && {
         onRebuild: (err, results) => results && writeOnlyAffected(true)(results, err),
       },
-      outdir: testsDir,
+      outdir,
     })
     .then(writeOnlyAffected(true))
     .catch(exit1);
 };
+
+// ---------------------------------------------------------------------------
+
+export const buildTests = () =>
+  esbuildBuild(globSync(testGlobs), testsDir, {
+    watch: !!opts.dev,
+    typeCheck: !opts.dev,
+    emptyOutdir: true,
+    entryNames: '[dir]/$$[hash]$$-[name]',
+  });
 
 // ---------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 
-import { TestFnArgs } from '../../src/test-helpers/testingInfo.js';
+import { TestFnArgs } from '../../test-helpers/testingInfo.js';
 
 // ---------------------------------------------------------------------------
 

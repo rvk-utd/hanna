@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 
-import type { TestFnArgs } from '../../src/test-helpers/testingInfo.js';
+import type { TestFnArgs } from '../../test-helpers/testingInfo.js';
 
 import { expandViewport } from './viewport.js';
 

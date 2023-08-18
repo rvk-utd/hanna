@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Locator } from '@playwright/test';
+import type { Locator } from '@playwright/test';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';

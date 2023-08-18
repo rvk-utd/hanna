@@ -10,6 +10,6 @@
     "**/.pnp.*": true,
     "servers/docs/*": true,
     "servers/styles/*": true,
-    "modules/visual-tests/tests/**/*.png": true
+    "modules/visual-tests/tests/*": true
   }
 }

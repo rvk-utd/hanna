@@ -1,9 +1,10 @@
 import { defineConfig, devices, PlaywrightTestConfig } from '@playwright/test';
 import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 
-import { ProjectName, TestTag } from './src/test-helpers/testingInfo.js';
-import { TAG_PREFIX, TAG_SUFFIX } from './tests/helpers/screeshots.js';
-import { registerCustomSelectorsEngines } from './tests/helpers/selectorEngines.js';
+import { ProjectName, TestTag } from '../test-helpers/testingInfo.js';
+
+import { TAG_PREFIX, TAG_SUFFIX } from './helpers/screeshots.js';
+import { registerCustomSelectorsEngines } from './helpers/selectorEngines.js';
 
 registerCustomSelectorsEngines();
 
@@ -116,7 +117,7 @@ const projects: Array<ProjectCfg> = [
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -136,9 +137,9 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'public/test-results',
+  outputDir: '../public/test-results',
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html', { outputFolder: 'public/report', open: 'never' }]],
+  reporter: [['html', { outputFolder: '../public/report', open: 'never' }]],
 
   // updateSnapshots: 'all', // use this for bulk updating
 
@@ -164,7 +165,7 @@ export default defineConfig({
     },
     {
       command: 'yarn run dev:server',
-      cwd: '../hanna-css',
+      cwd: '../../hanna-css',
       port: 4000,
       reuseExistingServer: false,
     },
