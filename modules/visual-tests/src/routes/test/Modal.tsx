@@ -25,6 +25,32 @@ export const handle = cssTokens(
   'Bling'
 );
 
+type ModalData = {
+  id: string;
+  buttonText: string;
+  width: ModalProps['modifier'];
+  bling?: true;
+};
+
+const modals: Array<ModalData> = [
+  {
+    id: 'medium',
+    buttonText: 'Open modal',
+    width: 'w8',
+    bling: true,
+  },
+  {
+    id: 'narrow',
+    buttonText: 'Open narrow modal',
+    width: 'w6',
+  },
+  {
+    id: 'wide',
+    buttonText: 'Open wide modal',
+    width: 'w10',
+  },
+];
+
 const renderBling = () => (
   <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
 );
@@ -33,57 +59,57 @@ export default function () {
   const [open, setOpen] = useState(false);
   const openModal = () => setOpen(true);
   const closeModal = () => setOpen(false);
-  const [widthModifier, setWidth] = useState<ModalProps['modifier']>('w8');
+  const [modalData, setModalData] = useState<ModalData>();
 
-  const buttons = ['Open modal', 'Open narrow modal', 'Open wide modal'].map(
-    (buttonText, i) => {
-      return (
-        <span key={i}>
-          <ButtonSecondary
-            size="small"
-            onClick={() => {
-              i === 0 ? setWidth('w8') : i === 1 ? setWidth('w6') : setWidth('w10');
-              openModal();
-            }}
-          >
-            {buttonText}
-          </ButtonSecondary>
-        </span>
-      );
-    }
-  );
+  const buttons = modals.map((data) => {
+    return (
+      <span key={data.id}>
+        <ButtonSecondary
+          size="small"
+          onClick={() => {
+            setModalData(data);
+            openModal();
+          }}
+        >
+          {data.buttonText}
+        </ButtonSecondary>
+      </span>
+    );
+  });
 
   return (
     <Minimal>
       <Fragment>
         {buttons}
-        <Modal
-          modifier={widthModifier}
-          open={open}
-          onClosed={closeModal}
-          startOpen
-          bling={widthModifier === 'w8' ? renderBling() : undefined}
-          render={({ closeModal }) => {
-            return (
-              <Fragment>
-                <Heading>Ertu viss?</Heading>
-                <TextBlock>
-                  <p>
-                    Athugið að þegar hætt er við umsókn mun hún ekki vistast og þú munt
-                    þurfa að byrja upp á nýtt.
-                  </p>
-                  {widthModifier === 'w10' && <p>{loremRT.long(true)}</p>}
-                </TextBlock>
-                <ButtonBar>
-                  <ButtonSecondary onClick={closeModal}>
-                    Nei, halda áfram með umsókn
-                  </ButtonSecondary>{' '}
-                </ButtonBar>
-                {'\n\n'}
-              </Fragment>
-            );
-          }}
-        />
+        {modalData && (
+          <Modal
+            modifier={modalData.width}
+            open={open}
+            onClosed={closeModal}
+            startOpen
+            bling={modalData.bling && renderBling()}
+            render={({ closeModal }) => {
+              return (
+                <Fragment>
+                  <Heading>Ertu viss?</Heading>
+                  <TextBlock>
+                    <p>
+                      Athugið að þegar hætt er við umsókn mun hún ekki vistast og þú munt
+                      þurfa að byrja upp á nýtt.
+                    </p>
+                    {modalData.width === 'w10' && <p>{loremRT.long(true)}</p>}
+                  </TextBlock>
+                  <ButtonBar>
+                    <ButtonSecondary onClick={closeModal}>
+                      Nei, halda áfram með umsókn
+                    </ButtonSecondary>{' '}
+                  </ButtonBar>
+                  {'\n\n'}
+                </Fragment>
+              );
+            }}
+          />
+        )}
       </Fragment>
     </Minimal>
   );
@@ -93,33 +119,25 @@ export const testing: TestingInfo = {
   viewportMinHeight: 1000,
   skipScreenshot: true,
   extras: async ({ page, pageScreenshot, localScreenshot, project }) => {
-    const button = page.locator('.ButtonSecondary:text-is("Open modal")');
-    const buttonNarrow = page.locator('.ButtonSecondary:text-is("Open narrow modal")');
-    const buttonWide = page.locator('.ButtonSecondary:text-is("Open wide modal")');
-
     const modalCloseBtn = page.locator('.Modal__closebutton');
 
-    await button.click();
-    await page.mouse.move(0, 0);
-    await pageScreenshot('medium');
+    /* eslint-disable no-await-in-loop */
+    for (const { id, buttonText, bling } of modals) {
+      await page.locator(`.ButtonSecondary:text-is('${buttonText}')`).click();
+      await page.mouse.move(0, 0);
+      if (bling) {
+        await page.locator('.Bling svg >> nth = 0').waitFor({ state: 'attached' });
+      }
+      await pageScreenshot(id);
 
-    await modalCloseBtn.click();
-    await page.waitForTimeout(800);
+      if ((id === 'wide' && project === 'firefox-wide') || project === 'firefox-phone') {
+        await modalCloseBtn.hover();
+        await localScreenshot(modalCloseBtn, 'closebutton-hover', { margin: true });
+      }
 
-    await buttonNarrow.click();
-    await page.mouse.move(0, 0);
-    await pageScreenshot('narrow');
-
-    await modalCloseBtn.click();
-    await page.waitForTimeout(800);
-
-    await buttonWide.click();
-    await page.mouse.move(0, 0);
-    await pageScreenshot('wide');
-
-    if (project === 'firefox-wide' || project === 'firefox-phone') {
-      await modalCloseBtn.hover();
-      await localScreenshot(modalCloseBtn, 'closebutton-hover', { margin: true });
+      await modalCloseBtn.click();
+      await page.waitForTimeout(800);
     }
+    /* eslint-enable no-await-in-loop */
   },
 };
