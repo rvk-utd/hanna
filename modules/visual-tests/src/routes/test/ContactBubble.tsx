@@ -1,7 +1,6 @@
 import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { ContactBubble, ContactBubbleItem } from '@reykjavik/hanna-react/ContactBubble';
-import { boolean } from '@storybook/addon-knobs';
 
 import { Minimal } from '../../layout/Minimal.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
@@ -45,12 +44,9 @@ const LINKS: Array<ContactBubbleItem> = [
   },
 ];
 export default function () {
-  const ssr = !boolean('Show client-side markup', false);
-  const alwaysShow = boolean('Set optional "alwaysShow" data-attribute', true);
-  const key = '' + ssr;
   return (
     <Minimal>
-      <ContactBubble key={key} title={'Hafa '} links={LINKS} alwaysShow={alwaysShow} />
+      <ContactBubble title={'Hafa '} links={LINKS} alwaysShow />
     </Minimal>
   );
 }
@@ -59,7 +55,7 @@ export default function () {
 
 export const testing: TestingInfo = {
   viewportMinHeight: 700,
-  extras: async ({ page, pageScreenshot, localScreenshot, project, setViewportSize }) => {
+  extras: async ({ page, pageScreenshot, localScreenshot, project }) => {
     const contactBubbleBtn = page.locator('.ContactBubble__openbtn');
     if (project !== 'firefox-netbook') {
       await contactBubbleBtn.hover();

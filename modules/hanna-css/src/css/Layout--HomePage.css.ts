@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { scale_container, scale_container } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
