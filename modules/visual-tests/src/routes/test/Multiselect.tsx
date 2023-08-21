@@ -100,8 +100,8 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, pageScreenshot, project }) => {
-    if (project === 'firefox-wide' || project === 'firefox-phone') {
+  extras: async ({ page, pageScreenshot, mediaFormat }) => {
+    if (mediaFormat('wide') || mediaFormat('phone')) {
       /* eslint-disable no-await-in-loop */
       for (const id of ['empty', 'normal']) {
         const toggler = page.locator(`[id="toggler:${id}"]`);
@@ -109,7 +109,7 @@ export const testing: TestingInfo = {
 
         await toggler.click({ force: true });
         // remvoe bulk of the pre-selected values, to prevent scrollIntoView on .hover()
-        const pillIdx = project === 'firefox-phone' ? 6 : 11;
+        const pillIdx = mediaFormat('phone') ? 6 : 11;
         await formfield
           .locator(`.TagPill:nth-child(n+${pillIdx})`)
           .evaluateAll((tagPills) => {

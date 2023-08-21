@@ -106,8 +106,8 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
-    if (project === 'firefox-wide' || project === 'firefox-phone') {
+  extras: async ({ page, localScreenshot, pageScreenshot, mediaFormat }) => {
+    if (mediaFormat('wide') || mediaFormat('phone')) {
       const inputsToHover = [
         { id: 'normal', name: 'normal' },
         { id: 'normal-placeholder', name: 'normalPlaceholder' },

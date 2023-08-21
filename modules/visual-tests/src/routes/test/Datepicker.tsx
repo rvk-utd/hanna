@@ -84,11 +84,11 @@ export default function () {
 
 export const testing: TestingInfo = {
   viewportMinHeight: 700,
-  extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
+  extras: async ({ page, localScreenshot, pageScreenshot, mediaFormat }) => {
     await page.getByLabel('Normal').click();
     await pageScreenshot('opened');
 
-    if (project === 'firefox-wide') {
+    if (mediaFormat('wide')) {
       const datepicker = page.locator('.react-datepicker');
 
       await datepicker

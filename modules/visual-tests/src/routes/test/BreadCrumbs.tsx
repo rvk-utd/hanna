@@ -22,8 +22,8 @@ export default function () {
 
 export const testing: TestingInfo = {
   initialHover: '.BreadCrumbs__item:text("Mannréttindaráð")',
-  extras: async ({ page, localScreenshot, project }) => {
-    if (project !== 'firefox-wide') {
+  extras: async ({ page, localScreenshot, mediaFormat }) => {
+    if (!mediaFormat('wide')) {
       return;
     }
     const home = page.locator('.BreadCrumbs__item:text("Forsíða")');

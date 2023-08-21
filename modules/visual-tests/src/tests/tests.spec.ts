@@ -3,6 +3,7 @@ import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { compareKeys } from 'hanna-test-helpers';
 
 import type {
+  ProjectMediaFormat,
   ProjectName,
   TestFnArgs,
   TestInfoObj,
@@ -271,6 +272,8 @@ allComponentTests.forEach(([name, testInfo]) => {
       const localScreenshot = makeSnapLocalScreeshot(page, testName);
       const expandViewport = _expandViewport(page, testInfo.viewportMinHeight);
       const setViewportSize = _setViewportSize(page);
+      const mediaFormat = (format: ProjectMediaFormat) =>
+        project.name.endsWith(`-${format}`);
 
       const args: TestFnArgs = {
         page,
@@ -280,6 +283,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         hasTouch,
         expect: expect.soft,
         project: project.name as ProjectName,
+        mediaFormat,
         localScreenshot,
         pageScreenshot,
         expandViewport,

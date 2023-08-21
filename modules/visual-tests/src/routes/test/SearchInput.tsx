@@ -62,8 +62,8 @@ export default function () {
 // ---------------------------------------------------------------------------
 
 export const testing: TestingInfo = {
-  extras: async ({ page, pageScreenshot, localScreenshot, project }) => {
-    if (project === 'firefox-wide' || project === 'firefox-phone') {
+  extras: async ({ page, pageScreenshot, localScreenshot, mediaFormat }) => {
+    if (mediaFormat('wide') || mediaFormat('phone')) {
       /* eslint-disable no-await-in-loop */
       for (const variant of ['', '-btn']) {
         for (const baseid of Object.keys(searchInputs)) {

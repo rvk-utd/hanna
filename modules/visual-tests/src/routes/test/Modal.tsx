@@ -118,7 +118,7 @@ export default function () {
 export const testing: TestingInfo = {
   viewportMinHeight: 1000,
   skipScreenshot: true,
-  extras: async ({ page, pageScreenshot, localScreenshot, project }) => {
+  extras: async ({ page, pageScreenshot, localScreenshot, mediaFormat }) => {
     const modalCloseBtn = page.locator('.Modal__closebutton');
 
     /* eslint-disable no-await-in-loop */
@@ -130,7 +130,7 @@ export const testing: TestingInfo = {
       }
       await pageScreenshot(id);
 
-      if ((id === 'wide' && project === 'firefox-wide') || project === 'firefox-phone') {
+      if ((id === 'wide' && mediaFormat('wide')) || mediaFormat('phone')) {
         await modalCloseBtn.hover();
         await localScreenshot(modalCloseBtn, 'closebutton-hover', { margin: true });
       }

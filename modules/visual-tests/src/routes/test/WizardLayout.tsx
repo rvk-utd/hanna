@@ -72,7 +72,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
+  extras: async ({ page, localScreenshot, pageScreenshot, mediaFormat }) => {
     await page.getByTestId('stepper').click();
     await page.mouse.move(0, 0);
     await pageScreenshot('stepper');
@@ -81,7 +81,7 @@ export const testing: TestingInfo = {
     await page.mouse.move(0, 0);
     await pageScreenshot('alerts');
 
-    if (project === 'firefox-netbook') {
+    if (mediaFormat('netbook')) {
       return;
     }
 

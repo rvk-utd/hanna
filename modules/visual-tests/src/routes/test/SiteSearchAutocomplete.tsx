@@ -32,12 +32,18 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, pageScreenshot, localScreenshot, setViewportSize, project }) => {
+  extras: async ({
+    page,
+    pageScreenshot,
+    localScreenshot,
+    setViewportSize,
+    mediaFormat,
+  }) => {
     const formFieldInput = page.locator('.FormField__input');
     const searchButton = page.locator('.SiteSearchInput__button');
     const searchBox = page.locator('.SiteSearchInput__input');
 
-    if (project === 'firefox-wide' || project === 'firefox-phone') {
+    if (mediaFormat('wide') || mediaFormat('phone')) {
       // Focus search button
       await keyboardFocus(searchButton, true);
       await localScreenshot(formFieldInput, 'searchButton-focus');

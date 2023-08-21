@@ -54,8 +54,8 @@ export default function () {
 
 export const testing: TestingInfo = {
   initialHover: '[data-testId="rsp1"] .rsbtn_tooltoggle',
-  async extras({ page, pageScreenshot, project }) {
-    if (project !== 'firefox-tablet') {
+  async extras({ page, pageScreenshot, mediaFormat }) {
+    if (!mediaFormat('tablet')) {
       return;
     }
 

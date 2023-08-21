@@ -117,6 +117,9 @@ export type TestFnArgs = Pick<
   /** Name of the currently running project */
   project: ProjectName;
 
+  /** Checks the current project's "media format" (i.e. viewport width)  */
+  mediaFormat: (string: ProjectMediaFormat) => boolean;
+
   /** Re-export of PlayWright's expect.soft function. */
   expect: Expect['soft'];
 
@@ -181,20 +184,13 @@ export type TestFnArgs = Pick<
 
 // ---------------------------------------------------------------------------
 
+export type ProjectMediaFormat = 'wide' | 'netbook' | 'tablet' | 'phone';
+
 export type ProjectName =
   | 'meta'
-  | 'firefox-wide'
-  | 'firefox-netbook'
-  | 'firefox-tablet'
-  | 'firefox-phone'
-  | 'chrome-wide'
-  | 'chrome-netbook'
-  | 'chrome-tablet'
-  | 'chrome-phone'
-  | 'safari-wide'
-  | 'safari-netbook'
-  | 'safari-tablet'
-  | 'safari-phone';
+  | `firefox-${ProjectMediaFormat}`
+  | `chrome-${ProjectMediaFormat}`
+  | `safari-${ProjectMediaFormat}`;
 // | 'ipad'
 // | 'iphone';
 

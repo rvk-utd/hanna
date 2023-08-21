@@ -95,8 +95,8 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, project }) => {
-    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+  extras: async ({ page, localScreenshot, mediaFormat }) => {
+    if (!mediaFormat('wide') && !mediaFormat('phone')) {
       return;
     }
 
