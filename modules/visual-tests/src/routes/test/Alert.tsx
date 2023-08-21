@@ -56,13 +56,13 @@ export default function () {
 
 export const testing: TestingInfo = {
   initialHover: 'a#hover-me',
-  extras: async ({ page, localScreenshot }) => {
+  extras: async ({ page, localScreenshot, dumbHover }) => {
     const closeLink = page.locator('.Alert--success a.Alert__close >> nth=0');
-    await closeLink.hover();
+    await dumbHover(closeLink);
     await localScreenshot(closeLink.locator('closest=.Alert'), 'closelink-hover');
 
     const closeButton = page.locator('.Alert--error button.Alert__close >> nth=0');
-    await closeButton.hover();
+    await dumbHover(closeButton);
     await localScreenshot(closeButton.locator('closest=.Alert'), 'closebutton-hover');
   },
 };

@@ -164,6 +164,13 @@ export type TestFnArgs = Pick<
   ): Promise<void>;
 
   /**
+   * Emulates locator.hover() without performing any scrolling,
+   * Assumes the element's centerpoint is already visible
+   * and that hovering it does not trigger any navigation events.
+   */
+  dumbHover: (locator: Locator) => Promise<void>;
+
+  /**
    * Takes care of resizing the viewport to prevent <body>-element
    * from overflowing (and thus cropping screenshot images).
    *

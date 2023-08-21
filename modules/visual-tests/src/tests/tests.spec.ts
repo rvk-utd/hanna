@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, Locator, test } from '@playwright/test';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { compareKeys } from 'hanna-test-helpers';
 
@@ -274,6 +274,10 @@ allComponentTests.forEach(([name, testInfo]) => {
       const setViewportSize = _setViewportSize(page);
       const mediaFormat = (format: ProjectMediaFormat) =>
         project.name.endsWith(`-${format}`);
+      const dumbHover = async (locator: Locator) => {
+        const { x, y, width, height } = (await locator.boundingBox())!;
+        await page.mouse.move(x + width / 2, y + height / 2);
+      };
 
       const args: TestFnArgs = {
         page,
@@ -284,6 +288,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         expect: expect.soft,
         project: project.name as ProjectName,
         mediaFormat,
+        dumbHover,
         localScreenshot,
         pageScreenshot,
         expandViewport,

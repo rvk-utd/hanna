@@ -100,7 +100,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, pageScreenshot, mediaFormat }) => {
+  extras: async ({ page, pageScreenshot, mediaFormat, dumbHover }) => {
     if (mediaFormat('wide') || mediaFormat('phone')) {
       /* eslint-disable no-await-in-loop */
       for (const id of ['empty', 'normal']) {
@@ -108,14 +108,14 @@ export const testing: TestingInfo = {
         const formfield = toggler.locator('closest=.FormField');
 
         await toggler.click({ force: true });
-        // remvoe bulk of the pre-selected values, to prevent scrollIntoView on .hover()
+        // remvoe bulk of the pre-selected values, to clean up the screenshot
         const pillIdx = mediaFormat('phone') ? 6 : 11;
         await formfield
           .locator(`.TagPill:nth-child(n+${pillIdx})`)
           .evaluateAll((tagPills) => {
             tagPills.forEach((pill) => pill.remove());
           });
-        await formfield.locator('.Multiselect__option:nth-child(2)').hover();
+        await dumbHover(formfield.locator('.Multiselect__option:nth-child(2)'));
         await pageScreenshot(`${id}-open`);
 
         await page.keyboard.press('Escape');
