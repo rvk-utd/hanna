@@ -3,7 +3,7 @@ import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 
 import { ProjectName, TestTag } from '../test-helpers/testingInfo.js';
 
-import { TAG_PREFIX, TAG_SUFFIX } from './helpers/screeshots.js';
+import { TAG_PREFIX, TAG_SUFFIX } from './helpers/screenshots.js';
 import { registerCustomSelectorsEngines } from './helpers/selectorEngines.js';
 
 registerCustomSelectorsEngines();

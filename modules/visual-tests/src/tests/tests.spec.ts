@@ -17,7 +17,7 @@ import {
   NAME_SPLIT,
   TAG_PREFIX,
   TAG_SUFFIX,
-} from './helpers/screeshots.js';
+} from './helpers/screenshots.js';
 import {
   expandViewport as _expandViewport,
   setViewportSize as _setViewportSize,

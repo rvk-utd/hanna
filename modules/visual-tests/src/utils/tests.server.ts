@@ -4,7 +4,7 @@ import { existsSync, readFileSync, statSync } from 'fs';
 import { stat } from 'fs/promises';
 import { glob, sync as globSync } from 'glob';
 
-import { LABEL_SPLIT, NAME_SPLIT } from '../tests/helpers/screeshots.js';
+import { LABEL_SPLIT, NAME_SPLIT } from '../tests/helpers/screenshots.js';
 
 type TestPageInfo = {
   path: string;

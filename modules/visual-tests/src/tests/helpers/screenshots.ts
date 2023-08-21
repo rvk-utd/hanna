@@ -26,9 +26,12 @@ const toFileName = (testName: string, label: string) =>
 // ---------------------------------------------------------------------------
 
 const DEFAULT_MARGIN = 15;
-export const makeSnapLocalScreeshot =
-  (page: Page, testName: string): TestFnArgs['localScreenshot'] =>
-  async (locator, label, opts) => {
+export const makeSnapLocalScreeshot = (page: Page, testName: string) => {
+  const snapLocalScreeshot: TestFnArgs['localScreenshot'] = async (
+    locator,
+    label,
+    opts
+  ) => {
     if ('waitForElementState' in locator) {
       const id = await locator.evaluate((elm: HTMLElement) => {
         if (!elm.id) {
@@ -70,6 +73,8 @@ export const makeSnapLocalScreeshot =
 
     return expectSoft(locator).toHaveScreenshot(toFileName(testName, label), opts);
   };
+  return snapLocalScreeshot;
+};
 
 // ---------------------------------------------------------------------------
 
