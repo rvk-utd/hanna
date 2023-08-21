@@ -100,6 +100,10 @@ export default function App() {
               transition-delay: 0ms !important;
               transition-duration: 0ms !important;
             }
+            textarea {
+              // prevent browser chrome changes causing false-positives
+              resize: none !important;
+            }
             #mediaformat {
               display: none !important;
             }
