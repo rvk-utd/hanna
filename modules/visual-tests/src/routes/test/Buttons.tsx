@@ -114,7 +114,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, mediaFormat }) => {
+  extras: async ({ page, localScreenshot, mediaFormat, expandViewport }) => {
     if (!mediaFormat('wide') && !mediaFormat('phone')) {
       return;
     }
@@ -250,6 +250,7 @@ export const testing: TestingInfo = {
 
     // toggleIsolationMode on
     await page.locator('.ButtonPrimary >> nth=0').click();
+    await expandViewport();
 
     let cfg: (typeof buttons)[number] | undefined;
 
