@@ -116,6 +116,7 @@ export const imageCards = range(0, 9).map(
     href: '',
     image: i === 4 || i === 6 ? undefined : { src: dummyImage, altText: '' },
     meta: '14. október',
+    summary: (i - 2) % 7 === 0 ? 'Sum summary may go here also.' : undefined,
   })
 );
 

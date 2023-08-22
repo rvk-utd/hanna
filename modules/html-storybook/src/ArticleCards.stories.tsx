@@ -17,6 +17,7 @@ export const _ArticleCards: StoryComponent = () => {
   const imgPlaceholder = boolean('Custom fallback image', false)
     ? getIllustrationUrl('framkvaemdir2')
     : undefined;
+  const size = boolean('Large cards', false) ? 'large' : undefined;
 
-  return <ArticleCards cards={imageCards} imgPlaceholder={imgPlaceholder} />;
+  return <ArticleCards cards={imageCards} imgPlaceholder={imgPlaceholder} size={size} />;
 };
