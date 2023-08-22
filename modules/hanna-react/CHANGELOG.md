@@ -3,15 +3,15 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add prop `meta` to items of `ActionCards`
-- feat: Allow `JSX.Element` as item `meta` for accepting `*Cards` components
 
-## 0.10.98
+## 0.10.97 – 0.10.99
 
 _2023-08-22_
 
-- feat: Allow `JSX.Element` as item `summary` for all `*Cards` components
+- feat: Add prop `meta` to items of `ActionCards`
 - feat: Add prop `summary` to items of `ArticleCards` and `ImageCards`
+- feat: Allow `JSX.Element` as item `meta` for accepting `*Cards` components
+- feat: Allow `JSX.Element` as item `summary` for all `*Cards` components
 - feat: Expand `MainMenuItemList` to allow components as custom
   `MainMenu__item` children
 - feat: Add default Polish translation for `Layout`
