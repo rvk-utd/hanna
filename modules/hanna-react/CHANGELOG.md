@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make prop `title` optional for `BreadCrumbs`
+- feat: Add prop `lang` to `BreadCrumbs`
 
 ## 0.10.97
 

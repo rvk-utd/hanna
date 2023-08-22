@@ -1,9 +1,16 @@
 import React from 'react';
+import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 
 export type BreadCrumb = { href?: string; label: string };
 export type BreadCrumbTrail = Array<BreadCrumb>;
+
+export const defaultBreadCrumbsTexts: DefaultTexts<{ title: string }> = {
+  is: { title: 'Þú ert hér' },
+  en: { title: 'You are here' },
+  pl: { title: 'Jesteś tutaj' },
+};
 
 // ---------------------------------------------------------------------------
 
@@ -32,12 +39,17 @@ const BreadCrumbs__item = (props: BreadCrumbs__itemProps) => {
 // ===========================================================================
 
 export type BreadCrumbsProps = {
-  title: string;
+  title?: string;
+  lang?: string;
   trail: BreadCrumbTrail;
 };
 
 export const BreadCrumbs = (props: BreadCrumbsProps) => {
-  const { title, trail } = props;
+  const { trail, title, lang } = props;
+  const texts = getTexts(
+    { texts: title ? { title } : undefined, lang },
+    defaultBreadCrumbsTexts
+  );
 
   if (trail.length === 0) {
     return null;
@@ -46,8 +58,8 @@ export const BreadCrumbs = (props: BreadCrumbsProps) => {
   const current = trail[trail.length - 1]!;
 
   return (
-    <nav className="BreadCrumbs" aria-label={title}>
-      <span className="BreadCrumbs__title">{title}:</span>{' '}
+    <nav className="BreadCrumbs" aria-label={texts.title}>
+      <span className="BreadCrumbs__title">{texts.title}:</span>{' '}
       {ancestors.map((link, i) => {
         return (
           <React.Fragment key={i}>
