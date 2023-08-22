@@ -3,7 +3,7 @@
 import { execSync } from 'child_process';
 import esbuild from 'esbuild';
 import { readFileSync, writeFileSync } from 'fs';
-import { access, mkdir, readFile, writeFile } from 'fs/promises';
+import { mkdir, readFile, writeFile } from 'fs/promises';
 import { sync as globSync } from 'glob';
 import { dirname } from 'path';
 
@@ -69,9 +69,7 @@ const writeOnlyAffected =
         if (stripHashPrefix) {
           path = path.replace(/(^|\/)\$\$[A-Z0-9]+\$\$-/, '$1');
         }
-        return access(targetDir)
-          .catch(() => mkdir(targetDir, { recursive: true }))
-          .then(() => writeFile(path, text));
+        return mkdir(targetDir, { recursive: true }).then(() => writeFile(path, text));
       });
     // map this set of outputFiles as the fileMem for next time
     fileMem = {};
