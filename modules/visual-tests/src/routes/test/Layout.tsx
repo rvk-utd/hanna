@@ -37,7 +37,7 @@ export default function () {
       }
       navChildren={
         <Fragment>
-          <BreadCrumbs title="Þú ert hér" trail={breadCrumbTrail} />
+          <BreadCrumbs trail={breadCrumbTrail} />
           <DummyBlock thin />
           Nav Content
           <DummyBlock thin />

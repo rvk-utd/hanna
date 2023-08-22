@@ -15,7 +15,7 @@ export const meta: V2_MetaFunction = autoTitle;
 export default function () {
   return (
     <Minimal>
-      <BreadCrumbs title="Þú ert hér" trail={breadCrumbTrail} />
+      <BreadCrumbs trail={breadCrumbTrail} />
     </Minimal>
   );
 }

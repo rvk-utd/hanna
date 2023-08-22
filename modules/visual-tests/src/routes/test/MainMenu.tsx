@@ -117,7 +117,6 @@ export default function () {
     <Layout
       navChildren={
         <MainMenu
-          title="Aðalvalmynd"
           items={mainMenuItems}
           megaPanels={megaMenuPanels}
           auxiliaryPanel={showAux && auxiliaryPanel}
