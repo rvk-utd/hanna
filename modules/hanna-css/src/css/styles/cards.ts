@@ -1,10 +1,14 @@
-import { css } from 'es-in-css';
+import { css, pct } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints.js';
+import { buildVariables } from '../../lib/cssutils.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { prem } from '../utils/miscUtils.js';
 
 import { LinkStyle_Reset } from './links.js';
+
+export const CardListVariables = buildVariables(['card_width']);
+export const cardListVars = CardListVariables.vars;
 
 export const CardBlock_css = () => css`
   @media ${mq.tablet_up} {
@@ -28,16 +32,25 @@ export const CardList_css = () => css`
   display: grid;
   grid-auto-flow: row;
   gap: ${vars.grid_gutter};
-  grid-template-columns: repeat(auto-fill, ${vars.grid_3});
+  grid-template-columns: repeat(auto-fill, var(--card-width));
+  ${CardListVariables.declare({
+    card_width: pct(100),
+  })}
 
-  @media ${mq.phone} {
-    grid-template-columns: 100%;
-  }
   @media ${mq.phablet} {
-    grid-template-columns: repeat(auto-fill, ${vars.grid_6});
+    ${CardListVariables.override({
+      card_width: vars.grid_6,
+    })};
   }
   @media ${mq.tablet} {
-    grid-template-columns: repeat(auto-fill, ${vars.grid_4});
+    ${CardListVariables.override({
+      card_width: vars.grid_4,
+    })};
+  }
+  @media ${mq.netbook_up} {
+    ${CardListVariables.override({
+      card_width: vars.grid_3,
+    })};
   }
 `;
 

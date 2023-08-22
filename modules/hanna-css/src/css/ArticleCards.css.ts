@@ -1,9 +1,10 @@
 import { css, pct_f } from 'es-in-css';
 
 import { scale_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
-import { CardList_css } from './styles/cards.js';
+import { CardList_css, CardListVariables } from './styles/cards.js';
 import { avoidCssnanoMerging, prem, resetImageChild } from './utils/miscUtils.js';
 
 const borderW = prem(12);
@@ -25,6 +26,18 @@ export default css`
         row-gap: min(${scale_phone_netbook(48, 80)}, 80px);
       `
     )}
+  }
+  .ArticleCards--large {
+    @media ${mq.tablet} {
+      ${CardListVariables.override({
+        card_width: vars.grid_6,
+      })}
+    }
+    @media ${mq.netbook_up} {
+      ${CardListVariables.override({
+        card_width: vars.grid_4,
+      })}
+    }
   }
 
   .ArticleCards__item {

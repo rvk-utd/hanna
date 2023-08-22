@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add variant `--large` to `ArticleCards`
 - feat: Allow `__item__summary` for `ArticleCards` and `ImageCards`
 - feat: Allow `__item__meta` for `ActionCards`
 - feat: Improve support for arbitrary children for `.MainMenu__item`

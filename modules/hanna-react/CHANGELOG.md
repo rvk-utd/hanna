@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `size="large"` to `ArticleCards`
 
 ## 0.10.97 – 0.10.99
 

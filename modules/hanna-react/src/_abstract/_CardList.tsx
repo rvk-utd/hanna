@@ -1,5 +1,8 @@
 import React, { CSSProperties, ReactElement, ReactNode } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
+
+import { BemModifierProps } from '../utils/types.js';
 
 import { Button } from './_Button.js';
 import { Image, ImageProps } from './_Image.js';
@@ -62,11 +65,12 @@ type _CardListProps = EitherObj<ImageCardListProps, TextCardListProps> &
     bemPrefix: string;
     children?: ReactNode;
     standalone?: boolean;
-  };
+  } & BemModifierProps;
 
 export const CardList = (props: _CardListProps) => {
   const {
     bemPrefix,
+    modifier,
     title,
     summaryElement,
     cards,
@@ -95,7 +99,9 @@ export const CardList = (props: _CardListProps) => {
         title && <TitleTag className={bemPrefix + '__title'}>{title}</TitleTag>
       )}
       <ul
-        className={bemPrefix + (props.standalone ? '' : '__list')}
+        className={
+          props.standalone ? modifiedClass(bemPrefix, modifier) : bemPrefix + '__list'
+        }
         style={fallbackImageStyle}
       >
         {cards.map((card, i) => (

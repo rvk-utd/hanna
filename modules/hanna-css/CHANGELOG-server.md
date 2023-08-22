@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add styling for `.ArticleCards--large`
 - feat: Add styling for `.ActionCards__item__meta`
 - feat: Add `__item__summary` styling for `ArticleCards` and `ImageCards`
 - feat: Tweak `.MainMenu__items` styling to better tolerate custom children
