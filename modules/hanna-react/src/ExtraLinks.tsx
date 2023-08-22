@@ -1,7 +1,7 @@
 import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import { CardList, TextCardListProps } from './_abstract/_CardList.js';
+import { CardList, CardListProps, TextCardProps } from './_abstract/_CardList.js';
 import { Link } from './_abstract/_Link.js';
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 
@@ -41,9 +41,9 @@ const ExtraLinks__related = (props: RelatedProps) => {
   );
 };
 
-export type ExtraLinksCardProps = TextCardListProps['cards'][number];
+export type ExtraLinksCardProps = Omit<TextCardProps, 'meta'>;
 
-export type ExtraLinksProps = TextCardListProps &
+export type ExtraLinksProps = CardListProps<ExtraLinksCardProps> &
   RelatedProps & { className?: string } & SeenProp;
 
 export const ExtraLinks = (props: ExtraLinksProps) => {

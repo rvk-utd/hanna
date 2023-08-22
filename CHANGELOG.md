@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Allow `__item__summary` for `ArticleCards` and `ImageCards`
+- feat: Allow `__item__meta` for `ActionCards`
 - feat: Improve support for arbitrary children for `.MainMenu__item`
 - fix: `Layout` components set `alt="Reykjavík"` on their header logo
 

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `meta` to items of `ActionCards`
 
 ## 0.10.98
 

@@ -2,7 +2,7 @@ import { css } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
-import { grid_units, prem } from '../utils/miscUtils.js';
+import { prem } from '../utils/miscUtils.js';
 
 import { LinkStyle_Reset } from './links.js';
 
@@ -43,6 +43,7 @@ export const CardList_css = () => css`
 
 export const Card_css = () => css`
   ${LinkStyle_Reset}
+  font: ${vars.font_bd_s};
   display: block;
   width: 100%;
   padding: ${prem(24)} ${prem(24)} ${prem(32)} ${prem(24)};
@@ -52,10 +53,10 @@ export const Card_css = () => css`
   &::after {
     content: '';
     display: block;
-    width: ${grid_units(5)};
+    width: ${vars.space_5};
     height: ${prem(2)};
     background: var(--Card-lineColor, currentColor);
-    margin-top: ${grid_units(2)};
+    margin-top: ${vars.space_2};
     transition: width 200ms ease-in;
   }
 
@@ -70,11 +71,18 @@ export const Card_css = () => css`
 
   &__title {
     font: ${vars.font_bd_l};
-    font-weight: 700;
-    margin-bottom: ${prem(8)};
+    font-weight: ${vars.font_weight__bold};
+  }
+  &__title:last-child {
+    margin-bottom: ${vars.space_1};
+  }
+
+  &__meta {
+    color: ${vars.color_suld_150};
+    margin-top: ${vars.space_1};
   }
 
   &__summary {
-    font: ${vars.font_bd_s};
+    margin-top: ${vars.space_1};
   }
 `;

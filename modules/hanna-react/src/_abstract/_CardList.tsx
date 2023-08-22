@@ -11,12 +11,12 @@ type Bem = {
 export type TextCardProps = {
   title: string;
   href: string;
+  meta?: string;
   summary?: string | JSX.Element;
   target?: React.HTMLAttributeAnchorTarget;
 };
 
 export type ImageCardProps = TextCardProps & {
-  meta?: string;
   image?: ImageProps;
   imgPlaceholder?: boolean;
 };
@@ -29,7 +29,9 @@ const Card = (props: EitherObj<ImageCardProps, TextCardProps> & Bem) => {
     <>
       <Button bem={cardClass} href={href} target={target}>
         {' '}
-        <Image className={`${bem}__image`} {...image} placeholder={imgPlaceholder} />
+        {!!(image || imgPlaceholder) && (
+          <Image className={`${bem}__image`} {...image} placeholder={imgPlaceholder} />
+        )}
         <span className={`${cardClass}__title`}>{title}</span>{' '}
         {meta && <span className={`${cardClass}__meta`}>{meta}</span>}{' '}
         {summary && <span className={`${cardClass}__summary`}>{summary}</span>}{' '}
