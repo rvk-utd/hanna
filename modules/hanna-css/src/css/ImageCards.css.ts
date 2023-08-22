@@ -87,9 +87,12 @@ export default css`
         link_color: '_inherit',
         link_underline: `1px solid ${vars.color_suld_200}`,
         link_underline__hover: `1px solid ${vars.color_faxafloi_100}`,
+        link_weight: vars.font_weight__normal,
       })}
+      font: ${vars.font_bd_s};
 
-      display: block;
+      display: flex;
+      flex-flow: column;
       height: 100%;
       padding-bottom: ${vars.space_3};
       ${avoidCssnanoMerging(
@@ -126,15 +129,20 @@ export default css`
     }
 
     .ImageCards__card__title {
-      margin-bottom: ${vars.space_1};
       font: ${vars.font_sh_s};
-      display: block;
+    }
+    .ImageCards__card__title:last-child {
+      margin-bottom: ${vars.space_1};
     }
 
     .ImageCards__card__meta {
-      font: ${vars.font_bd_s};
       color: ${vars.color_suld_150};
-      font-weight: ${vars.font_weight__normal};
+      margin-top: ${vars.space_1};
+    }
+
+    .ImageCards__card__summary {
+      margin-top: ${vars.space_1};
+      flex-grow: 1;
     }
   }
 `;

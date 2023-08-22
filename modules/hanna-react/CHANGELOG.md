@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `summary` to items of `ArticleCards` and `ImageCards`
 - feat: Expand `MainMenuItemList` to allow components as custom
   `MainMenu__item` children
 - feat: Add default Polish translation for `Layout`

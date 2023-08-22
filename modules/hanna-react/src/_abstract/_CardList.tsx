@@ -8,20 +8,17 @@ type Bem = {
   bem: string;
 };
 
-type BaseCardProps = {
+export type TextCardProps = {
   title: string;
   href: string;
+  summary?: string;
+  target?: React.HTMLAttributeAnchorTarget;
 };
 
-export type ImageCardProps = BaseCardProps & {
+export type ImageCardProps = TextCardProps & {
   meta?: string;
   image?: ImageProps;
   imgPlaceholder?: boolean;
-};
-
-export type TextCardProps = BaseCardProps & {
-  summary?: string;
-  target?: React.HTMLAttributeAnchorTarget;
 };
 
 const Card = (props: EitherObj<ImageCardProps, TextCardProps> & Bem) => {

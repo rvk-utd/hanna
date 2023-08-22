@@ -1,4 +1,4 @@
-import { css, pct, pct_f } from 'es-in-css';
+import { css, pct_f } from 'es-in-css';
 
 import { scale_phone_netbook } from '../lib/between.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
@@ -36,9 +36,13 @@ export default css`
       link_color: '_inherit',
       link_underline: `1px solid ${vars.color_suld_200}`,
       link_underline__hover: `1px solid ${vars.color_faxafloi_100}`,
+      link_weight: vars.font_weight__normal,
     })}
 
-    display: block;
+    font: ${vars.font_bd_s};
+
+    display: flex;
+    flex-flow: column;
     height: 100%;
     padding-bottom: ${vars.space_2};
 
@@ -52,7 +56,7 @@ export default css`
   .ArticleCards__image {
     display: block;
     position: relative;
-    padding-top: ${pct((168 / 272) * 100)};
+    padding-top: ${pct_f(168 / 272)};
     margin-bottom: ${vars.space_2};
 
     ${avoidCssnanoMerging(
@@ -81,14 +85,19 @@ export default css`
   }
 
   .ArticleCards__card__title {
-    margin-bottom: ${vars.space_1};
     font: ${vars.font_sh_s};
-    display: block;
+  }
+  .ArticleCards__card__title:last-child {
+    margin-bottom: ${vars.space_1};
   }
 
   .ArticleCards__card__meta {
-    font: ${vars.font_bd_s};
     color: ${vars.color_suld_150};
-    font-weight: ${vars.font_weight__normal};
+    margin-top: ${vars.space_1};
+  }
+
+  .ArticleCards__card__summary {
+    margin-top: ${vars.space_1};
+    flex-grow: 1;
   }
 `;
