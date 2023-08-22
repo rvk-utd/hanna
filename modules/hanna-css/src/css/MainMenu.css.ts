@@ -12,6 +12,7 @@ import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
+import { ButtonVariables } from './styles/buttons.js';
 import { freezeScroll_css } from './styles/header.js';
 import { LinkStyle } from './styles/links.js';
 import { extendSides } from './utils/extendSides.js';
@@ -50,6 +51,17 @@ export default css`
       ${srOnly_focusableContent()};
     }
 
+    .MainMenu__item > :not(.MainMenu__link) {
+      margin: 0;
+      /*
+        without this elements with "width: max-content;"
+        **and**, it seems, complex (calc-based) padding or min-wdith
+        will cause Firefox (as of 117 at least) to expand the width of the
+        outer .MainMenu__item container.  Chrome does not do this.
+        Remove this once Firefox has got its act together
+      */
+      width: auto;
+    }
     .MainMenu__link {
       ${LinkStyle}
       display: block;
@@ -225,7 +237,7 @@ export default css`
 
   // ===========================================================================
   //
-  // Desktop Menu
+  // Desktop (Top) Menu
   //
   // ===========================================================================
 
@@ -248,7 +260,9 @@ export default css`
       right: 0;
       left: ${vars.grid_3_3};
       height: ${vars.Layout$$header_height};
-      padding-bottom: ${prem(10)};
+      padding-bottom: calc(
+        ${vars.link_underline__thickness} + ${vars.link_underline_offset}
+      );
       margin-right: ${scale_Topmenu(-8, -20)};
       margin-left: ${scale_Topmenu(-14, -20)};
       display: flex;
@@ -281,10 +295,9 @@ export default css`
 
     .MainMenu__item[aria-current='true'] {
       color: ${vars.color_faxafloi_100};
-
-      html[data-mega-panel-active] & {
-        color: ${vars.color_suld_0};
-      }
+    }
+    html[data-mega-panel-active] .MainMenu__item[aria-current='true'] {
+      color: ${vars.color_suld_0};
     }
 
     .MainMenu__separator[class] {
@@ -296,7 +309,6 @@ export default css`
         item_padding: prem(10),
       })}
     }
-    ${htmlCl.menuIsOpen} .MainMenu__item:not(.MainMenu__separator ~ *),
     html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
       ${hannaVarOverride({
         link_color__hover: vars.color_suld_0,
@@ -304,9 +316,34 @@ export default css`
       color: ${color(colors.suld_25).fade(0.3)};
     }
 
+    html[data-mega-panel-active]
+      .MainMenu__item:not(.MainMenu__separator ~ *)
+      > .ButtonPrimary {
+      ${ButtonVariables.override({
+        color: vars.color_suld_0,
+        color__active: vars.color_faxafloi_25,
+        textColor: vars.color_faxafloi_100,
+        textColor__active: vars.color_faxafloi_150,
+      })}
+    }
+    html[data-mega-panel-active]
+      .MainMenu__item:not(.MainMenu__separator ~ *)
+      > .ButtonSecondary {
+      ${ButtonVariables.override({
+        color: vars.color_suld_0,
+        color__active: vars.color_faxafloi_25,
+        backgroundColor: vars.color_faxafloi_100,
+        backgroundColor__active: vars.color_faxafloi_150,
+        textColor: vars.color_suld_0,
+        textColor__active: vars.color_faxafloi_25,
+      })}
+    }
+
     .MainMenu__link {
       padding: ${prem(10)} ${tmVars.item_padding};
       padding-bottom: 0;
+      margin-top: calc(${vars.link_underline__thickness} + ${vars.link_underline_offset});
+      margin-bottom: ${prem(10)};
     }
     .MainMenu__link[aria-pressed='true'] {
       color: ${vars.color_suld_0};

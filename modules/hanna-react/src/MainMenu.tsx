@@ -79,6 +79,7 @@ const normalizeMenuItems = (
   texts: NonNullable<MainMenuProps['texts']>
 ) => {
   type MenuItemNormalized =
+    | (() => JSX.Element)
     | MainMenuSeparator
     | (MainMenuItem & {
         megaPanel?: MegaMenuPanel;
@@ -86,7 +87,7 @@ const normalizeMenuItems = (
       });
 
   const items = itemsProp.map((item): MenuItemNormalized => {
-    if (item === '---') {
+    if (item === '---' || !('label' in item)) {
       return item;
     }
     const href = item.href;
@@ -169,7 +170,9 @@ export type MainMenuItem = {
   target?: React.HTMLAttributeAnchorTarget;
 };
 export type MainMenuSeparator = '---';
-export type MainMenuItemList = Array<MainMenuItem | MainMenuSeparator>;
+export type MainMenuItemList = Array<
+  MainMenuItem | MainMenuSeparator | (() => JSX.Element)
+>;
 
 export type MainMenuProps = {
   /**
@@ -332,6 +335,14 @@ export const MainMenu = (props: MainMenuProps) => {
         {menuItems.map((item, i) => {
           if (item === '---') {
             return <li key={i} className="MainMenu__separator" aria-hidden="true" />;
+          }
+          if (!('label' in item)) {
+            const Item = item;
+            return (
+              <li key={i} className="MainMenu__item">
+                <Item />
+              </li>
+            );
           }
 
           const { label, labelLong, lang, controlsId, onClick } = item;

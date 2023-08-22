@@ -36,6 +36,8 @@ export const mainMenuItems: MainMenuItemList = [
     label: 'Mannlíf',
     href: '#MegaMenu:Mannlíf',
   },
+  // () => <ButtonPrimary label="Takki" size="small" href="#" />,
+  // () => <ButtonSecondary label="Takki" size="small" />,
   // {
   //   label: 'Link test',
   //   href: '?blu=blu',
@@ -104,7 +106,7 @@ export const auxiliaryPanel: AuxiliaryPanelProps = {
 export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
-// export const handle = cssTokens('Token');
+// export const handle = cssTokens('ButtonPrimary', 'ButtonSecondary');
 
 // ---------------------------------------------------------------------------
 

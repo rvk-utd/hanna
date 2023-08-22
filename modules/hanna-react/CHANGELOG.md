@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Expand `MainMenuItemList` to allow components as custom
+  `MainMenu__item` children
 - feat: Add default Polish translation for `Layout`
 - feat: Make prop `title` optional for `MainMenu`
 

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Tweak `.MainMenu__items` styling to better tolerate custom children
 - feat: Add CSS variables `--boxShadow-(subtle|hover|elevated)`
 - feat: Add CSS variables `--space-10` and `--space-10--neg`
 - feat: Make `--grid-margin--neg` inherit from `--grid-margin`
