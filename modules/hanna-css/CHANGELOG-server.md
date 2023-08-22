@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.80
+
+_2023-09-01_
+
 - feat: Add styling for `.ArticleCards--large`
 - feat: Add styling for `.ActionCards__item__meta`
 - feat: Add `__item__summary` styling for `ArticleCards` and `ImageCards`
