@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Allow `JSX.Element` as item `summary` for all `*Cards` components
 - feat: Add prop `summary` to items of `ArticleCards` and `ImageCards`
 - feat: Expand `MainMenuItemList` to allow components as custom
   `MainMenu__item` children
