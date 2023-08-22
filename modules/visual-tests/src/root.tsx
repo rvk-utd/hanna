@@ -18,10 +18,15 @@ import {
   HannaColorTheme,
 } from '@reykjavik/hanna-css';
 import { setLinkRenderer } from '@reykjavik/hanna-react/utils';
-import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
+import { getAssetUrl, setStyleServerUrl } from '@reykjavik/hanna-utils/assets';
 
 import { useGetCssTokens } from './utils/useGetCssTokens.js';
 
+setStyleServerUrl(
+  'http://localhost:4000'
+  //'http://bs-local.com:4000' // Use this when you do local testing with browserstack.com
+  //'https://styles.prod.thon.is/'
+);
 setLinkRenderer((props) => <Link to={props.href} {...props} />);
 
 const THEME: HannaColorTheme = 'colorful';
@@ -79,10 +84,7 @@ export default function App() {
           rel="stylesheet"
           href={
             getCssBundleUrl(cssTokens, {
-              testingServer: 'http://localhost:4000',
-              // testingServer: 'http://bs-local.com:4000', // Use this when you do local testing with browserstack.com
               version: 'dev' as 'v0.8',
-              // testingServer: 'https://styles.prod.thon.is/',
               // version: 'dev-v0', // or 'v0.8'
             }) +
             // magic parameter to override default dev config while running tests
