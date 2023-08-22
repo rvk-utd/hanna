@@ -3,10 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Make prop `title` optional for `BreadCrumbs`
-- feat: Add prop `lang` to `BreadCrumbs`
 
-## 0.10.97
+## 0.10.98
 
 _2023-08-22_
 
@@ -16,6 +14,8 @@ _2023-08-22_
   `MainMenu__item` children
 - feat: Add default Polish translation for `Layout`
 - feat: Make prop `title` optional for `MainMenu`
+- feat: Make prop `title` optional for `BreadCrumbs`
+- feat: Add prop `lang` to `BreadCrumbs`
 
 ## 0.10.96
 
