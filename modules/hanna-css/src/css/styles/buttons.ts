@@ -127,10 +127,12 @@ export const ButtonStyle = () => css`
       iconSpace: vars.space_1,
       height: prem(40),
     })}
+    min-width: ${scale_phone_netbook(64, 96)};
     padding-left: ${scale_phone_netbook(16, 24)};
     padding-right: ${scale_phone_netbook(16, 24)};
 
     @media ${mq.wide} {
+      min-width: 96px;
       padding-left: 24px;
       padding-right: 24px;
     }

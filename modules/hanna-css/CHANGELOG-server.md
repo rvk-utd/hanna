@@ -6,6 +6,7 @@
 - feat: Add CSS variables `--boxShadow-(subtle|hover|elevated)`
 - feat: Add CSS variables `--space-10` and `--space-10--neg`
 - feat: Make `--grid-margin--neg` inherit from `--grid-margin`
+- feat: Reduce `--small` min-width of `ButtonPrimary` and `ButtonSecondary`
 - fix: `MultiSelect` overflow and space-contraint styling
 - fix: Tweak overflow styling of `Selectbox`
 
