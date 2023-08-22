@@ -111,6 +111,7 @@ export default css`
 
   .ArticleCards__card__summary {
     margin-top: ${vars.space_1};
+    color: ${vars.color_suld_200};
     flex-grow: 1;
   }
 `;

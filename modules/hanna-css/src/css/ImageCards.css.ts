@@ -142,6 +142,7 @@ export default css`
 
     .ImageCards__card__summary {
       margin-top: ${vars.space_1};
+      color: ${vars.color_suld_200};
       flex-grow: 1;
     }
   }
