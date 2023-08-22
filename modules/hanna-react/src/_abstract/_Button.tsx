@@ -66,7 +66,7 @@ export type ButtonVariantProps = {
   variant?: ButtonVariant;
   icon?: ButtonIcon | NavigationFlag;
 
-  /** @deprecated (Will be removed in v0.11) */
+  /** @deprecated Use `size="small"` instead  (Will be removed in v0.11) */
   small?: boolean;
 };
 
