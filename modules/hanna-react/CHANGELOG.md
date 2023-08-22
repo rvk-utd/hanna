@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add prop `meta` to items of `ActionCards`
+- feat: Allow `JSX.Element` as item `meta` for accepting `*Cards` components
 
 ## 0.10.98
 

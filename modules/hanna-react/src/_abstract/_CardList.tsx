@@ -11,7 +11,7 @@ type Bem = {
 export type TextCardProps = {
   title: string;
   href: string;
-  meta?: string;
+  meta?: string | JSX.Element;
   summary?: string | JSX.Element;
   target?: React.HTMLAttributeAnchorTarget;
 };
