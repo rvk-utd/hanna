@@ -3,14 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add prop `size="large"` to `ArticleCards`
 
-## 0.10.97 – 0.10.99
+## 0.10.97 – 0.10.100
 
 _2023-08-22_
 
 - feat: Add prop `meta` to items of `ActionCards`
 - feat: Add prop `summary` to items of `ArticleCards` and `ImageCards`
+- feat: Add prop `size="large"` to `ArticleCards`
 - feat: Allow `JSX.Element` as item `meta` for accepting `*Cards` components
 - feat: Allow `JSX.Element` as item `summary` for all `*Cards` components
 - feat: Expand `MainMenuItemList` to allow components as custom
