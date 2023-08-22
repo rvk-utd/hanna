@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.97
+
+_2023-08-22_
+
 - feat: Allow `JSX.Element` as item `summary` for all `*Cards` components
 - feat: Add prop `summary` to items of `ArticleCards` and `ImageCards`
 - feat: Expand `MainMenuItemList` to allow components as custom
