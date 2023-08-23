@@ -57,9 +57,13 @@ const renderBling = () => (
 
 export default function () {
   const [open, setOpen] = useState(false);
-  const openModal = () => setOpen(true);
-  const closeModal = () => setOpen(false);
   const [modalData, setModalData] = useState<ModalData>();
+
+  const openModal = () => setOpen(true);
+  const closeModal = () => {
+    setModalData(undefined);
+    setOpen(false);
+  };
 
   const buttons = modals.map((data) => {
     return (
