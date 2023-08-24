@@ -29,6 +29,8 @@ const metaData = {
    * (The summary is pointless and takes up valuable space,
    * when there are only a few items.)
    */
+  // NOTE: First we tried 10, which felt way too low, now we're trying 20.
+  // Maybe the "sweet-spot" is closer to 15 ? — We'll see.
   summaryLimit: 20 as number,
 } as const;
 
