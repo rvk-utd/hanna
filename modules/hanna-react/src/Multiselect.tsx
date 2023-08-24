@@ -17,7 +17,7 @@ const metaData = {
   /**
    * The item-count where the list becomes searchable.
    *
-   * (The search UI, including the on-screen keyboard, takes up a lot of space
+   * (The search UI (on-screen keyboard), takes up a lot of space
    * on mobile devices, so there's a balance that we want to strike.)
    */
   searchableLimit: 20 as number,
@@ -26,11 +26,13 @@ const metaData = {
    * The item-count above which we display a summary of "current" values
    * at the top of the drop-down list.
    *
-   * (This summary just gets in the way with ultra short option lists.)
+   * (The summary is pointless and takes up valuable space,
+   * when there are only a few items.)
    */
   summaryLimit: 20 as number,
-};
+} as const;
 
+// Extract the values up front, to prevent runtime changes of these values.
 const { searchableLimit, summaryLimit } = metaData;
 
 // ---------------------------------------------------------------------------
@@ -95,14 +97,18 @@ export type MultiselectProps = TogglerGroupFieldProps<string> & {
    * even when the total options are fewer than
    * `Multiselect.meta.summaryLimit`.
    *
-   * NOTE: Using this option is generally not recommended.
+   * NOTE: Using this option is generally not recommended,
+   * because the search UI (i.e. the on-screen keyboard), takes up a lot of
+   * space on mobile devices.
    */
   forceSummary?: boolean;
   /**
    * Force the options to be searchable, even when they're
    * fewer than `Multiselect.meta.searchableLimit`.
    *
-   * NOTE: Using this option is generally not recommended.
+   * NOTE: Using this option is generally not recommended,
+   * because the summary takes up valuable space when there are only a few
+   * items.
    */
   forceSearchable?: boolean;
 
