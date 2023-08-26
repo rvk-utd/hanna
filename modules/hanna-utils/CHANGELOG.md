@@ -3,7 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add utility types `OmitDistributive` and `PickDistributive`
+- feat: Add utility types `OmitDistributive`, `PickDistributive`,
+  `RequireExplicitUndefined`
 
 ## 0.2.8
 

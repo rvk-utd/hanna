@@ -209,7 +209,7 @@ export type EitherObj<A, B, C = boolean, D = boolean> = C extends boolean
 /**
  * A variant of `Omit` that distributes over unions.
  *
- * @see https://www.typescriptlang.org/play?#code/PTAEEFQZwSwWwA4BsCmoBGBXALtg9gHagDuM2AFtHnGgMaHYoHagCGBAJm6ABRx5RsSAJ4B+AJSgOMKLQBO8GAVaMumAjEKh8UvCTKU5KKAkKwAbmnRHWAa1NLsUAFDZhCNACEc+AgAU5PAQoUABeUABvUHpmJmwALmhsBQIAcwBuUABfUAAyXmdQUAAfSNAjEzMYS1FEgDNWJCgUABoMG3s8R1rQdQ4UOqUULizCkrKK0wILFETkzBRM6xQ7B2ZEgCIoOA3xjbgOXdKNpFTd0fF05xAIUG9cLWJyGFpKTGaQijRWdDxLUAQgWCzjq6lo2E0RHuvh4gKCUES0MIAXhkgiYyM2EwciIGwAVlAAB4bK6jZyudxoADycDIABEZMkYFgIZYADwAFTaAGlQChCYxOCEUR45G5uShhAA+MKgDl8gVMDghdjCUCiUA0sicnkyxIEFCWORXNweUB+F62BmCBQs6ooHWgXn8wXK0C2SV4OpymXheUupUqghqjUW2i2R3cvWgA1Gq7XMAc54hFm+UAycrGKawdCoUB1PBydNOUB4YhEGKC7BtKB6DiEADkLFQLFVhDQCFYUCDaqUILBEK0SIIAHUDHgcABhBhxWFAhGa2nYa1Mu3s4ciqBtDaVuIbKVosY3EeF2wqkL8jzg4YYlBYnF3HyEHhRUAAOg-cOCbV361AG3IFAkCQPBzkuZwyRuABlVgaGiGdmFQbsMCfIh3iUVIASQVglFAAADLVsDZKU8P7AhwUhR8HlHccpwQ7AACY53hRJCLZDd523X9sH3Q8ihuJNqSXYjQHILt82w3AmGGHgJG0QDtEpNpljsDD5LQdRIVve8oVQl8ig-N8vy3eDYj-ACgJAsDSXJIA
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ctype-omitdistributive
  */
 export type OmitDistributive<T, K extends PropertyKey> = T extends any
   ? Omit<T, K>
@@ -218,6 +218,18 @@ export type OmitDistributive<T, K extends PropertyKey> = T extends any
 /**
  * A variant of `Pick` that distributes over unions.
  *
- * @see https://www.typescriptlang.org/play?#code/PTAEEFQZwSwWwA4BsCmoBGBXALtg9gHagDuM2AFtHnGgMaHYoHagCGBAJm6ABRx5RsSAJ4B+AJSgOMKLQBO8GAVaMumAjEKh8UvCTKU5KKAkKwAbmnRHWAa1NLsUAFDZhCNACEc+AgAU5PAQoUABeUABvUHpmJmwALmhsBQIAcwBuUABfUAAyXmdQUAAfSNAjEzMYS1FEgDNWJCgUABoMG3s8R1rQdQ4UOqUULizCkrKK0wILFETkzBRM6xQ7B2ZEgCIoOA3xjbgOXdKNpFTd0fF05xAIUG9cLWJyGFpKTGaQijRWdDxLUAQgWCzjq6lo2E0RHuvh4gKCUES0MIAXhkgiYyM2EwciIGwAVlAAB4bK6jZyudxoADycDIABEZMkYFgIZYADwAFTaAGlQChCYxOCEUR45G5uShhAA+MKgDl8gVMDghdjCUCiUA0sicnkyxIEFCWORXNweUB+F62BmCBQs6ooHWgXn8wXK0C2SV4OpymXheUupUqghqjUW2i2R3cvWgA1Gq7XMAc54hFm+UAycrGKawdCoUB1PBydNOUB4YhEGKC7BtKB6DiEADkLFQLFVhDQCFYUCDaqUILBEK0SIIAHUDHgcABhBhxWFAhGa2nYa1Mu3s4ciqBtDaVuIbKVosY3EeF2wqkL8jzg4YYlBYnF3HyEHhRUAAOg-cOCbV361AG3IFAkCQPBzkuZwyRuABlVgaGiGdmFQbsMCfIh3iUVIASQVglFAAADLVsDZKU8P7AhwUhR8HlHccpwQ7AACY53hRJCLZDd523X9sH3Q8ihuJNqSXYjQHILt82w3AmGGHgJG0QDtEpNpljsDD5LQdRIVve8oVQl8ig-N8vy3eDYj-ACgJAsDSXJIA
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ctype-pickdistributive
  */
 export type PickDistributive<T, K extends keyof T> = T extends any ? Pick<T, K> : never;
+
+// ---------------------------------------------------------------------------
+
+/**
+ * Converts a type so that all optional keys are required
+ * and mmust be explicitly set to `undefined`.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ctype-requireexplicitundefined
+ */
+export type RequireExplicitUndefined<T> = {
+  [K in keyof Required<T>]: undefined extends T[K] ? T[K] | undefined : T[K];
+};

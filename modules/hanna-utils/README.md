@@ -47,6 +47,7 @@ yarn add @reykjavik/hanna-utils
   - [Type `EitherObj`](#type-eitherobj)
   - [Type `OmitDistributive`](#type-omitdistributive)
   - [Type `PickDistributive`](#type-pickdistributive)
+  - [Type `RequireExplicitUndefined`](#type-requireexplicitundefined)
   - [Type Testing Helpers](#type-testing-helpers)
     - [Type `Expect<T>`](#type-expectt)
     - [Type `Equals<A, B>`](#type-equalsa-b)
@@ -619,6 +620,23 @@ A variant of `Pick` that distributes over unions.
 
 See:
 [TypeScript Playground](https://www.typescriptlang.org/play?ssl=14&ssc=1&pln=12&pc=1#code/PTAEEFQZwSwWwA4BsCmoBGBXALtg9gHagDuM2AFtHnGgMaHYoHagCGBAJm6ABRx5RsSAJ4B+AJSgOMKLQBO8GAVaMumAjEKh8UvCTKU5KKAkKwAbmnRHWAa1NLsUAFDZhCNACEc+AgAU5PAQoUABeUABvUHpmJmwALmhsBQIAcwBuUABfUAAyXmdQUAAfSNAjEzMYS1FEgDNWJCgUABoMG3s8R1rQdQ4UOqUULizCkrKK0wILFETkzBRM6xQ7B2ZEgCIoOA3xjbgOXdKNpFTd0fF05xAIUG9cLWJyGFpKTGaQijRWdDxLUAQgWCzjq6lo2E0RHuvh4gKCUES0MIAXhkgiYyM2EwciIGwAVlAAB4bK6jZyudxoADycDIABEZMkYFgIZYADwAFTaAGlQChCYxOCEUR45G5uShhAA+MKgDl8gVMDghdjCUCiUA0sicnkyxIEFCWORXNweUB+F62BmCBQs6ooHWgXn8wXK81AlBi4QS6Wy+UupUqghqjVa7CO7l60AGo1Xa5gDnPEIs3ygGTlYxTWDoVCgOp4ORppygPDEIgxQXYNpQPQcQgAchYqBYqsIaAQrCgQbVShBYIhWiRBAA6gY8DgAMIMOKwoEIzW07DWpl29lDkVQNobCtxDZStFjG7Dgu2FUhfkecHDDEoLE4u4+Qg8KKgAB077hwTaO-WoA25BQJAkDwc5LmcMkbgAZVYGhomnZhUC7DBHyId4lFSAEkFYJRQAAAzDNkpVwvsCHBSEHweEcx0neDsAAJlneFEgI9c5y3H9sD3A8ihuRNqUXQjQHITs8yw3AmGGHgJG0ADtEpNpljsdCZLQdRIRvO8oRQ58infV9P03ODYl-f9AOA0DSXJIA)
+
+### Type `RequireExplicitUndefined`
+
+Converts a type so that all optional keys are required and must be explicitly
+set to `undefined`.
+
+```ts
+type Foo = { a: string; b?: number };
+
+type Bar = RequireExplicitUndefined<Foo>;
+```
+
+Is equivalent to:
+
+```ts
+type Bar = { a: string; b: number | undefined };
+```
 
 ### Type Testing Helpers
 
