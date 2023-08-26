@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { RelatedLinkItem, RelatedLinks } from '@reykjavik/hanna-react/RelatedLinks';

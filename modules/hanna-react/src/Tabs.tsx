@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, useState } from 'react';
-import { getFrag } from '@hugsmidjan/qj/frag';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { getFrag } from '@hugsmidjan/qj/frag';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import { SSRSupportProps, useIsBrowserSide } from './utils.js';
@@ -40,7 +40,6 @@ type ListStateProps = {
   isBrowser: true | undefined;
 };
 
-// eslint-disable-next-line complexity
 const renderTab = (tabProps: TabItemProps, index: number, listProps: ListStateProps) => {
   const { label, badge, href, type, longLabel } = tabProps;
   const {

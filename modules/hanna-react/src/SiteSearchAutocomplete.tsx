@@ -122,7 +122,7 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
       renderInputComponent={(inputProps) => {
         /* prettier-ignore */
         const {
-					className, type, disabled, readOnly, required, children, //eslint-disable-line @typescript-eslint/no-unused-vars
+					className, type, disabled, readOnly, required, children,
 					...siteSearchProps
 				} = inputProps;
         return (

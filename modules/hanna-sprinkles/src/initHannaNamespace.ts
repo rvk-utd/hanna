@@ -29,7 +29,6 @@ declare global {
     Hanna: {
       sprinkles: Record<string, () => void>;
       refresh: () => void;
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       makeSprinkle: typeof makeSprinkle;
       import: (...args: Array<string>) => Promise<Array<unknown>>;
       loadSprinkles: (...args: Array<string>) => Promise<Array<unknown>>;

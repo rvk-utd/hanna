@@ -9,8 +9,8 @@ import {
   Side,
   useFloating,
 } from '@floating-ui/react';
-import { useCallbackOnEsc, useLaggedState } from '@hugsmidjan/react/hooks';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { useCallbackOnEsc, useLaggedState } from '@hugsmidjan/react/hooks';
 
 type TooltipElement = HTMLDetailsElement & {
   $contextClicked_firefox_fix?: ReturnType<typeof setTimeout>;

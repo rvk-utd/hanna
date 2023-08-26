@@ -45,10 +45,10 @@ o.spec('hanna-css/scale lib', () => {
   });
 });
 
-/* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
+/* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first */
 // Also check exported types. (Ignoring re-exported types from es-in-css.)
 import type {
   // between.ts
   ScaleEdge,
 } from './scale.js';
-/* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
+/* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first */

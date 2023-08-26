@@ -41,7 +41,6 @@ type _ImageProps = {
   placeholder?: boolean | (() => JSX.Element);
 };
 
-// eslint-disable-next-line complexity
 export const Image = (props: ImageProps & _ImageProps) => {
   const {
     src,

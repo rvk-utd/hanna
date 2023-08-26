@@ -1,6 +1,6 @@
 import React, { MutableRefObject, RefObject } from 'react';
-import { useDomid } from '@hugsmidjan/react/hooks';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { useDomid } from '@hugsmidjan/react/hooks';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
 import is from 'date-fns/locale/is/index.js';
 import pl from 'date-fns/locale/pl/index.js';

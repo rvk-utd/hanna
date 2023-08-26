@@ -22,6 +22,6 @@ export const FormFieldVariables = /*@__PURE__*/ buildVariables(
 // Using destructuring, rather than direct assignment, as it seems to reduce
 // the chance of bundlers (e.g. Rollup) treating getting the methods on
 // `makeVariables` as a side-effect
-const { vars: formFieldVars } = FormFieldVariables; // eslint-disable-line @typescript-eslint/no-unused-vars
+const { vars: formFieldVars } = FormFieldVariables;
 
 export { formFieldVars };

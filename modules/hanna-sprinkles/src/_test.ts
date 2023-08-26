@@ -1,4 +1,4 @@
-/* eslint-disable import/newline-after-import, unused-imports/no-unused-imports-ts, @typescript-eslint/no-unused-vars, import/first, simple-import-sort/imports */
+/* eslint-disable import/newline-after-import, import/first, simple-import-sort/imports */
 
 import './utils/focus-visible.js';
 

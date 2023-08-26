@@ -1,6 +1,6 @@
 import o from 'ospec';
 
-import { compareKeys } from './';
+import { compareKeys } from './index.js';
 
 export const reportKeyMismatch: typeof compareKeys = (input, expected, alsoAllowed) => {
   const res = compareKeys(input, expected, alsoAllowed);

@@ -59,7 +59,6 @@ export const makeStateBridge = <T = unknown>(id: string): StateBridge<T> => {
         };
       },
       // NOTE: Signal containers returned by `useSignal` never change.
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       []
     );
     return [value, setValue];

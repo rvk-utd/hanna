@@ -1,5 +1,3 @@
-/* eslint-disable unused-imports/no-unused-imports-ts */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { css, px } from 'es-in-css';
 
 import { scale_phone_netbook, scale_tablet_netbook } from '../../lib/between.js';

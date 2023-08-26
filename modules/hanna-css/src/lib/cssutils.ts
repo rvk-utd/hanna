@@ -210,7 +210,6 @@ const noFlickerSnippet_multiPage = `
 const cmprss = (script: string) =>
   script
     .replace(/[\t \n]/g, '') // remove all whitespace
-    // eslint-disable-next-line no-irregular-whitespace
     .replace(/ /g, ' '); // convert non-breaking spaces to real spaces.
 
 /**
