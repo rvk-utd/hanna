@@ -16,11 +16,14 @@
     "modules/*"
   ],
   "scripts": {
-    "lint": "eslint \"*.{mjs,js,ts,tsx}\" \"modules/*/*.{mjs,js,ts,tsx}\" \"modules/*/src/**/*.{mjs,js,ts,tsx}\"",
-    "format:eslint": "eslint --fix \"*.{mjs,js,ts,tsx}\" \"modules/*/*.{mjs,js,ts,tsx}\" \"modules/*/src/**/*.{mjs,js,ts,tsx}\"",
-    "format:prettier": "prettier --write \"*.{json,md}\" \"modules/*/*.{json,md}\" \"modules/*/src/**/*.{json,md,html}\"",
-    "format": "yarn run format:eslint && yarn run format:prettier",
-    "postinstall": "sh .husky/post-clone  &&  yarn run husky install"
+    "postinstall": "sh .husky/post-clone  &&  yarn run husky install",
+    "lint": "yarn run lint:eslint && yarn run lint:prettier",
+    "lint:eslint": "eslint ${AUTOFIX:+ --fix} ${ERRORSONLY:+ --quiet} --report-unused-disable-directives \"*.{mjs,js,ts,tsx}\" \"modules/*/*.{mjs,js,ts,tsx}\" \"modules/*/src/**/*.{mjs,js,ts,tsx}\"",
+    "lint:prettier": "prettier ${AUTOFIX:+ --write} ${AUTOFIX:- --check} ${ERRORSONLY:+ --loglevel=error} --no-error-on-unmatched-pattern \"*.{json,md}\" \"modules/*/*.{json,md}\" \"modules/*/src/**/*.{json,md,html}\"",
+    "check": "yarn run check:types  &&  yarn run check:eslint",
+    "check:eslint": "ERRORSONLY=true  yarn run lint:eslint",
+    "check:types": "tsc --project tsconfig.json --noEmit --pretty --incremental false",
+    "format": "AUTOFIX=true  ERRORSONLY=true  yarn run lint"
   },
   "devDependencies": {
     "@hugsmidjan/hxmstyle": "^7.1.1",
