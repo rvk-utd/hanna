@@ -27,8 +27,7 @@ export default css`
   @media screen {
     .TableWrapper {
       ${SeenEffect__fadeup}
-      // @deprecated  Remove this mixin in v0.9
-      ${SeenEffect__disallowNesting}
+      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
 
       position: relative;
       overflow-x: auto;

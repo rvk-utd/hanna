@@ -58,7 +58,14 @@ const tolerance = 5; // px
 const throttleMs = 100;
 
 export const detectEdgeScroll = (opts: DetectEdgeScrollOptions): Actions => {
-  const { axis, scrollerElm, classedElm, bem, onChange, setClasses } = opts;
+  const {
+    axis,
+    scrollerElm,
+    classedElm,
+    bem,
+    onChange,
+    setClasses, // eslint-disable-line deprecation/deprecation
+  } = opts;
 
   let at = { start: true, end: true };
   const bemAt = bem ? bem + '--at' : 'at';

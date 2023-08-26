@@ -124,6 +124,7 @@ export const getCssBundleUrl = <AcceptNewerVersion extends boolean = false>(
   options?: CssBundleOpts<AcceptNewerVersion>
 ): string => {
   options = options || {};
+  // eslint-disable-next-line deprecation/deprecation
   const host = (options.testingServer || styleServerUrl).replace(/\/$/, '');
   const versionFolder = options.version || cssCurrentVersionFolder;
   const tokens = typeof cssTokens === 'string' ? cssTokens : cssTokens.join(',');

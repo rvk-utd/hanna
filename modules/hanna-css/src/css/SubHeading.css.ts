@@ -18,7 +18,7 @@ export default css`
 export const SubHeading_css = () => css`
   .SubHeading {
     ${SeenEffect__fadeup}
-    ${SeenEffect__disallowNesting}
+    ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
     ${ComponentLayout}
 
     font: ${vars.font_sh_l};

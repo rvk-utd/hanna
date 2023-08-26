@@ -4,7 +4,10 @@ import { TabItemProps, Tabs, TabsProps } from '@reykjavik/hanna-react/Tabs';
 
 import ensureCSS from './_ensureCSS.js';
 
-export type { TablistProps, TabsProps } from '@reykjavik/hanna-react/Tabs';
+export type {
+  TablistProps, // eslint-disable-line deprecation/deprecation
+  TabsProps,
+} from '@reykjavik/hanna-react/Tabs';
 
 const UncontrolledTabs = <T extends TabItemProps>(props: TabsProps<T>) => {
   const { activeIdx, onSetActive, role = 'tablist', ...tabsProps } = props;

@@ -30,7 +30,7 @@ export default css`
       ${ComponentLayout};
       ${textContent};
       ${SeenEffect__fadeup};
-      ${SeenEffect__disallowNesting};
+      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
 
       position: relative;
       margin-bottom: ${scale_container(20, 30)};

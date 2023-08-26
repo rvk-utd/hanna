@@ -75,7 +75,9 @@ type DeprecatedContactInfo = {
 export type NameCardProps = {
   name: string;
   /** Phone numbers, e-mail addresses, etc. */
-  contactInfo?: Array<string | ContactInfo | DeprecatedContactInfo>;
+  contactInfo?: Array<
+    string | ContactInfo | DeprecatedContactInfo // eslint-disable-line deprecation/deprecation
+  >;
   /** Address/location info
    *
    * Special handling of string:
@@ -119,7 +121,14 @@ export type NameCardProps = {
 };
 
 export const NameCard = (props: NameCardProps) => {
-  const { name, location, hours, aboutText, available = props.vacancy, updated } = props;
+  const {
+    name,
+    location,
+    hours,
+    aboutText,
+    available = props.vacancy, // eslint-disable-line deprecation/deprecation
+    updated,
+  } = props;
 
   const renderMeta = () => {
     if (available == null && !updated) {
@@ -133,9 +142,11 @@ export const NameCard = (props: NameCardProps) => {
           <span
             className={modifiedClass('NameCard__availability', available && 'available')}
           >
-            {available
-              ? availableLabel || texts.vacancyLabel
-              : unavailableLabel || texts.noVacancyLabel}{' '}
+            {
+              available
+                ? availableLabel || texts.vacancyLabel // eslint-disable-line deprecation/deprecation
+                : unavailableLabel || texts.noVacancyLabel // eslint-disable-line deprecation/deprecation
+            }{' '}
           </span>
         )}
         {updated != null && (
@@ -149,11 +160,12 @@ export const NameCard = (props: NameCardProps) => {
 
   let contactInfo = props.contactInfo;
   if (!contactInfo) {
-    contactInfo = _telToContactInfo(props.tel) || [];
+    contactInfo = _telToContactInfo(props.tel) || []; // eslint-disable-line deprecation/deprecation
   }
 
   // Remove/map @deprecated contactinfo items
   const cleanContactInfo = contactInfo.map(
+    // eslint-disable-next-line deprecation/deprecation
     (item): Exclude<typeof item, DeprecatedContactInfo> => {
       if (typeof item !== 'string' && 'value' in item) {
         return {

@@ -35,7 +35,7 @@ export const Tooltip = (props: TooltipProps) => {
   const arrowRef = useRef(null);
   const [isOpen, setIsOpen] = useLaggedState(false, 300);
 
-  const { x, y, reference, floating, middlewareData, placement } = useFloating({
+  const { x, y, refs, middlewareData, placement } = useFloating({
     placement: 'top',
     middleware: [offset(10), flip(), shift(), arrowPlugin({ element: arrowRef })],
     whileElementsMounted: autoUpdate,
@@ -97,14 +97,14 @@ export const Tooltip = (props: TooltipProps) => {
     >
       <summary
         className={modifiedClass('Tooltip__trigger', iconOnly && 'icononly')}
-        ref={reference}
+        ref={refs.setReference}
       >
         {label}
       </summary>
       <div
         className="Tooltip__content"
         onClick={(e) => e.stopPropagation()}
-        ref={floating}
+        ref={refs.setFloating}
       >
         {/* implementation detail for floating-ui */}
         {x !== null && (

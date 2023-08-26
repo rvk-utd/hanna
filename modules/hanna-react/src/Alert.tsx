@@ -101,7 +101,7 @@ export const Alert = (props: AlertProps) => {
     type,
     childrenHTML,
     children,
-    onClose,
+    onClose, // eslint-disable-line deprecation/deprecation
     closeUrl,
     closable = !!(onClose || closeUrl != null),
     ssr,
@@ -124,7 +124,7 @@ export const Alert = (props: AlertProps) => {
       const ret =
         onClose &&
         // @ts-expect-error  (@deprecated `event` parameter will be removed in v0.11)
-        onClose(event);
+        onClose(event); // eslint-disable-line deprecation/deprecation
 
       if (ret !== false) {
         setOpen(false);

@@ -17,7 +17,7 @@ export default css`
 export const PageHeading_css = () => css`
   .PageHeading {
     ${SeenEffect__fadeup}
-    ${SeenEffect__disallowNesting}
+    ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
     ${ComponentLayout(false)}
 
     font: ${vars.font_hd_l};

@@ -121,6 +121,8 @@ o.spec('setStyleServerUrl', () => {
   });
 
   o('.reset() aliases .pop()', () => {
-    o(setStyleServerUrl.pop).equals(setStyleServerUrl.reset);
+    o(setStyleServerUrl.pop).equals(
+      setStyleServerUrl.reset // eslint-disable-line deprecation/deprecation
+    );
   });
 });

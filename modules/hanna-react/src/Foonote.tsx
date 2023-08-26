@@ -12,4 +12,4 @@ export type FootnoteProps = _FootnoteProps;
  */
 export const Footnote = _Footnote;
 
-export default Footnote;
+export default Footnote; // eslint-disable-line deprecation/deprecation

@@ -16,6 +16,8 @@ export const meta: V2_MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('Checkbox', 'RadioGroup', 'RowBlock', 'RowBlockColumn');
 
+const Radio = RadioGroup.__Radio; // eslint-disable-line deprecation/deprecation
+
 export default function () {
   return (
     <Minimal>
@@ -67,32 +69,13 @@ export default function () {
           <Checkbox label={lorem.short} />
         </RowBlockColumn>
         <RowBlockColumn>
-          <RadioGroup.__Radio label="Normal" checked={false} data-testid="normal" />
-          <RadioGroup.__Radio
-            label="Checked Normal"
-            checked
-            data-testid="normalChecked"
-          />
-          <RadioGroup.__Radio
-            label="Disabled"
-            disabled
-            checked={false}
-            data-testid="disabled"
-          />
-          <RadioGroup.__Radio label="Checked Disabled" disabled checked />
-          <RadioGroup.__Radio
-            label="Invalid"
-            invalid
-            checked={false}
-            data-testid="invalid"
-          />
-          <RadioGroup.__Radio
-            label="Checked Invalid"
-            invalid
-            checked
-            data-testid="invalidChecked"
-          />
-          <RadioGroup.__Radio label={lorem.short} />
+          <Radio label="Normal" checked={false} data-testid="normal" />
+          <Radio label="Checked Normal" checked data-testid="normalChecked" />
+          <Radio label="Disabled" disabled checked={false} data-testid="disabled" />
+          <Radio label="Checked Disabled" disabled checked />
+          <Radio label="Invalid" invalid checked={false} data-testid="invalid" />
+          <Radio label="Checked Invalid" invalid checked data-testid="invalidChecked" />
+          <Radio label={lorem.short} />
         </RowBlockColumn>
       </RowBlock>
       <style>{`

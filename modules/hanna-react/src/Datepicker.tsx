@@ -157,7 +157,7 @@ export const Datepicker = (props: DatepickerProps) => {
   } = props;
 
   const [value, setValue] = useMixedControlState.raw(
-    props.value || props.initialDate,
+    props.value || props.initialDate, // eslint-disable-line deprecation/deprecation
     props.defaultValue,
     'value'
   );

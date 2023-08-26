@@ -17,9 +17,8 @@ export default css`
       --Tabs--borderWidth: 2px;
       --Tabs__tab--borderWidth: 4px;
       ${SeenEffect__fadeup}
-      // @deprecated  Remove this mixin in v0.9
-    ${SeenEffect__disallowNesting}
-    display: flex;
+      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
+      display: flex;
       flex-flow: row wrap;
       border-bottom: var(--Tabs--borderWidth) solid ${vars.color_suld_50};
       font: ${vars.font_button};

@@ -48,7 +48,7 @@ setStyleServerUrl.pop = () => {
 };
 
 /** @deprecated Use `setStyleServerUrl.pop()` instead (Will be removed in v0.3) */
-setStyleServerUrl.reset = setStyleServerUrl.pop;
+setStyleServerUrl.reset = setStyleServerUrl.pop; // eslint-disable-line deprecation/deprecation
 
 // ---------------------------------------------------------------------------
 

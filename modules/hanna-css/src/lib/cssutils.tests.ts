@@ -99,7 +99,7 @@ o.spec('getCssBundleUrl', () => {
     const newServerUrl = 'https://foo.bar/baz/';
     setStyleServerUrl(newServerUrl);
     o(getCssBundleUrl('Foo')).equals(`${newServerUrl}bundle/${ver}?m=Foo`);
-    setStyleServerUrl.reset();
+    setStyleServerUrl.pop();
     o(styleServerUrl).equals(oldServerUrl)('resetting styleServerUrl works');
     o(getCssBundleUrl('Foo')).equals(`${oldServerUrl}/bundle/${ver}?m=Foo`);
   });

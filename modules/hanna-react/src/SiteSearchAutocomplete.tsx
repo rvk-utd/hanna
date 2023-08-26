@@ -128,7 +128,10 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
         return (
           <SiteSearchInput
             {...siteSearchProps}
-            label={props.label || txt.inputLabel}
+            label={
+              props.label || // eslint-disable-line deprecation/deprecation
+              txt.inputLabel
+            }
             placeholder={txt.placeholder}
             onSubmit={onSubmit && (() => onSubmit(value))}
             onButtonClick={onButtonClick && (() => onButtonClick(value))}
