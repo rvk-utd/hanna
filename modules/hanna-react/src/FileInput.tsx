@@ -93,9 +93,9 @@ export const FileInput = (props: FileInputProps) => {
     id,
     label,
     hideLabel,
-    dropzoneProps = { multiple: true },
-    multiple = dropzoneProps.multiple,
-    accept,
+    dropzoneProps = {}, // eslint-disable-line deprecation/deprecation
+    multiple = dropzoneProps.multiple ?? true,
+    accept = dropzoneProps.accept,
     dropzoneText,
     lang = DEFAULT_LANG,
     removeFileText = defaultRemoveFileText[lang] || defaultRemoveFileText[DEFAULT_LANG],
