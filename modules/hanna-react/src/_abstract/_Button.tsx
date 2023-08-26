@@ -78,7 +78,7 @@ export const Button = (props: _ButtonProps) => {
   const {
     bem,
     small, // eslint-disable-line deprecation/deprecation
-    size = 'normal',
+    size = small ? 'small' : 'normal',
     modifier,
     children,
     variant = 'normal',
