@@ -1,9 +1,6 @@
 import o from 'ospec';
 
-import {
-  TogglerGroupFieldOption,
-  TogglerGroupFieldOptions,
-} from '../_abstract/_TogglerGroupField.js';
+import { TogglerGroupFieldOption } from '../_abstract/_TogglerGroupField.js';
 
 import {
   _weights,
@@ -15,7 +12,6 @@ import {
 const { WHOLE_WORD, STARTS_WITH, CONTAINS, VALUE_WEIGHT, wordWeight: ww } = _weights;
 
 type Item = TogglerGroupFieldOption<string>;
-type Options = TogglerGroupFieldOptions<string>;
 
 const score = (iten: Item, query: string) =>
   defaultSearchScoring(iten, query.trim().toLowerCase().split(/\s+/), query);

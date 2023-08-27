@@ -1,9 +1,11 @@
 import React, { FocusEvent, RefObject, useCallback, useState } from 'react';
-import { useDomid } from '@hugsmidjan/react/hooks';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { useDomid } from '@hugsmidjan/react/hooks';
+import { RequireExplicitUndefined } from '@reykjavik/hanna-utils';
 
+import { TogglerGroupFieldProps } from './_abstract/_TogglerGroupField.js';
 import { isPreact } from './utils/env.js';
-import { SSRSupportProps, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 type InputClassNames = {
   /** Basic/raw FormField BEM name */
@@ -75,9 +77,14 @@ export type FormFieldWrappingProps = {
   /** Optional pre-determinted id="" for the __input */
   id?: string;
 
-  /** Ref object pointing to the outermost `.FormField` element */
+  /**
+   * @deprecated Use `*Props.wrapperProps.ref` instead (Will be removed in v0.11)
+   *
+   * Ref object pointing to the outermost `.FormField` element
+   */
   wrapperRef?: RefObject<HTMLElement>;
-} & SSRSupportProps;
+} & WrapperElmProps &
+  SSRSupportProps;
 
 /**
  * Mixin base props type for components using `FormField` to contain
@@ -89,8 +96,12 @@ export type FormFieldGroupWrappingProps = FormFieldWrappingProps & {
 };
 
 type FormFieldProps = FormFieldGroupWrappingProps & {
-  /** Container className - alongside "FormField" */
-  className: string;
+  /** Container className - alongside "FormField" and `props.className`/
+   * `props.wrapperProps.className`. \
+   * Ideal to use if your wrapping compoent accepts its own `className`
+   * prop, so you don't have to merge/join them yourself.
+   */
+  extraClassName?: string;
   small?: boolean;
 
   group?: boolean | 'inputlike';
@@ -111,33 +122,26 @@ type FormFieldProps = FormFieldGroupWrappingProps & {
 // eslint-disable-next-line complexity
 export const FormField = (props: FormFieldProps) => {
   const {
+    extraClassName,
     className,
     small,
-
     group,
     LabelTag = group ? 'h4' : undefined,
-
     label,
     assistText,
-
     hideLabel,
-
     empty,
     filled,
-
     readOnly,
     disabled,
-
     invalid,
     errorMessage,
-
     required,
-    reqText, // i18n
-
+    reqText, // TODO: i18n
     renderInput,
-
     id,
     ssr,
+    wrapperProps,
   } = props;
 
   const isBrowser = useIsBrowserSide(ssr);
@@ -190,7 +194,7 @@ export const FormField = (props: FormFieldProps) => {
   const reqStar = required && reqText !== false && (
     <abbr
       className="FormField__label__reqstar"
-      // TODO: add mo-better i18n thinking
+      // FIXME: add mo-better i18n thinking
       title={`${reqText || 'Þarf að fylla út'}: `}
     >
       *
@@ -210,6 +214,8 @@ export const FormField = (props: FormFieldProps) => {
 
   return (
     <div
+      ref={props.wrapperRef as RefObject<HTMLDivElement>} // eslint-disable-line deprecation/deprecation
+      {...wrapperProps}
       className={modifiedClass(
         'FormField',
         [
@@ -222,9 +228,10 @@ export const FormField = (props: FormFieldProps) => {
           isBrowser && filled && 'filled',
           isBrowser && focused && 'focused',
         ],
-        className
+        // Prefer `className` over `wrapperProps.className`
+        (className || (wrapperProps || {}).className || '') +
+          (extraClassName ? ` ${extraClassName}` : '')
       )}
-      ref={props.wrapperRef as RefObject<HTMLDivElement>}
     >
       {LabelTag ? (
         <LabelTag
@@ -257,3 +264,52 @@ export const FormField = (props: FormFieldProps) => {
 };
 
 export default FormField;
+
+// ---------------------------------------------------------------------------
+
+export const getFormFieldWrapperProps = (
+  props: (
+    | FormFieldGroupWrappingProps
+    | Pick<TogglerGroupFieldProps, keyof FormFieldGroupWrappingProps>
+  ) & { small?: boolean }
+): RequireExplicitUndefined<FormFieldGroupWrappingProps> & {
+  small: boolean | undefined;
+} => {
+  /* prettier-ignore */
+  const {
+    wrapperProps, label, hideLabel, LabelTag, required, reqText,
+    disabled, readOnly, assistText, invalid, errorMessage, id,
+    small, ssr, className,
+    wrapperRef, // eslint-disable-line deprecation/deprecation
+  } = props;
+  /* prettier-ignore */
+  return {
+    wrapperProps, label, LabelTag, hideLabel, required, reqText,
+    disabled: disabled === true,
+    readOnly, assistText, invalid, errorMessage, id,
+    small, ssr, className,
+    wrapperRef,
+  };
+};
+
+export const groupFormFieldWrapperProps = <
+  T extends Parameters<typeof getFormFieldWrapperProps>[0]
+>(
+  props: T
+): Omit<T, keyof FormFieldGroupWrappingProps | 'small'> & {
+  fieldWrapperProps: ReturnType<typeof getFormFieldWrapperProps>;
+} => {
+  /* prettier-ignore */
+  const {
+    wrapperProps, label, hideLabel, LabelTag, required, reqText,
+    disabled, readOnly, assistText, invalid, errorMessage, id,
+    small, ssr, className,
+    wrapperRef, // eslint-disable-line deprecation/deprecation
+    ...rest
+  } = props;
+
+  return {
+    fieldWrapperProps: getFormFieldWrapperProps(props),
+    ...rest,
+  };
+};

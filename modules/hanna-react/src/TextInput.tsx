@@ -1,17 +1,17 @@
 import React, { ChangeEvent, RefObject, useEffect, useRef, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import FormField, { FormFieldWrappingProps } from './FormField.js';
+import FormField, {
+  FormFieldWrappingProps,
+  groupFormFieldWrapperProps,
+} from './FormField.js';
 
 type InputElmProps = JSX.IntrinsicElements['input'];
 type TextareaElmProps = JSX.IntrinsicElements['textarea'];
 
 // ---------------------------------------------------------------------------
 
-export type TextInputProps = {
-  small?: boolean;
-} & FormFieldWrappingProps &
-  (
+export type TextInputProps = FormFieldWrappingProps & { small?: boolean } & (
     | ({
         type?:
           | 'text'
@@ -34,26 +34,12 @@ export const TextInput = (props: TextInputProps) => {
   const _inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
   const {
-    className,
-
-    label,
-    assistText,
-    hideLabel,
-    disabled,
-    readOnly,
-    invalid,
-    errorMessage,
-    required,
-    reqText,
-    id,
     onChange,
-
-    small,
     type,
-    ssr,
     inputRef = _inputRef,
+    fieldWrapperProps,
     ...inputElementProps
-  } = props;
+  } = groupFormFieldWrapperProps(props);
 
   const { value, defaultValue, placeholder } = inputElementProps;
 
@@ -61,7 +47,6 @@ export const TextInput = (props: TextInputProps) => {
   const filled = !!(value ?? hasValue ?? !!defaultValue);
   const empty = !filled && !placeholder;
   const multiline = type === 'textarea';
-  const modifiers = [multiline && 'multiline'];
 
   const _onChange =
     value != null
@@ -82,21 +67,10 @@ export const TextInput = (props: TextInputProps) => {
 
   return (
     <FormField
-      className={modifiedClass('TextInput', modifiers, className)}
-      ssr={ssr}
-      small={small}
-      label={label}
+      extraClassName={modifiedClass('TextInput', [multiline && 'multiline'])}
       empty={empty}
       filled={filled}
-      assistText={assistText}
-      hideLabel={hideLabel}
-      disabled={disabled}
-      readOnly={readOnly}
-      invalid={invalid}
-      errorMessage={errorMessage}
-      required={required}
-      reqText={reqText}
-      id={id}
+      {...fieldWrapperProps}
       renderInput={(className, inputProps, addFocusProps) =>
         multiline ? (
           <textarea

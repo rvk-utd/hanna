@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type {
   OptionOrValue,
   SelectboxOption,
@@ -8,7 +7,10 @@ import type {
 } from '@hugsmidjan/react/Selectbox';
 import _Selectbox from '@hugsmidjan/react/Selectbox';
 
-import FormField, { FormFieldWrappingProps } from './FormField.js';
+import FormField, {
+  FormFieldWrappingProps,
+  groupFormFieldWrapperProps,
+} from './FormField.js';
 
 export {
   type SelectboxOption,
@@ -30,25 +32,8 @@ export type SelectboxProps<O extends OptionOrValue = OptionOrValue> =
     };
 
 export const Selectbox = <O extends OptionOrValue>(props: SelectboxProps<O>) => {
-  const {
-    className,
-
-    label,
-    assistText,
-    hideLabel,
-    disabled,
-    readOnly,
-    reqText,
-    invalid,
-    errorMessage,
-    required,
-    id,
-    ssr,
-    onChange,
-
-    small,
-    ...selectProps
-  } = props;
+  const { onChange, fieldWrapperProps, ...selectProps } =
+    groupFormFieldWrapperProps(props);
 
   const { value, defaultValue, placeholder, options } = selectProps;
 
@@ -78,25 +63,14 @@ export const Selectbox = <O extends OptionOrValue>(props: SelectboxProps<O>) => 
 
   return (
     <FormField
-      className={modifiedClass('Selectbox', null, className)}
-      ssr={ssr}
-      small={small}
-      label={label}
+      extraClassName="Selectbox"
       empty={isEmpty}
       filled={isFilled}
-      assistText={assistText}
-      hideLabel={hideLabel}
-      disabled={disabled}
-      readOnly={readOnly}
-      invalid={invalid}
-      errorMessage={errorMessage}
-      required={required}
-      reqText={reqText}
-      id={id}
+      {...fieldWrapperProps}
       renderInput={(className, inputProps, addFocusProps) => (
         <_Selectbox
           bem={className.input}
-          ssr={ssr}
+          ssr={props.ssr}
           onChange={_onChange}
           {...inputProps}
           {...addFocusProps(selectProps)}

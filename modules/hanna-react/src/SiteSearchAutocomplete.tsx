@@ -4,6 +4,7 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { BemProps } from './utils/types.js';
 import SiteSearchInput from './SiteSearchInput.js';
+import { WrapperElmProps } from './utils.js';
 
 // ---------------------------------------------------------------------------
 
@@ -64,7 +65,8 @@ export type SiteSearchAutocompleteProps<T> = {
   texts?: SiteSearchACI18n;
   /** @deprecated  Use `text` prop instead  (will be removed in v0.11) */
   label?: string;
-} & BemProps;
+} & BemProps &
+  WrapperElmProps;
 
 export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>) => {
   const {
@@ -78,6 +80,7 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
     onSubmit,
     onButtonClick = onSubmit,
     bem = 'SiteSearchAutocomplete',
+    wrapperProps,
   } = props;
   const [value, setValue] = useState('');
   const inputRef = createRef<HTMLInputElement>();
@@ -128,6 +131,7 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
         return (
           <SiteSearchInput
             {...siteSearchProps}
+            wrapperProps={wrapperProps}
             label={
               props.label || // eslint-disable-line deprecation/deprecation
               txt.inputLabel

@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- All `FormField` related components:
+  - feat: Add prop `wrapperProps` for passing props to the wrapper element
+  - feat: Deprecate prop, `wrapperRef` in favor of `wrapperProps.ref`
 
 ## 0.10.97 – 0.10.100
 

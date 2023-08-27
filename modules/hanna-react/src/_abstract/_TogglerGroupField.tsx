@@ -1,7 +1,10 @@
 import React, { ReactElement, useMemo } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import FormField, { FormFieldGroupWrappingProps } from '../FormField.js';
+import FormField, {
+  FormFieldGroupWrappingProps,
+  groupFormFieldWrapperProps,
+} from '../FormField.js';
 import { BemModifierProps } from '../utils/types.js';
 
 import {
@@ -35,23 +38,12 @@ export const TogglerGroupField = (
     bem,
     Toggler,
 
-    className,
     modifier,
-    label,
-    LabelTag,
-    assistText,
-    hideLabel,
-    disabled,
-    readOnly,
-    invalid,
-    errorMessage,
-    required,
-    reqText,
-    id,
     value,
     defaultValue,
+    fieldWrapperProps,
     ...togglerGroupProps
-  } = props;
+  } = groupFormFieldWrapperProps(props);
 
   const _value = useMemo(
     () => (value == null ? undefined : typeof value === 'string' ? [value] : value),
@@ -69,26 +61,16 @@ export const TogglerGroupField = (
 
   return (
     <FormField
-      className={modifiedClass(bem, modifier, className)}
+      extraClassName={modifiedClass(bem, modifier)}
       group
-      label={label}
-      LabelTag={LabelTag}
-      assistText={assistText}
-      hideLabel={hideLabel}
-      disabled={!!disabled}
-      readOnly={readOnly}
-      invalid={invalid}
-      errorMessage={errorMessage}
-      required={required}
-      reqText={reqText}
-      id={id}
+      {...fieldWrapperProps}
       renderInput={(className, inputProps) => {
         return (
           <TogglerGroup
             bem={className.options}
             {...inputProps}
             {...togglerGroupProps}
-            disabled={disabled}
+            disabled={props.disabled}
             value={_value}
             defaultValue={_defaultValue}
             Toggler={Toggler}

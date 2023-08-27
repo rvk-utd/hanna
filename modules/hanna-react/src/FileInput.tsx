@@ -13,7 +13,10 @@ import {
   releasePreview,
 } from './FileInput/_FileInput.utils.js';
 import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList.js';
-import FormField, { FormFieldWrappingProps } from './FormField.js';
+import FormField, {
+  FormFieldWrappingProps,
+  groupFormFieldWrapperProps,
+} from './FormField.js';
 
 const defaultRemoveFileText: OpenRecord<'is' | 'en' | 'pl', string> = {
   is: 'Fjarlægja',
@@ -32,7 +35,7 @@ const defaultOnFilesRejected: FileInputProps['onFilesRejected'] = (rejectedFiles
   );
 };
 
-export type FileInputProps = {
+export type FileInputProps = FormFieldWrappingProps & {
   /**
    * Flags if the input should accept multiple, or just a single file at a time.
    *
@@ -71,7 +74,7 @@ export type FileInputProps = {
 
   /** @deprecated Use props `multiple`, `accept` instead  (Will be removed in v0.11) */
   dropzoneProps?: { accept?: string; multiple?: boolean };
-} & FormFieldWrappingProps;
+};
 // // Do we need more props from this type?
 // & Omit<JSX.IntrinsicElements['input'], 'name' | 'value'>
 
@@ -88,23 +91,14 @@ const arrayToFileList = (arr: Array<File>): FileList => {
 };
 
 export const FileInput = (props: FileInputProps) => {
+  const lang = props.lang || DEFAULT_LANG;
   const {
-    className,
-    id,
-    label,
-    hideLabel,
-    dropzoneProps = {}, // eslint-disable-line deprecation/deprecation
-    multiple = dropzoneProps.multiple ?? true,
-    accept = dropzoneProps.accept,
+    dropzoneProps, // eslint-disable-line deprecation/deprecation
+    multiple = props.dropzoneProps?.multiple ?? true, // eslint-disable-line deprecation/deprecation
+    accept = props.dropzoneProps?.accept, // eslint-disable-line deprecation/deprecation
     dropzoneText,
-    lang = DEFAULT_LANG,
+
     removeFileText = defaultRemoveFileText[lang] || defaultRemoveFileText[DEFAULT_LANG],
-    assistText,
-    disabled,
-    invalid,
-    errorMessage,
-    required,
-    reqText,
     FileList = DefaultFileList,
     onFilesUpdated = () => undefined,
     onFilesRejected,
@@ -112,10 +106,11 @@ export const FileInput = (props: FileInputProps) => {
     showImagePreviews,
 
     value = [],
+    fieldWrapperProps,
     ...inputElementProps
-  } = props;
+  } = groupFormFieldWrapperProps(props);
 
-  const domid = useDomid(id);
+  const domid = useDomid(props.id);
   const fileInputWrapper = useRef<FileInputWrapper>(null);
   const fileInput = useRef<HTMLInputElement>(null);
   const files = value as Array<CustomFile>;
@@ -197,17 +192,10 @@ export const FileInput = (props: FileInputProps) => {
 
   return (
     <FormField
-      className={modifiedClass('FileInput', [multiple && 'multi'], className)}
-      label={label}
+      extraClassName={modifiedClass('FileInput', [multiple && 'multi'])}
+      {...fieldWrapperProps}
       id={domid + '-fake'}
       LabelTag="h4"
-      assistText={assistText}
-      hideLabel={hideLabel}
-      disabled={disabled}
-      invalid={invalid}
-      errorMessage={errorMessage}
-      required={required}
-      reqText={reqText}
       renderInput={(className, inputProps /* , addFocusProps */) => {
         return (
           <div className={className.control} ref={fileInputWrapper}>

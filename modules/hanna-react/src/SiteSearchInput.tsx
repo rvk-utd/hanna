@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 
-import FormField, { FormFieldWrappingProps } from './FormField.js';
-import { SSRSupportProps } from './utils.js';
+import FormField, {
+  FormFieldWrappingProps,
+  groupFormFieldWrapperProps,
+} from './FormField.js';
 
 type InputElmProps = Omit<
   JSX.IntrinsicElements['input'],
   'className' | 'type' | 'disabled' | 'readOnly' | 'required' | 'onSubmit'
 >;
-type WrappingProps = Pick<FormFieldWrappingProps, 'id' | 'label'>;
 
-export type SiteSearchInputProps = {
+export type SiteSearchInputProps = Pick<
+  FormFieldWrappingProps,
+  'id' | 'label' | 'ssr' | 'wrapperProps'
+> & {
   /** Triggered when user hits ENTER key with the focus inside the input field
    *
    * Return `true` to **allow** the browser's default submit hehavior
@@ -24,28 +28,23 @@ export type SiteSearchInputProps = {
    */
   onButtonClick?: () => boolean | void;
   buttonText?: string;
-  children?: never;
-} & SSRSupportProps &
-  WrappingProps &
-  InputElmProps;
+} & InputElmProps;
 
 // ---------------------------------------------------------------------------
 export const SiteSearchInput = React.forwardRef<HTMLInputElement, SiteSearchInputProps>(
   (props, ref) => {
     const {
-      label,
-      id,
       onChange,
 
-      placeholder = typeof label === 'string' ? label : undefined,
       buttonText = 'Leita',
       onSubmit,
-      onButtonClick = onSubmit,
+      onButtonClick = props.onSubmit,
       onKeyDown,
-      ssr,
 
+      placeholder = typeof props.label === 'string' ? props.label : undefined,
+      fieldWrapperProps,
       ...inputElementProps
-    } = props;
+    } = groupFormFieldWrapperProps(props);
 
     const { value, defaultValue } = inputElementProps;
 
@@ -63,12 +62,10 @@ export const SiteSearchInput = React.forwardRef<HTMLInputElement, SiteSearchInpu
 
     return (
       <FormField
-        className="SiteSearchInput"
-        ssr={ssr}
-        label={label}
+        extraClassName="SiteSearchInput"
         empty={empty}
         filled={filled}
-        id={id}
+        {...fieldWrapperProps}
         renderInput={(className, inputProps, addFocusProps) => (
           <div className={className.input} {...addFocusProps()}>
             <input

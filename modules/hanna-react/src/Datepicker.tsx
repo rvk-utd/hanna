@@ -1,5 +1,4 @@
 import React, { MutableRefObject, RefObject } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useDomid } from '@hugsmidjan/react/hooks';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
 import is from 'date-fns/locale/is/index.js';
@@ -9,7 +8,11 @@ import {
   ReactDatePicker,
   registerLocale,
 } from './_mixed_export_resolution_/ReactDatepicker.js'; // Docs: https://reactdatepicker.com/
-import { FormField, FormFieldWrappingProps } from './FormField.js';
+import {
+  FormField,
+  FormFieldWrappingProps,
+  groupFormFieldWrapperProps,
+} from './FormField.js';
 import { useMixedControlState } from './utils.js';
 
 registerLocale('is', is);
@@ -126,19 +129,7 @@ const i18n: Record<string, DatepickerLocaleProps> = {
  */
 export const Datepicker = (props: DatepickerProps) => {
   const {
-    className,
-    id,
-    label,
-    hideLabel,
-    assistText,
-    disabled,
-    readOnly,
-    invalid,
-    errorMessage,
-    required,
-    reqText,
     placeholder,
-    small,
 
     localeCode = 'is',
     dateFormat = 'd.M.yyyy',
@@ -151,10 +142,11 @@ export const Datepicker = (props: DatepickerProps) => {
     isEndDate = false,
     onChange,
     datepickerExtraProps,
-    ssr,
     inputRef,
     isoMode,
-  } = props;
+
+    fieldWrapperProps,
+  } = groupFormFieldWrapperProps(props);
 
   const [value, setValue] = useMixedControlState.raw(
     props.value || props.initialDate, // eslint-disable-line deprecation/deprecation
@@ -167,7 +159,7 @@ export const Datepicker = (props: DatepickerProps) => {
   */
   // const [value, setValue] = useMixedControlState(props, 'value');
 
-  const domid = useDomid(id);
+  const domid = useDomid(props.id);
 
   const txts = i18n[localeCode] || {};
 
@@ -176,20 +168,10 @@ export const Datepicker = (props: DatepickerProps) => {
 
   return (
     <FormField
-      className={modifiedClass('Datepicker', [], className)}
-      ssr={ssr}
-      label={label}
-      small={small}
-      assistText={assistText}
-      hideLabel={hideLabel}
-      invalid={invalid}
-      required={required}
-      reqText={reqText}
-      disabled={disabled}
-      readOnly={readOnly}
+      extraClassName="Datepicker"
       filled={filled}
       empty={empty}
-      errorMessage={errorMessage}
+      {...fieldWrapperProps}
       renderInput={(className, inputProps, addFocusProps) => {
         return (
           <div

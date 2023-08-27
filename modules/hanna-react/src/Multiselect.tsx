@@ -9,7 +9,7 @@ import { FocusTrap } from './_abstract/_FocusTrap.js';
 import { TogglerGroupFieldProps } from './_abstract/_TogglerGroupField.js';
 import { filterItems, SearchScoringfn } from './Multiselect/_Multiselect.search.js';
 import Checkbox from './Checkbox.js';
-import FormField from './FormField.js';
+import FormField, { getFormFieldWrapperProps } from './FormField.js';
 import TagPill from './TagPill.js';
 import { useMixedControlState } from './utils.js';
 
@@ -138,7 +138,7 @@ export const Multiselect = (props: MultiselectProps) => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const inputWrapperRef = useRef<HTMLDivElement>(null);
 
   const [activeItemIndex, setActiveItemIndex] = useState(-1);
   const [searchQuery, setSearchQuery] = useState('');
@@ -148,7 +148,7 @@ export const Multiselect = (props: MultiselectProps) => {
     setIsOpen((isOpen) => {
       newIsOpen = typeof newIsOpen === 'boolean' ? newIsOpen : !isOpen;
       if (!newIsOpen) {
-        wrapperRef.current!.querySelector('.Multiselect__choices')!.scrollTo(0, 0);
+        inputWrapperRef.current!.querySelector('.Multiselect__choices')!.scrollTo(0, 0);
         setSearchQuery('');
         setActiveItemIndex(-1);
       }
@@ -156,7 +156,7 @@ export const Multiselect = (props: MultiselectProps) => {
     });
   };
 
-  useOnClickOutside(wrapperRef, () => toggleOpen(false));
+  useOnClickOutside(inputWrapperRef, () => toggleOpen(false));
 
   const options = useMemo(
     () => _options.map((item) => (typeof item === 'string' ? { value: item } : item)),
@@ -267,7 +267,7 @@ export const Multiselect = (props: MultiselectProps) => {
 
   // Auto-close the dropdown when focus has left the building
   useEffect(() => {
-    const wrapperDiv = wrapperRef.current;
+    const wrapperDiv = inputWrapperRef.current;
     if (!wrapperDiv) {
       return;
     }
@@ -285,7 +285,7 @@ export const Multiselect = (props: MultiselectProps) => {
   }, []);
 
   useEffect(() => {
-    wrapperRef.current
+    inputWrapperRef.current
       ?.querySelectorAll('.Multiselect__option')
       [activeItemIndex]?.scrollIntoView({
         behavior: 'smooth',
@@ -295,23 +295,11 @@ export const Multiselect = (props: MultiselectProps) => {
 
   return (
     <FormField
-      className={modifiedClass('Multiselect', props.nowrap && 'nowrap', props.className)}
-      ssr={props.ssr}
+      extraClassName={modifiedClass('Multiselect', props.nowrap && 'nowrap')}
       group="inputlike"
-      label={props.label}
-      LabelTag={props.LabelTag}
-      hideLabel={props.hideLabel}
-      small={props.small}
       filled={filled}
       empty={empty}
-      disabled={disabled}
-      invalid={props.invalid}
-      errorMessage={props.errorMessage}
-      assistText={props.assistText}
-      readOnly={readOnly}
-      required={props.required}
-      reqText={props.reqText}
-      id={props.id}
+      {...getFormFieldWrapperProps(props)}
       renderInput={(className, inputProps, addFocusProps, isBrowser) => {
         const { id } = inputProps;
         return (
@@ -323,7 +311,7 @@ export const Multiselect = (props: MultiselectProps) => {
             )}
             {...addFocusProps()}
             data-sprinkled={isBrowser}
-            ref={wrapperRef}
+            ref={inputWrapperRef}
           >
             {!isBrowser ? null : isSearchable ? (
               <input
