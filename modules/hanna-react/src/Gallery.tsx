@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { AbstractCarousel } from './_abstract/_AbstractCarousel.js';
@@ -41,10 +41,16 @@ export type GalleryProps = {
 export const Gallery = (props: GalleryProps) => {
   const { items, ssr, startSeen } = props;
   const texts = getTexts(props, defaultTexts);
-  const [modalImage, setModalImage] = useState<GalleryItemProps | undefined>(undefined);
+  const [currentImage, setCurrentImage] = useState<GalleryItemProps | undefined>(
+    undefined
+  );
+  const galleryState = useMemo(
+    () => ({ items, setCurrentImage, currentImage }),
+    [items, currentImage]
+  );
 
   return (
-    <GalleryModalContext.Provider
+    <GalleryModalContext.Provider value={galleryState}>
       value={{ items, setCurrentImage: setModalImage, currentImage: modalImage }}
     >
       <AbstractCarousel
@@ -54,7 +60,7 @@ export const Gallery = (props: GalleryProps) => {
         ssr={ssr}
         startSeen={startSeen}
       />
-      <GalleryModal {...modalImage} texts={texts} />
+      <GalleryModal {...currentImage} texts={texts} />
     </GalleryModalContext.Provider>
   );
 };
