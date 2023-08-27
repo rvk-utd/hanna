@@ -7,15 +7,16 @@ export type FormProps = ComponentLayoutProps &
   React.FormHTMLAttributes<HTMLFormElement> & { children: ReactNode };
 
 export const Form = (props: FormProps) => {
-  const { children, align, wide } = props;
+  const { children, align, wide, className, ...formProps } = props;
 
   return (
     <form
-      {...props}
-      className={modifiedClass('Form', [
-        align === 'right' && 'align--' + align,
-        !align && wide && 'wide',
-      ])}
+      {...formProps}
+      className={modifiedClass(
+        'Form',
+        [align === 'right' && 'align--' + align, !align && wide && 'wide'],
+        className
+      )}
     >
       {children}
     </form>
