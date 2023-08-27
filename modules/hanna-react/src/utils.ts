@@ -1,3 +1,5 @@
+import type { ElementRef } from 'react';
+
 export * from './utils/browserSide.js';
 export * from './utils/config.js';
 export { HannaUIState, useHannaUIState } from './utils/HannaUIState.js';
@@ -10,9 +12,33 @@ export * from './utils/useScrollbarWidthCSSVar.js';
 
 /**
  * Helper type to add HTML element props to a component, **including**
- * `data-*` attributes
+ * `data-*` attributes.
  */
-export type HTMLProps<T extends keyof JSX.IntrinsicElements> =
-  JSX.IntrinsicElements[T] & {
-    [dataAttr: `data-${string}`]: unknown;
-  };
+export type HTMLProps<
+  TagName extends keyof JSX.IntrinsicElements | null = null,
+  ExcludeProps extends string = never
+> = Omit<
+  JSX.IntrinsicElements[TagName extends null ? 'div' : TagName],
+  'ref' | 'children' | 'dangerouslySetInnerHTML' | ExcludeProps
+> & {
+  ref?: React.RefObject<ElementRef<TagName extends null ? 'div' : TagName>>;
+  [dataAttr: `data-${string}`]: unknown;
+};
+
+export type WrapperElmProps<
+  TagName extends keyof JSX.IntrinsicElements | null = null,
+  ExcludeProps extends string = never
+> = {
+  /**
+   * Custom HTML attributes for the component's wrapper element.
+   *
+   * Note, however, that some props may be intentionally
+   * excluded from the list.
+   *
+   * **WARNING**
+   * In some cases props added this way can break the component, og hurt its
+   * accessibility.  Also, some props may get ignored, or over-ridden by the
+   * component. User discretion is advised.
+   */
+  wrapperProps?: HTMLProps<TagName, ExcludeProps>;
+};
