@@ -92,7 +92,8 @@ export const AbstractCarousel = <
 
   const [leftOffset, setLeftOffset] = useState<number | undefined>();
 
-  const itemCount = props.itemCount || (children || items).length;
+  const itemCount =
+    props.itemCount != null ? props.itemCount : (children || items).length;
   const listRef = useRef<HTMLDivElement>(null);
 
   const [activeItem, setActiveItem] = useState(0);
