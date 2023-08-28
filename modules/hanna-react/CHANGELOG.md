@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.101
+
+_2023-08-28_
+
 - feat: Add prop `wrapperProps` to almost all components — excluding a few
   low-level ones that already accept raw HTML props directly (e.g. most
   button-like compoments).  
