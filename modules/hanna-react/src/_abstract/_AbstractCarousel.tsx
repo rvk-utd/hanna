@@ -16,7 +16,7 @@ import { EitherObj, notNully } from '@reykjavik/hanna-utils';
 
 import CarouselStepper from '../CarouselStepper.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from '../utils.js';
-import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
+import { DeprecatedSeenProp } from '../utils/seenEffect.js';
 import { BemProps } from '../utils/types.js';
 
 // ---------------------------------------------------------------------------
@@ -61,7 +61,7 @@ export type CarouselProps<
     }
   > &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 type AbstractCarouselProps<
   I extends Record<string, unknown> = Record<string, unknown>,
@@ -83,7 +83,6 @@ export const AbstractCarousel = <
     bem = 'Carousel',
     modifier,
     ssr,
-    startSeen,
     className,
     wrapperProps,
   } = props;
@@ -163,8 +162,6 @@ export const AbstractCarousel = <
     return { delayedScrollLeft, delayedScrollRight };
   }, []);
 
-  const [outerRef] = useSeenEffect(startSeen);
-
   if (!itemCount) {
     return null;
   }
@@ -197,7 +194,6 @@ export const AbstractCarousel = <
         // Prefer `className` over `wrapperProps.className`
         className || (wrapperProps || {}).className
       )}
-      ref={outerRef}
       data-sprinkled={isBrowser}
     >
       {title && <h2 className={bem + '__title'}>{title}</h2>}

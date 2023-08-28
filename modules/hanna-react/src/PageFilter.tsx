@@ -2,7 +2,7 @@ import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import Footnote from './Footnote.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -14,7 +14,7 @@ export type PageFilterProps = {
   underlap?: boolean;
 } & EitherObj<{ filters: React.ReactNode }, { children: React.ReactNode }> &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const PageFilter = (props: PageFilterProps) => {
   const {
@@ -25,10 +25,8 @@ export const PageFilter = (props: PageFilterProps) => {
     children,
     buttonRow,
     underlap,
-    startSeen,
     wrapperProps,
   } = props;
-  const [ref] = useSeenEffect(startSeen);
 
   return (
     <div
@@ -38,7 +36,6 @@ export const PageFilter = (props: PageFilterProps) => {
         underlap && 'underlap',
         (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       <h2 className="PageFilter__title">{title}</h2>
       {summary && <div className="PageFilter__summary">{summary}</div>}

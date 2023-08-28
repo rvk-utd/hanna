@@ -39,19 +39,19 @@ const RELATED_LINKS = range(1, 6).map(
 export default function () {
   return (
     <Minimal>
-      <ExtraLinks title="Extra Links" cards={CARDS} startSeen />
+      <ExtraLinks title="Extra Links" cards={CARDS} />
+      {/* <SeenEffect effectType="custom"> */}
       <ExtraLinks
         title="Extra Links with Some Related Links Also"
         cards={CARDS.slice(0, 5)}
         relatedTitle="Related Links"
         relatedLinks={RELATED_LINKS}
-        startSeen
       />
+      {/* </SeenEffect> */}
       <ExtraLinks
         title="Extra Links"
         cards={CARDS.slice(0, 1)}
         relatedLinks={RELATED_LINKS.slice(0, 2)}
-        startSeen
       />
     </Minimal>
   );

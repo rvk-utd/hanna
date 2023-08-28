@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { Efnistakn } from '@reykjavik/hanna-utils/assets';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import Bling from './Bling.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -14,12 +14,11 @@ export type FeatureListProps = {
     name: string;
   }>;
 } & WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const FeatureList = (props: FeatureListProps) => {
-  const { title, features, startSeen, wrapperProps } = props;
+  const { title, features, wrapperProps } = props;
 
-  const [ref] = useSeenEffect(startSeen);
   const _features = features.length ? features : [{ name: '...' }];
   return (
     <>
@@ -28,7 +27,6 @@ export const FeatureList = (props: FeatureListProps) => {
       <div
         {...wrapperProps}
         className={modifiedClass('FeatureList', null, (wrapperProps || {}).className)}
-        ref={ref}
       >
         <h2 className="FeatureList__title">{title}</h2>
         <ul className="FeatureList__list">

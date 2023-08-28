@@ -8,7 +8,6 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { prem } from './utils/miscUtils.js';
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
 const _between = (from: ScaleEdge, to: ScaleEdge) =>
   scale(from, to, bp.phone, grid.contentMaxWidth, '%');
@@ -26,9 +25,6 @@ export default css`
 
   @media screen {
     .TableWrapper {
-      ${SeenEffect__fadeup}
-      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
-
       position: relative;
       overflow-x: auto;
 

@@ -10,7 +10,6 @@ import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { cols_px } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 import { textContent } from './utils/textContent.js';
 
 const a = buildVariables(['leftIndent', 'iconWidth']);
@@ -18,7 +17,6 @@ const a = buildVariables(['leftIndent', 'iconWidth']);
 export default css`
   @media screen {
     .AccordionList {
-      ${SeenEffect__fadeup}
       max-width: ${cols_px(8)};
       margin-top: ${scale_container(32, 56)};
 

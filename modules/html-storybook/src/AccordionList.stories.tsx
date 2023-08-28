@@ -52,21 +52,15 @@ const items = () => [
 export const _AccordionList: StoryComponent = () => {
   const wide = boolean('Full width', false);
   return (
-    <AccordionList
-      key={String(wide)}
-      items={items()}
-      wide={wide}
-      defaultOpen={[0]}
-      startSeen
-    />
+    <AccordionList key={String(wide)} items={items()} wide={wide} defaultOpen={[0]} />
   );
 };
 
 export const AccordionListStyling: StoryComponent = () => {
   return (
     <>
-      <AccordionList items={items()} startSeen />
-      <AccordionList items={items()} wide startSeen />
+      <AccordionList items={items()} />
+      <AccordionList items={items()} wide />
     </>
   );
 };

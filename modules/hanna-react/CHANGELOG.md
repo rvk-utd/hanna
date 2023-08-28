@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Remove defeault/implicit seen-effect styling from all
+  components(except `SeenEffect`, `BgBox` and `CenterColumn`) — flag
+  `startSeen` prop as deprecated.
 
 ## 0.10.101
 

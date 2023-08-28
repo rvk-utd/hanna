@@ -60,7 +60,6 @@ export const _NewsHero: StoryComponent = () => {
       image={imageType && { src: landscapeImage }}
       sharing={renderShareButtons}
       blingType={blingType}
-      startSeen
     />
   );
 };
@@ -82,7 +81,6 @@ export const _NewsHeroExamples: StoryComponent = () => {
           {...newsHeroProps}
           image={image ? { src: image } : undefined}
           sharing={renderShareButtons}
-          startSeen
         />
       ))}
     </>

@@ -47,9 +47,8 @@ export default function () {
         }
         background={true}
         cards={imageCards}
-        startSeen
       />
-      <ImageCards cards={imageCards} startSeen />
+      <ImageCards cards={imageCards} />
     </Minimal>
   );
 }

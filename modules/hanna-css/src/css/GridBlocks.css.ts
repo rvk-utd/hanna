@@ -8,10 +8,25 @@ import { hannaVars } from '../lib/hannavars.js';
 
 import { cols_pct, grid_units, prem, resetImageChild } from './utils/miscUtils.js';
 import {
-  SeenEffect__delay,
   SeenEffect__fadeup,
+  SeenEffect__resetDefault,
   SeenEffect__transition,
 } from './utils/seenEffects.js';
+
+export const GridBlocks__seenEffects = (trigger?: null | string) => css`
+  ${SeenEffect__fadeup({ child: '> .GridBlocks__item', trigger })}
+  ${range(1, 12).map((i) =>
+    SeenEffect__transition({ child: `> .GridBlocks__item:nth-child(${i})`, trigger })(css`
+      transition-delay: ${ms((i - 1) * 150)};
+    `)
+  )}
+      // Default delay, applied to for items where n > 12
+      ${SeenEffect__transition({ child: '> .GridBlocks__item', trigger })(css`
+    transition-delay: ${ms((13 - 1) * 150)};
+  `)}
+`;
+
+// ---------------------------------------------------------------------------
 
 export default css`
   /*!@deps
@@ -26,28 +41,18 @@ export default css`
       margin-bottom: ${scale_container(40, 120)};
     }
 
+    * {
+      /* Custom (optional) transition effect */
+      ${SeenEffect__resetDefault('.GridBlocks')}
+      ${GridBlocks__seenEffects()}
+    }
+
     .GridBlocks__item {
       margin: ${prem(20)} 0;
       display: flex;
       flex-flow: column;
       align-items: flex-start;
       width: 100%;
-    }
-
-    .GridBlocks {
-      // transition specifics
-      // transition specifics
-      ${SeenEffect__fadeup('> .GridBlocks__item')}
-      // Default delay, applied to for items where n > 3
-      ${SeenEffect__transition('> .GridBlocks__item')(SeenEffect__delay(ms(450)))}
-
-      ${range(1, 12).map(
-        (i) => css`
-          ${SeenEffect__transition(`> .GridBlocks__item:nth-child(${i})`)(
-            SeenEffect__delay(ms((i - 1) * 150))
-          )}
-        `
-      )}
     }
 
     .GridBlocks__illustration {

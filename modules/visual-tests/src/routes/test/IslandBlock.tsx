@@ -55,7 +55,7 @@ export default function () {
     <Minimal>
       {testCombos.map((props, i) => (
         <Fragment key={i}>
-          <IslandBlock {...props} startSeen />
+          <IslandBlock {...props} />
         </Fragment>
       ))}
     </Minimal>

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { ComponentLayoutProps } from './constants.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -11,11 +11,10 @@ export type SubHeadingProps = {
   children: ReactNode;
 } & ComponentLayoutProps &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const SubHeading = (props: SubHeadingProps) => {
-  const { small, Tag = 'h2', children, align, wide, startSeen, wrapperProps } = props;
-  const [ref] = useSeenEffect(startSeen);
+  const { small, Tag = 'h2', children, align, wide, wrapperProps } = props;
 
   return (
     <Tag
@@ -29,7 +28,6 @@ export const SubHeading = (props: SubHeadingProps) => {
         ],
         (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       {children}
     </Tag>

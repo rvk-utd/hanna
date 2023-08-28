@@ -46,12 +46,6 @@ const getExtraProps = () => {
 export const _InfoBlock: StoryComponent = () => {
   const extraProps = getExtraProps();
   return (
-    <InfoBlock
-      title={TITLE_TEXT}
-      subtitle={SUBTEXT_TEXT}
-      items={ITEMS}
-      {...extraProps}
-      startSeen
-    />
+    <InfoBlock title={TITLE_TEXT} subtitle={SUBTEXT_TEXT} items={ITEMS} {...extraProps} />
   );
 };

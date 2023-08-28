@@ -4,7 +4,7 @@ import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets'
 
 import { ButtonProps } from './_abstract/_Button.js';
 import { Image, ImageProps } from './_abstract/_Image.js';
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import ButtonPrimary from './ButtonPrimary.js';
 import ButtonTertiary from './ButtonTertiary.js';
 import { WrapperElmProps } from './utils.js';
@@ -20,7 +20,7 @@ export type HeroBlockProps = {
   secondaryButton?: ButtonProps;
 } & HeroBlockImageProps &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const HeroBlock = (props: HeroBlockProps) => {
   const {
@@ -30,18 +30,15 @@ export const HeroBlock = (props: HeroBlockProps) => {
     image,
     primaryButton,
     secondaryButton,
-    startSeen,
     wrapperProps,
   } = props;
   const hasButtons = Boolean(primaryButton || secondaryButton);
   const imgProps = illustration ? { src: getIllustrationUrl(illustration) } : image;
-  const [ref] = useSeenEffect(startSeen);
 
   return (
     <div
       {...wrapperProps}
       className={modifiedClass('HeroBlock', null, (wrapperProps || {}).className)}
-      ref={ref}
     >
       <h1 className="HeroBlock__title">{title}</h1>
       <Image bem="HeroBlock__image" {...imgProps} />

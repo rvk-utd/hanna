@@ -33,15 +33,14 @@ export const handle = cssTokens('ButtonTertiary');
 export default function () {
   return (
     <Minimal>
-      <ActionCards title="Action Cards" cards={cards} startSeen />
+      <ActionCards title="Action Cards" cards={cards} />
       <ActionCards
         title="Action Cards"
         summaryElement={<ButtonTertiary href="/">Sjá meira</ButtonTertiary>}
         cards={cards.slice(0, 1)}
-        startSeen
       />
       {/* No title */}
-      <ActionCards cards={cards.slice(0, 2)} startSeen />
+      <ActionCards cards={cards.slice(0, 2)} />
     </Minimal>
   );
 }

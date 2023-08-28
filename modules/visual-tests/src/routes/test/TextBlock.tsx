@@ -50,19 +50,17 @@ const text = (headline: string) => {
 export default function () {
   return (
     <Minimal>
-      <TextBlock small={true} startSeen>
-        {text('Left aligned with small text')}
-      </TextBlock>
+      <TextBlock small={true}>{text('Left aligned with small text')}</TextBlock>
       <DummyBlock thin />
-      <TextBlock align="right" small={false} startSeen>
+      <TextBlock align="right" small={false}>
         {text('Right aligned with regular text')}
       </TextBlock>
       <DummyBlock thin />
-      <TextBlock wide={true} small={false} startSeen>
+      <TextBlock wide={true} small={false}>
         {text('Wide with regular text')}
       </TextBlock>
       <DummyBlock thin />
-      <TextBlock labelled={true} small={false} startSeen>
+      <TextBlock labelled={true} small={false}>
         {text('Labelled with regular text')}
       </TextBlock>
     </Minimal>

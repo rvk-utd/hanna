@@ -26,7 +26,7 @@ const features: FeatureListProps['features'] = [
 export default function () {
   return (
     <Minimal>
-      <FeatureList title="Lorem Ipsum og Foo Bar" features={features} startSeen={true} />
+      <FeatureList title="Lorem Ipsum og Foo Bar" features={features} />
     </Minimal>
   );
 }

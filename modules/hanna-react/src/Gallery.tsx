@@ -5,7 +5,7 @@ import { AbstractCarousel } from './_abstract/_AbstractCarousel.js';
 import { GalleryItem, GalleryItemProps } from './Gallery/_GalleryItem.js';
 import { GalleryModal } from './Gallery/_GalleryModal.js';
 import { GalleryModalContext } from './Gallery/_GalleryModalContext.js';
-import { SeenProp } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { SSRSupportProps, WrapperElmProps } from './utils.js';
 
 export type { GalleryItemProps } from './Gallery/_GalleryItem.js';
@@ -37,10 +37,10 @@ export type GalleryProps = {
   lang?: string;
 } & SSRSupportProps &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const Gallery = (props: GalleryProps) => {
-  const { items, ssr, startSeen } = props;
+  const { items, ssr } = props;
   const texts = getTexts(props, defaultTexts);
   const [currentImage, setCurrentImage] = useState<GalleryItemProps | undefined>(
     undefined
@@ -57,7 +57,6 @@ export const Gallery = (props: GalleryProps) => {
         items={items}
         Component={GalleryItem}
         ssr={ssr}
-        startSeen={startSeen}
         wrapperProps={props.wrapperProps}
       />
       <GalleryModal {...currentImage} texts={texts} />

@@ -9,6 +9,7 @@ export type CssVersionToken =
 
 export type CssModuleToken =
   | '-basics'
+  | '-legacy-AutoSeenEffects'
   | 'AccordionList'
   | 'ActionCards'
   | 'Alert'

@@ -6,7 +6,6 @@ import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { ComponentLayout } from './styles/componentLayout.js';
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps
@@ -17,8 +16,6 @@ export default css`
 // inlined by TextBlock.css.ts
 export const SubHeading_css = () => css`
   .SubHeading {
-    ${SeenEffect__fadeup}
-    ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
     ${ComponentLayout}
 
     font: ${vars.font_sh_l};

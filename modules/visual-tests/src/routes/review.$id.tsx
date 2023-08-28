@@ -103,7 +103,7 @@ export default function () {
 
   return (
     <Minimal bare key={change.id}>
-      <PageHeading small startSeen>
+      <PageHeading small>
         {change.testName}{' '}
         <small>
           <small>

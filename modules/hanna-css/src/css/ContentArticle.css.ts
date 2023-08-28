@@ -1,6 +1,5 @@
 import { css } from 'es-in-css';
 
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 import { centerColumnsStyling } from './CenterColumn.css.js';
 
 export default css`
@@ -14,7 +13,6 @@ export default css`
   */
   @media screen {
     .ContentArticle {
-      ${SeenEffect__fadeup}
       ${centerColumnsStyling({ allowed: ['.ContentArticle__header'] })}
     }
 

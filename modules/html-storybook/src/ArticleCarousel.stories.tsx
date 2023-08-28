@@ -99,5 +99,5 @@ export default {
 };
 
 export const _ArticleCarousel: StoryComponent = () => (
-  <ArticleCarousel {...articleCarouselData} startSeen />
+  <ArticleCarousel {...articleCarouselData} />
 );

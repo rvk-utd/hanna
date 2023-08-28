@@ -29,7 +29,7 @@ export default function () {
           }
         `}
         </style>
-        <Carousel startSeen>
+        <Carousel>
           <p>
             <strong>one</strong> Subtext
           </p>
