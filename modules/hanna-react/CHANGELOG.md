@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Pagination`
 - feat: Add props `wrapperProps` to `CarouselStepper`
 - fix: Export type `MultiselectOption`, deprecate `MultiSelectOption`
 

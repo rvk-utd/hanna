@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Pagination`
 
 ## 0.8.80
 
