@@ -9,6 +9,7 @@
   _(Exeptions: `BasicTable`, `Modal` and `CarouselStepper`. They'll also get a
   `wrapperProps` prop in a near-future release.)_
 - feat: Deprecate prop, `wrapperRef` on all `FormField` related components
+- fix: Export `CheckboxButtonProps` from `CheckboxButton`, deprecate old type
 
 ## 0.10.97 – 0.10.100
 
