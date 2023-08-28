@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@floating-ui/react": "^0.19.2",
-    "@hugsmidjan/qj": "^4.21.0",
+    "@hugsmidjan/qj": "^4.22.1",
     "@hugsmidjan/react": "^0.4.32",
     "@reykjavik/hanna-css": "^0.4.5",
     "@reykjavik/hanna-utils": "^0.2.8",

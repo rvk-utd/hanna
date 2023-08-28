@@ -28,7 +28,7 @@
     "test": "yarn run -T ospec \"__tests/**/*.tests.js\""
   },
   "dependencies": {
-    "@hugsmidjan/qj": "^4.21.0",
+    "@hugsmidjan/qj": "^4.22.1",
     "@reykjavik/hanna-css": "workspace:*",
     "@reykjavik/hanna-react": "workspace:*",
     "@reykjavik/hanna-utils": "workspace:*",
