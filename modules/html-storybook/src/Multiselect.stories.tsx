@@ -37,10 +37,12 @@ export const _Multiselect: StoryComponent = () => {
 
   const empty = boolean('Empty', true);
   const forceSearchable = boolean('Searchable options', false);
+  const forceSummary = boolean('Searchable options', false);
 
   const values = empty ? [] : nowrap ? options : options.slice(2, 4);
 
-  const key = [nowrap, empty, forceSearchable].join('-') + JSON.stringify(ffProps);
+  const key =
+    [nowrap, empty, forceSearchable, forceSummary].join('-') + JSON.stringify(ffProps);
 
   return (
     <Fragment key={key}>
@@ -51,6 +53,7 @@ export const _Multiselect: StoryComponent = () => {
         options={options}
         defaultValue={values}
         forceSearchable={forceSearchable}
+        forceSummary={forceSearchable}
       />
 
       <HiddenTiger>
