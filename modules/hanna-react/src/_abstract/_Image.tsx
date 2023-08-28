@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { classes, modifiedClass } from '@hugsmidjan/qj/classUtils';
 
+import { WrapperElmProps } from '../utils.js';
 import { BemProps } from '../utils/types.js';
 import { useGetSVGtext } from '../utils/useGetSVGtext.js';
 
@@ -41,8 +42,10 @@ type _ImageProps = {
   /** Extra, custom className in addition to the `bem` base */
   className?: string | undefined;
   bem: string | undefined;
-} & BemProps;
+} & BemProps &
+  WrapperElmProps;
 
+// eslint-disable-next-line complexity
 export const Image = (props: ImageProps & _ImageProps) => {
   const {
     src,
@@ -55,6 +58,7 @@ export const Image = (props: ImageProps & _ImageProps) => {
     placeholder,
     focalPoint,
     className,
+    wrapperProps = {},
   } = props;
   const _src = (sources.length && preloadSrc) || src;
   const imageSrc =
@@ -63,25 +67,42 @@ export const Image = (props: ImageProps & _ImageProps) => {
 
   const inlineSvg = useGetSVGtext(inline ? imageSrc : undefined, altText);
 
+  const extraClasses = classes(className, wrapperProps.className) || undefined;
+
   const classNames = bem
-    ? modifiedClass(bem, [modifier, !imageSrc && 'missing'], className)
-    : className;
+    ? modifiedClass(bem, [modifier, !imageSrc && 'missing'], extraClasses)
+    : extraClasses;
 
   if (!imageSrc) {
     return placeholder ? (
-      <span className={classNames}>{placeholder !== true && placeholder()}</span>
+      <span {...props.wrapperProps} className={classNames}>
+        {placeholder !== true && placeholder()}
+      </span>
     ) : null;
   }
 
   if (inline && inlineSvg) {
     const __html = inlineSvg.imageSrc === imageSrc ? inlineSvg.code : '';
-    return <span className={classNames} dangerouslySetInnerHTML={{ __html }} />;
+    return (
+      <span
+        {...props.wrapperProps}
+        className={classNames}
+        dangerouslySetInnerHTML={{ __html }}
+      />
+    );
   }
+
+  const wrapperStyles = wrapperProps.style;
 
   return (
     <picture
+      {...props.wrapperProps}
       className={classNames}
-      style={focalPoint ? ({ '--focalPoint': focalPoint } as CSSProperties) : undefined}
+      style={
+        focalPoint
+          ? ({ ...wrapperStyles, '--focalPoint': focalPoint } as CSSProperties)
+          : wrapperStyles
+      }
     >
       {' '}
       {sources.map((source, i) => (

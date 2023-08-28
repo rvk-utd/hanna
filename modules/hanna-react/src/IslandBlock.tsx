@@ -5,6 +5,7 @@ import { Block, BlockItem } from './_abstract/_Block.js';
 import { ImageProps } from './_abstract/_Image.js';
 import { SeenProp } from './utils/seenEffect.js';
 import { Alignment, aligns } from './constants.js';
+import { WrapperElmProps } from './utils.js';
 
 type IslandBaseBlockProps = {
   align?: Alignment;
@@ -25,10 +26,11 @@ type IslandContentBlocks = {
 
 export type IslandBlockProps = IslandBaseBlockProps &
   (IslandContentBlocks | IslandImageBlock) &
+  WrapperElmProps &
   SeenProp;
 
 export const IslandBlock = (props: IslandBlockProps) => {
-  const { align, content, shapes, image, startSeen } = props;
+  const { align, content, shapes, image, startSeen, wrapperProps } = props;
   const alignment = align && aligns[align] ? align : 'right';
 
   const blockProps = Array.isArray(content)
@@ -40,6 +42,7 @@ export const IslandBlock = (props: IslandBlockProps) => {
 
   return (
     <Block
+      wrapperProps={wrapperProps}
       bem="IslandBlock"
       modifier={'align--' + alignment}
       {...blockProps}

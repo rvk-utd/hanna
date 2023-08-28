@@ -6,6 +6,7 @@ import { BlingComboProps, Blings } from './_abstract/_Blings.js';
 import { Image, ImageProps } from './_abstract/_Image.js';
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import ShareButtons from './ShareButtons.js';
+import { WrapperElmProps } from './utils.js';
 
 type BlingOptions =
   | 'interesting'
@@ -90,17 +91,35 @@ export type NewsHeroProps = {
   sharing?: boolean | (() => JSX.Element);
   image?: ImageProps;
   blingType?: BlingOptions;
-} & SeenProp;
+} & WrapperElmProps &
+  SeenProp;
 
 export const NewsHero = (props: NewsHeroProps) => {
-  const { title, sharing = true, meta, summary, image, blingType, startSeen } = props;
+  const {
+    title,
+    sharing = true,
+    meta,
+    summary,
+    image,
+    blingType,
+    startSeen,
+    wrapperProps,
+  } = props;
   const [ref] = useSeenEffect(startSeen);
 
   const blings =
     (blingType && blingOptions[blingType]) || getStableRandomItem(blingOptions, title);
 
   return (
-    <div className={modifiedClass('NewsHero', [!image && 'align--right'])} ref={ref}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(
+        'NewsHero',
+        [!image && 'align--right'],
+        (wrapperProps || {}).className
+      )}
+      ref={ref}
+    >
       <div className="NewsHero__content">
         <h1 className="NewsHero__title">{title}</h1>
         {meta && <span className="NewsHero__meta">{meta}</span>}

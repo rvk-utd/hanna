@@ -12,6 +12,7 @@ import {
 } from './SearchResults/_SearchResultsItem.js';
 import Alert from './Alert.js';
 import Tabs, { TabItemProps } from './Tabs.js';
+import { WrapperElmProps } from './utils.js';
 
 const renderDefaultErrorText = () => (
   <>
@@ -234,17 +235,24 @@ export type SearchResultsProps = {
   loadMore?: () => void;
   texts?: SearchReesultI18n;
   lang?: string;
-};
+} & WrapperElmProps;
 
 // TODO: add plural translation thingy for result string
 export const SearchResults = (props: SearchResultsProps) => {
-  const { filters, activeFilterIdx, setFilter, status, errorText } = props;
+  const { filters, activeFilterIdx, setFilter, status, errorText, wrapperProps } = props;
   const texts = getTexts(props, defaultTexts);
 
   const domid = useDomid();
 
   return (
-    <div className={modifiedClass('SearchResults', status !== 'results' && status)}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(
+        'SearchResults',
+        status !== 'results' && status,
+        (wrapperProps || {}).className
+      )}
+    >
       {renderTitle(props, texts)}
 
       <SearchResults_Tabs

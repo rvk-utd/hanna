@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 import {
   DocMeta,
@@ -12,7 +13,7 @@ import {
 } from '@reykjavik/hanna-utils/shareButtonsUtils';
 
 import { Link } from './_abstract/_Link.js';
-import { SSRSupportProps } from './utils.js';
+import { SSRSupportProps, WrapperElmProps } from './utils.js';
 
 const generateTypeList = (
   facebook: boolean | undefined,
@@ -68,6 +69,7 @@ export type ShareButtonsProps = {
   texts?: Readonly<ShareButtonI18n>;
   lang?: string;
 } & SSRSupportProps &
+  WrapperElmProps<null, 'aria-label'> &
   Partial<Record<ShareButtonPlatforms, boolean>>;
 
 export const ShareButtons = (props: ShareButtonsProps) => {
@@ -80,6 +82,7 @@ export const ShareButtons = (props: ShareButtonsProps) => {
     twitter = true,
     linkedin,
     email,
+    wrapperProps,
   } = props;
 
   const [docMeta, setDocMeta] = useState<DocMeta>();
@@ -107,11 +110,14 @@ export const ShareButtons = (props: ShareButtonsProps) => {
 
   const { label, buttonLabel, emailSubject } = txt;
 
+  const className = modifiedClass('ShareButtons', null, (wrapperProps || {}).className);
+
   if (!docMeta || ssr === 'ssr-only') {
     // Generate SSR markup for hanna-sprinkles to pick up on.
     return (
       <div
-        className="ShareButtons"
+        {...wrapperProps}
+        className={className}
         data-button-types={generateTypeList(facebook, twitter, linkedin, email)}
         data-label={label}
         data-buttonlabel={buttonLabel}
@@ -128,7 +134,7 @@ export const ShareButtons = (props: ShareButtonsProps) => {
   };
 
   return (
-    <div className="ShareButtons" aria-label={label} data-sprinkled="true">
+    <div {...wrapperProps} className={className} aria-label={label} data-sprinkled="true">
       {label && <strong className="ShareButtons__label">{label}</strong>}
       <ul className="ShareButtons__list">
         {shareButtonTypes.map(

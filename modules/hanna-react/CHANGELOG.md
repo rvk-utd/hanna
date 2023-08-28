@@ -3,9 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- All `FormField` related components:
-  - feat: Add prop `wrapperProps` for passing props to the wrapper element
-  - feat: Deprecate prop, `wrapperRef` in favor of `wrapperProps.ref`
+- feat: Add prop `wrapperProps` to almost all components — excluding a few
+  low-level ones that already accept raw HTML props directly (e.g. most
+  button-like compoments).  
+  _(Exeptions: `BasicTable`, `Modal` and `CarouselStepper`. They'll also get a
+  `wrapperProps` prop in a near-future release.)_
+- feat: Deprecate prop, `wrapperRef` on all `FormField` related components
 
 ## 0.10.97 – 0.10.100
 

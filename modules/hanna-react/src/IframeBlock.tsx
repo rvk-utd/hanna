@@ -1,7 +1,11 @@
 import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
-import IframeResizer, { type ResizerOptions } from 'iframe-resizer-react';
+import IframeResizer, { IframeResizerProps, ResizerOptions } from 'iframe-resizer-react';
+
+import { HTMLProps } from './utils.js';
+
+type ForbiddenWrapperProps = 'scrolling' | 'height' | 'title' | 'src';
 
 export type IframeBlockProps = {
   src: string;
@@ -12,14 +16,17 @@ export type IframeBlockProps = {
   align?: 'right';
 } & EitherObj<
   {
+    /** Fixed height, no auto-resizing of the iframe  */
+    height: number;
+    scrolling?: boolean | 'no' | 'yes';
+    wrapperProps?: HTMLProps<'iframe', ForbiddenWrapperProps>;
+  },
+  {
     /** Default: `'auto'` ... which initializes "iframe-resizer" script */
     height?: 'auto';
     /** Default: `false` ... Set to `true` for same-site only, or provide array of allowed domain-names */
     checkOrigin?: ResizerOptions['checkOrigin'];
-  },
-  {
-    height: number;
-    scrolling?: boolean | 'no' | 'yes';
+    wrapperProps?: Omit<IframeResizerProps, ForbiddenWrapperProps>;
   }
 >;
 
@@ -31,42 +38,40 @@ export type IframeBlockProps = {
  * <script src="https://styles.reykjavik.is/assets/scripts/iframeResizer.contentWindow@4.js"></script>
  * ```
  */
-
 export const IframeBlock = (props: IframeBlockProps) => {
-  const {
-    title,
-    src,
-    framed,
-    compact,
-    scrolling,
-    height = 'auto',
-    align,
-    checkOrigin = false,
-  } = props;
+  const { title, src, framed, compact, align } = props;
 
-  const className = modifiedClass('IframeBlock', [
-    framed && 'framed',
-    compact && 'compact',
-    align === 'right' && 'align--' + align,
-  ]);
+  const className = modifiedClass(
+    'IframeBlock',
+    [framed && 'framed', compact && 'compact', align === 'right' && 'align--' + align],
+    (props.wrapperProps || {}).className
+  );
 
-  return height === 'auto' ? (
+  if (typeof props.height === 'number') {
+    const { wrapperProps, scrolling, height } = props;
+    return (
+      <iframe
+        {...wrapperProps}
+        className={className}
+        title={title}
+        src={src}
+        // hidden tiger: pass negative height to disable iframe-resizer but not set height explicitly
+        // (Silly hack, don't rely on this)
+        height={height < 0 ? undefined : height}
+        // allow undefined to suppress scrolling attribute
+        scrolling={scrolling === true ? 'yes' : scrolling === false ? 'no' : scrolling}
+      />
+    );
+  }
+
+  const { wrapperProps, checkOrigin = false } = props;
+  return (
     <IframeResizer
+      {...wrapperProps}
       className={className}
       title={title}
       src={src}
       checkOrigin={checkOrigin}
-    />
-  ) : (
-    <iframe
-      className={className}
-      title={title}
-      src={src}
-      // hidden tiger: pass negative height to disable iframe-resizer but not set height explicitly
-      // (Silly hack, don't rely on this)
-      height={height < 0 ? undefined : height}
-      // allow undefined to suppress scrolling attribute
-      scrolling={scrolling === true ? 'yes' : scrolling === false ? 'no' : scrolling}
     />
   );
 };

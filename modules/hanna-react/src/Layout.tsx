@@ -13,6 +13,7 @@ import {
   SSRSupportProps,
   useMenuToggling,
   useScrollbarWidthCSSVar,
+  WrapperElmProps,
 } from './utils.js';
 
 export type LayoutI18n = {
@@ -56,6 +57,7 @@ type LayoutProps = {
   texts?: LayoutI18n;
   lang?: string;
 } & SSRSupportProps &
+  WrapperElmProps &
   BemModifierProps &
   EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
 
@@ -71,6 +73,7 @@ export const Layout = (props: LayoutProps) => {
     children,
     siteName = '',
     logoLink = '/',
+    wrapperProps,
   } = props;
 
   const { isMenuActive, uiState, closeMenu, toggleMenu } = useMenuToggling(
@@ -81,7 +84,8 @@ export const Layout = (props: LayoutProps) => {
 
   return (
     <div
-      className={modifiedClass('Layout', props.modifier)}
+      {...wrapperProps}
+      className={modifiedClass('Layout', props.modifier, (wrapperProps || {}).className)}
       data-color-theme={colorTheme}
     >
       {globalAlerts && (

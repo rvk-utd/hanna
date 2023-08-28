@@ -1,20 +1,31 @@
 import React, { ReactNode } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { EffectProp, SeenProp } from './utils/seenEffect.js';
 import SeenEffect from './SeenEffect.js';
+import { WrapperElmProps } from './utils.js';
 
 export type CenterColumnProps = {
   children: ReactNode;
 } & SeenProp &
+  WrapperElmProps &
   EffectProp;
 
 export const CenterColumn = (props: CenterColumnProps) => {
-  const { children, startSeen, effectType } = props;
+  const { children, startSeen, effectType, wrapperProps } = props;
+  const className = modifiedClass('CenterColumn', null, (wrapperProps || {}).className);
 
   return startSeen == null ? (
-    <div className="CenterColumn">{children}</div>
+    <div {...wrapperProps} className={className}>
+      {children}
+    </div>
   ) : (
-    <SeenEffect className="CenterColumn" startSeen={startSeen} effectType={effectType}>
+    <SeenEffect
+      {...wrapperProps}
+      className={className}
+      startSeen={startSeen}
+      effectType={effectType}
+    >
       {children}
     </SeenEffect>
   );

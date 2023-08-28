@@ -2,6 +2,7 @@ import React, { CSSProperties, ReactElement, ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
+import { WrapperElmProps } from '../utils.js';
 import { BemModifierProps } from '../utils/types.js';
 
 import { Button } from './_Button.js';
@@ -65,7 +66,8 @@ type _CardListProps = EitherObj<ImageCardListProps, TextCardListProps> &
     bemPrefix: string;
     children?: ReactNode;
     standalone?: boolean;
-  } & BemModifierProps;
+  } & WrapperElmProps<'ul'> &
+  BemModifierProps;
 
 export const CardList = (props: _CardListProps) => {
   const {
@@ -77,6 +79,7 @@ export const CardList = (props: _CardListProps) => {
     titleTag = 'h2',
     children,
     imgPlaceholder,
+    wrapperProps,
   } = props;
 
   const TitleTag = titleTag;
@@ -99,8 +102,11 @@ export const CardList = (props: _CardListProps) => {
         title && <TitleTag className={bemPrefix + '__title'}>{title}</TitleTag>
       )}
       <ul
+        {...wrapperProps}
         className={
-          props.standalone ? modifiedClass(bemPrefix, modifier) : bemPrefix + '__list'
+          props.standalone
+            ? modifiedClass(bemPrefix, modifier, (wrapperProps || {}).className)
+            : bemPrefix + '__list'
         }
         style={fallbackImageStyle}
       >

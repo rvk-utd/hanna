@@ -1,6 +1,7 @@
 import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
+import { WrapperElmProps } from '../utils.js';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
 import { BemModifierProps } from '../utils/types.js';
 
@@ -23,15 +24,21 @@ export type ContentBlock = {
   image?: undefined;
 } & SeenProp;
 
-export type BlockProps = BemModifierProps & (ContentBlock | ContentImageBlock);
+export type BlockProps = (ContentBlock | ContentImageBlock) &
+  BemModifierProps &
+  WrapperElmProps;
 
 export const Block = (props: BlockProps & { bem: string }) => {
-  const { image, modifier, bem, content, startSeen } = props;
+  const { image, modifier, bem, content, startSeen, wrapperProps } = props;
   const [ref] = useSeenEffect(startSeen);
 
   const contentItems = Array.isArray(content) ? content : [content];
   return (
-    <div className={modifiedClass(bem, modifier)} ref={ref}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(bem, modifier, (wrapperProps || {}).className)}
+      ref={ref}
+    >
       {contentItems.map(({ title, summary, buttons = [] }, i) => {
         const hasSummary = summary && (typeof summary !== 'string' || !!summary.trim());
         return (

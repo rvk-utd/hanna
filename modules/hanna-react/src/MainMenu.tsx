@@ -19,7 +19,7 @@ import {
 } from './MainMenu/_PrimaryPanel.js';
 import { useHannaUIState } from './utils/HannaUIState.js';
 import { useFormatMonitor } from './utils/useFormatMonitor.js';
-import { SSRSupportProps, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>
   activeId ? megaPanels.find((panel) => activeId === panel.id) : undefined;
@@ -197,10 +197,17 @@ export type MainMenuProps = {
   activePanelId?: string;
   texts?: MainMenuI18n;
   lang?: string;
-} & SSRSupportProps;
+} & SSRSupportProps &
+  WrapperElmProps<null, 'aria-label'>;
 
 export const MainMenu = (props: MainMenuProps) => {
-  const { megaPanels = emptyPanelList, onItemClick, ssr, auxiliaryPanel } = props;
+  const {
+    megaPanels = emptyPanelList,
+    onItemClick,
+    ssr,
+    auxiliaryPanel,
+    wrapperProps = {},
+  } = props;
 
   const texts = getTexts(props, defaultMainMenuTexts);
   const title = props.title || texts.title;
@@ -209,7 +216,8 @@ export const MainMenu = (props: MainMenuProps) => {
 
   const isBrowser = useIsBrowserSide(ssr);
 
-  const menuElmRef = useRef<HTMLElement>(null);
+  const _menuElmRef = useRef<HTMLElement>(null);
+  const menuElmRef = wrapperProps.ref || _menuElmRef;
   const pressedLinkRef = useRef<HTMLButtonElement>(null);
   const activePanelRef = useRef<HTMLLIElement>(null);
 
@@ -325,7 +333,8 @@ export const MainMenu = (props: MainMenuProps) => {
 
   return (
     <nav
-      className="MainMenu"
+      {...props.wrapperProps}
+      className={modifiedClass('MainMenu', null, wrapperProps.className)}
       aria-label={title}
       data-sprinkled={isBrowser}
       ref={menuElmRef}

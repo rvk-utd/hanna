@@ -6,7 +6,7 @@ import { GalleryItem, GalleryItemProps } from './Gallery/_GalleryItem.js';
 import { GalleryModal } from './Gallery/_GalleryModal.js';
 import { GalleryModalContext } from './Gallery/_GalleryModalContext.js';
 import { SeenProp } from './utils/seenEffect.js';
-import { SSRSupportProps } from './utils.js';
+import { SSRSupportProps, WrapperElmProps } from './utils.js';
 
 export type { GalleryItemProps } from './Gallery/_GalleryItem.js';
 
@@ -36,6 +36,7 @@ export type GalleryProps = {
   texts?: GalleryI18n;
   lang?: string;
 } & SSRSupportProps &
+  WrapperElmProps &
   SeenProp;
 
 export const Gallery = (props: GalleryProps) => {
@@ -51,14 +52,13 @@ export const Gallery = (props: GalleryProps) => {
 
   return (
     <GalleryModalContext.Provider value={galleryState}>
-      value={{ items, setCurrentImage: setModalImage, currentImage: modalImage }}
-    >
       <AbstractCarousel
         bem="Gallery"
         items={items}
         Component={GalleryItem}
         ssr={ssr}
         startSeen={startSeen}
+        wrapperProps={props.wrapperProps}
       />
       <GalleryModal {...currentImage} texts={texts} />
     </GalleryModalContext.Provider>

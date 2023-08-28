@@ -4,6 +4,7 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
+import { WrapperElmProps } from './utils.js';
 
 const formatDate = (date: Date | string) => {
   return typeof date === 'string'
@@ -118,7 +119,7 @@ export type NameCardProps = {
   vacancy?: boolean;
   /** @deprecated Use `contactInfo` instead  (will be removed in v0.11) */
   tel?: string | Array<string>;
-};
+} & WrapperElmProps;
 
 export const NameCard = (props: NameCardProps) => {
   const {
@@ -128,6 +129,7 @@ export const NameCard = (props: NameCardProps) => {
     aboutText,
     available = props.vacancy, // eslint-disable-line deprecation/deprecation
     updated,
+    wrapperProps,
   } = props;
 
   const renderMeta = () => {
@@ -179,7 +181,10 @@ export const NameCard = (props: NameCardProps) => {
   );
 
   return (
-    <div className="NameCard">
+    <div
+      {...wrapperProps}
+      className={modifiedClass('NameCard', null, (wrapperProps || {}).className)}
+    >
       <div className="NameCard__name">{name}</div>
       {contactInfo.length > 0 && (
         <p className="NameCard__contactinfo">

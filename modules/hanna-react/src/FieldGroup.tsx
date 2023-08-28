@@ -1,19 +1,27 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
+import { WrapperElmProps } from './utils.js';
+
 export type FieldGroupProps = {
   legend: string;
   disabled?: boolean;
   small?: boolean;
   className?: string;
   children: ReactNode;
-};
+} & WrapperElmProps<'fieldset'>;
 
 export const FieldGroup = (props: FieldGroupProps) => {
-  const { legend, children, className, disabled, small } = props;
+  const { legend, children, className, disabled, small, wrapperProps } = props;
   return (
     <fieldset
-      className={modifiedClass('FieldGroup', small && 'small', className)}
+      {...wrapperProps}
+      className={modifiedClass(
+        'FieldGroup',
+        small && 'small',
+        // Prefer `className` over `wrapperProps.className`
+        className || (wrapperProps || {}).className
+      )}
       disabled={disabled}
     >
       <legend className="FieldGroup__legend">{legend}</legend>

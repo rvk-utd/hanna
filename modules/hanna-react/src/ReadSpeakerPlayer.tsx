@@ -82,7 +82,7 @@ export type ReadSpeakerPlayerProps = {
   float?: boolean;
 
   /** Custom HTML attributes for the wrapper element. */
-  wrapperProps?: HTMLProps<'div'>;
+  wrapperProps?: HTMLProps;
 };
 
 /**
@@ -99,7 +99,7 @@ export const ReadSpeakerPlayer = (props: ReadSpeakerPlayerProps) => {
     voice = /^is(?:_is)?$/i.test(lang) ? 'is_dora' : '',
     readId = '',
     readClass = readId ? '' : 'Layout__main',
-    wrapperProps = {},
+    wrapperProps,
     texts,
   } = props;
 
@@ -152,7 +152,7 @@ export const ReadSpeakerPlayer = (props: ReadSpeakerPlayerProps) => {
       className={modifiedClass(
         'ReadSpeakerPlayer',
         [align === 'right' && `align-${align}`, float && 'float'],
-        wrapperProps.className
+        (wrapperProps || {}).className
       )}
     >
       <div id="readspeaker_button1" className="rs_skip rsbtn rs_preserve">

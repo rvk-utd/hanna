@@ -6,6 +6,9 @@ import { ComponentLayoutProps } from './constants.js';
 export type FormProps = ComponentLayoutProps &
   React.FormHTMLAttributes<HTMLFormElement> & { children: ReactNode };
 
+// NOTE: As this component already accepts all `<form/>` props directly,
+// it makes little sense to add support for `wrapperProps` on top.
+
 export const Form = (props: FormProps) => {
   const { children, align, wide, className, ...formProps } = props;
 

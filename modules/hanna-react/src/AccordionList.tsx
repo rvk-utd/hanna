@@ -3,7 +3,12 @@ import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useDomid } from '@hugsmidjan/react/hooks';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
-import { SSRSupportProps, useIsBrowserSide, useMixedControlState } from './utils.js';
+import {
+  SSRSupportProps,
+  useIsBrowserSide,
+  useMixedControlState,
+  WrapperElmProps,
+} from './utils.js';
 
 // ---------------------------------------------------------------------------
 
@@ -74,11 +79,12 @@ export type AccordionListProps = {
   /** Index of those items that should start open (uncontrolled use) */
   defaultOpen?: Array<number>;
   wide?: boolean;
-} & SSRSupportProps &
+} & WrapperElmProps &
+  SSRSupportProps &
   SeenProp;
 
 export const AccordionList = (props: AccordionListProps) => {
-  const { items, ssr, wide, startSeen, defaultOpen } = props;
+  const { items, ssr, wide, startSeen, defaultOpen, wrapperProps } = props;
   const [ref] = useSeenEffect(startSeen);
   const [open, setOpenArray, mode] = useMixedControlState(props, 'open', []);
 
@@ -94,7 +100,15 @@ export const AccordionList = (props: AccordionListProps) => {
   };
 
   return (
-    <div className={modifiedClass('AccordionList', [wide && 'wide'])} ref={ref}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(
+        'AccordionList',
+        [wide && 'wide'],
+        (wrapperProps || {}).className
+      )}
+      ref={ref}
+    >
       {items.map((item, i) => (
         <AccordionListItem
           key={i}

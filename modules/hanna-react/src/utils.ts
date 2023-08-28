@@ -42,3 +42,11 @@ export type WrapperElmProps<
    */
   wrapperProps?: HTMLProps<TagName, ExcludeProps>;
 };
+
+export type MissingWrapperElmProps = {
+  /**
+   * This component does NOT allow `wrapperPRops` yet, but will do so
+   * in a near-future version of the `@reykjavik/hanna-react` library.
+   */
+  wrapperProps?: undefined;
+};

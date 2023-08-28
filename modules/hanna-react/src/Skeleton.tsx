@@ -1,6 +1,9 @@
 import React, { ReactElement } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import range from '@hugsmidjan/qj/range';
+import { EitherObj } from '@reykjavik/hanna-utils';
+
+import { WrapperElmProps } from './utils.js';
 
 /** Rounds the input number, caps it at max. If it's below min, returns undefined */
 const minmax = (num: number | undefined, max: number, min: number) => {
@@ -17,21 +20,26 @@ export type SkeletonProps = {
   text?: boolean;
   /* prettier-ignore */
   height?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
-  /* prettier-ignore */
-  items?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
-  gap?: 1 | 2 | 3 | 4 | 5;
-};
+} & EitherObj<
+  {
+    /* prettier-ignore */
+    items?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
+    gap?: 1 | 2 | 3 | 4 | 5;
+  },
+  WrapperElmProps
+>;
 
 export const Skeleton = (props: SkeletonProps) => {
   const height = minmax(props.height, 20, 2);
   const gap = minmax(props.gap, 5, 1);
   const items = minmax(props.items, 20, 2) || 1;
+  const { wrapperProps } = props;
 
-  const className = modifiedClass('Skeleton', [
-    props.text && 'text',
-    height && 'height--' + height,
-    gap && 'gap--' + gap,
-  ]);
+  const className = modifiedClass(
+    'Skeleton',
+    [props.text && 'text', height && 'height--' + height, gap && 'gap--' + gap],
+    (wrapperProps || {}).className
+  );
 
   if (items) {
     return (
@@ -42,7 +50,7 @@ export const Skeleton = (props: SkeletonProps) => {
       </>
     );
   }
-  return <span className={className} />;
+  return <span {...wrapperProps} className={className} />;
 };
 
 export default Skeleton;

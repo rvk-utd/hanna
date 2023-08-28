@@ -8,6 +8,9 @@ export type SiteSearchCurtainProps = {
   children: ReactNode;
 };
 
+// NOTE: This component is too low-level (and too esoteric and rarely used)
+// to justify `wrapperProps`
+
 export const SiteSearchCurtain = (props: SiteSearchCurtainProps) => {
   const [focused, setFocused] = useLaggedState(false);
 

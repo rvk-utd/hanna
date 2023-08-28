@@ -1,4 +1,5 @@
 import React, {
+  FocusEvent,
   MouseEvent,
   ReactNode,
   useCallback,
@@ -12,18 +13,33 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';
 import { isPreact } from './utils/env.js';
-import { SSRSupportProps, useIsBrowserSide } from './utils.js';
+import {
+  HTMLProps,
+  SSRSupportProps,
+  useIsBrowserSide,
+  WrapperElmProps,
+} from './utils.js';
 
 // FIXME: Eventually import from @reykjavik/hanna-css
 const AlertCloseTransitionDuration = 400;
 
-const useAutoClosing = (autoClose: number) => {
+const useAutoClosing = (autoClose: number, props: HTMLProps) => {
   const [temp, setTemp] = useState(0);
   if (!autoClose) {
     return { autoClosing: false };
   }
-  const thaw = () => setTemp((temp) => temp + 1);
-  const freeze = () => setTemp((temp) => temp - 1);
+  const thaw = (e: FocusEvent | MouseEvent) => {
+    setTemp((temp) => temp + 1);
+    const handler = props[e.type.startsWith('blur') ? 'onBlur' : 'onMouseLeave'];
+    // @ts-expect-error  (Proper fix ends up as too much code for this extreme edge case)
+    handler && handler(e);
+  };
+  const freeze = (e: FocusEvent | MouseEvent) => {
+    setTemp((temp) => temp - 1);
+    const handler = props[e.type.startsWith('focus') ? 'onFocus' : 'onMouseEnter'];
+    // @ts-expect-error  (Resolving ends up as too much code for this extreme edge case)
+    handler && handler(e);
+  };
 
   return {
     autoClosing: temp === 0,
@@ -33,8 +49,8 @@ const useAutoClosing = (autoClose: number) => {
       onFocus: freeze,
       onBlur: thaw,
       ...(isPreact && {
-        onfocusin: (e: FocusEvent) => e.currentTarget !== e.target && freeze(),
-        onfocusout: (e: FocusEvent) => e.currentTarget !== e.target && thaw(),
+        onfocusin: (e: FocusEvent) => e.currentTarget !== e.target && freeze(e),
+        onfocusout: (e: FocusEvent) => e.currentTarget !== e.target && thaw(e),
       }),
     },
   };
@@ -94,7 +110,8 @@ export type AlertProps = {
       /** Callback that fires after the alert has closed/transitoned out */
       onClosed?(): void;
     }
-  >;
+  > &
+  WrapperElmProps<null, 'role' | 'hidden'>;
 
 export const Alert = (props: AlertProps) => {
   const {
@@ -106,6 +123,7 @@ export const Alert = (props: AlertProps) => {
     closable = !!(onClose || closeUrl != null),
     ssr,
     onClosed,
+    wrapperProps,
   } = props;
   const autoClose = Math.max(props.autoClose || 0, 0);
 
@@ -140,7 +158,7 @@ export const Alert = (props: AlertProps) => {
     [onClose, onClosed]
   );
 
-  const { autoClosing, autoClosingProps } = useAutoClosing(autoClose);
+  const { autoClosing, autoClosingProps } = useAutoClosing(autoClose, props);
 
   useEffect(() => {
     if (autoClosing) {
@@ -163,10 +181,12 @@ export const Alert = (props: AlertProps) => {
 
   return (
     <div
-      className={modifiedClass('Alert', [
-        !!alertTypes[type] && type,
-        closable && 'closable',
-      ])}
+      {...wrapperProps}
+      className={modifiedClass(
+        'Alert',
+        [!!alertTypes[type] && type, closable && 'closable'],
+        (wrapperProps || {}).className
+      )}
       role="alert"
       hidden={!open || undefined}
       {...autoClosingProps}

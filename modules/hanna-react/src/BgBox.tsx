@@ -7,20 +7,28 @@ import {
   SeenProp,
   useSeenEffect,
 } from './utils/seenEffect.js';
+import { WrapperElmProps } from './utils.js';
 
 export type BgBoxProps = {
   className?: string;
   children: ReactNode;
-} & SeenProp &
+} & WrapperElmProps &
+  SeenProp &
   EffectProp;
 
 export const BgBox = (props: BgBoxProps) => {
-  const { className, children, effectType, startSeen } = props;
+  const { className, children, effectType, startSeen, wrapperProps } = props;
   const [ref] = useSeenEffect(startSeen);
 
   return (
     <div
-      className={modifiedClass('BgBox', undefined, className)}
+      {...wrapperProps}
+      className={modifiedClass(
+        'BgBox',
+        undefined,
+        // Prefer `className` over `wrapperProps.className`
+        className || (wrapperProps || {}).className
+      )}
       ref={ref}
       {...getEffectAttr(effectType)}
     >

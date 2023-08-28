@@ -15,7 +15,7 @@ import throttle from '@hugsmidjan/qj/throttle';
 import { EitherObj, notNully } from '@reykjavik/hanna-utils';
 
 import CarouselStepper from '../CarouselStepper.js';
-import { SSRSupportProps, useIsBrowserSide } from '../utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from '../utils.js';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
 import { BemProps } from '../utils/types.js';
 
@@ -60,6 +60,7 @@ export type CarouselProps<
       itemCount?: number;
     }
   > &
+  WrapperElmProps &
   SeenProp;
 
 type AbstractCarouselProps<
@@ -67,6 +68,7 @@ type AbstractCarouselProps<
   P extends Record<string, unknown> | undefined = Record<string, unknown>
 > = CarouselProps<I, P> & BemProps & { title?: string };
 
+// eslint-disable-next-line complexity
 export const AbstractCarousel = <
   I extends Record<string, unknown> = Record<string, unknown>,
   P extends Record<string, unknown> | undefined = Record<string, unknown>
@@ -82,6 +84,8 @@ export const AbstractCarousel = <
     modifier,
     ssr,
     startSeen,
+    className,
+    wrapperProps,
   } = props;
 
   const children = !props.children
@@ -186,7 +190,13 @@ export const AbstractCarousel = <
 
   return (
     <div
-      className={modifiedClass(bem, modifier, props.className)}
+      {...wrapperProps}
+      className={modifiedClass(
+        bem,
+        modifier,
+        // Prefer `className` over `wrapperProps.className`
+        className || (wrapperProps || {}).className
+      )}
       ref={outerRef}
       data-sprinkled={isBrowser}
     >

@@ -5,12 +5,14 @@ import TableWrapper from '@hugsmidjan/react/TableWrapper';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { MissingWrapperElmProps } from './utils.js';
 
 export type BasicTableProps = {
   compact?: boolean;
   type?: 'text' | 'number';
   modifier?: string;
 } & EitherObj<{ fullWidth?: boolean }, { align?: 'right' }> &
+  MissingWrapperElmProps &
   SeenProp &
   Omit<TableProps, 'className' | 'children'>;
 

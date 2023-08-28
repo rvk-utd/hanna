@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import ArticleMeta, { ArticleMetaProps } from './ArticleMeta.js';
@@ -6,6 +7,7 @@ import ContentImage, { ContentImageProps } from './ContentImage.js';
 import Heading from './Heading.js';
 import RelatedLinks, { RelatedLinksProps } from './RelatedLinks.js';
 import TextBlock from './TextBlock.js';
+import { WrapperElmProps } from './utils.js';
 import VSpacer from './VSpacer.js';
 
 export type ContentArticleProps = {
@@ -16,10 +18,11 @@ export type ContentArticleProps = {
   topImage?: ContentImageProps;
   body: ReactNode;
   relatedLinks?: RelatedLinksProps;
-} & SeenProp;
+} & SeenProp &
+  WrapperElmProps;
 
 export const ContentArticle = (props: ContentArticleProps) => {
-  const { relatedLinks } = props;
+  const { relatedLinks, wrapperProps } = props;
   const [ref] = useSeenEffect(props.startSeen);
 
   const headingElm = (
@@ -27,7 +30,11 @@ export const ContentArticle = (props: ContentArticleProps) => {
   );
 
   return (
-    <div className="ContentArticle" ref={ref}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass('ContentArticle', null, (wrapperProps || {}).className)}
+      ref={ref}
+    >
       {props.meta ? (
         <div className="ContentArticle__header">
           {headingElm}

@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
 import { Image } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
-import { SSRSupportProps, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 type WizardLayoutProps = {
   wizardStepper?: ReactNode | false;
@@ -15,7 +16,8 @@ type WizardLayoutProps = {
   logoLink?: string;
   globalAlerts?: ReactNode;
   children?: ReactNode;
-} & SSRSupportProps;
+} & SSRSupportProps &
+  WrapperElmProps;
 
 export const WizardLayout = (props: WizardLayoutProps) => {
   useScrollbarWidthCSSVar();
@@ -28,13 +30,15 @@ export const WizardLayout = (props: WizardLayoutProps) => {
     logoLink = '/',
     siteName = '',
     globalAlerts,
+    wrapperProps,
   } = props;
 
   const isBrowser = useIsBrowserSide(/* ssr */);
 
   return (
     <div
-      className="WizardLayout"
+      {...wrapperProps}
+      className={modifiedClass('WizardLayout', null, (wrapperProps || {}).className)}
       data-sprinkled={isBrowser}
       data-color-theme={colorTheme}
     >

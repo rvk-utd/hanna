@@ -6,6 +6,7 @@ import { Block, BlockItem } from './_abstract/_Block.js';
 import { ImageProps } from './_abstract/_Image.js';
 import { SeenProp } from './utils/seenEffect.js';
 import { Alignment, aligns } from './constants.js';
+import { WrapperElmProps } from './utils.js';
 
 const types = {
   largebox: true,
@@ -17,6 +18,7 @@ export type CityBlockProps = {
   type?: keyof typeof types;
   content: BlockItem;
 } & EitherObj<{ illustration: Illustration }, { image: ImageProps }> &
+  WrapperElmProps &
   SeenProp;
 
 export const CityBlock = (props: CityBlockProps) => {
@@ -34,6 +36,7 @@ export const CityBlock = (props: CityBlockProps) => {
       modifier={modifier}
       content={props.content}
       image={imageProps}
+      wrapperProps={props.wrapperProps}
       startSeen={props.startSeen}
     />
   );

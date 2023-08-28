@@ -8,6 +8,7 @@ import {
   ImageCardProps as _ImageCardProps,
 } from './_abstract/_CardList.js';
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { WrapperElmProps } from './utils.js';
 
 export type ImageCardsItemProps = _ImageCardProps;
 
@@ -15,14 +16,23 @@ export type ImageCardsItemProps = _ImageCardProps;
 export type ImageCardProps = ImageCardsItemProps;
 
 export type ImageCardsProps = ImageCardListProps &
-  CardListSummaryProps & { background?: boolean } & SeenProp;
+  CardListSummaryProps & { background?: boolean } & WrapperElmProps &
+  SeenProp;
 
 export const ImageCards = (props: ImageCardsProps) => {
-  const { background, startSeen, ...cardListProps } = props;
+  const { background, startSeen, wrapperProps, ...cardListProps } = props;
   const [ref] = useSeenEffect(startSeen);
 
   return (
-    <div className={modifiedClass('ImageCards', background && 'background')} ref={ref}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(
+        'ImageCards',
+        background && 'background',
+        (wrapperProps || {}).className
+      )}
+      ref={ref}
+    >
       <CardList
         {...cardListProps}
         bemPrefix="ImageCards"

@@ -7,6 +7,7 @@ import { Image, ImageProps } from './_abstract/_Image.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
 import ButtonTertiary from './ButtonTertiary.js';
 import { Alignment, aligns } from './constants.js';
+import { WrapperElmProps } from './utils.js';
 
 type BlingOptions = 'waves' | 'sunny-waves' | 'triangles' | 'circles';
 
@@ -81,7 +82,7 @@ export type InfoHeroProps = {
   align?: Alignment;
   image?: ImageProps;
   blingType?: BlingOptions;
-};
+} & WrapperElmProps;
 
 export const InfoHero = (props: InfoHeroProps) => {
   const {
@@ -94,6 +95,7 @@ export const InfoHero = (props: InfoHeroProps) => {
     footer,
     align,
     blingType,
+    wrapperProps,
   } = props;
   const showButtons = Boolean(buttons.length);
 
@@ -103,7 +105,14 @@ export const InfoHero = (props: InfoHeroProps) => {
     blingOptions.waves; // default to `waves`
 
   return (
-    <div className={modifiedClass('InfoHero', 'align--' + alignment)}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(
+        'InfoHero',
+        'align--' + alignment,
+        (wrapperProps || {}).className
+      )}
+    >
       <div className="InfoHero__content">
         <h1 className="InfoHero__title">{title}</h1>
         {titleBlurb && <div className="InfoHero__titleblurb">{titleBlurb}</div>}

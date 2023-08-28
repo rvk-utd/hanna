@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
-import { SSRSupportProps, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 export type ContactBubbleI18n = {
   lang?: string;
@@ -88,6 +88,7 @@ export type ContactBubbleProps = {
   texts?: ContactBubbleI18n;
   lang?: string;
 } & SSRSupportProps &
+  WrapperElmProps &
   (
     | {
         open?: boolean;
@@ -100,7 +101,7 @@ export type ContactBubbleProps = {
   );
 
 export const ContactBubble = (props: ContactBubbleProps) => {
-  const { title, links, onToggle, alwaysShow } = props;
+  const { title, links, onToggle, alwaysShow, wrapperProps = {} } = props;
   const txt = getTexts(props, defaultTexts);
 
   const useLocalState = props.open == null;
@@ -110,7 +111,8 @@ export const ContactBubble = (props: ContactBubbleProps) => {
 
   const isBrowser = useIsBrowserSide(props.ssr);
   const domid = useDomid();
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const _wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = wrapperProps.ref || _wrapperRef;
 
   const { openBubble, closeBubble } = useMemo(
     () => ({
@@ -200,7 +202,8 @@ export const ContactBubble = (props: ContactBubbleProps) => {
 
   const menu = (
     <div
-      className="ContactBubble"
+      {...props.wrapperProps}
+      className={modifiedClass('ContactBubble', null, wrapperProps.className)}
       id={isBrowser && domid}
       hidden={isBrowser && !open}
       data-always-show={alwaysShow || undefined}

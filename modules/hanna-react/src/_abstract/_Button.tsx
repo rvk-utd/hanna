@@ -74,6 +74,9 @@ type _ButtonProps = ButtonProps &
   ButtonVariantProps &
   BemProps & { children?: ReactNode };
 
+// NOTE: As this component already accepts all `<button/>` and `<a/>` props
+// directly, it makes little sense to add support for `wrapperProps` on top.
+
 export const Button = (props: _ButtonProps) => {
   const {
     bem,
