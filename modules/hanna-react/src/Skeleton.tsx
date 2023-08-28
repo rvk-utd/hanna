@@ -2,22 +2,13 @@ import React, { ReactElement } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import range from '@hugsmidjan/qj/range';
 
-const makeRenderSkeleton =
-  (props: { height?: number; text?: boolean; gap?: number }) => (key?: number) =>
-    (
-      <span
-        key={key}
-        className={modifiedClass('Skeleton', [
-          props.text && 'text',
-          props.height && 'height--' + props.height,
-          props.gap && 'gap--' + props.gap,
-        ])}
-      />
-    );
-
-const minmax = (num = 0, max = 100, min = 1) => {
-  num = Math.min(Math.max(Math.round(num), min), max);
-  return num > min ? num : undefined;
+/** Rounds the input number, caps it at max. If it's below min, returns undefined */
+const minmax = (num: number | undefined, max: number, min: number) => {
+  if (num == null || isNaN(num)) {
+    return;
+  }
+  num = Math.round(num);
+  return num > max ? max : num >= min ? num : undefined;
 };
 
 // ---------------------------------------------------------------------------
@@ -32,19 +23,26 @@ export type SkeletonProps = {
 };
 
 export const Skeleton = (props: SkeletonProps) => {
-  const height = minmax(props.height, 40);
+  const height = minmax(props.height, 20, 2);
+  const gap = minmax(props.gap, 5, 1);
+  const items = minmax(props.items, 20, 2) || 1;
 
-  const renderSkeleton = makeRenderSkeleton({
-    height,
-    text: props.text,
-    gap: minmax(props.gap, 5, 0),
-  });
+  const className = modifiedClass('Skeleton', [
+    props.text && 'text',
+    height && 'height--' + height,
+    gap && 'gap--' + gap,
+  ]);
 
-  const items = minmax(props.items, 20) || 1;
-  if (items > 1) {
-    return <>{range(1, items).map(renderSkeleton)}</>;
+  if (items) {
+    return (
+      <>
+        {range(1, items).map((key) => (
+          <span key={key} className={className} />
+        ))}
+      </>
+    );
   }
-  return renderSkeleton();
+  return <span className={className} />;
 };
 
 export default Skeleton;
