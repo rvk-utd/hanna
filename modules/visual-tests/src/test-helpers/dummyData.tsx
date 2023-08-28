@@ -101,4 +101,4 @@ export const efnistakn = [
   'tonlist_02',
   'tonlist_03',
 ] as const;
-export type Efnistakn = typeof efnistakn[number];
+export type Efnistakn = (typeof efnistakn)[number];

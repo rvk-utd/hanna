@@ -2,8 +2,8 @@
 import 'focus-visible';
 
 import React, { useEffect } from 'react';
-import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
 import { themeOptions } from '@reykjavik/hanna-react/constants';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import { select } from '@storybook/addon-knobs';
