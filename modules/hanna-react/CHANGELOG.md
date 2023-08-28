@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add props `wrapperProps` to `CarouselStepper`
 
 ## 0.10.101
 
