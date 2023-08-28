@@ -1,5 +1,4 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
@@ -59,8 +58,9 @@ export const ArticleCarouselCard = (
       <Link className="ArticleCarouselCard__link" href={href} target={target}>
         {' '}
         <Image
+          bem="ArticleCarouselCard__illustration"
+          modifier={photo && 'photo'}
           placeholder
-          className={modifiedClass('ArticleCarouselCard__illustration', photo && 'photo')}
           {...imageProps}
         />
         <h3 className="ArticleCarouselCard__title">{title}</h3>{' '}

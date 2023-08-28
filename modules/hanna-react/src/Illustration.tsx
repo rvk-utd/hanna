@@ -12,7 +12,7 @@ type IllustrationProps = EitherObj<{ type: IllustrationName }, { image: ImagePro
 export const Illustration = (props: IllustrationProps) => {
   const imgProps = props.type ? { src: getIllustrationUrl(props.type) } : props.image;
 
-  return <Image className="Illustration" {...imgProps} />;
+  return <Image bem="Illustration" {...imgProps} />;
 };
 
 export default Illustration;

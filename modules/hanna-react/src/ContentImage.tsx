@@ -19,7 +19,7 @@ export const ContentImage = (props: ContentImageProps) => {
           {credit && <small className="ContentImage__credit"> {credit} </small>}
         </figcaption>
       )}
-      <Image className="ContentImage__image" {...image} />
+      <Image bem="ContentImage__image" {...image} />
     </figure>
   );
 };

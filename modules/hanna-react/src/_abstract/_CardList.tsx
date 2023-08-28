@@ -33,7 +33,7 @@ const Card = (props: EitherObj<ImageCardProps, TextCardProps> & Bem) => {
       <Button bem={cardClass} href={href} target={target}>
         {' '}
         {!!(image || imgPlaceholder) && (
-          <Image className={`${bem}__image`} {...image} placeholder={imgPlaceholder} />
+          <Image bem={`${bem}__image`} {...image} placeholder={imgPlaceholder} />
         )}
         <span className={`${cardClass}__title`}>{title}</span>{' '}
         {meta && <span className={`${cardClass}__meta`}>{meta}</span>}{' '}

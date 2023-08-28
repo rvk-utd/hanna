@@ -36,7 +36,7 @@ export const HeroBlock = (props: HeroBlockProps) => {
   return (
     <div className="HeroBlock" ref={ref}>
       <h1 className="HeroBlock__title">{title}</h1>
-      <Image className="HeroBlock__image" {...imgProps} />
+      <Image bem="HeroBlock__image" {...imgProps} />
       <div className="HeroBlock__summary">{summary}</div>
       {hasButtons && (
         <div className="HeroBlock__buttons">

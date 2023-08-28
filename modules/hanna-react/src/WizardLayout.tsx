@@ -48,7 +48,7 @@ export const WizardLayout = (props: WizardLayoutProps) => {
           <Link className="WizardLayout__header__logo" href={logoLink}>
             {' '}
             <Image
-              className={undefined}
+              bem={undefined}
               inline={true}
               src={getAssetUrl('reykjavik-logo.svg')}
               altText="Reykjavík"

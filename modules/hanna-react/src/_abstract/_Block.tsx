@@ -51,7 +51,7 @@ export const Block = (props: BlockProps & { bem: string }) => {
           </div>
         );
       })}
-      {image && <Image className={`${bem}__image`} {...image} />}
+      {image && <Image bem={`${bem}__image`} {...image} />}
     </div>
   );
 };

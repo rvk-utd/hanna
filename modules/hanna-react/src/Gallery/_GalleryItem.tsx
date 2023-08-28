@@ -30,10 +30,10 @@ export const GalleryItem = (props: GalleryItemProps) => {
           }}
         >
           {' '}
-          <Image className="GalleryItem__image" {...image} />{' '}
+          <Image bem="GalleryItem__image" {...image} />{' '}
         </Button>
       ) : (
-        <Image className="GalleryItem__image" {...image} />
+        <Image bem="GalleryItem__image" {...image} />
       )}
       {description && <div className="GalleryItem__description">{description}</div>}
     </figure>

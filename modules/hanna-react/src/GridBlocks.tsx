@@ -39,7 +39,7 @@ export const GridBlocks = (props: GridBlocksProps) => {
         const imageProps = icon ? { src: getEfnistaknUrl(icon) } : image;
         return (
           <div key={i} className="GridBlocks__item">
-            {imageProps && <Image className="GridBlocks__illustration" {...imageProps} />}
+            {imageProps && <Image bem="GridBlocks__illustration" {...imageProps} />}
             <div className="GridBlocks__textwrap">
               <h3 className="GridBlocks__item__title">
                 {href != null ? (

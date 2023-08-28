@@ -107,11 +107,7 @@ export const NewsHero = (props: NewsHeroProps) => {
         <div className="NewsHero__summary">{summary}</div>
         {sharing === true ? <ShareButtons /> : sharing && sharing()}
       </div>
-      {image ? (
-        <Image className="NewsHero__image" {...image} />
-      ) : (
-        <Blings blings={blings} />
-      )}
+      {image ? <Image bem="NewsHero__image" {...image} /> : <Blings blings={blings} />}
     </div>
   );
 };

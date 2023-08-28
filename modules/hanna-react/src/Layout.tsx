@@ -94,7 +94,7 @@ export const Layout = (props: LayoutProps) => {
           <Link className="Layout__header__logo" href={logoLink}>
             {' '}
             <Image
-              className={undefined}
+              bem={undefined}
               inline={true}
               src={getAssetUrl('reykjavik-logo.svg')}
               altText="Reykjavík"

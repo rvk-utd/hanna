@@ -120,7 +120,7 @@ export const InfoHero = (props: InfoHeroProps) => {
         )}
         {footer && <div className="InfoHero__footer">{footer}</div>}
       </div>
-      <Image className="InfoHero__image" altText={title} {...image} placeholder />
+      <Image bem="InfoHero__image" altText={title} {...image} placeholder />
       <Blings blings={blings} mirror={alignment === 'right'} />
     </div>
   );
