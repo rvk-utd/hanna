@@ -13,7 +13,7 @@ const tp = TagPillVariables.vars;
 
 /*
   Markup OUTLINE:
-  .FormField(--*).MultiSelect(--nowrap)
+  .FormField(--*).Multiselect(--nowrap)
     .FormField__label
     .FormField__input.Multiselect__input(--open)
         .Multiselect__choices

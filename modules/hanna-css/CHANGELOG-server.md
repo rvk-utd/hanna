@@ -16,7 +16,7 @@ _2023-09-01_
 - feat: Add CSS variables `--space-10` and `--space-10--neg`
 - feat: Make `--grid-margin--neg` inherit from `--grid-margin`
 - feat: Reduce `--small` min-width of `ButtonPrimary` and `ButtonSecondary`
-- fix: `MultiSelect` overflow and space-contraint styling
+- fix: `Multiselect` overflow and space-contraint styling
 - fix: Tweak overflow styling of `Selectbox`
 
 ## 0.8.79

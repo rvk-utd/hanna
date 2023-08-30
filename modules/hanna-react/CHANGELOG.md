@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add props `wrapperProps` to `CarouselStepper`
+- fix: Export type `MultiselectOption`, deprecate `MultiSelectOption`
 
 ## 0.10.101
 
