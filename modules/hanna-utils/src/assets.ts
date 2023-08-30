@@ -363,7 +363,8 @@ export type BlingType = (typeof blingTypes)[number];
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#misc-style-server-assets
  */
-export const getAssetUrl = (file: string): string => styleServerUrl + '/assets/' + file;
+export const getAssetUrl = (filePath: string): string =>
+  styleServerUrl + '/assets/' + filePath;
 
 type IllustrationVariant = 'thumb';
 

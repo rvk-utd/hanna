@@ -205,6 +205,8 @@ focusElement('.TextBlock a');
 
 ### Favicons
 
+**Syntax:** `getFavicon(faviconFile: Favicon): string`
+
 Helper to generate URLs for various types of "favicons" or "webmanifest
 icons", etc...
 
@@ -218,6 +220,9 @@ The function is typed to provide auto-completion of all the available icon
 types.
 
 ### Illustrations
+
+**Syntax:**
+`getIllustrationUrl(illustration: Illustration, variant?: IllustrationVariant): string`
 
 Utilities to work with the
 [Illustrations](https://styles.reykjavik.is/assets/illustrations) on the asset
@@ -238,6 +243,8 @@ const thumbnailUrl = getIllustrationUrl(assetName, 'thumb');
 
 ### Efnistákn Icons
 
+**Syntax:** `getEfnistaknUrl(icon: Efnistakn): string`
+
 Utilities to work with the
 [Efnistákn icons](https://styles.reykjavik.is/assets/efnistakn) on the asset
 server.
@@ -255,6 +262,8 @@ const url = getEfnistaknUrl(assetName);
 ```
 
 ### Formheimur Shapes
+
+**Syntax:** `getFormheimurUrl(shape: Formheimur): string`
 
 Utilities to work with the
 [Formheimur shapes](https://styles.reykjavik.is/assets/formheimur) on the
@@ -274,6 +283,8 @@ const url = getFormheimurUrl(assetName);
 
 ### Bling Shapes
 
+**Syntax:** `getBlingUrl(blingType: BlingType): string`
+
 Utilities to work with the
 [Bling shapes](https://styles.reykjavik.is/assets/bling) on the asset server.
 
@@ -290,6 +301,8 @@ const url = getBlingUrl(blingName);
 ```
 
 ### Misc. Style Server Assets
+
+**Syntax:** `getAssetUrl(filePath: string): string`
 
 Helper to generate a URL to arbitrary asset on on the style server.
 
