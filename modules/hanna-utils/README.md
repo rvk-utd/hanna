@@ -21,6 +21,7 @@ yarn add @reykjavik/hanna-utils
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
 - [Asset helpers](#asset-helpers)
+  - [Reykjavík Logo](#reykjavík-logo)
   - [Favicons](#favicons)
   - [Illustrations](#illustrations)
   - [Efnistákn Icons](#efnistákn-icons)
@@ -202,6 +203,22 @@ focusElement('.TextBlock a');
 -->
 
 ## Asset helpers
+
+### Reykjavík Logo
+
+**Syntax:** `getRvkLogoUrl(blingType: BlingType): string`
+
+Helper to generate URLs to Reyjavík's official coat of arms (or "logo"), with
+and without the text.
+
+```ts
+import { getRvkLogoUrl } from '@reykjavik/hanna-utils/assets';
+
+const defaultLogoSVG = getRvkLogoUrl(); // default is 'reykjavik-logo.svg'
+const defaultLogoPNG = getRvkLogoUrl('reykjavik-logo.png'); // PNG version
+const notextLogoSVG = getRvkLogoUrl('reykjavik-logo-notext.svg');
+// etc...
+```
 
 ### Favicons
 
