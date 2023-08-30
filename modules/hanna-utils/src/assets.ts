@@ -365,13 +365,20 @@ export type BlingType = (typeof blingTypes)[number];
  */
 export const getAssetUrl = (file: string): string => styleServerUrl + '/assets/' + file;
 
+type IllustrationVariant = 'thumb';
+
 /**
  * Generates a URL to a Hanna "Illustration" on the style server.
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#illustrations
  */
-export const getIllustrationUrl = (illustration: Illustration): string =>
-  getAssetUrl('illustrations/' + illustration + '.png');
+export const getIllustrationUrl = (
+  illustration: Illustration,
+  variant?: IllustrationVariant
+): string => {
+  const subFolder = variant === 'thumb' ? 'thumb/' : '';
+  return getAssetUrl('illustrations/' + subFolder + illustration + '.png');
+};
 
 /**
  * Generates a URL to a Hanna "Efnistákn" icon on the style server.

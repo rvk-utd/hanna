@@ -233,6 +233,7 @@ import {
 const assetName: Illustration = illustrations[0];
 
 const url = getIllustrationUrl(assetName);
+const thumbnailUrl = getIllustrationUrl(assetName, 'thumb');
 ```
 
 ### Efnistákn Icons

@@ -12,7 +12,7 @@ import {
   getBlingUrl,
   getEfnistaknUrl,
   getFormheimurUrl,
-  getIllustrationUrl,
+  getIllustrationUrl as _getIllustrationUrl,
   illustrations,
 } from '@reykjavik/hanna-utils/assets';
 
@@ -26,6 +26,10 @@ export type {
   /** @deprecated  Instead `import type { Illustration } from '@reykjavik/hanna-utils/assets';` (Will be removed in v0.11) */
   Illustration,
 };
+
+// Stubbornly prevent updated signature bleeding through.
+const getIllustrationUrl = (illustration: Illustration): string =>
+  _getIllustrationUrl(illustration);
 
 export {
   /** @deprecated  Instead `import type { blingTypes } from '@reykjavik/hanna-utils/assets';` (Will be removed in v0.11) */

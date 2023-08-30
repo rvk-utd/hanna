@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add optional parameter `variant` to `getIllustrationUrl`
 - feat: Add utility types `OmitDistributive`, `PickDistributive`,
   `RequireExplicitUndefined`
 
