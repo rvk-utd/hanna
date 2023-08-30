@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `/assets/reykjavik-logo-notext.png` — along with `--small` (x0.5)
+  and `--large` (x2) variants
 - fix: Improve `InfoHero` styling in `phablet` viewport mode
 
 ## 0.8.80
@@ -307,8 +309,8 @@ _2022-03-31_
 
 _2022-03-28_
 
-- feat: Add `/assets/reykjavik-logo.png` — with `--small` (x0.5) and `--large`
-  (x2) variants
+- feat: Add `/assets/reykjavik-logo.png` — along with `--small` (x0.5) and
+  `--large` (x2) variants
 - feat: Add styling for `.Tabs--vertical`
 - feat: Add experimental styling for `.Skeleton`
 
