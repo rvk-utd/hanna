@@ -13,10 +13,10 @@ export const envVars = /*@__PURE__*/ buildVariables([
 /** CSS variables with pixel value `min-witdh`s of the Hanna responsive
  * breakpoints.
  *
- * BTW: `bp_w_phone` is the **minimum** supported width, although the
+ * BTW: `bp_w_phone` is the __minimum__ supported width, although the
  * "phone" format technically doesn't have a lower limit.
  *
- * BTW 2: `bp_w_Hamburger` is the **upper** limit of where the Hamburger
+ * BTW 2: `bp_w_Hamburger` is the __upper__ limit of where the Hamburger
  * menu turns into a Topmenu
  */
 export const breakpointVars = /*@__PURE__*/ buildVariables([

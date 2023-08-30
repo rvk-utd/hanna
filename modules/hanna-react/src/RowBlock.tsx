@@ -8,7 +8,7 @@ import { WrapperElmProps } from './utils.js';
 export type RowBlockProps = {
   /** Float the first RowBlockColumn to the right on larger screens. */
   right?: boolean;
-  /** Custom **additional** class-name */
+  /** Custom __additional__ class-name */
   className?: string;
   children: ReactNode;
 } & BemModifierProps &

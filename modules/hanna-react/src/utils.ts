@@ -11,7 +11,7 @@ export * from './utils/useMixedControlState.js';
 export * from './utils/useScrollbarWidthCSSVar.js';
 
 /**
- * Helper type to add HTML element props to a component, **including**
+ * Helper type to add HTML element props to a component, __including__
  * `data-*` attributes.
  */
 export type HTMLProps<
@@ -35,7 +35,7 @@ export type WrapperElmProps<
    * Note, however, that some props may be intentionally
    * excluded from the list.
    *
-   * **WARNING**
+   * __WARNING:__
    * In some cases props added this way can break the component, og hurt its
    * accessibility.  Also, some props may get ignored, or over-ridden by the
    * component. User discretion is advised.

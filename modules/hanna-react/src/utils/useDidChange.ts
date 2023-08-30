@@ -31,7 +31,7 @@ import { useRef } from 'react';
  * }
  * ```
  *
- * **NOTE:** This hook should be handled with care, as its overuse can easily lead
+ * __NOTE:__ This hook should be handled with care, as its overuse can easily lead
  * to poorly structured and buggy component behavior.
  */
 export const useDidChange = <T>(value: T): { lastValue: T } | undefined => {

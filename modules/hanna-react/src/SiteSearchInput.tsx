@@ -16,13 +16,13 @@ export type SiteSearchInputProps = Pick<
 > & {
   /** Triggered when user hits ENTER key with the focus inside the input field
    *
-   * Return `true` to **allow** the browser's default submit hehavior
+   * Return `true` to __allow__ the browser's default submit hehavior
    */
   onSubmit?: () => boolean | void;
 
   /** Custom action to perform when the user clicks the search button
    *
-   * Return `true` to **allow** the browser's default submit hehavior
+   * Return `true` to __allow__ the browser's default submit hehavior
    *
    * Defaults to `onSearch`
    */

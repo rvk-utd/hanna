@@ -79,7 +79,7 @@ export type ContactBubbleProps = {
    * is scrolled to near the top or the bottom.
    *
    * This means that on short pages (with hardly any scrolling)
-   * the ContactBubble **always** hidden.
+   * the ContactBubble __always__ hidden.
    *
    * Set this prop to `true` if you want to disable this
    * magic and always show the bubble toggler

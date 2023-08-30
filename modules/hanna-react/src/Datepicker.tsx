@@ -206,7 +206,7 @@ export const Datepicker = (props: DatepickerProps) => {
               locale={localeCode}
               dateFormat={
                 // NOTE: Force all dateFormat values into Array<string> to temporarily work around
-                // a bug in the current version of react-datepicker where invalid **string** values
+                // a bug in the current version of react-datepicker where invalid `string` values
                 // are re-parsed with `new Date()`, causing surprising (weird) false positives
                 // AND where Arrayed formats get parsed in order of "increasing priority".
                 //
