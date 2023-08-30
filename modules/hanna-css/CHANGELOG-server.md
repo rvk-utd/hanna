@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Improve `InfoHero` styling in `phablet` viewport mode
 
 ## 0.8.80
 
