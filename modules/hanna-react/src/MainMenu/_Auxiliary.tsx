@@ -1,9 +1,11 @@
 import React, { CSSProperties } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { OmitDistributive } from '@reykjavik/hanna-utils';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 
 import { Link } from '../_abstract/_Link.js';
 
-import { MegaMenuPanel } from './_PrimaryPanel.js';
+import { MegaMenuItem, MegaMenuPanel } from './_PrimaryPanel.js';
 
 // ---------------------------------------------------------------------------
 
@@ -18,7 +20,8 @@ export type AuxilaryPanelIllustration =
   | 'hanna-gjuggiborg'
   | 'hanna-benda';
 
-export type AuxiliaryPanelProps = MegaMenuPanel & {
+export type AuxiliaryPanelProps = Omit<MegaMenuPanel, 'items'> & {
+  items: Array<OmitDistributive<MegaMenuItem, 'summary'>>;
   image?: AuxilaryPanelIllustration;
 };
 
@@ -40,17 +43,21 @@ export const AuxiliaryPanel = (props: AuxiliaryPanelProps) => {
         {items.map((item, i) => (
           <li
             key={i}
-            className="AuxiliaryPanel__item"
+            className={modifiedClass('AuxiliaryPanel__item', item.modifier)}
             aria-current={item.current || undefined}
           >
-            <Link
-              className="AuxiliaryPanel__link"
-              href={item.href}
-              target={item.target}
-              lang={item.lang}
-            >
-              {item.label}
-            </Link>
+            {item.Content ? (
+              <item.Content />
+            ) : (
+              <Link
+                className="AuxiliaryPanel__link"
+                href={item.href}
+                target={item.target}
+                lang={item.lang}
+              >
+                {item.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

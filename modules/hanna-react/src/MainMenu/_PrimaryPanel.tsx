@@ -1,5 +1,7 @@
 import React, { RefObject } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { Modifiers } from '@hugsmidjan/react/types';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { Link } from '../_abstract/_Link.js';
 
@@ -9,17 +11,27 @@ export type PrimaryPanelI18n = {
 };
 
 export type MegaMenuItem = {
-  label: string;
-  summary?: string;
-  href: string;
-  lang?: string;
   current?: boolean;
-  target?: React.HTMLAttributeAnchorTarget;
-};
+  /** Puts a modifier className on the menu item element. */
+  modifier?: Modifiers;
+} & EitherObj<
+  {
+    label: string;
+    summary?: string;
+    href: string;
+    lang?: string;
+    target?: React.HTMLAttributeAnchorTarget;
+  },
+  {
+    Content: () => JSX.Element;
+  }
+>;
+
+export type MegaMenuItemList = Array<MegaMenuItem>;
 
 export type MegaMenuPanel = {
   title: string;
-  items: Array<MegaMenuItem>;
+  items: MegaMenuItemList;
   id: string;
 };
 
@@ -66,18 +78,22 @@ export const PrimaryPanel = (props: PrimaryPanelProps) => {
         {items.map((item, i) => (
           <li
             key={i}
-            className="PrimaryPanel__item"
+            className={modifiedClass('PrimaryPanel__item', item.modifier)}
             aria-current={item.current || undefined}
           >
-            <Link
-              className="PrimaryPanel__link"
-              href={item.href}
-              target={item.target}
-              lang={item.lang}
-            >
-              <span className="PrimaryPanel__linkTitle">{item.label}</span>{' '}
-              <small className="PrimaryPanel__summary">{item.summary}</small>{' '}
-            </Link>
+            {item.Content ? (
+              <item.Content />
+            ) : (
+              <Link
+                className="PrimaryPanel__link"
+                href={item.href}
+                target={item.target}
+                lang={item.lang}
+              >
+                <span className="PrimaryPanel__linkTitle">{item.label}</span>{' '}
+                <small className="PrimaryPanel__summary">{item.summary}</small>{' '}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

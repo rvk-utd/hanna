@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass, Modifiers } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import useShortState from '@hugsmidjan/react/hooks/useShortState';
 import { Cleanup } from '@reykjavik/hanna-utils';
@@ -13,6 +13,7 @@ import {
 } from './MainMenu/_Auxiliary.js';
 import {
   MegaMenuItem,
+  MegaMenuItemList,
   MegaMenuPanel,
   PrimaryPanel,
   PrimaryPanelI18n,
@@ -139,6 +140,7 @@ export type {
   AuxilaryPanelIllustration,
   AuxiliaryPanelProps,
   MegaMenuItem,
+  MegaMenuItemList,
   MegaMenuPanel,
 };
 
@@ -155,7 +157,7 @@ export type MainMenuItem = {
    * <li class="MainMenu__item MainMenu__item--${modifier}">
    * ```
    * */
-  modifier?: string;
+  modifier?: Modifiers;
   current?: boolean;
   href?: string;
   /**

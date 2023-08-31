@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- type `MegaPanelItem`:
+  - feat: add prop `Content` for custom `*Panel__item` children
+  - feat: add prop `modifier`, similar to `MainMenuItem.modifier`
+- feat: Export `MegaPanelItemList` from `MainMenu`
+- feat: Expand `MainMenuItem.modifier` to accept falsy and array values
 - feat: Add props `wrapperProps` to `CarouselStepper`
 - fix: Export type `MultiselectOption`, deprecate `MultiSelectOption`
 
