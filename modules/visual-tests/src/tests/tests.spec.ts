@@ -94,6 +94,7 @@ import { testing as NameCards__test } from '../routes/test/NameCards.js';
 import { testing as NewsHero__test } from '../routes/test/NewsHero.js';
 import { testing as PageFilter__test } from '../routes/test/PageFilter.js';
 import { testing as PageHeading__test } from '../routes/test/PageHeading.js';
+import { testing as Pagination__test } from '../routes/test/Pagination.js';
 import { testing as Picture__test } from '../routes/test/Picture.js';
 import { testing as ProcessOverview__test } from '../routes/test/ProcessOverview.js';
 import { testing as PullQuote__test } from '../routes/test/PullQuote.js';
@@ -186,6 +187,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   NewsHero: NewsHero__test,
   PageFilter: PageFilter__test,
   PageHeading: PageHeading__test,
+  Pagination: Pagination__test,
   Picture: Picture__test,
   ProcessOverview: ProcessOverview__test,
   PullQuote: PullQuote__test,

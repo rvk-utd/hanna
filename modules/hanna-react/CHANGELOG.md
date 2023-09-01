@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Pagination`
 - type `MegaPanelItem`:
   - feat: add prop `Content` for custom `*Panel__item` children
   - feat: add prop `modifier`, similar to `MainMenuItem.modifier`
