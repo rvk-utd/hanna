@@ -1,6 +1,6 @@
 import { css, em } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars, hannaVars as vars } from '../lib/hannavars.js';
 
@@ -29,8 +29,8 @@ export default css`
     .PageFilter {
       ${SeenEffect__fadeup};
       background-color: ${vars.color_suld_25};
-      padding: ${between_cols(30, 80)} 0 0 0;
-      margin-bottom: ${between_cols(64, 128)};
+      padding: ${scale_container(30, 80)} 0 0 0;
+      margin-bottom: ${scale_container(64, 128)};
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
@@ -39,8 +39,8 @@ export default css`
     }
 
     .PageFilter::before {
-      border-left: ${between_phone_netbook(8, 24)} solid ${hannaVars.theme_color_primary};
-      margin-bottom: ${between_cols(-32, -64)};
+      border-left: ${scale_phone_netbook(8, 24)} solid ${hannaVars.theme_color_primary};
+      margin-bottom: ${scale_container(-32, -64)};
       pointer-events: none;
 
       @media ${mq.wide} {
@@ -69,7 +69,7 @@ export default css`
       flex-flow: row wrap;
       align-items: flex-start;
       margin-top: ${prem(20)};
-      margin-bottom: ${between_cols(0, 24)};
+      margin-bottom: ${scale_container(0, 24)};
       width: 100%;
       max-width: ${cols_px(9, 9)};
     }
@@ -89,7 +89,7 @@ export default css`
 
     .PageFilter__buttons {
       margin-top: ${prem(20)};
-      margin-bottom: ${between_cols(0, 24)};
+      margin-bottom: ${scale_container(0, 24)};
     }
 
     .PageFilter__buttons > .ButtonTertiary:last-child,
@@ -105,7 +105,7 @@ export default css`
     }
 
     .PageFilter > .Footnote {
-      margin-top: ${between_cols(30, 60)};
+      margin-top: ${scale_container(30, 60)};
       margin-bottom: 0;
 
       &::after {
@@ -115,7 +115,7 @@ export default css`
         left: 0;
         right: 0;
         border-top: 1px solid currentColor;
-        margin-top: ${between_cols(-12, -40)};
+        margin-top: ${scale_container(-12, -40)};
       }
     }
   }

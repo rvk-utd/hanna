@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
+
+import { HTMLProps, WrapperElmProps } from './utils.js';
 
 const sizes = {
   none: 'none',
@@ -30,10 +32,11 @@ export type VSpacerProps = EitherObj<
     top?: VSpacerSize;
     bottom?: VSpacerSize;
   }
->;
+> &
+  WrapperElmProps;
 
 export const VSpacer = (props: VSpacerProps) => {
-  const { size, top, bottom, children } = props;
+  const { size, top, bottom, children, wrapperProps } = props;
 
   const isWrapper = hasChildren(children);
 
@@ -56,16 +59,18 @@ export const VSpacer = (props: VSpacerProps) => {
     }
   }
 
-  const className = getBemClass('VSpacer', [
-    sizeVal,
-    topVal && 'top--' + topVal,
-    bottomVal && 'bottom--' + bottomVal,
-  ]);
+  const className = modifiedClass(
+    'VSpacer',
+    [sizeVal, topVal && 'top--' + topVal, bottomVal && 'bottom--' + bottomVal],
+    (wrapperProps || {}).className
+  );
 
   return isWrapper ? (
-    <div className={className}>{children}</div>
+    <div {...wrapperProps} className={className}>
+      {children}
+    </div>
   ) : (
-    <hr className={className} />
+    <hr {...(wrapperProps as HTMLProps<'hr'>)} className={className} />
   );
 };
 

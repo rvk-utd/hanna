@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_phablet_netbook } from '../lib/between.js';
+import { scale_phablet_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -35,7 +35,7 @@ export default css`
     line-height: 1.5;
 
     @media ${mq.phablet_up} {
-      font-size: ${between_phablet_netbook(20, 32)};
+      font-size: ${scale_phablet_netbook(20, 32)};
       padding-left: ${vars.grid_0_1};
     }
     @media ${mq.wide} {

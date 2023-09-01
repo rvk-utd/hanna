@@ -32,6 +32,9 @@ const _SeenEffect = (props: _SeenEffectProps) => {
 export type SeenEffectProps<Tag extends keyof JSX.IntrinsicElements = 'div'> =
   SeenEffectPropsBase<Tag> & SeenProp & TagProps<Tag>;
 
+// NOTE: As this component already accepts all `<div/>` props directly,
+// it makes little sense to add support for `wrapperProps` on top.
+
 export const SeenEffect = <Tag extends keyof JSX.IntrinsicElements>(
   props: SeenEffectProps<Tag>
 ) => {

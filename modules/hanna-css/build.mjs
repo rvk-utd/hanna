@@ -140,7 +140,7 @@ buildNpmLib('css', {
     `cp README-lib.md ${distDir}/README.md`,
     `cp CHANGELOG-lib.md ${distDir}/CHANGELOG.md`,
   ],
-  entryGlobs: ['index.ts'],
+  entryGlobs: ['index.ts', 'scale.ts'],
 });
 
 // ---------------------------------------------------------------------------

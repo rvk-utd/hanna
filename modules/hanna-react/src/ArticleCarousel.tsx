@@ -7,14 +7,15 @@ import {
   ArticleCarouselImageProps,
 } from './ArticleCarousel/_ArticleCarouselCard.js';
 import { SeenProp } from './utils/seenEffect.js';
-import { SSRSupport } from './utils.js';
+import { SSRSupportProps, WrapperElmProps } from './utils.js';
 
 export type ArticleCarouselProps = {
   items: Array<ArticleCarouselCardProps>;
   title?: string;
   moreLabel?: string;
-  ssr?: SSRSupport;
-} & SeenProp;
+} & WrapperElmProps &
+  SSRSupportProps &
+  SeenProp;
 
 export type { ArticleCarouselCardProps, ArticleCarouselImageProps };
 
@@ -29,6 +30,7 @@ export const ArticleCarousel = (props: ArticleCarouselProps) => {
       ComponentProps={{ moreLabel }}
       ssr={ssr}
       startSeen={startSeen}
+      wrapperProps={props.wrapperProps}
     />
   );
 };

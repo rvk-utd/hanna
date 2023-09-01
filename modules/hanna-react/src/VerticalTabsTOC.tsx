@@ -64,7 +64,10 @@ export type VerticalTabsTOCSubItem = TabItemProps & {
 export type VerticalTabsTOCProps = {
   items: Array<VerticalTabsTOCItem>;
   onItemSelect: (itemId: string) => void;
-} & Pick<TabsProps, 'aria-label' | 'ssr' | 'activateOnFocus' | 'id' | 'startSeen'>;
+} & Pick<
+  TabsProps,
+  'aria-label' | 'ssr' | 'activateOnFocus' | 'id' | 'startSeen' | 'wrapperProps'
+>;
 
 export const VerticalTabsTOC = (props: VerticalTabsTOCProps) => {
   const { onItemSelect, items } = props;
@@ -96,6 +99,7 @@ export const VerticalTabsTOC = (props: VerticalTabsTOCProps) => {
 
   return (
     <Tabs
+      wrapperProps={props.wrapperProps}
       id={domid}
       vertical
       aria-label={props['aria-label']}

@@ -1,9 +1,9 @@
 import React, { KeyboardEvent, useState } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { getFrag } from '@hugsmidjan/qj/frag';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 const navKeyEffects: Record<string, 1 | -1> = {
   ArrowUp: -1,
@@ -40,7 +40,6 @@ type ListStateProps = {
   isBrowser: true | undefined;
 };
 
-// eslint-disable-next-line complexity
 const renderTab = (tabProps: TabItemProps, index: number, listProps: ListStateProps) => {
   const { label, badge, href, type, longLabel } = tabProps;
   const {
@@ -108,14 +107,14 @@ type BaseTabsProps<T extends TabItemProps = TabItemProps> = {
   role?: 'tablist' | 'toc';
   'aria-controls'?: string;
   activateOnFocus?: boolean;
-  ssr?: SSRSupport;
-};
+} & SSRSupportProps;
 
 export type TabsProps<T extends TabItemProps = TabItemProps> = BaseTabsProps<T> & {
   vertical?: boolean;
   /** Optional <Tabs/> block connected to the currently active tab */
   subTabs?: BaseTabsProps;
-} & SeenProp;
+} & WrapperElmProps<null, 'role' | 'aria-label' | 'aria-labelledby'> &
+  SeenProp;
 
 /** @deprecated  Use `TabsProps` instead  (Will be removed in v0.11) */
 export type TablistProps<T extends TabItemProps = TabItemProps> = TabsProps<T>;
@@ -130,7 +129,8 @@ export const Tabs = (props: TabsProps) => {
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledBy,
     'aria-controls': listAriaControls,
-    id,
+    wrapperProps = {},
+    id = wrapperProps.id,
     activeIdx,
     onSetActive,
     activateOnFocus,
@@ -158,7 +158,7 @@ export const Tabs = (props: TabsProps) => {
 
   const handleKeydown =
     tabRole &&
-    ((e: KeyboardEvent) => {
+    ((e: KeyboardEvent<HTMLDivElement>) => {
       const delta = navKeyEffects[e.key];
       if (delta) {
         // prevent scolling +
@@ -169,6 +169,7 @@ export const Tabs = (props: TabsProps) => {
         nextIdx = nextIdx < 0 ? maxIdx : nextIdx > maxIdx ? 0 : nextIdx;
         e.currentTarget.querySelectorAll<HTMLElement>('.Tabs__tab')[nextIdx]?.focus();
         activateOnFocus && activateTab(nextIdx);
+        wrapperProps.onKeyDown?.(e);
       }
     });
   const [ref] = useSeenEffect(startSeen);
@@ -185,7 +186,8 @@ export const Tabs = (props: TabsProps) => {
 
   return (
     <div
-      className={getBemClass('Tabs', vertical && 'vertical')}
+      {...props.wrapperProps}
+      className={modifiedClass('Tabs', vertical && 'vertical', wrapperProps.className)}
       role={tabRole && role}
       id={id}
       // aria-owns={tabIdList.join(' ')}

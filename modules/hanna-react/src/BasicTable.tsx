@@ -1,16 +1,18 @@
 import React from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import Table, { TableProps } from '@hugsmidjan/react/Table';
 import TableWrapper from '@hugsmidjan/react/TableWrapper';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { MissingWrapperElmProps } from './utils.js';
 
 export type BasicTableProps = {
   compact?: boolean;
   type?: 'text' | 'number';
   modifier?: string;
 } & EitherObj<{ fullWidth?: boolean }, { align?: 'right' }> &
+  MissingWrapperElmProps &
   SeenProp &
   Omit<TableProps, 'className' | 'children'>;
 
@@ -36,7 +38,7 @@ export const BasicTable = (props: BasicTableProps) => {
       wrapperRef={ref}
     >
       <Table
-        className={getBemClass('BasicTable', [
+        className={modifiedClass('BasicTable', [
           props.compact && 'compact',
           modifier && modifier,
         ])}

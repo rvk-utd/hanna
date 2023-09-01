@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
 import {
@@ -16,7 +16,7 @@ export default css`
     .ActionCards {
       ${SeenEffect__fadeup}
       ${CardBlock_css}
-      margin-bottom: ${between_cols(60, 100)};
+      margin-bottom: ${scale_container(60, 100)};
     }
     .ActionCards__title {
       ${CardListTitle_css}

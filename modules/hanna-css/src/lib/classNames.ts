@@ -5,11 +5,11 @@
  */
 export const htmlCl = {
   /** Indicates that a "mobile page menu" toggling behavior is enabled/initialized */
-  menuIsActive: 'html.menu-is-active',
+  menuIsActive: '.menu-is-active',
   /** Indicates that a "mobile page menu" is active and open */
-  menuIsOpen: 'html.menu-is-open',
+  menuIsOpen: '.menu-is-open',
   /** Indicates that a "mobile page menu" is active but closed */
-  menuIsClosed: 'html.menu-is-closed',
+  menuIsClosed: '.menu-is-closed',
   /** Indicates that the page has just been routed to, and that JavaScript is
    * running.
    *
@@ -18,5 +18,5 @@ export const htmlCl = {
    *
    * @see https://www.npmjs.com/package/@reykjavik/hanna-css#htmlcl
    */
-  beforeSprinkling: 'html.before-sprinkling',
+  beforeSprinkling: '.before-sprinkling',
 } as const;

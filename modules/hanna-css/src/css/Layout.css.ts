@@ -201,7 +201,7 @@ export default css`
     }
 
     .Layout__nav__closebutton {
-      ${srOnly_focusable({})}
+      ${srOnly_focusable()}
     }
   }
 
@@ -211,7 +211,7 @@ export default css`
 
   @media ${mq.Topmenu} {
     .Layout__header__skiplink {
-      ${srOnly_focusable({})}
+      ${srOnly_focusable()}
     }
   }
 

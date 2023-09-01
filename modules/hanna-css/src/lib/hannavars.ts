@@ -13,10 +13,10 @@ export const envVars = /*@__PURE__*/ buildVariables([
 /** CSS variables with pixel value `min-witdh`s of the Hanna responsive
  * breakpoints.
  *
- * BTW: `bp_w_phone` is the **minimum** supported width, although the
+ * BTW: `bp_w_phone` is the __minimum__ supported width, although the
  * "phone" format technically doesn't have a lower limit.
  *
- * BTW 2: `bp_w_Hamburger` is the **upper** limit of where the Hamburger
+ * BTW 2: `bp_w_Hamburger` is the __upper__ limit of where the Hamburger
  * menu turns into a Topmenu
  */
 export const breakpointVars = /*@__PURE__*/ buildVariables([
@@ -265,6 +265,7 @@ export const spaceVars = /*@__PURE__*/ buildVariables([
   'space_7',
   'space_8',
   'space_9',
+  'space_10',
   'space_0$5',
   'space_1$5',
   'space_1__neg',
@@ -276,6 +277,7 @@ export const spaceVars = /*@__PURE__*/ buildVariables([
   'space_7__neg',
   'space_8__neg',
   'space_9__neg',
+  'space_10__neg',
   'space_0$5__neg',
   'space_1$5__neg',
   'component_vspace__small',
@@ -309,6 +311,9 @@ export const mainMenuVars = /*@__PURE__*/ buildVariables([
 export const borderEffectVars = /*@__PURE__*/ buildVariables([
   'border_default',
   'border_dark',
+  'boxShadow_subtle',
+  'boxShadow_hover',
+  'boxShadow_elevated',
 ]);
 
 // ---------------------------------------------------------------------------

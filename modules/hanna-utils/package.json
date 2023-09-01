@@ -1,6 +1,6 @@
 {
   "name": "@reykjavik/hanna-utils",
-  "version": "0.2.3",
+  "version": "0.2.8",
   "author": "Reykjavík (http://www.reykjavik.is)",
   "contributors": [
     "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
@@ -14,9 +14,10 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@hugsmidjan/qj": "^4.10.2",
+    "@hugsmidjan/qj": "^4.22.1",
     "focus-visible": "^5.2.0",
-    "formatchange": "^2.1.0"
+    "formatchange": "^2.2.0",
+    "tslib": "^2.4.0"
   },
   "publishConfig": {
     "engines": {

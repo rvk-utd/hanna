@@ -1,0 +1,31 @@
+{{ attach_library('storybook/ReadSpeakerPlayer') }}
+
+{#
+  TODO:/FIXME:
+
+  Harvest `../hanna-react/src/ReadSpeakerPlayer.tsx` for:
+   - layout props and their defaults.
+   - ReadSpeaker config
+   - Localization/translations
+
+  Decide if/how to handle the script injection when there are multiple
+  instances of this template are on the same page.
+#}
+
+
+<div class="ReadSpeakerPlayer ReadSpeakerPlayer--float ReadSpeakerPlayer--align-right">
+  <script
+    id="rs_req_Init"
+    src="https://cdn-eu.readspeaker.com/script/{{CUSTOMER_ID}}/webReader/webReader.js?pids=wr"
+    async
+  />
+
+  <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+    <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Hlustaðu á þessa síðu lesna af ReadSpeaker webReader"
+      href="https://app-eu.readspeaker.com/cgi-bin/rsent?customerid={{CUSTOMER_ID}}&amp;lang={{LANGUAGE}}&amp;voice={{VOICE}}&amp;readclass={{READCLASS}}"
+    >
+      <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Hlusta</span></span></span>
+      <span class="rsbtn_right rsimg rsplay rspart"></span>
+    </a>
+  </div>
+</div>

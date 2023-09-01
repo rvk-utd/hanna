@@ -1,25 +1,29 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { WrapperElmProps } from './utils.js';
 
 export type PageHeadingProps = {
   Tag?: 'h1' | 'h2';
   align?: 'right';
   small?: boolean;
   children: ReactNode;
-} & SeenProp;
+} & WrapperElmProps &
+  SeenProp;
 
 export const PageHeading = (props: PageHeadingProps) => {
-  const { Tag = 'h1', align, small, children, startSeen } = props;
+  const { Tag = 'h1', align, small, children, startSeen, wrapperProps } = props;
   const [ref] = useSeenEffect(startSeen);
 
   return (
     <Tag
-      className={getBemClass('PageHeading', [
-        small && 'small',
-        align === 'right' && 'align--' + align,
-      ])}
+      {...wrapperProps}
+      className={modifiedClass(
+        'PageHeading',
+        [small && 'small', align === 'right' && 'align--' + align],
+        (wrapperProps || {}).className
+      )}
       ref={ref}
     >
       {children}

@@ -1,8 +1,9 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { BlingType, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 
 import { useGetSVGtext } from './utils/useGetSVGtext.js';
+import { WrapperElmProps } from './utils.js';
 
 const colors = {
   tertiary: true,
@@ -88,16 +89,28 @@ export type BlingProps = {
       /** Custom SVG URL to load (use sparingly) */
       blingUrl: string;
     }
-);
+) &
+  WrapperElmProps<null, 'data-bling-type' | 'data-bling-image'>;
 
 export const Bling = (props: BlingProps) => {
-  const { align, vertical, color, overlay, type, blingUrl, parent, className } = props;
+  const {
+    align,
+    vertical,
+    color,
+    overlay,
+    type,
+    blingUrl,
+    parent,
+    className,
+    wrapperProps,
+  } = props;
   const imageUrl = type ? getBlingUrl(type) : blingUrl;
   const inlineSvg = useGetSVGtext(imageUrl);
 
   return (
     <div
-      className={getBemClass(
+      {...wrapperProps}
+      className={modifiedClass(
         'Bling',
         [
           'align--' + (align && align in aligns ? align : 'left'),
@@ -106,7 +119,8 @@ export const Bling = (props: BlingProps) => {
           parent && parent in parentOffset && 'parent--' + parent,
           overlay && 'overlay',
         ],
-        className
+        // Prefer `className` over `wrapperProps.className`
+        className || (wrapperProps || {}).className
       )}
       data-bling-type={type}
       data-bling-image={!type ? blingUrl : undefined}

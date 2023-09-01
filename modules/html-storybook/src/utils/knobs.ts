@@ -10,7 +10,6 @@ export const useLink = (defaultLink?: boolean) =>
     ? '/some-url'
     : undefined;
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getFormFieldKnobs = (
   opts: {
     hideLabel?: boolean;

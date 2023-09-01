@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import focusElm from '@hugsmidjan/qj/focusElm';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { focusElm } from '@hugsmidjan/qj/focusElm';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { getPageScrollElm } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 export type ContactBubbleI18n = {
   lang?: string;
@@ -62,7 +61,7 @@ export type ContactBubbleItem = {
       href: string;
       /** Prevents default link behavior unless the handler function returns `true` */
       onClick?: () => void | boolean;
-      target?: string;
+      target?: React.HTMLAttributeAnchorTarget;
     }
   | {
       onClick: () => void | boolean;
@@ -80,7 +79,7 @@ export type ContactBubbleProps = {
    * is scrolled to near the top or the bottom.
    *
    * This means that on short pages (with hardly any scrolling)
-   * the ContactBubble **always** hidden.
+   * the ContactBubble __always__ hidden.
    *
    * Set this prop to `true` if you want to disable this
    * magic and always show the bubble toggler
@@ -88,20 +87,21 @@ export type ContactBubbleProps = {
   alwaysShow?: boolean;
   texts?: ContactBubbleI18n;
   lang?: string;
-  ssr?: SSRSupport;
-} & (
-  | {
-      open?: boolean;
-      onToggle: (isOpen: boolean) => void;
-    }
-  | {
-      open?: undefined;
-      onToggle?: (isOpen: boolean) => void;
-    }
-);
+} & SSRSupportProps &
+  WrapperElmProps &
+  (
+    | {
+        open?: boolean;
+        onToggle: (isOpen: boolean) => void;
+      }
+    | {
+        open?: undefined;
+        onToggle?: (isOpen: boolean) => void;
+      }
+  );
 
 export const ContactBubble = (props: ContactBubbleProps) => {
-  const { title, links, onToggle, alwaysShow } = props;
+  const { title, links, onToggle, alwaysShow, wrapperProps = {} } = props;
   const txt = getTexts(props, defaultTexts);
 
   const useLocalState = props.open == null;
@@ -111,7 +111,8 @@ export const ContactBubble = (props: ContactBubbleProps) => {
 
   const isBrowser = useIsBrowserSide(props.ssr);
   const domid = useDomid();
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const _wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = wrapperProps.ref || _wrapperRef;
 
   const { openBubble, closeBubble } = useMemo(
     () => ({
@@ -137,12 +138,11 @@ export const ContactBubble = (props: ContactBubbleProps) => {
       wrapperElm.dataset.show = 'true';
       return;
     }
-    const scrollElm = getPageScrollElm();
     let pending = 0;
     const checkScroll = () => {
       if (!pending) {
         pending = requestAnimationFrame(() => {
-          const { scrollTop, scrollHeight, clientHeight } = scrollElm;
+          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
           const scrollLength = scrollHeight - clientHeight;
           // const f = scrollLength > 600 ? 1 : (scrollLength - 200) / 600;
           const f = 1;
@@ -157,7 +157,7 @@ export const ContactBubble = (props: ContactBubbleProps) => {
 
     checkScroll();
 
-    // Set scroll-listeners on both the ´document` and the `scrollElm`
+    // Set scroll-listeners on both the ´document` and the `document.documentElement`
     // because mobile browsers seem to handle CSS height and overflow
     // rules on <html> and <body> differently from desktop browsers.
     // Only one of these two handlers seems to trigger though,
@@ -165,10 +165,10 @@ export const ContactBubble = (props: ContactBubbleProps) => {
     // and even if they did, the rAF throttling prevents that from
     // becoming a problem.
     document.addEventListener('scroll', checkScroll);
-    scrollElm.addEventListener('scroll', checkScroll);
+    document.documentElement.addEventListener('scroll', checkScroll);
     return () => {
       document.removeEventListener('scroll', checkScroll);
-      scrollElm.removeEventListener('scroll', checkScroll);
+      document.documentElement.removeEventListener('scroll', checkScroll);
     };
   }, [isBrowser, alwaysShow, closeBubble]);
 
@@ -202,7 +202,8 @@ export const ContactBubble = (props: ContactBubbleProps) => {
 
   const menu = (
     <div
-      className="ContactBubble"
+      {...props.wrapperProps}
+      className={modifiedClass('ContactBubble', null, wrapperProps.className)}
       id={isBrowser && domid}
       hidden={isBrowser && !open}
       data-always-show={alwaysShow || undefined}
@@ -213,7 +214,7 @@ export const ContactBubble = (props: ContactBubbleProps) => {
         {links.map((linkInfo, i) => {
           const { href, label, extraLabel, target, onClick } = linkInfo;
           const icon = ensureIcon(linkInfo.icon);
-          const itemClass = getBemClass('ContactBubble__item', icon && 'type--' + icon);
+          const itemClass = modifiedClass('ContactBubble__item', icon && 'type--' + icon);
           const onClickHandler = (e: React.MouseEvent) => {
             if (onClick) {
               const doPreventDefault = onClick() !== true;

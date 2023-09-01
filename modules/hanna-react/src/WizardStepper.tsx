@@ -1,5 +1,7 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+
+import { WrapperElmProps } from './utils.js';
 
 // ---------------------------------------------------------------------------
 
@@ -40,16 +42,30 @@ export type WizardStepperProps = {
   /** By default, clickable steps after the active step are not immediately clickable */
   allowForwardSkip?: boolean;
   onClick: (clickedIndex: number) => void;
-};
+} & WrapperElmProps;
 
 export const WizardStepper = (props: WizardStepperProps) => {
-  const { steps, activeStep = -1, allowForwardSkip, disableBacktrack, onClick } = props;
+  const {
+    steps,
+    activeStep = -1,
+    allowForwardSkip,
+    disableBacktrack,
+    onClick,
+    wrapperProps,
+  } = props;
   return (
-    <div className={getBemClass('WizardStepper', activeStep === -1 && 'preview')}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(
+        'WizardStepper',
+        activeStep === -1 && 'preview',
+        (wrapperProps || {}).className
+      )}
+    >
       {steps.map((step, i) => {
         const { clickable, done, neutral } = step;
         const label = step.label || '…';
-        const stepClass = getBemClass('WizardStepper__step', [
+        const stepClass = modifiedClass('WizardStepper__step', [
           (done || (done == null && i < activeStep)) && 'done',
           neutral && 'neutral',
         ]);

@@ -1,10 +1,11 @@
 {
   "name": "@reykjavik/hanna-react",
-  "version": "0.10.86",
+  "version": "0.10.101",
   "author": "Reykjavík (http://www.reykjavik.is)",
   "contributors": [
     "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
     "Kári Yngvason <kari@hugsmidjan.is>",
+    "Kristján Jökull Sígurðsson <kristjan.jokull.sigurdsson@reykjavik.is>",
     "Már Örlygsson <mar.orlygsson@reykjavik.is>",
     "Már Örlygsson <mar@hugsmidjan.is>",
     "Valur Sverrisson <valur@hugsmidjan.is>"
@@ -15,21 +16,20 @@
   "license": "MIT",
   "dependencies": {
     "@floating-ui/react": "^0.19.2",
-    "@hugsmidjan/qj": "^4.10.2",
-    "@hugsmidjan/react": "^0.4.24",
-    "@reykjavik/hanna-css": "^0.4.1",
-    "@reykjavik/hanna-utils": "^0.2.3",
-    "@types/react": "^17.0.24",
+    "@hugsmidjan/qj": "^4.22.1",
+    "@hugsmidjan/react": "^0.4.32",
+    "@reykjavik/hanna-css": "^0.4.5",
+    "@reykjavik/hanna-utils": "^0.2.8",
     "@types/react-autosuggest": "^10.1.0",
     "@types/react-datepicker": "^4.8.0",
-    "@types/react-dom": "^17.0.9",
     "@types/react-transition-group": "^4.4.0",
     "iframe-resizer-react": "^1.1.0",
     "react-autosuggest": "^10.1.0",
     "react-datepicker": "4.11.0",
     "react-dropzone": "^10.2.2",
     "react-intersection-observer": "^8.30.1",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "tslib": "^2.4.0"
   },
   "publishConfig": {
     "engines": {
@@ -54,6 +54,8 @@
     "test": "yarn run -T ospec \"__tests/**/*.tests.js\""
   },
   "devDependencies": {
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   }

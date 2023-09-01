@@ -8,3 +8,6 @@
 /public/test-results
 /public/report
 /playwright/.cache
+
+/tests/*
+!/tests/*.js-snapshots

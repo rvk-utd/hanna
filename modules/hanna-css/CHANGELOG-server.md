@@ -3,10 +3,41 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Pagination`
+- feat: Add `/assets/reykjavik-logo-notext.png` — along with `--small` (x0.5)
+  and `--large` (x2) variants
+- fix: Improve `InfoHero` styling in `phablet` viewport mode
+
+## 0.8.80
+
+_2023-09-01_
+
+- feat: Add styling for `.ArticleCards--large`
+- feat: Add styling for `.ActionCards__item__meta`
+- feat: Add `__item__summary` styling for `ArticleCards` and `ImageCards`
+- feat: Tweak `.MainMenu__items` styling to better tolerate custom children
+- feat: Add CSS variables `--boxShadow-(subtle|hover|elevated)`
+- feat: Add CSS variables `--space-10` and `--space-10--neg`
+- feat: Make `--grid-margin--neg` inherit from `--grid-margin`
+- feat: Reduce `--small` min-width of `ButtonPrimary` and `ButtonSecondary`
+- fix: `Multiselect` overflow and space-contraint styling
+- fix: Tweak overflow styling of `Selectbox`
+
+## 0.8.79
+
+_2023-07-06_
+
+- feat: Add component `Multiselect`
+- feat: Add component `ReadSpeakerPlayer`
+- feat: Add `[readonly]` styling on checkboxes and radio buttons
+- fix: `ButtonPrimary` and `ButtonSecondary` were 8px too tall
+- fix: Hide newly added visible screen-reader label in `Datepicker`
+- fix: Increase image–text spacing in `.IslandPageBlock--align--right`
+- fix: Shift Checkboxes/Radios up a notch
 
 ## 0.8.78
 
-_2023-04-26_
+_2023-05-10_
 
 - Global `-basics` styles:
   - feat: Remove aggressive global reset for all `img` and `video` elements
@@ -19,7 +50,7 @@ _2023-04-26_
 
 ## 0.8.77
 
-_2023-03-16_
+_2023-03-20_
 
 - feat: Decrease top padding of `Layout__main`, shift `BreadCrumbs` a bit
 - feat: Add styling for `.FieldGroup--small`
@@ -279,8 +310,8 @@ _2022-03-31_
 
 _2022-03-28_
 
-- feat: Add `/assets/reykjavik-logo.png` — with `--small` (x0.5) and `--large`
-  (x2) variants
+- feat: Add `/assets/reykjavik-logo.png` — along with `--small` (x0.5) and
+  `--large` (x2) variants
 - feat: Add styling for `.Tabs--vertical`
 - feat: Add experimental styling for `.Skeleton`
 

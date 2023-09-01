@@ -1,21 +1,15 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { Image, ImagePropsLinked } from './_abstract/_Image.js';
+import { WrapperElmProps } from './utils.js';
 
 export type PictureProps = ImagePropsLinked & {
   contain?: boolean;
   className?: string;
-};
+} & WrapperElmProps;
 
-export const Picture = (props: PictureProps) => {
-  const { contain, className } = props;
-  return (
-    <Image
-      {...props}
-      className={getBemClass('Picture', contain && 'contain', className)}
-    />
-  );
-};
+export const Picture = (props: PictureProps) => (
+  <Image {...props} bem="Picture" modifier={props.contain && 'contain'} />
+);
 
 export default Picture;

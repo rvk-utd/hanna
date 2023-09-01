@@ -1,11 +1,15 @@
-import { ColorValue, css, RawCssString, VariablePrinter } from 'es-in-css';
+import { ColorValue, css, VariablePrinter } from 'es-in-css';
 
 import { hannaVars as vars } from './hannavars.js';
 
 // ---------------------------------------------------------------------------
 
-/**  */
-export const keyboardFocus_selector = (content: RawCssString) => css`
+/**
+ * Generates backwards compatible selectors for `:focus-visible`
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#keyboardfocusstyling-mixin
+ */
+export const keyboardFocusStyling = (content: string) => css`
   &[data-focus-visible-added] {
     ${content};
   }
@@ -14,19 +18,25 @@ export const keyboardFocus_selector = (content: RawCssString) => css`
   }
 `;
 
-export const hoverActiveKeyboardFocus_selector =
-  (active = true) =>
-  (content: RawCssString) =>
-    css`
-      ${active && '&:active'},
-      &:hover,
-      &[data-focus-visible-added] {
-        ${content};
-      }
-      &:focus-visible {
-        ${content};
-      }
-    `;
+/**
+ * Generates `:hover`, `:active` and `:focus-visible` selectors in a
+ * backwards compatible manner.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hoverkeyboardfocusandactivestyling-mixin
+ */
+export const hoverKeyboardFocusAndActiveStyling = (
+  content?: string,
+  opts: { notActive?: boolean } = {}
+) => css`
+  ${!opts.notActive && '&:active,'}
+  &:hover,
+  &[data-focus-visible-added] {
+    ${content};
+  }
+  &:focus-visible {
+    ${content};
+  }
+`;
 
 // ---------------------------------------------------------------------------
 
@@ -105,7 +115,7 @@ export const srOnly_focusable = ({
   link = defaultLink(),
   border = defaultBorder(),
   bg = defaultBg(),
-}: SROnlyFocusProps) => {
+}: SROnlyFocusProps = {}) => {
   const focusStyling = css`
     ${srOnly__undo()}
     ${sr_focusStyling({ link, border, bg })}
@@ -114,7 +124,7 @@ export const srOnly_focusable = ({
   return css`
     ${srOnly()};
 
-    ${keyboardFocus_selector(focusStyling)}
+    ${keyboardFocusStyling(focusStyling)}
     &:focus-within:not(:focus) {
       ${focusStyling}
     }
@@ -123,7 +133,7 @@ export const srOnly_focusable = ({
 
 /**
  * Similar to the `srOnly_focusable` mixin above, but for non-interactive
- * elements that **contain** buttons/links that should become visible on keyboard
+ * elements that __contain__ buttons/links that should become visible on keyboard
  * focus.
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#sronly_focusablecontent-mixin
@@ -133,11 +143,12 @@ export const srOnly_focusableContent = ({
   border = defaultBorder(),
   bg = defaultBg(),
   dir = 'ltr',
-}: SROnlyFocusProps & { dir?: Dir }) => {
+}: SROnlyFocusProps & { dir?: Dir } = {}) => {
   const edge = dir === 'ltr' ? 'right' : 'left';
   const opposite = dir === 'ltr' ? 'left' : 'right';
 
   return css`
+    position: absolute;
     ${edge}: 9999px;
     ${opposite}: auto;
 

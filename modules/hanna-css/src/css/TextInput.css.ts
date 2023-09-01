@@ -3,10 +3,7 @@ import { css } from 'es-in-css';
 
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-
-import { FormFieldVariables } from './styles/forms.js';
-
-const ff = FormFieldVariables.vars;
+import { FormFieldVariables, formFieldVars as ff } from '../lib/otherTokens.js';
 
 export const TextInputVariables = buildVariables(
   ['textarea__leading', 'textarea__rows', 'textarea__extraPad'],

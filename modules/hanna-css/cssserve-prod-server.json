@@ -13,5 +13,7 @@
 
   "sslKeyPath": null,
   "sslCert": null,
-  "sslPrivkey": null
+  "sslPrivkey": null,
+
+  "redirectsFile": ["./redirects-sprinkles.json"]
 }

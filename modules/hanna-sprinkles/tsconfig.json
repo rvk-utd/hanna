@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // "target": "ES2015",
+    // "useDefineForClassFields": true,
+
+    // "baseUrl": "../../",
+
+    // "lib": ["DOM", "DOM.Iterable", "ESNext"],
+
+    "noEmit": true,
+
+    "jsx": "preserve"
+    // "jsx": "react-jsx",
+    // "jsxImportSource": "preact"
+  }
+}

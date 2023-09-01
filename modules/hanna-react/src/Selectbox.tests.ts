@@ -31,7 +31,7 @@ const typeTests = () => {
     },
   });
 
-  type t1 = Expect<Equals<SelectboxOptionList, SelectboxOptions>>;
+  type t1 = Expect<Equals<SelectboxOptionList, SelectboxOptions>>; // eslint-disable-line deprecation/deprecation
 
   type t2 = Expect<Equals<SelectboxOptionList<string>[number], _StringOption>>;
   type t2b = Expect<Equals<SelectboxOptionList<number>[number], _NumberOption>>;

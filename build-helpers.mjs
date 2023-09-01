@@ -3,7 +3,7 @@
 import { execSync } from 'child_process';
 import esbuild from 'esbuild';
 import { readFileSync, writeFileSync } from 'fs';
-import { access, mkdir, readFile, writeFile } from 'fs/promises';
+import { mkdir, readFile, writeFile } from 'fs/promises';
 import { sync as globSync } from 'glob';
 import { dirname } from 'path';
 
@@ -69,9 +69,7 @@ const writeOnlyAffected =
         if (stripHashPrefix) {
           path = path.replace(/(^|\/)\$\$[A-Z0-9]+\$\$-/, '$1');
         }
-        return access(targetDir)
-          .catch(() => mkdir(targetDir, { recursive: true }))
-          .then(() => writeFile(path, text));
+        return mkdir(targetDir, { recursive: true }).then(() => writeFile(path, text));
       });
     // map this set of outputFiles as the fileMem for next time
     fileMem = {};
@@ -86,6 +84,8 @@ const [pkg, rootPkg] = await Promise.all([
   readFile('./package.json').then((str) => JSON.parse(str.toString())),
   readFile('../../package.json').then((str) => JSON.parse(str.toString())),
 ]);
+
+export { pkg as pkgJson, rootPkg as rootPkgJson };
 
 export const externalDeps = [
   ...Object.keys(pkg.dependencies || {}),
@@ -117,34 +117,52 @@ const tscBuild = (/** @type {TSConfig | undefined} */ config) => {
 
 // ---------------------------------------------------------------------------
 
-export const buildTests = () => {
+/** @typedef {{ watch?: boolean,  typeCheck?: boolean, emptyOutdir?: boolean, entryNames?: string }}  ESBuildBuilDOpts */
+export const esbuildBuild = (
+  /** @type {Array<string>} */ entryPoints,
+  /** @type {string} */ outdir,
+  /** @type {ESBuildBuilDOpts | undefined} */ options
+) => {
+  const { watch, typeCheck, emptyOutdir, entryNames } = options || {};
+
+  emptyOutdir && execSync(`rm -rf ${testsDir}`);
   execSync(`rm -rf ${testsDir} && mkdir ${testsDir}`);
 
-  if (!opts.dev) {
+  if (typeCheck) {
     tscBuild({
       compilerOptions: { noEmit: true },
       include: [testGlobs.replace(/\.[^.]+$/g, '.*')],
     });
   }
 
-  esbuild
+  return esbuild
     .build({
       bundle: true,
       external: externalDeps,
       format: 'cjs',
       platform: 'node',
       target: ['node16'],
-      entryPoints: globSync(testGlobs),
-      entryNames: '[dir]/$$[hash]$$-[name]',
+      entryPoints,
+      entryNames,
       write: false,
-      watch: !!opts.dev && {
+      watch: watch && {
         onRebuild: (err, results) => results && writeOnlyAffected(true)(results, err),
       },
-      outdir: testsDir,
+      outdir,
     })
     .then(writeOnlyAffected(true))
     .catch(exit1);
 };
+
+// ---------------------------------------------------------------------------
+
+export const buildTests = () =>
+  esbuildBuild(globSync(testGlobs), testsDir, {
+    watch: !!opts.dev,
+    typeCheck: !opts.dev,
+    emptyOutdir: true,
+    entryNames: '[dir]/$$[hash]$$-[name]',
+  });
 
 // ---------------------------------------------------------------------------
 
@@ -202,15 +220,19 @@ export const buildNpmLib = (libName, custom) => {
 
     makePackageJson(pkg, distDir, {
       sideEffects,
-      exports: entryPoints.reduce((exports, file) => {
-        const token = file.replace(/\.tsx?$/, '');
-        const expToken = token === 'index' ? '.' : `./${token}`;
-        exports[expToken] = {
-          import: `./esm/${token}.js`,
-          require: `./${token}.js`,
-        };
-        return exports;
-      }, {}),
+      exports: Object.fromEntries(
+        entryPoints.map((file) => {
+          const token = file.replace(/\.tsx?$/, '');
+          const expToken = `./${token}`.replace(/\/index$/, '');
+          return [
+            expToken,
+            {
+              import: `./esm/${token}.js`,
+              require: `./${token}.js`,
+            },
+          ];
+        })
+      ),
     });
 
     // -------

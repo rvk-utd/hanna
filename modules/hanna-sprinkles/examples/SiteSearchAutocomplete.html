@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Gallery sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,RowBlock,PageHeading"
+    />
+
+    <script src="/dist/index.js"></script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="RowBlock">
+            <div class="RowBlockColumn">
+              <h1 class="PageHeading">Hæ! Hvernig getum við aðstoðað?</h1>
+
+              <script id="SiteSearchRoot">
+                window.Hanna.import('utils/elsearch/renderSiteSearchAutocomplete').then(
+                  function (modules) {
+                    modules[0].default({
+                      insertAt: '#SiteSearchRoot',
+                      apiUri: 'http://localhost:9000', //window.drupalSettings.elasticsearch.search_indexes_uri
+                      searchPagePath: '/examples/SearchPage.html', //window.drupalSettings.searchPagePath
+                      exceptBundles: ['news', 'meeting_minutes'], // window.drupalSettings.elasticsearch.exceptBundles,
+                    });
+                  }
+                );
+              </script>
+            </div>
+            <div class="RowBlockColumn">
+              <picture class="Illustration">
+                <img
+                  src="https://styles.reykjavik.is/assets/illustrations/fjarmal2.png"
+                  alt=""
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+          </div>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

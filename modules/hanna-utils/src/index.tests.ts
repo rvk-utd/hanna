@@ -59,8 +59,6 @@ import type {
   /* formatMonitor.ts */
   MediaFormat,
 
-  /* getPageScrollElm.ts */
-
   /* getSVGtext.ts */
 
   /* getStableRandomItem.ts */
@@ -88,5 +86,7 @@ import type {
   // PickIndexed,
   // RequiredKeys,
   // OptionalKeys,
+  OmitDistributive,
+  PickDistributive,
 } from './index.js';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */

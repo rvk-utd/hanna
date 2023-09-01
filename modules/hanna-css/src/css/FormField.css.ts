@@ -2,25 +2,24 @@ import { css, px } from 'es-in-css';
 
 import { srOnly } from '../lib/a11y.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { FormFieldVariables, formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { FormField__error, FormFieldVariables } from './styles/forms.js';
+import { FormField__error } from './styles/forms.js';
 import { grid_units, overflowEllipsis, prem } from './utils/miscUtils.js';
-
-import { Selectbox_css } from './Selectbox.css';
-import { TextInput_css } from './TextInput.css';
+import { Selectbox_css } from './Selectbox.css.js';
+import { TextInput_css } from './TextInput.css.js';
 
 export const InputField_paddingTop = 12;
-
-const ff = FormFieldVariables.vars;
 
 export default css`
   @media screen {
     .FormField {
       ${FormFieldVariables.declare({
+        input__background_color: vars.color_suld_0,
         input__border_color: vars.color_suld_100,
         input__border_radius: prem(3),
         input__border_inner_radius: prem(2),
-        input__height: prem(56),
+        input__height: vars.space_7,
         input__height_inner: `calc(${ff.input__height} - 2px)`,
         input__padding_top: prem(InputField_paddingTop),
         input__padding_bottom: px(0),
@@ -73,6 +72,7 @@ export default css`
       opacity: 0.5;
     }
 
+    [data-inputlabel].FormField__label,
     label.FormField__label {
       color: ${vars.color_suld_150};
       font-size: ${vars.font_label_size};
@@ -80,6 +80,7 @@ export default css`
       line-height: ${prem(14)};
       transition: all 200ms ease-in;
     }
+    :not(.FormField--small) > [data-inputlabel].FormField__label,
     :not(.FormField--small) > label.FormField__label {
       position: absolute;
       top: 1px;
@@ -89,6 +90,8 @@ export default css`
       max-width: calc(100% - ${grid_units(3)});
       ${overflowEllipsis}
     }
+    .FormField--empty:not(.FormField--small):not(.FormField--focused)
+      > [data-inputlabel].FormField__label,
     .FormField--empty:not(.FormField--small):not(.FormField--focused)
       > label.FormField__label {
       font-size: ${vars.font_bd_s_size};
@@ -112,7 +115,7 @@ export default css`
       position: relative;
       display: flex;
       width: 100%;
-      background-color: ${vars.color_suld_0};
+      background-color: ${ff.input__background_color};
       color: ${ff.input__color};
       border: ${prem(1)} solid ${ff.input__border_color};
       transition: all 400ms ease-in;
@@ -145,9 +148,9 @@ export default css`
     .FormField--readonly > .FormField__input,
     .FormField__input[readonly] {
       ${FormFieldVariables.override({
+        input__background_color: vars.color_suld_50,
         input__border_color: vars.color_suld_100,
       })}
-      background-color: ${vars.color_suld_50};
     }
     // .FormField__input--focused[class],
     .FormField--focused > .FormField__input,
@@ -164,10 +167,10 @@ export default css`
     .FormField--disabled > .FormField__input,
     .FormField__input:disabled {
       ${FormFieldVariables.override({
+        input__background_color: vars.color_suld_50,
         input__border_color: vars.color_suld_100,
       })}
       box-shadow: none;
-      background-color: ${vars.color_suld_50};
       opacity: 0.5;
     }
 

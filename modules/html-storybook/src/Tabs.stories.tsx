@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { getFrag } from '@hugsmidjan/qj/frag';
 import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
-import { SSRSupport, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
+import { SSRSupportProps, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
 import { boolean } from '@storybook/addon-knobs';
 
 import { HiddenTiger } from './utils/HiddenTiger.js';
@@ -80,8 +80,8 @@ export const _Tabs: StoryComponent = () => {
 type _TabPanelsProps = {
   tabs: typeof linkTabs;
   activeIdx?: number;
-  ssr: SSRSupport;
-};
+} & SSRSupportProps;
+
 const _TabPanels = (props: _TabPanelsProps) => {
   const { tabs, activeIdx, ssr } = props;
   const isBrowser = useIsBrowserSide(ssr);

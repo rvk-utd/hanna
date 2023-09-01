@@ -26,5 +26,5 @@ export const _BreadCrumbs: StoryComponent = () => {
     return links;
   }, [sparse, trailLength]);
 
-  return <BreadCrumbs title="Þú ert hér" trail={links} />;
+  return <BreadCrumbs trail={links} />;
 };

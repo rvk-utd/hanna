@@ -37,7 +37,7 @@ export const SearchResultsItem = (props: SearchResultsItemProps) => {
             )}
           </span>
         )}
-        {highlight && image && <Image className={bem + '__image'} src={image} />}
+        {highlight && image && <Image bem={bem + '__image'} src={image} />}
         <div
           className={bem + '__summary'}
           dangerouslySetInnerHTML={{ __html: summary }}

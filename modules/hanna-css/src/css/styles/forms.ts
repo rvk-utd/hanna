@@ -31,24 +31,6 @@ export const FormField__error = (
   }
 `;
 
-export const FormFieldVariables = buildVariables(
-  [
-    'input__border_color',
-    'input__border_radius',
-    'input__border_inner_radius',
-    'input__height',
-    'input__height_inner',
-    'input__padding_top',
-    'input__padding_bottom',
-    'input__font_size',
-    'input__color',
-    'input__color_placeholder',
-    'input__line_height',
-    'input__paddingH',
-  ],
-  'FormField'
-);
-
 // ===========================================================================
 
 export const TogglerGroup = (bem: string) => css`
@@ -90,7 +72,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
   .${bem}__label::before {
     ${iconStyle('')}
     float: left;
-    margin-top: ${prem(2)};
+    /* margin-top: ${prem(2)}; */
     margin-left: ${prem(-36)};
     width: ${prem(20)};
     height: ${prem(20)};
@@ -151,6 +133,9 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
       label__color: vars.color_suld_200,
     })}
     opacity: 0.5;
+  }
+  .${bem}__input[class][readonly] + .${bem}__label {
+    opacity: 1;
   }
   .${bem}__input[class]:disabled + .${bem}__label::before {
     border-color: ${vars.color_suld_100};

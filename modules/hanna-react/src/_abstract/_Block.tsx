@@ -1,8 +1,9 @@
 import React from 'react';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
+import { WrapperElmProps } from '../utils.js';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
+import { BemModifierProps } from '../utils/types.js';
 
 import { Button, ButtonProps } from './_Button.js';
 import { Image, ImageProps } from './_Image.js';
@@ -23,15 +24,21 @@ export type ContentBlock = {
   image?: undefined;
 } & SeenProp;
 
-export type BlockProps = BemPropsModifier & (ContentBlock | ContentImageBlock);
+export type BlockProps = (ContentBlock | ContentImageBlock) &
+  BemModifierProps &
+  WrapperElmProps;
 
 export const Block = (props: BlockProps & { bem: string }) => {
-  const { image, modifier, bem, content, startSeen } = props;
+  const { image, modifier, bem, content, startSeen, wrapperProps } = props;
   const [ref] = useSeenEffect(startSeen);
 
   const contentItems = Array.isArray(content) ? content : [content];
   return (
-    <div className={getBemClass(bem, modifier)} ref={ref}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(bem, modifier, (wrapperProps || {}).className)}
+      ref={ref}
+    >
       {contentItems.map(({ title, summary, buttons = [] }, i) => {
         const hasSummary = summary && (typeof summary !== 'string' || !!summary.trim());
         return (
@@ -51,7 +58,7 @@ export const Block = (props: BlockProps & { bem: string }) => {
           </div>
         );
       })}
-      {image && <Image className={`${bem}__image`} {...image} />}
+      {image && <Image bem={`${bem}__image`} {...image} />}
     </div>
   );
 };

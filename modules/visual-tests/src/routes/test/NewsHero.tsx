@@ -44,6 +44,7 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
+  waitFor: '.Bling svg',
   initialHover: '.ShareButtons__link--facebook >> nth = 0',
   clipViewport: true,
 };

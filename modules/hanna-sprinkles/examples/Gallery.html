@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Gallery sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,Gallery"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('Gallery');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="Gallery">
+            <div class="Gallery__items">
+              <figure class="GalleryItem">
+                <figcaption class="GalleryItem__caption">Elliðaárdalur</figcaption>
+                <a class="GalleryItem__button" href="media/Gallery--landscape--large.jpg">
+                  <picture class="GalleryItem__image">
+                    <img src="media/Gallery--landscape.jpg" alt="" loading="lazy" />
+                  </picture>
+                </a>
+              </figure>
+              <figure class="GalleryItem">
+                <figcaption class="GalleryItem__caption">
+                  long caption here to test how this can break the layout
+                </figcaption>
+                <a class="GalleryItem__button" href="media/Gallery--portrait--large.jpg">
+                  <picture class="GalleryItem__image">
+                    <img
+                      src="media/Gallery--portrait.jpg"
+                      alt="Elliðaárdalur alt text"
+                      loading="lazy"
+                    />
+                  </picture>
+                </a>
+              </figure>
+              <figure class="GalleryItem">
+                <figcaption class="GalleryItem__caption"></figcaption>
+                <a class="GalleryItem__button" href="media/Gallery--landscape--large.jpg">
+                  <picture class="GalleryItem__image">
+                    <img src="media/Gallery--landscape.jpg" alt="" loading="lazy" />
+                  </picture>
+                </a>
+              </figure>
+              <figure class="GalleryItem">
+                <figcaption class="GalleryItem__caption">Test incorrect ratio</figcaption>
+                <a class="GalleryItem__button" href="media/Gallery--portrait--large.jpg">
+                  <picture class="GalleryItem__image">
+                    <img src="media/Gallery--portrait.jpg" alt="" loading="lazy" />
+                  </picture>
+                </a>
+                <div class="GalleryItem__description">
+                  Some description to go along with this image
+                </div>
+              </figure>
+              <figure class="GalleryItem">
+                <figcaption class="GalleryItem__caption">
+                  This one has a caption
+                </figcaption>
+                <picture class="GalleryItem__image">
+                  <img src="media/Gallery--landscape.jpg" alt="" loading="lazy" />
+                </picture>
+              </figure>
+            </div>
+          </div>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

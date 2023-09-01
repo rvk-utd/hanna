@@ -153,7 +153,7 @@ Abstract (private) components should, however, use this pattern:
 type Falsy = undefined | null | false | 0 | '';
 type Modifier = string | Falsy;
 
-type BemPropsModifier = {
+type BemModifierProps = {
   /** List of CSS BEM --modifier's to add to the component's main wrapper.
    * All falsy values are neatly skipped. */
   modifier?: Modifier | ReadonlyArray<Modifier>;
@@ -163,7 +163,7 @@ type BemProps = {
   bem?: string;
   /** Extra className to apply **in addition to** the component's BEM name. */
   className?: string;
-} & BemPropsModifier;
+} & BemModifierProps;
 ```
 
 ## Prefer props over nested components
@@ -211,15 +211,20 @@ miscellanious HTML attributes (e.g. `aria-*`, native `on*` handlers, etc.)
 without you having to enumerate every single one.
 
 In such cases add an explicitly named prop for that. (Something along the
-lines of `htmlProps`/`inputProps`/`buttonProps`/etc.) Avoid the temptation to
+lines of `wrapperProps`/`htmlProps`/`inputProps`/`buttonProps`/etc.)
+
+Avoid the temptation to mix/spread them directly into your component's
+top-level props type.
 
 **DO: ✅**
 
 ```ts
+import { HTMLProps } from '@reykjavik/hanna-react/utils';
+
 type KnobProps = {
   shape: 'square' | 'circle' | 'triangle';
   onClick: () => void;
-  htmlProps: Omit<JSX.IntrinsicElements['button'], 'type' | 'onClick'>;
+  wrapperProps: HTMLProps<'button', 'type' | 'onClick'>;
 };
 ```
 
@@ -231,7 +236,7 @@ destructuring `...rest` properties inside your component source.)
 **DON'T: ❌**
 
 ```ts
-type KnobProps = Omit<JSX.IntrinsicElements['button'], 'type' | 'onClick'> & {
+type KnobProps = Omit<HTMLProps['button'], 'type' | 'onClick'> & {
   shape: 'square' | 'circle' | 'triangle';
   onClick: () => void;
 };

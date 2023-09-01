@@ -118,6 +118,8 @@ const makeTogglerGroupStory = (
 export const _CheckboxGroup = makeTogglerGroupStory(CheckboxGroup);
 export const _RadioGroup = makeTogglerGroupStory(RadioGroup);
 
+const Radio = RadioGroup.__Radio; // eslint-disable-line deprecation/deprecation
+
 export const StylingTests: StoryComponent = () => (
   <RowBlock>
     <RowBlockColumn>
@@ -135,13 +137,13 @@ export const StylingTests: StoryComponent = () => (
       />
     </RowBlockColumn>
     <RowBlockColumn>
-      <RadioGroup.__Radio label="Lorem ipsum dolor sit amet Add me to your professional network on LinkedIn Add me to your professional network on LinkedIn Add me to your professional network on LinkedIn" />
-      <RadioGroup.__Radio label="Normal" checked={false} />
-      <RadioGroup.__Radio label="Checked" checked />
-      <RadioGroup.__Radio label="Disabled" disabled checked={false} />
-      <RadioGroup.__Radio label="Disabled + checked" disabled checked />
-      <RadioGroup.__Radio label="Invalid" invalid checked={false} />
-      <RadioGroup.__Radio label="Invalid + checked" invalid checked />
+      <Radio label="Lorem ipsum dolor sit amet Add me to your professional network on LinkedIn Add me to your professional network on LinkedIn Add me to your professional network on LinkedIn" />
+      <Radio label="Normal" checked={false} />
+      <Radio label="Checked" checked />
+      <Radio label="Disabled" disabled checked={false} />
+      <Radio label="Disabled + checked" disabled checked />
+      <Radio label="Invalid" invalid checked={false} />
+      <Radio label="Invalid + checked" invalid checked />
       {/* Standalone Radio has no error-message */}
     </RowBlockColumn>{' '}
   </RowBlock>

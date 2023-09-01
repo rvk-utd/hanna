@@ -1,6 +1,8 @@
 import React from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { Link } from './_abstract/_Link.js';
+import { WrapperElmProps } from './utils.js';
 
 const types = {
   external: 1,
@@ -14,7 +16,7 @@ export type RelatedLinkType = keyof typeof types;
 export type RelatedLinkItem = {
   href: string;
   label: string;
-  target?: string;
+  target?: React.HTMLAttributeAnchorTarget;
   type?: RelatedLinkType;
 };
 
@@ -22,10 +24,10 @@ export type RelatedLinksProps = {
   title?: string;
   titleTag?: 'h2' | 'h3' | 'h4' | 'h5';
   links: Array<RelatedLinkItem>;
-};
+} & WrapperElmProps;
 
 export const RelatedLinks = (props: RelatedLinksProps) => {
-  const { title, links } = props;
+  const { title, links, wrapperProps } = props;
 
   if (links.length === 0) {
     return null;
@@ -34,7 +36,10 @@ export const RelatedLinks = (props: RelatedLinksProps) => {
   const TitleTag = props.titleTag || 'h3';
 
   return (
-    <div className="RelatedLinks">
+    <div
+      {...wrapperProps}
+      className={modifiedClass('RelatedLinks', null, (wrapperProps || {}).className)}
+    >
       {title && <TitleTag className="RelatedLinks__title">{title}</TitleTag>}
       <ul className="RelatedLinks__list">
         {links.map(({ href, label, type, target }, i) => {

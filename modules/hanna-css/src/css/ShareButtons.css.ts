@@ -1,9 +1,9 @@
 import { css } from 'es-in-css';
 
+import { srOnly } from '../lib/a11y.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
-import { srOnly } from '../lib/a11y.js';
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
 
@@ -22,6 +22,7 @@ export default css`
       ${hideText_css}
       width: 35px;
       height: 35px;
+      line-height: 35px;
       border-radius: 50%;
       background-color: ${vars.theme_color_primary};
       color: ${vars.theme_color_primary__text};
@@ -43,7 +44,6 @@ export default css`
       left: 0;
       text-indent: 0;
       text-align: center;
-      line-height: 35px;
     }
 
     .ShareButtons__item {

@@ -1,86 +1,86 @@
 <!DOCTYPE html>
 <html lang="is">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<title>Efnistákn – thumbnails</title>
-		<link href="/assets/favicon.png" rel="shortcut icon" />
-		<link
-			rel="stylesheet"
-			href="https://styles.reykjavik.is/bundle/v0.8?m=-basics,Layout,PageHeading,TextBlock"
-		/>
-		<link rel="stylesheet" href="/assets/ThumbnailGrid.css" />
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Efnistákn – thumbnails</title>
+    <link href="/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="https://styles.reykjavik.is/bundle/v0.8?m=-basics,Layout,PageHeading,TextBlock"
+    />
+    <link rel="stylesheet" href="/assets/ThumbnailGrid.css" />
+  </head>
 
-	<body>
-		<div class="Layout">
-			<div class="Layout__content">
-				<div class="Layout__header">
-					<a class="Layout__header__logo" href="/">
-						<picture>
-							<img src="/assets/reykjavik-logo.svg" alt="" loading="lazy" />
-						</picture>
-						Reykjavík
-					</a>
-				</div>
-				<div class="Layout__main">
-					<h1 class="PageHeading">Efnistákn</h1>
-					<div class="TextBlock">
-						<a href="/assets/efnistakn/files.json">files.json</a>
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__header">
+          <a class="Layout__header__logo" href="/">
+            <picture>
+              <img src="/assets/reykjavik-logo.svg" alt="" loading="lazy" />
+            </picture>
+            Reykjavík
+          </a>
+        </div>
+        <div class="Layout__main">
+          <h1 class="PageHeading">Efnistákn</h1>
+          <div class="TextBlock">
+            <a href="/assets/efnistakn/files.json">files.json</a>
             <!-- and <a href="/assets/efnistakn/menu/files.json">menu/files.json</a> -->
-					</div>
-				</div>
-			</div>
-		</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<script type="module">
-			const mainElm = document.querySelector('.Layout__main');
-			const links = [].slice.call(mainElm.querySelectorAll('a[href$=".json"]'));
-			console.log(links);
-			Promise.all(
-				links.map((link) =>
-					fetch(link.href).then((res) => {
-						if (!res.ok) {
-							throw new Error('Not Found');
-						}
-						return res.json();
-					})
-				)
-			)
-				.then((efnistaknMaps) =>
-					mainElm.insertAdjacentHTML(
-						'beforeend',
-						efnistaknMaps
-							.map(
-								(efnistakn) => `
+    <script type="module">
+      const mainElm = document.querySelector('.Layout__main');
+      const links = [].slice.call(mainElm.querySelectorAll('a[href$=".json"]'));
+      console.log(links);
+      Promise.all(
+        links.map((link) =>
+          fetch(link.href).then((res) => {
+            if (!res.ok) {
+              throw new Error('Not Found');
+            }
+            return res.json();
+          })
+        )
+      )
+        .then((efnistaknMaps) =>
+          mainElm.insertAdjacentHTML(
+            'beforeend',
+            efnistaknMaps
+              .map(
+                (efnistakn) => `
 									<ul class="ThumbnailGrid">
 										${Object.entries(efnistakn)
-											.map(
-												([name, src]) => `
+                      .map(
+                        ([name, src]) => `
 												<li class="ThumbnailGrid__item">
 													<strong class="ThumbnailGrid__label">${name}</strong>
 													<img class="ThumbnailGrid__image" src="${src}" alt="${name}">
 												</li>
 											`
-											)
-											.join('')}
+                      )
+                      .join('')}
 									</ul>
 								`
-							)
-							.join('')
-					)
-				)
-				.catch((e) => {
-					mainElm.insertAdjacentHTML(
-						'beforeend',
-						`
+              )
+              .join('')
+          )
+        )
+        .catch((e) => {
+          mainElm.insertAdjacentHTML(
+            'beforeend',
+            `
 							<h1 class="PageHeading">Eeek!</h1>
 							<div class="TextBlock">
 								<p>${e.message}</p>
 							</div>
 						`
-					);
-				});
-		</script>
-	</body>
+          );
+        });
+    </script>
+  </body>
 </html>

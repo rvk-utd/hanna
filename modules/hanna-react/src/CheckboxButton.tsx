@@ -2,9 +2,14 @@ import React from 'react';
 
 import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput.js';
 
-export type CheckboxProps = TogglerInputProps;
+/** @deprecated Use `CheckboxButtonProps` instead  (Will be removed in v0.11) */
+export type CheckboxProps = CheckboxButtonProps;
 
-export const CheckboxButton = (props: CheckboxProps) => (
+// ---------------------------------------------------------------------------
+
+export type CheckboxButtonProps = TogglerInputProps;
+
+export const CheckboxButton = (props: CheckboxButtonProps) => (
   <TogglerInput bem="CheckboxButton" {...props} type="checkbox" innerWrap />
 );
 

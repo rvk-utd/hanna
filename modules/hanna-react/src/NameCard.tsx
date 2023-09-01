@@ -1,9 +1,10 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
+import { WrapperElmProps } from './utils.js';
 
 const formatDate = (date: Date | string) => {
   return typeof date === 'string'
@@ -75,7 +76,9 @@ type DeprecatedContactInfo = {
 export type NameCardProps = {
   name: string;
   /** Phone numbers, e-mail addresses, etc. */
-  contactInfo?: Array<string | ContactInfo | DeprecatedContactInfo>;
+  contactInfo?: Array<
+    string | ContactInfo | DeprecatedContactInfo // eslint-disable-line deprecation/deprecation
+  >;
   /** Address/location info
    *
    * Special handling of string:
@@ -116,10 +119,18 @@ export type NameCardProps = {
   vacancy?: boolean;
   /** @deprecated Use `contactInfo` instead  (will be removed in v0.11) */
   tel?: string | Array<string>;
-};
+} & WrapperElmProps;
 
 export const NameCard = (props: NameCardProps) => {
-  const { name, location, hours, aboutText, available = props.vacancy, updated } = props;
+  const {
+    name,
+    location,
+    hours,
+    aboutText,
+    available = props.vacancy, // eslint-disable-line deprecation/deprecation
+    updated,
+    wrapperProps,
+  } = props;
 
   const renderMeta = () => {
     if (available == null && !updated) {
@@ -131,11 +142,13 @@ export const NameCard = (props: NameCardProps) => {
       <div className="NameCard__meta">
         {available != null && (
           <span
-            className={getBemClass('NameCard__availability', available && 'available')}
+            className={modifiedClass('NameCard__availability', available && 'available')}
           >
-            {available
-              ? availableLabel || texts.vacancyLabel
-              : unavailableLabel || texts.noVacancyLabel}{' '}
+            {
+              available
+                ? availableLabel || texts.vacancyLabel // eslint-disable-line deprecation/deprecation
+                : unavailableLabel || texts.noVacancyLabel // eslint-disable-line deprecation/deprecation
+            }{' '}
           </span>
         )}
         {updated != null && (
@@ -149,11 +162,12 @@ export const NameCard = (props: NameCardProps) => {
 
   let contactInfo = props.contactInfo;
   if (!contactInfo) {
-    contactInfo = _telToContactInfo(props.tel) || [];
+    contactInfo = _telToContactInfo(props.tel) || []; // eslint-disable-line deprecation/deprecation
   }
 
   // Remove/map @deprecated contactinfo items
   const cleanContactInfo = contactInfo.map(
+    // eslint-disable-next-line deprecation/deprecation
     (item): Exclude<typeof item, DeprecatedContactInfo> => {
       if (typeof item !== 'string' && 'value' in item) {
         return {
@@ -167,7 +181,10 @@ export const NameCard = (props: NameCardProps) => {
   );
 
   return (
-    <div className="NameCard">
+    <div
+      {...wrapperProps}
+      className={modifiedClass('NameCard', null, (wrapperProps || {}).className)}
+    >
       <div className="NameCard__name">{name}</div>
       {contactInfo.length > 0 && (
         <p className="NameCard__contactinfo">

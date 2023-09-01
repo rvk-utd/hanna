@@ -2,13 +2,11 @@ import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { FormFieldVariables } from './styles/forms.js';
-import { hoverActiveKeyboardFocus_selector } from './utils/focus-selectors.js';
+import { hoverKeyboardFocusAndActiveStyling } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
-
-const ff = FormFieldVariables.vars;
 
 export default css`
   /*!@deps
@@ -83,14 +81,17 @@ export default css`
     }
 
     .SearchInput__button:not(:disabled) {
-      ${hoverActiveKeyboardFocus_selector(false)(css`
-        background-color: ${vars.color_suld_25};
-        color: ${vars.color_faxafloi_100};
+      ${hoverKeyboardFocusAndActiveStyling(
+        css`
+          background-color: ${vars.color_suld_25};
+          color: ${vars.color_faxafloi_100};
 
-        &::before {
-          transform: scale(1.15);
-        }
-      `)}
+          &::before {
+            transform: scale(1.15);
+          }
+        `,
+        { notActive: true }
+      )}
     }
   }
 
@@ -105,7 +106,7 @@ export default css`
       max-height: 184px;
       overflow: auto;
       background: ${vars.color_suld_0};
-      box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.15), 0px 60px 120px rgba(0, 0, 0, 0.15);
+      box-shadow: ${vars.boxShadow_elevated};
     }
     .AutoComplete__list__item {
       color: ${vars.color_suld_150};

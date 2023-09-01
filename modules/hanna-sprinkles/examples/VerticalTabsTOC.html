@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Tabs sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,Tabs,TextBlock,HeroBlock"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('Tabs');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div>
+            <div id="block-reykjavik-content">
+              <article role="article">
+                <div class="node-content-header">
+                  <div>
+                    <div>
+                      <div id="section-3181604">
+                        <div id="section-3181604" class="HeroBlock">
+                          <h1 class="HeroBlock__title">Testing TOC</h1>
+                          <picture class="HeroBlock__image">
+                            <img
+                              src="https://styles.reykjavik.is/assets/illustrations/atvinna1.png"
+                              alt="blossom tree"
+                              loading="lazy"
+                            />
+                          </picture>
+                          <div class="HeroBlock__summary">
+                            <p>Thi is the hero text</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div id="section-3181605">
+                        <div
+                          id="section-3181605"
+                          class="TextBlock TextBlock--labelled TextBlock--align--right"
+                        >
+                          <h2>Text section in header</h2>
+
+                          <p>
+                            Lorem ipsum… The text to display in the title bar of a
+                            visitor's web browser when they view this page. This meta tag
+                            may also be used as the title of the page when a visitor
+                            bookmarks or favorites this page, or as the page title in a
+                            search engine result. It is common to append '[site:name]' to
+                            the end of this, so the site's name is automatically added. It
+                            is recommended that the title is no greater than 55 - 65
+                            characters long, including spaces.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="node-content-main" id="node-content-main">
+                  <div>
+                    <div></div>
+                    <div>
+                      <div id="section-3181575">
+                        <div
+                          id="section-3181575"
+                          class="TextBlock TextBlock--labelled TextBlock--align--right"
+                        >
+                          <h2>Par title followed by text</h2>
+
+                          <p>
+                            <em>This text comes after the paragraph title. </em>Use tokens
+                            to avoid redundant meta data and search engine penalization.
+                            For example, a 'keyword' value of "example" will be shown on
+                            all content using this configuration, whereas using the
+                            [node:field_keywords] automatically inserts the "keywords"
+                            values from the current entity (node, term, etc).
+                          </p>
+                          <p>
+                            <em>This text comes after the paragraph title. </em>Use tokens
+                            to avoid redundant meta data and search engine penalization.
+                            For example, a 'keyword' value of "example" will be shown on
+                            all content using this configuration, whereas using the
+                            [node:field_keywords] automatically inserts the "keywords"
+                            values from the current entity (node, term, etc).
+                          </p>
+                          <h3>This is a h3 subtitle in text field, after text</h3>
+                          <p>
+                            <em>This text comes after h3 subtitle in text field.</em> The
+                            text to display in the title bar of a visitor's web browser
+                            when they view this page. This meta tag may also be used as
+                            the title of the page when a visitor bookmarks or favorites
+                            this page, or as the page title in a search engine result. It
+                            is common to append '[site:name]' to the end of this, so the
+                            site's name is automatically added. It is recommended that the
+                            title is no greater than 55 - 65 characters long, including
+                            spaces.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div id="section-3181606">
+                        <div
+                          id="section-3181606"
+                          class="TextBlock TextBlock--labelled TextBlock--align--right"
+                        >
+                          <p>
+                            🤩🤩🤩 Lorem ipsum… The text to display in the title bar of a
+                            visitor's web browser when they view this page. This meta tag
+                            may also be used as the title of the page when a visitor
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div id="section-3181576">
+                        <div
+                          id="section-3181576"
+                          class="TextBlock TextBlock--labelled TextBlock--align--right"
+                        >
+                          <h2>Par title followed by subtitle</h2>
+
+                          <h3>This is a h3 subtitle in text field, after par title</h3>
+                          <p>
+                            <em>This text comes after h3 subtitle in text field.</em> A
+                            brief and concise summary of the page's content that is a
+                            maximum of 160 characters in length. The description meta tag
+                            may be used by search engines to display a snippet about the
+                            page in search results.
+                          </p>
+                          <h3>This is a h3 subtitle in text field, after text</h3>
+                          <p>
+                            <em>This text comes after h3 subtitle in text field.</em> A
+                            brief and concise summary of the page's content, preferably
+                            150 characters or less. Where as the description meta tag may
+                            be used by search engines to display a snippet about the page
+                            in search results, the abstract tag may be used to archive a
+                            summary about the page. This meta tag is
+                            <em>no longer</em> supported by major search engines.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <script>
+            window.Hanna.import('utils/makeVerticalTabsTOC').then(function ([exports]) {
+              const makeVerticalTabsTOC = exports.default;
+
+              const wrapperSel = '#node-content-main';
+              const wrapperElm = document.querySelector(wrapperSel);
+              wrapperElm.dataset.seenEffect = 'fadeup';
+              const textBlocks = wrapperElm.querySelectorAll('.TextBlock');
+              makeVerticalTabsTOC(textBlocks).then(function ({ rootElm }) {
+                textBlocks.forEach(function (elm) {
+                  elm.classList.remove('TextBlock--labelled');
+                });
+                // One-off custom styling for this instance
+                // to make the TOC Tabs align to the left of the TextBlocks
+                wrapperElm.insertAdjacentHTML(
+                  'beforeend',
+                  `<style>
+                  @media (min-width: 760px) {
+                    ${wrapperSel} {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: flex-start;
+                      column-gap: var(--grid-gutter);
+                      margin-top: var(--component-vspace--small);
+                      border-top: var(--border-default);
+                      padding-top: var(--component-vspace--small);
+                    }
+                    ${wrapperSel} > div:not(.Tabs) {
+                      flex-shrink: 1;
+                    }
+                  }
+                </style>`
+                );
+                wrapperElm.prepend(...rootElm.children);
+                // setTimeout(() => res.unmount(), 1200);
+              });
+            });
+          </script>
+
+          <!-- -->
+          <div class="TOCContentWrapper">
+            <div class="TextBlock TextBlock--align--right">
+              <h2>Red</h2>
+              <h3>Apple</h3>
+              <p>
+                Yöva gäta <a href="">stahrt sömwaer.</a> Ut enim ad minim veniam, letsi
+                ifder svensk og latin makinen dehr graek.
+              </p>
+              <h4>Not a tab</h4>
+              <p>
+                Vender gests kämmen vewänthärdis wehrdsen onderpasje moose. Ut enim ad
+                minim veniam, letsi ifder svensk og latin makinen dehr graek. Yöva gäta
+                stahrt sömwaer. Nawei raitinen de wehbsyte.
+              </p>
+              <p>
+                bork bork Björk! Ut enim ad minim veniam, letsi ifder svensk og latin
+                makinen dehr graek. Ut enim ad minim veniam, letsi ifder svensk og latin
+                makinen dehr graek. Nawei raitinen de wehbsyte. Ut enim ad minim veniam,
+                letsi ifder svensk og latin makinen dehr graek. Ut enim ad minim veniam,
+                letsi ifder svensk og latin makinen dehr graek. Lörem ipsum dolor sit
+                amet, dedeeshka duu. Leebur deroor iehroom.
+              </p>
+              <h3>Tomato</h3>
+              <p>
+                bork bork Björk! Ut enim ad minim veniam, letsi ifder svensk og latin
+                makinen dehr graek. Ut enim ad minim veniam, letsi ifder svensk og latin
+                makinen dehr graek. Nawei raitinen de wehbsyte. Ut enim ad minim veniam,
+                letsi ifder svensk og latin makinen dehr graek. Ut enim ad minim veniam,
+                letsi ifder svensk og latin makinen dehr graek. Lörem ipsum dolor sit
+                amet, dedeeshka duu. Leebur deroor iehroom.
+              </p>
+            </div>
+
+            <div class="TextBlock TextBlock--align--right">
+              <h2>Yellow</h2>
+              <h3>Banana</h3>
+              <p>
+                Vender gests kämmen vewänthärdis wehrdsen onderpasje moose. Ut enim ad
+                minim veniam, letsi ifder svensk og latin makinen dehr graek. Yöva gäta
+                stahrt sömwaer. Nawei raitinen de wehbsyte.
+              </p>
+            </div>
+
+            <div class="TextBlock TextBlock--align--right">
+              <h2>Green</h2>
+              <h3>Spinach is nice</h3>
+              <p>
+                Lörem ipsum dolor sit amet, dedeeshka duu. Leebur deroor iehroom, bork
+                bork Björk! Ut enim ad minim veniam, letsi ifder svensk og latin makinen
+                dehr graek. Ut enim ad minim veniam, letsi ifder svensk og latin makinen
+                dehr graek. Nawei raitinen de wehbsyte. Ut enim ad minim veniam, letsi
+                ifder svensk og latin makinen dehr graek. Ut enim ad minim veniam, letsi
+                ifder svensk og latin makinen dehr graek.
+              </p>
+              <p>
+                Yöva gäta stahrt sömwaer. Ut enim ad minim veniam, letsi ifder svensk og
+                latin makinen dehr graek.
+              </p>
+              <h3>Broccoli</h3>
+              <p>
+                Vender gests kämmen vewänthärdis wehrdsen onderpasje moose. Ut enim ad
+                minim veniam, letsi ifder svensk og latin makinen dehr graek. Yöva gäta
+                stahrt sömwaer. Nawei raitinen de wehbsyte.
+              </p>
+            </div>
+          </div>
+
+          <script>
+            window.Hanna.import('utils/makeVerticalTabsTOC').then(function ([exports]) {
+              const makeVerticalTabsTOC = exports.default;
+
+              const wrapperSel = '.TOCContentWrapper';
+              const wrapperElm = document.querySelector(wrapperSel);
+              makeVerticalTabsTOC(wrapperElm.querySelectorAll('.TextBlock')).then(
+                ({ rootElm, panelElms, unmount }) => {
+                  // One-off custom styling for TOCContentWrapper
+                  // to make the TOC Tabs align to the left of the TextBlocks
+                  wrapperElm.insertAdjacentHTML(
+                    'beforeend',
+                    `<style>
+                      @media (min-width: 760px) {
+                        ${wrapperSel} {
+                          display: flex;
+                          justify-content: space-between;
+                          align-items: flex-start;
+                          column-gap: var(--grid-gutter);
+                          margin-top: var(--component-vspace--small);
+                          border-top: var(--border-default);
+                          padding-top: var(--component-vspace--small);
+                        }
+                        ${wrapperSel} > .TextBlock {
+                          flex-shrink: 1;
+                        }
+                      }
+                    </style>`
+                  );
+
+                  wrapperElm.prepend(...rootElm.children);
+                  // setTimeout(() => unmount(), 1200);
+                }
+              );
+            });
+          </script>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

@@ -9,17 +9,16 @@ import { Minimal } from '../../layout/Minimal.js';
 import { lorem } from '../../test-helpers/dummyData.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
-import { cssTokens } from '../../utils/route';
+import { cssTokens } from '../../utils/route.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('Checkbox', 'RadioGroup', 'RowBlock', 'RowBlockColumn');
 
-export default function () {
-  // alias here to appease PlayWright's weirdly limited build config
-  const RadioGroup__Radio = RadioGroup.__Radio;
+const Radio = RadioGroup.__Radio; // eslint-disable-line deprecation/deprecation
 
+export default function () {
   return (
     <Minimal>
       <RowBlock>
@@ -70,28 +69,13 @@ export default function () {
           <Checkbox label={lorem.short} />
         </RowBlockColumn>
         <RowBlockColumn>
-          <RadioGroup__Radio label="Normal" checked={false} data-testid="normal" />
-          <RadioGroup__Radio label="Checked Normal" checked data-testid="normalChecked" />
-          <RadioGroup__Radio
-            label="Disabled"
-            disabled
-            checked={false}
-            data-testid="disabled"
-          />
-          <RadioGroup__Radio label="Checked Disabled" disabled checked />
-          <RadioGroup__Radio
-            label="Invalid"
-            invalid
-            checked={false}
-            data-testid="invalid"
-          />
-          <RadioGroup__Radio
-            label="Checked Invalid"
-            invalid
-            checked
-            data-testid="invalidChecked"
-          />
-          <RadioGroup__Radio label={lorem.short} />
+          <Radio label="Normal" checked={false} data-testid="normal" />
+          <Radio label="Checked Normal" checked data-testid="normalChecked" />
+          <Radio label="Disabled" disabled checked={false} data-testid="disabled" />
+          <Radio label="Checked Disabled" disabled checked />
+          <Radio label="Invalid" invalid checked={false} data-testid="invalid" />
+          <Radio label="Checked Invalid" invalid checked data-testid="invalidChecked" />
+          <Radio label={lorem.short} />
         </RowBlockColumn>
       </RowBlock>
       <style>{`
@@ -104,8 +88,8 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, project }) => {
-    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+  extras: async ({ page, localScreenshot, mediaFormat }) => {
+    if (!mediaFormat('wide') && !mediaFormat('phone')) {
       return;
     }
 

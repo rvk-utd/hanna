@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import focusElm from '@hugsmidjan/qj/focusElm';
+import { modifiedClass, Modifiers } from '@hugsmidjan/qj/classUtils';
+import { focusElm } from '@hugsmidjan/qj/focusElm';
 import useShortState from '@hugsmidjan/react/hooks/useShortState';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
-import { Cleanup, getPageScrollElm } from '@reykjavik/hanna-utils';
+import { Cleanup } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
@@ -13,13 +13,14 @@ import {
 } from './MainMenu/_Auxiliary.js';
 import {
   MegaMenuItem,
+  MegaMenuItemList,
   MegaMenuPanel,
   PrimaryPanel,
   PrimaryPanelI18n,
 } from './MainMenu/_PrimaryPanel.js';
 import { useHannaUIState } from './utils/HannaUIState.js';
 import { useFormatMonitor } from './utils/useFormatMonitor.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>
   activeId ? megaPanels.find((panel) => activeId === panel.id) : undefined;
@@ -27,24 +28,27 @@ const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: st
 // ---------------------------------------------------------------------------
 
 export type MainMenuI18n = Cleanup<
-  { lang?: string; homeLabel?: string } & PrimaryPanelI18n
+  { lang?: string; homeLabel?: string; title: string } & PrimaryPanelI18n
 >;
 
 export const defaultMainMenuTexts: DefaultTexts<Required<MainMenuI18n>> = {
   is: {
     lang: 'is',
+    title: 'Aðalvalmynd',
     homeLabel: 'Forsíða',
     backToMenu: 'Loka',
     backToMenuLong: 'Til baka í valmynd',
   },
   en: {
     lang: 'en',
+    title: 'Main Menu',
     homeLabel: 'Home page',
     backToMenu: 'Close',
     backToMenuLong: 'Close and return to menu',
   },
   pl: {
     lang: 'pl',
+    title: 'Menu główne',
     homeLabel: 'Strona główna',
     backToMenu: 'Zamknij',
     backToMenuLong: 'Zamknij i wróć do menu',
@@ -76,6 +80,7 @@ const normalizeMenuItems = (
   texts: NonNullable<MainMenuProps['texts']>
 ) => {
   type MenuItemNormalized =
+    | (() => JSX.Element)
     | MainMenuSeparator
     | (MainMenuItem & {
         megaPanel?: MegaMenuPanel;
@@ -83,7 +88,7 @@ const normalizeMenuItems = (
       });
 
   const items = itemsProp.map((item): MenuItemNormalized => {
-    if (item === '---') {
+    if (item === '---' || !('label' in item)) {
       return item;
     }
     const href = item.href;
@@ -135,6 +140,7 @@ export type {
   AuxilaryPanelIllustration,
   AuxiliaryPanelProps,
   MegaMenuItem,
+  MegaMenuItemList,
   MegaMenuPanel,
 };
 
@@ -151,7 +157,7 @@ export type MainMenuItem = {
    * <li class="MainMenu__item MainMenu__item--${modifier}">
    * ```
    * */
-  modifier?: string;
+  modifier?: Modifiers;
   current?: boolean;
   href?: string;
   /**
@@ -163,12 +169,19 @@ export type MainMenuItem = {
    */
   onClick?: (index: number, item: MainMenuItem) => void | boolean;
   controlsId?: string;
+  target?: React.HTMLAttributeAnchorTarget;
 };
 export type MainMenuSeparator = '---';
-export type MainMenuItemList = Array<MainMenuItem | MainMenuSeparator>;
+export type MainMenuItemList = Array<
+  MainMenuItem | MainMenuSeparator | (() => JSX.Element)
+>;
 
 export type MainMenuProps = {
-  title: string;
+  /**
+   * Top-level screen-reader headline/label for the whole menu.
+   * Defaults to a translation of "Main Menu"
+   */
+  title?: string;
   items: MainMenuItemList;
   /**
    * Link for the homepage - defaults to `"/"` adding a
@@ -186,19 +199,27 @@ export type MainMenuProps = {
   activePanelId?: string;
   texts?: MainMenuI18n;
   lang?: string;
-  ssr?: SSRSupport;
-};
+} & SSRSupportProps &
+  WrapperElmProps<null, 'aria-label'>;
 
 export const MainMenu = (props: MainMenuProps) => {
-  const { title, megaPanels = emptyPanelList, onItemClick, ssr, auxiliaryPanel } = props;
+  const {
+    megaPanels = emptyPanelList,
+    onItemClick,
+    ssr,
+    auxiliaryPanel,
+    wrapperProps = {},
+  } = props;
 
   const texts = getTexts(props, defaultMainMenuTexts);
+  const title = props.title || texts.title;
 
   const { closeHamburgerMenu } = useHannaUIState();
 
   const isBrowser = useIsBrowserSide(ssr);
 
-  const menuElmRef = useRef<HTMLElement>(null);
+  const _menuElmRef = useRef<HTMLElement>(null);
+  const menuElmRef = wrapperProps.ref || _menuElmRef;
   const pressedLinkRef = useRef<HTMLButtonElement>(null);
   const activePanelRef = useRef<HTMLLIElement>(null);
 
@@ -213,20 +234,20 @@ export const MainMenu = (props: MainMenuProps) => {
     () =>
       isBrowser
         ? (newActive: MegaMenuPanel | undefined, setFocus = true) => {
-            const htmlElmDataset = document.documentElement.dataset;
+            const htmlElm = document.documentElement;
+            const htmlElmDataset = htmlElm.dataset;
 
             // const menuElm = menuElmRef.current as HTMLElement;
             _setActivePanel((activePanel) => {
-              const scrollElm = getPageScrollElm();
               if (!newActive) {
                 activePanel && setLaggyActivePanel(activePanel, 1000);
-                scrollElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
+                htmlElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
                 delete htmlElmDataset.scrollTop;
                 delete htmlElmDataset.megaPanelActive;
               } else {
                 setLaggyActivePanel(undefined, 0);
-                htmlElmDataset.scrollTop = String(scrollElm.scrollTop);
-                scrollElm.scrollTop = 0;
+                htmlElmDataset.scrollTop = String(htmlElm.scrollTop);
+                htmlElm.scrollTop = 0;
                 htmlElmDataset.megaPanelActive = '';
               }
 
@@ -314,7 +335,8 @@ export const MainMenu = (props: MainMenuProps) => {
 
   return (
     <nav
-      className="MainMenu"
+      {...props.wrapperProps}
+      className={modifiedClass('MainMenu', null, wrapperProps.className)}
       aria-label={title}
       data-sprinkled={isBrowser}
       ref={menuElmRef}
@@ -325,13 +347,21 @@ export const MainMenu = (props: MainMenuProps) => {
           if (item === '---') {
             return <li key={i} className="MainMenu__separator" aria-hidden="true" />;
           }
+          if (!('label' in item)) {
+            const Item = item;
+            return (
+              <li key={i} className="MainMenu__item">
+                <Item />
+              </li>
+            );
+          }
 
           const { label, labelLong, lang, controlsId, onClick } = item;
           const pressed = (activePanel && controlsId === activePanel.id) || undefined;
           return (
             <li
               key={i}
-              className={getBemClass('MainMenu__item', item.modifier)}
+              className={modifiedClass('MainMenu__item', item.modifier)}
               aria-current={item.current || undefined}
             >
               {
@@ -364,6 +394,7 @@ export const MainMenu = (props: MainMenuProps) => {
                   <Link
                     className="MainMenu__link"
                     href={item.href}
+                    target={item.target}
                     aria-label={labelLong}
                     title={labelLong} // For auto-tooltips on desktop
                     onClick={() => {
@@ -382,7 +413,7 @@ export const MainMenu = (props: MainMenuProps) => {
       </ul>
       {'\n\n'}
       {megaPanels.length > 0 && (
-        <div className={getBemClass('MainMenu__panelsWrap', [activePanel && 'active'])}>
+        <div className={modifiedClass('MainMenu__panelsWrap', [activePanel && 'active'])}>
           <ul className="MainMenu__panels" onClick={handleMegaPanelClicks}>
             {megaPanels.map((panel, i) => {
               if (!panel.items.length) {

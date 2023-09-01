@@ -4,7 +4,7 @@ import { existsSync, readFileSync, statSync } from 'fs';
 import { stat } from 'fs/promises';
 import { glob, sync as globSync } from 'glob';
 
-import { LABEL_SPLIT, NAME_SPLIT } from '../../tests/helpers/screeshots.js';
+import { LABEL_SPLIT, NAME_SPLIT } from '../tests/helpers/screenshots.js';
 
 type TestPageInfo = {
   path: string;
@@ -81,7 +81,7 @@ export type Changeset = {
   tests-Button-ι-extra-¶firefox⁋-¶chrome⁋--firefox-wide/Button-ι-extra-ιι-disabled-hover-ι--actual.png
 
   (A) `specFile`.
-      The name (prefix) of the actual "*.spec.ts" file containing
+      The name (prefix) of the actual "*.spec.js" file containing
       the test definition.
   (B) Base part of `testName`.
       The name of the `src/routes/test/*` page
@@ -101,7 +101,7 @@ export type Changeset = {
   (Z) `NAME_SPLIT`
 */
 
-const testsFolder = 'tests/'; // where the *.spec.ts files are stored
+const testsFolder = 'tests/'; // where the compiled *.spec.js files are stored
 const publicFolder = 'public/';
 const resultsFolder = 'test-results/';
 
@@ -111,7 +111,7 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
     console.warn(`Can't find folder "${cwd}"`);
     return [];
   }
-  const fileList = await glob('*/*.{png,bug,ok}', { cwd });
+  const fileList = (await glob('*/*.{png,bug,ok}', { cwd })).sort();
   const filesByTest: Record<
     string,
     Pick<
@@ -242,7 +242,7 @@ const getSnapshotFilePath = (change: Changeset): string => {
 
   const label = change.label ? LABEL_SPLIT + change.label : '';
 
-  const _snapshotsPath = `${testsFolder + specFile}.spec.ts-snapshots/`;
+  const _snapshotsPath = `${testsFolder + specFile}.spec.js-snapshots/`;
   const _snapshotsFileName = `${testName_raw + label + NAME_SPLIT}-${project}-${
     process.platform
   }.png`;

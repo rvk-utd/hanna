@@ -1,7 +1,7 @@
 import { css, pct_f } from 'es-in-css';
 
 import { srOnly_focusable } from '../lib/a11y.js';
-import { between } from '../lib/between.js';
+import { scale } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { grid } from '../lib/grid.js';
@@ -213,10 +213,10 @@ export default css`
       @media ${mq_Fullscreen} {
         font: ${vars.font_hd_l};
         max-width: 9em; /* Makes for nice line-wrap in the text 'Hvað getum við \n gert fyrir þig?' */
-        margin-bottom: ${between(3 * grid.unit, 8 * grid.unit, 480, 812, 'vh')};
+        margin-bottom: ${scale(3 * grid.unit, 8 * grid.unit, 480, 812, 'vh')};
         margin-bottom: min(
           ${vars.space_8},
-          ${between(3 * grid.unit, 8 * grid.unit, 480, 812, 'vh')}
+          ${scale(3 * grid.unit, 8 * grid.unit, 480, 812, 'vh')}
         );
       }
       @media ${mq_Popup} {
@@ -323,7 +323,7 @@ export default css`
 
     @media ${mq_Popup} {
       .ContactBubble__closebtn {
-        ${srOnly_focusable({})}
+        ${srOnly_focusable()}
       }
     }
   }

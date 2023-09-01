@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { Button, ButtonProps } from './_abstract/_Button.js';
@@ -28,6 +28,9 @@ export type TagPillProps = ButtonProps & {
       removeLabelLong?: string;
     }
   >;
+
+// NOTE: As a `_abstract/_Button.tsx`-derived component, all `<button/>` and
+// `<a/>` props are allowed directly, so adding `wrapperProps` makes no sense.
 
 export const TagPill = (props: TagPillProps) => {
   const {
@@ -66,11 +69,11 @@ export const TagPill = (props: TagPillProps) => {
   );
 
   return isStatic ? (
-    <span className={getBemClass('TagPill', modifiers)} {...buttonProps}>
+    <span className={modifiedClass('TagPill', modifiers)} {...buttonProps}>
       {label} {removeBtn}
     </span>
   ) : onRemove ? (
-    <span className={getBemClass('TagPill', modifiers)}>
+    <span className={modifiedClass('TagPill', modifiers)}>
       <Button bem="TagPill__button" {...buttonProps}>
         {label}
       </Button>{' '}

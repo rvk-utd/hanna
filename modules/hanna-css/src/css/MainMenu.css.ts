@@ -1,7 +1,7 @@
 import { color, css, px } from 'es-in-css';
 
-import { srOnly_focusableContent, srOnly_focusable } from '../lib/a11y.js';
-import { between_Topmenu } from '../lib/between.js';
+import { srOnly_focusable, srOnly_focusableContent } from '../lib/a11y.js';
+import { scale_Topmenu } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { colors } from '../lib/colors.js';
@@ -12,14 +12,14 @@ import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
+import { ButtonVariables } from './styles/buttons.js';
 import { freezeScroll_css } from './styles/header.js';
 import { LinkStyle } from './styles/links.js';
 import { extendSides } from './utils/extendSides.js';
 import { grid_units, prem } from './utils/miscUtils.js';
 import { AuxiliaryPanel_css } from './_AuxiliaryPanel.js';
 import { PrimaryPanel_css } from './_PrimaryPanel.js';
-
-import { whiteHeader, whiteLogo } from './Layout.css';
+import { whiteHeader, whiteLogo } from './Layout.css.js';
 
 const HamburgerVariables = buildVariables(['offsetLeft', 'list__padTop'], 'MainMenu');
 const hmVars = HamburgerVariables.vars;
@@ -48,9 +48,20 @@ export default css`
       display: none; // ok if aria-label/aria-labelled by is used!
     }
     .MainMenu__item--home[class] {
-      ${srOnly_focusableContent({})};
+      ${srOnly_focusableContent()};
     }
 
+    .MainMenu__item > :not(.MainMenu__link) {
+      margin: 0;
+      /*
+        Without this elements with "width: max-content;"
+        AND, it seems, complex (calc-based) padding or min-wdith
+        will cause Firefox (as of 117 at least) to expand the width of the
+        outer .MainMenu__item container.  Chrome does not do this.
+        Remove this once Firefox has got its act together
+      */
+      width: auto;
+    }
     .MainMenu__link {
       ${LinkStyle}
       display: block;
@@ -220,13 +231,13 @@ export default css`
     }
 
     .MainMenu__megapanel__backtomenu {
-      ${srOnly_focusable({})}
+      ${srOnly_focusable()}
     }
   }
 
   // ===========================================================================
   //
-  // Desktop Menu
+  // Desktop (Top) Menu
   //
   // ===========================================================================
 
@@ -249,9 +260,11 @@ export default css`
       right: 0;
       left: ${vars.grid_3_3};
       height: ${vars.Layout$$header_height};
-      padding-bottom: ${prem(10)};
-      margin-right: ${between_Topmenu(-8, -20)};
-      margin-left: ${between_Topmenu(-14, -20)};
+      padding-bottom: calc(
+        ${vars.link_underline__thickness} + ${vars.link_underline_offset}
+      );
+      margin-right: ${scale_Topmenu(-8, -20)};
+      margin-left: ${scale_Topmenu(-14, -20)};
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -264,12 +277,12 @@ export default css`
 
     .MainMenu__item {
       ${TopMenuVariables.declare({
-        item_padding: between_Topmenu(4, 10),
+        item_padding: scale_Topmenu(4, 10),
       })}
 
       color: ${vars.color_suld_200};
       white-space: nowrap;
-      margin: 0 ${between_Topmenu(4, 10)};
+      margin: 0 ${scale_Topmenu(4, 10)};
 
       @media ${mq.wide} {
         margin-right: 10px;
@@ -282,10 +295,9 @@ export default css`
 
     .MainMenu__item[aria-current='true'] {
       color: ${vars.color_faxafloi_100};
-
-      html[data-mega-panel-active] & {
-        color: ${vars.color_suld_0};
-      }
+    }
+    html[data-mega-panel-active] .MainMenu__item[aria-current='true'] {
+      color: ${vars.color_suld_0};
     }
 
     .MainMenu__separator[class] {
@@ -297,7 +309,6 @@ export default css`
         item_padding: prem(10),
       })}
     }
-    ${htmlCl.menuIsOpen} .MainMenu__item:not(.MainMenu__separator ~ *),
     html[data-mega-panel-active] .MainMenu__item:not(.MainMenu__separator ~ *) {
       ${hannaVarOverride({
         link_color__hover: vars.color_suld_0,
@@ -305,9 +316,34 @@ export default css`
       color: ${color(colors.suld_25).fade(0.3)};
     }
 
+    html[data-mega-panel-active]
+      .MainMenu__item:not(.MainMenu__separator ~ *)
+      > .ButtonPrimary {
+      ${ButtonVariables.override({
+        color: vars.color_suld_0,
+        color__active: vars.color_faxafloi_25,
+        textColor: vars.color_faxafloi_100,
+        textColor__active: vars.color_faxafloi_150,
+      })}
+    }
+    html[data-mega-panel-active]
+      .MainMenu__item:not(.MainMenu__separator ~ *)
+      > .ButtonSecondary {
+      ${ButtonVariables.override({
+        color: vars.color_suld_0,
+        color__active: vars.color_faxafloi_25,
+        backgroundColor: vars.color_faxafloi_100,
+        backgroundColor__active: vars.color_faxafloi_150,
+        textColor: vars.color_suld_0,
+        textColor__active: vars.color_faxafloi_25,
+      })}
+    }
+
     .MainMenu__link {
       padding: ${prem(10)} ${tmVars.item_padding};
       padding-bottom: 0;
+      margin-top: calc(${vars.link_underline__thickness} + ${vars.link_underline_offset});
+      margin-bottom: ${prem(10)};
     }
     .MainMenu__link[aria-pressed='true'] {
       color: ${vars.color_suld_0};

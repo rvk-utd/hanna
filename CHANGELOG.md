@@ -3,6 +3,26 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Pagination`
+- feat: Add variant `--large` to `ArticleCards`
+- feat: Allow `__item__summary` for `ArticleCards` and `ImageCards`
+- feat: Allow `__item__meta` for `ActionCards`
+- feat: Improve support for arbitrary children in `.MainMenu__item` and the
+  "mega panel" items
+- fix: `Layout` components set `alt="Reykjavík"` on their header logo
+
+## 0.8.32
+
+_2023-07-06_
+
+- feat: Add component `Multiselect`
+
+## 0.8.31
+
+_2023-06-06_
+
+- feat: Add component `ReadSpeakerPlayer` — a thin div-wrapper around
+  ReadSpeaker's embed code
 
 ## 0.8.30
 

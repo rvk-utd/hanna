@@ -1,9 +1,10 @@
 import React, { createRef, useState } from 'react';
 import Autosuggest, { RenderSuggestion } from 'react-autosuggest';
-import { BemProps } from '@hugsmidjan/react/types';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
+import { BemProps } from './utils/types.js';
 import SiteSearchInput from './SiteSearchInput.js';
+import { WrapperElmProps } from './utils.js';
 
 // ---------------------------------------------------------------------------
 
@@ -64,7 +65,8 @@ export type SiteSearchAutocompleteProps<T> = {
   texts?: SiteSearchACI18n;
   /** @deprecated  Use `text` prop instead  (will be removed in v0.11) */
   label?: string;
-} & BemProps;
+} & BemProps &
+  WrapperElmProps;
 
 export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>) => {
   const {
@@ -78,6 +80,7 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
     onSubmit,
     onButtonClick = onSubmit,
     bem = 'SiteSearchAutocomplete',
+    wrapperProps,
   } = props;
   const [value, setValue] = useState('');
   const inputRef = createRef<HTMLInputElement>();
@@ -122,13 +125,17 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
       renderInputComponent={(inputProps) => {
         /* prettier-ignore */
         const {
-					className, type, disabled, readOnly, required, children, //eslint-disable-line @typescript-eslint/no-unused-vars
+					className, type, disabled, readOnly, required, children,
 					...siteSearchProps
 				} = inputProps;
         return (
           <SiteSearchInput
             {...siteSearchProps}
-            label={props.label || txt.inputLabel}
+            wrapperProps={wrapperProps}
+            label={
+              props.label || // eslint-disable-line deprecation/deprecation
+              txt.inputLabel
+            }
             placeholder={txt.placeholder}
             onSubmit={onSubmit && (() => onSubmit(value))}
             onButtonClick={onButtonClick && (() => onButtonClick(value))}

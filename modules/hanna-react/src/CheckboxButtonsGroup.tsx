@@ -20,10 +20,10 @@ export type CheckboxButtonsGroupProps = TogglerGroupFieldProps & {
 export type CheckboxButtonsGroupOptions = TogglerGroupFieldOptions;
 
 export const CheckboxButtonsGroup = (props: CheckboxButtonsGroupProps) => {
-  if (props.layout) {
+  if (props.layout /* eslint-disable-line deprecation/deprecation */) {
     console.warn('`CheckboxButtonsGroupProps.layout` is deprecated.');
   }
-  if (props.columns) {
+  if (props.columns /* eslint-disable-line deprecation/deprecation */) {
     console.warn('`CheckboxButtonsGroupProps.columns` is deprecated.');
   }
   return (

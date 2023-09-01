@@ -1,6 +1,6 @@
 import { css, em } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -9,8 +9,7 @@ import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { SeenEffect__fadeup } from './utils/seenEffects.js';
 import { GalleryModal_css, GalleryModalItem_css } from './_GalleryModal.js';
-
-import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css';
+import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css.js';
 
 export default css`
   /*!@deps
@@ -21,7 +20,7 @@ export default css`
     .Gallery {
       ${carouselStepperBeforeSprinklingPadding}
       ${SeenEffect__fadeup};
-      margin-bottom: ${between_cols(32, 130)};
+      margin-bottom: ${scale_container(32, 130)};
     }
     .Gallery__itemlist {
       ${carouselItemsScrollSnapStyles};

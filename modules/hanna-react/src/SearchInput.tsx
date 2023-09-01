@@ -1,48 +1,27 @@
 import React, { RefObject, useState } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
-import FormField, { FormFieldWrappingProps } from './FormField.js';
+import FormField, {
+  FormFieldWrappingProps,
+  groupFormFieldWrapperProps,
+} from './FormField.js';
 
-type InputElmProps = JSX.IntrinsicElements['input'];
-
-type BaseProps<Type extends { type?: string }, InputProps extends object> = {
+export type SearchInputProps = FormFieldWrappingProps & {
   small?: boolean;
-  children?: never;
+  type?: string;
   onButtonClick?: () => void;
   buttonText?: string;
   inputRef?: RefObject<HTMLInputElement>;
   buttonRef?: RefObject<HTMLButtonElement>;
-} & Type &
-  FormFieldWrappingProps &
-  InputProps;
-
-// ---------------------------------------------------------------------------
-
-export type SearchInputProps = BaseProps<{ type?: 'text' }, InputElmProps>;
+} & JSX.IntrinsicElements['input'];
 
 export const SearchInput = (props: SearchInputProps) => {
   const {
-    className,
-
-    label,
-    assistText,
-    hideLabel,
-    disabled,
-    readOnly,
-    invalid,
-    errorMessage,
-    required,
-    reqText,
-    id,
     onChange,
-
-    small,
-
     onButtonClick,
     buttonText = 'Leita',
-    ssr,
+    fieldWrapperProps,
     ...inputElementProps
-  } = props;
+  } = groupFormFieldWrapperProps(props);
 
   const { value, defaultValue, placeholder } = inputElementProps;
 
@@ -60,21 +39,10 @@ export const SearchInput = (props: SearchInputProps) => {
 
   return (
     <FormField
-      className={getBemClass('SearchInput', [], className)}
-      ssr={ssr}
-      small={small}
-      label={label}
+      extraClassName="SearchInput"
       empty={empty}
       filled={filled}
-      assistText={assistText}
-      hideLabel={hideLabel}
-      disabled={disabled}
-      readOnly={readOnly}
-      invalid={invalid}
-      errorMessage={errorMessage}
-      required={required}
-      reqText={reqText}
-      id={id}
+      {...fieldWrapperProps}
       renderInput={(className, inputProps, addFocusProps) => (
         <div className={className.input} {...addFocusProps()}>
           <input
@@ -91,7 +59,7 @@ export const SearchInput = (props: SearchInputProps) => {
               onClick={onButtonClick}
               title={buttonText}
               ref={props.buttonRef}
-              disabled={disabled || readOnly}
+              disabled={props.disabled || props.readOnly}
             >
               {buttonText}
             </button>

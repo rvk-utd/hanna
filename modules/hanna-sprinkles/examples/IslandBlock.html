@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>IslandBlock sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,IslandBlock"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('IslandBlock');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="IslandBlock IslandBlock--align--right">
+            <div class="IslandBlock__content">
+              <h2 class="IslandBlock__title">
+                Block title lorem ipsum dolor sit ament foobar
+              </h2>
+              <div class="IslandBlock__summary">
+                <p>
+                  Block summary text <strong>lorem ipsum dolor</strong> sit ament foobar.
+                  Blah blah blah.
+                </p>
+              </div>
+              <div class="IslandBlock__buttons">
+                <a class="IslandBlock__button" href="">Dagskrá næsta fundar</a>
+                <a class="IslandBlock__button" href="">Stjórnkerfi</a>
+              </div>
+            </div>
+            <picture class="IslandBlock__image">
+              <img
+                src="http://localhost:4000/assets/formheimur/fjoll.svg"
+                alt=""
+                loading="lazy"
+              />
+            </picture>
+          </div>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

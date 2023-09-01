@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+
+import { WrapperElmProps } from './utils.js';
 
 const colors = {
   green: 1,
@@ -22,15 +24,22 @@ export type SharpieProps = {
   color: SharpieColor;
   tag?: SharpieTag;
   children: ReactNode;
-};
+} & WrapperElmProps;
 
 export const Sharpie = (props: SharpieProps) => {
-  const { color, tag, children } = props;
+  const { color, tag, children, wrapperProps } = props;
 
   const colorModifier = colors[color] ? color : 'green';
   const Tag = tag && tags[tag] ? tag : 'span';
 
-  return <Tag className={getBemClass('Sharpie', colorModifier)}>{children}</Tag>;
+  return (
+    <Tag
+      {...wrapperProps}
+      className={modifiedClass('Sharpie', colorModifier, (wrapperProps || {}).className)}
+    >
+      {children}
+    </Tag>
+  );
 };
 
 export default Sharpie;

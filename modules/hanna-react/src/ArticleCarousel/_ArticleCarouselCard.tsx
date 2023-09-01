@@ -1,5 +1,4 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
@@ -14,7 +13,7 @@ export type ArticleCarouselCardProps = {
   title: string;
   summary: string;
   href: string;
-  target?: string;
+  target?: React.HTMLAttributeAnchorTarget;
   color?: ColorFamily;
   /** NOTE: if both `color` and `theme` are specified
    * then `color` takes precedence.
@@ -59,8 +58,9 @@ export const ArticleCarouselCard = (
       <Link className="ArticleCarouselCard__link" href={href} target={target}>
         {' '}
         <Image
+          bem="ArticleCarouselCard__illustration"
+          modifier={photo && 'photo'}
           placeholder
-          className={getBemClass('ArticleCarouselCard__illustration', photo && 'photo')}
           {...imageProps}
         />
         <h3 className="ArticleCarouselCard__title">{title}</h3>{' '}

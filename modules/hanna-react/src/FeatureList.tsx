@@ -1,8 +1,10 @@
 import React, { CSSProperties } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { Efnistakn } from '@reykjavik/hanna-utils/assets';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import Bling from './Bling.js';
+import { WrapperElmProps } from './utils.js';
 
 export type FeatureListProps = {
   title: string;
@@ -11,10 +13,11 @@ export type FeatureListProps = {
     iconUrl?: string;
     name: string;
   }>;
-} & SeenProp;
+} & WrapperElmProps &
+  SeenProp;
 
 export const FeatureList = (props: FeatureListProps) => {
-  const { title, features, startSeen } = props;
+  const { title, features, startSeen, wrapperProps } = props;
 
   const [ref] = useSeenEffect(startSeen);
   const _features = features.length ? features : [{ name: '...' }];
@@ -22,7 +25,11 @@ export const FeatureList = (props: FeatureListProps) => {
     <>
       <Bling type="snake-large" align="left" vertical="down-ish" />
 
-      <div className="FeatureList" ref={ref}>
+      <div
+        {...wrapperProps}
+        className={modifiedClass('FeatureList', null, (wrapperProps || {}).className)}
+        ref={ref}
+      >
         <h2 className="FeatureList__title">{title}</h2>
         <ul className="FeatureList__list">
           {_features.map(({ name, icon, iconUrl }, i) => (

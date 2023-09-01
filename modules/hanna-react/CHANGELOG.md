@@ -3,6 +3,106 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Pagination`
+- type `MegaPanelItem`:
+  - feat: add prop `Content` for custom `*Panel__item` children
+  - feat: add prop `modifier`, similar to `MainMenuItem.modifier`
+- feat: Export `MegaPanelItemList` from `MainMenu`
+- feat: Expand `MainMenuItem.modifier` to accept falsy and array values
+- feat: Add props `wrapperProps` to `CarouselStepper`
+- fix: Export type `MultiselectOption`, deprecate `MultiSelectOption`
+
+## 0.10.101
+
+_2023-08-28_
+
+- feat: Add prop `wrapperProps` to almost all components — excluding a few
+  low-level ones that already accept raw HTML props directly (e.g. most
+  button-like compoments).  
+  _(Exeptions: `BasicTable`, `Modal` and `CarouselStepper`. They'll also get a
+  `wrapperProps` prop in a near-future release.)_
+- feat: Deprecate prop, `wrapperRef` on all `FormField` related components
+- fix: Export `CheckboxButtonProps` from `CheckboxButton`, deprecate old type
+
+## 0.10.97 – 0.10.100
+
+_2023-08-22_
+
+- feat: Add prop `meta` to items of `ActionCards`
+- feat: Add prop `summary` to items of `ArticleCards` and `ImageCards`
+- feat: Add prop `size="large"` to `ArticleCards`
+- feat: Allow `JSX.Element` as item `meta` for accepting `*Cards` components
+- feat: Allow `JSX.Element` as item `summary` for all `*Cards` components
+- feat: Expand `MainMenuItemList` to allow components as custom
+  `MainMenu__item` children
+- feat: Add default Polish translation for `Layout`
+- feat: Make prop `title` optional for `MainMenu`
+- feat: Make prop `title` optional for `BreadCrumbs`
+- feat: Add prop `lang` to `BreadCrumbs`
+
+## 0.10.96
+
+_2023-07-26_
+
+- fix: Remove `@types/react*` from `pkg.dependencies`
+
+## 0.10.95
+
+_2023-07-25_
+
+- feat: Add optional `altText` parameter to `useGetSVGtext()`
+- feat: Export `useMenuToggling` from 'utils' module
+- feat: Export `SSRSupportProps` type
+- perf: Reduce render thrashing of `Layout`'s navChildren
+- fix: `Layout` components set `alt="Reykjavík"` text on their header logo
+- fix: Raise `Multiselect`'s internal `summaryLimit` to `20`
+- fix: List `tslib` as dependency
+
+## 0.10.93 – 0.10.94
+
+_2023-07-06_
+
+- feat: Add component `Multiselect`
+- fix: Add `target` prop to all "\*Cards" components that have `href`s
+- `Datepicker`:
+  - feat: Add support for "uncontrolled" mode — (add prop `defaultValue`, make
+    `value` and `onChange` optional.)
+  - feat: Add prop `isoMode` to generate/submit ISO-8601 `<input/>` values
+- Checkboxes and Radio buttons
+  - feat: Support `readOnly` — using `disabled` + `input[type=hidden]`
+  - feat: Support passing `options` as simple string array
+  - feat: Make `name` prop optional for groups
+  - fix: Handling of `disabled` as array of indexes
+- fix: Runtime import errors in `FileInput` in ESM mode
+
+## 0.10.92
+
+_2023-06-06_
+
+- feat: Add component `ReadSpeakerPlayer` and a `stopReading` helper
+- fix: Update dependencies for minor esm and `Modal`-related bugfixes
+
+## 0.10.90 – 0.10.91
+
+_2023-06-01_
+
+- fix: Add missing named export of `Tooltip` compnent
+- fix: Update dependencies to fix esm–cjs import resolution errors
+
+## 0.10.88 – 0.10.89
+
+_2023-05-25_
+
+- feat(ts): Export utility type `HtmlProps` from `utils` module — for adding
+  HTML attributes (including `data-*`) to React components.
+- fix: Update dependencies to fix esm–cjs import resolution errors
+
+## 0.10.87
+
+_2023-05-19_
+
+- feat: Add prop `target` to `MainMenuItem` type
+- fix: Prevent nested/multpile `Modal`s from clashing with each other
 
 ## 0.10.86
 

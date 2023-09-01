@@ -8,7 +8,7 @@ import { Minimal } from '../../layout/Minimal.js';
 import { lorem, loremRT } from '../../test-helpers/dummyData.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
-import { cssTokens } from '../../utils/route';
+import { cssTokens } from '../../utils/route.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 
@@ -95,8 +95,8 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, project }) => {
-    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+  extras: async ({ page, localScreenshot, mediaFormat }) => {
+    if (!mediaFormat('wide') && !mediaFormat('phone')) {
       return;
     }
 

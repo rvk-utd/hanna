@@ -18,7 +18,7 @@ export default css`
       // for standalone-display
       max-width: ${cols_px(4)};
       flex-grow: 1;
-      margin-bottom: ${vars.grid_gutter};
+      margin-bottom: max(${vars.space_2}, ${vars.grid_gutter});
     }
     .NameCard > :last-child {
       margin-bottom: 0;

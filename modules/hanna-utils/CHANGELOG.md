@@ -3,6 +3,40 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `getRvkLogoUrl()` asset helper
+- feat: Add optional parameter `variant` to `getIllustrationUrl`
+- feat: Add utility types `OmitDistributive`, `PickDistributive`,
+  `RequireExplicitUndefined`
+
+## 0.2.8
+
+_2023-07-25_
+
+- feat: Add optional `altText` parameter to `getSVGtext()`
+- fix: List `tslib` as dependency
+
+## 0.2.7
+
+_2023-07-06_
+
+- feat: Deprecate `getPageScrollElm`, as it's no longer needed
+
+## 0.2.6
+
+_2023-06-01_
+
+- fix: ESM version of `styleServerUrl` points to localhost in dev mode
+
+## 0.2.5
+
+_2023-05-24_
+
+- fix: Update dependencies to fix import resolution errors in node@>=18
+
+## 0.2.4
+
+_2023-05-23_
+
 - feat: Re-enable ESM exports in published build
 
 ## 0.2.3

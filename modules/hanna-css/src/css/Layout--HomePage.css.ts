@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols, between_container } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
@@ -14,15 +14,15 @@ export default css`
 
   @media screen {
     .Layout--HomePage .RowBlock {
-      margin-bottom: ${between_cols(70, 200)};
+      margin-bottom: ${scale_container(70, 200)};
     }
 
     // ---------------------------------------------------------------------------
 
     .ScrollCTA {
       display: none;
-      margin-top: ${between_container(-30, -80)};
-      margin-bottom: ${between_container(30, 210)};
+      margin-top: ${scale_container(-30, -80)};
+      margin-bottom: ${scale_container(30, 210)};
       // TODO: Is font-size right value? Is '12' on prod.
       font-size: ${prem(12)};
       font-weight: ${vars.font_weight__bold};
@@ -44,7 +44,7 @@ export default css`
     // ---------------------------------------------------------------------------
 
     .Layout--HomePage .GridBlocks {
-      margin-bottom: ${between_cols(40, 170)};
+      margin-bottom: ${scale_container(40, 170)};
     }
 
     // ---------------------------------------------------------------------------

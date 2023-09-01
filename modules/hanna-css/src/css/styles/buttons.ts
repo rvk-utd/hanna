@@ -1,22 +1,19 @@
-/* eslint-disable unused-imports/no-unused-imports-ts */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { color, css, px } from 'es-in-css';
+import { css, px } from 'es-in-css';
 
-import { between_phone_netbook, between_tablet_netbook } from '../../lib/between.js';
+import { scale_phone_netbook, scale_tablet_netbook } from '../../lib/between.js';
 import { mq } from '../../lib/breakpoints.js';
 import { buildVariables } from '../../lib/cssutils.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { iconStyle } from '../../lib/icons.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
+import { enableDataIcon } from '../Icon.css.js';
 import {
-  hoverActiveKeyboardFocus_selector,
-  keyboardFocus_selector,
+  hoverKeyboardFocusAndActiveStyling,
+  keyboardFocusStyling,
 } from '../utils/focus-selectors.js';
 import { prem } from '../utils/miscUtils.js';
 
 import { LinkStyle_Reset } from './links.js';
-
-import { enableDataIcon } from '../Icon.css';
 
 // ---------------------------------------------------------------------------
 
@@ -47,7 +44,7 @@ export const ButtonStyle = () => css`
     backgroundColor: bVars.color,
     backgroundColor__active: bVars.color__active,
     border: px(0), // Must have a unit, because it gets used inside a calc()
-    height: vars.space_8,
+    height: vars.space_7,
     iconOutdent: vars.space_0$5__neg,
     iconSpace: vars.space_1,
   })}
@@ -71,10 +68,10 @@ export const ButtonStyle = () => css`
   position: relative;
   transition: all 200ms ease-in;
   transition-property: border-color, background-color, color, text-shadow, box-shadow;
-  padding: 0 ${between_phone_netbook(24, 32)};
+  padding: 0 ${scale_phone_netbook(24, 32)};
   width: max-content;
   max-width: 100%;
-  min-width: ${between_phone_netbook(80, 128)};
+  min-width: ${scale_phone_netbook(80, 128)};
 
   @media ${mq.wide} {
     min-width: 128px;
@@ -82,10 +79,10 @@ export const ButtonStyle = () => css`
     padding-right: 32px;
   }
 
-  ${hoverActiveKeyboardFocus_selector()(css`
+  ${hoverKeyboardFocusAndActiveStyling(css`
     outline: 0;
     text-decoration: none;
-    // box-shadow: 0 ${prem(12)} ${prem(16)} rgba(0, 0, 0, 0.09);
+    // box-shadow: ${vars.boxShadow_hover};
     box-shadow: 0 ${prem(8)} ${prem(16)} rgba(0, 0, 0, 0.15);
     color: var(--Button--textColor);
     border: var(--Button--border) solid var(--Button--color);
@@ -101,7 +98,7 @@ export const ButtonStyle = () => css`
     })}
   }
 
-  ${keyboardFocus_selector(css`
+  ${keyboardFocusStyling(css`
     outline: ${prem(2)} solid ${bVars.color};
     outline-offset: ${prem(2)};
   `)}
@@ -113,7 +110,7 @@ export const ButtonStyle = () => css`
   }
 
   &--wide {
-    min-width: ${between_tablet_netbook(275, 312)};
+    min-width: ${scale_tablet_netbook(275, 312)};
 
     @media ${mq.phone_phablet} {
       width: 100%;
@@ -128,10 +125,12 @@ export const ButtonStyle = () => css`
       iconSpace: vars.space_1,
       height: prem(40),
     })}
-    padding-left: ${between_phone_netbook(16, 24)};
-    padding-right: ${between_phone_netbook(16, 24)};
+    min-width: ${scale_phone_netbook(64, 96)};
+    padding-left: ${scale_phone_netbook(16, 24)};
+    padding-right: ${scale_phone_netbook(16, 24)};
 
     @media ${mq.wide} {
+      min-width: 96px;
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -212,7 +211,7 @@ export const ButtonTertiaryVarDeclarations = () => css`
     hover__dashWidth: vars.space_4,
     dashSpace: vars.space_2,
     dashHeight: px(2),
-    gapH: between_phone_netbook(16, 24),
+    gapH: scale_phone_netbook(16, 24),
   })}
 
   @media ${mq.wide} {
@@ -223,7 +222,7 @@ export const ButtonTertiaryVarDeclarations = () => css`
 `;
 
 export const ButtonTertiaryStyle__hoverFocus = () => css`
-  ${hoverActiveKeyboardFocus_selector()(css`
+  ${hoverKeyboardFocusAndActiveStyling(css`
     --dashWidth: ${btVars.hover__dashWidth};
     color: ${btVars.color};
     outline: 0;
@@ -233,7 +232,7 @@ export const ButtonTertiaryStyle__hoverFocus = () => css`
     width: ${btVars.dashWidth};
   }
 
-  ${keyboardFocus_selector(css`
+  ${keyboardFocusStyling(css`
     &::after {
       content: '';
       position: absolute;

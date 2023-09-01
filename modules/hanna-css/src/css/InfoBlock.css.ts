@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { scale_cols, scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
@@ -13,7 +13,7 @@ export default css`
   @media screen {
     .InfoBlock {
       background-color: ${vars.color_suld_25};
-      padding: ${between_cols(40, 120)} ${cols_pct(1, 1)};
+      padding: ${scale_container(40, 120)} ${cols_pct(1, 1)};
       padding-left: ${vars.grid_margin};
       margin-left: ${vars.grid_margin__neg};
       box-sizing: content-box;
@@ -32,7 +32,7 @@ export default css`
       margin: -0.2em -0.5em;
       max-width: calc(0.5em + ${vars.grid_margin__right});
       margin-right: max(${vars.grid_margin__right__neg}, -0.5em);
-      font-size: ${between_phone_netbook(49, 89)};
+      font-size: ${scale_phone_netbook(49, 89)};
       overflow: hidden;
 
       @media ${mq.wide} {
@@ -55,7 +55,7 @@ export default css`
     }
 
     .InfoBlock__items {
-      margin-top: ${between_cols(35, 64, 10)};
+      margin-top: ${scale_cols(35, 64, 10)};
 
       @media ${mq.tablet_up} {
         column-count: 2;

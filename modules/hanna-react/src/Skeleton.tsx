@@ -1,23 +1,17 @@
 import React, { ReactElement } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import range from '@hugsmidjan/qj/range';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { EitherObj } from '@reykjavik/hanna-utils';
 
-const makeRenderSkeleton =
-  (props: { height?: number; text?: boolean; gap?: number }) => (key?: number) =>
-    (
-      <span
-        key={key}
-        className={getBemClass('Skeleton', [
-          props.text && 'text',
-          props.height && 'height--' + props.height,
-          props.gap && 'gap--' + props.gap,
-        ])}
-      />
-    );
+import { WrapperElmProps } from './utils.js';
 
-const minmax = (num = 0, max = 100, min = 1) => {
-  num = Math.min(Math.max(Math.round(num), min), max);
-  return num > min ? num : undefined;
+/** Rounds the input number, caps it at max. If it's below min, returns undefined */
+const minmax = (num: number | undefined, max: number, min: number) => {
+  if (num == null || isNaN(num)) {
+    return;
+  }
+  num = Math.round(num);
+  return num > max ? max : num >= min ? num : undefined;
 };
 
 // ---------------------------------------------------------------------------
@@ -26,25 +20,37 @@ export type SkeletonProps = {
   text?: boolean;
   /* prettier-ignore */
   height?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
-  /* prettier-ignore */
-  items?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
-  gap?: 1 | 2 | 3 | 4 | 5;
-};
+} & EitherObj<
+  {
+    /* prettier-ignore */
+    items?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
+    gap?: 1 | 2 | 3 | 4 | 5;
+  },
+  WrapperElmProps
+>;
 
 export const Skeleton = (props: SkeletonProps) => {
-  const height = minmax(props.height, 40);
+  const height = minmax(props.height, 20, 2);
+  const gap = minmax(props.gap, 5, 1);
+  const items = minmax(props.items, 20, 2) || 1;
+  const { wrapperProps } = props;
 
-  const renderSkeleton = makeRenderSkeleton({
-    height,
-    text: props.text,
-    gap: minmax(props.gap, 5, 0),
-  });
+  const className = modifiedClass(
+    'Skeleton',
+    [props.text && 'text', height && 'height--' + height, gap && 'gap--' + gap],
+    (wrapperProps || {}).className
+  );
 
-  const items = minmax(props.items, 20) || 1;
-  if (items > 1) {
-    return <>{range(1, items).map(renderSkeleton)}</>;
+  if (items) {
+    return (
+      <>
+        {range(1, items).map((key) => (
+          <span key={key} className={className} />
+        ))}
+      </>
+    );
   }
-  return renderSkeleton();
+  return <span {...wrapperProps} className={className} />;
 };
 
 export default Skeleton;

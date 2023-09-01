@@ -1,9 +1,10 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import { CardList, TextCardListProps } from './_abstract/_CardList.js';
+import { CardList, CardListProps, TextCardProps } from './_abstract/_CardList.js';
 import { Link } from './_abstract/_Link.js';
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { WrapperElmProps } from './utils.js';
 
 export type RelatedLink = {
   href: string;
@@ -27,7 +28,7 @@ const ExtraLinks__related = (props: RelatedProps) => {
           relatedLinks.map(({ href, label, blank = false, type }, i) => (
             <li className="ExtraLinks__related__item" key={i}>
               <Link
-                className={getBemClass('ExtraLinks__related__link', type)}
+                className={modifiedClass('ExtraLinks__related__link', type)}
                 href={href}
                 target={blank ? '_blank' : ''}
                 rel={blank ? 'noreferrer noopener' : ''}
@@ -41,19 +42,33 @@ const ExtraLinks__related = (props: RelatedProps) => {
   );
 };
 
-export type ExtraLinksCardProps = TextCardListProps['cards'][number];
+export type ExtraLinksCardProps = Omit<TextCardProps, 'meta'>;
 
-export type ExtraLinksProps = TextCardListProps &
-  RelatedProps & { className?: string } & SeenProp;
+export type ExtraLinksProps = CardListProps<ExtraLinksCardProps> &
+  RelatedProps & { className?: string } & WrapperElmProps &
+  SeenProp;
 
 export const ExtraLinks = (props: ExtraLinksProps) => {
-  const { relatedTitle, relatedLinks, className, startSeen, ...cardListProps } = props;
+  const {
+    relatedTitle,
+    relatedLinks,
+    className,
+    startSeen,
+    wrapperProps,
+    ...cardListProps
+  } = props;
   const hasRelated = !!(relatedLinks && relatedLinks.length);
   const [ref] = useSeenEffect(startSeen);
 
   return (
     <div
-      className={getBemClass('ExtraLinks', hasRelated && 'related', className)}
+      {...wrapperProps}
+      className={modifiedClass(
+        'ExtraLinks',
+        hasRelated && 'related',
+        // Prefer `className` over `wrapperProps.className`
+        className || (wrapperProps || {}).className
+      )}
       ref={ref}
     >
       <div className="ExtraLinks__main">

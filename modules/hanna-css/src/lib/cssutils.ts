@@ -124,6 +124,7 @@ export const getCssBundleUrl = <AcceptNewerVersion extends boolean = false>(
   options?: CssBundleOpts<AcceptNewerVersion>
 ): string => {
   options = options || {};
+  // eslint-disable-next-line deprecation/deprecation
   const host = (options.testingServer || styleServerUrl).replace(/\/$/, '');
   const versionFolder = options.version || cssCurrentVersionFolder;
   const tokens = typeof cssTokens === 'string' ? cssTokens : cssTokens.join(',');
@@ -209,7 +210,6 @@ const noFlickerSnippet_multiPage = `
 const cmprss = (script: string) =>
   script
     .replace(/[\t \n]/g, '') // remove all whitespace
-    // eslint-disable-next-line no-irregular-whitespace
     .replace(/ /g, ' '); // convert non-breaking spaces to real spaces.
 
 /**

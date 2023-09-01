@@ -1,17 +1,24 @@
 import React, { ReactNode } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
+
+import { WrapperElmProps } from '../utils.js';
 
 import { Link } from './_Link.js';
 
 export type QuoteProps = {
   children: ReactNode;
-} & EitherObj<object, { by: string | JSX.Element; byHref?: string }>;
+} & WrapperElmProps &
+  EitherObj<object, { by: string | JSX.Element; byHref?: string }>;
 
 export const _Quote = (props: { bem: string } & QuoteProps) => {
-  const { bem, children, by, byHref } = props;
+  const { bem, children, by, byHref, wrapperProps } = props;
 
   return (
-    <figure className={bem}>
+    <figure
+      {...wrapperProps}
+      className={modifiedClass(bem, null, (wrapperProps || {}).className)}
+    >
       <blockquote className={bem + '__quote'}>{children}</blockquote>
       {by && (
         <figcaption className={bem + '__by'}>

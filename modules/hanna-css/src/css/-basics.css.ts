@@ -21,9 +21,8 @@ import {
 } from './utils/focus-selectors.js';
 import { normalizeCss } from './utils/normalize.js';
 import { writeMediaFormatMarkers } from './utils/writeMediaFormatMarkers.js';
-
-import { BlockBreak_css } from './BlockBreak.css';
-import { SeenEffect_css } from './SeenEffect.css';
+import { BlockBreak_css } from './BlockBreak.css.js';
+import { SeenEffect_css } from './SeenEffect.css.js';
 
 const fileChecksum = (file: string) => {
   try {
@@ -121,7 +120,7 @@ export default css`
     overflow-y: scroll;
     overflow-x: hidden; // Normal browsers respect this.
     /**
-      **NOTE:**
+      __NOTE:__
       Older Safari versions need to register this side-scroll-killer
       script to prevent side-scrolling on the <html/> element.
 

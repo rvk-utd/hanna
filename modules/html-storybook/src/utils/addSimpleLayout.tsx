@@ -2,8 +2,8 @@
 import 'focus-visible';
 
 import React, { useEffect } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { themeOptions } from '@reykjavik/hanna-react/constants';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import { select } from '@storybook/addon-knobs';
@@ -82,7 +82,7 @@ export const addSimpleLayout = makeDecorator({
       </Layout>
     ) : (
       <div
-        className={getBemClass('Layout', modifier)}
+        className={modifiedClass('Layout', modifier)}
         style={{ paddingTop: '0px' }}
         data-color-theme={colorTheme}
       >

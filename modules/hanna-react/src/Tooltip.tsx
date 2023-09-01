@@ -9,8 +9,10 @@ import {
   Side,
   useFloating,
 } from '@floating-ui/react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useCallbackOnEsc, useLaggedState } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+
+import { WrapperElmProps } from './utils.js';
 
 type TooltipElement = HTMLDetailsElement & {
   $contextClicked_firefox_fix?: ReturnType<typeof setTimeout>;
@@ -28,14 +30,14 @@ export type TooltipProps = {
   label: string;
   text: string | JSX.Element;
   iconOnly?: boolean;
-};
+} & WrapperElmProps<'details', 'open'>;
 
-const ToolTip = (props: TooltipProps) => {
-  const { text, label, iconOnly } = props;
+export const Tooltip = (props: TooltipProps) => {
+  const { text, label, iconOnly, wrapperProps = {} } = props;
   const arrowRef = useRef(null);
   const [isOpen, setIsOpen] = useLaggedState(false, 300);
 
-  const { x, y, reference, floating, middlewareData, placement } = useFloating({
+  const { x, y, refs, middlewareData, placement } = useFloating({
     placement: 'top',
     middleware: [offset(10), flip(), shift(), arrowPlugin({ element: arrowRef })],
     whileElementsMounted: autoUpdate,
@@ -51,31 +53,42 @@ const ToolTip = (props: TooltipProps) => {
 
   return (
     <details
-      className={`Tooltip Tooltip--${getSide(placement)}`}
+      {...props.wrapperProps}
+      className={modifiedClass('Tooltip', getSide(placement), wrapperProps.className)}
       open={isOpen}
-      onMouseEnter={() => setIsOpen(true, 100)}
-      onFocus={() => {
+      onMouseEnter={(e) => {
+        setIsOpen(true, 100);
+        wrapperProps.onMouseEnter?.(e);
+      }}
+      onFocus={(e) => {
         if (isOpen) {
           setIsOpen(true, 0);
         }
+        wrapperProps.onFocus?.(e);
       }}
-      onBlur={() => setIsOpen(false)}
+      onBlur={(e) => {
+        setIsOpen(false);
+        wrapperProps.onBlur?.(e);
+      }}
       onClick={(e) => {
         e.preventDefault();
         setIsOpen(!isOpen, 0);
+        wrapperProps.onClick?.(e);
       }}
-      onMouseDown={() => {
+      onMouseDown={(e) => {
         if (isOpen) {
           setTimeout(() => {
             setIsOpen(true, 0);
           }, 100);
         }
+        wrapperProps.onMouseDown?.(e);
       }}
       onMouseLeave={(e) => {
         if ((e.currentTarget as TooltipElement).$contextClicked_firefox_fix) {
           return;
         }
         setIsOpen(false);
+        wrapperProps.onMouseLeave?.(e);
       }}
       onContextMenu={(e) => {
         const elm = e.currentTarget as TooltipElement;
@@ -83,11 +96,13 @@ const ToolTip = (props: TooltipProps) => {
         elm.$contextClicked_firefox_fix = setTimeout(() => {
           delete elm.$contextClicked_firefox_fix;
         }, 300);
+        wrapperProps.onContextMenu?.(e);
       }}
       style={
         x == null
-          ? undefined
+          ? wrapperProps.style
           : ({
+              ...wrapperProps.style,
               '--tooltip-content-pos-y': `${y}px`,
               '--tooltip-content-pos-x': `${x}px`,
               '--tooltip-arrow-pos-x': `${arrowX}px`,
@@ -96,15 +111,15 @@ const ToolTip = (props: TooltipProps) => {
       }
     >
       <summary
-        className={getBemClass('Tooltip__trigger', iconOnly && 'icononly')}
-        ref={reference}
+        className={modifiedClass('Tooltip__trigger', iconOnly && 'icononly')}
+        ref={refs.setReference}
       >
         {label}
       </summary>
       <div
         className="Tooltip__content"
         onClick={(e) => e.stopPropagation()}
-        ref={floating}
+        ref={refs.setFloating}
       >
         {/* implementation detail for floating-ui */}
         {x !== null && (
@@ -120,4 +135,4 @@ const ToolTip = (props: TooltipProps) => {
   );
 };
 
-export default ToolTip;
+export default Tooltip;

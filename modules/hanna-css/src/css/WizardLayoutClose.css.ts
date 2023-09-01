@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_tablet_netbook } from '../lib/between.js';
+import { scale_tablet_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -51,7 +51,7 @@ export const WizardLayoutClose_css = () => css`
   @media ${mq.tablet_up} {
     .WizardLayoutClose {
       right: ${prem(30)};
-      top: ${between_tablet_netbook(30, 56)};
+      top: ${scale_tablet_netbook(30, 56)};
     }
   }
 

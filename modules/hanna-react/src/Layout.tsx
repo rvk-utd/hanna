@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
@@ -8,10 +7,14 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Image } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
-import { HannaUIState } from './utils/HannaUIState.js';
-import { useMenuToggling } from './utils/useMenuToggling.js';
-import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { BemModifierProps } from './utils/types.js';
+import {
+  HannaUIState,
+  SSRSupportProps,
+  useMenuToggling,
+  useScrollbarWidthCSSVar,
+  WrapperElmProps,
+} from './utils.js';
 
 export type LayoutI18n = {
   lang?: string;
@@ -33,24 +36,30 @@ export const defaultLayoutTexts: DefaultTexts<LayoutI18n> = {
     closeMenuLabel: 'Close',
     closeMenuLabelLong: 'Close menu',
   },
+  pl: {
+    lang: 'pl',
+    skipLinkLabel: 'Przejdź do nawigacji',
+    closeMenuLabel: 'Zamknij',
+    closeMenuLabelLong: 'Zamknij menu',
+  },
 };
 
 // ---------------------------------------------------------------------------
 
 type LayoutProps = {
   globalAlerts?: ReactNode;
-  mainChildren?: ReactNode;
   navChildren?: ReactNode;
   footerChildren?: ReactNode;
   colorTheme?: HannaColorTheme;
   logoLink?: string;
   siteName?: string;
-  modifier?: BemPropsModifier['modifier'];
-  ssr?: SSRSupport;
 
   texts?: LayoutI18n;
   lang?: string;
-} & EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
+} & SSRSupportProps &
+  WrapperElmProps &
+  BemModifierProps &
+  EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
 
 export const Layout = (props: LayoutProps) => {
   useScrollbarWidthCSSVar();
@@ -62,21 +71,21 @@ export const Layout = (props: LayoutProps) => {
     footerChildren,
     colorTheme,
     children,
-    siteName = 'Reykjavík',
+    siteName = '',
     logoLink = '/',
+    wrapperProps,
   } = props;
 
-  const { isMenuActive, isMenuOpen, closeMenu, toggleMenu } = useMenuToggling(
+  const { isMenuActive, uiState, closeMenu, toggleMenu } = useMenuToggling(
     ssr !== 'ssr-only'
   );
-  const isBrowser = useIsBrowserSide(/* ssr */);
 
   const txt = getTexts(props, defaultLayoutTexts);
 
   return (
     <div
-      className={getBemClass('Layout', props.modifier)}
-      data-sprinkled={isBrowser}
+      {...wrapperProps}
+      className={modifiedClass('Layout', props.modifier, (wrapperProps || {}).className)}
       data-color-theme={colorTheme}
     >
       {globalAlerts && (
@@ -89,9 +98,10 @@ export const Layout = (props: LayoutProps) => {
           <Link className="Layout__header__logo" href={logoLink}>
             {' '}
             <Image
-              className={undefined}
+              bem={undefined}
               inline={true}
               src={getAssetUrl('reykjavik-logo.svg')}
+              altText="Reykjavík"
             />{' '}
             {siteName}{' '}
           </Link>{' '}
@@ -117,14 +127,7 @@ export const Layout = (props: LayoutProps) => {
         </div>
         {navChildren && (
           <div className="Layout__nav" id="pagenav" role="navigation">
-            <HannaUIState
-              value={{
-                closeHamburgerMenu: closeMenu,
-                isHamburgerMenuOpen: isMenuOpen,
-              }}
-            >
-              {navChildren}
-            </HannaUIState>
+            <HannaUIState value={uiState}>{navChildren}</HannaUIState>
             {isMenuActive && (
               <button
                 className="Layout__nav__closebutton"

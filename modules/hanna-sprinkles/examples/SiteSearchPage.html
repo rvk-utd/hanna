@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>SiteSearchPage sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link rel="stylesheet" href="http://localhost:4000/bundle/dev?m=-basics,Layout" />
+
+    <script src="/dist/index.js"></script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <script id="SiteSearchPage">
+            window.Hanna.import('utils/elsearch/renderSiteSearchPage').then(function (
+              modules
+            ) {
+              modules[0].default({
+                insertAt: '#SiteSearchPage',
+                apiUri: 'http://localhost:9000', // window.drupalSettings.elasticsearch.search_indexes_uri,
+                bundleLabels: {
+                  city_council_meeting: 'Fundir borgarstjórnar',
+                  committee: 'Ráð, nefnd, stjórn',
+                  elected_representative: 'Kjörnir fulltrúar',
+                  frontpage: 'Frontpage',
+                  meeting_minutes: 'Fundargerðir',
+                  news: 'Fréttir',
+                  page: 'Síða',
+                  places: 'Starfsstaðir',
+                }, //  window.drupalSettings.elasticsearch.bundle_labels,
+              });
+            });
+          </script>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

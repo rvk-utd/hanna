@@ -1,10 +1,10 @@
 import { css, px } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container, scale_phablet_tablet } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { cols_pct, prem, px_pct } from './utils/miscUtils.js';
+import { cols_pct, cols_px, prem, px_pct } from './utils/miscUtils.js';
 
 export default css`
   /*!@deps
@@ -16,7 +16,7 @@ export default css`
   @media screen {
     .InfoHero {
       position: relative;
-      margin-bottom: ${between_cols(30, 100)};
+      margin-bottom: ${scale_container(30, 100)};
       display: flex;
       flex-flow: column-reverse;
       justify-content: space-between;
@@ -29,13 +29,18 @@ export default css`
         flex-flow: row;
       }
     }
+    @media ${mq.phone_phablet} {
+      .InfoHero {
+        padding-right: ${scale_phablet_tablet(0, cols_px(3, 3))};
+      }
+    }
 
     .InfoHero__image {
       position: relative;
       margin: 0 ${vars.grid_margin__neg};
       padding-top: 75%;
 
-      @media ${mq.phablet_up} {
+      @media ${mq.tablet_up} {
         padding-left: ${vars.grid_margin};
         box-sizing: content-box;
         width: ${vars.grid_6};
@@ -66,9 +71,9 @@ export default css`
     }
 
     .InfoHero__content {
-      margin-top: ${between_cols(20, 40)};
+      margin-top: ${scale_container(20, 40)};
 
-      @media ${mq.phablet_up} {
+      @media ${mq.tablet_up} {
         width: ${cols_pct(6)};
         margin-bottom: ${px_pct(170)};
       }

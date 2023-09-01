@@ -1,6 +1,8 @@
 import React, { CSSProperties } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { classes, modifiedClass } from '@hugsmidjan/qj/classUtils';
 
+import { WrapperElmProps } from '../utils.js';
+import { BemProps } from '../utils/types.js';
 import { useGetSVGtext } from '../utils/useGetSVGtext.js';
 
 export type Source = {
@@ -31,15 +33,17 @@ export type ImagePropsInlinedSvg = {
 export type ImageProps = ImagePropsLinked | ImagePropsInlinedSvg;
 
 type _ImageProps = {
-  /** container className */
-  className: string | undefined;
   /** Controls if the container is rendered when image is missing/undefined.
    * (With a `--missing` className modifier added.)
    *
    * Accepts a function that defines a default content for the container.
    */
   placeholder?: boolean | (() => JSX.Element);
-};
+  /** Extra, custom className in addition to the `bem` base */
+  className?: string | undefined;
+  bem: string | undefined;
+} & BemProps &
+  WrapperElmProps;
 
 // eslint-disable-next-line complexity
 export const Image = (props: ImageProps & _ImageProps) => {
@@ -48,21 +52,30 @@ export const Image = (props: ImageProps & _ImageProps) => {
     altText = '',
     sources = [],
     preloadSrc,
-    className,
+    modifier,
+    bem,
     inline,
     placeholder,
     focalPoint,
+    className,
+    wrapperProps = {},
   } = props;
   const _src = (sources.length && preloadSrc) || src;
   const imageSrc =
     _src || (sources[0] != null ? sources[0].srcset.split(' ')[0] : undefined);
   const imgLoading = preloadSrc ? 'eager' : 'lazy';
 
-  const inlineSvg = useGetSVGtext(inline ? imageSrc : undefined);
+  const inlineSvg = useGetSVGtext(inline ? imageSrc : undefined, altText);
+
+  const extraClasses = classes(className, wrapperProps.className) || undefined;
+
+  const classNames = bem
+    ? modifiedClass(bem, [modifier, !imageSrc && 'missing'], extraClasses)
+    : extraClasses;
 
   if (!imageSrc) {
     return placeholder ? (
-      <span className={className && getBemClass(className, 'missing')}>
+      <span {...props.wrapperProps} className={classNames}>
         {placeholder !== true && placeholder()}
       </span>
     ) : null;
@@ -70,13 +83,26 @@ export const Image = (props: ImageProps & _ImageProps) => {
 
   if (inline && inlineSvg) {
     const __html = inlineSvg.imageSrc === imageSrc ? inlineSvg.code : '';
-    return <span className={className} dangerouslySetInnerHTML={{ __html }} />;
+    return (
+      <span
+        {...props.wrapperProps}
+        className={classNames}
+        dangerouslySetInnerHTML={{ __html }}
+      />
+    );
   }
+
+  const wrapperStyles = wrapperProps.style;
 
   return (
     <picture
-      className={className}
-      style={focalPoint ? ({ '--focalPoint': focalPoint } as CSSProperties) : undefined}
+      {...props.wrapperProps}
+      className={classNames}
+      style={
+        focalPoint
+          ? ({ ...wrapperStyles, '--focalPoint': focalPoint } as CSSProperties)
+          : wrapperStyles
+      }
     >
       {' '}
       {sources.map((source, i) => (

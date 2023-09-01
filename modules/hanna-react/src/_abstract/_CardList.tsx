@@ -1,5 +1,9 @@
 import React, { CSSProperties, ReactElement, ReactNode } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
+
+import { WrapperElmProps } from '../utils.js';
+import { BemModifierProps } from '../utils/types.js';
 
 import { Button } from './_Button.js';
 import { Image, ImageProps } from './_Image.js';
@@ -8,30 +12,30 @@ type Bem = {
   bem: string;
 };
 
-type BaseCardProps = {
+export type TextCardProps = {
   title: string;
   href: string;
+  meta?: string | JSX.Element;
+  summary?: string | JSX.Element;
+  target?: React.HTMLAttributeAnchorTarget;
 };
 
-export type ImageCardProps = BaseCardProps & {
-  meta?: string;
+export type ImageCardProps = TextCardProps & {
   image?: ImageProps;
   imgPlaceholder?: boolean;
 };
 
-export type TextCardProps = BaseCardProps & {
-  summary?: string;
-};
-
 const Card = (props: EitherObj<ImageCardProps, TextCardProps> & Bem) => {
-  const { bem, href, title, imgPlaceholder, image, meta, summary } = props;
+  const { bem, href, title, imgPlaceholder, image, meta, summary, target } = props;
   const cardClass = `${bem}__card`;
 
   return (
     <>
-      <Button bem={cardClass} href={href}>
+      <Button bem={cardClass} href={href} target={target}>
         {' '}
-        <Image className={`${bem}__image`} {...image} placeholder={imgPlaceholder} />
+        {!!(image || imgPlaceholder) && (
+          <Image bem={`${bem}__image`} {...image} placeholder={imgPlaceholder} />
+        )}
         <span className={`${cardClass}__title`}>{title}</span>{' '}
         {meta && <span className={`${cardClass}__meta`}>{meta}</span>}{' '}
         {summary && <span className={`${cardClass}__summary`}>{summary}</span>}{' '}
@@ -62,17 +66,20 @@ type _CardListProps = EitherObj<ImageCardListProps, TextCardListProps> &
     bemPrefix: string;
     children?: ReactNode;
     standalone?: boolean;
-  };
+  } & WrapperElmProps<'ul'> &
+  BemModifierProps;
 
 export const CardList = (props: _CardListProps) => {
   const {
     bemPrefix,
+    modifier,
     title,
     summaryElement,
     cards,
     titleTag = 'h2',
     children,
     imgPlaceholder,
+    wrapperProps,
   } = props;
 
   const TitleTag = titleTag;
@@ -95,7 +102,12 @@ export const CardList = (props: _CardListProps) => {
         title && <TitleTag className={bemPrefix + '__title'}>{title}</TitleTag>
       )}
       <ul
-        className={bemPrefix + (props.standalone ? '' : '__list')}
+        {...wrapperProps}
+        className={
+          props.standalone
+            ? modifiedClass(bemPrefix, modifier, (wrapperProps || {}).className)
+            : bemPrefix + '__list'
+        }
         style={fallbackImageStyle}
       >
         {cards.map((card, i) => (

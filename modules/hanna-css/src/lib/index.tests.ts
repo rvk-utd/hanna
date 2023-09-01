@@ -14,6 +14,8 @@ o.spec('hanna-css lib', () => {
       srOnly__undo: true,
       srOnly_focusable: true,
       srOnly_focusableContent: true,
+      hoverKeyboardFocusAndActiveStyling: true,
+      keyboardFocusStyling: true,
 
       /* breakpints.ts */
       mq: true,
@@ -52,6 +54,9 @@ o.spec('hanna-css lib', () => {
       characters: true,
       iconfont_raw: true,
       icons: true,
+
+      /* otherTokens.ts */
+      formFieldVars: true,
 
       /* themes.ts */
       colorThemes: true,

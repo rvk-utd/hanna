@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -20,8 +20,8 @@ export default css`
       position: relative;
       display: flex;
       flex-flow: column wrap;
-      padding: ${between_cols(0, 1 * grid.unit)} 0;
-      margin-bottom: ${between_cols(30, 120)};
+      padding: ${scale_container(0, 1 * grid.unit)} 0;
+      margin-bottom: ${scale_container(30, 120)};
       @media ${mq.phablet_up} {
         flex-flow: row nowrap;
       }
@@ -77,8 +77,8 @@ export default css`
         padding-top: ${cols_pct(6, 6.5)};
         margin-left: auto;
         order: 1;
-        margin-top: ${between_cols(0, -24)};
-        margin-bottom: ${between_cols(-20, -100)};
+        margin-top: ${scale_container(0, -24)};
+        margin-bottom: ${scale_container(-20, -100)};
       }
     }
     .NewsHero__image > img {

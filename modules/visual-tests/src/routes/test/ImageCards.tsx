@@ -14,7 +14,7 @@ export const meta: V2_MetaFunction = autoTitle;
 // Use `handle` if you're using multiple Hanna compnents
 // export const handle = cssTokens('Token');
 
-export const imageCards = range(0, 5).map(
+export const imageCards = range(1, 5).map(
   (i): ImageCardsItemProps => ({
     title:
       [
@@ -25,6 +25,7 @@ export const imageCards = range(0, 5).map(
     href: '',
     image: photo.square,
     meta: i % 2 === 0 ? lorem.medium : '14. október',
+    summary: i === 3 ? lorem.tiny : undefined,
   })
 );
 
@@ -54,5 +55,5 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  initialHover: '.ImageCards__card__title >> nth = 0',
+  initialHover: '.ImageCards__card__title >> nth = 2',
 };

@@ -1,5 +1,7 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+
+import { WrapperElmProps } from './utils.js';
 
 export type ProcessOverviewItemProps = {
   title: string;
@@ -12,17 +14,19 @@ export type ProcessOverviewProps = {
   attention?: string | JSX.Element;
   transparent?: boolean;
   narrow?: boolean;
-};
+} & WrapperElmProps;
 
 export const ProcessOverview = (props: ProcessOverviewProps) => {
-  const { title, items, attention, transparent, narrow } = props;
+  const { title, items, attention, transparent, narrow, wrapperProps } = props;
 
   return (
     <div
-      className={getBemClass('ProcessOverview', [
-        transparent && 'transparent',
-        narrow && 'narrow',
-      ])}
+      {...wrapperProps}
+      className={modifiedClass(
+        'ProcessOverview',
+        [transparent && 'transparent', narrow && 'narrow'],
+        (wrapperProps || {}).className
+      )}
     >
       <h2 className="ProcessOverview__title">{title}</h2>
       {items.map(({ title, content }, i) => {

@@ -33,7 +33,7 @@ o.spec('hanna-utils/assets', () => {
   });
 });
 
-/* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
+/* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first */
 // Also check exported types. (Ignoring re-exported types from es-in-css.)
 import type {
   // assets.ts
@@ -42,7 +42,7 @@ import type {
   Formheimur,
   Illustration,
 } from './assets.js';
-/* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
+/* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first */
 
 // ===========================================================================
 
@@ -121,6 +121,8 @@ o.spec('setStyleServerUrl', () => {
   });
 
   o('.reset() aliases .pop()', () => {
-    o(setStyleServerUrl.pop).equals(setStyleServerUrl.reset);
+    o(setStyleServerUrl.pop).equals(
+      setStyleServerUrl.reset // eslint-disable-line deprecation/deprecation
+    );
   });
 });

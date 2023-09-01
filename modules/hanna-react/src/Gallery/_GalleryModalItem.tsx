@@ -15,7 +15,7 @@ export const GalleryModalItem = (props: GalleryItemProps) => {
           <div className="GalleryModalItem__description">{description}</div>
         </div>
       )}
-      <Image className="GalleryModalItem__image" src={image.largeImageSrc || image.src} />
+      <Image bem="GalleryModalItem__image" src={image.largeImageSrc || image.src} />
     </div>
   );
 };

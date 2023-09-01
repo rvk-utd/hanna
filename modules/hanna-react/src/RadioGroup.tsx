@@ -32,6 +32,6 @@ export const RadioGroup = (props: RadioGroupProps) => (
 );
 
 /** @deprecated Exposed for testing purposes only. This may disappear at any time. */
-RadioGroup.__Radio = Radio;
+RadioGroup.__Radio = Radio; // eslint-disable-line deprecation/deprecation
 
 export default RadioGroup;

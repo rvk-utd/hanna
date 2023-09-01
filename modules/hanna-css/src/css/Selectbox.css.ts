@@ -2,11 +2,9 @@ import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { FormFieldVariables } from './styles/forms.js';
 import { overflowEllipsis, prem } from './utils/miscUtils.js';
-
-const ff = FormFieldVariables.vars;
 
 // inlined by FormField.css.ts
 export const Selectbox_css = () => css`
@@ -19,12 +17,32 @@ export const Selectbox_css = () => css`
     .Selectbox > .FormField__input--focused {
     }
 
+    /* // Same styling as Multiselect */
+    .Selectbox > .FormField__input::before {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      top: 1px;
+      bottom: 1px;
+      right: 1px;
+      width: ${vars.space_7};
+      pointer-events: none;
+      background-image: linear-gradient(
+        -90deg,
+        ${ff.input__background_color} ${vars.space_4},
+        transparent 100%
+      );
+    }
+    /**/
+
     .Selectbox > .FormField__input::after {
       ${iconStyle(vars.icon__chevron_down)}
       position: absolute;
+      z-index: 2;
       top: 0;
       bottom: 0;
-      right: ${prem(20)};
+      right: ${vars.space_2};
+      width: ${vars.space_3};
       pointer-events: none;
       margin: auto;
       color: ${ff.input__border_color};
@@ -51,7 +69,7 @@ export const Selectbox_css = () => css`
       // white-space: nowrap;
       // overflow: hidden;
       display: block;
-      margin-right: ${prem(50)};
+      margin-right: ${vars.space_5};
     }
 
     .Selectbox > * > .FormField__input__value--empty {

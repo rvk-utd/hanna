@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useDomid } from '@hugsmidjan/react/hooks';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+
+import { WrapperElmProps } from '../utils.js';
+import { BemModifierProps } from '../utils/types.js';
 
 export type TogglerInputProps = {
   label: string | JSX.Element;
   children?: never;
-  Wrapper?: 'div' | 'li';
   invalid?: boolean;
   /** Hidden label prefix text to indicate that the field is required.
    *
@@ -17,7 +18,10 @@ export type TogglerInputProps = {
    * */
   reqText?: string | false;
   errorMessage?: string | JSX.Element;
-} & BemPropsModifier &
+  Wrapper?: 'div' | 'li';
+  inputProps?: JSX.IntrinsicElements['input'];
+} & BemModifierProps &
+  WrapperElmProps &
   Omit<JSX.IntrinsicElements['input'], 'type'>;
 
 type _TogglerInputProps = {
@@ -40,7 +44,9 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     type,
     id,
     innerWrap,
-    ...inputProps
+    wrapperProps,
+    inputProps,
+    ...restInputProps
   } = props;
 
   const domid = useDomid(id);
@@ -49,12 +55,14 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
   const reqStar = required && reqText !== false && (
     <abbr
       className={bem + '__label__reqstar'}
-      // TODO: add mo-better i18n thinking
+      // FIXME: add mo-better i18n thinking
       title={(reqText || 'Þarf að haka í') + ': '}
     >
       *
     </abbr>
   );
+
+  const readOnly = restInputProps.readOnly || (inputProps || {}).readOnly;
 
   const labelContent = (
     <>
@@ -64,20 +72,33 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
   );
 
   return (
-    <Wrapper className={getBemClass(bem, modifier, className)}>
+    <Wrapper
+      {...(wrapperProps as {})}
+      className={modifiedClass(
+        bem,
+        modifier,
+        // Prefer `className` over `wrapperProps.className`
+        className || (wrapperProps || {}).className
+      )}
+    >
       <input
         className={bem + '__input'}
         type={type}
         id={domid}
         aria-invalid={invalid || !!errorMessage || undefined}
         aria-describedby={errorId}
+        {...restInputProps}
         {...inputProps}
+        {...(readOnly && { disabled: true })}
       />{' '}
       <label className={bem + '__label'} htmlFor={domid}>
         {innerWrap ? (
           <span className={bem + '__label__wrap'}>{labelContent}</span>
         ) : (
           labelContent
+        )}
+        {readOnly && (
+          <input type="hidden" name={restInputProps.name} value={restInputProps.value} />
         )}
       </label>
       {errorMessage && (

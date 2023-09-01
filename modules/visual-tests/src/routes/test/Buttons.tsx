@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Locator } from '@playwright/test';
+import type { Locator } from '@playwright/test';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonSecondary } from '@reykjavik/hanna-react/ButtonSecondary';
@@ -10,7 +10,7 @@ import { Minimal } from '../../layout/Minimal.js';
 import { keyboardFocus } from '../../test-helpers/keyboardFocus.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
-import { cssTokens } from '../../utils/route';
+import { cssTokens } from '../../utils/route.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 
@@ -114,113 +114,143 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, project }) => {
-    if (project !== 'firefox-wide' && project !== 'firefox-phone') {
+  extras: async ({ page, localScreenshot, mediaFormat, expandViewport }) => {
+    if (!mediaFormat('wide') && !mediaFormat('phone')) {
       return;
     }
 
-    // Primary buttons (default variant)
-    const primaryButton = page.locator('.ButtonPrimary >> nth=0');
-    const primaryDisabled = page.locator('.ButtonPrimary:text("Disabled") >> nth=0');
-    const primaryPressed = page.locator('.ButtonPrimary:text("Pressed") >> nth=0');
-    const primaryLink = page.locator('.ButtonPrimary:text("Link") >> nth=0');
-    // Secondary buttons (default variant)
-    const secondaryButton = page.locator('.ButtonSecondary >> nth=0');
-    const secondaryDisabled = page.locator('.ButtonSecondary:text("Disabled") >> nth=0');
-    const secondaryPressed = page.locator('.ButtonSecondary:text("Pressed") >> nth=0');
-    const secondaryLink = page.locator('.ButtonSecondary:text("Link") >> nth=0');
-    // Tertiary buttons (default variant)
-    const tertiaryButton = page.locator('.ButtonTertiary >> nth=0');
-    const tertiaryDisabled = page.locator('.ButtonTertiary:text("Disabled") >> nth=0');
-    const tertiaryPressed = page.locator('.ButtonTertiary:text("Pressed")>> nth=0');
-    const tertiaryLink = page.locator('.ButtonTertiary:text("Link") >> nth=0');
-
-    // Destructive Buttons
-    const destrPrimary = page.locator('.ButtonPrimary--destructive >> nth=0');
-    const destrPrimaryDisabled = page.locator(
-      '.ButtonPrimary--destructive:text("Disabled")>> nth=0'
-    );
-    const destrPrimaryPressed = page.locator(
-      '.ButtonPrimary--destructive:text("Pressed")>> nth=0'
-    );
-    const destrPrimaryLink = page.locator(
-      '.ButtonPrimary--destructive:text("Link") >> nth=0'
-    );
-
-    const destrSecondary = page.locator('.ButtonSecondary--destructive >> nth=0');
-    const destrSecondaryDisabled = page.locator(
-      '.ButtonSecondary--destructive:text("Disabled")>> nth=0'
-    );
-    const destrSecondaryPressed = page.locator(
-      '.ButtonSecondary--destructive:text("Pressed")>> nth=0'
-    );
-    const destrSecondaryLink = page.locator(
-      '.ButtonSecondary--destructive:text("Link") >> nth=0'
-    );
-
-    const destrTertiary = page.locator('.ButtonTertiary--destructive >> nth=0');
-    const destrTertiaryDisabled = page.locator(
-      '.ButtonTertiary--destructive:text("Disabled")>> nth=0'
-    );
-    const destrTertiaryPressed = page.locator(
-      '.ButtonTertiary--destructive:text("Pressed")>> nth=0'
-    );
-    const destrTertiaryLink = page.locator(
-      '.ButtonTertiary--destructive:text("Link") >> nth=0'
-    );
-
-    // toggleIsolationMode on
-    await primaryButton.click();
-
     type BTCfg = {
-      loc: Locator;
       name: string;
+      loc: Locator;
       click?: boolean;
       focus?: boolean;
       tertiary?: boolean;
     };
     const buttons: Array<BTCfg> = [
-      { loc: primaryButton, name: 'primaryButton', click: true },
-      { loc: primaryDisabled, name: 'primaryDisabled', focus: false },
-      { loc: primaryPressed, name: 'primaryPressed' },
-      { loc: primaryLink, name: 'primaryLink' },
-
-      { loc: secondaryButton, name: 'secondaryButton', click: true },
-      { loc: secondaryDisabled, name: 'secondaryDisabled', focus: false },
-      { loc: secondaryPressed, name: 'secondaryPressed' },
-      { loc: secondaryLink, name: 'secondaryLink' },
-
-      { loc: tertiaryButton, name: 'tertiaryButton', click: true, tertiary: true },
+      // Primary buttons (default variant)
       {
-        loc: tertiaryDisabled,
+        name: 'primaryButton',
+        loc: page.locator('.ButtonPrimary >> nth=0'),
+        click: true,
+      },
+      {
+        name: 'primaryDisabled',
+        loc: page.locator('.ButtonPrimary:text("Disabled") >> nth=0'),
+        focus: false,
+      },
+      {
+        name: 'primaryPressed',
+        loc: page.locator('.ButtonPrimary:text("Pressed") >> nth=0'),
+      },
+      { name: 'primaryLink', loc: page.locator('.ButtonPrimary:text("Link") >> nth=0') },
+      // Secondary buttons (default variant)
+      {
+        name: 'secondaryButton',
+        loc: page.locator('.ButtonSecondary >> nth=0'),
+        click: true,
+      },
+      {
+        name: 'secondaryDisabled',
+        loc: page.locator('.ButtonSecondary:text("Disabled") >> nth=0'),
+        focus: false,
+      },
+      {
+        name: 'secondaryPressed',
+        loc: page.locator('.ButtonSecondary:text("Pressed") >> nth=0'),
+      },
+      {
+        name: 'secondaryLink',
+        loc: page.locator('.ButtonSecondary:text("Link") >> nth=0'),
+      },
+      // Tertiary buttons (default variant)
+      {
+        name: 'tertiaryButton',
+        loc: page.locator('.ButtonTertiary >> nth=0'),
+        click: true,
+        tertiary: true,
+      },
+      {
         name: 'tertiaryDisabled',
+        loc: page.locator('.ButtonTertiary:text("Disabled") >> nth=0'),
         focus: false,
         tertiary: true,
       },
-      { loc: tertiaryPressed, name: 'tertiaryPressed', tertiary: true },
-      { loc: tertiaryLink, name: 'tertiaryLink', tertiary: true },
-
-      // // destructive butttons
-      { loc: destrPrimary, name: 'destr-Primary', click: true },
-      { loc: destrPrimaryDisabled, name: 'destr-PrimaryDisabled', focus: false },
-      { loc: destrPrimaryPressed, name: 'destr-PrimaryPressed' },
-      { loc: destrPrimaryLink, name: 'destr-PrimaryLink' },
-
-      { loc: destrSecondary, name: 'destr-Secondary', click: true },
-      { loc: destrSecondaryDisabled, name: 'destr-SecondaryDisabled', focus: false },
-      { loc: destrSecondaryPressed, name: 'destr-SecondaryPressed' },
-      { loc: destrSecondaryLink, name: 'destr-SecondaryLink' },
-
-      { loc: destrTertiary, name: 'destr-Tertiary', click: true, tertiary: true },
       {
-        loc: destrTertiaryDisabled,
+        name: 'tertiaryPressed',
+        loc: page.locator('.ButtonTertiary:text("Pressed")>> nth=0'),
+        tertiary: true,
+      },
+      {
+        name: 'tertiaryLink',
+        loc: page.locator('.ButtonTertiary:text("Link") >> nth=0'),
+        tertiary: true,
+      },
+      // // destructive primary butttons
+      {
+        name: 'destr-Primary',
+        loc: page.locator('.ButtonPrimary--destructive >> nth=0'),
+        click: true,
+      },
+      {
+        name: 'destr-PrimaryDisabled',
+        loc: page.locator('.ButtonPrimary--destructive:text("Disabled")>> nth=0'),
+        focus: false,
+      },
+      {
+        name: 'destr-PrimaryPressed',
+        loc: page.locator('.ButtonPrimary--destructive:text("Pressed")>> nth=0'),
+      },
+      {
+        name: 'destr-PrimaryLink',
+        loc: page.locator('.ButtonPrimary--destructive:text("Link") >> nth=0'),
+      },
+
+      {
+        name: 'destr-Secondary',
+        loc: page.locator('.ButtonSecondary--destructive >> nth=0'),
+        click: true,
+      },
+      {
+        name: 'destr-SecondaryDisabled',
+        loc: page.locator('.ButtonSecondary--destructive:text("Disabled")>> nth=0'),
+        focus: false,
+      },
+      {
+        name: 'destr-SecondaryPressed',
+        loc: page.locator('.ButtonSecondary--destructive:text("Pressed")>> nth=0'),
+      },
+      {
+        name: 'destr-SecondaryLink',
+        loc: page.locator('.ButtonSecondary--destructive:text("Link") >> nth=0'),
+      },
+
+      {
+        name: 'destr-Tertiary',
+        loc: page.locator('.ButtonTertiary--destructive >> nth=0'),
+        click: true,
+        tertiary: true,
+      },
+      {
         name: 'destr-TertiaryDisabled',
+        loc: page.locator('.ButtonTertiary--destructive:text("Disabled")>> nth=0'),
         focus: false,
         tertiary: true,
       },
-      { loc: destrTertiaryPressed, name: 'destr-TertiaryPressed', tertiary: true },
-      { loc: destrTertiaryLink, name: 'destr-TertiaryLink', tertiary: true },
+      {
+        name: 'destr-TertiaryPressed',
+        loc: page.locator('.ButtonTertiary--destructive:text("Pressed")>> nth=0'),
+        tertiary: true,
+      },
+      {
+        name: 'destr-TertiaryLink',
+        loc: page.locator('.ButtonTertiary--destructive:text("Link") >> nth=0'),
+        tertiary: true,
+      },
     ];
+
+    // toggleIsolationMode on
+    await page.locator('.ButtonPrimary >> nth=0').click();
+    await expandViewport();
 
     let cfg: (typeof buttons)[number] | undefined;
 

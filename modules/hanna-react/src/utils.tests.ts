@@ -29,6 +29,9 @@ o.spec('hanna-react/utils lib', () => {
       /* utils/useGetSVGtext.ts */
       useGetSVGtext: true,
 
+      /* utils/useMenuToggling.ts */
+      useMenuToggling: true,
+
       /* utils/useMixedControlState.ts */
       useMixedControlState: true,
 
@@ -43,17 +46,26 @@ o.spec('hanna-react/utils lib', () => {
 /* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
 // Also check exported types. (Ignoring re-exported types from es-in-css.)
 import type {
+  HTMLProps,
+
   /* utils/config.ts */
   LinkRenderer,
   SSRSupport,
+  SSRSupportProps,
 
   /* utils/browserSide.ts */
+
+  /* utils/HannaUIState.ts */
+  // @ts-expect-error  (Should not be exported)
+  HannaUIStateState,
 
   /* utils/useDidChange.ts */
 
   /* utils/useFormatMonitor.ts */
 
   /* utils/useGetSVGtext.ts */
+
+  /* utils/useMenuToggling.ts */
 
   /* utils/useMixedControlState.ts */
 

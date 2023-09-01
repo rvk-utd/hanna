@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between.js';
+import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -19,8 +19,8 @@ export const Heading_css = () => css`
     ${ComponentLayout}
 
     font: ${vars.font_hd_m};
-    margin-top: ${between_phone_netbook(40, 60)};
-    margin-bottom: ${between_phone_netbook(24, 32)};
+    margin-top: ${scale_phone_netbook(40, 60)};
+    margin-bottom: ${scale_phone_netbook(24, 32)};
 
     @media ${mq.wide} {
       margin-top: 60px;

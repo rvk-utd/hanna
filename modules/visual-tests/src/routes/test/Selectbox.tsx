@@ -44,8 +44,8 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot, pageScreenshot, project }) => {
-    if (project === 'firefox-wide' || project === 'firefox-phone') {
+  extras: async ({ page, localScreenshot, pageScreenshot, mediaFormat }) => {
+    if (mediaFormat('wide') || mediaFormat('phone')) {
       /* eslint-disable no-await-in-loop */
       for (const id of Object.keys(selectboxes)) {
         const select = page.locator(`#${id}`);

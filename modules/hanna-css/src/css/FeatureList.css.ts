@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols, between_container } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
@@ -18,10 +18,10 @@ export default css`
       --efnistakn: ''; // scope variable to container.
       background-color: ${vars.color_suld_25};
       --left-offset: ${vars.grid_1};
-      padding-top: ${between_container(24, 64)};
-      padding-bottom: ${between_container(32, 80)};
-      margin-top: ${between_cols(30, 100)};
-      margin-bottom: ${between_cols(30, 100)};
+      padding-top: ${scale_container(24, 64)};
+      padding-bottom: ${scale_container(32, 80)};
+      margin-top: ${scale_container(30, 100)};
+      margin-bottom: ${scale_container(30, 100)};
 
       @media ${mq.phone} {
         --left-offset: ${vars.grid_0_1};
@@ -37,7 +37,7 @@ export default css`
     .FeatureList__title {
       font: ${vars.font_hd_s};
       max-width: ${cols_px(4, 4)};
-      margin-bottom: ${between_container(20, 84)};
+      margin-bottom: ${scale_container(20, 84)};
       margin-left: var(--left-offset);
     }
 

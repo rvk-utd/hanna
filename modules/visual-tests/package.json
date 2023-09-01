@@ -15,10 +15,10 @@
     "webserver:start": "PORT=7357 yarn run remix-serve _remix-build",
     "webserver:testingmode": "yarn run webserver:build && yarn run webserver:start",
     "__webserver:testingmode": "yarn run webserver:dev",
-    "test": "echo \"Running Visual Regression Tests.  Please wait...\n\"  &&  npx playwright test  ||  (((cd ../hanna-css && yarn run dev:server) & yarn run webserver:dev & (sleep 2.5 && open http://localhost:7357/review?errored))  &&  (exit 1))"
+    "test": "node build-tests.mjs  &&  echo \"Running Visual Regression Tests.  Please wait...\n\"  &&  npx playwright test -c tests/playwright.config.js ||  (((cd ../hanna-css && yarn run dev:server) & yarn run webserver:dev & (sleep 2.5 && open http://localhost:7357/review?errored))  &&  (exit 1))"
   },
   "dependencies": {
-    "@hugsmidjan/qj": "^4.10.2",
+    "@hugsmidjan/qj": "^4.22.1",
     "@remix-run/node": "^1.15.0",
     "@remix-run/react": "^1.15.0",
     "@remix-run/serve": "^1.15.0",
@@ -31,7 +31,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.32.3",
+    "@playwright/test": "^1.37.1",
     "@remix-run/dev": "^1.15.0",
     "@remix-run/eslint-config": "^1.15.0",
     "@types/react": "^17.0.24",

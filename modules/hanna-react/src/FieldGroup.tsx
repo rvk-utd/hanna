@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+
+import { WrapperElmProps } from './utils.js';
 
 export type FieldGroupProps = {
   legend: string;
@@ -7,13 +9,19 @@ export type FieldGroupProps = {
   small?: boolean;
   className?: string;
   children: ReactNode;
-};
+} & WrapperElmProps<'fieldset'>;
 
 export const FieldGroup = (props: FieldGroupProps) => {
-  const { legend, children, className, disabled, small } = props;
+  const { legend, children, className, disabled, small, wrapperProps } = props;
   return (
     <fieldset
-      className={getBemClass('FieldGroup', small && 'small', className)}
+      {...wrapperProps}
+      className={modifiedClass(
+        'FieldGroup',
+        small && 'small',
+        // Prefer `className` over `wrapperProps.className`
+        className || (wrapperProps || {}).className
+      )}
       disabled={disabled}
     >
       <legend className="FieldGroup__legend">{legend}</legend>

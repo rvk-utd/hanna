@@ -1,5 +1,5 @@
 import React from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { Efnistakn, getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 
 import { ButtonProps } from './_abstract/_Button.js';
@@ -7,6 +7,7 @@ import { Image, ImageProps } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
 import ButtonTertiary from './ButtonTertiary.js';
+import { WrapperElmProps } from './utils.js';
 
 export type GridBlockItem = {
   title: string;
@@ -27,24 +28,28 @@ export type GridBlockItem = {
 export type GridBlocksProps = {
   blocks: Array<GridBlockItem>;
   twocol?: boolean;
-} & SeenProp;
-
-export type GridBlocksProp1s = {
-  blocks: Array<GridBlockItem>;
-  twocol?: boolean;
-};
+} & WrapperElmProps &
+  SeenProp;
 
 export const GridBlocks = (props: GridBlocksProps) => {
-  const { blocks, twocol, startSeen } = props;
+  const { blocks, twocol, startSeen, wrapperProps } = props;
   const [ref] = useSeenEffect(startSeen);
 
   return (
-    <div className={getBemClass('GridBlocks', [twocol && 'twocol'])} ref={ref}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(
+        'GridBlocks',
+        [twocol && 'twocol'],
+        (wrapperProps || {}).className
+      )}
+      ref={ref}
+    >
       {blocks.map(({ title, summary, href, links = [], icon, image }, i) => {
         const imageProps = icon ? { src: getEfnistaknUrl(icon) } : image;
         return (
           <div key={i} className="GridBlocks__item">
-            {imageProps && <Image className="GridBlocks__illustration" {...imageProps} />}
+            {imageProps && <Image bem="GridBlocks__illustration" {...imageProps} />}
             <div className="GridBlocks__textwrap">
               <h3 className="GridBlocks__item__title">
                 {href != null ? (

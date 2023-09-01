@@ -1,4 +1,5 @@
 import React, {
+  FocusEvent,
   MouseEvent,
   ReactNode,
   useCallback,
@@ -6,24 +7,39 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';
 import { isPreact } from './utils/env.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import {
+  HTMLProps,
+  SSRSupportProps,
+  useIsBrowserSide,
+  WrapperElmProps,
+} from './utils.js';
 
 // FIXME: Eventually import from @reykjavik/hanna-css
 const AlertCloseTransitionDuration = 400;
 
-const useAutoClosing = (autoClose: number) => {
+const useAutoClosing = (autoClose: number, props: HTMLProps) => {
   const [temp, setTemp] = useState(0);
   if (!autoClose) {
     return { autoClosing: false };
   }
-  const thaw = () => setTemp((temp) => temp + 1);
-  const freeze = () => setTemp((temp) => temp - 1);
+  const thaw = (e: FocusEvent | MouseEvent) => {
+    setTemp((temp) => temp + 1);
+    const handler = props[e.type.startsWith('blur') ? 'onBlur' : 'onMouseLeave'];
+    // @ts-expect-error  (Proper fix ends up as too much code for this extreme edge case)
+    handler && handler(e);
+  };
+  const freeze = (e: FocusEvent | MouseEvent) => {
+    setTemp((temp) => temp - 1);
+    const handler = props[e.type.startsWith('focus') ? 'onFocus' : 'onMouseEnter'];
+    // @ts-expect-error  (Resolving ends up as too much code for this extreme edge case)
+    handler && handler(e);
+  };
 
   return {
     autoClosing: temp === 0,
@@ -33,8 +49,8 @@ const useAutoClosing = (autoClose: number) => {
       onFocus: freeze,
       onBlur: thaw,
       ...(isPreact && {
-        onfocusin: (e: FocusEvent) => e.currentTarget !== e.target && freeze(),
-        onfocusout: (e: FocusEvent) => e.currentTarget !== e.target && thaw(),
+        onfocusin: (e: FocusEvent) => e.currentTarget !== e.target && freeze(e),
+        onfocusout: (e: FocusEvent) => e.currentTarget !== e.target && thaw(e),
       }),
     },
   };
@@ -72,40 +88,42 @@ export type AlertProps = {
   closeUrl?: string;
   texts?: AlertI18n;
   lang?: string;
-  ssr?: SSRSupport;
-} & EitherObj<
-  {
-    /** Seconds until the Alert auto-closes.
-     *
-     * Mosueover and keyboard focus resets the timer.
-     */
-    autoClose: number;
-    /** Return `false` to prevent the alert from closing. */
-    onClose?: () => void | boolean;
-    /** Callback that fires when the alert has closed/transitoned out */
-    onClosed: () => void;
-  },
-  {
-    /** @deprecated This signature with the `event` argument will be removed in hanna-react v0.11
-     *
-     * Return `false` to prevent the alert from closing
-     */
-    onClose?(event: MouseEvent): void | boolean;
-    /** Callback that fires after the alert has closed/transitoned out */
-    onClosed?(): void;
-  }
->;
+} & SSRSupportProps &
+  EitherObj<
+    {
+      /** Seconds until the Alert auto-closes.
+       *
+       * Mosueover and keyboard focus resets the timer.
+       */
+      autoClose: number;
+      /** Return `false` to prevent the alert from closing. */
+      onClose?: () => void | boolean;
+      /** Callback that fires when the alert has closed/transitoned out */
+      onClosed: () => void;
+    },
+    {
+      /** @deprecated This signature with the `event` argument will be removed in hanna-react v0.11
+       *
+       * Return `false` to prevent the alert from closing
+       */
+      onClose?(event: MouseEvent): void | boolean;
+      /** Callback that fires after the alert has closed/transitoned out */
+      onClosed?(): void;
+    }
+  > &
+  WrapperElmProps<null, 'role' | 'hidden'>;
 
 export const Alert = (props: AlertProps) => {
   const {
     type,
     childrenHTML,
     children,
-    onClose,
+    onClose, // eslint-disable-line deprecation/deprecation
     closeUrl,
     closable = !!(onClose || closeUrl != null),
     ssr,
     onClosed,
+    wrapperProps,
   } = props;
   const autoClose = Math.max(props.autoClose || 0, 0);
 
@@ -124,7 +142,7 @@ export const Alert = (props: AlertProps) => {
       const ret =
         onClose &&
         // @ts-expect-error  (@deprecated `event` parameter will be removed in v0.11)
-        onClose(event);
+        onClose(event); // eslint-disable-line deprecation/deprecation
 
       if (ret !== false) {
         setOpen(false);
@@ -140,7 +158,7 @@ export const Alert = (props: AlertProps) => {
     [onClose, onClosed]
   );
 
-  const { autoClosing, autoClosingProps } = useAutoClosing(autoClose);
+  const { autoClosing, autoClosingProps } = useAutoClosing(autoClose, props);
 
   useEffect(() => {
     if (autoClosing) {
@@ -163,10 +181,12 @@ export const Alert = (props: AlertProps) => {
 
   return (
     <div
-      className={getBemClass('Alert', [
-        !!alertTypes[type] && type,
-        closable && 'closable',
-      ])}
+      {...wrapperProps}
+      className={modifiedClass(
+        'Alert',
+        [!!alertTypes[type] && type, closable && 'closable'],
+        (wrapperProps || {}).className
+      )}
       role="alert"
       hidden={!open || undefined}
       {...autoClosingProps}

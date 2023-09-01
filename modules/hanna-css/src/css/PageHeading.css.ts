@@ -1,6 +1,6 @@
 import { css, em } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
@@ -17,11 +17,11 @@ export default css`
 export const PageHeading_css = () => css`
   .PageHeading {
     ${SeenEffect__fadeup}
-    ${SeenEffect__disallowNesting}
+    ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
     ${ComponentLayout(false)}
 
     font: ${vars.font_hd_l};
-    margin-top: ${between_cols(0, 3 * grid.unit)};
+    margin-top: ${scale_container(0, 3 * grid.unit)};
     margin-bottom: ${em(40 / 64)};
   }
   .PageHeading--small {

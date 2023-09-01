@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { prem } from './utils/miscUtils.js';
@@ -10,9 +10,9 @@ export default css`
     .Footnote {
       width: 100%;
       position: relative;
-      margin-top: ${between_cols(24, 32)};
+      margin-top: ${scale_container(24, 32)};
       margin-bottom: ${prem(30)};
-      padding-left: ${between_cols(10, 36)};
+      padding-left: ${scale_container(10, 36)};
       color: ${vars.color_suld_150};
 
       &::before {

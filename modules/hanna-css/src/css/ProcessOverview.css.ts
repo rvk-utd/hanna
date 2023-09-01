@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between_cols, between_phone_netbook } from '../lib/between.js';
+import { scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
@@ -18,9 +18,9 @@ export default css`
       margin: 0 ${vars.grid_margin__neg};
       padding: 0 ${vars.grid_margin};
       // $ {extendBackgroundWithUnderlay}; // <-- this could be used also
-      margin-bottom: ${between_cols(30, 120)};
-      padding-top: ${between_cols(50, 120)};
-      padding-bottom: ${between_cols(50, 192)};
+      margin-bottom: ${scale_container(30, 120)};
+      padding-top: ${scale_container(50, 120)};
+      padding-bottom: ${scale_container(50, 192)};
     }
     .ProcessOverview--transparent {
       background: 0;
@@ -30,7 +30,7 @@ export default css`
 
     .ProcessOverview__title {
       font: ${vars.font_hd_s};
-      margin-bottom: ${between_phone_netbook(40, 118)};
+      margin-bottom: ${scale_phone_netbook(40, 118)};
 
       @media ${mq.wide} {
         margin-bottom: ${prem(118)};

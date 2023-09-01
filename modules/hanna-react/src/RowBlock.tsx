@@ -1,25 +1,32 @@
 import React, { ReactNode } from 'react';
-import { BemPropsModifier } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { BemModifierProps } from './utils/types.js';
+import { WrapperElmProps } from './utils.js';
 
 export type RowBlockProps = {
   /** Float the first RowBlockColumn to the right on larger screens. */
   right?: boolean;
-  /** Custom **additional** class-name */
+  /** Custom __additional__ class-name */
   className?: string;
   children: ReactNode;
-} & BemPropsModifier &
+} & BemModifierProps &
+  WrapperElmProps &
   SeenProp;
 
 export const RowBlock = (props: RowBlockProps) => {
-  const { right, modifier, className, children, startSeen } = props;
+  const { right, modifier, className, children, startSeen, wrapperProps } = props;
   const [ref] = useSeenEffect(startSeen);
 
   return (
     <div
-      className={getBemClass('RowBlock', [modifier, right && 'align--right'], className)}
+      {...wrapperProps}
+      className={modifiedClass(
+        'RowBlock',
+        [modifier, right && 'align--right'],
+        className || (wrapperProps || {}).className
+      )}
       ref={ref}
     >
       {children}

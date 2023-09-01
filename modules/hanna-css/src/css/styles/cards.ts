@@ -1,10 +1,14 @@
-import { css } from 'es-in-css';
+import { css, pct } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints.js';
+import { buildVariables } from '../../lib/cssutils.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
-import { grid_units, prem } from '../utils/miscUtils.js';
+import { prem } from '../utils/miscUtils.js';
 
 import { LinkStyle_Reset } from './links.js';
+
+export const CardListVariables = buildVariables(['card_width']);
+export const cardListVars = CardListVariables.vars;
 
 export const CardBlock_css = () => css`
   @media ${mq.tablet_up} {
@@ -28,21 +32,31 @@ export const CardList_css = () => css`
   display: grid;
   grid-auto-flow: row;
   gap: ${vars.grid_gutter};
-  grid-template-columns: repeat(auto-fill, ${vars.grid_3});
+  grid-template-columns: repeat(auto-fill, var(--card-width));
+  ${CardListVariables.declare({
+    card_width: pct(100),
+  })}
 
-  @media ${mq.phone} {
-    grid-template-columns: 100%;
-  }
   @media ${mq.phablet} {
-    grid-template-columns: repeat(auto-fill, ${vars.grid_6});
+    ${CardListVariables.override({
+      card_width: vars.grid_6,
+    })};
   }
   @media ${mq.tablet} {
-    grid-template-columns: repeat(auto-fill, ${vars.grid_4});
+    ${CardListVariables.override({
+      card_width: vars.grid_4,
+    })};
+  }
+  @media ${mq.netbook_up} {
+    ${CardListVariables.override({
+      card_width: vars.grid_3,
+    })};
   }
 `;
 
 export const Card_css = () => css`
   ${LinkStyle_Reset}
+  font: ${vars.font_bd_s};
   display: block;
   width: 100%;
   padding: ${prem(24)} ${prem(24)} ${prem(32)} ${prem(24)};
@@ -52,10 +66,10 @@ export const Card_css = () => css`
   &::after {
     content: '';
     display: block;
-    width: ${grid_units(5)};
+    width: ${vars.space_5};
     height: ${prem(2)};
     background: var(--Card-lineColor, currentColor);
-    margin-top: ${grid_units(2)};
+    margin-top: ${vars.space_2};
     transition: width 200ms ease-in;
   }
 
@@ -70,11 +84,18 @@ export const Card_css = () => css`
 
   &__title {
     font: ${vars.font_bd_l};
-    font-weight: 700;
-    margin-bottom: ${prem(8)};
+    font-weight: ${vars.font_weight__bold};
+  }
+  &__title:last-child {
+    margin-bottom: ${vars.space_1};
+  }
+
+  &__meta {
+    color: ${vars.color_suld_150};
+    margin-top: ${vars.space_1};
   }
 
   &__summary {
-    font: ${vars.font_bd_s};
+    margin-top: ${vars.space_1};
   }
 `;

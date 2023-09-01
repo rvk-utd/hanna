@@ -8,16 +8,16 @@ import React, {
   useState,
 } from 'react';
 import A from '@hugsmidjan/qj/A';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import debounce from '@hugsmidjan/qj/debounce';
-import focusElm from '@hugsmidjan/qj/focusElm';
+import { focusElm } from '@hugsmidjan/qj/focusElm';
 import throttle from '@hugsmidjan/qj/throttle';
-import { BemProps } from '@hugsmidjan/react/types';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { EitherObj, notNully } from '@reykjavik/hanna-utils';
 
 import CarouselStepper from '../CarouselStepper.js';
-import { SSRSupport, useIsBrowserSide } from '../utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from '../utils.js';
 import { SeenProp, useSeenEffect } from '../utils/seenEffect.js';
+import { BemProps } from '../utils/types.js';
 
 // ---------------------------------------------------------------------------
 
@@ -39,27 +39,28 @@ export type CarouselProps<
   P extends Record<string, unknown> | undefined = {}
 > = {
   className?: string;
-  ssr?: SSRSupport;
 
   /** @deprecated Ingored because never used (Will be removed in v0.11) */
   scrollRight?: boolean;
-} & EitherObj<
-  {
-    items: Array<I>;
-    Component: (props: P extends undefined ? I : I & P) => ReactElement | null;
-    ComponentProps?: P;
-  },
-  {
-    children: ReactNode;
-    /**
-     * Explicit number of items contained by the `children` prop
-     *
-     * Use this when your returned child elements are wrapped in a
-     * `<Fragment />` or some such.
-     */
-    itemCount?: number;
-  }
-> &
+} & SSRSupportProps &
+  EitherObj<
+    {
+      items: Array<I>;
+      Component: (props: P extends undefined ? I : I & P) => ReactElement | null;
+      ComponentProps?: P;
+    },
+    {
+      children: ReactNode;
+      /**
+       * Explicit number of items contained by the `children` prop
+       *
+       * Use this when your returned child elements are wrapped in a
+       * `<Fragment />` or some such.
+       */
+      itemCount?: number;
+    }
+  > &
+  WrapperElmProps &
   SeenProp;
 
 type AbstractCarouselProps<
@@ -67,6 +68,7 @@ type AbstractCarouselProps<
   P extends Record<string, unknown> | undefined = Record<string, unknown>
 > = CarouselProps<I, P> & BemProps & { title?: string };
 
+// eslint-disable-next-line complexity
 export const AbstractCarousel = <
   I extends Record<string, unknown> = Record<string, unknown>,
   P extends Record<string, unknown> | undefined = Record<string, unknown>
@@ -82,6 +84,8 @@ export const AbstractCarousel = <
     modifier,
     ssr,
     startSeen,
+    className,
+    wrapperProps,
   } = props;
 
   const children = !props.children
@@ -92,7 +96,8 @@ export const AbstractCarousel = <
 
   const [leftOffset, setLeftOffset] = useState<number | undefined>();
 
-  const itemCount = props.itemCount || (children || items).length;
+  const itemCount =
+    props.itemCount != null ? props.itemCount : (children || items).length;
   const listRef = useRef<HTMLDivElement>(null);
 
   const [activeItem, setActiveItem] = useState(0);
@@ -185,7 +190,13 @@ export const AbstractCarousel = <
 
   return (
     <div
-      className={getBemClass(bem, modifier, props.className)}
+      {...wrapperProps}
+      className={modifiedClass(
+        bem,
+        modifier,
+        // Prefer `className` over `wrapperProps.className`
+        className || (wrapperProps || {}).className
+      )}
       ref={outerRef}
       data-sprinkled={isBrowser}
     >

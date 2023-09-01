@@ -58,9 +58,8 @@ export const LayoutWithContent: StoryComponent = () => {
       }
       navChildren={
         <>
-          <BreadCrumbs title="Þú ert hér" trail={crumbTrail.slice(0, 2)} />
+          <BreadCrumbs trail={crumbTrail.slice(0, 2)} />
           <MainMenu
-            title={'Aðalvalmynd'}
             items={mainMenuItems}
             megaPanels={megaMenuPanels}
             // ssr="ssr-only"

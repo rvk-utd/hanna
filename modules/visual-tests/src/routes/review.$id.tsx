@@ -14,8 +14,8 @@ import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { Minimal } from '../layout/Minimal.js';
 import { ReviewShot } from '../layout/ReviewShot.js';
 import { ensureString } from '../utils/ensure.js';
-import { copyCacheControl, cssTokens } from '../utils/route';
-import { Changeset, getChangeById, updateScreenshotsFor } from '../utils/tests.server';
+import { copyCacheControl, cssTokens } from '../utils/route.js';
+import { Changeset, getChangeById, updateScreenshotsFor } from '../utils/tests.server.js';
 
 type LoaderData = {
   change: Changeset;

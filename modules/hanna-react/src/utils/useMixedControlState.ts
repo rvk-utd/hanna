@@ -75,7 +75,7 @@ export function useMixedControlState<
   name: N,
   /**
    * A last-resort default value to use instead of `undefined`.  \
-   * **NOTE:** All post-factum changes/updates to this value are ignored!
+   * __NOTE:__ All post-factum changes/updates to this value are ignored!
    */
   emptyValue: D
 ): RetArray<Exclude<V, undefined>>;
@@ -92,7 +92,7 @@ export function useMixedControlState<
   name: N,
   /**
    * A last-resort default value to use instead of `undefined`.  \
-   * **NOTE:** All post-factum changes/updates to this value are ignored!
+   * __NOTE:__ All post-factum changes/updates to this value are ignored!
    */
   emptyValue?: D
 ): RetArray<V>;
@@ -209,7 +209,7 @@ function useRaw<C, U, D extends Exclude<C | U, undefined>>(
   warningPropName: string | undefined,
   /**
    * A last-resort default value to use instead of `undefined`.  \
-   * **NOTE:** All post-factum changes/updates to this value are ignored!
+   * __NOTE:__ All post-factum changes/updates to this value are ignored!
    */
   emptyValue: D
 ): RetArray<Exclude<C | U, undefined>>;
@@ -229,7 +229,7 @@ function useRaw<C, U, D extends C | U>(
   warningPropName?: string,
   /**
    * A last-resort default value to use instead of `undefined`.  \
-   * **NOTE:** All post-factum changes/updates to this value are ignored!
+   * __NOTE:__ All post-factum changes/updates to this value are ignored!
    */
   emptyValue?: D
 ): RetArray<C | U>;

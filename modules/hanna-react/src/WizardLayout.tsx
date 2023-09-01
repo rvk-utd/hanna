@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
 import { Image } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
-import { SSRSupport, useIsBrowserSide } from './utils.js';
+import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 type WizardLayoutProps = {
   wizardStepper?: ReactNode | false;
@@ -14,9 +15,9 @@ type WizardLayoutProps = {
   siteName?: string;
   logoLink?: string;
   globalAlerts?: ReactNode;
-  ssr?: SSRSupport;
   children?: ReactNode;
-};
+} & SSRSupportProps &
+  WrapperElmProps;
 
 export const WizardLayout = (props: WizardLayoutProps) => {
   useScrollbarWidthCSSVar();
@@ -27,15 +28,17 @@ export const WizardLayout = (props: WizardLayoutProps) => {
     children,
     colorTheme,
     logoLink = '/',
-    siteName = 'Reykjavík',
+    siteName = '',
     globalAlerts,
+    wrapperProps,
   } = props;
 
   const isBrowser = useIsBrowserSide(/* ssr */);
 
   return (
     <div
-      className="WizardLayout"
+      {...wrapperProps}
+      className={modifiedClass('WizardLayout', null, (wrapperProps || {}).className)}
       data-sprinkled={isBrowser}
       data-color-theme={colorTheme}
     >
@@ -49,9 +52,10 @@ export const WizardLayout = (props: WizardLayoutProps) => {
           <Link className="WizardLayout__header__logo" href={logoLink}>
             {' '}
             <Image
-              className={undefined}
+              bem={undefined}
               inline={true}
               src={getAssetUrl('reykjavik-logo.svg')}
+              altText="Reykjavík"
             />{' '}
             {siteName}{' '}
           </Link>{' '}

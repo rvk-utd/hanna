@@ -24,10 +24,10 @@ const RadioButton = (props: TogglerInputProps) => (
 );
 
 export const RadioButtonsGroup = (props: RadioButtonsGroupProps) => {
-  if (props.layout) {
+  if (props.layout /* eslint-disable-line deprecation/deprecation */) {
     console.warn('`RadioButtonsGroupProps.layout` is deprecated.');
   }
-  if (props.columns) {
+  if (props.columns /* eslint-disable-line deprecation/deprecation */) {
     console.warn('`RadioButtonsGroupProps.columns` is deprecated.');
   }
   return (

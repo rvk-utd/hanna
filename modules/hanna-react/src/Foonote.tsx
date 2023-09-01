@@ -1,4 +1,4 @@
-import _Footnote, { FootnoteProps as _FootnoteProps } from './Footnote.js';
+import { Footnote as _Footnote, FootnoteProps as _FootnoteProps } from './Footnote.js';
 
 /** @deprecated  (Will be removed in v0.11)
  *
@@ -12,4 +12,4 @@ export type FootnoteProps = _FootnoteProps;
  */
 export const Footnote = _Footnote;
 
-export default Footnote;
+export default Footnote; // eslint-disable-line deprecation/deprecation

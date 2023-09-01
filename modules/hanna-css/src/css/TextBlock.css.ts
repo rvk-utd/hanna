@@ -1,6 +1,6 @@
 import { css, em } from 'es-in-css';
 
-import { between_cols } from '../lib/between.js';
+import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -13,13 +13,12 @@ import {
 import { cols_pct } from './utils/miscUtils.js';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 import { textContent, textContentVars } from './utils/textContent.js';
-
-import { ArticleMeta_css } from './ArticleMeta.css';
-import { Heading_css } from './Heading.css';
-import { PageHeading_css } from './PageHeading.css';
-import { Sharpie_css } from './Sharpie.css';
-import { SubHeading_css } from './SubHeading.css';
-import { VSpacer_css } from './VSpacer.css';
+import { ArticleMeta_css } from './ArticleMeta.css.js';
+import { Heading_css } from './Heading.css.js';
+import { PageHeading_css } from './PageHeading.css.js';
+import { Sharpie_css } from './Sharpie.css.js';
+import { SubHeading_css } from './SubHeading.css.js';
+import { VSpacer_css } from './VSpacer.css.js';
 
 export default css`
   /*!@deps
@@ -31,10 +30,10 @@ export default css`
       ${ComponentLayout};
       ${textContent};
       ${SeenEffect__fadeup};
-      ${SeenEffect__disallowNesting};
+      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
 
       position: relative;
-      margin-bottom: ${between_cols(20, 30)};
+      margin-bottom: ${scale_container(20, 30)};
     }
     .TextBlock--small {
       font: ${vars.font_bd_s};

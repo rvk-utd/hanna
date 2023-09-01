@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { between, RangeEdge } from '../lib/between.js';
+import { scale, ScaleEdge } from '../lib/between.js';
 import { bp, mq } from '../lib/breakpoints.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { grid } from '../lib/grid.js';
@@ -10,8 +10,8 @@ import { WARNING__ } from '../lib/WARNING__.js';
 import { prem } from './utils/miscUtils.js';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
-const _between = (from: RangeEdge, to: RangeEdge) =>
-  between(from, to, bp.phone, grid.contentMaxWidth, '%');
+const _between = (from: ScaleEdge, to: ScaleEdge) =>
+  scale(from, to, bp.phone, grid.contentMaxWidth, '%');
 
 export const BasicTableVariables = buildVariables(
   ['width', 'margin_left', 'pad_left', 'pad_right'],
@@ -27,8 +27,7 @@ export default css`
   @media screen {
     .TableWrapper {
       ${SeenEffect__fadeup}
-      // @deprecated  Remove this mixin in v0.9
-      ${SeenEffect__disallowNesting}
+      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
 
       position: relative;
       overflow-x: auto;

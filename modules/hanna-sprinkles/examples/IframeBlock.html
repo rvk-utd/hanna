@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>IframeBlock sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,IframeBlock"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('IframeBlock');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <iframe
+            class="IframeBlock IframeBlock--framed"
+            src="http://localhost:4000/assets/scripts/iframeResizer.test@4.html"
+          ></iframe>
+
+          <iframe
+            class="IframeBlock IframeBlock--framed"
+            src="http://localhost:4000/assets/scripts/iframeResizer.test@4.html"
+            height="350"
+          ></iframe>
+
+          <hr />
+          <p>Texti fyrir neðan iframe</p>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

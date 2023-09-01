@@ -1,13 +1,13 @@
 import { css } from 'es-in-css';
 
-import { between_phone_netbook } from '../lib/between.js';
+import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LinkStyle_Reset } from './styles/links.js';
-import { keyboardFocus_selector } from './utils/focus-selectors.js';
+import { keyboardFocusStyling } from './utils/focus-selectors.js';
 import { cols_px, prem } from './utils/miscUtils.js';
 import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
@@ -17,9 +17,8 @@ export default css`
       --Tabs--borderWidth: 2px;
       --Tabs__tab--borderWidth: 4px;
       ${SeenEffect__fadeup}
-      // @deprecated  Remove this mixin in v0.9
-    ${SeenEffect__disallowNesting}
-    display: flex;
+      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
+      display: flex;
       flex-flow: row wrap;
       border-bottom: var(--Tabs--borderWidth) solid ${vars.color_suld_50};
       font: ${vars.font_button};
@@ -45,7 +44,7 @@ export default css`
       // NOTE: left/right paddings must *NOT* be %-based because
       // it triggers a Chrome bug that collapses the width of <button/> flex-items
       // ARGH!...  --Már @ 2020-10-28
-      padding: ${between_phone_netbook(12, 24)} ${between_phone_netbook(15, 40)};
+      padding: ${scale_phone_netbook(12, 24)} ${scale_phone_netbook(15, 40)};
       @media ${mq.wide} {
         padding: 24px 40px;
       }
@@ -70,7 +69,7 @@ export default css`
       display: none;
     }
     .TabPanel {
-      ${keyboardFocus_selector(css`
+      ${keyboardFocusStyling(css`
         outline-color: ${vars.color_suld_100};
         outline-style: dotted;
         outline-offset: ${vars.space_1};
@@ -129,7 +128,7 @@ export default css`
       padding: ${vars.space_2} ${vars.space_1};
       white-space: normal;
 
-      ${keyboardFocus_selector(css`
+      ${keyboardFocusStyling(css`
         outline-offset: -3px;
       `)}
     }

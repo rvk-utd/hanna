@@ -1,15 +1,15 @@
 import { css, RawCssString } from 'es-in-css';
 
 export {
-  hoverActiveKeyboardFocus_selector,
-  keyboardFocus_selector,
+  hoverKeyboardFocusAndActiveStyling,
+  keyboardFocusStyling,
 } from '../../lib/a11y.js';
 
 /**
  * If you already set a universal (old-school) :focus style and
  * you want to revert/hide those styles in supporting browsers
  */
-export const nonKeyboardFocus_selector = (content: RawCssString) => css`
+export const nonKeyboardFocusStyling = (content: RawCssString) => css`
   [data-js-focus-visible] &:focus:not([data-focus-visible-added]) {
     ${content};
   }

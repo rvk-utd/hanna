@@ -1,22 +1,36 @@
 import React, { ReactNode } from 'react';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+
+import { WrapperElmProps } from './utils.js';
 
 export type ButtonBarProps = {
   align?: 'right';
   children: ReactNode;
-};
+} & WrapperElmProps;
 
 export const ButtonBar = (props: ButtonBarProps) => {
-  const { align, children } = props;
+  const { align, children, wrapperProps } = props;
   return (
-    <div className={getBemClass('ButtonBar', align === 'right' && 'align--right')}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass(
+        'ButtonBar',
+        align === 'right' && 'align--right',
+        (wrapperProps || {}).className
+      )}
+    >
       {children}
     </div>
   );
 };
 
 /** A Splitter token to use directly inside <ButtonBar/> wrappers */
-ButtonBar.Split = () => <span className="ButtonBar__split" />;
+ButtonBar.Split = ({ wrapperProps }: WrapperElmProps) => (
+  <span
+    {...wrapperProps}
+    className={modifiedClass('ButtonBar__split', null, (wrapperProps || {}).className)}
+  />
+);
 
 /**
  * @deprecated Prefer using `ButtonBar.Split` instead.

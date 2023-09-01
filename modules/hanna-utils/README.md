@@ -18,10 +18,10 @@ yarn add @reykjavik/hanna-utils
   - [`getSVGtext`](#getsvgtext)
   - [`getFormatMonitor`](#getformatmonitor)
   - [`printDate`](#printdate)
-  - [`getPageScrollElm`](#getpagescrollelm)
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
 - [Asset helpers](#asset-helpers)
+  - [Reykjavík Logo](#reykjavík-logo)
   - [Favicons](#favicons)
   - [Illustrations](#illustrations)
   - [Efnistákn Icons](#efnistákn-icons)
@@ -46,6 +46,9 @@ yarn add @reykjavik/hanna-utils
   - [Type `OpenStringMap`](#type-openstringmap)
   - [Type `AllowKeys`](#type-allowkeys)
   - [Type `EitherObj`](#type-eitherobj)
+  - [Type `OmitDistributive`](#type-omitdistributive)
+  - [Type `PickDistributive`](#type-pickdistributive)
+  - [Type `RequireExplicitUndefined`](#type-requireexplicitundefined)
   - [Type Testing Helpers](#type-testing-helpers)
     - [Type `Expect<T>`](#type-expectt)
     - [Type `Equals<A, B>`](#type-equalsa-b)
@@ -59,10 +62,14 @@ yarn add @reykjavik/hanna-utils
 
 ### `getSVGtext`
 
-**Syntax:** `getSVGtext(url: string | undefined): Promise<string>`
+**Syntax:**
+`getSVGtext(url: string | undefined, altText?: string): Promise<string>`
 
 Fetches a remote SVG file and returns its markup contents — excluding any
 leading `<?xml />` directives or "Generator" comments.
+
+If you pass the optional `altText` parameter, it will attempt to inject a
+`<title/>` element into the SVG string. (First removing existing `<title/>`.)
 
 ```ts
 import { getSVGtext } from '@reykjavik/hanna-utils';
@@ -79,9 +86,9 @@ To check if file is svg:
 ```ts
 import { getSVGtext } from '@reykjavik/hanna-utils';
 
-const svgUrl = 'https://styles.reykjavik.is/assets/reykjavik-logo.svg';
-// true
-const isSVG = getSVGtext.isSvgUrl(svgUrl);
+const isSVG: true = getSVGtext.isSvgUrl(
+  'https://styles.reykjavik.is/assets/reykjavik-logo.svg'
+);
 ```
 
 ### `getFormatMonitor`
@@ -136,23 +143,6 @@ import { printDate } from '@reykjavik/hanna-utils';
 printDate('2022-04-30', 'is'); // 30. apríl 2022
 printDate(new Date('2022-04-30'), 'en'); // April 30, 2022
 printDate('2022-04-30', 'pl'); // 30. kwietnia 2022
-```
-
-### `getPageScrollElm`
-
-**Syntax:** `getPageScrollElm(customWindow?: Window): HTMLElement`
-
-Returns the outermost scrollable element (as defined by the active CSS) —
-either `<html/>` or `<body/>`.
-
-Prefers `<body />` if both are scrollable.
-
-Use this helper when you want to reliably scroll the whole page.
-
-```ts
-import { getPageScrollElm } from '@reykjavik/hanna-utils';
-
-getPageScrollElm().scrollTo(0, 1200);
 ```
 
 ### `getStableRandomItem`
@@ -214,7 +204,25 @@ focusElement('.TextBlock a');
 
 ## Asset helpers
 
+### Reykjavík Logo
+
+**Syntax:** `getRvkLogoUrl(blingType: BlingType): string`
+
+Helper to generate URLs to Reyjavík's official coat of arms (or "logo"), with
+and without the text.
+
+```ts
+import { getRvkLogoUrl } from '@reykjavik/hanna-utils/assets';
+
+const defaultLogoSVG = getRvkLogoUrl(); // default is 'reykjavik-logo.svg'
+const defaultLogoPNG = getRvkLogoUrl('reykjavik-logo.png'); // PNG version
+const notextLogoSVG = getRvkLogoUrl('reykjavik-logo-notext.svg');
+// etc...
+```
+
 ### Favicons
+
+**Syntax:** `getFavicon(faviconFile: Favicon): string`
 
 Helper to generate URLs for various types of "favicons" or "webmanifest
 icons", etc...
@@ -230,6 +238,9 @@ types.
 
 ### Illustrations
 
+**Syntax:**
+`getIllustrationUrl(illustration: Illustration, variant?: IllustrationVariant): string`
+
 Utilities to work with the
 [Illustrations](https://styles.reykjavik.is/assets/illustrations) on the asset
 server.
@@ -244,9 +255,12 @@ import {
 const assetName: Illustration = illustrations[0];
 
 const url = getIllustrationUrl(assetName);
+const thumbnailUrl = getIllustrationUrl(assetName, 'thumb');
 ```
 
 ### Efnistákn Icons
+
+**Syntax:** `getEfnistaknUrl(icon: Efnistakn): string`
 
 Utilities to work with the
 [Efnistákn icons](https://styles.reykjavik.is/assets/efnistakn) on the asset
@@ -266,6 +280,8 @@ const url = getEfnistaknUrl(assetName);
 
 ### Formheimur Shapes
 
+**Syntax:** `getFormheimurUrl(shape: Formheimur): string`
+
 Utilities to work with the
 [Formheimur shapes](https://styles.reykjavik.is/assets/formheimur) on the
 asset server.
@@ -284,6 +300,8 @@ const url = getFormheimurUrl(assetName);
 
 ### Bling Shapes
 
+**Syntax:** `getBlingUrl(blingType: BlingType): string`
+
 Utilities to work with the
 [Bling shapes](https://styles.reykjavik.is/assets/bling) on the asset server.
 
@@ -300,6 +318,8 @@ const url = getBlingUrl(blingName);
 ```
 
 ### Misc. Style Server Assets
+
+**Syntax:** `getAssetUrl(filePath: string): string`
 
 Helper to generate a URL to arbitrary asset on on the style server.
 
@@ -616,6 +636,37 @@ type MyProps =
   | { type: 'profit'; gain: number; loss?: never; panic?: never };
   | { type: 'loss'; gain?: never; loss: number; panic?: never };
   | { type: 'even'; gain?: never; loss?: never; panic: boolean };
+```
+
+### Type `OmitDistributive`
+
+A variant of `Omit` that distributes over unions.
+
+See:
+[TypeScript Playground](https://www.typescriptlang.org/play?ssl=14&ssc=1&pln=12&pc=1#code/PTAEEFQZwSwWwA4BsCmoBGBXALtg9gHagDuM2AFtHnGgMaHYoHagCGBAJm6ABRx5RsSAJ4B+AJSgOMKLQBO8GAVaMumAjEKh8UvCTKU5KKAkKwAbmnRHWAa1NLsUAFDZhCNACEc+AgAU5PAQoUABeUABvUHpmJmwALmhsBQIAcwBuUABfUAAyXmdQUAAfSNAjEzMYS1FEgDNWJCgUABoMG3s8R1rQdQ4UOqUULizCkrKK0wILFETkzBRM6xQ7B2ZEgCIoOA3xjbgOXdKNpFTd0fF05xAIUG9cLWJyGFpKTGaQijRWdDxLUAQgWCzjq6lo2E0RHuvh4gKCUES0MIAXhkgiYyM2EwciIGwAVlAAB4bK6jZyudxoADycDIABEZMkYFgIZYADwAFTaAGlQChCYxOCEUR45G5uShhAA+MKgDl8gVMDghdjCUCiUA0sicnkyxIEFCWORXNweUB+F62BmCBQs6ooHWgXn8wXK81AlBi4QS6Wy+UupUqghqjVa7CO7l60AGo1Xa5gDnPEIs3ygGTlYxTWDoVCgOp4ORppygPDEIgxQXYNpQPQcQgAchYqBYqsIaAQrCgQbVShBYIhWiRBAA6gY8DgAMIMOKwoEIzW07DWpl29lDkVQNobCtxDZStFjG7Dgu2FUhfkecHDDEoLE4u4+Qg8KKgAB077hwTaO-WoA25BQJAkDwc5LmcMkbgAZVYGhomnZhUC7DBHyId4lFSAEkFYJRQAAAzDNkpVwvsCHBSEHweEcx0neDsAAJlneFEgI9c5y3H9sD3A8ihuRNqUXQjQHITs8yw3AmGGHgJG0ADtEpNpljsdCZLQdRIRvO8oRQ58infV9P03ODYl-f9AOA0DSXJIA)
+
+### Type `PickDistributive`
+
+A variant of `Pick` that distributes over unions.
+
+See:
+[TypeScript Playground](https://www.typescriptlang.org/play?ssl=14&ssc=1&pln=12&pc=1#code/PTAEEFQZwSwWwA4BsCmoBGBXALtg9gHagDuM2AFtHnGgMaHYoHagCGBAJm6ABRx5RsSAJ4B+AJSgOMKLQBO8GAVaMumAjEKh8UvCTKU5KKAkKwAbmnRHWAa1NLsUAFDZhCNACEc+AgAU5PAQoUABeUABvUHpmJmwALmhsBQIAcwBuUABfUAAyXmdQUAAfSNAjEzMYS1FEgDNWJCgUABoMG3s8R1rQdQ4UOqUULizCkrKK0wILFETkzBRM6xQ7B2ZEgCIoOA3xjbgOXdKNpFTd0fF05xAIUG9cLWJyGFpKTGaQijRWdDxLUAQgWCzjq6lo2E0RHuvh4gKCUES0MIAXhkgiYyM2EwciIGwAVlAAB4bK6jZyudxoADycDIABEZMkYFgIZYADwAFTaAGlQChCYxOCEUR45G5uShhAA+MKgDl8gVMDghdjCUCiUA0sicnkyxIEFCWORXNweUB+F62BmCBQs6ooHWgXn8wXK81AlBi4QS6Wy+UupUqghqjVa7CO7l60AGo1Xa5gDnPEIs3ygGTlYxTWDoVCgOp4ORppygPDEIgxQXYNpQPQcQgAchYqBYqsIaAQrCgQbVShBYIhWiRBAA6gY8DgAMIMOKwoEIzW07DWpl29lDkVQNobCtxDZStFjG7Dgu2FUhfkecHDDEoLE4u4+Qg8KKgAB077hwTaO-WoA25BQJAkDwc5LmcMkbgAZVYGhomnZhUC7DBHyId4lFSAEkFYJRQAAAzDNkpVwvsCHBSEHweEcx0neDsAAJlneFEgI9c5y3H9sD3A8ihuRNqUXQjQHITs8yw3AmGGHgJG0ADtEpNpljsdCZLQdRIRvO8oRQ58infV9P03ODYl-f9AOA0DSXJIA)
+
+### Type `RequireExplicitUndefined`
+
+Converts a type so that all optional keys are required and must be explicitly
+set to `undefined`.
+
+```ts
+type Foo = { a: string; b?: number };
+
+type Bar = RequireExplicitUndefined<Foo>;
+```
+
+Is equivalent to:
+
+```ts
+type Bar = { a: string; b: number | undefined };
 ```
 
 ### Type Testing Helpers

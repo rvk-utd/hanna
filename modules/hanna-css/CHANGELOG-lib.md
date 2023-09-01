@@ -3,6 +3,41 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `formFieldVars` for custom styling `FormField`'s
+
+## 0.4.6
+
+_2023-08-15_
+
+- feat: Add `boxShadow_*` props to `hannaVars`
+- feat: Add vars `space_10` and `space_10__neg` to `hannaVars`
+- fix: `clamp*` methods inversed min–max values for negative slopes
+
+## 0.4.5
+
+_2023-07-31_
+
+- feat: Add `keyboardFocusStyling` and `hoverKeyboardFocusAndActiveStyling`
+- fix: Don't require `srOnly_focusable` and `srOnly_focusableContent` options
+
+## 0.4.4
+
+_2023-07-26_
+
+- feat: Add `@reykjavik/hanna-css/scale` with `clamp*` and `scale*` helpers
+- fix: List `tslib` as dependency
+
+## 0.4.3
+
+_2023-07-06_
+
+- fix: Make `htmlCl.*` selectors less specific (remove the `html` prefix)
+
+## 0.4.2
+
+_2023-05-24_
+
+- fix: Update dependencies to fix import resolution errors in node@>=18
 
 ## 0.4.1
 
@@ -15,7 +50,7 @@ _2023-04-25_
 _2023-04-24_
 
 - **BREAKING** feat: `colors_raw` contains hex-color strings not `ColorValue`
-- feat: Add `/*#__PURE__*/` markers to aid down-stream bundle tree-shaking
+- feat: Add `/*#__PURE__*/` markers to help down-stream bundle tree-shaking
 
 ## 0.3.18
 

@@ -1,9 +1,8 @@
 import { css } from 'es-in-css';
 
 import { TogglerButtonsKnob } from './styles/forms.js';
-
-import { CheckboxButtonsGroup_css } from './CheckboxButtonsGroup.css';
-import { RadioButtonsGroup_css } from './RadioButtonsGroup.css';
+import { CheckboxButtonsGroup_css } from './CheckboxButtonsGroup.css.js';
+import { RadioButtonsGroup_css } from './RadioButtonsGroup.css.js';
 
 export default css`
   /*!@deps

@@ -1,12 +1,15 @@
 import React, { FocusEvent, ReactNode, useEffect } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useLaggedState } from '@hugsmidjan/react/hooks';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 
 import { isPreact } from './utils/env.js';
 
 export type SiteSearchCurtainProps = {
   children: ReactNode;
 };
+
+// NOTE: This component is too low-level (and too esoteric and rarely used)
+// to justify `wrapperProps`
 
 export const SiteSearchCurtain = (props: SiteSearchCurtainProps) => {
   const [focused, setFocused] = useLaggedState(false);
@@ -38,7 +41,7 @@ export const SiteSearchCurtain = (props: SiteSearchCurtainProps) => {
 
   return (
     <div
-      className={getBemClass('SiteSearchCurtain', [focused && 'focused'])}
+      className={modifiedClass('SiteSearchCurtain', [focused && 'focused'])}
       onFocus={focusHandler}
       onBlur={blurHandler}
       // (Sneak this in as Preact does not bubble `FocusEvent`s)

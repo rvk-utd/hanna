@@ -52,9 +52,23 @@ export type TestInfoObj = {
    * Playwright locator selector for the element which should be hovered
    * before the default screenshot is snapped.
    *
-   * **NOTE:** If a `prep` action is also defined, this option is ignored.
+   * __NOTE:__ If a `prep` action is also defined, this option is ignored.
    */
   initialHover?: string;
+
+  /**
+   * Playwright locator selector for the element which should be awaited
+   * before the default screenshot is snapped.
+   *
+   * Alternatively pass a `[selector, state]` tuple.
+   *
+   * The default awaited `state` is `"attached"`
+   *
+   * __NOTE:__ If a `prep` action is also defined, this option is ignored.
+   */
+  waitFor?:
+    | [selector: string, state: 'attached' | 'detached' | 'visible' | 'hidden']
+    | string;
 
   /**
    * Sets the default value for `pageScreenshot()`'s clipvViewport option
@@ -103,6 +117,9 @@ export type TestFnArgs = Pick<
   /** Name of the currently running project */
   project: ProjectName;
 
+  /** Checks the current project's "media format" (i.e. viewport width)  */
+  mediaFormat: (string: ProjectMediaFormat) => boolean;
+
   /** Re-export of PlayWright's expect.soft function. */
   expect: Expect['soft'];
 
@@ -116,7 +133,12 @@ export type TestFnArgs = Pick<
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
     opts?: LocatorScreenshotOptions & {
-      margin: boolean | number | [number, number] | 'fullwidth';
+      margin:
+        | boolean
+        | number
+        | [number, number]
+        | [number, number, number, number]
+        | 'fullwidth';
     }
   ): Promise<void>;
 
@@ -131,11 +153,22 @@ export type TestFnArgs = Pick<
     /** Label is required to make a stable + readable screenshot filenames */
     label: string,
     opts?: PageScreenshotOptions & {
+      /**
+       * Useful when dealing with components/pages that intentionally
+       * extend to outside the default viewport.
+       */
       clipViewport?: boolean;
       viewportMinHeight?: number;
       customScrollElement?: Locator;
     }
   ): Promise<void>;
+
+  /**
+   * Emulates locator.hover() without performing any scrolling,
+   * Assumes the element's centerpoint is already visible
+   * and that hovering it does not trigger any navigation events.
+   */
+  dumbHover: (locator: Locator) => Promise<void>;
 
   /**
    * Takes care of resizing the viewport to prevent <body>-element
@@ -158,20 +191,13 @@ export type TestFnArgs = Pick<
 
 // ---------------------------------------------------------------------------
 
+export type ProjectMediaFormat = 'wide' | 'netbook' | 'tablet' | 'phone';
+
 export type ProjectName =
   | 'meta'
-  | 'firefox-wide'
-  | 'firefox-netbook'
-  | 'firefox-tablet'
-  | 'firefox-phone'
-  | 'chrome-wide'
-  | 'chrome-netbook'
-  | 'chrome-tablet'
-  | 'chrome-phone'
-  | 'safari-wide'
-  | 'safari-netbook'
-  | 'safari-tablet'
-  | 'safari-phone';
+  | `firefox-${ProjectMediaFormat}`
+  | `chrome-${ProjectMediaFormat}`
+  | `safari-${ProjectMediaFormat}`;
 // | 'ipad'
 // | 'iphone';
 
