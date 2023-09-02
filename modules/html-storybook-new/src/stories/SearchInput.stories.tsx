@@ -2,57 +2,31 @@ import React, { ChangeEvent, useState } from 'react';
 import { SearchInput } from '@reykjavik/hanna-react/SearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobs } from '../utils/knobs.js';
+import { FFControlProps, formFieldControls } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-const requiredOptions = ['no', 'yes', 'subtle'] as const;
-type Required = (typeof requiredOptions)[number];
-
-type ControlProps = {
+type ControlProps = FFControlProps & {
   physicalSearchButton: boolean;
-  small: boolean;
-  disabled: boolean;
-  readOnly: boolean;
-  required: Required;
-  invalid: boolean;
-  errorMessage: boolean;
-  helpText: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
+const ffCtrls = formFieldControls();
+
+// ---------------------------------------------------------------------------
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/SearchInput',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
+    viewport: { defaultViewport: 'responsive' },
   } as StoryParameters,
 };
 export default meta;
 
-const SearchInputStory: React.FC<ControlProps> = ({
-  physicalSearchButton,
-  small,
-  disabled,
-  readOnly,
-  required,
-  invalid,
-  errorMessage,
-  helpText,
-}) => {
-  const button = physicalSearchButton || undefined;
-  const ffProps = getFormFieldKnobs({
-    small,
-    disabled,
-    readOnly,
-    required,
-    invalid,
-    errorMessage,
-    helpText,
-  });
+const SearchInputStory = (props: ControlProps) => {
+  const button = props.physicalSearchButton || undefined;
+  const ffProps = ffCtrls.getProps(props);
 
   const [value, setValue] = useState('');
+
   return (
     <SearchInput
       {...ffProps}
@@ -66,58 +40,14 @@ const SearchInputStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _SearchInput: Story = {
-  render: (args: ControlProps) => <SearchInputStory {...args} />,
+export const _SearchInput: StoryObj<ControlProps> = {
+  render: (args) => <SearchInputStory {...args} />,
   argTypes: {
-    physicalSearchButton: {
-      control: 'boolean',
-      name: 'Physical search <button/>',
-    },
-    small: {
-      control: 'boolean',
-      name: 'Small',
-    },
-    disabled: {
-      control: 'boolean',
-      name: 'Disabled',
-    },
-    readOnly: {
-      control: 'boolean',
-      name: 'Read-only',
-    },
-    required: {
-      control: {
-        type: 'inline-radio',
-        labels: {
-          no: 'No',
-          yes: 'Yes',
-          subtle: 'Yes but subtle',
-        } satisfies Record<Required, string>,
-      },
-      options: requiredOptions,
-      name: 'Required',
-    },
-    invalid: {
-      control: 'boolean',
-      name: 'Invalid',
-    },
-    errorMessage: {
-      control: 'boolean',
-      name: 'Error message',
-    },
-    helpText: {
-      control: 'boolean',
-      name: 'Help text',
-    },
+    physicalSearchButton: { name: 'Physical search <button/>' },
+    ...ffCtrls.argTypes,
   },
   args: {
     physicalSearchButton: false,
-    small: false,
-    disabled: false,
-    readOnly: false,
-    required: 'no',
-    invalid: false,
-    errorMessage: false,
-    helpText: false,
+    ...ffCtrls.args,
   },
 };

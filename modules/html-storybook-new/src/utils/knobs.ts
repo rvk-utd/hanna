@@ -1,55 +1,73 @@
-const requiredOptions = ['no', 'yes', 'subtle'] as const;
-type Required = (typeof requiredOptions)[number];
+const requiredOptions = ['', 'normal', 'subtle'] as const;
 
-type FormFieldKnobsProps = {
+export type FFControlProps = {
+  hideLabel?: boolean;
   small?: boolean;
   disabled: boolean;
   readOnly?: boolean;
-  required: Required;
+  required: (typeof requiredOptions)[number];
   invalid: boolean;
   errorMessage: boolean;
-  helpText: boolean;
-  hideLabel?: boolean;
+  assistText: boolean;
 };
 
-export const getFormFieldKnobs = (args: FormFieldKnobsProps) => {
-  const {
-    small,
-    disabled,
-    readOnly,
-    required,
-    invalid,
-    errorMessage,
-    helpText,
-    hideLabel,
-  } = args;
-  const _hideLabel = hideLabel != null ? hideLabel : undefined;
-  const _small = small ? small : undefined;
-  const _disabled = disabled;
-  const _readOnly = readOnly !== false ? readOnly : undefined;
+type FFControlsOpts = {
+  hideLabel?: boolean;
+  small?: false;
+  readOnly?: false;
+};
 
-  const requiredMap: Record<Required, '' | 'normal' | 'subtle'> = {
-    no: '',
-    yes: 'normal',
-    subtle: 'subtle',
-  };
-  const _required = requiredMap[required];
-
-  const _errorMessage = errorMessage ? 'Your input has the errors.' : undefined;
-
-  const assistText = helpText
-    ? 'Close your eyes and input the first thing that comes to mind.'
-    : undefined;
+export const formFieldControls = (opts: FFControlsOpts = {}) => {
+  const hasHideLabel = opts.hideLabel != null;
+  const hasSmall = opts.small !== false;
+  const hasReadOnly = opts.readOnly !== false;
 
   return {
-    hideLabel: _hideLabel,
-    small: _small,
-    disabled: _disabled,
-    readOnly: _readOnly,
-    required: Boolean(_required),
-    reqText: _required !== 'subtle' && undefined,
-    invalid,
-    errorMessage: _errorMessage,
-    assistText,
+    getProps: (args: FFControlProps) => ({
+      hideLabel: args.hideLabel,
+      small: args.small,
+      disabled: args.disabled,
+      readOnly: args.readOnly,
+      required: !!args.required,
+      reqText: args.required !== 'subtle' && undefined,
+      invalid: args.invalid,
+      errorMessage: args.errorMessage ? 'Your input has the errors.' : undefined,
+      assistText: args.assistText
+        ? 'Close your eyes and input the first thing that comes to mind.'
+        : undefined,
+    }),
+
+    argTypes: {
+      ...(hasHideLabel && { hideLabel: { title: 'Hide <label/>' } }),
+      ...(hasSmall && { small: { title: 'Small' } }),
+      disabled: { title: 'Disabled' },
+      ...(hasReadOnly && { readOnly: { title: 'Read-only' } }),
+      required: {
+        title: 'Required',
+        control: {
+          type: 'inline-radio',
+          labels: {
+            '': 'No',
+            normal: 'Yes',
+            subtle: 'Yes but subtle',
+          } satisfies Record<FFControlProps['required'], string>,
+        },
+        options: ['', 'normal', 'subtle'],
+      },
+      invalid: { title: 'Invalid' },
+      errorMessage: { title: 'Error message' },
+      assistText: { title: 'Help text' },
+    },
+
+    args: {
+      ...(hasHideLabel && { hideLabel: opts.hideLabel }),
+      ...(hasSmall && { small: false }),
+      disabled: false,
+      ...(hasReadOnly && { readOnly: false }),
+      required: '',
+      invalid: false,
+      errorMessage: false,
+      assistText: false,
+    } satisfies FFControlProps as FFControlProps,
   };
 };

@@ -4,63 +4,32 @@ import TextInput from '@reykjavik/hanna-react/TextInput';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { getFormFieldKnobs } from '../utils/knobs.js';
+import { FFControlProps, formFieldControls } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-const requiredOptions = ['no', 'yes', 'subtle'] as const;
-type Required = (typeof requiredOptions)[number];
-
-type ControlProps = {
+type ControlProps = FFControlProps & {
   multiLine: boolean;
-  small: boolean;
-  disabled: boolean;
-  readOnly: boolean;
-  required: Required;
-  invalid: boolean;
-  errorMessage: boolean;
-  helpText: boolean;
   placeHolderText: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
+const ffCtrls = formFieldControls();
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/TextInput',
   parameters: {
     css: { tokens: 'TextInput' },
-    viewport: {
-      defaultViewport: 'responsive',
-    },
+    viewport: { defaultViewport: 'responsive' },
   } as StoryParameters,
 };
 export default meta;
 
-const makeStory = (ssr: boolean, args: ControlProps) => {
-  const StoryComponent = (args: ControlProps) => {
-    const {
-      multiLine,
-      small,
-      disabled,
-      readOnly,
-      required,
-      invalid,
-      errorMessage,
-      helpText,
-      placeHolderText,
-    } = args;
-    const domid = useDomid();
-    const type = multiLine ? 'textarea' : 'text';
-    const ffProps = getFormFieldKnobs({
-      small,
-      disabled,
-      readOnly,
-      required,
-      invalid,
-      errorMessage,
-      helpText,
-    });
-    const placeholder = placeHolderText ? 'Apple, Orange, etc.' : undefined;
+const makeStory = (ssr: boolean): StoryObj<ControlProps> => {
+  const StoryComponent = (props: ControlProps) => {
+    const type = props.multiLine ? 'textarea' : 'text';
+    const placeholder = props.placeHolderText ? 'Apple, Orange, etc.' : undefined;
+    const ffProps = ffCtrls.getProps(props);
 
+    const domid = useDomid();
     const [focused, setFocused] = useState(false);
     const [value, setValue] = useState<string>('');
 
@@ -101,72 +70,24 @@ const makeStory = (ssr: boolean, args: ControlProps) => {
       </Fragment>
     );
   };
-  return StoryComponent(args);
-};
 
-const argTypes = {
-  multiLine: {
-    control: 'boolean',
-    name: 'Multi-line',
-  },
-  small: {
-    control: 'boolean',
-    name: 'Multi-line',
-  },
-  disabled: {
-    control: 'boolean',
-    name: 'Disabled',
-  },
-  required: {
-    control: {
-      type: 'inline-radio',
-      labels: {
-        no: 'No',
-        yes: 'Yes',
-        subtle: 'Yes but subtle',
-      } satisfies Record<Required, string>,
+  const envName = ssr ? 'Server' : 'Client';
+
+  return {
+    name: `TextInput (${envName})`,
+    render: (args) => <StoryComponent {...args} />,
+    argTypes: {
+      multiLine: { name: 'Multi-line' },
+      ...ffCtrls.argTypes,
+      placeHolderText: { name: 'Placeholder text' },
     },
-    options: requiredOptions,
-    name: 'Required',
-  },
-  invalid: {
-    control: 'boolean',
-    name: 'Invalid',
-  },
-  errorMessage: {
-    control: 'boolean',
-    name: 'Error message',
-  },
-  helpText: {
-    control: 'boolean',
-    name: 'Help text',
-  },
-  placeHolderText: {
-    control: 'boolean',
-    name: 'Placeholder text',
-  },
+    args: {
+      multiLine: false,
+      ...ffCtrls.args,
+      placeHolderText: false,
+    },
+  };
 };
 
-const args: ControlProps = {
-  multiLine: false,
-  small: false,
-  disabled: false,
-  readOnly: false,
-  required: 'no',
-  invalid: false,
-  errorMessage: false,
-  helpText: false,
-  placeHolderText: false,
-};
-
-export const ServerTextInput: Story = {
-  render: (args: ControlProps) => makeStory(true, args),
-  argTypes: argTypes,
-  args: args,
-};
-
-export const ClientTextInput: Story = {
-  render: (args: ControlProps) => makeStory(false, args),
-  argTypes: argTypes,
-  args: args,
-};
+export const ServerTextInput = makeStory(true);
+export const ClientTextInput = makeStory(false);

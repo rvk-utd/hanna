@@ -2,30 +2,21 @@ import React, { useState } from 'react';
 import { Datepicker, getDateDiff } from '@reykjavik/hanna-react/Datepicker';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobs } from '../utils/knobs.js';
+import { FFControlProps, formFieldControls } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-const requiredOptions = ['no', 'yes', 'subtle'] as const;
-type Required = (typeof requiredOptions)[number];
+const localeOptions = ['is', 'en', 'pl'] as const;
 
-const languageOptions = ['is', 'en'] as const;
-type Language = (typeof languageOptions)[number];
-
-type ControlProps = {
-  small: boolean;
-  disabled: boolean;
-  readOnly: boolean;
-  required: Required;
-  invalid: boolean;
-  errorMessage: boolean;
-  helpText: boolean;
+type ControlProps = FFControlProps & {
   isDateRange: boolean;
-  language: Language;
+  locale: (typeof localeOptions)[number];
   maxDaysBack: number;
-  minimumNights: number;
+  minNights: number;
 };
 
-type Story = StoryObj<ControlProps>;
+const ffCtrl = formFieldControls();
+
+// ---------------------------------------------------------------------------
 
 const meta: Meta = {
   title: 'Forms/Datepicker',
@@ -39,42 +30,14 @@ export default meta;
 
 const dateFormat = 'd. MMM yyyy';
 const placeholder = dateFormat.toLowerCase();
+const DAY_MS = 24 * 60 * 60 * 1000;
+const initialStartDate = new Date(Date.now() + DAY_MS);
 
-const DatepickerStory: React.FC<ControlProps> = ({
-  small,
-  disabled,
-  readOnly,
-  required,
-  invalid,
-  errorMessage,
-  helpText,
-  isDateRange,
-  language,
-  maxDaysBack,
-  minimumNights,
-}) => {
-  const ffProps = getFormFieldKnobs({
-    small,
-    disabled,
-    readOnly,
-    required,
-    invalid,
-    errorMessage,
-    helpText,
-  });
+const DatepickerStory = (props: ControlProps) => {
+  const isRange = props.isDateRange;
+  const locale = props.locale;
 
-  const isRange = isDateRange;
-
-  const locale = language;
-
-  const initialStartDate = new Date();
-  initialStartDate.setDate(initialStartDate.getDate() + 1);
-
-  const initialEndDate = new Date();
-  initialEndDate.setDate(initialEndDate.getDate() + 7);
-
-  const nightsBack = maxDaysBack;
-  const minNights = minimumNights;
+  const ffProps = ffCtrl.getProps(props);
 
   const [startDate, setStartDate] = useState<Date | undefined>(undefined);
   const [endDate, setEndDate] = useState<Date | undefined>(undefined);
@@ -86,7 +49,7 @@ const DatepickerStory: React.FC<ControlProps> = ({
         placeholder={placeholder}
         localeCode={locale}
         value={startDate}
-        minDate={getDateDiff(initialStartDate, nightsBack)}
+        minDate={getDateDiff(initialStartDate, isRange ? 0 : props.maxDaysBack)}
         maxDate={isRange ? endDate : undefined}
         isStartDate={isRange}
         startDate={isRange ? startDate : undefined}
@@ -103,7 +66,7 @@ const DatepickerStory: React.FC<ControlProps> = ({
           readOnly={!startDate}
           localeCode={locale}
           value={endDate}
-          minDate={startDate && getDateDiff(startDate, minNights)}
+          minDate={startDate && getDateDiff(startDate, props.minNights)}
           // maxDate
           isEndDate={true}
           startDate={startDate}
@@ -117,80 +80,40 @@ const DatepickerStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _Datepicker: Story = {
-  render: (args: ControlProps) => <DatepickerStory {...args} />,
+export const _Datepicker: StoryObj<ControlProps> = {
+  render: (args) => <DatepickerStory {...args} />,
   argTypes: {
-    small: {
-      control: 'boolean',
-      name: 'Small',
-    },
-    disabled: {
-      control: 'boolean',
-      name: 'Disabled',
-    },
-    readOnly: {
-      control: 'boolean',
-      name: 'Read-only',
-    },
-    required: {
+    ...ffCtrl.argTypes,
+
+    isDateRange: { name: 'Is date range' },
+    locale: {
+      name: 'Language',
+      options: localeOptions,
       control: {
         type: 'inline-radio',
         labels: {
-          no: 'No',
-          yes: 'Yes',
-          subtle: 'Yes but subtle',
-        } satisfies Record<Required, string>,
-      },
-      options: requiredOptions,
-      name: 'Required',
-    },
-    invalid: {
-      control: 'boolean',
-      name: 'Invalid',
-    },
-    errorMessage: {
-      control: 'boolean',
-      name: 'Error message',
-    },
-    helpText: {
-      control: 'boolean',
-      name: 'Help text',
-    },
-    isDateRange: {
-      control: 'boolean',
-      name: 'Is date range',
-    },
-    language: {
-      control: {
-        type: 'inline-radio',
-        labels: {
-          is: 'Icelandic',
+          is: 'Íslenska',
           en: 'English',
-        } satisfies Record<Language, string>,
+          pl: 'Polski',
+        } satisfies Record<ControlProps['locale'], string>,
       },
-      options: languageOptions,
-      name: 'Required',
     },
     maxDaysBack: {
-      control: 'number',
       name: 'Max days back',
+      control: { type: 'number', min: 0, step: 1 },
+      if: { arg: 'isDateRange', eq: false },
     },
-    minimumNights: {
-      control: 'number',
+    minNights: {
       name: 'Minimum nights',
+      control: { type: 'number', min: 1, step: 1 },
+      if: { arg: 'isDateRange', eq: true },
     },
   },
   args: {
-    small: false,
-    disabled: false,
-    readOnly: false,
-    required: 'no',
-    invalid: false,
-    errorMessage: false,
-    helpText: false,
+    ...ffCtrl.args,
+    locale: 'is',
     isDateRange: false,
-    language: 'is',
+    minNights: 1,
     maxDaysBack: -14,
-    minimumNights: 1,
   },
 };

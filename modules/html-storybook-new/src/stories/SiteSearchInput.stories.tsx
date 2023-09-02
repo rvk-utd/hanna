@@ -1,55 +1,26 @@
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { getFormFieldKnobs } from '../utils/knobs.js';
+import { FFControlProps } from '../utils/knobs.js';
 import { StoryParameters } from '../utils/storytypes.js';
 
-// TODO: Control props do not work (and not in Prod either)
-
-const requiredOptions = ['no', 'yes', 'subtle'] as const;
-type Required = (typeof requiredOptions)[number];
-
-type ControlProps = {
-  disabled: boolean;
-  required: Required;
-  invalid: boolean;
-  errorMessage: boolean;
-  helpText: boolean;
-};
-
-type Story = StoryObj<ControlProps>;
+type ControlProps = FFControlProps;
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/SiteSearchInput',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
+    viewport: { defaultViewport: 'responsive' },
   } as StoryParameters,
 };
 export default meta;
 
-const SiteSearchInputStory = (args: ControlProps) => {
-  const { disabled, required, invalid, errorMessage, helpText } = args;
-  const ffProps = getFormFieldKnobs({
-    disabled,
-    required,
-    invalid,
-    errorMessage,
-    helpText,
-  });
-  const [value, setValue] = useState('');
-
+const SiteSearchInputStory = (props: ControlProps) => {
   return (
     <>
       <SiteSearchInput
-        {...ffProps}
+        {...props}
         label="Sláðu inn leitarorð"
-        value={value}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          setValue(e.currentTarget.value);
-        }}
         onButtonClick={() => alert('Perform Search!')}
         buttonText="Leita"
       />
@@ -58,43 +29,8 @@ const SiteSearchInputStory = (args: ControlProps) => {
   );
 };
 
-export const _SiteSearchInput: Story = {
-  render: (args: ControlProps) => SiteSearchInputStory(args),
-  argTypes: {
-    disabled: {
-      control: 'boolean',
-      name: 'Disabled',
-    },
-    required: {
-      control: {
-        type: 'inline-radio',
-        labels: {
-          no: 'No',
-          yes: 'Yes',
-          subtle: 'Yes but subtle',
-        } satisfies Record<Required, string>,
-      },
-      options: requiredOptions,
-      name: 'Required',
-    },
-    invalid: {
-      control: 'boolean',
-      name: 'Invalid',
-    },
-    errorMessage: {
-      control: 'boolean',
-      name: 'Error message',
-    },
-    helpText: {
-      control: 'boolean',
-      name: 'Error message',
-    },
-  },
-  args: {
-    disabled: false,
-    required: 'no',
-    invalid: false,
-    errorMessage: false,
-    helpText: false,
-  },
+export const _SiteSearchInput: StoryObj<ControlProps> = {
+  render: (args) => <SiteSearchInputStory {...args} />,
+  argTypes: {},
+  args: {},
 };
