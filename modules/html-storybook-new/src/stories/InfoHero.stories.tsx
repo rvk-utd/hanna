@@ -8,23 +8,17 @@ import landScapeImage from '../example_assets/Gallery--landscape--large.jpg';
 import swimmingpoolImage from '../example_assets/sundlaug.jpg';
 
 const alignmentOptions = ['left', 'right'] as const;
-type Alignment = (typeof alignmentOptions)[number];
-
 const imageOptions = ['no-image', 'portrait', 'landscape', 'pool'] as const;
-type Image = (typeof imageOptions)[number];
-
 const blingTypeOptions = ['waves', 'sunny-waves', 'triangles', 'circles'] as const;
-type BlingType = (typeof blingTypeOptions)[number];
 
 type ControlProps = {
-  alignment: Alignment;
-  image: Image;
-  blingType: BlingType;
+  alignment: (typeof alignmentOptions)[number];
+  image: (typeof imageOptions)[number];
+  blingType: (typeof blingTypeOptions)[number];
   swimmingPoolContent: boolean;
   blurbText: boolean;
   footerText: boolean;
 };
-type Story = StoryObj<ControlProps>;
 
 const cityCouncilContent: InfoHeroProps = {
   title: 'Dagur B. Eggertsson',
@@ -49,7 +43,7 @@ const swimmingpoolContent: InfoHeroProps = {
   ),
 };
 
-const getImage = (image: Image) => {
+const getImage = (image: ControlProps['image']) => {
   if (image === 'portrait') {
     return cityCouncilMemberImage;
   }
@@ -69,14 +63,9 @@ const meta: Meta<ControlProps> = {
 };
 export default meta;
 
-const InfoHeroStory: React.FC<ControlProps> = ({
-  alignment,
-  image,
-  blingType,
-  swimmingPoolContent,
-  blurbText,
-  footerText,
-}) => {
+const InfoHeroStory = (props: ControlProps) => {
+  const { alignment, image, blingType, swimmingPoolContent, blurbText, footerText } =
+    props;
   const imageSrc = getImage(image);
 
   const contentProps = swimmingPoolContent ? swimmingpoolContent : cityCouncilContent;
@@ -110,28 +99,30 @@ const InfoHeroStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _InfoHero: Story = {
-  render: (args: ControlProps) => <InfoHeroStory {...args} />,
+export const _InfoHero: StoryObj<ControlProps> = {
+  render: (args) => <InfoHeroStory {...args} />,
   argTypes: {
     alignment: {
-      control: 'inline-radio',
-      options: alignmentOptions,
       name: 'Alignment',
+      options: alignmentOptions,
+      control: 'inline-radio',
     },
     image: {
+      name: 'Image',
       control: {
         type: 'inline-radio',
+        options: imageOptions,
         labels: {
           'no-image': 'No image',
           portrait: 'Portrait',
           landscape: 'Landscape',
           pool: 'Pool',
-        } satisfies Record<Image, string>,
+        } satisfies Record<ControlProps['image'], string>,
       },
-      options: imageOptions,
-      name: 'Image',
     },
     blingType: {
+      name: 'Bling type',
+      options: blingTypeOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -139,23 +130,12 @@ export const _InfoHero: Story = {
           'sunny-waves': 'Sunny Waves',
           triangles: 'Triangles',
           circles: 'Circles',
-        } satisfies Record<BlingType, string>,
+        } satisfies Record<ControlProps['blingType'], string>,
       },
-      options: blingTypeOptions,
-      name: 'Bling type',
     },
-    swimmingPoolContent: {
-      control: 'boolean',
-      name: 'Swimming Pool content',
-    },
-    blurbText: {
-      control: 'boolean',
-      name: 'Blurb text',
-    },
-    footerText: {
-      control: 'boolean',
-      name: 'Footer text',
-    },
+    swimmingPoolContent: { name: 'Swimming Pool content' },
+    blurbText: { name: 'Blurb text' },
+    footerText: { name: 'Footer text' },
   },
   args: {
     alignment: 'right',

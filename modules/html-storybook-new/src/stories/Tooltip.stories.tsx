@@ -1,5 +1,5 @@
 import React from 'react';
-import Tooltip from '@reykjavik/hanna-react/Tooltip';
+import { Tooltip } from '@reykjavik/hanna-react/Tooltip';
 import { Meta, StoryObj } from '@storybook/react';
 
 // TODO: Use an alias for visual-tests

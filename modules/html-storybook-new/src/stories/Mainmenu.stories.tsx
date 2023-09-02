@@ -18,7 +18,6 @@ export default meta;
 export const _MainMenu: Story = {
   render: () => (
     <MainMenu
-      title="Aðalvalmynd"
       items={mainMenuItems}
       megaPanels={megaMenuPanels}
       auxiliaryPanel={auxiliaryPanel}
@@ -30,7 +29,6 @@ export const _MegaMenu: Story = {
   render: () => (
     <MainMenu
       // ssr="ssr-only"
-      title="Aðalvalmynd"
       items={mainMenuItems}
       megaPanels={megaMenuPanels}
       activePanelId={megaMenuPanels[0]!.id}

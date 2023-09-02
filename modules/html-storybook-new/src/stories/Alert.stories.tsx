@@ -10,14 +10,10 @@ type ControlProps = {
   ssr: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'Alert',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
+    viewport: { defaultViewport: 'responsive' },
   } as StoryParameters,
 };
 export default meta;
@@ -51,8 +47,10 @@ const alertDemos = {
   ),
 };
 
-const AlertStory: React.FC<ControlProps> = ({ closable, ssr }) => {
-  const closeLink = closable && ssr;
+const AlertStory = (props: ControlProps) => {
+  const closable = props.closable;
+  const closeLink = props.ssr && closable;
+
   return (
     <Fragment key={'' + closable + closeLink}>
       {ObjectEntries(alertDemos).map(([type, contentFn], i) => (
@@ -69,17 +67,11 @@ const AlertStory: React.FC<ControlProps> = ({ closable, ssr }) => {
   );
 };
 
-export const _Alert: Story = {
-  render: (args: ControlProps) => <AlertStory {...args} />,
+export const _Alert: StoryObj<ControlProps> = {
+  render: (args) => <AlertStory {...args} />,
   argTypes: {
-    closable: {
-      control: 'boolean',
-      name: 'Closable alert',
-    },
-    ssr: {
-      control: 'boolean',
-      name: 'Server-side close buttons',
-    },
+    closable: { name: 'Closable alert' },
+    ssr: { name: 'Server-side close buttons' },
   },
   args: {
     closable: true,

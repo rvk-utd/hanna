@@ -34,7 +34,7 @@ const BreadCrumbsStory: React.FC<ControlProps> = ({ length, sparseLinks }) => {
     }
     return links;
   }, [sparseLinks, length]);
-  return <BreadCrumbs title="Þú ert hér" trail={links} />;
+  return <BreadCrumbs trail={links} />;
 };
 
 export const _BreadCrumbs: Story = {

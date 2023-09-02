@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect } from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
-import getBemClass from '@hugsmidjan/react/utils/getBemClass';
 import { HannaColorTheme } from '@reykjavik/hanna-css';
 import { themeOptions } from '@reykjavik/hanna-react/constants';
 import { Layout } from '@reykjavik/hanna-react/Layout';
@@ -73,7 +73,7 @@ export const layoutDecorator = (story: () => ReactElement, context: StoryContext
     </Layout>
   ) : (
     <div
-      className={getBemClass('Layout', modifier)}
+      className={modifiedClass('Layout', modifier)}
       style={{ paddingTop: '0px' }}
       data-color-theme={colorTheme}
     >

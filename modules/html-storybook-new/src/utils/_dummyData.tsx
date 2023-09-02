@@ -116,6 +116,7 @@ export const imageCards = range(0, 9).map(
     href: '',
     image: i === 4 || i === 6 ? undefined : { src: dummyImage, altText: '' },
     meta: '14. október',
+    summary: (i - 2) % 7 === 0 ? 'Sum summary may go here also.' : undefined,
   })
 );
 
@@ -132,3 +133,21 @@ export const getSummary = (
   ) : type === 'text' ? (
     SUMMARY_BITS.join()
   ) : undefined;
+
+export const lorem = {
+  tiny: 'Leebur deroor iehroom, bork bork börk! Enim ad minim chokolat moose. ',
+  short:
+    'Yöva gäta stahrt sömwaer. Ut enim ad minim venäm, letsi börk ifder ' +
+    'svensk og latin makinen dehr graek. ',
+  medium:
+    'Vender gests kämmen vewänthärdis wehrdsen onderpasje moose. Ut enim ' +
+    'ad minim veniam, letsi ifder svensk og latin makinen dehr graek. ' +
+    'Yöva gäta stahrt sömwaer. Nawei raitinen de wehbsyte. ',
+  long:
+    'Lörem ipsum dolor sit amet, dedeeshka duu. Leebur deroor iehroom, bork ' +
+    'bork börk! Ut enim ad minim veniam, letsi ifder svensk og latin ' +
+    'makinen dehr graek. Ut enim ad minim veniam, letsi ifder svensk og ' +
+    'latin makinen dehr graek. Nawei raitinen de wehbsyte. Ut enim ad minim ' +
+    'veniam, letsi ifder svensk og latin makinen dehr graek. Ut enim ad ' +
+    'minim veniam, letsi ifder svensk og latin makinen dehr graek. ',
+};

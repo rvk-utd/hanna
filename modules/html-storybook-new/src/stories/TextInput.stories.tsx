@@ -101,8 +101,6 @@ const makeStory = (ssr: boolean, args: ControlProps) => {
       </Fragment>
     );
   };
-  const envName = ssr ? 'Server' : 'Client';
-  StoryComponent.story = { name: 'TextInput (' + envName + ')' };
   return StoryComponent(args);
 };
 

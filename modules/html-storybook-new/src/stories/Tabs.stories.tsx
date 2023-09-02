@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { getFrag } from '@hugsmidjan/qj/frag';
 import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
-import { SSRSupport, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
+import { SSRSupportProps, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
@@ -146,8 +146,7 @@ type TabsAnchorsStory = StoryObj<TabsAnchorsControlProps>;
 type _TabPanelsProps = {
   tabs: typeof linkTabs;
   activeIdx?: number;
-  ssr: SSRSupport;
-};
+} & SSRSupportProps;
 
 const _TabPanels = (props: _TabPanelsProps) => {
   const { tabs, activeIdx, ssr } = props;
