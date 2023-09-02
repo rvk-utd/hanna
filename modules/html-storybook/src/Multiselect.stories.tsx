@@ -37,7 +37,7 @@ export const _Multiselect: StoryComponent = () => {
 
   const empty = boolean('Empty', true);
   const forceSearchable = boolean('Searchable options', false);
-  const forceSummary = boolean('Searchable options', false);
+  const forceSummary = boolean('Summarize selected values', false);
 
   const values = empty ? [] : nowrap ? options : options.slice(2, 4);
 
@@ -53,7 +53,7 @@ export const _Multiselect: StoryComponent = () => {
         options={options}
         defaultValue={values}
         forceSearchable={forceSearchable}
-        forceSummary={forceSearchable}
+        forceSummary={forceSummary}
       />
 
       <HiddenTiger>
