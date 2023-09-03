@@ -5,35 +5,25 @@ import { WizardLayoutClose } from '@reykjavik/hanna-react/WizardLayoutClose';
 import { WizardStepper } from '@reykjavik/hanna-react/WizardStepper';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 type ControlProps = {
   globalAlertsContainer: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'Layout/WizardLayout',
+  argTypes: {
+    globalAlertsContainer: { name: 'Global alerts container' },
+  },
+  args: {
+    globalAlertsContainer: false,
+  },
   parameters: {
-    knobs: { disabled: false },
     layout: { disabled: true },
     // viewport: { defaultViewport: 'phone' },
-    css: { noLayout: true },
-  } as StoryParameters,
-};
-export default meta;
-
-const argTypes = {
-  globalAlertsContainer: {
-    control: 'boolean',
-    name: 'Global alerts container',
+    css: { tokens: 'WizardLayout', noLayout: true },
   },
 };
-
-const args: ControlProps = {
-  globalAlertsContainer: false,
-};
+export default meta;
 
 // =================== Minimal Wizard Layout ========================================
 
@@ -43,15 +33,10 @@ const MinimalWizardLayoutStory: React.FC<ControlProps> = ({ globalAlertsContaine
   return <WizardLayout key={'' + globalAlerts} globalAlerts={globalAlerts && ' '} />;
 };
 
-export const _MinimalWizardLayout: Story = {
-  render: (args: ControlProps) => <MinimalWizardLayoutStory {...args} />,
-  argTypes: argTypes,
-  args: args,
-  parameters: {
-    css: {
-      tokens: 'WizardLayout',
-    },
-  },
+export const _MinimalWizardLayout: StoryObj<ControlProps> = {
+  render: (args) => <MinimalWizardLayoutStory {...args} />,
+  argTypes: {},
+  args: {},
 };
 
 const steps = [
@@ -105,13 +90,11 @@ const WizardLayoutWithContentStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _WizardLayoutWithContent: Story = {
-  render: (args: ControlProps) => <WizardLayoutWithContentStory {...args} />,
-  argTypes: argTypes,
-  args: args,
+export const _WizardLayoutWithContent: StoryObj<ControlProps> = {
+  render: (args) => <WizardLayoutWithContentStory {...args} />,
+  argTypes: {},
+  args: {},
   parameters: {
-    css: {
-      tokens: 'WizardLayout-full',
-    },
+    css: { tokens: 'WizardLayout-full' },
   },
 };

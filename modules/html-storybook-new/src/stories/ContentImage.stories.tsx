@@ -5,21 +5,17 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import dummyImage from '../example_assets/Gallery--landscape--large.jpg';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
-type ControlsProps = {
+type ControlProps = {
   captionText: boolean;
   photoCredit: boolean;
 };
 
-type Story = StoryObj<ControlsProps>;
-
-const meta: Meta<ControlsProps> = {
+const meta: Meta<ControlProps> = {
   title: 'ContentImage',
   parameters: {
-    knobs: { disabled: false },
     css: { tokens: 'ContentImage,CenterColumn' },
-  } as StoryParameters,
+  },
 };
 export default meta;
 
@@ -35,7 +31,7 @@ const CAPTION =
 
 const CREDIT = '©2017 Jónína Jóhannesdóttir og Páll Pétursson';
 
-const ContentImageStory: React.FC<ControlsProps> = ({ captionText, photoCredit }) => {
+const ContentImageStory: React.FC<ControlProps> = ({ captionText, photoCredit }) => {
   const caption = captionText ? CAPTION : undefined;
   const credit = photoCredit ? CREDIT : undefined;
 
@@ -51,17 +47,11 @@ const ContentImageStory: React.FC<ControlsProps> = ({ captionText, photoCredit }
   );
 };
 
-export const _ContentImage: Story = {
-  render: (args: ControlsProps) => <ContentImageStory {...args} />,
+export const _ContentImage: StoryObj<ControlProps> = {
+  render: (args) => <ContentImageStory {...args} />,
   argTypes: {
-    captionText: {
-      control: 'boolean',
-      name: 'Caption text',
-    },
-    photoCredit: {
-      control: 'boolean',
-      name: 'Photo credit text',
-    },
+    captionText: { name: 'Caption text' },
+    photoCredit: { name: 'Photo credit text' },
   },
   args: {
     captionText: true,

@@ -1,53 +1,36 @@
 import React from 'react';
-import { colorThemes, HannaColorTheme } from '@reykjavik/hanna-css';
 import { IslandBlock, IslandBlockProps } from '@reykjavik/hanna-react/IslandBlock';
 import { formheimur } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
-import { StoryParameters } from '../utils/storytypes.js';
+import { themeArgTypes, ThemeControlProps } from '../utils/knobs.js';
 
 // =================== IslandBlock ========================================
 
-const colorThemeKeys = Object.keys(colorThemes) as Array<HannaColorTheme>;
-const themeOptions = Object.values(colorThemes).concat(colorThemeKeys);
-
 const typeOptions = ['svg-asset', 'textonly'] as const;
-type TypeOpt = (typeof typeOptions)[number];
-
 const layoutOptions = ['left', 'right'] as const;
-type Layout = (typeof layoutOptions)[number];
-
 const linksOptions = [0, 1, 2, 3] as const;
-type Links = (typeof linksOptions)[number];
 
 type ControlProps = {
-  theme: HannaColorTheme;
-  type: TypeOpt;
-  layout: Layout;
+  type: (typeof typeOptions)[number];
+  layout: (typeof layoutOptions)[number];
   summaryText: boolean;
-  links: Links;
-};
-
-type Story = StoryObj<ControlProps>;
+  links: (typeof linksOptions)[number];
+} & ThemeControlProps;
 
 const meta: Meta<ControlProps> = {
   title: 'IslandBlock',
   parameters: {
-    knobs: { theming: true, disabled: false },
-  } as StoryParameters,
+    css: { tokens: 'IslandBlock' },
+  },
 };
 export default meta;
 
-const IslandBlockStory: React.FC<ControlProps> = ({
-  type,
-  summaryText,
-  links,
-  layout,
-}) => {
-  const align = layout;
-  const summary = summaryText || undefined;
-  const numButtons = links;
+const IslandBlockStory = (props: ControlProps) => {
+  const align = props.layout;
+  const summary = props.summaryText || undefined;
+  const numButtons = props.links;
   const content = {
     title: TITLE_LONG,
     summary: summary && getSummary('html', 'strong'),
@@ -55,58 +38,50 @@ const IslandBlockStory: React.FC<ControlProps> = ({
   };
 
   const contentProps =
-    type === 'textonly'
+    props.type === 'textonly'
       ? { content: [content, { ...content, title: TITLE_SHORT + ' 2' }] }
       : { content, shapes: /* shapeImage ||  */ formheimur[3] };
   return <IslandBlock align={align} {...contentProps} startSeen />;
 };
 
-export const _IslandBlock: Story = {
-  render: (args: ControlProps) => <IslandBlockStory {...args} />,
+export const _IslandBlock: StoryObj<ControlProps> = {
+  render: (args) => <IslandBlockStory {...args} />,
   argTypes: {
-    theme: {
-      control: 'select',
-      options: themeOptions,
-      name: 'Theme',
-    },
     type: {
+      name: 'Type',
+      options: typeOptions,
       control: {
         type: 'inline-radio',
         labels: {
           'svg-asset': 'Fornheimur SVG image',
           textonly: 'Two text boxes',
-        } satisfies Record<TypeOpt, string>,
+        } satisfies Record<ControlProps['type'], string>,
       },
-      options: typeOptions,
-      name: 'Type',
     },
     layout: {
+      name: 'Layout',
+      options: layoutOptions,
       control: {
         type: 'inline-radio',
         labels: {
           left: 'Left',
           right: 'Right',
-        } satisfies Record<Layout, string>,
+        } satisfies Record<ControlProps['layout'], string>,
       },
-      options: layoutOptions,
-      name: 'Layout',
     },
-    summaryText: {
-      control: 'boolean',
-      name: 'Summary text',
-    },
+    summaryText: { name: 'Summary text' },
     links: {
-      control: 'inline-radio',
-      options: linksOptions,
       name: 'Links',
+      options: linksOptions,
+      control: 'inline-radio',
     },
+    ...themeArgTypes,
   },
   args: {
     type: 'svg-asset',
     layout: 'right',
     summaryText: true,
     links: 2,
-    theme: 'trustworthy',
   },
 };
 
@@ -163,12 +138,9 @@ const IslandBlockExamplesStory = () => {
   );
 };
 
-export const _IslandBlock_Examples: Story = {
+export const _IslandBlock_Examples: StoryObj<ControlProps> = {
   render: () => <IslandBlockExamplesStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-    css: {
-      tokens: 'IslandBlock',
-    },
-  } as StoryParameters,
+  },
 };

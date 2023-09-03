@@ -11,8 +11,6 @@ type ControlProps = {
   small: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'text/PageHeading',
 };
@@ -33,10 +31,12 @@ const PageHeadingStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _PageHeading: Story = {
-  render: (args: ControlProps) => <PageHeadingStory {...args} />,
+export const _PageHeading: StoryObj<ControlProps> = {
+  render: (args) => <PageHeadingStory {...args} />,
   argTypes: {
     headingLevel: {
+      name: 'Heading level',
+      options: headingLevelOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -44,17 +44,9 @@ export const _PageHeading: Story = {
           h2: 'H2',
         } satisfies Record<HeadingLevel, string>,
       },
-      options: headingLevelOptions,
-      name: 'Heading level',
     },
-    rightAligned: {
-      control: 'boolean',
-      name: 'Right-aligned',
-    },
-    small: {
-      control: 'boolean',
-      name: 'Small',
-    },
+    rightAligned: { name: 'Right-aligned' },
+    small: { name: 'Small' },
   },
   args: {
     headingLevel: 'h1',

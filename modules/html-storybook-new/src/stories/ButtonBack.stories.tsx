@@ -2,20 +2,14 @@ import React from 'react';
 import { ButtonBack } from '@reykjavik/hanna-react/ButtonBack';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 const meta: Meta = {
   title: 'buttons/ButtonBack',
   parameters: {
     controls: { hideNoControlsWarning: true },
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
-
-type Story = StoryObj;
 
 const ButtonBackStory = () => {
   return (
@@ -32,7 +26,7 @@ const ButtonBackStory = () => {
   );
 };
 
-export const _ButtonBack: Story = {
-  render: () => <ButtonBackStory />,
+export const _ButtonBack: StoryObj = {
   name: 'ButtonBack',
+  render: () => <ButtonBackStory />,
 };

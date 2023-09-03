@@ -3,7 +3,6 @@ import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { FFControlProps } from '../utils/knobs.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 type ControlProps = FFControlProps;
 
@@ -11,7 +10,7 @@ const meta: Meta<ControlProps> = {
   title: 'Forms/SiteSearchInput',
   parameters: {
     viewport: { defaultViewport: 'responsive' },
-  } as StoryParameters,
+  },
 };
 export default meta;
 
@@ -33,4 +32,7 @@ export const _SiteSearchInput: StoryObj<ControlProps> = {
   render: (args) => <SiteSearchInputStory {...args} />,
   argTypes: {},
   args: {},
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };

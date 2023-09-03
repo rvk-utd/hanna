@@ -6,7 +6,6 @@ import { Meta, StoryObj } from '@storybook/react';
 import imageLarge from '../example_assets/CityBlock__image--large.jpg';
 import imageSmall from '../example_assets/CityBlock__image--small.jpg';
 import { getSummary, someButtons, TITLE_LONG, TITLE_SHORT } from '../utils/_dummyData.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 const blockTypeOptions = ['normal', 'largebox', 'largeimage'] as const;
 type Blocktype = (typeof blockTypeOptions)[number];
@@ -24,16 +23,12 @@ type ControlProps = {
   summaryText: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'CityBlock',
   parameters: {
     controls: { hideNoControlsWarning: true },
-    css: {
-      tokens: 'CityBlock',
-    },
-  } as StoryParameters,
+    css: { tokens: 'CityBlock' },
+  },
 };
 export default meta;
 
@@ -101,28 +96,25 @@ const CityBlockExamplesStory = () => {
   );
 };
 
-export const _CityBlock: Story = {
-  render: (args: ControlProps) => <CityBlockStory {...args} />,
+export const _CityBlock: StoryObj<ControlProps> = {
+  render: (args) => <CityBlockStory {...args} />,
   argTypes: {
     blocktype: {
-      control: 'inline-radio',
-      options: blockTypeOptions,
       name: 'Type',
+      options: blockTypeOptions,
+      control: 'inline-radio',
     },
     align: {
-      control: 'inline-radio',
-      options: alignOptions,
       name: 'Layout',
+      options: alignOptions,
+      control: 'inline-radio',
     },
     links: {
-      control: 'inline-radio',
-      options: linksOptions,
       name: 'Links',
+      options: linksOptions,
+      control: 'inline-radio',
     },
-    summaryText: {
-      control: 'boolean',
-      name: 'Summary text',
-    },
+    summaryText: { name: 'Summary text' },
   },
   args: {
     blocktype: 'normal',
@@ -132,6 +124,6 @@ export const _CityBlock: Story = {
   },
 };
 
-export const _CityBlockExamples: Story = {
+export const _CityBlockExamples: StoryObj<ControlProps> = {
   render: () => <CityBlockExamplesStory />,
 };

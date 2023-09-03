@@ -3,8 +3,6 @@ import { Attention } from '@reykjavik/hanna-react/Attention';
 import { LabeledTextBlock } from '@reykjavik/hanna-react/LabeledTextBlock';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 type ControlProps = {
   button: boolean;
   wideFormat: boolean;
@@ -14,12 +12,9 @@ const meta: Meta<ControlProps> = {
   title: 'LabeledTextBlock',
   parameters: {
     css: { tokens: 'LabeledTextBlock,Attention' },
-    knobs: { disabled: false },
-  } as StoryParameters,
+  },
 };
 export default meta;
-
-type Story = StoryObj<ControlProps>;
 
 const LABEL_TEXT = 'LabeledTextBlock title';
 const SUMMARY_TEXT =
@@ -63,17 +58,11 @@ const LabeledTextBlockStory: React.FC<ControlProps> = ({ button, wideFormat }) =
   );
 };
 
-export const _LabeledTextBlock: Story = {
-  render: (args: ControlProps) => <LabeledTextBlockStory {...args} />,
+export const _LabeledTextBlock: StoryObj<ControlProps> = {
+  render: (args) => <LabeledTextBlockStory {...args} />,
   argTypes: {
-    button: {
-      control: 'boolean',
-      name: 'Button',
-    },
-    wideFormat: {
-      control: 'boolean',
-      name: 'Wide format',
-    },
+    button: { name: 'Button' },
+    wideFormat: { name: 'Wide format' },
   },
   args: {
     button: false,
@@ -109,7 +98,7 @@ const LabeledTextBlockExamplesStory = () => {
   );
 };
 
-export const _LabeledTextBlockExamples: Story = {
+export const _LabeledTextBlockExamples: StoryObj<ControlProps> = {
   render: () => <LabeledTextBlockExamplesStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },

@@ -3,7 +3,6 @@ import { SearchInput } from '@reykjavik/hanna-react/SearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { FFControlProps, formFieldControls } from '../utils/knobs.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 type ControlProps = FFControlProps & {
   physicalSearchButton: boolean;
@@ -17,7 +16,7 @@ const meta: Meta<ControlProps> = {
   title: 'Forms/SearchInput',
   parameters: {
     viewport: { defaultViewport: 'responsive' },
-  } as StoryParameters,
+  },
 };
 export default meta;
 

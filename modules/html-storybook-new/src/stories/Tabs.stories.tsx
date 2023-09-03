@@ -5,30 +5,25 @@ import { SSRSupportProps, useIsBrowserSide } from '@reykjavik/hanna-react/utils'
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 // =========================== Tabs ==========================================
 
 const htmlElementOptions = ['button', 'link'] as const;
-type HtmlElementOpt = (typeof htmlElementOptions)[number];
 
-type TabsControlProps = {
-  htmlElement: HtmlElementOpt;
+type ControlProps = {
+  htmlElement: (typeof htmlElementOptions)[number];
   verticalLayout: boolean;
   badges: boolean;
   subTabs: boolean;
   showControlledDivExample: boolean;
 };
 
-type Story = StoryObj<TabsControlProps>;
-
-const meta: Meta<TabsControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Tabs',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    css: { tokens: 'Tabs' },
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
 
@@ -42,7 +37,7 @@ const linkTabs: Array<TabItemProps & { href: string }> = buttonTabs.map((tab, i)
   href: '#tab-' + (i + 1),
 }));
 
-const TabsStory: React.FC<TabsControlProps> = ({
+const TabsStory: React.FC<ControlProps> = ({
   htmlElement,
   verticalLayout,
   badges,
@@ -94,34 +89,24 @@ const TabsStory: React.FC<TabsControlProps> = ({
   );
 };
 
-export const _Tabs: Story = {
-  render: (args: TabsControlProps) => <TabsStory {...args} />,
+export const _Tabs: StoryObj<ControlProps> = {
+  render: (args) => <TabsStory {...args} />,
   argTypes: {
     htmlElement: {
+      name: 'HTML Element',
+      options: htmlElementOptions,
       control: {
         type: 'inline-radio',
         labels: {
           button: '<button/>',
           link: '<a href="" />',
-        } satisfies Record<HtmlElementOpt, string>,
+        } satisfies Record<ControlProps['htmlElement'], string>,
       },
-      options: htmlElementOptions,
-      name: 'HTML Element',
     },
-    verticalLayout: {
-      control: 'boolean',
-      name: 'Vertical layout',
-    },
-    badges: {
-      control: 'boolean',
-      name: 'Badges',
-    },
-    subTabs: {
-      control: 'boolean',
-      name: 'Sub-tabs',
-    },
+    verticalLayout: { name: 'Vertical layout' },
+    badges: { name: 'Badges' },
+    subTabs: { name: 'Sub-tabs' },
     showControlledDivExample: {
-      control: 'boolean',
       name: 'Show contolled <div/> example',
       if: { arg: 'htmlElement', eq: 'button' },
     },
@@ -180,10 +165,10 @@ const _TabPanels = (props: _TabPanelsProps) => {
   );
 };
 
-const TabsAnchorsStory: React.FC<TabsAnchorsControlProps> = ({
+const TabsAnchorsStory = ({
   firstTabStartsActive,
   showServerSideHtml,
-}) => {
+}: TabsAnchorsControlProps) => {
   const ssr = showServerSideHtml ? 'ssr-only' : false;
   const startingIdx = firstTabStartsActive ? 0 : undefined;
   const [activeIdx, setActiveIdx] = useState(startingIdx);
@@ -215,21 +200,10 @@ const TabsAnchorsStory: React.FC<TabsAnchorsControlProps> = ({
 };
 
 export const _TabsAnchors: TabsAnchorsStory = {
-  render: (args: TabsAnchorsControlProps) => <TabsAnchorsStory {...args} />,
-  parameters: {
-    css: {
-      tokens: 'Tabs',
-    },
-  } as StoryParameters,
+  render: (args) => <TabsAnchorsStory {...args} />,
   argTypes: {
-    showServerSideHtml: {
-      control: 'boolean',
-      name: 'Show only server-side HTML',
-    },
-    firstTabStartsActive: {
-      control: 'boolean',
-      name: 'First tab starts active',
-    },
+    showServerSideHtml: { name: 'Show only server-side HTML' },
+    firstTabStartsActive: { name: 'First tab starts active' },
   },
   args: {
     showServerSideHtml: true,

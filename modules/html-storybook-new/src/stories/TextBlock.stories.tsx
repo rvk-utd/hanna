@@ -10,8 +10,6 @@ type ControlProps = {
   smallText: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'text/TextBlock',
 };
@@ -73,10 +71,12 @@ const TextBlockStory: React.FC<ControlProps> = ({ layout, smallText }) => {
   );
 };
 
-export const _TextBlock: Story = {
-  render: (args: ControlProps) => <TextBlockStory {...args} />,
+export const _TextBlock: StoryObj<ControlProps> = {
+  render: (args) => <TextBlockStory {...args} />,
   argTypes: {
     layout: {
+      name: 'Layout',
+      options: layoutOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -86,13 +86,8 @@ export const _TextBlock: Story = {
           labelled: 'Labelled (H2 headings)',
         } satisfies Record<Layout, string>,
       },
-      options: layoutOptions,
-      name: 'Layout',
     },
-    smallText: {
-      control: 'boolean',
-      name: 'Small text',
-    },
+    smallText: { name: 'Small text' },
   },
   args: {
     layout: 'left',

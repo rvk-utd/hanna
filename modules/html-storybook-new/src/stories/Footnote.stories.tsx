@@ -3,23 +3,18 @@ import { Footnote } from '@reykjavik/hanna-react/Footnote';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { StoryParameters } from '../utils/storytypes.js';
-
-type Story = StoryObj<typeof Footnote>;
 
 const meta: Meta = {
   title: 'Footnote',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
+    viewport: { defaultViewport: 'responsive' },
     controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
+  },
 };
 export default meta;
 
-const FootnoteStory = () => {
-  return (
+export const _Footnote: StoryObj = {
+  render: () => (
     <>
       <HiddenTiger>
         <p>
@@ -32,9 +27,5 @@ const FootnoteStory = () => {
         Ráðhúsi Reykjavíkur hefst kl. 14:00
       </Footnote>
     </>
-  );
-};
-
-export const _Footnote: Story = {
-  render: () => <FootnoteStory />,
+  ),
 };

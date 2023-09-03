@@ -3,14 +3,19 @@ import { NameCardProps } from '@reykjavik/hanna-react/NameCard';
 import { NameCards } from '@reykjavik/hanna-react/NameCards';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
+// type ControlProps = ThemeControlProps;
 
-type Story = StoryObj;
-
-const meta: Meta = {
+const meta: Meta /* <ControlProps> */ = {
   title: 'NameCards',
+  // argTypes: { ...themeArgTypes },
+  // args: {},
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 export default meta;
+
+// ---------------------------------------------------------------------------
 
 const items: Array<NameCardProps> = [
   {
@@ -52,9 +57,6 @@ const items: Array<NameCardProps> = [
   },
 ];
 
-export const _NameCards: Story = {
+export const _NameCards: StoryObj = {
   render: () => <NameCards items={items} />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
 };

@@ -10,64 +10,44 @@ import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
-// ==================== Checkbox ===========================================
-
-type CheckboxControlProps = Record<
-  'required' | 'invalid' | 'errorMessage' | 'disabled',
-  boolean
->;
-
-type CheckboxStory = StoryObj<CheckboxControlProps>;
-type Story = StoryObj;
+// ---------------------------------------------------------------------------
 
 const meta: Meta = {
   title: 'Forms/Checkbox & Radio',
   parameters: {
     viewport: { defaultViewport: 'responsive' },
-    knobs: { disabled: false },
-  } as StoryParameters,
+  },
 };
 export default meta;
 
-const CheckboxStory: React.FC<CheckboxControlProps> = ({
-  required,
-  invalid,
-  errorMessage,
-  disabled,
-}) => {
-  const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
-  return (
-    <Checkbox
-      label="Add me to your professional network on LinkedIn"
-      required={required}
-      invalid={invalid}
-      disabled={disabled}
-      errorMessage={_errorMessage}
-    />
-  );
+// ==================== Checkbox ===========================================
+
+type CheckboxControlProps = {
+  required: boolean;
+  invalid: boolean;
+  errorMessage: boolean;
+  disabled: boolean;
 };
 
-export const _Checkbox: CheckboxStory = {
-  render: (args: CheckboxControlProps) => <CheckboxStory {...args} />,
+export const _Checkbox: StoryObj<CheckboxControlProps> = {
+  render: (args) => {
+    const { required, invalid, errorMessage, disabled } = args;
+    const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
+    return (
+      <Checkbox
+        label="Add me to your professional network on LinkedIn"
+        required={required}
+        invalid={invalid}
+        disabled={disabled}
+        errorMessage={_errorMessage}
+      />
+    );
+  },
   argTypes: {
-    required: {
-      control: 'boolean',
-      name: 'Required',
-    },
-    invalid: {
-      control: 'boolean',
-      name: 'Invalid',
-    },
-    errorMessage: {
-      control: 'boolean',
-      name: 'Error message',
-    },
-    disabled: {
-      control: 'boolean',
-      name: 'Disabled',
-    },
+    required: { name: 'Required' },
+    invalid: { name: 'Invalid' },
+    errorMessage: { name: 'Error message' },
+    disabled: { name: 'Disabled' },
   },
   args: {
     required: false,
@@ -80,62 +60,14 @@ export const _Checkbox: CheckboxStory = {
 // ----------------------------------------------------------------------------
 
 const layoutOptions = ['normal', 'inline'] as const;
-type Layout = (typeof layoutOptions)[number];
-
 const disabledOptions = ['none', 'all', 'some'] as const;
-type Disabled = (typeof disabledOptions)[number];
 
-type CheckboxAndRadioGroupControlProps = Omit<CheckboxControlProps, 'disabled'> & {
-  layout: Layout;
-  disabled: Disabled;
-};
-
-type CheckboxAndRadioGroupStory = StoryObj<CheckboxAndRadioGroupControlProps>;
-
-const checkboxAndRadioGroupArgTypes = {
-  layout: {
-    control: {
-      type: 'inline-radio',
-      labels: {
-        normal: 'Normal',
-        inline: 'Inline',
-      } satisfies Record<Layout, string>,
-    },
-    options: layoutOptions,
-    name: 'Layout',
-  },
-  required: {
-    control: 'boolean',
-    name: 'Required',
-  },
-  invalid: {
-    control: 'boolean',
-    name: 'Invalid',
-  },
-  errorMessage: {
-    control: 'boolean',
-    name: 'Error message',
-  },
-  disabled: {
-    control: {
-      type: 'inline-radio',
-      labels: {
-        none: 'None',
-        all: 'All',
-        some: 'Some',
-      } satisfies Record<Disabled, string>,
-    },
-    options: disabledOptions,
-    name: 'Disabled',
-  },
-};
-
-const checkboxAndRadioGroupArgs: CheckboxAndRadioGroupControlProps = {
-  layout: 'normal',
-  required: false,
-  invalid: false,
-  errorMessage: false,
-  disabled: 'none',
+type CheckboxAndRadioGroupControlProps = {
+  layout: (typeof layoutOptions)[number];
+  required: boolean;
+  invalid: boolean;
+  errorMessage: boolean;
+  disabled: (typeof disabledOptions)[number];
 };
 
 const fruits: CheckboxGroupOptions = [
@@ -164,63 +96,77 @@ const partialFruits: CheckboxGroupOptions = fruits.map((opt, i) => ({
 }));
 
 const makeTogglerGroupStory = (
-  Component: FC<CheckboxGroupProps> | FC<RadioGroupProps>,
-  args: CheckboxAndRadioGroupControlProps
-) => {
-  const { layout, required, invalid, errorMessage, disabled } = args;
-  const _layout = layout !== 'normal' ? layout : undefined;
-  const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
-  const disabledOpt = disabled === 'none' ? '' : disabled;
+  Component: FC<CheckboxGroupProps> | FC<RadioGroupProps>
+): StoryObj<CheckboxAndRadioGroupControlProps> => ({
+  render: (args) => {
+    const { layout, required, invalid, errorMessage, disabled } = args;
+    const _layout = layout !== 'normal' ? layout : undefined;
+    const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
+    const disabledOpt = disabled === 'none' ? '' : disabled;
 
-  const _disabled = disabledOpt === 'some' ? false : !!disabledOpt;
-  const options = disabledOpt === 'some' ? partialFruits : fruits;
+    const _disabled = disabledOpt === 'some' ? false : !!disabledOpt;
+    const options = disabledOpt === 'some' ? partialFruits : fruits;
 
-  return (
-    <Component
-      label="Pick your fruits"
-      invalid={invalid}
-      errorMessage={_errorMessage}
-      name="fruits"
-      options={options}
-      required={required}
-      disabled={_disabled}
-      layout={_layout}
-    />
-  );
-};
+    return (
+      <Component
+        label="Pick your fruits"
+        invalid={invalid}
+        errorMessage={_errorMessage}
+        name="fruits"
+        options={options}
+        required={required}
+        disabled={_disabled}
+        layout={_layout}
+      />
+    );
+  },
 
-// ==================== Checkbox Group ===========================================
-
-export const _CheckboxGroup: CheckboxAndRadioGroupStory = {
-  render: (args: CheckboxAndRadioGroupControlProps) =>
-    makeTogglerGroupStory(CheckboxGroup, args),
   argTypes: {
-    ...checkboxAndRadioGroupArgTypes,
+    layout: {
+      name: 'Layout',
+      options: layoutOptions,
+      control: {
+        type: 'inline-radio',
+        labels: {
+          normal: 'Normal',
+          inline: 'Inline',
+        } satisfies Record<CheckboxAndRadioGroupControlProps['layout'], string>,
+      },
+    },
+    required: { name: 'Required' },
+    invalid: { name: 'Invalid' },
+    errorMessage: { name: 'Error message' },
+    disabled: {
+      name: 'Disabled',
+      options: disabledOptions,
+      control: {
+        type: 'inline-radio',
+        labels: {
+          none: 'None',
+          all: 'All',
+          some: 'Some',
+        } satisfies Record<CheckboxAndRadioGroupControlProps['disabled'], string>,
+      },
+    },
   },
   args: {
-    ...checkboxAndRadioGroupArgs,
+    layout: 'normal',
+    required: false,
+    invalid: false,
+    errorMessage: false,
+    disabled: 'none',
   },
-};
+});
 
-// ==================== Radio Group ===========================================
-
-export const _RadioGroup: CheckboxAndRadioGroupStory = {
-  render: (args: CheckboxAndRadioGroupControlProps) =>
-    makeTogglerGroupStory(RadioGroup, args),
-  argTypes: {
-    ...checkboxAndRadioGroupArgTypes,
-  },
-  args: {
-    ...checkboxAndRadioGroupArgs,
-  },
-};
-
-const Radio = RadioGroup.__Radio; // eslint-disable-line deprecation/deprecation
+export const _CheckboxGroup = makeTogglerGroupStory(CheckboxGroup);
+export const _RadioGroup = makeTogglerGroupStory(RadioGroup);
 
 // ==================== Styling Tests ===========================================
 
-const StylingTestsStory = () => {
-  return (
+const Radio = RadioGroup.__Radio; // eslint-disable-line deprecation/deprecation
+
+export const _StylingTests: StoryObj = {
+  render: () => (
     <RowBlock>
       <RowBlockColumn>
         <Checkbox label="Lorem ipsum dolor sit amet Add me to your professional network on LinkedIn Add me to your professional network on LinkedIn Add me to your professional network on LinkedIn" />
@@ -247,13 +193,9 @@ const StylingTestsStory = () => {
         {/* Standalone Radio has no error-message */}
       </RowBlockColumn>{' '}
     </RowBlock>
-  );
-};
-
-export const _StylingTests: Story = {
-  render: () => <StylingTestsStory />,
+  ),
   parameters: {
     css: { tokens: 'Checkbox,RadioGroup,RowBlock,RowBlockColumn' },
     controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
+  },
 };

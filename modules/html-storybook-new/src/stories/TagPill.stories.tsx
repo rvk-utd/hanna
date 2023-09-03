@@ -2,20 +2,14 @@ import React from 'react';
 import { TagPill } from '@reykjavik/hanna-react/TagPill';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 const meta: Meta = {
   title: 'TagPill',
   parameters: {
     controls: { hideNoControlsWarning: true },
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
-
-type Story = StoryObj;
 
 const TagPillStory = () => {
   return (
@@ -74,6 +68,6 @@ const TagPillStory = () => {
   );
 };
 
-export const _TagPill: Story = {
+export const _TagPill: StoryObj = {
   render: () => <TagPillStory />,
 };

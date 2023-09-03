@@ -17,8 +17,6 @@ type ControlProps = {
   underlapNextSibling: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'PageFilter',
 };
@@ -95,29 +93,14 @@ const PageFilterStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _PageFilter: Story = {
-  render: (args: ControlProps) => <PageFilterStory {...args} />,
+export const _PageFilter: StoryObj<ControlProps> = {
+  render: (args) => <PageFilterStory {...args} />,
   argTypes: {
-    summaryText: {
-      control: 'boolean',
-      name: 'Summary text',
-    },
-    resetButton: {
-      control: 'boolean',
-      name: 'Reset button',
-    },
-    footnote: {
-      control: 'boolean',
-      name: 'Footnote',
-    },
-    lineBreakInputs: {
-      control: 'boolean',
-      name: 'Line break inputs',
-    },
-    underlapNextSibling: {
-      control: 'boolean',
-      name: 'Underlap next sibling',
-    },
+    summaryText: { name: 'Summary text' },
+    resetButton: { name: 'Reset button' },
+    footnote: { name: 'Footnote' },
+    lineBreakInputs: { name: 'Line break inputs' },
+    underlapNextSibling: { name: 'Underlap next sibling' },
   },
   args: {
     summaryText: true,

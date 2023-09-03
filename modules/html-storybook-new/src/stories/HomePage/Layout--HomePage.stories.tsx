@@ -13,10 +13,20 @@ import { MiniMetricsStory } from '../Shared/MiniMetrics.js';
 
 import { SearchHeroParagraph } from './_SearchHeroParagraph.js';
 
-type Story = StoryObj;
-
 const meta: Meta = {
   title: '_misc/HomePage',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    css: {
+      tokens:
+        'Layout--HomePage,GridBlocks,ExtraLinks,ArticleCarousel,MiniMetrics,ImageCards,' +
+        SearchHeroParagraph.cssTokens,
+    },
+    layout: {
+      modifier: 'HomePage',
+      head: true,
+    },
+  },
 };
 export default meta;
 
@@ -64,14 +74,6 @@ const HomePageStory = () => {
   );
 };
 
-export const _HomePage: Story = {
+export const _HomePage: StoryObj = {
   render: () => HomePageStory(),
-  parameters: {
-    css: {
-      tokens:
-        'Layout--HomePage,GridBlocks,ExtraLinks,ArticleCarousel,MiniMetrics,ImageCards,' +
-        SearchHeroParagraph.cssTokens,
-      controls: { hideNoControlsWarning: true },
-    },
-  },
 };

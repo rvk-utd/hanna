@@ -8,9 +8,7 @@ const meta: Meta = {
 };
 export default meta;
 
-type Story = StoryObj;
-
-export const _MiniMetrics: Story = {
+export const _MiniMetrics: StoryObj = {
   render: () => <MiniMetricsStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },

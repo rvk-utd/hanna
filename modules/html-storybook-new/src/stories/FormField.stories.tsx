@@ -4,7 +4,6 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { FFControlProps, formFieldControls } from '../utils/knobs.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 const groupLabelTagOptions = ['h3', 'h4', 'h5'] as const;
 
@@ -20,10 +19,8 @@ const ffCtrls = formFieldControls({ hideLabel: false });
 const meta: Meta<ControlProps> = {
   title: 'Forms/FormField',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
 

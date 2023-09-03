@@ -3,7 +3,6 @@ import { Datepicker, getDateDiff } from '@reykjavik/hanna-react/Datepicker';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { FFControlProps, formFieldControls } from '../utils/knobs.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 const localeOptions = ['is', 'en', 'pl'] as const;
 
@@ -21,10 +20,8 @@ const ffCtrl = formFieldControls();
 const meta: Meta = {
   title: 'Forms/Datepicker',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
 

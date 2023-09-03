@@ -6,14 +6,11 @@ import {
 import { Meta, StoryObj } from '@storybook/react';
 
 import contentImageUrl from '../example_assets/Gallery--landscape--large.jpg';
-import { StoryParameters } from '../utils/storytypes.js';
 
 const meta: Meta = {
   title: 'ContentArticle',
 };
 export default meta;
-
-type Story = StoryObj;
 
 const demoMarkup = () => {
   return (
@@ -83,7 +80,7 @@ const RELATEDLINKS: ContentArticleProps['relatedLinks'] = {
   ],
 };
 
-export const _ContentArticle: Story = {
+export const _ContentArticle: StoryObj = {
   render: () => (
     <ContentArticle
       meta={META}
@@ -98,5 +95,5 @@ export const _ContentArticle: Story = {
     controls: {
       hideNoControlsWarning: true,
     },
-  } as StoryParameters,
+  },
 };

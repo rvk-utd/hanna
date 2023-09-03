@@ -10,7 +10,6 @@ type ControlProps = {
   narrowLayout: boolean;
   attentionMessage: boolean;
 };
-type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'ProcessOverview',
@@ -62,21 +61,12 @@ const ProcessOverviewStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _ProcessOverview: Story = {
-  render: (args: ControlProps) => <ProcessOverviewStory {...args} />,
+export const _ProcessOverview: StoryObj<ControlProps> = {
+  render: (args) => <ProcessOverviewStory {...args} />,
   argTypes: {
-    translucentBackground: {
-      control: 'boolean',
-      name: 'Translucent background',
-    },
-    narrowLayout: {
-      control: 'boolean',
-      name: 'Narrow layout',
-    },
-    attentionMessage: {
-      control: 'boolean',
-      name: '"Attention" message',
-    },
+    translucentBackground: { name: 'Translucent background' },
+    narrowLayout: { name: 'Narrow layout' },
+    attentionMessage: { name: '"Attention" message' },
   },
   args: {
     translucentBackground: false,

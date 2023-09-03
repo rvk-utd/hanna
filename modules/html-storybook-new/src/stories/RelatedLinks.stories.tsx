@@ -4,19 +4,16 @@ import { RelatedLinkItem, RelatedLinks } from '@reykjavik/hanna-react/RelatedLin
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 type ControlProps = {
   title: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'RelatedLinks',
   parameters: {
     css: { tokens: 'RelatedLinks,CenterColumn' },
-  } as StoryParameters,
+  },
 };
 export default meta;
 
@@ -65,13 +62,10 @@ const RelatedLinksStory: React.FC<ControlProps> = ({ title }) => {
   );
 };
 
-export const _RelatedLinks: Story = {
-  render: (args: ControlProps) => <RelatedLinksStory {...args} />,
+export const _RelatedLinks: StoryObj<ControlProps> = {
+  render: (args) => <RelatedLinksStory {...args} />,
   argTypes: {
-    title: {
-      control: 'boolean',
-      name: 'Title',
-    },
+    title: { name: 'Title' },
   },
   args: {
     title: true,

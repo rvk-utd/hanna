@@ -35,42 +35,45 @@ const renderBling = () => (
   <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
 );
 
-const sharedArgTypes = {
-  width: {
-    control: {
-      type: 'inline-radio',
-      labels: {
-        auto: 'Auto',
-        narrow: 'Narrow',
-        medium: 'Medium',
-        wide: 'Wide',
-      } satisfies Record<Width, string>,
-    },
-    options: widthOptions,
-    name: 'Width',
-  },
-  blingDecoration: {
-    control: 'boolean',
-    name: 'Bling decoration',
-  },
-};
+type ControlProps = {
+  width: Width;
+  blingDecoration: boolean;
+} /* & ThemeControlProps */;
 
 // ==================== Modal ===========================================
 
-type ModalControlProps = {
-  width: Width;
-  blingDecoration: boolean;
-  open: boolean;
-};
-
-type ModalStory = StoryObj<ModalControlProps>;
-
-const meta: Meta<ModalControlProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Modal',
+  argTypes: {
+    width: {
+      name: 'Width',
+      options: widthOptions,
+      control: {
+        type: 'inline-radio',
+        labels: {
+          auto: 'Auto',
+          narrow: 'Narrow',
+          medium: 'Medium',
+          wide: 'Wide',
+        } satisfies Record<ControlProps['width'], string>,
+      },
+    },
+    blingDecoration: { name: 'Bling decoration' },
+    // ...themeArgTypes,
+  },
+  args: {
+    width: 'wide',
+    blingDecoration: false,
+  },
 };
 export default meta;
 
-const ModalStory: React.FC<ModalControlProps> = ({ width, open, blingDecoration }) => {
+// ---------------------------------------------------------------------------
+
+type ModalControlProps = ControlProps & { open: boolean };
+
+const ModalStory = (props: ModalControlProps) => {
+  const { width, blingDecoration, open } = props;
   const { modifier, bling } = getKnobValues(blingDecoration, width);
 
   const key = open + (modifier || '');
@@ -89,32 +92,22 @@ const ModalStory: React.FC<ModalControlProps> = ({ width, open, blingDecoration 
   );
 };
 
-export const _Modal: ModalStory = {
-  render: (args: ModalControlProps) => <ModalStory {...args} />,
+export const _Modal: StoryObj<ModalControlProps> = {
+  render: (args) => <ModalStory {...args} />,
   argTypes: {
-    ...sharedArgTypes,
-    open: {
-      control: 'boolean',
-      name: 'Open',
-    },
+    open: { name: 'Open' },
   },
   args: {
-    width: 'wide',
-    blingDecoration: false,
     open: true,
   },
 };
 
 // ==================== Modal Dynamics ===========================================
 
-type ModalDynamicsControlProps = Omit<ModalControlProps, 'open'>;
-type ModalDynamicsStory = StoryObj<ModalDynamicsControlProps>;
+type ModalDynamicsControlProps = ControlProps;
 
-const ModalDynamicsStory: React.FC<ModalDynamicsControlProps> = ({
-  blingDecoration,
-  width,
-}) => {
-  const { modifier, bling } = getKnobValues(blingDecoration, width);
+const ModalDynamicsStory = (props: ModalDynamicsControlProps) => {
+  const { modifier, bling } = getKnobValues(props.blingDecoration, props.width);
   const [open, setOpen] = useState(true);
   const openModal = () => setOpen(true);
   // FIXME: fadeout is missing if closed by external triggers
@@ -158,16 +151,11 @@ const ModalDynamicsStory: React.FC<ModalDynamicsControlProps> = ({
   );
 };
 
-export const _ModalDynamics: ModalDynamicsStory = {
-  render: (args: ModalDynamicsControlProps) => <ModalDynamicsStory {...args} />,
-  argTypes: sharedArgTypes,
-  args: {
-    width: 'wide',
-    blingDecoration: false,
-  },
+export const _ModalDynamics: StoryObj<ModalDynamicsControlProps> = {
+  render: (args) => <ModalDynamicsStory {...args} />,
+  argTypes: {},
+  args: {},
   parameters: {
-    css: {
-      tokens: 'Modal,ButtonPrimary,ButtonTertiary,Heading,TextBlock,Bling',
-    },
+    css: { tokens: 'Modal,ButtonPrimary,ButtonTertiary,Heading,TextBlock,Bling' },
   },
 };

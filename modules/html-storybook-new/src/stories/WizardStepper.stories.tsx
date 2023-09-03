@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { WizardStepper, WizardStepperStep } from '@reykjavik/hanna-react/WizardStepper';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 const stepsOptions = [
   'none',
   'intro',
@@ -18,16 +16,13 @@ type SelectedStep = (typeof stepsOptions)[number];
 type ControlProps = {
   selectedStep: SelectedStep;
 };
-type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'WizardStepper',
   parameters: {
     controls: { hideNoControlsWarning: true },
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
 
@@ -103,10 +98,12 @@ const WizardStepperStory: React.FC<ControlProps> = ({ selectedStep }) => {
   );
 };
 
-export const _WizardStepper: Story = {
-  render: (args: ControlProps) => <WizardStepperStory {...args} />,
+export const _WizardStepper: StoryObj<ControlProps> = {
+  render: (args) => <WizardStepperStory {...args} />,
   argTypes: {
     selectedStep: {
+      name: 'Active step',
+      options: stepsOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -119,8 +116,6 @@ export const _WizardStepper: Story = {
           step5: 'Step 5',
         } satisfies Record<SelectedStep, string>,
       },
-      options: stepsOptions,
-      name: 'Active step',
     },
   },
   args: {

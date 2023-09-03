@@ -4,17 +4,15 @@ import { ActionCards, ActionCardsItemProps } from '@reykjavik/hanna-react/Action
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { Meta, StoryObj } from '@storybook/react';
 
-type ControlsProps = {
+type ControlProps = {
   showTitle: boolean;
   showSummaryElement: boolean;
 };
 
-const meta: Meta<ControlsProps> = {
+const meta: Meta<ControlProps> = {
   title: 'ActionCards',
 };
 export default meta;
-
-type Story = StoryObj<ControlsProps>;
 
 const cards = range(1, 8).map(
   (n): ActionCardsItemProps => ({
@@ -29,7 +27,7 @@ const cards = range(1, 8).map(
   })
 );
 
-const ActionCardsStory: React.FC<ControlsProps> = ({ showTitle, showSummaryElement }) => {
+const ActionCardsStory: React.FC<ControlProps> = ({ showTitle, showSummaryElement }) => {
   return (
     <ActionCards
       title={showTitle ? 'Action Cards' : undefined}
@@ -44,17 +42,11 @@ const ActionCardsStory: React.FC<ControlsProps> = ({ showTitle, showSummaryEleme
   );
 };
 
-export const _ActionCards: Story = {
-  render: (args: ControlsProps) => <ActionCardsStory {...args} />,
+export const _ActionCards: StoryObj<ControlProps> = {
+  render: (args) => <ActionCardsStory {...args} />,
   argTypes: {
-    showTitle: {
-      control: 'boolean',
-      name: 'ShowTitle',
-    },
-    showSummaryElement: {
-      control: 'boolean',
-      name: 'Summary text/More link',
-    },
+    showTitle: { name: 'ShowTitle' },
+    showSummaryElement: { name: 'Summary text/More link' },
   },
   args: {
     showTitle: true,

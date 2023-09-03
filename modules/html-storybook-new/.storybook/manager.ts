@@ -6,11 +6,13 @@ import theme from './theme';
 
 addons.setConfig({
   theme: theme,
+  enableShortcuts: false,
+  selectedPanel: 'storybook/html/panel',
   toolbar: {
     zoom: { hidden: true },
     fullscreen: { hidden: true },
-    measure: { hidden: true },
+    eject: { hidden: true },
+    copy: { hidden: true },
     remount: { hidden: true },
-    outline: { hidden: true },
   },
 });

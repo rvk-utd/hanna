@@ -3,8 +3,6 @@ import { Alert } from '@reykjavik/hanna-react/Alert';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 type ControlProps = {
   closable: boolean;
   ssr: boolean;
@@ -14,7 +12,7 @@ const meta: Meta<ControlProps> = {
   title: 'Alert',
   parameters: {
     viewport: { defaultViewport: 'responsive' },
-  } as StoryParameters,
+  },
 };
 export default meta;
 

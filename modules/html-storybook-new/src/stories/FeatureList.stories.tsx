@@ -5,16 +5,15 @@ import { getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 const meta: Meta = {
   title: 'FeatureList',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    css: { tokens: 'FeatureList,TextBlock' },
+  },
 };
 export default meta;
-
-type Story = StoryObj<typeof FeatureList>;
-
-const title = 'Hvað er í boði í lauginni?';
 
 const features: FeatureListProps['features'] = [
   { name: 'Útiklefar', iconUrl: getEfnistaknUrl('sund_utiklefi') },
@@ -31,8 +30,8 @@ const features: FeatureListProps['features'] = [
 
 const token = (name: string) => '{' + name + '}';
 
-const FeatureListStory = () => {
-  return (
+export const _FeatureList: StoryObj = {
+  render: () => (
     <>
       <HiddenTiger>
         <TextBlock align="right">
@@ -49,7 +48,7 @@ const FeatureListStory = () => {
         <br />
       </HiddenTiger>
 
-      <FeatureList title={title} features={features} startSeen />
+      <FeatureList title="Hvað er í boði í lauginni?" features={features} startSeen />
 
       <HiddenTiger>
         <br />
@@ -58,15 +57,5 @@ const FeatureListStory = () => {
         <br />
       </HiddenTiger>
     </>
-  );
-};
-
-export const _FeatureList: Story = {
-  render: () => <FeatureListStory />,
-  parameters: {
-    controls: { hideNoControlsWarning: true },
-    css: {
-      tokens: 'FeatureList,TextBlock',
-    },
-  } as StoryParameters,
+  ),
 };

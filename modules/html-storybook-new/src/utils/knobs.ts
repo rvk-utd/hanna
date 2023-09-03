@@ -1,3 +1,5 @@
+import { colorThemes, HannaColorTheme } from '@reykjavik/hanna-css';
+
 const requiredOptions = ['', 'normal', 'subtle'] as const;
 
 export type FFControlProps = {
@@ -44,6 +46,7 @@ export const formFieldControls = (opts: FFControlsOpts = {}) => {
       ...(hasReadOnly && { readOnly: { title: 'Read-only' } }),
       required: {
         title: 'Required',
+        options: ['', 'normal', 'subtle'],
         control: {
           type: 'inline-radio',
           labels: {
@@ -52,7 +55,6 @@ export const formFieldControls = (opts: FFControlsOpts = {}) => {
             subtle: 'Yes but subtle',
           } satisfies Record<FFControlProps['required'], string>,
         },
-        options: ['', 'normal', 'subtle'],
       },
       invalid: { title: 'Invalid' },
       errorMessage: { title: 'Error message' },
@@ -70,4 +72,27 @@ export const formFieldControls = (opts: FFControlsOpts = {}) => {
       assistText: false,
     } satisfies FFControlProps as FFControlProps,
   };
+};
+
+// ---------------------------------------------------------------------------
+
+export type ThemeControlProps = {
+  theme: HannaColorTheme;
+};
+
+export const themeArgTypes = {
+  theme: {
+    name: 'Color Theme',
+    options: Object.keys(colorThemes),
+    control: {
+      type: 'select',
+      labels: {
+        trustworthy: 'Trustworthy (default)',
+        dependable: 'Dependable',
+        friendly: 'Friendly',
+        lively: 'Lively',
+        colorful: 'Colorful',
+      } satisfies Record<ThemeControlProps['theme'], string>,
+    },
+  },
 };

@@ -11,13 +11,10 @@ import { Meta, StoryObj } from '@storybook/react';
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import { imageCards as _imageCards } from '../utils/_dummyData.js';
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 const imageCards = _imageCards.slice(2).slice(0, 4);
 
 const cssTokens = 'ArticleCards,ArticleMeta,BgBox,ButtonTertiary,Heading,Picture';
-
-type Story = StoryObj;
 
 const meta: Meta = {
   title: '_misc/reykjavik-is',
@@ -113,10 +110,10 @@ const NewsListParagraphStory = () => {
   );
 };
 
-export const _NewsListParagraph: Story = {
+export const _NewsListParagraph: StoryObj = {
   render: () => NewsListParagraphStory(),
   parameters: {
     css: { tokens: cssTokens },
     controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
+  },
 };

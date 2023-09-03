@@ -7,8 +7,6 @@ const meta: Meta = {
 };
 export default meta;
 
-type Story = StoryObj;
-
 const BgBoxStory = () => {
   return (
     <BgBox>
@@ -17,7 +15,7 @@ const BgBoxStory = () => {
   );
 };
 
-export const _BgBox: Story = {
+export const _BgBox: StoryObj = {
   render: () => <BgBoxStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },

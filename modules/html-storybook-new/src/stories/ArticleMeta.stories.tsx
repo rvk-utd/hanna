@@ -2,18 +2,12 @@ import React from 'react';
 import { ArticleMeta, ArticleMetaItem } from '@reykjavik/hanna-react/ArticleMeta';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
-type Story = StoryObj;
-
 const meta: Meta = {
   title: 'ArticleMeta',
   parameters: {
     controls: { hideNoControlsWarning: true },
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 
 export default meta;
@@ -28,6 +22,6 @@ const ITEMS: Array<ArticleMetaItem> = [
   },
 ];
 
-export const _ArticleMeta: Story = {
+export const _ArticleMeta: StoryObj = {
   render: () => <ArticleMeta items={ITEMS} />,
 };

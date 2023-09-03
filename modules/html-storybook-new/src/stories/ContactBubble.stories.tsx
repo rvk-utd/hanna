@@ -1,8 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 import { ContactBubbleStory } from './Shared/ContactBubble.js';
 
 type ControlProps = {
@@ -10,29 +8,20 @@ type ControlProps = {
   alwaysShow: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'ContactBubble',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+    layout: { pos: 'footer' },
+  },
 };
 export default meta;
 
-export const _ContactBubble: Story = {
-  render: (args: ControlProps) => <ContactBubbleStory {...args} />,
+export const _ContactBubble: StoryObj<ControlProps> = {
+  render: (args) => <ContactBubbleStory {...args} />,
   argTypes: {
-    ssr: {
-      control: 'boolean',
-      name: 'Show client-side markup',
-    },
-    alwaysShow: {
-      control: 'boolean',
-      name: 'Set optional "alwaysShow" data-attribute',
-    },
+    ssr: { name: 'Show client-side markup' },
+    alwaysShow: { name: 'Set optional "alwaysShow" data-attribute' },
   },
   args: {
     ssr: false,

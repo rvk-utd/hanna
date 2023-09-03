@@ -1,23 +1,20 @@
 import React, { Fragment } from 'react';
-import { VSpacer } from '@reykjavik/hanna-react/VSpacer';
+import { VSpacer, VSpacerProps } from '@reykjavik/hanna-react/VSpacer';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
-const sizeOptions = ['small', 'default', 'large', 'xlarge'] as const;
-type Size = (typeof sizeOptions)[number];
-
-const marginOptions = ['none', ...sizeOptions] as const;
-type Margin = (typeof marginOptions)[number];
+const sizeOptions = ['small', 'default', 'large', 'xlarge'] satisfies Array<
+  VSpacerProps['size']
+>;
+const marginOptions = ['none', ...sizeOptions] satisfies Array<VSpacerProps['bottom']>;
 
 type ControlProps = {
   wrapperAroundComponents: boolean;
-  topMargin: Margin;
-  bottomMargin: Margin;
-  combinedMarginSize: Size;
+  topMargin: (typeof marginOptions)[number];
+  bottomMargin: (typeof marginOptions)[number];
+  combinedMarginSize: (typeof sizeOptions)[number];
 };
-
-type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'VSpacer',
@@ -71,14 +68,13 @@ const VSpacerStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _VSpacer: Story = {
-  render: (args: ControlProps) => <VSpacerStory {...args} />,
+export const _VSpacer: StoryObj<ControlProps> = {
+  render: (args) => <VSpacerStory {...args} />,
   argTypes: {
-    wrapperAroundComponents: {
-      control: 'boolean',
-      name: 'Wrapper around components',
-    },
+    wrapperAroundComponents: { name: 'Wrapper around components' },
     topMargin: {
+      name: 'Top margin',
+      options: marginOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -87,12 +83,12 @@ export const _VSpacer: Story = {
           default: 'Default',
           large: 'Large',
           xlarge: 'X-large',
-        } satisfies Record<Margin, string>,
+        } satisfies Record<ControlProps['topMargin'], string>,
       },
-      options: marginOptions,
-      name: 'Top margin',
     },
     bottomMargin: {
+      name: 'Bottom margin',
+      options: marginOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -101,12 +97,12 @@ export const _VSpacer: Story = {
           default: 'Default',
           large: 'Large',
           xlarge: 'X-large',
-        } satisfies Record<Margin, string>,
+        } satisfies Record<ControlProps['bottomMargin'], string>,
       },
-      options: marginOptions,
-      name: 'Bottom margin',
     },
     combinedMarginSize: {
+      name: 'Combined margin-size',
+      options: sizeOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -114,10 +110,8 @@ export const _VSpacer: Story = {
           default: 'Default',
           large: 'Large',
           xlarge: 'X-large',
-        } satisfies Record<Size, string>,
+        } satisfies Record<ControlProps['combinedMarginSize'], string>,
       },
-      options: sizeOptions,
-      name: 'Combined margin-size',
     },
   },
   args: {

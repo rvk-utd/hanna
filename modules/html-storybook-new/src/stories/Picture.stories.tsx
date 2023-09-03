@@ -9,8 +9,6 @@ type ControlProps = {
   customImageFocalPoint: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'Picture',
 };
@@ -42,13 +40,10 @@ const PictureStory: React.FC<ControlProps> = ({ customImageFocalPoint }) => {
   );
 };
 
-export const _Picture: Story = {
-  render: (args: ControlProps) => <PictureStory {...args} />,
+export const _Picture: StoryObj<ControlProps> = {
+  render: (args) => <PictureStory {...args} />,
   argTypes: {
-    customImageFocalPoint: {
-      control: 'boolean',
-      name: 'Custom image focal point',
-    },
+    customImageFocalPoint: { name: 'Custom image focal point' },
   },
   args: {
     customImageFocalPoint: false,

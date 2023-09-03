@@ -3,8 +3,6 @@ import { useIsServerSide } from '@hugsmidjan/react/hooks';
 import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 type ControlProps = Record<
   | 'customLabel'
   | 'customButtonText'
@@ -19,24 +17,21 @@ type ControlProps = Record<
 const meta: Meta<ControlProps> = {
   title: 'ShareButtons',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
 
-type Story = StoryObj<ControlProps>;
-
-const ShareButtonsStory: React.FC<ControlProps> = ({
-  customLabel,
-  customButtonText,
-  facebook,
-  twitter,
-  linkedIn,
-  email,
-  customEmailSubject,
-}) => {
+const ShareButtonsStory = (props: ControlProps) => {
+  const {
+    customLabel,
+    customButtonText,
+    facebook,
+    twitter,
+    linkedIn,
+    email,
+    customEmailSubject,
+  } = props;
   // const showBrowserHTML = boolean('Show JavaScript rendered HTML', false);
   const label = customLabel ? 'Deila frétt' : undefined;
   const buttonLabel = customButtonText ? '${name} deiling' : undefined;
@@ -75,35 +70,16 @@ const ShareButtonsStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _ShareButtons: Story = {
-  render: (args: ControlProps) => <ShareButtonsStory {...args} />,
+export const _ShareButtons: StoryObj<ControlProps> = {
+  render: (args) => <ShareButtonsStory {...args} />,
   argTypes: {
-    customLabel: {
-      control: 'boolean',
-      name: 'Custom label',
-    },
-    customButtonText: {
-      control: 'boolean',
-      name: 'Custom button text',
-    },
-    facebook: {
-      control: 'boolean',
-      name: 'Facebook (default)',
-    },
-    twitter: {
-      control: 'boolean',
-      name: 'Twitter (default)',
-    },
-    linkedIn: {
-      control: 'boolean',
-      name: 'LinkedIn (default)',
-    },
-    email: {
-      control: 'boolean',
-      name: 'E-mail',
-    },
+    customLabel: { name: 'Custom label' },
+    customButtonText: { name: 'Custom button text' },
+    facebook: { name: 'Facebook (default)' },
+    twitter: { name: 'Twitter (default)' },
+    linkedIn: { name: 'LinkedIn (default)' },
+    email: { name: 'E-mail' },
     customEmailSubject: {
-      control: 'boolean',
       name: 'Custom e-mail subject',
       if: { arg: 'email', eq: true },
     },

@@ -8,9 +8,7 @@ const meta: Meta = {
 };
 export default meta;
 
-type Story = StoryObj;
-
-export const _FooterBadges: Story = {
+export const _FooterBadges: StoryObj = {
   render: () => <FooterBadgesStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },

@@ -3,8 +3,6 @@ import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 const columnOptions = ['no-background', 'gray', 'dark'] as const;
 type Column = (typeof columnOptions)[number];
 const columnLabels: Record<Column, string> = {
@@ -20,7 +18,6 @@ type ControlProps = {
   secondColumn: Column;
   narrowSecondColumn: boolean;
 };
-type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'Grid',
@@ -82,37 +79,28 @@ const RowBlockStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _RowBlock: Story = {
-  render: (args: ControlProps) => <RowBlockStory {...args} />,
+export const _RowBlock: StoryObj<ControlProps> = {
+  render: (args) => <RowBlockStory {...args} />,
   argTypes: {
-    rightAligned: {
-      control: 'boolean',
-      name: 'Right aligned',
-    },
+    rightAligned: { name: 'Right aligned' },
     firstColumn: {
-      control: {
-        type: 'inline-radio',
-        labels: columnLabels,
-      },
-      options: columnOptions,
       name: 'First column',
-    },
-    narrowFirstColumn: {
-      control: 'boolean',
-      name: 'Narrow first column',
-    },
-    secondColumn: {
+      options: columnOptions,
       control: {
         type: 'inline-radio',
         labels: columnLabels,
       },
-      options: columnOptions,
+    },
+    narrowFirstColumn: { name: 'Narrow first column' },
+    secondColumn: {
       name: 'Second column',
+      options: columnOptions,
+      control: {
+        type: 'inline-radio',
+        labels: columnLabels,
+      },
     },
-    narrowSecondColumn: {
-      control: 'boolean',
-      name: 'Narrow second column',
-    },
+    narrowSecondColumn: { name: 'Narrow second column' },
   },
   args: {
     rightAligned: false,
@@ -123,6 +111,5 @@ export const _RowBlock: Story = {
   },
   parameters: {
     css: { tokens: 'RowBlock,RowBlockColumn' },
-    knobs: { disabled: false },
-  } as StoryParameters,
+  },
 };

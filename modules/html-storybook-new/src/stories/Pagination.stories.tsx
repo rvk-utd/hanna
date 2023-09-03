@@ -2,8 +2,6 @@ import React from 'react';
 import { Pagination } from '@reykjavik/hanna-react/Pagination';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 const typeOptions = ['link', 'button', 'submit'] as const;
 const stateOptions = ['1_25', '9_25', '25_25', '1_5'] as const;
 
@@ -18,8 +16,7 @@ const meta: Meta<ControlProps> = {
   title: 'Pagination',
   parameters: {
     viewport: { defaultViewport: 'responsive' },
-    knobs: { disabled: false },
-  } as StoryParameters,
+  },
 };
 export default meta;
 

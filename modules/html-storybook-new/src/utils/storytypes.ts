@@ -1,38 +1,28 @@
-import { FC } from 'react';
 import { HannaColorTheme } from '@reykjavik/hanna-css';
 
-import { ViewportOptions } from './viewports.js';
+import { ViewportNames } from './viewports.js';
 
-export type StoryParameters = {
-  knobs?: {
-    disabled?: boolean;
-    theming?: boolean;
-  };
-  viewport?: {
-    disabled?: boolean;
-    defaultViewport: ViewportOptions;
-  };
-  layout?: {
-    disabled?: boolean;
-    theme?: HannaColorTheme;
-    modifier?: string;
-    head?: boolean;
-    pos?: 'nav' | 'footer' | 'main';
-  };
-  css?: {
-    tokens?: string;
-    noLayout?: boolean;
-    onLoad?: () => void;
-  };
-  controls?: {
-    hideNoControlsWarning?: boolean;
-    disabled?: boolean;
-  };
-};
-
-export type StoryComponent = FC & {
-  story?: {
-    name?: string;
-    parameters?: StoryParameters;
-  };
-};
+declare module '@storybook/react' {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+  interface Parameters {
+    viewport?: {
+      disabled?: boolean;
+      defaultViewport: ViewportNames | 'responsive';
+    };
+    layout?: {
+      disabled?: boolean;
+      theme?: HannaColorTheme;
+      modifier?: string;
+      head?: boolean;
+      pos?: 'nav' | 'footer' | 'main';
+    };
+    css?: {
+      tokens?: string;
+      noLayout?: boolean;
+      onLoad?: () => void;
+    };
+    controls?: {
+      hideNoControlsWarning?: boolean;
+    };
+  }
+}

@@ -2,19 +2,13 @@ import React from 'react';
 import { FieldGroup } from '@reykjavik/hanna-react/FieldGroup';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 type ControlProps = Record<'smallLegend' | 'disabled', boolean>;
-
-type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/FieldGroup',
   parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
 
@@ -26,17 +20,11 @@ const FieldGroupStory: React.FC<ControlProps> = ({ smallLegend, disabled }) => {
   );
 };
 
-export const _FieldGroup: Story = {
-  render: (args: ControlProps) => <FieldGroupStory {...args} />,
+export const _FieldGroup: StoryObj<ControlProps> = {
+  render: (args) => <FieldGroupStory {...args} />,
   argTypes: {
-    smallLegend: {
-      control: 'boolean',
-      name: 'Small legend',
-    },
-    disabled: {
-      control: 'boolean',
-      name: 'Disabled',
-    },
+    smallLegend: { name: 'Small legend' },
+    disabled: { name: 'Disabled' },
   },
   args: {
     smallLegend: false,

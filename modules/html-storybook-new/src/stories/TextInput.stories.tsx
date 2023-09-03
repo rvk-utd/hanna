@@ -5,7 +5,6 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
 import { FFControlProps, formFieldControls } from '../utils/knobs.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 type ControlProps = FFControlProps & {
   multiLine: boolean;
@@ -19,7 +18,7 @@ const meta: Meta<ControlProps> = {
   parameters: {
     css: { tokens: 'TextInput' },
     viewport: { defaultViewport: 'responsive' },
-  } as StoryParameters,
+  },
 };
 export default meta;
 

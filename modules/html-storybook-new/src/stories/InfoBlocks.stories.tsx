@@ -3,13 +3,10 @@ import { InfoBlock } from '@reykjavik/hanna-react/InfoBlock';
 import { Meta, StoryObj } from '@storybook/react';
 
 const appearanceOptions = ['neither', 'attention', 'extra'] as const;
-type Appearance = (typeof appearanceOptions)[number];
 
 type ControlProps = {
-  appearance: Appearance;
+  appearance: (typeof appearanceOptions)[number];
 };
-
-type Story = StoryObj<ControlProps>;
 
 // ---------------------------------------------------------------------------
 
@@ -28,7 +25,7 @@ const ITEMS = [
   'Lágmarkgjald vegna umsóknar sé greitt fyrir fund Byggingarfulltrúa.',
 ];
 
-const getExtraProps = (radioOption: Appearance) => {
+const getExtraProps = (radioOption: ControlProps['appearance']) => {
   if (radioOption === 'extra') {
     return { extraInfo: EXTRAINFO_TEXT };
   }
@@ -58,20 +55,20 @@ const InfoBlockStory: React.FC<ControlProps> = ({ appearance }) => {
   );
 };
 
-export const _InfoBlock: Story = {
-  render: (args: ControlProps) => <InfoBlockStory {...args} />,
+export const _InfoBlock: StoryObj<ControlProps> = {
+  render: (args) => <InfoBlockStory {...args} />,
   argTypes: {
     appearance: {
+      name: 'With attention/extralinks',
+      options: appearanceOptions,
       control: {
         type: 'inline-radio',
         labels: {
           neither: 'Neither',
           attention: 'Attention',
           extra: 'Extra info',
-        } satisfies Record<Appearance, string>,
+        } satisfies Record<ControlProps['appearance'], string>,
       },
-      options: appearanceOptions,
-      name: 'With attention/extralinks',
     },
   },
   args: {

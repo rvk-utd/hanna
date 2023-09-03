@@ -6,11 +6,8 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';
 import portraitImage from '../example_assets/NewsHero__portrait.jpg';
-import { StoryParameters } from '../utils/storytypes.js';
 
 const imageTypeOptions = ['image', 'no-image'] as const;
-type ImageType = (typeof imageTypeOptions)[number];
-
 const blingTypeOptions = [
   'auto',
   'interesting',
@@ -19,15 +16,12 @@ const blingTypeOptions = [
   'dome',
   'balls-small',
   'balls-large',
-] as const;
-type BlingType = (typeof blingTypeOptions)[number];
+] satisfies Array<'auto' | NewsHeroProps['blingType']>;
 
 type ControlProps = {
-  imageType: ImageType;
-  blingType: BlingType;
+  imageType: (typeof imageTypeOptions)[number];
+  blingType: (typeof blingTypeOptions)[number];
 };
-
-type Story = StoryObj<ControlProps>;
 
 const meta: Meta<ControlProps> = {
   title: 'NewsHero',
@@ -41,7 +35,9 @@ const newsHeroProps = {
     'Reykvíkingar eru heppnir að geta valið milli margra spennandi útivistarsvæða þar sem er hægt að viðra sig og næra líkama og sál. Þessi svæði eru sérstaklega mikilvæg nú á tímum samkomu- banns og aflýstra viðburða. Náttúran er enn opin og á útivistar- svæðum er auðvelt að hlýða Víði og virða tveggja metra regluna en á sama tíma finna fyrir ákveðinni nálægð við annað fólk.',
 };
 
-const getBlingType = (blingType: BlingType | undefined): NewsHeroProps['blingType'] => {
+const getBlingType = (
+  blingType: ControlProps['blingType'] | undefined
+): NewsHeroProps['blingType'] => {
   if (blingType === 'auto') {
     return undefined;
   }
@@ -71,22 +67,23 @@ const NewsHeroStory: React.FC<ControlProps> = ({ imageType, blingType }) => {
   );
 };
 
-export const _NewsHero: Story = {
-  render: (args: ControlProps) => <NewsHeroStory {...args} />,
+export const _NewsHero: StoryObj<ControlProps> = {
+  render: (args) => <NewsHeroStory {...args} />,
   argTypes: {
     imageType: {
+      name: 'Image',
+      options: imageTypeOptions,
       control: {
         type: 'inline-radio',
         labels: {
           image: 'Image',
           'no-image': 'No image (Bling)',
-        } satisfies Record<ImageType, string>,
+        } satisfies Record<ControlProps['imageType'], string>,
       },
-      options: imageTypeOptions,
-      name: 'Image',
     },
     blingType: {
-      if: { arg: 'imageType', eq: 'no-image' },
+      name: 'Image',
+      options: blingTypeOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -97,10 +94,9 @@ export const _NewsHero: Story = {
           dome: 'Dome',
           'balls-small': 'Balls-small',
           'balls-large': 'Balls-large',
-        } satisfies Record<BlingType, string>,
+        } satisfies Record<ControlProps['blingType'], string>,
       },
-      options: blingTypeOptions,
-      name: 'Image',
+      if: { arg: 'imageType', eq: 'no-image' },
     },
   },
   args: {
@@ -134,12 +130,10 @@ const NewsHeroExamplesStory = () => {
   );
 };
 
-export const _NewsHeroExamples: Story = {
+export const _NewsHeroExamples: StoryObj<ControlProps> = {
   render: () => <NewsHeroExamplesStory />,
   parameters: {
     controls: { hideNoControlsWarning: true },
-    css: {
-      tokens: 'NewsHero',
-    },
-  } as StoryParameters,
+    css: { tokens: 'NewsHero' },
+  },
 };

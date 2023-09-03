@@ -13,8 +13,6 @@ type ControlProps = {
   summaryText: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'ImageCards',
 };
@@ -44,25 +42,13 @@ const ImageCardsStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _ImageCards: Story = {
-  render: (args: ControlProps) => <ImageCardsStory {...args} />,
+export const _ImageCards: StoryObj<ControlProps> = {
+  render: (args) => <ImageCardsStory {...args} />,
   argTypes: {
-    backgroundColor: {
-      control: 'boolean',
-      name: 'Background color',
-    },
-    customFallbackImage: {
-      control: 'boolean',
-      name: 'Custom fallback image',
-    },
-    title: {
-      control: 'boolean',
-      name: 'Title',
-    },
-    summaryText: {
-      control: 'boolean',
-      name: 'Summary text/More link',
-    },
+    backgroundColor: { name: 'Background color' },
+    customFallbackImage: { name: 'Custom fallback image' },
+    title: { name: 'Title' },
+    summaryText: { name: 'Summary text/More link' },
   },
   args: {
     backgroundColor: false,

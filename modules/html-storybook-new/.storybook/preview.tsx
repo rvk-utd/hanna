@@ -1,10 +1,11 @@
-import React from 'react';
 import type { Preview } from '@storybook/react';
-import { decorators } from '../src/utils/decorators';
-import { viewports } from '../src/utils/viewports';
+
+import { cssImportDecorator } from '../src/utils/cssImportDecorator.js';
+import { layoutDecorator } from '../src/utils/layoutDecorator.js';
+import { viewports } from '../src/utils/viewports.js';
 
 const preview: Preview = {
-  decorators: decorators,
+  decorators: [cssImportDecorator, layoutDecorator],
   parameters: {
     backgrounds: {
       disable: true,
@@ -12,14 +13,17 @@ const preview: Preview = {
         disable: true,
       },
     },
-    viewport: { viewports: viewports, defaultViewport: 'wide' },
+    viewport: {
+      viewports: viewports,
+      defaultViewport: 'wide',
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     html: {
       root: '#story-root',
       prettier: {
-        tabWidth: 3,
+        tabWidth: 2,
         useTabs: false,
-        printWidth: 75,
+        printWidth: 80,
         htmlWhitespaceSensitivity: 'ignore',
       },
     },

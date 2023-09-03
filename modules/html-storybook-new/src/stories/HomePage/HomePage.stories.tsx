@@ -3,16 +3,16 @@ import { getCssBundleUrl } from '@reykjavik/hanna-css';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../../utils/HiddenTrigger.js';
-import { StoryParameters } from '../../utils/storytypes.js';
 
 import { SearchHeroParagraph } from './_SearchHeroParagraph.js';
 
 const meta: Meta = {
   title: '_misc/HomePage',
+  parameters: {
+    layout: { head: true },
+  },
 };
 export default meta;
-
-type Story = StoryObj;
 
 const SearchHeroParagraphStory = () => {
   const cssTokens = (
@@ -30,10 +30,10 @@ const SearchHeroParagraphStory = () => {
   );
 };
 
-export const _SearchHeroParagraph: Story = {
+export const _SearchHeroParagraph: StoryObj = {
   render: () => SearchHeroParagraphStory(),
   parameters: {
     css: { tokens: SearchHeroParagraph.cssTokens },
     controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
+  },
 };

@@ -3,7 +3,6 @@ import { ReadSpeakerPlayer } from '@reykjavik/hanna-react/ReadSpeakerPlayer';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { lorem } from '../utils/_dummyData.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 type ControlProps = {
   align: 'right' | '';
@@ -16,7 +15,7 @@ const meta: Meta<ControlProps> = {
   title: 'ReadSpeakerPlayer',
   parameters: {
     viewport: { defaultViewport: 'responsive' },
-  } as StoryParameters,
+  },
 };
 export default meta;
 
@@ -46,7 +45,6 @@ export const _ReadSpeakerPlayer: StoryObj<ControlProps> = {
     },
     float: {
       name: 'CSS Float',
-      control: 'boolean',
     },
   },
   args: {

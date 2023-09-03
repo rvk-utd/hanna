@@ -2,11 +2,8 @@ import React, { ReactElement, useEffect } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
 import { HannaColorTheme } from '@reykjavik/hanna-css';
-import { themeOptions } from '@reykjavik/hanna-react/constants';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import type { StoryContext } from '@storybook/react';
-
-import { StoryParameters } from './storytypes.js';
 
 const hide = (selector: string) => {
   const elm = document.querySelector<HTMLElement>(selector);
@@ -14,13 +11,10 @@ const hide = (selector: string) => {
 };
 
 export const layoutDecorator = (story: () => ReactElement, context: StoryContext) => {
-  const params = context.parameters as StoryParameters;
+  const params = context.parameters;
   const layout = params.layout || {};
   const modifier = layout.modifier;
-  const initialTheme = layout.theme || themeOptions[0];
-  const colorTheme = params.knobs?.theming
-    ? (context.args.theme as HannaColorTheme)
-    : initialTheme;
+  const colorTheme = (context.args.theme as HannaColorTheme | undefined) || layout.theme;
   const pos = layout.pos;
   const fullLayout = layout.head != null || !!pos;
 

@@ -3,19 +3,20 @@ import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { auxiliaryPanel, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
-import { StoryParameters } from '../utils/storytypes.js';
-
-type Story = StoryObj;
 
 const meta: Meta = {
   title: 'Layout/MainMenu',
   parameters: {
     controls: { hideNoControlsWarning: true },
+    layout: {
+      head: true,
+      pos: 'nav',
+    },
   },
 };
 export default meta;
 
-export const _MainMenu: Story = {
+export const _MainMenu: StoryObj = {
   render: () => (
     <MainMenu
       items={mainMenuItems}
@@ -25,7 +26,7 @@ export const _MainMenu: Story = {
   ),
 };
 
-export const _MegaMenu: Story = {
+export const _MegaMenu: StoryObj = {
   render: () => (
     <MainMenu
       // ssr="ssr-only"
@@ -36,8 +37,6 @@ export const _MegaMenu: Story = {
     />
   ),
   parameters: {
-    css: {
-      tokens: 'MainMenu',
-    },
-  } as StoryParameters,
+    css: { tokens: 'MainMenu' },
+  },
 };

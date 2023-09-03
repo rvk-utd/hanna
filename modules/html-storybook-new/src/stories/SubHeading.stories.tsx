@@ -19,8 +19,6 @@ const meta: Meta<ControlProps> = {
 };
 export default meta;
 
-type Story = StoryObj<ControlProps>;
-
 const SubHeadingStory: React.FC<ControlProps> = ({ layout, small, headingLevel }) => {
   const _layout = layout !== 'left' ? layout : undefined;
 
@@ -36,10 +34,12 @@ const SubHeadingStory: React.FC<ControlProps> = ({ layout, small, headingLevel }
   );
 };
 
-export const _SubHeading: Story = {
-  render: (args: ControlProps) => <SubHeadingStory {...args} />,
+export const _SubHeading: StoryObj<ControlProps> = {
+  render: (args) => <SubHeadingStory {...args} />,
   argTypes: {
     layout: {
+      name: 'Layout',
+      options: layoutOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -48,14 +48,11 @@ export const _SubHeading: Story = {
           wide: 'Wide',
         } satisfies Record<Layout, string>,
       },
-      options: layoutOptions,
-      name: 'Layout',
     },
-    small: {
-      control: 'boolean',
-      name: 'Small',
-    },
+    small: { name: 'Small' },
     headingLevel: {
+      name: 'Heading level',
+      options: headingLevelOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -63,8 +60,6 @@ export const _SubHeading: Story = {
           h3: 'H3',
         } satisfies Record<HeadingLevel, string>,
       },
-      options: headingLevelOptions,
-      name: 'Heading level',
     },
   },
   args: {

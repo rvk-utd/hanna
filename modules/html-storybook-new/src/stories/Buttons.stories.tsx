@@ -5,8 +5,6 @@ import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 const sizeOptions = ['normal', 'small', 'wide'] as const;
 type Size = (typeof sizeOptions)[number];
 
@@ -18,16 +16,12 @@ type ControlProps = {
   variant: Variant;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta = {
   title: 'buttons/Buttons',
   parameters: {
     css: { tokens: 'ButtonPrimary,ButtonSecondary,ButtonTertiary' },
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
 
@@ -122,10 +116,12 @@ const ButtonsStory: React.FC<ControlProps> = ({ size, variant }) => {
   );
 };
 
-export const _Buttons: Story = {
-  render: (args: ControlProps) => <ButtonsStory {...args} />,
+export const _Buttons: StoryObj<ControlProps> = {
+  render: (args) => <ButtonsStory {...args} />,
   argTypes: {
     size: {
+      name: 'Size',
+      options: sizeOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -134,10 +130,10 @@ export const _Buttons: Story = {
           wide: 'Wide variant',
         } satisfies Record<Size, string>,
       },
-      options: sizeOptions,
-      name: 'Size',
     },
     variant: {
+      name: 'Variant',
+      options: variantOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -145,8 +141,6 @@ export const _Buttons: Story = {
           destructive: 'Destructive',
         } satisfies Record<Variant, string>,
       },
-      options: variantOptions,
-      name: 'Variant',
     },
   },
   args: {

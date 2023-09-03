@@ -7,7 +7,6 @@ import { HiddenTiger } from '../utils/HiddenTrigger.js';
 
 const customOption = '- Custom SVG URL -';
 const blingOptions = [...blingTypes, customOption] as const;
-type BlingType = (typeof blingOptions)[number];
 
 const alignmentOptions = [
   'left',
@@ -17,13 +16,10 @@ const alignmentOptions = [
   'right-ish',
   'right',
 ] as const;
-type Alignment = (typeof alignmentOptions)[number];
 
 const verticalAlignOptions = ['up', 'up-ish', 'center', 'down-ish', 'down'] as const;
-type Vertical = (typeof verticalAlignOptions)[number];
 
 const colorVariantOptions = ['tertiary', 'secondary', 'primary'] as const;
-type ColorVariant = (typeof colorVariantOptions)[number];
 
 const insertionPointOptions = [
   'default',
@@ -33,20 +29,21 @@ const insertionPointOptions = [
   'bottom-ish',
   'bottom',
 ] as const;
-type InsertionPoint = (typeof insertionPointOptions)[number];
 
-type ControlsProps = {
-  blingType: BlingType;
-  alignment: Alignment;
-  verticalAlign: Vertical;
-  colorVariant: ColorVariant;
+type ControlProps = {
+  blingType: (typeof blingOptions)[number];
+  alignment: (typeof alignmentOptions)[number];
+  verticalAlign: (typeof verticalAlignOptions)[number];
+  colorVariant: (typeof colorVariantOptions)[number];
   placeInFrontOfOtherContent: boolean;
-  insertionPoint: InsertionPoint;
-};
-type Story = StoryObj<ControlsProps>;
+  insertionPoint: (typeof insertionPointOptions)[number];
+} /* & ThemeControlProps */;
 
-const meta: Meta<ControlsProps> = {
+const meta: Meta<ControlProps> = {
   title: 'Bling',
+  parameters: {
+    layout: { theme: 'colorful' },
+  },
 };
 export default meta;
 
@@ -68,7 +65,7 @@ const Spacer = () => (
   </HiddenTiger>
 );
 
-const BlingStory: React.FC<ControlsProps> = ({
+const BlingStory: React.FC<ControlProps> = ({
   blingType,
   alignment,
   verticalAlign,
@@ -80,7 +77,7 @@ const BlingStory: React.FC<ControlsProps> = ({
   const typeProps =
     type === customOption ? { blingUrl: getBlingUrl(blingTypes[2]) } : { type };
 
-  const insertionPointMap: Record<InsertionPoint, BlingParentOffset> = {
+  const insertionPointMap: Record<ControlProps['insertionPoint'], BlingParentOffset> = {
     default: 'center',
     top: 'top',
     'top-ish': 'top-ish',
@@ -130,20 +127,22 @@ const BlingStory: React.FC<ControlsProps> = ({
   );
 };
 
-export const _Bling: Story = {
-  render: (args: ControlsProps) => <BlingStory {...args} />,
+export const _Bling: StoryObj<ControlProps> = {
+  render: (args) => <BlingStory {...args} />,
   argTypes: {
     blingType: {
-      control: 'select',
-      options: blingOptions,
       name: 'Bling Type',
+      options: blingOptions,
+      control: 'select',
     },
     alignment: {
-      control: 'inline-radio',
-      options: alignmentOptions,
       name: 'Alignment',
+      options: alignmentOptions,
+      control: 'inline-radio',
     },
     verticalAlign: {
+      name: 'Vertical align',
+      options: verticalAlignOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -152,28 +151,25 @@ export const _Bling: Story = {
           center: 'center (default)',
           'down-ish': 'down-ish',
           down: 'down',
-        } satisfies Record<Vertical, string>,
+        } satisfies Record<ControlProps['verticalAlign'], string>,
       },
-      options: verticalAlignOptions,
-      name: 'Vertical align',
     },
     colorVariant: {
+      name: 'Color variant',
+      options: colorVariantOptions,
       control: {
         type: 'inline-radio',
         labels: {
           tertiary: 'Default (tertiary)',
           secondary: 'Secondary',
           primary: 'Primary',
-        } satisfies Record<ColorVariant, string>,
+        } satisfies Record<ControlProps['colorVariant'], string>,
       },
-      options: colorVariantOptions,
-      name: 'Color variant',
     },
-    placeInFrontOfOtherContent: {
-      control: 'boolean',
-      name: 'Place in front of other content',
-    },
+    placeInFrontOfOtherContent: { name: 'Place in front of other content' },
     insertionPoint: {
+      name: 'Insertion point',
+      options: insertionPointOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -183,11 +179,10 @@ export const _Bling: Story = {
           center: 'center',
           'bottom-ish': 'botttom-ish',
           bottom: 'bottom',
-        } satisfies Record<InsertionPoint, string>,
+        } satisfies Record<ControlProps['insertionPoint'], string>,
       },
-      options: insertionPointOptions,
-      name: 'Insertion point',
     },
+    // ...themeArgTypes
   },
   args: {
     blingType: 'arrow-right-large',

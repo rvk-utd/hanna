@@ -6,7 +6,6 @@ import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { crumbTrail, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
-import { StoryParameters } from '../utils/storytypes.js';
 
 import { ContactBubbleStory as ContactBubble } from './Shared/ContactBubble.js';
 import { FooterBadgesStory as FooterBadges } from './Shared/FooterBadges.js';
@@ -24,9 +23,8 @@ type MinimalLayoutStory = StoryObj<MinimalLayoutControlProps>;
 const meta: Meta = {
   title: 'Layout',
   parameters: {
-    knobs: { disabled: false },
     layout: { disabled: true },
-  } as StoryParameters,
+  },
 };
 export default meta;
 
@@ -48,25 +46,17 @@ const MinimalLayoutStory: React.FC<MinimalLayoutControlProps> = ({
 };
 
 export const _MinimalLayout: MinimalLayoutStory = {
-  render: (args: MinimalLayoutControlProps) => <MinimalLayoutStory {...args} />,
+  render: (args) => <MinimalLayoutStory {...args} />,
   argTypes: {
-    globalAlertsContainer: {
-      control: 'boolean',
-      name: 'Global alerts container',
-    },
-    pageHasNoMenuOrNav: {
-      control: 'boolean',
-      name: 'Page has no menu or navigation',
-    },
+    globalAlertsContainer: { name: 'Global alerts container' },
+    pageHasNoMenuOrNav: { name: 'Page has no menu or navigation' },
   },
   args: {
     globalAlertsContainer: false,
     pageHasNoMenuOrNav: false,
   },
   parameters: {
-    css: {
-      tokens: 'Layout',
-    },
+    css: { tokens: 'Layout' },
   },
 };
 
@@ -124,20 +114,11 @@ const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
 };
 
 export const _LayoutWithContent: LayoutWithContStory = {
-  render: (args: LayoutWithContentControlProps) => <LayoutWithContentStory {...args} />,
+  render: (args) => <LayoutWithContentStory {...args} />,
   argTypes: {
-    globalAlerts: {
-      control: 'boolean',
-      name: 'Global alerts',
-    },
-    showClientsideMarkup: {
-      control: 'boolean',
-      name: 'Show client-side markup',
-    },
-    setOptionalDataAttr: {
-      control: 'boolean',
-      name: 'Set optional "alwaysShow" data-attribute',
-    },
+    globalAlerts: { name: 'Global alerts' },
+    showClientsideMarkup: { name: 'Show client-side markup' },
+    setOptionalDataAttr: { name: 'Set optional "alwaysShow" data-attribute' },
   },
   args: {
     globalAlerts: false,

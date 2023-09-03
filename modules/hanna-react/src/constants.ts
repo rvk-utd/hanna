@@ -1,4 +1,9 @@
-import { colorFamilies as _colorFamilies, colorThemes } from '@reykjavik/hanna-css';
+import {
+  colorFamilies as _colorFamilies,
+  ColorFamily as _ColorFamily,
+  colorThemes,
+  HannaColorTheme,
+} from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 /** @depcrecated import `colorFamilies` from  `@reykjavik/hanna-css` instead  (Will be removed in v0.11) */
@@ -22,7 +27,7 @@ export const colorFamilies = Object.assign(
 );
 
 /** @depcrecated import type `ColorFamily` from `@reykjavik/hanna-css` instead  (Will be removed in v0.11) */
-export type { ColorFamily } from '@reykjavik/hanna-css';
+export type ColorFamily = _ColorFamily;
 
 /** @depcrecated import `colorThemes` from  `@reykjavik/hanna-css` instead  (Will be removed in v0.11) */
 export const themeOptions = Object.assign(
@@ -31,7 +36,7 @@ export const themeOptions = Object.assign(
 );
 
 /** @depcrecated import type `HannaColorTheme` from `@reykjavik/hanna-css` instead  (Will be removed in v0.11) */
-export type { HannaColorTheme as ThemeOption } from '@reykjavik/hanna-css';
+export type ThemeOption = HannaColorTheme;
 
 // ---------------------------------------------------------------------------
 

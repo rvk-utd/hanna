@@ -4,44 +4,40 @@ import { Footnote } from '@reykjavik/hanna-react/Footnote';
 import { Meta, StoryObj } from '@storybook/react';
 
 const variantOptions = ['normal', 'right', 'fullwidth'] as const;
-type Variant = (typeof variantOptions)[number];
 
-type ControlsProps = {
+type ControlProps = {
   compact: boolean;
   footer: boolean;
   footnote: boolean;
-  variant: Variant;
+  variant: (typeof variantOptions)[number];
 };
 
-type Story = StoryObj<ControlsProps>;
-
-const meta: Meta<ControlsProps> = {
+const meta: Meta<ControlProps> = {
   title: 'BasicTable',
 };
 
 export default meta;
 
-const BasicTableStory: React.FC<ControlsProps> = ({
+const BasicTableStory: React.FC<ControlProps> = ({
   compact,
   footer,
   footnote,
   variant,
 }) => {
   const _footer = footer || undefined;
-  const _variant = variant !== 'normal' ? variant : '';
 
   const variantProps = (
     {
-      '': undefined,
+      normal: undefined,
       right: { align: 'right' },
       fullwidth: { fullWidth: true },
     } as const
-  )[_variant];
+  )[variant];
 
   return (
     <>
       <BasicTable
-        key={'' + compact + _footer + _variant}
+        key={'' + compact + _footer + variant}
         {...variantProps}
         compact={compact}
         cols={[{ number: true }, {}, {}, { tel: true }, { number: true }, {}]}
@@ -104,25 +100,16 @@ const BasicTableStory: React.FC<ControlsProps> = ({
   );
 };
 
-export const _BasicTable: Story = {
-  render: (args: ControlsProps) => <BasicTableStory {...args} />,
+export const _BasicTable: StoryObj<ControlProps> = {
+  render: (args) => <BasicTableStory {...args} />,
   argTypes: {
-    compact: {
-      control: 'boolean',
-      name: 'Compact',
-    },
-    footer: {
-      control: 'boolean',
-      name: 'Footer',
-    },
-    footnote: {
-      control: 'boolean',
-      name: 'Footnote',
-    },
+    compact: { name: 'Compact' },
+    footer: { name: 'Footer' },
+    footnote: { name: 'Footnote' },
     variant: {
-      control: 'radio',
-      options: variantOptions,
       name: 'Variant',
+      options: variantOptions,
+      control: 'radio',
     },
   },
   args: {

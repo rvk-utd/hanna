@@ -22,8 +22,6 @@ const meta: Meta<ControlProps> = {
 };
 export default meta;
 
-type Story = StoryObj<ControlProps>;
-
 const HeadingStory: React.FC<ControlProps> = ({ layout, sizeVariant, headingLevel }) => {
   const _layout = layout !== 'left' ? layout : undefined;
   const size = sizeVariant !== 'normal' ? sizeVariant : undefined;
@@ -38,10 +36,12 @@ const HeadingStory: React.FC<ControlProps> = ({ layout, sizeVariant, headingLeve
   );
 };
 
-export const _Heading: Story = {
-  render: (args: ControlProps) => <HeadingStory {...args} />,
+export const _Heading: StoryObj<ControlProps> = {
+  render: (args) => <HeadingStory {...args} />,
   argTypes: {
     layout: {
+      name: 'Layout',
+      options: layoutOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -50,10 +50,10 @@ export const _Heading: Story = {
           wide: 'Wide',
         } satisfies Record<Layout, string>,
       },
-      options: layoutOptions,
-      name: 'Layout',
     },
     sizeVariant: {
+      name: 'Size variant',
+      options: sizeVariantOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -62,10 +62,10 @@ export const _Heading: Story = {
           large: 'Large',
         } satisfies Record<SizeVariant, string>,
       },
-      options: sizeVariantOptions,
-      name: 'Size variant',
     },
     headingLevel: {
+      name: 'Heading level',
+      options: headingLevelOptions,
       control: {
         type: 'inline-radio',
         labels: {
@@ -73,8 +73,6 @@ export const _Heading: Story = {
           h3: 'H3',
         } satisfies Record<HeadingLevel, string>,
       },
-      options: headingLevelOptions,
-      name: 'Heading level',
     },
   },
   args: {

@@ -3,18 +3,12 @@ import range from '@hugsmidjan/qj/range';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
-type Story = StoryObj;
-
 const meta: Meta = {
   title: 'Forms/Site Search Autocomplete',
   parameters: {
     controls: { hideNoControlsWarning: true },
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
 
@@ -44,6 +38,6 @@ const SiteSearchAutocompleteStory = () => {
   );
 };
 
-export const _SiteSearchAutocomplete: Story = {
+export const _SiteSearchAutocomplete: StoryObj = {
   render: () => <SiteSearchAutocompleteStory />,
 };

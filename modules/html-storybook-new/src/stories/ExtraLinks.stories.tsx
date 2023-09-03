@@ -1,6 +1,5 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
-import { ThemeOption, themeOptions } from '@reykjavik/hanna-react/constants';
 import {
   ExtraLinks,
   ExtraLinksCardProps,
@@ -8,12 +7,11 @@ import {
 } from '@reykjavik/hanna-react/ExtraLinks';
 import { Meta, StoryObj } from '@storybook/react';
 
-type ControlProps = {
-  theme: ThemeOption;
-  showRelatedLinks: boolean;
-};
+import { themeArgTypes, ThemeControlProps } from '../utils/knobs.js';
 
-type Story = StoryObj<ControlProps>;
+type ControlProps = {
+  showRelatedLinks: boolean;
+} & ThemeControlProps;
 
 const meta: Meta<ControlProps> = {
   title: 'ExtraLinks',
@@ -39,8 +37,8 @@ const RELATED_LINKS = range(1, 6).map(
   })
 );
 
-const ExtraLinksStory: React.FC<ControlProps> = ({ showRelatedLinks }) => {
-  const showRel = showRelatedLinks || undefined;
+const ExtraLinksStory = (props: ControlProps) => {
+  const showRel = props.showRelatedLinks || undefined;
   return (
     <ExtraLinks
       title={TITLE}
@@ -52,20 +50,13 @@ const ExtraLinksStory: React.FC<ControlProps> = ({ showRelatedLinks }) => {
   );
 };
 
-export const _ExtraLinks: Story = {
-  render: (args: ControlProps) => <ExtraLinksStory {...args} />,
+export const _ExtraLinks: StoryObj<ControlProps> = {
+  render: (args) => <ExtraLinksStory {...args} />,
   argTypes: {
-    theme: {
-      control: 'select',
-      options: themeOptions,
-    },
-    showRelatedLinks: {
-      control: 'boolean',
-      name: 'Show "related" links',
-    },
+    showRelatedLinks: { name: 'Show "related" links' },
+    ...themeArgTypes,
   },
   args: {
-    theme: 'trustworthy',
     showRelatedLinks: false,
   },
 };

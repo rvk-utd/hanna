@@ -2,20 +2,14 @@ import React from 'react';
 import { PullQuote } from '@reykjavik/hanna-react/PullQuote';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
 const meta: Meta = {
   title: 'text/PullQuote',
   parameters: {
     controls: { hideNoControlsWarning: true },
-    viewport: {
-      defaultViewport: 'responsive',
-    },
-  } as StoryParameters,
+    viewport: { defaultViewport: 'responsive' },
+  },
 };
 export default meta;
-
-type Story = StoryObj;
 
 const PullQuoteStory = () => {
   return (
@@ -38,6 +32,6 @@ const PullQuoteStory = () => {
   );
 };
 
-export const _PullQuote: Story = {
+export const _PullQuote: StoryObj = {
   render: () => <PullQuoteStory />,
 };

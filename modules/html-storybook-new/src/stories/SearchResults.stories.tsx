@@ -7,18 +7,12 @@ import {
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { StoryParameters } from '../utils/storytypes.js';
-
-type Story = StoryObj;
-
 const meta: Meta = {
   title: 'SearchResults',
   parameters: {
-    css: {
-      tokens: 'SearchResults,SiteSearchInput',
-    },
+    css: { tokens: 'SearchResults,SiteSearchInput' },
     controls: { hideNoControlsWarning: true },
-  } as StoryParameters,
+  },
 };
 export default meta;
 
@@ -44,7 +38,7 @@ items.unshift({
   meta: '23. janúar 2021',
 });
 
-export const _SearchResults: Story = {
+export const _SearchResults: StoryObj = {
   render: () => (
     <SearchResults
       status="results"

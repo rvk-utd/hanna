@@ -8,8 +8,6 @@ type ControlProps = {
   twoColumns: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'GridBlocks',
 };
@@ -37,13 +35,10 @@ const GridBlocksStory: React.FC<ControlProps> = ({ twoColumns }) => {
   return <GridBlocks blocks={blocks} twocol={twoColumns} startSeen />;
 };
 
-export const _GridBlocks: Story = {
-  render: (args: ControlProps) => <GridBlocksStory {...args} />,
+export const _GridBlocks: StoryObj<ControlProps> = {
+  render: (args) => <GridBlocksStory {...args} />,
   argTypes: {
-    twoColumns: {
-      control: 'boolean',
-      name: 'Two columns',
-    },
+    twoColumns: { name: 'Two columns' },
   },
   args: {
     twoColumns: false,

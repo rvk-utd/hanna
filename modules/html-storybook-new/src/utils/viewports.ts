@@ -10,7 +10,13 @@ const styles: CSSProperties = {
   margin: '-3px 0 auto 0',
 };
 
-type ViewportNames = 'wide' | 'netbook' | 'tablet' | 'phablet' | 'phone' | 'phone_s';
+export type ViewportNames =
+  | 'wide'
+  | 'netbook'
+  | 'tablet'
+  | 'phablet'
+  | 'phone'
+  | 'phone_s';
 type Viewport = {
   name: string;
   styles: CSSProperties;

@@ -12,8 +12,6 @@ type ControlProps = {
   compact: boolean;
 };
 
-type Story = StoryObj<ControlProps>;
-
 const meta: Meta<ControlProps> = {
   title: 'IframeBlock',
 };
@@ -75,25 +73,13 @@ const IframeBlockStory: React.FC<ControlProps> = ({
   );
 };
 
-export const _IframeBlock: Story = {
-  render: (args: ControlProps) => <IframeBlockStory {...args} />,
+export const _IframeBlock: StoryObj<ControlProps> = {
+  render: (args) => <IframeBlockStory {...args} />,
   argTypes: {
-    rightAligned: {
-      control: 'boolean',
-      name: 'Right-aligned',
-    },
-    fixedHeight: {
-      control: 'boolean',
-      name: 'Fixed height',
-    },
-    framed: {
-      control: 'boolean',
-      name: 'Framed',
-    },
-    compact: {
-      control: 'boolean',
-      name: 'Compact (no outside margins)',
-    },
+    rightAligned: { name: 'Right-aligned' },
+    fixedHeight: { name: 'Fixed height' },
+    framed: { name: 'Framed' },
+    compact: { name: 'Compact (no outside margins)' },
   },
   args: {
     rightAligned: false,

@@ -12,8 +12,6 @@ const meta: Meta<ControlProps> = {
 };
 export default meta;
 
-type Story = StoryObj<ControlProps>;
-
 const TITLE_TEXT = 'HeroBlock title';
 const SUMMARY_TEXT = 'HeroBlock summary text, lorem ipsum dolor sit ament foobar.';
 const SUMMARY_HTML = () => (
@@ -76,8 +74,8 @@ const HeroBlockExamplesStory = () => {
   );
 };
 
-export const _HeroBlock: Story = {
-  render: (args: ControlProps) => (
+export const _HeroBlock: StoryObj<ControlProps> = {
+  render: () => (
     <HeroBlock
       key={args.illustration}
       title={TITLE_TEXT}
@@ -95,9 +93,9 @@ export const _HeroBlock: Story = {
   ),
   argTypes: {
     illustration: {
-      control: 'select',
-      options: illustrations,
       name: 'Illustration',
+      options: illustrations,
+      control: 'select',
     },
   },
   args: {
@@ -105,12 +103,10 @@ export const _HeroBlock: Story = {
   },
 };
 
-export const _HeroBlockExamples: Story = {
+export const _HeroBlockExamples: StoryObj<ControlProps> = {
   render: () => <HeroBlockExamplesStory />,
   parameters: {
-    css: {
-      tokens: 'HeroBlock',
-    },
+    css: { tokens: 'HeroBlock' },
     controls: { hideNoControlsWarning: true },
   },
 };

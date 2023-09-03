@@ -15,19 +15,18 @@
     "vite": "^4.3.2"
   },
   "devDependencies": {
-    "@storybook/addon-controls": "^7.0.24",
-    "@storybook/addon-essentials": "^7.0.24",
-    "@storybook/addon-links": "^7.0.24",
-    "@storybook/blocks": "^7.0.24",
-    "@storybook/react": "^7.0.24",
-    "@storybook/react-vite": "^7.0.24",
+    "@storybook/addon-controls": "^7.4.0",
+    "@storybook/addon-viewport": "^7.4.0",
+    "@storybook/blocks": "^7.4.0",
+    "@storybook/react": "^7.4.0",
+    "@storybook/react-vite": "^7.4.0",
     "@storybook/testing-library": "^0.2.0",
-    "@storybook/theming": "^7.0.24",
+    "@storybook/theming": "^7.4.0",
     "@types/prettier": "^2",
     "@types/react-syntax-highlighter": "^15",
     "@whitespace/storybook-addon-html": "^5.1.6",
     "prettier": "^2.8.8",
     "react-syntax-highlighter": "^15.5.0",
-    "storybook": "^7.0.24"
+    "storybook": "^7.4.0"
   }
 }

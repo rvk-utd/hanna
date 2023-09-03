@@ -7,9 +7,11 @@ import cityCouncilMemberImage from '../example_assets/Dagur-b.jpg';
 import landScapeImage from '../example_assets/Gallery--landscape--large.jpg';
 import swimmingpoolImage from '../example_assets/sundlaug.jpg';
 
-const alignmentOptions = ['left', 'right'] as const;
+const alignmentOptions = ['left', 'right'] satisfies Array<InfoHeroProps['align']>;
 const imageOptions = ['no-image', 'portrait', 'landscape', 'pool'] as const;
-const blingTypeOptions = ['waves', 'sunny-waves', 'triangles', 'circles'] as const;
+const blingTypeOptions = ['waves', 'sunny-waves', 'triangles', 'circles'] satisfies Array<
+  InfoHeroProps['blingType']
+>;
 
 type ControlProps = {
   alignment: (typeof alignmentOptions)[number];
@@ -60,6 +62,9 @@ const getImage = (image: ControlProps['image']) => {
 
 const meta: Meta<ControlProps> = {
   title: 'InfoHero',
+  parameters: {
+    layout: { theme: 'dependable' },
+  },
 };
 export default meta;
 
