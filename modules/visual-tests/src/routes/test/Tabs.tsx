@@ -51,23 +51,11 @@ const renderTabs = (
   subTabs: SubTabProps
 ) => (
   <Fragment>
-    <Tabs aria-label={`${tagType}-tabs`} tabs={tabs} activeIdx={1} startSeen />
+    <Tabs aria-label={`${tagType}-tabs`} tabs={tabs} activeIdx={1} />
     <DummyBlock thin />
-    <Tabs
-      aria-label={`${tagType}-subTabs`}
-      tabs={tabs}
-      activeIdx={2}
-      subTabs={subTabs}
-      startSeen
-    />
+    <Tabs aria-label={`${tagType}-subTabs`} tabs={tabs} activeIdx={2} subTabs={subTabs} />
     <DummyBlock thin />
-    <Tabs
-      aria-label={`${tagType}-vertical-tabs`}
-      tabs={tabs}
-      activeIdx={0}
-      vertical
-      startSeen
-    />
+    <Tabs aria-label={`${tagType}-vertical-tabs`} tabs={tabs} activeIdx={0} vertical />
     <DummyBlock thin />
     <Tabs
       aria-label={`${tagType}-vertical-subTabs`}
@@ -75,7 +63,6 @@ const renderTabs = (
       vertical
       subTabs={subTabs}
       activeIdx={1}
-      startSeen
     />
     <DummyBlock thin />
     <Tabs
@@ -87,7 +74,6 @@ const renderTabs = (
         activeIdx: 0,
       }}
       activeIdx={2}
-      startSeen
     />
   </Fragment>
 );

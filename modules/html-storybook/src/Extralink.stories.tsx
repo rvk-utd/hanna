@@ -46,7 +46,6 @@ export const _ExtraLinks: StoryComponent = () => {
       cards={CARDS}
       relatedTitle={showRel && RELATED_TITLE}
       relatedLinks={showRel && RELATED_LINKS}
-      startSeen
     />
   );
 };

@@ -49,8 +49,8 @@ export const handle = cssTokens('TextBlock');
 export default function () {
   return (
     <Minimal>
-      <AccordionList items={makeItems()} startSeen />
-      <AccordionList items={makeItems()} defaultOpen={[0, 1, 2]} startSeen />
+      <AccordionList items={makeItems()} />
+      <AccordionList items={makeItems()} defaultOpen={[0, 1, 2]} />
     </Minimal>
   );
 }

@@ -21,21 +21,15 @@ const buttons = [
 export default function () {
   return (
     <Minimal>
-      <LabeledTextBlock
-        startSeen
-        label="Labeled Text Block"
-        summary={<p>{lorem.medium}</p>}
-      />
+      <LabeledTextBlock label="Labeled Text Block" summary={<p>{lorem.medium}</p>} />
       <DummyBlock thin />
       <LabeledTextBlock
-        startSeen
         label="Labeled Text Block with buttons "
         buttons={buttons}
         summary={<p>{lorem.medium}</p>}
       />
       <DummyBlock thin />
       <LabeledTextBlock
-        startSeen
         label="Wide with buttons"
         wide
         buttons={buttons}
@@ -43,7 +37,6 @@ export default function () {
       />
       <DummyBlock thin />
       <LabeledTextBlock
-        startSeen
         label="Wide with Attention message"
         wide
         summary={

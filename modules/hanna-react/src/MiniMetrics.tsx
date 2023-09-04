@@ -2,28 +2,26 @@ import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { Button, ButtonProps } from './_abstract/_Button.js';
-import { SeenProp } from './utils/seenEffect.js';
-import SeenEffect from './SeenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { WrapperElmProps } from './utils.js';
 
 export type MiniMetricsProps = {
   text: string;
   moreButton: ButtonProps;
 } & WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const MiniMetrics = (props: MiniMetricsProps) => {
-  const { text, moreButton, startSeen, wrapperProps } = props;
+  const { text, moreButton, wrapperProps } = props;
 
   return (
-    <SeenEffect
+    <div
       {...wrapperProps}
       className={modifiedClass('MiniMetrics', null, (wrapperProps || {}).className)}
-      startSeen={startSeen}
     >
       <strong className="MiniMetrics__text">{text}</strong> {'\n'}
       <Button bem="MiniMetrics__more" {...moreButton} />
-    </SeenEffect>
+    </div>
   );
 };
 

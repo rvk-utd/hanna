@@ -6,12 +6,10 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { extendBackgroundWithUnderlay, resetImageChild } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   @media screen {
     .IslandPageBlock {
-      ${SeenEffect__fadeup}
       margin-bottom: ${scale_container(40, 133)};
       display: flex;
       flex-flow: column-reverse;

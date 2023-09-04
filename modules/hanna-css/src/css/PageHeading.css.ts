@@ -5,7 +5,6 @@ import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { ComponentLayout } from './styles/componentLayout.js';
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps
@@ -16,8 +15,6 @@ export default css`
 // inlined by TextBlock.css.ts
 export const PageHeading_css = () => css`
   .PageHeading {
-    ${SeenEffect__fadeup}
-    ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
     ${ComponentLayout(false)}
 
     font: ${vars.font_hd_l};

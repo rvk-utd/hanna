@@ -58,7 +58,7 @@ export const _RowBlock: StoryComponent = () => {
   const colNarrow2 = boolean('Narrow second column', false);
 
   return (
-    <RowBlock right={right} startSeen>
+    <RowBlock right={right}>
       <RowBlockColumn background={colBg1} narrow={colNarrow1}>
         {COL_CONTENT.first()}
       </RowBlockColumn>

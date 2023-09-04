@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { useDomid } from '@hugsmidjan/react/hooks';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import {
   SSRSupportProps,
   useIsBrowserSide,
@@ -81,11 +81,10 @@ export type AccordionListProps = {
   wide?: boolean;
 } & WrapperElmProps &
   SSRSupportProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const AccordionList = (props: AccordionListProps) => {
-  const { items, ssr, wide, startSeen, defaultOpen, wrapperProps } = props;
-  const [ref] = useSeenEffect(startSeen);
+  const { items, ssr, wide, defaultOpen, wrapperProps } = props;
   const [open, setOpenArray, mode] = useMixedControlState(props, 'open', []);
 
   const onToggle = (index: number) => {
@@ -107,7 +106,6 @@ export const AccordionList = (props: AccordionListProps) => {
         [wide && 'wide'],
         (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       {items.map((item, i) => (
         <AccordionListItem

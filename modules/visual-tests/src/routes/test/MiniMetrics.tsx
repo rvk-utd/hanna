@@ -17,7 +17,6 @@ export default function () {
       <MiniMetrics
         text="Leebur deroor iehroom, bork bork börk!"
         moreButton={{ href: '', label: 'Label text' }}
-        startSeen
       />
     </Minimal>
   );

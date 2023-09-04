@@ -3,7 +3,7 @@ import { Formheimur, getFormheimurUrl } from '@reykjavik/hanna-utils/assets';
 
 import { Block, BlockItem } from './_abstract/_Block.js';
 import { ImageProps } from './_abstract/_Image.js';
-import { SeenProp } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { Alignment, aligns } from './constants.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -27,10 +27,10 @@ type IslandContentBlocks = {
 export type IslandBlockProps = IslandBaseBlockProps &
   (IslandContentBlocks | IslandImageBlock) &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const IslandBlock = (props: IslandBlockProps) => {
-  const { align, content, shapes, image, startSeen, wrapperProps } = props;
+  const { align, content, shapes, image, wrapperProps } = props;
   const alignment = align && aligns[align] ? align : 'right';
 
   const blockProps = Array.isArray(content)
@@ -46,7 +46,6 @@ export const IslandBlock = (props: IslandBlockProps) => {
       bem="IslandBlock"
       modifier={'align--' + alignment}
       {...blockProps}
-      startSeen={startSeen}
     />
   );
 };

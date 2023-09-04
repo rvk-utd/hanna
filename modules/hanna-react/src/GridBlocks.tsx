@@ -5,7 +5,7 @@ import { Efnistakn, getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 import { ButtonProps } from './_abstract/_Button.js';
 import { Image, ImageProps } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import ButtonTertiary from './ButtonTertiary.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -29,11 +29,10 @@ export type GridBlocksProps = {
   blocks: Array<GridBlockItem>;
   twocol?: boolean;
 } & WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const GridBlocks = (props: GridBlocksProps) => {
-  const { blocks, twocol, startSeen, wrapperProps } = props;
-  const [ref] = useSeenEffect(startSeen);
+  const { blocks, twocol, wrapperProps } = props;
 
   return (
     <div
@@ -43,7 +42,6 @@ export const GridBlocks = (props: GridBlocksProps) => {
         [twocol && 'twocol'],
         (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       {blocks.map(({ title, summary, href, links = [], icon, image }, i) => {
         const imageProps = icon ? { src: getEfnistaknUrl(icon) } : image;

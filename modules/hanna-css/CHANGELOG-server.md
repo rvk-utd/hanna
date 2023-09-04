@@ -6,6 +6,11 @@
 - feat: Add component `Pagination`
 - feat: Add `/assets/reykjavik-logo-notext.png` — along with `--small` (x0.5)
   and `--large` (x2) variants
+- Seen-effect changes:
+  - Remove default/implicit seen-effect styling from all components
+  - Seen effects are now opt-in, via the `[data-seen-effect]` attribute, or a
+    custom sprinkle JS effect
+  - Add `-legacy-AutoSeenEffects` CSS token as back-compat option.
 - fix: Improve `InfoHero` styling in `phablet` viewport mode
 
 ## 0.8.80

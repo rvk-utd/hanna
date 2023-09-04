@@ -11,11 +11,27 @@ import {
   prem,
 } from './utils/miscUtils.js';
 import {
-  SeenEffect__delay,
   SeenEffect__fadein,
   SeenEffect__fadeup,
+  SeenEffect__resetDefault,
   SeenEffect__transition,
 } from './utils/seenEffects.js';
+
+export const ImageCards__seenEffects = (trigger?: null | string) => css`
+  ${SeenEffect__fadeup({ child: '.ImageCards__summary', trigger })};
+  ${SeenEffect__fadein({ child: '.ImageCards__item', trigger })};
+  ${range(1, 12).map((i) =>
+    SeenEffect__transition({ child: `.ImageCards__item:nth-child(${i})`, trigger })(css`
+      transition-delay: ${ms(i * 50 + 100)};
+    `)
+  )}
+  // Default delay, applied to for items where n > 12
+      ${SeenEffect__transition({ child: '.ImageCards__item', trigger })(css`
+    transition-delay: ${ms(13 * 50 + 100)};
+  `)}
+`;
+
+// ---------------------------------------------------------------------------
 
 const borderW = prem(12);
 
@@ -28,19 +44,12 @@ export default css`
       --ImageCards--fallback: url('/assets/illustrations/esjan.png');
       ${CardBlock_css}
       margin-bottom: ${scale_container(60, 110)};
+    }
 
-      ${SeenEffect__fadeup('.ImageCards__summary')};
-      ${SeenEffect__fadein('.ImageCards__item')};
-
-      ${range(1, 12).map(
-        (i) => css`
-          ${SeenEffect__transition(`.ImageCards__item:nth-child(${i})`)(
-            css`
-              ${SeenEffect__delay(ms(i * 50 + 200))}
-            `
-          )}
-        `
-      )}
+    * {
+      /* Custom (optional) transition effect */
+      ${SeenEffect__resetDefault('.ImageCards')}
+      ${ImageCards__seenEffects()}
     }
 
     .ImageCards--background {

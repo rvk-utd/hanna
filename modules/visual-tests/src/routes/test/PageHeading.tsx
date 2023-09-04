@@ -16,22 +16,16 @@ export default function () {
   return (
     <Minimal>
       {checkeredBackground('.PageHeading')}
-      <PageHeading startSeen>Align left</PageHeading>
+      <PageHeading>Align left</PageHeading>
       <DummyBlock thin />
-      <PageHeading startSeen align="right">
-        Align right
-      </PageHeading>
+      <PageHeading align="right">Align right</PageHeading>
       <DummyBlock thin />
-      <PageHeading startSeen small>
-        Small title
-      </PageHeading>
-      <PageHeading startSeen small align="right">
+      <PageHeading small>Small title</PageHeading>
+      <PageHeading small align="right">
         Small align right
       </PageHeading>
       <DummyBlock thin />
-      <PageHeading startSeen Tag="h2">
-        Heading level H2
-      </PageHeading>
+      <PageHeading Tag="h2">Heading level H2</PageHeading>
     </Minimal>
   );
 }

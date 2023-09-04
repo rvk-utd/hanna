@@ -49,7 +49,6 @@ export const _CityBlock: StoryComponent = () => {
         buttons: someButtons.slice(0, numButtons),
       }}
       {...IMAGES[type || '']}
-      startSeen
     />
   );
 };
@@ -84,7 +83,7 @@ export const CityBlock_Examples: StoryComponent = () => (
     {' '}
     {testCombos.map((props, i) => (
       <Fragment key={i}>
-        <CityBlock {...props} startSeen />
+        <CityBlock {...props} />
         {'\n\n'}
       </Fragment>
     ))}

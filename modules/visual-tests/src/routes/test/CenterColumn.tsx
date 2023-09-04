@@ -28,8 +28,8 @@ export default function () {
   return (
     <Minimal>
       <CenterColumn>
-        <PageHeading startSeen>This is the page heading</PageHeading>
-        <TextBlock startSeen>
+        <PageHeading>This is the page heading</PageHeading>
+        <TextBlock>
           <p>{lorem.short}</p>
           <p>{loremRT.medium(true)}</p>
           <h2>Lorem ipsum H2 title</h2>
@@ -40,7 +40,7 @@ export default function () {
       <CenterColumn>
         <ArticleMeta items={[{ label: 'Meta meta' }]} />
         <Heading>This is the page heading</Heading>
-        <TextBlock startSeen>
+        <TextBlock>
           <p>{lorem.short}</p>
         </TextBlock>
       </CenterColumn>

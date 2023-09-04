@@ -4,7 +4,7 @@ import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
 import { BlingComboProps, Blings } from './_abstract/_Blings.js';
 import { Image, ImageProps } from './_abstract/_Image.js';
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import ShareButtons from './ShareButtons.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -92,20 +92,10 @@ export type NewsHeroProps = {
   image?: ImageProps;
   blingType?: BlingOptions;
 } & WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const NewsHero = (props: NewsHeroProps) => {
-  const {
-    title,
-    sharing = true,
-    meta,
-    summary,
-    image,
-    blingType,
-    startSeen,
-    wrapperProps,
-  } = props;
-  const [ref] = useSeenEffect(startSeen);
+  const { title, sharing = true, meta, summary, image, blingType, wrapperProps } = props;
 
   const blings =
     (blingType && blingOptions[blingType]) || getStableRandomItem(blingOptions, title);
@@ -118,7 +108,6 @@ export const NewsHero = (props: NewsHeroProps) => {
         [!image && 'align--right'],
         (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       <div className="NewsHero__content">
         <h1 className="NewsHero__title">{title}</h1>

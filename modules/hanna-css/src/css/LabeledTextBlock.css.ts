@@ -11,7 +11,6 @@ import {
   LabeledTitleStyle__outdented,
 } from './styles/labeledTitle.js';
 import { cols_pct, grid_units } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 import { textContent } from './utils/textContent.js';
 
 export default css`
@@ -22,7 +21,6 @@ export default css`
 
   @media screen {
     .LabeledTextBlock {
-      ${SeenEffect__fadeup}
       margin-bottom: ${scale_container(30, 100)};
     }
 

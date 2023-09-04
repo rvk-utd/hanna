@@ -1,4 +1,4 @@
-import { css, MsValue, RawCssString } from 'es-in-css';
+import { css, RawCssString } from 'es-in-css';
 
 import { htmlCl } from '../../lib/classNames.js';
 
@@ -21,110 +21,156 @@ export const Transition__long = () => css`
   transition: all 500ms ease-in-out;
 `;
 
-export const Transition__properties = (properties = 'opacity, transform') => css`
-  transition-property: ${properties};
-`;
+// ---------------------------------------------------------------------------
+
+type Opts = { child?: string; trigger?: string | null } | 'bare' | string;
+// get SeenEffect options from opts object
+const getOpts = (opts?: Opts) => {
+  opts = opts === 'bare' ? {} : typeof opts === 'string' ? { child: opts } : opts || {};
+  const { child, trigger } = opts;
+  return {
+    child: child || '',
+    trigger: trigger === undefined ? '[data-seen-effect]' : trigger || '',
+  };
+};
+
+export const SeenEffect__initial = (opts?: Opts) => {
+  const { child, trigger } = getOpts(opts);
+  return (content: RawCssString) => {
+    const childSel = pad(child);
+    return css`
+      ${[
+        `${htmlCl.beforeSprinkling} &${trigger}${childSel}`,
+        `${htmlCl.beforeSprinkling} ${trigger} &${childSel}`,
+        `&${trigger}[data-is-seen='false']${childSel}`,
+        `${trigger}[data-is-seen='false'] &${childSel}`,
+      ].join(',')} {
+        ${content}
+      }
+    `;
+  };
+};
+
+export const SeenEffect__seen = (opts?: Opts) => {
+  const { child, trigger } = getOpts(opts);
+  return (content: RawCssString) => {
+    const sel = pad(child);
+    return css`
+      ${[
+        `&${trigger}[data-is-seen='true']${sel}`,
+        `${trigger}[data-is-seen='true'] &${sel}`,
+        // By setting data-is-seen="" a developer can opt-out of the transitioning effect.
+        `&${trigger}[data-is-seen='']${sel}`,
+        `${trigger}[data-is-seen=''] &${sel}`,
+      ].join(',')} {
+        ${content}
+      }
+    `;
+  };
+};
+
+export const SeenEffect__transition = (opts?: Opts) => {
+  const { child, trigger } = getOpts(opts);
+  return (content: RawCssString) => {
+    const sel = pad(child);
+    return css`
+      ${[
+        `&${trigger}[data-is-seen='true']${sel}`,
+        `${trigger}[data-is-seen='true'] &${sel}`,
+      ].join(',')} {
+        ${content}
+      }
+    `;
+  };
+};
 
 // ---------------------------------------------------------------------------
 
-export const SeenEffect__initial =
-  (childSelector = '') =>
-  (content: RawCssString) => {
-    const sel = pad(childSelector);
-    return css`
-      ${htmlCl.beforeSprinkling} &${sel}, &[data-is-seen='false']${sel} {
-        ${content}
-      }
-    `;
-  };
+const transitionProperties = 'opacity, transform';
 
-export const SeenEffect__seen =
-  (childSelector = '') =>
-  (content: RawCssString) => {
-    // By setting data-is-seen="" a developer can opt-out of the transitioning effect.
-    const sel = pad(childSelector);
-    return css`
-      &[data-is-seen='']${sel}, &[data-is-seen='true']${sel} {
-        ${content}
-      }
-    `;
-  };
-
-export const SeenEffect__transition =
-  (childSelector = '') =>
-  (content: RawCssString) => {
-    const sel = pad(childSelector);
-    return css`
-      &[data-is-seen='true']${sel} {
-        ${content}
-      }
-    `;
-  };
-
-// ---------------------------------------------------------------------------
-
-export const SeenEffect__fadein = (childSelector?: string) => css`
-  ${SeenEffect__initial(childSelector)(css`
+export const SeenEffect__fadein = (opts?: Opts) => css`
+  ${SeenEffect__initial(opts)(css`
     opacity: 0;
   `)}
-  ${SeenEffect__seen(childSelector)(css`
+  ${SeenEffect__seen(opts)(css`
     opacity: 1;
   `)}
-  ${SeenEffect__transition(childSelector)(css`
-    ${Transition__long}
-    ${Transition__properties}
+  ${SeenEffect__transition(opts)(css`
+    ${Transition__medium};
+    transition-property: ${transitionProperties};
   `)}
 `;
 
-export const SeenEffect__fadeup = (childSelector?: string) => css`
-  ${SeenEffect__initial(childSelector)(css`
+export const SeenEffect__fadeup = (opts?: Opts) => css`
+  ${SeenEffect__initial(opts)(css`
     opacity: 0;
     transform: translateY(200px);
   `)}
-  ${SeenEffect__seen(childSelector)(css`
+  ${SeenEffect__seen(opts)(css`
     opacity: 1;
     transform: none;
   `)}
-  ${SeenEffect__transition(childSelector)(css`
-    ${Transition__long}
-    ${Transition__properties}
+  ${SeenEffect__transition(opts)(css`
+    ${Transition__medium};
+    transition-property: ${transitionProperties};
   `)}
 `;
 
-export const SeenEffect__fadeleft = (childSelector?: string) => css`
-  ${SeenEffect__initial(childSelector)(css`
+export const SeenEffect__fadeleft = (opts?: Opts) => css`
+  ${SeenEffect__initial(opts)(css`
     opacity: 0;
     transform: translateX(-200px);
   `)}
-  ${SeenEffect__seen(childSelector)(css`
+  ${SeenEffect__seen(opts)(css`
     opacity: 1;
     transform: none;
   `)}
-  ${SeenEffect__transition(childSelector)(css`
-    ${Transition__long}
-    ${Transition__properties}
+  ${SeenEffect__transition(opts)(css`
+    ${Transition__medium};
+    transition-property: ${transitionProperties};
   `)}
 `;
 
 // ---------------------------------------------------------------------------
 
-export const SeenEffect__reset = (childSelector?: string) => css`
-  ${SeenEffect__initial(childSelector)(css`
+export const SeenEffect__reset = (opts?: Opts) => css`
+  ${SeenEffect__initial(opts)(css`
     opacity: 1;
     transform: none;
   `)}
-  ${SeenEffect__seen(childSelector)(css`
+  ${SeenEffect__seen(opts)(css`
     opacity: initial;
     transform: initial;
   `)}
-  ${SeenEffect__transition(childSelector)(css`
+  ${SeenEffect__transition(opts)(css`
     transition: none;
   `)}
 `;
 
-export const SeenEffect__delay = (delay: MsValue) => css`
-  transition-delay: ${delay};
-`;
+/**
+ * Resets the default data-seen-effect="" styling of a target element
+ * (or the current `&` selector) to override the default "fadeup" effect.
+ *
+ * This allows you to set an empty data-seen-effect="" attribute
+ * (or use an unmodified "<SeenEffect />" component wrapper) to trigger
+ * completely custom seen-effect styling on child nodes only.
+ *
+ * Otherwise a `data-seen-effect="custom"` attribute
+ * (or `<SeenEffect effectType="custom" />`) would be required.
+ */
+export const SeenEffect__resetDefault = (
+  opts?: string | { target?: string; child?: string }
+) => {
+  opts = typeof opts === 'string' ? { target: opts } : opts || {};
+  const resetStyles = SeenEffect__reset({
+    child: opts.child,
+    trigger: '[data-seen-effect=""]',
+  });
+  if (opts.target) {
+    return `${opts.target} { ${resetStyles} }`;
+  }
+  return resetStyles;
+};
 
 /** @deprecated  Remove this mixin in v0.9 */
 export const SeenEffect__disallowNesting = () => css`

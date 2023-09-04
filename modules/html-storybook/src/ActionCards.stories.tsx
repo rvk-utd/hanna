@@ -35,7 +35,6 @@ export const _ActionCards: StoryComponent = () => {
       title={title && 'Action Cards'}
       summaryElement={summary && <ButtonTertiary href="">Sjá yfirlit</ButtonTertiary>}
       cards={cards}
-      startSeen
     />
   );
 };

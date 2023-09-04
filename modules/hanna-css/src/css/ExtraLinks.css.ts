@@ -14,15 +14,45 @@ import {
   px_pct,
 } from './utils/miscUtils.js';
 import {
-  SeenEffect__delay,
   SeenEffect__fadein,
   SeenEffect__fadeup,
   SeenEffect__initial,
+  SeenEffect__resetDefault,
   SeenEffect__seen,
   SeenEffect__transition,
   Transition__long,
-  Transition__properties,
 } from './utils/seenEffects.js';
+
+// ---------------------------------------------------------------------------
+
+export const ExtraLinks__seenEffects = (trigger?: null | string) => css`
+  ${SeenEffect__initial({ child: '.ExtraLinks::after', trigger })(css`
+    border-left: ${scale_phone_netbook(8, 24)} solid ${vars.color_suld_25};
+  `)};
+  ${SeenEffect__seen({ child: '.ExtraLinks::after', trigger })(css`
+    transform: scaleY(0);
+    transform-origin: 0 100%;
+  `)};
+  ${SeenEffect__transition({ child: '.ExtraLinks::after', trigger })(css`
+    ${Transition__long};
+    transition-property: transform;
+  `)};
+
+  ${SeenEffect__fadeup({ child: '.ExtraLinks__title', trigger })};
+
+  ${SeenEffect__fadein({ child: '.ExtraLinks__item', trigger })};
+  ${range(1, 12).map((i) =>
+    SeenEffect__transition({ child: `.ExtraLinks__item:nth-child(${i})`, trigger })(css`
+      transition-delay: ${ms(i * 60 + 100)};
+    `)
+  )};
+  // Default delay, applied to for items where n > 12
+  ${SeenEffect__transition({ child: `.ExtraLinks__item`, trigger })(css`
+    transition-delay: ${ms(13 * 60 + 100)};
+  `)}
+`;
+
+// ---------------------------------------------------------------------------
 
 const icon_indent = prem(26);
 const iconList = [
@@ -37,36 +67,16 @@ export default css`
       background-color: ${vars.color_suld_25};
       padding: ${scale_container(30, 90)} 0;
       margin-bottom: ${scale_container(60, 100)};
-      ${extendBackgroundWithUnderlay}
+      ${extendBackgroundWithUnderlay('both', 'before')}
     }
 
-    // strictly for transition effect
+    /* Custom (optional) transition effect */
     .ExtraLinks {
-      ${SeenEffect__fadein('.ExtraLinks__item')}
-      ${SeenEffect__fadeup('.ExtraLinks__title')}
       ${extendBackgroundWithUnderlay('left', 'after')}
-
-      ${SeenEffect__initial('::after')(css`
-        border-left: ${scale_phone_netbook(8, 24)} solid ${vars.color_suld_25};
-      `)}
-
-      ${SeenEffect__transition('::after')(css`
-        ${Transition__long}
-        ${Transition__properties('transform')}
-      `)}
-
-      ${SeenEffect__seen('::after')(css`
-        transform: scaleY(0);
-        transform-origin: 0 100%;
-      `)}
-
-      ${range(1, 12).map(
-        (i) => css`
-          ${SeenEffect__seen(`.ExtraLinks__item:nth-child(${i})`)(css`
-            ${SeenEffect__delay(ms(i * 50 + 200))}
-          `)}
-        `
-      )}
+    }
+    * {
+      ${SeenEffect__resetDefault('.ExtraLinks')}
+      ${ExtraLinks__seenEffects()}
     }
 
     .ExtraLinks::before {

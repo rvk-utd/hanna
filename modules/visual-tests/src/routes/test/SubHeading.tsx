@@ -16,26 +16,18 @@ export default function () {
   return (
     <Minimal>
       {checkeredBackground('.SubHeading')}
-      <SubHeading startSeen align="right">
-        Right aligned
-      </SubHeading>
+      <SubHeading align="right">Right aligned</SubHeading>
       <DummyBlock thin />
-      <SubHeading startSeen align="right" small>
+      <SubHeading align="right" small>
         Right aligned and small
       </SubHeading>
       <DummyBlock thin />
-      <SubHeading startSeen>Left aligned</SubHeading>
-      <SubHeading startSeen small>
-        Left aligned and small
-      </SubHeading>
+      <SubHeading>Left aligned</SubHeading>
+      <SubHeading small>Left aligned and small</SubHeading>
       <DummyBlock thin />
-      <SubHeading startSeen wide>
-        Wide Subheading
-      </SubHeading>
+      <SubHeading wide>Wide Subheading</SubHeading>
       <DummyBlock thin />
-      <SubHeading startSeen Tag="h3">
-        Heading level H3
-      </SubHeading>
+      <SubHeading Tag="h3">Heading level H3</SubHeading>
     </Minimal>
   );
 }

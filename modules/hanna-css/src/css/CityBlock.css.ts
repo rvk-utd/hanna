@@ -14,7 +14,6 @@ import { WARNING_soft__ } from '../lib/WARNING__.js';
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_SameColor } from './styles/links.js';
 import { cols_pct, cols_px, grid_units, prem } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 const minH = px(480 - 2 * grid.column);
 
@@ -28,7 +27,6 @@ export default css`
   */
   @media screen {
     .CityBlock {
-      ${SeenEffect__fadeup}
       display: flex;
       flex-flow: column-reverse;
       margin-bottom: ${scale_container(30, 20 * grid.unit)};

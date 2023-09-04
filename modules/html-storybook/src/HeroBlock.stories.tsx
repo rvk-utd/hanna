@@ -47,7 +47,6 @@ export const _HeroBlock: StoryComponent = () => {
         href: '',
         label: 'Tertiary button',
       }}
-      startSeen
     />
   );
 };
@@ -87,7 +86,6 @@ export const HeroBlock_Examples: StoryComponent = () => {
                   label: 'Tertiary button',
                 }
               }
-              startSeen
             />
             {'\n\n'}
           </Fragment>

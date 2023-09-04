@@ -12,7 +12,6 @@ import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { prem } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css.js';
 
 const topBorderW = prem(21);
@@ -24,15 +23,11 @@ export default css`
 
   @media screen {
     .ArticleCarousel {
+      margin-bottom: ${scale_container(40, 130)};
       ${carouselStepperBeforeSprinklingPadding}
     }
     .ArticleCarousel__itemlist {
       ${carouselItemsScrollSnapStyles};
-    }
-
-    .ArticleCarousel {
-      ${SeenEffect__fadeup};
-      margin-bottom: ${scale_container(40, 130)};
     }
 
     .ArticleCarousel__title {

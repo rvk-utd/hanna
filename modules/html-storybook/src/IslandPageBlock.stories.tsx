@@ -36,7 +36,6 @@ export const _IslandPageBlock: StoryComponent = () => {
       align={align}
       background={background}
       illustration={illustrations[5]}
-      startSeen
     />
   );
 };

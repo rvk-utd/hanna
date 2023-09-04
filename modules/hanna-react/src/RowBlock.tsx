@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { BemModifierProps } from './utils/types.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -13,11 +13,10 @@ export type RowBlockProps = {
   children: ReactNode;
 } & BemModifierProps &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const RowBlock = (props: RowBlockProps) => {
-  const { right, modifier, className, children, startSeen, wrapperProps } = props;
-  const [ref] = useSeenEffect(startSeen);
+  const { right, modifier, className, children, wrapperProps } = props;
 
   return (
     <div
@@ -27,7 +26,6 @@ export const RowBlock = (props: RowBlockProps) => {
         [modifier, right && 'align--right'],
         className || (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       {children}
     </div>

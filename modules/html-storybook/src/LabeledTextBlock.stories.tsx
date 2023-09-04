@@ -50,7 +50,6 @@ export const _LabeledTextBlock: StoryComponent = () => {
       summary={SUMMARY_HTML()}
       buttons={button && buttons}
       wide={wide}
-      startSeen
     />
   );
 };
@@ -74,7 +73,6 @@ export const LabeledTextBlock_Examples: StoryComponent = () => {
             summary={html ? SUMMARY_HTML() : SUMMARY_TEXT}
             buttons={button && buttons}
             wide={wide}
-            startSeen
           />
           {'\n\n'}
         </Fragment>

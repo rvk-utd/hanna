@@ -70,7 +70,7 @@ export const _TextBlock: StoryComponent = () => {
   const small = boolean('Small text', false) || undefined;
 
   return (
-    <TextBlock key={layout + small} {...layoutProps} small={small} startSeen>
+    <TextBlock key={layout + small} {...layoutProps} small={small}>
       {demoMarkup()}
     </TextBlock>
   );

@@ -6,7 +6,6 @@ import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { cols_pct, grid_units, prem } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps
@@ -16,7 +15,6 @@ export default css`
   */
   @media screen {
     .NewsHero {
-      ${SeenEffect__fadeup()}
       position: relative;
       display: flex;
       flex-flow: column wrap;

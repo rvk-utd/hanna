@@ -32,13 +32,13 @@ const prop = {
 export default function () {
   return (
     <Minimal>
-      <NewsHero {...prop.short} image={photo.landscape} startSeen />
+      <NewsHero {...prop.short} image={photo.landscape} />
       <DummyBlock thin />
-      <NewsHero {...prop.medium} blingType="balls-small" startSeen />
+      <NewsHero {...prop.medium} blingType="balls-small" />
       <DummyBlock thin />
-      <NewsHero {...prop.long} blingType="dome" sharing={false} startSeen />
+      <NewsHero {...prop.long} blingType="dome" sharing={false} />
       <DummyBlock thin />
-      <NewsHero {...prop.medium} summary={undefined} blingType="snake" startSeen />
+      <NewsHero {...prop.medium} summary={undefined} blingType="snake" />
     </Minimal>
   );
 }

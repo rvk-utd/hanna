@@ -7,7 +7,7 @@ import {
   ImageCardListProps,
   ImageCardProps as _ImageCardProps,
 } from './_abstract/_CardList.js';
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { WrapperElmProps } from './utils.js';
 
 export type ImageCardsItemProps = _ImageCardProps;
@@ -17,11 +17,10 @@ export type ImageCardProps = ImageCardsItemProps;
 
 export type ImageCardsProps = ImageCardListProps &
   CardListSummaryProps & { background?: boolean } & WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const ImageCards = (props: ImageCardsProps) => {
-  const { background, startSeen, wrapperProps, ...cardListProps } = props;
-  const [ref] = useSeenEffect(startSeen);
+  const { background, wrapperProps, ...cardListProps } = props;
 
   return (
     <div
@@ -31,7 +30,6 @@ export const ImageCards = (props: ImageCardsProps) => {
         background && 'background',
         (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       <CardList
         {...cardListProps}

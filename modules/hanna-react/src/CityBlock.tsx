@@ -4,7 +4,7 @@ import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets'
 
 import { Block, BlockItem } from './_abstract/_Block.js';
 import { ImageProps } from './_abstract/_Image.js';
-import { SeenProp } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { Alignment, aligns } from './constants.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -19,7 +19,7 @@ export type CityBlockProps = {
   content: BlockItem;
 } & EitherObj<{ illustration: Illustration }, { image: ImageProps }> &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const CityBlock = (props: CityBlockProps) => {
   const align = props.align || 'right';
@@ -37,7 +37,6 @@ export const CityBlock = (props: CityBlockProps) => {
       content={props.content}
       image={imageProps}
       wrapperProps={props.wrapperProps}
-      startSeen={props.startSeen}
     />
   );
 };

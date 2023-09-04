@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import ArticleMeta, { ArticleMetaProps } from './ArticleMeta.js';
 import ContentImage, { ContentImageProps } from './ContentImage.js';
 import Heading from './Heading.js';
@@ -18,12 +18,11 @@ export type ContentArticleProps = {
   topImage?: ContentImageProps;
   body: ReactNode;
   relatedLinks?: RelatedLinksProps;
-} & SeenProp &
-  WrapperElmProps;
+} & WrapperElmProps &
+  DeprecatedSeenProp;
 
 export const ContentArticle = (props: ContentArticleProps) => {
   const { relatedLinks, wrapperProps } = props;
-  const [ref] = useSeenEffect(props.startSeen);
 
   const headingElm = (
     <Heading forceH1={props.headlineTag === 'h1'}>{props.headline}</Heading>
@@ -33,7 +32,6 @@ export const ContentArticle = (props: ContentArticleProps) => {
     <div
       {...wrapperProps}
       className={modifiedClass('ContentArticle', null, (wrapperProps || {}).className)}
-      ref={ref}
     >
       {props.meta ? (
         <div className="ContentArticle__header">
@@ -43,7 +41,7 @@ export const ContentArticle = (props: ContentArticleProps) => {
       ) : (
         headingElm
       )}
-      <TextBlock startSeen>
+      <TextBlock>
         {props.topImage && <ContentImage {...props.topImage} />}
         {props.body}
       </TextBlock>

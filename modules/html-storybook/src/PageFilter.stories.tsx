@@ -57,7 +57,6 @@ export const _PageFilter: StoryComponent = () => {
         }
         footnote={footnote}
         underlap={underlap}
-        startSeen
       />
 
       {/* --------------------------------------------------------------------------- */}

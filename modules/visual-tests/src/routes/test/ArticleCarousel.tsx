@@ -71,13 +71,8 @@ export const meta: V2_MetaFunction = autoTitle;
 export default function () {
   return (
     <Minimal>
-      <ArticleCarousel
-        title="Article Carousel"
-        moreLabel="Lesa meira"
-        items={items}
-        startSeen
-      />
-      <ArticleCarousel items={items.slice(0, 2)} startSeen />
+      <ArticleCarousel title="Article Carousel" moreLabel="Lesa meira" items={items} />
+      <ArticleCarousel items={items.slice(0, 2)} />
     </Minimal>
   );
 }

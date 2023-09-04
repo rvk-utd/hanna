@@ -29,7 +29,6 @@ export const _ImageCards: StoryComponent = () => {
       background={background}
       cards={imageCards}
       imgPlaceholder={imgPlaceholder}
-      startSeen
     />
   );
 };

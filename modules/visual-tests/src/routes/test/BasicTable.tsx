@@ -12,7 +12,7 @@ export const meta: V2_MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = cssTokens('Token');
 
-const content = (): Pick<BasicTableProps, 'thead' | 'tbody' | 'startSeen' | 'cols'> => ({
+const content = (): Pick<BasicTableProps, 'thead' | 'tbody' | 'cols'> => ({
   cols: [{ number: true }, {}, {}, {}, { tel: true }, { number: true }, {}],
   thead: [
     [
@@ -54,7 +54,6 @@ const content = (): Pick<BasicTableProps, 'thead' | 'tbody' | 'startSeen' | 'col
       'Í vinnslu',
     ],
   ],
-  startSeen: true,
 });
 
 const tFoot: BasicTableProps['tfoot'] = [
@@ -65,10 +64,7 @@ const tFoot: BasicTableProps['tfoot'] = [
   ],
 ];
 
-const miniTable: Pick<
-  BasicTableProps,
-  'cols' | 'thead' | 'tbody' | 'startSeen' | 'compact'
-> = {
+const miniTable: Pick<BasicTableProps, 'cols' | 'thead' | 'tbody' | 'compact'> = {
   cols: [{}, { text: 'right' }],
   thead: [['Vikudagur', 'Opnunartími']],
   tbody: [
@@ -76,7 +72,6 @@ const miniTable: Pick<
     ['Þriðjudagur – föstudagur', '9-21'],
     [{ value: 'Lokað um helgar', text: 'center', colSpan: 2 }],
   ],
-  startSeen: true,
   compact: true,
 };
 

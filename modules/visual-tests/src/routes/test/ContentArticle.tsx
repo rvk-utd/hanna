@@ -61,7 +61,6 @@ export default function () {
           </Fragment>
         }
         relatedLinks={RELATEDLINKS}
-        startSeen
       />
       <DummyBlock thin />
       <ContentArticle
@@ -73,7 +72,6 @@ export default function () {
             <p>{lorem.short}</p>
           </Fragment>
         }
-        startSeen
       />
     </Minimal>
   );
