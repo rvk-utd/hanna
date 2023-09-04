@@ -72,7 +72,6 @@ const TabsStory: React.FC<ControlProps> = ({
         tabs={tabs}
         aria-label="Optional label text"
         aria-controls={showExample && 'tab-target'}
-        startSeen
         vertical={vertical}
         subTabs={_subTabs}
       />
@@ -190,7 +189,6 @@ const TabsAnchorsStory = ({
         activeIdx={activeIdx}
         onSetActive={setActiveIdx}
         ssr={ssr}
-        startSeen
       />
 
       {'\n'}

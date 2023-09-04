@@ -64,7 +64,6 @@ const HeroBlockExamplesStory = () => {
                   label: 'Tertiary button',
                 }
               }
-              startSeen
             />
             {'\n\n'}
           </Fragment>
@@ -75,7 +74,7 @@ const HeroBlockExamplesStory = () => {
 };
 
 export const _HeroBlock: StoryObj<ControlProps> = {
-  render: () => (
+  render: (args) => (
     <HeroBlock
       key={args.illustration}
       title={TITLE_TEXT}
@@ -88,7 +87,6 @@ export const _HeroBlock: StoryObj<ControlProps> = {
         href: '',
         label: 'Tertiary button',
       }}
-      startSeen
     />
   ),
   argTypes: {

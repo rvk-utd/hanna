@@ -48,7 +48,7 @@ export const _FeatureList: StoryObj = {
         <br />
       </HiddenTiger>
 
-      <FeatureList title="Hvað er í boði í lauginni?" features={features} startSeen />
+      <FeatureList title="Hvað er í boði í lauginni?" features={features} />
 
       <HiddenTiger>
         <br />

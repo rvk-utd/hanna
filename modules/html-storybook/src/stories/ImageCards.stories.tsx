@@ -37,7 +37,6 @@ const ImageCardsStory: React.FC<ControlProps> = ({
       background={background}
       cards={imageCards}
       imgPlaceholder={imgPlaceholder}
-      startSeen
     />
   );
 };

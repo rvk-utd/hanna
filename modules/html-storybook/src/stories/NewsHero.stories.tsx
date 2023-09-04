@@ -62,7 +62,6 @@ const NewsHeroStory: React.FC<ControlProps> = ({ imageType, blingType }) => {
       image={image && { src: landscapeImage }}
       sharing={renderShareButtons}
       blingType={blingOptType}
-      startSeen
     />
   );
 };
@@ -123,7 +122,6 @@ const NewsHeroExamplesStory = () => {
           {...newsHeroProps}
           image={image ? { src: image } : undefined}
           sharing={renderShareButtons}
-          startSeen
         />
       ))}
     </>

@@ -54,7 +54,7 @@ const items = () => [
 
 export const _AccordionList: StoryObj<ControlProps> = {
   render: (args) => (
-    <AccordionList items={items()} wide={args.fullWidth} defaultOpen={[0]} startSeen />
+    <AccordionList items={items()} wide={args.fullWidth} defaultOpen={[0]} />
   ),
   argTypes: {
     fullWidth: { name: 'Full width' },
@@ -67,8 +67,8 @@ export const _AccordionList: StoryObj<ControlProps> = {
 export const AccordionListStyling: StoryObj<ControlProps> = {
   render: () => (
     <>
-      <AccordionList items={items()} startSeen />
-      <AccordionList items={items()} wide startSeen />
+      <AccordionList items={items()} />
+      <AccordionList items={items()} wide />
     </>
   ),
   parameters: {

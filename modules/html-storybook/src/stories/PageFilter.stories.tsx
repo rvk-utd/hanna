@@ -66,7 +66,6 @@ const PageFilterStory: React.FC<ControlProps> = ({
         }
         footnote={footnoteContent}
         underlap={underlap}
-        startSeen
       />
 
       {/* --------------------------------------------------------------------------- */}

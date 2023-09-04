@@ -93,7 +93,6 @@ const BasicTableStory: React.FC<ControlProps> = ({
             ],
           ]
         }
-        startSeen
       />
       {footnote && <Footnote>This is an optional footnote</Footnote>}
     </>

@@ -63,7 +63,7 @@ const HomePageStory = () => {
         }))}
       />
       {'\n\n\n'}
-      <ArticleCarousel {...articleCarouselData} startSeen />
+      <ArticleCarousel {...articleCarouselData} />
       {'\n\n\n'}
       <MiniMetrics {...miniMetricsData} />
       {'\n\n\n'}

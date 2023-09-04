@@ -65,7 +65,7 @@ const TextBlockStory: React.FC<ControlProps> = ({ layout, smallText }) => {
 
   const small = smallText || undefined;
   return (
-    <TextBlock key={_layout + small} {...layoutProps} small={small} startSeen>
+    <TextBlock key={_layout + small} {...layoutProps} small={small}>
       {demoMarkup()}
     </TextBlock>
   );

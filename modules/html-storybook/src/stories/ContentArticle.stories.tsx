@@ -88,7 +88,6 @@ export const _ContentArticle: StoryObj = {
       topImage={CONTENTIMAGE_PROPS}
       body={demoMarkup()}
       relatedLinks={RELATEDLINKS}
-      startSeen
     />
   ),
   parameters: {

@@ -28,7 +28,7 @@ const CarouselStory = () => {
         }
       `}
       </style>
-      <Carousel startSeen>
+      <Carousel>
         <p>
           <strong>one</strong> Subtext
         </p>

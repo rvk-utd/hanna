@@ -37,7 +37,6 @@ const ActionCardsStory: React.FC<ControlProps> = ({ showTitle, showSummaryElemen
         ) : undefined
       }
       cards={cards}
-      startSeen
     />
   );
 };

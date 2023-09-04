@@ -45,13 +45,7 @@ export default meta;
 const InfoBlockStory: React.FC<ControlProps> = ({ appearance }) => {
   const extraProps = getExtraProps(appearance);
   return (
-    <InfoBlock
-      title={TITLE_TEXT}
-      subtitle={SUBTEXT_TEXT}
-      items={ITEMS}
-      {...extraProps}
-      startSeen
-    />
+    <InfoBlock title={TITLE_TEXT} subtitle={SUBTEXT_TEXT} items={ITEMS} {...extraProps} />
   );
 };
 

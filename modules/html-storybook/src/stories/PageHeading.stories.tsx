@@ -25,7 +25,7 @@ const PageHeadingStory: React.FC<ControlProps> = ({
   const align = rightAligned ? 'right' : undefined;
   const _small = small || undefined;
   return (
-    <PageHeading Tag={htmlTag} align={align} small={_small} startSeen>
+    <PageHeading Tag={htmlTag} align={align} small={_small}>
       Page Heading Title
     </PageHeading>
   );

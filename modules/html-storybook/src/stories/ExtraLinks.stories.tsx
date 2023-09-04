@@ -45,7 +45,6 @@ const ExtraLinksStory = (props: ControlProps) => {
       cards={CARDS}
       relatedTitle={showRel && RELATED_TITLE}
       relatedLinks={showRel && RELATED_LINKS}
-      startSeen
     />
   );
 };

@@ -14,5 +14,5 @@ const meta: Meta = {
 export default meta;
 
 export const _ArticleCarousel: StoryObj = {
-  render: () => <ArticleCarousel {...articleCarouselData} startSeen />,
+  render: () => <ArticleCarousel {...articleCarouselData} />,
 };

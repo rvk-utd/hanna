@@ -32,7 +32,7 @@ const blocks = range(1, 5).map((n) => ({
 }));
 
 const GridBlocksStory: React.FC<ControlProps> = ({ twoColumns }) => {
-  return <GridBlocks blocks={blocks} twocol={twoColumns} startSeen />;
+  return <GridBlocks blocks={blocks} twocol={twoColumns} />;
 };
 
 export const _GridBlocks: StoryObj<ControlProps> = {

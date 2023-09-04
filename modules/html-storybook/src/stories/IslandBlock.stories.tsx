@@ -41,7 +41,7 @@ const IslandBlockStory = (props: ControlProps) => {
     props.type === 'textonly'
       ? { content: [content, { ...content, title: TITLE_SHORT + ' 2' }] }
       : { content, shapes: /* shapeImage ||  */ formheimur[3] };
-  return <IslandBlock align={align} {...contentProps} startSeen />;
+  return <IslandBlock align={align} {...contentProps} />;
 };
 
 export const _IslandBlock: StoryObj<ControlProps> = {
@@ -130,7 +130,7 @@ const IslandBlockExamplesStory = () => {
       {' '}
       {testCombos.map((props, i) => (
         <React.Fragment key={i}>
-          <IslandBlock {...props} startSeen />
+          <IslandBlock {...props} />
           {'\n\n'}
         </React.Fragment>
       ))}

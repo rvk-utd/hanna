@@ -68,7 +68,7 @@ const RowBlockStory: React.FC<ControlProps> = ({
 
   const colNarrow2 = narrowSecondColumn;
   return (
-    <RowBlock right={right} startSeen>
+    <RowBlock right={right}>
       <RowBlockColumn background={colBg1} narrow={colNarrow1}>
         {COL_CONTENT.first()}
       </RowBlockColumn>

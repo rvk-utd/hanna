@@ -14,10 +14,10 @@ export default meta;
 const CenterColumnStory = () => {
   return (
     <CenterColumn>
-      <PageHeading startSeen>
+      <PageHeading>
         <HiddenTiger serverSide="...">This is the page heading</HiddenTiger>
       </PageHeading>
-      <TextBlock startSeen>
+      <TextBlock>
         <HiddenTiger serverSide="...">
           <p>
             The <code>CenterColumn</code> is for simple "article" layout.

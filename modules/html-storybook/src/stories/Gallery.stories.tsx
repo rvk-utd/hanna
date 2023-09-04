@@ -46,5 +46,5 @@ const galleryData: Array<GalleryItemProps> = [
 ];
 
 export const _Gallery: StoryObj = {
-  render: () => <Gallery items={galleryData} startSeen />,
+  render: () => <Gallery items={galleryData} />,
 };

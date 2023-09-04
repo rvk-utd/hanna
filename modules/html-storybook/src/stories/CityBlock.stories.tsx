@@ -56,7 +56,6 @@ const CityBlockStory: React.FC<ControlProps> = ({
         buttons: someButtons.slice(0, links),
       }}
       {...IMAGES[type || '']}
-      startSeen
     />
   );
 };
@@ -88,7 +87,7 @@ const CityBlockExamplesStory = () => {
       {' '}
       {testCombos.map((props, i) => (
         <Fragment key={i}>
-          <CityBlock {...props} startSeen />
+          <CityBlock {...props} />
           {'\n\n'}
         </Fragment>
       ))}

@@ -53,7 +53,6 @@ const LabeledTextBlockStory: React.FC<ControlProps> = ({ button, wideFormat }) =
       summary={SUMMARY_HTML()}
       buttons={showButtons && buttons}
       wide={wide}
-      startSeen
     />
   );
 };
@@ -89,7 +88,6 @@ const LabeledTextBlockExamplesStory = () => {
             summary={html ? SUMMARY_HTML() : SUMMARY_TEXT}
             buttons={button && buttons}
             wide={wide}
-            startSeen
           />
           {'\n\n'}
         </Fragment>

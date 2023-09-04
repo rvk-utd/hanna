@@ -28,7 +28,7 @@ const SubHeadingStory: React.FC<ControlProps> = ({ layout, small, headingLevel }
 
   const htmlTag = headingLevel !== 'h2' ? headingLevel : undefined;
   return (
-    <SubHeading {...layoutProps} small={_small} Tag={htmlTag} startSeen>
+    <SubHeading {...layoutProps} small={_small} Tag={htmlTag}>
       Subheading title
     </SubHeading>
   );
