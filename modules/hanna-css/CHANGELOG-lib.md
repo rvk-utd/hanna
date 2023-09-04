@@ -9,7 +9,8 @@
 _2023-09-04_
 
 - feat: Add `formFieldVars` for custom styling `FormField`'s
-- feat: Add token `Pagination` to `CssModuleToken`s
+- feat: Add tokens `Pagination`, `-legacy-AutoSeenEffects` to
+  `CssModuleToken`s
 
 ## 0.4.6
 
