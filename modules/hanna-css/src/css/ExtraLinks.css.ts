@@ -67,7 +67,7 @@ export default css`
       background-color: ${vars.color_suld_25};
       padding: ${scale_container(30, 90)} 0;
       margin-bottom: ${scale_container(60, 100)};
-      ${extendBackgroundWithUnderlay}
+      ${extendBackgroundWithUnderlay('both', 'before')}
     }
 
     /* Custom (optional) transition effect */
