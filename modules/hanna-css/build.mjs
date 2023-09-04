@@ -1,4 +1,4 @@
-// @ts-check
+//@ts-check
 /* eslint-env es2022 */
 import { execSync } from 'child_process';
 import { compileCSSFromJS } from 'es-in-css/compiler';

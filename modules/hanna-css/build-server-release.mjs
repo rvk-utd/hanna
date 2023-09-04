@@ -1,3 +1,4 @@
+//@ts-check
 /* eslint-env es2022 */
 import { execSync } from 'child_process';
 import { readFile } from 'fs/promises';
@@ -38,8 +39,8 @@ try {
     ].join(' && ')
   );
 } catch (err) {
-  console.log('--------------------------');
-  console.log(err.message);
-  console.log('--------------------------');
+  console.info('--------------------------');
+  console.info(err.message);
+  console.info('--------------------------');
   process.exit(1);
 }

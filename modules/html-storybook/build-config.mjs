@@ -1,4 +1,4 @@
-// @ts-check
+//@ts-check
 /* eslint-env es2022 */
 import { readFile } from 'fs/promises';
 
@@ -8,6 +8,7 @@ export const rootFolder = '../../';
 export const htmlVersion = JSON.parse(
   (await readFile(rootFolder + 'package.json')).toString()
 ).version;
+
 // Only use the MAJOR + MINOR version
 export const htmlVersionFolder = htmlVersion.split('.').slice(0, 2).join('.');
 

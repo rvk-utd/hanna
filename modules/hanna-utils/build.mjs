@@ -1,4 +1,4 @@
-// @ts-check
+//@ts-check
 import { readFile, writeFile } from 'fs/promises';
 
 import { buildNpmLib, buildTests, distDir, opts } from '../../build-helpers.mjs';

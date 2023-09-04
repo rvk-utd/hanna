@@ -1,3 +1,4 @@
+//@ts-check
 /* eslint-env es2022 */
 import { execSync } from 'child_process';
 import { existsSync } from 'fs';
@@ -45,9 +46,9 @@ try {
     ].join(' && ')
   );
 } catch (err) {
-  console.log('--------------------------');
-  console.log(err.message);
-  console.log('--------------------------');
-  console.log(err.output.toString());
+  console.info('--------------------------');
+  console.info(err.message);
+  console.info('--------------------------');
+  console.info(err.output.toString());
   process.exit(1);
 }
