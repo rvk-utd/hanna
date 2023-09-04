@@ -32,6 +32,13 @@ export type SkeletonProps = {
     Deafult: `1`
   */
   height?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
+  /**
+   Sets the space between multiple skeleton `items`, in units of
+    "standard line-height"
+
+    Default: `3`
+  */
+  gap?: 1 | 2 | 3 | 4 | 5;
 } & EitherObj<
   {
     // prettier-ignore
@@ -39,13 +46,6 @@ export type SkeletonProps = {
       Optionally render mutiple skeletons, of the same `type` and `height`
     */
     items?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
-    /**
-      Sets the space between multiple skeleton `items`, in units of
-      "standard line-height"
-
-      Default: `3`
-    */
-    gap?: 1 | 2 | 3 | 4 | 5;
   },
   // NOTE: wrapperProps is only available to single-item Skeletons, because
   // multi-item Skeletons don't have a single wrapper element.
