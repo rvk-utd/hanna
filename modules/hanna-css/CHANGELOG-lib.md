@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `formFieldVars` for custom styling `FormField`'s
+- feat: Add token `Pagination` to `CssModuleToken`s
 
 ## 0.4.6
 
@@ -25,6 +26,7 @@ _2023-07-31_
 _2023-07-26_
 
 - feat: Add `@reykjavik/hanna-css/scale` with `clamp*` and `scale*` helpers
+- feat: Add tokens `Multiselect`, `ReadSpeakerPlayer` to `CssModuleToken`s
 - fix: List `tslib` as dependency
 
 ## 0.4.3
@@ -72,6 +74,7 @@ _2023-04-04_
 _2023-03-20_
 
 - feat: Add `hannaVars.Layout$$main__paddingTop`
+- feat: Add token `Tooltip` to `CssModuleToken`s
 
 ## 0.3.14
 
