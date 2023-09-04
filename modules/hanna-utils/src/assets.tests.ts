@@ -27,6 +27,8 @@ o.spec('hanna-utils/assets', () => {
 
       setStyleServerUrl: true,
       styleServerUrl: true,
+
+      getRvkLogoUrl: true,
     };
 
     reportKeyMismatch(lib, expectedTokens);
