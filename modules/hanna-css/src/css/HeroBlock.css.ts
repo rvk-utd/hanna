@@ -7,7 +7,6 @@ import { hannaVars } from '../lib/hannavars.js';
 import { WARNING_soft__ } from '../lib/WARNING__.js';
 
 import { cols_pct, cols_px, prem, resetImageChild } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps
@@ -16,7 +15,6 @@ export default css`
   */
   @media screen {
     .HeroBlock {
-      ${SeenEffect__fadeup}
       padding: ${scale_container(0, 1 * grid.unit)} 0;
       margin-bottom: ${scale_container(30, 100)};
       display: flex;

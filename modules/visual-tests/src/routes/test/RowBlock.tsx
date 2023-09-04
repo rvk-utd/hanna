@@ -17,7 +17,7 @@ export const meta: V2_MetaFunction = autoTitle;
 export default function () {
   return (
     <Minimal>
-      <RowBlock right startSeen>
+      <RowBlock right>
         <RowBlockColumn background="primary">
           <strong>1. Column (Right Aligned)</strong>
           <br />
@@ -34,7 +34,7 @@ export default function () {
 
       <DummyBlock thin />
 
-      <RowBlock startSeen>
+      <RowBlock>
         <RowBlockColumn background>
           <strong>1. Column Left Aligned </strong>
           <br />
@@ -47,7 +47,7 @@ export default function () {
 
       <DummyBlock thin />
 
-      <RowBlock startSeen>
+      <RowBlock>
         <RowBlockColumn background="primary" narrow>
           <strong>1. Column Left Aligned Narrow</strong>
           <br />

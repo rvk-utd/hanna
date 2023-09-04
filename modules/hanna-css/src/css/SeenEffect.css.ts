@@ -10,15 +10,22 @@ export default css``;
 
 // inlined in -basics.css.ts
 export const SeenEffect_css = () => css`
-  [data-seen-effect=''],
-  [data-seen-effect='true'],
-  [data-seen-effect='fadeup'] {
-    ${SeenEffect__fadeup}
+  [data-seen-effect='fadeup'],
+  /*
+    Make "fadeup" the default (the empty value) effect.
+    To override this, and effectively make "custom" (no-styling) the default,
+    use \`SeenEffect__resetDefault()\` for a target element.
+  */
+  [data-seen-effect=''] {
+    ${SeenEffect__fadeup('bare')}
   }
   [data-seen-effect='fadein'] {
-    ${SeenEffect__fadein}
+    ${SeenEffect__fadein('bare')}
   }
   [data-seen-effect='fadeleft'] {
-    ${SeenEffect__fadeleft}
+    ${SeenEffect__fadeleft('bare')}
+  }
+  [data-seen-effect='custom'] {
+    /* Custom effect styles are implemented in the contained component. */
   }
 `;

@@ -94,7 +94,6 @@ export const _BasicTable: StoryComponent = () => {
             ],
           ]
         }
-        startSeen
       />
       {footnote && <Footnote>This is an optional footnote</Footnote>}
     </>

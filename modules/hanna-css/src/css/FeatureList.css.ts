@@ -5,7 +5,6 @@ import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { cols_px, prem } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps
@@ -14,7 +13,6 @@ export default css`
   */
   @media screen {
     .FeatureList {
-      ${SeenEffect__fadeup}
       --efnistakn: ''; // scope variable to container.
       background-color: ${vars.color_suld_25};
       --left-offset: ${vars.grid_1};

@@ -2,7 +2,7 @@ import React, { KeyboardEvent, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { getFrag } from '@hugsmidjan/qj/frag';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 const navKeyEffects: Record<string, 1 | -1> = {
@@ -114,7 +114,7 @@ export type TabsProps<T extends TabItemProps = TabItemProps> = BaseTabsProps<T> 
   /** Optional <Tabs/> block connected to the currently active tab */
   subTabs?: BaseTabsProps;
 } & WrapperElmProps<null, 'role' | 'aria-label' | 'aria-labelledby'> &
-  SeenProp;
+  DeprecatedSeenProp;
 
 /** @deprecated  Use `TabsProps` instead  (Will be removed in v0.11) */
 export type TablistProps<T extends TabItemProps = TabItemProps> = TabsProps<T>;
@@ -135,7 +135,6 @@ export const Tabs = (props: TabsProps) => {
     onSetActive,
     activateOnFocus,
     ssr,
-    startSeen,
     vertical,
     subTabs,
   } = props;
@@ -172,7 +171,6 @@ export const Tabs = (props: TabsProps) => {
         wrapperProps.onKeyDown?.(e);
       }
     });
-  const [ref] = useSeenEffect(startSeen);
 
   const listProps: ListStateProps = {
     activeIdx,
@@ -195,7 +193,6 @@ export const Tabs = (props: TabsProps) => {
       aria-labelledby={ariaLabelledBy}
       onKeyDown={handleKeydown}
       data-sprinkled={isBrowser}
-      ref={ref}
     >
       {tabs.map((tabProps, index) => renderTab(tabProps, index, listProps))}
       {subTabs && (
@@ -204,7 +201,6 @@ export const Tabs = (props: TabsProps) => {
           role={'role' in subTabs ? subTabs.role : role}
           activateOnFocus={subTabs.activateOnFocus ?? activateOnFocus}
           ssr={subTabs.ssr ?? ssr}
-          startSeen
           // just to be sure
           vertical={undefined}
           subTabs={undefined}

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { WrapperElmProps } from './utils.js';
 
 export type PageHeadingProps = {
@@ -10,11 +10,10 @@ export type PageHeadingProps = {
   small?: boolean;
   children: ReactNode;
 } & WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const PageHeading = (props: PageHeadingProps) => {
-  const { Tag = 'h1', align, small, children, startSeen, wrapperProps } = props;
-  const [ref] = useSeenEffect(startSeen);
+  const { Tag = 'h1', align, small, children, wrapperProps } = props;
 
   return (
     <Tag
@@ -24,7 +23,6 @@ export const PageHeading = (props: PageHeadingProps) => {
         [small && 'small', align === 'right' && 'align--' + align],
         (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       {children}
     </Tag>

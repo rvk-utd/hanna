@@ -22,13 +22,12 @@ const content = (
   cityBlockTitle: string,
   i: number,
   summary: string | JSX.Element = lorem.medium
-): Pick<CityBlockProps, 'content' | 'startSeen'> => ({
+): Pick<CityBlockProps, 'content'> => ({
   content: {
     title: cityBlockTitle,
     summary,
     buttons: buttonList.slice(0, i),
   },
-  startSeen: true,
 });
 
 export default function () {

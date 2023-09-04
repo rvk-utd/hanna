@@ -87,6 +87,5 @@ export const _ContentArticle: StoryComponent = () => (
     topImage={CONTENTIMAGE_PROPS}
     body={demoMarkup()}
     relatedLinks={RELATEDLINKS}
-    startSeen
   />
 );

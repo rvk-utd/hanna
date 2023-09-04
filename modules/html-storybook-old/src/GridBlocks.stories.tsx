@@ -34,5 +34,5 @@ const blocks = range(1, 5).map((n) => ({
 
 export const _GridBlocks: StoryComponent = () => {
   const twocol = boolean('Two columns', false);
-  return <GridBlocks blocks={blocks} twocol={twocol} startSeen />;
+  return <GridBlocks blocks={blocks} twocol={twocol} />;
 };

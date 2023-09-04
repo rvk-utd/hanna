@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
 
 export const DATA_ATTR_NAME = 'is-seen';
-const STACKING_DELAY = 400; // ms
+const STACKING_DELAY = 200; // ms
 
 const dataAttr = 'data-' + DATA_ATTR_NAME;
 
@@ -58,9 +58,11 @@ getObserver.DATA_ATTR_NAME = DATA_ATTR_NAME;
 // ---------------------------------------------------------------------------
 
 const effects = {
-  fadein: 1,
+  /** The default effect type */
   fadeup: 1,
+  fadein: 1,
   fadeleft: 1,
+  custom: 1,
 } as const;
 export type SeenEffectType = keyof typeof effects;
 
@@ -79,6 +81,15 @@ export const getEffectAttr = (maybeType?: string) => ({
 });
 
 // ---------------------------------------------------------------------------
+
+/**
+ * Use this prop type on components that were previously automatically
+ * setting seen-effect on themselves.
+ */
+export type DeprecatedSeenProp = {
+  /** @deprecated  This prop does nothing nowadays (Will be removed in v0.11) */
+  startSeen?: boolean;
+};
 
 export type SeenProp = {
   /** Should the component appear instantly, and not transition-in once seen */

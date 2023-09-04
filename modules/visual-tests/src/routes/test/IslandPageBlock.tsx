@@ -26,7 +26,6 @@ export default function () {
         buttons={buttonList.slice(0, 1)}
         background="none"
         image={illustr.tall}
-        startSeen
       />
       <DummyBlock thin />
       <IslandPageBlock
@@ -36,7 +35,6 @@ export default function () {
         align="right"
         background="gray"
         image={illustr.tall}
-        startSeen
       />
       <DummyBlock thin />
       <IslandPageBlock
@@ -46,7 +44,6 @@ export default function () {
         align="left"
         background="secondary"
         image={illustr.tall}
-        startSeen
       />
     </Minimal>
   );

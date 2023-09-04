@@ -28,7 +28,7 @@ export const _Carousel: StoryComponent = () => (
         }
       `}
     </style>
-    <Carousel startSeen>
+    <Carousel>
       <p>
         <strong>one</strong> Subtext
       </p>

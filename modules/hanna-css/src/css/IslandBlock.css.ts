@@ -11,14 +11,12 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_SameColor } from './styles/links.js';
 import { cols_pct, extendBackgroundWithUnderlay, grid_units } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 const offset = scale_phone_phablet(0, 60);
 
 export default css`
   @media screen {
     .IslandBlock {
-      ${SeenEffect__fadeup}
       display: flex;
       flex-flow: column-reverse;
       justify-content: space-between;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Pagination from '@reykjavik/hanna-react/Pagination';
+import { Pagination } from '@reykjavik/hanna-react/Pagination';
 import { optionsKnob } from '@storybook/addon-knobs';
 
 import { StoryComponent, StoryParameters } from './storytypes.js';
@@ -26,7 +26,7 @@ export const _Pagination: StoryComponent = () => {
     {
       'First page': [1, 25],
       'Page near the middie': [9, 25],
-      'Last page': [9, 25],
+      'Last page': [25, 25],
       'Short list': [1, 5],
     },
     [1, 25],

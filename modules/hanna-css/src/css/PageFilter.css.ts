@@ -11,7 +11,6 @@ import {
   grid_units,
   prem,
 } from './utils/miscUtils.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   /*!@deps
@@ -27,7 +26,6 @@ export default css`
 
   @media screen {
     .PageFilter {
-      ${SeenEffect__fadeup};
       background-color: ${vars.color_suld_25};
       padding: ${scale_container(30, 80)} 0 0 0;
       margin-bottom: ${scale_container(64, 128)};

@@ -34,7 +34,6 @@ export default function () {
         primaryButton={{ href: '', label: 'Primary Button Prop' }}
         secondaryButton={{ href: '', label: 'Secondary Button Prop' }}
         image={illustr.tall}
-        startSeen
       />
 
       <HeroBlock
@@ -51,14 +50,12 @@ export default function () {
           </p>
         }
         image={illustr.short}
-        startSeen
       />
 
       <HeroBlock
         title="Super short"
         summary="Vender gests kämmen vewänthardis wehrdsen onderpasje moose"
         image={illustr.tall}
-        startSeen
       />
     </Minimal>
   );

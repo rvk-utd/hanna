@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { ComponentLayoutProps } from './constants.js';
 import { WrapperElmProps } from './utils.js';
 
@@ -15,13 +15,12 @@ export type TextBlockProps = ComponentLayoutProps & {
   small?: boolean;
   children: ReactNode;
 } & WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const TextBlock = (props: TextBlockProps) => {
-  const { children, align, labelled, wide, small, startSeen, wrapperProps } = props;
+  const { children, align, labelled, wide, small, wrapperProps } = props;
 
   const rightAligned = align === 'right' || labelled;
-  const [ref] = useSeenEffect(startSeen);
 
   return (
     <div
@@ -36,7 +35,6 @@ export const TextBlock = (props: TextBlockProps) => {
         ],
         (wrapperProps || {}).className
       )}
-      ref={ref}
     >
       {children}
     </div>

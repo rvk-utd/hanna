@@ -33,9 +33,9 @@ const blocks = range(1, 5).map((n) => ({
 export default function () {
   return (
     <Minimal>
-      <GridBlocks blocks={blocks} startSeen />
+      <GridBlocks blocks={blocks} />
       <DummyBlock thin />
-      <GridBlocks blocks={blocks} twocol={true} startSeen />
+      <GridBlocks blocks={blocks} twocol={true} />
     </Minimal>
   );
 }

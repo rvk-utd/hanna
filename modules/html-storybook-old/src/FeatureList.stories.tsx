@@ -47,7 +47,7 @@ export const _FeatureList: StoryComponent = () => (
       <br />
     </HiddenTiger>
 
-    <FeatureList title={title} features={features} startSeen />
+    <FeatureList title={title} features={features} />
 
     <HiddenTiger>
       <br />

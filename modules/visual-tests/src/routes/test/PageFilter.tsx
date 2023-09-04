@@ -60,7 +60,6 @@ export default function () {
           }
           footnote={i % 3 === 0 ? lorem.medium : undefined}
           underlap={i === 4}
-          startSeen
         />
       ))}
       <ImageCards cards={imageCards.slice(1, 3)} />

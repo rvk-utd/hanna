@@ -1,4 +1,5 @@
 import React from 'react';
+import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import {
   CardList,
@@ -6,21 +7,23 @@ import {
   TextCardListProps,
   TextCardProps,
 } from './_abstract/_CardList.js';
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { WrapperElmProps } from './utils.js';
 
 export type ActionCardsProps = TextCardListProps &
   CardListSummaryProps &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export type ActionCardsItemProps = TextCardProps;
 
 export const ActionCards = (props: ActionCardsProps) => {
-  const [ref] = useSeenEffect(props.startSeen);
-
+  const { wrapperProps } = props;
   return (
-    <div className="ActionCards" ref={ref}>
+    <div
+      {...wrapperProps}
+      className={modifiedClass('ActionCards', null, (wrapperProps || {}).className)}
+    >
       <CardList bemPrefix="ActionCards" {...props} wrapperProps={undefined} />
     </div>
   );

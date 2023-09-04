@@ -9,15 +9,12 @@ import { WARNING__ } from '../lib/WARNING__.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { keyboardFocusStyling } from './utils/focus-selectors.js';
 import { cols_px, prem } from './utils/miscUtils.js';
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   @media screen {
     .Tabs {
       --Tabs--borderWidth: 2px;
       --Tabs__tab--borderWidth: 4px;
-      ${SeenEffect__fadeup}
-      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
       display: flex;
       flex-flow: row wrap;
       border-bottom: var(--Tabs--borderWidth) solid ${vars.color_suld_50};

@@ -11,7 +11,6 @@ import {
   LabeledTitleStyle__outdented,
 } from './styles/labeledTitle.js';
 import { cols_pct } from './utils/miscUtils.js';
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
 import { textContent, textContentVars } from './utils/textContent.js';
 import { ArticleMeta_css } from './ArticleMeta.css.js';
 import { Heading_css } from './Heading.css.js';
@@ -29,8 +28,6 @@ export default css`
     .TextBlock {
       ${ComponentLayout};
       ${textContent};
-      ${SeenEffect__fadeup};
-      ${SeenEffect__disallowNesting /* eslint-disable-line deprecation/deprecation */}
 
       position: relative;
       margin-bottom: ${scale_container(20, 30)};

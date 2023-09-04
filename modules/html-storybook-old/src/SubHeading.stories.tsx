@@ -35,7 +35,7 @@ export const _SubHeading: StoryComponent = () => {
     }) || undefined;
 
   return (
-    <SubHeading {...layoutProps} small={small} Tag={htmlTag} startSeen>
+    <SubHeading {...layoutProps} small={small} Tag={htmlTag}>
       Subheading title
     </SubHeading>
   );

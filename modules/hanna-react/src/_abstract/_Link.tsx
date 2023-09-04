@@ -27,10 +27,9 @@ const history: Array<_LinkRenderer_internal> = [];
  * Example use:
  *
  * ```js
- * import { Link } from 'remix'; // or whatever :-)
+ * import { Link } from '@remix-run/react'; // or whatever :-)
  *
- * setLinkRenderer((linkProps) =>
- *   <Link to={linkProps.href}><a {...linkProps} /></Link>);
+ * setLinkRenderer((linkProps) => <Link to={props.href} {...linkProps} />);
  * ```
  *
  * The link renderers are pushed to a simple stack, and if you want to unset

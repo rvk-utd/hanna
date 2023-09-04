@@ -25,19 +25,16 @@ export default function () {
         title="InfoBlock with attention text below"
         subtitle={loremRT.short()}
         items={textItems()}
-        startSeen
       />
       <InfoBlock
         title={lorem.short}
         items={textItems().slice(0, 2)}
         attention={lorem.medium}
-        startSeen
       />
       <InfoBlock
         title={lorem.short}
         items={textItems().slice(0, 2)}
         extraInfo={lorem.short}
-        startSeen
       />
     </Minimal>
   );

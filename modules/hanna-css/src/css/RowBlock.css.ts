@@ -5,11 +5,20 @@ import { hannaVars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import {
-  SeenEffect__delay,
   SeenEffect__fadeup,
+  SeenEffect__resetDefault,
   SeenEffect__transition,
 } from './utils/seenEffects.js';
 import { RowBlockColumn_css } from './RowBlockColumn.css.js';
+
+export const RowBlock__seenEffects = (trigger?: null | string) => css`
+  ${SeenEffect__fadeup({ child: '> .RowBlockColumn', trigger })}
+  ${SeenEffect__transition({ child: '> .RowBlockColumn + .RowBlockColumn', trigger })(css`
+    transition-delay: ${ms(100)};
+  `)}
+`;
+
+// ---------------------------------------------------------------------------
 
 export default css`
   /*!@deps
@@ -22,11 +31,12 @@ export default css`
       flex-flow: column;
       justify-content: space-between;
       align-items: center;
-      ${SeenEffect__fadeup('> .RowBlockColumn')}
+    }
 
-      ${SeenEffect__transition('> .RowBlockColumn + .RowBlockColumn')(css`
-        ${SeenEffect__delay(ms(100))}
-      `)}
+    * {
+      /* Custom (optional) transition effect */
+      ${SeenEffect__resetDefault('.RowBlock')}
+      ${RowBlock__seenEffects()}
     }
 
     @media ${mq.tablet_up} {

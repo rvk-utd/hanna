@@ -51,7 +51,7 @@ export const _IslandBlock: StoryComponent = () => {
       ? { content: [content, { ...content, title: TITLE_SHORT + ' 2' }] }
       : { content, shapes: /* shapeImage ||  */ formheimur[3] };
 
-  return <IslandBlock align={align} {...contentProps} startSeen />;
+  return <IslandBlock align={align} {...contentProps} />;
 };
 
 // ===========================================================================
@@ -100,7 +100,7 @@ export const IslandBlock_Examples: StoryComponent = () => (
     {' '}
     {testCombos.map((props, i) => (
       <React.Fragment key={i}>
-        <IslandBlock {...props} startSeen />
+        <IslandBlock {...props} />
         {'\n\n'}
       </React.Fragment>
     ))}

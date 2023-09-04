@@ -41,10 +41,9 @@ export default function Index() {
           </p>
         }
         illustration="fundur"
-        startSeen
       />
 
-      <TextBlock startSeen>
+      <TextBlock>
         <Link to="/review">Review VRT results</Link>
 
         <h2>Test Pages</h2>

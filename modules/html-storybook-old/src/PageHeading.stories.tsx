@@ -22,7 +22,7 @@ export const _PageHeading: StoryComponent = () => {
   const small = boolean('Small', false) || undefined;
 
   return (
-    <PageHeading Tag={htmlTag} align={align} small={small} startSeen>
+    <PageHeading Tag={htmlTag} align={align} small={small}>
       Page Heading Title
     </PageHeading>
   );

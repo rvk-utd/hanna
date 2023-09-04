@@ -7,7 +7,6 @@ import { WARNING__ } from '../lib/WARNING__.js';
 
 import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
 import { LinkStyle_Reset } from './styles/links.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 import { GalleryModal_css, GalleryModalItem_css } from './_GalleryModal.js';
 import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css.js';
 
@@ -19,7 +18,6 @@ export default css`
   @media screen {
     .Gallery {
       ${carouselStepperBeforeSprinklingPadding}
-      ${SeenEffect__fadeup};
       margin-bottom: ${scale_container(32, 130)};
     }
     .Gallery__itemlist {

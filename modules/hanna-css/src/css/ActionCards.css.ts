@@ -9,12 +9,10 @@ import {
   CardList_css,
   CardListTitle_css,
 } from './styles/cards.js';
-import { SeenEffect__fadeup } from './utils/seenEffects.js';
 
 export default css`
   @media screen {
     .ActionCards {
-      ${SeenEffect__fadeup}
       ${CardBlock_css}
       margin-bottom: ${scale_container(60, 100)};
     }

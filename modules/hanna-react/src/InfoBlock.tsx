@@ -2,7 +2,7 @@ import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
-import { SeenProp, useSeenEffect } from './utils/seenEffect.js';
+import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { WrapperElmProps } from './utils.js';
 
 export type InfoBlockProps = {
@@ -14,17 +14,15 @@ export type InfoBlockProps = {
   { extraInfo?: string | JSX.Element }
 > &
   WrapperElmProps &
-  SeenProp;
+  DeprecatedSeenProp;
 
 export const InfoBlock = (props: InfoBlockProps) => {
-  const { title, subtitle, items, startSeen, wrapperProps } = props;
-  const [ref] = useSeenEffect(startSeen);
+  const { title, subtitle, items, wrapperProps } = props;
 
   return (
     <div
       {...wrapperProps}
       className={modifiedClass('InfoBlock', null, (wrapperProps || {}).className)}
-      ref={ref}
     >
       <h2 className="InfoBlock__title">{title}</h2>
       {subtitle && <div className="InfoBlock__subtitle">{subtitle}</div>}

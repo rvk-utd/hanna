@@ -45,4 +45,4 @@ const galleryData: Array<GalleryItemProps> = [
   },
 ];
 
-export const _Gallery: StoryComponent = () => <Gallery items={galleryData} startSeen />;
+export const _Gallery: StoryComponent = () => <Gallery items={galleryData} />;

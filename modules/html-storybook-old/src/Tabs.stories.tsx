@@ -58,7 +58,6 @@ export const _Tabs: StoryComponent = () => {
         tabs={tabs}
         aria-label="Optional label text"
         aria-controls={showExample && 'tab-target'}
-        startSeen
         vertical={vertical}
         subTabs={subTabs}
       />
@@ -136,7 +135,6 @@ export const _Tabs__anchors: StoryComponent = () => {
         activeIdx={activeIdx}
         onSetActive={setActiveIdx}
         ssr={ssr}
-        startSeen
       />
 
       {'\n'}
