@@ -1,7 +1,8 @@
 import React from 'react';
+import { MiniMetrics } from '@reykjavik/hanna-react/MiniMetrics';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { MiniMetricsStory } from './Shared/MiniMetrics.js';
+import { miniMetricsData } from './shared/miniMetrics.data.js';
 
 const meta: Meta = {
   title: 'MiniMetrics',
@@ -9,7 +10,7 @@ const meta: Meta = {
 export default meta;
 
 export const _MiniMetrics: StoryObj = {
-  render: () => <MiniMetricsStory />,
+  render: () => <MiniMetrics {...miniMetricsData} />,
   parameters: {
     controls: { hideNoControlsWarning: true },
   },

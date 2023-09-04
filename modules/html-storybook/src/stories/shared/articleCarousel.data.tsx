@@ -1,12 +1,8 @@
-import React from 'react';
-import {
-  ArticleCarousel,
-  ArticleCarouselProps,
-} from '@reykjavik/hanna-react/ArticleCarousel';
+import { ArticleCarouselProps } from '@reykjavik/hanna-react/ArticleCarousel';
 
 import photohUrl from '../../example_assets/NewsHero__landscape.jpg';
 
-const articleCarouselData: ArticleCarouselProps = {
+export const articleCarouselData: ArticleCarouselProps = {
   title: 'Article Carousel',
   moreLabel: 'Lesa meira',
   items: [
@@ -87,7 +83,3 @@ const articleCarouselData: ArticleCarouselProps = {
     },
   ],
 };
-
-export const ArticleCarouselStory = () => (
-  <ArticleCarousel {...articleCarouselData} startSeen />
-);

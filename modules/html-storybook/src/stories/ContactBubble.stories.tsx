@@ -1,7 +1,10 @@
 import React from 'react';
+import { ContactBubble } from '@reykjavik/hanna-react/ContactBubble';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ContactBubbleStory } from './Shared/ContactBubble.js';
+import { HiddenTiger } from '../utils/HiddenTrigger.js';
+
+import { contactBubbleData } from './shared/contactBubble.data.js';
 
 type ControlProps = {
   ssr: boolean;
@@ -18,7 +21,29 @@ const meta: Meta<ControlProps> = {
 export default meta;
 
 export const _ContactBubble: StoryObj<ControlProps> = {
-  render: (args) => <ContactBubbleStory {...args} />,
+  render: (args) => {
+    // /* ONLY use during Development */
+    // const [open, setOpen] = useState(false);
+    const { ssr, alwaysShow } = args;
+    const key = '' + ssr + alwaysShow;
+    return (
+      <>
+        <HiddenTiger>
+          <p style={{ height: '300vh' }} />
+        </HiddenTiger>
+
+        <ContactBubble
+          key={key}
+          {...contactBubbleData}
+          alwaysShow={alwaysShow}
+          // /* ONLY use during Development */
+          // open={open}
+          // onToggle={setOpen}
+          ssr={ssr}
+        />
+      </>
+    );
+  },
   argTypes: {
     ssr: { name: 'Show client-side markup' },
     alwaysShow: { name: 'Set optional "alwaysShow" data-attribute' },

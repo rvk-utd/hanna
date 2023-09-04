@@ -1,24 +1,18 @@
 import React from 'react';
 import { Alert } from '@reykjavik/hanna-react/Alert';
 import { BreadCrumbs } from '@reykjavik/hanna-react/BreadCrumbs';
+import { ContactBubble } from '@reykjavik/hanna-react/ContactBubble';
+import { FooterBadges } from '@reykjavik/hanna-react/FooterBadges';
+import { FooterInfo } from '@reykjavik/hanna-react/FooterInfo.js';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { crumbTrail, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
 
-import { ContactBubbleStory as ContactBubble } from './Shared/ContactBubble.js';
-import { FooterBadgesStory as FooterBadges } from './Shared/FooterBadges.js';
-import { FooterInfoStory as FooterInfo } from './Shared/FooterInfo.js';
-
-// ==================== Minimal Layout ===========================================
-
-type MinimalLayoutControlProps = {
-  globalAlertsContainer: boolean;
-  pageHasNoMenuOrNav: boolean;
-};
-
-type MinimalLayoutStory = StoryObj<MinimalLayoutControlProps>;
+import { contactBubbleData } from './shared/contactBubble.data.js';
+import { footerBadgesData } from './shared/footerBadges.data.js';
+import { footerInfoData } from './shared/footerInfo.data.js';
 
 const meta: Meta = {
   title: 'Layout',
@@ -28,12 +22,16 @@ const meta: Meta = {
 };
 export default meta;
 
-const MinimalLayoutStory: React.FC<MinimalLayoutControlProps> = ({
-  globalAlertsContainer,
-  pageHasNoMenuOrNav,
-}) => {
-  const globalAlerts = globalAlertsContainer;
-  const navChildren = pageHasNoMenuOrNav ? undefined : ' ';
+// ==================== Minimal Layout ===========================================
+
+type MinimalLayoutControlProps = {
+  globalAlertsContainer: boolean;
+  pageHasNoMenuOrNav: boolean;
+};
+
+const MinimalLayoutStory = (props: MinimalLayoutControlProps) => {
+  const globalAlerts = props.globalAlertsContainer;
+  const navChildren = props.pageHasNoMenuOrNav ? undefined : ' ';
   return (
     <Layout
       key={'' + globalAlerts + navChildren}
@@ -45,7 +43,7 @@ const MinimalLayoutStory: React.FC<MinimalLayoutControlProps> = ({
   );
 };
 
-export const _MinimalLayout: MinimalLayoutStory = {
+export const _MinimalLayout: StoryObj<MinimalLayoutControlProps> = {
   render: (args) => <MinimalLayoutStory {...args} />,
   argTypes: {
     globalAlertsContainer: { name: 'Global alerts container' },
@@ -64,22 +62,15 @@ export const _MinimalLayout: MinimalLayoutStory = {
 
 type LayoutWithContentControlProps = {
   globalAlerts: boolean;
-  showClientsideMarkup: boolean;
-  setOptionalDataAttr: boolean;
 };
 
-type LayoutWithContStory = StoryObj<LayoutWithContentControlProps>;
-
-const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
-  globalAlerts,
-  setOptionalDataAttr,
-  showClientsideMarkup,
-}) => {
+const LayoutWithContentStory = (props: LayoutWithContentControlProps) => {
+  const key = '' + props.globalAlerts;
   return (
     <Layout
-      key={'' + globalAlerts}
+      key={key}
       globalAlerts={
-        globalAlerts && (
+        props.globalAlerts && (
           <>
             <Alert type="warning" closable>
               Some warning
@@ -102,9 +93,9 @@ const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
       }
       footerChildren={
         <>
-          <FooterInfo />
-          <FooterBadges />
-          <ContactBubble ssr={!showClientsideMarkup} alwaysShow={setOptionalDataAttr} />
+          <FooterInfo {...footerInfoData} />
+          <FooterBadges {...footerBadgesData} />
+          <ContactBubble {...contactBubbleData} alwaysShow />
         </>
       }
     >
@@ -113,17 +104,13 @@ const LayoutWithContentStory: React.FC<LayoutWithContentControlProps> = ({
   );
 };
 
-export const _LayoutWithContent: LayoutWithContStory = {
+export const _LayoutWithContent: StoryObj<LayoutWithContentControlProps> = {
   render: (args) => <LayoutWithContentStory {...args} />,
   argTypes: {
     globalAlerts: { name: 'Global alerts' },
-    showClientsideMarkup: { name: 'Show client-side markup' },
-    setOptionalDataAttr: { name: 'Set optional "alwaysShow" data-attribute' },
   },
   args: {
     globalAlerts: false,
-    showClientsideMarkup: false,
-    setOptionalDataAttr: true,
   },
   parameters: {
     css: {

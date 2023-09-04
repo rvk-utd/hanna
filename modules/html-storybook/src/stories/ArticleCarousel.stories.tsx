@@ -1,7 +1,8 @@
 import React from 'react';
+import ArticleCarousel from '@reykjavik/hanna-react/ArticleCarousel.js';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleCarouselStory } from './Shared/ArticleCarousel.js';
+import { articleCarouselData } from './shared/articleCarousel.data.js';
 
 const meta: Meta = {
   title: 'ArticleCarousel',
@@ -13,5 +14,5 @@ const meta: Meta = {
 export default meta;
 
 export const _ArticleCarousel: StoryObj = {
-  render: () => <ArticleCarouselStory />,
+  render: () => <ArticleCarousel {...articleCarouselData} startSeen />,
 };

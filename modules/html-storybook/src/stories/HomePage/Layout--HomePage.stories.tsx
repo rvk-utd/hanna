@@ -1,15 +1,17 @@
 import React from 'react';
 import range from '@hugsmidjan/qj/range';
+import { ArticleCarousel } from '@reykjavik/hanna-react/ArticleCarousel';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ExtraLinks } from '@reykjavik/hanna-react/ExtraLinks';
 import { GridBlocks } from '@reykjavik/hanna-react/GridBlocks';
 import { ImageCards } from '@reykjavik/hanna-react/ImageCards';
+import { MiniMetrics } from '@reykjavik/hanna-react/MiniMetrics';
 import { efnistakn } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { imageCards } from '../../utils/_dummyData.js';
-import { ArticleCarouselStory } from '../Shared/ArticleCarousel.js';
-import { MiniMetricsStory } from '../Shared/MiniMetrics.js';
+import { articleCarouselData } from '../shared/articleCarousel.data.js';
+import { miniMetricsData } from '../shared/miniMetrics.data.js';
 
 import { SearchHeroParagraph } from './_SearchHeroParagraph.js';
 
@@ -61,9 +63,9 @@ const HomePageStory = () => {
         }))}
       />
       {'\n\n\n'}
-      <ArticleCarouselStory />
+      <ArticleCarousel {...articleCarouselData} startSeen />
       {'\n\n\n'}
-      <MiniMetricsStory />
+      <MiniMetrics {...miniMetricsData} />
       {'\n\n\n'}
       <ImageCards
         title="Fréttir"
