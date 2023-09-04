@@ -48,7 +48,7 @@ fastify.post('/*', {
 
     res
       .then((response) => {
-        console.log(response);
+        console.info(response);
         reply.send(response.data);
       })
       .catch((reason) => {

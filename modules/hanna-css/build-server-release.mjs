@@ -39,8 +39,8 @@ try {
     ].join(' && ')
   );
 } catch (err) {
-  console.log('--------------------------');
-  console.log(err.message);
-  console.log('--------------------------');
+  console.info('--------------------------');
+  console.info(err.message);
+  console.info('--------------------------');
   process.exit(1);
 }
