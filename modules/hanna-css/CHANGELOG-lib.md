@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.7
+
+_2023-09-04_
+
 - feat: Add `formFieldVars` for custom styling `FormField`'s
 - feat: Add token `Pagination` to `CssModuleToken`s
 

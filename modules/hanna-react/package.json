@@ -18,7 +18,7 @@
     "@floating-ui/react": "^0.19.2",
     "@hugsmidjan/qj": "^4.22.1",
     "@hugsmidjan/react": "^0.4.32",
-    "@reykjavik/hanna-css": "^0.4.5",
+    "@reykjavik/hanna-css": "^0.4.7",
     "@reykjavik/hanna-utils": "^0.2.8",
     "@types/react-autosuggest": "^10.1.0",
     "@types/react-datepicker": "^4.8.0",
