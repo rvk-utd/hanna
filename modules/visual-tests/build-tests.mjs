@@ -1,4 +1,4 @@
-// @ts-check
+//@ts-check
 import { sync as glob } from 'glob';
 
 import { esbuildBuild } from '../../build-helpers.mjs';

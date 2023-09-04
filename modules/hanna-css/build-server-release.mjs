@@ -1,3 +1,4 @@
+//@ts-check
 /* eslint-env es2022 */
 import { execSync } from 'child_process';
 import { readFile } from 'fs/promises';

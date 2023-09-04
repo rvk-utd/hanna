@@ -1,3 +1,4 @@
+//@ts-check
 import { buildNpmLib, buildTests } from '../../build-helpers.mjs';
 
 buildTests();
