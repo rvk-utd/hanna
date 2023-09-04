@@ -73,6 +73,11 @@ const defaultTexts: DefaultTexts<MultiselectI18n> = {
 
 // ---------------------------------------------------------------------------
 
+export type MultiselectOption = Exclude<MultiselectProps['options'][number], string>;
+
+/** @deprecated This type-name has a typo, import `MultiselectOption` instead  (Will be removed in v0.11) */
+export type MultiSelectOption = MultiselectOption;
+
 export type MultiselectProps = TogglerGroupFieldProps<string> & {
   value?: Array<string>;
   defaultValue?: Array<string>;
@@ -117,8 +122,6 @@ export type MultiselectProps = TogglerGroupFieldProps<string> & {
   texts?: MultiselectI18n;
   lang?: string;
 };
-
-export type MultiSelectOption = Exclude<MultiselectProps['options'][number], string>;
 
 export const Multiselect = (props: MultiselectProps) => {
   const { onSelected, options: _options, disabled: _disabled, readOnly } = props;
@@ -165,7 +168,7 @@ export const Multiselect = (props: MultiselectProps) => {
 
   const isSearchable = props.forceSearchable || options.length >= searchableLimit;
   /*
-    NOTE: he `.MultiSelect__currentvalues` should only be visible when
+    NOTE: he `.Multiselect__currentvalues` should only be visible when
     there are some items selected, and multiselect is either collapsed,
     or the dropdown has reached `summaryLimit` number of items.
     (For fewer items, the "summary" is just in the way.)
@@ -181,7 +184,7 @@ export const Multiselect = (props: MultiselectProps) => {
   );
 
   const handleCheckboxSelection = useCallback(
-    (selectedItem: MultiSelectOption) => {
+    (selectedItem: MultiselectOption) => {
       const selValue = selectedItem.value;
       const isAdding = values.indexOf(selValue) === -1;
       const _newValues = isAdding
@@ -245,7 +248,7 @@ export const Multiselect = (props: MultiselectProps) => {
         inputElm.focus();
         toggleOpen(false);
       } else if (e.key === 'Enter' || e.key === ' ') {
-        if ((e.target as HTMLElement).closest('.MultiSelect__currentvalues')) {
+        if ((e.target as HTMLElement).closest('.Multiselect__currentvalues')) {
           return;
         }
         const focusInRange =

@@ -31,6 +31,10 @@ export const PrimaryPanel_css = () => css`
     display: none;
   }
 
+  .PrimaryPanel__item > :not(.PrimaryPanel__link) {
+    margin: 0;
+  }
+
   // ===========================================================================
 
   @media ${mq.Hamburger} {

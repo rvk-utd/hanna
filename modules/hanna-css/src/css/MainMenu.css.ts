@@ -54,8 +54,8 @@ export default css`
     .MainMenu__item > :not(.MainMenu__link) {
       margin: 0;
       /*
-        without this elements with "width: max-content;"
-        **and**, it seems, complex (calc-based) padding or min-wdith
+        Without this elements with "width: max-content;"
+        AND, it seems, complex (calc-based) padding or min-wdith
         will cause Firefox (as of 117 at least) to expand the width of the
         outer .MainMenu__item container.  Chrome does not do this.
         Remove this once Firefox has got its act together

@@ -363,15 +363,23 @@ export type BlingType = (typeof blingTypes)[number];
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#misc-style-server-assets
  */
-export const getAssetUrl = (file: string): string => styleServerUrl + '/assets/' + file;
+export const getAssetUrl = (filePath: string): string =>
+  styleServerUrl + '/assets/' + filePath;
+
+type IllustrationVariant = 'thumb';
 
 /**
  * Generates a URL to a Hanna "Illustration" on the style server.
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#illustrations
  */
-export const getIllustrationUrl = (illustration: Illustration): string =>
-  getAssetUrl('illustrations/' + illustration + '.png');
+export const getIllustrationUrl = (
+  illustration: Illustration,
+  variant?: IllustrationVariant
+): string => {
+  const subFolder = variant === 'thumb' ? 'thumb/' : '';
+  return getAssetUrl('illustrations/' + subFolder + illustration + '.png');
+};
 
 /**
  * Generates a URL to a Hanna "Efnistákn" icon on the style server.
@@ -399,7 +407,7 @@ export const getBlingUrl = (blingType: BlingType): string =>
 
 // ===========================================================================
 
-type Favicon =
+export type Favicon =
   | 'favicon.svg'
   | 'favicon.png'
   | 'favicon-large.png' // same as favicon-144
@@ -416,3 +424,22 @@ type Favicon =
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#favicons
  */
 export const getFavicon = (faviconFile: Favicon): string => getAssetUrl(faviconFile);
+
+export type RvkLogo =
+  | 'reykjavik-logo.svg'
+  | 'reykjavik-logo-notext.svg'
+  | 'reykjavik-logo.png'
+  | 'reykjavik-logo--large.png'
+  | 'reykjavik-logo--small.png'
+  | 'reykjavik-logo-notext.png'
+  | 'reykjavik-logo-notext--large.png'
+  | 'reykjavik-logo-notext--small.png';
+
+/**
+  Generates a URL to an image of Reykjavík's logo (i.e. the coat of arms)
+  on the style server.
+
+  @see https://www.npmjs.com/package/@reykjavik/hanna-utils#reykjavik-logo
+ */
+export const getRvkLogoUrl = (logoFile: RvkLogo = 'reykjavik-logo.svg'): string =>
+  getAssetUrl(logoFile);

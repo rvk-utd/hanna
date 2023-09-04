@@ -9,5 +9,5 @@
 /public/report
 /playwright/.cache
 
-/tests
+/tests/*
 !/tests/*.js-snapshots

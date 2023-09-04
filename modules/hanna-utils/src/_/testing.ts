@@ -25,7 +25,7 @@ export type Extends<A, B> = UnlessAny<
   [A] extends [B] ? true : '❌ Type A is not assignable to B'
 >;
 
-/** Returns true if type `A` does **NOT** extend type `B` (and neither is `any`) */
+/** Returns true if type `A` does NOT extend type `B` (and neither is `any`) */
 export type NotExtends<A, B> = UnlessAny<
   A,
   B,

@@ -15,7 +15,7 @@ declare global {
  * value-store, and secondly a Playwright-ready function that "send"s an
  * updated Signal value to the Page being tested.
  *
- * **NOTE:** This is usually not needed, and the sanest way to test
+ * __NOTE:__ This is usually not needed, and the sanest way to test
  * multiple states/variations of Hanna components is usually to click buttons
  * like a normal Playwright tester person, and/or just render multiple
  * differently configured instances of the components and snap one big

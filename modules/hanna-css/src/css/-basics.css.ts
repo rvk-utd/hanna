@@ -120,7 +120,7 @@ export default css`
     overflow-y: scroll;
     overflow-x: hidden; // Normal browsers respect this.
     /**
-      **NOTE:**
+      __NOTE:__
       Older Safari versions need to register this side-scroll-killer
       script to prevent side-scrolling on the <html/> element.
 

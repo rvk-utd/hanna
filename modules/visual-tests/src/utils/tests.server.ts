@@ -111,7 +111,7 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
     console.warn(`Can't find folder "${cwd}"`);
     return [];
   }
-  const fileList = await glob('*/*.{png,bug,ok}', { cwd });
+  const fileList = (await glob('*/*.{png,bug,ok}', { cwd })).sort();
   const filesByTest: Record<
     string,
     Pick<

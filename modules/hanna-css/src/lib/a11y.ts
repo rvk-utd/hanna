@@ -133,7 +133,7 @@ export const srOnly_focusable = ({
 
 /**
  * Similar to the `srOnly_focusable` mixin above, but for non-interactive
- * elements that **contain** buttons/links that should become visible on keyboard
+ * elements that __contain__ buttons/links that should become visible on keyboard
  * focus.
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#sronly_focusablecontent-mixin

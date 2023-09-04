@@ -1,6 +1,6 @@
 import { px, RawMediaQuery } from 'es-in-css';
 
-// Starting breakpoints **including* grid.margin__*
+/** Starting viewport-width breakpoints INCLUDING `grid.margin__*` */
 export const bp = /*#__PURE__*/ (() =>
   ({
     wide: px(1368), // grid.margin__wide: 80;

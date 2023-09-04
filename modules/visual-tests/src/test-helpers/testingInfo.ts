@@ -52,7 +52,7 @@ export type TestInfoObj = {
    * Playwright locator selector for the element which should be hovered
    * before the default screenshot is snapped.
    *
-   * **NOTE:** If a `prep` action is also defined, this option is ignored.
+   * __NOTE:__ If a `prep` action is also defined, this option is ignored.
    */
   initialHover?: string;
 
@@ -64,7 +64,7 @@ export type TestInfoObj = {
    *
    * The default awaited `state` is `"attached"`
    *
-   * **NOTE:** If a `prep` action is also defined, this option is ignored.
+   * __NOTE:__ If a `prep` action is also defined, this option is ignored.
    */
   waitFor?:
     | [selector: string, state: 'attached' | 'detached' | 'visible' | 'hidden']

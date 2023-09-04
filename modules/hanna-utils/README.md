@@ -21,6 +21,7 @@ yarn add @reykjavik/hanna-utils
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
 - [Asset helpers](#asset-helpers)
+  - [Reykjavík Logo](#reykjavík-logo)
   - [Favicons](#favicons)
   - [Illustrations](#illustrations)
   - [Efnistákn Icons](#efnistákn-icons)
@@ -203,7 +204,25 @@ focusElement('.TextBlock a');
 
 ## Asset helpers
 
+### Reykjavík Logo
+
+**Syntax:** `getRvkLogoUrl(blingType: BlingType): string`
+
+Helper to generate URLs to Reyjavík's official coat of arms (or "logo"), with
+and without the text.
+
+```ts
+import { getRvkLogoUrl } from '@reykjavik/hanna-utils/assets';
+
+const defaultLogoSVG = getRvkLogoUrl(); // default is 'reykjavik-logo.svg'
+const defaultLogoPNG = getRvkLogoUrl('reykjavik-logo.png'); // PNG version
+const notextLogoSVG = getRvkLogoUrl('reykjavik-logo-notext.svg');
+// etc...
+```
+
 ### Favicons
+
+**Syntax:** `getFavicon(faviconFile: Favicon): string`
 
 Helper to generate URLs for various types of "favicons" or "webmanifest
 icons", etc...
@@ -219,6 +238,9 @@ types.
 
 ### Illustrations
 
+**Syntax:**
+`getIllustrationUrl(illustration: Illustration, variant?: IllustrationVariant): string`
+
 Utilities to work with the
 [Illustrations](https://styles.reykjavik.is/assets/illustrations) on the asset
 server.
@@ -233,9 +255,12 @@ import {
 const assetName: Illustration = illustrations[0];
 
 const url = getIllustrationUrl(assetName);
+const thumbnailUrl = getIllustrationUrl(assetName, 'thumb');
 ```
 
 ### Efnistákn Icons
+
+**Syntax:** `getEfnistaknUrl(icon: Efnistakn): string`
 
 Utilities to work with the
 [Efnistákn icons](https://styles.reykjavik.is/assets/efnistakn) on the asset
@@ -255,6 +280,8 @@ const url = getEfnistaknUrl(assetName);
 
 ### Formheimur Shapes
 
+**Syntax:** `getFormheimurUrl(shape: Formheimur): string`
+
 Utilities to work with the
 [Formheimur shapes](https://styles.reykjavik.is/assets/formheimur) on the
 asset server.
@@ -273,6 +300,8 @@ const url = getFormheimurUrl(assetName);
 
 ### Bling Shapes
 
+**Syntax:** `getBlingUrl(blingType: BlingType): string`
+
 Utilities to work with the
 [Bling shapes](https://styles.reykjavik.is/assets/bling) on the asset server.
 
@@ -289,6 +318,8 @@ const url = getBlingUrl(blingName);
 ```
 
 ### Misc. Style Server Assets
+
+**Syntax:** `getAssetUrl(filePath: string): string`
 
 Helper to generate a URL to arbitrary asset on on the style server.
 

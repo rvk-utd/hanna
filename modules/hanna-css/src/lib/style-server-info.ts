@@ -76,6 +76,7 @@ export type CssModuleToken =
   | 'NewsHero'
   | 'PageFilter'
   | 'PageHeading'
+  | 'Pagination'
   | 'Picture'
   | 'ProcessOverview'
   | 'PullQuote'
