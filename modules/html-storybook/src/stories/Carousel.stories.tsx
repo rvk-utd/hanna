@@ -11,8 +11,6 @@ const meta: Meta = {
 };
 export default meta;
 
-type;
-
 const CarouselStory = () => {
   return (
     <>
@@ -50,6 +48,6 @@ const CarouselStory = () => {
   );
 };
 
-export const _Carousel: StoryObj<ControlProps> = {
+export const _Carousel: StoryObj = {
   render: () => <CarouselStory />,
 };

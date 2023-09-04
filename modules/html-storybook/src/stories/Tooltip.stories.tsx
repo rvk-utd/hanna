@@ -18,7 +18,7 @@ const meta: Meta<ControlProps> = {
 export default meta;
 
 export const _Tooltip: StoryObj<ControlProps> = {
-  render: () => (
+  render: (args) => (
     <Tooltip label="Hover me" text={loremRT.short(true)} iconOnly={args.iconOnly} />
   ),
   argTypes: {
