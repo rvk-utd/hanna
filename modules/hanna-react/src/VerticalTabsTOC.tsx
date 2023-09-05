@@ -110,6 +110,7 @@ export const VerticalTabsTOC = (props: VerticalTabsTOCProps) => {
       activateOnFocus={props.activateOnFocus}
       activeIdx={state.activeIdx}
       subTabs={state.subTabs}
+      ssr={props.ssr}
     />
   );
 };

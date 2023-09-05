@@ -112,7 +112,7 @@ type BaseTabsProps<T extends TabItemProps = TabItemProps> = {
 export type TabsProps<T extends TabItemProps = TabItemProps> = BaseTabsProps<T> & {
   vertical?: boolean;
   /** Optional <Tabs/> block connected to the currently active tab */
-  subTabs?: BaseTabsProps;
+  subTabs?: Omit<BaseTabsProps, 'ssr'>;
 } & WrapperElmProps<null, 'role' | 'aria-label' | 'aria-labelledby'> &
   DeprecatedSeenProp;
 
@@ -200,7 +200,7 @@ export const Tabs = (props: TabsProps) => {
           {...subTabs}
           role={'role' in subTabs ? subTabs.role : role}
           activateOnFocus={subTabs.activateOnFocus ?? activateOnFocus}
-          ssr={subTabs.ssr ?? ssr}
+          ssr={ssr}
           // just to be sure
           vertical={undefined}
           subTabs={undefined}

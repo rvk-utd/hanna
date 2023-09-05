@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Correctly pass `ssr` prop down to sub-`Tabs`
+- fix: Respect `ssr` passed to `VerticalTabsTOC`
 
 ## 0.10.102
 
