@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.47
+
+_2023-09-05_
+
 - feat: Only do auto seen-effects if `-legacy-AutoSeenEffects` CSS is loaded
 - fix: Correctly initialize multiple `VerticalTabsTOC`s on same page
 
