@@ -6,7 +6,7 @@
 
 ## 0.8.80
 
-_2023-09-01_
+_2023-09-07_
 
 - feat: Add component `Pagination`
 - feat: Add `/assets/reykjavik-logo-notext.png` — along with `--small` (x0.5)
