@@ -10,6 +10,8 @@
 - feat: Improve support for arbitrary children in `.MainMenu__item` and the
   "mega panel" items
 - fix: `Layout` components set `alt="Reykjavík"` on their header logo
+- feat: Convert all pages to support latest version of Storybook — archive
+  v0.8.32 as `0.8-old`
 
 ## 0.8.32
 
