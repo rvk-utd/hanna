@@ -7,6 +7,11 @@ import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { Gallery, GalleryItemProps, GalleryProps } from '@reykjavik/hanna-react/Gallery';
 
+import {
+  autoSeenEffectsRefresh,
+  autoSeenEffectWrapperProps,
+} from './utils/addSeenEffect.js';
+
 const getGalleryData = (elm: HTMLElement): GalleryProps => {
   const lang = htmlLang() as undefined;
   const items: Array<GalleryItemProps> = qq('.GalleryItem', elm).map(
@@ -38,8 +43,13 @@ window.Hanna.makeSprinkle({
     const props = getGalleryData(elm);
     const root = document.createElement('div');
 
-    ReactDOM.render(<Gallery {...props} ssr={false} />, root, () => {
-      elm.replaceWith(root);
-    });
+    ReactDOM.render(
+      <Gallery {...props} ssr={false} wrapperProps={autoSeenEffectWrapperProps(elm)} />,
+      root,
+      () => {
+        elm.replaceWith(root);
+        autoSeenEffectsRefresh();
+      }
+    );
   },
 });

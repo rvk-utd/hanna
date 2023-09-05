@@ -11,6 +11,11 @@ import {
   ArticleCarouselProps,
 } from '@reykjavik/hanna-react/ArticleCarousel';
 
+import {
+  autoSeenEffectsRefresh,
+  autoSeenEffectWrapperProps,
+} from './utils/addSeenEffect.js';
+
 const getArticleCarouselData = (elm: HTMLElement): ArticleCarouselProps => {
   const moreLabel = q('.ArticleCarouselCard__morelink', elm)?.textContent || '';
   const title = q('.ArticleCarousel__title', elm)?.textContent || '';
@@ -48,8 +53,17 @@ window.Hanna.makeSprinkle({
     const props = getArticleCarouselData(elm);
     const root = document.createElement('div');
 
-    ReactDOM.render(<ArticleCarousel {...props} ssr={false} />, root, () => {
-      elm.replaceWith(root);
-    });
+    ReactDOM.render(
+      <ArticleCarousel
+        {...props}
+        ssr={false}
+        wrapperProps={autoSeenEffectWrapperProps(elm)}
+      />,
+      root,
+      () => {
+        elm.replaceWith(root);
+        autoSeenEffectsRefresh();
+      }
+    );
   },
 });

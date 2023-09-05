@@ -49,7 +49,7 @@ const initializeItem = (itemElm: HTMLElement) => {
 window.Hanna.makeSprinkle({
   name: 'AccordionList',
 
-  init: (elm: Element) => {
+  init: (elm: HTMLElement) => {
     getItems(elm).forEach(initializeItem);
   },
 

@@ -1,6 +1,7 @@
 import './initHannaNamespace.js';
 
 import { detectEdgeScroll } from './utils/_detectEdgeScroll.js';
+import { autoSeenEffectPrepare, autoSeenEffectsRefresh } from './utils/addSeenEffect.js';
 
 // ---------------------------------------------------------------------------
 
@@ -45,10 +46,13 @@ window.Hanna.makeSprinkle({
       classedElm: wrapperElm,
       bem: 'TableWrapper',
     });
+    autoSeenEffectPrepare(wrapperElm);
+    autoSeenEffectsRefresh();
 
     return unmount;
   },
   unmount: (_, unmount) => {
     unmount && unmount();
+    autoSeenEffectsRefresh();
   },
 });

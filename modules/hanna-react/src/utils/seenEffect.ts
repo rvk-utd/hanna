@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
 
-export const DATA_ATTR_NAME = 'is-seen';
+export const DATA_ATTR_NAME = 'is-seen' as const;
 const STACKING_DELAY = 200; // ms
 
 const dataAttr = 'data-' + DATA_ATTR_NAME;

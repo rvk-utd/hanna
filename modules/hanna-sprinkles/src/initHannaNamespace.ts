@@ -71,9 +71,7 @@ type SprinkleMeta<E extends Element, D> = {
   init: (compElm: E) => D;
 
   /**
-   * Optional unmount function to un-subscribe events, etc.
-   *
-   * Called for Elements that have been removed from the dom.
+   * Optional refresh function to update the sprinkle effects for each matched element.
    */
   refresh?: (compElm: E, data: D) => void;
 
@@ -113,15 +111,23 @@ const makeSprinkle = <E extends Element, D>(props: SprinkleMeta<E, D>) => {
       // Skip over (ignore) elements that are...
       if (
         // ...previously found, inited and placed in `spinkledElms`
-        !sprinkledElms.find((item) => item.elm === elm) &&
-        // ...aleady "data-spinkled" via some mysterious means (i.e. by React, etc.)
-        !elm.hasAttribute(dataAttr)
+        sprinkledElms.find((item) => item.elm === elm) ||
+        // ...aleady processed via some mysterious means (i.e. by React, etc.)
+        elm.hasAttribute(dataAttr)
       ) {
-        const data = init(elm);
-        // This allows CSS selectors to know then they can apply scripted-only styles
-        !elm.hasAttribute(dataAttr) && elm.setAttribute(dataAttr, '');
-        newlySprinkled.push({ elm, data });
+        return;
       }
+      if (name === 'Tabs') {
+        console.log({
+          elm,
+          className: elm.className,
+          html: elm.outerHTML,
+        });
+      }
+      const data = init(elm);
+      // This allows CSS selectors to know then they can apply scripted-only styles
+      !elm.hasAttribute(dataAttr) && elm.setAttribute(dataAttr, '');
+      newlySprinkled.push({ elm, data });
     });
     sprinkledElms = sprinkledElms.concat(newlySprinkled);
   };

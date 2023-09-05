@@ -8,13 +8,13 @@
     <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
     <link
       rel="stylesheet"
-      href="http://localhost:4000/bundle/dev?m=-basics,Layout,Tabs,TextBlock,HeroBlock"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,Tabs,TextBlock,HeroBlock,-legacy-AutoSeenEffects"
     />
 
     <script src="/dist/index.js"></script>
 
     <script>
-      Hanna.loadSprinkles('Tabs');
+      // Hanna.loadSprinkles('SeenEffects');
     </script>
   </head>
 
@@ -178,21 +178,21 @@
                 wrapperElm.insertAdjacentHTML(
                   'beforeend',
                   `<style>
-                  @media (min-width: 760px) {
-                    ${wrapperSel} {
-                      display: flex;
-                      justify-content: space-between;
-                      align-items: flex-start;
-                      column-gap: var(--grid-gutter);
-                      margin-top: var(--component-vspace--small);
-                      border-top: var(--border-default);
-                      padding-top: var(--component-vspace--small);
+                    @media (min-width: 760px) {
+                      ${wrapperSel} {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        column-gap: var(--grid-gutter);
+                        margin-top: var(--component-vspace--small);
+                        border-top: var(--border-default);
+                        padding-top: var(--component-vspace--small);
+                      }
+                      ${wrapperSel} > div:not(.Tabs) {
+                        flex-shrink: 1;
+                      }
                     }
-                    ${wrapperSel} > div:not(.Tabs) {
-                      flex-shrink: 1;
-                    }
-                  }
-                </style>`
+                  </style>`
                 );
                 wrapperElm.prepend(...rootElm.children);
                 // setTimeout(() => res.unmount(), 1200);
@@ -305,13 +305,30 @@
             });
           </script>
 
+          <div class="TextBlock">
+            <p>
+              Lörem ipsum dolor sit amet, dedeeshka duu. Leebur deroor iehroom, bork bork
+              börk! Ut enim ad minim veniam, letsi ifder svensk og latin makinen dehr
+              graek. Ut enim ad minim veniam, letsi ifder svensk og latin makinen dehr
+              graek. Nawei raitinen de wehbsyte. Ut enim ad minim veniam, letsi ifder
+              svensk og latin makinen dehr graek. Ut enim ad minim veniam, letsi ifder
+              svensk og latin makinen dehr graek.
+            </p>
+            <p>
+              Lörem ipsum dolor sit amet, dedeeshka duu. Leebur deroor iehroom, bork bork
+              börk! Ut enim ad minim veniam, letsi ifder svensk og latin makinen dehr
+              graek. Ut enim ad minim veniam, letsi ifder svensk og latin makinen dehr
+              graek. Nawei raitinen de wehbsyte. Ut enim ad minim veniam, letsi ifder
+              svensk og latin makinen dehr graek. Ut enim ad minim veniam, letsi ifder
+              svensk og latin makinen dehr graek.
+            </p>
+          </div>
+
           <!-- -->
         </div>
       </div>
     </div>
 
-    <script>
-      window.Hanna.refresh();
-    </script>
+    <script></script>
   </body>
 </html>

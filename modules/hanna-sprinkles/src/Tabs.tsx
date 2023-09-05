@@ -5,7 +5,13 @@ import ReactDOM from 'react-dom';
 import domid from '@hugsmidjan/qj/domid';
 import { getFrag } from '@hugsmidjan/qj/frag';
 import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
+import { WrapperElmProps } from '@reykjavik/hanna-react/utils.js';
 import { notNully } from '@reykjavik/hanna-utils';
+
+import {
+  autoSeenEffectsRefresh,
+  autoSeenEffectWrapperProps,
+} from './utils/addSeenEffect.js';
 
 const setPanelDisplay = (panelElm: HTMLElement, isActive: boolean) => {
   if (isActive) {
@@ -30,7 +36,7 @@ type SprinkledTabsProps = {
   labelledBy?: string;
   tabPanelPairs: Array<{ tab: TabItemProps; panelElm: HTMLElement }>;
   startingIdx?: number;
-};
+} & WrapperElmProps;
 
 const SprinkledTabs = (props: SprinkledTabsProps) => {
   const { tabPanelPairs, startingIdx, label, labelledBy, id } = props;
@@ -157,9 +163,14 @@ window.Hanna.makeSprinkle({
 
       const root = document.createElement('div');
 
-      ReactDOM.render(<SprinkledTabs {...props} />, root, () => {
-        elm.replaceWith(root);
-      });
+      ReactDOM.render(
+        <SprinkledTabs {...props} wrapperProps={autoSeenEffectWrapperProps(elm)} />,
+        root,
+        () => {
+          elm.replaceWith(root);
+          autoSeenEffectsRefresh();
+        }
+      );
     }
   },
 });

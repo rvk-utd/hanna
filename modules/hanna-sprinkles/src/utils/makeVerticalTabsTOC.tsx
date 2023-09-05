@@ -10,6 +10,7 @@ import {
 } from '@reykjavik/hanna-react/VerticalTabsTOC';
 
 import ensureCSS from './_ensureCSS.js';
+import { autoSeenEffectsRefresh, hasLegacySeenEffectsCSS } from './addSeenEffect.js';
 
 const setPanelVisibility = (panelElm: HTMLElement, isActive: boolean) => {
   if (isActive) {
@@ -112,7 +113,6 @@ const makePanels = (containers: Array<HTMLElement>) => {
 
   containers.forEach((containerElm, i) => {
     const [hTop, hSub] = getHeadingTagLevels(containerElm, i === 0);
-    containerElm.dataset.isSeen = 'true';
 
     if (!hTop) {
       // handle containers without any headings.
@@ -141,7 +141,6 @@ const makePanels = (containers: Array<HTMLElement>) => {
       const panelElm = document.createElement('div') as unknown as PanelElement;
       panelElm.$container = containerElm;
       panelElm.className = 'TabPanel';
-      panelElm.dataset.isSeen = 'true';
       panelElm.hidden = true;
       panelElm.dataset.sprinkled = 'true';
       panelElm.setAttribute('aria-label', label);
@@ -303,6 +302,12 @@ const makeVerticalTabsTOC = (
     ReactDOM.render(<VerticalTabsTOC {...props} ssr={false} />, rootElm);
     return readyArgs;
   }) as MakeTOCMeta;
+
+  if (hasLegacySeenEffectsCSS) {
+    whenReady.then(() => {
+      setTimeout(autoSeenEffectsRefresh, 100);
+    });
+  }
 
   Object.assign(whenReady, readyArgs, { whenReady });
 

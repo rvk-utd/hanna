@@ -1,18 +1,16 @@
 import './initHannaNamespace.js';
 
-import addSeenEffect from './utils/addSeenEffect.js';
+import addSeenEffect, {
+  autoSeenEffectPrepare,
+  hasLegacySeenEffectsCSS,
+} from './utils/addSeenEffect.js';
 
 const noop = () => undefined;
 
-// Check if the `-legacy-AutoSeenEffects` CSS module token is loaded
-const hasLegacyEffectsCSS = !!document.querySelector(
-  'link[rel="stylesheet"][href*="/bundle/"][href*="-legacy-AutoSeenEffects"]'
-);
-
 // ..and only then apply seen-effect to elements matching the legacy selectors.
-const legacySelectors: string = !hasLegacyEffectsCSS
+const legacySelectors: string = !hasLegacySeenEffectsCSS
   ? ''
-  : ',' +
+  : ', .' +
     [
       // block-level components
       'AccordionList',
@@ -47,7 +45,11 @@ window.Hanna.makeSprinkle({
   selector: '[data-seen-effect]' + legacySelectors,
   dataAttr: addSeenEffect.DATA_ATTR_NAME,
 
-  init: (component: HTMLElement) => addSeenEffect(component) || noop,
+  init: (component: HTMLElement) => {
+    console.log('init SeenEffects', component);
+    autoSeenEffectPrepare(component);
+    return addSeenEffect(component) || noop;
+  },
 
   unmount: (elm, unobserve) => {
     unobserve();
