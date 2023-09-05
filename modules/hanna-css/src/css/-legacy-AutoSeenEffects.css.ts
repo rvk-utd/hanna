@@ -1,6 +1,12 @@
 import { css } from 'es-in-css';
 
-import { SeenEffect__disallowNesting, SeenEffect__fadeup } from './utils/seenEffects.js';
+import { htmlCl } from '../lib/classNames.js';
+
+import {
+  SeenEffect__disallowNesting,
+  SeenEffect__fadeup,
+  SeenEffect__reset,
+} from './utils/seenEffects.js';
 import { ExtraLinks__seenEffects } from './ExtraLinks.css.js';
 import { GridBlocks__seenEffects } from './GridBlocks.css.js';
 import { ImageCards__seenEffects } from './ImageCards.css.js';
@@ -37,7 +43,12 @@ export default css`
     .TableWrapper,
     .TextBlock,
     .___ {
+      ${htmlCl.beforeSprinkling} &:not([data-seen-effect]),
       ${SeenEffect__fadeup('bare')};
+
+      &[data-is-seen=''][data-is-seen=''] {
+        ${SeenEffect__reset('bare')}
+      }
     }
 
     .PageHeading,
