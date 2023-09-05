@@ -6,7 +6,7 @@
 
 ## 0.8.47
 
-_2023-09-05_
+_2023-09-07_
 
 - feat: Only do auto seen-effects if `-legacy-AutoSeenEffects` CSS is loaded
 - fix: Correctly initialize multiple `VerticalTabsTOC`s on same page
