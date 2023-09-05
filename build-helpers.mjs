@@ -7,6 +7,8 @@ import { mkdir, readFile, writeFile } from 'fs/promises';
 import { sync as globSync } from 'glob';
 import { dirname } from 'path';
 
+export { esbuild };
+
 /** @type {Record<string, true | string | undefined>} */
 export const opts = process.argv.slice(2).reduce((map, arg) => {
   const [key, value] = arg.replace(/^-+/, '').split('=');

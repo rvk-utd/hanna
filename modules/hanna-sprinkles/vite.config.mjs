@@ -1,6 +1,6 @@
 // @ts-check
 import preact from '@preact/preset-vite';
-import { transform } from 'esbuild';
+import { transform } from 'esbuild'; // local version installed by Vite.
 import { sync as globSync } from 'glob';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';

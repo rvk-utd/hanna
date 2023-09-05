@@ -1,9 +1,8 @@
 //@ts-check
-import esbuild from 'esbuild';
 import { writeFile } from 'fs/promises';
 import { globSync } from 'glob';
 
-import { buildTests, exit1, opts, srcDir } from '../../build-helpers.mjs';
+import { buildTests, esbuild, exit1, opts, srcDir } from '../../build-helpers.mjs';
 
 import { distFolder, sprinklesFolder, version, versionFolder } from './build-config.mjs';
 
@@ -30,6 +29,9 @@ const replaceTokens = (/** @type {esbuild.BuildResult} */ res, /** unknown */ er
   );
 };
 
+// Just build the index.js loader/setup file
+// This is easier than to difficult to get Vite to not bundle it
+// in with the other, code-split sprinkle files.
 esbuild
   .build({
     bundle: true,

@@ -2,7 +2,6 @@
 /* eslint-env es2022 */
 import { execSync } from 'child_process';
 import { compileCSSFromJS } from 'es-in-css/compiler';
-import esbuild from 'esbuild';
 import { readFile, writeFile } from 'fs/promises';
 import { sync as glob } from 'glob';
 
@@ -10,6 +9,7 @@ import {
   buildNpmLib,
   buildTests,
   distDir,
+  esbuild,
   exit1,
   externalDeps,
   opts,
