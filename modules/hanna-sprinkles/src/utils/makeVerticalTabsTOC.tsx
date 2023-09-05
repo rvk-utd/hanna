@@ -110,6 +110,7 @@ type PanelElement = HTMLElement & {
 const makePanels = (containers: Array<HTMLElement>) => {
   const panelElms: Array<PanelElement> = [];
   const items: Array<VerticalTabsTOCItem> = [];
+  const ids: Array<string> = [];
 
   containers.forEach((containerElm, i) => {
     const [hTop, hSub] = getHeadingTagLevels(containerElm, i === 0);
@@ -150,6 +151,7 @@ const makePanels = (containers: Array<HTMLElement>) => {
         tHeading.dataset.domid = hId;
       }
       panelElm.id = hId || aquireId(label);
+      ids.push(panelElm.id);
       panelElm.append(...groupNodes);
       const panelHasContent = !!panelElm.textContent!.trim();
       tHeading.before(panelElm);
@@ -191,7 +193,7 @@ const makePanels = (containers: Array<HTMLElement>) => {
     }
   });
 
-  return { items, panelElms };
+  return { items, panelElms, ids };
 };
 
 // ===========================================================================
@@ -199,11 +201,12 @@ const makePanels = (containers: Array<HTMLElement>) => {
 type ContentMeta = {
   props: VerticalTabsTOCProps;
   panelElms: Array<HTMLElement>;
+  ids: Array<string>;
 };
 
 const parseAndPrepareContent = (source: ContentSources): ContentMeta => {
   const containers = getContainers(source);
-  const { items, panelElms } = makePanels(containers);
+  const { items, panelElms, ids } = makePanels(containers);
   const setPanelElmsDisplay = (targetId: string) => {
     let activeContainer: HTMLElement;
     panelElms.forEach((panelElm) => {
@@ -227,6 +230,7 @@ const parseAndPrepareContent = (source: ContentSources): ContentMeta => {
       onItemSelect: setPanelElmsDisplay,
     },
     panelElms,
+    ids,
   };
 };
 
@@ -248,7 +252,7 @@ const makeVerticalTabsTOC = (
   contentSource: ContentSources,
   tocLabel?: string
 ): MakeTOCMeta => {
-  const { props, panelElms } = parseAndPrepareContent(contentSource);
+  const { props, panelElms, ids } = parseAndPrepareContent(contentSource);
   props['aria-label'] =
     tocLabel ||
     { is: 'Efnisyfirlit', en: 'Table of Contents', pl: 'Spis treści' }[getLang()];
@@ -256,7 +260,7 @@ const makeVerticalTabsTOC = (
   const rootElm = document.createElement('div');
 
   let initialId = decodeURIComponent(location.href.split('#')[1] || '');
-  if (!initialId) {
+  if (!initialId || !ids.includes(initialId)) {
     const firstItem = props.items[0]!;
     if (firstItem.items) {
       initialId = firstItem.items[0]!['aria-controls'] || '';

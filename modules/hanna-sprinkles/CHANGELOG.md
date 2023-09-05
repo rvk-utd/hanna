@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Only do auto seen-effects if `-legacy-AutoSeenEffects` CSS is loaded
+- fix: Correctly initialize multiple `VerticalTabsTOC`s on same page
 
 ## 0.8.46
 
