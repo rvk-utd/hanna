@@ -46,7 +46,9 @@ o.spec('generatePageList', () => {
     o(() => generatePageList(1, stringInput)).throws(Error)('1 of "foo"');
     o(() => generatePageList(stringInput, 10)).throws(Error)('"foo" of 1ö');
     o(() => generatePageList(1, nullInput)).throws(Error)('1 of null');
-    o(() => generatePageList(nullInput, 10)).throws(Error)('null of 1');
+    o(generatePageList(nullInput, 10).join()).equals('1,2,3,4,5,…,10')(
+      'null of 10 equals 1 of 10'
+    );
     o(generatePageList(1, 3.7).join()).equals('1,2,3')('1 of 3.7');
     o(generatePageList(7.7, 20).join()).equals('1,…,5.7,6.7,7.7,8.7,9.7,…,20')(
       '7.7 of 20'

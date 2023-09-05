@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.102
+
+_2023-09-04_
+
 - feat: Add component `Pagination`
 - `MegaPanelItem` type:
   - feat: add prop `Content` for custom `*Panel__item` children

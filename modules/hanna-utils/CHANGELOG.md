@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.9
+
+_2023-09-04_
+
 - feat: Add `getRvkLogoUrl()` asset helper
 - feat: Add optional parameter `variant` to `getIllustrationUrl`
 - feat: Add utility types `OmitDistributive`, `PickDistributive`,
