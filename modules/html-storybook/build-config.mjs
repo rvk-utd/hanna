@@ -4,14 +4,15 @@ import { readFile } from 'fs/promises';
 
 export const rootFolder = '../../';
 
-const pkg = JSON.parse((await readFile(rootFolder + 'package.json')).toString());
-
 /** @type {string} */
-export const htmlVersion = pkg.version;
+export const htmlVersion = JSON.parse(
+  (await readFile(rootFolder + 'package.json')).toString()
+).version;
+
 // Only use the MAJOR + MINOR version
 export const htmlVersionFolder = htmlVersion.split('.').slice(0, 2).join('.');
 
 export const serverFolder = rootFolder + 'servers/docs/';
 export const htmlDocsFolder = serverFolder + 'public/html/';
 
-export const tempDistFolder = '_temp-dist';
+export const tempDistFolder = 'storybook-static';

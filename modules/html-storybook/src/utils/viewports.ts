@@ -1,41 +1,49 @@
-import { Styles, Viewport } from '@storybook/addon-viewport/dist/models';
+// https://storybook.js.org/docs/react/essentials/viewport
+
+import { CSSProperties } from 'react';
 
 const wideScale = 810 / 1400;
 const netbookScale = 810 / 1000;
 const borderWidth = 2;
-const styles = {
+const styles: CSSProperties = {
   border: borderWidth + 'px solid black',
   margin: '-3px 0 auto 0',
 };
 
-type _ViewportNames = 'wide' | 'netbook' | 'tablet' | 'phablet' | 'phone' | 'phone_s';
+export type ViewportNames =
+  | 'wide'
+  | 'netbook'
+  | 'tablet'
+  | 'phablet'
+  | 'phone'
+  | 'phone_s';
+type Viewport = {
+  name: string;
+  styles: CSSProperties;
+};
 
-export type ViewportOptions = _ViewportNames | 'responsive';
-
-export const viewports: Record<_ViewportNames, Viewport> = {
+export const viewports: Record<ViewportNames, Viewport> = {
   wide: {
     name: 'Wide desktop',
     styles: {
       ...styles,
       width: '1400px',
-      height: 100 / wideScale + '%',
+      height: `${100 / wideScale}%`,
       border: borderWidth / wideScale + 'px solid black',
       transformOrigin: 'center 0',
       transform: 'scale(' + wideScale + ')',
-    } as Styles,
-    type: 'desktop',
+    },
   },
   netbook: {
     name: 'Netbook',
     styles: {
       ...styles,
       width: '1000px',
-      height: 100 / netbookScale + '%',
+      height: `${100 / netbookScale}%`,
       border: borderWidth / netbookScale + 'px solid black',
       transformOrigin: 'center 0',
       transform: 'scale(' + netbookScale + ')',
-    } as Styles,
-    type: 'desktop',
+    },
   },
   tablet: {
     name: 'Tablet',
@@ -43,8 +51,7 @@ export const viewports: Record<_ViewportNames, Viewport> = {
       ...styles,
       width: '768px',
       height: '100%',
-    } as Styles,
-    type: 'tablet',
+    },
   },
   phablet: {
     name: 'Phablet',
@@ -52,8 +59,7 @@ export const viewports: Record<_ViewportNames, Viewport> = {
       ...styles,
       width: '550px',
       height: '100%',
-    } as Styles,
-    type: 'tablet',
+    },
   },
   phone: {
     name: 'Phone (375px)',
@@ -61,8 +67,7 @@ export const viewports: Record<_ViewportNames, Viewport> = {
       ...styles,
       width: '375px',
       height: '100%',
-    } as Styles,
-    type: 'mobile',
+    },
   },
   phone_s: {
     name: 'Phone (320px)',
@@ -70,7 +75,6 @@ export const viewports: Record<_ViewportNames, Viewport> = {
       ...styles,
       width: '320px',
       height: '100%',
-    } as Styles,
-    type: 'mobile',
+    },
   },
 };
