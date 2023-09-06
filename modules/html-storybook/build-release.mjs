@@ -15,6 +15,7 @@ import {
 if (!existsSync(tempDistFolder)) {
   process.exit(1);
 }
+
 try {
   execSync(
     [
@@ -29,6 +30,7 @@ try {
       // update submodule files
       `rm -rf ${htmlDocsFolder + htmlVersionFolder} ${htmlDocsFolder}latest`,
       `(mkdir ${htmlDocsFolder}latest || exit 0)`,
+      `find ${tempDistFolder} -name "*.map" -type f -delete`,
       `cp -R ${tempDistFolder}/* ${htmlDocsFolder}latest`,
       `mv ${tempDistFolder} ${htmlDocsFolder + htmlVersionFolder}`,
 
