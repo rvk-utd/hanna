@@ -3,11 +3,9 @@ import { BlingType } from '@reykjavik/hanna-utils/assets';
 
 import Bling, { BlingAlignment, BlingProps } from '../Bling.js';
 
-export type BlingComboProps = Array<
-  Omit<BlingProps, 'type' | 'blingUrl'> & {
-    type: BlingType;
-  }
->;
+type ConstrainedBlingProps = { type: BlingType } & Omit<BlingProps, 'type' | 'blingUrl'>;
+
+export type BlingComboProps = [ConstrainedBlingProps, ...Array<ConstrainedBlingProps>];
 
 const inverseAlignments: Record<BlingAlignment, BlingAlignment> = {
   left: 'right',

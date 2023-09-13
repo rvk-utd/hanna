@@ -1,6 +1,6 @@
 import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { getStableRandomItem } from '@reykjavik/hanna-utils';
+import { getStableRandomItem, OpenRecord } from '@reykjavik/hanna-utils';
 
 import { BlingComboProps, Blings } from './_abstract/_Blings.js';
 import { Image, ImageProps } from './_abstract/_Image.js';
@@ -16,7 +16,7 @@ type BlingOptions =
   | 'balls-small'
   | 'balls-large';
 
-const blingOptions: Record<BlingOptions, BlingComboProps> = {
+const blingOptions: OpenRecord<BlingOptions, BlingComboProps> = {
   interesting: [
     {
       type: 'circle-xlarge',
@@ -90,7 +90,7 @@ export type NewsHeroProps = {
   /** For custom sharing component  */
   sharing?: boolean | (() => JSX.Element);
   image?: ImageProps;
-  blingType?: BlingOptions;
+  blingType?: BlingOptions | BlingComboProps;
 } & WrapperElmProps &
   DeprecatedSeenProp;
 
@@ -98,7 +98,10 @@ export const NewsHero = (props: NewsHeroProps) => {
   const { title, sharing = true, meta, summary, image, blingType, wrapperProps } = props;
 
   const blings =
-    (blingType && blingOptions[blingType]) || getStableRandomItem(blingOptions, title);
+    typeof blingType === 'object'
+      ? blingType
+      : (blingType && blingOptions[blingType as string]) ||
+        getStableRandomItem(blingOptions, title);
 
   return (
     <div

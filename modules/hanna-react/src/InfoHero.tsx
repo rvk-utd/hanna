@@ -1,5 +1,6 @@
 import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { OpenRecord } from '@reykjavik/hanna-utils';
 
 import { BlingComboProps, Blings } from './_abstract/_Blings.js';
 import { ButtonProps } from './_abstract/_Button.js';
@@ -11,7 +12,7 @@ import { WrapperElmProps } from './utils.js';
 
 type BlingOptions = 'waves' | 'sunny-waves' | 'triangles' | 'circles';
 
-const blingOptions: Record<BlingOptions, BlingComboProps> = {
+const blingOptions: OpenRecord<BlingOptions, BlingComboProps> = {
   waves: [
     {
       type: 'waves-medium',
@@ -81,7 +82,7 @@ export type InfoHeroProps = {
   footer?: string | JSX.Element;
   align?: Alignment;
   image?: ImageProps;
-  blingType?: BlingOptions;
+  blingType?: BlingOptions | BlingComboProps;
 } & WrapperElmProps;
 
 export const InfoHero = (props: InfoHeroProps) => {
@@ -101,8 +102,9 @@ export const InfoHero = (props: InfoHeroProps) => {
 
   const alignment = align && aligns[align] ? align : 'right';
   const blings =
-    (blingType && (blingOptions[blingType] as BlingComboProps | undefined)) ||
-    blingOptions.waves; // default to `waves`
+    typeof blingType === 'object'
+      ? blingType
+      : (blingType && blingOptions[blingType as string]) || blingOptions.waves; // default to `waves`
 
   return (
     <div

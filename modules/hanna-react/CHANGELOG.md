@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Allow `BlingComboProps` values as `blingType` for `NewsHero` and
+  `InfoHero`
 - fix: Correctly pass `ssr` prop down to sub-`Tabs`
 - fix: Respect `ssr` passed to `VerticalTabsTOC`
 
