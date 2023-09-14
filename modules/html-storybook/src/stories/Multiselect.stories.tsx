@@ -56,6 +56,7 @@ const MultiselectStory = (props: ControlProps) => {
   return (
     <Fragment key={key}>
       <Multiselect
+        nowrap={nowrap}
         {...ffProps}
         label="Veldu tegund"
         name="flavours"
