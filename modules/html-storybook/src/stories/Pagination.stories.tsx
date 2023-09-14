@@ -46,7 +46,7 @@ export const _Pagination: StoryObj<ControlProps> = {
   argTypes: {
     type: {
       name: 'Button type',
-      options: stateOptions,
+      options: typeOptions,
       control: {
         type: 'inline-radio',
         labels: {
