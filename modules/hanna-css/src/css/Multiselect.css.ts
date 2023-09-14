@@ -26,7 +26,7 @@ const tp = TagPillVariables.vars;
 
 export default css`
   /*!@deps
-    Tagpill
+    TagPill
     FormField
     TextInput
     Checkbox

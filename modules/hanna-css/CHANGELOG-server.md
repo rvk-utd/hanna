@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Typo in `Mutiselect`'s dependency list
 
 ## 0.8.80
 
