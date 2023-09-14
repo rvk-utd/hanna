@@ -4,7 +4,11 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { overflowEllipsis, prem } from './utils/miscUtils.js';
+import { DEPS, overflowEllipsis, prem } from './utils/miscUtils.js';
+
+export default css`
+  ${DEPS('FormField')}
+`;
 
 // inlined by FormField.css.ts
 export const Selectbox_css = () => css`
@@ -75,10 +79,4 @@ export const Selectbox_css = () => css`
     .Selectbox > * > .FormField__input__value--empty {
     }
   }
-`;
-
-export default css`
-  /*!@deps
-    FormField
-  */
 `;

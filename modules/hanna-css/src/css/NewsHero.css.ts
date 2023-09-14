@@ -5,14 +5,11 @@ import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { cols_pct, grid_units, prem } from './utils/miscUtils.js';
+import { cols_pct, DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    PageHeading
-    ShareButtons
-    Bling
-  */
+  ${DEPS('PageHeading', 'ShareButtons', 'Bling')}
+
   @media screen {
     .NewsHero {
       position: relative;

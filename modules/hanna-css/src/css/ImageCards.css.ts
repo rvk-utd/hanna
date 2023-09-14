@@ -7,6 +7,7 @@ import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { CardBlock_css, CardList_css, CardListTitle_css } from './styles/cards.js';
 import {
   avoidCssnanoMerging,
+  DEPS,
   extendBackgroundWithUnderlay,
   prem,
 } from './utils/miscUtils.js';
@@ -36,9 +37,8 @@ export const ImageCards__seenEffects = (trigger?: null | string) => css`
 const borderW = prem(12);
 
 export default css`
-  /*!@deps
-    ButtonTertiary
-  */
+  ${DEPS('ButtonTertiary')}
+
   @media screen {
     .ImageCards {
       --ImageCards--fallback: url('/assets/illustrations/esjan.png');

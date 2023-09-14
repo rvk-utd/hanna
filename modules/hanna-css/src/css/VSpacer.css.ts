@@ -3,10 +3,10 @@ import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
+import { DEPS } from './utils/miscUtils.js';
+
 export default css`
-  /*!@deps
-    TextBlock
-  */
+  ${DEPS('TextBlock')}
 `;
 
 // inlined by TextBlock.css.ts

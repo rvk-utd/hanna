@@ -5,12 +5,10 @@ import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
-import { grid_units, prem } from './utils/miscUtils.js';
+import { DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    Layout-full
-  */
+  ${DEPS('Layout-full')}
 
   @media screen {
     .Layout--HomePage .RowBlock {

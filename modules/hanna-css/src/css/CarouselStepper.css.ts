@@ -4,6 +4,8 @@ import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
+import { DEPS } from './utils/miscUtils.js';
+
 export const CarouselStepperVariables = buildVariables(['height'], 'CarouselStepper');
 const csVars = CarouselStepperVariables.vars;
 
@@ -14,9 +16,7 @@ export const carouselStepperBeforeSprinklingPadding = () => css`
 `;
 
 export default css`
-  /*!@deps
-    Carousel
-  */
+  ${DEPS('Carousel')}
 `;
 
 export const CarouselStepper_css = () => css`

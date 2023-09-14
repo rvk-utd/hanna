@@ -6,7 +6,7 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 import { TagPillVariables } from './TagPill.css.js';
 
 const tp = TagPillVariables.vars;
@@ -25,12 +25,7 @@ const tp = TagPillVariables.vars;
 */
 
 export default css`
-  /*!@deps
-    TagPill
-    FormField
-    TextInput
-    Checkbox
-  */
+  ${DEPS('TagPill', 'FormField', 'TextInput', 'Checkbox')}
 
   .Multiselect__input {
     height: auto;

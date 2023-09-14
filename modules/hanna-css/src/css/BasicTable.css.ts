@@ -7,7 +7,7 @@ import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
-import { prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 
 const _between = (from: ScaleEdge, to: ScaleEdge) =>
   scale(from, to, bp.phone, grid.contentMaxWidth, '%');
@@ -19,9 +19,7 @@ export const BasicTableVariables = buildVariables(
 const bt = BasicTableVariables;
 
 export default css`
-  /*!@deps
-    Footnote
-  */
+  ${DEPS('Footnote')}
 
   @media screen {
     .TableWrapper {

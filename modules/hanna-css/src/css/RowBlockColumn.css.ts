@@ -6,12 +6,10 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LinkStyle_SameColor } from './styles/links.js';
-import { cols_pct } from './utils/miscUtils.js';
+import { cols_pct, DEPS } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    RowBlock
-  */
+  ${DEPS('RowBlock')}
 `;
 
 export const RowBlockColumn_css = () => css`

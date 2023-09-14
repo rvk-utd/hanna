@@ -12,7 +12,7 @@ import { LabeledTitleStyle__basics } from './styles/labeledTitle.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { afterClear_css } from './utils/afterClear.js';
 import { hoverKeyboardFocusAndActiveStyling } from './utils/focus-selectors.js';
-import { cols_px, grid_units, prem } from './utils/miscUtils.js';
+import { cols_px, DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 const baseDashWidth = 24;
 const hoverDashWidth = 48;
@@ -27,10 +27,7 @@ const flexDash = (pxWidth: number) => {
 };
 
 export default css`
-  /*!@deps
-    Tabs,
-    Alert
-  */
+  ${DEPS('Tabs', 'Alert')}
 
   @media screen {
     .SiteSearchPage {

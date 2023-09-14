@@ -7,12 +7,11 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
 import { hideText_css } from './utils/hideText.js';
-import { overflowEllipsis, prem } from './utils/miscUtils.js';
+import { DEPS, overflowEllipsis, prem } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    FormField
-  */
+  ${DEPS('FormField')}
+
   @media screen {
     .FileInput {
       margin-bottom: ${scale_container(30, 70)};

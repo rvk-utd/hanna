@@ -6,7 +6,7 @@ import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars } from '../lib/hannavars.js';
 
-import { cols_pct, grid_units, prem, resetImageChild } from './utils/miscUtils.js';
+import { cols_pct, DEPS, grid_units, prem, resetImageChild } from './utils/miscUtils.js';
 import {
   SeenEffect__fadeup,
   SeenEffect__resetDefault,
@@ -29,9 +29,7 @@ export const GridBlocks__seenEffects = (trigger?: null | string) => css`
 // ---------------------------------------------------------------------------
 
 export default css`
-  /*!@deps
-    ButtonTertiary
-  */
+  ${DEPS('ButtonTertiary')}
 
   @media screen {
     .GridBlocks {

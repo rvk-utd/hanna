@@ -7,22 +7,23 @@ import { hannaVars, hannaVars as vars } from '../lib/hannavars.js';
 import {
   cols_pct,
   cols_px,
+  DEPS,
   extendBackgroundWithUnderlay,
   grid_units,
   prem,
 } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    TextInput
-    SearchInput
-    Datepicker
-    Selectbox
-    ButtonPrimary
-    ButtonSecondary
-    ButtonTertiary
-    Footnote
-  */
+  ${DEPS(
+    'TextInput',
+    'SearchInput',
+    'Datepicker',
+    'Selectbox',
+    'ButtonPrimary',
+    'ButtonSecondary',
+    'ButtonTertiary',
+    'Footnote'
+  )}
 
   @media screen {
     .PageFilter {

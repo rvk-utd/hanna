@@ -5,6 +5,12 @@ import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { FormFieldVariables, formFieldVars as ff } from '../lib/otherTokens.js';
 
+import { DEPS } from './utils/miscUtils.js';
+
+export default css`
+  ${DEPS('FormField')}
+`;
+
 export const TextInputVariables = buildVariables(
   ['textarea__leading', 'textarea__rows', 'textarea__extraPad'],
   'TextInput'
@@ -45,10 +51,4 @@ export const TextInput_css = () => css`
       )}
     }
   }
-`;
-
-export default css`
-  /*!@deps
-    FormField
-  */
 `;

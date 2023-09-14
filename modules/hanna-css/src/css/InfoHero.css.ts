@@ -4,14 +4,10 @@ import { scale_container, scale_phablet_tablet } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { cols_pct, cols_px, prem, px_pct } from './utils/miscUtils.js';
+import { cols_pct, cols_px, DEPS, prem, px_pct } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    ButtonTertiary
-    Sharpie
-    Bling
-  */
+  ${DEPS('ButtonTertiary', 'Sharpie', 'Bling')}
 
   @media screen {
     .InfoHero {

@@ -10,14 +10,11 @@ import {
   LabeledTitleStyle__floating,
   LabeledTitleStyle__outdented,
 } from './styles/labeledTitle.js';
-import { cols_pct, grid_units } from './utils/miscUtils.js';
+import { cols_pct, DEPS, grid_units } from './utils/miscUtils.js';
 import { textContent } from './utils/textContent.js';
 
 export default css`
-  /*!@deps
-    Attention
-    ButtonTertiary
-  */
+  ${DEPS('Attention', 'ButtonTertiary')}
 
   @media screen {
     .LabeledTextBlock {

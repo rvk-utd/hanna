@@ -3,12 +3,11 @@ import { css } from 'es-in-css';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { cols_pct } from './utils/miscUtils.js';
+import { cols_pct, DEPS } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    NameCard
-  */
+  ${DEPS('NameCard')}
+
   @media screen {
     .NameCards {
       display: grid;

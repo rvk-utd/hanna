@@ -7,12 +7,10 @@ import { iconStyle } from '../lib/icons.js';
 import { suppress_WARNING__ } from '../lib/WARNING__.js';
 
 import { hideText_css } from './utils/hideText.js';
-import { prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    FormField
-  */
+  ${DEPS('FormField')}
 
   // 'react-datepicker/dist/react-datepicker.css' @ v2.14.1
   @media screen {

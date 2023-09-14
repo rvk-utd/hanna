@@ -3,12 +3,10 @@ import { css, px } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { ButtonStyle, ButtonVariables as b } from './styles/buttons.js';
+import { DEPS } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    Icon
-    ButtonBar
-  */
+  ${DEPS('Icon', 'ButtonBar')}
 
   .ButtonSecondary {
     ${ButtonStyle}

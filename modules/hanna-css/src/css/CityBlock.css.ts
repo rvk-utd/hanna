@@ -13,7 +13,7 @@ import { WARNING_soft__ } from '../lib/WARNING__.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_SameColor } from './styles/links.js';
-import { cols_pct, cols_px, grid_units, prem } from './utils/miscUtils.js';
+import { cols_pct, cols_px, DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 const minH = px(480 - 2 * grid.column);
 
@@ -21,10 +21,8 @@ const largebox_minH = px(800 - 2 * grid.column);
 const largeimage_minH = px(880);
 
 export default css`
-  /*!@deps
-    ButtonPrimary
-    ButtonTertiary
-  */
+  ${DEPS('ButtonPrimary', 'ButtonTertiary')}
+
   @media screen {
     .CityBlock {
       display: flex;

@@ -11,15 +11,13 @@ import { WARNING__ } from '../lib/WARNING__.js';
 import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_Reset } from './styles/links.js';
-import { prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css.js';
 
 const topBorderW = prem(21);
 
 export default css`
-  /*!@deps
-  Carousel
-*/
+  ${DEPS('Carousel')}
 
   @media screen {
     .ArticleCarousel {

@@ -9,12 +9,10 @@ import {
   ButtonTertiaryStyle__disabled,
   ButtonTertiaryVariables as bt,
 } from './styles/buttons.js';
-import { prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    ButtonBar
-  */
+  ${DEPS('ButtonBar')}
 
   .ButtonTertiary {
     ${ButtonTertiaryStyle};

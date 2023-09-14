@@ -1,12 +1,10 @@
 import { css } from 'es-in-css';
 
 import { TogglerGroup } from './styles/forms.js';
+import { DEPS } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    FormField
-    Checkbox
-  */
+  ${DEPS('FormField', 'Checkbox')}
 `;
 
 // inlined by Checkbox.css.ts

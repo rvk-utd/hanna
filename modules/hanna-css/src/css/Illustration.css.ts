@@ -3,10 +3,11 @@ import { css } from 'es-in-css';
 
 import { WARNING__ } from '../lib/WARNING__.js';
 
+import { DEPS } from './utils/miscUtils.js';
+
 export default css`
-  /*!@deps
-    RowBlockColumn
-  */
+  ${DEPS('RowBlockColumn')}
+
   @media screen {
     .Illustration {
       display: block;

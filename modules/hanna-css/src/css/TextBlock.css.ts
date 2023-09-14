@@ -10,7 +10,7 @@ import {
   LabeledTitleStyle__basics,
   LabeledTitleStyle__outdented,
 } from './styles/labeledTitle.js';
-import { cols_pct } from './utils/miscUtils.js';
+import { cols_pct, DEPS } from './utils/miscUtils.js';
 import { textContent, textContentVars } from './utils/textContent.js';
 import { ArticleMeta_css } from './ArticleMeta.css.js';
 import { Heading_css } from './Heading.css.js';
@@ -20,9 +20,7 @@ import { SubHeading_css } from './SubHeading.css.js';
 import { VSpacer_css } from './VSpacer.css.js';
 
 export default css`
-  /*!@deps
-    Attention
-  */
+  ${DEPS('Attention')}
 
   @media screen {
     .TextBlock {

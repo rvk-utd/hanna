@@ -1,12 +1,10 @@
 import { css } from 'es-in-css';
 
 import { TogglerButtonsGroup } from './styles/forms.js';
+import { DEPS } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    FormField
-    CheckboxButton
-  */
+  ${DEPS('FormField', 'CheckboxButton')}
 `;
 
 // inlined by CheckboxButton.css.ts

@@ -4,10 +4,11 @@ import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
+import { DEPS } from './utils/miscUtils.js';
+
 export default css`
-  /*!@deps
-    SiteSearchInput
-  */
+  ${DEPS('SiteSearchInput')}
+
   @media screen {
     .SiteSearchAutocomplete {
       position: relative;

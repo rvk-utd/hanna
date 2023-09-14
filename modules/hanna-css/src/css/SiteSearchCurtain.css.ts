@@ -4,10 +4,10 @@ import { mq } from '../lib/breakpoints.js';
 import { colors } from '../lib/colors.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
+import { DEPS } from './utils/miscUtils.js';
+
 export default css`
-  /*!@deps
-    SiteSearchAutocomplete
-  */
+  ${DEPS('SiteSearchAutocomplete')}
 
   @media screen {
     .SiteSearchCurtain {

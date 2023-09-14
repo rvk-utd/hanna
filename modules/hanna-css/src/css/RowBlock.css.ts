@@ -4,6 +4,7 @@ import { mq } from '../lib/breakpoints.js';
 import { hannaVars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
+import { DEPS } from './utils/miscUtils.js';
 import {
   SeenEffect__fadeup,
   SeenEffect__resetDefault,
@@ -21,9 +22,8 @@ export const RowBlock__seenEffects = (trigger?: null | string) => css`
 // ---------------------------------------------------------------------------
 
 export default css`
-  /*!@deps
-    RowBlockColumn
-  */
+  ${DEPS('RowBlockColumn')}
+
   @media screen {
     .RowBlock {
       margin-bottom: ${hannaVars.component_vspace__large};

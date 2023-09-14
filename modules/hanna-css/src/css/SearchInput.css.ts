@@ -6,12 +6,10 @@ import { formFieldVars as ff } from '../lib/otherTokens.js';
 
 import { hoverKeyboardFocusAndActiveStyling } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
-import { prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    FormField
-  */
+  ${DEPS('FormField')}
 
   @media screen {
     .SearchInput {

@@ -7,12 +7,10 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
 import { LinkStyle_Reset } from './styles/links.js';
-import { prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    WizardLayout
-  */
+  ${DEPS('WizardLayout')}
 `;
 
 // inlined in -basics.css.ts

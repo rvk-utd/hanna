@@ -1,16 +1,18 @@
 import { css } from 'es-in-css';
 
+import { DEPS } from './utils/miscUtils.js';
 import { centerColumnsStyling } from './CenterColumn.css.js';
 
 export default css`
-  /*!@deps
-    ArticleMeta
-    Heading
-    ContentImage
-    TextBlock
-    VSpacer
-    RelatedLinks
-  */
+  ${DEPS(
+    'ArticleMeta',
+    'Heading',
+    'ContentImage',
+    'TextBlock',
+    'VSpacer',
+    'RelatedLinks'
+  )}
+
   @media screen {
     .ContentArticle {
       ${centerColumnsStyling({ allowed: ['.ContentArticle__header'] })}

@@ -4,13 +4,11 @@ import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { cols_px, prem } from './utils/miscUtils.js';
+import { cols_px, DEPS, prem } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    Bling
-    efnistakn
-  */
+  ${DEPS('Bling', 'efnistakn')}
+
   @media screen {
     .FeatureList {
       --efnistakn: ''; // scope variable to container.

@@ -6,13 +6,11 @@ import { grid } from '../lib/grid.js';
 import { hannaVars } from '../lib/hannavars.js';
 import { WARNING_soft__ } from '../lib/WARNING__.js';
 
-import { cols_pct, cols_px, prem, resetImageChild } from './utils/miscUtils.js';
+import { cols_pct, cols_px, DEPS, prem, resetImageChild } from './utils/miscUtils.js';
 
 export default css`
-  /*!@deps
-    ButtonPrimary
-    ButtonTertiary
-  */
+  ${DEPS('ButtonPrimary', 'ButtonTertiary')}
+
   @media screen {
     .HeroBlock {
       padding: ${scale_container(0, 1 * grid.unit)} 0;

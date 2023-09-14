@@ -1,8 +1,12 @@
 import { css, pct_f, PlainNumber, px, PxValue, RawCssString, rem } from 'es-in-css';
 
-import { isDevMode } from '../../lib/cssutils.js';
+import { CssModuleToken, isDevMode } from '../../lib/cssutils.js';
 import { grid } from '../../lib/grid.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
+
+/** Writes out a module's `/*!@deps ...` list. */
+export const DEPS = (...deps: [CssModuleToken, ...Array<CssModuleToken>]) =>
+  `/*!@deps ${deps.join(', ')} */`;
 
 /**
  * Converts a pixel size to a rem value.
