@@ -16,6 +16,13 @@ type RSpkrObject = {
 const scriptTagId = 'rs_req_Init';
 const scriptTagSelector = `script#${scriptTagId}`;
 
+/**
+ * Counts the number of ReadSpeaker buttons mounted on the page.
+ * When mounting the first button, a script tag will be added to the page,
+ * and this counter incremented. When unmounting, this counter is decremented,
+ * and when it reaches `0`, the script tag will be removed from the page.
+ * GC FTW!
+ */
 let buttons = 0;
 
 export type ReadSpeakerPlayerI18n = {
@@ -110,14 +117,14 @@ export const ReadSpeakerPlayer = (props: ReadSpeakerPlayerProps) => {
 
   useEffect(
     () => {
-      if (buttons < 0) {
-        return;
-      }
-
       if (buttons === 0) {
         if (document.querySelector(scriptTagSelector)) {
-          buttons = -1;
+          // If the script element has been already added to the page
+          // while our `button` count is at 0, then someone else
+          // must have injected the script, and is presumably managing it.
+          // Therefore, our job is done here.
           return;
+          // NOTE: We check this every time, in case the script gets removed.
         }
 
         const script = document.createElement('script');
@@ -140,7 +147,7 @@ export const ReadSpeakerPlayer = (props: ReadSpeakerPlayerProps) => {
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
-      // We're not trying to support dynamic changes to `customerId`
+      // NOTE: We do not support dynamic changes to `customerId`
       // or multiple different `customerId`s on the same page.
       // If you try that, things will be weird and wonky.
     ]
