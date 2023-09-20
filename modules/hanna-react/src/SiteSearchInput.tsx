@@ -7,98 +7,120 @@ import FormField, {
 
 type InputElmProps = Omit<
   JSX.IntrinsicElements['input'],
-  'className' | 'type' | 'disabled' | 'readOnly' | 'required' | 'onSubmit'
->;
+  | 'className'
+  | 'type'
+  | 'disabled'
+  | 'readOnly'
+  | 'required'
+  | 'onSubmit'
+  | 'ref'
+  | 'value'
+> & { value?: string };
 
 export type SiteSearchInputProps = Pick<
   FormFieldWrappingProps,
   'id' | 'label' | 'ssr' | 'wrapperProps'
 > & {
-  /** Triggered when user hits ENTER key with the focus inside the input field
+  /**
+   * Triggered when user hits ENTER key with the focus inside the input field.
    *
-   * Return `true` to __allow__ the browser's default submit hehavior
+   * Return `true` to __allow__ the browser's default submit hehavior.
    */
-  onSubmit?: () => boolean | void;
+  onSubmit?: (value: string) => boolean | void;
 
-  /** Custom action to perform when the user clicks the search button
+  /**
+   * Custom action to perform when the user clicks the search button.
    *
-   * Return `true` to __allow__ the browser's default submit hehavior
+   * Return `true` to __allow__ the browser's default submit hehavior.
    *
-   * Defaults to `onSearch`
+   * Defaults to `onSubmit`.
    */
-  onButtonClick?: () => boolean | void;
+  onButtonClick?: (value: string) => boolean | void;
+  /**
+   * Toggle the search `<button/>`.
+   *
+   * Defaults to `true`.
+   */
+  button?: boolean;
   buttonText?: string;
 } & InputElmProps;
 
 // ---------------------------------------------------------------------------
-export const SiteSearchInput = React.forwardRef<HTMLInputElement, SiteSearchInputProps>(
-  (props, ref) => {
-    const {
-      onChange,
+export const SiteSearchInput = (props: SiteSearchInputProps) => {
+  const {
+    onChange,
 
-      buttonText = 'Leita',
-      onSubmit,
-      onButtonClick = props.onSubmit,
-      onKeyDown,
+    buttonText = 'Leita',
+    onSubmit,
+    onButtonClick = props.onSubmit,
+    button,
+    onKeyDown,
 
-      placeholder = typeof props.label === 'string' ? props.label : undefined,
-      fieldWrapperProps,
-      ...inputElementProps
-    } = groupFormFieldWrapperProps(props);
+    placeholder = typeof props.label === 'string' ? props.label : undefined,
 
-    const { value, defaultValue } = inputElementProps;
+    fieldWrapperProps,
+    ...inputElementProps
+  } = groupFormFieldWrapperProps(props);
 
-    const [hasValue, setHasValue] = useState<boolean | undefined>(undefined);
-    const filled = !!(value ?? hasValue ?? !!defaultValue);
-    const empty = !filled && !placeholder;
+  const { value, defaultValue } = inputElementProps;
 
-    const _onChange: typeof onChange =
-      value != null
-        ? onChange
-        : (e) => {
-            setHasValue(!!e.target.value);
-            onChange && onChange(e);
-          };
+  const [hasValue, setHasValue] = useState<boolean | undefined>(undefined);
+  const filled = !!(value ?? hasValue ?? !!defaultValue);
+  const empty = !filled && !placeholder;
 
-    return (
-      <FormField
-        extraClassName="SiteSearchInput"
-        empty={empty}
-        filled={filled}
-        {...fieldWrapperProps}
-        renderInput={(className, inputProps, addFocusProps) => (
-          <div className={className.input} {...addFocusProps()}>
-            <input
-              className="SiteSearchInput__input"
-              onChange={_onChange}
-              {...inputProps}
-              placeholder={placeholder}
-              onKeyDown={
-                onSubmit
-                  ? (e) => {
-                      if (e.key === 'Enter' && onSubmit() !== true) {
-                        e.preventDefault();
-                      }
-                      onKeyDown && onKeyDown(e);
+  const _onChange: typeof onChange =
+    value != null
+      ? onChange
+      : (e) => {
+          setHasValue(!!e.target.value);
+          onChange && onChange(e);
+        };
+
+  const showButton = button !== false;
+
+  return (
+    <FormField
+      extraClassName="SiteSearchInput"
+      empty={empty}
+      filled={filled}
+      {...fieldWrapperProps}
+      renderInput={(className, inputProps, addFocusProps) => (
+        <div className={className.input} {...addFocusProps()}>
+          <input
+            className="SiteSearchInput__input"
+            onChange={_onChange}
+            {...inputProps}
+            placeholder={placeholder}
+            onKeyDown={
+              onSubmit
+                ? (e) => {
+                    if (e.key === 'Enter' && onSubmit(e.currentTarget.value) !== true) {
+                      e.preventDefault();
                     }
-                  : onKeyDown
-              }
-              {...inputElementProps}
-              ref={ref}
-            />{' '}
+                    onKeyDown && onKeyDown(e);
+                  }
+                : onKeyDown
+            }
+            {...inputElementProps}
+          />{' '}
+          {showButton && (
             <button
               className="SiteSearchInput__button"
               type="submit"
-              onClick={onButtonClick && ((e) => !onButtonClick() && e.preventDefault())}
+              onClick={
+                onButtonClick &&
+                ((e) =>
+                  onButtonClick(e.currentTarget.value) !== true && e.preventDefault())
+              }
               title={buttonText}
             >
               {buttonText}
             </button>
-          </div>
-        )}
-      />
-    );
-  }
-);
+          )}
+        </div>
+      )}
+    />
+  );
+};
 
 export default SiteSearchInput;

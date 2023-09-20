@@ -1,33 +1,48 @@
 import React, { useState } from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
-import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
+import { AutosuggestSearch } from '@reykjavik/hanna-react/AutosuggestSearch';
 
 import { Minimal } from '../../layout/Minimal.js';
 import { lorem } from '../../test-helpers/dummyData.js';
 import { keyboardFocus } from '../../test-helpers/keyboardFocus.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 
-// // Use `handle` if you're using multiple Hanna compnents
-// export const handle = cssTokens('SearchInput');
+// Use `handle` if you're using multiple Hanna compnents
+export const handle = cssTokens('SiteSearchInput');
 
 const items = [1, 2, 3, 4, 5].map((value) =>
   value === 2 ? lorem.medium : `Suggestion ${value}`
 );
 
 export default function () {
-  const [suggestions, setSuggestions] = useState(items);
+  const [options, setOptions] = useState(items);
   return (
     <Minimal>
-      <SiteSearchAutocomplete // eslint-disable-line deprecation/deprecation
-        suggestions={suggestions}
-        setSuggestions={setSuggestions}
-        getSuggestionValue={(value) => value}
-        onSuggestionsFetchRequested={() => setSuggestions(items)}
-        // InputComponent={SearchInput}
+      <AutosuggestSearch
+        options={options}
+        onClearOptions={() => setOptions([])}
+        onInput={() => setOptions(items)}
+        onSelected={(payload) => console.info('onSelected', payload)}
+        onSubmit={(payload) => console.info('onSubmit (and onButtonClick)', payload)}
+        // itemActionIcon="search"
+        itemActionIcon="go"
+        button={false}
       />
+      {/* * /}
+      <DummyBlock thin />
+      <AutosuggestSearch
+        options={options}
+        onClearOptions={() => setOptions([])}
+        onInput={() => setOptions(items)}
+        onSelected={(payload) => console.info('onSelected', payload)}
+        onSubmit={(payload) => console.info('onSubmit (and onButtonClick)', payload)}
+        InputComponent={SiteSearchInput}
+      />
+      {/* */}
     </Minimal>
   );
 }
@@ -41,8 +56,8 @@ export const testing: TestingInfo = {
     mediaFormat,
   }) => {
     const formFieldInput = page.locator('.FormField__input');
-    const searchButton = page.locator('.SiteSearchInput__button');
-    const searchBox = page.locator('.SiteSearchInput__input');
+    const searchButton = page.locator('.SearchInput__button');
+    const searchBox = page.locator('.SearchInput__input');
 
     if (mediaFormat('wide') || mediaFormat('phone')) {
       // Focus search button
@@ -64,10 +79,10 @@ export const testing: TestingInfo = {
     setViewportSize(1000);
     await searchBox.fill('a');
 
-    await page.locator('.SiteSearchAutocomplete__item >> nth=0').hover();
+    await page.locator('.AutosuggestSearch__item >> nth=0').hover();
     await pageScreenshot('suggestion-hover');
 
-    const wrappedItem = page.locator('.SiteSearchAutocomplete__item >> nth=1');
+    const wrappedItem = page.locator('.AutosuggestSearch__item >> nth=1');
     await wrappedItem.hover();
     await localScreenshot(wrappedItem, 'suggestion-wrap-hover');
   },

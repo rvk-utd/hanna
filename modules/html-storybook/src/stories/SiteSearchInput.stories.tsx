@@ -2,9 +2,9 @@ import React from 'react';
 import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { FFControlProps } from '../utils/knobs.js';
-
-type ControlProps = FFControlProps;
+type ControlProps = {
+  button: boolean;
+};
 
 const meta: Meta<ControlProps> = {
   title: 'Forms/SiteSearchInput',
@@ -14,11 +14,11 @@ const meta: Meta<ControlProps> = {
 };
 export default meta;
 
-const SiteSearchInputStory = (props: ControlProps) => {
+const SiteSearchInputStory = (args: ControlProps) => {
   return (
     <>
       <SiteSearchInput
-        {...props}
+        {...args}
         label="Sláðu inn leitarorð"
         onButtonClick={() => alert('Perform Search!')}
         buttonText="Leita"
@@ -29,10 +29,11 @@ const SiteSearchInputStory = (props: ControlProps) => {
 };
 
 export const _SiteSearchInput: StoryObj<ControlProps> = {
-  render: (args) => <SiteSearchInputStory {...args} />,
-  argTypes: {},
-  args: {},
-  parameters: {
-    controls: { hideNoControlsWarning: true },
+  render: SiteSearchInputStory,
+  argTypes: {
+    button: { name: 'Submit button' },
+  },
+  args: {
+    button: true,
   },
 };

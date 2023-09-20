@@ -7,17 +7,18 @@ import { iconStyle } from '../lib/icons.js';
 import { DEPS } from './utils/miscUtils.js';
 
 export default css`
-  ${DEPS('SiteSearchInput')}
+  ${DEPS('SearchInput')}
 
   @media screen {
-    .SiteSearchAutocomplete {
+    .AutosuggestSearch {
       position: relative;
     }
-    .SiteSearchAutocomplete--open {
+    .AutosuggestSearch--open {
       z-index: ${vars.zindex__overlay};
     }
 
-    .SiteSearchAutocomplete__container {
+    .AutosuggestSearch__container {
+      position: absolute;
       z-index: -1;
       top: 100%;
       margin-top: -1px;
@@ -35,13 +36,23 @@ export default css`
       box-shadow: ${vars.boxShadow_elevated};
     }
 
-    .SiteSearchAutocomplete__container--open {
+    .AutosuggestSearch__container--open {
       opacity: 1;
       max-height: 800px;
       padding: ${vars.space_1} 0;
     }
 
-    .SiteSearchAutocomplete__item {
+    .AutosuggestSearch__list {
+      --action-icon: none;
+    }
+    .AutosuggestSearch__list--action--search {
+      --action-icon: ${vars.icon__search};
+    }
+    .AutosuggestSearch__list--action--go {
+      --action-icon: ${vars.icon__arrow_right};
+    }
+
+    .AutosuggestSearch__item {
       font: ${vars.font_bd_l};
       padding: ${vars.space_2} ${vars.space_4};
       padding-right: ${vars.space_7};
@@ -52,14 +63,15 @@ export default css`
       }
     }
 
-    .SiteSearchAutocomplete__item--highlighted {
+    .AutosuggestSearch__item--highlighted {
       position: relative;
       cursor: pointer;
       color: ${vars.color_faxafloi_100};
       background-color: ${vars.color_suld_25};
     }
-    .SiteSearchAutocomplete__item--highlighted::before {
-      ${iconStyle(vars.icon__search)}
+    .AutosuggestSearch__item--highlighted::before {
+      ${iconStyle()}
+      content: var(--action-icon);
       color: ${vars.color_suld_100};
       float: right;
       font-size: ${vars.font_bd_s_size};

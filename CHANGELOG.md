@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `AutosuggestSearch`
+- feat: Make `SiteSearchInput`'s `<button/>` optional
 - feat: Add component `Pagination`
 - feat: Add variant `--large` to `ArticleCards`
 - feat: Allow `__item__summary` for `ArticleCards` and `ImageCards`

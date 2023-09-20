@@ -1,6 +1,9 @@
 import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
-import { SearchInput, SearchInputProps } from '@reykjavik/hanna-react/SearchInput';
+import {
+  SiteSearchInput,
+  SiteSearchInputProps,
+} from '@reykjavik/hanna-react/SiteSearchInput';
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 
 import { DummyBlock } from '../../layout/DummyBlock.js';
@@ -12,24 +15,12 @@ import { autoTitle } from '../../utils/meta.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 
-const value = 'Search terms';
-
-const searchInputs: Record<string, SearchInputProps> = {
+const searchInputs: Record<string, SiteSearchInputProps> = {
   empty: { label: 'Empty', value: '' },
-  normal: { label: 'Normal', value },
-  // nolabel: { hideLabel: true, label: 'No Label', value },
-  // nolabelph: {
-  //   hideLabel: true,
-  //   label: 'No Label',
-  //   placeholder: 'Placeholder',
-  //   value: '',
-  // },
-  small: { label: 'Small', value, small: true },
-  disabled: { label: 'Disabled', value, disabled: true },
-  readonly: { label: 'Readonly', value, readOnly: true },
-  invalid: { label: 'Invalid', value, invalid: true },
+  normal: { label: 'Normal', value: 'Search terms' },
 };
-const renderedInputs: Record<string, SearchInputProps> = {
+
+const renderedInputs: Record<string, SiteSearchInputProps> = {
   ...searchInputs,
   overflowing: {
     label: 'Normal overflowing',
@@ -44,11 +35,11 @@ export default function () {
   return (
     <Minimal>
       {ObjectEntries(renderedInputs).map(([id, props]) => (
-        <SearchInput key={id} id={id} buttonText="Search" {...props} />
+        <SiteSearchInput key={id} id={`${id}-btn`} buttonText="Search" {...props} />
       ))}
       <DummyBlock thin />
       {ObjectEntries(renderedInputs).map(([id, props]) => (
-        <SearchInput key={id} id={`${id}-btn`} buttonText="Search" {...props} button />
+        <SiteSearchInput key={id} id={id} buttonText="Search" {...props} button={false} />
       ))}
     </Minimal>
   );
@@ -70,7 +61,7 @@ export const testing: TestingInfo = {
           await localScreenshot(formfield, `${id}-hover`, { margin: 10 });
 
           if (variant) {
-            const button = formfield.locator('.SearchInput__button');
+            const button = formfield.locator('.SiteSearchInput__button');
             if (await button.isVisible()) {
               await button.hover({ force: true });
               await localScreenshot(button, `${id}-hover-button`);
@@ -82,9 +73,9 @@ export const testing: TestingInfo = {
           }
         }
       }
+
       await focusAllFormFields(page);
       await pageScreenshot('focused');
-
       /* eslint-enable no-await-in-loop */
     }
   },

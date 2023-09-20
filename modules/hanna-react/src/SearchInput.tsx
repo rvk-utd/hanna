@@ -5,20 +5,56 @@ import FormField, {
   groupFormFieldWrapperProps,
 } from './FormField.js';
 
+type InputElmProps = Omit<
+  JSX.IntrinsicElements['input'],
+  | 'className'
+  | 'type'
+  | 'disabled'
+  | 'readOnly'
+  | 'required'
+  | 'onSubmit'
+  | 'ref'
+  | 'value'
+> & { value?: string };
+
 export type SearchInputProps = FormFieldWrappingProps & {
   small?: boolean;
   type?: string;
-  onButtonClick?: () => void;
+  /**
+   * Triggered when user hits ENTER key with the focus inside the input field.
+   *
+   * Return `true` to __allow__ the browser's default submit hehavior.
+   */
+  onSubmit?: (value: string) => boolean | void;
+  /**
+   * Custom action to perform when the user clicks the search button.
+   *
+   * Return `true` to __allow__ the browser's default submit hehavior.
+   *
+   * Defaults to `onSubmit`.
+   */
+  onButtonClick?: (value: string) => boolean | void;
+  /**
+   * Toggle the search `<button/>`.
+   *
+   * Defaults to `true` if onButtonClick is passed, otherwise false.
+   */
+  button?: boolean;
   buttonText?: string;
   inputRef?: RefObject<HTMLInputElement>;
   buttonRef?: RefObject<HTMLButtonElement>;
-} & JSX.IntrinsicElements['input'];
+} & InputElmProps;
 
 export const SearchInput = (props: SearchInputProps) => {
   const {
     onChange,
+    onKeyDown,
+    onSubmit,
     onButtonClick,
+    button,
     buttonText = 'Leita',
+    inputRef,
+    buttonRef,
     fieldWrapperProps,
     ...inputElementProps
   } = groupFormFieldWrapperProps(props);
@@ -37,6 +73,9 @@ export const SearchInput = (props: SearchInputProps) => {
           onChange && onChange(e);
         };
 
+  const showButton = !!onButtonClick || button;
+  const handleButtonClick = onButtonClick || onSubmit;
+
   return (
     <FormField
       extraClassName="SearchInput"
@@ -49,16 +88,29 @@ export const SearchInput = (props: SearchInputProps) => {
             className="SearchInput__input"
             onChange={_onChange}
             {...inputProps}
+            onKeyDown={
+              onSubmit
+                ? (e) => {
+                    if (e.key === 'Enter' && !onSubmit(e.currentTarget.value)) {
+                      e.preventDefault();
+                    }
+                    onKeyDown && onKeyDown(e);
+                  }
+                : onKeyDown
+            }
             {...inputElementProps}
-            ref={props.inputRef}
+            ref={inputRef}
           />{' '}
-          {onButtonClick && (
+          {showButton && (
             <button
               className="SearchInput__button"
-              type="button"
-              onClick={onButtonClick}
+              type="submit"
+              onClick={
+                handleButtonClick &&
+                ((e) => !handleButtonClick(e.currentTarget.value) && e.preventDefault())
+              }
               title={buttonText}
-              ref={props.buttonRef}
+              ref={buttonRef}
               disabled={props.disabled || props.readOnly}
             >
               {buttonText}

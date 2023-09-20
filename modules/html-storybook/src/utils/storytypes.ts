@@ -1,4 +1,4 @@
-import { HannaColorTheme } from '@reykjavik/hanna-css';
+import { CssModuleToken, HannaColorTheme } from '@reykjavik/hanna-css';
 
 import { ViewportNames } from './viewports.js';
 
@@ -17,7 +17,7 @@ declare module '@storybook/react' {
       pos?: 'nav' | 'footer' | 'main';
     };
     css?: {
-      tokens?: string;
+      tokens?: string | Array<CssModuleToken>;
       noLayout?: boolean;
       onLoad?: () => void;
     };

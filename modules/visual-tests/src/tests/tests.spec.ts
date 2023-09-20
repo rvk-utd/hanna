@@ -47,6 +47,7 @@ import { testing as ArticleCards__test } from '../routes/test/ArticleCards.js';
 import { testing as ArticleCarousel__test } from '../routes/test/ArticleCarousel.js';
 import { testing as ArticleMeta__test } from '../routes/test/ArticleMeta.js';
 import { testing as Attention__test } from '../routes/test/Attention.js';
+import { testing as AutosuggestSearch__test } from '../routes/test/AutosuggestSearch.js';
 import { testing as BasicTable__test } from '../routes/test/BasicTable.js';
 import { testing as BgBox__test } from '../routes/test/BgBox.js';
 import { testing as Bling__test } from '../routes/test/Bling.js';
@@ -109,6 +110,7 @@ import { testing as SearchResults__test } from '../routes/test/SearchResults.js'
 import { testing as Selectbox__test } from '../routes/test/Selectbox.js';
 import { testing as ShareButtons__test } from '../routes/test/ShareButtons.js';
 import { testing as SiteSearchAutocomplete__test } from '../routes/test/SiteSearchAutocomplete.js';
+import { testing as SiteSearchInput__test } from '../routes/test/SiteSearchInput.js';
 import { testing as Skeleton__test } from '../routes/test/Skeleton.js';
 import { testing as SubHeading__test } from '../routes/test/SubHeading.js';
 import { testing as Tabs__test } from '../routes/test/Tabs.js';
@@ -140,6 +142,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   ArticleCarousel: ArticleCarousel__test,
   ArticleMeta: ArticleMeta__test,
   Attention: Attention__test,
+  AutosuggestSearch: AutosuggestSearch__test,
   BasicTable: BasicTable__test,
   BgBox: BgBox__test,
   Bling: Bling__test,
@@ -202,6 +205,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Selectbox: Selectbox__test,
   ShareButtons: ShareButtons__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,
+  SiteSearchInput: SiteSearchInput__test,
   Skeleton: Skeleton__test,
   SubHeading: SubHeading__test,
   Tabs: Tabs__test,

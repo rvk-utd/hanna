@@ -1,8 +1,7 @@
 import { css, rem } from 'es-in-css';
 
 import { srOnly } from '../lib/a11y.js';
-import { scale_phone_netbook } from '../lib/between.js';
-import { mq } from '../lib/breakpoints.js';
+import { clamp_phone_netbook } from '../lib/between.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { formFieldVars as ff } from '../lib/otherTokens.js';
@@ -22,32 +21,26 @@ export default css`
       //   input__border_color: vars.color_suld_75,
       //   input__border_radius: 0,
       // })}
-      --ssi-height: ${scale_phone_netbook(64, 96)};
-      @media ${mq.wide} {
-        --ssi-height: 96px;
-      }
+      --ssi-height: ${clamp_phone_netbook(64, 96)};
     }
     .SiteSearchInput > .FormField__label {
       ${srOnly}
     }
 
     .SiteSearchInput > .FormField__input {
-      padding: 0 var(--ssi-height) 0 0;
+      padding: 0;
       height: auto;
     }
     .SiteSearchInput > .FormField__input > input {
-      padding: ${scale_phone_netbook(10, 26)} 0;
-      padding-left: ${scale_phone_netbook(16, 32)};
-
-      @media ${mq.wide} {
-        padding: 26px 0;
-        padding-left: 32px;
-      }
+      padding: ${clamp_phone_netbook(10, 26)} 2px;
+      padding-left: ${clamp_phone_netbook(16, 32)};
+      border-right: var(--ssi-height) solid transparent;
     }
 
     // .SiteSearchInput__input {
     // }
 
+    .SiteSearchInput > .FormField__input::after,
     .SiteSearchInput__button {
       ${hideText_css('soft')}
       position: absolute;
@@ -57,8 +50,19 @@ export default css`
       margin: ${prem(-1)};
       width: var(--ssi-height);
       height: var(--ssi-height);
-      background-color: ${vars.color_faxafloi_100};
+      line-height: var(--ssi-height);
+      border: solid ${prem(2)} transparent;
       border-radius: 0 ${ff.input__border_radius} ${ff.input__border_radius} 0;
+    }
+    .SiteSearchInput > .FormField__input::after {
+      color: ${vars.color_suld_100};
+      background-color: ${vars.color_suld_0};
+      background-clip: padding-box;
+      pointer-events: none;
+    }
+    .SiteSearchInput__button {
+      z-index: 1;
+      background-color: ${vars.color_faxafloi_100};
       color: ${vars.color_suld_0};
     }
     .SiteSearchInput__button {
@@ -67,11 +71,14 @@ export default css`
         color: ${vars.color_suld_0};
       `)}
     }
+    .SiteSearchInput > .FormField__input::after,
     .SiteSearchInput__button::before {
       ${iconStyle(vars.icon__search)}
+      font-size: ${rem(32 / 20)};
+    }
+    .SiteSearchInput__button::before {
       width: 100%;
       margin-right: 1px;
-      font-size: ${rem(32 / 20)};
     }
   }
 `;

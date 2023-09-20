@@ -3,7 +3,7 @@ import Autosuggest, { RenderSuggestion } from 'react-autosuggest';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { BemProps } from './utils/types.js';
-import SiteSearchInput from './SiteSearchInput.js';
+import { SiteSearchInput, SiteSearchInputProps } from './SiteSearchInput.js';
 import { WrapperElmProps } from './utils.js';
 
 // ---------------------------------------------------------------------------
@@ -16,6 +16,8 @@ export type SiteSearchACI18n = {
   inputLabel: string;
   /** Placeholder text for the text input */
   placeholder?: string;
+  /** Label for the search button */
+  buttonText?: string;
   /** Label for the suggestions item list container */
   suggestionsLabel: string;
 };
@@ -25,6 +27,7 @@ export const defaultSiteSearchACTexts: DefaultTexts<SiteSearchACI18n> = {
     lang: 'is',
     label: 'Leit á vefnum',
     inputLabel: 'Leitarorð',
+    buttonText: 'Leita',
     placeholder: 'Sláðu inn leitarorð',
     suggestionsLabel: 'Tillögur',
   },
@@ -32,6 +35,7 @@ export const defaultSiteSearchACTexts: DefaultTexts<SiteSearchACI18n> = {
     lang: 'en',
     label: 'Site search',
     inputLabel: 'Search terms',
+    buttonText: 'Search',
     placeholder: 'Enter search terms',
     suggestionsLabel: 'Suggestions',
   },
@@ -53,21 +57,17 @@ export type SiteSearchAutocompleteProps<T> = {
   ) => void;
   onSuggestionHighlighted?: (params: { suggestion: T }) => void;
 
-  /** Triggered when user hits ENTER key with the focus inside the input field */
-  onSubmit?: (value: string) => void;
-
-  /** Custom action to perform when the user clicks the search button
-   *
-   * Defaults to `onSubmit`
-   */
-  onButtonClick?: (value: string) => void;
   lang?: string;
   texts?: SiteSearchACI18n;
   /** @deprecated  Use `text` prop instead  (will be removed in v0.11) */
   label?: string;
-} & BemProps &
+} & Pick<SiteSearchInputProps, 'onSubmit' | 'onButtonClick'> &
+  Pick<BemProps, 'bem'> &
   WrapperElmProps;
 
+/**
+ * @deprecated Use `<AutosuggestSearch InputComponent={SiteSearchInput} itemActionIcon="search" />` instead   (Will be removed in v0.11)
+ */
 export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>) => {
   const {
     suggestions,
@@ -78,7 +78,7 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
     onSuggestionSelected,
     onSuggestionHighlighted,
     onSubmit,
-    onButtonClick = onSubmit,
+    onButtonClick,
     bem = 'SiteSearchAutocomplete',
     wrapperProps,
   } = props;
@@ -86,6 +86,10 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
   const inputRef = createRef<HTMLInputElement>();
 
   const txt = getTexts(props, defaultSiteSearchACTexts);
+
+  if (process.env.NODE_ENV !== 'production' && !txt.buttonText) {
+    console.warn('SiteSearchAutocomplete: Missing translation: `buttonText`');
+  }
 
   return (
     <Autosuggest
@@ -106,7 +110,7 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
       onSuggestionSelected={onSuggestionSelected}
       onSuggestionHighlighted={onSuggestionHighlighted}
       renderSuggestion={renderSuggestion || ((s) => String(s))}
-      containerProps={{ 'aria-label': txt.label }}
+      containerProps={{ ...wrapperProps, 'aria-label': txt.label }}
       renderSuggestionsContainer={({ containerProps, children }) => (
         <div
           {...containerProps}
@@ -131,12 +135,12 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
         return (
           <SiteSearchInput
             {...siteSearchProps}
-            wrapperProps={wrapperProps}
             label={
               props.label || // eslint-disable-line deprecation/deprecation
               txt.inputLabel
             }
             placeholder={txt.placeholder}
+            buttonText={txt.buttonText}
             onSubmit={onSubmit && (() => onSubmit(value))}
             onButtonClick={onButtonClick && (() => onButtonClick(value))}
           />
@@ -146,4 +150,5 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
   );
 };
 
+// eslint-disable-next-line deprecation/deprecation
 export default SiteSearchAutocomplete;

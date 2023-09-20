@@ -23,21 +23,25 @@ const items = range(1, 5).map((value) => `Suggestion ${value}`);
 const SiteSearchAutocompleteStory = () => {
   const [suggestions, setSuggestions] = useState<Array<string>>([]);
   return (
-    <SiteSearchAutocomplete
-      suggestions={suggestions}
-      renderSuggestion={(suggestion) => {
-        return suggestion;
-      }}
-      setSuggestions={setSuggestions}
-      getSuggestionValue={(value) => value}
-      onSuggestionsFetchRequested={
-        () => setSuggestions(items)
-        // ({ value }) => setSuggestions(getSuggestions(value))
-      }
-    />
+    <>
+      NOTE: This component is deprecated, use "AutosuggestSearch" instead.
+      <br />
+      <SiteSearchAutocomplete // eslint-disable-line deprecation/deprecation
+        suggestions={suggestions}
+        renderSuggestion={(suggestion) => {
+          return suggestion;
+        }}
+        setSuggestions={setSuggestions}
+        getSuggestionValue={(value) => value}
+        onSuggestionsFetchRequested={
+          () => setSuggestions(items)
+          // ({ value }) => setSuggestions(getSuggestions(value))
+        }
+      />
+    </>
   );
 };
 
 export const _SiteSearchAutocomplete: StoryObj = {
-  render: () => <SiteSearchAutocompleteStory />,
+  render: SiteSearchAutocompleteStory,
 };

@@ -17,6 +17,7 @@ export type CssModuleToken =
   | 'ArticleCarousel'
   | 'ArticleMeta'
   | 'Attention'
+  | 'AutosuggestSearch'
   | 'BasicTable'
   | 'BgBox'
   | 'Bling'

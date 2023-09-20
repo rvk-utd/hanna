@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { getCssBundleUrl } from '@reykjavik/hanna-css';
 import type { StoryContext } from '@storybook/react';
 
-const makeCssUrl = (module: string | undefined, noLayout?: boolean) => {
+const makeCssUrl = (module: string | Array<string> | undefined, noLayout?: boolean) => {
   const layout = noLayout ? '' : 'Layout,';
   return getCssBundleUrl('-basics,' + layout + module);
 };
