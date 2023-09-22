@@ -10,11 +10,11 @@ o.spec('hanna-react/utils lib', () => {
     const expectedTokens: Record<ExpectedExports, true> = {
       /* utils/config.ts */
       setLinkRenderer: true,
-      setDefaultSSR: true,
 
       /* utils/browserSide.ts */
       useIsBrowserSide: true,
       useIsServerSide: true,
+      setDefaultSSR: true,
 
       /* utils/HannaUIState.ts */
       HannaUIState: true,
@@ -22,6 +22,9 @@ o.spec('hanna-react/utils lib', () => {
 
       /* utils/useDidChange.ts */
       useDidChange: true,
+
+      /* utils/useDomid.ts */
+      useDomid: true,
 
       /* utils/useFormatMonitor.ts */
       useFormatMonitor: true,
@@ -50,10 +53,10 @@ import type {
 
   /* utils/config.ts */
   LinkRenderer,
-  SSRSupport,
-  SSRSupportProps,
 
   /* utils/browserSide.ts */
+  SSRSupport,
+  SSRSupportProps,
 
   /* utils/HannaUIState.ts */
   // @ts-expect-error  (Should not be exported)

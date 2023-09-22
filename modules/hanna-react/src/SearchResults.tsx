@@ -3,13 +3,13 @@ import { useInView } from 'react-intersection-observer';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { prettyNum, PrettyNumOptions } from '@hugsmidjan/qj/prettyNum';
 import range from '@hugsmidjan/qj/range';
-import { useDomid } from '@hugsmidjan/react/hooks';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import {
   SearchResultsItem,
   SearchResultsItemProps,
 } from './SearchResults/_SearchResultsItem.js';
+import { useDomid } from './utils/useDomid.js';
 import Alert from './Alert.js';
 import Tabs, { TabItemProps } from './Tabs.js';
 import { WrapperElmProps } from './utils.js';

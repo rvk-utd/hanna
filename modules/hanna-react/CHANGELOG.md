@@ -6,6 +6,7 @@
 - `BasicTable`:
   - feat: Add props `wrapperProps`
   - feat: Export `Table*` types (`TableCell`, `TableRow`, etc.)
+- feat: Add `useDomid` to `utils`
 
 ## 0.10.103
 

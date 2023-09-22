@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { setFrag } from '@hugsmidjan/qj/frag';
-import { useDomid } from '@hugsmidjan/react/hooks';
 
+import { useDomid } from './utils/useDomid.js';
 import Tabs, { TabItemProps, TabsProps } from './Tabs.js';
 
 const getId = (url: string | undefined) =>

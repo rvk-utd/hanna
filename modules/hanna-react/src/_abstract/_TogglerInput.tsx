@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { useDomid } from '@hugsmidjan/react/hooks';
 
 import { WrapperElmProps } from '../utils.js';
 import { BemModifierProps } from '../utils/types.js';
+import { useDomid } from '../utils/useDomid.js';
 
 export type TogglerInputProps = {
   label: string | JSX.Element;

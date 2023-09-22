@@ -1,10 +1,10 @@
 import React, { FocusEvent, RefObject, useCallback, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { useDomid } from '@hugsmidjan/react/hooks';
 import { RequireExplicitUndefined } from '@reykjavik/hanna-utils';
 
 import { TogglerGroupFieldProps } from './_abstract/_TogglerGroupField.js';
 import { isPreact } from './utils/env.js';
+import { useDomid } from './utils/useDomid.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 type InputClassNames = {

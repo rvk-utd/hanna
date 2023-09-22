@@ -4,6 +4,7 @@ export * from './utils/browserSide.js';
 export * from './utils/config.js';
 export { HannaUIState, useHannaUIState } from './utils/HannaUIState.js';
 export * from './utils/useDidChange.js';
+export * from './utils/useDomid.js';
 export * from './utils/useFormatMonitor.js';
 export * from './utils/useGetSVGtext.js';
 export * from './utils/useMenuToggling.js';

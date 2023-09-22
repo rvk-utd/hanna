@@ -1,8 +1,8 @@
 import React, { FocusEvent, ReactNode, useEffect } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { useLaggedState } from '@hugsmidjan/react/hooks';
 
 import { isPreact } from './utils/env.js';
+import { useLaggedState } from './utils/useLaggedState.js';
 
 export type SiteSearchCurtainProps = {
   children: ReactNode;

@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { useDomid } from '@hugsmidjan/react/hooks';
 
 import { FormFieldInputProps } from '../FormField.js';
 import { HTMLProps, useMixedControlState } from '../utils.js';
 
+import { useDomid } from './utils/useDomid.js';
 import { TogglerInputProps } from './_TogglerInput.js';
 
 export type TogglerGroupOption<T = 'default'> = {

@@ -1,9 +1,9 @@
 import React, { RefObject } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { Modifiers } from '@hugsmidjan/react/types';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 import { Link } from '../_abstract/_Link.js';
+import { BemModifierProps } from '../utils/types.js';
 
 export type PrimaryPanelI18n = {
   backToMenu: string;
@@ -12,20 +12,19 @@ export type PrimaryPanelI18n = {
 
 export type MegaMenuItem = {
   current?: boolean;
-  /** Puts a modifier className on the menu item element. */
-  modifier?: Modifiers;
-} & EitherObj<
-  {
-    label: string;
-    summary?: string;
-    href: string;
-    lang?: string;
-    target?: React.HTMLAttributeAnchorTarget;
-  },
-  {
-    Content: () => JSX.Element;
-  }
->;
+} & BemModifierProps &
+  EitherObj<
+    {
+      label: string;
+      summary?: string;
+      href: string;
+      lang?: string;
+      target?: React.HTMLAttributeAnchorTarget;
+    },
+    {
+      Content: () => JSX.Element;
+    }
+  >;
 
 export type MegaMenuItemList = Array<MegaMenuItem>;
 

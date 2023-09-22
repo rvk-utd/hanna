@@ -10,8 +10,9 @@ import {
   useFloating,
 } from '@floating-ui/react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { useCallbackOnEsc, useLaggedState } from '@hugsmidjan/react/hooks';
 
+import { useCallbackOnEsc } from './utils/useCallbackOnEsc.js';
+import { useLaggedState } from './utils/useLaggedState.js';
 import { WrapperElmProps } from './utils.js';
 
 type TooltipElement = HTMLDetailsElement & {

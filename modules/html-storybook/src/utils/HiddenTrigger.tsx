@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { useIsBrowserSide } from '@hugsmidjan/react/hooks';
+import { useIsBrowserSide } from '@reykjavik/hanna-react/utils';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
 type HiddenTigerProps = {

@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
-import { useDomid } from '@hugsmidjan/react/hooks';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
+import { useDomid } from './utils/useDomid.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 export type ContactBubbleI18n = {

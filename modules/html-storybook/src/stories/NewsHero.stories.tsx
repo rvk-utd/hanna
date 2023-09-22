@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import { useIsServerSide } from '@hugsmidjan/react/hooks';
 import { NewsHero, NewsHeroProps } from '@reykjavik/hanna-react/NewsHero';
 import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
+import { useIsServerSide } from '@reykjavik/hanna-react/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
 import landscapeImage from '../example_assets/NewsHero__landscape.jpg';

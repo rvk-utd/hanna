@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { modifiedClass, Modifiers } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
-import useShortState from '@hugsmidjan/react/hooks/useShortState';
 import { Cleanup } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
@@ -20,6 +19,7 @@ import {
 } from './MainMenu/_PrimaryPanel.js';
 import { useHannaUIState } from './utils/HannaUIState.js';
 import { useFormatMonitor } from './utils/useFormatMonitor.js';
+import { useShortState } from './utils/useShortState.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>

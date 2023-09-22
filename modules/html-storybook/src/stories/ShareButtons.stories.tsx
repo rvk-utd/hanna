@@ -1,6 +1,6 @@
 import React from 'react';
-import { useIsServerSide } from '@hugsmidjan/react/hooks';
 import { ShareButtons } from '@reykjavik/hanna-react/ShareButtons';
+import { useIsServerSide } from '@reykjavik/hanna-react/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
 type ControlProps = Record<

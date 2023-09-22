@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { useDomid } from '@hugsmidjan/react/hooks';
 
 import { DeprecatedSeenProp } from './utils/seenEffect.js';
+import { useDomid } from './utils/useDomid.js';
 import {
   SSRSupportProps,
   useIsBrowserSide,

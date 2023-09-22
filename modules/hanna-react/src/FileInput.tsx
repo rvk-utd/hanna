@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { useDomid } from '@hugsmidjan/react/hooks';
 import { OpenRecord } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 
@@ -13,6 +12,7 @@ import {
   releasePreview,
 } from './FileInput/_FileInput.utils.js';
 import { DefaultFileList, FileListProps } from './FileInput/_FileInputFileList.js';
+import { useDomid } from './utils/useDomid.js';
 import FormField, {
   FormFieldWrappingProps,
   groupFormFieldWrapperProps,

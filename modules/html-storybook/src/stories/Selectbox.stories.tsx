@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import { useDomid } from '@hugsmidjan/react/hooks';
 import { Selectbox, SelectboxOptionList } from '@reykjavik/hanna-react/Selectbox';
+import { useDomid } from '@reykjavik/hanna-react/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
