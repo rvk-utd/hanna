@@ -89,7 +89,6 @@ export const detectEdgeScroll = (opts: DetectEdgeScrollOptions): Actions => {
 
   const checkScroll = throttle(() => {
     let scroll, offsetSize, totalSize;
-
     if (axis === 'horizontal') {
       scroll = scrollerElm.scrollLeft;
       offsetSize = scrollerElm.offsetWidth;
@@ -100,26 +99,13 @@ export const detectEdgeScroll = (opts: DetectEdgeScrollOptions): Actions => {
       totalSize = scrollerElm.scrollHeight;
     }
 
-    let newAt = at;
-    const newAtStart = scroll < tolerance;
-    const newAtEnd = totalSize - (offsetSize + scroll) < tolerance;
-    if (newAtStart !== at.start) {
-      newAt = {
-        start: newAtStart,
-        end: newAt.end,
-      };
+    const start = scroll < tolerance;
+    const end = totalSize - (offsetSize + scroll) < tolerance;
+    if (at.start === start && at.end === end) {
+      return;
     }
-    if (newAtEnd !== at.end) {
-      newAt = {
-        start: newAt.start,
-        end: newAtEnd,
-      };
-    }
-
-    if (at !== newAt) {
-      setAt(newAt);
-      at = newAt;
-    }
+    at = { start, end };
+    setAt(at);
   }, throttleMs);
 
   checkScroll();

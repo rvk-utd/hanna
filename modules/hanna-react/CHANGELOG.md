@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `BasicTable`:
+  - feat: Add props `wrapperProps`
+  - feat: Export `Table*` types (`TableCell`, `TableRow`, etc.)
 
 ## 0.10.103
 

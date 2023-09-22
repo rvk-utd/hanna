@@ -1,6 +1,12 @@
 import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
-import { BasicTable, BasicTableProps } from '@reykjavik/hanna-react/BasicTable';
+import {
+  BasicTable,
+  TableBody,
+  TableCols,
+  TableFoot,
+  TableHead,
+} from '@reykjavik/hanna-react/BasicTable';
 
 import { DummyBlock } from '../../layout/DummyBlock.js';
 import { Minimal } from '../../layout/Minimal.js';
@@ -12,7 +18,14 @@ export const meta: V2_MetaFunction = autoTitle;
 // // Use `handle` if you're using multiple Hanna compnents
 // export const handle = cssTokens('Token');
 
-const content = (): Pick<BasicTableProps, 'thead' | 'tbody' | 'cols'> => ({
+type TableDataProps = {
+  cols: TableCols;
+  thead: TableHead;
+  tbody: TableBody;
+  compact?: true;
+};
+
+const content = (): TableDataProps => ({
   cols: [{ number: true }, {}, {}, {}, { tel: true }, { number: true }, {}],
   thead: [
     [
@@ -56,7 +69,7 @@ const content = (): Pick<BasicTableProps, 'thead' | 'tbody' | 'cols'> => ({
   ],
 });
 
-const tFoot: BasicTableProps['tfoot'] = [
+const tFoot: TableFoot = [
   [
     { value: 'Footer:', number: false, colSpan: 4 },
     { value: 'Footer Value', number: true, colSpan: 2 },
@@ -64,7 +77,7 @@ const tFoot: BasicTableProps['tfoot'] = [
   ],
 ];
 
-const miniTable: Pick<BasicTableProps, 'cols' | 'thead' | 'tbody' | 'compact'> = {
+const miniTable: TableDataProps = {
   cols: [{}, { text: 'right' }],
   thead: [['Vikudagur', 'Opnunartími']],
   tbody: [

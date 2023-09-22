@@ -1,53 +1,88 @@
 import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import Table, { TableProps } from '@hugsmidjan/react/Table';
-import TableWrapper from '@hugsmidjan/react/TableWrapper';
 import { EitherObj } from '@reykjavik/hanna-utils';
 
+import { ScrollWrapper } from './_abstract/_ScrollWrapper.js';
+import { Table, TableProps } from './_abstract/_Table.js';
 import { DeprecatedSeenProp } from './utils/seenEffect.js';
-import { MissingWrapperElmProps } from './utils.js';
+import { HTMLProps, WrapperElmProps } from './utils.js';
+
+type TableType = 'text' | 'number';
+const tableTypes = {
+  text: '',
+  number: 'data--number',
+} satisfies Record<TableType, string>;
+
+export type {
+  TableBody,
+  TableCell,
+  TableCellData,
+  TableCellMeta,
+  TableCols,
+  TableFoot,
+  TableHead,
+  TableRow,
+} from './_abstract/_Table.js';
 
 export type BasicTableProps = {
   compact?: boolean;
-  type?: 'text' | 'number';
+  /**
+   * The main/default cell-data type of the table
+   *
+   * Defaults to 'text'
+   */
+  type?: TableType;
+  /**
+   * Custom HTML attributes for the component's `<table/>` element.
+   *
+   * Note, however, that some props may be intentionally
+   * excluded from the list.
+   *
+   * __WARNING:__
+   * In some cases props added this way can break the component, og hurt its
+   * accessibility.  Also, some props may get ignored, or over-ridden by the
+   * component. User discretion is advised.
+   */
+  tableProps?: HTMLProps<'table'>;
+  /** @deprecated Use `wrapperProps={{ className }}` and `tableProps={{ className }}` instead (Will be removed in v0.11) */
   modifier?: string;
 } & EitherObj<{ fullWidth?: boolean }, { align?: 'right' }> &
-  MissingWrapperElmProps &
+  WrapperElmProps &
   DeprecatedSeenProp &
-  Omit<TableProps, 'className' | 'children'>;
+  TableProps;
 
 export const BasicTable = (props: BasicTableProps) => {
-  const { cols, caption, thead, tfoot, align, fullWidth } = props;
-
-  const tbodyProps = props.tbodies
-    ? { tbodies: props.tbodies }
-    : { tbody: props.tbody || [] };
-
-  const modifier = props.modifier;
+  // eslint-disable-next-line deprecation/deprecation
+  const { align, fullWidth, type, tbody, tbodies, modifier } = props;
 
   return (
-    <TableWrapper
+    <ScrollWrapper
+      bem="TableWrapper"
       modifier={[
         'BasicTable',
         modifier && 'BasicTable--' + modifier,
-        fullWidth && 'BasicTable--fullwidth',
-        align === 'right' && !fullWidth && 'BasicTable--align--' + align,
+        fullWidth
+          ? 'BasicTable--fullwidth'
+          : align === 'right'
+          ? 'BasicTable--align--' + align
+          : undefined,
       ]}
+      wrapperProps={props.wrapperProps}
     >
       <Table
         className={modifiedClass('BasicTable', [
           props.compact && 'compact',
-          modifier && modifier,
+          type && tableTypes[type],
+          modifier,
         ])}
-        {...{
-          cols,
-          caption,
-          thead,
-          tfoot,
-        }}
-        {...tbodyProps}
+        cols={props.cols}
+        caption={props.caption}
+        thead={props.thead}
+        tfoot={props.tfoot}
+        {...(tbody ? { tbody } : { tbodies })}
+        wrapperProps={props.tableProps}
       />
-    </TableWrapper>
+    </ScrollWrapper>
   );
 };
 

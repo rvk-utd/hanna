@@ -16,7 +16,7 @@ export const BasicTableVariables = buildVariables(
   ['width', 'margin_left', 'pad_left', 'pad_right'],
   'BasicTable'
 );
-const bt = BasicTableVariables;
+const btVars = BasicTableVariables.vars;
 
 export default css`
   ${DEPS('Footnote')}
@@ -25,20 +25,21 @@ export default css`
     .TableWrapper {
       position: relative;
       overflow-x: auto;
+      display: flex;
 
-      ${bt.declare({
+      ${BasicTableVariables.declare({
         width: 'auto', // auto causes calc() to fail and implicitly revert to "auto"
         margin_left: '0px',
         pad_left: '0px',
         pad_right: '0px',
       })};
 
-      width: calc(${bt.vars.width} + ${bt.vars.pad_left} + ${bt.vars.pad_right});
-      margin-left: calc(${bt.vars.margin_left} - ${bt.vars.pad_left});
-      margin-right: calc(0px - ${bt.vars.pad_right});
+      width: calc(${btVars.width} + ${btVars.pad_left} + ${btVars.pad_right});
+      margin-left: calc(${btVars.margin_left} - ${btVars.pad_left});
+      margin-right: calc(0px - ${btVars.pad_right});
 
       @media ${mq.phone_tablet} {
-        ${bt.override({
+        ${BasicTableVariables.override({
           pad_left: vars.grid_margin,
           pad_right: vars.grid_margin__right,
         })};
@@ -52,7 +53,7 @@ export default css`
 
     @media ${mq.tablet_up} {
       .TableWrapper--BasicTable--align--right {
-        ${bt.override({
+        ${BasicTableVariables.override({
           margin_left: vars.grid_5_5,
           width: vars.grid_7,
         })};
@@ -60,34 +61,43 @@ export default css`
       .TextBlock--labelled .TableWrapper--BasicTable--align--right,
       .TextBlock--align--right .TableWrapper--BasicTable--align--right,
       .LabeledTextBlock--wide .TableWrapper--BasicTable--align--right {
-        ${bt.override({ margin_left: '0px' })};
+        ${BasicTableVariables.override({
+          margin_left: '0px',
+        })};
       }
 
       .TableWrapper--BasicTable--fullwidth {
-        ${bt.override({ width: vars.grid_12 })};
+        ${BasicTableVariables.override({
+          width: vars.grid_12,
+        })};
       }
       .TextBlock--labelled .TableWrapper--BasicTable--fullwidth,
       .TextBlock--align--right .TableWrapper--BasicTable--fullwidth,
       .LabeledTextBlock--wide .TableWrapper--BasicTable--fullwidth {
-        ${bt.override({ margin_left: `calc(-1 * ${vars.grid_5_5})` })};
+        ${BasicTableVariables.override({
+          margin_left: `calc(-1 * ${vars.grid_5_5})`,
+        })};
       }
       .LabeledTextBlock .TableWrapper--BasicTable--fullwidth {
-        ${bt.override({ margin_left: `calc(-1 * ${vars.grid_6_6})` })};
+        ${BasicTableVariables.override({
+          margin_left: `calc(-1 * ${vars.grid_6_6})`,
+        })};
       }
     }
 
     .TableWrapper > table,
     .TableWrapper > * > table {
-      margin: 0;
+      max-width: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
     .TableWrapper--at::before,
     .TableWrapper--at::after {
       content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
+      position: sticky;
       left: 0;
+      margin-right: ${vars.space_3__neg};
       width: ${vars.space_3};
       background-image: linear-gradient(
         90deg,
@@ -100,7 +110,9 @@ export default css`
     }
     .TableWrapper--at::after {
       left: auto;
+      margin-right: 0;
       right: 0;
+      margin-left: ${vars.space_3__neg};
       transform: scaleX(-1);
     }
 
@@ -111,11 +123,6 @@ export default css`
     .TableWrapper--at--end::after {
       // content: none
       opacity: 0;
-    }
-    .TableWrapper__scroller {
-      overflow-x: auto;
-      padding-left: ${bt.vars.pad_left};
-      padding-right: ${bt.vars.pad_right};
     }
 
     .TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {
@@ -156,6 +163,9 @@ export default css`
     }
 
     .BasicTable {
+      margin-left: ${btVars.pad_left};
+      margin-right: ${btVars.pad_right};
+
       @media ${mq.phone_phablet} {
         width: 100%;
       }
