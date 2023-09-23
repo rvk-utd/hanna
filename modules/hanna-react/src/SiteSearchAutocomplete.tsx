@@ -1,6 +1,6 @@
 import React, { createRef, useState } from 'react';
 import Autosuggest, { RenderSuggestion } from 'react-autosuggest';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { BemProps } from './utils/types.js';
 import { SiteSearchInput, SiteSearchInputProps } from './SiteSearchInput.js';
@@ -9,7 +9,6 @@ import { WrapperElmProps } from './utils.js';
 // ---------------------------------------------------------------------------
 
 export type SiteSearchACI18n = {
-  lang?: string;
   /** Label for the autocomplete's combobox container div */
   label: string;
   /** Label for the text input */
@@ -20,11 +19,12 @@ export type SiteSearchACI18n = {
   buttonText?: string;
   /** Label for the suggestions item list container */
   suggestionsLabel: string;
+  /** @deprecated Not used (Will be removed in v0.11) */
+  lang?: string;
 };
 
 export const defaultSiteSearchACTexts: DefaultTexts<SiteSearchACI18n> = {
   is: {
-    lang: 'is',
     label: 'Leit á vefnum',
     inputLabel: 'Leitarorð',
     buttonText: 'Leita',
@@ -32,12 +32,18 @@ export const defaultSiteSearchACTexts: DefaultTexts<SiteSearchACI18n> = {
     suggestionsLabel: 'Tillögur',
   },
   en: {
-    lang: 'en',
     label: 'Site search',
     inputLabel: 'Search terms',
     buttonText: 'Search',
     placeholder: 'Enter search terms',
     suggestionsLabel: 'Suggestions',
+  },
+  pl: {
+    label: 'Wyszukiwanie na stronie',
+    inputLabel: 'Wyszukiwane słowa',
+    buttonText: 'Szukaj',
+    placeholder: 'Wpisz wyszukiwane słowa',
+    suggestionsLabel: 'Sugestie',
   },
 };
 
@@ -57,8 +63,8 @@ export type SiteSearchAutocompleteProps<T> = {
   ) => void;
   onSuggestionHighlighted?: (params: { suggestion: T }) => void;
 
-  lang?: string;
   texts?: SiteSearchACI18n;
+  lang?: HannaLang;
   /** @deprecated  Use `text` prop instead  (will be removed in v0.11) */
   label?: string;
 } & Pick<SiteSearchInputProps, 'onSubmit' | 'onButtonClick'> &

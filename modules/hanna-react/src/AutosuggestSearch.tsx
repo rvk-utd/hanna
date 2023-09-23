@@ -1,7 +1,7 @@
 import React, { createRef, useState } from 'react';
 import Autosuggest, { RenderInputComponentProps } from 'react-autosuggest';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import SearchInput, { SearchInputProps } from './SearchInput.js';
 import { SiteSearchInputProps } from './SiteSearchInput.js';
@@ -10,7 +10,6 @@ import { WrapperElmProps } from './utils.js';
 // ---------------------------------------------------------------------------
 
 export type AutosuggestSearchI18n = {
-  lang?: string;
   /** Label for the autocomplete's combobox container div */
   label: string;
   /** Label for the text input */
@@ -21,11 +20,12 @@ export type AutosuggestSearchI18n = {
   placeholder?: string;
   /** Label for the suggestions item list container */
   suggestionsLabel: string;
+  /** @deprecated Not used (Will be removed in v0.11) */
+  lang?: string;
 };
 
 export const defaultAutosuggestSearchTexts: DefaultTexts<AutosuggestSearchI18n> = {
   is: {
-    lang: 'is',
     label: 'Leit á vefnum',
     inputLabel: 'Leitarorð',
     buttonText: 'Leita',
@@ -33,7 +33,6 @@ export const defaultAutosuggestSearchTexts: DefaultTexts<AutosuggestSearchI18n> 
     suggestionsLabel: 'Tillögur',
   },
   en: {
-    lang: 'en',
     label: 'Site search',
     inputLabel: 'Search terms',
     buttonText: 'Search',
@@ -41,7 +40,6 @@ export const defaultAutosuggestSearchTexts: DefaultTexts<AutosuggestSearchI18n> 
     suggestionsLabel: 'Suggestions',
   },
   pl: {
-    lang: 'pl',
     label: 'Wyszukiwanie na stronie',
     inputLabel: 'Wyszukaj frazę',
     buttonText: 'Szukaj',
@@ -73,7 +71,7 @@ export type AutosuggestSearchProps<T extends string | object> = {
   ) => JSX.Element;
 
   texts?: AutosuggestSearchI18n;
-  lang?: string;
+  lang?: HannaLang;
 } & Pick<SearchInputProps, 'onSubmit' | 'onButtonClick' | 'button'> &
   WrapperElmProps;
 
@@ -142,7 +140,6 @@ export const AutosuggestSearch = <T extends string | object>(
       }}
       renderSuggestionsContainer={({ containerProps, children }) => (
         <div
-          lang={txt.lang}
           {...containerProps}
           aria-label={options.length ? txt.suggestionsLabel : undefined}
         >
@@ -166,7 +163,7 @@ export const AutosuggestSearch = <T extends string | object>(
 
               return (
                 <InputComponent
-                  lang={txt.lang}
+                  lang={props.lang}
                   {...siteSearchProps}
                   button={button}
                   label={txt.inputLabel}

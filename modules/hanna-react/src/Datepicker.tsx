@@ -1,4 +1,5 @@
 import React, { MutableRefObject, RefObject } from 'react';
+import { HannaLang } from '@reykjavik/hanna-utils/i18n';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
 import is from 'date-fns/locale/is/index.js';
 import pl from 'date-fns/locale/pl/index.js';
@@ -48,7 +49,7 @@ export type DatepickerProps = {
    * NOTE: This will be the default mode in v0.11.
    */
   isoMode?: boolean;
-  localeCode?: 'is' | 'en' | 'pl'; // default 'is', we can add more langs later...
+  localeCode?: HannaLang; // default 'is', we can add more langs later...
   dateFormat?: string | Array<string>;
   isStartDate?: boolean;
   isEndDate?: boolean;

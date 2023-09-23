@@ -1,6 +1,6 @@
 import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
@@ -55,6 +55,13 @@ const defaultTexts: DefaultTexts<NameCardI18n> = {
     unavailableLabel: '',
     vacancyLabel: 'Laus pláss',
     noVacancyLabel: 'Ekki laus pláss',
+  },
+  pl: {
+    updatedLabel: 'Zaktualizowano',
+    availableLabel: '',
+    unavailableLabel: '',
+    vacancyLabel: 'Wakat',
+    noVacancyLabel: 'Brak wakatów',
   },
 };
 
@@ -112,8 +119,8 @@ export type NameCardProps = {
   /** Meta data about freshness status, etc. */
   updated?: string | Date;
 
-  lang?: string;
   texts?: NameCardI18n;
+  lang?: HannaLang;
 
   /** @deprecated Use `available` instead  (will be removed in v0.11) */
   vacancy?: boolean;

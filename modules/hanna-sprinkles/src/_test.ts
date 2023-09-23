@@ -8,7 +8,10 @@ export { getFormatMonitor, ObjectEntries };
 
 // ---------------------------------------------------------------------------
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
-export const foo = getTexts({}, { is: { foo: 'bar' } });
+export const foo = getTexts(
+  {},
+  { is: { foo: 'Krá' }, en: { foo: 'Bar' }, pl: { foo: 'Bar' } }
+);
 
 // ---------------------------------------------------------------------------
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';

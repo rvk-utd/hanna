@@ -1,28 +1,55 @@
-export const DEFAULT_LANG = 'is';
-type DefaultLang = typeof DEFAULT_LANG;
+/** The base default language that's always supported. */
+const _BASE_DEFAULT_LANG = 'is';
+
+/** The languages officially supported by Hanna */
+export type HannaLang = 'is' | 'en' | 'pl';
+
+/**
+ * The currently language/locale used by all Hanna components by default.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#default_lang
+ */
+export let DEFAULT_LANG: HannaLang = _BASE_DEFAULT_LANG;
+
+const _history: Array<HannaLang> = [];
+
+/**
+ * This sets the value of Hanna `currentLang` variable globally. Use it at the
+ * top of your application to match its locale.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#setdefaultlanguage
+ */
+export const setDefaultLanguage = (newLang: HannaLang | undefined) => {
+  DEFAULT_LANG = newLang || _BASE_DEFAULT_LANG;
+  _history.unshift(DEFAULT_LANG);
+};
+
+/**
+ * Unsets the last pushed `setDefaultLanguage`
+ */
+setDefaultLanguage.pop = () => {
+  _history.shift();
+  DEFAULT_LANG = _history[0] || _BASE_DEFAULT_LANG;
+};
 
 /**
  * Returns the passed `defaultTexts` in "production" mode.
  *
  * In development mode it emits an error message to the console
- * and returns a texts object full of `???` values
  */
 const langMissing = <T extends Record<string, unknown>>(
   lang: string,
   defaultTexts: T
 ): T => {
-  if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production') {
     console.error(`language '${lang}' not supported`);
   }
   return defaultTexts;
 };
 
-export type DefaultTexts<
-  Texts extends Record<string, unknown>,
-  Lang extends string = string
-> = {
-  [x in DefaultLang]: Texts;
-} & Record<Lang, Texts | undefined>;
+export type DefaultTexts<Texts extends Record<string, unknown>> = {
+  [x in HannaLang]: Texts;
+} & Record<string, Texts | undefined>;
 
 /**
  * Helper for components that expose (optional) `texts` and `lang` props
@@ -37,13 +64,10 @@ export type DefaultTexts<
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#gettexts
  */
-export const getTexts = <
-  Texts extends Readonly<Record<string, unknown>>,
-  Lang extends string
->(
-  props: { texts?: Texts; lang?: Lang },
-  defaultTexts: DefaultTexts<Texts, Lang>
-): Texts => {
+export const getTexts = <Texts extends Readonly<Record<string, unknown>>>(
+  props: { texts?: Texts; lang?: string },
+  defaultTexts: DefaultTexts<Texts>
+): Readonly<Texts> => {
   const lang = props.lang || DEFAULT_LANG;
   return (
     props.texts ||

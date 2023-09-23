@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { prettyNum, PrettyNumOptions } from '@hugsmidjan/qj/prettyNum';
 import range from '@hugsmidjan/qj/range';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import {
   SearchResultsItem,
@@ -47,6 +47,14 @@ const defaultTexts: DefaultTexts<SearchReesultI18n> = {
     noResultsTitle: 'Engar leitarniðurstöður fundust fyrir',
     loadMore: 'Sækja fleiri',
     // loadingMore: 'Sæki fleiri...',
+  },
+  pl: {
+    lang: 'pl',
+    loadQueryTitle: 'Ładowanie wyników...',
+    resultsTitle: 'wyniki wyszukiwania dla',
+    noResultsTitle: 'Nie znaleziono wyników dla',
+    loadMore: 'Załaduj więcej',
+    // loadingMore: 'Ładowanie...',
   },
 };
 
@@ -234,7 +242,7 @@ export type SearchResultsProps = {
   pages?: number;
   loadMore?: () => void;
   texts?: SearchReesultI18n;
-  lang?: string;
+  lang?: HannaLang;
 } & WrapperElmProps;
 
 // TODO: add plural translation thingy for result string

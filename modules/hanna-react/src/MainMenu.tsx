@@ -2,7 +2,12 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { modifiedClass, Modifiers } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import { Cleanup } from '@reykjavik/hanna-utils';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import {
+  DEFAULT_LANG,
+  DefaultTexts,
+  getTexts,
+  HannaLang,
+} from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 import {
@@ -28,26 +33,28 @@ const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: st
 // ---------------------------------------------------------------------------
 
 export type MainMenuI18n = Cleanup<
-  { lang?: string; homeLabel?: string; title: string } & PrimaryPanelI18n
+  {
+    homeLabel?: string;
+    title: string;
+    /** @deprecated Not used (Will be removed in v0.11) */
+    lang?: string;
+  } & PrimaryPanelI18n
 >;
 
-export const defaultMainMenuTexts: DefaultTexts<Required<MainMenuI18n>> = {
+export const defaultMainMenuTexts: DefaultTexts<Required<Omit<MainMenuI18n, 'lang'>>> = {
   is: {
-    lang: 'is',
     title: 'Aðalvalmynd',
     homeLabel: 'Forsíða',
     backToMenu: 'Loka',
     backToMenuLong: 'Til baka í valmynd',
   },
   en: {
-    lang: 'en',
     title: 'Main Menu',
     homeLabel: 'Home page',
     backToMenu: 'Close',
     backToMenuLong: 'Close and return to menu',
   },
   pl: {
-    lang: 'pl',
     title: 'Menu główne',
     homeLabel: 'Strona główna',
     backToMenu: 'Zamknij',
@@ -111,17 +118,11 @@ const normalizeMenuItems = (
 
     if (!hasHomeItem) {
       if (!homeLink || typeof homeLink === 'string') {
-        let label = texts.homeLabel;
-        let lang: string | undefined;
-        if (label == null) {
-          const def =
-            defaultMainMenuTexts[texts.lang || 'en'] ||
-            defaultMainMenuTexts.en ||
-            defaultMainMenuTexts.is;
-          label = def.homeLabel;
-          lang = def.lang;
-        }
-        homeLink = { href: homeLink || '/', label, lang };
+        homeLink = {
+          href: homeLink || '/',
+          label: texts.homeLabel || defaultMainMenuTexts[DEFAULT_LANG].homeLabel,
+          lang: texts.homeLabel ? undefined : DEFAULT_LANG,
+        };
       }
       items.unshift({ ...homeLink, modifier: 'home' });
     }
@@ -198,7 +199,7 @@ export type MainMenuProps = {
   onItemClick?: (index: number, item: MainMenuItem) => void | boolean;
   activePanelId?: string;
   texts?: MainMenuI18n;
-  lang?: string;
+  lang?: HannaLang;
 } & SSRSupportProps &
   WrapperElmProps<null, 'aria-label'>;
 

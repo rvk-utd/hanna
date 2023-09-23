@@ -1,12 +1,12 @@
 import './initHannaNamespace.js';
 
 import E from '@hugsmidjan/qj/E';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
 import q from '@hugsmidjan/qj/q';
 import { defaultLayoutTexts } from '@reykjavik/hanna-react/Layout';
 import { focusElement, getFormatMonitor, MediaFormat } from '@reykjavik/hanna-utils';
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
 
+import { getLang } from './utils/_getLang.js';
 import { inlineSVG } from './utils/inlineSVG.js';
 
 const formatMonitor = getFormatMonitor();
@@ -29,7 +29,7 @@ window.Hanna.makeSprinkle({
     }
 
     /* eslint-disable @typescript-eslint/no-use-before-define */
-    const txt = getTexts({ lang: htmlLang(layoutElm) }, defaultLayoutTexts);
+    const txt = getTexts({ lang: getLang(layoutElm) }, defaultLayoutTexts);
     const closeButton = E(
       'button',
       {

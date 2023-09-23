@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';
 import { isPreact } from './utils/env.js';
@@ -66,6 +66,7 @@ export type AlertI18n = {
 export const defaultAlertTexts: DefaultTexts<AlertI18n> = {
   en: { closeLabel: 'Hide' },
   is: { closeLabel: 'Fela' },
+  pl: { closeLabel: 'Ukryj' },
 };
 
 export const alertTypes = {
@@ -87,7 +88,7 @@ export type AlertProps = {
   /** server-side anchor href */
   closeUrl?: string;
   texts?: AlertI18n;
-  lang?: string;
+  lang?: HannaLang;
 } & SSRSupportProps &
   EitherObj<
     {

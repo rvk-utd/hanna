@@ -2,7 +2,7 @@ import addUrlParams from '@hugsmidjan/qj/addUrlParams';
 import htmlLang from '@hugsmidjan/qj/htmlLang';
 
 import { ObjectKeys } from './_/ObjectHelpers.js';
-import { DEFAULT_LANG } from './i18n.js';
+import { DEFAULT_LANG, DefaultTexts } from './i18n.js';
 
 const shareButtonPlatforms = {
   facebook: 'Facebook',
@@ -23,11 +23,11 @@ export const shareButtonTypes = ObjectKeys(shareButtonPlatforms);
 /**
  * Texts for the social media sharing UI
  */
-export type ShareButtonI18n = {
+export type ShareButtonI18n = Readonly<{
   label?: string;
   buttonLabel?: string;
   emailSubject?: string;
-};
+}>;
 
 // ===========================================================================
 
@@ -83,12 +83,7 @@ const getAttr = (selector: string, prop: string) => {
 /**
  * Translation strings for social media sharing
  */
-export const shareButtonTexts: {
-  en: ShareButtonI18n;
-  is: ShareButtonI18n;
-  pl: ShareButtonI18n;
-  [x: string]: ShareButtonI18n;
-} = {
+export const shareButtonTexts: DefaultTexts<ShareButtonI18n> = {
   is: {
     label: 'Deila síðu á',
     // buttonLabel: '',

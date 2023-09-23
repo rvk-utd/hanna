@@ -3,12 +3,12 @@ import '../../initHannaNamespace.js';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import debounce from '@hugsmidjan/qj/debounce';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
 
 import ensureCSS from '../_ensureCSS.js';
+import { getLang } from '../_getLang.js';
 
 import { createElasticQuery, postQuery } from './reykjavik.is.js';
 
@@ -105,14 +105,13 @@ const renderSiteSearchAutocomplete = (props: Proptions): void => {
     return;
   }
 
-  const lang = htmlLang() as undefined;
   const title = parentElm.querySelector('.PageHeading')?.textContent || undefined;
 
   ensureCSS('SiteSearchCurtain').then(() => {
     const rootElm = document.createElement('div');
     ReactDOM.render(
       <ElasticSiteSearchAutocomplete
-        lang={lang}
+        lang={getLang(parentElm)}
         title={title}
         apiUri={apiUri}
         searchPagePath={searchPagePath}

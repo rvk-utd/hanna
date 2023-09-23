@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 import { breakOnNL } from './_abstract/breakOnNL.js';
@@ -9,25 +9,29 @@ import { useDomid } from './utils/useDomid.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 export type ContactBubbleI18n = {
-  lang?: string;
   openBtn: string;
   openBtnLong?: string;
   closeBtn: string;
   closeBtnLong?: string;
+  /** @deprecated Not used (Will be removed in v0.11) */
+  lang?: string;
 };
 
 export const defaultTexts: DefaultTexts<ContactBubbleI18n> = {
   is: {
-    lang: 'is',
     openBtn: 'Hafa samband',
     closeBtn: 'Loka',
     closeBtnLong: 'Loka valmynd',
   },
   en: {
-    lang: 'en',
     openBtn: 'Contact us',
     closeBtn: 'Close',
     closeBtnLong: 'Close bubble',
+  },
+  pl: {
+    openBtn: 'Skontaktuj się z nami',
+    closeBtn: 'Zamknąć',
+    closeBtnLong: 'Zamknąć pęcherzyk',
   },
 };
 
@@ -86,7 +90,7 @@ export type ContactBubbleProps = {
    */
   alwaysShow?: boolean;
   texts?: ContactBubbleI18n;
-  lang?: string;
+  lang?: HannaLang;
 } & SSRSupportProps &
   WrapperElmProps &
   (

@@ -1,8 +1,8 @@
-import { DEFAULT_LANG } from '../i18n.js';
+import { DEFAULT_LANG, HannaLang } from '../i18n.js';
 
 import { OpenRecord } from './types.js';
 
-const monthsByLang: OpenRecord<'is' | 'en' | 'pl', Array<string>> = {
+const monthsByLang: OpenRecord<HannaLang, Array<string>> = {
   is: [
     'janúar',
     'febrúar',
@@ -58,10 +58,11 @@ const monthsByLang: OpenRecord<'is' | 'en' | 'pl', Array<string>> = {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#printdate
  */
-export const printDate = (date: string | Date, lang?: string): string => {
+export const printDate = (date: string | Date, lang?: HannaLang): string => {
   date = typeof date === 'string' ? new Date(date) : date;
   const d = date.getUTCDate();
-  const months = monthsByLang[lang || ''] || monthsByLang[DEFAULT_LANG];
+  const months =
+    monthsByLang[(lang as string) || DEFAULT_LANG] || monthsByLang[DEFAULT_LANG];
   const mmm = months[date.getUTCMonth()];
   const yyyy = date.getUTCFullYear();
   return months === monthsByLang.en ? `${mmm} ${d}, ${yyyy}` : `${d}. ${mmm} ${yyyy}`;

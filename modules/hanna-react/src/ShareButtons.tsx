@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
+import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
 import {
   DocMeta,
   getDocMeta,
@@ -66,8 +66,8 @@ const ShareButtons__item = (props: SBP) => {
 // ============================================================
 
 export type ShareButtonsProps = {
-  texts?: Readonly<ShareButtonI18n>;
-  lang?: string;
+  texts?: ShareButtonI18n;
+  lang?: HannaLang;
 } & SSRSupportProps &
   WrapperElmProps<null, 'aria-label'> &
   Partial<Record<ShareButtonPlatforms, boolean>>;

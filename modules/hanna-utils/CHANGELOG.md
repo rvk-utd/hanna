@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `setDefaultLanguage()`
+- feat: Add i18n types `HannaLang` and `DefaultTexts`
 
 ## 0.2.9
 

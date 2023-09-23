@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { OpenRecord } from '@reykjavik/hanna-utils';
-import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
+import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { useDropzone } from './_mixed_export_resolution_/ReactDropzone.js';
 import {
@@ -18,7 +18,7 @@ import FormField, {
   groupFormFieldWrapperProps,
 } from './FormField.js';
 
-const defaultRemoveFileText: OpenRecord<'is' | 'en' | 'pl', string> = {
+const defaultRemoveFileText: OpenRecord<HannaLang, string> = {
   is: 'Fjarlægja',
   en: 'Remove',
   pl: 'Usuń',
@@ -50,7 +50,7 @@ export type FileInputProps = FormFieldWrappingProps & {
   accept?: string | Array<string>;
   dropzoneText: string | JSX.Element;
   removeFileText?: string;
-  lang?: string;
+  lang?: HannaLang;
   showFileSize?: boolean;
   showImagePreviews?: boolean;
   FileList?: false | ((props: FileListProps) => JSX.Element | null);

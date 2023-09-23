@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
 import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { DAY, MINUTE, SECOND } from '@hugsmidjan/qj/time';
 import { Alert, AlertProps } from '@reykjavik/hanna-react/Alert';
 import { EitherObj } from '@reykjavik/hanna-utils';
+import { HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import ensureCSS from './_ensureCSS.js';
+import { getLang } from './_getLang.js';
 
 const DISMISSAL_KEY_PREFIX = 'alert-dismissed-';
 
@@ -151,7 +152,7 @@ type SiteWideAlertsProps = {
    *
    * Default: `120_000` (2 minutes)  */
   refreshInterval: number;
-  lang?: string;
+  lang?: HannaLang;
 };
 
 const SiteWideAlerts = (props: SiteWideAlertsProps) => {
@@ -288,7 +289,7 @@ const sitewideAlerts = (props: Proptions): void => {
         alertsUri={props.alertsUri}
         baseUrl={props.baseUrl}
         refreshInterval={refreshInterval}
-        lang={htmlLang()}
+        lang={getLang()}
       />,
       rootElm
     );

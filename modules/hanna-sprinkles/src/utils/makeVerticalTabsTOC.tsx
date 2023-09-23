@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import aquireId from '@hugsmidjan/qj/aquireId';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
 import zapElm from '@hugsmidjan/qj/zapElm';
 import {
   VerticalTabsTOC,
@@ -10,6 +9,7 @@ import {
 } from '@reykjavik/hanna-react/VerticalTabsTOC';
 
 import ensureCSS from './_ensureCSS.js';
+import { getLang } from './_getLang.js';
 import { autoSeenEffectsRefresh, hasLegacySeenEffectsCSS } from './addSeenEffect.js';
 
 const setPanelVisibility = (panelElm: HTMLElement, isActive: boolean) => {
@@ -21,16 +21,6 @@ const setPanelVisibility = (panelElm: HTMLElement, isActive: boolean) => {
     panelElm.removeAttribute('tabindex');
   }
 };
-
-type Lang = 'is' | 'en' | 'pl';
-const langs: Record<string, Lang> = {
-  is: 'is',
-  en: 'en',
-  pl: 'pl',
-};
-const defaultLang: Lang = 'is';
-
-const getLang = (): Lang => langs[htmlLang() || defaultLang] || defaultLang;
 
 /* * /
 const hasPrecedingTextContent = (elm: HTMLElement): boolean => {

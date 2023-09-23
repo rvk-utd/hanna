@@ -33,6 +33,8 @@ yarn add @reykjavik/hanna-utils
     - [`setStyleServerUrl`](#setstyleserverurl)
 - [I18N helpers](#i18n-helpers)
   - [`getTexts`](#gettexts)
+  - [`DEFAULT_LANG`](#default_lang)
+  - [`setDefaultLanguage`](#setdefaultlanguage)
 - [Social Media Sharing](#social-media-sharing)
 - [Polyfills / A11y](#polyfills--a11y)
   - [`focus-visible` polyfill](#focus-visible-polyfill)
@@ -388,30 +390,34 @@ setStyleServerUrl(undefined); // pushes the default URL to the stack
 ### `getTexts`
 
 **Syntax:**
-`<Texts extends Record<string, unknown>, Lang extends string>( props: { texts?: Texts; lang?: Lang }, defaultTexts: DefaultTexts<Texts, Lang>) => Texts | Record<keyof Texts, string>`
+`<Texts extends Record<string, unknown>, Lang extends string>( props: { texts?: Texts; lang?: Lang }, defaultTexts: DefaultTexts<Texts, Lang>) => Readonly<Texts>`
 
 Helper for components that expose (optional) `texts` and `lang` props for
 customizing their UI texts,
 
 Returns `texts` when available, but otherwise it resolves the correct texts
 object from within `defaultTexts` to use based on `lang` (falling back on
-default language texts when all else fails).
+`DEFAULT_LANGUAGE` texts or Icelandic when all else fails).
 
 In dev-mode it emits an error to the console if an unsupported `lang` is
 passed.
 
 ```tsx
-import { getTexts } from '@reykjavik/hanna-utils/i18n';
+import {
+  getTexts,
+  type DefaultTexts,
+  type HannaLang,
+} from '@reykjavik/hanna-utils/i18n';
 
 type Props = {
   isOpen: boolean;
   onToggle: () => void;
   // I18n props:
   texts?: { open: string; close: string };
-  lang?: string;
+  lang?: HannaLang;
 };
 
-const defaultTexts: Record<Props['lang'], Props['texts']> = {
+const defaultTexts: DefaultTexts<Props['texts']> = {
   is: { open: 'Opna', close: 'Loka' },
   en: { open: 'Open', close: 'Close' },
   pl: { open: 'Otworzyć', close: 'Zamknąć' },
@@ -426,6 +432,48 @@ export const SillyToggler = (props: Props) => {
     </button>
   );
 };
+```
+
+### `DEFAULT_LANG`
+
+**Syntax:** `DEFAULT_LANG: SupportedLang`
+
+All Hanna components that use `getTexts` will use this value as their default
+translation language.
+
+### `setDefaultLanguage`
+
+**Syntax:** `setDefaultLanguage(lang: SupportedLang): void`
+
+This sets the value of Hanna `DEFAULT_LANG` variable globally. Use it at the
+top of your application to match its locale.
+
+Repeated calls push the languages to a simple stack, and if you want to unset
+a pushed language, use `setDefaultLanguage.pop()` to revert back to the
+previous one.
+
+Example:
+
+```js
+import {
+  setDefaultLanguage,
+  DEFAULT_LANG,
+} from '@reykjavik/hanna-utils/assets';
+
+console.log(DEFAULT_LANG); // 'is' (Initial default language)
+
+setDefaultLanguage('pl');
+console.log(DEFAULT_LANG); // 'pl'
+
+setDefaultLanguage.pop(); // reset `DEFAULT_LANG` to previous value
+console.log(DEFAULT_LANG); // 'is'
+```
+
+You can explicitly switch to using the library's initial `DEFAULT_LANG` by
+passing `undefined` as an argument — like so:
+
+```js
+setStyleServerUrl(undefined); // pushes the initial language to the stack
 ```
 
 ## Social Media Sharing

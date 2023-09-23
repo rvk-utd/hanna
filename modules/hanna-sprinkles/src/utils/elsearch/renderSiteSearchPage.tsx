@@ -3,7 +3,6 @@ import '../../initHannaNamespace.js';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import debounce from '@hugsmidjan/qj/debounce';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
 import makeQueryString from '@hugsmidjan/qj/makeQueryString';
 import {
   SearchResults,
@@ -15,6 +14,7 @@ import { printDate } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import ensureCSS from '../_ensureCSS.js';
+import { getLang } from '../_getLang.js';
 
 import {
   ElasticSource,
@@ -153,6 +153,11 @@ const defaultTexts: DefaultTexts<SiteSearchPageI18n> = {
     searchInputLabel: 'Sláðu inn leitarorð',
     searchPlaceholder: 'Sláðu inn leitarorð',
     searchButtonText: 'Leita',
+  },
+  pl: {
+    searchInputLabel: 'Wpisz wyszukiwane słowa',
+    searchPlaceholder: 'Wpisz wyszukiwane słowa',
+    searchButtonText: 'Szukaj',
   },
 };
 
@@ -445,14 +450,13 @@ const renderSiteSearchPage = (props: Proptions) => {
   ensureCSS('SearchResults', 'SiteSearchInput').then(() => {
     const rootElm = document.createElement('div');
     rootElm.className = 'SiteSearchPage';
-    const lang = htmlLang() as undefined;
 
     ReactDOM.render(
       <SiteSearchPage
         apiUri={apiUri}
         bundleLabels={bundleLabels}
         pageSize={pageSize}
-        lang={lang}
+        lang={getLang(insertionElm)}
       />,
       rootElm,
       () => {

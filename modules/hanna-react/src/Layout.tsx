@@ -3,7 +3,7 @@ import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { Image } from './_abstract/_Image.js';
 import { Link } from './_abstract/_Link.js';
@@ -17,27 +17,25 @@ import {
 } from './utils.js';
 
 export type LayoutI18n = {
-  lang?: string;
   skipLinkLabel: string;
   closeMenuLabel: string;
   closeMenuLabelLong?: string;
+  /** @deprecated Not used (Will be removed in v0.11) */
+  lang?: string;
 };
 
 export const defaultLayoutTexts: DefaultTexts<LayoutI18n> = {
   is: {
-    lang: 'is',
     skipLinkLabel: 'Valmynd',
     closeMenuLabel: 'Loka',
     closeMenuLabelLong: 'Loka valmynd',
   },
   en: {
-    lang: 'en',
     skipLinkLabel: 'Skip to navigation',
     closeMenuLabel: 'Close',
     closeMenuLabelLong: 'Close menu',
   },
   pl: {
-    lang: 'pl',
     skipLinkLabel: 'Przejdź do nawigacji',
     closeMenuLabel: 'Zamknij',
     closeMenuLabelLong: 'Zamknij menu',
@@ -55,7 +53,7 @@ type LayoutProps = {
   siteName?: string;
 
   texts?: LayoutI18n;
-  lang?: string;
+  lang?: HannaLang;
 } & SSRSupportProps &
   WrapperElmProps &
   BemModifierProps &

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { AbstractCarousel } from './_abstract/_AbstractCarousel.js';
 import { GalleryItem, GalleryItemProps } from './Gallery/_GalleryItem.js';
@@ -27,6 +27,11 @@ const defaultTexts: DefaultTexts<GalleryI18n> = {
     modalPrevLabel: 'Fyrri mynd',
     modalCloseLabel: 'Til baka í grein',
   },
+  pl: {
+    modalNextLabel: 'Następne zdjęcie',
+    modalPrevLabel: 'Poprzednie zdjęcie',
+    modalCloseLabel: 'Powrót do artykułu',
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -34,7 +39,7 @@ const defaultTexts: DefaultTexts<GalleryI18n> = {
 export type GalleryProps = {
   items: Array<GalleryItemProps>;
   texts?: GalleryI18n;
-  lang?: string;
+  lang?: HannaLang;
 } & SSRSupportProps &
   WrapperElmProps &
   DeprecatedSeenProp;

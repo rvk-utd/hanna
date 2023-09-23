@@ -1,9 +1,10 @@
 import './initHannaNamespace.js';
 
 import E from '@hugsmidjan/qj/E';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
 import { defaultAlertTexts } from '@reykjavik/hanna-react/Alert';
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
+
+import { getLang } from './utils/_getLang.js';
 
 window.Hanna.makeSprinkle({
   name: 'Alert',
@@ -14,7 +15,7 @@ window.Hanna.makeSprinkle({
       return;
     }
     const { closeLabel, closeLabelLong } = getTexts(
-      { lang: htmlLang(alertElm) },
+      { lang: getLang(alertElm) },
       defaultAlertTexts
     );
 

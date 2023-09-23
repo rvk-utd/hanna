@@ -1,7 +1,7 @@
 import React, { memo, MouseEvent } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { EitherObj } from '@reykjavik/hanna-utils';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 import { generatePageList } from './utils/Pagination.privates.js';
@@ -131,8 +131,8 @@ export type PaginationProps = {
   'aria-controls'?: string;
   title?: string;
   submit?: boolean;
-  lang?: string;
   texts?: PaginationI18n;
+  lang?: HannaLang;
 } & EitherObj<
   {
     href: PageTemplateString | ((page: number) => string);

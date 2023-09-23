@@ -1,5 +1,7 @@
 import o from 'ospec';
 
+import { HannaLang, setDefaultLanguage } from '../i18n.js';
+
 import { printDate } from './printDate.js';
 
 o.spec('printDate', () => {
@@ -17,6 +19,12 @@ o.spec('printDate', () => {
 
   o('Defaults to Icelandic', () => {
     o(printDate(june17_2022)).equals('17. júní 2022')('no language');
-    o(printDate(june17_2022, 'jp')).equals('17. júní 2022')('invalid language');
+    setDefaultLanguage('pl');
+    o(printDate(june17_2022)).equals('17. czerwca 2022')('respects DEFAULT_LANG');
+    // @ts-expect-error  (Testing bad input)
+    const invalidLang: HannaLang = 'jp';
+    o(printDate(june17_2022, invalidLang)).equals('17. czerwca 2022')(
+      'invalid language falls back to DEFAULT_LANG'
+    );
   });
 });

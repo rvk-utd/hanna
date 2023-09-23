@@ -2,7 +2,6 @@ import './initHannaNamespace.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
 import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import {
@@ -13,11 +12,13 @@ import {
 } from '@reykjavik/hanna-react/ContactBubble';
 import { notNully } from '@reykjavik/hanna-utils';
 
+import { getLang } from './utils/_getLang.js';
+
 const itemTypeRe = /(?:^| )ContactBubble__item--type--(.+?)(?: |$)/;
 
 const getContactBubbleData = (elm: HTMLElement): ContactBubbleProps => {
   const alwaysShow = elm.dataset.alwaysShow === 'true';
-  const lang = htmlLang() as undefined;
+  const lang = getLang(elm);
   const title = q('.ContactBubble__title', elm)?.textContent || undefined;
   const links: Array<ContactBubbleItem> = qq('.ContactBubble__item', elm)
     .map((itemElm, i): ContactBubbleItem | undefined => {

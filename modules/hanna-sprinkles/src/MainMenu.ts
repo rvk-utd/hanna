@@ -2,12 +2,13 @@ import './initHannaNamespace.js';
 
 import E from '@hugsmidjan/qj/E';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
 import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { defaultMainMenuTexts } from '@reykjavik/hanna-react/MainMenu';
 import { getFormatMonitor, MediaFormat } from '@reykjavik/hanna-utils';
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
+
+import { getLang } from './utils/_getLang.js';
 
 const formatMonitor = getFormatMonitor();
 
@@ -125,7 +126,8 @@ window.Hanna.makeSprinkle({
   name: 'MainMenu',
 
   init: (menuElm: HTMLElement) => {
-    const txt = getTexts({ lang: htmlLang(menuElm) }, defaultMainMenuTexts);
+    const lang = getLang(menuElm);
+    const txt = getTexts({ lang }, defaultMainMenuTexts);
 
     const megaContainer = q<HTMLElement>('.MainMenu__panelsWrap', menuElm);
     if (!megaContainer) {
@@ -193,7 +195,6 @@ window.Hanna.makeSprinkle({
           className: 'MainMenu__megapanel__backtomenu',
           onClick: () => closeMenu(),
           'aria-label': txt.backToMenuLong,
-          lang: txt.lang,
         },
         txt.backToMenu
       ),

@@ -2,7 +2,7 @@ import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
 import * as lib from './i18n.js';
-import { getTexts } from './i18n.js';
+import { DEFAULT_LANG, getTexts, setDefaultLanguage } from './i18n.js';
 
 type ExpectedExports = keyof typeof lib;
 
@@ -12,6 +12,7 @@ o.spec('hanna-utils/i18n', () => {
       // i18n.ts
       getTexts: true,
       DEFAULT_LANG: true,
+      setDefaultLanguage: true,
     };
 
     reportKeyMismatch(lib, expectedTokens);
@@ -23,6 +24,7 @@ o.spec('hanna-utils/i18n', () => {
 import type {
   // i18n.ts
   DefaultTexts,
+  HannaLang,
 } from './i18n.js';
 import { Equals, Expect } from './_/testing.js';
 /* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first, simple-import-sort/imports */
@@ -31,11 +33,12 @@ import { Equals, Expect } from './_/testing.js';
 
 // ---------------------------------------------------------------------------
 
-o.spec('getTexts', () => {
+o.spec('getTexts and setDefaultLanguage', () => {
   // …
-  const defaultTexts = {
+  const defaultTexts: DefaultTexts<{ a: string }> = {
     is: { a: 'Opna' },
     en: { a: 'Open' },
+    pl: { a: 'Otwórz' },
   };
 
   o('works', () => {
@@ -52,5 +55,21 @@ o.spec('getTexts', () => {
     o(getTexts({ lang: 'xx' as string }, defaultTexts)).equals(defaultTexts.is)(
       'Unknown `lang` returns the default language tests'
     );
+    o(DEFAULT_LANG).equals('is')('`DEFAULT_LANG` is `is` by default');
+    setDefaultLanguage('pl');
+    o(DEFAULT_LANG).equals('pl')('`setDefaultLanguage` changes the default language');
+    o(getTexts({ lang: 'xx' as string }, defaultTexts)).equals(defaultTexts.pl)(
+      '`getTexts` uses `DEFAULT_LANG`'
+    );
+    setDefaultLanguage(undefined);
+    o(DEFAULT_LANG).equals('is')(
+      'passing undefined to `setDefaultLanguage` sets it to the base language'
+    );
+    setDefaultLanguage.pop();
+    o(DEFAULT_LANG).equals('pl')('.pop() restores the previous language');
+    setDefaultLanguage.pop();
+    setDefaultLanguage.pop();
+    setDefaultLanguage.pop();
+    o(DEFAULT_LANG).equals('is')('excessive `.pop()`s settle on the base language');
   });
 });
