@@ -16,3 +16,8 @@ export const registerLocale = reactDropzonePkg.registerLocale;
 export const setDefaultLocale = reactDropzonePkg.setDefaultLocale;
 export const getDefaultLocale = reactDropzonePkg.getDefaultLocale;
 export const CalendarContainer = reactDropzonePkg.CalendarContainer;
+
+export type CalendarContainerProps = reactDropzonePkg.CalendarContainerProps;
+export type ReactDatePickerCustomHeaderProps =
+  reactDropzonePkg.ReactDatePickerCustomHeaderProps;
+export type ReactDatePickerProps = reactDropzonePkg.ReactDatePickerProps;

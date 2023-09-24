@@ -1,11 +1,13 @@
 import React, { MutableRefObject, RefObject } from 'react';
-import { HannaLang } from '@reykjavik/hanna-utils/i18n';
+import { Expect, Extends } from '@reykjavik/hanna-utils';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
 import is from 'date-fns/locale/is/index.js';
 import pl from 'date-fns/locale/pl/index.js';
 
 import {
   ReactDatePicker,
+  type ReactDatePickerProps,
   registerLocale,
 } from './_mixed_export_resolution_/ReactDatepicker.js'; // Docs: https://reactdatepicker.com/
 import { useDomid } from './utils/useDomid.js';
@@ -49,7 +51,8 @@ export type DatepickerProps = {
    * NOTE: This will be the default mode in v0.11.
    */
   isoMode?: boolean;
-  localeCode?: HannaLang; // default 'is', we can add more langs later...
+  texts?: DatepickerLocaleProps;
+  lang?: HannaLang;
   dateFormat?: string | Array<string>;
   isStartDate?: boolean;
   isEndDate?: boolean;
@@ -57,7 +60,9 @@ export type DatepickerProps = {
   onChange?: (date?: Date) => void;
   datepickerExtraProps?: Record<string, unknown>;
 
-  /** @deprecated  Use `value` or `defaultValue` instead.  (Will be removed in v0.11) */
+  /** @deprecated Use `lang` instead  (Will be removed in v0.11) */
+  localeCode?: HannaLang;
+  /** @deprecated Use `value` or `defaultValue` instead.  (Will be removed in v0.11) */
   initialDate?: Date;
 } & FormFieldWrappingProps;
 
@@ -72,6 +77,7 @@ export const getDateDiff = (refDate: Date, dayOffset: number): Date => {
 };
 
 export type DatepickerLocaleProps = {
+  ariaLabelClose: string;
   nextMonthAriaLabel: string;
   nextMonthButtonLabel: string;
   nextYearAriaLabel: string;
@@ -82,14 +88,20 @@ export type DatepickerLocaleProps = {
   previousYearButtonLabel: string;
   timeInputLabel: string;
   weekAriaLabelPrefix: string;
+  monthAriaLabelPrefix: string;
   weekLabel: string;
-  ariaLabelPrefix: string;
   chooseDayAriaLabelPrefix: string;
   disabledDayAriaLabelPrefix: string;
 };
 
-const i18n: Record<string, DatepickerLocaleProps> = {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Test_LocalePropsTypeMatchesRDPProps = Expect<
+  Extends<DatepickerLocaleProps, Partial<ReactDatePickerProps>>
+>;
+
+const defaultDatepickerTexts: DefaultTexts<DatepickerLocaleProps> = {
   is: {
+    ariaLabelClose: 'Loka',
     nextMonthAriaLabel: 'Næsti mánuður',
     nextMonthButtonLabel: 'Næsti mánuður',
     nextYearAriaLabel: 'Næsta ár',
@@ -98,14 +110,34 @@ const i18n: Record<string, DatepickerLocaleProps> = {
     previousMonthButtonLabel: 'Fyrri mánuður',
     previousYearAriaLabel: 'Fyrra ár',
     previousYearButtonLabel: 'Fyrra ár',
-    timeInputLabel: 'Tími: ',
-    weekAriaLabelPrefix: 'Vika: ',
+    timeInputLabel: 'Tími:',
+    weekAriaLabelPrefix: 'Vika:',
     weekLabel: 'Vika',
-    ariaLabelPrefix: 'Mánuður:',
+    monthAriaLabelPrefix: 'Mánuður:',
     chooseDayAriaLabelPrefix: 'Veldu:',
-    disabledDayAriaLabelPrefix: 'Dagsetning ekki í boði',
+    disabledDayAriaLabelPrefix: 'Ekki í boði:',
   },
+  // React-datepicker has its own (default) English translation built in.
+  // No need to repeat all of it here.
+  en: {
+    // ariaLabelClose: 'Close',
+    // nextMonthAriaLabel: 'Next month',
+    // nextMonthButtonLabel: 'Next month',
+    // nextYearAriaLabel: 'Next year',
+    // nextYearButtonLabel: 'Next year',
+    // previousMonthAriaLabel: 'Previous month',
+    // previousMonthButtonLabel: 'Previous month',
+    // previousYearAriaLabel: 'Previous year',
+    // previousYearButtonLabel: 'Previous year',
+    // timeInputLabel: 'Time:',
+    // weekAriaLabelPrefix: 'Week:',
+    // weekLabel: 'Week',
+    monthAriaLabelPrefix: 'Month:',
+    chooseDayAriaLabelPrefix: 'Choose:',
+    disabledDayAriaLabelPrefix: 'Not available:',
+  } as DatepickerLocaleProps,
   pl: {
+    ariaLabelClose: 'Zamknij',
     nextMonthAriaLabel: 'Następny miesiącu',
     nextMonthButtonLabel: 'Następny miesiącu',
     nextYearAriaLabel: 'Następny rok',
@@ -114,12 +146,12 @@ const i18n: Record<string, DatepickerLocaleProps> = {
     previousMonthButtonLabel: 'Poprzedni miesiac',
     previousYearAriaLabel: 'Poprzedni rok',
     previousYearButtonLabel: 'Poprzedni rok',
-    timeInputLabel: 'Czas: ',
-    weekAriaLabelPrefix: 'Tydzień: ',
+    timeInputLabel: 'Czas:',
+    weekAriaLabelPrefix: 'Tydzień:',
     weekLabel: 'Tydzień',
-    ariaLabelPrefix: 'Miesiąc:',
+    monthAriaLabelPrefix: 'Miesiąc:',
     chooseDayAriaLabelPrefix: 'Wybierać:',
-    disabledDayAriaLabelPrefix: 'Data niedostępna',
+    disabledDayAriaLabelPrefix: 'Niedostępna:',
   },
 };
 
@@ -132,7 +164,6 @@ export const Datepicker = (props: DatepickerProps) => {
   const {
     placeholder,
 
-    localeCode = 'is',
     dateFormat = 'd.M.yyyy',
     name,
     startDate,
@@ -145,6 +176,8 @@ export const Datepicker = (props: DatepickerProps) => {
     datepickerExtraProps,
     inputRef,
     isoMode,
+    texts,
+    lang = props.localeCode,
 
     fieldWrapperProps,
   } = groupFormFieldWrapperProps(props);
@@ -162,7 +195,7 @@ export const Datepicker = (props: DatepickerProps) => {
 
   const domid = useDomid(props.id);
 
-  const txts = i18n[localeCode] || {};
+  const txts = getTexts({ texts, lang }, defaultDatepickerTexts);
 
   const filled = !!value;
   const empty = !filled && !placeholder;
@@ -204,7 +237,7 @@ export const Datepicker = (props: DatepickerProps) => {
               readOnly={inputProps.readOnly}
               selected={value}
               name={isoMode ? undefined : name}
-              locale={localeCode}
+              locale={lang}
               dateFormat={
                 // NOTE: Force all dateFormat values into Array<string> to temporarily work around
                 // a bug in the current version of react-datepicker where invalid `string` values

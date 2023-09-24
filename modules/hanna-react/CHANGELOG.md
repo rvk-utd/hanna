@@ -24,6 +24,9 @@
     contained `FormField`
   - feat: Deprecate this component, in favor of `AutosuggestSearch`
 - feat: Add `useDomid` to `utils`
+- `Datepicker`:
+- feat: Add prop `lang`, deprecate `localeCode`
+- fix: Fix minor mistakes in aria-label translations
 
 ## 0.10.103
 
