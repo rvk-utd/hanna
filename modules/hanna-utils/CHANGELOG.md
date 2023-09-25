@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.10
+
+_2023-09-25_
+
 - feat: Add `setDefaultLanguage()`
 - feat: Add i18n types `HannaLang` and `DefaultTexts`
 
