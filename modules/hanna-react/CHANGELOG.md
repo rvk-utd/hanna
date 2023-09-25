@@ -7,6 +7,7 @@
   - feat: Add props `wrapperProps`
   - feat: Add prop `rowProps`
   - feat: Export `Table*` types (`TableCell`, `TableRow`, etc.)
+  - feat: Allow `key` prop as part of `TableCellData`
 - feat: Add component `AutosuggestSearch`
 - `SiteSearchAutocomplete`:
   - feat: Mark this component as deprecated, in favor of `AutosuggestSearch`

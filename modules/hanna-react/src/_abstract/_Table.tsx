@@ -20,11 +20,12 @@ export type TableCellMeta =
 export type TableCellData = {
   value: ReactNode | ((rowIdx: number) => ReactNode);
   colSpan?: number;
+  key?: string | number;
 } & TableCellMeta;
 
 type RowData = {
   cells: Array<TableCellData>;
-  key: string | undefined;
+  key: string | number | undefined;
 };
 
 export type TableCols = Array<TableCellMeta | null>;
@@ -34,7 +35,7 @@ export type TableRow =
   | {
       cells: Array<TableCell>;
       /** Manual `key` prop for stable re-renders */
-      key?: string;
+      key?: string | number;
     };
 type TableSection = Array<TableRow>;
 export type TableBody = TableSection;
@@ -115,7 +116,7 @@ const TableSection = ({ section, cols = [], Tag, getRowProps }: TableSectionProp
               colIdx += cell.colSpan || 1;
               return (
                 <TableCell
-                  key={i}
+                  key={cell.key || i}
                   th={Tag === 'thead' || rowScope}
                   data={cell}
                   meta={meta || undefined}
