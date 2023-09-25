@@ -7,6 +7,12 @@
   - feat: Add props `wrapperProps`
   - feat: Export `Table*` types (`TableCell`, `TableRow`, etc.)
 - feat: Add component `AutosuggestSearch`
+- `SiteSearchAutocomplete`:
+  - feat: Mark this component as deprecated, in favor of `AutosuggestSearch`
+  - fix: Add translation prop `buttonText` — (optional, but logs warning in
+    dev if missing.)
+  - fix: Spread `wrapperProps` on the wrapping `<div/>` element not the
+    contained `FormField`
 - `SearchInput`:
   - feat: Add prop `onSubmit` firing on `Enter` keypress
   - feat: `onButtonClick` receives `value` as an argument
@@ -17,12 +23,6 @@
   - feat: `onButtonClick` and `onSubmit` receive `value` as their argument
   - feat: Add prop `button` to toggle the button, ueses`onSubmit` as fallback
   - fix: Minor prop and attribute assignment cleanup
-- `SiteSearchAutocomplete`:
-  - fix: Add translation prop `buttonText` — (optional, but logs warning in
-    dev if missing.)
-  - fix: Spread `wrapperProps` on the wrapping `<div/>` element not the
-    contained `FormField`
-  - feat: Deprecate this component, in favor of `AutosuggestSearch`
 - feat: Add `useDomid` to `utils`
 - `Datepicker`:
 - feat: Add prop `lang`, deprecate `localeCode`
