@@ -2,7 +2,14 @@ import React, { memo, ReactNode, useMemo } from 'react';
 import { classes } from '@hugsmidjan/qj/classUtils';
 import { notNully } from '@reykjavik/hanna-utils';
 
-import { WrapperElmProps } from '../utils.js';
+import { HTMLProps, WrapperElmProps } from '../utils.js';
+
+type SectionTag = 'thead' | 'tfoot' | 'tbody';
+
+type RowPropsFunction = (
+  rowIdx: number,
+  section: SectionTag
+) => HTMLProps<'tr'> | undefined;
 
 export type TableCellMeta =
   | { className?: string; number?: false; tel?: false; text?: false } // Default
@@ -92,15 +99,16 @@ const TableCell = (props: TableCellProps) => {
 type TableSectionProps = {
   section: Array<RowData>;
   cols?: TableCols;
-  Tag: 'thead' | 'tfoot' | 'tbody';
+  Tag: SectionTag;
+  getRowProps: RowPropsFunction;
 };
-const TableSection = ({ section, cols = [], Tag }: TableSectionProps) =>
+const TableSection = ({ section, cols = [], Tag, getRowProps }: TableSectionProps) =>
   section.length ? (
     <Tag>
       {section.map(({ key, cells }, rowIdx) => {
         let colIdx = 0;
         return (
-          <tr key={key != null ? key : rowIdx}>
+          <tr {...getRowProps(rowIdx, Tag)} key={key != null ? key : rowIdx}>
             {cells.map((cell, i) => {
               const rowScope = i === 0;
               const meta = cols[colIdx];
@@ -141,10 +149,12 @@ const normalizeTableSectData = (rows: Array<TableRow>): Array<RowData> | undefin
 
 export type TableProps = TableData & {
   cols?: TableCols;
+  rowProps?: HTMLProps<'tr'> | RowPropsFunction;
 } & WrapperElmProps<'table'>;
 
 export const Table = memo((props: TableProps & { className?: string }) => {
-  const { caption, cols, className, wrapperProps } = props;
+  const { caption, cols, className, rowProps, wrapperProps } = props;
+  const getRowProps = typeof rowProps === 'function' ? rowProps : () => rowProps;
   const thead = useMemo(() => normalizeTableSectData(props.thead), [props.thead]);
   const tfoot = useMemo(
     () => props.tfoot && normalizeTableSectData(props.tfoot),
@@ -157,10 +167,20 @@ export const Table = memo((props: TableProps & { className?: string }) => {
   return (
     <table {...wrapperProps} className={classes(className, wrapperProps?.className)}>
       {caption && <caption>{caption}</caption>}
-      {thead && <TableSection section={thead} cols={cols} Tag="thead" />}
-      {tfoot && <TableSection section={tfoot} cols={cols} Tag="tfoot" />}
+      {thead && (
+        <TableSection section={thead} cols={cols} Tag="thead" getRowProps={getRowProps} />
+      )}
+      {tfoot && (
+        <TableSection section={tfoot} cols={cols} Tag="tfoot" getRowProps={getRowProps} />
+      )}
       {tbodies.map((section, i) => (
-        <TableSection key={i} section={section} cols={cols} Tag="tbody" />
+        <TableSection
+          key={i}
+          section={section}
+          cols={cols}
+          Tag="tbody"
+          getRowProps={getRowProps}
+        />
       ))}
     </table>
   );
