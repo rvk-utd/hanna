@@ -19,6 +19,7 @@ export type MegaMenuItem = {
       summary?: string;
       href: string;
       lang?: string;
+      hrefLang?: string;
       target?: React.HTMLAttributeAnchorTarget;
     },
     {
@@ -88,6 +89,7 @@ export const PrimaryPanel = (props: PrimaryPanelProps) => {
                 href={item.href}
                 target={item.target}
                 lang={item.lang}
+                hrefLang={item.hrefLang}
               >
                 <span className="PrimaryPanel__linkTitle">{item.label}</span>{' '}
                 <small className="PrimaryPanel__summary">{item.summary}</small>{' '}

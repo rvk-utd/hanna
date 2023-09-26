@@ -28,6 +28,7 @@
 - feat: Add `useDomid` to `utils`
 - `Datepicker`:
 - feat: Add prop `lang`, deprecate `localeCode`
+- feat: Add support for `hrefLang` values on `MainMenuItem` and `MegaMenuItem`
 - fix: Fix minor mistakes in aria-label translations
 
 ## 0.10.103

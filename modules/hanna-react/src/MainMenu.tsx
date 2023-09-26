@@ -149,6 +149,7 @@ export type MainMenuItem = {
   label: string;
   labelLong?: string;
   lang?: string;
+  hrefLang?: string;
   /**
    * Puts a modifier className on the menu item element.
    *
@@ -403,6 +404,7 @@ export const MainMenu = (props: MainMenuProps) => {
                       !keepOpen && closeHamburgerMenu();
                     }}
                     lang={lang}
+                    hrefLang={item.hrefLang}
                   >
                     {label}
                   </Link>
