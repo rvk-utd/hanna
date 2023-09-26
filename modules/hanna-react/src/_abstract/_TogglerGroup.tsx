@@ -3,8 +3,8 @@ import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { FormFieldInputProps } from '../FormField.js';
 import { HTMLProps, useMixedControlState } from '../utils.js';
+import { useDomid } from '../utils/useDomid.js';
 
-import { useDomid } from './utils/useDomid.js';
 import { TogglerInputProps } from './_TogglerInput.js';
 
 export type TogglerGroupOption<T = 'default'> = {
