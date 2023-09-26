@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.11
+
+_2023-09-26_
+
 - feat: Make `setDefaultLanguage()` not push to a stack. Add
   `setDefaultLanguage.push()` for that.
 
