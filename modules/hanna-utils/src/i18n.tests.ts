@@ -61,15 +61,23 @@ o.spec('getTexts and setDefaultLanguage', () => {
     o(getTexts({ lang: 'xx' as string }, defaultTexts)).equals(defaultTexts.pl)(
       '`getTexts` uses `DEFAULT_LANG`'
     );
+
     setDefaultLanguage(undefined);
     o(DEFAULT_LANG).equals('is')(
       'passing undefined to `setDefaultLanguage` sets it to the base language'
     );
+    setDefaultLanguage('pl');
+    setDefaultLanguage('en');
     setDefaultLanguage.pop();
-    o(DEFAULT_LANG).equals('pl')('.pop() restores the previous language');
+    o(DEFAULT_LANG).equals('is')('`.pop()`ing an empty stack sets the base language');
+
+    setDefaultLanguage.push('pl');
+    setDefaultLanguage.push('en');
+    setDefaultLanguage.pop();
+    o(DEFAULT_LANG).equals('pl')('`.pop()` restores the previous language');
     setDefaultLanguage.pop();
     setDefaultLanguage.pop();
     setDefaultLanguage.pop();
-    o(DEFAULT_LANG).equals('is')('excessive `.pop()`s settle on the base language');
+    o(DEFAULT_LANG).equals('is')('excessive `.pop()`ing settles on the base language');
   });
 });

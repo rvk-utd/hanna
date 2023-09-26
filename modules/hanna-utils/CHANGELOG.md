@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make `setDefaultLanguage()` not push to a stack. Add
+  `setDefaultLanguage.push()` for that.
 
 ## 0.2.10
 

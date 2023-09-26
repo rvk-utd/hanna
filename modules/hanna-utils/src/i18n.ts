@@ -21,11 +21,22 @@ const _history: Array<HannaLang> = [];
  */
 export const setDefaultLanguage = (newLang: HannaLang | undefined) => {
   DEFAULT_LANG = newLang || _BASE_DEFAULT_LANG;
+  _history[0] = DEFAULT_LANG;
+};
+
+/**
+ * This function pushes a new language onto a simple stack. Use
+ * `setDefaultLanguage.pop()` to revert back to the previous one.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#setdefaultlanguagepush
+ */
+setDefaultLanguage.push = (newLang: HannaLang | undefined) => {
+  DEFAULT_LANG = newLang || _BASE_DEFAULT_LANG;
   _history.unshift(DEFAULT_LANG);
 };
 
 /**
- * Unsets the last pushed `setDefaultLanguage`
+ * Unsets the last language set by `setDefaultLanguage.push(…)`.
  */
 setDefaultLanguage.pop = () => {
   _history.shift();

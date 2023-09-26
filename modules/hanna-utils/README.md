@@ -35,6 +35,7 @@ yarn add @reykjavik/hanna-utils
   - [`getTexts`](#gettexts)
   - [`DEFAULT_LANG`](#default_lang)
   - [`setDefaultLanguage`](#setdefaultlanguage)
+  - [`setDefaultLanguage.push()`](#setdefaultlanguagepush)
 - [Social Media Sharing](#social-media-sharing)
 - [Polyfills / A11y](#polyfills--a11y)
   - [`focus-visible` polyfill](#focus-visible-polyfill)
@@ -436,25 +437,21 @@ export const SillyToggler = (props: Props) => {
 
 ### `DEFAULT_LANG`
 
-**Syntax:** `DEFAULT_LANG: SupportedLang`
+**Syntax:** `DEFAULT_LANG: HannaLang`
 
 All Hanna components that use `getTexts` will use this value as their default
 translation language.
 
 ### `setDefaultLanguage`
 
-**Syntax:** `setDefaultLanguage(lang: SupportedLang): void`
+**Syntax:** `updateDefaultLanguage(lang: HannaLang): void`
 
 This sets the value of Hanna `DEFAULT_LANG` variable globally. Use it at the
 top of your application to match its locale.
 
-Repeated calls push the languages to a simple stack, and if you want to unset
-a pushed language, use `setDefaultLanguage.pop()` to revert back to the
-previous one.
+The `DEFAULT_LANG` variable is NOT reactive, and does not trigger re-renders.
 
-Example:
-
-```js
+```ts
 import {
   setDefaultLanguage,
   DEFAULT_LANG,
@@ -464,16 +461,32 @@ console.log(DEFAULT_LANG); // 'is' (Initial default language)
 
 setDefaultLanguage('pl');
 console.log(DEFAULT_LANG); // 'pl'
-
-setDefaultLanguage.pop(); // reset `DEFAULT_LANG` to previous value
-console.log(DEFAULT_LANG); // 'is'
 ```
 
 You can explicitly switch to using the library's initial `DEFAULT_LANG` by
 passing `undefined` as an argument — like so:
 
-```js
+```ts
 setStyleServerUrl(undefined); // pushes the initial language to the stack
+```
+
+### `setDefaultLanguage.push()`
+
+**Syntax:** `setDefaultLanguage.push(lang: HannaLang): void`
+
+This function pushes a new language onto a simple stack. Use
+`setDefaultLanguage.pop()` to revert back to the previous one.
+
+Example:
+
+```ts
+console.log(DEFAULT_LANG); // 'pl' (the language set in previous example)
+
+setDefaultLanguage.push('pl');
+console.log(DEFAULT_LANG); // 'en'
+
+setDefaultLanguage.pop(); // reset `DEFAULT_LANG` to previous value
+console.log(DEFAULT_LANG); // 'pl'
 ```
 
 ## Social Media Sharing
