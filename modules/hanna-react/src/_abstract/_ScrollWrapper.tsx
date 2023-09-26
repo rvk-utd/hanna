@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { useIsBrowserSide, WrapperElmProps } from '../utils.js';
@@ -17,12 +17,14 @@ type ScrollWrapperProps = {
 } & BemProps &
   WrapperElmProps;
 
-export const ScrollWrapper: FC<ScrollWrapperProps> = ({
-  children,
-  modifier,
-  bem = 'ScrollWrapper',
-  wrapperProps = {},
-}) => {
+export const ScrollWrapper = (props: ScrollWrapperProps & { innerWrap?: true }) => {
+  const {
+    innerWrap,
+    children,
+    modifier,
+    bem = 'ScrollWrapper',
+    wrapperProps = {},
+  } = props;
   const isBrowser = useIsBrowserSide();
   const [scrollerRef, scrollAt] = useScrollEdgeDetect<HTMLDivElement>(
     scrollOptions,
@@ -37,9 +39,15 @@ export const ScrollWrapper: FC<ScrollWrapperProps> = ({
     <div
       {...wrapperProps}
       className={modifiedClass(bem, modifiers, wrapperProps.className)}
-      ref={scrollerRef}
+      ref={!innerWrap ? scrollerRef : undefined}
     >
-      {children}
+      {isBrowser && innerWrap ? (
+        <div className={`${bem}__scroller`} ref={scrollerRef}>
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </div>
   );
 };

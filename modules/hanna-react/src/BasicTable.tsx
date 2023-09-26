@@ -68,6 +68,7 @@ export const BasicTable = (props: BasicTableProps) => {
           : undefined,
       ]}
       wrapperProps={props.wrapperProps}
+      innerWrap // TODO: Remove this once the CSS style-server has been updated
     >
       <Table
         className={modifiedClass('BasicTable', [
