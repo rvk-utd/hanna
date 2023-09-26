@@ -55,7 +55,14 @@ o.spec('getTexts and setDefaultLanguage', () => {
     o(getTexts({ lang: 'xx' as string }, defaultTexts)).equals(defaultTexts.is)(
       'Unknown `lang` returns the default language tests'
     );
+
     o(DEFAULT_LANG).equals('is')('`DEFAULT_LANG` is `is` by default');
+    setDefaultLanguage('pl');
+    // @ts-expect-error  (Testing invalid input)
+    const invalidLang: HannaLang = 'xx';
+    setDefaultLanguage(invalidLang);
+    o(DEFAULT_LANG).equals('en')('Invalid language falls back to the base language');
+
     setDefaultLanguage('pl');
     o(DEFAULT_LANG).equals('pl')('`setDefaultLanguage` changes the default language');
     o(getTexts({ lang: 'xx' as string }, defaultTexts)).equals(defaultTexts.pl)(
@@ -75,6 +82,7 @@ o.spec('getTexts and setDefaultLanguage', () => {
     setDefaultLanguage.push('en');
     setDefaultLanguage.pop();
     o(DEFAULT_LANG).equals('pl')('`.pop()` restores the previous language');
+    setDefaultLanguage.pop();
     setDefaultLanguage.pop();
     setDefaultLanguage.pop();
     setDefaultLanguage.pop();

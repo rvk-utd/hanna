@@ -1,8 +1,15 @@
 /** The base default language that's always supported. */
 const _BASE_DEFAULT_LANG = 'is';
+/**
+ * The language we fall back to when an attempt is made to set an unsupported
+ * (i.e. foreign) language.
+ */
+const _BASE_FALLBACK_LANG = 'en';
 
 /** The languages officially supported by Hanna */
 export type HannaLang = 'is' | 'en' | 'pl';
+
+const langs = new Set<HannaLang>(['is', 'en', 'pl']);
 
 /**
  * The currently language/locale used by all Hanna components by default.
@@ -20,7 +27,11 @@ const _history: Array<HannaLang> = [];
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#setdefaultlanguage
  */
 export const setDefaultLanguage = (newLang: HannaLang | undefined) => {
-  DEFAULT_LANG = newLang || _BASE_DEFAULT_LANG;
+  DEFAULT_LANG = !newLang
+    ? _BASE_DEFAULT_LANG
+    : langs.has(newLang)
+    ? newLang
+    : _BASE_FALLBACK_LANG;
   _history[0] = DEFAULT_LANG;
 };
 
@@ -31,8 +42,8 @@ export const setDefaultLanguage = (newLang: HannaLang | undefined) => {
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#setdefaultlanguagepush
  */
 setDefaultLanguage.push = (newLang: HannaLang | undefined) => {
-  DEFAULT_LANG = newLang || _BASE_DEFAULT_LANG;
   _history.unshift(DEFAULT_LANG);
+  setDefaultLanguage(newLang);
 };
 
 /**
