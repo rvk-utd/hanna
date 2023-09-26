@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make all translated components respect `DEFAULT_LANG` from hanna-utils
 - `BasicTable`:
   - feat: Add props `wrapperProps`
   - feat: Add prop `rowProps`
@@ -25,11 +26,12 @@
   - feat: `onButtonClick` and `onSubmit` receive `value` as their argument
   - feat: Add prop `button` to toggle the button, ueses`onSubmit` as fallback
   - fix: Minor prop and attribute assignment cleanup
-- feat: Add `useDomid` to `utils`
 - `Datepicker`:
-- feat: Add prop `lang`, deprecate `localeCode`
-- feat: Add support for `hrefLang` values on `MainMenuItem` and `MegaMenuItem`
-- fix: Fix minor mistakes in aria-label translations
+  - feat: Add prop `lang`, deprecate `localeCode`
+  - feat: Add support for `hrefLang` values on `MainMenuItem` and
+    `MegaMenuItem`
+  - fix: Fix minor mistakes in aria-label translations
+- feat: Add `useDomid` to `utils`
 
 ## 0.10.103
 
