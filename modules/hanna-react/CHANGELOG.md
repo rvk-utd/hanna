@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.104
+
+_2023-09-13_
+
 - feat: Make all translated components respect `DEFAULT_LANG` from hanna-utils
 - `BasicTable`:
   - feat: Add props `wrapperProps`
