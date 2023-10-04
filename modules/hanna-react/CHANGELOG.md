@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.105
+
+_2023-10-04_
+
 - `Layout` and `WizardLayout`:
   - feat: Implement `__header__homelink` and `__header__sitename` markup
   - feat: Warn about missing/redundant `siteName` prop
