@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `<title />` to `reykjavik-logo*.svg` asset files
 - feat: Add component `AutosuggestSearch`
 - feat: Style `SiteSearchInput` when it has no `<button/>`
 - feat: Tweaked styling of `.SiteSearchAutocomplete` dropdown
