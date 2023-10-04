@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.33
+
+_2023-10-05_
+
 - `Layout` and `WizardLayout`:
   - feat: Add `__header__homelink` and `__header__sitename`
 - feat: Add component `AutosuggestSearch`
