@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Layout` and `WizardLayout`:
+  - feat: Implement `__header__homelink` and `__header__sitename` markup
+  - feat: Warn about missing/redundant `siteName` prop
 
 ## 0.10.104
 

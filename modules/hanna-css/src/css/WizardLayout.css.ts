@@ -4,7 +4,7 @@ import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { LayoutHeaderLogo } from './styles/header.js';
+import { LayoutHeaderHomeLink } from './styles/header.js';
 import { cols_px, grid_units, prem } from './utils/miscUtils.js';
 import { WizardLayoutClose_css } from './WizardLayoutClose.css.js';
 
@@ -48,10 +48,8 @@ export default css`
       height: ${vars.Layout$$header_height};
       display: flex;
       align-items: center;
-    }
 
-    .WizardLayout__header__logo {
-      ${LayoutHeaderLogo}
+      ${LayoutHeaderHomeLink()};
     }
 
     .WizardLayout__wrap {

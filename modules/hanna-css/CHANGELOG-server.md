@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Layout` and `WizardLayout`:
+  - feat: Add styling for `__header__homelink` and `__header__sitename`
 - feat: Add `<title />` to `reykjavik-logo*.svg` asset files
 - feat: Add component `AutosuggestSearch`
 - feat: Style `SiteSearchInput` when it has no `<button/>`

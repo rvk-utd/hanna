@@ -14,17 +14,45 @@ type FreezeScrollProps = {
   hideAlerts?: boolean;
 };
 
-export const LayoutHeaderLogo = () => css`
-  ${LinkStyle_Reset(true)}
-  ${hideText_css('soft')}
-  display: block;
-  width: ${prem(182)};
-  height: ${prem(53)};
+export const LayoutHeaderHomeLink = () => css`
+  /** @deprecated Back-compat  (Remove in Hanna 0.9) */
+  a&__logo {
+    ${LinkStyle_Reset(true)};
+  }
 
-  & > svg,
-  & > img,
-  & > * > svg,
-  & > * > img {
+  &__homelink {
+    ${LinkStyle_Reset(true)};
+    margin: ${prem(-8)};
+    padding: ${prem(8)};
+    padding-right: 0;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: content-box;
+    max-width: ${prem(224)};
+  }
+  &__logo {
+    order: -1;
+    ${hideText_css('soft')}
+    display: block;
+    width: ${prem(35)}; /* -notext Logo variant */
+    height: ${prem(53)};
+  }
+  &__logo:last-child {
+    width: ${prem(182)}; /** Normal full-logo  */
+  }
+  /** @deprecated Back-compat selector  (Remove in Hanna 0.9) */
+  a&__logo {
+    width: ${prem(182)};
+    margin: ${prem(-8)};
+    padding: ${prem(8)};
+  }
+
+  &__logo > * > svg, /** @deprecated Back-compat selector  (Remove in Hanna 0.9) */
+  &__logo > * > img,  /** @deprecated Back-compat selector  (Remove in Hanna 0.9) */
+  &__logo > svg,
+  &__logo > img {
     width: 100%;
     height: 100%;
     display: inline-block;
@@ -35,31 +63,46 @@ export const LayoutHeaderLogo = () => css`
     margin-left: -1px;
   }
 
+  /** @deprecated Back-compat styles (Remove in Hanna 0.9) */
   @media ${mq.Hamburger} {
-    margin: ${prem(-10)};
-    padding: ${prem(10)};
-    overflow: hidden;
-    box-sizing: content-box;
-
-    > div {
+    a&__link {
+      overflow: hidden;
+      box-sizing: content-box;
+    }
+    a&__logo > div {
       display: inline-block;
     }
-
-    & > svg,
-    & > img,
-    & > * > svg,
-    & > * > img {
-      width: ${prem(185)};
-      object-fit: cover;
+    a&__logo svg,
+    a&__logo img {
       margin-right: ${prem(21)};
     }
+  }
 
-    // // Hide the text layer within the logo
-    // svg .logo-text {
-    // 	display: none;
-    // }
+  &__sitename {
+    position: relative;
+    flex-shrink: 1;
+    font-size: ${prem(20)};
+    line-height: 1.2;
+    font-weight: ${vars.font_weight__bold};
+    margin-top: -0.25em;
+    margin-left: ${vars.space_1$5};
+    padding-left: ${vars.space_1$5};
+    border-left: 1px solid transparent;
+  }
+  &__sitename::before {
+    content: '';
+    position: absolute;
+    top: 0.25em;
+    left: -1px;
+    bottom: 0;
+    width: 1px;
+    height: ${vars.space_4};
+    background-color: ${vars.color_suld_100};
+    margin: auto 0;
   }
 `;
+
+// ---------------------------------------------------------------------------
 
 export const freezeScroll_css = ({
   immediate = false,
@@ -100,6 +143,8 @@ export const freezeScroll_css = ({
     }
   `}
 `;
+
+// ---------------------------------------------------------------------------
 
 export const LayoutHeaderUnderlay_css = (color: ColorValue | VariablePrinter) => css`
   content: '';

@@ -1,10 +1,8 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
-import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 
-import { Image } from './_abstract/_Image.js';
-import { Link } from './_abstract/_Link.js';
+import { renderLayoutHomeLink } from './_abstract/_Layouts.js';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
@@ -28,7 +26,7 @@ export const WizardLayout = (props: WizardLayoutProps) => {
     children,
     colorTheme,
     logoLink = '/',
-    siteName = '',
+    siteName,
     globalAlerts,
     wrapperProps,
   } = props;
@@ -49,16 +47,7 @@ export const WizardLayout = (props: WizardLayoutProps) => {
       )}
       <div className="WizardLayout__content">
         <div className="WizardLayout__header" role="banner">
-          <Link className="WizardLayout__header__logo" href={logoLink}>
-            {' '}
-            <Image
-              bem={undefined}
-              inline={true}
-              src={getAssetUrl('reykjavik-logo.svg')}
-              altText="Reykjavík"
-            />{' '}
-            {siteName}{' '}
-          </Link>{' '}
+          {renderLayoutHomeLink('WizardLayout', logoLink, siteName)}{' '}
         </div>
         <div className="WizardLayout__wrap">
           {wizardStepper && (

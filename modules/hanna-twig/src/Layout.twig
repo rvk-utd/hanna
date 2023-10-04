@@ -13,6 +13,8 @@
 {{ attach_library('storybook/Layout') }}
 {{ attach_library('storybook/Alert') }}
 {{ attach_library('storybook/BasicTable') }}
+{% set _siteName = siteName != 'Reykjavík' and siteName != 'Reykjavik' ? siteName : '' %}
+{% set logoType = _siteName != '' ?  '-notext' : '' %}
 
 <div class="Layout">
 	<div class="Layout__alerts" role="alert">
@@ -21,9 +23,13 @@
 	</div>
 	<div class="Layout__content">
 		<div class="Layout__header" role="banner">
-			<a class="Layout__header__logo" href="{{ logoLink ? logoLink : '/' }}">
-				<img src={{ siteLogo }} alt="{{ siteName }}"/>
-				{{siteName}}
+			<a class="Layout__header__homelink" href="{{ logoLink ? logoLink : '/' }}">
+        <picture class="Layout__header__logo">
+          <img src="https://styles.reykjavik.is/assets/reykjavik-logo{{logoType}}.svg" alt="Reykjavík"/>
+        </picture>
+				{% if _siteName %}
+				<span class="Layout__header__sitename">{{_siteName}}</span>
+				{% endif %}
 			</a>
 			<a class="Layout__header__skiplink" href="#pagenav" aria-label="{{skipLinkLabel}}">
 				{{skipLinkLabel}}

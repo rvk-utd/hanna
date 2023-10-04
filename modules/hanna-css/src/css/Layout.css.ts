@@ -8,7 +8,7 @@ import { grid } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
-import { freezeScroll_css, LayoutHeaderLogo } from './styles/header.js';
+import { freezeScroll_css, LayoutHeaderHomeLink } from './styles/header.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem, showColumnGridLines } from './utils/miscUtils.js';
@@ -90,13 +90,11 @@ export default css`
       ${hannaVarOverride({
         link_focus_outline: vars.Layout$$header_color,
       })}
+
+      ${LayoutHeaderHomeLink()};
     }
     .Layout__header > * {
       pointer-events: auto;
-    }
-
-    .Layout__header__logo {
-      ${LayoutHeaderLogo}
     }
 
     .Layout__main {

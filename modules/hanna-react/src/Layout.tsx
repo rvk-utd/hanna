@@ -2,10 +2,9 @@ import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
 import { EitherObj } from '@reykjavik/hanna-utils';
-import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
-import { Image } from './_abstract/_Image.js';
+import { issueSiteNameWarningInDev, renderLayoutHomeLink } from './_abstract/_Layouts.js';
 import { Link } from './_abstract/_Link.js';
 import { BemModifierProps } from './utils/types.js';
 import {
@@ -69,10 +68,12 @@ export const Layout = (props: LayoutProps) => {
     footerChildren,
     colorTheme,
     children,
-    siteName = '',
+    siteName,
     logoLink = '/',
     wrapperProps,
   } = props;
+
+  issueSiteNameWarningInDev(props);
 
   const { isMenuActive, uiState, closeMenu, toggleMenu } = useMenuToggling(
     ssr !== 'ssr-only'
@@ -93,16 +94,7 @@ export const Layout = (props: LayoutProps) => {
       )}
       <div className="Layout__content">
         <div className="Layout__header" role="banner">
-          <Link className="Layout__header__logo" href={logoLink}>
-            {' '}
-            <Image
-              bem={undefined}
-              inline={true}
-              src={getAssetUrl('reykjavik-logo.svg')}
-              altText="Reykjavík"
-            />{' '}
-            {siteName}{' '}
-          </Link>{' '}
+          {renderLayoutHomeLink('Layout', logoLink, siteName)}{' '}
           {navChildren && (
             <Link
               className="Layout__header__skiplink"

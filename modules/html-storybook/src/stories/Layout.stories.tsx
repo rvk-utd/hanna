@@ -22,53 +22,19 @@ const meta: Meta = {
 };
 export default meta;
 
-// ==================== Minimal Layout ===========================================
-
-type MinimalLayoutControlProps = {
-  globalAlertsContainer: boolean;
-  pageHasNoMenuOrNav: boolean;
-};
-
-const MinimalLayoutStory = (props: MinimalLayoutControlProps) => {
-  const globalAlerts = props.globalAlertsContainer;
-  const navChildren = props.pageHasNoMenuOrNav ? undefined : ' ';
-  return (
-    <Layout
-      key={'' + globalAlerts + navChildren}
-      globalAlerts={globalAlerts && ' '}
-      navChildren={navChildren}
-      ssr="ssr-only"
-      mainChildren=""
-    />
-  );
-};
-
-export const _MinimalLayout: StoryObj<MinimalLayoutControlProps> = {
-  render: (args) => <MinimalLayoutStory {...args} />,
-  argTypes: {
-    globalAlertsContainer: { name: 'Global alerts container' },
-    pageHasNoMenuOrNav: { name: 'Page has no menu or navigation' },
-  },
-  args: {
-    globalAlertsContainer: false,
-    pageHasNoMenuOrNav: false,
-  },
-  parameters: {
-    css: { tokens: 'Layout' },
-  },
-};
-
 // ==================== Layout With Content ===========================================
 
 type LayoutWithContentControlProps = {
   globalAlerts: boolean;
+  siteName: boolean;
 };
 
 const LayoutWithContentStory = (props: LayoutWithContentControlProps) => {
-  const key = '' + props.globalAlerts;
+  const key = '' + props.globalAlerts + props.siteName;
   return (
     <Layout
       key={key}
+      siteName={props.siteName ? 'Website Name' : undefined}
       globalAlerts={
         props.globalAlerts && (
           <>
@@ -108,14 +74,53 @@ export const _LayoutWithContent: StoryObj<LayoutWithContentControlProps> = {
   render: (args) => <LayoutWithContentStory {...args} />,
   argTypes: {
     globalAlerts: { name: 'Global alerts' },
+    siteName: { name: 'Stand-alone website' },
   },
   args: {
     globalAlerts: false,
+    siteName: false,
   },
   parameters: {
     css: {
       noLayout: true,
       tokens: 'Layout-full,FooterBadges,ContactBubble',
     },
+  },
+};
+
+// ==================== Minimal Layout ===========================================
+
+type MinimalLayoutControlProps = LayoutWithContentControlProps & {
+  pageHasNoMenuOrNav: boolean;
+};
+
+const MinimalLayoutStory = (props: MinimalLayoutControlProps) => {
+  const globalAlerts = props.globalAlerts;
+  const navChildren = props.pageHasNoMenuOrNav ? undefined : ' ';
+  const key = '' + globalAlerts + navChildren + props.siteName;
+  return (
+    <Layout
+      key={key}
+      siteName={props.siteName ? 'Website Name' : undefined}
+      globalAlerts={globalAlerts && ' '}
+      navChildren={navChildren}
+      ssr="ssr-only"
+      mainChildren=""
+    />
+  );
+};
+
+export const _MinimalLayout: StoryObj<MinimalLayoutControlProps> = {
+  render: (args) => <MinimalLayoutStory {...args} />,
+  argTypes: {
+    ..._LayoutWithContent.argTypes,
+    pageHasNoMenuOrNav: { name: 'Page has no menu or navigation' },
+  },
+  args: {
+    ..._LayoutWithContent.args,
+    pageHasNoMenuOrNav: false,
+  },
+  parameters: {
+    css: { tokens: 'Layout' },
   },
 };
