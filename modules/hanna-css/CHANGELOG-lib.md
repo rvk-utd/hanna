@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add token `AutosuggestSearch` to `CssModuleToken`
 
 ## 0.4.7
 
