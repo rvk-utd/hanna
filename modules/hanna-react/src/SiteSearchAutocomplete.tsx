@@ -1,4 +1,4 @@
-import React, { createRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Autosuggest, { RenderSuggestion } from 'react-autosuggest';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
@@ -89,7 +89,7 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
     wrapperProps,
   } = props;
   const [value, setValue] = useState('');
-  const inputRef = createRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const txt = getTexts(props, defaultSiteSearchACTexts);
 
@@ -135,12 +135,13 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
       renderInputComponent={(inputProps) => {
         /* prettier-ignore */
         const {
-					className, type, disabled, readOnly, required, children,
+					className, type, disabled, readOnly, required, children, ref,
 					...siteSearchProps
 				} = inputProps;
         return (
           <SiteSearchInput
             {...siteSearchProps}
+            inputRef={ref as React.RefObject<HTMLInputElement>}
             label={
               props.label || // eslint-disable-line deprecation/deprecation
               txt.inputLabel

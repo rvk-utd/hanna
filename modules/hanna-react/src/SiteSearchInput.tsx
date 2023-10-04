@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { RefObject, useState } from 'react';
 
 import FormField, {
   FormFieldWrappingProps,
@@ -21,6 +21,7 @@ export type SiteSearchInputProps = Pick<
   FormFieldWrappingProps,
   'id' | 'label' | 'ssr' | 'wrapperProps'
 > & {
+  inputRef?: RefObject<HTMLInputElement>;
   /**
    * Triggered when user hits ENTER key with the focus inside the input field.
    *
@@ -50,6 +51,7 @@ export const SiteSearchInput = (props: SiteSearchInputProps) => {
   const {
     onChange,
 
+    inputRef,
     buttonText = 'Leita',
     onSubmit,
     onButtonClick = props.onSubmit,
@@ -102,6 +104,7 @@ export const SiteSearchInput = (props: SiteSearchInputProps) => {
                 : onKeyDown
             }
             {...inputElementProps}
+            ref={inputRef}
           />{' '}
           {showButton && (
             <button

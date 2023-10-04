@@ -1,4 +1,4 @@
-import React, { createRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Autosuggest, { RenderInputComponentProps } from 'react-autosuggest';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
@@ -106,7 +106,7 @@ export const AutosuggestSearch = <T extends string | object>(
     wrapperProps,
   } = props;
   const [value, setValue] = useState('');
-  const inputRef = createRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const txt = getTexts(props, defaultAutosuggestSearchTexts);
 
@@ -158,13 +158,14 @@ export const AutosuggestSearch = <T extends string | object>(
           ? (inputProps) => renderInputField(inputProps, txt)
           : (inputProps) => {
               /* prettier-ignore */
-              const { className, type, disabled, readOnly, required, children,
+              const { className, type, disabled, readOnly, required, children, ref,
                 ...siteSearchProps } = inputProps;
 
               return (
                 <InputComponent
                   lang={props.lang}
                   {...siteSearchProps}
+                  inputRef={ref as React.RefObject<HTMLInputElement>}
                   button={button}
                   label={txt.inputLabel}
                   placeholder={txt.placeholder}
