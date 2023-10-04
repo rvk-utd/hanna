@@ -18,6 +18,7 @@ export default css`
     }
 
     .SiteSearchAutocomplete__container {
+      position: absolute;
       z-index: -1;
       top: 100%;
       margin-top: -1px;
