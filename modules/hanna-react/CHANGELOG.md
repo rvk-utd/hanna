@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Make `GridBlocksProps.items` optional
 
 ## 0.10.105
 

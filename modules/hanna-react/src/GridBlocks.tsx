@@ -14,16 +14,9 @@ export type GridBlockItem = {
   summary: string | JSX.Element;
   icon?: Efnistakn;
   image?: ImageProps;
-} & (
-  | {
-      href?: string;
-      links: Array<ButtonProps>;
-    }
-  | {
-      href: string;
-      links?: Array<ButtonProps>;
-    }
-);
+  href?: string;
+  links?: Array<ButtonProps>;
+};
 
 export type GridBlocksProps = {
   blocks: Array<GridBlockItem>;
