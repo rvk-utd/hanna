@@ -3,9 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Make `GridBlocksProps.items` optional
 
-## 0.10.105
+## 0.10.105 – 0.10.106
 
 _2023-10-04_
 
@@ -14,6 +13,7 @@ _2023-10-04_
   - feat: Warn about missing/redundant `siteName` prop
 - fix: Focus error on `SiteSearchAutocomplete` and `AutosuggestSearch`
   suggestion click
+- fix: Make `GridBlocksProps.items` optional
 
 ## 0.10.104
 
