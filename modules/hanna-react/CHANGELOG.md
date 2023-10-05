@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.107
+
+_2023-10-05_
+
 - fix: Next and prev links in `Pagination` not working
 
 ## 0.10.105 – 0.10.106
