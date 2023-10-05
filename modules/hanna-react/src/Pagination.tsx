@@ -166,14 +166,14 @@ export const Pagination = memo((props: PaginationProps) => {
       }
     >
       {btn({
-        page: current,
+        page: current + 1,
         modifier: 'next',
         label: texts.nextLabel,
         labelLong: texts.nextLabelLong,
         disabled: current === pageCount,
       })}{' '}
       {btn({
-        page: current,
+        page: current - 1,
         modifier: 'prev',
         label: texts.prevLabel,
         labelLong: texts.pageLabelLong,

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Next and prev links in `Pagination` not working
 
 ## 0.10.105 – 0.10.106
 
