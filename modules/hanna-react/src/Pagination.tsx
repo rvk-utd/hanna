@@ -7,14 +7,6 @@ import { Link } from './_abstract/_Link.js';
 import { generatePageList } from './utils/Pagination.privates.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
-/*
-  # TODO:
-
-  - [ ] Update CSS styles
-  - [ ] Generate Visual Regression Test
-
-*/
-
 type StringContaining<Token extends string> = `${string}${Token}${string}`;
 
 export type PageTemplateString = StringContaining<'${page}'>;
