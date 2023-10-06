@@ -2,18 +2,26 @@ import * as React from 'react';
 import domid from '@hugsmidjan/qj/domid';
 
 // @ts-expect-error  (transparently feature-detect useId hook, which is introduced in React@18)
-const useId: () => string = React.useId;
+const useId: undefined | (() => string) = React.useId;
 
 /**
  * Returns a stable, unique ID string.
  *
- * Uses useId from React@18 when available, but falls back on a custom id
- * generator. (The custom generator causes angry hydration warnings in dev
- * mode).
+ * Uses useId from React (v18+) when available, falling back on a custom
+ * unique id generator.
+ *
+ * (NOTE: The custom generator causes angry hydration warnings in dev
+ * mode and there's nothing we can do about it.)
  */
 export const useDomid = useId
-  ? (staticId?: string) => {
+  ? (staticId?: string): string => {
       const id = useId();
       return staticId || id;
     }
-  : (staticId?: string) => React.useRef(staticId || domid()).current;
+  : (staticId?: string): string => {
+      const idRef = React.useRef<string>();
+      if (!idRef.current) {
+        idRef.current = staticId || domid();
+      }
+      return idRef.current;
+    };

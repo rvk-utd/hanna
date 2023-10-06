@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Make `useDomid` more efficient in React<=v17
 
 ## 0.10.107
 
