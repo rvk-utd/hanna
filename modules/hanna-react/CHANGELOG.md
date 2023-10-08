@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Add `rel="nofollow"` to all `Pagination` links
 - fix: Make `useDomid` more efficient in React<=v17
 
 ## 0.10.107

@@ -41,7 +41,7 @@ const PaginationButton = (props: PaginationButtonProps) => {
   };
 
   return href && !disabled ? (
-    <Link href={href(page)} {...btnProps} />
+    <Link href={href(page)} rel="nofollow" {...btnProps} />
   ) : (
     <button type={props.type} disabled={disabled} {...btnProps} />
   );

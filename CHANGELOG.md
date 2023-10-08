@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Add `rel="nofollow"` to all `Pagination` links
 
 ## 0.8.33
 
