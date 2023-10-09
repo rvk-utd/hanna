@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.108
+
+_2023-10-09_
+
 - fix: Add `rel="nofollow"` to all `Pagination` links
 - fix: Fix esm import inside `useDomid` causing build errors in React<=v17
 - fix: Make `useDomid` more efficient in React<=v17
