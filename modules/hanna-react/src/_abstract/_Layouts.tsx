@@ -26,6 +26,25 @@ export const renderLayoutHomeLink = (
 
 // ---------------------------------------------------------------------------
 
+export const renderLegacyLayoutHomeLink = (
+  bem: string,
+  logoLink: string,
+  siteName?: string
+) => (
+  <Link className="Layout__header__logo" href={logoLink}>
+    {' '}
+    <Image
+      bem={undefined}
+      inline={true}
+      src={getRvkLogoUrl('reykjavik-logo.svg')}
+      altText="Reykjavík"
+    />{' '}
+    {siteName}{' '}
+  </Link>
+);
+
+// ---------------------------------------------------------------------------
+
 export const issueSiteNameWarningInDev = (props: { siteName?: string }): void => {
   if (process.env.NODE_ENV !== 'production') {
     if (!('siteName' in props)) {

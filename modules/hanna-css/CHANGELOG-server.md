@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Incorrect size of legacy `a.Layout__header__logo` image
 
 ## 0.8.81
 

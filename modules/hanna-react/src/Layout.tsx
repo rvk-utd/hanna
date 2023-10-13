@@ -95,6 +95,7 @@ export const Layout = (props: LayoutProps) => {
       <div className="Layout__content">
         <div className="Layout__header" role="banner">
           {renderLayoutHomeLink('Layout', logoLink, siteName)}{' '}
+          {/* {renderLegacyLayoutHomeLink('Layout', logoLink, siteName)}{' '} */}
           {navChildren && (
             <Link
               className="Layout__header__skiplink"

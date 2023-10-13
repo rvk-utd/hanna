@@ -1,6 +1,5 @@
 import { ColorValue, css, VariablePrinter } from 'es-in-css';
 
-import { mq } from '../../lib/breakpoints.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { hideText_css } from '../utils/hideText.js';
 import { prem } from '../utils/miscUtils.js';
@@ -44,9 +43,14 @@ export const LayoutHeaderHomeLink = () => css`
   }
   /** @deprecated Back-compat selector  (Remove in Hanna 0.9) */
   a&__logo {
+    box-sizing: content-box;
     width: ${prem(182)};
     margin: ${prem(-8)};
     padding: ${prem(8)};
+  }
+  /** @deprecated Back-compat styles (Remove in Hanna 0.9) */
+  a&__logo > div {
+    display: inline-block;
   }
 
   &__logo > * > svg, /** @deprecated Back-compat selector  (Remove in Hanna 0.9) */
@@ -61,21 +65,6 @@ export const LayoutHeaderHomeLink = () => css`
     object-position: 0% 50%;
     margin-right: ${prem(10)};
     margin-left: -1px;
-  }
-
-  /** @deprecated Back-compat styles (Remove in Hanna 0.9) */
-  @media ${mq.Hamburger} {
-    a&__link {
-      overflow: hidden;
-      box-sizing: content-box;
-    }
-    a&__logo > div {
-      display: inline-block;
-    }
-    a&__logo svg,
-    a&__logo img {
-      margin-right: ${prem(21)};
-    }
   }
 
   &__sitename {
