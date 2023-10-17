@@ -50,6 +50,9 @@ o.spec('cssVars', () => {
       Layout$$header_backgroundColor: true,
       Layout$$header_color: true,
       Layout$$header_logo_color: true,
+      Layout$$header_homelink_width: true,
+      Layout$$header_homelink_space: true,
+      Layout$$header_homelink_divColor: true,
       Layout$$main_paddingTop: true,
       // mainMenuVars
       MainMenu_accentcolor: true,

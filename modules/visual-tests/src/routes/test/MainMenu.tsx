@@ -115,6 +115,7 @@ export default function () {
 
   return (
     <Layout
+      // siteName="Gagnahlaðborðið í tveimur línum"
       navChildren={
         <MainMenu
           items={mainMenuItems}

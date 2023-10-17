@@ -5,7 +5,6 @@ import {
   scale_container,
   scale_phablet_netbook,
   scale_phone_netbook,
-  scale_Topmenu,
 } from '../../lib/between.js';
 import { bp, mq } from '../../lib/breakpoints.js';
 import { colors } from '../../lib/colors.js';
@@ -29,7 +28,7 @@ import {
 } from '../../lib/hannavars.js';
 import iconfonttokens from '../../lib/iconfonttokens.js';
 import { cssVersion } from '../../lib/style-server-info.js';
-import { cols_pct, cols_px, grid_units } from '../utils/miscUtils.js';
+import { cols_pct, cols_px, grid_units, prem } from '../utils/miscUtils.js';
 
 import { ButtonTertiaryVarDeclarations } from './buttons.js';
 
@@ -527,25 +526,25 @@ const spaceVarDeclarations = spaceVars.declare({
 
 // ---------------------------------------------------------------------------
 
-const _lHead_min = 96;
-const _lHead_max = 136;
+const _lHead_min = 80;
+const _lHead_max = 88;
 
 const layoutVarDeclarations = css`
   ${layoutVars.declare({
     Layout$$header_height: px(_lHead_min),
     Layout$$header_backgroundColor: 'transparent',
     Layout$$header_logo_color: 'initial',
+    Layout$$header_homelink_width: prem(224),
+    Layout$$header_homelink_space: `calc(${layoutVars.vars.Layout$$header_homelink_width} + ${spaceVars.vars.space_1})`,
+    Layout$$header_homelink_divColor: colorVars.vars.color_suld_100,
     Layout$$header_color: 'initial',
     Layout$$main_paddingTop: spaceVars.vars.space_4,
   })}
   @media ${mq.Topmenu} {
     ${layoutVars.override({
-      Layout$$header_height: scale_Topmenu(_lHead_min, _lHead_max),
-    })}
-  }
-  @media ${mq.wide} {
-    ${layoutVars.override({
       Layout$$header_height: px(_lHead_max),
+      Layout$$header_homelink_width: prem(456),
+      Layout$$header_homelink_space: `calc(${layoutVars.vars.Layout$$header_homelink_width} + ${gridVars.vars.grid_0_1})`,
     })}
   }
 `;

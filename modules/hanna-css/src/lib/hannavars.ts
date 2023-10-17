@@ -292,6 +292,9 @@ export const spaceVars = /*@__PURE__*/ buildVariables([
 export const layoutVars = /*@__PURE__*/ buildVariables([
   'Layout$$header_height',
   'Layout$$header_logo_color',
+  'Layout$$header_homelink_width',
+  'Layout$$header_homelink_space',
+  'Layout$$header_homelink_divColor',
   'Layout$$header_color',
   'Layout$$header_backgroundColor',
   'Layout$$main_paddingTop',

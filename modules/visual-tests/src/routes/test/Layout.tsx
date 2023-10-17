@@ -17,10 +17,12 @@ const toggle = (on: true | undefined) => !on || undefined;
 // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('Alert', 'BreadCrumbs');
 
+const SHY = '\u00AD';
+
 const siteNames = [
   'Mínar síður',
   'Gagnahlaðborðið í tveimur línum',
-  'YfirgengilegaLangtHeiti',
+  'Vaðlaheiðar' + SHY + 'vegavinnu' + SHY + 'verkfæra' + SHY + 'geymslu' + SHY + 'skúr',
 ];
 
 export default function () {

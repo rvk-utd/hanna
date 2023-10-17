@@ -246,6 +246,12 @@ export default css`
       ${whiteLogo}
     }
 
+    :root {
+      ${hannaVarOverride({
+        Layout$$header_homelink_width: prem(296),
+      })}
+    }
+
     .MainMenu {
     }
 
@@ -258,7 +264,7 @@ export default css`
       z-index: ${vars.zindex__header};
       top: 0;
       right: 0;
-      left: ${vars.grid_3_3};
+      left: ${vars.Layout$$header_homelink_space};
       height: ${vars.Layout$$header_height};
       padding-bottom: calc(
         ${vars.link_underline__thickness} + ${vars.link_underline_offset}

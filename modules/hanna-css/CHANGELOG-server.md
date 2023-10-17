@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update `Layout__header__homelink` styling
+  - Reduce `--Layout__header-height`
+  - Left-offset topmeny `MainMenu__items` by `Layout__header-homelink-space`
 - fix: Incorrect size of legacy `a.Layout__header__logo` image
 
 ## 0.8.81

@@ -16,6 +16,7 @@ import { grid_units, prem, showColumnGridLines } from './utils/miscUtils.js';
 export const whiteLogo = () =>
   hannaVarOverride({
     Layout$$header_logo_color: vars.color_suld_0,
+    Layout$$header_homelink_divColor: vars.color_faxafloi_75,
     Layout$$header_color: vars.color_suld_0,
   });
 export const whiteHeader = () =>

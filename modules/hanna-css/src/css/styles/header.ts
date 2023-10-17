@@ -1,5 +1,6 @@
 import { ColorValue, css, VariablePrinter } from 'es-in-css';
 
+import { mq } from '../../lib/breakpoints.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { hideText_css } from '../utils/hideText.js';
 import { prem } from '../utils/miscUtils.js';
@@ -29,24 +30,39 @@ export const LayoutHeaderHomeLink = () => css`
     align-items: center;
     overflow: hidden;
     box-sizing: content-box;
-    max-width: ${prem(224)};
+    max-width: ${vars.Layout$$header_homelink_width};
+    min-width: ${prem(148)};
+    @media ${mq.Topmenu} {
+      min-width: ${prem(204)};
+    }
   }
   &__logo {
     order: -1;
     ${hideText_css('soft')}
     display: block;
-    width: ${prem(35)}; /* -notext Logo variant */
-    height: ${prem(53)};
+    width: ${prem(28)}; /* -notext Logo variant */
+    height: ${prem(42)};
+
+    @media ${mq.Topmenu} {
+      width: ${prem(33)};
+      height: ${prem(50)};
+    }
   }
   &__logo:last-child {
-    width: ${prem(182)}; /** Normal full-logo  */
+    width: ${prem(143)}; /** Normal full-logo  */
+    @media ${mq.Topmenu} {
+      width: ${prem(172)};
+    }
   }
   /** @deprecated Back-compat selector  (Remove in Hanna 0.9) */
   a&__logo {
     box-sizing: content-box;
-    width: ${prem(182)};
+    width: ${prem(143)};
     margin: ${prem(-8)};
     padding: ${prem(8)};
+    @media ${mq.Topmenu} {
+      width: ${prem(172)};
+    }
   }
   /** @deprecated Back-compat styles (Remove in Hanna 0.9) */
   a&__logo > div {
@@ -70,24 +86,33 @@ export const LayoutHeaderHomeLink = () => css`
   &__sitename {
     position: relative;
     flex-shrink: 1;
-    font-size: ${prem(20)};
-    line-height: 1.2;
+    font-size: ${prem(16)};
+    line-height: 1.5;
     font-weight: ${vars.font_weight__bold};
-    margin-top: -0.25em;
-    margin-left: ${vars.space_1$5};
-    padding-left: ${vars.space_1$5};
-    border-left: 1px solid transparent;
+    margin-left: 13px;
+    padding-left: 16px;
+
+    @media ${mq.Topmenu} {
+      font-size: ${prem(24)};
+      line-height: 1.2;
+      margin-left: 21px;
+      padding-left: 24px;
+    }
   }
   &__sitename::before {
     content: '';
     position: absolute;
-    top: 0.25em;
-    left: -1px;
+    top: 0;
+    left: 0;
     bottom: 0;
-    width: 1px;
-    height: ${vars.space_4};
-    background-color: ${vars.color_suld_100};
+    width: 2px;
+    height: ${prem(28)};
+    background-color: ${vars.Layout$$header_homelink_divColor};
     margin: auto 0;
+
+    @media ${mq.Topmenu} {
+      height: ${prem(32)};
+    }
   }
 `;
 

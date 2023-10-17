@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: New `hannaVars`:  
+  `Layout$$header_homelink_width`, `Layout$$header_homelink_space`,
+  `Layout$$header_homelink_divColor`
 
 ## 0.4.8
 
