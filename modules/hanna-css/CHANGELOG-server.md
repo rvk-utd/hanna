@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.82
+
+_2023-10-18_
+
 - feat: Update `Layout__header__homelink` styling
   - Reduce `--Layout__header-height`
   - Left-offset topmeny `MainMenu__items` by `Layout__header-homelink-space`
