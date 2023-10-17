@@ -10,11 +10,11 @@
   "homepage": "https://github.com/rvk-utd/hanna/blob/main/modules/visual-tests/README.md",
   "license": "MIT",
   "scripts": {
+    "dev": "PORT=7357  yarn run remix dev",
     "webserver:build": "yarn run remix build",
-    "webserver:dev": "PORT=7357  yarn run remix dev",
     "webserver:start": "PORT=7357 yarn run remix-serve _remix-build",
     "webserver:testingmode": "yarn run webserver:build && yarn run webserver:start",
-    "__webserver:testingmode": "yarn run webserver:dev",
+    "__webserver:testingmode": "yarn run dev",
     "test": "node build-tests.mjs  &&  echo \"Running Visual Regression Tests.  Please wait...\n\"  &&  npx playwright test -c tests/playwright.config.js ||  (((cd ../hanna-css && yarn run dev:server) & yarn run webserver:dev & (sleep 2.5 && open http://localhost:7357/review?errored))  &&  (exit 1))"
   },
   "dependencies": {

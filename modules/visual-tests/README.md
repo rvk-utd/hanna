@@ -70,8 +70,8 @@ Steps to adding a new test page (e.g. when you add a new component to Hanna):
 
    - (See [\_Example.tsx\_](src/routes/test/_Example.tsx_) for reference.)
    - Render the component states you wish to test
-   - Run `yarn run webserver:dev` and navigate to your new test page and make
-     sure everything looks about right
+   - Run `yarn run dev` and navigate to your new test page and make sure
+     everything looks about right
 
 2. Make sure the module exports a `testing` token of type
    [`TestingInfo`](src/testingInfo.ts)
