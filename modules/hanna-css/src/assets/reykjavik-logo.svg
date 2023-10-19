@@ -4,58 +4,42 @@
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 579.9 168.4" style="enable-background:new 0 0 579.9 168.4;" xml:space="preserve">
   <title>Reykjavík</title>
-	<style type="text/css">
-	.st0 {
-		fill: var(--logo-text-color, #3D3F3E);
-		transition: all var(--logo-transition);
-	}
-	.st1 {
-		fill: var(--logo-background-color, #FFFFFF);
-		stroke: var(--logo-background-color, #FFFFFF);
-		stroke-width: 5.8642;
-		stroke-miterlimit: 10;
-		transition: all var(--logo-transition);
-	}
-	.st2 {
-		fill: var(--logo-fill-color, #0376E1);
-		 transition: all var(--logo-transition);
-	}
-	</style>
 	<g class="logo-text">
-		<path class="st0" fill="#3D3F3E" d="M563.9,104.2l-17.5-22.4v22.4h-13v-74h13v41.3l15.5-17h16.2l-20.6,21.9l22.4,27.9h-16V104.2z"/>
-		<path class="st0" fill="#3D3F3E" d="M514.6,47.9h-10.5l9.7-15.6H528L514.6,47.9z M504.9,54.4h13v49.8h-13V54.4z"/>
-		<path class="st0" fill="#3D3F3E" d="M497.6,54.5l-19,49.7h-13.3l-19-49.7h13.4L472,88.8l12.2-34.3C484.2,54.5,497.6,54.5,497.6,54.5z"/>
-		<path class="st0" fill="#3D3F3E" d="M399.3,92.5c0-10.1,7.8-15,19.5-18.2l10.5-3c0-5.4-3.7-7.7-8.1-7.7c-4.6,0-8.6,2.1-8.6,7.7h-11.9
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M563.9,104.2l-17.5-22.4v22.4h-13v-74h13v41.3l15.5-17h16.2l-20.6,21.9l22.4,27.9h-16V104.2z"/>
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M514.6,47.9h-10.5l9.7-15.6H528L514.6,47.9z M504.9,54.4h13v49.8h-13V54.4z"/>
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M497.6,54.5l-19,49.7h-13.3l-19-49.7h13.4L472,88.8l12.2-34.3C484.2,54.5,497.6,54.5,497.6,54.5z"/>
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M399.3,92.5c0-10.1,7.8-15,19.5-18.2l10.5-3c0-5.4-3.7-7.7-8.1-7.7c-4.6,0-8.6,2.1-8.6,7.7h-11.9
 		c0-13.4,10.4-18.2,20.5-18.2c9.7,0,20.6,4.8,20.6,18.5v32.6h-12.3v-5.7c-3.6,4.6-9.8,7.1-15.8,7.1
 		C406.6,105.5,399.3,102.1,399.3,92.5z M428.8,85.3v-4.2l-8,2.3c-6.9,2-8.8,4.8-8.8,7.5c0,2.6,2,4.1,4.8,4.1
 		C421.3,95,428.8,91,428.8,85.3z"/>
-		<path class="st0" fill="#3D3F3E" d="M368,115h1.6c3.9,0,6.7-1.9,6.7-7.5v-53h13v52.4c0,13.7-7.8,19.3-16.5,19.3H368L368,115L368,115z M375,38.5
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M368,115h1.6c3.9,0,6.7-1.9,6.7-7.5v-53h13v52.4c0,13.7-7.8,19.3-16.5,19.3H368L368,115L368,115z M375,38.5
 		c0-4.2,3.5-7.7,7.8-7.7s7.7,3.6,7.7,7.7c0,4.3-3.5,7.8-7.7,7.8C378.4,46.3,375,42.8,375,38.5z"/>
-		<path class="st0" fill="#3D3F3E" d="M352.5,104.2L335,81.8v22.4h-13v-74h13v41.3l15.5-17h16.2l-20.6,21.9l22.4,27.9L352.5,104.2L352.5,104.2z"/>
-		<path class="st0" fill="#3D3F3E" d="M314.7,54.5l-28.9,71.7h-12.6l8.5-22.3l-20.9-49.4h14L288,87.3l12.6-32.8C300.6,54.5,314.7,54.5,314.7,54.5z" />
-		<path class="st0" fill="#3D3F3E" d="M258.2,83.9h-34.6c0.5,5.3,4.2,11,12.3,11c5.7,0,8.9-2.7,9.9-6.1h11.8c-2,10.3-9.7,16.8-21.9,16.8
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M352.5,104.2L335,81.8v22.4h-13v-74h13v41.3l15.5-17h16.2l-20.6,21.9l22.4,27.9L352.5,104.2L352.5,104.2z"/>
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M314.7,54.5l-28.9,71.7h-12.6l8.5-22.3l-20.9-49.4h14L288,87.3l12.6-32.8C300.6,54.5,314.7,54.5,314.7,54.5z" />
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M258.2,83.9h-34.6c0.5,5.3,4.2,11,12.3,11c5.7,0,8.9-2.7,9.9-6.1h11.8c-2,10.3-9.7,16.8-21.9,16.8
 		c-15.7,0-25-11.3-25-26.2c0-14.7,9.8-26.2,24.3-26.2c12.7,0,23.2,8.4,23.2,24.4V83.9L258.2,83.9z M246,74.9
 		c-0.2-6.2-4.5-11.1-11.3-11.1c-7.1,0-10.7,5.1-11.2,11.1H246z"/>
-		<path class="st0" fill="#3D3F3E" d="M175.5,77.9h-5.7v26.2h-13.6V34.9h22.6c17.1,0,24.2,10.8,24.2,21.5c0,8.3-4.3,16.6-14.2,20l15.7,27.8h-15.2
+		<path fill="var(--logo-text-color, #3d3f3e)" style="transition: all var(--logo-transition);" d="M175.5,77.9h-5.7v26.2h-13.6V34.9h22.6c17.1,0,24.2,10.8,24.2,21.5c0,8.3-4.3,16.6-14.2,20l15.7,27.8h-15.2
 		L175.5,77.9z M169.7,65.9h7.8c7.9,0,11.8-3.7,11.8-9.5c0-5.9-3.9-9.4-11.8-9.4h-7.8V65.9z"/>
 	</g>
-	<path class="st1"
-    fill="#ffffff"
-    stroke="#FFFFFF"
+	<path
+    fill="var(--logo-background-color, #ffffff)"
+    stroke="var(--logo-background-color, #ffffff)"
     stroke-width="5.8642"
-    stroke-miterlimi="10"
+    stroke-miterlimit="10"
+    style="transition: all var(--logo-transition);"
     d="M2.9,2.9c0,31.4,0,97.8,0,97.8c5,39.9,43.7,61,51.6,64.4c24.5-12.2,47.1-32.4,52-64.5V2.9l0,0H2.9z"/>
 	<g>
-		<path class="st2" fill="#0376E1" d="M87.8,68.6v9.5l9.4-6.3l9.2,6.3v-9.4l-9.2-6.1L87.8,68.6z"/>
-		<path class="st2" fill="#0376E1" d="M54.6,48.9l-7.1-5.2L38.1,50v9.6l9.4-6.4l7,5.3l7.3-5.3l9.4,6.4V50l-9.3-6.3L54.6,48.9z"/>
-		<path class="st2" fill="#0376E1" d="M97.2,43.6l-9.4,6.1v9.5l9.4-6.3l9.2,6.3v-9.5L97.2,43.6z"/>
-		<path class="st2" fill="#0376E1" d="M12.1,34.1l9.4,6.3V26.6h16.7v13.9l9.4-6.4l7,5.3l7.3-5.3l9.4,6.4V26.6h16.6v13.8l9.4-6.3l9.2,6.3V2.9H87.9
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M87.8,68.6v9.5l9.4-6.3l9.2,6.3v-9.4l-9.2-6.1L87.8,68.6z"/>
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M54.6,48.9l-7.1-5.2L38.1,50v9.6l9.4-6.4l7,5.3l7.3-5.3l9.4,6.4V50l-9.3-6.3L54.6,48.9z"/>
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M97.2,43.6l-9.4,6.1v9.5l9.4-6.3l9.2,6.3v-9.5L97.2,43.6z"/>
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M12.1,34.1l9.4,6.3V26.6h16.7v13.9l9.4-6.4l7,5.3l7.3-5.3l9.4,6.4V26.6h16.6v13.8l9.4-6.3l9.2,6.3V2.9H87.9
 		v15.4H71.3V2.9H54.9H38v15.4H21.4V2.9H2.9v37.5L12.1,34.1z"/>
-		<path class="st2" fill="#0376E1" d="M12.1,71.8l9.4,6.3v-9.5l-9.4-6.1l-9.2,6.1V78L12.1,71.8z"/>
-		<path class="st2" fill="#0376E1" d="M21.4,59.2v-9.5L12,43.6l-9.1,6.1v9.4l9.2-6.2L21.4,59.2z"/>
-		<path class="st2" fill="#0376E1" d="M97.2,81.3l-9.4,6.1V140c10-11.3,17.2-24.9,18.5-39.3V87.3L97.2,81.3z"/>
-		<path class="st2" fill="#0376E1" d="M21.4,87.4L12,81.3l-9.1,6.1v13.3c1.3,14.5,8.5,28.1,18.5,39.5V87.4z"/>
-		<path class="st2" fill="#0376E1" d="M71.2,88.4l-9.3-6.3l-7.2,5.2l-7.2-5.2l-9.4,6.3L38,155.3c5.3,3.9,10.9,7.2,16.5,9.8c5.7-2.6,11.4-6,16.8-10" />
-		<path class="st2" fill="#0376E1" d="M71.2,69.2L61.9,63l-7.2,5.2L47.6,63l-9.4,6.3v9.6l9.4-6.5l7,5.3l7.3-5.3l9.4,6.5"/>
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M12.1,71.8l9.4,6.3v-9.5l-9.4-6.1l-9.2,6.1V78L12.1,71.8z"/>
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M21.4,59.2v-9.5L12,43.6l-9.1,6.1v9.4l9.2-6.2L21.4,59.2z"/>
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M97.2,81.3l-9.4,6.1V140c10-11.3,17.2-24.9,18.5-39.3V87.3L97.2,81.3z"/>
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M21.4,87.4L12,81.3l-9.1,6.1v13.3c1.3,14.5,8.5,28.1,18.5,39.5V87.4z"/>
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M71.2,88.4l-9.3-6.3l-7.2,5.2l-7.2-5.2l-9.4,6.3L38,155.3c5.3,3.9,10.9,7.2,16.5,9.8c5.7-2.6,11.4-6,16.8-10" />
+		<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M71.2,69.2L61.9,63l-7.2,5.2L47.6,63l-9.4,6.3v9.6l9.4-6.5l7,5.3l7.3-5.3l9.4,6.5"/>
 	</g>
 </svg>

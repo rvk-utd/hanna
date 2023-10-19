@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Remove SVG `<style/>` elements to avoid CSS clashes when inlined in
+  HTML documents.
 
 ## 0.8.82
 

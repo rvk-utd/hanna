@@ -3,35 +3,23 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 112 172.3" style="enable-background:new 0 0 112 172.3;" xml:space="preserve">
 <title>Reykjavík</title>
-<style type="text/css">
-	.st0 {
-		fill: var(--logo-background-color, #FFFFFF);
-		stroke: var(--logo-background-color, #FFFFFF);
-		stroke-width: 5.8642;
-		stroke-miterlimit: 10;
-		transition: all var(--logo-transition);
-	}
-	.st1 {
-		fill: var(--logo-fill-color, #0376E1);
-		transition: all var(--logo-transition);
-	}
-</style>
-<path class="st0"
-  fill="#ffffff"
-  stroke="#FFFFFF"
+<path
+  fill="var(--logo-background-color, #FFFFFF)"
+  stroke="var(--logo-background-color, #FFFFFF)"
   stroke-width="5.8642"
-  stroke-miterlimi="10"
+  stroke-miterlimit="10"
+  style="transition: all var(--logo-transition);"
   d="M3,3c0,32.2,0,100.1,0,100.1c5.1,40.8,44.7,62.4,52.8,65.9c25.1-12.5,48.1-33.1,53.2-66V3l0,0H3z"/>
-<path class="st1" fill="#0376E1" d="M90,70.3V80l9.6-6.5l9.5,6.4v-9.7L99.5,64L90,70.3z"/>
-<path class="st1" fill="#0376E1" d="M55.9,50.1l-7.3-5.3L39,51.3v9.8l9.6-6.6l7.2,5.4l7.5-5.4l9.6,6.6v-9.8l-9.6-6.5L55.9,50.1z"/>
-<path class="st1" fill="#0376E1" d="M99.5,44.7L90,50.9v9.7l9.6-6.5l9.5,6.5v-9.7L99.5,44.7z"/>
-<path class="st1" fill="#0376E1" d="M12.4,34.9l9.6,6.4v-14h17.1v14.2l9.6-6.6l7.2,5.4l7.5-5.4l9.6,6.6V27.3h17v14.1l9.6-6.4l9.5,6.4V3H90v15.7H73
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M90,70.3V80l9.6-6.5l9.5,6.4v-9.7L99.5,64L90,70.3z"/>
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M55.9,50.1l-7.3-5.3L39,51.3v9.8l9.6-6.6l7.2,5.4l7.5-5.4l9.6,6.6v-9.8l-9.6-6.5L55.9,50.1z"/>
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M99.5,44.7L90,50.9v9.7l9.6-6.5l9.5,6.5v-9.7L99.5,44.7z"/>
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M12.4,34.9l9.6,6.4v-14h17.1v14.2l9.6-6.6l7.2,5.4l7.5-5.4l9.6,6.6V27.3h17v14.1l9.6-6.4l9.5,6.4V3H90v15.7H73
 	V3H56.2H38.9v15.7H22V3H3v38.4L12.4,34.9z"/>
-<path class="st1" fill="#0376E1" d="M12.4,73.5l9.6,6.4v-9.7l-9.6-6.3L3,70.3V80L12.4,73.5z"/>
-<path class="st1" fill="#0376E1" d="M22,60.7V51l-9.6-6.3L3,50.9v9.7l9.4-6.4L22,60.7z"/>
-<path class="st1" fill="#0376E1" d="M99.5,83.2L90,89.5v53.8c10.2-11.6,17.6-25.5,19-40.3V89.4L99.5,83.2z"/>
-<path class="st1" fill="#0376E1" d="M22,89.5l-9.6-6.3L3,89.5v13.6c1.3,14.8,8.8,28.8,19,40.4V89.5z"/>
-<path class="st1" fill="#0376E1" d="M72.9,90.5l-9.6-6.4L56,89.4l-7.4-5.3L39,90.5L38.9,159c5.5,3.9,11.2,7.4,16.9,10c5.8-2.7,11.6-6.1,17.2-10.2"
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M12.4,73.5l9.6,6.4v-9.7l-9.6-6.3L3,70.3V80L12.4,73.5z"/>
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M22,60.7V51l-9.6-6.3L3,50.9v9.7l9.4-6.4L22,60.7z"/>
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M99.5,83.2L90,89.5v53.8c10.2-11.6,17.6-25.5,19-40.3V89.4L99.5,83.2z"/>
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M22,89.5l-9.6-6.3L3,89.5v13.6c1.3,14.8,8.8,28.8,19,40.4V89.5z"/>
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M72.9,90.5l-9.6-6.4L56,89.4l-7.4-5.3L39,90.5L38.9,159c5.5,3.9,11.2,7.4,16.9,10c5.8-2.7,11.6-6.1,17.2-10.2"
 	/>
-<path class="st1" fill="#0376E1" d="M72.9,70.9l-9.6-6.4l-7.4,5.3l-7.3-5.3L39,70.9v9.9l9.7-6.6l7.2,5.4l7.5-5.4l9.6,6.6"/>
+<path fill="var(--logo-fill-color, #0376e1)" style="transition: all var(--logo-transition);" d="M72.9,70.9l-9.6-6.4l-7.4,5.3l-7.3-5.3L39,70.9v9.9l9.7-6.6l7.2,5.4l7.5-5.4l9.6,6.6"/>
 </svg>
