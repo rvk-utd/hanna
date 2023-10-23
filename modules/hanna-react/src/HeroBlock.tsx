@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 
@@ -14,8 +14,8 @@ type HeroBlockImageProps =
   | { image: ImageProps; illustration?: undefined };
 
 export type HeroBlockProps = {
-  title: string;
-  summary: string | JSX.Element;
+  title: string | ReactElement;
+  summary: string | ReactElement;
   primaryButton?: ButtonProps;
   secondaryButton?: ButtonProps;
 } & HeroBlockImageProps &
