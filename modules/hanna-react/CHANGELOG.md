@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Allow simple JSX in `HeroBlockProps.title`
+- fix: Make `Pagination` root-element into a `<nav />`
 
 ## 0.10.108
 

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Make `Pagination` root-element into a `<nav />`
 - fix: Add `rel="nofollow"` to all `Pagination` links
 
 ## 0.8.33

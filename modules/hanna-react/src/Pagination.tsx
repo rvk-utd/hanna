@@ -150,7 +150,7 @@ export const Pagination = memo((props: PaginationProps) => {
   const btn = getBtnRenderer(props);
 
   return (
-    <div
+    <nav
       {...wrapperProps}
       className={modifiedClass('Pagination', null, (wrapperProps || {}).className)}
       aria-label={
@@ -185,6 +185,6 @@ export const Pagination = memo((props: PaginationProps) => {
           );
         })
         .flatMap((itm) => [itm, ' '])}
-    </div>
+    </nav>
   );
 });
