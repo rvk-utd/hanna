@@ -29,7 +29,7 @@ export type DetectEdgeScrollOptions = {
 } & (
   | {
       /**
-       * Set to false if you're passing your own `setAt´ handler
+       * Set to false if you're passing your own `onChange handler
        * and wish to opt out of the default automatic class-name toggling
        *
        * Default: `true`
@@ -64,7 +64,7 @@ export const detectEdgeScroll = (opts: DetectEdgeScrollOptions): Actions => {
     classedElm,
     bem,
     onChange,
-    setClasses, // eslint-disable-line deprecation/deprecation
+    setClasses = true, // eslint-disable-line deprecation/deprecation
   } = opts;
 
   let at = { start: true, end: true };
