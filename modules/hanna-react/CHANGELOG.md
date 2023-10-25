@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.109
+
+_2023-10-25_
+
 - feat: Allow simple JSX in `HeroBlockProps.title`
 - feat: Stop inserting `.TableWrapper__scroller` inner wrapping element
 - fix: Conflicted/ambigious `wrapperProps` element type for `BasicTableProps`
