@@ -151,38 +151,50 @@ const normalizeTableSectData = (rows: Array<TableRow>): Array<RowData> | undefin
 export type TableProps = TableData & {
   cols?: TableCols;
   rowProps?: HTMLProps<'tr'> | RowPropsFunction;
-} & WrapperElmProps<'table'>;
+};
 
-export const Table = memo((props: TableProps & { className?: string }) => {
-  const { caption, cols, className, rowProps, wrapperProps } = props;
-  const getRowProps = typeof rowProps === 'function' ? rowProps : () => rowProps;
-  const thead = useMemo(() => normalizeTableSectData(props.thead), [props.thead]);
-  const tfoot = useMemo(
-    () => props.tfoot && normalizeTableSectData(props.tfoot),
-    [props.tfoot]
-  );
-  const tbodies = useMemo(
-    () => (props.tbodies || [props.tbody]).map(normalizeTableSectData).filter(notNully),
-    [props.tbody, props.tbodies]
-  );
-  return (
-    <table {...wrapperProps} className={classes(className, wrapperProps?.className)}>
-      {caption && <caption>{caption}</caption>}
-      {thead && (
-        <TableSection section={thead} cols={cols} Tag="thead" getRowProps={getRowProps} />
-      )}
-      {tfoot && (
-        <TableSection section={tfoot} cols={cols} Tag="tfoot" getRowProps={getRowProps} />
-      )}
-      {tbodies.map((section, i) => (
-        <TableSection
-          key={i}
-          section={section}
-          cols={cols}
-          Tag="tbody"
-          getRowProps={getRowProps}
-        />
-      ))}
-    </table>
-  );
-});
+export const Table = memo(
+  (props: TableProps & { className?: string } & WrapperElmProps<'table'>) => {
+    const { caption, cols, className, rowProps, wrapperProps } = props;
+    const getRowProps = typeof rowProps === 'function' ? rowProps : () => rowProps;
+    const thead = useMemo(() => normalizeTableSectData(props.thead), [props.thead]);
+    const tfoot = useMemo(
+      () => props.tfoot && normalizeTableSectData(props.tfoot),
+      [props.tfoot]
+    );
+    const tbodies = useMemo(
+      () => (props.tbodies || [props.tbody]).map(normalizeTableSectData).filter(notNully),
+      [props.tbody, props.tbodies]
+    );
+    return (
+      <table {...wrapperProps} className={classes(className, wrapperProps?.className)}>
+        {caption && <caption>{caption}</caption>}
+        {thead && (
+          <TableSection
+            section={thead}
+            cols={cols}
+            Tag="thead"
+            getRowProps={getRowProps}
+          />
+        )}
+        {tfoot && (
+          <TableSection
+            section={tfoot}
+            cols={cols}
+            Tag="tfoot"
+            getRowProps={getRowProps}
+          />
+        )}
+        {tbodies.map((section, i) => (
+          <TableSection
+            key={i}
+            section={section}
+            cols={cols}
+            Tag="tbody"
+            getRowProps={getRowProps}
+          />
+        ))}
+      </table>
+    );
+  }
+);
