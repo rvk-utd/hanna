@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.48
+
+_2023-10-25_
+
 - feat: Stop inserting `.TableWrapper__scroller` inner wrapping element
 
 ## 0.8.47
