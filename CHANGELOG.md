@@ -3,6 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.34
+
+_2023-10-26_
+
+- feat: Stop inserting `.TableWrapper__scroller` inner wrapping element
 - fix: Make `Pagination` root-element into a `<nav />`
 - fix: Add `rel="nofollow"` to all `Pagination` links
 
