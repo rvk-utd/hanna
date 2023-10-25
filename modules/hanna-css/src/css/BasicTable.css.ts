@@ -125,6 +125,19 @@ export default css`
       opacity: 0;
     }
 
+    .TableWrapper__scroller {
+      max-width: 100%;
+      overflow-x: auto;
+      display: flex;
+
+      @media ${mq.phone_tablet} {
+        &::after {
+          content: '';
+          width: 0.5px;
+        }
+      }
+    }
+
     .TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {
       ${WARNING__('--align-right and --fullwidth should not be used together')};
     }
