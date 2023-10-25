@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Stop inserting `.TableWrapper__scroller` inner wrapping element
 
 ## 0.8.47
 

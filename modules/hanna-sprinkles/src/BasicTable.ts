@@ -8,7 +8,10 @@ import { autoSeenEffectPrepare, autoSeenEffectsRefresh } from './utils/addSeenEf
 const normalizeWrappingMarkup = (tableElm: HTMLTableElement) => {
   tableElm.classList.add('BasicTable');
   const parentElm = tableElm.parentElement as HTMLElement;
-  if (parentElm.classList.contains('TableWrapper__scroller')) {
+  if (
+    parentElm.classList.contains('TableWrapper__scroller') ||
+    parentElm.classList.contains('TableWrapper--at')
+  ) {
     return;
   }
 
@@ -17,15 +20,10 @@ const normalizeWrappingMarkup = (tableElm: HTMLTableElement) => {
     wrapperElm = document.createElement('div');
     wrapperElm.className = 'TableWrapper';
     tableElm.before(wrapperElm);
+    wrapperElm.append(tableElm);
   }
-  const scrollerElm = document.createElement('div');
-  scrollerElm.className = 'TableWrapper__scroller';
-  scrollerElm.append(tableElm);
-
-  wrapperElm.append(scrollerElm);
   wrapperElm.classList.add('TableWrapper--BasicTable');
-
-  return { wrapperElm, scrollerElm };
+  return wrapperElm;
 };
 
 // ---------------------------------------------------------------------------
@@ -34,15 +32,13 @@ window.Hanna.makeSprinkle({
   name: 'BasicTable',
   selector: 'table',
   init: (tableElm: HTMLTableElement) => {
-    const wrappers = normalizeWrappingMarkup(tableElm);
-    if (!wrappers) {
+    const wrapperElm = normalizeWrappingMarkup(tableElm);
+    if (!wrapperElm) {
       return;
     }
-    const { wrapperElm, scrollerElm } = wrappers;
-
     const { unmount /* , checkScroll */ } = detectEdgeScroll({
       axis: 'horizontal',
-      scrollerElm: scrollerElm,
+      scrollerElm: wrapperElm,
       classedElm: wrapperElm,
       bem: 'TableWrapper',
     });
