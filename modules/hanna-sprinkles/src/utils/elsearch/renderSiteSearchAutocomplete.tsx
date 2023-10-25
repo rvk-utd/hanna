@@ -6,6 +6,7 @@ import debounce from '@hugsmidjan/qj/debounce';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
+import { HannaLang } from '@reykjavik/hanna-utils/i18n.js';
 
 import ensureCSS from '../_ensureCSS.js';
 import { getLang } from '../_getLang.js';
@@ -22,7 +23,7 @@ type ElasticSiteSearchAutocompleteProps = {
   apiUri: string;
   searchPagePath: string;
   exceptBundles?: Array<string>;
-  lang?: string;
+  lang?: HannaLang;
 };
 
 const ElasticSiteSearchAutocomplete = (props: ElasticSiteSearchAutocompleteProps) => {

@@ -11,7 +11,7 @@ import {
 } from '@reykjavik/hanna-react/SearchResults';
 import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 import { printDate } from '@reykjavik/hanna-utils';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import ensureCSS from '../_ensureCSS.js';
 import { getLang } from '../_getLang.js';
@@ -83,7 +83,7 @@ const valueFromField = (field?: ReadonlyArray<{ value: string }>): string =>
 
 const hitsToItems = (
   hits: Array<ElasticSource>,
-  lang?: string
+  lang?: HannaLang
 ): Array<SearchResultsItemProps> =>
   hits.map((hit) => {
     const {
@@ -191,7 +191,7 @@ const useSearchState = (
   apiUri: string,
   bundleLabels: FilterProps,
   pageSize: number,
-  lang?: string
+  lang?: HannaLang
 ) => {
   const filters = useMemo(() => makeFilters(bundleLabels), [bundleLabels]);
 
@@ -348,7 +348,7 @@ type SiteSearchPageProps = {
   apiUri: string;
   bundleLabels: FilterProps | undefined;
   pageSize?: number;
-  lang?: string;
+  lang?: HannaLang;
 };
 
 const SiteSearchPage = (props: SiteSearchPageProps) => {
