@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.9
+
+_2023-10-25_
+
 - feat: New `hannaVars`:  
   `Layout$$header_homelink_width`, `Layout$$header_homelink_space`,
   `Layout$$header_homelink_divColor`
