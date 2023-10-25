@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.83
+
+_2023-10-26_
+
 - fix: Regression in styling of legacy `.TableWrapper__scroller`
 - fix: Remove SVG `<style/>` elements to avoid CSS clashes when inlined in
   HTML documents.
