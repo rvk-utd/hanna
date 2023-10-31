@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add dev warnings for non-table content inside `.TableWrapper`s
 
 ## 0.8.83
 

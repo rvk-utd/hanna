@@ -138,6 +138,11 @@ export default css`
       }
     }
 
+    .TableWrapper > :nth-of-type(1),
+    .TableWrapper > :not(table):not(.TableWrapper__scroller) {
+      ${WARNING__('TableWrapper should only contain a single <table/>')};
+    }
+
     .TableWrapper--BasicTable--align--right.TableWrapper--BasicTable--fullwidth {
       ${WARNING__('--align-right and --fullwidth should not be used together')};
     }
