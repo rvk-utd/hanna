@@ -99,6 +99,13 @@ export default function () {
         name="disabled"
         assistText="This is an assist text..."
       />
+      <CheckboxButtonsGroup
+        label="Stacked Variant"
+        options={options.slice(0, 2)}
+        required={true}
+        name="stacked"
+        stacked
+      />
     </Minimal>
   );
 }

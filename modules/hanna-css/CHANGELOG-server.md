@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `CheckboxButtonsGroup` and `RadioButtonsGroup`
+  - feat: Add styling for `--stacked` variant
 - feat: Add dev warnings for non-table content inside `.TableWrapper`s
 
 ## 0.8.83

@@ -135,6 +135,7 @@ const getProps = (args: ControlPropsCheckboxAndRadioButtonsGroup) => {
 const disabledOptions = ['none', 'some', 'all'] as const;
 
 type ControlPropsCheckboxAndRadioButtonsGroup = ControlProps & {
+  stacked: boolean;
   disabled: (typeof disabledOptions)[number];
 };
 
@@ -148,6 +149,7 @@ export const _CheckboxButtonsGroup: StoryObj<ControlPropsCheckboxAndRadioButtons
     />
   ),
   argTypes: {
+    stacked: { name: 'Stacked (1 col)' },
     disabled: {
       name: 'Disabled',
       options: disabledOptions,
@@ -162,6 +164,7 @@ export const _CheckboxButtonsGroup: StoryObj<ControlPropsCheckboxAndRadioButtons
     },
   },
   args: {
+    stacked: false,
     disabled: 'none',
   },
 };

@@ -44,6 +44,13 @@ export default function () {
         name="disabled"
         assistText="This is an error message"
       />
+      <RadioButtonsGroup
+        label="Stacked Variant"
+        options={options.slice(0, 2)}
+        required={true}
+        name="stacked"
+        stacked
+      />
     </Minimal>
   );
 }

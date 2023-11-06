@@ -198,6 +198,10 @@ export const TogglerButtonsGroup = (bem: string) => css`
     }
   }
 
+  .${bem}--stacked > * > .FormField__options__item {
+    width: 100%;
+  }
+
   .${bem} > .FormField__error,
   .${bem} > .FormField__assist {
     position: relative;

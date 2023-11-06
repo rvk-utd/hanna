@@ -11,6 +11,9 @@ export type RadioButtonsGroupProps = TogglerGroupFieldProps & {
   value?: string;
   defaultValue?: string;
 
+  /** Display the buttons in a single column */
+  stacked?: boolean;
+
   /** @deprecated (Will be removed in v0.11) */
   columns?: '2col' | '3col';
   /** @deprecated (Will be removed in v0.11) */
@@ -31,7 +34,13 @@ export const RadioButtonsGroup = (props: RadioButtonsGroupProps) => {
     console.warn('`RadioButtonsGroupProps.columns` is deprecated.');
   }
   return (
-    <TogglerGroupField {...props} bem="RadioButtonsGroup" Toggler={RadioButton} isRadio />
+    <TogglerGroupField
+      {...props}
+      bem="RadioButtonsGroup"
+      modifier={props.stacked && 'stacked'}
+      Toggler={RadioButton}
+      isRadio
+    />
   );
 };
 

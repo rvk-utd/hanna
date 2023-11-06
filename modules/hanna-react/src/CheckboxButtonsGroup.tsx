@@ -11,6 +11,9 @@ export type CheckboxButtonsGroupProps = TogglerGroupFieldProps & {
   value?: Array<string>;
   defaultValue?: Array<string>;
 
+  /** Display the buttons in a single column */
+  stacked?: boolean;
+
   /** @deprecated (Will be removed in v0.11) */
   columns?: '2col' | '3col';
   /** @deprecated (Will be removed in v0.11) */
@@ -27,7 +30,12 @@ export const CheckboxButtonsGroup = (props: CheckboxButtonsGroupProps) => {
     console.warn('`CheckboxButtonsGroupProps.columns` is deprecated.');
   }
   return (
-    <TogglerGroupField {...props} bem="CheckboxButtonsGroup" Toggler={CheckboxButton} />
+    <TogglerGroupField
+      {...props}
+      bem="CheckboxButtonsGroup"
+      modifier={props.stacked && 'stacked'}
+      Toggler={CheckboxButton}
+    />
   );
 };
 

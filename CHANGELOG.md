@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `--stacked` variant for `.CheckboxButtonsGroup` and
+  `.RadioButtonsGroup`
 
 ## 0.8.34
 

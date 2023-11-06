@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `stacked` to `.CheckboxButtonsGroup` and `.RadioButtonsGroup`
 
 ## 0.10.109
 
