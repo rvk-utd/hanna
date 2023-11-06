@@ -1,8 +1,10 @@
 import { css, LengthValue, VariablePrinter } from 'es-in-css';
 
 import { srOnly } from '../../lib/a11y.js';
+import { clamp_phablet_netbook } from '../../lib/between.js';
 import { mq } from '../../lib/breakpoints.js';
 import { buildVariables } from '../../lib/cssutils.js';
+import { grid } from '../../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars.js';
 import { iconStyle } from '../../lib/icons.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
@@ -176,18 +178,17 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
 
 export const TogglerButtonsGroup = (bem: string) => css`
   .${bem} > .FormField__options {
+    column-gap: ${vars.grid_0_1};
+
     @media ${mq.phablet_up} {
-      margin-right: ${vars.grid_0_1__neg};
       display: flex;
       flex-flow: row wrap;
     }
   }
   .${bem} > * > .FormField__options__item {
-    margin-bottom: ${vars.space_2};
+    margin-bottom: ${clamp_phablet_netbook(2 * grid.unit, 3 * grid.unit)};
 
     @media ${mq.phablet_up} {
-      margin-bottom: ${vars.grid_0_1};
-      margin-right: ${vars.grid_0_1};
       width: ${vars.grid_6};
     }
     @media ${mq.netbook} {

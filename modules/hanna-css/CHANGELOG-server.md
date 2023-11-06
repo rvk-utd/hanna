@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - `CheckboxButtonsGroup` and `RadioButtonsGroup`
   - feat: Add styling for `--stacked` variant
+  - feat: Cap item row-gap to be more reasonable height
 - feat: Add dev warnings for non-table content inside `.TableWrapper`s
 
 ## 0.8.83
