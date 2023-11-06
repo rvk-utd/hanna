@@ -54,12 +54,15 @@ const useClientState = <T, U>(
         ? serverState
         : clientState) as T | U // TODO: Remove this type assertion once @types/react and typescript have been updated
   );
-  useEffect(() => {
-    alreadyBrowserSide = true;
-    if (ssrSupport !== 'ssr-only') {
-      stateTuple[1](clientState);
-    }
-  }, []);
+  useEffect(
+    () => {
+      alreadyBrowserSide = true;
+      if (ssrSupport !== 'ssr-only') {
+        stateTuple[1](clientState);
+      }
+    },
+    [] // eslint-disable-line react-hooks/exhaustive-deps
+  );
   return stateTuple;
 };
 
@@ -100,6 +103,7 @@ const useClientState = <T, U>(
 export const useIsServerSide = (ssrSupport?: SSRSupport) =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   useClientState(true, false, ssrSupport)[0] || undefined;
+
 /**
  * Returns `true` when `useEffect` has executed.
  *
