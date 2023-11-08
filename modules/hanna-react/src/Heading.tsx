@@ -39,6 +39,7 @@ export const Heading = (props: HeadingProps) => {
         sizes[size],
         align === 'right' && 'align--' + align,
         !align && wide && 'wide',
+        (wrapperProps || {}).className,
       ])}
     >
       {children}
