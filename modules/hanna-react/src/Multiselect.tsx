@@ -1,4 +1,11 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import domId from '@hugsmidjan/qj/domid';
 import { notNully } from '@reykjavik/hanna-utils';
@@ -79,7 +86,7 @@ export type MultiselectOption = Exclude<MultiselectProps['options'][number], str
 /** @deprecated This type-name has a typo, import `MultiselectOption` instead  (Will be removed in v0.11) */
 export type MultiSelectOption = MultiselectOption;
 
-export type MultiselectProps = TogglerGroupFieldProps<string> & {
+export type MultiselectProps = TogglerGroupFieldProps<string, { group?: string }> & {
   value?: Array<string>;
   defaultValue?: Array<string>;
 
@@ -183,6 +190,7 @@ export const Multiselect = (props: MultiselectProps) => {
     () => filterItems(options, searchQuery, props.searchScoring),
     [searchQuery, options, props.searchScoring]
   );
+  const isFiltered = options !== filteredOptions;
 
   const handleCheckboxSelection = useCallback(
     (selectedItem: MultiselectOption) => {
@@ -404,7 +412,12 @@ export const Multiselect = (props: MultiselectProps) => {
 
                     const isChecked = values.includes(item.value);
 
-                    return (
+                    const insertGroupSeparator: boolean =
+                      !isFiltered &&
+                      item.group !== (filteredOptions[idx - 1] || {}).group &&
+                      (idx > 0 || !!item.group);
+
+                    const checkbox = (
                       <Checkbox
                         key={idx}
                         className={modifiedClass(
@@ -426,6 +439,22 @@ export const Multiselect = (props: MultiselectProps) => {
                           onMouseEnter: () => setActiveItemIndex(idx),
                         }}
                       />
+                    );
+                    return insertGroupSeparator ? (
+                      <Fragment key={idx}>
+                        <li
+                          className={modifiedClass(
+                            'Multiselect__optionSeparator',
+                            !item.group && 'empty'
+                          )}
+                          aria-label={item.group ? undefined : '—'}
+                        >
+                          {item.group || false}
+                        </li>
+                        {checkbox}
+                      </Fragment>
+                    ) : (
+                      checkbox
                     );
                   })
                 ) : searchQuery ? (

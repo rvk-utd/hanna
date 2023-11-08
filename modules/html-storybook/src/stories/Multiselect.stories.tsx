@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Multiselect } from '@reykjavik/hanna-react/Multiselect';
+import { Multiselect, MultiselectOption } from '@reykjavik/hanna-react/Multiselect';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTrigger.js';
@@ -8,6 +8,7 @@ import { FFControlProps, formFieldControls } from '../utils/knobs.js';
 type ControlProps = FFControlProps & {
   nowrap: boolean;
   empty: boolean;
+  grouped: boolean;
   forceSearchable: boolean;
   forceSummary: boolean;
 };
@@ -39,8 +40,15 @@ const options = [
   'Fudge',
 ];
 
+const optionsGrouped: Array<MultiselectOption> = [
+  { value: 'Vanilla', group: 'Favourites' },
+  { value: 'Pistachio', group: 'Favourites' },
+  { value: 'Maple Walnut', group: 'Favourites' },
+];
+optionsGrouped.push(...options.map((value) => ({ value })));
+
 const MultiselectStory = (props: ControlProps) => {
-  const { nowrap, empty, forceSearchable, forceSummary } = props;
+  const { nowrap, empty, grouped, forceSearchable, forceSummary } = props;
   const ffProps = ffCtrls.getProps(props);
 
   const values = empty ? [] : nowrap ? options : options.slice(2, 4);
@@ -60,7 +68,7 @@ const MultiselectStory = (props: ControlProps) => {
         {...ffProps}
         label="Veldu tegund"
         name="flavours"
-        options={options}
+        options={grouped ? optionsGrouped : options}
         value={values}
         forceSearchable={forceSearchable}
         forceSummary={forceSummary}
@@ -94,6 +102,7 @@ export const _Multiselect: StoryObj<ControlProps> = {
   argTypes: {
     nowrap: { name: 'No-wrap' },
     empty: { name: 'Empty' },
+    grouped: { name: 'Grouped items' },
     forceSearchable: { name: 'Searchable options' },
     forceSummary: {
       name: 'Summarize selected values',
@@ -104,6 +113,7 @@ export const _Multiselect: StoryObj<ControlProps> = {
   args: {
     nowrap: false,
     empty: false,
+    grouped: false,
     forceSearchable: false,
     forceSummary: false,
     ...ffCtrls.args,

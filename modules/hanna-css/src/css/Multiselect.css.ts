@@ -166,6 +166,27 @@ export default css`
     margin: 0;
   }
 
+  .Multiselect__optionSeparator {
+    margin: ${vars.space_1} ${vars.space_0$5};
+    border-top: 1px solid ${vars.color_suld_100};
+    padding-inline: ${vars.space_1$5};
+    padding-top: ${vars.space_1};
+    font: ${vars.font_button};
+    color: ${vars.color_suld_100};
+  }
+
+  .Multiselect__optionSeparator:not(.Multiselect__option + *) {
+    border-top: none;
+    margin-top: 0;
+  }
+
+  .Multiselect__optionSeparator--empty {
+    padding-block: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
   .Multiselect__option:hover {
     // background-color: ${vars.color_suld_50};
   }

@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add prop `stacked` to `.CheckboxButtonsGroup` and `.RadioButtonsGroup`
+- feat: Add property `group` to `MultiselectOption` type, for grouping options
 - fix: Apply `wrapperProps.className` to `Heading`'s wrapper element
 
 ## 0.10.109

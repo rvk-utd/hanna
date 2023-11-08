@@ -76,22 +76,37 @@ export const defaultSearchScoring: SearchScoringfn = (item, queryWords) => {
 
 // ---------------------------------------------------------------------------
 
+// banana emoji
+const SEP = '🍌';
+
 /** Returns a normalized, filtered list of options */
-export const filterItems = (
-  options: TogglerGroupOptions<string>,
+export const filterItems = <Extras = {}>(
+  options: TogglerGroupOptions<string, Extras>,
   searchQuery: string,
   searchScoringFn = defaultSearchScoring
-): TogglerGroupOptions<string> => {
+): TogglerGroupOptions<string, Extras> => {
   if (!searchQuery.trim()) {
-    return [...options];
+    return options;
   }
+  const found = new Set<string>();
   const queryWords = searchQuery.toLowerCase().trim().split(/\s+/);
-  return options
-    .map((item) => ({
-      item,
-      score: searchScoringFn(item, queryWords, searchQuery),
-    }))
-    .filter(({ score }) => score > 0)
-    .sort((a, b) => (a.score === b.score ? 0 : a.score < b.score ? 1 : -1))
-    .map(({ item }) => item);
+  return (
+    options
+      .map((item) => ({
+        item,
+        score: searchScoringFn(item, queryWords, searchQuery),
+      }))
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => (a.score === b.score ? 0 : a.score < b.score ? 1 : -1))
+      .map(({ item }) => item)
+      // remove duplicates
+      .filter((item) => {
+        const key = item.value + SEP + item.label;
+        if (found.has(key)) {
+          return false;
+        }
+        found.add(key);
+        return true;
+      })
+  );
 };

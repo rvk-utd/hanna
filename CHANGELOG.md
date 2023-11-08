@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `.Multiselect__optionSeparator`
 - feat: Add `--stacked` variant for `.CheckboxButtonsGroup` and
   `.RadioButtonsGroup`
 
