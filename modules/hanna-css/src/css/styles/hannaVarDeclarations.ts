@@ -527,7 +527,7 @@ const spaceVarDeclarations = spaceVars.declare({
 // ---------------------------------------------------------------------------
 
 const _lHead_min = 80;
-const _lHead_max = 88;
+const _lHead_max = 120;
 
 const layoutVarDeclarations = css`
   ${layoutVars.declare({

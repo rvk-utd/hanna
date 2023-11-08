@@ -64,7 +64,7 @@ export default css`
     .HeroBlock {
       position: relative;
       padding-right: ${cols_pct(6, 6)};
-      min-height: ${prem(420)};
+      min-height: ${prem(432)};
       z-index: 0; // scope the *__image underlap
     }
 

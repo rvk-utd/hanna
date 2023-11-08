@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Partially revert `--Layout__header-height` reduction on wide viewports
 - `CheckboxButtonsGroup` and `RadioButtonsGroup`
   - feat: Add styling for `--stacked` variant
   - feat: Cap item row-gap to be more reasonable height
