@@ -7,7 +7,13 @@ export type BemModifierProps = {
    */
   modifier?: Modifiers;
 };
-export type BemProps = {
-  /** CSS BEM class-name prefix to be used for this component. Defaults to the same as the original component's displayName */
-  bem?: string;
-} & BemModifierProps;
+export type BemProps<Required extends boolean = false> = BemModifierProps &
+  (Required extends true
+    ? {
+        /** CSS BEM class-name prefix to be used for this component. Defaults to the same as the original component's displayName */
+        bem: string;
+      }
+    : {
+        /** CSS BEM class-name prefix to be used for this component. Defaults to the same as the original component's displayName */
+        bem?: string;
+      });
