@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Non-sensical `Gallery` close button label
 
 ## 0.8.48
 

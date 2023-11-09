@@ -17,20 +17,20 @@ export type GalleryI18n = {
 };
 
 const defaultTexts: DefaultTexts<GalleryI18n> = {
-  en: {
-    modalNextLabel: 'Next image',
-    modalPrevLabel: 'Previous image',
-    modalCloseLabel: 'Back to article',
-  },
   is: {
     modalNextLabel: 'Næsta mynd',
     modalPrevLabel: 'Fyrri mynd',
-    modalCloseLabel: 'Til baka í grein',
+    modalCloseLabel: 'Loka mynd',
+  },
+  en: {
+    modalNextLabel: 'Next image',
+    modalPrevLabel: 'Previous image',
+    modalCloseLabel: 'Close image',
   },
   pl: {
     modalNextLabel: 'Następne zdjęcie',
     modalPrevLabel: 'Poprzednie zdjęcie',
-    modalCloseLabel: 'Powrót do artykułu',
+    modalCloseLabel: 'Zamknij zdjęcie',
   },
 };
 
