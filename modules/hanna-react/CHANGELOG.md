@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.110
+
+_2023-11-10_
+
 - `Modal`
   - feat: Add prop `wrapperProps`
   - feat: Add prop `stable`, deprecate `fickle` instead
