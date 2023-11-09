@@ -84,7 +84,8 @@ o.spec('filterItems', () => {
   const item1: Item = { label: 'Fo', value: 'Fo' };
   const item2: Item = { label: 'Ba', value: 'fo fo' };
   const item3: Item = { label: 'Foo bar', value: 'Foo bar' };
-  const item3_dupl: Item = { label: 'Foo bar', value: 'Foo bar', disabled: true };
+  const item3_dupl: Item = { label: 'Foo bar', value: 'Foo bar' };
+  const item3_sameVal: Item = { label: 'Foo bar!!!', value: 'Foo bar', disabled: true };
   const item4: Item = { label: 'Bar foo', value: 'Bar' };
   const item5: Item = { label: 'Baz', value: 'Baz' };
   const item6: Item = { label: 'Smu', value: 'Smu' };
@@ -95,19 +96,24 @@ o.spec('filterItems', () => {
     item6,
     item3,
     item3_dupl,
+    item3_sameVal,
     item2,
     item5,
     item1,
   ];
 
   o('works', () => {
-    o(filterItems(options, 'foo')).deepEquals([item3, item3_dupl, item4])('stable sort');
-    o(filterItems(options, 'fo')).deepEquals([item1, item2, item3, item3_dupl, item4]);
-    o(filterItems(options, 'BA')).deepEquals([item2, item4, item5, item3, item3_dupl]);
+    o(filterItems(options, 'foo')).deepEquals([item3, item3_sameVal, item4])(
+      'stable sort'
+    );
+    o(filterItems(options, 'fo')).deepEquals([item1, item2, item3, item3_sameVal, item4]);
+    o(filterItems(options, 'BA')).deepEquals([item2, item4, item5, item3, item3_sameVal]);
     o(filterItems(options, '')).deepEquals(options)(
       'empty query string performs no filtering'
     );
-    o(filterItems(options, '')).notEquals(options)('always returns a new array');
+    o(filterItems(options, '')).equals(options)(
+      'returns the input array when searchQuery is empty'
+    );
   });
 
   o('custom scoring function', () => {
