@@ -9,6 +9,7 @@
   - feat: Cap item row-gap to be more reasonable height
 - feat: Add styling for `.Multiselect__optionSeparator`
 - feat: Add dev warnings for non-table content inside `.TableWrapper`s
+- fix: Horizontal shift during `.Modal` close-transition
 
 ## 0.8.83
 

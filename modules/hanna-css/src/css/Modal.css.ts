@@ -38,6 +38,9 @@ export default css`
         padding: ${prem(100)} 0;
       }
     }
+    html.modal-open .Modalwrapper {
+      padding-right: ${vars.browser_scrollbar_width};
+    }
 
     [hidden].Modalwrapper {
       display: block; // override default '[hidden][hidden]' styling
