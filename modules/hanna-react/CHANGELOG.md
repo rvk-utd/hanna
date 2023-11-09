@@ -6,7 +6,7 @@
 
 ## 0.10.110
 
-_2023-11-10_
+_2023-11-09_
 
 - `Modal`
   - feat: Add prop `wrapperProps`
