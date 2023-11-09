@@ -267,3 +267,27 @@ export const buildNpmLib = (libName, custom) => {
     execSync(`rm -rf ${distDir}`);
   }
 };
+
+// ---------------------------------------------------------------------------
+
+export const publishToNpm = () => {
+  const pkgName = pkg.name.replace(/^@reykjavik\//, '');
+  const version = pkg.version;
+  try {
+    execSync(
+      [
+        `cd _npm-lib`,
+        `npm publish`,
+        `cd ..`,
+        `git add ./package.json ./CHANGELOG.md`,
+        `git commit -m "release(${pkgName}): v${version}"`,
+      ].join(' && ')
+    );
+  } catch (err) {
+    console.info('--------------------------');
+    console.info(err.message);
+    console.info('--------------------------');
+    console.info(err.output.toString());
+    process.exit(1);
+  }
+};

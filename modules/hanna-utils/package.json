@@ -28,7 +28,7 @@
     "node": "16"
   },
   "scripts": {
-    "publish:lib": "yarn run build  &&  cd _npm-lib  &&  npm publish",
+    "publish:lib": "yarn run build  &&  node build-release.mjs",
     "prepublishOnly": "echo \"\nRun 'yarn run publishdist' to publish this package\n\n\"  && exit 1",
     "build": "yarn install  &&  node build.mjs  &&  yarn run test",
     "dev": "yarn run -T concurrently -k  \"node build.mjs --dev\"  \"yarn run test:dev\"",
