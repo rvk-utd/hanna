@@ -15,7 +15,7 @@ import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 import { FocusTrap } from './_abstract/_FocusTrap.js';
 import { Portal } from './_abstract/_Portal.js';
 import { useCallbackOnEsc } from './utils/useCallbackOnEsc.js';
-import { useDomid, WrapperElmProps } from './utils.js';
+import { SSRSupportProps, useDomid, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 const MODAL_OPEN_CLASS = 'modal-open';
 
@@ -161,16 +161,18 @@ export type ModalProps = {
   },
   { children: ReactNode }
 > &
-  WrapperElmProps<'div', 'hidden' | 'role'>;
+  WrapperElmProps<'div', 'hidden' | 'role'> &
+  SSRSupportProps;
 
 // eslint-disable-next-line complexity
 export const Modal = (props: ModalProps) => {
-  const { modifier, closeDelay = 500, bling, wrapperProps = {} } = props;
+  const { modifier, closeDelay = 500, bling, wrapperProps = {}, ssr } = props;
 
   const isFickle = !(props.stable ?? props.fickle === false) || undefined;
 
   const txt = getTexts(props, defaultModalTexts);
 
+  const isBrowser = useIsBrowserSide(ssr);
   const privateDomId = useDomid();
   const domid = wrapperProps.id || privateDomId;
   const modalElmRef = useRef<HTMLDivElement>(null);
@@ -273,7 +275,7 @@ export const Modal = (props: ModalProps) => {
           ) : (
             children
           )}
-          {!props.noCloseButton && (
+          {isBrowser && !props.noCloseButton && (
             <button
               className={bem + '__closebutton'}
               type="button"
@@ -286,7 +288,7 @@ export const Modal = (props: ModalProps) => {
             </button>
           )}
         </div>
-        <FocusTrap />
+        {isBrowser && <FocusTrap />}
       </div>
     </PortalOrFragment>
   );

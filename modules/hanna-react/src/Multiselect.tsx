@@ -460,7 +460,7 @@ export const Multiselect = (props: MultiselectProps) => {
                 ) : searchQuery ? (
                   <li className="Multiselect__noresults">{texts.noneFoundMsg}</li>
                 ) : undefined}
-                <FocusTrap Tag="li" />
+                {isBrowser && <FocusTrap Tag="li" />}
               </ul>
             </div>
           </div>
