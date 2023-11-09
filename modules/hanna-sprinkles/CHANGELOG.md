@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.49
+
+_2023-11-10_
+
 - fix: Non-sensical `Gallery` close button label
 
 ## 0.8.48
