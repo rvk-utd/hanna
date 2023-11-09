@@ -4,32 +4,25 @@ import { ButtonBar } from '@reykjavik/hanna-react/ButtonBar';
 import { ButtonPrimary } from '@reykjavik/hanna-react/ButtonPrimary';
 import { ButtonTertiary } from '@reykjavik/hanna-react/ButtonTertiary';
 import { Heading } from '@reykjavik/hanna-react/Heading';
-import { Modal } from '@reykjavik/hanna-react/Modal';
+import { Modal, ModalProps } from '@reykjavik/hanna-react/Modal';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { Meta, StoryObj } from '@storybook/react';
 
 const widthOptions = ['auto', 'narrow', 'medium', 'wide'] as const;
 type Width = (typeof widthOptions)[number];
 
-const getKnobValues = (blingDecoration: boolean, width: Width) => {
-  const bling = blingDecoration || undefined;
-  let modifier: 'w6' | 'w8' | 'w10' | undefined;
-  switch (width) {
-    case 'auto':
-      modifier = undefined;
-      break;
-    case 'narrow':
-      modifier = 'w6';
-      break;
-    case 'medium':
-      modifier = 'w8';
-      break;
-    case 'wide':
-      modifier = 'w10';
-      break;
-  }
-  return { modifier, bling };
-};
+const modifiers = {
+  auto: undefined,
+  narrow: 'w6',
+  medium: 'w8',
+  wide: 'w10',
+} satisfies Record<Width, ModalProps['modifier']>;
+
+const getKnobValues = (args: ControlProps) => ({
+  modifier: modifiers[args.width],
+  noCloseButton: args.noCloseButton,
+  bling: args.bling || undefined,
+});
 
 const renderBling = () => (
   <Bling type="circle-waves-vertical" align="right" parent="top" vertical="down" />
@@ -37,7 +30,8 @@ const renderBling = () => (
 
 type ControlProps = {
   width: Width;
-  blingDecoration: boolean;
+  noCloseButton: boolean;
+  bling: boolean;
 } /* & ThemeControlProps */;
 
 // ==================== Modal ===========================================
@@ -58,12 +52,14 @@ const meta: Meta<ControlProps> = {
         } satisfies Record<ControlProps['width'], string>,
       },
     },
-    blingDecoration: { name: 'Bling decoration' },
+    noCloseButton: { name: 'No close button' },
+    bling: { name: 'Bling decoration' },
     // ...themeArgTypes,
   },
   args: {
     width: 'wide',
-    blingDecoration: false,
+    noCloseButton: false,
+    bling: false,
   },
 };
 export default meta;
@@ -72,28 +68,27 @@ export default meta;
 
 type ModalControlProps = ControlProps & { open: boolean };
 
-const ModalStory = (props: ModalControlProps) => {
-  const { width, blingDecoration, open } = props;
-  const { modifier, bling } = getKnobValues(blingDecoration, width);
-
-  const key = open + (modifier || '');
-  return (
-    <Modal
-      key={key}
-      modifier={modifier}
-      open={open}
-      startOpen={open}
-      onClosed={() => undefined}
-      portal={false}
-      bling={bling && renderBling()}
-    >
-      <p>Modal content...</p>
-    </Modal>
-  );
-};
-
 export const _Modal: StoryObj<ModalControlProps> = {
-  render: (args) => <ModalStory {...args} />,
+  render: (args) => {
+    const { open } = args;
+    const { bling, modifier, noCloseButton } = getKnobValues(args);
+
+    const key = [open, modifier, noCloseButton].join('|');
+    return (
+      <Modal
+        key={key}
+        modifier={modifier}
+        open={open}
+        startOpen={open}
+        noCloseButton={noCloseButton}
+        onClosed={() => undefined}
+        portal={false}
+        bling={bling && renderBling()}
+      >
+        <p>Modal content...</p>
+      </Modal>
+    );
+  },
   argTypes: {
     open: { name: 'Open' },
   },
@@ -107,7 +102,7 @@ export const _Modal: StoryObj<ModalControlProps> = {
 type ModalDynamicsControlProps = ControlProps;
 
 const ModalDynamicsStory = (props: ModalDynamicsControlProps) => {
-  const { modifier, bling } = getKnobValues(props.blingDecoration, props.width);
+  const { bling, modifier, noCloseButton } = getKnobValues(props);
   const [open, setOpen] = useState(true);
   const openModal = () => setOpen(true);
   // FIXME: fadeout is missing if closed by external triggers
@@ -121,8 +116,9 @@ const ModalDynamicsStory = (props: ModalDynamicsControlProps) => {
         open={open}
         onClosed={closeModal}
         startOpen
+        noCloseButton={noCloseButton}
         portal={false}
-        fickle={false}
+        stable
         bling={bling && renderBling()}
         render={({ closeModal }) => {
           return (

@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Modal`
+  - feat: Add prop `wrapperProps`
+  - feat: Add prop `stable`, deprecate `fickle` instead
+  - feat: Add prop `noCloseButton`
+  - refactor: Rewritten and modernized
 - feat: Add prop `stacked` to `.CheckboxButtonsGroup` and `.RadioButtonsGroup`
 - feat: Add property `group` to `MultiselectOption` type, for grouping options
 - fix: Apply `wrapperProps.className` to `Heading`'s wrapper element

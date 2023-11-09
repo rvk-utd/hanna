@@ -91,6 +91,8 @@ export default function () {
             open={open}
             onClosed={closeModal}
             startOpen
+            // stable
+            // noCloseButton
             bling={modalData.bling && renderBling()}
             render={({ closeModal }) => {
               return (

@@ -6,6 +6,7 @@
 - feat: Add `.Multiselect__optionSeparator`
 - feat: Add `--stacked` variant for `.CheckboxButtonsGroup` and
   `.RadioButtonsGroup`
+- feat: Add `Modal` variant without a close button
 
 ## 0.8.34
 
