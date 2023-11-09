@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { objectClean, objectIsSame } from '@hugsmidjan/qj/object';
-import CarouselPaging from '@hugsmidjan/react/CarouselPaging';
-import Modal from '@hugsmidjan/react/Modal';
 
+import { AbstractModal } from '../_abstract/_AbstractModal.js';
+import CarouselPaging from '../_abstract/_CarouselPaging.js';
 import { GalleryI18n } from '../Gallery.js';
 
 import { GalleryModalContext } from './_GalleryModalContext.js';
@@ -50,7 +50,7 @@ export const GalleryModal = (props: GalleryModalProps) => {
   );
 
   return (
-    <Modal
+    <AbstractModal
       open={true}
       onClosed={() => {
         setCurrentImage(undefined);
@@ -59,29 +59,27 @@ export const GalleryModal = (props: GalleryModalProps) => {
       bem="GalleryModal"
       texts={{ closeButton: texts.modalCloseLabel }}
     >
-      <>
-        <CSSTransition
-          in={animated}
-          timeout={200}
-          onEntered={() => {
-            setAnimated(!animated);
-          }}
-          classNames="GalleryModalItem--"
-        >
-          <GalleryModalItem {...image} />
-        </CSSTransition>
+      <CSSTransition
+        in={animated}
+        timeout={200}
+        onEntered={() => {
+          setAnimated(!animated);
+        }}
+        classNames="GalleryModalItem--"
+      >
+        <GalleryModalItem {...image} />
+      </CSSTransition>
 
-        <CarouselPaging
-          bem="GalleryModalPager"
-          itemCount={items.length}
-          current={imageIndex}
-          setCurrent={updateImage}
-          texts={{
-            next: texts.modalNextLabel,
-            prev: texts.modalPrevLabel,
-          }}
-        />
-      </>
-    </Modal>
+      <CarouselPaging
+        bem="GalleryModalPager"
+        itemCount={items.length}
+        current={imageIndex}
+        setCurrent={updateImage}
+        texts={{
+          next: texts.modalNextLabel,
+          prev: texts.modalPrevLabel,
+        }}
+      />
+    </AbstractModal>
   );
 };
