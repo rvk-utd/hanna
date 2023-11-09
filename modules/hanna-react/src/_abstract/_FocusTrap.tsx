@@ -24,7 +24,7 @@ export const FocusTrap = (props: FocusTrapProps) => {
       tabIndex={0}
       onFocus={(e) => {
         let container: HTMLElement | null = e.currentTarget;
-        let depth = Math.max(props.depth || 0, 1);
+        let depth = Math.max(props.depth || 1, 1);
         while (depth-- && container) {
           container = container.parentElement;
         }
