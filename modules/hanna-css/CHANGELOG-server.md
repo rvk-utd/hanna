@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.84
+
+_2023-11-10_
+
 - feat: Partially revert `--Layout__header-height` reduction on wide viewports
 - `CheckboxButtonsGroup` and `RadioButtonsGroup`
   - feat: Add styling for `--stacked` variant
