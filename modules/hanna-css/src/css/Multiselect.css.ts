@@ -169,7 +169,7 @@ export default css`
   .Multiselect__optionSeparator {
     margin: ${vars.space_1} ${vars.space_0$5};
     border-top: 1px solid ${vars.color_suld_100};
-    padding-inline: ${vars.space_1$5};
+    padding: 0 ${vars.space_1$5};
     padding-top: ${vars.space_1};
     font: ${vars.font_button};
     color: ${vars.color_suld_100};
@@ -181,7 +181,7 @@ export default css`
   }
 
   .Multiselect__optionSeparator--empty {
-    padding-block: 0;
+    padding-top: 0;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
