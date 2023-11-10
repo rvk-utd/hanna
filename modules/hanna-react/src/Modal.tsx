@@ -21,7 +21,7 @@ export const Modal = (props: ModalProps) => {
   return (
     <AbstractModal
       {...props}
-      bem="modal"
+      bem="Modal"
       render={(renderProps) => {
         const _children = render ? render(renderProps) : children;
         return bling ? (
