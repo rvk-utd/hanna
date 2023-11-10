@@ -4,9 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.10.110
+## 0.10.110 – 0.10.111
 
-_2023-11-09_
+_2023-11-10_
 
 - `Modal`
   - feat: Add prop `wrapperProps`
