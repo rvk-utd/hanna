@@ -12,18 +12,6 @@ type ControlProps = {
 
 const meta: Meta = {
   title: 'Forms/Checkbox & Radio Buttons',
-  argTypes: {
-    required: { name: 'Required' },
-    invalid: { name: 'Invalid' },
-    errorMessage: { name: 'Error message' },
-    disabled: { name: 'Disabled' },
-  },
-  args: {
-    subText: true,
-    required: false,
-    invalid: false,
-    errorMessage: false,
-  },
 
   parameters: {
     controls: { hideNoControlsWarning: true },
@@ -31,6 +19,19 @@ const meta: Meta = {
   },
 };
 export default meta;
+
+const baseCtrl: Pick<StoryObj<ControlProps>, 'argTypes' | 'args'> = {
+  argTypes: {
+    required: { name: 'Required' },
+    invalid: { name: 'Invalid' },
+    errorMessage: { name: 'Error message' },
+  },
+  args: {
+    required: false,
+    invalid: false,
+    errorMessage: false,
+  },
+};
 
 // ==================== CheckboxButton ===========================================
 
@@ -66,10 +67,13 @@ export const _CheckboxButton: StoryObj<ControlPropsCheckboxButton> = {
   },
   argTypes: {
     subText: { name: 'Sub-text (small print)' },
+    disabled: { name: 'Disabled' },
+    ...baseCtrl.argTypes,
   },
   args: {
     subText: false,
     disabled: false,
+    ...baseCtrl.args,
   },
 };
 
@@ -115,18 +119,18 @@ const partialNames = names.map((opt, i) => ({
 }));
 
 const getProps = (args: ControlPropsCheckboxAndRadioButtonsGroup) => {
-  const { required, invalid, errorMessage, disabled } = args;
-  const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
-  const disabledOpt = disabled !== 'none' ? disabled : '';
-  const _disabled = disabledOpt === 'some' ? false : !!disabledOpt;
+  const errorMessage = args.errorMessage ? 'You must accept this nice offer.' : undefined;
+  const disabledOpt = args.disabled !== 'none' ? args.disabled : '';
+  const disabled = disabledOpt === 'some' ? false : !!disabledOpt;
   const options = disabledOpt === 'some' ? partialNames : names;
 
   return {
-    invalid,
-    _errorMessage,
+    invalid: args.invalid,
+    errorMessage,
     options,
-    required,
-    _disabled,
+    required: args.required,
+    disabled,
+    stacked: args.stacked,
   };
 };
 
@@ -162,10 +166,12 @@ export const _CheckboxButtonsGroup: StoryObj<ControlPropsCheckboxAndRadioButtons
         } satisfies Record<ControlPropsCheckboxAndRadioButtonsGroup['disabled'], string>,
       },
     },
+    ...baseCtrl.argTypes,
   },
   args: {
     stacked: false,
     disabled: 'none',
+    ...baseCtrl.args,
   },
 };
 
