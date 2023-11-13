@@ -9,6 +9,7 @@
 %}
 
 <div {{ attributes.setAttribute('class', classes) }}>
+	{{ frontend_editing }}
 	{% block contextual %}{% endblock contextual %}
 
 	{% for contentItem in IslandBlock_content %}
