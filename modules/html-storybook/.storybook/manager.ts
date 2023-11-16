@@ -10,7 +10,6 @@ addons.setConfig({
   selectedPanel: 'storybook/html/panel',
   toolbar: {
     zoom: { hidden: true },
-    fullscreen: { hidden: true },
     eject: { hidden: true },
     copy: { hidden: true },
     remount: { hidden: true },
