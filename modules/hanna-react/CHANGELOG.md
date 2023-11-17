@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.112
+
+_2023-11-17_
+
 - fix: `Modal` not reoppening when `open` prop is toggled
 
 ## 0.10.110 – 0.10.111
