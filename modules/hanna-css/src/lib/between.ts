@@ -160,24 +160,6 @@ export const scale_phablet_tablet = (from: Edge, to: Edge) =>
 export const scale_phone_phablet = (from: Edge, to: Edge) =>
   scale(from, to, phone, tablet, 'vw');
 
-// ---------------------------------------------------------------------------
-
-/**
- * Generates a `vw`-based `calc()` value that scales linearly within the
- * "Hamburger" media-query. (As opposed to "Topmenu".)
- *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
- */
-export const scale_Hamburger = scale_phone_tablet;
-
-/**
- * Generates a `vw`-based `calc()` value that scales linearly within the
- * "Topmenu" media-query. (As opposed to "Hamburger".)
- *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
- */
-export const scale_Topmenu = scale_netbook;
-
 // ===========================================================================
 
 const _scaleDown = grid.contentMinWidth / grid.contentMaxWidth;
@@ -321,19 +303,36 @@ export const clamp_phablet_tablet = (from: Edge, to: Edge) =>
 export const clamp_phone_phablet = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phone_phablet);
 
+//
+// ---------------------------------------------------------------------------
+// DEPRECATED
+// ---------------------------------------------------------------------------
+
 /**
- * Generates a `vw`-based `clamp()` value that scales linearly within the
- * "Hamburger" media-query. (As opposed to "Topmenu".)
+ * @deprecated Use `scale_phone_tablet` instead.  (will be removed in v0.11)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
+export const scale_Hamburger = scale_phone_tablet;
+
+/**
+ * @deprecated Use `scale_netbook` instead.  (will be removed in v0.11)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
+ */
+export const scale_Topmenu = scale_netbook;
+
+/**
+ * @deprecated Use `clamp_phone_tablet` instead.  (will be removed in v0.11)
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
 export const clamp_Hamburger = (from: Edge, to: Edge) =>
-  _clamp(from, to, scale_Hamburger);
+  _clamp(from, to, scale_phone_tablet);
 
 /**
- * Generates a `vw`-based `clamp()` value that scales linearly within the
- * "Topmenu" media-query. (As opposed to "Hamburger".)
+ * @deprecated Use `clamp_netbook` instead.  (will be removed in v0.11)
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
-export const clamp_Topmenu = (from: Edge, to: Edge) => _clamp(from, to, scale_Topmenu);
+export const clamp_Topmenu = (from: Edge, to: Edge) => _clamp(from, to, scale_netbook);

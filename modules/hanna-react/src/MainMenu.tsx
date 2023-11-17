@@ -30,6 +30,9 @@ import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>
   activeId ? megaPanels.find((panel) => activeId === panel.id) : undefined;
 
+// const HamburgerMedias: Record<string, 1> = { phone: 1, phablet: 1, tablet: 1 };
+const TopmenuMedias: Record<string, 1> = { netbook: 1, wide: 1 };
+
 // ---------------------------------------------------------------------------
 
 export type MainMenuI18n = Cleanup<
@@ -277,7 +280,8 @@ export const MainMenu = (props: MainMenuProps) => {
   );
 
   useFormatMonitor((media) => {
-    if (media.leftTopmenu) {
+    const leftTopmenu = !TopmenuMedias[media.is] && TopmenuMedias[media.was || ''];
+    if (leftTopmenu) {
       setActivePanel(undefined);
     }
   });

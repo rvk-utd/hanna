@@ -796,13 +796,11 @@ media-query boundries.
 
 `clamp_phone`, `clamp_phablet`, `clamp_tablet`, `clamp_netbook`,
 `clamp_phone_netbook`, `clamp_phablet_netbook`, `clamp_tablet_netbook`,
-`clamp_phone_tablet`, `clamp_phablet_tablet`, `clamp_phone_phablet`,
-`clamp_Hamburger`, `clamp_Topmenu`.
+`clamp_phone_tablet`, `clamp_phablet_tablet`, `clamp_phone_phablet`.
 
 `scale_phone`, `scale_phablet`, `scale_tablet`, `scale_netbook`,
 `scale_phone_netbook`, `scale_phablet_netbook`, `scale_tablet_netbook`,
-`scale_phone_tablet`, `scale_phablet_tablet`, `scale_phone_phablet`,
-`scale_Hamburger`, `scale_Topmenu`.
+`scale_phone_tablet`, `scale_phablet_tablet`, `scale_phone_phablet`.
 
 Example:
 

@@ -540,7 +540,7 @@ const layoutVarDeclarations = css`
     Layout$$header_color: 'initial',
     Layout$$main_paddingTop: spaceVars.vars.space_4,
   })}
-  @media ${mq.Topmenu} {
+  @media ${mq.netbook_up} {
     ${layoutVars.override({
       Layout$$header_height: px(_lHead_max),
       Layout$$header_homelink_width: prem(456),

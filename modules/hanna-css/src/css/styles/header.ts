@@ -7,6 +7,8 @@ import { prem } from '../utils/miscUtils.js';
 
 import { LinkStyle_Reset } from './links.js';
 
+const mq_Topmenu = mq.netbook_up;
+
 type FreezeScrollProps = {
   immediate?: boolean;
   fixHeader?: boolean;
@@ -32,7 +34,7 @@ export const LayoutHeaderHomeLink = () => css`
     box-sizing: content-box;
     max-width: ${vars.Layout$$header_homelink_width};
     min-width: ${prem(148)};
-    @media ${mq.Topmenu} {
+    @media ${mq_Topmenu} {
       min-width: ${prem(204)};
     }
   }
@@ -43,14 +45,14 @@ export const LayoutHeaderHomeLink = () => css`
     width: ${prem(28)}; /* -notext Logo variant */
     height: ${prem(42)};
 
-    @media ${mq.Topmenu} {
+    @media ${mq_Topmenu} {
       width: ${prem(33)};
       height: ${prem(50)};
     }
   }
   &__logo:last-child {
     width: ${prem(143)}; /** Normal full-logo  */
-    @media ${mq.Topmenu} {
+    @media ${mq_Topmenu} {
       width: ${prem(172)};
     }
   }
@@ -60,7 +62,7 @@ export const LayoutHeaderHomeLink = () => css`
     width: ${prem(143)};
     margin: ${prem(-8)};
     padding: ${prem(8)};
-    @media ${mq.Topmenu} {
+    @media ${mq_Topmenu} {
       width: ${prem(172)};
     }
   }
@@ -92,7 +94,7 @@ export const LayoutHeaderHomeLink = () => css`
     margin-left: 13px;
     padding-left: 16px;
 
-    @media ${mq.Topmenu} {
+    @media ${mq_Topmenu} {
       font-size: ${prem(24)};
       line-height: 1.2;
       margin-left: 21px;
@@ -110,7 +112,7 @@ export const LayoutHeaderHomeLink = () => css`
     background-color: ${vars.Layout$$header_homelink_divColor};
     margin: auto 0;
 
-    @media ${mq.Topmenu} {
+    @media ${mq_Topmenu} {
       height: ${prem(32)};
     }
   }

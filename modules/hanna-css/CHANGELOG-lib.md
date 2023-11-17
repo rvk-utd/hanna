@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Deprecate `hannaVars.bp_w_Hamburger` in favor of `bp_w_netbook`
+- feat: Deprecate `scale_Hambureger`, `clamp_Hamburger`, `scale_Topmenu`,
+  `clamp_Topmenu` from `scale` module.
 
 ## 0.4.9
 

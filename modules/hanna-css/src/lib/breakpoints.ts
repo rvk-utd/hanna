@@ -62,7 +62,9 @@ export const mq = /*#__PURE__*/ (() => {
     phone_phablet,
     phone_tablet,
     phone_netbook,
+    /** @deprecated Use `mq.phone_tablet` instead  (Will be removed in v0.5) */
     Hamburger,
+    /** @deprecated Use `mq.netbook_up` instead  (Will be removed in v0.5) */
     Topmenu,
   } as const;
 })();

@@ -37,7 +37,7 @@ export const PrimaryPanel_css = () => css`
 
   // ===========================================================================
 
-  @media ${mq.Hamburger} {
+  @media ${mq.phone_tablet} {
     .PrimaryPanel {
       padding-bottom: ${prem(24)};
       padding-left: var(--MainMenu--offsetLeft);
@@ -67,7 +67,7 @@ export const PrimaryPanel_css = () => css`
 
   // ===========================================================================
 
-  @media ${mq.Topmenu} {
+  @media ${mq.netbook_up} {
     .PrimaryPanel {
       display: grid;
       align-content: flex-start;

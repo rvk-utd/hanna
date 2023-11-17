@@ -34,7 +34,7 @@ export const AuxiliaryPanel_css = () => css`
 
   // ===========================================================================
 
-  @media ${mq.Hamburger} {
+  @media ${mq.phone_tablet} {
     .AuxiliaryPanel {
       position: relative;
       background-color: ${vars.color_suld_25};
@@ -92,7 +92,7 @@ export const AuxiliaryPanel_css = () => css`
 
   // ===========================================================================
 
-  @media ${mq.Topmenu} {
+  @media ${mq.netbook_up} {
     .AuxiliaryPanel {
       grid-column: span 4;
 

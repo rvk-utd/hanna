@@ -116,7 +116,7 @@ export default css`
   //  Mobile / Hamburger
   // ===========================================================================
 
-  @media ${mq.Hamburger} {
+  @media ${mq.phone_tablet} {
     .Layout__header {
       box-shadow: 0 0 0.33em 0.33em ${vars.Layout$$header_backgroundColor};
 
@@ -208,7 +208,7 @@ export default css`
   //  Desktop
   // ===========================================================================
 
-  @media ${mq.Topmenu} {
+  @media ${mq.netbook_up} {
     .Layout__header__skiplink {
       ${srOnly_focusable()}
     }

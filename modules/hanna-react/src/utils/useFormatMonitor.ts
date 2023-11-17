@@ -1,4 +1,4 @@
-import { getFormatMonitor } from '@reykjavik/hanna-utils';
+import { getFormatMonitor, MediaFormat } from '@reykjavik/hanna-utils';
 import { makeFormatMonitorHook } from 'formatchange/react';
 
 // ==================================================
@@ -30,16 +30,10 @@ import { makeFormatMonitorHook } from 'formatchange/react';
  *  // type Formats = 'phone' | 'phablet' | 'tablet' | 'netbook' | 'wide'
  *  media.is // : Format
  *  media.was // ?: Format
- *  // Category/mode boolean flags
- *  // (Hamburger refers to the "mobile menu" mode)
- *  media.isTopmenu
- *  media.isHamburger
- *  media.wasTopmenu
- *  media.wasHamburger
- *  media.becameTopmenu
- *  media.becameHamburger
- *  media.leftTopmenu
- *  media.leftHamburger
  * ```
  */
-export const useFormatMonitor = makeFormatMonitorHook(getFormatMonitor);
+export const useFormatMonitor: HookTypeWithDeprecation =
+  makeFormatMonitorHook(getFormatMonitor);
+
+// @deprecated (Remove this type when we reach v0.11)
+type HookTypeWithDeprecation = (callback: (media: MediaFormat) => void) => void;

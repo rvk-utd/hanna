@@ -10,6 +10,9 @@ const htmlClass = (className: string, add: boolean) => {
 
 const noop = () => undefined;
 
+const HamburgerMedias: Record<string, 1> = { phone: 1, phablet: 1, tablet: 1 };
+// const TopmenuMedias: Record<string, 1> = { netbook: 1, wide: 1 };
+
 // ---------------------------------------------------------------------------
 
 type MenuTogglingState = {
@@ -82,12 +85,15 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
   useFormatMonitor(
     doInitialize
       ? (media) => {
-          if (media.becameHamburger) {
+          const becameHamburger =
+            HamburgerMedias[media.is] && !HamburgerMedias[media.was || ''];
+          const leftHamburger =
+            !HamburgerMedias[media.is] && HamburgerMedias[media.was || ''];
+          if (becameHamburger) {
             setMenuState((state) => ({ ...state, isMenuActive: true }));
             htmlClass('menu-is-active', true);
             htmlClass('menu-is-closed', true);
-          }
-          if (media.leftHamburger) {
+          } else if (leftHamburger) {
             _closeMenu();
             setMenuState((state) => ({ ...state, isMenuActive: undefined }));
             htmlClass('menu-is-active', false);

@@ -1,7 +1,7 @@
 import { color, css, px } from 'es-in-css';
 
 import { srOnly_focusable, srOnly_focusableContent } from '../lib/a11y.js';
-import { scale_Topmenu } from '../lib/between.js';
+import { scale_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { colors } from '../lib/colors.js';
@@ -28,6 +28,10 @@ const TopMenuVariables = buildVariables(['item_padding'], 'MainMenu');
 const tmVars = TopMenuVariables.vars;
 
 const menu_speed = '400ms';
+
+const mq_Hamburger = mq.phone_tablet;
+const mq_Topmenu = mq.netbook_up;
+const scaleTopmenu = scale_netbook;
 
 // ---------------------------------------------------------------------------
 
@@ -88,7 +92,7 @@ export default css`
   //
   // ===========================================================================
 
-  @media ${mq.Hamburger} {
+  @media ${mq_Hamburger} {
     ${htmlCl.beforeSprinkling} .MainMenu:not([data-sprinkled]) {
       display: none;
     }
@@ -241,7 +245,7 @@ export default css`
   //
   // ===========================================================================
 
-  @media ${mq.Topmenu} {
+  @media ${mq_Topmenu} {
     html[data-mega-panel-active] {
       ${whiteLogo}
     }
@@ -269,8 +273,8 @@ export default css`
       padding-bottom: calc(
         ${vars.link_underline__thickness} + ${vars.link_underline_offset}
       );
-      margin-right: ${scale_Topmenu(-8, -20)};
-      margin-left: ${scale_Topmenu(-14, -20)};
+      margin-right: ${scaleTopmenu(-8, -20)};
+      margin-left: ${scaleTopmenu(-14, -20)};
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -283,12 +287,12 @@ export default css`
 
     .MainMenu__item {
       ${TopMenuVariables.declare({
-        item_padding: scale_Topmenu(4, 10),
+        item_padding: scaleTopmenu(4, 10),
       })}
 
       color: ${vars.color_suld_200};
       white-space: nowrap;
-      margin: 0 ${scale_Topmenu(4, 10)};
+      margin: 0 ${scaleTopmenu(4, 10)};
 
       @media ${mq.wide} {
         margin-right: 10px;

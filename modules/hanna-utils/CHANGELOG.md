@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Deprecate `*Hamburger` and `*Topmenu` flags on `formatMonitor`'s media
+  agument
 
 ## 0.2.11 – 0.2.12
 

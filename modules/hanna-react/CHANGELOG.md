@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Deprecate `useFormatMonitor` media flags `*Hamburger`, `*Topmenu`
 
 ## 0.10.112
 

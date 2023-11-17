@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Deprecate variable `--bp-w-Hamburger` in favor of `--bp-w-netbook`
 
 ## 0.8.84
 

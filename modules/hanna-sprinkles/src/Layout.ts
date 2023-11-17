@@ -11,6 +11,9 @@ import { inlineSVG } from './utils/inlineSVG.js';
 
 const formatMonitor = getFormatMonitor();
 
+const HamburgerMedias: Record<string, 1> = { phone: 1, phablet: 1, tablet: 1 };
+// const TopmenuMedias: Record<string, 1> = { netbook: 1, wide: 1 };
+
 const htmlClass = document.documentElement.classList;
 
 window.Hanna.makeSprinkle({
@@ -92,9 +95,12 @@ window.Hanna.makeSprinkle({
     };
 
     const onFormatChange = (media: MediaFormat) => {
-      if (media.becameHamburger) {
+      const isHamburger = HamburgerMedias[media.is];
+      const wasHamburger = HamburgerMedias[media.was || ''];
+
+      if (isHamburger && !wasHamburger) {
         activateMenu();
-      } else if (media.leftHamburger) {
+      } else if (!isHamburger && wasHamburger) {
         dectivateMenu();
       }
     };

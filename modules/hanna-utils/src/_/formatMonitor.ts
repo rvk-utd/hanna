@@ -1,5 +1,6 @@
-import { FormatChange } from 'formatchange';
+import { BaseMedia, FormatChange } from 'formatchange';
 
+/** @deprecated  (Remove in coordintion with @reykjavik/hanna-react@0.11) */
 const formatGroups = {
   Hamburger: {
     phone: true,
@@ -45,10 +46,57 @@ let _formatMonitor: FormatChange<typeof formatGroups>;
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formatmonitor
  */
 export const getFormatMonitor = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!_formatMonitor) {
+    // eslint-disable-next-line deprecation/deprecation
     _formatMonitor = new FormatChange(formatGroups);
   }
   return _formatMonitor;
 };
 
-export type MediaFormat = typeof _formatMonitor.media;
+export type MediaFormat = BaseMedia & DeprecatedMediaGroups;
+// @deprecated (Re-enable this in coordintion with @reykjavik/hanna-react@0.11)
+// export type MediaFormat = typeof _formatMonitor.media;
+
+type DeprecatedMediaGroups = {
+  /** @deprecated Use `({ netbook: 1, wide: 1 })[media.is]` instead
+   *
+   * (Will be removed in coordintion with @reykjavik/hanna-react@0.11)
+   */
+  isTopmenu: boolean;
+  /** @deprecated Use `({ phone: 1, phablet: 1, tablet: 1 })[media.is]` instead
+   *
+   * (Will be removed in coordintion with @reykjavik/hanna-react@0.11)
+   */
+  isHamburger: boolean;
+  /** @deprecated Use `({ netbook: 1, wide: 1 })[media.was||'']` instead
+   *
+   * (Will be removed in coordintion with @reykjavik/hanna-react@0.11)
+   */
+  wasTopmenu: boolean;
+  /** @deprecated Use `({ phone: 1, phablet: 1, tablet: 1 })[media.was||'']` instead
+   *
+   * (Will be removed in coordintion with @reykjavik/hanna-react@0.11)
+   */
+  wasHamburger: boolean;
+  /** @deprecated Use `({ netbook: 1, wide: 1 })[media.is] && !({ netbook: 1, wide: 1 })[media.was||'']` instead
+   *
+   * (Will be removed in coordintion with @reykjavik/hanna-react@0.11)
+   */
+  becameTopmenu: boolean;
+  /** @deprecated Use `({ phone: 1, phablet: 1, tablet: 1 })[media.is] && !({ phone: 1, phablet: 1, tablet: 1 })[media.was||'']` instead
+   *
+   * (Will be removed in coordintion with @reykjavik/hanna-react@0.11)
+   */
+  becameHamburger: boolean;
+  /** @deprecated Use `!({ netbook: 1, wide: 1 })[media.is] && ({ netbook: 1, wide: 1 })[media.was||'']` instead
+   *
+   * (Will be removed in coordintion with @reykjavik/hanna-react@0.11)
+   */
+  leftTopmenu: boolean;
+  /** @deprecated Use `!({ phone: 1, phablet: 1, tablet: 1 })[media.is] && ({ phone: 1, phablet: 1, tablet: 1 })[media.was||'']` instead
+   *
+   * (Will be removed in coordintion with @reykjavik/hanna-react@0.11)
+   */
+  leftHamburger: boolean;
+};

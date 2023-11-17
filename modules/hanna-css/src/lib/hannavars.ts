@@ -25,6 +25,7 @@ export const breakpointVars = /*@__PURE__*/ buildVariables([
   'bp_w_tablet',
   'bp_w_netbook',
   'bp_w_wide',
+  /** @deprecated  Use `hannaVars.bp_w_netbook` instead  (Will be removed in v0.11) */
   'bp_w_Hamburger',
 ]);
 
