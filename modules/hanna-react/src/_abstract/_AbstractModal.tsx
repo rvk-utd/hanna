@@ -203,12 +203,17 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
     }
   };
 
+  // ---
+  // Update open state when props.open changes. Icky but simple.
   const lastPropsOpen = useRef(props.open);
-  // Update state when props.open changes. Icky but simple.
   if (props.open !== lastPropsOpen.current && props.open !== open) {
     lastPropsOpen.current = props.open;
+    // these update state during render, which aborts the current render
+    // and triggers an immediate rerender.
     props.open ? openModal() : closeModal();
   }
+  lastPropsOpen.current = props.open;
+  // ---
 
   const closeOnCurtainClick =
     isFickle &&

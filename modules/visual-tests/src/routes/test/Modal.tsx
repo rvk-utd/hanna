@@ -59,7 +59,6 @@ export default function () {
   const [open, setOpen] = useState(false);
   const [modalData, setModalData] = useState<ModalData>();
 
-  const openModal = () => setOpen(true);
   const closeModal = () => {
     setModalData(undefined);
     setOpen(false);
@@ -72,7 +71,7 @@ export default function () {
           size="small"
           onClick={() => {
             setModalData(data);
-            openModal();
+            setOpen(true);
           }}
         >
           {data.buttonText}
@@ -81,42 +80,42 @@ export default function () {
     );
   });
 
+  const { width, bling } = modalData || {};
+
   return (
     <Minimal>
-      <Fragment>
-        {buttons}
-        {modalData && (
-          <Modal
-            modifier={modalData.width}
-            open={open}
-            onClosed={closeModal}
-            startOpen
-            // stable
-            // noCloseButton
-            bling={modalData.bling && renderBling()}
-            render={({ closeModal }) => {
-              return (
-                <Fragment>
-                  <Heading>Ertu viss?</Heading>
-                  <TextBlock>
-                    <p>
-                      Athugið að þegar hætt er við umsókn mun hún ekki vistast og þú munt
-                      þurfa að byrja upp á nýtt.
-                    </p>
-                    {modalData.width === 'w10' && <p>{loremRT.long(true)}</p>}
-                  </TextBlock>
-                  <ButtonBar>
-                    <ButtonSecondary onClick={closeModal}>
-                      Nei, halda áfram með umsókn
-                    </ButtonSecondary>{' '}
-                  </ButtonBar>
-                  {'\n\n'}
-                </Fragment>
-              );
-            }}
-          />
-        )}
-      </Fragment>
+      {buttons}
+      {modalData && (
+        <Modal
+          modifier={width}
+          open={open}
+          onClosed={closeModal}
+          startOpen
+          // stable
+          // noCloseButton
+          bling={bling && renderBling()}
+          render={({ closeModal }) => {
+            return (
+              <Fragment>
+                <Heading>Ertu viss?</Heading>
+                <TextBlock>
+                  <p>
+                    Athugið að þegar hætt er við umsókn mun hún ekki vistast og þú munt
+                    þurfa að byrja upp á nýtt.
+                  </p>
+                  {width === 'w10' && <p>{loremRT.long(true)}</p>}
+                </TextBlock>
+                <ButtonBar>
+                  <ButtonSecondary onClick={closeModal}>
+                    Nei, halda áfram með umsókn
+                  </ButtonSecondary>{' '}
+                </ButtonBar>
+                {'\n\n'}
+              </Fragment>
+            );
+          }}
+        />
+      )}
     </Minimal>
   );
 }
