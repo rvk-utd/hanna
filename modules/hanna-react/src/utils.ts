@@ -7,7 +7,10 @@ export * from './utils/useDidChange.js';
 export * from './utils/useDomid.js';
 export * from './utils/useFormatMonitor.js';
 export * from './utils/useGetSVGtext.js';
-export * from './utils/useMenuToggling.js';
+export {
+  /** @deprecated  (Will be removed in v0.11) */
+  useMenuToggling,
+} from './utils/useMenuToggling.js';
 export * from './utils/useMixedControlState.js';
 export * from './utils/useScrollbarWidthCSSVar.js';
 

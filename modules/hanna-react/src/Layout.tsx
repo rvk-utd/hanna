@@ -7,10 +7,10 @@ import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 import { issueSiteNameWarningInDev, renderLayoutHomeLink } from './_abstract/_Layouts.js';
 import { Link } from './_abstract/_Link.js';
 import { BemModifierProps } from './utils/types.js';
+import { useMenuToggling } from './utils/useMenuToggling.js';
 import {
   HannaUIState,
   SSRSupportProps,
-  useMenuToggling,
   useScrollbarWidthCSSVar,
   WrapperElmProps,
 } from './utils.js';

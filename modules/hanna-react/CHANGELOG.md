@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Deprecate `useFormatMonitor` media flags `*Hamburger`, `*Topmenu`
+- feat: Deprecate `useMenuToggling` hook
 
 ## 0.10.112
 
@@ -157,7 +158,7 @@ _2023-07-26_
 _2023-07-25_
 
 - feat: Add optional `altText` parameter to `useGetSVGtext()`
-- feat: Export `useMenuToggling` from 'utils' module
+- feat: Export `useMenuToggling` from `utils` module
 - feat: Export `SSRSupportProps` type
 - perf: Reduce render thrashing of `Layout`'s navChildren
 - fix: `Layout` components set `alt="Reykjavík"` text on their header logo
