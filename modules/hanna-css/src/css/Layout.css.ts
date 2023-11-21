@@ -86,7 +86,7 @@ export default css`
       --logo-fill-color: ${vars.Layout$$header_logo_color};
       --logo-text-color: ${vars.Layout$$header_color};
       --logo-background-color: ${vars.Layout$$header_backgroundColor};
-      /* --logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in; */
+      --logo-transition: 200ms var(--logo-transition-delay, 100ms) ease-in;
       /* --logo-transition-delay: 0ms; */
       ${hannaVarOverride({
         link_focus_outline: vars.Layout$$header_color,
@@ -103,6 +103,9 @@ export default css`
       flex-grow: 1;
       padding-bottom: ${vars.space_4};
       min-height: 60vh;
+    }
+
+    .Layout__nav {
     }
 
     .Layout__footer {
@@ -191,7 +194,7 @@ export default css`
       background-color: ${vars.color_suld_0};
       opacity: 0;
       visibility: hidden;
-      transition: (opacity 400ms 200ms ease-in-out, visibility 0ms (400ms + 200ms));
+      transition: opacity 400ms 200ms ease-in-out, visibility 0ms 600ms;
     }
     ${htmlCl.menuIsOpen} .Layout__nav::before {
       transition-delay: 0ms;

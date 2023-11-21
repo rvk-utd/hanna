@@ -1,4 +1,4 @@
-import { color, css, px } from 'es-in-css';
+import { color, css, cssVal, px } from 'es-in-css';
 
 import { srOnly_focusable, srOnly_focusableContent } from '../lib/a11y.js';
 import { scale_netbook } from '../lib/between.js';
@@ -139,11 +139,11 @@ export default css`
       overflow-x: hidden;
       overflow-y: scroll;
 
-      transition: (
+      transition: ${cssVal`
         margin-top ${menu_speed} 0ms ease-in-out,
         opacity ${menu_speed} 0ms,
         visibility 0ms ${menu_speed}
-      );
+      `};
     }
 
     ${htmlCl.menuIsActive}:not(${htmlCl.menuIsOpen}) .MainMenu, // @deprecated ('htmlCl.menuIsOpen' is always set now) Remove this selector in v0.9
