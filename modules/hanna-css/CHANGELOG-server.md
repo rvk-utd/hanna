@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Deprecate variable `--bp-w-Hamburger` in favor of `--bp-w-netbook`
+- fix: Stop SVG minifier from re-introducing `<style/>` elements
 
 ## 0.8.84
 

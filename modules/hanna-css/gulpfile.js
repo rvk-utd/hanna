@@ -30,7 +30,7 @@ const [staticAssetsCompress, staticAssetsWatch] = imagesTaskFactory({
   name: 'assets',
   src: sourceFolder + 'assets/',
   dist: assetsDistFolder,
-  svgoRules: { inlineStyles: false },
+  // svgoRules: { inlineStyles: true },
   // Note the imagesTaskFactory simply copies over any file-types
   // it doesn't recognize as compressible images.
   glob: ['**/*', '!_raw/**'],
