@@ -209,7 +209,7 @@ export type EitherObj<A, B, C = boolean, D = boolean> = C extends boolean
 /**
  * A variant of `Omit` that distributes over unions.
  *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ctype-omitdistributive
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-omitdistributive
  */
 export type OmitDistributive<T, K extends PropertyKey> = T extends any
   ? Omit<T, K>
@@ -218,7 +218,7 @@ export type OmitDistributive<T, K extends PropertyKey> = T extends any
 /**
  * A variant of `Pick` that distributes over unions.
  *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ctype-pickdistributive
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-pickdistributive
  */
 export type PickDistributive<T, K extends keyof T> = T extends any ? Pick<T, K> : never;
 
@@ -228,7 +228,7 @@ export type PickDistributive<T, K extends keyof T> = T extends any ? Pick<T, K> 
  * Converts a type so that all optional keys are required
  * and mmust be explicitly set to `undefined`.
  *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ctype-requireexplicitundefined
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-requireexplicitundefined
  */
 export type RequireExplicitUndefined<T> = {
   [K in keyof Required<T>]: undefined extends T[K] ? T[K] | undefined : T[K];
