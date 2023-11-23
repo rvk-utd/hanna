@@ -200,9 +200,14 @@ export const Multiselect = (props: MultiselectProps) => {
         ? [...values, selValue]
         : values.filter((value) => value !== selValue);
 
-      const selectedValues = options
-        .filter((item) => _newValues.includes(item.value))
-        .map((item) => item.value);
+      const selectedValues = [
+        // deduplicate selectedValues
+        ...new Set(
+          options
+            .filter((item) => _newValues.includes(item.value))
+            .map((item) => item.value)
+        ),
+      ];
 
       setValues(selectedValues);
 

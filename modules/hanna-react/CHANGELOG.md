@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - feat: Deprecate `useFormatMonitor` media flags `*Hamburger`, `*Topmenu`
 - feat: Deprecate `useMenuToggling` hook
+- `Multiselect`:
+  - fix: Deduplicate the currentvalues list
 
 ## 0.10.112
 
