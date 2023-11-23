@@ -7,6 +7,7 @@
 - feat: Deprecate `useMenuToggling` hook
 - `Multiselect`:
   - fix: Deduplicate the currentvalues list
+  - fix: Manage focus after clicking remove buttons on currentvalues
 
 ## 0.10.112
 
