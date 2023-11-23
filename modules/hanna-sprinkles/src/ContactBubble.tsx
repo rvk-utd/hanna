@@ -58,10 +58,17 @@ window.Hanna.makeSprinkle({
 
   init: (elm: HTMLElement) => {
     const props = getContactBubbleData(elm);
-    const root = document.createElement('div');
-
-    ReactDOM.render(<ContactBubble {...props} ssr={false} />, root, () => {
-      elm.replaceWith(root);
+    const root = elm;
+    elm.getAttributeNames().forEach((attrName) => {
+      elm.removeAttribute(attrName);
     });
+
+    ReactDOM.render(<ContactBubble {...props} ssr={false} />, root);
+
+    return root;
+  },
+
+  unmount: (elm: HTMLElement, root) => {
+    ReactDOM.unmountComponentAtNode(root);
   },
 });

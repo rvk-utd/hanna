@@ -158,16 +158,21 @@ window.Hanna.makeSprinkle({
         }
       });
 
-      const root = document.createElement('div');
+      const root = elm;
+      elm.getAttributeNames().forEach((attrName) => {
+        elm.removeAttribute(attrName);
+      });
 
       ReactDOM.render(
         <SprinkledTabs {...props} wrapperProps={autoSeenEffectWrapperProps(elm)} />,
         root,
-        () => {
-          elm.replaceWith(root);
-          autoSeenEffectsRefresh();
-        }
+        () => autoSeenEffectsRefresh()
       );
+      return root;
     }
+  },
+
+  unmount: (elm: HTMLElement, root) => {
+    root && ReactDOM.unmountComponentAtNode(root);
   },
 });

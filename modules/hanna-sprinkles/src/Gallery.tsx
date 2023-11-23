@@ -38,15 +38,20 @@ window.Hanna.makeSprinkle({
 
   init: (elm: HTMLElement) => {
     const props = getGalleryData(elm);
-    const root = document.createElement('div');
+    const root = elm;
+    elm.getAttributeNames().forEach((attrName) => {
+      elm.removeAttribute(attrName);
+    });
 
     ReactDOM.render(
       <Gallery {...props} ssr={false} wrapperProps={autoSeenEffectWrapperProps(elm)} />,
       root,
-      () => {
-        elm.replaceWith(root);
-        autoSeenEffectsRefresh();
-      }
+      () => autoSeenEffectsRefresh()
     );
+
+    return root;
+  },
+  unmount: (elm: HTMLElement, root) => {
+    ReactDOM.unmountComponentAtNode(root);
   },
 });

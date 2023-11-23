@@ -60,10 +60,7 @@ window.Hanna.makeSprinkle({
         wrapperProps={autoSeenEffectWrapperProps(elm)}
       />,
       root,
-      () => {
-        elm.replaceWith(root);
-        autoSeenEffectsRefresh();
-      }
+      () => autoSeenEffectsRefresh()
     );
     return root;
   },
