@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import React, { useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
@@ -8,10 +8,7 @@ import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
 import { WrapperElmProps } from '@reykjavik/hanna-react/utils.js';
 import { notNully } from '@reykjavik/hanna-utils';
 
-import {
-  autoSeenEffectsRefresh,
-  autoSeenEffectWrapperProps,
-} from './utils/addSeenEffect.js';
+import { autoSeenEffectsRefresh, autoSeenEffectWrapperProps } from './_/addSeenEffect.js';
 
 const setPanelDisplay = (panelElm: HTMLElement, isActive: boolean) => {
   if (isActive) {

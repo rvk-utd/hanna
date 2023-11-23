@@ -1,4 +1,4 @@
-import '../../initHannaNamespace.js';
+import '../../_/initHannaNamespace.js';
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
@@ -13,8 +13,8 @@ import { SiteSearchInput } from '@reykjavik/hanna-react/SiteSearchInput';
 import { printDate } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
-import ensureCSS from '../_ensureCSS.js';
-import { getLang } from '../_getLang.js';
+import ensureCSS from '../../_/ensureCSS.js';
+import { getLang } from '../../_/getLang.js';
 
 import {
   ElasticSource,

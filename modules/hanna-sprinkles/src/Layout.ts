@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import E from '@hugsmidjan/qj/E';
 import q from '@hugsmidjan/qj/q';
@@ -6,8 +6,8 @@ import { defaultLayoutTexts } from '@reykjavik/hanna-react/Layout';
 import { focusElement, getFormatMonitor, MediaFormat } from '@reykjavik/hanna-utils';
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { getLang } from './utils/_getLang.js';
-import { inlineSVG } from './utils/inlineSVG.js';
+import { getLang } from './_/getLang.js';
+import { inlineSVG } from './_/inlineSVG.js';
 
 const formatMonitor = getFormatMonitor();
 

@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import E from '@hugsmidjan/qj/E';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
@@ -8,7 +8,7 @@ import { defaultMainMenuTexts } from '@reykjavik/hanna-react/MainMenu';
 import { getFormatMonitor, MediaFormat } from '@reykjavik/hanna-utils';
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { getLang } from './utils/_getLang.js';
+import { getLang } from './_/getLang.js';
 
 const formatMonitor = getFormatMonitor();
 

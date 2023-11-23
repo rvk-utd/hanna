@@ -1,6 +1,6 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
-import { inlineSVG } from './utils/inlineSVG.js';
+import { inlineSVG } from './_/inlineSVG.js';
 
 window.Hanna.makeSprinkle({
   name: 'IslandBlock',

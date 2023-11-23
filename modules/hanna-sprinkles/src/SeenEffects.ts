@@ -1,9 +1,9 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import addSeenEffect, {
   autoSeenEffectPrepare,
   hasLegacySeenEffectsCSS,
-} from './utils/addSeenEffect.js';
+} from './_/addSeenEffect.js';
 
 const noop = () => undefined;
 

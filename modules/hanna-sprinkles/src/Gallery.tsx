@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -6,11 +6,8 @@ import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { Gallery, GalleryItemProps, GalleryProps } from '@reykjavik/hanna-react/Gallery';
 
-import { getLang } from './utils/_getLang.js';
-import {
-  autoSeenEffectsRefresh,
-  autoSeenEffectWrapperProps,
-} from './utils/addSeenEffect.js';
+import { autoSeenEffectsRefresh, autoSeenEffectWrapperProps } from './_/addSeenEffect.js';
+import { getLang } from './_/getLang.js';
 
 const getGalleryData = (elm: HTMLElement): GalleryProps => {
   const lang = getLang(elm);

@@ -1,7 +1,7 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
-import { detectEdgeScroll } from './utils/_detectEdgeScroll.js';
-import { autoSeenEffectPrepare, autoSeenEffectsRefresh } from './utils/addSeenEffect.js';
+import { autoSeenEffectPrepare, autoSeenEffectsRefresh } from './_/addSeenEffect.js';
+import { detectEdgeScroll } from './_/detectEdgeScroll.js';
 
 // ---------------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import type { iframeResizer as iFR } from 'iframe-resizer';
 // @ts-expect-error  (reason: `iframe-resizer`'s exports are not treeshakeable, so we must target a source file directly)

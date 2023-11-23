@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import aquireId from '@hugsmidjan/qj/aquireId';
 import E from '@hugsmidjan/qj/E';

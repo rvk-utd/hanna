@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import { getSVGtext } from '@reykjavik/hanna-utils';
 import { BlingType, getBlingUrl } from '@reykjavik/hanna-utils/assets';

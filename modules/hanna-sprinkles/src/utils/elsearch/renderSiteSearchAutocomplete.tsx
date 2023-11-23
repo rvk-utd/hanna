@@ -1,4 +1,4 @@
-import '../../initHannaNamespace.js';
+import '../../_/initHannaNamespace.js';
 
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
@@ -8,8 +8,8 @@ import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocom
 import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
 import { HannaLang } from '@reykjavik/hanna-utils/i18n.js';
 
-import ensureCSS from '../_ensureCSS.js';
-import { getLang } from '../_getLang.js';
+import ensureCSS from '../../_/ensureCSS.js';
+import { getLang } from '../../_/getLang.js';
 
 import { createElasticQuery, postQuery } from './reykjavik.is.js';
 

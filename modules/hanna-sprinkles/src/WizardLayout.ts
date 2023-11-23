@@ -1,8 +1,8 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import q from '@hugsmidjan/qj/q';
 
-import { inlineSVG } from './utils/inlineSVG.js';
+import { inlineSVG } from './_/inlineSVG.js';
 
 window.Hanna.makeSprinkle({
   name: 'WizardLayout',

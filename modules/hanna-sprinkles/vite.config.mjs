@@ -13,15 +13,16 @@ const scriptsGlobs = `${srcDir}/**/*.{ts,tsx}`;
 const ignore = [
   // The index (namespace init) file is not an entry point
   // and is built separately by `build.mjs`
-  `${srcDir}index.{ts,tsx}`,
+  `${srcDir}/index.{ts,tsx}`,
   // declaration files
-  `${srcDir}**/*.d.ts`,
+  `${srcDir}/**/*.d.ts`,
   // Dummy partials. No entry points should start with "_"
-  `${srcDir}**/_*.{ts,tsx}`,
+  `${srcDir}/**/_/*`,
+  `${srcDir}/**/_*`,
   // test files
   testGlobs,
   // `*.privates.js` contain private bits that need testing
-  `${srcDir}**/*.privates.{ts,tsx}`,
+  `${srcDir}/**/*.privates.{ts,tsx}`,
 ];
 
 const stripExt = (/** @type {string} */ path) => path.replace(/\.[^.]+$/, '');
@@ -31,7 +32,7 @@ const stripExt = (/** @type {string} */ path) => path.replace(/\.[^.]+$/, '');
 const makeInputMap = (/** @type {Array<string>} */ files) /*: InputMap */ =>
   files.reduce(
     (inputMap, fileName) => {
-      const outToken = stripExt(fileName).slice(srcDir.length);
+      const outToken = stripExt(fileName).slice(srcDir.length + 1);
       inputMap[outToken] = fileName;
       return inputMap;
     },

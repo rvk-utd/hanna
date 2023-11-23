@@ -7,8 +7,8 @@ import { Alert, AlertProps } from '@reykjavik/hanna-react/Alert';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { HannaLang } from '@reykjavik/hanna-utils/i18n';
 
-import ensureCSS from './_ensureCSS.js';
-import { getLang } from './_getLang.js';
+import ensureCSS from '../_/ensureCSS.js';
+import { getLang } from '../_/getLang.js';
 
 const DISMISSAL_KEY_PREFIX = 'alert-dismissed-';
 

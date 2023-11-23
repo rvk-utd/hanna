@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -11,10 +11,7 @@ import {
   ArticleCarouselProps,
 } from '@reykjavik/hanna-react/ArticleCarousel';
 
-import {
-  autoSeenEffectsRefresh,
-  autoSeenEffectWrapperProps,
-} from './utils/addSeenEffect.js';
+import { autoSeenEffectsRefresh, autoSeenEffectWrapperProps } from './_/addSeenEffect.js';
 
 const getArticleCarouselData = (elm: HTMLElement): ArticleCarouselProps => {
   const moreLabel = q('.ArticleCarouselCard__morelink', elm)?.textContent || '';
@@ -51,7 +48,10 @@ window.Hanna.makeSprinkle({
 
   init: (elm: HTMLElement) => {
     const props = getArticleCarouselData(elm);
-    const root = document.createElement('div');
+    const root = elm;
+    elm.getAttributeNames().forEach((attrName) => {
+      elm.removeAttribute(attrName);
+    });
 
     ReactDOM.render(
       <ArticleCarousel
@@ -65,5 +65,9 @@ window.Hanna.makeSprinkle({
         autoSeenEffectsRefresh();
       }
     );
+    return root;
+  },
+  unmount: (elm: HTMLElement, root) => {
+    ReactDOM.unmountComponentAtNode(root);
   },
 });

@@ -1,4 +1,4 @@
-import './initHannaNamespace.js';
+import './_/initHannaNamespace.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -12,7 +12,7 @@ import {
 } from '@reykjavik/hanna-react/ContactBubble';
 import { notNully } from '@reykjavik/hanna-utils';
 
-import { getLang } from './utils/_getLang.js';
+import { getLang } from './_/getLang.js';
 
 const itemTypeRe = /(?:^| )ContactBubble__item--type--(.+?)(?: |$)/;
 

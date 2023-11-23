@@ -8,9 +8,9 @@ import {
   VerticalTabsTOCProps,
 } from '@reykjavik/hanna-react/VerticalTabsTOC';
 
-import ensureCSS from './_ensureCSS.js';
-import { getLang } from './_getLang.js';
-import { autoSeenEffectsRefresh, hasLegacySeenEffectsCSS } from './addSeenEffect.js';
+import { autoSeenEffectsRefresh, hasLegacySeenEffectsCSS } from '../_/addSeenEffect.js';
+import ensureCSS from '../_/ensureCSS.js';
+import { getLang } from '../_/getLang.js';
 
 const setPanelVisibility = (panelElm: HTMLElement, isActive: boolean) => {
   if (isActive) {

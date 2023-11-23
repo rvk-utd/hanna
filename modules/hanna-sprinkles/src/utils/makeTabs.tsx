@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { TabItemProps, Tabs, TabsProps } from '@reykjavik/hanna-react/Tabs';
 
-import ensureCSS from './_ensureCSS.js';
+import ensureCSS from '../_/ensureCSS.js';
 
 export type { TabsProps } from '@reykjavik/hanna-react/Tabs';
 
