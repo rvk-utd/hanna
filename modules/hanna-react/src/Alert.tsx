@@ -129,8 +129,8 @@ export const Alert = (props: AlertProps) => {
   const autoClose = Math.max(props.autoClose || 0, 0);
 
   const closing = useRef<ReturnType<typeof setTimeout>>();
-  const [open, setOpen] = useState(!!ssr);
   const isBrowser = useIsBrowserSide(ssr);
+  const [open, setOpen] = useState(!isBrowser);
   const showCloseButton = closable && (isBrowser || closeUrl != null);
   const { closeLabel, closeLabelLong } = getTexts(props, defaultAlertTexts);
 
