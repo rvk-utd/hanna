@@ -2,7 +2,7 @@ import React from 'react';
 import { getCssBundleUrl } from '@reykjavik/hanna-css';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../../utils/HiddenTiger.js';
 
 import { SearchHeroParagraph } from './_SearchHeroParagraph.js';
 

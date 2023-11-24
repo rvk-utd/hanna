@@ -4,7 +4,7 @@ import { ContentImage, ContentImageProps } from '@reykjavik/hanna-react/ContentI
 import { Meta, StoryObj } from '@storybook/react';
 
 import dummyImage from '../example_assets/Gallery--landscape--large.jpg';
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 type ControlProps = {
   captionText: boolean;
@@ -41,8 +41,8 @@ const ContentImageStory: React.FC<ControlProps> = ({ captionText, photoCredit })
 
   return (
     <HiddenTiger
-      serverSide={children}
-      clientSide={<CenterColumn>{children}</CenterColumn>}
+      htmlDemo={children}
+      visibleDemo={<CenterColumn>{children}</CenterColumn>}
     />
   );
 };

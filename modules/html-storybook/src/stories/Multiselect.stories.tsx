@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Multiselect, MultiselectOption } from '@reykjavik/hanna-react/Multiselect';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 import { FFControlProps, formFieldControls } from '../utils/knobs.js';
 
 type ControlProps = FFControlProps & {

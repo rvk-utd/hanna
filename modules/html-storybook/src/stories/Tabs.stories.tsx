@@ -4,7 +4,7 @@ import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
 import { SSRSupportProps, useIsBrowserSide } from '@reykjavik/hanna-react/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 // =========================== Tabs ==========================================
 

@@ -3,7 +3,7 @@ import TextInput from '@reykjavik/hanna-react/TextInput';
 import { useDomid } from '@reykjavik/hanna-react/utils';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 import { FFControlProps, formFieldControls } from '../utils/knobs.js';
 
 type ControlProps = FFControlProps & {
@@ -49,22 +49,24 @@ const makeStory = (ssr: boolean): StoryObj<ControlProps> => {
           onBlur={() => setFocused(false)}
         />
 
-        <HiddenTiger key={value + focused} style={{ maxWidth: 'var(--grid-8)' }}>
-          <br />
-          <br />
-          <p>
-            <strong>NOTE:</strong> The scripting-effects of the component toggle{' '}
-            <code>FromField--empty</code>, <code>FromField--filled</code> and{' '}
-            <code>FromField--focused</code> class--names on the outermost wrapper to
-            reflect the inputs status.
-          </p>
-          <br />
-          <p>
-            <strong>NOTE:</strong> When a component has a "placeholder" text, it can be{' '}
-            <strong>neither</strong> <code>--empty</code> (no visible value/placeholder){' '}
-            <strong>nor</strong> <code>--filled</code> (has actual input/value) at the
-            same time.
-          </p>
+        <HiddenTiger key={value + focused}>
+          <div style={{ maxWidth: 'var(--grid-8)' }}>
+            <br />
+            <br />
+            <p>
+              <strong>NOTE:</strong> The scripting-effects of the component toggle{' '}
+              <code>FromField--empty</code>, <code>FromField--filled</code> and{' '}
+              <code>FromField--focused</code> class--names on the outermost wrapper to
+              reflect the inputs status.
+            </p>
+            <br />
+            <p>
+              <strong>NOTE:</strong> When a component has a "placeholder" text, it can be{' '}
+              <strong>neither</strong> <code>--empty</code> (no visible value/placeholder){' '}
+              <strong>nor</strong> <code>--filled</code> (has actual input/value) at the
+              same time.
+            </p>
+          </div>
         </HiddenTiger>
       </Fragment>
     );

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { VSpacer, VSpacerProps } from '@reykjavik/hanna-react/VSpacer';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 const sizeOptions = ['small', 'default', 'large', 'xlarge'] satisfies Array<
   VSpacerProps['size']
@@ -30,12 +30,17 @@ const DummyContent = () => (
 
 const Component = (props: { highlight?: boolean }) => (
   <HiddenTiger
-    style={{
-      backgroundColor: 'rgba(0, 0 ,0, ' + (props.highlight ? '.1' : '.05'),
-      padding: '6% 5%',
-    }}
-    serverSide={DummyContent}
-    clientSide={DummyContent}
+    visibleDemo={
+      <div
+        style={{
+          backgroundColor: 'rgba(0, 0 ,0, ' + (props.highlight ? '.1' : '.05'),
+          padding: '6% 5%',
+        }}
+      >
+        {DummyContent}
+      </div>
+    }
+    htmlDemo={DummyContent}
   />
 );
 

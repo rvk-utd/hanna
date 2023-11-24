@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `.Layout__header__navlink`, deprecate `.Layout__header__skiplink`
+- fix: Remove cruft HTML that got into the documentation examples accidentally
 
 ## 0.8.35
 

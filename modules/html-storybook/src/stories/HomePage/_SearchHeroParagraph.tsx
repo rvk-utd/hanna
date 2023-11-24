@@ -8,7 +8,7 @@ import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocom
 import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
 import { illustrations } from '@reykjavik/hanna-utils/assets';
 
-import { HiddenTiger } from '../../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../../utils/HiddenTiger.js';
 
 const items = range(1, 5).map((value) => `Suggestion ${value}`);
 
@@ -28,14 +28,14 @@ export const SearchHeroParagraph = () => {
       </RowBlockColumn>
       <RowBlockColumn>
         <HiddenTiger
-          serverSide={() => (
+          htmlDemo={() => (
             <>
               <PageHeading>Hæ! Hvernig getum við aðstoðað?</PageHeading>
               {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
               <script id="SiteSearchRoot">// your script here</script>
             </>
           )}
-          clientSide={() => (
+          visibleDemo={() => (
             <SiteSearchCurtain>
               <PageHeading>Hæ! Hvernig getum við aðstoðað?</PageHeading>
               <SiteSearchAutocomplete

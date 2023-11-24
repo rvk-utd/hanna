@@ -26,6 +26,10 @@ const preview: Preview = {
         printWidth: 80,
         htmlWhitespaceSensitivity: 'ignore',
       },
+      transform: (code) =>
+        code
+          .replace(/<hidden-tiger hidden(?:="true")?>(.*?)<\/hidden-tiger>/g, '$1')
+          .replace(/<hidden-tiger>.*?<\/hidden-tiger>/g, ''),
     },
     controls: {
       matchers: {

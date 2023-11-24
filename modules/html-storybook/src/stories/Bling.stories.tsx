@@ -3,7 +3,7 @@ import { Bling, BlingParentOffset } from '@reykjavik/hanna-react/Bling';
 import { blingTypes, getBlingUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 const customOption = '- Custom SVG URL -';
 const blingOptions = [...blingTypes, customOption] as const;
@@ -48,7 +48,7 @@ const meta: Meta<ControlProps> = {
 export default meta;
 
 const Spacer = () => (
-  <HiddenTiger
+  <div
     style={{
       height: '47vh',
       background: 'rgba(222, 222, 222, .2)',
@@ -62,7 +62,7 @@ const Spacer = () => (
         borderRight: '1px dashed rgba(0,0,0,.15)',
       }}
     />
-  </HiddenTiger>
+  </div>
 );
 
 const BlingStory: React.FC<ControlProps> = ({
@@ -97,8 +97,21 @@ const BlingStory: React.FC<ControlProps> = ({
         placeInFrontOfOtherContent +
         insertionPoint
       }
-      style={{ position: 'relative' }}
-      serverSide={
+      visibleDemo={
+        <div style={{ position: 'relative' }}>
+          <Spacer />
+          <Bling
+            {...typeProps}
+            align={alignment}
+            vertical={verticalAlign}
+            color={colorVariant}
+            overlay={placeInFrontOfOtherContent}
+            parent={parent}
+          />
+          <Spacer />
+        </div>
+      }
+      htmlDemo={
         <Bling
           {...typeProps}
           align={alignment}
@@ -108,22 +121,7 @@ const BlingStory: React.FC<ControlProps> = ({
           parent={parent}
         />
       }
-    >
-      <Spacer />
-      {'\n\n\n'}
-
-      <Bling
-        {...typeProps}
-        align={alignment}
-        vertical={verticalAlign}
-        color={colorVariant}
-        overlay={placeInFrontOfOtherContent}
-        parent={parent}
-      />
-
-      {'\n\n\n'}
-      <Spacer />
-    </HiddenTiger>
+    />
   );
 };
 

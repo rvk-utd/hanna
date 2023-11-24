@@ -2,7 +2,7 @@ import React from 'react';
 import { Attention } from '@reykjavik/hanna-react/Attention';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 const meta: Meta = {
   title: 'Attention',

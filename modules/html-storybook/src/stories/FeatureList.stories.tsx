@@ -4,7 +4,7 @@ import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { getEfnistaknUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 const meta: Meta = {
   title: 'FeatureList',

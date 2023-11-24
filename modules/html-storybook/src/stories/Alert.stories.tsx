@@ -4,8 +4,9 @@ import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { Meta, StoryObj } from '@storybook/react';
 
 type ControlProps = {
-  closable: boolean;
   ssr: boolean;
+  closable: boolean;
+  ssrButtons: boolean;
 };
 
 const meta: Meta<ControlProps> = {
@@ -45,34 +46,36 @@ const alertDemos = {
   ),
 };
 
-const AlertStory = (props: ControlProps) => {
-  const closable = props.closable;
-  const closeLink = props.ssr && closable;
-
-  return (
-    <Fragment key={'' + closable + closeLink}>
-      {ObjectEntries(alertDemos).map(([type, contentFn], i) => (
-        <Alert
-          key={type}
-          type={type}
-          closable={closable}
-          closeUrl={closeLink ? '?closeAlert=' + (i + 1) : undefined}
-        >
-          {contentFn()}
-        </Alert>
-      ))}
-    </Fragment>
-  );
-};
-
 export const _Alert: StoryObj<ControlProps> = {
-  render: (args) => <AlertStory {...args} />,
+  render: (args) => {
+    const closable = args.closable;
+    const closeLink = args.ssrButtons && closable;
+    const ssr = args.ssr;
+
+    return (
+      <Fragment key={'' + closable + closeLink + ssr}>
+        {ObjectEntries(alertDemos).map(([type, contentFn], i) => (
+          <Alert
+            key={type}
+            type={type}
+            closable={closable}
+            closeUrl={closeLink ? '?closeAlert=' + (i + 1) : undefined}
+            ssr={ssr ? 'ssr-only' : undefined}
+          >
+            {contentFn()}
+          </Alert>
+        ))}
+      </Fragment>
+    );
+  },
   argTypes: {
+    ssr: { name: 'Server-side Markup' },
     closable: { name: 'Closable alert' },
-    ssr: { name: 'Server-side close buttons' },
+    ssrButtons: { name: 'Server-side close buttons' },
   },
   args: {
-    closable: true,
-    ssr: false,
+    ssr: true,
+    closable: false,
+    ssrButtons: false,
   },
 };

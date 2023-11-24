@@ -3,7 +3,7 @@ import { CenterColumn } from '@reykjavik/hanna-react/CenterColumn';
 import { RelatedLinkItem, RelatedLinks } from '@reykjavik/hanna-react/RelatedLinks';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 type ControlProps = {
   title: boolean;
@@ -54,10 +54,12 @@ const RelatedLinksStory: React.FC<ControlProps> = ({ title }) => {
   const displayTitle = title ? TITLE : undefined;
   const children = <RelatedLinks title={displayTitle} links={LINKS} />;
 
+  const key = title + '';
+
   return (
     <HiddenTiger
-      serverSide={children}
-      clientSide={<CenterColumn>{children}</CenterColumn>}
+      htmlDemo={children}
+      visibleDemo={<CenterColumn>{children}</CenterColumn>}
     />
   );
 };

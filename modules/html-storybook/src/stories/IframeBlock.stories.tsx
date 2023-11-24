@@ -3,7 +3,7 @@ import { IframeBlock } from '@reykjavik/hanna-react/IframeBlock';
 import { getAssetUrl } from '@reykjavik/hanna-utils/assets';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 type ControlProps = {
   rightAligned: boolean;
@@ -33,7 +33,7 @@ const IframeBlockStory: React.FC<ControlProps> = ({
   const onFixedHeight = fixedHeight ? { scrolling: true, height: 350 } : undefined;
   return (
     <HiddenTiger
-      clientSide={() => (
+      visibleDemo={() => (
         <>
           <IframeBlock
             title="Iframe example"
@@ -59,7 +59,7 @@ const IframeBlockStory: React.FC<ControlProps> = ({
           )}
         </>
       )}
-      serverSide={() => (
+      htmlDemo={() => (
         <IframeBlock
           title="Iframe example"
           src={src}

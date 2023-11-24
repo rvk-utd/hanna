@@ -2,7 +2,7 @@ import React from 'react';
 import { Footnote } from '@reykjavik/hanna-react/Footnote';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 const meta: Meta = {
   title: 'Footnote',

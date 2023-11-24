@@ -2,7 +2,7 @@ import React from 'react';
 import { ContactBubble } from '@reykjavik/hanna-react/ContactBubble';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 import { contactBubbleData } from './shared/contactBubble.data.js';
 

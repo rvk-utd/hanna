@@ -4,7 +4,7 @@ import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { TextBlock } from '@reykjavik/hanna-react/TextBlock';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 const meta: Meta = {
   title: 'Grid',
@@ -15,10 +15,10 @@ const CenterColumnStory = () => {
   return (
     <CenterColumn>
       <PageHeading>
-        <HiddenTiger serverSide="...">This is the page heading</HiddenTiger>
+        <HiddenTiger htmlDemo="...">This is the page heading</HiddenTiger>
       </PageHeading>
       <TextBlock>
-        <HiddenTiger serverSide="...">
+        <HiddenTiger htmlDemo="...">
           <p>
             The <code>CenterColumn</code> is for simple "article" layout.
           </p>

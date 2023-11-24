@@ -7,7 +7,7 @@ import { Selectbox } from '@reykjavik/hanna-react/Selectbox';
 import { TextInput } from '@reykjavik/hanna-react/TextInput';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HiddenTiger } from '../utils/HiddenTrigger.js';
+import { HiddenTiger } from '../utils/HiddenTiger.js';
 
 type ControlProps = {
   summaryText: boolean;
