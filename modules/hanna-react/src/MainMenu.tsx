@@ -397,7 +397,7 @@ export const _MainMenu = (props: MainMenuProps) => {
               aria-current={item.current || undefined}
             >
               {
-                onClick || (!!item.megaPanel && (isBrowser || !item.href)) ? (
+                isBrowser && !!(item.megaPanel || onClick) ? (
                   // only print script-driven buttons in the browser
                   <button
                     className="MainMenu__link"
