@@ -2,16 +2,18 @@ import { css } from 'es-in-css';
 
 import { srOnly_focusable } from '../lib/a11y.js';
 import { mq } from '../lib/breakpoints.js';
-import { htmlCl } from '../lib/classNames.js';
 import { isDevMode } from '../lib/cssutils.js';
 import { grid } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
-import { freezeScroll_css, LayoutHeaderHomeLink } from './styles/header.js';
+import { LayoutHeaderHomeLink } from './styles/header.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem, showColumnGridLines } from './utils/miscUtils.js';
+import { MobileMenuTogglerGlobalClasses } from './MobileMenuToggler.css.js';
+
+const { mobileMenuIsOpen } = MobileMenuTogglerGlobalClasses;
 
 export const whiteLogo = () =>
   hannaVarOverride({
@@ -98,6 +100,10 @@ export default css`
       pointer-events: auto;
     }
 
+    .Layout__header__navlink {
+      ${srOnly_focusable()}
+    }
+
     .Layout__main {
       padding-top: ${vars.Layout$$main_paddingTop};
       flex-grow: 1;
@@ -117,7 +123,6 @@ export default css`
 
   // ===========================================================================
   //  Mobile / Hamburger
-  // ===========================================================================
 
   @media ${mq.phone_tablet} {
     .Layout__header {
@@ -126,13 +131,15 @@ export default css`
       transition: all 200ms ease-in;
       transition-property: background-color, box-shadow;
     }
-    ${htmlCl.menuIsOpen} {
-      ${freezeScroll_css({ fixHeader: true })}
-    }
-    ${htmlCl.menuIsOpen} .Layout__header {
-      transition-duration: 400ms;
-    }
+  }
 
+  // ===========================================================================
+  // Deprecated  (Will be removed in v0.9) */
+  // ===========================================================================
+
+  // Mobile / Hamburger
+  @media ${mq.phone_tablet} {
+    /** @deprecated  (Will be removed in v0.9) */
     .Layout__header__skiplink[class] {
       ${hideText_css('soft')}
       ${LinkStyle_Reset(true)}
@@ -146,7 +153,7 @@ export default css`
       --open-icon-color: _inherit;
       --close-icon-color: transparent;
     }
-    ${htmlCl.menuIsOpen} .Layout__header__skiplink {
+    ${mobileMenuIsOpen} .Layout__header__skiplink {
       color: ${vars.color_suld_0};
       --open-icon-color: transparent;
       --close-icon-color: _inherit;
@@ -179,39 +186,15 @@ export default css`
       color: var(--close-icon-color);
     }
 
-    ${htmlCl.menuIsActive} .Layout__nav > * {
-      z-index: calc(${vars.zindex__header} - 1);
-    }
-    // Page content fadeout during menu open
-    ${htmlCl.menuIsActive} .Layout__nav::before {
-      content: '';
-      position: fixed;
-      z-index: calc(${vars.zindex__header} - 1);
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      background-color: ${vars.color_suld_0};
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 400ms 200ms ease-in-out, visibility 0ms 600ms;
-    }
-    ${htmlCl.menuIsOpen} .Layout__nav::before {
-      transition-delay: 0ms;
-      opacity: 1;
-      visibility: visible;
-    }
-
+    /** @deprecated  (Will be removed in v0.9) */
     .Layout__nav__closebutton {
       ${srOnly_focusable()}
     }
   }
 
-  // ===========================================================================
-  //  Desktop
-  // ===========================================================================
-
+  /* Desktop / Topmenu */
   @media ${mq.netbook_up} {
+    /** @deprecated  (Will be removed in v0.9) */
     .Layout__header__skiplink {
       ${srOnly_focusable()}
     }

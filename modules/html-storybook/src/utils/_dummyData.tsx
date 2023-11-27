@@ -5,7 +5,8 @@ import { ButtonTertiaryProps } from '@reykjavik/hanna-react/ButtonTertiary';
 import { ImageCardsItemProps } from '@reykjavik/hanna-react/ImageCards';
 import {
   AuxiliaryPanelProps,
-  MainMenuItemList,
+  MainMenuItem,
+  MainMenuSeparator,
   MegaMenuItem,
   MegaMenuPanel,
 } from '@reykjavik/hanna-react/MainMenu';
@@ -26,7 +27,7 @@ export const someButtons: Array<ButtonTertiaryProps> = [
   { onClick: () => alert('Hi!'), label: 'Button is ok!' },
 ];
 
-export const mainMenuItems: MainMenuItemList = [
+export const mainMenuItems: Array<MainMenuItem | MainMenuSeparator> = [
   // // Optional - as a default "Home" link is automatically inserted
   // {
   //   label: 'Forsíða',
@@ -46,6 +47,10 @@ export const mainMenuItems: MainMenuItemList = [
     label: 'Mannlíf',
     href: '#MegaMenu:Mannlíf',
   },
+  {
+    label: 'Button',
+    onClick: () => alert('Hi!'),
+  },
   '---',
   {
     label: 'EN',
@@ -63,7 +68,7 @@ export const mainMenuItems: MainMenuItemList = [
   },
   {
     label: 'Mínar síður',
-    href: '',
+    href: 'https://minarsidur.reykjavik.is',
     modifier: 'mypages',
   },
   {
@@ -73,6 +78,12 @@ export const mainMenuItems: MainMenuItemList = [
     modifier: 'search',
   },
 ];
+
+export const mainMenuItemsSimple: typeof mainMenuItems = mainMenuItems.map((item) =>
+  typeof item === 'object'
+    ? { ...item, href: item.href?.replace(/^#MegaMenu:/, '/') }
+    : item
+);
 
 const createPanelItems = (title: string, length: number, current?: number) => ({
   title,

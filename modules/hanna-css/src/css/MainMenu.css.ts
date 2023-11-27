@@ -16,10 +16,11 @@ import { ButtonVariables } from './styles/buttons.js';
 import { freezeScroll_css } from './styles/header.js';
 import { LinkStyle } from './styles/links.js';
 import { extendSides } from './utils/extendSides.js';
-import { grid_units, prem } from './utils/miscUtils.js';
+import { DEPS, grid_units, prem } from './utils/miscUtils.js';
 import { AuxiliaryPanel_css } from './_AuxiliaryPanel.js';
 import { PrimaryPanel_css } from './_PrimaryPanel.js';
 import { whiteHeader, whiteLogo } from './Layout.css.js';
+import { MobileMenuTogglerGlobalClasses } from './MobileMenuToggler.css.js';
 
 const HamburgerVariables = buildVariables(['offsetLeft', 'list__padTop'], 'MainMenu');
 const hmVars = HamburgerVariables.vars;
@@ -33,9 +34,14 @@ const mq_Hamburger = mq.phone_tablet;
 const mq_Topmenu = mq.netbook_up;
 const scaleTopmenu = scale_netbook;
 
+const { mobileMenuIsActive, mobileMenuIsOpen, mobileMenuIsClosed } =
+  MobileMenuTogglerGlobalClasses;
+
 // ---------------------------------------------------------------------------
 
 export default css`
+  ${DEPS('MobileMenuToggler')}
+
   @keyframes MainMenu__mega__item--fadeup {
     0% {
       opacity: 0;
@@ -124,7 +130,7 @@ export default css`
     .MainMenu[data-sprinkled] {
       display: none;
     }
-    ${htmlCl.menuIsActive} .MainMenu {
+    ${mobileMenuIsActive} .MainMenu {
       display: flex;
       position: fixed;
       /* Technically redundant but makes the component more resilient to extraneous div wrappers */
@@ -146,16 +152,16 @@ export default css`
       `};
     }
 
-    ${htmlCl.menuIsActive}:not(${htmlCl.menuIsOpen}) .MainMenu, // @deprecated ('htmlCl.menuIsOpen' is always set now) Remove this selector in v0.9
-	  ${htmlCl.menuIsClosed} .MainMenu {
+    ${mobileMenuIsActive}:not(${mobileMenuIsOpen}) .MainMenu, // @deprecated ('menuIsOpen' is always set now) Remove this selector in v0.9
+	  ${mobileMenuIsClosed} .MainMenu {
       visibility: hidden;
       opacity: 0;
       margin-top: -100vh;
     }
-    ${htmlCl.menuIsOpen} {
-      ${whiteHeader}
+    ${mobileMenuIsOpen} {
+      ${whiteHeader()}
     }
-    ${htmlCl.menuIsOpen} .MainMenu {
+    ${mobileMenuIsOpen} .MainMenu {
       transition-delay: 0ms;
 
       visibility: visible;
@@ -247,7 +253,7 @@ export default css`
 
   @media ${mq_Topmenu} {
     html[data-mega-panel-active] {
-      ${whiteLogo}
+      ${whiteLogo()}
     }
 
     :root {

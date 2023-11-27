@@ -4,12 +4,6 @@
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#htmlcl
  */
 export const htmlCl = {
-  /** Indicates that a "mobile page menu" toggling behavior is enabled/initialized */
-  menuIsActive: '.menu-is-active',
-  /** Indicates that a "mobile page menu" is active and open */
-  menuIsOpen: '.menu-is-open',
-  /** Indicates that a "mobile page menu" is active but closed */
-  menuIsClosed: '.menu-is-closed',
   /** Indicates that the page has just been routed to, and that JavaScript is
    * running.
    *
@@ -19,4 +13,27 @@ export const htmlCl = {
    * @see https://www.npmjs.com/package/@reykjavik/hanna-css#htmlcl
    */
   beforeSprinkling: '.before-sprinkling',
+
+  /* eslint-disable deprecation/deprecation */
+
+  /**
+   * @deprecated  Use `'.menu-is-active'` instead.  (Will be removed in v0.5)
+   *
+   * Indicates that a "mobile page menu" toggling behavior is enabled/initialized
+   */
+  menuIsActive: '.menu-is-active',
+  /**
+   * @deprecated  Use `'.menu-is-open'` instead.  (Will be removed in v0.5)
+   *
+   * Indicates that a "mobile page menu" is active and open
+   */
+  menuIsOpen: '.menu-is-open',
+  /**
+   * @deprecated  Use `'.menu-is-closed'` instead.  (Will be removed in v0.5)
+   *
+   * Indicates that a "mobile page menu" is active but closed
+   */
+  menuIsClosed: '.menu-is-closed',
+
+  /* eslint-enable deprecation/deprecation */
 } as const;

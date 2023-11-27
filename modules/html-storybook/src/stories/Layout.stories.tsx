@@ -47,14 +47,11 @@ const LayoutWithContentStory = (props: LayoutWithContentControlProps) => {
           </>
         )
       }
+      mainChildren={<p>...Main Content Components...</p>}
       navChildren={
         <>
           <BreadCrumbs trail={crumbTrail.slice(0, 2)} />
-          <MainMenu
-            items={mainMenuItems}
-            megaPanels={megaMenuPanels}
-            // ssr="ssr-only"
-          />
+          <MainMenu items={mainMenuItems} megaPanels={megaMenuPanels} />
         </>
       }
       footerChildren={
@@ -64,9 +61,7 @@ const LayoutWithContentStory = (props: LayoutWithContentControlProps) => {
           <ContactBubble {...contactBubbleData} alwaysShow />
         </>
       }
-    >
-      <p>...Main Content Components...</p>
-    </Layout>
+    />
   );
 };
 
@@ -104,7 +99,6 @@ const MinimalLayoutStory = (props: MinimalLayoutControlProps) => {
       siteName={props.siteName ? 'Website Name' : undefined}
       globalAlerts={globalAlerts && ' '}
       navChildren={navChildren}
-      ssr="ssr-only"
       mainChildren=""
     />
   );

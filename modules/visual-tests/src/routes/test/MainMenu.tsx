@@ -181,7 +181,7 @@ export const testing: TestingInfo = [
     label: 'hamburger',
     tags: ['firefox-phone', 'firefox-tablet'],
     extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
-      const hamburgerBtn = page.locator('.Layout__header__skiplink');
+      const hamburgerBtn = page.locator('.MainMenuToggler');
       const activePanel = page.locator('.PrimaryPanel--active');
       // NOTE: .MainMenu is the effective page-scroll-container in "hamburger-mode"
       const scrollContainer = page.locator('.MainMenu__items >> scrollContainer=');
@@ -229,7 +229,7 @@ export const testing: TestingInfo = [
       await localScreenshot(auxPanel, 'auxlink-hover');
 
       // Test close button hover
-      const closeBtn = page.locator('.Layout__header__skiplink');
+      const closeBtn = page.locator('.MainMenuToggler');
       await closeBtn.hover();
       await localScreenshot(closeBtn, 'closebtn-hover', { margin: true });
     },

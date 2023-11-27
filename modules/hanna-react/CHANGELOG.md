@@ -3,8 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Deprecate `useFormatMonitor` media flags `*Hamburger`, `*Topmenu`
-- feat: Deprecate `useMenuToggling` hook
+- Decouple all mobile-menu toggling logic from the `Layout` component
+  - feat: Deprecate `useFormatMonitor` media flags `*Hamburger`, `*Topmenu`
+  - feat: Deprecate `useMenuToggling` hook
+  - feat: Add `.Layout__header__navlink`
+  - feat: Make `MainMenu` define its own toggler button and "Hamburger" mode
+- feat: Add standalone `MobileMenuToggler` component
 - `Multiselect`:
   - fix: Deduplicate the currentvalues list
   - fix: Manage focus after clicking remove buttons on currentvalues

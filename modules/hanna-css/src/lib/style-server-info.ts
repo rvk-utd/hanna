@@ -70,6 +70,7 @@ export type CssModuleToken =
   | 'Layout-full'
   | 'MainMenu'
   | 'MiniMetrics'
+  | 'MobileMenuToggler'
   | 'Modal'
   | 'Multiselect'
   | 'NameCard'

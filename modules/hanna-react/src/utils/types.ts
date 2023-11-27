@@ -17,3 +17,10 @@ export type BemProps<Required extends boolean = false> = BemModifierProps &
         /** CSS BEM class-name prefix to be used for this component. Defaults to the same as the original component's displayName */
         bem?: string;
       });
+
+// ---------------------------------------------------------------------------
+
+export type I18NProps<Texts extends Record<string, unknown>> = {
+  texts?: Texts;
+  lang?: string;
+};

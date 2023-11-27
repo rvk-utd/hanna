@@ -1,8 +1,7 @@
-import { useRef, useState } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 import { focusElement } from '@reykjavik/hanna-utils';
 
-import { HannaUIStateState } from './HannaUIState.js';
-import { useFormatMonitor } from './useFormatMonitor.js';
+import { useFormatMonitor } from '../utils/useFormatMonitor.js';
 
 const htmlClass = (className: string, add: boolean) => {
   document.documentElement.classList[add ? 'add' : 'remove'](className);
@@ -20,12 +19,24 @@ type MenuTogglingState = {
   isMenuOpen: boolean;
   toggleMenu: () => void;
   closeMenu: () => void;
-  uiState: HannaUIStateState;
+  uiState: MobileMenuTogglerState;
 };
 
 // ---------------------------------------------------------------------------
 
-export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
+type Opts = {
+  doInitialize?: boolean;
+  togglerElm?: string | HTMLElement;
+};
+
+export const useMobileMenuToggling = (opts?: boolean | Opts): MenuTogglingState => {
+  const { doInitialize, togglerElm = '.MainMenuToggler' } =
+    typeof opts === 'boolean'
+      ? ({ doInitialize: opts } satisfies Opts)
+      : !opts
+      ? ({ doInitialize: true } satisfies Opts)
+      : opts;
+
   const stateRef = useRef({
     isMenuOpen: false,
     isMenuActive: undefined as true | undefined,
@@ -38,21 +49,24 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
         }
       : noop,
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    closeMenu: () => doInitialize && _closeMenu(),
+    closeMenu: doInitialize ? () => _closeMenu() : noop,
   });
 
-  const [{ isMenuOpen, isMenuActive, uiState }, setMenuState] = useState<{
-    isMenuOpen: boolean;
-    isMenuActive: true | undefined;
-    uiState: HannaUIStateState;
-  }>({
-    isMenuOpen: false,
-    isMenuActive: undefined,
-    uiState: {
-      closeHamburgerMenu: () => stateRef.current.closeMenu(),
-      isHamburgerMenuOpen: false,
-    },
-  });
+  const [{ isMenuOpen, isMenuActive, uiState }, setMenuState] = useState(
+    (): {
+      isMenuOpen: boolean;
+      isMenuActive: true | undefined;
+      uiState: MobileMenuTogglerState;
+    } => ({
+      isMenuOpen: false,
+      isMenuActive: undefined,
+      uiState: {
+        closeHamburgerMenu: () => stateRef.current.closeMenu(),
+        isHamburgerMenuOpen: false,
+        isHamburgerMenuActive: false,
+      },
+    })
+  );
 
   stateRef.current.isMenuOpen = isMenuOpen;
   stateRef.current.isMenuActive = isMenuActive;
@@ -66,7 +80,12 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
       }));
       htmlClass('menu-is-open', true);
       htmlClass('menu-is-closed', false);
-      focusElement('#pagenav');
+      const toggler =
+        typeof togglerElm === 'string' ? document.querySelector(togglerElm) : togglerElm;
+      const menuElmId = toggler?.getAttribute('aria-controls');
+      if (menuElmId) {
+        focusElement('#' + menuElmId);
+      }
     }
   };
   const _closeMenu = () => {
@@ -78,7 +97,7 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
       }));
       htmlClass('menu-is-closed', true);
       htmlClass('menu-is-open', false);
-      focusElement('.Layout__header__skiplink');
+      focusElement(togglerElm);
     }
   };
 
@@ -90,12 +109,20 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
           const leftHamburger =
             !HamburgerMedias[media.is] && HamburgerMedias[media.was || ''];
           if (becameHamburger) {
-            setMenuState((state) => ({ ...state, isMenuActive: true }));
+            setMenuState((state) => ({
+              ...state,
+              isMenuActive: true,
+              uiState: { ...state.uiState, isHamburgerMenuActive: true },
+            }));
             htmlClass('menu-is-active', true);
             htmlClass('menu-is-closed', true);
           } else if (leftHamburger) {
             _closeMenu();
-            setMenuState((state) => ({ ...state, isMenuActive: undefined }));
+            setMenuState((state) => ({
+              ...state,
+              isMenuActive: undefined,
+              uiState: { ...state.uiState, isHamburgerMenuActive: false },
+            }));
             htmlClass('menu-is-active', false);
             htmlClass('menu-is-closed', false);
           }
@@ -111,3 +138,21 @@ export const useMenuToggling = (doInitialize = true): MenuTogglingState => {
     uiState,
   };
 };
+
+// ===========================================================================
+
+export type MobileMenuTogglerState = {
+  closeHamburgerMenu: () => void;
+  isHamburgerMenuOpen: boolean | undefined;
+  isHamburgerMenuActive: boolean | undefined;
+};
+
+const _MobileMenuTogglerContext = createContext<MobileMenuTogglerState>({
+  closeHamburgerMenu: () => undefined,
+  isHamburgerMenuOpen: undefined,
+  isHamburgerMenuActive: undefined,
+});
+
+export const MobileMenuStateProvider = _MobileMenuTogglerContext.Provider;
+
+export const useMobileMenuTogglerState = () => useContext(_MobileMenuTogglerContext);

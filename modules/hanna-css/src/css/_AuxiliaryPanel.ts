@@ -4,6 +4,9 @@ import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars, linkVars } from '../lib/hannavars.js';
 
 import { cols_pct, grid_units, prem } from './utils/miscUtils.js';
+import { MobileMenuTogglerGlobalClasses } from './MobileMenuToggler.css.js';
+
+const { mobileMenuIsOpen, mobileMenuIsClosed } = MobileMenuTogglerGlobalClasses;
 
 export const AuxiliaryPanel_css = () => css`
   @media screen {
@@ -78,10 +81,10 @@ export const AuxiliaryPanel_css = () => css`
       padding-top: ${pct_f(115 / 325)};
     }
 
-    html.menu-is-open .AuxiliaryPanel::after {
+    ${mobileMenuIsOpen} .AuxiliaryPanel::after {
       transition: visibility 0s linear, opacity 600ms 200ms;
     }
-    html.menu-is-closed .AuxiliaryPanel::after {
+    ${mobileMenuIsClosed} .AuxiliaryPanel::after {
       visibility: hidden;
       opacity: 0;
       transition: visibility 0s 300ms linear, opacity 300ms;

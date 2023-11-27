@@ -21,7 +21,7 @@
       Hanna.loadSprinkles('Layout', 'MainMenu', 'ContactBubble');
       // .then(() => sleep(500))
       // .then((e) => {
-      // 	document.querySelector('.Layout__header__skiplink').click();
+      // 	document.querySelector('.MobileMenuToggler').click();
       // });
     </script>
   </head>
@@ -43,14 +43,17 @@
             </picture>
             Reykjavík
           </a>
-          <a class="Layout__header__skiplink" href="#pagenav" aria-label="Valmynd"
+          <a
+            class="Layout__header__navlink"
+            href="#pagenav"
+            aria-label="Fara í leiðakerfi"
             >Valmynd</a
           >
         </div>
         <div class="Layout__main" style="height: 600px">
           ...Main Content Components...
         </div>
-        <div class="Layout__nav" id="pagenav">
+        <div class="Layout__nav" id="pagenav" tabindex="-1" role="navigation">
           <div class="ContactBubble">
             <h2 class="ContactBubble__title">Hvað getum við gert fyrir þig?</h2>
 

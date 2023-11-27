@@ -2,15 +2,10 @@ import type { ElementRef } from 'react';
 
 export * from './utils/browserSide.js';
 export * from './utils/config.js';
-export { HannaUIState, useHannaUIState } from './utils/HannaUIState.js';
 export * from './utils/useDidChange.js';
 export * from './utils/useDomid.js';
 export * from './utils/useFormatMonitor.js';
 export * from './utils/useGetSVGtext.js';
-export {
-  /** @deprecated  (Will be removed in v0.11) */
-  useMenuToggling,
-} from './utils/useMenuToggling.js';
 export * from './utils/useMixedControlState.js';
 export * from './utils/useScrollbarWidthCSSVar.js';
 
@@ -54,3 +49,14 @@ export type MissingWrapperElmProps = {
    */
   wrapperProps?: undefined;
 };
+
+// ---------------------------------------------------------------------------
+
+export {
+  /** @deprecated  (Will be removed in v0.11) */
+  MobileMenuStateProvider as HannaUIState,
+  /** @deprecated  (Will be removed in v0.11) */
+  useMobileMenuTogglerState as useHannaUIState,
+  /** @deprecated  (Will be removed in v0.11) */
+  useMobileMenuToggling as useMenuToggling,
+} from './MobileMenuToggler/_useMobileMenuToggling.js';

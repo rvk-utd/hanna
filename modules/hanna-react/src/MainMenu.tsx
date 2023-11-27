@@ -1,13 +1,8 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 import { modifiedClass, Modifiers } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
-import { Cleanup } from '@reykjavik/hanna-utils';
-import {
-  DEFAULT_LANG,
-  DefaultTexts,
-  getTexts,
-  HannaLang,
-} from '@reykjavik/hanna-utils/i18n';
+import { Cleanup, EitherObj } from '@reykjavik/hanna-utils';
+import { DEFAULT_LANG, DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
 import {
@@ -22,10 +17,15 @@ import {
   PrimaryPanel,
   PrimaryPanelI18n,
 } from './MainMenu/_PrimaryPanel.js';
-import { useHannaUIState } from './utils/HannaUIState.js';
+import { I18NProps } from './utils/types.js';
 import { useFormatMonitor } from './utils/useFormatMonitor.js';
 import { useShortState } from './utils/useShortState.js';
-import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
+import {
+  MobileMenuToggler,
+  MobileMenuTogglerI18n,
+  useMobileMenuTogglerState,
+} from './MobileMenuToggler.js';
+import { SSRSupportProps, useDomid, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
 const findActivePanel = (megaPanels: ReadonlyArray<MegaMenuPanel>, activeId?: string) =>
   activeId ? megaPanels.find((panel) => activeId === panel.id) : undefined;
@@ -41,10 +41,11 @@ export type MainMenuI18n = Cleanup<
     title: string;
     /** @deprecated Not used (Will be removed in v0.11) */
     lang?: string;
-  } & PrimaryPanelI18n
+  } & PrimaryPanelI18n &
+    EitherObj<MobileMenuTogglerI18n, {}>
 >;
 
-export const defaultMainMenuTexts: DefaultTexts<Required<Omit<MainMenuI18n, 'lang'>>> = {
+export const defaultMainMenuTexts = {
   is: {
     title: 'Aðalvalmynd',
     homeLabel: 'Forsíða',
@@ -63,7 +64,7 @@ export const defaultMainMenuTexts: DefaultTexts<Required<Omit<MainMenuI18n, 'lan
     backToMenu: 'Zamknij',
     backToMenuLong: 'Zamknij i wróć do menu',
   },
-};
+} satisfies DefaultTexts<Omit<MainMenuI18n, 'lang'>>;
 
 // ---------------------------------------------------------------------------
 
@@ -149,36 +150,54 @@ export type {
 };
 
 export type MainMenuItem = {
+  /** Visible label text */
   label: string;
+  /** Un-abbreviated label set as `title=""` and `aria-label=""` */
   labelLong?: string;
+  /** Language of the link label */
   lang?: string;
+  /** Languge of the linked resource */
   hrefLang?: string;
+
   /**
-   * Puts a modifier className on the menu item element.
-   *
-   * Example:
-   *
-   * ```html
-   * <li class="MainMenu__item MainMenu__item--${modifier}">
-   * ```
+   * Puts a modifier className for the menu __item <li/> element.
    * */
   modifier?: Modifiers;
+  /** Signifies if the menu item is part of the page's breadcrumb trail */
   current?: boolean;
-  href?: string;
+
   /**
-   * Adding `onClick` automatically results in a <button/> element being rendered.
+   * The URL the link points to.
    *
-   * NOTE: Clicking a MainMenu item will automatically close HannaUIState's
+   * If neither `href` nor `onClick` is passed, then the item is not rendered
+   * at all.
+   */
+  href?: string;
+  /** Sets `target=""` on anchor tags with a `href` attribute. */
+  target?: React.HTMLAttributeAnchorTarget;
+
+  /**
+   * Adding `onClick` automatically results in a <button/> element being
+   * rendered. If `href` is also passed, then a <a href/> element is rendered
+   * during initial (server-side) render, which then gets replaced by a
+   * <button/> element during the first client-side render.
+   *
+   * NOTE: Clicking a menu item will automatically close HannaUIState's
    * "Hamburger menu" (a.k.a. "Mobile menu")
    * … unless the `onClick` function explicitly returns `false`.
    */
   onClick?: (index: number, item: MainMenuItem) => void | boolean;
+  /** Sets `aria-controls=""` on `<button/>`s with `onClick` */
   controlsId?: string;
-  target?: React.HTMLAttributeAnchorTarget;
 };
+
+/** String token that hints that a flexible space should be inserted at this
+ * point in the menu item list.
+ */
 export type MainMenuSeparator = '---';
+
 export type MainMenuItemList = Array<
-  MainMenuItem | MainMenuSeparator | (() => JSX.Element)
+  MainMenuItem | MainMenuSeparator | (() => ReactElement)
 >;
 
 export type MainMenuProps = {
@@ -202,12 +221,19 @@ export type MainMenuProps = {
    */
   onItemClick?: (index: number, item: MainMenuItem) => void | boolean;
   activePanelId?: string;
-  texts?: MainMenuI18n;
-  lang?: HannaLang;
 } & SSRSupportProps &
+  I18NProps<MainMenuI18n> &
   WrapperElmProps<null, 'aria-label'>;
 
-export const MainMenu = (props: MainMenuProps) => {
+/*
+  NOTE:
+  This is made into sub-component to allow using the `useMobileMenuTogglerState`
+  hook. This MainMenu component will eventually be deprecated, and we're
+  maintaining a bunch of already deprecated legacy hook/utils exports,
+  so it doesn't seem worth the effort to refactor this into something slightly
+  "cleaner", cecause that would increase more complexity for the legacy exports.
+*/
+export const _MainMenu = (props: MainMenuProps) => {
   const {
     megaPanels = emptyPanelList,
     onItemClick,
@@ -219,7 +245,7 @@ export const MainMenu = (props: MainMenuProps) => {
   const texts = getTexts(props, defaultMainMenuTexts);
   const title = props.title || texts.title;
 
-  const { closeHamburgerMenu } = useHannaUIState();
+  const { closeHamburgerMenu } = useMobileMenuTogglerState();
 
   const isBrowser = useIsBrowserSide(ssr);
 
@@ -448,6 +474,27 @@ export const MainMenu = (props: MainMenuProps) => {
         </div>
       )}
     </nav>
+  );
+};
+
+// ---------------------------------------------------------------------------
+
+export const MainMenu = (props: MainMenuProps) => {
+  const _wrapperProps = props.wrapperProps;
+  const id = useDomid(_wrapperProps && _wrapperProps.id);
+  const wrapperProps = _wrapperProps ? { ..._wrapperProps, id } : { id };
+
+  const texts = getTexts(props, defaultMainMenuTexts);
+
+  return (
+    <MobileMenuToggler
+      ssr={props.ssr}
+      lang={props.lang}
+      texts={texts.togglerLabel ? texts : undefined}
+      controlsId={id}
+    >
+      <_MainMenu {...props} wrapperProps={wrapperProps} />
+    </MobileMenuToggler>
   );
 };
 

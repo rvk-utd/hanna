@@ -123,8 +123,9 @@ export const LayoutHeaderHomeLink = () => css`
 export const freezeScroll_css = ({
   immediate = false,
   fixHeader = false,
-  hideSkiplink = false,
   hideAlerts = true,
+  /** @deprecated  (Will be removedin v0.9) */
+  hideSkiplink = false,
 }: FreezeScrollProps) => css`
   & {
     overflow-y: hidden;
@@ -151,13 +152,16 @@ export const freezeScroll_css = ({
       right: ${vars.browser_scrollbar_width};
     }
   `}
-    ${hideSkiplink &&
-  css`
-    .Layout__header__skiplink {
-      opacity: 0;
-      visibility: hidden;
-    }
-  `}
+  ${
+    /** @deprecated Remove this selector block in v0.9) */
+    hideSkiplink &&
+    css`
+      .Layout__header__skiplink {
+        opacity: 0;
+        visibility: hidden;
+      }
+    `
+  }
 `;
 
 // ---------------------------------------------------------------------------

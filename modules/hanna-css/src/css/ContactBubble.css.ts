@@ -11,6 +11,9 @@ import { iconStyle } from '../lib/icons.js';
 import { freezeScroll_css, LayoutHeaderUnderlay_css } from './styles/header.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem } from './utils/miscUtils.js';
+import { MobileMenuTogglerGlobalClasses } from './MobileMenuToggler.css.js';
+
+const { mobileMenuIsOpen } = MobileMenuTogglerGlobalClasses;
 
 const mq_Fullscreen = mq.phone_phablet;
 const mq_Popup = mq.tablet_up;
@@ -39,7 +42,7 @@ export default css`
     ${htmlCl.beforeSprinkling} .ContactBubble__wrapper:not([data-show]) {
       display: none;
     }
-    ${htmlCl.menuIsOpen} .ContactBubble__wrapper,
+    ${mobileMenuIsOpen} .ContactBubble__wrapper,
     .ContactBubble__wrapper[data-show='false'] {
       opacity: 0;
       visibility: hidden;

@@ -15,7 +15,7 @@ export const prem = (px: PlainNumber | PxValue) => {
   return rem(px / 16);
 };
 
-export const grid_units = (units = 1) => {
+export const grid_units = (units: PlainNumber = 1) => {
   return prem(units * grid.unit);
 };
 
