@@ -11,6 +11,7 @@ import { focusElm } from '@hugsmidjan/qj/focusElm';
 import { EitherObj } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
+import { FocusTrap } from '../FocusTrap.js';
 import {
   SSRSupportProps,
   useDomid,
@@ -20,7 +21,6 @@ import {
 import { BemProps } from '../utils/types.js';
 import { useCallbackOnEsc } from '../utils/useCallbackOnEsc.js';
 
-import { FocusTrap } from './_FocusTrap.js';
 import { Portal } from './_Portal.js';
 
 const MODAL_OPEN_CLASS = 'modal-open';

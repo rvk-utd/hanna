@@ -15,7 +15,11 @@ export type FocusTrapProps = {
   depth?: number;
 };
 
-/** A focus trap element that can be used to keep keyboard focus within a container block. */
+/**
+ * A focus trap element that can be used to keep keyboard focus within a container block.
+ *
+ * Make sure you only trap focus when a modal or
+ */
 export const FocusTrap = (props: FocusTrapProps) => {
   const Tag = props.Tag || 'span';
 

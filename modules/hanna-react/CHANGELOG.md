@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add accessibility helper component `FocusTrap`
 - Decouple all mobile-menu toggling logic from the `Layout` component
   - feat: Deprecate `useFormatMonitor` media flags `*Hamburger`, `*Topmenu`
   - feat: Deprecate `useMenuToggling` hook

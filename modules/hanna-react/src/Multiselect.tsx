@@ -11,12 +11,12 @@ import domId from '@hugsmidjan/qj/domid';
 import { notNully } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
-import { FocusTrap } from './_abstract/_FocusTrap.js';
 import { TogglerGroupFieldProps } from './_abstract/_TogglerGroupField.js';
 import { filterItems, SearchScoringfn } from './Multiselect/_Multiselect.search.js';
 import { useDomid } from './utils/useDomid.js';
 import { useOnClickOutside } from './utils/useOnClickOutside.js';
 import Checkbox from './Checkbox.js';
+import { FocusTrap } from './FocusTrap.js';
 import FormField, { getFormFieldWrapperProps } from './FormField.js';
 import TagPill from './TagPill.js';
 import { useMixedControlState } from './utils.js';
