@@ -1,4 +1,4 @@
-import React, { MutableRefObject, RefObject } from 'react';
+import React, { MutableRefObject, RefObject, useMemo } from 'react';
 import { Expect, Extends } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
@@ -92,6 +92,7 @@ export type DatepickerLocaleProps = {
   weekLabel: string;
   chooseDayAriaLabelPrefix: string;
   disabledDayAriaLabelPrefix: string;
+  dateFormats: Array<string>;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -116,6 +117,16 @@ const defaultDatepickerTexts: DefaultTexts<DatepickerLocaleProps> = {
     monthAriaLabelPrefix: 'Mánuður:',
     chooseDayAriaLabelPrefix: 'Veldu:',
     disabledDayAriaLabelPrefix: 'Ekki í boði:',
+    dateFormats: [
+      'dd.MM.yyyy',
+      'dd.MM.yy',
+      'dd/MM/yyyy',
+      'dd/MM/yy',
+      'dd. MM. yyyy',
+      'dd. MM. yy',
+      'dd MM yyyy',
+      'dd MM yy',
+    ],
   },
   // React-datepicker has its own (default) English translation built in.
   // No need to repeat all of it here.
@@ -135,6 +146,16 @@ const defaultDatepickerTexts: DefaultTexts<DatepickerLocaleProps> = {
     monthAriaLabelPrefix: 'Month:',
     chooseDayAriaLabelPrefix: 'Choose:',
     disabledDayAriaLabelPrefix: 'Not available:',
+    dateFormats: [
+      'MM.dd.yyyy',
+      'MM.dd.yy',
+      'MM/dd/yyyy',
+      'MM/dd/yy',
+      'MM. dd. yyyy',
+      'MM. dd. yy',
+      'MM dd yyyy',
+      'MM dd yy',
+    ],
   } as DatepickerLocaleProps,
   pl: {
     ariaLabelClose: 'Zamknij',
@@ -152,6 +173,16 @@ const defaultDatepickerTexts: DefaultTexts<DatepickerLocaleProps> = {
     monthAriaLabelPrefix: 'Miesiąc:',
     chooseDayAriaLabelPrefix: 'Wybierać:',
     disabledDayAriaLabelPrefix: 'Niedostępna:',
+    dateFormats: [
+      'dd.MM.yyyy',
+      'dd.MM.yy',
+      'dd/MM/yyyy',
+      'dd/MM/yy',
+      'dd. MM. yyyy',
+      'dd. MM. yy',
+      'dd MM yyyy',
+      'dd MM yy',
+    ],
   },
 };
 
@@ -164,7 +195,7 @@ export const Datepicker = (props: DatepickerProps) => {
   const {
     placeholder,
 
-    dateFormat = 'd.M.yyyy',
+    dateFormat,
     name,
     startDate,
     endDate,
@@ -199,6 +230,25 @@ export const Datepicker = (props: DatepickerProps) => {
 
   const filled = !!value;
   const empty = !filled && !placeholder;
+
+  const normalizedDateFormats = useMemo(() => {
+    const dateFormatProp = !dateFormat
+      ? ['d.M.yyyy']
+      : typeof dateFormat === 'string'
+      ? [dateFormat]
+      : dateFormat.slice(0);
+    // NOTE: Force all dateFormat values into Array<string> to temporarily work around
+    // a bug in the current version of react-datepicker where invalid `string` values
+    // are re-parsed with `new Date()`, causing surprising (weird) false positives
+    // AND where Arrayed formats get parsed in order of "increasing priority".
+    //
+    // TODO: Revert back to the plain `dateFormat={dateFormat}` pass-through once
+    // https://github.com/Hacker0x01/react-datepicker/pull/3988 has been accepted and released.
+    return dateFormatProp
+      .concat(['yyyy-MM-dd'])
+      .concat(txts.dateFormats)
+      .concat(['P', 'PP', 'PPP']);
+  }, [dateFormat, txts]);
 
   return (
     <FormField
@@ -238,19 +288,7 @@ export const Datepicker = (props: DatepickerProps) => {
               selected={value}
               name={isoMode ? undefined : name}
               locale={lang}
-              dateFormat={
-                // NOTE: Force all dateFormat values into Array<string> to temporarily work around
-                // a bug in the current version of react-datepicker where invalid `string` values
-                // are re-parsed with `new Date()`, causing surprising (weird) false positives
-                // AND where Arrayed formats get parsed in order of "increasing priority".
-                //
-                // TODO: Revert back to the plain `dateFormat={dateFormat}` pass-through once
-                // https://github.com/Hacker0x01/react-datepicker/pull/3988 has been accepted and released.
-                typeof dateFormat === 'string'
-                  ? [dateFormat]
-                  : dateFormat.slice(0).reverse()
-                // dateFormat
-              }
+              dateFormat={normalizedDateFormats}
               onChange={(date: Date | undefined | null) => {
                 date = date || undefined;
                 setValue(date);
