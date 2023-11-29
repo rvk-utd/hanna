@@ -1,4 +1,4 @@
-{% spaceless %}
+{% apply spaceless %}
   {% if attributes %}
     <button {{ attributes.addClass('ButtonPrimary') }}>
   {% else %}
@@ -7,4 +7,4 @@
 
     {{ button_text }}
   </button>
-{% endspaceless %}
+{% endapply %}
