@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-unnecessary-condition */
 import 'hanna-test-helpers/polyfill-document';
-import './initHannaNamespace.js';
+import '../_/initHannaNamespace.js';
 
 import E from '@hugsmidjan/qj/E';
 import o from 'ospec';
