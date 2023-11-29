@@ -22,11 +22,15 @@ import { getAssetUrl, setStyleServerUrl } from '@reykjavik/hanna-utils/assets';
 
 import { useGetCssTokens } from './utils/useGetCssTokens.js';
 
-setStyleServerUrl(
-  'http://localhost:4000'
-  //'http://bs-local.com:4000' // Use this when you do local testing with browserstack.com
-  //'https://styles.prod.thon.is/'
-);
+const remoteStyles = false as boolean;
+const cssVersion = remoteStyles ? 'dev-v0.8' : ('dev' as 'v0.8');
+const styleServer = remoteStyles
+  ? 'https://styles.test.thon.is/'
+  : //'http://bs-local.com:4000' // Use this when you do local testing with browserstack.com
+    'http://localhost:4000';
+
+setStyleServerUrl(styleServer);
+
 setLinkRenderer((props) => <Link to={props.href} {...props} />);
 
 const THEME: HannaColorTheme = 'colorful';
@@ -83,10 +87,7 @@ export default function App() {
         <link
           rel="stylesheet"
           href={
-            getCssBundleUrl(cssTokens, {
-              version: 'dev' as 'v0.8',
-              // version: 'dev-v0', // or 'v0.8'
-            }) +
+            getCssBundleUrl(cssTokens, { version: cssVersion }) +
             // magic parameter to override default dev config while running tests
             '&allowBadTokens=true'
           }
