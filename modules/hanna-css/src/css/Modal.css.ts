@@ -27,7 +27,7 @@ export default css`
       left: 0;
       right: 0;
       bottom: 0;
-      overflow-y: auto;
+      overflow-y: scroll;
       background-color: rgba(0, 0, 0, 0.5);
       padding: ${scale_phone_netbook(20, 100)} 0;
 

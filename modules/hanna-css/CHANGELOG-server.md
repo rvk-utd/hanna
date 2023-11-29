@@ -7,6 +7,7 @@
 - feat: Add `.Layout__header__navlink`, deprecate `.Layout__header__skiplink`
 - fix: Stop SVG minifier from re-introducing `<style/>` elements
 - fix: Add back smooth transitions on mobile menu open/close
+- fix: Prevent `Modal`s shifting when page scrollbars appear
 
 ## 0.8.84
 
