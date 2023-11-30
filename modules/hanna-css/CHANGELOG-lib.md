@@ -7,6 +7,8 @@
 - feat: Deprecate `scale_Hambureger`, `clamp_Hamburger`, `scale_Topmenu`,
   `clamp_Topmenu` from `scale` module.
 - feat: Deprecate `htmlCl` props `menuIsActive`, `menuIsOpen`, `menuIsClosed`
+- feat: Deprecate `getEssentialHannaScripts_MultiPage` in favor of
+  `getEssentialHannaScripts`
 
 ## 0.4.9
 

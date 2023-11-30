@@ -472,9 +472,6 @@ fix some Safari-related styling issues.
 Inline this script snippet as close to the top of your page's `<head/>`
 element as you can.
 
-**NOTE:** In full-page-reload multi-page applications, you should use
-`getEssentialHannaScripts_MultiPage` instead of this.
-
 ### `styleServerUrl`
 
 **Syntax:** `styleServerUrl: string`

@@ -176,25 +176,15 @@ const safariSidescrollFix = `
 `;
 
 /**
- * Usees JavaScript to set a class-name on the <html/> element to
+ * Usees JavaScript to instantly set a class-name on the <html/> element to
  * help the CSS suppress Flicker of Unstyled Content (FOUC)
  * on server-side-rendered HTML before client-side hydration/sprinkling
  * has had chance to do their Progressive Enhancements.
  *
- * Commonly used frameworks, such as Next.js and Remix.run are robust enough
- * that they don't need the class-name to be removed as a precaution, as their
- * scripted behavior is coupled extremely tight with their build/deployment step
- * and their pushState/replaceState-based client-side routing emits no usable
- * events to re-trigger the 'before-sprinkling' classname.
+ * In case the client-side sprinkling fails for some reason, the class-name
+ * will be removed after a few seconds.
  */
-const noFlickerSnippet = `document.documentElement.classList.add('before-sprinkling');`;
-
-/**
- * This is a no more robust (and old-school) version of `noFlickerSnippet`,
- * intended for Multi-page applications where each page navigation is sure to
- * apply/trigger this script on window load.
- */
-const noFlickerSnippet_multiPage = `
+const noFlickerSnippet = `
   (function (c, n) {
     c.add(n);
     setTimeout(function () {
@@ -223,11 +213,6 @@ export const getEssentialHannaScripts = () =>
   cmprss(safariSidescrollFix + noFlickerSnippet);
 
 /**
- * Essential Hanna styling assisting scripts. These provide flicker-free
- * progressive enhancement for server-rendered dynamic Hanna UI compoennts,
- * and fix some Safari-related styling issues.
- *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialhannascripts
+ * @deprecated  Use `getEssentialHannaScripts` instead  (Will be removed in v0.5)
  */
-export const getEssentialHannaScripts_MultiPage = () =>
-  cmprss(safariSidescrollFix + noFlickerSnippet_multiPage);
+export const getEssentialHannaScripts_MultiPage = getEssentialHannaScripts;
