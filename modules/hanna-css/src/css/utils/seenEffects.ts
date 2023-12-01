@@ -34,6 +34,22 @@ const getOpts = (opts?: Opts) => {
   };
 };
 
+/** Set up styling that should only apply if seen-effects are being applied */
+export const SeenEffect__only = (opts?: Opts) => {
+  const { child, trigger } = getOpts(opts);
+  return (content: RawCssString) => {
+    const childSel = pad(child);
+    return css`
+      ${[
+        `&${trigger}[data-is-seen]${childSel}`,
+        `${trigger}[data-is-seen] &${childSel}`,
+      ].join(',')} {
+        ${content}
+      }
+    `;
+  };
+};
+
 export const SeenEffect__initial = (opts?: Opts) => {
   const { child, trigger } = getOpts(opts);
   return (content: RawCssString) => {

@@ -8,6 +8,7 @@
 - fix: Stop SVG minifier from re-introducing `<style/>` elements
 - fix: Add back smooth transitions on mobile menu open/close
 - fix: Prevent `Modal`s shifting when page scrollbars appear
+- fix: Missing part of `ExtraLinks`' "is-seen" transition styling
 
 ## 0.8.84
 

@@ -17,6 +17,7 @@ import {
   SeenEffect__fadein,
   SeenEffect__fadeup,
   SeenEffect__initial,
+  SeenEffect__only,
   SeenEffect__resetDefault,
   SeenEffect__seen,
   SeenEffect__transition,
@@ -26,13 +27,20 @@ import {
 // ---------------------------------------------------------------------------
 
 export const ExtraLinks__seenEffects = (trigger?: null | string) => css`
-  ${SeenEffect__initial({ child: '.ExtraLinks::after', trigger })(css`
+  ${SeenEffect__only({ child: '.ExtraLinks:after', trigger })(css`
+    content: '';
+    position: absolute;
+    left: ${vars.grid_margin__neg};
+    top: 0;
+    bottom: 0;
     border-left: ${scale_phone_netbook(8, 24)} solid ${vars.color_suld_25};
-  `)};
-  ${SeenEffect__seen({ child: '.ExtraLinks::after', trigger })(css`
     transform: scaleY(0);
     transform-origin: 0 100%;
+  `)}
+  ${SeenEffect__initial({ child: '.ExtraLinks::after', trigger })(css`
+    transform: scaleY(1);
   `)};
+  ${SeenEffect__seen({ child: '.ExtraLinks::after', trigger })(css``)};
   ${SeenEffect__transition({ child: '.ExtraLinks::after', trigger })(css`
     ${Transition__long};
     transition-property: transform;
@@ -70,10 +78,6 @@ export default css`
       ${extendBackgroundWithUnderlay('both', 'before')}
     }
 
-    /* Custom (optional) transition effect */
-    .ExtraLinks {
-      ${extendBackgroundWithUnderlay('left', 'after')}
-    }
     * {
       ${SeenEffect__resetDefault('.ExtraLinks')}
       ${ExtraLinks__seenEffects()}
