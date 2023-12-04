@@ -200,6 +200,8 @@ export type MainMenuItemList = Array<
   MainMenuItem | MainMenuSeparator | (() => ReactElement)
 >;
 
+// ---------------------------------------------------------------------------
+
 export type MainMenuProps = {
   /**
    * Top-level screen-reader headline/label for the whole menu.

@@ -173,7 +173,7 @@ export default css`
       color: ${vars.color_suld_0};
       ${hannaVarOverride({
         link_color: '_inherit',
-        link_color__hover: vars.color_suld_25,
+        link_color__hover: vars.color_faxafloi_25,
       })}
 
       display: flex;

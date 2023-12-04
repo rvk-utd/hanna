@@ -9,6 +9,7 @@
 - fix: Add back smooth transitions on mobile menu open/close
 - fix: Prevent `Modal`s shifting when page scrollbars appear
 - fix: Missing part of `ExtraLinks`' "is-seen" transition styling
+- fix: Tweak `MainMenu` white link hover color
 
 ## 0.8.84
 
