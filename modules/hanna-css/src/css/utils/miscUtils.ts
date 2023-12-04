@@ -1,4 +1,13 @@
-import { css, pct_f, PlainNumber, px, PxValue, RawCssString, rem } from 'es-in-css';
+import {
+  css,
+  LengthValue,
+  pct_f,
+  PlainNumber,
+  px,
+  PxValue,
+  RawCssString,
+  rem,
+} from 'es-in-css';
 
 import { CssModuleToken, isDevMode } from '../../lib/cssutils.js';
 import { grid } from '../../lib/grid.js';
@@ -95,19 +104,9 @@ export const showColumnGridLines = (
 // TODO: Fix ugly syntax
 export const extendBackgroundWithUnderlay = (
   dir: 'left' | 'right' | 'both' = 'both',
-  pseudo: 'before' | 'after' = 'before'
+  pseudo: 'before' | 'after' = 'before',
+  edgeDefault: PlainNumber | LengthValue | string = 0
 ) => {
-  const leftProp =
-    dir !== 'right' &&
-    css`
-      left: ${vars.grid_margin__neg};
-    `;
-  const rightProp =
-    dir !== 'left' &&
-    css`
-      right: ${vars.grid_margin__neg};
-    `;
-
   return css`
     position: relative;
 
@@ -116,8 +115,8 @@ export const extendBackgroundWithUnderlay = (
       position: absolute;
       top: 0;
       bottom: 0;
-      ${leftProp}
-      ${rightProp}
+      left: ${dir !== 'right' ? vars.grid_margin__neg : edgeDefault};
+      right: ${dir !== 'left' ? vars.grid_margin__neg : edgeDefault};
       z-index: -1;
       background: inherit;
     }
