@@ -138,7 +138,7 @@ export default css`
       }
     }
 
-    .TableWrapper > :nth-of-type(1),
+    .TableWrapper > :nth-of-type(2),
     .TableWrapper > :not(table):not(.TableWrapper__scroller) {
       ${WARNING__('TableWrapper should only contain a single <table/>')};
     }

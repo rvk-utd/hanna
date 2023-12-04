@@ -11,6 +11,7 @@
 - fix: Missing part of `ExtraLinks`' "is-seen" transition styling
 - fix: Tweak `MainMenu` white link hover color
 - fix: Make markup/a11y dev WARNING messages visible by default, again
+- fix: Remove incorrect dev WARNING when hovering valid `BasicTable` markup
 
 ## 0.8.84
 
