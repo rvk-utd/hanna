@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Simplify `Layout` sprinkle to not handle mobile menu toggling
+- feat: Update `MainMenu` to use `MobileMenuToggler`
 
 ## 0.8.49
 
