@@ -75,7 +75,8 @@ export default css`
       padding-left: ${vars.grid_margin};
       padding-right: ${vars.grid_margin__right};
       margin: 0 auto;
-      max-width: ${grid.contentMaxWidth__outer};
+      box-sizing: content-box;
+      max-width: ${grid.contentMaxWidth};
 
       display: flex;
       justify-content: space-between;
@@ -223,7 +224,7 @@ export default css`
       bottom: 0;
       left: 0;
       right: 0;
-      ${showColumnGridLines}
+      ${showColumnGridLines()}
     }
   `}
 `;
