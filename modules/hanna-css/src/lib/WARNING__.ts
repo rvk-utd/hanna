@@ -7,8 +7,8 @@ type Mode = 'normal' | 'soft';
 const warn = /*#__PURE__*/ buildVariables(['message'], 'WARNING');
 
 const modeValues: Record<Mode, { _color: ColorName; hover?: string }> = {
-  normal: { _color: 'red', hover: ':hover' },
-  soft: { _color: 'orange' },
+  normal: { _color: 'red' },
+  soft: { _color: 'orange', hover: ':hover' },
 };
 
 const border = (_color: ColorName) => css`

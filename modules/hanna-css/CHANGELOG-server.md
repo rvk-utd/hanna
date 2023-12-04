@@ -10,6 +10,7 @@
 - fix: Prevent `Modal`s shifting when page scrollbars appear
 - fix: Missing part of `ExtraLinks`' "is-seen" transition styling
 - fix: Tweak `MainMenu` white link hover color
+- fix: Make markup/a11y dev WARNING messages visible by default, again
 
 ## 0.8.84
 
