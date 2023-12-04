@@ -53,7 +53,22 @@ export type BasicTableProps = {
 
 export const BasicTable = (props: BasicTableProps) => {
   // eslint-disable-next-line deprecation/deprecation
-  const { align, fullWidth, type, tbody, tbodies, modifier } = props;
+  const {
+    align,
+    fullWidth,
+    type,
+    tbody,
+    tbodies,
+    modifier,
+    thead,
+    tfoot,
+    tableProps,
+    caption,
+    rowProps,
+    compact,
+    cols,
+    wrapperProps,
+  } = props;
 
   return (
     <ScrollWrapper
@@ -67,20 +82,21 @@ export const BasicTable = (props: BasicTableProps) => {
           ? 'BasicTable--align--' + align
           : undefined,
       ]}
-      wrapperProps={props.wrapperProps}
+      wrapperProps={wrapperProps}
     >
       <Table
         className={modifiedClass('BasicTable', [
-          props.compact && 'compact',
+          compact && 'compact',
           type && tableTypes[type],
           modifier,
         ])}
-        cols={props.cols}
-        caption={props.caption}
-        thead={props.thead}
-        tfoot={props.tfoot}
+        cols={cols}
+        caption={caption}
+        thead={thead}
+        tfoot={tfoot}
         {...(tbody ? { tbody } : { tbodies })}
-        wrapperProps={props.tableProps}
+        rowProps={rowProps}
+        wrapperProps={tableProps}
       />
     </ScrollWrapper>
   );
