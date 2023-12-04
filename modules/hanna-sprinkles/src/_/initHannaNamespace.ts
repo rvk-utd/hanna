@@ -1,11 +1,10 @@
-// Polyfills!
-import 'focus-visible';
+import 'focus-visible'; // needed for most browsers
+
+import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
+import qq from '@hugsmidjan/qj/qq';
 
 // ---------------------------------------------------------------------------
-// This is useful for the CSS. Do this once and forget about it.
-import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
-// ---------------------------------------------------------------------------
-import qq from '@hugsmidjan/qj/qq'; // needed for most browsers
+// Polyfill `IntersectionObserver`
 
 const lacksIntersectionObserverSuppport =
   typeof window !== 'undefined' &&
@@ -35,6 +34,10 @@ declare global {
     };
   }
 }
+
+// ---------------------------------------------------------------------------
+
+// This is useful for the CSS. Do this once and forget about it.
 getScrollbarWidth.setCSSvar();
 
 // ---------------------------------------------------------------------------
