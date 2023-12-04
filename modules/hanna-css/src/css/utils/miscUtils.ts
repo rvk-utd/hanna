@@ -73,21 +73,21 @@ export const showColumnGridLines = (
   columnColor = 'rgba(0, 0, 0, 0.04)',
   gutterColor = 'rgba(255, 255, 255, 0.06)'
 ) => {
-  if (isDevMode) {
-    const colPct = pct_f(column / (column + gutter));
-
-    return css`
-      background-image: linear-gradient(
-        90deg,
-        ${columnColor} 0,
-        ${columnColor} ${colPct},
-        ${gutterColor} ${colPct},
-        ${gutterColor} 100%
-      );
-      background-size: ${cols_pct(1, 1)} 100%;
-    `;
+  if (!isDevMode) {
+    return '';
   }
-  return '';
+  const colPct = pct_f(column / (column + gutter));
+
+  return css`
+    background-image: linear-gradient(
+      90deg,
+      ${columnColor} 0,
+      ${columnColor} ${colPct},
+      ${gutterColor} ${colPct},
+      ${gutterColor} 100%
+    );
+    background-size: ${cols_pct(1, 1)} 100%;
+  `;
 };
 
 // ---------------------------------------------------------------------------
