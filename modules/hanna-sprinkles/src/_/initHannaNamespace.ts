@@ -2,6 +2,9 @@ import 'focus-visible'; // needed for most browsers
 
 import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
 import qq from '@hugsmidjan/qj/qq';
+import { setDefaultLanguage } from '@reykjavik/hanna-utils/i18n';
+
+import { getLang } from './getLang.js';
 
 // ---------------------------------------------------------------------------
 // Polyfill `IntersectionObserver`
@@ -39,6 +42,10 @@ declare global {
 
 // This is useful for the CSS. Do this once and forget about it.
 getScrollbarWidth.setCSSvar();
+
+// ---------------------------------------------------------------------------
+
+setDefaultLanguage(getLang());
 
 // ---------------------------------------------------------------------------
 

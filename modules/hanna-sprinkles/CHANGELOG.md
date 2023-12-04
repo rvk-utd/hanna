@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Simplify `Layout` sprinkle to not handle mobile menu toggling
 - feat: Update `MainMenu` to use `MobileMenuToggler`
+- feat: Globally apply `setDefaultLanguage` based on page's `lang` attribute
 
 ## 0.8.49
 
