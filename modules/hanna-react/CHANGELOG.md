@@ -15,6 +15,7 @@
 - `Multiselect`:
   - fix: Deduplicate the currentvalues list
   - fix: Manage focus after clicking remove buttons on currentvalues
+- feat: Pass `rowData` as 3rd param to `BasicTableProps`'s `rowProps` callback
 - fix: Suppress `MainMenu` server-rendering no-op `<button/>` elements
 
 ## 0.10.112

@@ -8,7 +8,8 @@ type SectionTag = 'thead' | 'tfoot' | 'tbody';
 
 type RowPropsFunction = (
   rowIdx: number,
-  section: SectionTag
+  section: SectionTag,
+  rowData: Array<TableCellData>
 ) => HTMLProps<'tr'> | undefined;
 
 export type TableCellMeta =
@@ -23,7 +24,7 @@ export type TableCellData = {
   key?: string | number;
 } & TableCellMeta;
 
-type RowData = {
+type _RowData = {
   cells: Array<TableCellData>;
   key: string | number | undefined;
 };
@@ -98,7 +99,7 @@ const TableCell = (props: TableCellProps) => {
 // ===========================================================================
 
 type TableSectionProps = {
-  section: Array<RowData>;
+  section: Array<_RowData>;
   cols?: TableCols;
   Tag: SectionTag;
   getRowProps: RowPropsFunction;
@@ -109,7 +110,7 @@ const TableSection = ({ section, cols = [], Tag, getRowProps }: TableSectionProp
       {section.map(({ key, cells }, rowIdx) => {
         let colIdx = 0;
         return (
-          <tr {...getRowProps(rowIdx, Tag)} key={key != null ? key : rowIdx}>
+          <tr {...getRowProps(rowIdx, Tag, cells)} key={key != null ? key : rowIdx}>
             {cells.map((cell, i) => {
               const rowScope = i === 0;
               const meta = cols[colIdx];
@@ -133,7 +134,7 @@ const TableSection = ({ section, cols = [], Tag, getRowProps }: TableSectionProp
 
 // ===========================================================================
 
-const normalizeTableSectData = (rows: Array<TableRow>): Array<RowData> | undefined =>
+const normalizeTableSectData = (rows: Array<TableRow>): Array<_RowData> | undefined =>
   !rows.length
     ? undefined
     : rows.map((row) => {
