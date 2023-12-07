@@ -34,146 +34,153 @@ export const ButtonVariables = buildVariables(
 );
 const bVars = ButtonVariables.vars;
 
-export const ButtonStyle = () => css`
-  ${LinkStyle_Reset(true)}
-  ${ButtonVariables.declare({
-    color: vars.color_faxafloi_100,
-    color__active: vars.color_faxafloi_150,
-    textColor: vars.color_suld_0,
-    textColor__active: vars.color_suld_0,
-    backgroundColor: bVars.color,
-    backgroundColor__active: bVars.color__active,
-    border: px(0), // Must have a unit, because it gets used inside a calc()
-    height: vars.space_7,
-    iconOutdent: vars.space_0$5__neg,
-    iconSpace: vars.space_1,
-  })}
+type ButtonStyleOptions = {
+  overrides?: Partial<Parameters<typeof ButtonVariables.declare>[0]>;
+};
 
-  // normalize links
-  white-space: nowrap;
-  vertical-align: middle;
-
-  color: ${bVars.textColor};
-
-  background-color: ${bVars.backgroundColor};
-  display: inline-block;
-  font: ${vars.font_button};
-  font-weight: ${vars.font_weight__bold};
-  border: ${bVars.border} solid ${bVars.color};
-  line-height: calc(${bVars.height} - 2 * ${bVars.border});
-  margin-right: ${vars.Button__gapH};
-  margin-bottom: ${vars.Button__gapV};
-  text-align: center;
-  border-radius: ${prem(3)};
-  position: relative;
-  transition: all 200ms ease-in;
-  transition-property: border-color, background-color, color, text-shadow, box-shadow;
-  padding: 0 ${scale_phone_netbook(24, 32)};
-  width: max-content;
-  max-width: 100%;
-  min-width: ${scale_phone_netbook(80, 128)};
-
-  @media ${mq.wide} {
-    min-width: 128px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  ${hoverKeyboardFocusAndActiveStyling(css`
-    outline: 0;
-    text-decoration: none;
-    // box-shadow: ${vars.boxShadow_hover};
-    box-shadow: 0 ${prem(8)} ${prem(16)} rgba(0, 0, 0, 0.15);
-    color: var(--Button--textColor);
-    border: var(--Button--border) solid var(--Button--color);
-  `)}
-
-  &:active,
-  &[aria-pressed='true'] {
-    text-decoration: none;
-    ${ButtonVariables.override({
-      color: bVars.color__active,
-      textColor: bVars.textColor__active,
-      backgroundColor: bVars.backgroundColor__active,
-    })}
-  }
-
-  ${keyboardFocusStyling(css`
-    outline: ${prem(2)} solid ${bVars.color};
-    outline-offset: ${prem(2)};
-  `)}
-
-  &:disabled,
-  &[aria-disabled='true'] {
-    box-shadow: none;
-    opacity: 0.3;
-  }
-
-  &--wide {
-    min-width: ${scale_tablet_netbook(275, 312)};
-
-    @media ${mq.phone_phablet} {
-      width: 100%;
-    }
-    @media ${mq.wide} {
-      min-width: 312px;
-    }
-  }
-  &--small {
-    ${ButtonVariables.override({
+export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
+  return css`
+    ${LinkStyle_Reset(true)}
+    ${ButtonVariables.declare({
+      color: vars.color_faxafloi_100,
+      color__active: vars.color_faxafloi_150,
+      textColor: vars.color_suld_0,
+      textColor__active: vars.color_suld_0,
+      backgroundColor: bVars.color,
+      backgroundColor__active: bVars.color__active,
+      border: px(0), // Must have a unit, because it gets used inside a calc()
+      height: vars.space_7,
       iconOutdent: vars.space_0$5__neg,
       iconSpace: vars.space_1,
-      height: prem(40),
+      ...opts.overrides,
     })}
-    min-width: ${scale_phone_netbook(64, 96)};
-    padding-left: ${scale_phone_netbook(16, 24)};
-    padding-right: ${scale_phone_netbook(16, 24)};
+
+     /* normalize links */
+    white-space: nowrap;
+    vertical-align: middle;
+
+    color: ${bVars.textColor};
+
+    background-color: ${bVars.backgroundColor};
+    display: inline-block;
+    font: ${vars.font_button};
+    font-weight: ${vars.font_weight__bold};
+    border: ${bVars.border} solid ${bVars.color};
+    line-height: calc(${bVars.height} - 2 * ${bVars.border});
+    margin-right: ${vars.Button__gapH};
+    margin-bottom: ${vars.Button__gapV};
+    text-align: center;
+    border-radius: ${prem(3)};
+    position: relative;
+    transition: all 200ms ease-in;
+    transition-property: border-color, background-color, color, text-shadow, box-shadow;
+    padding: 0 ${scale_phone_netbook(24, 32)};
+    width: max-content;
+    max-width: 100%;
+    min-width: ${scale_phone_netbook(80, 128)};
 
     @media ${mq.wide} {
-      min-width: 96px;
-      padding-left: 24px;
-      padding-right: 24px;
+      min-width: 128px;
+      padding-left: 32px;
+      padding-right: 32px;
     }
-  }
 
-  &--go--back {
-    order: -10;
-  }
-  &--go--back::before {
-    ${iconStyle(vars.icon__arrow_left)}
-    margin-left: ${bVars.iconOutdent};
-    margin-right: ${bVars.iconSpace};
-  }
-  &--go--forward {
-    order: 10;
-    margin-left: auto;
-  }
-  &--go--forward::after {
-    ${iconStyle(vars.icon__arrow_right)}
-    margin-right: ${bVars.iconOutdent};
-    margin-left: ${bVars.iconSpace};
-  }
+    ${hoverKeyboardFocusAndActiveStyling(css`
+      outline: 0;
+      text-decoration: none;
+      /* box-shadow: ${vars.boxShadow_hover}; */
+      box-shadow: 0 ${prem(8)} ${prem(16)} rgba(0, 0, 0, 0.15);
+      color: var(--Button--textColor);
+      border: var(--Button--border) solid var(--Button--color);
+    `)}
 
-  &[data-icon]::before {
-    ${enableDataIcon}
-    margin-left: var(--Button--iconOutdent);
-    margin-right: var(--Button--iconSpace);
-  }
+    &:active,
+    &[aria-pressed='true'] {
+      text-decoration: none;
+      ${ButtonVariables.override({
+        color: bVars.color__active,
+        textColor: bVars.textColor__active,
+        backgroundColor: bVars.backgroundColor__active,
+      })}
+    }
 
-  // ---------------------------------------------------------------------------
+    ${keyboardFocusStyling(css`
+      outline: ${prem(2)} solid ${bVars.color};
+      outline-offset: ${prem(2)};
+    `)}
 
-  &--small&--wide {
-    ${WARNING__('`--small` and `--wide` do NOT mix.')}
-  }
-  &--go--back[data-icon],
-  &--go--forward[data-icon] {
-    ${WARNING__('Icons and `--go--(back|forward)` do NOT mix.')}
-  }
-  &--go-back&--destructive,
-  &--go--forward&--destructive {
-    ${WARNING__('`--destructive` and `--go--(back|forward)` do NOT mix')}
-  }
-`;
+    &:disabled,
+    &[aria-disabled='true'] {
+      box-shadow: none;
+      opacity: 0.3;
+    }
+
+    &--wide {
+      min-width: ${scale_tablet_netbook(275, 312)};
+
+      @media ${mq.phone_phablet} {
+        width: 100%;
+      }
+      @media ${mq.wide} {
+        min-width: 312px;
+      }
+    }
+    &--small {
+      ${ButtonVariables.override({
+        iconOutdent: vars.space_0$5__neg,
+        iconSpace: vars.space_1,
+        height: prem(40),
+      })}
+      min-width: ${scale_phone_netbook(64, 96)};
+      padding-left: ${scale_phone_netbook(16, 24)};
+      padding-right: ${scale_phone_netbook(16, 24)};
+
+      @media ${mq.wide} {
+        min-width: 96px;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
+    &--go--back {
+      order: -10;
+    }
+    &--go--back::before {
+      ${iconStyle(vars.icon__arrow_left)}
+      margin-left: ${bVars.iconOutdent};
+      margin-right: ${bVars.iconSpace};
+    }
+    &--go--forward {
+      order: 10;
+      margin-left: auto;
+    }
+    &--go--forward::after {
+      ${iconStyle(vars.icon__arrow_right)}
+      margin-right: ${bVars.iconOutdent};
+      margin-left: ${bVars.iconSpace};
+    }
+
+    &[data-icon]::before {
+      ${enableDataIcon}
+      margin-left: var(--Button--iconOutdent);
+      margin-right: var(--Button--iconSpace);
+    }
+
+    // ---------------------------------------------------------------------------
+
+    &--small&--wide {
+      ${WARNING__('`--small` and `--wide` do NOT mix.')}
+    }
+    &--go--back[data-icon],
+    &--go--forward[data-icon] {
+      ${WARNING__('Icons and `--go--(back|forward)` do NOT mix.')}
+    }
+    &--go-back&--destructive,
+    &--go--forward&--destructive {
+      ${WARNING__('`--destructive` and `--go--(back|forward)` do NOT mix')}
+    }
+  `;
+};
 
 // ===========================================================================
 //

@@ -9,7 +9,7 @@ export default css`
   ${DEPS('Icon', 'ButtonBar')}
 
   .ButtonPrimary {
-    ${ButtonStyle};
+    ${ButtonStyle()};
 
     &--destructive {
       ${ButtonVariables.override({
