@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
-import { EitherObj, focusElement } from '@reykjavik/hanna-utils';
+import { EitherObj } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { issueSiteNameWarningInDev, renderLayoutHomeLink } from './_abstract/_Layouts.js';
+import { handleAnchorLinkClick } from './utils/a11yHelpers.js';
 import { BemModifierProps } from './utils/types.js';
 import { SSRSupport, useScrollbarWidthCSSVar, WrapperElmProps } from './utils.js';
 
@@ -81,12 +82,7 @@ export const Layout = (props: LayoutProps) => {
             <a
               className="Layout__header__navlink"
               href="#pagenav"
-              onClick={(e) => {
-                e.preventDefault();
-                const navContainer = document.querySelector<HTMLElement>('#pagenav')!;
-                navContainer.tabIndex = -1;
-                focusElement(navContainer);
-              }}
+              onClick={handleAnchorLinkClick}
               aria-label={txt.skipLinkLabel}
             >
               {txt.skipLinkLabel}
