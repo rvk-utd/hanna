@@ -18,16 +18,11 @@ export const extendSides = (
   side: 'left' | 'right' | 'both' = 'both',
   pad: PlainNumber | PxValue = 0
 ) => {
-  let margin = 0;
-  if (pad < 0) {
-    margin = pad;
-    pad = 0;
-  }
   const page_expand_padding = cssVal`
-    calc(50vw - 50% + ${px(pad)});
+    calc(50vw - 50%${pad > 0 ? ` + ${px(pad)}` : ''});
   `;
   const page_expand_margin = cssVal`
-    calc(50% - 50vw + ${px(margin)})
+    calc(50% - 50vw${pad < 0 ? ` - ${px(pad)}` : ''})
   `;
   return css`
     ${side !== 'right' &&
