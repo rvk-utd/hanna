@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `MainMenu2`
 - feat: Add `.Layout__header__navlink`, deprecate `.Layout__header__skiplink`
 - feat: Add scripted component `MobileMenuToggler`
 - fix: Remove cruft HTML that got into the documentation examples accidentally

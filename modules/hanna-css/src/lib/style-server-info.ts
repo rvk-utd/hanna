@@ -69,6 +69,7 @@ export type CssModuleToken =
   | 'Layout--HomePage'
   | 'Layout-full'
   | 'MainMenu'
+  | 'MainMenu2'
   | 'MiniMetrics'
   | 'MobileMenuToggler'
   | 'Modal'

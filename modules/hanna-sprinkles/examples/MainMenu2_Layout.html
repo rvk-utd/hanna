@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MainMenu (and Layout + ContactBubble) sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,MainMenu2,BreadCrumbs,FooterInfo,Alert,ContactBubble"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      // const sleep = (duration, payload) =>
+      // 	new Promise((resume) => {
+      // 		setTimeout(() => resume(payload), duration);
+      // 	});
+
+      Hanna.loadSprinkles('Layout', 'MainMenu2', 'ContactBubble');
+      // .then(() => sleep(500))
+      // .then((e) => {
+      // 	document.querySelector('.MobileMenuToggler').click();
+      // });
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__alerts">
+        <div class="Alert Alert--error" role="alert">Alert...</div>
+      </div>
+      <div class="Layout__content">
+        <div class="Layout__header">
+          <a class="Layout__header__logo" href="/">
+            <picture>
+              <img
+                src="http://localhost:4000/assets/reykjavik-logo.svg"
+                alt=""
+                loading="lazy"
+              />
+            </picture>
+            Reykjavík
+          </a>
+          <a
+            class="Layout__header__navlink"
+            href="#pagenav"
+            aria-label="Fara í leiðakerfi"
+            >Valmynd</a
+          >
+        </div>
+        <div class="Layout__main" style="height: 600px">
+          ...Main Content Components...
+        </div>
+        <div class="Layout__nav" id="pagenav" tabindex="-1" role="navigation">
+          <div class="ContactBubble" data-always-show="true">
+            <h2 class="ContactBubble__title">Hvað getum við gert fyrir þig?</h2>
+
+            <ul class="ContactBubble__list">
+              <li class="ContactBubble__item ContactBubble__item--type--suggestions">
+                <a
+                  class="ContactBubble__link"
+                  href="https://abendingar.reykjavik.is/"
+                  target="_blank"
+                >
+                  Ábendingar
+                  <small>Sendu okkur línu</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--livechat">
+                <a
+                  class="ContactBubble__link"
+                  href="https://svarbox.teljari.is/?c=1030"
+                  target="_blank"
+                >
+                  Netspjall
+                  <small>Opið virka daga kl. 8:30–16:00</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--faq">
+                <a class="ContactBubble__link" href="/spurt-og-svarad">
+                  Spurt og svarað
+                  <small>Algengar spurningar og svör</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--phone">
+                <a class="ContactBubble__link" href="tel:+3544111111">
+                  Þjónustuver 411-1111
+                  <small>Opið virka daga kl. 8:30–16:00</small>
+                </a>
+              </li>
+              <li class="ContactBubble__item ContactBubble__item--type--suggestions">
+                <a class="ContactBubble__link" href="mailto:upplysingar@reykjavik.is">
+                  upplysingar@reykjavik.is
+                  <small>Sendu okkur línu</small>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <nav class="BreadCrumbs" aria-label="Þú ert hér">
+            <span class="BreadCrumbs__title">Þú ert hér:</span>
+            <a class="BreadCrumbs__item" href="">Forsíða</a>
+            <span class="BreadCrumbs__separator" aria-label="">&gt;</span>
+            <a class="BreadCrumbs__item" href="">Stjórnkerfið</a>
+            <span class="BreadCrumbs__separator" aria-label="">&gt;</span>
+            <a class="BreadCrumbs__item" href="" aria-current="true">Stjórnkerfið</a>
+          </nav>
+
+          <nav
+            class="MainMenu2"
+            style="
+              --menu-image: url(http://localhost:4000/assets/illustrations/born1.png);
+            "
+            aria-label="Aðalvalmynd"
+            id="MainMenu2"
+          >
+            <div class="MainMenu2__content">
+              <h2 class="MainMenu2__title">Aðalvalmynd</h2>
+              <a
+                class="ButtonPrimary ButtonPrimary--small MainMenu2__toggler"
+                href="/test/MainMenu2#MainMenu2"
+                aria-hidden="true"
+                data-icon="text"
+                >Aðalvalmynd</a
+              >
+              <div class="MainMenu2__main">
+                <div class="MainMenu2__main__item MainMenu2__main__item--home">
+                  <a class="MainMenu2__main__link" href="/">Forsíða </a>
+                </div>
+                <div class="MainMenu2__main__item" aria-current="true">
+                  <strong class="MainMenu2__main__link">Íbúar</strong>
+                </div>
+                <ul class="MainMenu2__main__sub__items">
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/íbúar?blu=1"
+                      >Íbúar item 1
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Lorem impsum dolor sit dolore amet</small
+                      ></a
+                    >
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/íbúar?blu=2"
+                      >Íbúar item 2
+                    </a>
+                  </li>
+                  <li class="MainMenu2__main__sub__item" aria-current="true">
+                    <a class="MainMenu2__main__sub__link" href="/íbúar?blu=3"
+                      >Íbúar lorem impsum dolor sit item 3
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Lorem impsum dolor sit dolore amet</small
+                      ></a
+                    >
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/íbúar?blu=4"
+                      >Íbúar item 4
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Leebur deroor iehroom, bork bork bork! Enim ad minim chokolat
+                        moose flüü.</small
+                      ></a
+                    >
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/íbúar?blu=5"
+                      >Íbúar item 5
+                    </a>
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/íbúar?blu=6"
+                      >Íbúar item 6
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Enim ad minim impsum sita met fööt dolore bleargh.</small
+                      ></a
+                    >
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/íbúar?blu=7"
+                      >Íbúar item 7
+                    </a>
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/íbúar?blu=8"
+                      >Íbúar item 8
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Lorem impsum dolor sit dolore amet</small
+                      ></a
+                    >
+                  </li>
+                </ul>
+                <div class="MainMenu2__main__item">
+                  <strong class="MainMenu2__main__link">Stjórnkerfi</strong>
+                </div>
+                <ul class="MainMenu2__main__sub__items">
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/stjórnkerfi?blu=1"
+                      >Stjórnkerfi item 1
+                    </a>
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/stjórnkerfi?blu=2"
+                      >Stjórnkerfi item 2
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Lorem impsum dolor sit dolore amet</small
+                      ></a
+                    >
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/stjórnkerfi?blu=3"
+                      >Stjórnkerfi lorem impsum dolor sit item 3
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Leebur deroor iehroom, bork bork bork! Enim ad minim chokolat
+                        moose flüü.</small
+                      ></a
+                    >
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/stjórnkerfi?blu=4"
+                      >Stjórnkerfi item 4
+                    </a>
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/stjórnkerfi?blu=5"
+                      >Stjórnkerfi item 5
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Enim ad minim impsum sita met fööt dolore bleargh.</small
+                      ></a
+                    >
+                  </li>
+                </ul>
+                <div class="MainMenu2__main__item">
+                  <strong class="MainMenu2__main__link">Atvinnulíf</strong>
+                </div>
+                <ul class="MainMenu2__main__sub__items">
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/atvinnulíf?blu=1"
+                      >Atvinnulíf item 1
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Lorem impsum dolor sit dolore amet</small
+                      ></a
+                    >
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/atvinnulíf?blu=2"
+                      >Atvinnulíf item 2
+                    </a>
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/atvinnulíf?blu=3"
+                      >Atvinnulíf lorem impsum dolor sit item 3
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Lorem impsum dolor sit dolore amet</small
+                      ></a
+                    >
+                  </li>
+                  <li class="MainMenu2__main__sub__item">
+                    <a class="MainMenu2__main__sub__link" href="/atvinnulíf?blu=4"
+                      >Atvinnulíf item 4
+
+                      <small class="MainMenu2__main__sub__link__descr"
+                        >Leebur deroor iehroom, bork bork bork! Enim ad minim chokolat
+                        moose flüü.</small
+                      ></a
+                    >
+                  </li>
+                </ul>
+                <div class="MainMenu2__main__item">
+                  <a
+                    class="MainMenu2__main__link"
+                    href="https://hverfidmitt.is/"
+                    target="_blank"
+                    >Hverfið mitt
+                  </a>
+                </div>
+              </div>
+              <ul class="MainMenu2__hot__items">
+                <li class="MainMenu2__hot__item">
+                  <a
+                    class="ButtonSecondary ButtonSecondary--small MainMenu2__hot__link"
+                    href="/en"
+                    aria-label="English"
+                    title="English"
+                    lang="en"
+                    hreflang="en"
+                    >EN
+                  </a>
+                </li>
+                <li class="MainMenu2__hot__item">
+                  <a
+                    class="ButtonSecondary ButtonSecondary--small MainMenu2__hot__link"
+                    href="https://minarsidur.reykjavik.is"
+                    data-icon="user"
+                    target="_blank"
+                    >Mínar síður
+                  </a>
+                </li>
+              </ul>
+              <ul class="MainMenu2__extra__items">
+                <li class="MainMenu2__extra__item">
+                  <a
+                    class="ButtonSecondary ButtonSecondary--small MainMenu2__extra__link"
+                    href="/leita"
+                    aria-label="Leita á vefnum"
+                    title="Leita á vefnum"
+                    data-icon="search"
+                    >Leita
+                  </a>
+                </li>
+                <li class="MainMenu2__extra__item">
+                  <a
+                    class="ButtonSecondary ButtonSecondary--small MainMenu2__extra__link"
+                    href="/alerts"
+                    data-icon="info"
+                    >Tilkynningar
+                  </a>
+                </li>
+              </ul>
+              <div class="MainMenu2__related">
+                <h3 class="MainMenu2__related__title">Sérvefir</h3>
+                <ul class="MainMenu2__related__items">
+                  <li class="MainMenu2__related__item">
+                    <a class="MainMenu2__related__link" href="/page1" target="_blank"
+                      >Græna planið
+                    </a>
+                  </li>
+                  <li class="MainMenu2__related__item">
+                    <a class="MainMenu2__related__link" href="/page2" target="_blank"
+                      >Gagnahlaðborðið
+                    </a>
+                  </li>
+                  <li class="MainMenu2__related__item">
+                    <a class="MainMenu2__related__link" href="/page3" target="_blank"
+                      >Borgarbókasafnið
+                    </a>
+                  </li>
+                  <li class="MainMenu2__related__item">
+                    <a class="MainMenu2__related__link" href="/page4" target="_blank"
+                      >Borgin okkar
+                    </a>
+                  </li>
+                  <li class="MainMenu2__related__item">
+                    <a class="MainMenu2__related__link" href="/page5" target="_blank"
+                      >Borgarsögusafn Reykjavíkur
+                    </a>
+                  </li>
+                  <li class="MainMenu2__related__item">
+                    <a class="MainMenu2__related__link" href="/page6" target="_blank"
+                      >Frístundavefurinn
+                    </a>
+                  </li>
+                  <li class="MainMenu2__related__item">
+                    <a class="MainMenu2__related__link" href="/page7" target="_blank"
+                      >Listasafn Reykjavíkur
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="Layout__footer">
+          <div class="FooterInfo">
+            <div class="FooterInfo__group" role="contactinfo">
+              <h3 class="FooterInfo__grouptitle">Opnunartímar</h3>
+              <div class="FooterInfo__groupcontent">
+                <p>
+                  <strong>Borgartún 12–14, 105 Reykjavik</strong><br />
+                  Alla daga 08:20&nbsp;–&nbsp;16:15
+                </p>
+                <p>
+                  <strong>Tjarnargata 11, 101 Reykjavík</strong><br />
+                  Mánudag – Föstudag 8:00&nbsp;–&nbsp;18:00<br />
+                  Laugardaga 10.00&nbsp;–&nbsp;18.00<br />
+                  Sunnudaga 12.00&nbsp;–&nbsp;18.00
+                </p>
+                <p>
+                  <strong>Kennitala Reykjavíkurborgar</strong><br />
+                  530269-7609
+                </p>
+              </div>
+            </div>
+            <div class="FooterInfo__group">
+              <h3 class="FooterInfo__grouptitle">Þjónustuver</h3>
+              <div class="FooterInfo__groupcontent">
+                <ul>
+                  <li><a href="">Ábendingar</a></li>
+                  <li><a href="">Netspjall (8:20&nbsp;–&nbsp;16:15)</a></li>
+                  <li><a href="">Spurt og svarað</a></li>
+                  <li><a href="tel:+3544111111">411-1111 (8:20&nbsp;–&nbsp;16:15)</a></li>
+                  <li>
+                    <a href="mailto:upplysingar@reykjavik.is">upplysingar@reykjavik.is</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="FooterInfo__group">
+              <h3 class="FooterInfo__grouptitle">Alls konar</h3>
+              <div class="FooterInfo__groupcontent">
+                <ul>
+                  <li><a href="">Algengar spurningar og svör</a></li>
+                  <li><a href="">Mínar síður</a></li>
+                  <li><a href="">Laus störf</a></li>
+                  <li><a href="">Þjónustuver</a></li>
+                  <li><a href="">Fréttir</a></li>
+                  <li><a href="">Gjaldskrár</a></li>
+                  <li><a href="">Teikningavefur</a></li>
+                  <li><a href="">Persónuvernd</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

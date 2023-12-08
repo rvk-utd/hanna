@@ -1,5 +1,5 @@
 //@ts-check
-import { writeFile } from 'fs/promises';
+import { mkdir, writeFile } from 'fs/promises';
 import { globSync } from 'glob';
 
 import { buildTests, esbuild, exit1, opts, srcDir } from '../../build-helpers.mjs';
@@ -16,16 +16,18 @@ const replaceTokens = (/** @type {esbuild.BuildResult} */ res, /** unknown */ er
     ? `https://styles.reykjavik.is/${sprinklesFolder + versionFolder}/`
     : '__REMOVE__"new URL("/dist/", document.location.href)"__REMOVE__'; // hack to dynamically get the correct host in dev
 
-  return Promise.all(
-    res.outputFiles?.map((file) =>
-      writeFile(
-        file.path,
-        file.text
-          .replace(/\${fallbackSprinklesUrl}/g, fallbackSprinklesUrl)
-          .replace(/['"]__REMOVE__['"]/g, '')
-          .replace(/\${version}/g, version)
-      )
-    ) || []
+  return mkdir(distFolder, { recursive: true }).then(() =>
+    Promise.all(
+      res.outputFiles?.map((file) =>
+        writeFile(
+          file.path,
+          file.text
+            .replace(/\${fallbackSprinklesUrl}/g, fallbackSprinklesUrl)
+            .replace(/['"]__REMOVE__['"]/g, '')
+            .replace(/\${version}/g, version)
+        )
+      ) || []
+    )
   );
 };
 

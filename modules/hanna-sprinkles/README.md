@@ -117,11 +117,12 @@ widow.Hanna.import(`utils/makeTabs`, `some/otherUtil`).then(function ([
 - [`InfoHero`](../src/InfoHero.ts) – Activates the inlined `Bling`s
 - [`IslandBlock`](../src/IslandBlock.ts) – Fetches and inlines the embedded
   SVG images, if needed
-- [`Layout`](../src/Layout.ts) – Toggles the mobile menu display, inlines
-  logo.
+- [`Layout`](../src/Layout.ts) – Inlines, ensures accessibility of "skip to
+  navigation" button logo.
 - [`WizardLayout`](../src/WizardLayout.ts) – Inlines logo.
 - [`MainMenu`](../src/MainMenu.ts) – Triggers toggling of the "mega" menu
   panels
+- [`MainMenu2`](../src/MainMenu2.ts) – Triggers menu toggling, etc.
 - [`NewsHero`](../src/NewsHero.ts) – Activates the inlined `Bling`s and
   `ShareButtons`
 - [`ShareButtons`](../src/ShareButtons.ts) – Builds social-media sharing

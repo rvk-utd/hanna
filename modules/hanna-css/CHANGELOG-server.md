@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `MainMenu2`
 - feat: Deprecate variable `--bp-w-Hamburger` in favor of `--bp-w-netbook`
 - feat: Add `.Layout__header__navlink`, deprecate `.Layout__header__skiplink`
 - fix: Stop SVG minifier from re-introducing `<style/>` elements
