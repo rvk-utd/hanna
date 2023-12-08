@@ -76,14 +76,17 @@ export default function App() {
   const lang = usePageLang();
 
   const noAnimation = q.get('noAnimation') != null || undefined;
+  const loadScripts = (q.get('ssrOnly') ?? 'false') === 'false';
 
   return (
-    <html lang={lang}>
+    <html lang={lang} data-grid-overlay>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
-        <script dangerouslySetInnerHTML={{ __html: getEssentialHannaScripts() }} />
+        {loadScripts && (
+          <script dangerouslySetInnerHTML={{ __html: getEssentialHannaScripts() }} />
+        )}
         <link
           rel="stylesheet"
           href={

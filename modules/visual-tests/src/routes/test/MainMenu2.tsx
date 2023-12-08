@@ -1,5 +1,6 @@
 import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
+import { useSearchParams } from '@remix-run/react';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import {
   MainMenu2,
@@ -48,6 +49,8 @@ export const meta: V2_MetaFunction = autoTitle;
 
 export default function () {
   const [showAux] = showAuxState.use(true);
+  const ssrOnly =
+    (useSearchParams()[0].get('ssrOnly') ?? 'false') === 'false' ? undefined : 'ssr-only';
 
   return (
     <Layout
@@ -67,7 +70,7 @@ export default function () {
       // }
       navChildren={
         <MainMenu2
-          // ssr="ssr-only"
+          ssr={ssrOnly}
           illustration="born1"
           items={{
             main: [
