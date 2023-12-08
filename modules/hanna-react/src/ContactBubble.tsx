@@ -130,51 +130,58 @@ export const ContactBubble = (props: ContactBubbleProps) => {
         setFocus !== false && focusElm(wrapperRef.current);
       },
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [useLocalState, onToggle]
   );
 
-  useEffect(() => {
-    const wrapperElm = wrapperRef.current;
-    if (!wrapperElm) {
-      return;
-    }
-    if (alwaysShow) {
-      wrapperElm.dataset.show = 'true';
-      return;
-    }
-    let pending = 0;
-    const checkScroll = () => {
-      if (!pending) {
-        pending = requestAnimationFrame(() => {
-          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-          const scrollLength = scrollHeight - clientHeight;
-          // const f = scrollLength > 600 ? 1 : (scrollLength - 200) / 600;
-          const f = 1;
-          const show = scrollTop > f * 150 && scrollLength - scrollTop > f * 250;
-
-          wrapperElm.dataset.show = String(show);
-          !show && closeBubble(false);
-          pending = 0;
-        });
+  useEffect(
+    () => {
+      const wrapperElm = wrapperRef.current;
+      if (!wrapperElm) {
+        return;
       }
-    };
+      if (alwaysShow) {
+        wrapperElm.dataset.show = 'true';
+        return;
+      }
+      let pending = 0;
+      const checkScroll = () => {
+        if (!pending) {
+          pending = requestAnimationFrame(() => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            const scrollLength = scrollHeight - clientHeight;
+            // const f = scrollLength > 600 ? 1 : (scrollLength - 200) / 600;
+            const f = 1;
+            const show =
+              scrollTop > f * 150 && // minimum distance from the top
+              scrollLength - scrollTop > f * 250; // ...and bottom
 
-    checkScroll();
+            wrapperElm.dataset.show = String(show);
+            !show && closeBubble(false);
+            pending = 0;
+          });
+        }
+      };
 
-    // Set scroll-listeners on both the ´document` and the `document.documentElement`
-    // because mobile browsers seem to handle CSS height and overflow
-    // rules on <html> and <body> differently from desktop browsers.
-    // Only one of these two handlers seems to trigger though,
-    // (as Element scroll events don't bubble)
-    // and even if they did, the rAF throttling prevents that from
-    // becoming a problem.
-    document.addEventListener('scroll', checkScroll);
-    document.documentElement.addEventListener('scroll', checkScroll);
-    return () => {
-      document.removeEventListener('scroll', checkScroll);
-      document.documentElement.removeEventListener('scroll', checkScroll);
-    };
-  }, [isBrowser, alwaysShow, closeBubble]);
+      checkScroll();
+
+      // Set scroll-listeners on both the ´document` and the `document.documentElement`
+      // because mobile browsers seem to handle CSS height and overflow
+      // rules on <html> and <body> differently from desktop browsers.
+      // Only one of these two handlers seems to trigger though,
+      // (as Element scroll events don't bubble)
+      // and even if they did, the rAF throttling prevents that from
+      // becoming a problem.
+      document.addEventListener('scroll', checkScroll);
+      document.documentElement.addEventListener('scroll', checkScroll);
+      return () => {
+        document.removeEventListener('scroll', checkScroll);
+        document.documentElement.removeEventListener('scroll', checkScroll);
+      };
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isBrowser, alwaysShow, closeBubble]
+  );
 
   useEffect(() => {
     const escHandler = (e: KeyboardEvent) => e.key === 'Escape' && closeBubble();
