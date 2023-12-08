@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.50
+
+_2023-12-11_
+
 - feat: Add component `MainMenu2`
 - feat: Simplify `Layout` sprinkle to not handle mobile menu toggling
 - feat: Update `MainMenu` to use `MobileMenuToggler`
