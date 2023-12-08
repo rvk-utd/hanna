@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.13
+
+_2023-12-08_
+
 - feat: Deprecate `*Hamburger` and `*Topmenu` flags on `formatMonitor`'s media
   agument
 
