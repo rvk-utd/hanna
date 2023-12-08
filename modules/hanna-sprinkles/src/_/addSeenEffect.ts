@@ -9,8 +9,6 @@ export const hasLegacySeenEffectsCSS = !!document.querySelector(
   'link[rel="stylesheet"][href*="/bundle/"][href*="-legacy-AutoSeenEffects"]'
 );
 
-console.log({ hasLegacySeenEffectsCSS });
-
 export const autoSeenEffectsRefresh = hasLegacySeenEffectsCSS
   ? () => {
       const H = window.Hanna;
