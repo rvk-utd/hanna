@@ -47,6 +47,7 @@ const multiselects: Record<string, MultiselectProps> = {
     defaultValue: optsLong,
     nowrap: true,
     small: true,
+    required: true,
   },
   normal: {
     label: 'Normal',

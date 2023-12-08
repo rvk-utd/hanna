@@ -435,6 +435,7 @@ export const Multiselect = (props: MultiselectProps) => {
                           'Multiselect__option',
                           activeItemIndex === idx && 'focused'
                         )}
+                        reqText={false}
                         disabled={isDisabled}
                         readOnly={readOnly}
                         required={props.required}

@@ -13,6 +13,7 @@
   - feat: Make `MainMenu` define its own toggler button and "Hamburger" mode
 - feat: Add standalone `MobileMenuToggler` component
 - `Multiselect`:
+  - fix: Suppress required asterisks on individual options
   - fix: Deduplicate the currentvalues list
   - fix: Manage focus after clicking remove buttons on currentvalues
 - `BasicTable`:
