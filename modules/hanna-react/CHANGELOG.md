@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.113
+
+_2023-12-08_
+
 - feat: Add component `MainMenu2`
 - feat: Make `Datepicker` more flexible when parsing manual input strings –
   adds several, localized default formats.
