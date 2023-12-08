@@ -22,6 +22,7 @@
 - `ButtonPrimary`, `ButtonSecondary`, `ButtonTertiary`, `ButtonBack`,
   `TextButton`:
   - feat: Allow props `className` and `style`
+- feat: Tweak `ContactBubble`'s show/hide scroll-distance thresholds
 - fix: Suppress `MainMenu` server-rendering no-op `<button/>` elements
 
 ## 0.10.112

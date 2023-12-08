@@ -153,8 +153,8 @@ export const ContactBubble = (props: ContactBubbleProps) => {
             // const f = scrollLength > 600 ? 1 : (scrollLength - 200) / 600;
             const f = 1;
             const show =
-              scrollTop > f * 150 && // minimum distance from the top
-              scrollLength - scrollTop > f * 250; // ...and bottom
+              scrollTop > f * 130 && // minimum distance from the top
+              scrollLength - scrollTop > f * 200; // ...and bottom
 
             wrapperElm.dataset.show = String(show);
             !show && closeBubble(false);
