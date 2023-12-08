@@ -1,0 +1,261 @@
+{{ attach_library('storybook/MainMenu2') }}
+{#
+  ## `MainMenu2` Props:
+   - menu_title: string
+
+    // These can be omitted if you make the home link the first "main item"
+    // and give it a "home" modifier.
+  - homelink_url: string
+  - homelink_label: string
+
+  - main_items: Array<SubMenu | MenuLink>
+
+  - hot_items: Array<MenuButtonLink>
+  - extra_items: Array<MenuButtonLink>
+
+  - related_title: string
+  - related_items: Array<MenuLink>
+
+  - menu_image_url?: string // Url to an Hanna Illustration (E.g. https://styles.reykjavik.is/assets/illustrations/)
+
+  ---------------------------------------------------
+
+  ## `SubMenu` Props
+  - title: string,
+  - items: Array<MenuLinkWithDescription>
+
+  ---------------------------------------------------
+
+  ## `MenuLinkWithDescription` Props
+  Extends `MenuLink`
+  - descr?: string
+  ---------------------------------------------------
+
+  ## `MenuButtonLink` Props
+  Extends `MenuLink`
+  - icon?: 'globe' | 'user' | 'search' | 'alert'  // more options will come later
+
+  ---------------------------------------------------
+
+  ## `MenuLink` Props
+  - href: string
+  - current?: boolean // Ror links that are the current page or an ancestor of the current page
+  - label: string
+  - label_long?: string  // For links with an abbreviated `label`
+  - target?: '_blank' | string
+  - modifier?: string
+  - lang?: string  // For links with labels in a different language than the current page
+  // feel free to skip this one
+  - href_lang?: string  // For links to pages a different language than the current page
+
+  ---------------------------------------------------
+
+  See example props data/values at the bottom of this file;
+
+#}
+
+{# ======================================================================= #}
+
+{% macro make_item(name, item, linkType = 'normal', Tag='li') %}
+  {% set classPrefix = 'MainMenu2__{{ name }}' %}
+  {% set extraClasses = linkType == 'button' ? ' ButtonSecondary ButtonSecondary--small' : '' %}
+  <Tag
+    class="{{ classPrefix }}__item{{ item.modifier ? ' ' ~ classPrefix ~ '__item--' ~ item.modifier : '' }}"
+    {% if item.current %} aria-current="true" {% endif %}
+  >
+    <a
+      class="{{ classPrefix }}__link{{ extraClasses }}"
+      href="{{ item.href|e('html_attr') }}"
+      {% if item.target %} target="{{ item.target }}" {% endif %}
+      {% if item.lang %} lang="{{ item.lang }}" {% endif %}
+      {% if item.href_lang %} hreflang="{{ item.href_lang }}" {% endif %}
+      {% if item.label_long %} aria-label="{{ item.label_long|e('html_attr') }}" title="{{ item.label_long }}" {% endif %}
+      {% if item.icon %} data-icon="{{ item.icon }}" {% endif %}
+    >
+      {{- item.label -}}
+      {%- if item.descr %}
+        <small class="{{ classPrefix }}__link__descr">{{ item.descr }}</small>
+      {%- endif -%}
+    </a>
+  </Tag>
+{% endmacro %}
+
+{% from _self import make_item %}
+
+{# ======================================================================= #}
+
+
+<nav
+  id="MainMenu2" {# Assuming there's only ever one MainMenu2 per page #}
+  class="MainMenu2"
+  {% if menu_image_url %} style="--menu-image: url('{{menu_image_url|e('html_attr')}}');" {% endif %}
+  aria-label="{{ menu_title|e('html_attr') }}"
+>
+<div class="MainMenu2__content">
+
+  <a
+    class="MainMenu2__toggler ButtonSecondary ButtonSecondary--small"
+    href="#MainMenu2"
+    aria-hidden="true"
+  >
+    {{- menu_title -}}
+  </a>
+
+  <h2 class="MainMenu2__title">{{ menu_title }}</h2>
+
+  {% if main_items is not empty %}
+  <div class="MainMenu2__main">
+    {% if home_label %}
+      <div
+        class="MainMenu2__main__item MainMenu2__main__item--home"
+        {{ is_home_current ? 'aria-current="true"' : '' }}
+      >
+        <a
+          class="MainMenu2__main__link"
+          href="{{ home_url|default('/') }}"
+        >
+          {{- home_label -}}
+        </a>
+      </div>
+    {% endif %}
+    {% for main_item in main_items %}
+      {% if main_item.href %}
+        {# `main_item`s can optionally be direct `MenuLink` without any sub menu items #}
+        {{ make_item('main', main_item, null, 'div') }}
+      {% elseif %}
+        {% set has_current = main_item.items|filter(item => item.current)|length > 0 %}
+        <div
+          class="MainMenu2__main__item"
+          {% if has_current %} aria-current="true" {% endif %}
+        >
+          <strong class="MainMenu2__main__link">{{ main_item.title }}</strong>
+        </div>
+        <ul class="MainMenu2__main__sub__items">
+        {% for sub_item in main_item.items %}
+          {{ make_item('main__sub', sub_item) }}
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if hot_items is not empty %}
+  <ul class="MainMenu2__hot__items">
+    {% for hot_item in hot_items %}
+      {{ make_item('hot', hot_item, 'button') }}
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if extra_items is not empty %}
+  <ul class="MainMenu2__extra__items">
+    {% for extra_item in extra_items %}
+      {{ make_item('extra', extra_item, 'button') }}
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if related_items is not empty %}
+  <div class="MainMenu2__related">
+    {% if related_title %}
+    <h3 class="MainMenu2__related__title">{{ related_title }}</h3>
+    {% endif %}
+    <ul class="MainMenu2__related__items">
+      {% for related_item in related_items %}
+        {{ make_item('related', related_item) }}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+</div>
+</nav>
+
+{#
+  # Example (Dummy) Props Data:
+
+  {
+    menu_title: 'Aðalvalmynd',
+    homelink_url: '/',
+    homelink_label: 'Forsíða',
+    main_items: [
+      {
+        title: 'Íbúar',
+        items: [
+          {
+            label: 'Main Item 1 Sub Item 1',
+            href: '/page-1-1',
+            descr: 'Leebur deroor iehroom, bork bork bork! Enim ad minim chokolat moose flüü.',
+          },
+          {
+            label: 'Main Item 1 Sub Item 2',
+            href: '/page-1-2',
+            descr: 'Enim ad minim impsum sita met fööt dolore bleargh.',
+          },
+          // ... more sub menu items
+        ],
+      },
+      {
+        title: 'Stjórnkerfi',
+        items: [
+            label: 'Main Item 2 Sub Item 1',
+            href: '/page-2-1',
+            descr: 'Leebur deroor iehroom, bork bork bork! Enim ad minim chokolat moose flüü.',
+            current: true,
+          },
+          {
+            label: 'Main Item 2 Sub Item 2',
+            href: '/page-2-2',
+            descr: 'Enim ad minim impsum sita met fööt dolore bleargh.',
+          },
+          // ... more sub menu items
+        ],
+      },
+      // Direct link item without sub items
+      {
+        label: 'Atvinnulíf',
+        href: '/page-3',
+      },
+    ],
+    hot_items: [
+      {
+        label: 'EN',
+        label_long: 'English',
+        href: '/en',
+        lang: 'en',
+        href_lang: 'en',
+        icon: 'globe',
+      },
+      {
+        label: 'Mínar síður',
+        href: 'https://minarsidur.reykjavik.is',
+        target='_blank',
+        icon: 'user',
+      },
+    ],
+    extra_items: [
+      {
+        label: 'Leita',
+        label_long: 'Leita á vefnum',
+        href: '/leita',
+        icon: 'search',
+      },
+      {
+        label: 'Tilkynningar',
+        href: '/alerts',
+        icon: 'alert',
+      },
+    ],
+    related_title: 'Sérvefir',
+    related_items: [
+      { label: 'Græna planið', href: 'https://site1.reykjavik.is', target: '_blank' },
+      { label: 'Gagnahlaðborðið', href: 'https://site2.reykjavik.is', target: '_blank' },
+      { label: 'Borgarbókasafnið', href: 'https://site3.reykjavik.is', target: '_blank' },
+      { label: 'Borgin okkar', href: 'https://site4.reykjavik.is', target: '_blank' },
+      { label: 'Borgarsögusafn Reykjavíkur ', href: 'https://site5.reykjavik.is', target: '_blank' },
+      { label: 'Frístundavefurinn', href: 'https://site6.reykjavik.is', target: '_blank' },
+      { label: 'Listasafn Reykjavíkur', href: 'https://site7.reykjavik.is', target: '_blank' },
+    ],
+  }
+#}
