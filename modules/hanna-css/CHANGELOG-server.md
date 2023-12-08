@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.85
+
+_2023-12-11_
+
 - feat: Add component `MainMenu2`
 - feat: Deprecate variable `--bp-w-Hamburger` in favor of `--bp-w-netbook`
 - feat: Add `.Layout__header__navlink`, deprecate `.Layout__header__skiplink`
