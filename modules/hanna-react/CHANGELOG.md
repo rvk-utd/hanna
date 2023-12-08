@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `MainMenu2`
 - feat: Make `Datepicker` more flexible when parsing manual input strings –
   adds several, localized default formats.
 - feat: Add accessibility helper component `FocusTrap`
