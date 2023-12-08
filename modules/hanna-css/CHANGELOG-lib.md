@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.10
+
+_2023-12-08_
+
 - feat: Add token `MainMenu2`
 - feat: Deprecate `hannaVars.bp_w_Hamburger` in favor of `bp_w_netbook`
 - feat: Deprecate `scale_Hambureger`, `clamp_Hamburger`, `scale_Topmenu`,
