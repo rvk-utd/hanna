@@ -1,4 +1,9 @@
-import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
+import {
+  Expect,
+  Extends,
+  ObjectEntries,
+  ObjectFromEntries,
+} from '@reykjavik/hanna-utils';
 import { css, str, VariablePrinter } from 'es-in-css';
 
 import { font } from './font.js';
@@ -153,6 +158,11 @@ export type IconName =
   | 'text'
   | 'time'
   | 'user';
+
+// Type tests
+type _ = {
+  IconNames_Exist: Expect<Extends<IconName, TrimmedIconName>>;
+};
 
 /**
  * The icons

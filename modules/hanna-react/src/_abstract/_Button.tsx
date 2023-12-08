@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { OpenStringMap } from '@reykjavik/hanna-utils';
+import { IconName } from '@reykjavik/hanna-css';
+import { Expect, Extends, OpenStringMap } from '@reykjavik/hanna-utils';
 
 import { BemModifierProps, BemProps } from '../utils/types.js';
 
@@ -53,7 +54,11 @@ const navigationFlags: OpenStringMap<NavigationFlag, string> = {
 // ---------------------------------------------------------------------------
 
 // type ButtonIcon = never;
-type ButtonIcon = 'edit';
+export type ButtonIcon = 'edit';
+type _ = {
+  ButtonIcon_is_valid: Expect<Extends<ButtonIcon, IconName>>;
+};
+
 const icons: OpenStringMap<ButtonIcon> = {
   // TODO: insert icons
   edit: 'edit',
