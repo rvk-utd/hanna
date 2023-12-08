@@ -270,7 +270,9 @@ export const buildNpmLib = (libName, custom) => {
 
 // ---------------------------------------------------------------------------
 
-export const publishToNpm = () => {
+/** @typedef {{ changelogSuffix?: string }}  PublishOpts */
+/** @type {(opts?: PublishOpts) => void} */
+export const publishToNpm = (opts = {}) => {
   const pkgName = pkg.name.replace(/^@reykjavik\//, '');
   const version = pkg.version;
   try {
@@ -279,7 +281,7 @@ export const publishToNpm = () => {
         `cd _npm-lib`,
         `npm publish`,
         `cd ..`,
-        `git add ./package.json ./CHANGELOG.md`,
+        `git add ./package.json ./CHANGELOG${opts.changelogSuffix || ''}.md`,
         `git commit -m "release(${pkgName}): v${version}"`,
       ].join(' && ')
     );
