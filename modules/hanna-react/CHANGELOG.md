@@ -18,6 +18,9 @@
 - `BasicTable`:
   - feat: Pass `rowData` as 3rd param to `rowProps` callbacks
   - fix: Actually apply `rowProps` to the `<tr/>`s. (Awk)
+- `ButtonPrimary`, `ButtonSecondary`, `ButtonTertiary`, `ButtonBack`,
+  `TextButton`:
+  - feat: Allow props `className` and `style`
 - fix: Suppress `MainMenu` server-rendering no-op `<button/>` elements
 
 ## 0.10.112

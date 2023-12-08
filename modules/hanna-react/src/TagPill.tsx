@@ -14,6 +14,8 @@ const colors = {
 export type TagPillColor = keyof typeof colors;
 
 export type TagPillProps = ButtonProps & {
+  /** Not allowed */
+  className?: never;
   children?: ReactNode;
   large?: boolean;
   color?: TagPillColor;

@@ -9,7 +9,7 @@ import { Link } from './_Link.js';
 type ButtonElmProps = {
   href?: never;
 } & BemModifierProps &
-  Omit<JSX.IntrinsicElements['button'], 'className' | 'style'>;
+  JSX.IntrinsicElements['button'];
 
 type AnchorElmProps = {
   href: string;
@@ -17,7 +17,7 @@ type AnchorElmProps = {
   name?: never;
   value?: never;
 } & BemModifierProps &
-  Omit<JSX.IntrinsicElements['a'], 'className' | 'style'>;
+  JSX.IntrinsicElements['a'];
 
 export type ButtonProps = {
   /** Label takes preference over `children` */
@@ -92,23 +92,26 @@ export const Button = (props: _ButtonProps) => {
 
   const className =
     bem &&
-    modifiedClass(bem, [modifier, variants[variant], sizes[size], navigationFlags[icon]]);
+    modifiedClass(
+      bem,
+      [modifier, variants[variant], sizes[size], navigationFlags[icon]],
+      props.className
+    );
 
   const iconProp = icons[icon] && { 'data-icon': icons[icon] };
 
   if (buttonProps.href != null) {
     return (
-      <Link className={className} {...buttonProps} style={undefined} {...iconProp}>
+      <Link {...buttonProps} className={className} {...iconProp}>
         {label}
       </Link>
     );
   } else {
     return (
       <button
-        className={className}
         type="button"
         {...(buttonProps as ButtonElmProps)}
-        style={undefined}
+        className={className}
         {...iconProp}
       >
         {label}
