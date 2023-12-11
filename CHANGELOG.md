@@ -6,7 +6,7 @@
 
 ## 0.8.36
 
-_2023-12-11_
+_2023-12-12_
 
 - feat: Add component `MainMenu2`
 - feat: Add `.Layout__header__navlink`, deprecate `.Layout__header__skiplink`
