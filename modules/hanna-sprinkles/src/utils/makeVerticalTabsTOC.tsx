@@ -86,10 +86,11 @@ const getHeadingTagLevels = (container: HTMLElement, generateMissing: boolean) =
       return [] as const;
     }
   }
-  const headings = ['H1', 'H2', 'H3', 'H4'];
-  const pos = headings.indexOf(firstH.nodeName) || 1;
+  const headings = ['h1', 'h2', 'h3', 'h4'] as const;
+  type HeadingTag = (typeof headings)[number];
+  const pos = headings.indexOf(firstH.nodeName.toLowerCase() as HeadingTag) || 1;
 
-  return headings.slice(pos, pos + 2) as [first: string, second: string];
+  return headings.slice(pos, pos + 2) as [first: HeadingTag, second: HeadingTag];
 };
 
 type PanelElement = HTMLElement & {
@@ -122,10 +123,14 @@ const makePanels = (containers: Array<HTMLElement>) => {
     let tHeading = containerElm.querySelector(hTop); // guaranteed by getHeadingTagLevels to be a hTop element
     while (tHeading) {
       const groupNodes: Array<Node> = [];
-      let node = tHeading.nextSibling;
-      while (node && node.nodeName !== hTop && node.nodeName !== hSub) {
-        groupNodes.push(node);
-        node = node.nextSibling;
+      let nextHeading = tHeading.nextSibling;
+      while (
+        nextHeading &&
+        nextHeading.nodeName !== hTop &&
+        nextHeading.nodeName !== hSub
+      ) {
+        groupNodes.push(nextHeading);
+        nextHeading = nextHeading.nextSibling;
       }
 
       const label = tHeading.textContent!;
@@ -168,7 +173,7 @@ const makePanels = (containers: Array<HTMLElement>) => {
         });
       }
 
-      tHeading = node as HTMLElement | null;
+      tHeading = nextHeading as HTMLHeadingElement | null;
     }
   });
 

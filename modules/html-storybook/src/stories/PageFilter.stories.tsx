@@ -70,23 +70,25 @@ const PageFilterStory: React.FC<ControlProps> = ({
 
       {/* --------------------------------------------------------------------------- */}
 
-      <HiddenTiger
-        style={{
-          backgroundColor: 'rgba(0, 0 ,0, .05',
-          marginLeft: '25%',
-          padding: '7.5% 5%',
-        }}
-      >
-        <p>
-          <strong>NOTE:</strong> <code>.PageFilter__filters</code> accepts any of the
-          normal form components such as <code>DatePicker</code>, <code>SearchInput</code>
-          , etc.
-        </p>
+      <HiddenTiger>
+        <div
+          style={{
+            backgroundColor: 'rgba(0, 0 ,0, .05',
+            marginLeft: '25%',
+            padding: '7.5% 5%',
+          }}
+        >
+          <p>
+            <strong>NOTE:</strong> <code>.PageFilter__filters</code> accepts any of the
+            normal form components such as <code>DatePicker</code>,{' '}
+            <code>SearchInput</code>, etc.
+          </p>
 
-        {/* <p>0</p>
-			{(new Array(36)).join('.').split('').map((x,i) => (
-				<p key={i}>•<br />{i+1}</p>
-			))} */}
+          {/* <p>0</p>
+          {(new Array(36)).join('.').split('').map((x,i) => (
+            <p key={i}>•<br />{i+1}</p>
+          ))} */}
+        </div>
       </HiddenTiger>
     </Fragment>
   );
