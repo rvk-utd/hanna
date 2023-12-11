@@ -28,13 +28,13 @@ const meta: Meta<ControlProps> = {
 export default meta;
 
 const buttonTabs: Array<TabItemProps> = [1, 2, 3, 4].map((num) => ({
-  label: 'Tab ' + num + (num === 2 ? ' has very, very longwinded label' : ''),
-  longLabel: num === 4 ? 'Tab ' + num + ' has longer label' : undefined,
+  label: `Tab ${num}${num === 2 ? ' has very, very longwinded label' : ''}`,
+  longLabel: num === 4 ? `Tab ${num} has longer label` : undefined,
   badge: [14, 2, undefined, '1.024'][num - 1],
 }));
 const linkTabs: Array<TabItemProps & { href: string }> = buttonTabs.map((tab, i) => ({
   ...tab,
-  href: '#tab-' + (i + 1),
+  href: `#tab-${i + 1}`,
 }));
 
 const TabsStory: React.FC<ControlProps> = ({
@@ -55,8 +55,8 @@ const TabsStory: React.FC<ControlProps> = ({
     ? {
         tabs: tabs.map((tab) => ({
           ...tab,
-          label: 'Sub-' + tab.label.toLowerCase(),
-          longLabel: tab.longLabel ? 'Sub-' + tab.longLabel.toLowerCase() : undefined,
+          label: `Sub-${tab.label.toLowerCase()}`,
+          longLabel: tab.longLabel ? `Sub-${tab.longLabel.toLowerCase()}` : undefined,
         })),
         activeIdx: 0,
         'aria-label': 'Sub tab label',
@@ -65,7 +65,7 @@ const TabsStory: React.FC<ControlProps> = ({
     : undefined;
 
   return (
-    <Fragment key={'' + useButtons + showExample + vertical + badges + !!_subTabs}>
+    <Fragment key={`${useButtons}${showExample}${vertical}${badges}${!!_subTabs}`}>
       <Tabs
         role="tablist"
         activeIdx={1}
@@ -176,7 +176,7 @@ const TabsAnchorsStory = ({
   }, [startingIdx]);
 
   return (
-    <Fragment key={'' + startingIdx + ssr}>
+    <Fragment key={`${startingIdx}${ssr}`}>
       <HiddenTiger>
         <p>
           This example shows the markup patterns for anchor-link-driven tablist actions…

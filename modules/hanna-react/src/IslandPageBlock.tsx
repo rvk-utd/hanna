@@ -43,7 +43,7 @@ export const IslandPageBlock = (props: IslandPageBlockProps) => {
     <Block
       wrapperProps={wrapperProps}
       bem="IslandPageBlock"
-      modifier={['align--' + alignment, bg && 'background--' + bg]}
+      modifier={[`align--${alignment}`, bg && `background--${bg}`]}
       content={{ title, summary, buttons }}
       image={illustration ? { src: getIllustrationUrl(illustration) } : image || {}}
     />

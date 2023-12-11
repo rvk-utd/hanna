@@ -132,14 +132,14 @@ export const testing: TestingInfo = {
       'colored-orange',
       'colored-red',
     ]) {
-      const tagPill = page.locator('#' + id);
+      const tagPill = page.locator(`#${id}`);
       const tagPillElm = (await tagPill.elementHandle())!;
       const removeBtn = await tagPillElm.$('.TagPill__remove');
       await tagPillElm.hover();
-      await localScreenshot(tagPill, id + '-hover');
+      await localScreenshot(tagPill, `${id}-hover`);
       if (removeBtn) {
         await removeBtn.hover();
-        await localScreenshot(tagPill, id + '-remove-hover');
+        await localScreenshot(tagPill, `${id}-remove-hover`);
       }
     }
   },

@@ -58,4 +58,4 @@ export const SearchHeroParagraph = () => {
 };
 const cssTokens_server = 'RowBlock,RowBlockColumn,PageHeading,Illustration,';
 SearchHeroParagraph.cssTokens_server = cssTokens_server;
-SearchHeroParagraph.cssTokens = cssTokens_server + 'SiteSearchCurtain,';
+SearchHeroParagraph.cssTokens = `${cssTokens_server}SiteSearchCurtain,`;

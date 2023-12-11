@@ -34,15 +34,15 @@ export default function () {
       </div>
       <div className="demobox">
         <GhostLabel black label="landscape, focalPoint" />
-        <Picture {...photo.landscape} focalPoint={'80% 88%'} />
+        <Picture {...photo.landscape} focalPoint="80% 88%" />
       </div>
       <div className="demobox">
         <GhostLabel black label="portrait, focalPoint" />
-        <Picture {...photo.portrait} focalPoint={'80% 88%'} />
+        <Picture {...photo.portrait} focalPoint="80% 88%" />
       </div>
       <div className="demobox">
         <GhostLabel black label="landscape, focalPoint contain" />
-        <Picture {...photo.landscape} focalPoint={'80% 88%'} contain />
+        <Picture {...photo.landscape} focalPoint="80% 88%" contain />
       </div>
 
       <style>{`

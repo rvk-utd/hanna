@@ -114,18 +114,18 @@ export const testing: TestingInfo = {
     for (const action of ['hover', 'focus'] as const) {
       // Hover things
       await normal[action]();
-      await localScreenshot(normal, 'CheckboxButton-normal-' + action, { margin: 8 });
+      await localScreenshot(normal, `CheckboxButton-normal-${action}`, { margin: 8 });
 
       await normalChecked[action]();
-      await localScreenshot(normalChecked, 'CheckboxButton-checked-' + action, {
+      await localScreenshot(normalChecked, `CheckboxButton-checked-${action}`, {
         margin: 8,
       });
 
       await invalid[action]();
-      await localScreenshot(invalid, 'CheckboxButton-invalid-' + action, { margin: 8 });
+      await localScreenshot(invalid, `CheckboxButton-invalid-${action}`, { margin: 8 });
 
       await invalidChecked[action]();
-      await localScreenshot(invalidChecked, 'CheckboxButton-invalidchecked-' + action, {
+      await localScreenshot(invalidChecked, `CheckboxButton-invalidchecked-${action}`, {
         margin: 8,
       });
     }

@@ -49,7 +49,7 @@ export const getShareButtonLabel = (
   if (label !== _lastLabel) {
     _lastLabel = label;
     if (!label.includes(_token)) {
-      label = label + ' ' + _token;
+      label = `${label} ${_token}`;
     }
     label = label.trim();
     const tokenIdx = label.indexOf(_token);
@@ -158,7 +158,7 @@ export const getDocMeta = (cfg: DocMetaConfig = {}): DocMeta => {
         subject:
           cfg.emailSubject ||
           (shareButtonTexts[lang] || shareButtonTexts[DEFAULT_LANG]).emailSubject,
-        body: title + '\n' + url + '\n\n',
+        body: `${title}\n${url}\n\n`,
       }),
     },
     url,

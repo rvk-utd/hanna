@@ -26,8 +26,8 @@ type PaginationButtonProps = {
 
 const PaginationButton = (props: PaginationButtonProps) => {
   const { page, label, modifier, disabled, onChange, href } = props;
-  const labelLong = props.labelLong.replace(/\$\{page\}/, page + '');
-  const labelShort = label ? label.replace(/\$\{page\}/, page + '') : page + '';
+  const labelLong = props.labelLong.replace(/\$\{page\}/, `${page}`);
+  const labelShort = label ? label.replace(/\$\{page\}/, `${page}`) : `${page}`;
 
   const btnProps = {
     key: props.key,

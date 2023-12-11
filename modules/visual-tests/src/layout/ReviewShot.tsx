@@ -130,7 +130,7 @@ const useReviewState = (change: Changeset) => {
       if (key === 'N' || key === 'P' || key === 'J' || key === 'K') {
         const dir = key === 'N' || key === 'J' ? 'next' : 'prev';
         wrappeRref.current
-          ?.querySelector<HTMLAnchorElement>('.ReviewShot__actionbutton--goto--' + dir)
+          ?.querySelector<HTMLAnchorElement>(`.ReviewShot__actionbutton--goto--${dir}`)
           ?.click();
         return;
       }
@@ -272,10 +272,9 @@ export const ReviewShot = (props: ReviewShotProps) => {
         )}
       </div>
       <div
-        className={
-          'ReviewShot__primed' +
-          (primedAction ? ' ReviewShot__primed--' + primedAction : '')
-        }
+        className={`ReviewShot__primed${
+          primedAction ? ` ReviewShot__primed--${primedAction}` : ''
+        }`}
         hidden={!primed.on}
       >
         Press <strong>{primed.letter}</strong> again to {primedAction}.
@@ -289,7 +288,7 @@ export const ReviewShot = (props: ReviewShotProps) => {
 const links: LinksFunction = () => [
   {
     rel: 'stylesheet',
-    href: 'data:text/css,' + encodeURIComponent(styles),
+    href: `data:text/css,${encodeURIComponent(styles)}`,
   },
 ];
 

@@ -44,7 +44,7 @@ export const IslandBlock = (props: IslandBlockProps) => {
     <Block
       wrapperProps={wrapperProps}
       bem="IslandBlock"
-      modifier={'align--' + alignment}
+      modifier={`align--${alignment}`}
       {...blockProps}
     />
   );

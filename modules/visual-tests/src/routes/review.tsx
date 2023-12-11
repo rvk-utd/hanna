@@ -39,7 +39,7 @@ export const headers = copyCacheControl;
 export const links: LinksFunction = () => [
   {
     rel: 'stylesheet',
-    href: 'data:text/css,' + encodeURIComponent(styles),
+    href: `data:text/css,${encodeURIComponent(styles)}`,
   },
 ];
 
@@ -92,18 +92,17 @@ export default function () {
                 return (
                   <li
                     key={i}
-                    className={
-                      'ChangesList__item' +
-                      (confirmedBug ? ' ChangesList__item--bug' : '') +
-                      (confirmedOk ? ' ChangesList__item--ok' : '') +
-                      (nameChange ? ' ChangesList__item--namechange' : '')
-                    }
+                    className={`ChangesList__item${
+                      confirmedBug ? ' ChangesList__item--bug' : ''
+                    }${confirmedOk ? ' ChangesList__item--ok' : ''}${
+                      nameChange ? ' ChangesList__item--namechange' : ''
+                    }`}
                   >
                     <Link to={id} className="ChangesList__link">
                       <TagPill color={tagColor}>{tagLabel}</TagPill>{' '}
                       <span className="ChangesList__label">
                         <span className="ChangesList__name">
-                          {testName + ' – ' + label}
+                          {`${testName} – ${label}`}
                         </span>{' '}
                         <span className="ChangesList__project">({project})</span>
                       </span>

@@ -46,7 +46,7 @@ const LINKS: Array<ContactBubbleItem> = [
 export default function () {
   return (
     <Minimal>
-      <ContactBubble title={'Hafa '} links={LINKS} alwaysShow />
+      <ContactBubble title="Hafa " links={LINKS} alwaysShow />
     </Minimal>
   );
 }

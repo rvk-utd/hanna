@@ -6,7 +6,7 @@ const wideScale = 810 / 1400;
 const netbookScale = 810 / 1000;
 const borderWidth = 2;
 const styles: CSSProperties = {
-  border: borderWidth + 'px solid black',
+  border: `${borderWidth}px solid black`,
   margin: '-3px 0 auto 0',
 };
 
@@ -29,9 +29,9 @@ export const viewports: Record<ViewportNames, Viewport> = {
       ...styles,
       width: '1400px',
       height: `${100 / wideScale}%`,
-      border: borderWidth / wideScale + 'px solid black',
+      border: `${borderWidth / wideScale}px solid black`,
       transformOrigin: 'center 0',
-      transform: 'scale(' + wideScale + ')',
+      transform: `scale(${wideScale})`,
     },
   },
   netbook: {
@@ -40,9 +40,9 @@ export const viewports: Record<ViewportNames, Viewport> = {
       ...styles,
       width: '1000px',
       height: `${100 / netbookScale}%`,
-      border: borderWidth / netbookScale + 'px solid black',
+      border: `${borderWidth / netbookScale}px solid black`,
       transformOrigin: 'center 0',
-      transform: 'scale(' + netbookScale + ')',
+      transform: `scale(${netbookScale})`,
     },
   },
   tablet: {

@@ -87,31 +87,31 @@ export const CardList = (props: _CardListProps) => {
   const fallbackImageUrl = (imgPlaceholder !== true && imgPlaceholder) || undefined;
   const fallbackImageStyle = fallbackImageUrl
     ? ({
-        ['--' + bemPrefix + '--fallback']: `url("${fallbackImageUrl}")`,
+        [`--${bemPrefix}--fallback`]: `url("${fallbackImageUrl}")`,
       } as CSSProperties)
     : undefined;
 
   return (
     <>
       {summaryElement ? (
-        <div className={bemPrefix + '__summary'}>
-          {title && <TitleTag className={bemPrefix + '__title'}>{title}</TitleTag>}
+        <div className={`${bemPrefix}__summary`}>
+          {title && <TitleTag className={`${bemPrefix}__title`}>{title}</TitleTag>}
           {summaryElement}
         </div>
       ) : (
-        title && <TitleTag className={bemPrefix + '__title'}>{title}</TitleTag>
+        title && <TitleTag className={`${bemPrefix}__title`}>{title}</TitleTag>
       )}
       <ul
         {...wrapperProps}
         className={
           props.standalone
             ? modifiedClass(bemPrefix, modifier, (wrapperProps || {}).className)
-            : bemPrefix + '__list'
+            : `${bemPrefix}__list`
         }
         style={fallbackImageStyle}
       >
         {cards.map((card, i) => (
-          <li key={i} className={bemPrefix + '__item'}>
+          <li key={i} className={`${bemPrefix}__item`}>
             <Card
               /* Assert as `ImageCardProps` to silence the imgPlaceholder false-positive */
               {...(card as ImageCardProps)}

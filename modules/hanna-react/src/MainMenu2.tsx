@@ -178,7 +178,6 @@ const getRenderers = (props: {
     | (MainMenu2Item & MainMenu2ButtonItem & MainMenu2SubMenuItem)
     | MainMenu2CustomItem;
 
-  // eslint-disable-next-line complexity
   const renderItem = (
     classPrefix: string,
     item: AnyMenuItem,

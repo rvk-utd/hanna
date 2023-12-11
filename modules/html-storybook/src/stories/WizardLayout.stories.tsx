@@ -30,7 +30,7 @@ export default meta;
 const MinimalWizardLayoutStory: React.FC<ControlProps> = ({ globalAlertsContainer }) => {
   // TODO: Check if 'globalAlertsContainer' is connected
   const globalAlerts = globalAlertsContainer;
-  return <WizardLayout key={'' + globalAlerts} globalAlerts={globalAlerts && ' '} />;
+  return <WizardLayout key={`${globalAlerts}`} globalAlerts={globalAlerts && ' '} />;
 };
 
 export const _MinimalWizardLayout: StoryObj<ControlProps> = {
@@ -65,7 +65,7 @@ const WizardLayoutWithContentStory: React.FC<ControlProps> = ({
   const globalAlerts = globalAlertsContainer;
   return (
     <WizardLayout
-      key={'' + globalAlerts}
+      key={`${globalAlerts}`}
       globalAlerts={
         globalAlerts && (
           <>

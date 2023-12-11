@@ -92,8 +92,6 @@ export const getTexts = <Texts extends Readonly<Record<string, unknown>>>(
 ): Readonly<Texts> => {
   const lang = props.lang || DEFAULT_LANG;
   return (
-    props.texts ||
-    (defaultTexts[lang] as Texts | undefined) ||
-    langMissing(lang, defaultTexts[DEFAULT_LANG])
+    props.texts || defaultTexts[lang] || langMissing(lang, defaultTexts[DEFAULT_LANG])
   );
 };

@@ -15,8 +15,8 @@ const cards = range(1, 5).map(
   (n): ActionCardsItemProps => ({
     title:
       n === 3
-        ? 'Title for this card lorem ipsum dolor sit bladiblah foo blah' + n
-        : 'ActionCard ' + n,
+        ? `Title for this card lorem ipsum dolor sit bladiblah foo blah${n}`
+        : `ActionCard ${n}`,
     href: '',
     summary:
       n % 4 === 0

@@ -39,7 +39,7 @@ const IslandBlockStory = (props: ControlProps) => {
 
   const contentProps =
     props.type === 'textonly'
-      ? { content: [content, { ...content, title: TITLE_SHORT + ' 2' }] }
+      ? { content: [content, { ...content, title: `${TITLE_SHORT} 2` }] }
       : { content, shapes: /* shapeImage ||  */ formheimur[3] };
   return <IslandBlock align={align} {...contentProps} />;
 };
@@ -102,7 +102,7 @@ const testCombos = (['svg-asset', 'textonly'] as const).reduce<Array<IslandBlock
 
       if (type === 'textonly') {
         const content2 = {
-          title: TITLE_SHORT + ' 2',
+          title: `${TITLE_SHORT} 2`,
           summary: getSummary(getSummaryType(c + 1), 'strong'),
           buttons: someButtons.slice(0, 1 + ((c + 3) % 3)),
         };

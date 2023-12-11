@@ -28,7 +28,7 @@ const features: FeatureListProps['features'] = [
   { name: 'Kaldur pottur', icon: 'sund_kaldurpottur' },
 ];
 
-const token = (name: string) => '{' + name + '}';
+const token = (name: string) => `{${name}}`;
 
 export const _FeatureList: StoryObj = {
   render: () => (

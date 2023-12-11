@@ -364,7 +364,7 @@ export type BlingType = (typeof blingTypes)[number];
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#misc-style-server-assets
  */
 export const getAssetUrl = (filePath: string): string =>
-  styleServerUrl + '/assets/' + filePath;
+  `${styleServerUrl}/assets/${filePath}`;
 
 type IllustrationVariant = 'thumb';
 
@@ -378,7 +378,7 @@ export const getIllustrationUrl = (
   variant?: IllustrationVariant
 ): string => {
   const subFolder = variant === 'thumb' ? 'thumb/' : '';
-  return getAssetUrl('illustrations/' + subFolder + illustration + '.png');
+  return getAssetUrl(`illustrations/${subFolder}${illustration}.png`);
 };
 
 /**
@@ -387,7 +387,7 @@ export const getIllustrationUrl = (
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#efnistákn-icons
  */
 export const getEfnistaknUrl = (icon: Efnistakn): string =>
-  getAssetUrl('efnistakn/' + icon + '.svg');
+  getAssetUrl(`efnistakn/${icon}.svg`);
 
 /**
  * Generates a URL to a Hanna "Formheimur" shape on the style server.
@@ -395,7 +395,7 @@ export const getEfnistaknUrl = (icon: Efnistakn): string =>
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formheimur-shapes
  */
 export const getFormheimurUrl = (shapes: Formheimur): string =>
-  getAssetUrl('formheimur/' + shapes + '.svg');
+  getAssetUrl(`formheimur/${shapes}.svg`);
 
 /**
  * Generates a URL to a Hanna "Bling" shape on the style server.
@@ -403,7 +403,7 @@ export const getFormheimurUrl = (shapes: Formheimur): string =>
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#bling-shapes
  */
 export const getBlingUrl = (blingType: BlingType): string =>
-  getAssetUrl('bling/' + blingType + '.svg');
+  getAssetUrl(`bling/${blingType}.svg`);
 
 // ===========================================================================
 

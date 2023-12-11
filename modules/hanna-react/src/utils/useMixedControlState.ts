@@ -141,11 +141,13 @@ const validateSaneUse: SaneUseValidator = ({
   if (value !== undefined && defaultValue !== undefined) {
     warn(
       `WARNING:` +
-        ` Don't mix` +
-        (warningPropName
-          ? ` \`${warningPropName}\` and \`default${capitalize(warningPropName)}\` props`
-          : 'controlled and uncontrolled mode') +
-        `\n` +
+        ` Don't mix${
+          warningPropName
+            ? ` \`${warningPropName}\` and \`default${capitalize(
+                warningPropName
+              )}\` props`
+            : 'controlled and uncontrolled mode'
+        }\n` +
         `Use one or the other.`
     );
     return;
@@ -155,19 +157,19 @@ const validateSaneUse: SaneUseValidator = ({
   const U_to_C = lastMode === 'uncontrolled' && value !== undefined;
   if (C_to_U || U_to_C) {
     warn(
-      `WARNING:` +
-        (C_to_U
+      `WARNING:${
+        C_to_U
           ? `A component seems to be attempting to change ` +
             `from controlled to uncontrolled mode. ` +
             `This is not possible.`
-          : `A component is changing ` + `from uncontrolled to controlled mode.`) +
-        `\n` +
-        `Decide between using ` +
-        (warningPropName
-          ? `\`${warningPropName}\` (controlled) prop` +
-            ` OR \`default${capitalize(warningPropName)}\` (uncontrolled)`
-          : `either controlled OR uncontrolled mode`) +
-        ` for the lifetime of the component.`
+          : `A component is changing ` + `from uncontrolled to controlled mode.`
+      }\n` +
+        `Decide between using ${
+          warningPropName
+            ? `\`${warningPropName}\` (controlled) prop` +
+              ` OR \`default${capitalize(warningPropName)}\` (uncontrolled)`
+            : `either controlled OR uncontrolled mode`
+        } for the lifetime of the component.`
     );
   }
 };

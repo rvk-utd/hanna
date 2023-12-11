@@ -28,7 +28,7 @@ const [imagesCompress, imagesWatch] = imagesTaskFactory({
 
 const [staticAssetsCompress, staticAssetsWatch] = imagesTaskFactory({
   name: 'assets',
-  src: sourceFolder + 'assets/',
+  src: `${sourceFolder}assets/`,
   dist: assetsDistFolder,
   // svgoRules: { inlineStyles: true },
   // Note the imagesTaskFactory simply copies over any file-types
@@ -38,18 +38,18 @@ const [staticAssetsCompress, staticAssetsWatch] = imagesTaskFactory({
 
 const [iconfontBundle, iconfontWatch] = iconfontTaskFactory({
   src: sourceFolder,
-  dist: devDistCssFolder + 'i/',
+  dist: `${devDistCssFolder}i/`,
   // glob: 'iconfont/*.svg',
   onGlyps: (glyphs) => {
     const icons = Object.fromEntries(
       glyphs.map(({ name, unicode }) => [
         // Map "-" in filenames to underscores for easier use as JavaScript props
-        'icon__' + name.replace(/-/g, '_'),
+        `icon__${name.replace(/-/g, '_')}`,
         unicode[0],
       ])
     );
     writeFileSync(
-      sourceFolder + '/lib/iconfonttokens.ts',
+      `${sourceFolder}/lib/iconfonttokens.ts`,
       `` +
         `// This file is auto-generated. DO NOT EDIT!\n` +
         `\n` +
@@ -107,12 +107,12 @@ const copyToCssFolder = () => {
   }
   execSync(`yarn run -T ospec scripts/prepublish.tests.js`);
 
-  return src(devDistCssFolder + '**/*', { base: devDistCssFolder }).pipe(
+  return src(`${devDistCssFolder}**/*`, { base: devDistCssFolder }).pipe(
     dest(publishCssFolder)
   );
 };
 const copyToDevCssFolder = () =>
-  src(devDistCssFolder + '**/*', { base: devDistCssFolder }).pipe(
+  src(`${devDistCssFolder}**/*`, { base: devDistCssFolder }).pipe(
     dest(publishDevCssFolder)
   );
 

@@ -19,9 +19,9 @@ export const meta: V2_MetaFunction = autoTitle;
 
 const CARDS = range(1, 7).map(
   (n): ExtraLinksCardProps => ({
-    title:
-      'Eignaskiptayfirlýsing' +
-      (n % 3 === 0 ? ' lorem ipsum dolor sit amet wehbsyte' : ''),
+    title: `Eignaskiptayfirlýsing${
+      n % 3 === 0 ? ' lorem ipsum dolor sit amet wehbsyte' : ''
+    }`,
     href: '/',
     summary: (n - 2) % 4 === 0 ? lorem.short : lorem.tiny,
   })
@@ -30,7 +30,7 @@ const CARDS = range(1, 7).map(
 const relatedTypes: Array<RelatedLink['type']> = [undefined, 'pdf', 'text', 'link'];
 const RELATED_LINKS = range(1, 6).map(
   (n): RelatedLink => ({
-    label: 'Stefna í málefnum eldri borgara til ársins 2022 ' + n,
+    label: `Stefna í málefnum eldri borgara til ársins 2022 ${n}`,
     href: '/',
     type: relatedTypes[(n - 1) % 4],
   })

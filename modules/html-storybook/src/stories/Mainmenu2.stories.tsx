@@ -15,7 +15,7 @@ const createPanelItems = (
   title,
   subItems: Array.from({ length }).map(
     (_, i): MainMenu2SubMenuItem => ({
-      label: title + (i === 2 ? ' lorem impsum dolor sit' : '') + ' item ' + (i + 1),
+      label: `${title + (i === 2 ? ' lorem impsum dolor sit' : '')} item ${i + 1}`,
       href: '',
       current: current === i || undefined,
       descr: getStableRandomItem(
@@ -53,7 +53,7 @@ export default meta;
 export const _MainMenu2: StoryObj<ControlProps> = {
   render: (args) => (
     <MainMenu2
-      key={args.ssr + ''}
+      key={`${args.ssr}`}
       ssr={args.ssr ? 'ssr-only' : true}
       items={{
         main: [

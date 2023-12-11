@@ -84,7 +84,7 @@ export const useMobileMenuToggling = (opts?: boolean | Opts): MenuTogglingState 
         typeof togglerElm === 'string' ? document.querySelector(togglerElm) : togglerElm;
       const menuElmId = toggler?.getAttribute('aria-controls');
       if (menuElmId) {
-        focusElement('#' + menuElmId);
+        focusElement(`#${menuElmId}`);
       }
     }
   };

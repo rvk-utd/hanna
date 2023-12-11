@@ -72,7 +72,6 @@ export const makeStateBridge = <T = unknown>(id: string): StateBridge<T> => {
         ([id, value]) =>
           new Promise((resolve, reject) => {
             try {
-              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               window.__state![id]!(value);
               setTimeout(resolve, 100);
             } catch (err) {

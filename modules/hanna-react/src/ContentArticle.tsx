@@ -36,7 +36,7 @@ export const ContentArticle = (props: ContentArticleProps) => {
       {props.meta ? (
         <div className="ContentArticle__header">
           {headingElm}
-          {<ArticleMeta items={props.meta} />}
+          <ArticleMeta items={props.meta} />
         </div>
       ) : (
         headingElm

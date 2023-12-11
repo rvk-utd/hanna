@@ -20,7 +20,7 @@ export const PageHeading = (props: PageHeadingProps) => {
       {...wrapperProps}
       className={modifiedClass(
         'PageHeading',
-        [small && 'small', align === 'right' && 'align--' + align],
+        [small && 'small', align === 'right' && `align--${align}`],
         (wrapperProps || {}).className
       )}
     >

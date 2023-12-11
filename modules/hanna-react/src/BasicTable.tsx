@@ -52,7 +52,6 @@ export type BasicTableProps = {
   TableProps;
 
 export const BasicTable = (props: BasicTableProps) => {
-  // eslint-disable-next-line deprecation/deprecation
   const {
     align,
     fullWidth,
@@ -75,11 +74,11 @@ export const BasicTable = (props: BasicTableProps) => {
       bem="TableWrapper"
       modifier={[
         'BasicTable',
-        modifier && 'BasicTable--' + modifier,
+        modifier && `BasicTable--${modifier}`,
         fullWidth
           ? 'BasicTable--fullwidth'
           : align === 'right'
-          ? 'BasicTable--align--' + align
+          ? `BasicTable--align--${align}`
           : undefined,
       ]}
       wrapperProps={wrapperProps}

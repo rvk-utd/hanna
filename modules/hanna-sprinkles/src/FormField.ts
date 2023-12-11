@@ -19,7 +19,7 @@ const initSelectybox = (elm: HTMLElement) => {
 };
 
 const flag = (elm: HTMLElement, modifier: string, add: boolean): void => {
-  elm.classList[add ? 'add' : 'remove']('FormField--' + modifier);
+  elm.classList[add ? 'add' : 'remove'](`FormField--${modifier}`);
 };
 
 const setStateClasses = (elm: HTMLElement) => {

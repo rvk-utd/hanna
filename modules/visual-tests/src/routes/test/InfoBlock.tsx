@@ -13,9 +13,9 @@ export const meta: V2_MetaFunction = autoTitle;
 // export const handle = cssTokens('Token');
 const textItems = () => [
   lorem.tiny,
-  lorem.tiny.slice(0, 50) + '.',
+  `${lorem.tiny.slice(0, 50)}.`,
   loremRT.medium(true),
-  lorem.medium.slice(0, 115) + '.',
+  `${lorem.medium.slice(0, 115)}.`,
   lorem.tiny,
 ];
 export default function () {

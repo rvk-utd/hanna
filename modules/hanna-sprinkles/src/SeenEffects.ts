@@ -10,8 +10,7 @@ const noop = () => undefined;
 // ..and only then apply seen-effect to elements matching the legacy selectors.
 const legacySelectors: string = !hasLegacySeenEffectsCSS
   ? ''
-  : ', .' +
-    [
+  : `, .${[
       // block-level components
       'AccordionList',
       'ActionCards',
@@ -38,11 +37,11 @@ const legacySelectors: string = !hasLegacySeenEffectsCSS
       'SubHeading',
       'TextBlock',
       'Tabs',
-    ].join(', .');
+    ].join(', .')}`;
 
 window.Hanna.makeSprinkle({
   name: 'SeenEffects',
-  selector: '[data-seen-effect]' + legacySelectors,
+  selector: `[data-seen-effect]${legacySelectors}`,
   dataAttr: addSeenEffect.DATA_ATTR_NAME,
 
   init: (component: HTMLElement) => {

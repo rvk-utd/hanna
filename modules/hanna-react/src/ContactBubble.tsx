@@ -225,7 +225,7 @@ export const ContactBubble = (props: ContactBubbleProps) => {
         {links.map((linkInfo, i) => {
           const { href, label, extraLabel, target, onClick } = linkInfo;
           const icon = ensureIcon(linkInfo.icon);
-          const itemClass = modifiedClass('ContactBubble__item', icon && 'type--' + icon);
+          const itemClass = modifiedClass('ContactBubble__item', icon && `type--${icon}`);
           const onClickHandler = (e: React.MouseEvent) => {
             if (onClick) {
               const doPreventDefault = onClick() !== true;

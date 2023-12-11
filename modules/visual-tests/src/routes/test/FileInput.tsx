@@ -8,10 +8,8 @@ import { lorem } from '../../test-helpers/dummyData.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 
-const previewUri =
-  'data:image/svg+xml,' +
-  encodeURIComponent(
-    `
+const previewUri = `data:image/svg+xml,${encodeURIComponent(
+  `
     <svg width='375' height='271' viewBox='0 0 375 271' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path d='M0.330078 270.54H375V8.19995H0.330078V270.54Z' fill='white'/>
       <path d='M0.330078 270.54H375V159.78H0.330078V270.54Z' fill='#999'/>
@@ -19,7 +17,7 @@ const previewUri =
       <path d='M0 0V116H16.75H185.13H238.68H297.91L375 41.3963V0H0Z' fill='black'/>
     </svg>
     `.trim()
-  );
+)}`;
 
 export const meta: V2_MetaFunction = autoTitle;
 
@@ -32,7 +30,7 @@ const dropzoneText = () => (
 );
 
 export default function () {
-  const fileWithPreview = new File([lorem.long], lorem.tiny + '.pdf');
+  const fileWithPreview = new File([lorem.long], `${lorem.tiny}.pdf`);
   (fileWithPreview as any).preview = previewUri;
 
   const [files, setFiles] = useState<Array<File>>([

@@ -16,7 +16,7 @@ export default meta;
 
 const cards = range(1, 8).map(
   (n): ActionCardsItemProps => ({
-    title: 'ActionCard ' + n,
+    title: `ActionCard ${n}`,
     href: '',
     summary:
       n % 4 === 0

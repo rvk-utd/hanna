@@ -17,30 +17,30 @@ type SubTabProps = NonNullable<TabsProps['subTabs']>;
 
 const tabs = [1, 2, 3].map(
   (i): TabItemProps => ({
-    label: 'Tab ' + i + (i === 3 ? ' has a very longwinded label' : ''),
-    longLabel: i === 2 ? 'Tab ' + i + ' has longer label' : undefined,
+    label: `Tab ${i}${i === 3 ? ' has a very longwinded label' : ''}`,
+    longLabel: i === 2 ? `Tab ${i} has longer label` : undefined,
     badge: [14, undefined, 999][i - 1],
   })
 );
 
 const linkTabs = tabs.map((tab, i): TabItemProps & { href: string } => ({
   ...tab,
-  href: '#tab-' + (i + 1),
+  href: `#tab-${i + 1}`,
 }));
 
 const subTabs: SubTabProps = {
   tabs: tabs.map((prop) => ({
     ...prop,
-    label: 'Sub-' + prop.label,
-    longLabel: prop.longLabel ? 'Sub-' + prop.longLabel : undefined,
+    label: `Sub-${prop.label}`,
+    longLabel: prop.longLabel ? `Sub-${prop.longLabel}` : undefined,
   })),
   activeIdx: 2,
 };
 const linkSubTabs: SubTabProps = {
   tabs: tabs.map((prop) => ({
     ...prop,
-    label: 'Sub-' + prop.label,
-    longLabel: prop.longLabel ? 'Sub-' + prop.longLabel : undefined,
+    label: `Sub-${prop.label}`,
+    longLabel: prop.longLabel ? `Sub-${prop.longLabel}` : undefined,
   })),
   activeIdx: 2,
 };
@@ -109,12 +109,12 @@ export const testing: TestingInfo = {
         'vertical-tabs',
         'vertical-subTabs',
       ] as const) {
-        const tabsLabel = tagType + '-' + labelSuffix;
+        const tabsLabel = `${tagType}-${labelSuffix}`;
         const tabContainer = page.locator(`[aria-label="${tabsLabel}"]`);
         const tabText = /-subTabs$/.test(labelSuffix) ? 'Sub-tab' : 'Tab';
 
         await tabContainer.locator(`.Tabs__tab:text("${tabText} 1") >> nth=0`).hover();
-        await localScreenshot(tabContainer, tabsLabel + '-hover');
+        await localScreenshot(tabContainer, `${tabsLabel}-hover`);
       }
       /* eslint-enaable no-await-in-loop */
     }

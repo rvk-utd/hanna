@@ -39,7 +39,7 @@ const mapToItemsById = (items: Array<VerticalTabsTOCItem>, domid: string) => {
         },
       };
       if (idx === 0) {
-        topItem.href = topItem.href || '#' + getItemId(subItem);
+        topItem.href = topItem.href || `#${getItemId(subItem)}`;
       }
     });
   });

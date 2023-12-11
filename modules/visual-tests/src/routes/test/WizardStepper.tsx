@@ -27,7 +27,7 @@ export default function () {
           { label: 'Past, Not clickable, not done', done: false },
           {
             // the active one (idx: 4)
-            label: 'Current, Clickable, long text -- ' + lorem.medium,
+            label: `Current, Clickable, long text -- ${lorem.medium}`,
             clickable: true,
           },
 

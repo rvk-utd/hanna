@@ -113,10 +113,10 @@ export const Bling = (props: BlingProps) => {
       className={modifiedClass(
         'Bling',
         [
-          'align--' + (align && align in aligns ? align : 'left'),
-          vertical && vertical in valigns && 'vertical--' + vertical,
-          color && color in colors && 'color--' + color,
-          parent && parent in parentOffset && 'parent--' + parent,
+          `align--${align && align in aligns ? align : 'left'}`,
+          vertical && vertical in valigns && `vertical--${vertical}`,
+          color && color in colors && `color--${color}`,
+          parent && parent in parentOffset && `parent--${parent}`,
           overlay && 'overlay',
         ],
         // Prefer `className` over `wrapperProps.className`

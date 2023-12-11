@@ -10,6 +10,7 @@ import {
   SeenEffect__resetDefault,
   SeenEffect__transition,
 } from './utils/seenEffects.js';
+
 import { RowBlockColumn_css } from './RowBlockColumn.css.js';
 
 export const RowBlock__seenEffects = (trigger?: null | string) => css`

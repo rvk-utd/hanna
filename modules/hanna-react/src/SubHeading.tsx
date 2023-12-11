@@ -23,7 +23,7 @@ export const SubHeading = (props: SubHeadingProps) => {
         'SubHeading',
         [
           small && 'small',
-          align === 'right' && 'align--' + align,
+          align === 'right' && `align--${align}`,
           !align && wide && 'wide',
         ],
         (wrapperProps || {}).className

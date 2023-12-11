@@ -72,10 +72,10 @@ export const mainMenuItems: MainMenuItemList = [
 
 const createPanelItems = (title: string, length: number, current?: number) => ({
   title,
-  id: 'MegaMenu:' + title,
+  id: `MegaMenu:${title}`,
   items: Array.from({ length }).map(
     (_, i): MegaMenuItem => ({
-      label: title + (i === 2 ? ' lorem impsum dolor sit' : '') + ' item ' + (i + 1),
+      label: `${title + (i === 2 ? ' lorem impsum dolor sit' : '')} item ${i + 1}`,
       href: `?blu=${i + 1}`,
       current: current === i || undefined,
       summary: getStableRandomItem(
@@ -123,9 +123,7 @@ export default function () {
           auxiliaryPanel={showAux && auxiliaryPanel}
         />
       }
-    >
-      {''}
-    </Layout>
+    />
   );
 }
 

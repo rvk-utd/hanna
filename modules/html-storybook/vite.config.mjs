@@ -8,9 +8,9 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@reykjavik/hanna-utils': resolve(__dirname + '/../hanna-utils/src'),
-      '@reykjavik/hanna-react': resolve(__dirname + '/../hanna-react/src'),
-      '@reykjavik/hanna-css': resolve(__dirname + '/../hanna-css/src/lib'),
+      '@reykjavik/hanna-utils': resolve(`${__dirname}/../hanna-utils/src`),
+      '@reykjavik/hanna-react': resolve(`${__dirname}/../hanna-react/src`),
+      '@reykjavik/hanna-css': resolve(`${__dirname}/../hanna-css/src/lib`),
     },
   },
 });

@@ -42,7 +42,7 @@ const PageFilterStory: React.FC<ControlProps> = ({
   const br = lineBreakInputs;
   const underlap = underlapNextSibling;
   return (
-    <Fragment key={'' + summary + resetButton + footnoteContent + underlap + br}>
+    <Fragment key={`${summary}${resetButton}${footnoteContent}${underlap}${br}`}>
       <PageFilter
         title="Leita í fundargerðum"
         summary={summary}

@@ -50,7 +50,7 @@ const ShareButtons__item = (props: SBP) => {
   return (
     <li className="ShareButtons__item">
       <Link
-        className={'ShareButtons__link ShareButtons__link--' + type}
+        className={`ShareButtons__link ShareButtons__link--${type}`}
         href={href}
         title={buttonText}
         rel="noopener noreferrer"

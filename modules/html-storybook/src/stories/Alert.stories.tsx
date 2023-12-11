@@ -53,13 +53,13 @@ export const _Alert: StoryObj<ControlProps> = {
     const ssr = args.ssr;
 
     return (
-      <Fragment key={'' + closable + closeLink + ssr}>
+      <Fragment key={`${closable}${closeLink}${ssr}`}>
         {ObjectEntries(alertDemos).map(([type, contentFn], i) => (
           <Alert
             key={type}
             type={type}
             closable={closable}
-            closeUrl={closeLink ? '?closeAlert=' + (i + 1) : undefined}
+            closeUrl={closeLink ? `?closeAlert=${i + 1}` : undefined}
             ssr={ssr ? 'ssr-only' : undefined}
           >
             {contentFn()}

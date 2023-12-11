@@ -164,9 +164,9 @@ const renderTitle = (props: SearchResultsProps, texts: SearchReesultI18n) => {
       {status === 'loadingquery'
         ? texts.loadQueryTitle
         : totalHits
-        ? prettyNum(totalHits, { lang: texts.lang as PrettyNumOptions['lang'] }) +
-          ' ' +
-          texts.resultsTitle
+        ? `${prettyNum(totalHits, { lang: texts.lang as PrettyNumOptions['lang'] })} ${
+            texts.resultsTitle
+          }`
         : texts.noResultsTitle}
       <span className="SearchResults__query">{query}</span>
     </h2>

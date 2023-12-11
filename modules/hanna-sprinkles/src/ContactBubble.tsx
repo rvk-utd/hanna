@@ -29,7 +29,7 @@ const getContactBubbleData = (elm: HTMLElement): ContactBubbleProps => {
       const smallElm = q('small', linkElm);
       smallElm?.remove();
 
-      const label = linkElm.textContent || 'Link ' + (i + 1);
+      const label = linkElm.textContent || `Link ${i + 1}`;
       const extraLabel = smallElm?.textContent || undefined;
       const href = linkElm.getAttribute('href') || '';
       const target = linkElm.target || undefined;

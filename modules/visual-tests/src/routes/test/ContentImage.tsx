@@ -19,14 +19,14 @@ export default function () {
       <ContentImage
         image={photo.banner}
         caption={lorem.medium}
-        credit={'©2017 ' + lorem.tiny}
+        credit={`©2017 ${lorem.tiny}`}
       />
       <DummyBlock thin />
       <div style={{ width: '50%', margin: '0 auto' }}>
         <ContentImage image={photo.banner} caption={lorem.tiny} />
       </div>
       <DummyBlock thin />
-      <ContentImage image={photo.portrait} credit={'©2017 ' + lorem.tiny} />
+      <ContentImage image={photo.portrait} credit={`©2017 ${lorem.tiny}`} />
     </Minimal>
   );
 }

@@ -30,7 +30,7 @@ export default function () {
               options={opts}
               defaultValue="text"
               required={true}
-              name={name + 'normal'}
+              name={`${name}normal`}
             />
             <DummyBlock thin />
             <RadioGroup
@@ -40,7 +40,7 @@ export default function () {
               value={value}
               onSelected={({ value }) => setValue(value)}
               invalid
-              name={name + 'invalid'}
+              name={`${name}invalid`}
               errorMessage="This is an error message"
             />
             <DummyBlock thin />
@@ -51,7 +51,7 @@ export default function () {
               options={opts}
               defaultValue="text"
               required={true}
-              name={name + 'disabled'}
+              name={`${name}disabled`}
             />
           </Fragment>
         );

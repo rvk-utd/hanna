@@ -391,7 +391,7 @@ export const Multiselect = (props: MultiselectProps) => {
                               removable: true,
                               onRemove: () => {
                                 handleCheckboxSelection(item);
-                                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
                                 inputWrapperRef
                                   .current!.querySelector<HTMLElement>(
                                     '.Multiselect__choices'

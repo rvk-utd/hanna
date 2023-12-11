@@ -29,7 +29,7 @@ const links: Array<RelatedLinkItem> = [
   },
   {
     href: '/files/some.pdf',
-    label: 'PDF with long title. -- ' + lorem.tiny.slice(0, 33),
+    label: `PDF with long title. -- ${lorem.tiny.slice(0, 33)}`,
   },
   {
     href: '/files/someOtherDocument',

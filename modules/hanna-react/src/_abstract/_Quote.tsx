@@ -19,9 +19,9 @@ export const _Quote = (props: { bem: string } & QuoteProps) => {
       {...wrapperProps}
       className={modifiedClass(bem, null, (wrapperProps || {}).className)}
     >
-      <blockquote className={bem + '__quote'}>{children}</blockquote>
+      <blockquote className={`${bem}__quote`}>{children}</blockquote>
       {by && (
-        <figcaption className={bem + '__by'}>
+        <figcaption className={`${bem}__by`}>
           {byHref ? (
             <Link href={byHref}>{by}</Link>
           ) : typeof by === 'string' ? (

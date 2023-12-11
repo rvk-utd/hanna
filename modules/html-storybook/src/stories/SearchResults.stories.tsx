@@ -20,7 +20,7 @@ export default meta;
 
 const items = range(1, 3).map(
   (item): SearchResultsItemProps => ({
-    title: 'Niðurstaða ' + item,
+    title: `Niðurstaða ${item}`,
     meta: item % 3 === 1 ? ['Fréttir', '15. janúar 2020'] : undefined,
     summary:
       'Á leikskólum er haft að leiðarljósi að börnin njóti bernsku sinnar og læri og þroskist í leik og samveru.',

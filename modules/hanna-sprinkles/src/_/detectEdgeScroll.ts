@@ -68,14 +68,14 @@ export const detectEdgeScroll = (opts: DetectEdgeScrollOptions): Actions => {
   } = opts;
 
   let at = { start: true, end: true };
-  const bemAt = bem ? bem + '--at' : 'at';
+  const bemAt = bem ? `${bem}--at` : 'at';
 
   const doClasses = !onChange || setClasses;
 
   const toggleClassNames = (at: AtState) => {
     const elmClasses = (classedElm || scrollerElm).classList;
-    elmClasses[at.start ? 'add' : 'remove'](bemAt + '--start');
-    elmClasses[at.end ? 'add' : 'remove'](bemAt + '--end');
+    elmClasses[at.start ? 'add' : 'remove'](`${bemAt}--start`);
+    elmClasses[at.end ? 'add' : 'remove'](`${bemAt}--end`);
   };
 
   const setAt = !onChange

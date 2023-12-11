@@ -32,8 +32,7 @@ export const expandViewport =
 
     const getScrollHeight = customElm
       ? () => customElm.evaluate((elm) => elm.scrollHeight)
-      : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        () => page.evaluate(() => document.querySelector('#bodyinner')!.clientHeight);
+      : () => page.evaluate(() => document.querySelector('#bodyinner')!.clientHeight);
 
     let scrollHeight = await getScrollHeight();
 

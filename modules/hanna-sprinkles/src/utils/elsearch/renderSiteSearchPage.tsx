@@ -167,7 +167,7 @@ const MiniRouter = {
   push: (query: Record<string, string | undefined>, replace?: boolean): void => {
     const method = replace ? 'replaceState' : 'pushState';
     const queryString = makeQueryString(query);
-    const url = queryString ? '?' + queryString : '';
+    const url = queryString ? `?${queryString}` : '';
     history[method](null, '', url);
     window.dispatchEvent(new Event('minirouting'));
   },
@@ -443,7 +443,7 @@ const renderSiteSearchPage = (props: Proptions) => {
 
   const insertionElm = document.querySelector(insertAt);
   if (!insertionElm) {
-    log('Insertion point "' + insertAt + '" not found');
+    log(`Insertion point "${insertAt}" not found`);
     return;
   }
 

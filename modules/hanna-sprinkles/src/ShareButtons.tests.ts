@@ -13,10 +13,10 @@ const numButtons = (elm: Element) => qq('.ShareButtons__link', elm).length;
 
 const hasButtonTypes = (elm: Element, types: ReadonlyArray<ShareButtonPlatforms>) =>
   numButtons(elm) === types.length &&
-  types.every((type) => q('.ShareButtons__link--' + type, elm) != null);
+  types.every((type) => q(`.ShareButtons__link--${type}`, elm) != null);
 
 const getButton = (elm: Element, type: ShareButtonPlatforms) =>
-  q<HTMLAnchorElement>('.ShareButtons__link--' + type, elm);
+  q<HTMLAnchorElement>(`.ShareButtons__link--${type}`, elm);
 
 // ---------------------------------------------------------------------------
 

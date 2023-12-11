@@ -25,7 +25,7 @@ export const Blings = (props: BlingsProps) => (
   <>
     {props.blings.map(({ type, align, vertical, color, overlay, parent }, i) => (
       <Bling
-        key={type + '-' + i}
+        key={`${type}-${i}`}
         type={type}
         align={props.mirror ? inverseAlignments[align || 'left'] : align}
         vertical={vertical}

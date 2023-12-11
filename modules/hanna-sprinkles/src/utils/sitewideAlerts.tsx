@@ -246,14 +246,14 @@ const resolveRoot = (
     return rootElm;
   }
 
-  const existingAlertsContainer = q<HTMLElement>('.' + Layout + '__alerts');
+  const existingAlertsContainer = q<HTMLElement>(`.${Layout}__alerts`);
   if (existingAlertsContainer) {
     return makeEmptyDivInside(existingAlertsContainer);
   }
 
   const newAlertsContainer = document.createElement('div');
-  newAlertsContainer.className = '' + Layout + '__alerts';
-  const layoutElm = qq('.' + Layout + ', body').slice(-1)[0]!;
+  newAlertsContainer.className = `${Layout}__alerts`;
+  const layoutElm = qq(`.${Layout}, body`).slice(-1)[0]!;
   layoutElm.prepend(newAlertsContainer);
   return makeEmptyDivInside(newAlertsContainer);
 };

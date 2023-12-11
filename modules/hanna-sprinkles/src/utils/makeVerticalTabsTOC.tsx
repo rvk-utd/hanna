@@ -119,7 +119,7 @@ const makePanels = (containers: Array<HTMLElement>) => {
       return;
     }
 
-    let tHeading = containerElm.querySelector(hTop) as HTMLElement | null; // guaranteed by getHeadingTagLevels to be a hTop element
+    let tHeading = containerElm.querySelector(hTop); // guaranteed by getHeadingTagLevels to be a hTop element
     while (tHeading) {
       const groupNodes: Array<Node> = [];
       let node = tHeading.nextSibling;
@@ -163,7 +163,7 @@ const makePanels = (containers: Array<HTMLElement>) => {
         const lastItem = items[items.length - 1]!;
         lastItem.items!.push({
           label,
-          href: '#' + panelElm.id,
+          href: `#${panelElm.id}`,
           'aria-controls': panelElm.id,
         });
       }

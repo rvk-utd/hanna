@@ -102,7 +102,7 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
           <Toggler
             key={i}
             {...inputProps}
-            className={bem + '__item'}
+            className={`${bem}__item`}
             name={name}
             Wrapper="li"
             {...option}

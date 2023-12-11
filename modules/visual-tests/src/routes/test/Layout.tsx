@@ -22,7 +22,7 @@ const SHY = '\u00AD';
 const siteNames = [
   'Mínar síður',
   'Gagnahlaðborðið í tveimur línum',
-  'Vaðlaheiðar' + SHY + 'vegavinnu' + SHY + 'verkfæra' + SHY + 'geymslu' + SHY + 'skúr',
+  `Vaðlaheiðar${SHY}vegavinnu${SHY}verkfæra${SHY}geymslu${SHY}skúr`,
 ];
 
 export default function () {

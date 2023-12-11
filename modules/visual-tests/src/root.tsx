@@ -89,11 +89,10 @@ export default function App() {
         )}
         <link
           rel="stylesheet"
-          href={
-            getCssBundleUrl(cssTokens, { version: cssVersion }) +
+          href={`${
+            getCssBundleUrl(cssTokens, { version: cssVersion })
             // magic parameter to override default dev config while running tests
-            '&allowBadTokens=true'
-          }
+          }&allowBadTokens=true`}
         />
         <Links />
         {noAnimation && (

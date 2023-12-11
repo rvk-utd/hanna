@@ -48,7 +48,7 @@ const makePackageJson = (
   delete newPkg.devDependencies;
   Object.assign(newPkg, publishConfig, extraFields);
 
-  writeFileSync(outDir + '/package.json', JSON.stringify(newPkg, null, '\t'));
+  writeFileSync(`${outDir}/package.json`, JSON.stringify(newPkg, null, '\t'));
 };
 
 // ---------------------------------------------------------------------------
@@ -184,8 +184,9 @@ const addReferenePathsToIndex = (
       .map((declFile) => `/// <reference path="./${declFile}" />`);
     if (extraEntryPaths.length > 0) {
       const indexDeclFile = `${distFolder}/${dtsify(indexTsFile)}`;
-      const indexDecls =
-        extraEntryPaths.join('\n') + `\n\n` + readFileSync(indexDeclFile);
+      const indexDecls = `${extraEntryPaths.join('\n')}\n\n${readFileSync(
+        indexDeclFile
+      )}`;
       writeFileSync(indexDeclFile, indexDecls);
     }
   }

@@ -33,7 +33,7 @@ const Component = (props: { highlight?: boolean }) => (
     visibleDemo={
       <div
         style={{
-          backgroundColor: 'rgba(0, 0 ,0, ' + (props.highlight ? '.1' : '.05'),
+          backgroundColor: `rgba(0, 0 ,0, ${props.highlight ? '.1' : '.05'}`,
           padding: '6% 5%',
         }}
       >
@@ -57,7 +57,7 @@ const VSpacerStory: React.FC<ControlProps> = ({
   const size = combinedMarginSize;
 
   return (
-    <Fragment key={'' + wrapper + size + top + bottom}>
+    <Fragment key={`${wrapper}${size}${top}${bottom}`}>
       <Component />
       {'\n\n'}
       {wrapper ? (

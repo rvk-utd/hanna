@@ -101,12 +101,12 @@ export const SiteSearchAutocomplete = <T,>(props: SiteSearchAutocompleteProps<T>
     <Autosuggest
       theme={{
         container: bem,
-        containerOpen: bem + '--open',
-        suggestionsContainer: bem + '__container',
-        suggestionsContainerOpen: bem + '__container--open',
-        suggestionsList: bem + '__list',
-        suggestion: bem + '__item',
-        suggestionHighlighted: bem + '__item--highlighted',
+        containerOpen: `${bem}--open`,
+        suggestionsContainer: `${bem}__container`,
+        suggestionsContainerOpen: `${bem}__container--open`,
+        suggestionsList: `${bem}__list`,
+        suggestion: `${bem}__item`,
+        suggestionHighlighted: `${bem}__item--highlighted`,
       }}
       focusInputOnSuggestionClick={true}
       suggestions={suggestions}

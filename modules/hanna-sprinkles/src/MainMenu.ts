@@ -247,7 +247,7 @@ const initMainMenu = (menuElm: HTMLElement, lang: string) => {
     }
 
     const menuLink =
-      (panelElm.id && q('a.MainMenu__link[href$="#' + panelElm.id + '"]', menuElm)) ||
+      (panelElm.id && q(`a.MainMenu__link[href$="#${panelElm.id}"]`, menuElm)) ||
       undefined;
 
     const panelData: PanelData = {

@@ -18,7 +18,7 @@ const _telToContactInfo = (tel: string | Array<string> | undefined) => {
   }
   tel = typeof tel === 'string' ? [tel] : tel;
   return tel.map((tel) => ({
-    href: 'tel:' + tel,
+    href: `tel:${tel}`,
     value: tel,
   }));
 };

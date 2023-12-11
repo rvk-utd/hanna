@@ -77,12 +77,12 @@ const TableCell = (props: TableCellProps) => {
     ? ''
     : number === true
     ? 'Cell--number'
-    : 'Cell--number Cell--number--' + number;
+    : `Cell--number Cell--number--${number}`;
   const textClass = !text
     ? ''
     : text === true
     ? 'Cell--text'
-    : 'Cell--text Cell--text--' + text;
+    : `Cell--text Cell--text--${text}`;
   const telClass = tel ? 'Cell--tel' : '';
 
   return (

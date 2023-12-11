@@ -79,10 +79,10 @@ export const createTest = (config: MakeCfg, callback: TestCallback) => {
       const msg = warningLogger.args[0] || undefined;
       if (typeof warning === 'string') {
         const match = msg && msg.replace(/\s\s+/g, '').includes(warning);
-        o(msg).equals(match ? msg : warning)(message + ' warning');
+        o(msg).equals(match ? msg : warning)(`${message} warning`);
       } else {
         o(msg || undefined).equals(warning ? msg || 'warning logged' : undefined)(
-          message + ' warning'
+          `${message} warning`
         );
       }
 

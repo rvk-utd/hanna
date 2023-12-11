@@ -25,7 +25,7 @@ export const _ContactBubble: StoryObj<ControlProps> = {
     // /* ONLY use during Development */
     // const [open, setOpen] = useState(false);
     const { ssr, alwaysShow } = args;
-    const key = '' + ssr + alwaysShow;
+    const key = `${ssr}${alwaysShow}`;
     return (
       <>
         <HiddenTiger>

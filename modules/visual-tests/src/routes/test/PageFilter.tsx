@@ -41,7 +41,7 @@ export default function () {
               ? ' '
               : i === 4
               ? 'But has footnote and a reset button!'
-              : 'With line break! ' + lorem.short
+              : `With line break! ${lorem.short}`
           }
           buttonRow={
             <Fragment>

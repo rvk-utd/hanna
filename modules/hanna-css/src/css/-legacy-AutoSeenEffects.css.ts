@@ -7,6 +7,7 @@ import {
   SeenEffect__fadeup,
   SeenEffect__reset,
 } from './utils/seenEffects.js';
+
 import { ExtraLinks__seenEffects } from './ExtraLinks.css.js';
 import { GridBlocks__seenEffects } from './GridBlocks.css.js';
 import { ImageCards__seenEffects } from './ImageCards.css.js';

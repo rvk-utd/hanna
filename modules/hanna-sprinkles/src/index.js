@@ -26,7 +26,7 @@
       */
       let src = scriptElm.src;
       src = src
-        ? src.split('?')[0].replace(/\/(?:index\.js)$/, '') + '/'
+        ? `${src.split('?')[0].replace(/\/(?:index\.js)$/, '')}/`
         : fallbackSprinklesUrl;
       path = new URL('.', src).href;
     }
@@ -34,9 +34,9 @@
     try {
       import_ = new Function('url', 'return import(url)');
       import_('').catch(() => undefined);
-      path = (path || './') + 'esm/';
+      path = `${path || './'}esm/`;
     } catch (e) {
-      path = (path || fallbackSprinklesUrl) + 'systemjs/';
+      path = `${path || fallbackSprinklesUrl}systemjs/`;
       const sjs = new Promise((resolve) => {
         const s = document.createElement('script');
         s.onload = s.onerror = resolve;

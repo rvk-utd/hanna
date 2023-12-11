@@ -54,7 +54,7 @@ export default function Index() {
                 <Link to={item.path}>{item.label}</Link>
               ) : (
                 <i key={i}>
-                  {item.label} {item.reasons && <small>({' ' + item.reasons})</small>}
+                  {item.label} {item.reasons && <small>({` ${item.reasons}`})</small>}
                 </i>
               )}
             </li>

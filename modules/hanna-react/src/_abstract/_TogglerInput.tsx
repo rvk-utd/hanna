@@ -50,13 +50,13 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
   } = props;
 
   const domid = useDomid(id);
-  const errorId = errorMessage && 'error' + domid;
+  const errorId = errorMessage && `error${domid}`;
 
   const reqStar = required && reqText !== false && (
     <abbr
-      className={bem + '__label__reqstar'}
+      className={`${bem}__label__reqstar`}
       // FIXME: add mo-better i18n thinking
-      title={(reqText || 'Þarf að haka í') + ': '}
+      title={`${reqText || 'Þarf að haka í'}: `}
     >
       *
     </abbr>
@@ -82,7 +82,7 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
       )}
     >
       <input
-        className={bem + '__input'}
+        className={`${bem}__input`}
         type={type}
         id={domid}
         aria-invalid={invalid || !!errorMessage || undefined}
@@ -91,9 +91,9 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
         {...inputProps}
         {...(readOnly && { disabled: true })}
       />{' '}
-      <label className={bem + '__label'} htmlFor={domid}>
+      <label className={`${bem}__label`} htmlFor={domid}>
         {innerWrap ? (
-          <span className={bem + '__label__wrap'}>{labelContent}</span>
+          <span className={`${bem}__label__wrap`}>{labelContent}</span>
         ) : (
           labelContent
         )}
@@ -102,7 +102,7 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
         )}
       </label>
       {errorMessage && (
-        <div className={bem + '__error'} id={errorId}>
+        <div className={`${bem}__error`} id={errorId}>
           {errorMessage}
         </div>
       )}

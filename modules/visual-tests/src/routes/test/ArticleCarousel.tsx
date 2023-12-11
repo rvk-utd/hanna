@@ -27,7 +27,7 @@ const items: ArticleCarouselProps['items'] = [
     color: 'ellidaardalur',
     date: '20. feb 2021',
     title: 'Second Item Has a Pretty Long Title',
-    summary: lorem.medium.slice(0, 120) + '.',
+    summary: `${lorem.medium.slice(0, 120)}.`,
     href: '/',
   },
   {

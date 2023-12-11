@@ -259,16 +259,16 @@ export const testing: TestingInfo = {
     while ((cfg = buttons[i++])) {
       const { loc, name, click, focus = true, tertiary } = cfg;
       await loc.hover({ force: true });
-      await localScreenshot(loc, name + '-hover', { margin: true });
+      await localScreenshot(loc, `${name}-hover`, { margin: true });
       if (click) {
         await page.mouse.down();
-        await localScreenshot(loc, name + '-mousedown', { margin: true });
+        await localScreenshot(loc, `${name}-mousedown`, { margin: true });
         await page.mouse.move(0, 0);
         await page.mouse.up();
       }
       if (focus) {
         await keyboardFocus(loc);
-        await localScreenshot(loc, name + '-focus', { margin: tertiary ? 20 : true });
+        await localScreenshot(loc, `${name}-focus`, { margin: tertiary ? 20 : true });
         await page.mouse.click(0, 0);
       }
     }

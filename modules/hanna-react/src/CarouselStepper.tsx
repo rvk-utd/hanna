@@ -22,7 +22,7 @@ const array = new Array(50).join(' ').split('');
 export const CarouselStepper = (props: CarouselStepperProps) => {
   const { current, itemCount, setCurrent, texts = defaultTexts, wrapperProps } = props;
 
-  const labelPrefix = texts.prefix ? texts.prefix + ' ' : '';
+  const labelPrefix = texts.prefix ? `${texts.prefix} ` : '';
 
   return (
     <div
@@ -35,7 +35,7 @@ export const CarouselStepper = (props: CarouselStepperProps) => {
         return (
           <button
             key={i}
-            className={'CarouselStepper__button'}
+            className="CarouselStepper__button"
             type="button"
             disabled={isCurrent}
             aria-pressed={isCurrent}

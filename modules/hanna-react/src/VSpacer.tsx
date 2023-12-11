@@ -61,7 +61,7 @@ export const VSpacer = (props: VSpacerProps) => {
 
   const className = modifiedClass(
     'VSpacer',
-    [sizeVal, topVal && 'top--' + topVal, bottomVal && 'bottom--' + bottomVal],
+    [sizeVal, topVal && `top--${topVal}`, bottomVal && `bottom--${bottomVal}`],
     (wrapperProps || {}).className
   );
 

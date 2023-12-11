@@ -6,7 +6,6 @@ import { buildVariables } from '../../lib/cssutils.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { iconStyle } from '../../lib/icons.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
-import { enableDataIcon } from '../Icon.css.js';
 import {
   hoverKeyboardFocusAndActiveStyling,
   keyboardFocusStyling,
@@ -14,6 +13,8 @@ import {
 import { prem } from '../utils/miscUtils.js';
 
 import { LinkStyle_Reset } from './links.js';
+
+import { enableDataIcon } from '../Icon.css.js';
 
 // ---------------------------------------------------------------------------
 

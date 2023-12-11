@@ -99,41 +99,41 @@ export const testing: TestingInfo = {
       const normalChecked = page.locator(
         `[data-testid="normalChecked"] + .${type}__label`
       );
-      const disabled = page.locator('[data-testid="disabled"] + .' + type + '__label');
-      const invalid = page.locator('[data-testid="invalid"] +.' + type + '__label');
+      const disabled = page.locator(`[data-testid="disabled"] + .${type}__label`);
+      const invalid = page.locator(`[data-testid="invalid"] +.${type}__label`);
       const invalidChecked = page.locator(
-        '[data-testid="invalidChecked"] + .' + type + '__label'
+        `[data-testid="invalidChecked"] + .${type}__label`
       );
 
       for (const action of ['hover', 'focus'] as const) {
         // Hover things
         await normal[action]();
-        await localScreenshot(normal, type + '-normal-' + action, { margin: 8 });
+        await localScreenshot(normal, `${type}-normal-${action}`, { margin: 8 });
 
         await normalChecked[action]();
-        await localScreenshot(normalChecked, type + '-checked-' + action, { margin: 8 });
+        await localScreenshot(normalChecked, `${type}-checked-${action}`, { margin: 8 });
 
         await invalid[action]();
-        await localScreenshot(invalid, type + '-invalid-' + action, { margin: 8 });
+        await localScreenshot(invalid, `${type}-invalid-${action}`, { margin: 8 });
 
         await invalidChecked[action]();
-        await localScreenshot(invalidChecked, type + '-invalidchecked-' + action, {
+        await localScreenshot(invalidChecked, `${type}-invalidchecked-${action}`, {
           margin: 8,
         });
       }
 
       await disabled.hover();
-      await localScreenshot(disabled, type + '-disabled-hover', { margin: 8 });
+      await localScreenshot(disabled, `${type}-disabled-hover`, { margin: 8 });
 
       if (type === 'Checkbox') {
         await normal.locator('a').hover();
-        await localScreenshot(normal, type + '-normal-hover-link', { margin: 8 });
+        await localScreenshot(normal, `${type}-normal-hover-link`, { margin: 8 });
 
         await invalid.locator('a').hover();
-        await localScreenshot(invalid, type + '-invalid-hover-link', { margin: 8 });
+        await localScreenshot(invalid, `${type}-invalid-hover-link`, { margin: 8 });
 
         await disabled.locator('a').hover();
-        await localScreenshot(disabled, type + '-disabled-hover-link', { margin: 8 });
+        await localScreenshot(disabled, `${type}-disabled-hover-link`, { margin: 8 });
       }
     }
     /* eslint-enable no-await-in-loop */

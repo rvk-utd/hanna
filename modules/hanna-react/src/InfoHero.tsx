@@ -111,7 +111,7 @@ export const InfoHero = (props: InfoHeroProps) => {
       {...wrapperProps}
       className={modifiedClass(
         'InfoHero',
-        'align--' + alignment,
+        `align--${alignment}`,
         (wrapperProps || {}).className
       )}
     >

@@ -26,12 +26,11 @@ const defaultRemoveFileText: OpenRecord<HannaLang, string> = {
 
 const defaultOnFilesRejected: FileInputProps['onFilesRejected'] = (rejectedFiles) => {
   window.alert(
-    'Error:\n' +
-      rejectedFiles
-        .map((elm) => {
-          return elm.name;
-        })
-        .join(', ')
+    `Error:\n${rejectedFiles
+      .map((elm) => {
+        return elm.name;
+      })
+      .join(', ')}`
   );
 };
 
@@ -194,7 +193,7 @@ export const FileInput = (props: FileInputProps) => {
     <FormField
       extraClassName={modifiedClass('FileInput', [multiple && 'multi'])}
       {...fieldWrapperProps}
-      id={domid + '-fake'}
+      id={`${domid}-fake`}
       LabelTag="h4"
       renderInput={(className, inputProps /* , addFocusProps */) => {
         return (

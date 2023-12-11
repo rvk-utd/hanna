@@ -34,7 +34,7 @@ export default meta;
 export const _MainMenu: StoryObj<ControlProps & { megaPanels: boolean }> = {
   render: (args) => (
     <MainMenu
-      key={args.ssr + '-' + args.megaPanels}
+      key={`${args.ssr}-${args.megaPanels}`}
       ssr={args.ssr ? 'ssr-only' : true}
       {...(args.megaPanels
         ? {
@@ -56,7 +56,7 @@ export const _MainMenu: StoryObj<ControlProps & { megaPanels: boolean }> = {
 export const _MegaMenu: StoryObj<ControlProps> = {
   render: (args) => (
     <MainMenu
-      key={args.ssr + '-'}
+      key={`${args.ssr}-`}
       ssr={args.ssr ? 'ssr-only' : true}
       items={mainMenuItems}
       megaPanels={megaMenuPanels}

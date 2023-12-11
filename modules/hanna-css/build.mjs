@@ -178,7 +178,7 @@ if (!opts.onlyLib) {
     .build({
       ...baseOpts,
       external: externalDeps,
-      entryPoints: cssModuleFiles.map((file) => cssSrcDir + '/' + file),
+      entryPoints: cssModuleFiles.map((file) => `${cssSrcDir}/${file}`),
       entryNames: '[dir]/$$[hash]$$-[name]',
       outbase: cssSrcDir,
       outdir: cssSrcDir,

@@ -6,7 +6,7 @@ const { version } = pkgJson;
 export { version };
 
 // const versionFolder = (version.match(/^0\.\d+/) || [version])[0];
-export const versionFolder = 'v' + (version.match(/^\d+.\d+/) || [''])[0];
+export const versionFolder = `v${(version.match(/^\d+.\d+/) || [''])[0]}`;
 if (versionFolder === 'v') {
   console.error('pkg.version number invalid or missing:', version);
   process.exit(1);

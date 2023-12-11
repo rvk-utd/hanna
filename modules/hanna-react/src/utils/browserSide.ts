@@ -101,7 +101,6 @@ const useClientState = <T, U>(
  * NOTE: The `ssrSupport` parameter is ignored after the initial render.
  */
 export const useIsServerSide = (ssrSupport?: SSRSupport) =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   useClientState(true, false, ssrSupport)[0] || undefined;
 
 /**
@@ -138,7 +137,6 @@ export const useIsServerSide = (ssrSupport?: SSRSupport) =>
  * NOTE: The `ssrSupport` parameter is ignored after the initial render.
  */
 export const useIsBrowserSide = (ssrSupport?: SSRSupport) =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   useClientState(false, true, ssrSupport)[0] || undefined;
 
 // ---------------------------------------------------------------------------

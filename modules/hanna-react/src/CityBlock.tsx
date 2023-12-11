@@ -24,7 +24,7 @@ export type CityBlockProps = {
 export const CityBlock = (props: CityBlockProps) => {
   const align = props.align || 'right';
   const type = !props.illustration && props.type; // The presence of illustration prop suppresses type
-  const modifier = [aligns[align] && 'align--' + align, type && types[type] && type];
+  const modifier = [aligns[align] && `align--${align}`, type && types[type] && type];
   const imageProps =
     props.illustration != null
       ? { src: getIllustrationUrl(props.illustration) }

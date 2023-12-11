@@ -3,7 +3,7 @@ import { RefObject, useEffect, useRef, useState } from 'react';
 export const DATA_ATTR_NAME = 'is-seen' as const;
 const STACKING_DELAY = 200; // ms
 
-const dataAttr = 'data-' + DATA_ATTR_NAME;
+const dataAttr = `data-${DATA_ATTR_NAME}`;
 
 const inTargetSourceOrder = (
   a: IntersectionObserverEntry,
@@ -39,7 +39,7 @@ export const getObserver = (target: Element, callback?: (target: Element) => voi
       options
     );
   }
-  if (target.matches('[' + dataAttr + '] *')) {
+  if (target.matches(`[${dataAttr}] *`)) {
     // opt out if target is contained by another "seen-effect" element
     target.setAttribute(dataAttr, '');
     return;

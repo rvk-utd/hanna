@@ -168,7 +168,7 @@ export const AbstractCarousel = <
 
   const itemList = (
     <div
-      className={bem + '__itemlist'}
+      className={`${bem}__itemlist`}
       style={
         leftOffset
           ? ({ '--Carousel--leftOffset': `${leftOffset}px` } as CSSProperties)
@@ -196,14 +196,14 @@ export const AbstractCarousel = <
       )}
       data-sprinkled={isBrowser}
     >
-      {title && <h2 className={bem + '__title'}>{title}</h2>}
+      {title && <h2 className={`${bem}__title`}>{title}</h2>}
 
       {isBrowser ? (
-        <div className={bem + '__itemlist-wrapper'}>
+        <div className={`${bem}__itemlist-wrapper`}>
           {itemList}
           {activeItem > 0 && (
             <div
-              className={bem + '__itemlist-goLeft'}
+              className={`${bem}__itemlist-goLeft`}
               onClick={() => {
                 delayedScrollLeft.cancel();
                 scrollToItem(activeItem - 1);
@@ -214,7 +214,7 @@ export const AbstractCarousel = <
           )}
           {activeItem < itemCount - 1 && (
             <div
-              className={bem + '__itemlist-goRight'}
+              className={`${bem}__itemlist-goRight`}
               onClick={() => {
                 delayedScrollRight.cancel();
                 scrollToItem(activeItem + 1);

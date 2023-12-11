@@ -23,7 +23,7 @@ const createPanelItems = (
   title,
   subItems: Array.from({ length }).map(
     (_, i): MainMenu2SubMenuItem => ({
-      label: title + (i === 2 ? ' lorem impsum dolor sit' : '') + ' item ' + (i + 1),
+      label: `${title + (i === 2 ? ' lorem impsum dolor sit' : '')} item ${i + 1}`,
       href: '',
       current: current === i || undefined,
       descr: getStableRandomItem(

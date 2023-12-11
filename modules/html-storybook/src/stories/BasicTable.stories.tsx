@@ -37,7 +37,7 @@ const BasicTableStory: React.FC<ControlProps> = ({
   return (
     <>
       <BasicTable
-        key={'' + compact + _footer + variant}
+        key={`${compact}${_footer}${variant}`}
         {...variantProps}
         compact={compact}
         cols={[{ number: true }, {}, {}, { tel: true }, { number: true }, {}]}

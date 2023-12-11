@@ -30,7 +30,7 @@ type LayoutWithContentControlProps = {
 };
 
 const LayoutWithContentStory = (props: LayoutWithContentControlProps) => {
-  const key = '' + props.globalAlerts + props.siteName;
+  const key = `${props.globalAlerts}${props.siteName}`;
   return (
     <Layout
       key={key}
@@ -92,7 +92,7 @@ type MinimalLayoutControlProps = LayoutWithContentControlProps & {
 const MinimalLayoutStory = (props: MinimalLayoutControlProps) => {
   const globalAlerts = props.globalAlerts;
   const navChildren = props.pageHasNoMenuOrNav ? undefined : ' ';
-  const key = '' + globalAlerts + navChildren + props.siteName;
+  const key = `${globalAlerts}${navChildren}${props.siteName}`;
   return (
     <Layout
       key={key}

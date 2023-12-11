@@ -40,7 +40,7 @@ const _filesToTestList = (readSkipped?: true) => (files: Array<string>) =>
     })
     .sort((a, b) => Intl.Collator('en').compare(a.label, b.label));
 
-const _testPageGlob = cwd + '/test/**/*{.tsx,.skipped.txt}';
+const _testPageGlob = `${cwd}/test/**/*{.tsx,.skipped.txt}`;
 
 export const getTestList = (): Promise<Array<TestPageInfo | SkippedTestInfo>> =>
   glob(_testPageGlob).then(_filesToTestList(true));
@@ -148,7 +148,7 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
     if (type === 'actual') {
       group.actualPath = fileName;
     }
-    group[`${type}Url`] = '/' + resultsFolder + fileName + '?t=' + timestamp;
+    group[`${type}Url`] = `/${resultsFolder}${fileName}?t=${timestamp}`;
   });
   const changes = ObjectEntries(filesByTest).map(([testPath, urls]): Changeset => {
     const [folder = '', filename = ''] = testPath.split('/');
@@ -157,7 +157,7 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
     const testName = testName_raw.replace(NAME_SPLIT, ' : ');
     const id = `${testName}_${label}_${project}`;
 
-    const specFile = folder.split('-' + testName_raw)[0] || '_unknown-specfile_';
+    const specFile = folder.split(`-${testName_raw}`)[0] || '_unknown-specfile_';
 
     return {
       id,

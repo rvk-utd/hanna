@@ -4,7 +4,7 @@ import type { StoryContext } from '@storybook/react';
 
 const makeCssUrl = (module: string | Array<string> | undefined, noLayout?: boolean) => {
   const layout = noLayout ? '' : 'Layout,';
-  return getCssBundleUrl('-basics,' + layout + module);
+  return getCssBundleUrl(`-basics,${layout}${module}`);
 };
 
 export const cssImportDecorator = (story: () => ReactElement, context: StoryContext) => {

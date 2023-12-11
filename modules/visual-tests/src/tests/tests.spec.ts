@@ -272,7 +272,7 @@ allComponentTests.forEach(([name, testInfo]) => {
   const testFn = testInfo.__DEV_FOCUS__ ? test.only : test;
 
   testFn(
-    testName + tagStr + '-',
+    `${testName + tagStr}-`,
     async ({ page, context, browserName, isMobile, hasTouch }, { project }) => {
       const pageScreenshot = makeSnapPageScreeshot(page, testName, testInfo);
       const localScreenshot = makeSnapLocalScreeshot(page, testName);
@@ -301,7 +301,7 @@ allComponentTests.forEach(([name, testInfo]) => {
         setViewportSize,
       };
 
-      await page.goto(testPagePath + '?noAnimation');
+      await page.goto(`${testPagePath}?noAnimation`);
 
       // HACK: Wait for Remix's <Script/> hydration to finish
       await page.locator('html[style^="--browser-scrollbar-width"]').waitFor();

@@ -43,7 +43,7 @@ export const IframeBlock = (props: IframeBlockProps) => {
 
   const className = modifiedClass(
     'IframeBlock',
-    [framed && 'framed', compact && 'compact', align === 'right' && 'align--' + align],
+    [framed && 'framed', compact && 'compact', align === 'right' && `align--${align}`],
     (props.wrapperProps || {}).className
   );
 

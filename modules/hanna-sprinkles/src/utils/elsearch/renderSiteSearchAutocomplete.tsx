@@ -47,7 +47,7 @@ const ElasticSiteSearchAutocomplete = (props: ElasticSiteSearchAutocompleteProps
         }}
         getSuggestionValue={({ label }) => label}
         onSubmit={(value) => {
-          window.location.href = searchPagePath + '?q=' + encodeURIComponent(value);
+          window.location.href = `${searchPagePath}?q=${encodeURIComponent(value)}`;
         }}
         onSuggestionsFetchRequested={({ value }) => {
           debouncer.cancel();
@@ -101,7 +101,7 @@ const renderSiteSearchAutocomplete = (props: Proptions): void => {
   const parentElm = insertionElm?.closest('.RowBlockColumn');
   if (!parentElm) {
     !insertionElm
-      ? log('Insertion point "' + insertAt + '" not found')
+      ? log(`Insertion point "${insertAt}" not found`)
       : log('RowBlockColumn parent not found');
     return;
   }

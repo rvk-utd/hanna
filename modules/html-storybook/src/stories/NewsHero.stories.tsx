@@ -57,7 +57,7 @@ const NewsHeroStory: React.FC<ControlProps> = ({ imageType, blingType }) => {
 
   return (
     <NewsHero
-      key={'' + image + isServerSide + blingOptType}
+      key={`${image}${isServerSide}${blingOptType}`}
       {...newsHeroProps}
       image={image && { src: landscapeImage }}
       sharing={renderShareButtons}

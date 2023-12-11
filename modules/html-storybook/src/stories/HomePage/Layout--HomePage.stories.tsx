@@ -20,9 +20,7 @@ const meta: Meta = {
   parameters: {
     controls: { hideNoControlsWarning: true },
     css: {
-      tokens:
-        'Layout--HomePage,GridBlocks,ExtraLinks,ArticleCarousel,MiniMetrics,ImageCards,' +
-        SearchHeroParagraph.cssTokens,
+      tokens: `Layout--HomePage,GridBlocks,ExtraLinks,ArticleCarousel,MiniMetrics,ImageCards,${SearchHeroParagraph.cssTokens}`,
     },
     layout: {
       modifier: 'HomePage',
@@ -46,7 +44,7 @@ const HomePageStory = () => {
           icon: efnistakn[n],
           title: 'Heading',
           href: '',
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
           summary: [
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doasdasd eiusmod tempor incididunt. Ut labore et.',
             'Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',

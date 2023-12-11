@@ -37,7 +37,7 @@ export const Heading = (props: HeadingProps) => {
       data-dev-forcedh1={suppressWarning}
       className={modifiedClass('Heading', [
         sizes[size],
-        align === 'right' && 'align--' + align,
+        align === 'right' && `align--${align}`,
         !align && wide && 'wide',
         (wrapperProps || {}).className,
       ])}

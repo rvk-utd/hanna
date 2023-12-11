@@ -12,13 +12,7 @@ export const shouldQuery = (
   props: QueryProps
 ) => {
   const fields = dataFields.map(function (field, index) {
-    return (
-      '' +
-      field +
-      (Array.isArray(props.fieldWeights) && props.fieldWeights[index]
-        ? '^' + props.fieldWeights[index]
-        : '')
-    );
+    return `${field}${Array.isArray(props.fieldWeights) && props.fieldWeights[index] ? `^${props.fieldWeights[index]}` : ''}`;
   });
 
   if (props.searchOperators) {
@@ -177,7 +171,7 @@ export const searchResultsPageQuery = (query: ElasticQueryParms): Array<ElasticQ
 export const queryToString = (_query: ElasticQuery) => {
   const { preference, ...rest } = _query;
 
-  return `{ "preference": "${preference}" }` + '\n' + JSON.stringify({ ...rest }) + '\n';
+  return `{ "preference": "${preference}" }` + `\n${JSON.stringify({ ...rest })}\n`;
 };
 
 const cleanResult = (result: ElasticResult): SimpleResult => {

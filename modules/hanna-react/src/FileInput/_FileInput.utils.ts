@@ -40,7 +40,7 @@ export const formatBytes = (bytes: number, lang = 'is', decimals = 2): string =>
     units.length - 1
   );
   const scaled = bytes / Math.pow(k, i);
-  const formatted = (parseFloat(scaled.toFixed(decimals)) + '').replace(
+  const formatted = `${parseFloat(scaled.toFixed(decimals))}`.replace(
     '.',
     // NOTE: As of 2022-11 Chrome still doesn't support Icelandic
     decimalSymbols[lang] || (1.1).toLocaleString(lang)[1]!

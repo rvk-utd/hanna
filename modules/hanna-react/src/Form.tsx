@@ -17,7 +17,7 @@ export const Form = (props: FormProps) => {
       {...formProps}
       className={modifiedClass(
         'Form',
-        [align === 'right' && 'align--' + align, !align && wide && 'wide'],
+        [align === 'right' && `align--${align}`, !align && wide && 'wide'],
         className
       )}
     >

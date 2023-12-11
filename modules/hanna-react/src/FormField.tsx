@@ -208,7 +208,7 @@ export const FormField = (props: FormFieldProps) => {
     readOnly: readOnly,
     'aria-invalid': isInvalid,
     'aria-describedby':
-      assistTextId && errorId ? assistTextId + ' ' + errorId : assistTextId || errorId,
+      assistTextId && errorId ? `${assistTextId} ${errorId}` : assistTextId || errorId,
     'aria-labelledby': labelId, // undefined if normalLabel
   };
 

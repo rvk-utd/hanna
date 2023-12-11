@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import './_/initHannaNamespace.js';
 
 import React from 'react';

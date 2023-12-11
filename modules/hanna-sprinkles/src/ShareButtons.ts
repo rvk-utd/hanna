@@ -29,7 +29,7 @@ const makeShareButton = (type: ShareButtonPlatforms, href: string, label: string
     E(
       'a',
       {
-        className: 'ShareButtons__link ShareButtons__link--' + type,
+        className: `ShareButtons__link ShareButtons__link--${type}`,
         href,
         title: buttonText,
         rel: 'noopener noreferrer',

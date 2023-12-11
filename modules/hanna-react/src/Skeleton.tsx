@@ -64,7 +64,7 @@ export const Skeleton = (props: SkeletonProps) => {
 
   const className = modifiedClass(
     'Skeleton',
-    [props.text && 'text', height && 'height--' + height, gap && 'gap--' + gap],
+    [props.text && 'text', height && `height--${height}`, gap && `gap--${gap}`],
     (wrapperProps || {}).className
   );
 

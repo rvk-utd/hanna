@@ -24,17 +24,16 @@ export default function () {
           return framedness.map((framed, i) => {
             const dummy = align !== 'right' || compact !== true || framed !== true;
             const name =
-              (align === undefined ? '' : align + ' align') +
+              (align === undefined ? '' : `${align} align`) +
               (compact === true ? ' compact' : '') +
               (framed === true ? ' framed' : '');
             return (
               <Fragment key={i}>
                 <IframeBlock
                   title="Testing"
-                  src={
-                    'data:text/html,' +
-                    encodeURIComponent(`<body style="background:#ffdc">${name} </body>`)
-                  }
+                  src={`data:text/html,${encodeURIComponent(
+                    `<body style="background:#ffdc">${name} </body>`
+                  )}`}
                   scrolling={true}
                   height={150}
                   align={align}

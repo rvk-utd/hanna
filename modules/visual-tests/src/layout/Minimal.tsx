@@ -28,7 +28,7 @@ export const Minimal = (props: MinimalProps) => {
   return (
     <div className="Layout">
       <div
-        className={'Layout__' + slot}
+        className={`Layout__${slot}`}
         role={roles[slot]}
         style={{ paddingBlock: `${bare ? 2 : 1}rem`, minHeight: 0 }}
       >

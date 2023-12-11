@@ -97,8 +97,8 @@ type SprinkleMeta<E extends Element, D> = {
 
 const makeSprinkle = <E extends Element, D>(props: SprinkleMeta<E, D>) => {
   const { name, init, refresh, unmount } = props;
-  const selector = props.selector || '.' + name;
-  const dataAttr = 'data-' + (props.dataAttr || 'sprinkled');
+  const selector = props.selector || `.${name}`;
+  const dataAttr = `data-${props.dataAttr || 'sprinkled'}`;
   const sprinkles = window.Hanna.sprinkles;
 
   let sprinkledElms: Array<{ elm: E; data: D }> = [];

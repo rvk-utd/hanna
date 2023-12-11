@@ -35,11 +35,11 @@ export const makeSnapLocalScreeshot = (page: Page, testName: string) => {
     if ('waitForElementState' in locator) {
       const id = await locator.evaluate((elm: HTMLElement) => {
         if (!elm.id) {
-          elm.id = 'foo' + Date.now() + String(Math.random()).slice(2);
+          elm.id = `foo${Date.now()}${String(Math.random()).slice(2)}`;
         }
         return elm.id;
       });
-      locator = page.locator('#' + id);
+      locator = page.locator(`#${id}`);
     }
 
     const marginOpt = (opts || {}).margin;

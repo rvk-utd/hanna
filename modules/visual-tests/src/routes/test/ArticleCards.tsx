@@ -24,7 +24,7 @@ const cards = range(1, 5).map(
       ][i % 3] || '',
     href: '',
     image: i === 3 ? undefined : i % 4 ? photo.landscape : photo.portrait,
-    meta: i % 2 === 0 ? lorem.medium.slice(0, 103) + '.' : '14. október',
+    meta: i % 2 === 0 ? `${lorem.medium.slice(0, 103)}.` : '14. október',
     summary: i === 2 ? lorem.tiny : i === 3 ? lorem.short : undefined,
   })
 );

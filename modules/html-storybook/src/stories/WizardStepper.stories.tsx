@@ -58,7 +58,7 @@ const demoSteps: Record<string, string> = {
   None: 'none',
 };
 for (let i = 0; i < steps.length; i++) {
-  demoSteps[i ? 'Step ' + i : 'Intro'] = String(i);
+  demoSteps[i ? `Step ${i}` : 'Intro'] = String(i);
 }
 
 const getActiveStep = (activeStep: SelectedStep) => {

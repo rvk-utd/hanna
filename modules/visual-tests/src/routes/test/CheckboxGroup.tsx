@@ -61,7 +61,7 @@ export default function () {
               options={opts}
               defaultValue={['text']}
               required={true}
-              name={name + 'normal'}
+              name={`${name}normal`}
             />
             <DummyBlock thin />
             <CheckboxGroup
@@ -71,7 +71,7 @@ export default function () {
               value={value}
               onSelected={({ selectedValues }) => setValue(selectedValues)}
               invalid
-              name={name + 'invalid'}
+              name={`${name}invalid`}
               errorMessage="This is an error message"
             />
             <DummyBlock thin />
@@ -82,7 +82,7 @@ export default function () {
               defaultValue={['text']}
               options={opts}
               required={true}
-              name={name + 'disabled'}
+              name={`${name}disabled`}
             />
           </Fragment>
         );

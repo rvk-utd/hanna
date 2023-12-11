@@ -31,7 +31,7 @@ const relatedTypes = ['pdf', 'text', 'link'] as const;
 const RELATED_TITLE = 'Tengt efni';
 const RELATED_LINKS = range(1, 6).map(
   (n): RelatedLink => ({
-    label: 'Stefna í málefnum eldri borgara til ársins 2022 ' + n,
+    label: `Stefna í málefnum eldri borgara til ársins 2022 ${n}`,
     href: '',
     type: relatedTypes[(n - 1) % 4],
   })

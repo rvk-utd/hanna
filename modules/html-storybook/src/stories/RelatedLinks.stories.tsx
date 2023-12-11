@@ -54,7 +54,7 @@ const RelatedLinksStory: React.FC<ControlProps> = ({ title }) => {
   const displayTitle = title ? TITLE : undefined;
   const children = <RelatedLinks title={displayTitle} links={LINKS} />;
 
-  const key = title + '';
+  const key = `${title}`;
 
   return (
     <HiddenTiger

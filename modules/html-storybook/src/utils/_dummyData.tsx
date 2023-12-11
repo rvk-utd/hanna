@@ -87,10 +87,10 @@ export const mainMenuItemsSimple: typeof mainMenuItems = mainMenuItems.map((item
 
 const createPanelItems = (title: string, length: number, current?: number) => ({
   title,
-  id: 'MegaMenu:' + title,
+  id: `MegaMenu:${title}`,
   items: Array.from({ length }).map(
     (_, i): MegaMenuItem => ({
-      label: title + ' item ' + (i + 1),
+      label: `${title} item ${i + 1}`,
       href: '',
       current: current === i || undefined,
       summary:
