@@ -80,7 +80,7 @@ export const defaultSearchScoring: SearchScoringfn = (item, queryWords) => {
 const SEP = '🍌';
 
 /** Returns a normalized, filtered list of options */
-export const filterItems = <Extras = {}>(
+export const filterItems = <Extras = Record<string, never>>(
   options: TogglerGroupOptions<string, Extras>,
   searchQuery: string,
   searchScoringFn = defaultSearchScoring

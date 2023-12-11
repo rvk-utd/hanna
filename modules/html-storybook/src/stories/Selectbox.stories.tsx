@@ -26,7 +26,6 @@ const makeStory = (ssr: boolean): StoryObj<ControlProps> => {
     const ffProps = ffCtrls.getProps(props);
 
     const domid = useDomid();
-    const [focused, setFocused] = useState(false);
     const [value, setValue] = useState<string>('');
 
     const fruits: SelectboxOptionList<string> = [
@@ -50,8 +49,6 @@ const makeStory = (ssr: boolean): StoryObj<ControlProps> => {
           // placeholderDisabled
           onSelected={setValue}
           id={domid}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
         />
 
         <HiddenTiger>

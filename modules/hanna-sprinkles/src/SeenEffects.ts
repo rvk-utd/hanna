@@ -45,7 +45,6 @@ window.Hanna.makeSprinkle({
   dataAttr: addSeenEffect.DATA_ATTR_NAME,
 
   init: (component: HTMLElement) => {
-    console.log('init SeenEffects', component);
     autoSeenEffectPrepare(component);
     return addSeenEffect(component) || noop;
   },

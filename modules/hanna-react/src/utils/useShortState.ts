@@ -32,12 +32,16 @@ export const useShortState = <S>(
     }, duration);
   }).current;
 
-  useEffect(() => {
-    if (initialState !== undefined) {
-      setState(initialState, defaultDuration);
-    }
-    return cancelTimeout;
-  }, []);
+  useEffect(
+    () => {
+      if (initialState !== undefined) {
+        setState(initialState, defaultDuration);
+      }
+      return cancelTimeout;
+    },
+    // Intentionally ignore updates to the input values
+    [] // eslint-disable-line react-hooks/exhaustive-deps
+  );
 
   return [state, setState] as const;
 };

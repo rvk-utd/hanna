@@ -6,7 +6,8 @@ declare global {
    * Used as a temporary Global storage for communication state values between
    * Playwright tests and React test-page components
    */
-  var __state: undefined | Record<string, Dispatch<SetStateAction<any>>>; // eslint-disable-line no-var
+  // eslint-disable-next-line no-var, @typescript-eslint/no-explicit-any
+  var __state: undefined | Record<string, Dispatch<SetStateAction<any>>>;
 }
 
 /**

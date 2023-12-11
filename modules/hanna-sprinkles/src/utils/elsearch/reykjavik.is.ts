@@ -66,6 +66,7 @@ export const shouldQuery = (
 };
 
 export const defaultQuery = (value: string, props: QueryProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let finalQuery: Record<string, any> | null = null;
   let fields: Array<string> = [];
 
@@ -206,16 +207,14 @@ export const postQuery = (
     body: queries.map(queryToString).join(''),
   }).then(async (data) => {
     const jsonData = (await data.json()) as ElasticResponse;
-    return (
-      (jsonData.responses && jsonData.responses.map((result) => cleanResult(result))) ||
-      []
-    );
+    return jsonData.responses.map((result) => cleanResult(result));
   });
 };
 
 // ===========================================================================
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface Window {
     drupalSettings: {
       elasticsearch: DrupalSearchSettings;
@@ -245,6 +244,7 @@ export type ElasticQuery = {
   aggs?: Record<string, unknown>;
   query: Record<string, unknown>;
   filter?: unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sort: Array<any>;
   _source?: boolean | Array<string>;
 };

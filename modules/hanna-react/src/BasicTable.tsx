@@ -58,7 +58,7 @@ export const BasicTable = (props: BasicTableProps) => {
     type,
     tbody,
     tbodies,
-    modifier,
+    modifier, // eslint-disable-line deprecation/deprecation
     thead,
     tfoot,
     tableProps,

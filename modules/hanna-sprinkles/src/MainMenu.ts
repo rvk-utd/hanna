@@ -318,7 +318,9 @@ const initMainMenu = (menuElm: HTMLElement, lang: string) => {
   const closeMenu = () => updateMenu(undefined);
 
   const onFormatChange = (media: MediaFormat) => {
-    if (media.leftTopmenu) {
+    const lefTopMenu =
+      !{ netbook: 1, wide: 1 }[media.is] && { netbook: 1, wide: 1 }[media.was || ''];
+    if (lefTopMenu) {
       closeMenu();
     }
   };

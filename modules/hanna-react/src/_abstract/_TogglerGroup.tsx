@@ -7,14 +7,14 @@ import { useDomid } from '../utils/useDomid.js';
 
 import { TogglerInputProps } from './_TogglerInput.js';
 
-export type TogglerGroupOption<T = 'default', Extras = {}> = {
+export type TogglerGroupOption<T = 'default', Extras = Record<string, never>> = {
   value: string;
   label?: T extends 'default' ? string | JSX.Element : T;
   disabled?: boolean;
   id?: string;
 } & Partial<Extras>;
 
-export type TogglerGroupOptions<T = 'default', Extras = {}> = Array<
+export type TogglerGroupOptions<T = 'default', Extras = Record<string, never>> = Array<
   TogglerGroupOption<T, Extras>
 >;
 
@@ -31,7 +31,7 @@ type RestrictedInputProps = Omit<
   | 'children'
 >;
 
-export type TogglerGroupProps<T = 'default', Extras = {}> = {
+export type TogglerGroupProps<T = 'default', Extras = Record<string, never>> = {
   options: Array<string> | TogglerGroupOptions<T, Extras>;
   className?: string;
   name?: string;

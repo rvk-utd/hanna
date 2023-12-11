@@ -208,7 +208,7 @@ export const Datepicker = (props: DatepickerProps) => {
     inputRef,
     isoMode,
     texts,
-    lang = props.localeCode,
+    lang = props.localeCode, // eslint-disable-line deprecation/deprecation
 
     fieldWrapperProps,
   } = groupFormFieldWrapperProps(props);

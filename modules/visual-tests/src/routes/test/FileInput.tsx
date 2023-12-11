@@ -31,7 +31,7 @@ const dropzoneText = () => (
 
 export default function () {
   const fileWithPreview = new File([lorem.long], `${lorem.tiny}.pdf`);
-  (fileWithPreview as any).preview = previewUri;
+  (fileWithPreview as File & { preview: string }).preview = previewUri;
 
   const [files, setFiles] = useState<Array<File>>([
     new File([lorem.long], 'Short_filename.txt'),

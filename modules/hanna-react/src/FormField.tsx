@@ -38,7 +38,9 @@ export type FormFieldInputProps = {
 // FIXME: Get rid of these `any`s.
 // This was most likely put in to deal with conflicting typing on the evernt objects for different HTML Element types
 type FocusEvents = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onFocus?: (e: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onBlur?: (e: any) => void;
 };
 type FocusPropMaker = <P extends FocusEvents>(ownProps?: P) => P & Required<FocusEvents>;

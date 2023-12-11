@@ -132,6 +132,7 @@ export const testing: TestingInfo = {
       'colored-orange',
       'colored-red',
     ]) {
+      /* eslint-disable no-await-in-loop */
       const tagPill = page.locator(`#${id}`);
       const tagPillElm = (await tagPill.elementHandle())!;
       const removeBtn = await tagPillElm.$('.TagPill__remove');
@@ -141,6 +142,7 @@ export const testing: TestingInfo = {
         await removeBtn.hover();
         await localScreenshot(tagPill, `${id}-remove-hover`);
       }
+      /* eslint-enable no-await-in-loop */
     }
   },
 };

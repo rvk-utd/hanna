@@ -173,6 +173,7 @@ type AbstractModalProps_private = AbstractModalProps & BemProps<true>;
 export const AbstractModal = (props: AbstractModalProps_private) => {
   const { bem, modifier, closeDelay = 500, wrapperProps = {}, ssr } = props;
 
+  // eslint-disable-next-line deprecation/deprecation
   const isFickle = !(props.stable ?? props.fickle === false) || undefined;
 
   const txt = getTexts(props, defaultAbstractModalTexts);

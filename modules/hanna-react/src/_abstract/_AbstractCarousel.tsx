@@ -35,8 +35,8 @@ const scrollXBy = (elm: HTMLElement, deltaX: number) => {
 // ---------------------------------------------------------------------------
 
 export type CarouselProps<
-  I extends Record<string, unknown> = {},
-  P extends Record<string, unknown> | undefined = {}
+  I extends Record<string, unknown> = Record<string, never>,
+  P extends Record<string, unknown> | undefined = Record<string, never>
 > = {
   className?: string;
 
@@ -46,7 +46,7 @@ export type CarouselProps<
   EitherObj<
     {
       items: Array<I>;
-      Component: (props: P extends undefined ? I : I & P) => ReactElement | null;
+      Component: (props: I & P) => ReactElement | null;
       ComponentProps?: P;
     },
     {

@@ -44,7 +44,7 @@ const ButtonsStory: React.FC<ControlProps> = ({ size, variant }) => {
           '': undefined,
           small: 'small',
           wide: supportsWide ? 'wide' : undefined,
-        }[_size] as any;
+        }[_size] as any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
         return (
           <Fragment key={i}>

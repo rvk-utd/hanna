@@ -69,7 +69,7 @@ export const setLinkRenderer = (linkRenderer: LinkRenderer | undefined) => {
   //
   // TODO: Add a project-global `HTMLAnchorProps` with modern `ref` and use it
   // everywhere, and then remove this hack.
-  Link = (linkRenderer as _LinkRenderer_internal) || DefaultLinkRenderer;
+  Link = (linkRenderer as _LinkRenderer_internal | undefined) || DefaultLinkRenderer;
   history.unshift(Link);
 };
 

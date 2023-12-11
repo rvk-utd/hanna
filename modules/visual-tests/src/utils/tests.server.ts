@@ -124,7 +124,7 @@ const _getChangesToReview = async (): Promise<Array<Changeset>> => {
   > = {};
   let timestamp = 0;
 
-  fileList.forEach((fileName, i) => {
+  fileList.forEach((fileName) => {
     const m = fileName.match(`(.+)${NAME_SPLIT}-(actual|expected|diff)\\.(png|bug|ok)$`);
     if (!m) {
       return;

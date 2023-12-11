@@ -38,17 +38,20 @@ export const SearchHeroParagraph = () => {
           visibleDemo={() => (
             <SiteSearchCurtain>
               <PageHeading>Hæ! Hvernig getum við aðstoðað?</PageHeading>
-              <SiteSearchAutocomplete
-                suggestions={suggestions}
-                renderSuggestion={(suggestion) => {
-                  return suggestion;
-                }}
-                setSuggestions={setSuggestions}
-                getSuggestionValue={(value) => value}
-                onSuggestionsFetchRequested={({ value }) => {
-                  setSuggestions(getSuggestions(value));
-                }}
-              />
+              {
+                // eslint-disable-next-line deprecation/deprecation
+                <SiteSearchAutocomplete
+                  suggestions={suggestions}
+                  renderSuggestion={(suggestion) => {
+                    return suggestion;
+                  }}
+                  setSuggestions={setSuggestions}
+                  getSuggestionValue={(value) => value}
+                  onSuggestionsFetchRequested={({ value }) => {
+                    setSuggestions(getSuggestions(value));
+                  }}
+                />
+              }
             </SiteSearchCurtain>
           )}
         />

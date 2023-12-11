@@ -105,8 +105,8 @@ export const ShareButtons = (props: ShareButtonsProps) => {
 
   const txt =
     texts ||
-    (docMeta && (shareButtonTexts[docMeta.lang] || shareButtonTexts[DEFAULT_LANG])) ||
-    {};
+    (docMeta && shareButtonTexts[docMeta.lang]) ||
+    shareButtonTexts[DEFAULT_LANG];
 
   const { label, buttonLabel, emailSubject } = txt;
 

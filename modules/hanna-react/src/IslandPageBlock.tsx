@@ -45,7 +45,7 @@ export const IslandPageBlock = (props: IslandPageBlockProps) => {
       bem="IslandPageBlock"
       modifier={[`align--${alignment}`, bg && `background--${bg}`]}
       content={{ title, summary, buttons }}
-      image={illustration ? { src: getIllustrationUrl(illustration) } : image || {}}
+      image={illustration ? { src: getIllustrationUrl(illustration) } : image}
     />
   );
 };

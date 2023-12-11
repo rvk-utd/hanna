@@ -59,11 +59,14 @@ export const TextInput = (props: TextInputProps) => {
               e as ChangeEvent<HTMLInputElement> & ChangeEvent<HTMLTextAreaElement>
             );
         };
-  useEffect(() => {
-    if (inputRef.current?.value) {
-      setHasValue(true);
-    }
-  }, []);
+  useEffect(
+    () => {
+      if (inputRef.current?.value) {
+        setHasValue(true);
+      }
+    },
+    [] // eslint-disable-line react-hooks/exhaustive-deps
+  );
 
   return (
     <FormField

@@ -85,7 +85,7 @@ export type AccordionListProps = {
 
 export const AccordionList = (props: AccordionListProps) => {
   const { items, ssr, wide, defaultOpen, wrapperProps } = props;
-  const [open, setOpenArray, mode] = useMixedControlState(props, 'open', []);
+  const [open, setOpenArray /*, mode */] = useMixedControlState(props, 'open', []);
 
   const onToggle = (index: number) => {
     setOpenArray((prevOpen) => {

@@ -82,7 +82,8 @@ type PickRequiredLiteralKeys<T> = {
     ? never
     : number extends K
     ? never
-    : {} extends Pick<T, K>
+    : // eslint-disable-next-line @typescript-eslint/ban-types
+    {} extends Pick<T, K>
     ? never
     : K]: T[K];
 };
@@ -91,7 +92,8 @@ type PickOptionalLiteralKeys<T> = {
     ? never
     : number extends K
     ? never
-    : {} extends Pick<T, K>
+    : // eslint-disable-next-line @typescript-eslint/ban-types
+    {} extends Pick<T, K>
     ? K
     : never]?: T[K];
 };
@@ -211,6 +213,7 @@ export type EitherObj<A, B, C = boolean, D = boolean> = C extends boolean
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-omitdistributive
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type OmitDistributive<T, K extends PropertyKey> = T extends any
   ? Omit<T, K>
   : never;
@@ -220,6 +223,7 @@ export type OmitDistributive<T, K extends PropertyKey> = T extends any
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-pickdistributive
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type PickDistributive<T, K extends keyof T> = T extends any ? Pick<T, K> : never;
 
 // ---------------------------------------------------------------------------

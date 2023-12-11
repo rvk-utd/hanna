@@ -26,7 +26,7 @@ const [imagesCompress, imagesWatch] = imagesTaskFactory({
   // glob: ['i/**/*', '!i/_raw/**'],
 });
 
-const [staticAssetsCompress, staticAssetsWatch] = imagesTaskFactory({
+const [staticAssetsCompress /* , staticAssetsWatch */] = imagesTaskFactory({
   name: 'assets',
   src: `${sourceFolder}assets/`,
   dist: assetsDistFolder,

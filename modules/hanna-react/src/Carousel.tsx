@@ -5,8 +5,8 @@ import { AbstractCarousel, CarouselProps } from './_abstract/_AbstractCarousel.j
 export type { CarouselProps } from './_abstract/_AbstractCarousel.js';
 
 export const Carousel = <
-  I extends Record<string, unknown> = {},
-  P extends Record<string, unknown> | undefined = {}
+  I extends Record<string, unknown> = Record<string, never>,
+  P extends Record<string, unknown> | undefined = Record<string, never>
 >(
   props: CarouselProps<I, P>
 ) => (

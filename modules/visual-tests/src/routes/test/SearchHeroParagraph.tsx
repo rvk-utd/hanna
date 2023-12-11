@@ -36,12 +36,15 @@ export default function () {
         <RowBlockColumn>
           <SiteSearchCurtain>
             <PageHeading>Hæ! Hvernig getum við aðstoðað?</PageHeading>
-            <SiteSearchAutocomplete
-              suggestions={[]}
-              setSuggestions={() => undefined}
-              getSuggestionValue={() => ''}
-              onSuggestionsFetchRequested={() => undefined}
-            />
+            {
+              // eslint-disable-next-line deprecation/deprecation
+              <SiteSearchAutocomplete
+                suggestions={[]}
+                setSuggestions={() => undefined}
+                getSuggestionValue={() => ''}
+                onSuggestionsFetchRequested={() => undefined}
+              />
+            }
           </SiteSearchCurtain>
         </RowBlockColumn>
       </RowBlock>

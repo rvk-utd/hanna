@@ -14,6 +14,7 @@ const formatGroups = {
   },
 } as const;
 
+// eslint-disable-next-line deprecation/deprecation
 let _formatMonitor: FormatChange<typeof formatGroups>;
 
 /**

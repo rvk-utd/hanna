@@ -15,7 +15,7 @@ import {
 } from './_TogglerGroup.js';
 import { TogglerInputProps } from './_TogglerInput.js';
 
-export type TogglerGroupFieldProps<T = 'default', Extras = {}> = {
+export type TogglerGroupFieldProps<T = 'default', Extras = Record<string, never>> = {
   className?: string;
 } & Omit<FormFieldGroupWrappingProps, 'disabled'> &
   TogglerGroupProps<T, Extras>;

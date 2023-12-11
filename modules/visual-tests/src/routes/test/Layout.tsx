@@ -104,9 +104,11 @@ export const testing: TestingInfo = {
       const homeLink = page.locator('.Layout__header__homelink');
       let i = siteNames.length;
       while (i--) {
+        /* eslint-disable no-await-in-loop */
         await page.locator('.Layout__main').hover();
         await page.getByTestId('sitename').click();
         await localScreenshot(homeLink, `siteneame-${i}`, { margin: true });
+        /* eslint-enable no-await-in-loop */
       }
       await page.getByTestId('sitename').click();
       await page.mouse.move(0, 0);

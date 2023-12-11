@@ -73,7 +73,7 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
 
   return (
     <Wrapper
-      {...(wrapperProps as {})}
+      {...(wrapperProps as Record<string, unknown>)}
       className={modifiedClass(
         bem,
         modifier,

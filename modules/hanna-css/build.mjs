@@ -80,7 +80,7 @@ const getCssVersionTokenUnion = (majorCssVersion) => {
     .join('\n');
 };
 
-const geCssModuleTokenUnion = async () =>
+const geCssModuleTokenUnion = () =>
   cssModuleFiles
     .map((fileName) => fileName.slice(0, -cssSourceExtension.length))
     .sort(Intl.Collator('en').compare)
@@ -91,7 +91,7 @@ const geCssModuleTokenUnion = async () =>
 const createStyleServerInfoTsFile = async (cssVersion) => {
   const majorCssVersion = (cssVersion.match(/^(?:0\.\d+|[1-9]\d*)/) || [''])[0] || '';
   const CssVersionTokenUnion = getCssVersionTokenUnion(majorCssVersion);
-  const CssModuleTokenUnion = await geCssModuleTokenUnion();
+  const CssModuleTokenUnion = geCssModuleTokenUnion();
 
   await writeFile(
     `${srcDir}/lib/style-server-info.ts`,

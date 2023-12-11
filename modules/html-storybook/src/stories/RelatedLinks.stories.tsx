@@ -50,14 +50,15 @@ const LINKS: Array<RelatedLinkItem> = [
   },
 ];
 
-const RelatedLinksStory: React.FC<ControlProps> = ({ title }) => {
-  const displayTitle = title ? TITLE : undefined;
+const RelatedLinksStory: React.FC<ControlProps> = (props) => {
+  const displayTitle = props.title ? TITLE : undefined;
   const children = <RelatedLinks title={displayTitle} links={LINKS} />;
 
-  const key = `${title}`;
+  const key = `${props.title}`;
 
   return (
     <HiddenTiger
+      key={key}
       htmlDemo={children}
       visibleDemo={<CenterColumn>{children}</CenterColumn>}
     />

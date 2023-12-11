@@ -127,13 +127,6 @@ const makeSprinkle = <E extends Element, D>(props: SprinkleMeta<E, D>) => {
       ) {
         return;
       }
-      if (name === 'Tabs') {
-        console.log({
-          elm,
-          className: elm.className,
-          html: elm.outerHTML,
-        });
-      }
       const data = init(elm);
       // This allows CSS selectors to know then they can apply scripted-only styles
       !elm.hasAttribute(dataAttr) && elm.setAttribute(dataAttr, '');

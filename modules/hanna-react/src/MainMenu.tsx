@@ -42,7 +42,10 @@ export type MainMenuI18n = Cleanup<
     /** @deprecated Not used (Will be removed in v0.11) */
     lang?: string;
   } & PrimaryPanelI18n &
-    EitherObj<MobileMenuTogglerI18n, {}>
+    EitherObj<
+      MobileMenuTogglerI18n,
+      {} // eslint-disable-line @typescript-eslint/ban-types
+    >
 >;
 
 export const defaultMainMenuTexts = {
@@ -325,30 +328,34 @@ export const _MainMenu = (props: MainMenuProps) => {
     setActivePanel(findActivePanel(megaPanels, props.activePanelId));
   }, [props.activePanelId, megaPanels, setActivePanel]);
 
-  useEffect(() => {
-    const menuElm = menuElmRef.current;
-    if (!isBrowser || !hasActivePanel || !menuElm) {
-      return;
-    }
-
-    const escHandler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setActivePanel(undefined);
+  useEffect(
+    () => {
+      const menuElm = menuElmRef.current;
+      if (!isBrowser || !hasActivePanel || !menuElm) {
+        return;
       }
-    };
-    const clickHandler = (e: MouseEvent) => {
-      if (!menuElm.contains(e.target as HTMLElement | null)) {
-        setActivePanel(undefined);
-      }
-    };
-    document.addEventListener('keydown', escHandler);
-    document.addEventListener('click', clickHandler, true);
 
-    return () => {
-      document.removeEventListener('keydown', escHandler);
-      document.removeEventListener('click', clickHandler, true);
-    };
-  }, [hasActivePanel, setActivePanel, isBrowser]);
+      const escHandler = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setActivePanel(undefined);
+        }
+      };
+      const clickHandler = (e: MouseEvent) => {
+        if (!menuElm.contains(e.target as HTMLElement | null)) {
+          setActivePanel(undefined);
+        }
+      };
+      document.addEventListener('keydown', escHandler);
+      document.addEventListener('click', clickHandler, true);
+
+      return () => {
+        document.removeEventListener('keydown', escHandler);
+        document.removeEventListener('click', clickHandler, true);
+      };
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [hasActivePanel, setActivePanel, isBrowser /* , menuElmRef */]
+  );
 
   if (menuItems.length === 0) {
     return null;

@@ -17,7 +17,7 @@ export const registerCustomSelectorsEngines = () => {
     'scrollContainer',
     () => {
       const scrollable = { scroll: 1, auto: 1 };
-      const query = (root: HTMLElement, selector: string) => {
+      const query = (root: HTMLElement /*, selector: string */) => {
         let elm: HTMLElement | null = root;
         while (elm) {
           const overflowStyles = window.getComputedStyle(elm).overflow.split(/\s+/);
