@@ -26,7 +26,7 @@
     "format": "AUTOFIX=true SILENT=true yarn run lint"
   },
   "devDependencies": {
-    "@hugsmidjan/hxmstyle": "^7.1.1",
+    "@hugsmidjan/hxmstyle": "^8.4.0",
     "@types/eslint": "^8",
     "@types/gulp": "^4",
     "@types/jsdom": "^16.2.14",
@@ -35,14 +35,14 @@
     "@types/prettier": "^2",
     "concurrently": "^7.0.0",
     "esbuild": "^0.15.18",
-    "eslint": "^8.35.0",
+    "eslint": "^8.41.0",
     "glob": "^10.0.0",
     "husky": "^7.0.0",
     "jsdom": "^19.0.0",
     "node-gyp": "^9.0.0",
     "onchange": "^7.1.0",
     "ospec": "^4.1.7",
-    "prettier": "^2.8.2",
+    "prettier": "^2.8.8",
     "tslib": "^2.4.0",
     "typescript": "^4.8.3"
   },
