@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Regression in Checkbox-/Radio-related option typing
 
 ## 0.10.113
 

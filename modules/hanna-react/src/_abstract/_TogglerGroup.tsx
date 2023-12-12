@@ -7,14 +7,16 @@ import { useDomid } from '../utils/useDomid.js';
 
 import { TogglerInputProps } from './_TogglerInput.js';
 
-export type TogglerGroupOption<T = 'default', Extras = Record<string, never>> = {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type TogglerGroupOption<T = 'default', Extras = {}> = {
   value: string;
   label?: T extends 'default' ? string | JSX.Element : T;
   disabled?: boolean;
   id?: string;
 } & Partial<Extras>;
 
-export type TogglerGroupOptions<T = 'default', Extras = Record<string, never>> = Array<
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type TogglerGroupOptions<T = 'default', Extras = {}> = Array<
   TogglerGroupOption<T, Extras>
 >;
 
@@ -31,7 +33,8 @@ type RestrictedInputProps = Omit<
   | 'children'
 >;
 
-export type TogglerGroupProps<T = 'default', Extras = Record<string, never>> = {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type TogglerGroupProps<T = 'default', Extras = {}> = {
   options: Array<string> | TogglerGroupOptions<T, Extras>;
   className?: string;
   name?: string;

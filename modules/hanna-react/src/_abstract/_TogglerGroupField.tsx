@@ -15,7 +15,8 @@ import {
 } from './_TogglerGroup.js';
 import { TogglerInputProps } from './_TogglerInput.js';
 
-export type TogglerGroupFieldProps<T = 'default', Extras = Record<string, never>> = {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type TogglerGroupFieldProps<T = 'default', Extras = {}> = {
   className?: string;
 } & Omit<FormFieldGroupWrappingProps, 'disabled'> &
   TogglerGroupProps<T, Extras>;
