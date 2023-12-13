@@ -4,6 +4,7 @@ import { TogglerKnob } from './styles/forms.js';
 import { DEPS } from './utils/miscUtils.js';
 
 import { CheckboxGroup_css } from './CheckboxGroup.css.js';
+import { Radio_css } from './Radio.css.js';
 import { RadioGroup_css } from './RadioGroup.css.js';
 
 export default css`
@@ -16,5 +17,6 @@ export default css`
   // ===========================================================================
   // Inline for better compression and loading speed
   ${CheckboxGroup_css}
+  ${Radio_css}
   ${RadioGroup_css}
 `;

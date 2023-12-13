@@ -83,6 +83,7 @@ export type CssModuleToken =
   | 'Picture'
   | 'ProcessOverview'
   | 'PullQuote'
+  | 'Radio'
   | 'RadioButtonsGroup'
   | 'RadioGroup'
   | 'ReadSpeakerPlayer'

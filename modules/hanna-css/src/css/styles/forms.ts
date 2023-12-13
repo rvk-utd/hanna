@@ -156,22 +156,21 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     }
   `}
 
+  .${bem}:not(.FormField__options__item) {
+    margin-bottom: ${vars.space_3};
+  }
   ${!radio &&
   css`
-    .${bem}:not(.FormField__options__item) {
-      margin-bottom: ${vars.space_3};
-    }
     .${bem}__label__reqstar {
       border-bottom: none;
       float: left;
       margin-right: 0.15em;
     }
-
-    .${bem}__note, //
-    .${bem}__error {
-      ${FormField__error(prem(36), 0)};
-    }
   `}
+
+  .${bem}__error {
+    ${FormField__error(prem(36), 0)};
+  }
 `;
 
 // ===========================================================================
@@ -279,12 +278,8 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
     opacity: 0.5;
   }
 
-  ${!radio &&
-  css`
-    .${bem}__note, //
-    .${bem}__error {
-      margin-top: ${vars.space_1};
-      padding-left: ${vars.space_3};
-    }
-  `};
+  .${bem}__error {
+    margin-top: ${vars.space_1};
+    padding-left: ${vars.space_3};
+  }
 `;

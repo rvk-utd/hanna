@@ -6,12 +6,7 @@ import {
   TogglerGroupFieldOptions,
   TogglerGroupFieldProps,
 } from './_abstract/_TogglerGroupField.js';
-import { TogglerInput, TogglerInputProps } from './_abstract/_TogglerInput.js';
-
-type RadioProps = Omit<TogglerInputProps, 'reqText'>;
-const Radio = (props: RadioProps) => <TogglerInput {...props} bem="Radio" type="radio" />;
-
-// ---------------------------------------------------------------------------
+import { Radio } from './Radio.js';
 
 export type RadioGroupProps = TogglerGroupFieldProps & {
   layout?: 'inline';
@@ -30,8 +25,5 @@ export const RadioGroup = (props: RadioGroupProps) => (
     Toggler={Radio}
   />
 );
-
-/** @deprecated Exposed for testing purposes only. This may disappear at any time. */
-RadioGroup.__Radio = Radio; // eslint-disable-line deprecation/deprecation
 
 export default RadioGroup;

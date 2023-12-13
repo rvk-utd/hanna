@@ -5,6 +5,7 @@ import {
   CheckboxGroupOptions,
   CheckboxGroupProps,
 } from '@reykjavik/hanna-react/CheckboxGroup';
+import { Radio } from '@reykjavik/hanna-react/Radio';
 import { RadioGroup, RadioGroupProps } from '@reykjavik/hanna-react/RadioGroup';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
@@ -20,18 +21,47 @@ const meta: Meta = {
 };
 export default meta;
 
-// ==================== Checkbox ===========================================
+// ==================== Radio ===========================================
 
-type CheckboxControlProps = {
+type RadioControlProps = {
   required: boolean;
   invalid: boolean;
-  errorMessage: boolean;
   disabled: boolean;
+};
+
+export const _Radio: StoryObj<RadioControlProps> = {
+  render: (args) => {
+    const { required, invalid, disabled } = args;
+    return (
+      <Radio
+        label="Add me to your professional network on LinkedIn"
+        required={required}
+        invalid={invalid}
+        disabled={disabled}
+      />
+    );
+  },
+  argTypes: {
+    required: { name: 'Required' },
+    invalid: { name: 'Invalid' },
+    disabled: { name: 'Disabled' },
+  },
+  args: {
+    required: false,
+    invalid: false,
+    disabled: false,
+  },
+};
+
+// ==================== Checkbox ===========================================
+
+type CheckboxControlProps = RadioControlProps & {
+  errorMessage: boolean;
 };
 
 export const _Checkbox: StoryObj<CheckboxControlProps> = {
   render: (args) => {
-    const { required, invalid, errorMessage, disabled } = args;
+    const { required, invalid, errorMessage, disabled, hideLabel } = args;
     const _errorMessage = errorMessage ? 'You must accept this nice offer.' : undefined;
     return (
       <Checkbox
@@ -44,16 +74,12 @@ export const _Checkbox: StoryObj<CheckboxControlProps> = {
     );
   },
   argTypes: {
-    required: { name: 'Required' },
-    invalid: { name: 'Invalid' },
+    ..._Radio.argTypes,
     errorMessage: { name: 'Error message' },
-    disabled: { name: 'Disabled' },
   },
   args: {
-    required: false,
-    invalid: false,
+    ..._Radio.args,
     errorMessage: false,
-    disabled: false,
   },
 };
 
@@ -162,8 +188,6 @@ export const _CheckboxGroup = makeTogglerGroupStory(CheckboxGroup);
 export const _RadioGroup = makeTogglerGroupStory(RadioGroup);
 
 // ==================== Styling Tests ===========================================
-
-const Radio = RadioGroup.__Radio; // eslint-disable-line deprecation/deprecation
 
 export const _StylingTests: StoryObj = {
   render: () => (

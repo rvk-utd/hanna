@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add token `Radio`
 
 ## 0.4.10 – 0.4.11
 

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { Checkbox } from '@reykjavik/hanna-react/Checkbox';
-import { RadioGroup } from '@reykjavik/hanna-react/RadioGroup';
+import { Radio } from '@reykjavik/hanna-react/Radio';
 import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 
@@ -15,8 +15,6 @@ export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
 export const handle = cssTokens('Checkbox', 'RadioGroup', 'RowBlock', 'RowBlockColumn');
-
-const Radio = RadioGroup.__Radio; // eslint-disable-line deprecation/deprecation
 
 export default function () {
   return (
@@ -68,13 +66,20 @@ export default function () {
           />
           <Checkbox label={lorem.short} />
         </RowBlockColumn>
+
         <RowBlockColumn>
           <Radio label="Normal" checked={false} data-testid="normal" />
-          <Radio label="Checked Normal" checked data-testid="normalChecked" />
+          <Radio label="Checked Normal" checked required data-testid="normalChecked" />
           <Radio label="Disabled" disabled checked={false} data-testid="disabled" />
           <Radio label="Checked Disabled" disabled checked />
-          <Radio label="Invalid" invalid checked={false} data-testid="invalid" />
-          <Radio label="Checked Invalid" invalid checked data-testid="invalidChecked" />
+          <Radio label="Invalid" invalid required checked={false} data-testid="invalid" />
+          <Radio
+            label="Checked Invalid"
+            invalid
+            checked
+            data-testid="invalidChecked"
+            errorMessage="Error message here"
+          />
           <Radio label={lorem.short} />
         </RowBlockColumn>
       </RowBlock>

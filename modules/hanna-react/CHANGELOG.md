@@ -3,7 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Regression in Checkbox-/Radio-related option typing
+- feat: Add component `Radio` as a standalone atomic widget
+- fix: Regression in `Checkbox`- and `Radio`-related option typing
 
 ## 0.10.113
 
