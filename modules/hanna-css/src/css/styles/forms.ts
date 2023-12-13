@@ -8,6 +8,7 @@ import { grid } from '../../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars.js';
 import { iconStyle } from '../../lib/icons.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
+import { hideText_css } from '../utils/hideText.js';
 import { grid_units, prem } from '../utils/miscUtils.js';
 
 export const FormField__error = (
@@ -41,6 +42,9 @@ export const TogglerGroup = (bem: string) => css`
     display: flex;
     flex-flow: row wrap;
   }
+  .${bem} > * > .FormField__options__item {
+    margin-bottom: 0;
+  }
   .${bem}--inline > * > .FormField__options__item {
     margin-left: ${prem(15)};
     margin-right: ${prem(15)};
@@ -55,6 +59,10 @@ const TogglerVariables = buildVariables(
 const tglVars = TogglerVariables.vars;
 
 export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
+  .${bem} {
+    margin-bottom: ${vars.space_3};
+  }
+
   .${bem}__input {
     ${srOnly}
   }
@@ -156,9 +164,6 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
     }
   `}
 
-  .${bem}:not(.FormField__options__item) {
-    margin-bottom: ${vars.space_3};
-  }
   ${!radio &&
   css`
     .${bem}__label__reqstar {
@@ -170,6 +175,33 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
 
   .${bem}__error {
     ${FormField__error(prem(36), 0)};
+  }
+
+  /*
+    No-label variant
+  */
+  .${bem}--nolabel {
+    ${hideText_css('soft')};
+    margin-right: ${vars.space_2};
+    display: inline-block;
+    height: ${prem(24)};
+    margin-left: -2px;
+    width: ${prem(20 + 4)};
+    vertical-align: top;
+  }
+  .${bem}--nolabel > .${bem}__label {
+    padding: 2px 0;
+  }
+  .${bem}--nolabel > .${bem}__label::before {
+    margin-left: 2px;
+    display: inline-block;
+    margin-right: 3px;
+  }
+  .${bem}--nolabel > .${bem}__error {
+    ${srOnly()};
+  }
+  .${bem}--nolabel:not(div) {
+    ${WARNING__('--nolabel should only be used on <div/>s')}
   }
 `;
 

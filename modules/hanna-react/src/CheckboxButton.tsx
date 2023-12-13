@@ -7,7 +7,7 @@ export type CheckboxProps = CheckboxButtonProps;
 
 // ---------------------------------------------------------------------------
 
-export type CheckboxButtonProps = TogglerInputProps;
+export type CheckboxButtonProps = Omit<TogglerInputProps, 'hideLabel'>;
 
 export const CheckboxButton = (props: CheckboxButtonProps) => (
   <TogglerInput bem="CheckboxButton" {...props} type="checkbox" innerWrap />

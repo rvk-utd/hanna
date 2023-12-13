@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Radio`
+- feat: Add styling for `--nolabel` variant of `Checkbox`
 
 ## 0.8.85
 

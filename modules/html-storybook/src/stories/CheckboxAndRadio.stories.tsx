@@ -27,17 +27,19 @@ type RadioControlProps = {
   required: boolean;
   invalid: boolean;
   disabled: boolean;
+  hideLabel: boolean;
 };
 
 export const _Radio: StoryObj<RadioControlProps> = {
   render: (args) => {
-    const { required, invalid, disabled } = args;
+    const { required, invalid, disabled, hideLabel } = args;
     return (
       <Radio
         label="Add me to your professional network on LinkedIn"
         required={required}
         invalid={invalid}
         disabled={disabled}
+        hideLabel={hideLabel}
       />
     );
   },
@@ -45,11 +47,13 @@ export const _Radio: StoryObj<RadioControlProps> = {
     required: { name: 'Required' },
     invalid: { name: 'Invalid' },
     disabled: { name: 'Disabled' },
+    hideLabel: { name: 'Minimal with hidden label' },
   },
   args: {
     required: false,
     invalid: false,
     disabled: false,
+    hideLabel: false,
   },
 };
 
@@ -70,6 +74,7 @@ export const _Checkbox: StoryObj<CheckboxControlProps> = {
         invalid={invalid}
         disabled={disabled}
         errorMessage={_errorMessage}
+        hideLabel={hideLabel}
       />
     );
   },

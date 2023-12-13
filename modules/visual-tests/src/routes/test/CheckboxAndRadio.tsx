@@ -65,6 +65,17 @@ export default function () {
             errorMessage="Error message here"
           />
           <Checkbox label={lorem.short} />
+          <div>
+            <Checkbox
+              label={lorem.short}
+              checked
+              hideLabel
+              errorMessage="adfasdf"
+              data-testid="nolabelInvalid"
+            />
+            <Checkbox label={lorem.short} hideLabel />
+            Some text
+          </div>
         </RowBlockColumn>
 
         <RowBlockColumn>
@@ -81,6 +92,17 @@ export default function () {
             errorMessage="Error message here"
           />
           <Radio label={lorem.short} />
+          <div>
+            <Radio
+              label={lorem.short}
+              checked
+              hideLabel
+              errorMessage="adfasdf"
+              data-testid="nolabelInvalid"
+            />
+            <Radio label={lorem.short} hideLabel />
+            Some text
+          </div>
         </RowBlockColumn>
       </RowBlock>
       <style>{`
@@ -109,6 +131,9 @@ export const testing: TestingInfo = {
       const invalidChecked = page.locator(
         `[data-testid="invalidChecked"] + .${type}__label`
       );
+      const nolabelInvalid = page.locator(
+        `[data-testid="nolabelInvalid"] + .${type}__label`
+      );
 
       for (const action of ['hover', 'focus'] as const) {
         // Hover things
@@ -123,6 +148,11 @@ export const testing: TestingInfo = {
 
         await invalidChecked[action]();
         await localScreenshot(invalidChecked, `${type}-invalidchecked-${action}`, {
+          margin: 8,
+        });
+
+        await nolabelInvalid[action]();
+        await localScreenshot(nolabelInvalid, `${type}-nolabelInvalid-${action}`, {
           margin: 8,
         });
       }

@@ -17,6 +17,7 @@ export type TogglerInputProps = {
    * Default: `"Þarf að fylla út"`
    * */
   reqText?: string | false;
+  hideLabel?: boolean;
   errorMessage?: string | JSX.Element;
   Wrapper?: 'div' | 'li';
   inputProps?: JSX.IntrinsicElements['input'];
@@ -30,12 +31,14 @@ type _TogglerInputProps = {
   innerWrap?: boolean;
 };
 
+// eslint-disable-next-line complexity
 export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
   const {
     bem,
     modifier,
     className,
     label,
+    hideLabel,
     invalid,
     errorMessage,
     Wrapper = 'div',
@@ -76,7 +79,7 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
       {...(wrapperProps as Record<string, unknown>)}
       className={modifiedClass(
         bem,
-        modifier,
+        [modifier, hideLabel && 'nolabel'],
         // Prefer `className` over `wrapperProps.className`
         className || (wrapperProps || {}).className
       )}
