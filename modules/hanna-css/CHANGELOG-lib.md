@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.12
+
+_2023-12-13_
+
 - feat: Add token `Radio`
 
 ## 0.4.10 – 0.4.11
