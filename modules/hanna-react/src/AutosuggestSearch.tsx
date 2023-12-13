@@ -50,8 +50,11 @@ export const defaultAutosuggestSearchTexts: DefaultTexts<AutosuggestSearchI18n> 
 
 // ---------------------------------------------------------------------------
 
+type EmptyMessage = { message: string | JSX.Element; type: 'empty' | 'loading' };
+
 export type AutosuggestSearchProps<T extends string | object> = {
   options: Array<T>;
+  emptyMessage?: EmptyMessage | EmptyMessage['message'];
   onInput: (value: string) => void;
   onSelected: (payload: { value: string; option: T }) => void;
   onClearOptions: () => void;
@@ -80,11 +83,13 @@ export const AutosuggestSearch = <T extends string | object>(
 ) => {
   const {
     options,
+    emptyMessage,
     itemActionIcon,
 
     onInput,
     onSelected,
     onClearOptions,
+
     onSubmit,
     onButtonClick = onSubmit,
     button,
@@ -110,6 +115,8 @@ export const AutosuggestSearch = <T extends string | object>(
 
   const txt = getTexts(props, defaultAutosuggestSearchTexts);
 
+  const showEmptyMessage = !options.length && emptyMessage;
+
   return (
     <Autosuggest
       theme={{
@@ -125,27 +132,54 @@ export const AutosuggestSearch = <T extends string | object>(
         suggestionHighlighted: 'AutosuggestSearch__item--highlighted',
       }}
       focusInputOnSuggestionClick={true}
-      suggestions={options}
+      suggestions={showEmptyMessage ? [true as unknown as T] : options}
       onSuggestionsClearRequested={onClearOptions}
       onSuggestionsFetchRequested={({ value }) => onInput(value)}
-      getSuggestionValue={getOptionValue}
-      onSuggestionSelected={(_event, data) => {
+      getSuggestionValue={
+        showEmptyMessage
+          ? () => value // Return the input value in case the user uses the up/down keys to select the hidden empty message
+          : getOptionValue
+      }
+      onSuggestionSelected={(event, data) => {
+        if (showEmptyMessage) {
+          event.preventDefault();
+          return;
+        }
         onSelected({ value: data.suggestionValue, option: data.suggestion });
       }}
       // onSuggestionHighlighted={onSuggestionHighlighted}
-      renderSuggestion={renderSuggestion}
+      renderSuggestion={showEmptyMessage ? () => '' : renderSuggestion}
       containerProps={{
         ...wrapperProps,
         'aria-label': txt.label,
       }}
-      renderSuggestionsContainer={({ containerProps, children }) => (
-        <div
-          {...containerProps}
-          aria-label={options.length ? txt.suggestionsLabel : undefined}
-        >
-          {children}
-        </div>
-      )}
+      renderSuggestionsContainer={({ containerProps, children }) => {
+        let contents = children;
+        if (showEmptyMessage) {
+          const { message, type } =
+            typeof emptyMessage === 'string' || !('message' in emptyMessage)
+              ? { message: emptyMessage, type: 'empty' }
+              : emptyMessage;
+          contents = (
+            <div
+              className={modifiedClass(
+                'AutosuggestSearch__emptyMessage',
+                type !== 'empty' && type
+              )}
+            >
+              {message}
+            </div>
+          );
+        }
+        return (
+          <div
+            {...containerProps}
+            aria-label={options.length ? txt.suggestionsLabel : undefined}
+          >
+            {contents}
+          </div>
+        );
+      }}
       inputProps={{
         ref: inputRef,
         value: value,

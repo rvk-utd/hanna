@@ -24,8 +24,9 @@ export default function () {
     <Minimal>
       <AutosuggestSearch
         options={options}
+        emptyMessage="No results"
         onClearOptions={() => setOptions([])}
-        onInput={() => setOptions(items)}
+        onInput={(value) => setOptions(value.length > 4 ? [] : items)}
         onSelected={(payload) => console.info('onSelected', payload)}
         onSubmit={(payload) => console.info('onSubmit (and onButtonClick)', payload)}
         // itemActionIcon="search"

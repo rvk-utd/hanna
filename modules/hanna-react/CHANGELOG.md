@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `emptyMessage` to `AutosuggestSearch`
 - feat: Add component `Radio` as a standalone atomic widget
 - feat: Add prop `hideLabel` to `Checkbox` for minimal/atomic use
 - fix: Regression in `Checkbox`- and `Radio`-related option typing

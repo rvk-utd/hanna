@@ -42,6 +42,13 @@ export default css`
       padding: ${vars.space_1} 0;
     }
 
+    .AutosuggestSearch__emptyMessage {
+      padding: ${vars.space_2} ${vars.space_4};
+    }
+    .AutosuggestSearch__emptyMessage--loading {
+      opacity: 0.5;
+    }
+
     .AutosuggestSearch__list {
       --action-icon: none;
     }

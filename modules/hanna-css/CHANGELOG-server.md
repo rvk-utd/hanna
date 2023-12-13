@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `Radio`
 - feat: Add styling for `--nolabel` variant of `Checkbox`
+- feat: Add styling for `.AutosuggestSearch__emptyMessage`
 
 ## 0.8.85
 
