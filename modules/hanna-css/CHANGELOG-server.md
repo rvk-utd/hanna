@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.86
+
+_2023-12-18_
+
 - feat: Add component `Radio`
 - feat: Add styling for `--nolabel` variant of `Checkbox`
 - feat: Add styling for `.AutosuggestSearch__emptyMessage`
