@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.114
+
+_2023-12-13_
+
 - feat: Add prop `emptyMessage` to `AutosuggestSearch`
 - feat: Add component `Radio` as a standalone atomic widget
 - feat: Add prop `hideLabel` to `Checkbox` for minimal/atomic use
