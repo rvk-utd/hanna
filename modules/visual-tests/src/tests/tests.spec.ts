@@ -88,6 +88,7 @@ import { testing as IslandPageBlock__test } from '../routes/test/IslandPageBlock
 import { testing as LabeledTextBlock__test } from '../routes/test/LabeledTextBlock.js';
 import { testing as Layout__test } from '../routes/test/Layout.js';
 import { testing as MainMenu__test } from '../routes/test/MainMenu.js';
+import { testing as MainMenu2__test } from '../routes/test/MainMenu2.js';
 import { testing as MiniMetrics__test } from '../routes/test/MiniMetrics.js';
 import { testing as Modal__test } from '../routes/test/Modal.js';
 import { testing as Multiselect__test } from '../routes/test/Multiselect.js';
@@ -183,6 +184,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   LabeledTextBlock: LabeledTextBlock__test,
   Layout: Layout__test,
   MainMenu: MainMenu__test,
+  MainMenu2: MainMenu2__test,
   MiniMetrics: MiniMetrics__test,
   Multiselect: Multiselect__test,
   Modal: Modal__test,
