@@ -37,7 +37,7 @@ const AutosuggestSearchStory = (args: ControlProps) => {
     <AutosuggestSearch
       options={options}
       onClearOptions={() => setOptions([])}
-      onInput={(value) => (value.length > 4 ? [] : setOptions(items))}
+      onInput={(value) => setOptions(value.length > 4 ? [] : items)}
       getOptionValue={(option) => option}
       onSelected={(payload) => console.info('onSelected', payload)}
       onSubmit={(payload) => console.info('onSubmit (and onButtonClick)', payload)}
