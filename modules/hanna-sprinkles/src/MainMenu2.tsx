@@ -83,10 +83,10 @@ const parseItem = (
 
 const getPropsFromSSRMainMenu2 = (elm: HTMLElement): MainMenu2Props => {
   const items: MainMenu2Props['items'] = {
-    main: qq<HTMLElement>('.MainMenu2__main__item', elm)
+    main: qq<HTMLElement>('.MainMenu2__main__item:not(.MainMenu2__main__item--home)', elm)
       .map((elm) => {
         const subItemsElm = elm.nextElementSibling;
-        if (!subItemsElm?.classList.contains('MainMenu2__main__sub')) {
+        if (!subItemsElm?.classList.contains('MainMenu2__main__sub__items')) {
           return parseItem(elm);
         }
         return {
@@ -116,7 +116,10 @@ const getPropsFromSSRMainMenu2 = (elm: HTMLElement): MainMenu2Props => {
   }
 
   // Read --menu-image CSS variable directly applied via style="" attribute to elm
-  const imageUrl = elm.style.getPropertyValue('--menu-image').trim();
+  const imageUrl = elm.style
+    .getPropertyValue('--menu-image')
+    .trim()
+    .replace(/^url\((.+)\)$/, '$1');
 
   // Parse `<div class="MainMenu2" data-props-texts="{ title: 'Huvudmeny', ... }">`
   const texts = parseTextDataAttr(elm);

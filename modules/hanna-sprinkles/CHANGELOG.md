@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Issues in parsing `MainMenu2Props` from HTML
 
 ## 0.8.50
 
