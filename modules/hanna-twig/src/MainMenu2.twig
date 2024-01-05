@@ -57,7 +57,7 @@
 {# ======================================================================= #}
 
 {% macro make_item(name, item, linkType = 'normal', Tag='li') %}
-  {% set classPrefix = 'MainMenu2__{{ name }}' %}
+  {% set classPrefix = 'MainMenu2__' ~ name %}
   {% set extraClasses = linkType == 'button' ? ' ButtonSecondary ButtonSecondary--small' : '' %}
   <Tag
     class="{{ classPrefix }}__item{{ item.modifier ? ' ' ~ classPrefix ~ '__item--' ~ item.modifier : '' }}"
@@ -93,6 +93,8 @@
 >
 <div class="MainMenu2__content">
 
+  <h2 class="MainMenu2__title">{{ menu_title }}</h2>
+
   <a
     class="MainMenu2__toggler ButtonSecondary ButtonSecondary--small"
     href="#MainMenu2"
@@ -101,20 +103,18 @@
     {{- menu_title -}}
   </a>
 
-  <h2 class="MainMenu2__title">{{ menu_title }}</h2>
-
   {% if main_items is not empty %}
   <div class="MainMenu2__main">
-    {% if home_label %}
+    {% if homelink_label %}
       <div
         class="MainMenu2__main__item MainMenu2__main__item--home"
         {{ is_home_current ? 'aria-current="true"' : '' }}
       >
         <a
           class="MainMenu2__main__link"
-          href="{{ home_url|default('/') }}"
+          href="{{ homelink_url|default('/') }}"
         >
-          {{- home_label -}}
+          {{- homelink_label -}}
         </a>
       </div>
     {% endif %}
@@ -122,7 +122,7 @@
       {% if main_item.href %}
         {# `main_item`s can optionally be direct `MenuLink` without any sub menu items #}
         {{ make_item('main', main_item, null, 'div') }}
-      {% elseif %}
+      {% else %}
         {% set has_current = main_item.items|filter(item => item.current)|length > 0 %}
         <div
           class="MainMenu2__main__item"
