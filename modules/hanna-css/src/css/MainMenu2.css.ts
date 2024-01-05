@@ -500,6 +500,8 @@ export default css`
       @media ${mq.wide} {
         column-count: 2;
         column-gap: ${clamp_netbook(16, 32)};
+        /* display: grid;
+        grid-template-columns: repeat(2, 1fr); */
       }
     }
 
