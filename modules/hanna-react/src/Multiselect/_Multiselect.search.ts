@@ -1,4 +1,4 @@
-import { TogglerGroupOptions } from '../_abstract/_TogglerGroup.js';
+import { TogglerGroupOption, TogglerGroupOptions } from '../_abstract/_TogglerGroup.js';
 import { TogglerGroupFieldOption } from '../_abstract/_TogglerGroupField.js';
 
 const WHOLE_WORD = 10000;
@@ -58,15 +58,22 @@ export type SearchScoringfn = (
   /** Trimmed list of `toLowerCase`d query words */
   queryWords: Array<string>,
   /** The raw, untouched search query as typed by the user */
-  rawQuery: string
+  rawQuery: string,
+  /** Function to extract the item's label */
+  itemContent: string | undefined
 ) => number;
 
-export const defaultSearchScoring: SearchScoringfn = (item, queryWords) => {
+export const defaultSearchScoring: SearchScoringfn = (
+  item,
+  queryWords,
+  _,
+  itemContent
+) => {
   if (!item.value) {
     return 0;
   }
   const value = item.value.toLowerCase().trim();
-  const label = item.label?.toLowerCase().trim() || value;
+  const label = itemContent?.toLowerCase().trim() || value;
   let score = calcScore(label, queryWords);
   if (!score) {
     score = VALUE_WEIGHT * calcScore(value, queryWords);
@@ -83,7 +90,8 @@ const SEP = '🍌';
 export const filterItems = <Extras = Record<string, never>>(
   options: TogglerGroupOptions<string, Extras>,
   searchQuery: string,
-  searchScoringFn = defaultSearchScoring
+  searchScoringFn = defaultSearchScoring,
+  getLabel = (item: TogglerGroupOption<string, Extras>) => item.label
 ): TogglerGroupOptions<string, Extras> => {
   if (!searchQuery.trim()) {
     return options;
@@ -94,7 +102,7 @@ export const filterItems = <Extras = Record<string, never>>(
     options
       .map((item) => ({
         item,
-        score: searchScoringFn(item, queryWords, searchQuery),
+        score: searchScoringFn(item, queryWords, searchQuery, getLabel(item)),
       }))
       .filter(({ score }) => score > 0)
       .sort((a, b) => (a.score === b.score ? 0 : a.score < b.score ? 1 : -1))

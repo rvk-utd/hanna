@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `getSearchContent` prop to `Multiselect`
 
 ## 0.10.114
 

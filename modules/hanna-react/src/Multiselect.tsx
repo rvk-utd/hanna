@@ -99,6 +99,7 @@ export type MultiselectProps = TogglerGroupFieldProps<string, { group?: string }
    * Use this option when vertical space is limited.
    */
   nowrap?: boolean;
+
   /**
    * Custom function to calculate a search score for a given option item.
    * Higher scores mean better matches.
@@ -106,6 +107,11 @@ export type MultiselectProps = TogglerGroupFieldProps<string, { group?: string }
    * A score of zero (or less) means the item is not a valid match.
    */
   searchScoring?: SearchScoringfn;
+  /**
+   * Custom function to extract the searchable content from a given option item.
+   * By default, the `label` property is used.
+   */
+  getSearchContent?: (item: MultiselectOption) => string;
 
   /**
    * Force display the current values at the top of the dropdown,
@@ -187,8 +193,8 @@ export const Multiselect = (props: MultiselectProps) => {
     (props.forceSummary || !isOpen || options.length >= summaryLimit);
 
   const filteredOptions = useMemo(
-    () => filterItems(options, searchQuery, props.searchScoring),
-    [searchQuery, options, props.searchScoring]
+    () => filterItems(options, searchQuery, props.searchScoring, props.getSearchContent),
+    [searchQuery, options, props.searchScoring, props.getSearchContent]
   );
   const isFiltered = options !== filteredOptions;
 

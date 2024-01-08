@@ -13,8 +13,8 @@ const { WHOLE_WORD, STARTS_WITH, CONTAINS, VALUE_WEIGHT, wordWeight: ww } = _wei
 
 type Item = TogglerGroupFieldOption<string>;
 
-const score = (iten: Item, query: string) =>
-  defaultSearchScoring(iten, query.trim().toLowerCase().split(/\s+/), query);
+const score = (item: Item, query: string) =>
+  defaultSearchScoring(item, query.trim().toLowerCase().split(/\s+/), query, item.label);
 
 const sum = (a = 0, b: number) => a + b;
 
