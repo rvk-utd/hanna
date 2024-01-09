@@ -224,7 +224,6 @@ export default css`
   .MainMenu2__hot__item--login {
   }
   .MainMenu2__hot__link {
-    margin: ;
   }
 
   .MainMenu2__extra__items {

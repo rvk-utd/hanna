@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `getSearchContent` prop to `Multiselect`
+- feat: Change icon on `MainMenu2`'s toggler button when menu is open
 
 ## 0.10.114
 
