@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.115
+
+_2024-01-09_
+
 - feat: Add `getSearchContent` prop to `Multiselect`
 - feat: Change icon on `MainMenu2`'s toggler button when menu is open
 
