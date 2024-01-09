@@ -3,6 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.51
+
+_2024-01-10_
+
+- feat: Change icon on `MainMenu2`'s toggler button when menu is open
 - fix: Issues in parsing `MainMenu2Props` from HTML
 
 ## 0.8.50
