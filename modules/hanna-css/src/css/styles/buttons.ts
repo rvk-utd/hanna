@@ -91,8 +91,8 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
       text-decoration: none;
       /* box-shadow: ${vars.boxShadow_hover}; */
       box-shadow: 0 ${prem(8)} ${prem(16)} rgba(0, 0, 0, 0.15);
-      color: var(--Button--textColor);
-      border: var(--Button--border) solid var(--Button--color);
+      color: ${bVars.textColor};
+      border: ${bVars.border} solid ${bVars.color};
     `)}
 
     &:active,
@@ -163,8 +163,8 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
 
     &[data-icon]::before {
       ${enableDataIcon}
-      margin-left: var(--Button--iconOutdent);
-      margin-right: var(--Button--iconSpace);
+      margin-left: ${bVars.iconOutdent};
+      margin-right: ${bVars.iconSpace};
     }
 
     // ---------------------------------------------------------------------------
