@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Remove leftover `data-icon` attribute off `MainMenu2`'s SSR toggler
 
 ## 0.10.116
 

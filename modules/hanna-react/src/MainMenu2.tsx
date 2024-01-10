@@ -484,7 +484,6 @@ export const MainMenu2 = (props: MainMenu2Props) => {
             href={`#${menuId}`}
             onClick={handleAnchorLinkClick}
             aria-hidden="true"
-            data-icon="text"
           >
             {txt.title}
           </ButtonPrimary>
