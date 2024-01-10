@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Set `.MainMenu2__toggler` icon
 
 ## 0.8.86
 

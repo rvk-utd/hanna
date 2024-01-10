@@ -5,6 +5,7 @@ import {
   hannaVars as vars,
   hoverKeyboardFocusAndActiveStyling,
   htmlCl,
+  iconStyle,
   mq,
   srOnly_focusableContent,
   vw_f,
@@ -157,6 +158,15 @@ export default css`
       backgroundColor__active: vars.color_faxafloi_100,
     })}
   }
+  .MainMenu2__toggler::before {
+    ${iconStyle(vars.icon__text)};
+    margin-left: ${ButtonVariables.vars.iconOutdent};
+    margin-right: ${ButtonVariables.vars.iconSpace};
+  }
+  .MainMenu2__toggler[aria-pressed='true']::before {
+    content: ${vars.icon__close};
+  }
+
   a.MainMenu2__toggler {
     position: absolute;
     z-index: ${vars.zindex__header};

@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Remove `MainMenu2` toggler's hard-coded icon
 
 ## 0.8.51
 

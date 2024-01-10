@@ -469,14 +469,12 @@ export const MainMenu2 = (props: MainMenu2Props) => {
                   'aria-label': txt.closeMenuLong,
                   title: txt.closeMenuLong,
                   children: txt.closeMenu,
-                  'data-icon': 'text',
                 }
               : {
                   onClick: openMenu,
                   'aria-label': txt.openMenuLong,
                   title: txt.openMenuLong,
                   children: txt.openMenu,
-                  'data-icon': 'close',
                 })}
           />
         ) : (
