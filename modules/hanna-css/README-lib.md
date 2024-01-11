@@ -523,7 +523,7 @@ const myCss = css`
 
 ### `srOnly` mixin
 
-**Syntax** `srOnly: () => RawCssString`
+**Syntax** `srOnly: () => CssString`
 
 Mixin that hides an element visually, but still makes it accessible to screen
 readers.
@@ -544,7 +544,7 @@ be avoided by using more precise selectors for the `srOnly` mixin.)
 
 ### `srOnly_focusable` mixin
 
-**Syntax** `srOnly_focusable: () => RawCssString`
+**Syntax** `srOnly_focusable: () => CssString`
 
 Similar to the `srOnly` mixin, but intended for links/buttons that should
 become visible on keyboard focus (`:focus-visible`).
@@ -561,7 +561,7 @@ const myCss = css`
 
 ### `srOnly_focusableContent` mixin
 
-**Syntax** `srOnly_focusableContent: () => RawCssString`
+**Syntax** `srOnly_focusableContent: () => CssString`
 
 Similar to the `srOnly_focusable` mixin above, but for non-interactive
 elements that **contain** buttons/links that should become visible on keyboard
@@ -579,7 +579,7 @@ const myCss = css`
 
 ### `keyboardFocusStyling` mixin
 
-**Syntax:** `keyboardFocusStyling: (css: string) => RawCssString`
+**Syntax:** `keyboardFocusStyling: (css: string) => CssString`
 
 Generates backwards compatible selectors for `:focus-visible` — and also
 targets the class-names injected by the
@@ -604,7 +604,7 @@ const myCss = css`
 ### `hoverKeyboardFocusAndActiveStyling` mixin
 
 **Syntax:**
-`hoverKeyboardFocusAndActiveStyling: (css: string, options?: { notActive?: stirng }) => RawCssString`
+`hoverKeyboardFocusAndActiveStyling: (css: string, options?: { notActive?: stirng }) => CssString`
 
 Generates `:hover`, `:active` and `:focus-visible` selectors in a backwards
 compatible manner. (It also targets the class-names injected by the

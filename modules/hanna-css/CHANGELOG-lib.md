@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Export branded types `CssString` | `CssVarString` |
+  `CssMediaQueryString` and use them throughout the library
 
 ## 0.4.12
 

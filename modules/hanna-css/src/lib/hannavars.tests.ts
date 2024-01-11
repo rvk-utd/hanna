@@ -1,3 +1,4 @@
+import { CssString } from 'es-in-css';
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
@@ -289,6 +290,8 @@ o.spec('cssVars', () => {
 
 o.spec('hannaVarOverride', () => {
   o('is an exported function', () => {
-    o(hannaVarOverride({ cssVersion: 'hello' })).equals('--cssVersion: hello;\n');
+    o(hannaVarOverride({ cssVersion: 'hello' })).equals(
+      '--cssVersion: hello;\n' as CssString
+    );
   });
 });

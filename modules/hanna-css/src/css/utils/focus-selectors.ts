@@ -1,4 +1,4 @@
-import { css, RawCssString } from 'es-in-css';
+import { css, CssString } from 'es-in-css';
 
 export {
   hoverKeyboardFocusAndActiveStyling,
@@ -9,7 +9,7 @@ export {
  * If you already set a universal (old-school) :focus style and
  * you want to revert/hide those styles in supporting browsers
  */
-export const nonKeyboardFocusStyling = (content: RawCssString) => css`
+export const nonKeyboardFocusStyling = (content: CssString | string) => css`
   [data-js-focus-visible] &:focus:not([data-focus-visible-added]) {
     ${content};
   }
@@ -20,7 +20,7 @@ export const nonKeyboardFocusStyling = (content: RawCssString) => css`
 
 // ===========================================================================
 
-export const setDefaultKeyboardFocusStyle = (content: RawCssString) => css`
+export const setDefaultKeyboardFocusStyle = (content: CssString | string) => css`
   *:focus:focus,
   *:focus[data-focus-visible-added] {
     ${content};
@@ -30,7 +30,7 @@ export const setDefaultKeyboardFocusStyle = (content: RawCssString) => css`
   }
 `;
 
-export const setDefaultNonKeyboardFocusStyle = (content: RawCssString) => css`
+export const setDefaultNonKeyboardFocusStyle = (content: CssString | string) => css`
   *:focus[tabindex='-1'],
   [data-js-focus-visible] *:focus:not([data-focus-visible-added]) {
     ${content};

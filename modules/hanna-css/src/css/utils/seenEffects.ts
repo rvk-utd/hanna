@@ -1,4 +1,4 @@
-import { css, RawCssString } from 'es-in-css';
+import { css, CssString } from 'es-in-css';
 
 import { htmlCl } from '../../lib/classNames.js';
 
@@ -37,7 +37,7 @@ const getOpts = (opts?: Opts) => {
 /** Set up styling that should only apply if seen-effects are being applied */
 export const SeenEffect__only = (opts?: Opts) => {
   const { child, trigger } = getOpts(opts);
-  return (content: RawCssString) => {
+  return (content: CssString | string) => {
     const childSel = pad(child);
     return css`
       ${[
@@ -52,7 +52,7 @@ export const SeenEffect__only = (opts?: Opts) => {
 
 export const SeenEffect__initial = (opts?: Opts) => {
   const { child, trigger } = getOpts(opts);
-  return (content: RawCssString) => {
+  return (content: CssString | string) => {
     const childSel = pad(child);
     return css`
       ${[
@@ -69,7 +69,7 @@ export const SeenEffect__initial = (opts?: Opts) => {
 
 export const SeenEffect__seen = (opts?: Opts) => {
   const { child, trigger } = getOpts(opts);
-  return (content: RawCssString) => {
+  return (content: CssString | string) => {
     const sel = pad(child);
     return css`
       ${[
@@ -87,7 +87,7 @@ export const SeenEffect__seen = (opts?: Opts) => {
 
 export const SeenEffect__transition = (opts?: Opts) => {
   const { child, trigger } = getOpts(opts);
-  return (content: RawCssString) => {
+  return (content: CssString | string) => {
     const sel = pad(child);
     return css`
       ${[

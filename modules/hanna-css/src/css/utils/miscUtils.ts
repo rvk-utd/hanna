@@ -1,11 +1,11 @@
 import {
   css,
+  CssString,
   LengthValue,
   pct_f,
   PlainNumber,
   px,
   PxValue,
-  RawCssString,
   rem,
 } from 'es-in-css';
 
@@ -131,7 +131,7 @@ export const extendBackgroundWithUnderlay = (
  * Remove as soon as this issue has been resolved:
  * https://github.com/cssnano/cssnano/issues/897
  */
-export const avoidCssnanoMerging = (cssContent: RawCssString) => css`
+export const avoidCssnanoMerging = (cssContent: CssString | string) => css`
   & {
     ${cssContent};
   }

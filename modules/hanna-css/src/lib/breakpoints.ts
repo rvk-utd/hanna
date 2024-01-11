@@ -1,4 +1,4 @@
-import { px, RawMediaQuery } from 'es-in-css';
+import { CssMediaQueryString, px } from 'es-in-css';
 
 /** Starting viewport-width breakpoints INCLUDING `grid.margin__*` */
 export const bp = /*#__PURE__*/ (() =>
@@ -18,30 +18,30 @@ export const mq = /*#__PURE__*/ (() => {
   const maxBp_phablet = px(bp.tablet - 1);
   const maxBp_phone = px(bp.phablet - 1);
 
-  const wide: RawMediaQuery = `(min-width: ${bp.wide})`;
-  const netbook: RawMediaQuery =
-    `(min-width: ${bp.netbook})` + ` and (max-width: ${maxBp_netbook})`;
-  const tablet: RawMediaQuery =
-    `(min-width: ${bp.tablet})` + ` and (max-width: ${maxBp_tablet})`;
-  const phablet: RawMediaQuery =
-    `(min-width: ${bp.phablet})` + ` and (max-width: ${maxBp_phablet})`;
-  const phone: RawMediaQuery = `(max-width: ${maxBp_phone})`;
+  const wide = `(min-width: ${bp.wide})` as CssMediaQueryString;
+  const netbook = (`(min-width: ${bp.netbook})` +
+    ` and (max-width: ${maxBp_netbook})`) as CssMediaQueryString;
+  const tablet = (`(min-width: ${bp.tablet})` +
+    ` and (max-width: ${maxBp_tablet})`) as CssMediaQueryString;
+  const phablet = (`(min-width: ${bp.phablet})` +
+    ` and (max-width: ${maxBp_phablet})`) as CssMediaQueryString;
+  const phone = `(max-width: ${maxBp_phone})` as CssMediaQueryString;
 
-  const netbook_up: RawMediaQuery = `(min-width: ${bp.netbook})`;
+  const netbook_up = `(min-width: ${bp.netbook})` as CssMediaQueryString;
 
-  const tablet_netbook: RawMediaQuery =
-    `(min-width: ${bp.tablet})` + ` and (max-width: ${maxBp_netbook})`;
-  const tablet_up: RawMediaQuery = `(min-width: ${bp.tablet})`;
+  const tablet_netbook = (`(min-width: ${bp.tablet})` +
+    ` and (max-width: ${maxBp_netbook})`) as CssMediaQueryString;
+  const tablet_up = `(min-width: ${bp.tablet})` as CssMediaQueryString;
 
-  const phablet_tablet: RawMediaQuery =
-    `(min-width: ${bp.phablet})` + ` and (max-width: ${maxBp_tablet})`;
-  const phablet_netbook: RawMediaQuery =
-    `(min-width: ${bp.phablet})` + ` and (max-width: ${maxBp_netbook})`;
-  const phablet_up: RawMediaQuery = `(min-width: ${bp.phablet})`;
+  const phablet_tablet = (`(min-width: ${bp.phablet})` +
+    ` and (max-width: ${maxBp_tablet})`) as CssMediaQueryString;
+  const phablet_netbook = (`(min-width: ${bp.phablet})` +
+    ` and (max-width: ${maxBp_netbook})`) as CssMediaQueryString;
+  const phablet_up = `(min-width: ${bp.phablet})` as CssMediaQueryString;
 
-  const phone_phablet: RawMediaQuery = `(max-width: ${maxBp_phablet})`;
-  const phone_tablet: RawMediaQuery = `(max-width: ${maxBp_tablet})`;
-  const phone_netbook: RawMediaQuery = `(max-width: ${maxBp_netbook})`;
+  const phone_phablet = `(max-width: ${maxBp_phablet})` as CssMediaQueryString;
+  const phone_tablet = `(max-width: ${maxBp_tablet})` as CssMediaQueryString;
+  const phone_netbook = `(max-width: ${maxBp_netbook})` as CssMediaQueryString;
 
   // High level media-formats
   const Hamburger = phone_tablet;
@@ -66,7 +66,7 @@ export const mq = /*#__PURE__*/ (() => {
     Hamburger, // eslint-disable-line deprecation/deprecation
     /** @deprecated Use `mq.netbook_up` instead  (Will be removed in v0.5) */
     Topmenu, // eslint-disable-line deprecation/deprecation
-  } as const;
+  } as const satisfies Record<string, CssMediaQueryString>;
 })();
 
 /**
