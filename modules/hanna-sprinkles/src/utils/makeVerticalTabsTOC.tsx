@@ -86,9 +86,9 @@ const getHeadingTagLevels = (container: HTMLElement, generateMissing: boolean) =
       return [] as const;
     }
   }
-  const headings = ['h1', 'h2', 'h3', 'h4'] as const;
+  const headings = ['H1', 'H2', 'H3', 'H4'] as const;
   type HeadingTag = (typeof headings)[number];
-  const pos = headings.indexOf(firstH.nodeName.toLowerCase() as HeadingTag) || 1;
+  const pos = headings.indexOf(firstH.nodeName as HeadingTag) || 1;
 
   return headings.slice(pos, pos + 2) as [first: HeadingTag, second: HeadingTag];
 };
@@ -120,7 +120,7 @@ const makePanels = (containers: Array<HTMLElement>) => {
       return;
     }
 
-    let tHeading = containerElm.querySelector(hTop); // guaranteed by getHeadingTagLevels to be a hTop element
+    let tHeading = containerElm.querySelector(hTop as `${Lowercase<typeof hTop>}`); // guaranteed by getHeadingTagLevels to be a hTop element
     while (tHeading) {
       const groupNodes: Array<Node> = [];
       let nextHeading = tHeading.nextSibling;
