@@ -111,11 +111,8 @@ export const srOnly__undo = (mode: Mode = 'normal') => css`
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#sronly_focusable-mixin
  */
-export const srOnly_focusable = ({
-  link = defaultLink(),
-  border = defaultBorder(),
-  bg = defaultBg(),
-}: SROnlyFocusProps = {}) => {
+export const srOnly_focusable = (opts: SROnlyFocusProps = {}) => {
+  const { link = defaultLink(), border = defaultBorder(), bg = defaultBg() } = opts;
   const focusStyling = css`
     ${srOnly__undo()}
     ${sr_focusStyling({ link, border, bg })}
@@ -138,12 +135,13 @@ export const srOnly_focusable = ({
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#sronly_focusablecontent-mixin
  */
-export const srOnly_focusableContent = ({
-  link = defaultLink(),
-  border = defaultBorder(),
-  bg = defaultBg(),
-  dir = 'ltr',
-}: SROnlyFocusProps & { dir?: Dir } = {}) => {
+export const srOnly_focusableContent = (opts: SROnlyFocusProps & { dir?: Dir } = {}) => {
+  const {
+    link = defaultLink(),
+    border = defaultBorder(),
+    bg = defaultBg(),
+    dir = 'ltr',
+  } = opts;
   const edge = dir === 'ltr' ? 'right' : 'left';
   const opposite = dir === 'ltr' ? 'left' : 'right';
 
