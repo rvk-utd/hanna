@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.53
+
+_2024-01-12_
+
 - fix: Regression in `utils/makeVerticalTabsTOC` causing runtime failure
 
 ## 0.8.51 – 0.8.52
