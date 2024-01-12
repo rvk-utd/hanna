@@ -53,13 +53,15 @@ const parseItem = (
   if (!linkElm) {
     return;
   }
+  const descrElm = q('.MainMenu2__main__sub__link__descr', itemElm);
+  descrElm?.remove();
+  const descr = descrElm?.textContent!.trim();
   const label = linkElm.textContent!.trim();
   const href = linkElm.getAttribute('href')!;
   const target = linkElm.getAttribute('target') || undefined;
   const lang = linkElm.getAttribute('lang') || undefined;
   const hrefLang = linkElm.getAttribute('hreflang') || undefined;
   const labelLong = linkElm.getAttribute('aria-label') || linkElm.title || undefined;
-  const descr = q('.MainMenu2__main__sub__link__descr', itemElm)?.textContent!.trim();
   const icon = linkElm.dataset.icon as MainMenu2ButtonItem['icon'] | undefined;
 
   const modifier = itemElm.className.match(/[a-zA-Z0-9]__item--(.+)(?: |$)/)?.[1];

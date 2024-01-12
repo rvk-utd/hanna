@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Remove `__link__descr` text from `MainMenu2` link label texts
 
 ## 0.8.53
 
