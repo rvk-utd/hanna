@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Default to auto-activating the first `MainMenu2__main__item`
 - fix: Remove leftover `data-icon` attribute off `MainMenu2`'s SSR toggler
 
 ## 0.10.116

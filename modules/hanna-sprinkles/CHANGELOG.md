@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Default to auto-activating the first `MainMenu2__main__item`
 
 ## 0.8.54
 

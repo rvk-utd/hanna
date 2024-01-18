@@ -396,9 +396,14 @@ export const MainMenu2 = (props: MainMenu2Props) => {
       return { ...item, current };
     });
 
-    const defaultActive = mainItems.findIndex(
-      (item) => 'current' in item && item.current
-    );
+    let defaultActive = mainItems.findIndex((item) => 'current' in item && item.current);
+
+    // Fall back to setting the first item as active, if the first item
+    // has subItems.  If the first item is just a link/button, then we
+    // just render everything equally not active.
+    if (defaultActive < 0 && 'subItems' in (mainItems[0] || {})) {
+      defaultActive = 0;
+    }
 
     return { mainItems, defaultActive };
   }, [items.main]);
