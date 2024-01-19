@@ -17,12 +17,12 @@
 
 <div class="ContentArticle">
 	<div class="ContentArticle__header">
-		{% include "@storybook/Heading/Heading.twig" with {
+		{% include "@storybook/Heading.twig" with {
       forceH1: 'true',
       title: label
     }%}
 
-		{% include "@storybook/ArticleMeta/ArticleMeta.twig" with {
+		{% include "@storybook/ArticleMeta.twig" with {
       items: articleMeta,
     }%}
 
@@ -41,19 +41,19 @@
 	}%}
 
 	{% if relatedItems is defined and relatedItems|length > 0 %}
-		{% include "@storybook/VSpacer/VSpacer.twig" with {
+		{% include "@storybook/VSpacer.twig" with {
 			size: 'true',
 			small: 'small',
 			content: '<hr/>'
 		}%}
 
-		{% include "@storybook/RelatedLinks/RelatedLinks.twig" with {
+		{% include "@storybook/RelatedLinks.twig" with {
 			title: 'Related material'|trans,
 			items: relatedItems
 		}%}
 	{% endif %}
 
-	{% include "@storybook/VSpacer/VSpacer.twig" with {
+	{% include "@storybook/VSpacer.twig" with {
 		size: 'true',
 		small: 'small',
 		content: ''
