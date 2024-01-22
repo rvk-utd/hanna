@@ -75,14 +75,6 @@ export const defaultMainMenu2Texts: DefaultTexts<MainMenu2I18n> = {
     closeMenu: 'Zamknij',
     closeMenuLong: 'Zamknij menu główne',
   },
-  se: {
-    title: 'Huvudmeny',
-    homeLink: 'Förstasida',
-    openMenu: 'Meny',
-    openMenuLong: 'Öppna huvudmenyn',
-    closeMenu: 'Stäng',
-    closeMenuLong: 'Stäng huvudmenyn',
-  },
 };
 
 // ---------------------------------------------------------------------------
