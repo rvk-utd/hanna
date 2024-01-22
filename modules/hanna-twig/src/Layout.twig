@@ -5,7 +5,6 @@
  * - siteName: Drupal site name,
  * - siteLogo: Drupal selected logo,
  * - skipLinkLabel: Skip link label string.,
- * - isMenuActive: True if menu it is active, FALSE in other case.,
  * - closeMenuLabel: String for menu close label.,
  * - logoLink: Url for logo link.,
 */
@@ -42,11 +41,6 @@
 			{{ page.breadcrumb }}
 			{% include '@reykjavik/layout/header.html.twig' %}
 			{{ page.secondary_menu }}
-			{% if isMenuActive %}
-				<button class="Layout__nav__closebutton" aria-label="{{closeMenuLabel}}">
-					{{closeMenuLabel}}
-				</button>
-			{% endif %}
 		</div>
 		<div class="Layout__footer" role="complementary">
 			{% include '@reykjavik/layout/footer.html.twig' %}
