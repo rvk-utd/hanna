@@ -5,6 +5,7 @@ import { RowBlock } from '@reykjavik/hanna-react/RowBlock';
 import { RowBlockColumn } from '@reykjavik/hanna-react/RowBlockColumn';
 
 import { Minimal } from '../../layout/Minimal.js';
+import { lorem } from '../../test-helpers/dummyData.js';
 import { focusAllFormFields } from '../../test-helpers/focusAllFormFields.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
@@ -70,6 +71,24 @@ export default function () {
             dateFormat="d. MMM yyyy"
             // value={startDate}
             readOnly
+          />
+
+          <Datepicker
+            label={lorem.medium}
+            localeCode={lang}
+            // name="date"
+            placeholder="d. mmm. yyyy"
+            dateFormat="d. MMM yyyy"
+            // value={startDate}
+          />
+          <Datepicker
+            label={lorem.short}
+            localeCode={lang}
+            small
+            // name="date"
+            placeholder="d. mmm. yyyy"
+            dateFormat="d. MMM yyyy"
+            // value={startDate}
           />
         </RowBlockColumn>
         <RowBlockColumn> </RowBlockColumn>

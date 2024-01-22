@@ -35,6 +35,15 @@ const renderedInputs: Record<string, SearchInputProps> = {
     label: 'Normal overflowing',
     value: lorem.medium,
   },
+  longlabel: {
+    label: lorem.medium,
+    value: '',
+  },
+  longlabelsmall: {
+    label: lorem.medium,
+    value: '',
+    small: true,
+  },
 };
 
 // // Use `handle` if you're using multiple Hanna compnents

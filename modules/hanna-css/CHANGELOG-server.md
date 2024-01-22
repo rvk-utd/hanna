@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Long label texts overlapping `SearchInput` and `Datepicker` icons
 
 ## 0.8.87
 

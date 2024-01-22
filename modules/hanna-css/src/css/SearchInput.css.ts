@@ -23,6 +23,9 @@ export default css`
     .SearchInput > .FormField__input {
       padding-right: var(--buttonWidth);
     }
+    .SearchInput:not(.FormField--small) > .FormField__label {
+      padding-right: calc(var(--buttonWidth) - ${vars.space_2});
+    }
 
     // underlying inactive button-like icon
     .SearchInput > .FormField__input::after {

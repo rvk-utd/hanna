@@ -33,6 +33,16 @@ export default css`
       outline: 0;
     }
 
+    .Datepicker {
+      --iconWidth: ${vars.space_8};
+    }
+    .Datepicker--small {
+      --iconWidth: ${vars.space_6};
+    }
+    .Datepicker:not(.FormField--small) .FormField__label {
+      padding-right: calc(var(--iconWidth) - ${vars.space_1});
+    }
+
     .react-datepicker {
       background-color: ${vars.color_suld_0};
       display: block;
@@ -52,7 +62,7 @@ export default css`
       transform: translateY(-50%);
       box-sizing: content-box;
       right: 1px;
-      width: ${vars.space_8};
+      width: var(--iconWidth);
       border-left: 2px solid ${vars.color_suld_150};
       color: ${vars.color_suld_150};
       line-height: ${vars.space_4};
@@ -60,7 +70,6 @@ export default css`
     }
     .FormField--small .react-datepicker__input-container::after {
       line-height: calc(${vars.space_0$5} + ${vars.space_2});
-      width: ${vars.space_6};
     }
 
     .FormField--focused .react-datepicker__input-container::after {
