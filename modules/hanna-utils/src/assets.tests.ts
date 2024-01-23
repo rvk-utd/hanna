@@ -1,13 +1,21 @@
+import { sync as globSync } from 'glob';
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
-import type blingFiles from '../../hanna-css/src/assets/bling/files.json';
-import type efnistaknFiles from '../../hanna-css/src/assets/efnistakn/files.json';
-import type formheimurFiles from '../../hanna-css/src/assets/formheimur/files.json';
-import type illustrationFiles from '../../hanna-css/src/assets/illustrations/files.json';
+import type blingJson from '../../hanna-css/src/assets/bling/files.json';
+import type efnistaknJson from '../../hanna-css/src/assets/efnistakn/files.json';
+import type formheimurJson from '../../hanna-css/src/assets/formheimur/files.json';
+import type illustrationJson from '../../hanna-css/src/assets/illustrations/files.json';
 
 import type { BlingType, Efnistakn, Formheimur, Illustration } from './assets.js';
-import { setStyleServerUrl, styleServerUrl } from './assets.js';
+import {
+  blingTypes,
+  efnistakn,
+  formheimur,
+  illustrations,
+  setStyleServerUrl,
+  styleServerUrl,
+} from './assets.js';
 import * as lib from './assets.js';
 import { Equals, Expect } from './index.js';
 
@@ -48,10 +56,10 @@ type _ = {
   FormheimurIsExported: Formheimur;
   IllustrationIsExported: Illustration;
 
-  EfnistaknJsonKeysAreOK: Expect<Equals<keyof typeof efnistaknFiles, Efnistakn>>;
-  IllustrationJsonKeysAreOK: Expect<Equals<keyof typeof illustrationFiles, Illustration>>;
-  BlingJsonKeysAreOK: Expect<Equals<keyof typeof blingFiles, BlingType>>;
-  FormheimurJsonKeysAreOK: Expect<Equals<keyof typeof formheimurFiles, Formheimur>>;
+  EfnistaknJsonKeysAreOK: Expect<Equals<keyof typeof efnistaknJson, Efnistakn>>;
+  IllustrationJsonKeysAreOK: Expect<Equals<keyof typeof illustrationJson, Illustration>>;
+  BlingJsonKeysAreOK: Expect<Equals<keyof typeof blingJson, BlingType>>;
+  FormheimurJsonKeysAreOK: Expect<Equals<keyof typeof formheimurJson, Formheimur>>;
 };
 
 // ===========================================================================
@@ -133,6 +141,66 @@ o.spec('setStyleServerUrl', () => {
   o('.reset() aliases .pop()', () => {
     o(setStyleServerUrl.pop).equals(
       setStyleServerUrl.reset // eslint-disable-line deprecation/deprecation
+    );
+  });
+});
+
+o.spec('hanna-css assets match asset arrays', () => {
+  const objectify = (arr: Array<string>) =>
+    arr.reduce((acc, key) => ({ ...acc, [key]: true }), {});
+
+  o('efnistakn', () => {
+    const efnistaknFiles = globSync('*.svg', {
+      cwd: '../hanna-css/src/assets/efnistakn/',
+    });
+    const deprecatedEfnistakn = [
+      'barnalaug',
+      'eimbad',
+      'heiturpottur',
+      'kaldurpottur',
+      'metralaug',
+      'sauna',
+      'sundfot',
+      'utiklefi',
+    ];
+    reportKeyMismatch(
+      objectify([...efnistakn, ...deprecatedEfnistakn].map((token) => `${token}.svg`)),
+      objectify(efnistaknFiles)
+    );
+  });
+
+  o('illustration', () => {
+    const illustrationFiles = globSync('*.png', {
+      cwd: '../hanna-css/src/assets/illustrations/',
+    }).map((file) => file.replace(/---q\d{2}/, ''));
+    const deprecatedIllustration: Array<string> = [];
+    reportKeyMismatch(
+      objectify(
+        [...illustrations, ...deprecatedIllustration].map((token) => `${token}.png`)
+      ),
+      objectify(illustrationFiles)
+    );
+  });
+
+  o('blingTypes', () => {
+    const blingFiles = globSync('*.svg', {
+      cwd: '../hanna-css/src/assets/bling/',
+    });
+    const deprecatedBlingTypes: Array<string> = [];
+    reportKeyMismatch(
+      objectify([...blingTypes, ...deprecatedBlingTypes].map((token) => `${token}.svg`)),
+      objectify(blingFiles)
+    );
+  });
+
+  o('formheimur', () => {
+    const formheimurFiles = globSync('*.svg', {
+      cwd: '../hanna-css/src/assets/formheimur/',
+    });
+    const deprecatedFormheimur: Array<string> = [];
+    reportKeyMismatch(
+      objectify([...formheimur, ...deprecatedFormheimur].map((token) => `${token}.svg`)),
+      objectify(formheimurFiles)
     );
   });
 });
