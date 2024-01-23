@@ -1,8 +1,15 @@
 import { reportKeyMismatch } from 'hanna-test-helpers/ospec';
 import o from 'ospec';
 
+import type blingFiles from '../../hanna-css/src/assets/bling/files.json';
+import type efnistaknFiles from '../../hanna-css/src/assets/efnistakn/files.json';
+import type formheimurFiles from '../../hanna-css/src/assets/formheimur/files.json';
+import type illustrationFiles from '../../hanna-css/src/assets/illustrations/files.json';
+
+import type { BlingType, Efnistakn, Formheimur, Illustration } from './assets.js';
 import { setStyleServerUrl, styleServerUrl } from './assets.js';
 import * as lib from './assets.js';
+import { Equals, Expect } from './index.js';
 
 type ExpectedExports = keyof typeof lib;
 
@@ -35,16 +42,17 @@ o.spec('hanna-utils/assets', () => {
   });
 });
 
-/* eslint-disable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first */
-// Also check exported types. (Ignoring re-exported types from es-in-css.)
-import type {
-  // assets.ts
-  BlingType,
-  Efnistakn,
-  Formheimur,
-  Illustration,
-} from './assets.js';
-/* eslint-enable @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports-ts, import/first */
+type _ = {
+  BlingTypeIsExported: BlingType;
+  EfnistaknIsExported: Efnistakn;
+  FormheimurIsExported: Formheimur;
+  IllustrationIsExported: Illustration;
+
+  EfnistaknJsonKeysAreOK: Expect<Equals<keyof typeof efnistaknFiles, Efnistakn>>;
+  IllustrationJsonKeysAreOK: Expect<Equals<keyof typeof illustrationFiles, Illustration>>;
+  BlingJsonKeysAreOK: Expect<Equals<keyof typeof blingFiles, BlingType>>;
+  FormheimurJsonKeysAreOK: Expect<Equals<keyof typeof formheimurFiles, Formheimur>>;
+};
 
 // ===========================================================================
 
