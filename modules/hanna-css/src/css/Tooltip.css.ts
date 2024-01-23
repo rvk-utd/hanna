@@ -10,8 +10,8 @@ import { prem } from './utils/miscUtils.js';
 
 const tooltipBgColor = 'rgba(0, 0, 0, 0.7)';
 
-const triangleH = 4;
-const triangleW = 12;
+const triangleH = 6;
+const triangleW = 14;
 
 export default css`
   .Tooltip {
@@ -73,12 +73,12 @@ export default css`
 
   .Tooltip--top .Tooltip__content::after {
     left: var(--tooltip-arrow-pos-x);
-    bottom: var(--tooltip-arrow-pos-y);
+    top: 100%;
   }
 
   .Tooltip--bottom .Tooltip__content::after {
     left: var(--tooltip-arrow-pos-x);
-    top: var(--tooltip-arrow-pos-y);
+    bottom: 100%;
     transform: rotate(180deg);
   }
 

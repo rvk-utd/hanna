@@ -46,7 +46,6 @@ export const Tooltip = (props: TooltipProps) => {
 
   const { arrow } = middlewareData;
   const arrowX = arrow?.x;
-  const arrowY = arrow?.y;
 
   useCallbackOnEsc(() => {
     setIsOpen(false);
@@ -107,7 +106,6 @@ export const Tooltip = (props: TooltipProps) => {
               '--tooltip-content-pos-y': `${y}px`,
               '--tooltip-content-pos-x': `${x}px`,
               '--tooltip-arrow-pos-x': `${arrowX}px`,
-              '--tooltip-arrow-pos-y': `${arrowY}px`,
             } as CSSProperties)
       }
     >

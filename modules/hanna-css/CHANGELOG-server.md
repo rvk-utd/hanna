@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add more `Efnistakn` SVG icons for swimming pools
 - fix: Long label texts overlapping `SearchInput` and `Datepicker` icons
+- fix: Vertical position of `.Tooltip__content` arrow
 
 ## 0.8.87
 
