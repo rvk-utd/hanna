@@ -64,7 +64,9 @@ export const checkeredBackground = (selector: string) => (
 
 // ===========================================================================
 
-export const GhostLabel = (props: { label: ReactNode; black?: boolean }) => (
+type GhostLabelProps = { label: ReactNode; black?: boolean };
+
+export const GhostLabel = (props: GhostLabelProps) => (
   <div
     className="GhostLabel"
     style={{
