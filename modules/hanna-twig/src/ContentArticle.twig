@@ -2,7 +2,7 @@
 
 {% if image %}
 	{% set topImage %}
-	{% include "@storybook/ContentImage/ContentImage.twig" with{
+	{% include "./ContentImage.twig" with{
 			text: imageText,
 			credit: imageCredit,
 			image: image,
@@ -17,12 +17,12 @@
 
 <div class="ContentArticle">
 	<div class="ContentArticle__header">
-		{% include "@storybook/Heading.twig" with {
+		{% include "./Heading.twig" with {
       forceH1: 'true',
       title: label
     }%}
 
-		{% include "@storybook/ArticleMeta.twig" with {
+		{% include "./ArticleMeta.twig" with {
       items: articleMeta,
     }%}
 
@@ -36,24 +36,24 @@
 		{% endif %}
 	</div>
 
-	{% include "@storybook/TextBlock/TextBlock.twig" with {
+	{% include "./TextBlock.twig" with {
 		content: contentText
 	}%}
 
 	{% if relatedItems is defined and relatedItems|length > 0 %}
-		{% include "@storybook/VSpacer.twig" with {
+		{% include "./VSpacer.twig" with {
 			size: 'true',
 			small: 'small',
 			content: '<hr/>'
 		}%}
 
-		{% include "@storybook/RelatedLinks.twig" with {
+		{% include "./RelatedLinks.twig" with {
 			title: 'Related material'|trans,
 			items: relatedItems
 		}%}
 	{% endif %}
 
-	{% include "@storybook/VSpacer.twig" with {
+	{% include "./VSpacer.twig" with {
 		size: 'true',
 		small: 'small',
 		content: ''
