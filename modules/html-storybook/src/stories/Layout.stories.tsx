@@ -9,6 +9,7 @@ import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { crumbTrail, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
+import { themeArgTypes, ThemeControlProps } from '../utils/knobs.js';
 
 import { contactBubbleData } from './shared/contactBubble.data.js';
 import { footerBadgesData } from './shared/footerBadges.data.js';
@@ -27,7 +28,7 @@ export default meta;
 type LayoutWithContentControlProps = {
   globalAlerts: boolean;
   siteName: boolean;
-};
+} & ThemeControlProps;
 
 const LayoutWithContentStory = (props: LayoutWithContentControlProps) => {
   const key = `${props.globalAlerts}${props.siteName}`;
@@ -109,6 +110,7 @@ export const _MinimalLayout: StoryObj<MinimalLayoutControlProps> = {
   argTypes: {
     ..._LayoutWithContent.argTypes,
     pageHasNoMenuOrNav: { name: 'Page has no menu or navigation' },
+    ...themeArgTypes,
   },
   args: {
     ..._LayoutWithContent.args,
