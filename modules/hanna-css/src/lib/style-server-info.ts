@@ -58,6 +58,7 @@ export type CssModuleToken =
   | 'HeroBlock'
   | 'Icon'
   | 'IframeBlock'
+  | 'IframedLayout'
   | 'Illustration'
   | 'ImageCards'
   | 'InfoBlock'

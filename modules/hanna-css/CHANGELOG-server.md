@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add compnent `IframeedLayout`
 - feat: Add more `Efnistakn` SVG icons for swimming pools
 - feat: Add asset `assets/pdf/reykjavik-waves.svg`
 - fix: Long label texts overlapping `SearchInput` and `Datepicker` icons

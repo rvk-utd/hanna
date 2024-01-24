@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add compnent `IframeedLayout`
 
 ## 0.8.37
 

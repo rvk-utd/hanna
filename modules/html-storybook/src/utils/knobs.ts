@@ -77,7 +77,7 @@ export const formFieldControls = (opts: FFControlsOpts = {}) => {
 // ---------------------------------------------------------------------------
 
 export type ThemeControlProps = {
-  theme: HannaColorTheme;
+  theme?: HannaColorTheme;
 };
 
 export const themeArgTypes = {
@@ -92,7 +92,7 @@ export const themeArgTypes = {
         friendly: 'Friendly',
         lively: 'Lively',
         colorful: 'Colorful',
-      } satisfies Record<ThemeControlProps['theme'], string>,
+      } satisfies Record<NonNullable<ThemeControlProps['theme']>, string>,
     },
   },
 };

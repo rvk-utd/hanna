@@ -8,6 +8,7 @@
 
 _2023-01-11_
 
+- feat: Add token `IframeedLayout`
 - feat: Export branded types `CssString` | `CssVarString` |
   `CssMediaQueryString` and use them throughout the library
 

@@ -80,6 +80,7 @@ import { testing as GridBlocks__test } from '../routes/test/GridBlocks.js';
 import { testing as Heading__test } from '../routes/test/Heading.js';
 import { testing as HeroBlock__test } from '../routes/test/HeroBlock.js';
 import { testing as IframeBlock__test } from '../routes/test/IframeBlock.js';
+import { testing as IframedLayout__test } from '../routes/test/IframedLayout.js';
 import { testing as ImageCards__test } from '../routes/test/ImageCards.js';
 import { testing as InfoBlock__test } from '../routes/test/InfoBlock.js';
 import { testing as InfoHero__test } from '../routes/test/InfoHero.js';
@@ -176,6 +177,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Heading: Heading__test,
   HeroBlock: HeroBlock__test,
   IframeBlock: IframeBlock__test,
+  IframedLayout: IframedLayout__test,
   ImageCards: ImageCards__test,
   InfoBlock: InfoBlock__test,
   InfoHero: InfoHero__test,
