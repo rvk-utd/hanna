@@ -28,7 +28,7 @@ export const defaultLayoutTexts: DefaultTexts<LayoutI18n> = {
 
 // ---------------------------------------------------------------------------
 
-type LayoutProps = {
+export type LayoutProps = {
   globalAlerts?: ReactNode;
   navChildren?: ReactNode;
   footerChildren?: ReactNode;
@@ -41,7 +41,7 @@ type LayoutProps = {
 
   /** @deprecated Not used (Will be removed in v0.11) */
   ssr?: SSRSupport;
-} & WrapperElmProps &
+} & WrapperElmProps<'div', 'data-color-theme'> &
   BemModifierProps &
   EitherObj<{ mainChildren: ReactNode }, { children: ReactNode }>;
 
