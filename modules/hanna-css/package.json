@@ -15,7 +15,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@reykjavik/hanna-utils": "^0.2.13",
+    "@reykjavik/hanna-utils": "^0.2.14",
     "es-in-css": "^0.7.5",
     "tslib": "^2.4.0"
   },

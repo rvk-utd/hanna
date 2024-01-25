@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.14
+
+_2024-01-25_
+
 - feat: Add more `Efnistakn` tokens for swimming pools
 
 ## 0.2.13
