@@ -3,7 +3,13 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.38
+
+_2024-01-26_
+
 - feat: Add compnent `IframeedLayout`
+- feat: Remove `MainMenu2` toggler's `data-icon` attribute
 
 ## 0.8.37
 
