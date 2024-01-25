@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.88
+
+_2024-01-26_
+
 - feat: Add compnent `IframeedLayout`
 - feat: Add more `Efnistakn` SVG icons for swimming pools
 - feat: Add asset `assets/pdf/reykjavik-waves.svg`
