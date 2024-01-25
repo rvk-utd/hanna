@@ -1,4 +1,7 @@
 //@ts-check
-import { publishToNpm } from '../../build-helpers.mjs';
+/* eslint-env es2022 */
+import { publishToNpm, updatePkgVersion } from '../../build-helpers.mjs';
 
-publishToNpm();
+await updatePkgVersion();
+await import(`./build.mjs`);
+await publishToNpm({ updatePkgs: ['hanna-css', 'hanna-react'] });

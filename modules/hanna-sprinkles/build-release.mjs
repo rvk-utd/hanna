@@ -1,4 +1,5 @@
 //@ts-check
+/* eslint-env es2022 */
 /*
   2. copy ./redirects-sprinkles.json to ${serverFolder}redirects-sprinkles.json
   3. update ./redirects-sprinkles.json to point to ${version}
@@ -9,63 +10,58 @@
   TODO: Create a sprinkles/index.html which either links to the README.md,
   or contains the contents of the readme file
 */
-import { execSync } from 'child_process';
 import { existsSync } from 'fs';
 
-import {
+import { $, logThenExit1 } from '../../build-helpers.mjs';
+
+import { bumpVersion, getServerConfig } from './build-config.mjs';
+
+await bumpVersion();
+const {
   distFolder,
   serverPath,
   sprinklesPath,
   sprinklesVersionPath,
   version,
   versionFolder,
-} from './build-config.mjs';
+} = await getServerConfig();
+
+await import(`./build.mjs`);
+
+if (!existsSync(distFolder)) {
+  logThenExit1(new Error(`distFolder does not exist: ${distFolder}`));
+}
 
 const redirectsFile = 'redirects-sprinkles.json';
 
-if (!existsSync(distFolder)) {
-  process.exit(1);
-}
+await $([
+  `git submodule update --init`,
 
-try {
-  execSync(
-    [
-      `git submodule update --init`,
+  `cd ${serverPath}`,
+  `git checkout main`,
+  `cd -`,
 
-      `cd ${serverPath}`,
-      `git checkout main`,
-      `cd -`,
+  `git submodule update --remote --rebase`,
 
-      `git submodule update --remote --rebase`,
+  // update submodule files
+  `mkdir -p ${sprinklesVersionPath}`,
+  `cp -R ${distFolder}* ${sprinklesVersionPath}`,
 
-      // update submodule files
-      `(mkdir ${sprinklesPath} || exit 0)`,
-      `(mkdir ${sprinklesVersionPath} || exit 0)`,
-      `cp -R ${distFolder}* ${sprinklesVersionPath}`,
+  // update redirects
+  `cp CHANGELOG.md ${sprinklesPath}changelog.txt`,
+  `sed 's/\${versionFolder}/${versionFolder}/g' ${redirectsFile} > ${
+    serverPath + redirectsFile
+  }`,
 
-      // update redirects
-      `cp CHANGELOG.md ${sprinklesPath}changelog.txt`,
-      `sed 's/\${versionFolder}/${versionFolder}/g' ${redirectsFile} > ${
-        serverPath + redirectsFile
-      }`,
+  // submodule commit
+  `cd ${serverPath}`,
+  `git reset`,
+  `git add "./*"`,
+  `git commit -m "release(sprinkles): v${version}"`,
+  `git reset --hard`,
 
-      // submodule commit
-      `cd ${serverPath}`,
-      `git reset`,
-      `git add "./*"`,
-      `git commit -m "release(sprinkles): v${version}"`,
-      `git reset --hard`,
-
-      // local commit
-      `cd -`,
-      `git add ./package.json ./CHANGELOG.md ../../servers/styles`,
-      `git commit -m "release(sprinkles): v${version}"`,
-    ].join(' && ')
-  );
-} catch (err) {
-  console.info('--------------------------');
-  console.info(err.message);
-  console.info('--------------------------');
-  console.info(err.output.toString());
-  process.exit(1);
-}
+  // local commit
+  `cd -`,
+  `git add ./package.json ./CHANGELOG.md ${serverPath}`,
+  `git commit -m "release(sprinkles): v${version}"`,
+]);

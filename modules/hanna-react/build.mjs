@@ -1,7 +1,8 @@
 //@ts-check
-import { buildNpmLib, buildTests } from '../../build-helpers.mjs';
+/* eslint-env es2022 */
+import { buildAndRunTests, buildNpmLib } from '../../build-helpers.mjs';
 
-buildTests();
-buildNpmLib('react', {
+await buildAndRunTests();
+await buildNpmLib('react', {
   sideEffects: ['**/focus-visible.js'],
 });

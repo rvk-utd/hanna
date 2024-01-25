@@ -16,7 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@reykjavik/hanna-utils": "^0.2.14",
-    "es-in-css": "^0.7.5",
+    "es-in-css": "^0.7.6",
     "tslib": "^2.4.0"
   },
   "publishConfig": {
@@ -28,30 +28,19 @@
     "node": "16"
   },
   "scripts": {
-    "assets:rename-illustrations": "node scripts/renameIllustrations.js",
-    "build:lib": "yarn install  &&  NODE_ENV=production  node build.mjs --onlyLib  &&  yarn run test",
-    "build:css": "yarn install  &&  NODE_ENV=production  node build.mjs  &&  yarn run test",
-    "build:css:dev": "node build.mjs",
-    "build:all": "yarn run build:css  &&  NODE_ENV=production  yarn run gulp buildAssets",
-    "dev:server": "cd ../../servers/styles && sh scripts/start-dev.sh",
-    "dev": "yarn run -T concurrently -k \"node build.mjs --dev\"  \"sleep 3 && yarn run gulp watch\"  \"yarn run dev:server\" \"sleep 2 && yarn run test:dev\"",
-    "prepublishOnly": "echo \"\nRun 'yarn run publishdist' to publish this package\n\n\"  && exit 1",
-    "publish:lib": "yarn run build:lib  &&  node build-lib-release.mjs",
-    "publish:server": "yarn run publish:server:assets  &&  yarn run publish:server:css",
-    "publish:server:assets": "NODE_ENV=production  yarn run gulp publishAssets",
-    "publish:server:css": "NODE_ENV=production  yarn run gulp publishCss  &&  NODE_ENV=development yarn run gulp publishDevCss  &&  yarn run publish:server:release",
-    "publish:server:css:dev": "yarn run gulp publishDevCss",
-    "publish:server:release": "node ./build-server-release.mjs",
-    "test:dev": "sleep 1  &&  (yarn run test || true)  &&  yarn run test:watch",
-    "test:watch": "yarn run -T onchange '__tests/**/*.tests.js' -f add -f change -- yarn run -T ospec '{{file}}'",
-    "test": "yarn run -T ospec \"__tests/**/*.tests.js\""
+    "build:lib": "yarn install  &&  node build-lib.mjs",
+    "build:css": "yarn install  &&  node build-css.mjs",
+    "build:assets": "yarn install  &&  node build-assets.mjs",
+    "dev": "node build-css.mjs --dev",
+    "prepublishOnly": "echo \"\nRun 'yarn run publish:lib' to publish this package\n\n\"  && exit 1",
+    "publish:lib": "yarn install  &&  node build-lib-release.mjs",
+    "publish:server": "yarn install  &&  node ./build-server-release.mjs"
   },
   "devDependencies": {
-    "@hugsmidjan/gulp-iconfont": "^0.4.0",
-    "@hugsmidjan/gulp-images": "^0.2.2",
+    "@hugsmidjan/gulp-iconfont": "^0.4.3",
+    "@hugsmidjan/gulp-images": "^0.2.4",
     "@hugsmidjan/qj": "^4.22.1",
     "@types/md5-file": "^5",
-    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "md5-file": "^5.0.0"
   }

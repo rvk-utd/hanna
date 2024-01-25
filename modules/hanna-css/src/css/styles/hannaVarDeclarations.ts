@@ -27,7 +27,7 @@ import {
   zIndexVars,
 } from '../../lib/hannavars.js';
 import iconfonttokens from '../../lib/iconfonttokens.js';
-import { cssVersion } from '../../lib/style-server-info.js';
+import { fullCssVersion } from '../../lib/style-server-info.js';
 import { cols_pct, cols_px, grid_units, prem } from '../utils/miscUtils.js';
 
 import { ButtonTertiaryVarDeclarations } from './buttons.js';
@@ -40,7 +40,7 @@ const _fsz = font.sizes;
 // ---------------------------------------------------------------------------
 
 const envVarDeclarations = envVars.declare({
-  cssVersion: str(cssVersion),
+  cssVersion: str(fullCssVersion),
   // NOTE: This variable receives its actual value
   // somewhere off in JavaScript-land.
   // (Likely set by `@hugsmidjan/qj/getScrollbarWidth.setCSSvar()`)

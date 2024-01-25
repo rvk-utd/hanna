@@ -2250,21 +2250,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hugsmidjan/gulp-iconfont@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@hugsmidjan/gulp-iconfont@npm:0.4.0"
+"@hugsmidjan/gulp-iconfont@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "@hugsmidjan/gulp-iconfont@npm:0.4.3"
   dependencies:
     "@hugsmidjan/gulp-utils": ^0.1.3
     gulp-iconfont: ^11
   peerDependencies:
     gulp: ^4
-  checksum: fb4fc8b0643725f56cd9f774ff3532f89e4a07daf8074cbf9f7da109001ca17ce41568c5e4aff99da3756fc12d83ed8110c6b47d832d09af02fd4b5500327818
+  checksum: 3e5081bad38836a02000d6189d7a03ac8bd55fc8c9ae908a4c8b9bd1ef4f4cefde77dfbd8c4169e3725852cdb2e31e7b06279e885411828e78e57500c02a7f22
   languageName: node
   linkType: hard
 
-"@hugsmidjan/gulp-images@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "@hugsmidjan/gulp-images@npm:0.2.2"
+"@hugsmidjan/gulp-images@npm:^0.2.4":
+  version: 0.2.4
+  resolution: "@hugsmidjan/gulp-images@npm:0.2.4"
   dependencies:
     "@hugsmidjan/gulp-utils": ^0.1.3
     gulp-flatmap: ^1
@@ -2273,7 +2273,7 @@ __metadata:
     imagemin-pngquant: ^9
   peerDependencies:
     gulp: ^4
-  checksum: b96ece8f31947c7fd9e92387f69dcd8e65d1ba3040cfbecee4b2e54a9772f2e04504ef7bb28bbf4f427e6807bb13c6470ee1a0b1b8626b4eee9d36527d198c65
+  checksum: 373abd1cc4627ec85960b0da271a7f13df52f9a4c2a2239d0d7c8b35147a42a08ac631f735a4346aa6b3475f852f950b37afd4da45a3b273fa8f92a69ac660f3
   languageName: node
   linkType: hard
 
@@ -3460,13 +3460,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reykjavik/hanna-css@workspace:modules/hanna-css"
   dependencies:
-    "@hugsmidjan/gulp-iconfont": ^0.4.0
-    "@hugsmidjan/gulp-images": ^0.2.2
+    "@hugsmidjan/gulp-iconfont": ^0.4.3
+    "@hugsmidjan/gulp-images": ^0.2.4
     "@hugsmidjan/qj": ^4.22.1
     "@reykjavik/hanna-utils": ^0.2.14
     "@types/md5-file": ^5
-    del: ^6.0.0
-    es-in-css: ^0.7.5
+    es-in-css: ^0.7.6
     gulp: ^4.0.2
     md5-file: ^5.0.0
     tslib: ^2.4.0
@@ -7145,17 +7144,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cliui@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "cliui@npm:8.0.1"
-  dependencies:
-    string-width: ^4.2.0
-    strip-ansi: ^6.0.1
-    wrap-ansi: ^7.0.0
-  checksum: 79648b3b0045f2e285b76fb2e24e207c6db44323581e421c3acbd0e86454cba1b37aea976ab50195a49e7384b871e6dfb2247ad7dec53c02454ac6497394cb56
-  languageName: node
-  linkType: hard
-
 "clone-buffer@npm:^1.0.0":
   version: 1.0.0
   resolution: "clone-buffer@npm:1.0.0"
@@ -7446,26 +7434,6 @@ __metadata:
     readable-stream: ^2.2.2
     typedarray: ^0.0.6
   checksum: 1ef77032cb4459dcd5187bd710d6fc962b067b64ec6a505810de3d2b8cc0605638551b42f8ec91edf6fcd26141b32ef19ad749239b58fae3aba99187adc32285
-  languageName: node
-  linkType: hard
-
-"concurrently@npm:^7.0.0":
-  version: 7.6.0
-  resolution: "concurrently@npm:7.6.0"
-  dependencies:
-    chalk: ^4.1.0
-    date-fns: ^2.29.1
-    lodash: ^4.17.21
-    rxjs: ^7.0.0
-    shell-quote: ^1.7.3
-    spawn-command: ^0.0.2-1
-    supports-color: ^8.1.0
-    tree-kill: ^1.2.2
-    yargs: ^17.3.1
-  bin:
-    conc: dist/bin/concurrently.js
-    concurrently: dist/bin/concurrently.js
-  checksum: f705c9a7960f1b16559ca64958043faeeef6385c0bf30a03d1375e15ab2d96dba4f8166f1bbbb1c85e8da35ca0ce3c353875d71dff2aa132b2357bb533b3332e
   languageName: node
   linkType: hard
 
@@ -7864,7 +7832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.0.1, date-fns@npm:^2.24.0, date-fns@npm:^2.29.1":
+"date-fns@npm:^2.0.1, date-fns@npm:^2.24.0":
   version: 2.29.3
   resolution: "date-fns@npm:2.29.3"
   checksum: e01cf5b62af04e05dfff921bb9c9933310ed0e1ae9a81eb8653452e64dc841acf7f6e01e1a5ae5644d0337e9a7f936175fd2cb6819dc122fdd9c5e86c56be484
@@ -8768,9 +8736,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-in-css@npm:^0.7.5":
-  version: 0.7.5
-  resolution: "es-in-css@npm:0.7.5"
+"es-in-css@npm:^0.7.6":
+  version: 0.7.6
+  resolution: "es-in-css@npm:0.7.6"
   dependencies:
     "@types/color": ^3.0.3
     "@types/color-name": ^1.1.1
@@ -8787,7 +8755,7 @@ __metadata:
     prettier: ^2.8.8
   bin:
     es-in-css: bin/cli.js
-  checksum: 343e40b87f62ff500823c5555d85763e8078039be42e65a2a62b48d39447cf562d36ee661c42ea17a21fbfa4b13fcc988429614c568d2e351c427506dda45770
+  checksum: 9cd68bc32e47b8d08f1609211b8dfbfef98d0c482b5ad906c6d0fd873b429a5d3b0aa50db3e4823272e337baba8e108ac3a74a9c3ec605172e860b2714637e30
   languageName: node
   linkType: hard
 
@@ -12058,7 +12026,6 @@ __metadata:
     "@types/node": ^16
     "@types/ospec": ^4
     "@types/prettier": ^2
-    concurrently: ^7.0.0
     esbuild: ^0.15.18
     eslint: ^8.41.0
     glob: ^10.0.0
@@ -18791,7 +18758,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.0.0, rxjs@npm:^7.5.5":
+"rxjs@npm:^7.5.5":
   version: 7.8.0
   resolution: "rxjs@npm:7.8.0"
   dependencies:
@@ -19132,13 +19099,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shell-quote@npm:^1.7.3":
-  version: 1.7.4
-  resolution: "shell-quote@npm:1.7.4"
-  checksum: 2874ea9c1a7c3ebfc9ec5734a897e16533d0d06f2e4cddc22ba3d1cab5cdc07d0f825364c1b1e39abe61236f44d8e60e933c7ad7349ce44de4f5dddc7b4354e9
-  languageName: node
-  linkType: hard
-
 "shellwords@npm:^0.1.1":
   version: 0.1.1
   resolution: "shellwords@npm:0.1.1"
@@ -19418,13 +19378,6 @@ __metadata:
   version: 1.0.1
   resolution: "sparkles@npm:1.0.1"
   checksum: 022f4ab577291199ec3b2b795726b81d33c6b4b6ebce2ba3520c18600d23fd0c9b401eef70ba16a5480abdc1df922edcd428c2b643f28a286fed402d4a70bc40
-  languageName: node
-  linkType: hard
-
-"spawn-command@npm:^0.0.2-1":
-  version: 0.0.2
-  resolution: "spawn-command@npm:0.0.2"
-  checksum: e35c5d28177b4d461d33c88cc11f6f3a5079e2b132c11e1746453bbb7a0c0b8a634f07541a2a234fa4758239d88203b758def509161b651e81958894c0b4b64b
   languageName: node
   linkType: hard
 
@@ -19883,15 +19836,6 @@ __metadata:
   dependencies:
     has-flag: ^4.0.0
   checksum: 3dda818de06ebbe5b9653e07842d9479f3555ebc77e9a0280caf5a14fb877ffee9ed57007c3b78f5a6324b8dbeec648d9e97a24e2ed9fdb81ddc69ea07100f4a
-  languageName: node
-  linkType: hard
-
-"supports-color@npm:^8.1.0":
-  version: 8.1.1
-  resolution: "supports-color@npm:8.1.1"
-  dependencies:
-    has-flag: ^4.0.0
-  checksum: c052193a7e43c6cdc741eb7f378df605636e01ad434badf7324f17fb60c69a880d8d8fcdcb562cf94c2350e57b937d7425ab5b8326c67c2adc48f7c87c1db406
   languageName: node
   linkType: hard
 
@@ -21929,7 +21873,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:>=5.0.0-security.0, yargs-parser@npm:^21.1.1":
+"yargs-parser@npm:>=5.0.0-security.0":
   version: 21.1.1
   resolution: "yargs-parser@npm:21.1.1"
   checksum: ed2d96a616a9e3e1cc7d204c62ecc61f7aaab633dcbfab2c6df50f7f87b393993fe6640d017759fe112d0cb1e0119f2b4150a87305cc873fd90831c6a58ccf1c
@@ -21965,21 +21909,6 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: b14afbb51e3251a204d81937c86a7e9d4bdbf9a2bcee38226c900d00f522969ab675703bee2a6f99f8e20103f608382936034e64d921b74df82b63c07c5e8f59
-  languageName: node
-  linkType: hard
-
-"yargs@npm:^17.3.1":
-  version: 17.6.2
-  resolution: "yargs@npm:17.6.2"
-  dependencies:
-    cliui: ^8.0.1
-    escalade: ^3.1.1
-    get-caller-file: ^2.0.5
-    require-directory: ^2.1.1
-    string-width: ^4.2.3
-    y18n: ^5.0.5
-    yargs-parser: ^21.1.1
-  checksum: 47da1b0d854fa16d45a3ded57b716b013b2179022352a5f7467409da5a04a1eef5b3b3d97a2dfc13e8bbe5f2ffc0afe3bc6a4a72f8254e60f5a4bd7947138643
   languageName: node
   linkType: hard
 

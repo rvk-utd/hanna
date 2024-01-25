@@ -17,15 +17,9 @@
     "node": "16"
   },
   "scripts": {
-    "publish": "yarn run build  &&  node ./build-release.mjs",
-    "build": "yarn install  &&  yarn run -T tsc  &&  yarn run vite build  &&  NODE_ENV=production  node build.mjs  &&  yarn run test",
-    "dev": "yarn run -T concurrently -k  \"NODE_ENV=development  yarn run vite build --logLevel warn --force --watch\"  \"node build.mjs --dev\"  \"sleep 2 && yarn run test:dev\"  \"yarn run dev:server\"",
-    "__build": "yarn install  &&  yarn run gulp build  &&  yarn run test",
-    "__dev": "yarn install  &&  yarn run gulp dev",
-    "dev:server": "yarn run http-server ./ -c-1 -p1337 -o examples/",
-    "test:dev": "sleep 1  &&  (yarn run test || true)  &&  yarn run test:watch",
-    "test:watch": "yarn run -T onchange '__tests/**/*.tests.js' -f add -f change -- yarn run -T ospec '{{file}}'",
-    "test": "yarn run -T ospec \"__tests/**/*.tests.js\""
+    "publish": "yarn install  &&  node ./build-release.mjs",
+    "build": "yarn install  &&  node build.mjs",
+    "dev": "node build.mjs --dev"
   },
   "dependencies": {
     "@hugsmidjan/qj": "^4.22.1",

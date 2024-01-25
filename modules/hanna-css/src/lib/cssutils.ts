@@ -1,12 +1,7 @@
 import { styleServerUrl } from '@reykjavik/hanna-utils/assets';
 import { makeVariables, VariableOptions, VariableStyles } from 'es-in-css';
 
-import {
-  CssModuleToken,
-  cssVersion as fullCssVersion,
-  CssVersionToken,
-  majorCssVersion,
-} from './style-server-info.js';
+import { CssModuleToken, CssVersionToken, majorCssVersion } from './style-server-info.js';
 
 // ---------------------------------------------------------------------------
 
@@ -18,13 +13,6 @@ import {
  */
 export const isDevMode = process.env.NODE_ENV !== 'production';
 
-/** Extract the CSS major version from the curent target version constant */
-type CssMajorVersion = typeof fullCssVersion extends `0.${infer PreMajor}.${string}`
-  ? `0.${PreMajor}`
-  : typeof fullCssVersion extends `${infer Major}.${string}`
-  ? Major
-  : never;
-
 /**
  * The current MAJOR version of the Hanna style-server CSS files this version of
  * `@reyjkjavik/hanna-css` package targets.
@@ -33,7 +21,7 @@ type CssMajorVersion = typeof fullCssVersion extends `0.${infer PreMajor}.${stri
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#targetcssversion
  */
-export const targetCssVersion = majorCssVersion as CssMajorVersion;
+export const targetCssVersion = majorCssVersion;
 
 /** @deprecated use `targetCssVersion` instead.  (Will be removed in v0.4) */
 export const cssVersion = targetCssVersion;
@@ -102,7 +90,7 @@ type CssBundleOpts<AcceptNewerVersion extends boolean = false> = {
   version?:
     | CssVersionToken
     | (AcceptNewerVersion extends true
-        ? `v${CssMajorVersion}.${number}${string}`
+        ? `v${typeof majorCssVersion}.${number}${string}`
         : never);
 
   /** @deprecated Use `setStyleServerUrl()` instead. (will be removed in v0.6) */

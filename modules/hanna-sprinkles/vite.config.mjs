@@ -105,7 +105,6 @@ export default defineConfig({
 
         manualChunks(id) {
           const module = id.split(/(?:node_modules|hanna-sprinkles)\//)[1] || id;
-          // console.log(module);
 
           if (module.startsWith('@hugsmidjan/qj')) {
             return 'qj';

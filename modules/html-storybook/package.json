@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "yarn && storybook dev -p 6007",
     "build": "NODE_ENV=production storybook build",
-    "publish": "yarn run build  &&  node build-release.mjs"
+    "publish": "node build-release.mjs"
   },
   "dependencies": {
     "@storybook/addon-controls": "^7.4.0",

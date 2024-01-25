@@ -1,5 +1,5 @@
-const { renameSync } = require('fs');
-const glob = require('glob').sync;
+import { renameSync } from 'fs';
+import { sync as glob } from 'glob';
 
 const idealSuffix = `---q50.png`;
 
