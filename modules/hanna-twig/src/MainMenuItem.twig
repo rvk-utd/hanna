@@ -4,7 +4,7 @@
 ] %}
 
 <li {{ attributes.setAttribute('class', classes) }}>
-	{% include "./Button.twig" with {
+	{% include "@storybook/Button.twig" with {
 		button_class: 'MainMenu__link',
 		button_url: menuitem_link,
 		button_text: menuitem_label
