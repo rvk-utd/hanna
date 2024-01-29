@@ -2,7 +2,7 @@
 
 {% if image %}
 	{% set topImage %}
-	{% include "@storybook/ContentImage/ContentImage.twig" with{
+	{% include "@storybook/ContentImage.twig" with{
 			text: imageText,
 			credit: imageCredit,
 			image: image,
@@ -36,7 +36,7 @@
 		{% endif %}
 	</div>
 
-	{% include "@storybook/TextBlock/TextBlock.twig" with {
+	{% include "@storybook/TextBlock.twig" with {
 		content: contentText
 	}%}
 
