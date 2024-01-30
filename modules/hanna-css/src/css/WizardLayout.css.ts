@@ -3,6 +3,7 @@ import { css } from 'es-in-css';
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LayoutHeaderHomeLink } from './styles/header.js';
 import { cols_px, grid_units, prem } from './utils/miscUtils.js';
@@ -155,6 +156,13 @@ export default css`
     }
   }
   ${WizardLayoutClose_css}
+
+  .IframedLayout {
+    ${WARNING__('`IframedLayout` can not be used when `WizardLayout.css` is loaded')}
+  }
+  .Layout {
+    ${WARNING__('`Layout` can not be used when `WizardLayout.css` is loaded')}
+  }
 
   // ===========================================================================
   // BEGIN @deprecated  (remove in v0.9)

@@ -6,6 +6,7 @@ import { isDevMode } from '../lib/cssutils.js';
 import { grid } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LayoutHeaderHomeLink } from './styles/header.js';
 import { LinkStyle_Reset } from './styles/links.js';
@@ -228,4 +229,11 @@ export default css`
       ${showColumnGridLines()}
     }
   `}
+
+  .IframedLayout {
+    ${WARNING__('`IframedLayout` can not be used when `Layout.css` is loaded')}
+  }
+  .WizardLayout {
+    ${WARNING__('`WizardLayout` can not be used when `Layout.css` is loaded')}
+  }
 `;

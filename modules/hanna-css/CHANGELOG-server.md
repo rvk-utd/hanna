@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add dev warnings for `*Layout` component–style mismatch … (i.e. when
+  `.IframedLayout` is used with `Layout.css` loaded, etc.)
 
 ## 0.8.88
 
