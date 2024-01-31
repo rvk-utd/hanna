@@ -17,20 +17,24 @@ hanna-twig source files, and none of the git history.
 This requires only a relatively modern version of `git`.
 
 ```sh
-mkdir hanna-twig
-mkdir hanna-twig/__temp
-cd hanna-twig/__temp
+mkdir __temp
+cd __temp
 git init
 git sparse-checkout set .
 git config --worktree core.sparseCheckoutCone 'false'
 git sparse-checkout set modules/hanna-twig/src
 git remote add origin git@github.com:rvk-utd/hanna.git
 git fetch origin main --depth 1 --filter=blob:none
-git merge origin/main
-mv modules/hanna-twig/src/* ..
+git checkout main
 cd ..
+mv __temp/modules/hanna-twig/src ./hanna-twig
 rm -rf __temp
 ```
+
+Leaves you with a neat folder called `hanna-twig`.
+
+NOTE: You can replace the two occurrances of the branch name `main` in the script
+above, with any commit SHA (or branch name) you like.
 
 ### Download in browser
 
