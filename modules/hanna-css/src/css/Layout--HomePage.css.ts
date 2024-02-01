@@ -4,11 +4,16 @@ import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import { DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 export default css`
   ${DEPS('Layout-full')}
+
+  .Layout {
+    ${WARNING__('The CSS token "Layout--HomePage" is deprecated.')}
+  }
 
   @media screen {
     .Layout--HomePage .RowBlock {
