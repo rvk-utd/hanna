@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Auto-localization of react components failed
 
 ## 0.8.55
 
