@@ -504,25 +504,26 @@ export default css`
   //
   // ===========================================================================
 
-  @media screen {
-    .MainMenu:not(nav) {
-      ${WARNING__('Please use <nav/>')};
-    }
-    .MainMenu:not([aria-label]):not([aria-labelledby]) {
-      ${WARNING__('Please add `aria-label` or `aria-labelledby`')};
-    }
-    .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
-      ${WARNING__('Please add `id` attribute')};
-    }
-    .MainMenu__separator:not(.MainMenu__items > *) {
-      ${WARNING__('Separators must be child of ul.MainMenu__items')};
-    }
-    .MainMenu__list:first-child {
-      ${WARNING__('`.MainMenu__title` missing')};
-    }
-    .MainMenu__item:first-child:not(.MainMenu__item--home) {
-      ${WARNING__('Home link missing')};
-    }
+  .MainMenu:not(nav) {
+    ${WARNING__('Please use <nav/>')};
+  }
+  .MainMenu:not([aria-label]):not([aria-labelledby]) {
+    ${WARNING__('Please add `aria-label` or `aria-labelledby`')};
+  }
+  .MainMenu[aria-labelledby] > .MainMenu__title:not([id]) {
+    ${WARNING__('Please add `id` attribute')};
+  }
+  .MainMenu__separator:not(.MainMenu__items > *) {
+    ${WARNING__('Separators must be child of ul.MainMenu__items')};
+  }
+  .MainMenu__list:first-child {
+    ${WARNING__('`.MainMenu__title` missing')};
+  }
+  .MainMenu__item:first-child:not(.MainMenu__item--home) {
+    ${WARNING__('Home link missing')};
+  }
+  .MainMenu2 {
+    ${WARNING__('`MainMenu2` can not be used when `MainMenu.css` is loaded')}
   }
 
   // ===========================================================================

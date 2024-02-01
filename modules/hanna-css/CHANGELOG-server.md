@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add dev warnings when `MainMenu` and `MainMenu2` are used/loaded
+  together
 - feat: Add dev warnings when oudated/discontinued CSS tokens are loaded
   (`Layout-full`, `Layout--HomePage`)
 - feat: Add dev warnings for `*Layout` component–style mismatch … (i.e. when

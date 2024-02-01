@@ -588,4 +588,7 @@ export default css`
   .MainMenu2:not([aria-label]) {
     ${WARNING__('aria-label="" is missing')};
   }
+  .MainMenu {
+    ${WARNING__('`MainMenu` can not be used when `MainMenu2.css` is loaded')}
+  }
 `;
