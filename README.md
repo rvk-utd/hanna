@@ -51,23 +51,22 @@ build-results into them.
     [@reykjavik/hanna-react](https://www.npmjs.com/package/@reykjavik/hanna-react).
 
 - **[`hanna-utils`](modules/hanna-utils/)**
+
   - A collection of vanilla JavaScript functions and constants that are
     helpful when using the Hanna design system.
   - Published as the npm package
     [@reykjavik/hanna-utils](https://www.npmjs.com/package/@reykjavik/hanna-utils).
 
-**WIP Code Libraries:**
-
 - **[`hanna-sprinkles`](modules/hanna-sprinkles/)**
 
   - Vanilla JavaScript "sprinkles" that progressively enhance server-rendered
     HTML components.
-  - **TODO:**
-    - Publishes JavaScript module files to [styles.reykjavik.is][].  
-      (Builds into `/servers/styles/public/sprinkles/v${version}`, a part of
-      the submodule repo [hanna-server-styles][].)
-    - Published as the npm package
-      [@reykjavik/hanna-sprinkles](https://www.npmjs.com/package/@reykjavik/hanna-sprinkles).
+  - Publishes JavaScript module files to
+    [styles.reykjavik.is/sprinkles/v${version}][].  
+    (Builds into `/servers/styles/public/sprinkles/v${version}`, a part of the
+    submodule repo [hanna-server-styles][].)
+
+**WIP Code Libraries:**
 
 - **[`hanna-twig`](modules/hanna-twig/)**
 
@@ -76,7 +75,7 @@ build-results into them.
   - **TODO:**
     - Make the templates completely CMS-agnostic and pure/presentational, to
       allow use with WordPress, etc.
-    - Published as the **????** package **?????**.
+    - Figure out what's the best publishing channel for twig templates ??
 
 **Documentation:**
 
