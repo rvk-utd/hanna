@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.89
+
+_2024-02-07_
+
 - feat: Add dev warnings when `MainMenu` and `MainMenu2` are used/loaded
   together
 - feat: Add dev warnings when oudated/discontinued CSS tokens are loaded
