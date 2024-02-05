@@ -17,7 +17,11 @@ export const registerCustomSelectorsEngines = () => {
     'scrollContainer',
     () => {
       const scrollable = { scroll: 1, auto: 1 };
-      const query = (root: HTMLElement /*, selector: string */) => {
+      const query = (
+        root: HTMLElement,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        _selector: string
+      ) => {
         let elm: HTMLElement | null = root;
         while (elm) {
           const overflowStyles = window.getComputedStyle(elm).overflow.split(/\s+/);
