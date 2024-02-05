@@ -36,7 +36,6 @@
     <script type="module">
       const mainElm = document.querySelector('.Layout__main');
       const links = [].slice.call(mainElm.querySelectorAll('a[href$=".json"]'));
-      console.log(links);
       Promise.all(
         links.map((link) =>
           fetch(link.href).then((res) => {
