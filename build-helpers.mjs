@@ -164,7 +164,7 @@ export const externalDeps = [
  * @returns {Promise<void>}
  */
 export const typeCheckModule = () =>
-  $(`yarn run -T tsc --project tsconfig.json --noEmit --pretty --incremental false`);
+  $(`yarn run -T tsc --project ./tsconfig.json --noEmit --pretty --incremental false`);
 
 // ---------------------------------------------------------------------------
 
@@ -408,9 +408,10 @@ const updateChangelog = async (changelogFileName) => {
     .filter(/** @type {((x: unknown) => x is string)} */ ((x) => !!x));
 
   if (updates.length === 0) {
-    throw new Error(
+    console.info(
       `No significant/relevant unreleased updates found in ${changelogFileName}`
     );
+    process.exit(0);
   }
 
   const isPrerelease = !oldVersion[0];

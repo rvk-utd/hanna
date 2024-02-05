@@ -88,12 +88,12 @@ export const buildCssFiles = async (NODE_ENV) => {
       define: { 'process.env.NODE_ENV': JSON.stringify(NODE_ENV) },
     })
     .then((res) => {
-      cssCompile(res);
       if (opts.dev) {
         process.on('exit', () => {
           res.stop?.();
         });
       }
+      return cssCompile(res);
     })
     .catch(handlError);
 };

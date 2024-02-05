@@ -75,20 +75,23 @@ const { cssFolderVersion, fullCssVersion, majorCssVersion } = await getCssVersio
 await resetStyleServerSubmodule();
 await import('./build-lib.mjs'); // CSS builds depend on the lib being correct
 
+// Build and commit production CSS
+await buildCssFiles('production');
+if (!process.env.SKIP_VISUAL_TESTS) {
+  await $(`yarn workspace hanna-visual-tests run test`);
+}
+const publishCssFolder = `${publicFolder}css/v${cssFolderVersion}`;
+cssFolderVersion.startsWith('0.') && (await $(`rm -rf ${publishCssFolder}`));
+await runPrePublishTests(publishCssFolder);
+await $(`cp -R ${devDistCssFolder} ${publishCssFolder}`);
+await commitToGitSubmodule(publishCssFolder);
+
 // Build and commit dev-v* CSS
 await buildCssFiles('development');
 const publishDevCssFolder = `${publicFolder}css/dev-v${majorCssVersion}`;
 await $(`rm -rf ${publishDevCssFolder}`);
-await $(`cp -R ${devDistCssFolder}/* ${publishDevCssFolder}`);
+await $(`cp -R ${devDistCssFolder} ${publishDevCssFolder}`);
 await commitToGitSubmodule(publishDevCssFolder);
-
-// Build and commit production CSS
-await buildCssFiles('production');
-const publishCssFolder = `${publicFolder}css/v${cssFolderVersion}`;
-cssFolderVersion.startsWith('0.') && (await $(`rm -rf ${publishCssFolder}`));
-await runPrePublishTests(publishCssFolder);
-await $(`cp -R ${devDistCssFolder}/* ${publishCssFolder}`);
-await commitToGitSubmodule(publishCssFolder);
 
 if (!opts.skipAssets) {
   // Compress and commit assets
