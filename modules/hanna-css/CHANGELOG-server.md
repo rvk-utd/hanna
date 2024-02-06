@@ -3,9 +3,6 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Remove `MainMenu.css` styling side-effects
-- fix: Temporarily disable dev warnings when `Layout` and `WizardLayout` are
-  loaded together
 
 ## 0.8.89
 
@@ -15,8 +12,9 @@ _2024-02-07_
   together
 - feat: Add dev warnings when oudated/discontinued CSS tokens are loaded
   (`Layout-full`, `Layout--HomePage`)
-- feat: Add dev warnings for `*Layout` component–style mismatch … (i.e. when
-  `.IframedLayout` is used with `Layout.css` loaded, etc.)
+- feat: Add dev warnings when `.IframedLayout` is used while `Layout.css` is
+  loaded, and vice versa
+- fix: Remove `MainMenu.css` styling side-effects
 
 ## 0.8.88
 
