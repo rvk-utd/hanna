@@ -75,11 +75,12 @@ export default css`
       left: calc(
         var(--bling-offset-ish, var(--bling-offset)) / ${baseW} * ${Bv.baseWitdh}
       );
-      @if isDevMode() {
+      ${isDevMode &&
+      css`
         // prettier-ignore
         --notDefined--bling-offset-ish: var(--bling-offset-ish, );
         outline: var(--notDefined--bling-offset-ish) 10px dashed rgba(255, 0, 0, 0.25);
-      }
+      `}
     }
     .Bling--align--left-center > svg,
     .Bling--align--right-center > svg {
