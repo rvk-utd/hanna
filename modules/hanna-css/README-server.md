@@ -59,7 +59,7 @@ valid "cssToken".
 **Example:**
 
 ```
-https://localhost:4000/bundle/v1?m=-basics,Layout-full,HeroBlock
+https://localhost:4000/bundle/v1?m=-basics,Layout,MainMenu2,FooterInfo,Alert,HeroBlock
 ```
 
 This gives you `@import` links pointing to the latest minified
@@ -70,7 +70,7 @@ messages and common markup-mistakes flagged, by changing the `VERSION_FOLDER`
 to `dev-v1`. Like so:
 
 ```
-https://localhost:4000/bundle/dev-v0?m=-basics,Layout-full,HeroBlock
+https://localhost:4000/bundle/dev-v0?m=-basics,Layout,MainMenu2,FooterInfo,Alert,HeroBlock
 ```
 
 ## The public/ folder

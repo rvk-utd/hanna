@@ -79,7 +79,7 @@ export const _LayoutWithContent: StoryObj<LayoutWithContentControlProps> = {
   parameters: {
     css: {
       noLayout: true,
-      tokens: 'Layout-full,FooterBadges,ContactBubble',
+      tokens: 'Layout,MainMenu,FooterInfo,Alert,BreadCrumbs,FooterBadges,ContactBubble',
     },
   },
 };

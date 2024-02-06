@@ -30,7 +30,7 @@ allows you to instantly see the latest SASS build results from the
 `../../severs/styles/public/css/dev` folder, like so:
 
 ```
-https://localhost:4000/bundle/dev?m=-basics,Layout-full,HeroBlock
+https://localhost:4000/bundle/dev?m=-basics,Layout,MainMenu2,FooterInfo,Alert,HeroBlock
 ```
 
 ## NPM library sources

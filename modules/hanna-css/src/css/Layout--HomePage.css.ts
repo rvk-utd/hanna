@@ -9,7 +9,7 @@ import { WARNING__ } from '../lib/WARNING__.js';
 import { DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 export default css`
-  ${DEPS('Layout-full')}
+  ${DEPS('Alert', 'Layout', 'FooterInfo', 'BreadCrumbs', 'MainMenu')}
 
   .Layout {
     ${WARNING__('The CSS token "Layout--HomePage" is deprecated.')}
