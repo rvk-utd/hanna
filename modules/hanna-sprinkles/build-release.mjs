@@ -35,17 +35,15 @@ if (!existsSync(distFolder)) {
 const redirectsFile = 'redirects-sprinkles.json';
 
 await $([
-  `git submodule update --init`,
-
+  `git submodule update --init --quiet`,
   `cd ${serverPath}`,
+  `git stash`,
   `git checkout main`,
   `cd -`,
-
-  `git submodule update --remote --rebase`,
+  `git submodule update --remote --rebase --quiet`,
 
   // update submodule files
-  `mkdir -p ${sprinklesVersionPath}`,
-  `cp -R ${distFolder}* ${sprinklesVersionPath}`,
+  `cp -R ${distFolder} ${sprinklesVersionPath}`,
 
   // update redirects
   `cp CHANGELOG.md ${sprinklesPath}changelog.txt`,
@@ -55,13 +53,11 @@ await $([
 
   // submodule commit
   `cd ${serverPath}`,
-  `git reset`,
   `git add "./*"`,
   `git commit -m "release(sprinkles): v${version}"`,
-  `git reset --hard`,
+  `cd -`,
 
   // local commit
-  `cd -`,
   `git add ./package.json ./CHANGELOG.md ${serverPath}`,
   `git commit -m "release(sprinkles): v${version}"`,
 ]);

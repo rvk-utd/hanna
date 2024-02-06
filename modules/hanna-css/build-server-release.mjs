@@ -23,11 +23,12 @@ import { buildCssFiles } from './build/helpers.mjs';
  */
 const resetStyleServerSubmodule = () =>
   $([
-    `git submodule update --init`,
+    `git submodule update --init --quiet`,
     `cd ${serverFolder}`,
+    `git stash`,
     `git checkout main`,
     `cd -`,
-    `git submodule update --remote --rebase`,
+    `git submodule update --remote --rebase --quiet`,
   ]);
 
 /**
@@ -37,10 +38,8 @@ const resetStyleServerSubmodule = () =>
 const commitToGitSubmodule = (folder) =>
   $([
     `cd ${serverFolder}`,
-    `git reset`,
     `git add ${folder.slice(serverFolder.length)}`,
     `git commit -m "build: ${folder.slice(publicFolder.length)}"`,
-    `git reset --hard`,
   ]);
 
 /**
@@ -102,14 +101,6 @@ if (!opts.skipAssets) {
 
 // Update submodule root files and commit the version bump
 await $([
-  `git submodule update --init`,
-
-  `cd ${serverFolder}`,
-  `git checkout main`,
-  `cd -`,
-
-  `git submodule update --remote --rebase`,
-
   // update submodule files
   `cp package-server.json ${serverFolder}package.json`,
   `cp README-server.md ${serverFolder}README.md`,
@@ -118,14 +109,12 @@ await $([
 
   // submodule commit
   `cd ${serverFolder}`,
-  `yarn install`,
-  `git reset`,
+  `yarn install`, // in case package-server.json has new dependencies
   `git add "./*"`,
   `git commit -m "release(css): v${fullCssVersion}"`,
-  `git reset --hard`,
+  `cd -`,
 
   // local commit
-  `cd -`,
   `git add ./*-server.* ./src/**/style-server-info.ts ${serverFolder}`,
   `git commit -m "release(css): v${fullCssVersion}"`,
 ]);

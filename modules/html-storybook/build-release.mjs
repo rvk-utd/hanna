@@ -28,29 +28,26 @@ const htmlVersionFolder = htmlVersion.split('.').slice(0, 2).join('.');
 
 await $([
   `git submodule update --init`,
-
   `cd ${serverFolder}`,
+  `git stash`,
   `git checkout main`,
   `cd -`,
-
   `git submodule update --remote --rebase`,
 
   // update submodule files
   `rm -rf ${htmlDocsFolder + htmlVersionFolder} ${htmlDocsFolder}latest`,
-  `(mkdir -p ${htmlDocsFolder}latest`,
+  `mkdir -p ${htmlDocsFolder}latest`,
   `find ${tempDistFolder} -name "*.map" -type f -delete`,
   `cp -R ${tempDistFolder}/* ${htmlDocsFolder}latest`,
   `mv ${tempDistFolder} ${htmlDocsFolder + htmlVersionFolder}`,
 
   // submodule commit
   `cd ${serverFolder}`,
-  `git reset`,
   `git add "./*"`,
   `git commit -m "release(html-storybook): v${htmlVersion}"`,
-  `git reset --hard`,
+  `cd -`,
 
   // local commit
-  `cd -`,
   `git add ${rootFolder}package.json ${rootFolder}CHANGELOG.md ${serverFolder}`,
   `git commit -m "release(html): v${htmlVersion}"`,
 ]);
