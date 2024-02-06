@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Remove `MainMenu.css` styling side-effects
+- fix: Temporarily disable dev warnings when `Layout` and `WizardLayout` are
+  loaded together
 
 ## 0.8.89
 

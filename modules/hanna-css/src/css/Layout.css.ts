@@ -233,7 +233,7 @@ export default css`
   .IframedLayout {
     ${WARNING__('`IframedLayout` can not be used when `Layout.css` is loaded')}
   }
-  .WizardLayout {
+  /* .WizardLayout {
     ${WARNING__('`WizardLayout` can not be used when `Layout.css` is loaded')}
-  }
+  } */
 `;

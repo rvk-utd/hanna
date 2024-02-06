@@ -160,9 +160,9 @@ export default css`
   .IframedLayout {
     ${WARNING__('`IframedLayout` can not be used when `WizardLayout.css` is loaded')}
   }
-  .Layout {
+  /* .Layout {
     ${WARNING__('`Layout` can not be used when `WizardLayout.css` is loaded')}
-  }
+  } */
 
   // ===========================================================================
   // BEGIN @deprecated  (remove in v0.9)
