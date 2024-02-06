@@ -3,7 +3,7 @@
 import { existsSync } from 'fs';
 import { sync as globSync } from 'glob';
 
-import { $, opts, updatePkgVersion } from '../../build-helpers.mjs';
+import { $, logError, opts, updatePkgVersion } from '../../build-helpers.mjs';
 
 import {
   assetsDistFolder,
@@ -42,7 +42,7 @@ const commitToGitSubmodule = (folder) =>
     `cd ${serverFolder}`,
     `git add ${folder.slice(serverFolder.length)}`,
     `git commit -m "build: ${folder.slice(publicFolder.length)}${fixupMessage}"`,
-  ]);
+  ]).catch(logError);
 
 /**
  * @param {string} publishCssFolder
