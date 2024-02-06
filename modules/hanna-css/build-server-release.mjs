@@ -18,6 +18,8 @@ import { buildCssFiles } from './build/helpers.mjs';
 
 // ===========================================================================
 
+const fixupMessage = opts.fixup ? ' (fixup)' : '';
+
 /**
  * @returns {Promise<void>}
  */
@@ -39,7 +41,7 @@ const commitToGitSubmodule = (folder) =>
   $([
     `cd ${serverFolder}`,
     `git add ${folder.slice(serverFolder.length)}`,
-    `git commit -m "build: ${folder.slice(publicFolder.length)}"`,
+    `git commit -m "build: ${folder.slice(publicFolder.length)}${fixupMessage}"`,
   ]);
 
 /**
@@ -67,8 +69,9 @@ const runPrePublishTests = async (publishCssFolder) => {
 
 // ===========================================================================
 
-await updatePkgVersion(serverPkgConfig);
-
+if (!opts.fixup) {
+  await updatePkgVersion(serverPkgConfig);
+}
 const { cssFolderVersion, fullCssVersion, majorCssVersion } = await getCssVersionConfig();
 
 await resetStyleServerSubmodule();
@@ -111,10 +114,10 @@ await $([
   `cd ${serverFolder}`,
   `yarn install`, // in case package-server.json has new dependencies
   `git add "./*"`,
-  `git commit -m "release(css): v${fullCssVersion}"`,
+  `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
   `cd -`,
 
   // local commit
   `git add ./*-server.* ./src/**/style-server-info.ts ${serverFolder}`,
-  `git commit -m "release(css): v${fullCssVersion}"`,
+  `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
 ]);

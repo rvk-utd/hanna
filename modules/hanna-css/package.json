@@ -34,7 +34,8 @@
     "dev": "node build-css.mjs --dev",
     "prepublishOnly": "echo \"\nRun 'yarn run publish:lib' to publish this package\n\n\"  && exit 1",
     "publish:lib": "yarn install  &&  node build-lib-release.mjs",
-    "publish:server": "yarn install  &&  node ./build-server-release.mjs"
+    "publish:server": "yarn install  &&  node ./build-server-release.mjs",
+    "publish:server:fixup": "yarn install  &&  node ./build-server-release.mjs --fixup"
   },
   "devDependencies": {
     "@hugsmidjan/gulp-iconfont": "^0.4.3",
