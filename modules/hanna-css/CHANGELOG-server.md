@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Remove `MainMenu.css` styling side-effects
 
 ## 0.8.89
 

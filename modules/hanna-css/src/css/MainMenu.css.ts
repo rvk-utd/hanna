@@ -257,12 +257,6 @@ export default css`
       ${whiteLogo()}
     }
 
-    :root {
-      ${hannaVarOverride({
-        Layout$$header_homelink_width: prem(296),
-      })}
-    }
-
     .MainMenu {
     }
 
@@ -281,7 +275,7 @@ export default css`
         ${vars.link_underline__thickness} + ${vars.link_underline_offset}
       );
       margin-right: ${scaleTopmenu(-8, -20)};
-      margin-left: ${scaleTopmenu(-14, -20)};
+      margin-left: ${scaleTopmenu(-(14 + 160), -(20 + 160))};
       display: flex;
       justify-content: flex-end;
       align-items: center;
