@@ -28,7 +28,7 @@ export const testGlobs = `${srcDir}/**/*.tests.{ts,tsx}`;
  * @param {string | Array<string>} cmd
  * @returns {Promise<void>}
  */
-export const $ = async (cmd) =>
+export const $ = (cmd) =>
   new Promise((resolve, reject) => {
     if (Array.isArray(cmd)) {
       cmd = cmd.join(' && ');
@@ -44,10 +44,9 @@ export const $ = async (cmd) =>
       execProc.kill();
     };
     process.on('exit', killProc);
-    execProc.on('close', () => {
+    execProc.once('close', () => {
       process.off('exit', killProc);
     });
-    execProc.stdin?.pipe(process.stdin);
     execProc.stdout?.pipe(process.stdout);
     execProc.stderr?.pipe(process.stderr);
   });
