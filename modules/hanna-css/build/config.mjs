@@ -8,6 +8,7 @@ export const serverPkgConfig = {
   pkgJsonSuffix: '-server',
   changelogSuffix: '-server',
   versionKey: 'cssVersion',
+  offerDateShift: true,
 };
 
 export const serverFolder = '../../servers/styles/';

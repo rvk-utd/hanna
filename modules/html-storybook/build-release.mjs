@@ -10,7 +10,10 @@ const htmlDocsFolder = `${serverFolder}public/html/`;
 const tempDistFolder = 'storybook-static';
 
 /** @type {import('../../build-helpers.mjs').PkgVersionCfg} */
-const pkgConfig = { rootFolder };
+const pkgConfig = {
+  rootFolder,
+  offerDateShift: true,
+};
 
 await updatePkgVersion(pkgConfig);
 

@@ -4,7 +4,9 @@
 import { getPkgVersion, updatePkgVersion } from '../../build-helpers.mjs';
 
 /** @type {import('../../build-helpers.mjs').PkgVersionCfg} */
-const pkgConfig = {};
+const pkgConfig = {
+  offerDateShift: true,
+};
 
 export const bumpVersion = () => updatePkgVersion(pkgConfig);
 

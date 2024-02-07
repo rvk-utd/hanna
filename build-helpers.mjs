@@ -370,13 +370,17 @@ export const buildNpmLib = async (libName, custom) => {
 
 /**
  * @param {string} changelogFileName
+ * @param {{
+ *  offerDateShift?: true
+ * }} [opts]
  * @returns {Promise<{
  *   oldVersion: string,
  *   newVersion: string,
  *   newChangelog: string
  * }>}
  */
-const updateChangelog = async (changelogFileName) => {
+const updateChangelog = async (changelogFileName, opts) => {
+  const { offerDateShift } = opts || {};
   const changelogFull = (await readFile(changelogFileName)).toString();
   const changelog = changelogFull.slice(0, 4000);
   const changelogTail = changelogFull.slice(4000);
@@ -438,14 +442,18 @@ const updateChangelog = async (changelogFileName) => {
     );
   }
 
-  const dayOffset = await new Promise((resolve) => {
-    const readline = createInterface({ input: process.stdin, output: process.stdout });
-    readline.question(`Delay release date by how many days? (0)  `, (answer) => {
-      readline.close();
-      resolve(parseInt(answer) || 0);
-    });
-  });
-
+  const dayOffset = !offerDateShift
+    ? 0
+    : await new Promise((resolve) => {
+        const readline = createInterface({
+          input: process.stdin,
+          output: process.stdout,
+        });
+        readline.question(`Delay release date by how many days? (0)  `, (answer) => {
+          readline.close();
+          resolve(parseInt(answer) || 0);
+        });
+      });
   const DAY_MS = 24 * 60 * 60 * 1000;
   const releaseDate = new Date(Date.now() + dayOffset * DAY_MS);
 
@@ -477,6 +485,7 @@ const updateChangelog = async (changelogFileName) => {
  *   pkgJsonSuffix?: string,
  *   rootFolder?: string,
  *   versionKey?: string
+ *   offerDateShift?: true
  * }} PkgVersionCfg
  */
 
@@ -490,6 +499,7 @@ export const updatePkgVersion = async (opts) => {
     pkgJsonSuffix = '',
     rootFolder = '.',
     versionKey = 'version',
+    offerDateShift,
   } = opts || {};
   const changelogFile = `${rootFolder}/CHANGELOG${changelogSuffix}.md`;
   const pkgFile = `${rootFolder}/package${pkgJsonSuffix}.json`;
@@ -497,7 +507,10 @@ export const updatePkgVersion = async (opts) => {
   try {
     const pkg = await readFile(pkgFile).then((buffer) => JSON.parse(buffer.toString()));
 
-    const { oldVersion, newVersion, newChangelog } = await updateChangelog(changelogFile);
+    const { oldVersion, newVersion, newChangelog } = await updateChangelog(
+      changelogFile,
+      { offerDateShift }
+    );
 
     if (oldVersion !== pkg[versionKey]) {
       throw new Error(
