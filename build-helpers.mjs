@@ -25,13 +25,13 @@ export const testGlobs = `${srcDir}/**/*.tests.{ts,tsx}`;
 // ---------------------------------------------------------------------------
 
 /**
- * @param {string | Array<string>} cmd
+ * @param {string | Array<string | undefined | null | false | 0>} cmd
  * @returns {Promise<void>}
  */
 export const $ = (cmd) =>
   new Promise((resolve, reject) => {
     if (Array.isArray(cmd)) {
-      cmd = cmd.join(' && ');
+      cmd = cmd.filter((cmdItem) => !!cmdItem).join(' && ');
     }
     const execProc = exec(cmd, (error) => {
       if (error) {
@@ -71,7 +71,7 @@ export const logError = (err) => {
 
 /**
  * @param {object} err
- * @returns {void}
+ * @returns {never}
  */
 export const logThenExit1 = (err) => {
   logError(err);
@@ -81,12 +81,23 @@ export const logThenExit1 = (err) => {
 // ---------------------------------------------------------------------------
 
 /**
- * @param {Record<string, unknown>} pkg
+ * @param {string} [path] - The package.json path to read.
+ * @returns {Promise<{
+ *   name: string,
+ *   version: string,
+ *   [key: string]: unknown
+ * }>}
+ */
+const readPackageJson = (path) =>
+  readFile(path || './package.json').then((buffer) => JSON.parse(buffer.toString()));
+
+/**
  * @param {string} outDir
  * @param {Record<string, unknown>} [extraFields]
  * @returns {Promise<void>}
  */
-const makePackageJson = async (pkg, outDir, extraFields) => {
+const makePackageJson = async (outDir, extraFields) => {
+  const pkg = await readPackageJson();
   const newPkg = { ...pkg };
   const { publishConfig } = newPkg;
   delete newPkg.publishConfig;
@@ -141,22 +152,6 @@ const makeWriteOnlyAffected = (stripHashPrefix) => {
 
 // ---------------------------------------------------------------------------
 
-const [pkg, rootPkg] = await Promise.all([
-  readFile('./package.json').then((buffer) => JSON.parse(buffer.toString())),
-  readFile('../../package.json').then((buffer) => JSON.parse(buffer.toString())),
-]);
-
-export { pkg as pkgJson, rootPkg as rootPkgJson };
-
-export const externalDeps = [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.devDependencies || {}),
-  ...Object.keys(rootPkg.dependencies || {}),
-  ...Object.keys(rootPkg.devDependencies || {}),
-].filter((name) => !name.startsWith('@reykjavik/hanna-'));
-
-// ---------------------------------------------------------------------------
-
 /**
  * Run tsc typecheck on the current project module
  *
@@ -195,6 +190,17 @@ const tscBuild = async (config) => {
 
 // ---------------------------------------------------------------------------
 
+const getExternalDeps = () =>
+  Promise.all([readPackageJson(), readPackageJson('../../package.json')]).then(
+    ([pkg, rootPkg]) =>
+      [
+        ...Object.keys(pkg.dependencies || {}),
+        ...Object.keys(pkg.devDependencies || {}),
+        ...Object.keys(rootPkg.dependencies || {}),
+        ...Object.keys(rootPkg.devDependencies || {}),
+      ].filter((name) => !name.startsWith('@reykjavik/hanna-'))
+  );
+
 /**
  * @param {Array<string>} entryPoints
  * @param {string} outdir
@@ -215,10 +221,12 @@ export const esbuildBuild = async (entryPoints, outdir, options) => {
   }
 
   const writeOnlyAffected = makeWriteOnlyAffected(true);
+  const external = await getExternalDeps();
+
   return esbuild
     .build({
       bundle: true,
-      external: externalDeps,
+      external,
       format: 'cjs',
       platform: 'node',
       target: ['node16'],
@@ -322,7 +330,7 @@ export const buildNpmLib = async (libName, custom) => {
   await $([`rm -rf ${distDir}`, `mkdir ${distDir} ${distDir}/esm`, ...cpCmds]);
   await writeFile(`${distDir}/esm/package.json`, JSON.stringify({ type: 'module' }));
 
-  await makePackageJson(pkg, distDir, {
+  await makePackageJson(distDir, {
     sideEffects,
     exports: Object.fromEntries(
       entryPoints.map((file) => {
@@ -571,7 +579,7 @@ export const getPkgVersion = (opts) => {
  * @param {string} packageName
  * @param {string} newVersion
  * @param {Array<string>} [updatePkgs]
- * @returns {Promise<Array<string>>}
+ * @returns {Promise<Array<string>>} - package.json files that were updated.
  */
 export const updateDependentPackages = async (
   packageName,
@@ -613,22 +621,26 @@ export const updateDependentPackages = async (
  * @param {PublishOpts} [opts]
  * @returns {Promise<void>}
  */
-export const publishToNpm = async (opts = {}) => {
+export const publishToNpm = async (opts) => {
+  const { changelogSuffix = '', updatePkgs } = opts || {};
+
+  const pkg = await readPackageJson();
   const pkgName = pkg.name.replace(/^@reykjavik\//, '');
   const version = pkg.version;
-  try {
-    const updatedPkgs = await updateDependentPackages(pkgName, version, opts.updatePkgs);
 
-    await $([
-      `cd _npm-lib`,
-      // `npm publish`,
-      `cd ..`,
-      `yarn install`,
-      `git add ../../yarn.lock ${updatedPkgs.join(' ')}`,
-      `git add ./package.json ./CHANGELOG${opts.changelogSuffix || ''}.md`,
-      `git commit -m "release(${pkgName}): v${version}"`,
-    ]);
-  } catch (err) {
-    logThenExit1(err);
-  }
+  const updatedPkgFiles = await updateDependentPackages(
+    pkgName,
+    version,
+    updatePkgs
+  ).catch(logThenExit1);
+
+  await $([
+    `cd _npm-lib`,
+    `npm publish`,
+    `cd ..`,
+    updatedPkgFiles.length && `yarn install`,
+    updatedPkgFiles.length && `git add ../../yarn.lock ${updatedPkgFiles.join(' ')}`,
+    `git add ./package.json ./CHANGELOG${changelogSuffix}.md`,
+    `git commit -m "release(${pkgName}): v${version}"`,
+  ]);
 };
