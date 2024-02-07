@@ -55,6 +55,7 @@ const IframeBlockStory: React.FC<ControlProps> = ({
               <pre style={{ padding: '1em 1.5em', backgroundColor: '#00000011' }}>
                 {codeExample}
               </pre>
+              (React applications can use <code>{'<IframeBlockClientScript />'}</code>.)
             </div>
           )}
         </>

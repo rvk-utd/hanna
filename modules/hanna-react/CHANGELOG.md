@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `IframeBlockClientScript`
 
 ## 0.10.117
 
