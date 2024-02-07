@@ -2,8 +2,7 @@ import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
-import { hannaVars as vars } from '../lib/hannavars.js';
-import { WARNING__ } from '../lib/WARNING__.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
 import { LayoutHeaderHomeLink } from './styles/header.js';
 import { cols_px, grid_units, prem } from './utils/miscUtils.js';
@@ -14,10 +13,11 @@ export default css`
   @media screen {
     .WizardLayout {
       min-height: 100vh;
-      width: 100%;
+      width: calc(100vw - 2 * ${vars.grid_margin});
       max-width: ${prem(grid.contentMaxWidth)};
       margin: 0 auto;
       position: relative;
+      left: calc(0.5 * ${vars.browser_scrollbar_width});
       display: flex;
       flex-flow: column;
     }
@@ -66,10 +66,10 @@ export default css`
   }
 
   @media ${mq.phone_phablet} {
-    body {
-      --grid--margin: ${vars.space_2};
-      padding-left: ${vars.grid_margin};
-      padding-right: ${vars.grid_margin__right};
+    .WizardLayout {
+      ${hannaVarOverride({
+        grid_margin: vars.space_2,
+      })}
     }
 
     .WizardLayout__wrap {
@@ -156,13 +156,6 @@ export default css`
     }
   }
   ${WizardLayoutClose_css}
-
-  .IframedLayout {
-    ${WARNING__('`IframedLayout` can not be used when `WizardLayout.css` is loaded')}
-  }
-  /* .Layout {
-    ${WARNING__('`Layout` can not be used when `WizardLayout.css` is loaded')}
-  } */
 
   // ===========================================================================
   // BEGIN @deprecated  (remove in v0.9)
