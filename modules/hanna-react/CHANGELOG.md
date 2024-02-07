@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.118
+
+_2024-02-07_
+
 - feat: Add component `IframeBlockClientScript`
 
 ## 0.10.117
