@@ -22,6 +22,7 @@
  * const sizeValue = sizes[props.size || 'normal'] || sizes.normal;
  * ```
  *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-openrecord
  */
 export type OpenRecord<T extends string, V> = Record<T, V> & Record<string, V>;
 
@@ -59,6 +60,7 @@ export type OpenRecord<T extends string, V> = Record<T, V> & Record<string, V>;
  * const alignValue = aligns[props.align || 'default'] || aligns.default;
  * ```
  *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-openstringmap
  */
 export type OpenStringMap<T extends string, V = T> = Record<T, T | V> &
   Record<string, T | V>;
@@ -161,6 +163,8 @@ export type Resolve<T> = Cleanup<T>;
  * ```
  *
  * NOTE: This type helper is used by `EitherObj<A,B,…>` type.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-alloweys
  */
 export type AllowKeys<A, B> = Cleanup<
   A & { [Key in Exclude<B extends string ? B : keyof B, keyof A>]?: never }
@@ -192,6 +196,8 @@ export type AllowKeys<A, B> = Cleanup<
  *   | { type: 'loss'; gain?: never; loss: number; panic?: never }
  *   | { type: 'even'; gain?: never; loss?: never; panic: boolean };
  * ```
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-eitherobj
  */
 export type EitherObj<A, B, C = boolean, D = boolean> = C extends boolean
   ? AllowKeys<A, B> | AllowKeys<B, A>

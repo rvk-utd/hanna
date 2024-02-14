@@ -2,10 +2,18 @@
 // Utilities for unit testing type signatures.
 // ---------------------------------------------------------------------------°
 
-/** Expects `T` to be `true` */
+/**
+ * Expects `T` to be `true`
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-expect
+ */
 export type Expect<T extends true> = T;
 
-/** Returns true if types `A` and `B` are equal (and neither is `any`) */
+/**
+ * Returns true if types `A` and `B` are equal (and neither is `any`)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-eequals
+ */
 export type Equals<A, B> = UnlessAny<
   A,
   B,
@@ -18,14 +26,22 @@ export type Equals<A, B> = UnlessAny<
     : '❌ Type A is not assignable to type B'
 >;
 
-/** Returns true if type `A` extends type `B` (and neither is `any`) */
+/**
+ * Returns true if type `A` extends type `B` (and neither is `any`)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-extends
+ */
 export type Extends<A, B> = UnlessAny<
   A,
   B,
   [A] extends [B] ? true : '❌ Type A is not assignable to B'
 >;
 
-/** Returns true if type `A` does NOT extend type `B` (and neither is `any`) */
+/**
+ * Returns true if type `A` does NOT extend type `B` (and neither is `any`)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-notextends
+ */
 export type NotExtends<A, B> = UnlessAny<
   A,
   B,

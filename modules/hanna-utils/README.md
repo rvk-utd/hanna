@@ -736,17 +736,46 @@ type Bar = { a: string; b: number | undefined };
 
 Expects `T` to be `true`
 
+```ts
+import type { Expect } from '@reykjavik/hanna-utils';
+
+type OK = Expect<true>;
+type Fails = Expect<false>; // Type Error
+```
+
 #### Type `Equals<A, B>`
 
 Returns true if types `A` and `B` are equal (and neither is `any`)
+
+```ts
+import type { Equals, Expect } from '@reykjavik/hanna-utils';
+
+type OK = Expect<Equals<'same', 'same'>>;
+type Fails = Expect<Equals<'not', 'same'>>; // Type Error
+```
 
 #### Type `Extends<A, B>`
 
 Returns true if type `A` extends type `B` (and neither is `any`)
 
+```ts
+import type { Extends, Expect } from '@reykjavik/hanna-utils';
+
+type OK = Expect<Extends<'some', string>>;
+type Fails = Expect<Extends<string, 'some'>>; // Type Error
+```
+
 #### Type `NotExtends<A, B>`
 
 Returns true if type `A` does **NOT** extend type `B` (and neither is `any`)
+
+```ts
+import type { NotExtends, Expect } from '@reykjavik/hanna-utils';
+
+type OK = Expect<NotExtends<string, 'some'>>;
+type Fails = Expect<NotExtends<'some', string>>; // Type Error
+type FailsAlso = Expect<NotExtends<'same', 'same'>>; // Type Error
+```
 
 ## Changelog
 
