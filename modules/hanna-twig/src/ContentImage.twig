@@ -1,9 +1,9 @@
 {{ attach_library('storybook/ContentImage') }}
 
 <figure class="ContentImage">
-	{% if caption or credit %}
+	{% if text or credit %}
 		<figcaption class="ContentImage__caption">
-			{% if caption %}<span class="ContentImage__text">{{caption}}</span>{% endif %}
+			{% if text %}<span class="ContentImage__text">{{text}}</span>{% endif %}
 			{% if credit %}<small class="ContentImage__credit">{{credit}}</small>{% endif %}
 		</figcaption>
 	{% endif %}
