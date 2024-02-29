@@ -6,7 +6,7 @@ import { sync as globSync } from 'glob';
 import {
   $,
   esbuild,
-  externalDeps,
+  getExternalDeps,
   logError,
   logThenExit1,
   opts,
@@ -66,13 +66,15 @@ export const buildCssFiles = async (NODE_ENV) => {
       nested: { rootRuleName: 'escape' },
     });
 
+  const external = await getExternalDeps();
+
   await esbuild
     .build({
       bundle: true,
       platform: 'node',
       target: ['node16'],
       format: 'cjs',
-      external: externalDeps,
+      external,
       entryPoints: cssModuleFiles.map((file) => `${cssSrcDir}/${file}`),
       entryNames: '[dir]/$$[hash]$$-[name]',
       outbase: cssSrcDir,

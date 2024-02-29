@@ -190,7 +190,7 @@ const tscBuild = async (config) => {
 
 // ---------------------------------------------------------------------------
 
-const getExternalDeps = () =>
+export const getExternalDeps = () =>
   Promise.all([readPackageJson(), readPackageJson('../../package.json')]).then(
     ([pkg, rootPkg]) =>
       [
