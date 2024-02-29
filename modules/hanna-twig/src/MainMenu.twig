@@ -1,4 +1,4 @@
-{{ attach_library('storybook/MainMenu') }}
+{{ attach_library('hanna/MainMenu') }}
 {% set hasMegaPanels = false %}
 <nav class="MainMenu" aria-label="{{ menu_title }}">
 	<h2 class="MainMenu__title">{{ menu_title }}</h2>
@@ -64,7 +64,7 @@
 						</li>
 					{% endif %}
 				{% endfor %}
-				{% include "@storybook/_Auxiliary.twig" with menu_auxiliarPanel %}
+				{% include "@hanna/_Auxiliary.twig" with menu_auxiliarPanel %}
 				</ul>
 		</div>
 	{% endif %}

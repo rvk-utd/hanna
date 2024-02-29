@@ -44,3 +44,48 @@ and paste in the URL of the
 
 Direct download link:
 <https://download-directory.github.io?url=https://github.com/rvk-utd/hanna/tree/main/modules/hanna-twig/src>
+
+## Using the Templates in Drupal
+
+To integrate Hanna Twig templates into a Drupal theme, you can create a custom
+library.
+To get that add the following code into Drupal.
+
+In composer.json file add the following code:
+
+```json
+"repositories": [
+  {
+            "type": "package",
+            "package": {
+                "name": "<project_name>/hanna",
+                "version": "master",
+                "type": "drupal-hanna",
+                "dist": {
+                    "url": "https://github.com/rvk-utd/hanna/archive/refs/heads/main.zip",
+                    "type": "zip"
+                }
+            }
+        }
+]
+"scripts": {
+        "post-install-cmd": [
+            "find web/themes/custom/<your_custom_theme>/hanna -mindepth 1 -maxdepth 1 ! -iname modules -exec rm -rvf {} \\;",
+            "find web/themes/custom/<your_custom_theme>/hanna/modules -mindepth 1 -maxdepth 1 ! -iname hanna-twig -exec rm -rvf {} \\;"
+        ]
+    },
+ "installer-types": ["drupal-hanna"],
+ "installer-paths": {"web/themes/custom/reykjavik/{$name}": ["type:drupal-hanna"]}
+```
+
+Once the new repository is set in composer.json file, run the following command:
+
+```sh
+composer require "<project_name>/hanna"
+```
+
+Then hanna-twig template will be available in the following path:
+
+```sh
+web/themes/custom/<your_custom_theme>/hanna/modules/hanna-twig/src
+```
