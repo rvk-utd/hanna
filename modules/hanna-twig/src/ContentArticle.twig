@@ -1,8 +1,8 @@
-{{ attach_library('storybook/ContentArticle') }}
+{{ attach_library('hanna/ContentArticle') }}
 
 {% if image %}
 	{% set topImage %}
-	{% include "@storybook/ContentImage.twig" with{
+	{% include "@hanna/ContentImage.twig" with{
 			text: imageText,
 			credit: imageCredit,
 			image: image,
@@ -17,12 +17,12 @@
 
 <div class="ContentArticle">
 	<div class="ContentArticle__header">
-		{% include "@storybook/Heading.twig" with {
+		{% include "@hanna/Heading.twig" with {
       forceH1: 'true',
       title: label
     }%}
 
-		{% include "@storybook/ArticleMeta.twig" with {
+		{% include "@hanna/ArticleMeta.twig" with {
       items: articleMeta,
     }%}
 
@@ -36,24 +36,24 @@
 		{% endif %}
 	</div>
 
-	{% include "@storybook/TextBlock.twig" with {
+	{% include "@hanna/TextBlock.twig" with {
 		content: contentText
 	}%}
 
 	{% if relatedItems is defined and relatedItems|length > 0 %}
-		{% include "@storybook/VSpacer.twig" with {
+		{% include "@hanna/VSpacer.twig" with {
 			size: 'true',
 			small: 'small',
 			content: '<hr/>'
 		}%}
 
-		{% include "@storybook/RelatedLinks.twig" with {
+		{% include "@hanna/RelatedLinks.twig" with {
 			title: 'Related material'|trans,
 			items: relatedItems
 		}%}
 	{% endif %}
 
-	{% include "@storybook/VSpacer.twig" with {
+	{% include "@hanna/VSpacer.twig" with {
 		size: 'true',
 		small: 'small',
 		content: ''

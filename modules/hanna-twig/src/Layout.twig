@@ -9,9 +9,9 @@
  * - logoLink: Url for logo link.,
 */
 #}
-{{ attach_library('storybook/Layout') }}
-{{ attach_library('storybook/Alert') }}
-{{ attach_library('storybook/BasicTable') }}
+{{ attach_library('hanna/Layout') }}
+{{ attach_library('hanna/Alert') }}
+{{ attach_library('hanna/BasicTable') }}
 {% set _siteName = siteName != 'Reykjavík' and siteName != 'Reykjavik' ? siteName : '' %}
 {% set logoType = _siteName != '' ?  '-notext' : '' %}
 
@@ -44,7 +44,7 @@
 		</div>
 		<div class="Layout__footer" role="complementary">
 			{% include '@reykjavik/layout/footer.html.twig' %}
-			{% include "@storybook/FooterBadges.twig" %}
+			{% include "@hanna/FooterBadges.twig" %}
 		</div>
 	</div>
 </div>
