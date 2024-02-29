@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.119
+
+_2024-02-29_
+
 - fix: Stop `Multiselect` dropdown closing on touch-based page scroll
 
 ## 0.10.118
