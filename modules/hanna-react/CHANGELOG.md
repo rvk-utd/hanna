@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Stop `Multiselect` dropdown closing on touch-based page scroll
 
 ## 0.10.118
 
