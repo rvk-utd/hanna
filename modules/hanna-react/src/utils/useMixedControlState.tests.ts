@@ -55,6 +55,7 @@ o.spec('useMixedControlState', () => {
         .then(assert({ value: 'Orange', mode: C }))
         .then(props('Apple', undef, { value: 'Apple', mode: C }))
         .then(localState('Platypus', { value: 'Apple', mode: C }))
+        .then(props('', undef, { value: '', mode: C }))
         .then(props(undef, 'Red', { value: undef, mode: C, warning: C_to_U }))
     )
   );

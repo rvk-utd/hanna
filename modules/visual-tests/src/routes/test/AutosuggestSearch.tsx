@@ -20,13 +20,19 @@ const items = [1, 2, 3, 4, 5].map((value) =>
 
 export default function () {
   const [options, setOptions] = useState(items);
+  const [inputValue, setInputValue] = useState('');
   return (
     <Minimal>
+      <p>"{inputValue}"</p>
       <AutosuggestSearch
         options={options}
         emptyMessage="No results"
         onClearOptions={() => setOptions([])}
-        onInput={(value) => setOptions(value.length > 4 ? [] : items)}
+        inputValue={inputValue}
+        onInput={(value) => {
+          setInputValue(value);
+          setOptions(value.length > 4 ? [] : items);
+        }}
         onSelected={(payload) => console.info('onSelected', payload)}
         onSubmit={(payload) => console.info('onSubmit (and onButtonClick)', payload)}
         // itemActionIcon="search"

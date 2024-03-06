@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Autosuggest, { RenderInputComponentProps } from 'react-autosuggest';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import SearchInput, { SearchInputProps } from './SearchInput.js';
 import { SiteSearchInputProps } from './SiteSearchInput.js';
-import { WrapperElmProps } from './utils.js';
+import { useMixedControlState, WrapperElmProps } from './utils.js';
 
 // ---------------------------------------------------------------------------
 
@@ -67,6 +67,9 @@ export type AutosuggestSearchProps<T extends string | object> = {
 
   itemActionIcon?: 'search' | 'go';
 
+  inputValue?: string;
+  defaultInputValue?: string;
+
   InputComponent?: (props: SiteSearchInputProps & SearchInputProps) => JSX.Element;
   renderInputField?: (
     inputProps: RenderInputComponentProps,
@@ -110,7 +113,8 @@ export const AutosuggestSearch = <T extends string | object>(
 
     wrapperProps,
   } = props;
-  const [value, setValue] = useState('');
+  const [inputValue, setInputValue] = useMixedControlState(props, 'inputValue', '');
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   const txt = getTexts(props, defaultAutosuggestSearchTexts);
@@ -134,10 +138,15 @@ export const AutosuggestSearch = <T extends string | object>(
       focusInputOnSuggestionClick={true}
       suggestions={showEmptyMessage ? [true as unknown as T] : options}
       onSuggestionsClearRequested={onClearOptions}
-      onSuggestionsFetchRequested={({ value }) => onInput(value)}
+      onSuggestionsFetchRequested={
+        (/* { value } */) => {
+          // weirdly required prop, but we don't need to do anything here
+          // as we run onInput on input change below.
+        }
+      }
       getSuggestionValue={
         showEmptyMessage
-          ? () => value // Return the input value in case the user uses the up/down keys to select the hidden empty message
+          ? () => inputValue // Return the input value in case the user uses the up/down keys to select the hidden empty message
           : getOptionValue
       }
       onSuggestionSelected={(event, data) => {
@@ -182,9 +191,10 @@ export const AutosuggestSearch = <T extends string | object>(
       }}
       inputProps={{
         ref: inputRef,
-        value: value,
+        value: inputValue,
         onChange: (_, { newValue }) => {
-          setValue(newValue);
+          onInput(newValue);
+          setInputValue(newValue);
         },
       }}
       renderInputComponent={
@@ -193,19 +203,21 @@ export const AutosuggestSearch = <T extends string | object>(
           : (inputProps) => {
               /* prettier-ignore */
               const { className, type, disabled, readOnly, required, children, ref,
+                defaultValue,
                 ...siteSearchProps } = inputProps;
 
               return (
                 <InputComponent
                   lang={props.lang}
+                  defaultValue={defaultValue as string | undefined}
                   {...siteSearchProps}
                   inputRef={ref as React.RefObject<HTMLInputElement>}
                   button={button}
                   label={txt.inputLabel}
                   placeholder={txt.placeholder}
                   buttonText={txt.buttonText}
-                  onSubmit={onSubmit && (() => onSubmit(value))}
-                  onButtonClick={onButtonClick && (() => onButtonClick(value))}
+                  onSubmit={onSubmit && (() => onSubmit(inputValue))}
+                  onButtonClick={onButtonClick && (() => onButtonClick(inputValue))}
                 />
               );
             }
