@@ -15,7 +15,8 @@ type InputElmProps = Omit<
   | 'onSubmit'
   | 'ref'
   | 'value'
-> & { value?: string };
+  | 'defaultValue'
+> & { value?: string; defaultValue?: string };
 
 export type SearchInputProps = FormFieldWrappingProps & {
   small?: boolean;
