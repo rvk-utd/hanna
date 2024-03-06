@@ -9,6 +9,7 @@
 _2024-03-06_
 
 - feat: Add props `inputValue`, `defaultInputValue` to `AutosuggestSearch`
+- fix: `AutosuggestSearch` not calling `onInput` when input is emptied
 
 ## 0.10.119
 
