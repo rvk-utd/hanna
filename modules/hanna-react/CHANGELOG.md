@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.120
+
+_2024-03-06_
+
 - feat: Add props `inputValue`, `defaultInputValue` to `AutosuggestSearch`
 
 ## 0.10.119
