@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: `DatePicker` only partially reflecting the current `DEFAULT_LANG`
+- fix: `DatePicker` only partially reflected the current `DEFAULT_LANG`
 
 ## 0.10.120
 

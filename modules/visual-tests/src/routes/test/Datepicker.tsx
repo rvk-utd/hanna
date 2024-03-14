@@ -27,7 +27,7 @@ export default function () {
         <RowBlockColumn>
           <Datepicker
             label="Normal"
-            localeCode={lang}
+            lang={lang}
             // name="date"
             // isoMode
             placeholder="d. mmm. yyyy"
@@ -38,7 +38,7 @@ export default function () {
           />
           <Datepicker
             label="Error"
-            localeCode={lang}
+            lang={lang}
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
@@ -47,7 +47,7 @@ export default function () {
           />
           <Datepicker
             label="Small"
-            localeCode={lang}
+            lang={lang}
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
@@ -56,7 +56,7 @@ export default function () {
           />
           <Datepicker
             label="Disabled"
-            localeCode={lang}
+            lang={lang}
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
@@ -65,7 +65,7 @@ export default function () {
           />
           <Datepicker
             label="Read only"
-            localeCode={lang}
+            lang={lang}
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
@@ -75,7 +75,7 @@ export default function () {
 
           <Datepicker
             label={lorem.medium}
-            localeCode={lang}
+            lang={lang}
             // name="date"
             placeholder="d. mmm. yyyy"
             dateFormat="d. MMM yyyy"
@@ -83,7 +83,7 @@ export default function () {
           />
           <Datepicker
             label={lorem.short}
-            localeCode={lang}
+            lang={lang}
             small
             // name="date"
             placeholder="d. mmm. yyyy"

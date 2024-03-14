@@ -19,6 +19,7 @@ import {
 } from '@reykjavik/hanna-css';
 import { setLinkRenderer } from '@reykjavik/hanna-react/utils';
 import { getAssetUrl, setStyleServerUrl } from '@reykjavik/hanna-utils/assets';
+import { HannaLang, setDefaultLanguage } from '@reykjavik/hanna-utils/i18n';
 
 import { useGetCssTokens } from './utils/useGetCssTokens.js';
 
@@ -35,7 +36,7 @@ setLinkRenderer((props) => <Link to={props.href} {...props} />);
 
 const THEME: HannaColorTheme = 'colorful';
 
-const usePageLang = (): string => {
+const usePageLang = () => {
   const matches = useMatches();
   let i = matches.length;
   let lang = '';
@@ -74,6 +75,7 @@ export default function App() {
   const cssTokens = useGetCssTokens();
   const [q] = useSearchParams();
   const lang = usePageLang();
+  setDefaultLanguage(lang as HannaLang);
 
   const noAnimation = q.get('noAnimation') != null || undefined;
   const loadScripts = (q.get('ssrOnly') ?? 'false') === 'false';
