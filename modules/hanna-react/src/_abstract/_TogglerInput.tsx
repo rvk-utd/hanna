@@ -1,20 +1,28 @@
 import React, { Fragment } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n.js';
 
 import { WrapperElmProps } from '../utils.js';
 import { BemModifierProps } from '../utils/types.js';
 import { useDomid } from '../utils/useDomid.js';
 
+const defaultReqText = {
+  is: 'Þarf að haka í',
+  en: 'Must be checked',
+  pl: 'Należy sprawdzić',
+};
+
 export type TogglerInputProps = {
   label: string | JSX.Element;
   children?: never;
   invalid?: boolean;
-  /** Hidden label prefix text to indicate that the field is required.
+  /**
+   * Hidden label prefix text to indicate that the field is required.
    *
    * If your field is required but should not say so in its label
    * then set this prop to `false`
    *
-   * Default: `"Þarf að fylla út"`
+   * Default: `"Þarf að haka í" / "Must be checked" / "Należy sprawdzić"`.
    * */
   reqText?: string | false;
   hideLabel?: boolean;
@@ -59,7 +67,7 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     <abbr
       className={`${bem}__label__reqstar`}
       // FIXME: add mo-better i18n thinking
-      title={`${reqText || 'Þarf að haka í'}: `}
+      title={`${reqText || defaultReqText[DEFAULT_LANG]}: `}
     >
       *
     </abbr>

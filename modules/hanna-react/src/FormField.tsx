@@ -1,6 +1,7 @@
 import React, { FocusEvent, RefObject, useCallback, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { RequireExplicitUndefined } from '@reykjavik/hanna-utils';
+import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 
 import { TogglerGroupFieldProps } from './_abstract/_TogglerGroupField.js';
 import { isPreact } from './utils/env.js';
@@ -44,6 +45,14 @@ type FocusEvents = {
   onBlur?: (e: any) => void;
 };
 type FocusPropMaker = <P extends FocusEvents>(ownProps?: P) => P & Required<FocusEvents>;
+
+// ---------------------------------------------------------------------------
+
+const defaultReqText = {
+  is: 'Þarf að fylla út',
+  en: 'Required',
+  pl: 'Wymagane',
+};
 
 // ---------------------------------------------------------------------------
 
@@ -197,7 +206,7 @@ export const FormField = (props: FormFieldProps) => {
     <abbr
       className="FormField__label__reqstar"
       // FIXME: add mo-better i18n thinking
-      title={`${reqText || 'Þarf að fylla út'}: `}
+      title={`${reqText || defaultReqText[DEFAULT_LANG]}: `}
     >
       *
     </abbr>
