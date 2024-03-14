@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.121
+
+_2024-03-14_
+
 - fix: Translate `FormField` and `Checkbox` required label to 'en' and 'pl'
 - fix: `DatePicker` only partially reflected the current `DEFAULT_LANG`
 
