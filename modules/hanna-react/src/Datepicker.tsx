@@ -1,6 +1,11 @@
 import React, { MutableRefObject, RefObject, useMemo } from 'react';
 import { Expect, Extends } from '@reykjavik/hanna-utils';
-import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
+import {
+  DEFAULT_LANG,
+  DefaultTexts,
+  getTexts,
+  HannaLang,
+} from '@reykjavik/hanna-utils/i18n';
 // For more info on localization see: https://stackoverflow.com/questions/54399084/change-locale-in-react-datepicker/58306958#58306958
 import is from 'date-fns/locale/is/index.js';
 import pl from 'date-fns/locale/pl/index.js';
@@ -287,7 +292,7 @@ export const Datepicker = (props: DatepickerProps) => {
               readOnly={inputProps.readOnly}
               selected={value}
               name={isoMode ? undefined : name}
-              locale={lang}
+              locale={lang || DEFAULT_LANG}
               dateFormat={normalizedDateFormats}
               onChange={(date: Date | undefined | null) => {
                 date = date || undefined;
