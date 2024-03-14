@@ -12,7 +12,8 @@ export type HannaLang = 'is' | 'en' | 'pl';
 const langs = new Set<HannaLang>(['is', 'en', 'pl']);
 
 /**
- * The currently language/locale used by all Hanna components by default.
+ * The current language/locale used by all Hanna components if a custom lang=""
+ * prop is not set on the component itself.
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#default_lang
  */
@@ -32,6 +33,7 @@ export const setDefaultLanguage = (newLang: HannaLang | undefined) => {
     : langs.has(newLang)
     ? newLang
     : _BASE_FALLBACK_LANG;
+
   _history[0] = DEFAULT_LANG;
 };
 
