@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Bad module import path in `Tabs` and `renderSiteSearchAutoComplete`
 
 ## 0.8.56
 

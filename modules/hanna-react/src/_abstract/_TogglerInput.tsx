@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n.js';
+import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 
 import { WrapperElmProps } from '../utils.js';
 import { BemModifierProps } from '../utils/types.js';

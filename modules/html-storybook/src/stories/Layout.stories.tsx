@@ -3,7 +3,7 @@ import { Alert } from '@reykjavik/hanna-react/Alert';
 import { BreadCrumbs } from '@reykjavik/hanna-react/BreadCrumbs';
 import { ContactBubble } from '@reykjavik/hanna-react/ContactBubble';
 import { FooterBadges } from '@reykjavik/hanna-react/FooterBadges';
-import { FooterInfo } from '@reykjavik/hanna-react/FooterInfo.js';
+import { FooterInfo } from '@reykjavik/hanna-react/FooterInfo';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
 import { Meta, StoryObj } from '@storybook/react';

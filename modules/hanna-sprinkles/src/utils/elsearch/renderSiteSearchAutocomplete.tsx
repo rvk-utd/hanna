@@ -6,7 +6,7 @@ import debounce from '@hugsmidjan/qj/debounce';
 import { PageHeading } from '@reykjavik/hanna-react/PageHeading';
 import { SiteSearchAutocomplete } from '@reykjavik/hanna-react/SiteSearchAutocomplete';
 import { SiteSearchCurtain } from '@reykjavik/hanna-react/SiteSearchCurtain';
-import { HannaLang } from '@reykjavik/hanna-utils/i18n.js';
+import { HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import ensureCSS from '../../_/ensureCSS.js';
 import { getLang } from '../../_/getLang.js';

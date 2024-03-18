@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleCarousel from '@reykjavik/hanna-react/ArticleCarousel.js';
+import ArticleCarousel from '@reykjavik/hanna-react/ArticleCarousel';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { articleCarouselData } from './shared/articleCarousel.data.js';

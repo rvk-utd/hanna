@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import domid from '@hugsmidjan/qj/domid';
 import { getFrag } from '@hugsmidjan/qj/frag';
 import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
-import { WrapperElmProps } from '@reykjavik/hanna-react/utils.js';
+import { WrapperElmProps } from '@reykjavik/hanna-react/utils';
 import { notNully } from '@reykjavik/hanna-utils';
 
 import { autoSeenEffectsRefresh, autoSeenEffectWrapperProps } from './_/addSeenEffect.js';
