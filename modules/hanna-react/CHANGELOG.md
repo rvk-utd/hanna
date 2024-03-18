@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.122
+
+_2024-03-18_
+
 - fix: Bad module import path in checkbox and radio inputs
 
 ## 0.10.121
