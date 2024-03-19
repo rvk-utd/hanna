@@ -19,11 +19,11 @@
       See tons of exmples of real use-cases: https://reykjavik.is/allir-dagforeldrar
     #}
 		<a class="NameCard__contactinfo__item" href="tel:{{ phone }}">{{ phone }}</a>
-                {% if email %}
-                  <a class="ButtonTertiary ButtonTertiary--email" href="mailto:{{ email }}">
-                    {{ email }}
-                  </a>
-                {% endif %} 
+    {% if email %}
+      <a class="ButtonTertiary ButtonTertiary--email" href="mailto:{{ email }}">
+        {{ email }}
+      </a>
+    {% endif %} 
 	</p>
 	<p class="NameCard__location">{{ address }}, {{ postalcode }}</p>
   {% if body %}
