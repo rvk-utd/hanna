@@ -31,7 +31,7 @@ export type ReadSpeakerPlayerI18n = {
 };
 
 export const defaultReadSpeakerPlayerTexts: DefaultTexts<ReadSpeakerPlayerI18n> = {
-  en: { linkText: 'Listen', linkLabel: 'Listen to this page read outloud' },
+  en: { linkText: 'Listen', linkLabel: 'Listen to this page read out loud' },
   is: { linkText: 'Hlusta', linkLabel: 'Hlusta á þessa síðu lesna upphátt' },
   pl: { linkText: 'Posłuchaj', linkLabel: 'Posłuchaj tej strony odczytanej na głos' },
 };
@@ -49,8 +49,7 @@ export type ReadSpeakerPlayerProps = {
   /**
    * Reading language/locale for the ReadSpeaker player.
    *
-   * If you don't specify a `lang`, the player will try to auto-detect
-   * the language of the page, and pick a default `voice` for that language.
+   * Default: `is`
    *
    * @see https://docs.typo3.org/p/readspeaker/readspeaker-services/main/en-us/Configuration/Index.html#reading-language
    */
@@ -102,7 +101,7 @@ export const ReadSpeakerPlayer = (props: ReadSpeakerPlayerProps) => {
     align,
     float,
     customerId = '11315',
-    lang = '',
+    lang = 'is',
     voice = /^is(?:_is)?$/i.test(lang) ? 'is_dora' : '',
     readId = '',
     readClass = readId ? '' : 'Layout__main',

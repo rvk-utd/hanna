@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Make `'is'` the default language for `ReadSpeakerPlayer`
 
 ## 0.10.122
 
