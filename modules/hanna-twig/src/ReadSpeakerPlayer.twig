@@ -1,30 +1,70 @@
 {{ attach_library('hanna/ReadSpeakerPlayer') }}
 
 {#
-  TODO:/FIXME:
+  ## `ReadSpeakerPlayer` Props:
 
-  Harvest `../hanna-react/src/ReadSpeakerPlayer.tsx` for:
-   - layout props and their defaults.
-   - ReadSpeaker config
-   - Localization/translations
+  (See `../hanna-react/src/ReadSpeakerPlayer.tsx` for details on each of these props.)
 
-  Decide if/how to handle the script injection when there are multiple
-  instances of this template are on the same page.
+  - CUSTOMER_ID?: string
+  - LANGUAGE?: Lowercase<string>
+  - VOICE?: string
+
+  - READID?: string
+  - READCLASS?: string
+
+  - ALIGN?: 'left' | 'right'
+  - FLOAT?: boolean
+
+  - TEXTS?: { linkText: string, linkLabel: string }
+
 #}
 
+{% set CUSTOMER_ID = CUSTOMER_ID ?? "11315" %}
+{% set LANGUAGE = LANGUAGE ?? "is" %}
+{% set VOICE = VOICE ?? (LANGUAGE == 'is' ? "is_dora" : '') %}
+{% set READCLASS = READCLASS ?? (READID ? '' : 'Layout__main') %}
+{% if not TEXTS %}
+  {# provide good i18n defaults #}
+  {% set TEXTS =
+      LANGUAGE == 'pl' ? { linkText: 'Posłuchaj', linkLabel: 'Posłuchaj tej strony odczytanej na głos' }:
+      LANGUAGE == 'is' ? { linkText: 'Hlusta', linkLabel: 'Hlusta á þessa síðu lesna upphátt' }:
+                     { linkText: 'Listen', linkLabel: 'Listen to this page read out loud' }
+  %}
+{% endif %}
 
-<div class="ReadSpeakerPlayer ReadSpeakerPlayer--float ReadSpeakerPlayer--align-right">
-  <script
-    id="rs_req_Init"
-    src="https://cdn-eu.readspeaker.com/script/{{CUSTOMER_ID}}/webReader/webReader.js?pids=wr"
-    async
-  />
+
+{% set alignClass = ALIGN in ['right'] ? " ReadSpeakerPlayer--align-" ~ ALIGN : "" %}
+{% set floatClass = FLOAT ? " ReadSpeakerPlayer--float" : "" %}
+{% set autoLang = LANGUAGE ? 'true' : 'false' %}
+
+
+<div class="ReadSpeakerPlayer{{ floatClass ~ alignClass }}">
+ <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      if (!document.getElementById('rs_req_Init')) {
+        var script = document.createElement('script');
+        script.id = 'rs_req_Init';
+        script.src = 'https://cdn-eu.readspeaker.com/script/{{CUSTOMER_ID}}/webReader/webReader.js?pids=wr';
+        script.onload = () => window.rspkr?.ui?.addClickEvents();
+        script.async = true;
+        document.head.appendChild(script);
+      }
+    });
+  </script>
 
   <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
-    <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Hlustaðu á þessa síðu lesna af ReadSpeaker webReader"
-      href="https://app-eu.readspeaker.com/cgi-bin/rsent?customerid={{CUSTOMER_ID}}&amp;lang={{LANGUAGE}}&amp;voice={{VOICE}}&amp;readclass={{READCLASS}}"
+    <a
+      rel="nofollow"
+      class="rsbtn_play"
+      accesskey="L"
+      title="{{ TEXTS.linkLabel }}"
+      href="https://app-eu.readspeaker.com/cgi-bin/rsent?customerid={{CUSTOMER_ID}}&amp;lang={{LANGUAGE}}&amp;voice={{VOICE}}&amp;autolang={{autoLang}}&amp;readclass={{READCLASS}}&amp;readid={{READID}}"
     >
-      <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Hlusta</span></span></span>
+      <span class="rsbtn_left rsimg rspart">
+        <span class="rsbtn_text">
+          <span>{{ TEXTS.linkText }}</span>
+        </span>
+      </span>
       <span class="rsbtn_right rsimg rsplay rspart"></span>
     </a>
   </div>
