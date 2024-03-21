@@ -424,10 +424,11 @@ you're incrementally adding single CSS tokens after the fact.
 However, because of how CSS cascade works, it's **strongly recommended** to
 try and maintain (and update in-place) a single CSS
 `<link rel="stylesheet" href="..." />` URL, instead of requesting multiple CSS
-bundles.
+bundles. (NOTE: If you're using the `@reykjavik/hanna-react` package you
+should use it's `<HannaCssLink ... />` component.)
 
-Multiple bundles usuallly work, but may occasionally fail in unpredictable
-ways.
+Multiple bundles will **often** work, but may occasionally fail in
+unpredictable ways.
 
 #### Type `CssBundleOpts`
 

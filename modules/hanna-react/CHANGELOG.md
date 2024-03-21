@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `HannaCssLink` for flicker-free CSS URL changes
 - feat: Make `'is'` the default language for `ReadSpeakerPlayer`
 
 ## 0.10.122
