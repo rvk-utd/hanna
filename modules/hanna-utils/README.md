@@ -34,6 +34,7 @@ yarn add @reykjavik/hanna-utils
 - [I18N helpers](#i18n-helpers)
   - [`getTexts`](#gettexts)
   - [`DEFAULT_LANG`](#default_lang)
+  - [`ensureHannaLang`](#ensurehannalang)
   - [`setDefaultLanguage`](#setdefaultlanguage)
   - [`setDefaultLanguage.push()`](#setdefaultlanguagepush)
 - [Social Media Sharing](#social-media-sharing)
@@ -442,6 +443,22 @@ export const SillyToggler = (props: Props) => {
 All Hanna components that use `getTexts` will use this value as their default
 translation language.
 
+### `ensureHannaLang`
+
+**Syntax:**
+`ensureHannaLang(maybeLang: string|undefined): HannaLang | undefined`
+
+Checks if the passed language is a `HannaLang`, and if so returns it.
+Otherwise it returns `undefined`.
+
+```ts
+import { ensureHannaLang, type HannaLang } from '@reykjavik/hanna-utils/i18n';
+
+const langQuery = new URLSearchParams(document.location.search).get('lang');
+
+const lang: HannaLang | undefined = ensureHannaLang(langQuery);
+```
+
 ### `setDefaultLanguage`
 
 **Syntax:** `updateDefaultLanguage(lang: HannaLang): void`
@@ -455,7 +472,7 @@ The `DEFAULT_LANG` variable is NOT reactive, and does not trigger re-renders.
 import {
   setDefaultLanguage,
   DEFAULT_LANG,
-} from '@reykjavik/hanna-utils/assets';
+} from '@reykjavik/hanna-utils/i18n';
 
 console.log(DEFAULT_LANG); // 'is' (Initial default language)
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { OpenRecord } from '@reykjavik/hanna-utils';
-import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
+import { DEFAULT_LANG, ensureHannaLang, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { useDropzone } from './_mixed_export_resolution_/ReactDropzone.js';
 import {
@@ -90,14 +90,15 @@ const arrayToFileList = (arr: Array<File>): FileList => {
 };
 
 export const FileInput = (props: FileInputProps) => {
-  const lang = props.lang || DEFAULT_LANG;
+  const lang = ensureHannaLang(props.lang) || DEFAULT_LANG;
+
   const {
     dropzoneProps, // eslint-disable-line deprecation/deprecation
     multiple = props.dropzoneProps?.multiple ?? true, // eslint-disable-line deprecation/deprecation
     accept = props.dropzoneProps?.accept, // eslint-disable-line deprecation/deprecation
     dropzoneText,
 
-    removeFileText = defaultRemoveFileText[lang] || defaultRemoveFileText[DEFAULT_LANG],
+    removeFileText = defaultRemoveFileText[lang],
     FileList = DefaultFileList,
     onFilesUpdated = () => undefined,
     onFilesRejected,

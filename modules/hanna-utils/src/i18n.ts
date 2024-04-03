@@ -9,7 +9,7 @@ const _BASE_FALLBACK_LANG = 'en';
 /** The languages officially supported by Hanna */
 export type HannaLang = 'is' | 'en' | 'pl';
 
-const langs = new Set<HannaLang>(['is', 'en', 'pl']);
+const langs: Set<string> = new Set(['is', 'en', 'pl']) satisfies Set<HannaLang>;
 
 /**
  * The current language/locale used by all Hanna components if a custom lang=""
@@ -36,6 +36,15 @@ export const setDefaultLanguage = (newLang: HannaLang | undefined) => {
 
   _history[0] = DEFAULT_LANG;
 };
+
+/**
+ * Checks if the passed language is a `HannaLang`, and if so returns it.
+ * Otherwise it returns `undefined`.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ensurelang
+ */
+export const ensureHannaLang = (maybeLang: string | undefined): HannaLang | undefined =>
+  maybeLang && langs.has(maybeLang) ? (maybeLang as HannaLang) : undefined;
 
 /**
  * This function pushes a new language onto a simple stack. Use

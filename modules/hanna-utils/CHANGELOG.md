@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `ensureHannaLang` helper
 
 ## 0.2.14
 
