@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { OpenRecord } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, ensureHannaLang, HannaLang } from '@reykjavik/hanna-utils/i18n';
@@ -24,6 +24,24 @@ const defaultRemoveFileText: OpenRecord<HannaLang, string> = {
   pl: 'Usuń',
 };
 
+const defaultDropzoneText: OpenRecord<HannaLang, () => ReactElement> = {
+  is: () => (
+    <>
+      Dragðu skrá hingað, eða <strong>smelltu</strong> til að velja.
+    </>
+  ),
+  en: () => (
+    <>
+      Drag files here, or <strong>click</strong> to select.
+    </>
+  ),
+  pl: () => (
+    <>
+      Przeciągnij plik tutaj, lub <strong>kliknij</strong> by wybrać.
+    </>
+  ),
+};
+
 const defaultOnFilesRejected: FileInputProps['onFilesRejected'] = (rejectedFiles) => {
   window.alert(
     `Error:\n${rejectedFiles
@@ -47,7 +65,7 @@ export type FileInputProps = FormFieldWrappingProps & {
    * Default: no restrictions.
    */
   accept?: string | Array<string>;
-  dropzoneText: string | JSX.Element;
+  dropzoneText?: string | JSX.Element;
   removeFileText?: string;
   lang?: HannaLang;
   showFileSize?: boolean;
@@ -96,7 +114,7 @@ export const FileInput = (props: FileInputProps) => {
     dropzoneProps, // eslint-disable-line deprecation/deprecation
     multiple = props.dropzoneProps?.multiple ?? true, // eslint-disable-line deprecation/deprecation
     accept = props.dropzoneProps?.accept, // eslint-disable-line deprecation/deprecation
-    dropzoneText,
+    dropzoneText = defaultDropzoneText[lang](),
 
     removeFileText = defaultRemoveFileText[lang],
     FileList = DefaultFileList,
