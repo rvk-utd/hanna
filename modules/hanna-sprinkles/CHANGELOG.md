@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support `data-label-openbtn` attribute on `.ContactBubble`
 - fix: Bad module import path in `Tabs` and `renderSiteSearchAutoComplete`
 
 ## 0.8.56

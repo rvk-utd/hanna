@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add optional `data-label-openbtn` attribute to `.ContactBubble`
 
 ## 0.8.38
 

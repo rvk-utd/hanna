@@ -89,6 +89,8 @@ export type ContactBubbleProps = {
    * magic and always show the bubble toggler
    */
   alwaysShow?: boolean;
+  /** Shorthand override for texts.openBtn, for quick customization */
+  openBtnLabel?: string;
   texts?: ContactBubbleI18n;
   lang?: HannaLang;
 } & SSRSupportProps &
@@ -107,6 +109,8 @@ export type ContactBubbleProps = {
 export const ContactBubble = (props: ContactBubbleProps) => {
   const { title, links, onToggle, alwaysShow, wrapperProps = {} } = props;
   const txt = getTexts(props, defaultTexts);
+  const openLabel = props.openBtnLabel || txt.openBtn;
+  const openLabelLong = !props.openBtnLabel ? txt.openBtnLong : undefined;
 
   const useLocalState = props.open == null;
   const [localOpen, setLocalOpen] = useState(false);
@@ -221,10 +225,11 @@ export const ContactBubble = (props: ContactBubbleProps) => {
       className={modifiedClass('ContactBubble', null, wrapperProps.className)}
       id={isBrowser && domid}
       hidden={isBrowser && !open}
+      data-label-openbtn={props.openBtnLabel}
       data-always-show={alwaysShow || undefined}
       data-sprinkled={isBrowser}
     >
-      <h2 className="ContactBubble__title">{title || txt.openBtn}</h2>
+      <h2 className="ContactBubble__title">{title || openLabel}</h2>
       <ul className="ContactBubble__list">
         {links.map((linkInfo, i) => {
           const { href, label, extraLabel, target, onClick } = linkInfo;
@@ -293,11 +298,11 @@ export const ContactBubble = (props: ContactBubbleProps) => {
         className="ContactBubble__openbtn"
         aria-controls={domid}
         aria-expanded={open}
-        aria-label={txt.openBtnLong}
+        aria-label={openLabelLong}
         onClick={open ? () => closeBubble() : openBubble}
         type="button"
       >
-        {txt.openBtn}
+        {openLabel}
       </button>
       {'\n\n'}
       {menu}

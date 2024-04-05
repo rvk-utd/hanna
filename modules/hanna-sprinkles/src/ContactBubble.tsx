@@ -18,6 +18,7 @@ const itemTypeRe = /(?:^| )ContactBubble__item--type--(.+?)(?: |$)/;
 
 const getContactBubbleData = (elm: HTMLElement): ContactBubbleProps => {
   const alwaysShow = elm.dataset.alwaysShow === 'true';
+  const openBtnLabel = elm.dataset.labelOpenbtn;
   const lang = getLang(elm);
   const title = q('.ContactBubble__title', elm)?.textContent || undefined;
   const links: Array<ContactBubbleItem> = qq('.ContactBubble__item', elm)
@@ -49,6 +50,7 @@ const getContactBubbleData = (elm: HTMLElement): ContactBubbleProps => {
     title,
     links,
     alwaysShow,
+    openBtnLabel,
     lang,
   };
 };

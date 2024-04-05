@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `openBtnLabel` to `ContactBubble`
 - feat: Make `FileInput`'s `dropzoneText` prop optional
 
 ## 0.10.123
