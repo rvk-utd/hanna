@@ -13,6 +13,7 @@ o.spec('hanna-utils/i18n', () => {
       getTexts: true,
       DEFAULT_LANG: true,
       setDefaultLanguage: true,
+      ensureHannaLang: true,
     };
 
     reportKeyMismatch(lib, expectedTokens);
