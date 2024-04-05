@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.15
+
+_2024-04-05_
+
 - feat: Add `ensureHannaLang` helper
 
 ## 0.2.14
