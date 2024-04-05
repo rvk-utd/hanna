@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.39
+
+_2024-04-08_
+
 - feat: Add optional `data-label-openbtn` attribute to `.ContactBubble`
 
 ## 0.8.38
