@@ -2,9 +2,9 @@
 {# TODO: Make alwaysShow configurable #}
 
 {% set alwaysShowAttr = true ? ' data-always-show="true"' %}
+{% set openBtnLabelAttr = openBtnLabel ? ' data-label-openbtn="'~ openBtnLabel ~'"' : '' %}
 
-
-<div class="ContactBubble"{{ alwaysShowAttr|raw }}>
+<div class="ContactBubble"{{ alwaysShowAttr|raw }}{{ openBtnLabelAttr|raw }}>
 	<h2 class="ContactBubble__title">{{ title }}</h2>
 
 	<ul class="ContactBubble__list">
