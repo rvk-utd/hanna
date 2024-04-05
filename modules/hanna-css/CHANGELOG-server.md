@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.90
+
+_2024-04-08_
+
 - fix: Make `Layout*` component styling side-effect free
 - fix: Remove dev warnings when mixing `Layout` and `IframedLayout`
 
