@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.124
+
+_2024-04-05_
+
 - feat: Add prop `openBtnLabel` to `ContactBubble`
 - feat: Make `FileInput`'s `dropzoneText` prop optional
 
