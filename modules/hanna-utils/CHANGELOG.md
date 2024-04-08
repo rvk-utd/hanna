@@ -28,7 +28,7 @@ _2023-12-08_
 _2023-09-26_
 
 - feat: Make `setDefaultLanguage()` not push to a stack. Add
-  `setDefaultLanguage.push()` for that.
+  `setDefaultLanguage.push()` for that
 
 ## 0.2.10
 

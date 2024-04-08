@@ -86,7 +86,7 @@ _2023-12-08_
 
 - feat: Add component `MainMenu2`
 - feat: Make `Datepicker` more flexible when parsing manual input strings –
-  adds several, localized default formats.
+  adds several, localized default formats
 - feat: Add accessibility helper component `FocusTrap`
 - Decouple all mobile-menu toggling logic from the `Layout` component
   - feat: Deprecate `useFormatMonitor` media flags `*Hamburger`, `*Topmenu`
@@ -217,7 +217,7 @@ _2023-09-04_
 - feat: Add props `wrapperProps` to `CarouselStepper`
 - feat: Remove defeault/implicit seen-effect styling from all
   components(except `SeenEffect`, `BgBox` and `CenterColumn`) — flag
-  `startSeen` prop as deprecated.
+  `startSeen` prop as deprecated
 - fix: Export type `MultiselectOption`, deprecate `MultiSelectOption`
 
 ## 0.10.101
@@ -302,7 +302,7 @@ _2023-06-01_
 _2023-05-25_
 
 - feat(ts): Export utility type `HtmlProps` from `utils` module — for adding
-  HTML attributes (including `data-*`) to React components.
+  HTML attributes (including `data-*`) to React components
 - fix: Update dependencies to fix esm–cjs import resolution errors
 
 ## 0.10.87
@@ -368,9 +368,9 @@ _2023-02-08_
 
 - feat: Automatically close "Hamburger menu" when user clicks `MainMenu` links
 - feat: Support `MainMenuProps.onItemClick` `MainMenuItem.onClick` returning
-  `false` to prevent auto-closing of "Hamburger menu".
+  `false` to prevent auto-closing of "Hamburger menu"
 - feat: Add `useHannaUIState` hook to "utils" — exposing `isHamburgerMenuOpen`
-  and `closeHamburgerMenu()`.
+  and `closeHamburgerMenu()`
 - fix: Toggle `MainMenu` mega panels on repeated top-level link clicks
 - fix: Close the currently open `MainMenu` mega panels on intra-link click
 - fix: Close `ContactBubble` on intra-link/button click
@@ -435,7 +435,7 @@ _2022-11-23_
 
 - feat: Add prop `onFilesRejected` to `FileInputProps`
 - feat: Add prop `itemCount` for all Carousel-related components with
-  `children` — drop requirement for children to be an Array.
+  `children` — drop requirement for children to be an Array
 - feat(ts): Export `ArticleCardsItemProps`, deprecate `ArticleCardProps`
 - feat(ts): Only allow either `align="right"` or `fullWidth` on `BasicTable`
 - feat: Make `SiteSearchAutocompleteProps.renderSuggestion` optional
@@ -471,7 +471,7 @@ _2022-09-28_
 _2022-09-27_
 
 - feat: Add controlled props `open` and `onToggle` to `AccordionList` — it now
-  supports either [controlled or uncontrolled](./README-conventions.md) use.
+  supports either [controlled or uncontrolled](./README-conventions.md) use
 - fix: Squash `useMixedControlState` bugs/misbehavior and improve its typing
 
 ## 0.10.68
@@ -499,7 +499,7 @@ _2022-09-14_
 - fix(ts): Make `PullQuote` & `BlockQuote`'s `by` prop required for `byHref`
 - fix(ts): Remove accidentally exposed props on several `*Cards` components —
   these props were never supported and were either a no-op, or resulted in
-  unstyled garbage.
+  unstyled garbage
 
 ## 0.10.66
 
@@ -536,7 +536,7 @@ _2022-08-23_
 _2022-08-11_
 
 - feat: Add mouse-cursor scroll controls for `Carousel`-related components —
-  Remove mousewheel hijacking behavior.
+  Remove mousewheel hijacking behavior
 - fix: `startSeen` hiding components with `html.before-sprinkling` present
 
 ## 0.10.60
@@ -544,7 +544,7 @@ _2022-08-11_
 _2022-06-24_
 
 - fix: Add missing prop `checkOrigin` on `IframeBlock` (default: `false`)
-- fix: Support "uncontrolled" use of `CheckboxGroup`, `RadioGroup`, et al.
+- fix: Support "uncontrolled" use of `CheckboxGroup`, `RadioGroup`, et al
 - fix: Change build to only export CommonJS
 
 ## 0.10.59
@@ -573,7 +573,7 @@ _2022-06-07_
 
 - **IMPORTANT** feat: Rename package to `@reykjavik/hanna-react` — this means
   `@hugsmidjan_is/hanna-react` will not receive any more updates. The library
-  is otherwise the same, with the same compatibility.
+  is otherwise the same, with the same compatibility
 - feat: Add `@reykjavik/hanna-utils` as dependency
 - feat: Deprecate the `assets` exports (instead use
   `@reykjavik/hanna-utils/assets`)
@@ -700,7 +700,7 @@ _2022-03-22_
 
 - fix: Attempt to Better capture weird `Selectbox` edge cases — Where the
   browser (or React) snap value to something unexpected because of mismatching
-  value and/or options.
+  value and/or options
 
 ## 0.10.32 – 0.10.34
 
@@ -752,7 +752,7 @@ _2022-03-09_
 - feat: Deprecate the `event` argument for `Alert`'s `onClose` callback
 - feat: Add prop `align?: 'right'` to `ButtonBar`
 - fix: Make `FileInput` image previews (thumbnails) more resilient overall
-- fix: Plug memory-leaks caused by `FileInput` image thumbnails.
+- fix: Plug memory-leaks caused by `FileInput` image thumbnails
 - fix: Add support for "uncontrolled" use of `TextInput` and `Selectbox`
 - fix: Suppress React's dev warning about preact compatibility workarounds
 
@@ -788,7 +788,7 @@ _2022-02-28_
 - feat: `ButtonPrimary`, `ButtonSecondary`, `ButtonTertiary`:
   - feat: Add prop `variant` with "destructive" option
 - feat: Add prop `size` — deprecate prop `small`. Primary and Secondary
-  buttons now have a `wide` size variant.
+  buttons now have a `wide` size variant
 
 ## 0.10.22
 
@@ -870,7 +870,7 @@ _2021-10-22_
 - feat: Add component `RelatedLinks`
 - feat: Add component `ContentImage`
 - feat: Add component `ArticleMeta`
-- feat: Add component `FooterBadges` for logos/badges/etc.
+- feat: Add component `FooterBadges` for logos/badges/etc
 - feat: Add seen-effect props to `CenterColumn`
 - feat: Export type `ProcessOverviewItemProps`
 - feat: Export type `FooterInfoProps`, add prop `modifier` to
@@ -1088,7 +1088,7 @@ _2020-10-07_
 - target: **Hanna 0.7** markup patterns
 - `Tabs` changes:
   - **BREAKING** feat: Make `Tabs` a "controlled"-only component — with no
-    internal "activated" state.
+    internal "activated" state
   - **BREAKING** feat: Rename type `TabsProps` to `TablistProps`
   - **BREAKING** feat: Drop `defaultActiveIdx` prop from `TablistProps`
   - feat: Add props `activeIdx`, `role`, `activateOnFocus`, `aria-label`,

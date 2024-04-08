@@ -90,7 +90,7 @@ _2023-05-19_
 
 - feat: Add `version` property to `window.Hanna` object
 - feat: Publish sprinkle scripts on styles.reykjavik.is/sprinkles
-  - Update README.md with new, shorter initialization guidelines.
+  - Update README.md with new, shorter initialization guidelines
   - Remove mention of the old npm package, which has reached EOL
 
 ## 0.8.42
@@ -112,7 +112,7 @@ _2022-09-26_
 _2022-08-11_
 
 - feat: Add mouse-cursor scroll controls for `Carousel`-related components —
-  Remove mousewheel hijacking behavior.
+  Remove mousewheel hijacking behavior
 - fix: Set `checkOrigin: false` on all `IframeBlock`s
 
 ## 0.8.37 — 0.8.39
@@ -541,4 +541,4 @@ _2020-05-14_
 _2020-05-06_
 
 - feat: Add sprinkle `Accordion`
-- feat: Inital release.
+- feat: Inital release

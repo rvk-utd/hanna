@@ -80,7 +80,7 @@ _2023-10-26_
 
 - fix: Regression in styling of legacy `.TableWrapper__scroller`
 - fix: Remove SVG `<style/>` elements to avoid CSS clashes when inlined in
-  HTML documents.
+  HTML documents
 
 ## 0.8.82
 
@@ -115,7 +115,7 @@ _2023-09-07_
   - Remove default/implicit seen-effect styling from all components
   - Seen effects are now opt-in, via the `[data-seen-effect]` attribute, or a
     custom sprinkle JS effect
-  - Add `-legacy-AutoSeenEffects` CSS token as back-compat option.
+  - Add `-legacy-AutoSeenEffects` CSS token as back-compat option
 - fix: Add missing thumbnails for the `hanna-*` illustrations
 - fix: Improve `InfoHero` styling in `phablet` viewport mode
 - feat: Add styling for `.ArticleCards--large`
@@ -190,7 +190,7 @@ _2023-02-08_
 - feat: Shift overflow-x rules off `<body/>` up to `<html/>` — this reverts a
   Safari bug workaround that has caused unacceptable drip-torturous grief. Use
   [`getEssentialHannaScripts`](https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialhannascripts)
-  from `@reykjavik/hanna-css` stop side-scrolling in older Safaris.
+  from `@reykjavik/hanna-css` stop side-scrolling in older Safaris
   [More info here](https://mastodon.online/@maranomynet/109755659925602531)
 - fix: Spacing below logo in `.FooterInfo` on mobile screens
 
@@ -310,7 +310,7 @@ _2022-05-25_
 
 - feat: Use `scroll-snap` styling for all `Carousel`-related components — Add
   styling for the new `__itemlist` wrapper. Flag the old `__items` wrapper as
-  deprecated.
+  deprecated
 - feat: Add styling for `.WizardStepper__step--neutral`
 
 ## 0.8.64
@@ -493,7 +493,7 @@ _2022-02-16_
 
 _2022-02-15_
 
-- feat: Add border around `ContactBubble`'s open button.
+- feat: Add border around `ContactBubble`'s open button
 - fix: Minor breakages in `MainMenu` and some newly added CSS variables
 
 ## 0.8.35 – 0.8.36
@@ -501,7 +501,7 @@ _2022-02-15_
 _2022-02-10_
 
 - feat: Add more design-token CSS Variables — focusing on `font`-shorthand
-  values, basic font properties and some `--space-*` units.
+  values, basic font properties and some `--space-*` units
 - docs: Add thumbnail views for
   ['illustrations'](https://styles.reykjavik.is/assets/illustrations),
   ['efnistakn'](https://styles.reykjavik.is/assets/efnistakn),
@@ -603,7 +603,7 @@ _2021-10-22_
 - feat: Add component `RelatedLinks`
 - feat: Add component `ContentImage`
 - feat: Add component `ArticleMeta`
-- feat: Add component `FooterBadges` for logos/badges/etc.
+- feat: Add component `FooterBadges` for logos/badges/etc
 - feat: New styling for `FooterInfo`
 - feat: Add nicer default styling for `<hr />`s
 - feat: Create CSS variables `--font-label-size`, `--font-label-leading`
@@ -760,7 +760,7 @@ _2021-04-08_
 
 - **BREAKING** target: **Hanna 0.8** markup patterns
 - feat: **BREAKING** Update styling for `MainMenu` to match new design +
-  markup.
+  markup
 - feat: Add new Hanna ["Illustration"](src/assets/illustrations/files.json)
   assets
 
@@ -890,7 +890,7 @@ _2020-10-16_
 - feat: Add custom `.ScrollCTA` styling on `.Layout--HomePage`
 - fix: Tweak vertical spacing between components
 - fix: Rename `sund_*` efnistákn SVG files — Token names remain unchanged and
-  old SVG files remain, but are unlisted.
+  old SVG files remain, but are unlisted
 - fix: Tweak fadeout transition for `.Alert--closable`
 
 ## 0.7.7
@@ -1080,7 +1080,7 @@ _2020-08-12_
 - feat: Set min-height on `.HeroBlock` and tweak vertical align
 - feat: Add "Efnistákn" (see [1](src/assets/efnistakn/files.json),
   [2](src/assets/efnistakn/menu/files.json)) and
-  "[Formheimur](src/assets/formheimur/files.json)" SVG assets.
+  "[Formheimur](src/assets/formheimur/files.json)" SVG assets
 - feat: Style inlined "Formheimur" `<svg/>` assets in `IslandBlock`
 - fix: Set correct padding+margins on `IslandBlock`'s content blocks
 

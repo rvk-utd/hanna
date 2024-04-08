@@ -30,7 +30,7 @@ _2023-12-08_
 - feat: Add token `MainMenu2`
 - feat: Deprecate `hannaVars.bp_w_Hamburger` in favor of `bp_w_netbook`
 - feat: Deprecate `scale_Hambureger`, `clamp_Hamburger`, `scale_Topmenu`,
-  `clamp_Topmenu` from `scale` module.
+  `clamp_Topmenu` from `scale` module
 - feat: Deprecate `htmlCl` props `menuIsActive`, `menuIsOpen`, `menuIsClosed`
 - feat: Deprecate `getEssentialHannaScripts_MultiPage` in favor of
   `getEssentialHannaScripts`
@@ -166,7 +166,7 @@ _2022-11-03_
 - feat: Re-export `setStyleServerUrl` from `@reykjavik/hanna-utils`
 - feat: Deprecate `getCssBundleUrl`'s `testingServer` option in favour of
   `setStyleServerUrl`
-- feat: Upgrade `es-in-css` for bugfixes and new features.
+- feat: Upgrade `es-in-css` for bugfixes and new features
 - feat: Add new dev mixins `WARNING_border__`, `WARNING_border_soft__`
 - feat: Convert relevant `_raw` values to `PxValue`
 - fix(ts): Tighten signature of between helpers to use `PlainNumber` type
