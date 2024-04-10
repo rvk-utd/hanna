@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.125
+
+_2024-04-10_
+
 - fix: Stop updating `AutosuggestSearch` input value on up/down arrow keys
 
 ## 0.10.124
