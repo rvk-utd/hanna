@@ -7,6 +7,11 @@ import SearchInput, { SearchInputProps } from './SearchInput.js';
 import { SiteSearchInputProps } from './SiteSearchInput.js';
 import { useMixedControlState, WrapperElmProps } from './utils.js';
 
+type ChangeMethod = Autosuggest.ChangeEvent['method'];
+
+/** Change methods/types that should update the input value */
+const inputChangeMethods = new Set<ChangeMethod>(['type', 'enter', 'click']);
+
 // ---------------------------------------------------------------------------
 
 export type AutosuggestSearchI18n = {
@@ -192,7 +197,10 @@ export const AutosuggestSearch = <T extends string | object>(
       inputProps={{
         ref: inputRef,
         value: inputValue,
-        onChange: (_, { newValue }) => {
+        onChange: (_, { newValue, method }) => {
+          if (!inputChangeMethods.has(method)) {
+            return;
+          }
           onInput(newValue);
           setInputValue(newValue);
         },

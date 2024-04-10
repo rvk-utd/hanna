@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Stop updating `AutosuggestSearch` input value on up/down arrow keys
 
 ## 0.10.124
 
