@@ -224,6 +224,9 @@ const notextLogoSVG = getRvkLogoUrl('reykjavik-logo-notext.svg');
 // etc...
 ```
 
+Here's a list of available logo files:
+[reykjavik-logo.json](../hanna-css/src/assets/reykjavik-logo.json)
+
 ### Favicons
 
 **Syntax:** `getFavicon(faviconFile: Favicon): string`
@@ -239,6 +242,9 @@ const url = getFavicon('favicon.svg');
 
 The function is typed to provide auto-completion of all the available icon
 types.
+
+Here's a list of available logo files:
+[reykjavik-logo.json](../hanna-css/src/assets/favicons.json)
 
 ### Illustrations
 
