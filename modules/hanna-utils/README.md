@@ -210,7 +210,7 @@ focusElement('.TextBlock a');
 
 ### Reykjavík Logo
 
-**Syntax:** `getRvkLogoUrl(blingType: BlingType): string`
+**Syntax:** `getRvkLogoUrl(logoFile: RvkLogo): string`
 
 Helper to generate URLs to Reyjavík's official coat of arms (or "logo"), with
 and without the text.
