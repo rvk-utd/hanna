@@ -18,18 +18,13 @@ const formatDate = (timestamp: number) =>
 
 // ---------------------------------------------------------------------------
 
-export type LoaderData = {
-  changed: Awaited<ReturnType<typeof getChangesToReview>>;
-  reportCreatedDate: number | undefined;
-};
-
 export const loader = async () => {
   const [changed, reportCreatedDate] = await Promise.all([
     getChangesToReview(),
     getReportDate(),
   ]);
 
-  return json<LoaderData>({ changed, reportCreatedDate });
+  return json({ changed, reportCreatedDate });
 };
 
 // ---------------------------------------------------------------------------
