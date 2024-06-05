@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.126
+
+_2024-06-05_
+
 - `FocusTrap`:
   - feat: Add className to wrapper element
   - fix: Exclude `FocusTrap` elements from list of eligible focusables
