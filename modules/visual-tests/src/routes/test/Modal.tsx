@@ -59,7 +59,7 @@ export default function () {
   const [open, setOpen] = useState(false);
   const [modalData, setModalData] = useState<ModalData>();
 
-  const closeModal = () => {
+  const handleCloseModal = () => {
     setModalData(undefined);
     setOpen(false);
   };
@@ -89,8 +89,8 @@ export default function () {
         <Modal
           modifier={width}
           open={open}
-          onClosed={closeModal}
-          startOpen
+          onClosed={handleCloseModal}
+          // startOpen
           // stable
           // noCloseButton
           bling={bling && renderBling()}

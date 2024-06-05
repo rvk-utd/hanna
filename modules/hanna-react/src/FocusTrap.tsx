@@ -16,15 +16,17 @@ export type FocusTrapProps = {
 };
 
 /**
- * A focus trap element that can be used to keep keyboard focus within a container block.
+ * A focus trap element that can be used to keep keyboard focus within a
+ * container block.
  *
- * Make sure you only trap focus when a modal or
+ * Make sure you only trap focus when a modal or dialog is open
  */
 export const FocusTrap = (props: FocusTrapProps) => {
   const Tag = props.Tag || 'span';
 
   return (
     <Tag
+      className="FocusTrap"
       tabIndex={0}
       onFocus={(e) => {
         let container: HTMLElement | null = e.currentTarget;
@@ -36,7 +38,7 @@ export const FocusTrap = (props: FocusTrapProps) => {
           return;
         }
         const focusables = container.querySelectorAll<FocusableElement>(
-          'a,input, select, textarea,button, [tabindex]'
+          'a, input, select, textarea, button, [tabindex]:not(.FocusTrap):not([tabindex="-1"])'
         );
         const targetIdx = props.atTop ? focusables.length - 1 : 0;
         focusables[targetIdx]?.focus();
