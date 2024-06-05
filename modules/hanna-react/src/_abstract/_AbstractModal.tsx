@@ -118,9 +118,10 @@ export type AbstractModalProps = {
    */
   fickle?: boolean;
 
-  /** Convenience callback that runs as soon as the `open` flag flips to `true` – including on initial opening.
+  /**
+   * Convenience callback that runs as soon as the `open` flag flips to `true` – including on initial opening.
    *
-   * However, the initial `onOpen` is skipped  `startOpen` is set to `true`.
+   * However, the initial `onOpen` is skipped when `startOpen` is set to `true`.
    */
   onOpen?: () => void;
 
@@ -189,9 +190,9 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
       addToModalStack(privateDomId);
       setTimeout(() => {
         setOpen(true);
-        props.onOpen && props.onOpen();
-        focusElm(modalElmRef.current);
-      }, 100);
+        focusElm(modalElmRef.current, { delay: 50 });
+        props.onOpen && props.onOpen(); // allow onOpen to move focus to a new place....
+      }, 50);
     }
   };
 
@@ -288,7 +289,7 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
             </button>
           )}
         </div>
-        {isBrowser && <FocusTrap atTop />}
+        {isBrowser && <FocusTrap />}
       </div>
     </PortalOrFragment>
   );

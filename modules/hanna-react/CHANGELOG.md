@@ -6,6 +6,7 @@
 - `FocusTrap`:
   - feat: Add className to wrapper element
   - fix: Exclude `FocusTrap` elements from list of eligible focusables
+- fix: Mishandled focus-managment of `Modal` while open
 
 ## 0.10.125
 
