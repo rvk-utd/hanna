@@ -129,9 +129,7 @@ export const freezeScroll_css = ({
 }: FreezeScrollProps) => css`
   & {
     overflow-y: hidden;
-  }
-  > body {
-    padding-right: ${vars.grid_margin};
+    padding-right: ${vars.browser_scrollbar_width};
   }
   ${hideAlerts &&
   css`

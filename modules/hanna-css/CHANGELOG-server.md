@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Layout jank when <html> scrollbars are frozen — (affected `Modal`,
+  `MainMenu2`, `ContactBubble`, etc.)
 
 ## 0.8.90
 
