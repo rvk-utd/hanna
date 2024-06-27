@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Ref error when `MainMenu2` unmounts
 
 ## 0.10.126
 

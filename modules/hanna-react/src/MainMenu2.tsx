@@ -358,7 +358,8 @@ export const MainMenu2 = (props: MainMenu2Props) => {
     setIsMenuOpen(false);
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     setActiveSubmenu(defaultActive);
-    wrapperRef.current!.scrollTo(0, 0);
+    // closeMenu is called on umount, and then the ref might be null
+    wrapperRef.current?.scrollTo(0, 0);
     document.removeEventListener('keydown', escHandler);
   };
 
@@ -368,8 +369,8 @@ export const MainMenu2 = (props: MainMenu2Props) => {
     }
     htmlCl.add(globalClasses.menuIsClosed);
     return () => {
-      closeMenu();
       htmlCl.remove(globalClasses.menuIsClosed);
+      closeMenu();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isBrowser]);
