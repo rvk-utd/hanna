@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `renderItemSubContent` to all checkbox and radio group
+  compnents — to support more advanced UI patterns.
 
 ## 0.10.127
 

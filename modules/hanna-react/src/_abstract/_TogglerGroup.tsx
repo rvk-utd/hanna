@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 
 import { FormFieldInputProps } from '../FormField.js';
@@ -50,6 +50,15 @@ export type TogglerGroupProps<T = 'default', Extras = {}> = {
     /** The updated value array */
     selectedValues: Array<string>;
   }) => void;
+  /**
+   * Render function that allows inserting content below each toggler
+   * (checkbox/radio) element, depending on the item's checked status
+   * (or other external state)
+   */
+  renderItemSubContent?: (
+    option: TogglerGroupOption<T, Extras>,
+    checked: boolean
+  ) => ReactNode;
 } & Omit<FormFieldInputProps, 'disabled'>;
 
 type _TogglerGroupProps = {
@@ -71,6 +80,7 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
     Toggler,
     onSelected,
     isRadio,
+    renderItemSubContent,
     inputProps = {},
   } = props;
   const [values, setValues] = useMixedControlState(props, 'value', []);
@@ -101,31 +111,38 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
             : disabled;
         const isChecked = values.includes(option.value);
 
+        const togglerProps: TogglerInputProps = {
+          ...inputProps,
+          name: name,
+          ...option,
+          label: option.label || option.value,
+          onChange: (e) => {
+            inputProps.onChange && inputProps.onChange(e);
+            const { value } = option;
+            const checked = e.currentTarget.checked;
+            const selectedValues = isRadio ? [] : values.filter((val) => val !== value);
+            if (checked) {
+              selectedValues.push(value);
+            }
+            setValues(selectedValues);
+            onSelected && onSelected({ value, checked, option, selectedValues });
+          },
+          disabled: isDisabled,
+          readOnly: readOnly,
+          'aria-invalid': props['aria-invalid'],
+          checked: isChecked,
+        };
+
+        if (renderItemSubContent) {
+          return (
+            <li key={i} className={`${bem}__item`}>
+              <Toggler {...togglerProps} />
+              {renderItemSubContent(option, isChecked)}
+            </li>
+          );
+        }
         return (
-          <Toggler
-            key={i}
-            {...inputProps}
-            className={`${bem}__item`}
-            name={name}
-            Wrapper="li"
-            {...option}
-            label={option.label || option.value}
-            onChange={(e) => {
-              inputProps.onChange && inputProps.onChange(e);
-              const { value } = option;
-              const checked = e.currentTarget.checked;
-              const selectedValues = isRadio ? [] : values.filter((val) => val !== value);
-              if (checked) {
-                selectedValues.push(value);
-              }
-              setValues(selectedValues);
-              onSelected && onSelected({ value, checked, option, selectedValues });
-            }}
-            disabled={isDisabled}
-            readOnly={readOnly}
-            aria-invalid={props['aria-invalid']}
-            checked={isChecked}
-          />
+          <Toggler key={i} className={`${bem}__item`} Wrapper="li" {...togglerProps} />
         );
       })}
     </ul>

@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Optionally support checkbox and radio fields as children of
+  `FormField__options__item` (instead of the `__item` itself).
 
 ## 0.8.39
 

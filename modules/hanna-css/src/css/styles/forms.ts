@@ -36,13 +36,16 @@ export const FormField__error = (
 
 // ===========================================================================
 
-export const TogglerGroup = (bem: string) => css`
+export const TogglerGroup = (bem: string, knobClass: string) => css`
   .${bem}--inline > .FormField__options {
     margin: 0 ${prem(-15)};
     display: flex;
     flex-flow: row wrap;
   }
   .${bem} > * > .FormField__options__item {
+    margin-bottom: 0;
+  }
+  .${bem} > * > .FormField__options__item > .${knobClass} {
     margin-bottom: 0;
   }
   .${bem}--inline > * > .FormField__options__item {
@@ -207,7 +210,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
 
 // ===========================================================================
 
-export const TogglerButtonsGroup = (bem: string) => css`
+export const TogglerButtonsGroup = (bem: string, knobClass: string) => css`
   .${bem} > .FormField__options {
     column-gap: ${vars.grid_0_1};
 
@@ -228,6 +231,10 @@ export const TogglerButtonsGroup = (bem: string) => css`
     @media ${mq.wide} {
       width: ${vars.grid_3};
     }
+  }
+
+  .${bem} > * > .FormField__options__item > .${knobClass} {
+    margin-bottom: 0;
   }
 
   .${bem}--stacked > * > .FormField__options__item {

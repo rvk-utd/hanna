@@ -10,6 +10,6 @@ export default css`
 // inlined by Checkbox.css.ts
 export const CheckboxGroup_css = () => css`
   @media screen {
-    ${TogglerGroup('CheckboxGroup')}
+    ${TogglerGroup('CheckboxGroup', 'Checkbox')}
   }
 `;

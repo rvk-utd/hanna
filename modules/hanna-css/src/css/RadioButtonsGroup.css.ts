@@ -11,6 +11,6 @@ export default css`
 export const RadioButtonsGroup_css = () => css`
   @media screen {
     ${TogglerButtonsKnob('RadioButton')};
-    ${TogglerButtonsGroup('RadioButtonsGroup')};
+    ${TogglerButtonsGroup('RadioButtonsGroup', 'RadioButton')};
   }
 `;

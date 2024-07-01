@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Remove margins from checkbox/radio item children of
+  `.FormField__options__item`
 - fix: Layout jank when <html> scrollbars are frozen — (affected `Modal`,
   `MainMenu2`, `ContactBubble`, etc.)
 

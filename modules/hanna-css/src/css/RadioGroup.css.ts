@@ -10,6 +10,6 @@ export default css`
 // inlined by Checkbox.css.ts
 export const RadioGroup_css = () => css`
   @media screen {
-    ${TogglerGroup('RadioGroup')}
+    ${TogglerGroup('RadioGroup', 'Radio')}
   }
 `;
