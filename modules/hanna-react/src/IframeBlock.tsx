@@ -14,6 +14,7 @@ export type IframeBlockProps = {
   framed?: boolean;
   compact?: boolean;
   align?: 'right';
+  allow?: JSX.IntrinsicElements['iframe']['allow'];
 } & EitherObj<
   {
     /** Fixed height, no auto-resizing of the iframe  */
@@ -39,7 +40,7 @@ export type IframeBlockProps = {
  * ```
  */
 export const IframeBlock = (props: IframeBlockProps) => {
-  const { title, src, framed, compact, align } = props;
+  const { title, src, framed, compact, align, allow } = props;
 
   const className = modifiedClass(
     'IframeBlock',
@@ -55,6 +56,7 @@ export const IframeBlock = (props: IframeBlockProps) => {
         className={className}
         title={title}
         src={src}
+        allow={allow}
         // hidden tiger: pass negative height to disable iframe-resizer but not set height explicitly
         // (Silly hack, don't rely on this)
         height={height < 0 ? undefined : height}

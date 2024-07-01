@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add prop `renderItemSubContent` to all checkbox and radio group
   compnents — to support more advanced UI patterns.
+- feat: Add prop `allow` to `IframeBlock`
 
 ## 0.10.127
 

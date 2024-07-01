@@ -4,6 +4,7 @@
 {% set alignClass = right is defined and right ? ' IframeBlock--align--right' %}
 {% set heightVal = height is defined and height ? height %}
 {% set widthVal = width is defined and width ? width : '' %}
+{% set allowAttribute = allow is defined and allow ? allow : '' %}
 
 <iframe
 	title="{{ title }}"
@@ -11,6 +12,7 @@
 	src="{{ src }}"
 	scrolling="{{ scrolling }}"
 	width="{{ widthVal }}"
+  allow="{{ allowAttribute }}"
 	{#
 		If height IS NOT set, then Hanna.loadSprinkle('IframeBlock')
 		will initialize iframe-resizer to set the height automatically.
