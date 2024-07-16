@@ -62,6 +62,11 @@ export default function () {
               defaultValue={['text']}
               required={true}
               name={`${name}normal`}
+              // renderItemSubContent={(option, checked) => {
+              //   return option.value === 'text' && checked ? (
+              //     <p>This item is checked</p>
+              //   ) : null;
+              // }}
             />
             <DummyBlock thin />
             <CheckboxGroup
