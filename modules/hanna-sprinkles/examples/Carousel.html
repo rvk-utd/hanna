@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Carousel sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,Carousel,-legacy-AutoSeenEffects"
+    />
+    <script src="/dist/index.js"></script>
+
+    <style>
+      .Carousel p {
+        border: var(--border-default);
+        background-color: var(--color-suld-25);
+        padding: 1em;
+        margin-right: var(--grid-gutter);
+      }
+      .Carousel strong {
+        display: block;
+        width: max-content;
+      }
+    </style>
+
+    <script>
+      Hanna.loadSprinkles('Carousel');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <div class="Carousel">
+            <h2 class="Carousel__title">Article Carousel</h2>
+            <div class="Carousel__itemlist">
+              <!-- Just some custom carousel items -->
+              <p><strong>one</strong> Subtext</p>
+              <p>
+                <strong>two</strong> Yöva gäta stahrt sömwaer. Ut enim ad minim veniam,
+                letsi Björk ifder svensk og latin makinen dehr graek.
+              </p>
+              <p>
+                <strong>three</strong> Ut enim ad minim veniam, letsi Björk ifder svensk
+                og latin makinen dehr graek
+              </p>
+              <p><strong>four</strong> Chockolate moose!</p>
+            </div>
+          </div>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>
