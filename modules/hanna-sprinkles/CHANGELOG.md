@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.58
+
+_2024-07-17_
+
 - feat: Add generic `Carousel` sprinkle
 
 ## 0.8.57
