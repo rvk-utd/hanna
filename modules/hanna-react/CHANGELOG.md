@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - feat: Add prop `childrenHTML` to `Carousel` for Real Nasty Dirty Work™ —
   primary use case is progressive enhancement of static HTML.
+- feat: Gracefully catch (and log) errors in Sprinkles' lifecycle methods
 
 ## 0.10.128
 

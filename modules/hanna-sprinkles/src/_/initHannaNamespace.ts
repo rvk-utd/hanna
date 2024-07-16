@@ -108,11 +108,20 @@ const makeSprinkle = <E extends Element, D>(props: SprinkleMeta<E, D>) => {
     // Weed out all elements that have been removed from the DOM
     sprinkledElms = sprinkledElms.filter(({ elm, data }) => {
       if (!document.contains(elm)) {
-        unmount && unmount(elm, data);
+        try {
+          unmount && unmount(elm, data);
+        } catch (err) {
+          console.error(`Error unmounting sprinkle '${name}' for:`, elm, err);
+        }
         elm.removeAttribute(dataAttr);
         return false;
       }
-      refresh && refresh(elm, data);
+
+      try {
+        refresh && refresh(elm, data);
+      } catch (err) {
+        console.error(`Error refreshing sprinkle '${name}' for:`, elm, err);
+      }
       return true;
     });
 
@@ -127,10 +136,14 @@ const makeSprinkle = <E extends Element, D>(props: SprinkleMeta<E, D>) => {
       ) {
         return;
       }
-      const data = init(elm);
-      // This allows CSS selectors to know then they can apply scripted-only styles
-      !elm.hasAttribute(dataAttr) && elm.setAttribute(dataAttr, '');
-      newlySprinkled.push({ elm, data });
+      try {
+        const data = init(elm);
+        // This allows CSS selectors to know then they can apply scripted-only styles
+        !elm.hasAttribute(dataAttr) && elm.setAttribute(dataAttr, '');
+        newlySprinkled.push({ elm, data });
+      } catch (err) {
+        console.error(`Error initializing sprinkle '${name}' for:`, elm, err);
+      }
     });
     sprinkledElms = sprinkledElms.concat(newlySprinkled);
   };
