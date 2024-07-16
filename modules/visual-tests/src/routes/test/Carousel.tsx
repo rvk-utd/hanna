@@ -45,6 +45,16 @@ export default function () {
             <strong>four</strong> Chockolate moose!
           </p>
         </Carousel>
+        {/* <Carousel
+          childrenHTML={`
+            <p>
+              <strong>one</strong> Subtext
+            </p>
+            <p>
+              <strong>four</strong> Chockolate moose!
+            </p>
+          `}
+        /> */}
       </Fragment>
     </Minimal>
   );

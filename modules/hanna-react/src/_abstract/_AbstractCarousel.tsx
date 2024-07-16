@@ -58,6 +58,13 @@ export type CarouselProps<
        * `<Fragment />` or some such.
        */
       itemCount?: number;
+    },
+    {
+      /**
+       * HTML content that should be dangerously inserted directly into the
+       * `__itemlist` element
+       */
+      childrenHTML: string;
     }
   > &
   WrapperElmProps &
@@ -80,12 +87,15 @@ export const AbstractCarousel = <
     items = [],
     Component,
     ComponentProps,
+    childrenHTML,
     bem = 'Carousel',
     modifier,
     ssr,
     className,
     wrapperProps,
   } = props;
+
+  const isBrowser = useIsBrowserSide(ssr);
 
   const children = !props.children
     ? undefined
@@ -95,12 +105,30 @@ export const AbstractCarousel = <
 
   const [leftOffset, setLeftOffset] = useState<number | undefined>();
 
+  const htmlChildrenCount = useMemo(() => {
+    if (!childrenHTML?.trim()) {
+      return;
+    }
+    if (!isBrowser) {
+      return 1; // Return arbitrary non-zero count to avoid early return below.
+      // During SSR (and initial hydration render) we want to render the
+      // Carousel component, even though we don't know the exact number of
+      // items yet.
+    }
+    const div = document.createElement('div');
+    div.innerHTML = childrenHTML;
+    return div.children.length;
+  }, [childrenHTML, isBrowser]);
+
   const itemCount =
-    props.itemCount != null ? props.itemCount : (children || items).length;
+    props.itemCount != null
+      ? props.itemCount
+      : childrenHTML
+      ? htmlChildrenCount
+      : (children || items).length;
   const listRef = useRef<HTMLDivElement>(null);
 
   const [activeItem, setActiveItem] = useState(0);
-  const isBrowser = useIsBrowserSide(ssr);
 
   // Since listElm gets unmounted and remounted based on isBrowser, we
   // wait for isBrowser is true before setting scroll and resize events.
@@ -176,12 +204,15 @@ export const AbstractCarousel = <
       }
       data-scroll-snapping={leftOffset ? 'true' : undefined}
       ref={listRef}
+      dangerouslySetInnerHTML={childrenHTML ? { __html: childrenHTML } : undefined}
     >
-      {children ||
-        items.map((item, i) => (
-          // @ts-expect-error  (Can't be arsed...)
-          <Component key={i} {...ComponentProps} {...item} />
-        ))}
+      {childrenHTML
+        ? undefined
+        : children ||
+          items.map((item, i) => (
+            // @ts-expect-error  (Can't be arsed...)
+            <Component key={i} {...ComponentProps} {...item} />
+          ))}
     </div>
   );
 

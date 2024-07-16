@@ -8,13 +8,9 @@ import { Carousel, CarouselProps } from '@reykjavik/hanna-react/Carousel';
 import { autoSeenEffectsRefresh, autoSeenEffectWrapperProps } from './_/addSeenEffect.js';
 
 const getCarouselData = (elm: HTMLElement): CarouselProps => {
-  const itemElm = q<HTMLElement>('.Carousel__itemlist', elm);
+  const itemlistElm = q<HTMLElement>('.Carousel__itemlist', elm);
   return {
-    children: itemElm
-      ? Array.from(itemElm.children).map((childElm, i) => (
-          <div key={i} dangerouslySetInnerHTML={{ __html: childElm.innerHTML }} />
-        ))
-      : '',
+    childrenHTML: itemlistElm?.innerHTML || '',
   };
 };
 

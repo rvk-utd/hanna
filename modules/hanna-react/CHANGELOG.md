@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `childrenHTML` to `Carousel` for Real Nasty Dirty Work™ —
+  primary use case is progressive enhancement of static HTML.
 
 ## 0.10.128
 
