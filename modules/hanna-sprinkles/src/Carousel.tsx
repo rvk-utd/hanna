@@ -7,10 +7,13 @@ import { Carousel, CarouselProps } from '@reykjavik/hanna-react/Carousel';
 
 import { autoSeenEffectsRefresh, autoSeenEffectWrapperProps } from './_/addSeenEffect.js';
 
-const getCarouselData = (elm: HTMLElement): CarouselProps => {
+const getCarouselData = (elm: HTMLElement): CarouselProps | undefined => {
   const itemlistElm = q<HTMLElement>('.Carousel__itemlist', elm);
+  if (!itemlistElm) {
+    return;
+  }
   return {
-    childrenHTML: itemlistElm?.innerHTML || '',
+    childrenHTML: itemlistElm.innerHTML,
   };
 };
 
@@ -19,6 +22,10 @@ window.Hanna.makeSprinkle({
 
   init: (elm: HTMLElement) => {
     const props = getCarouselData(elm);
+    if (!props) {
+      return;
+    }
+
     const root = elm;
     elm.getAttributeNames().forEach((attrName) => {
       elm.removeAttribute(attrName);
@@ -32,6 +39,6 @@ window.Hanna.makeSprinkle({
     return root;
   },
   unmount: (elm: HTMLElement, root) => {
-    ReactDOM.unmountComponentAtNode(root);
+    root && ReactDOM.unmountComponentAtNode(root);
   },
 });
