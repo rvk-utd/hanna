@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.131
+
+_2024-07-23_
+
 - fix: Typo selector used by `FocusTrap` to find a fallback target
 
 ## 0.10.130
