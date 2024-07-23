@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.130
+
+_2024-07-23_
+
 - `FocusTrap`:
   - fix: Account for hidden and disabled elements not being focusable
 
