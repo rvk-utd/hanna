@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `FocusTrap`:
+  - fix: Account for hidden and disabled elements not being focusable
 
 ## 0.10.129
 

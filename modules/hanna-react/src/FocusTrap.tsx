@@ -29,6 +29,7 @@ export const FocusTrap = (props: FocusTrapProps) => {
       className="FocusTrap"
       tabIndex={0}
       onFocus={(e) => {
+        e.preventDefault();
         let container: HTMLElement | null = e.currentTarget;
         let depth = Math.max(props.depth || 1, 1);
         while (depth-- && container) {
@@ -38,10 +39,28 @@ export const FocusTrap = (props: FocusTrapProps) => {
           return;
         }
         const focusables = container.querySelectorAll<FocusableElement>(
-          'a, input, select, textarea, button, [tabindex]:not(.FocusTrap):not([tabindex="-1"])'
+          'a[href], input, select, textarea, button, [tabindex]:not(.FocusTrap):not([tabindex="-1"])'
         );
-        const targetIdx = props.atTop ? focusables.length - 1 : 0;
-        focusables[targetIdx]?.focus();
+        const delta = props.atTop ? -1 : 1;
+        let i = delta < 0 ? focusables.length - 1 : 0;
+        let newTarget;
+        while ((newTarget = focusables[i])) {
+          newTarget.focus();
+          // See if the focus actually moved to newTarget
+          if (document.activeElement === newTarget) {
+            return;
+          }
+          i += delta;
+        }
+        // desperationLevel++; // We've failed to find a focusable element.
+        // Let's see if we can find a non-interactive focusable to fall back on
+        const fallbackFocusElm = container.matches('[tabindex]')
+          ? container
+          : container.querySelector('[tabindex="-1"]') || container.closest('[tabindex');
+        if (fallbackFocusElm) {
+          (fallbackFocusElm as FocusableElement).focus();
+        }
+        // desperationLevel++; // Whatever, we tried. ¯\_(ツ)_/¯
       }}
     />
   );
