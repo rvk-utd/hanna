@@ -56,7 +56,7 @@ export const FocusTrap = (props: FocusTrapProps) => {
         // Let's see if we can find a non-interactive focusable to fall back on
         const fallbackFocusElm = container.matches('[tabindex]')
           ? container
-          : container.querySelector('[tabindex="-1"]') || container.closest('[tabindex');
+          : container.querySelector('[tabindex="-1"]') || container.closest('[tabindex]');
         if (fallbackFocusElm) {
           (fallbackFocusElm as FocusableElement).focus();
         }

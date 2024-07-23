@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Typo selector used by `FocusTrap` to find a fallback target
 
 ## 0.10.130
 
