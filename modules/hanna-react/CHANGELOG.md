@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.132
+
+_2024-07-29_
+
 - fix: `Modal`'s `open` prop not defaulting to `true`
 
 ## 0.10.130 – 0.10.131
