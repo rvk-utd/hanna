@@ -404,7 +404,9 @@ const updateChangelog = async (changelogFileName, opts) => {
   const releaseIdx = changelog.indexOf('## ', upcomingIdx);
   const oldVersion = changelog
     .slice(releaseIdx, releaseIdx + 128)
-    .match(/##\s+(\d+)\.(\d+)\.(\d+)/)
+    .match(
+      /^##\s+(?:\d+\.\d+\.\d+(?:[-+][a-z0-9-.]+)?\s*[-–—]\s*)?(\d+)\.(\d+)\.(\d+)(?:[-+][a-z0-9-.]+)?\s*(?:\n|$)/
+    )
     ?.slice(1)
     .map(Number);
   if (!oldVersion || oldVersion.length !== 3) {
