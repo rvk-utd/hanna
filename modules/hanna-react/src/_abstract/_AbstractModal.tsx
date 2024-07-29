@@ -72,8 +72,8 @@ export const defaultAbstractModalTexts: DefaultTexts<AbstractModalI18n> = {
 
 // ---------------------------------------------------------------------------
 
-//FIXME: When Omit<> is used to omit 'bem' typescript deems `P` incompatible with
-// props spread into _Modal
+//FIXME: When Omit<> is used to omit 'bem' typescript deems `P` incompatible
+// with props spread into _Modal
 
 export type AbstractModalProps = {
   /**
@@ -84,16 +84,19 @@ export type AbstractModalProps = {
   closeDelay?: number;
 
   /**
-   * Indicates if teh Modal should be open or closed. To trigger opening or closing, simply flip this flag.
+   * Indicates if the Modal should be open or closed. To trigger opening or
+   * closing, simply flip this flag.
    *
    * Default: `true`
    */
   open?: boolean;
 
   /**
-   * Set this to `true` for Modals that should render as if they always existed and had already been opened.
+   * Set this to `true` for Modals that should render as if they always
+   * existed and had already been opened.
    *
-   * A Modal that "starts open" will not CSS transition in, and will not trigger its `onOpen` callback on mount.
+   * A Modal that "starts open" will not CSS transition in, and will not
+   * trigger its `onOpen` callback on mount.
    *
    * Default: `false`
    */
@@ -119,7 +122,8 @@ export type AbstractModalProps = {
   fickle?: boolean;
 
   /**
-   * Convenience callback that runs as soon as the `open` flag flips to `true` – including on initial opening.
+   * Convenience callback that runs as soon as the `open` flag flips to `true`
+   * – including on initial opening.
    *
    * However, the initial `onOpen` is skipped when `startOpen` is set to `true`.
    */

@@ -155,7 +155,7 @@ _2023-12-08_
 
 _2023-11-17_
 
-- fix: `Modal` not reoppening when `open` prop is toggled
+- fix: `Modal` not reopening when `open` prop is toggled
 
 ## 0.10.110 – 0.10.111
 
