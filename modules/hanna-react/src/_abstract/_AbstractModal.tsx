@@ -183,11 +183,13 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
 
   const txt = getTexts(props, defaultAbstractModalTexts);
 
+  const openProp = props.open !== false; // defaults to `true`
+
   const isBrowser = useIsBrowserSide(ssr);
   const privateDomId = useDomid();
   const domid = wrapperProps.id || privateDomId;
   const modalElmRef = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(() => !!props.startOpen && props.open !== false);
+  const [open, setOpen] = useState(() => !!props.startOpen && openProp);
 
   const openModal = () => {
     if (!open) {
@@ -211,14 +213,14 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
 
   // ---
   // Update open state when props.open changes. Icky but simple.
-  const lastPropsOpen = useRef(props.open);
-  if (props.open !== lastPropsOpen.current && props.open !== open) {
-    lastPropsOpen.current = props.open;
+  const lastPropsOpen = useRef(openProp);
+  if (openProp !== lastPropsOpen.current && openProp !== open) {
+    lastPropsOpen.current = openProp;
     // these update state during render, which aborts the current render
     // and triggers an immediate rerender.
-    props.open ? openModal() : closeModal();
+    openProp ? openModal() : closeModal();
   }
-  lastPropsOpen.current = props.open;
+  lastPropsOpen.current = openProp;
   // ---
 
   const closeOnCurtainClick =
@@ -244,7 +246,7 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
       if (open) {
         // The modal did `startOpen` so we need to add it to the "modal-stack".
         addToModalStack(privateDomId);
-      } else if (props.open) {
+      } else if (openProp) {
         // The modal should transition to open.
         openModal();
       }
