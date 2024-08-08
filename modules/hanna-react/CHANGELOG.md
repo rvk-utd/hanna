@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.133
+
+_2024-08-08_
+
 - feat: `MainMenu`: Pass `closeMenu` function prop to custom item callbacks
 
 ## 0.10.132
