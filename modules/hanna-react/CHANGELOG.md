@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: `MainMenu`: Pass `closeMenu` function prop to custom item callbacks
 
 ## 0.10.132
 

@@ -94,7 +94,7 @@ const normalizeMenuItems = (
   texts: NonNullable<MainMenuProps['texts']>
 ) => {
   type MenuItemNormalized =
-    | (() => JSX.Element)
+    | ((props: { closeMenu: () => void }) => ReactElement)
     | MainMenuSeparator
     | (MainMenuItem & {
         megaPanel?: MegaMenuPanel;
@@ -200,7 +200,7 @@ export type MainMenuItem = {
 export type MainMenuSeparator = '---';
 
 export type MainMenuItemList = Array<
-  MainMenuItem | MainMenuSeparator | (() => ReactElement)
+  MainMenuItem | MainMenuSeparator | ((props: { closeMenu: () => void }) => ReactElement)
 >;
 
 // ---------------------------------------------------------------------------
@@ -392,7 +392,7 @@ export const _MainMenu = (props: MainMenuProps) => {
             const Item = item;
             return (
               <li key={i} className="MainMenu__item">
-                <Item />
+                <Item closeMenu={closeHamburgerMenu} />
               </li>
             );
           }
