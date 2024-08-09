@@ -192,6 +192,8 @@ export default css`
 
   .MainMenu2__main__item {
     ${resetNonLinkChildrenLayout()}
+    ${largeFont()};
+    margin-bottom: ${vars.space_1};
   }
   .MainMenu2__main__item[aria-current='true'] {
   }
@@ -206,6 +208,12 @@ export default css`
     padding-bottom: calc(${mm2Vars.mainLink__paddingBottom} - 2px);
     border-bottom: 2px solid transparent;
   }
+  .MainMenu2__main__link {
+    ${hoverKeyboardFocusAndActiveStyling(css`
+      color: ${vars.color_suld_0};
+      border-color: currentColor;
+    `)}
+  }
   .MainMenu2__main__link[aria-pressed='true'] {
     border-color: currentColor;
   }
@@ -214,10 +222,14 @@ export default css`
   }
 
   .MainMenu2__main__sub__items {
+    margin-top: ${vars.space_2};
+    margin-left: ${vars.space_2};
+    margin-bottom: ${vars.space_1};
   }
 
   .MainMenu2__main__sub__item {
     ${resetNonLinkChildrenLayout()};
+    margin-bottom: ${vars.space_2};
   }
   .MainMenu2__main__sub__item[aria-current='true'] {
   }
@@ -227,6 +239,7 @@ export default css`
     border-color: currentColor;
   }
   .MainMenu2__main__sub__link__descr {
+    display: none;
   }
 
   /* ---------------------- */
@@ -375,31 +388,6 @@ export default css`
       margin-bottom: ${vars.space_3};
     }
 
-    .MainMenu2__main__item {
-      ${largeFont()};
-      margin-bottom: ${vars.space_1};
-    }
-    .MainMenu2__main__link {
-      ${hoverKeyboardFocusAndActiveStyling(css`
-        color: ${vars.color_suld_0};
-        border-color: currentColor;
-      `)}
-    }
-
-    .MainMenu2__main__sub__items {
-      margin-top: ${vars.space_2};
-      margin-left: ${vars.space_2};
-      margin-bottom: ${vars.space_1};
-    }
-    .MainMenu2__main__sub__item {
-      margin-bottom: ${vars.space_2};
-    }
-    .MainMenu2__main__sub__link {
-    }
-    .MainMenu2__main__sub__link__descr {
-      display: none;
-    }
-
     /* ---------------------- */
 
     .MainMenu2__hot__items,
@@ -486,83 +474,6 @@ export default css`
     /* ---------------------- */
 
     .MainMenu2__main {
-      position: relative;
-      margin-right: ${vars.grid_1};
-      padding-bottom: ${mm2Vars.padding_bottom};
-    }
-    [data-sprinkled] > * > .MainMenu2__main {
-      display: flex;
-      flex-flow: row wrap;
-      align-content: flex-start;
-    }
-    :not([data-sprinkled]) > * > * > .MainMenu2__main__item {
-      border-bottom: 1px solid ${vars.color_faxafloi_75};
-    }
-    :not([data-sprinkled]) > * > * > * > a.MainMenu2__main__link {
-      color: inherit;
-    }
-    .MainMenu2__main__link {
-      color: ${vars.color_faxafloi_75};
-      /* margin-right: ${vars.grid_0_1}; */
-      margin-right: ${clamp_netbook(16, 40)};
-    }
-    .MainMenu2__main--noneActive > * > .MainMenu2__main__link {
-      color: inherit;
-    }
-
-    .MainMenu2__main__link:not(strong) {
-      ${hoverKeyboardFocusAndActiveStyling(css`
-        color: inherit;
-        border-color: currentColor;
-      `)}
-    }
-    .MainMenu2__main__link[aria-pressed='true'] {
-      color: ${vars.color_suld_0};
-    }
-
-    .MainMenu2__main__sub__items {
-      width: 100%;
-      margin-top: -1px;
-      margin-bottom: ${vars.space_4};
-      border-top: 1px solid ${vars.color_faxafloi_75};
-      padding-top: ${vars.space_3};
-      order: 2;
-      transition: all 500ms ease-in-out;
-      transition-property: visibility, opacity;
-
-      @media ${mq.wide} {
-        column-count: 2;
-        column-gap: ${clamp_netbook(16, 32)};
-        /* display: grid;
-        grid-template-columns: repeat(2, 1fr); */
-      }
-    }
-
-    .MainMenu2__main__sub__items[hidden] {
-      order: 1;
-      position: absolute;
-      top: calc(${vars.font_base_leading} + ${vars.space_3});
-      display: block;
-      pointer-events: none;
-      visibility: hidden;
-      opacity: 0;
-    }
-    .MainMenu2__main__sub__item {
-      margin-bottom: ${vars.space_4};
-
-      @media ${mq.wide} {
-        min-height: ${prem(2 * 24 + 32)};
-        break-inside: avoid;
-      }
-    }
-
-    .MainMenu2__main__sub__link {
-      ${largeFont()};
-    }
-    .MainMenu2__main__sub__link__descr {
-      display: block;
-      font: ${vars.font_base};
-      font-weight: ${vars.font_weight__normal};
     }
 
     /* ---------------------- */

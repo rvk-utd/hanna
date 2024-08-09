@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`:
+  - feat: Unify styling of `.MainMenu2__main` items, remove tabs in desktop
 
 ## 0.8.91
 
