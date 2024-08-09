@@ -58,7 +58,9 @@ const resetNonLinkChildrenLayout = () => css`
   }
 `;
 
-// --------------------------------0-------------------------------------------
+// ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
 
 export default css`
   ${DEPS('ButtonPrimary', 'ButtonSecondary')}
@@ -142,6 +144,8 @@ export default css`
     display: none !important;
   }
 
+  /* ---------------------- */
+
   .MainMenu2__toggler {
     grid-area: toggler;
     align-self: center;
@@ -174,6 +178,8 @@ export default css`
     right: 0;
     transform: translateY(-50%);
   }
+
+  /* ---------------------- */
 
   .MainMenu2__main {
     grid-area: main;
@@ -223,6 +229,8 @@ export default css`
   .MainMenu2__main__sub__link__descr {
   }
 
+  /* ---------------------- */
+
   .MainMenu2__hot__items {
     grid-area: hot;
   }
@@ -235,6 +243,8 @@ export default css`
   }
   .MainMenu2__hot__link {
   }
+
+  /* ---------------------- */
 
   .MainMenu2__extra__items {
     grid-area: extra;
@@ -250,6 +260,8 @@ export default css`
   }
   .MainMenu2__extra__link {
   }
+
+  /* ---------------------- */
 
   .MainMenu2__related {
     grid-area: related;
@@ -326,6 +338,8 @@ export default css`
       /* mix-blend-mode: multiply; */
     }
 
+    /* ---------------------- */
+
     .MainMenu2__toggler {
       overflow: hidden;
       width: 0;
@@ -353,6 +367,8 @@ export default css`
         color__active: vars.color_suld_50,
       })}
     }
+
+    /* ---------------------- */
 
     .MainMenu2__main {
       padding-top: ${vars.space_2};
@@ -384,6 +400,8 @@ export default css`
       display: none;
     }
 
+    /* ---------------------- */
+
     .MainMenu2__hot__items,
     .MainMenu2__extra__items {
       display: flex;
@@ -392,6 +410,8 @@ export default css`
       align-items: center;
       margin-bottom: ${vars.space_2};
     }
+
+    /* ---------------------- */
 
     .MainMenu2__related {
       position: relative;
@@ -458,8 +478,12 @@ export default css`
       background: var(--menu-image, none) ${vars.grid_3} 95% no-repeat;
     }
 
+    /* ---------------------- */
+
     .MainMenu2__toggler {
     }
+
+    /* ---------------------- */
 
     .MainMenu2__main {
       position: relative;
@@ -541,6 +565,8 @@ export default css`
       font-weight: ${vars.font_weight__normal};
     }
 
+    /* ---------------------- */
+
     :not([data-sprinkled]) > * > .MainMenu2__hot__items {
       justify-content: flex-start;
       position: static;
@@ -562,20 +588,22 @@ export default css`
       margin-right: ${vars.space_2};
     }
 
+    /* ---------------------- */
+
     .MainMenu2__extra__items,
     :not(.MainMenu2__extra__items) + .MainMenu2__related {
       padding-bottom: 235px;
       margin-bottom: ${vars.space_2};
     }
-
     .MainMenu2__extra__item {
       margin-bottom: ${vars.space_2};
     }
 
+    /* ---------------------- */
+
     .MainMenu2__related {
       margin-bottom: ${vars.space_4};
     }
-
     .MainMenu2__related__link {
       background-color: ${vars.color_suld_0};
     }
