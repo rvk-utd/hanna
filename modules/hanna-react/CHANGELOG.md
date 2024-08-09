@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `MainMenu2` links with empty-string `href` not server rendered
 
 ## 0.10.133
 
