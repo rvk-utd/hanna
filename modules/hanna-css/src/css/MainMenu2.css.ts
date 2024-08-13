@@ -27,7 +27,10 @@ const globalCl = {
   menuIsClosed: '.menu-is-closed',
 };
 
-const DesktopVariables = buildVariables(['main__width'], 'MainMenu2');
+const DesktopVariables = buildVariables(
+  ['main__width', 'bgLeft', 'bgShadw', 'bgRight', 'bgHead'],
+  'MainMenu2'
+);
 const dtVars = DesktopVariables.vars;
 
 const Variables = buildVariables(
@@ -67,7 +70,6 @@ export default css`
 
   ${globalCl.menuIsOpen} {
     ${freezeScroll_css({ fixHeader: true })}
-    ${whiteLogo()}
   }
 
   ${htmlCl.beforeSprinkling} .MainMenu2:not([data-sprinkled]) {
@@ -100,6 +102,10 @@ export default css`
     overflow-x: hidden;
   }
   .MainMenu2--open::before {
+    /*
+      This ::before sets up a same-background underlap for the layout
+      logo/header so that the menu can be scrolled under it.
+    */
     content: '';
     position: fixed;
     z-index: 1;
@@ -109,6 +115,7 @@ export default css`
     right: 20px;
     height: ${vars.Layout$$header_height};
     background: inherit;
+    background-color: ${dtVars.bgHead.or('inherit')};
   }
 
   .MainMenu2--closed {
@@ -310,6 +317,10 @@ export default css`
   */
 
   @media ${mq_mobileMode} {
+    ${globalCl.menuIsOpen} {
+      ${whiteLogo()}
+    }
+
     .MainMenu2 {
       ${Variables.override({
         mainLink__paddingBottom: vars.space_1,
@@ -384,8 +395,8 @@ export default css`
     /* ---------------------- */
 
     .MainMenu2__main {
-      padding-top: ${vars.space_2};
-      margin-bottom: ${vars.space_3};
+      margin-top: ${vars.space_2};
+      margin-bottom: ${vars.space_1};
     }
 
     /* ---------------------- */
@@ -396,7 +407,11 @@ export default css`
       flex-flow: row wrap;
       gap: ${vars.space_2};
       align-items: center;
-      margin-bottom: ${vars.space_2};
+      margin-top: ${vars.space_2};
+    }
+    .MainMenu2__hot__items:last-child,
+    .MainMenu2__extra__items:last-child {
+      margin-bottom: ${vars.space_6};
     }
 
     /* ---------------------- */
@@ -404,12 +419,15 @@ export default css`
     .MainMenu2__related {
       position: relative;
       z-index: 1;
-      margin-top: ${vars.space_4};
       background-color: ${vars.color_suld_0};
       padding-top: ${vars.space_6};
       padding-bottom: ${vars.space_4};
       ${extendBackgroundWithUnderlay()}
     }
+    .MainMenu2__related:not(:first-child):not(button + *) {
+      margin-top: ${vars.space_6};
+    }
+
     .MainMenu2__related__title {
       ${largeFont()};
     }
@@ -423,39 +441,63 @@ export default css`
   */
 
   @media ${mq_desktopMode} {
+    ${globalCl.menuIsOpen}:has(.MainMenu2__related):has(.MainMenu2__main) {
+      ${whiteLogo()}
+    }
     .MainMenu2 {
       ${DesktopVariables.declare({
         // main__width: `calc(50% + ${vars.grid_1_1})`,
         main__width: `calc(50% + ${clamp_netbook(cols_px(0, 1), cols_px(1, 1))})`,
+        bgLeft: vars.color_faxafloi_100,
+        bgShadw: dtVars.bgLeft,
+        bgRight: vars.color_suld_0,
+        bgHead: vars.color_suld_0,
       })};
-    }
-    .MainMenu2__content {
-      display: grid;
-      grid-template:
-        '.     . hot    ' ${vars.space_10}
-        'main  . related' auto
-        'main  . extra  ' 1fr
-        / ${dtVars.main__width} ${vars.grid_1} auto;
-    }
-    [data-sprinkled] > .MainMenu2__content {
-      grid-template:
-        '.     hot      hot  toggler' ${vars.Layout$$header_height}
-        'main  .    related  related' auto
-        'main  .    extra      extra' 1fr
-        / ${dtVars.main__width} ${vars.grid_1} 1fr auto;
     }
 
     .MainMenu2:not([data-sprinkled]),
     .MainMenu2--open {
-      background: ${vars.color_suld_0};
       background-image: linear-gradient(
         90deg,
-        ${vars.color_faxafloi_100} ${dtVars.main__width},
-        transparent 0%
+        ${dtVars.bgLeft} calc(${dtVars.main__width} - ${vars.space_4}),
+        ${dtVars.bgShadw} ${dtVars.main__width},
+        ${dtVars.bgRight} 0%
       );
     }
+    .MainMenu2:not(:has(.MainMenu2__related)) {
+      ${DesktopVariables.override({
+        bgLeft: 'rgba(255, 255, 255, .67)',
+        bgShadw: 'rgba(0, 0, 0, .07)',
+        bgRight: vars.color_faxafloi_100,
+      })};
+    }
+    .MainMenu2:not(:has(.MainMenu2__main)) {
+      ${DesktopVariables.override({
+        bgLeft: 'rgba(255, 255, 255, .67)',
+        bgShadw: 'rgba(0, 0, 0, .07)',
+      })};
+    }
 
-    .MainMenu2--open .MainMenu2__content::after {
+    .MainMenu2__content {
+      display: grid;
+      grid-template:
+        '.     hot      hot  toggler' ${vars.Layout$$header_height}
+        'main  .    related  related' auto
+        'main  .    extra      extra' auto
+        '.     .    .              .' 1fr
+        / ${dtVars.main__width} ${vars.grid_1} 1fr auto;
+    }
+    .MainMenu2__content:not(:has(.MainMenu2__related):has(.MainMenu2__main)) {
+      grid-template:
+        '.  hot  hot      toggler' ${vars.Layout$$header_height}
+        '.  .    main        main' auto
+        '.  .    related  related' auto
+        '.  .    extra      extra' auto
+        '.  .    .              .' 1fr
+        / ${dtVars.main__width} ${vars.grid_1} 1fr auto;
+    }
+
+    .MainMenu2--open .MainMenu2__content:has(.MainMenu2__related)::after {
       content: '';
       position: absolute;
       z-index: -1;
@@ -474,12 +516,12 @@ export default css`
     /* ---------------------- */
 
     .MainMenu2__main {
+      margin-bottom: ${vars.space_6};
     }
 
     /* ---------------------- */
 
     :not([data-sprinkled]) > * > .MainMenu2__hot__items {
-      justify-content: flex-start;
       position: static;
       margin-bottom: ${vars.space_2};
     }

@@ -3,8 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- `MainMenu2`:
-  - feat: Unify styling of `.MainMenu2__main` items, remove tabs in desktop
+- `MainMenu2` (desktop):
+  - feat: Unify styling of `.MainMenu2__main` items closer to mobile version
+  - feat: Right-align menu if either "related" or "main" items are missing
 
 ## 0.8.91
 
