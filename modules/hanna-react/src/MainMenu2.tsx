@@ -214,7 +214,7 @@ const getRenderers = (props: {
         className={modifiedClass(`${classPrefix}item`, item.modifier)}
         aria-current={item.current || undefined}
       >
-        {isBrowser && (onClick || href != null) ? (
+        {isBrowser && (onClick || href == null) ? (
           <ButtonTag
             className={linkClassName}
             type="button"
