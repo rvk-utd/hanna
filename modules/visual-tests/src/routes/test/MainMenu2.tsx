@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { useSearchParams } from '@remix-run/react';
 import { Layout } from '@reykjavik/hanna-react/Layout';
@@ -40,6 +40,8 @@ const createPanelItems = (
   ),
 });
 
+const startOpen = false as boolean;
+
 export const meta: V2_MetaFunction = autoTitle;
 
 // // Use `handle` if you're using multiple Hanna compnents
@@ -52,22 +54,30 @@ export default function () {
   const ssrOnly =
     (useSearchParams()[0].get('ssrOnly') ?? 'false') === 'false' ? undefined : 'ssr-only';
 
+  useEffect(() => {
+    startOpen &&
+      setTimeout(() => {
+        document.querySelector<HTMLButtonElement>('.MainMenu2__toggler')!.click();
+      }, 100);
+  }, []);
+
   return (
     <Layout
       siteName=""
       // siteName="Gagnahlaðborðið í tveimur línum"
-      // siteName="Gagnahlaðborðið í tveimur línum þetta er ruggl lang"
-      mainChildren=""
-      // mainChildren={
-      //   <>
-      //     <style>{`.foo { height: 24vh; border: 2px dotted orange;  border-width: 2px 0 0 2px; }`}</style>
-      //     <div className="foo">{`...some content 1...`}</div>
-      //     <div className="foo">{`...some content  2...`}</div>
-      //     <div className="foo">{`...some content    3 ...`}</div>
-      //     <div className="foo">{`...some content      4...`}</div>
-      //     <div className="foo">{`...some content        5...`}</div>
-      //   </>
-      // }
+      // siteName="Gagnahlaðborðið í tveimur línum þetta er rugl lang"
+      mainChildren={
+        <>
+          {/* * /}
+          <style>{`.foo { height: 24vh; border: 2px dotted orange;  border-width: 2px 0 0 2px; }`}</style>
+          <div className="foo">...some content 1...</div>
+          <div className="foo">...some content … 2...</div>
+          <div className="foo">...some content … … 3 ...</div>
+          <div className="foo">...some content … … … 4...</div>
+          <div className="foo">...some content … … … … 5...</div>
+          {/* */}
+        </>
+      }
       navChildren={
         <MainMenu2
           ssr={ssrOnly}
