@@ -125,7 +125,10 @@ export type MainMenu2ButtonItem = MainMenu2Item & {
   icon?: 'search' | 'user' | 'alert' | 'globe';
 };
 
-export type MainMenu2CustomItem = (props: { closeMenu: () => void }) => ReactElement;
+export type MainMenu2CustomItem = (props: {
+  closeMenu: () => void;
+  openMenu: () => void;
+}) => ReactElement;
 
 export type MainMenu2SubMenuItem = MainMenu2Item & { descr?: string };
 
@@ -163,9 +166,10 @@ const iconMap: Record<NonNullable<MainMenu2ButtonItem['icon']>, ButtonIcon> = {
 const getRenderers = (props: {
   onItemClick: MainMenu2Props['onItemClick'];
   closeMenu: () => void;
+  openMenu: () => void;
   isBrowser?: true;
 }) => {
-  const { onItemClick, closeMenu, isBrowser } = props;
+  const { onItemClick, closeMenu, openMenu, isBrowser } = props;
   type AnyMenuItem =
     | (MainMenu2Item & MainMenu2ButtonItem & MainMenu2SubMenuItem)
     | MainMenu2CustomItem;
@@ -184,7 +188,7 @@ const getRenderers = (props: {
       const Item = item;
       return (
         <li key={key} className={`${classPrefix}item`}>
-          <Item closeMenu={closeMenu} />
+          <Item closeMenu={closeMenu} openMenu={openMenu} />
         </li>
       );
     }
@@ -416,6 +420,7 @@ export const MainMenu2 = (props: MainMenu2Props) => {
   const { renderItem, renderList } = getRenderers({
     onItemClick,
     closeMenu,
+    openMenu,
     isBrowser,
   });
 

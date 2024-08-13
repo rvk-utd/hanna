@@ -3,7 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: `MainMenu2` links with empty-string `href` not server rendered
+- `MainÞMenu2`:
+  - feat: Pass `openMenu()` prop to `MainMenu2CustomItem` callbacks
+  - fix: links with empty-string `href` not rendered server-side
 
 ## 0.10.133
 
