@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support rich-text `MainMenu2` item/link labels
 
 ## 0.8.58
 

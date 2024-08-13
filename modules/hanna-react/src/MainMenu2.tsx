@@ -81,7 +81,7 @@ export const defaultMainMenu2Texts: DefaultTexts<MainMenu2I18n> = {
 
 export type MainMenu2Item = {
   /** Visible label text */
-  label: string;
+  label: string | NonNullable<ReactElement>;
   /** Un-abbreviated label set as `title=""` and `aria-label=""` */
   labelLong?: string;
   /** Language of the link label */

@@ -1,6 +1,6 @@
 import './_/initHannaNamespace.js';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
@@ -36,6 +36,18 @@ const parseTextDataAttr = (elm: HTMLElement): MainMenu2I18n | undefined => {
 
 // ---------------------------------------------------------------------------
 
+/** Hack component to inject innerHTML without an element wrapper */
+const InjectHTML = ({ html }: { html: string }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (!ref.current) {
+      return;
+    }
+    ref.current.outerHTML = ref.current.innerHTML;
+  }, []);
+  return <span ref={ref} dangerouslySetInnerHTML={{ __html: html }} />;
+};
+
 const isAriaCurrent = (elm: HTMLElement): boolean => {
   const ariaCurrent = elm.getAttribute('aria-current');
   return ariaCurrent === 'true' || ariaCurrent === 'page';
@@ -56,7 +68,12 @@ const parseItem = (
   const descrElm = q('.MainMenu2__main__sub__link__descr', itemElm);
   descrElm?.remove();
   const descr = descrElm?.textContent!.trim();
-  const label = linkElm.textContent!.trim();
+  const isStringLabel = linkElm.getElementsByTagName('*').length === 0;
+  const label = isStringLabel ? (
+    linkElm.textContent!.trim()
+  ) : (
+    <InjectHTML html={linkElm.innerHTML} />
+  );
   const href = linkElm.getAttribute('href')!;
   const target = linkElm.getAttribute('target') || undefined;
   const lang = linkElm.getAttribute('lang') || undefined;
