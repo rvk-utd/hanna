@@ -3,12 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Support rich-text `MainMenu2` item/link labels
 
 ## 0.8.58
 
-_2024-07-17_
+_2024-08-16_
 
+- feat: Support rich-text `MainMenu2` item/link labels
 - feat: Add generic `Carousel` sprinkle
 
 ## 0.8.57
