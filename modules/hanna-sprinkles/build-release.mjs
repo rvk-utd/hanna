@@ -12,11 +12,15 @@
 */
 import { existsSync } from 'fs';
 
-import { $, logThenExit1 } from '../../build-helpers.mjs';
+import { $, logThenExit1, opts } from '../../build-helpers.mjs';
 
 import { bumpVersion, getServerConfig } from './build-config.mjs';
 
-await bumpVersion();
+const fixupMessage = opts.fixup ? ' (fixup)' : '';
+
+if (!opts.fixup) {
+  await bumpVersion();
+}
 const {
   distFolder,
   serverPath,
@@ -54,10 +58,10 @@ await $([
   // submodule commit
   `cd ${serverPath}`,
   `git add "./*"`,
-  `git commit -m "release(sprinkles): v${version}"`,
+  `git commit -m "release(sprinkles): v${version}${fixupMessage}"`,
   `cd -`,
 
   // local commit
   `git add ./package.json ./CHANGELOG.md ${serverPath}`,
-  `git commit -m "release(sprinkles): v${version}"`,
+  `git commit -m "release(sprinkles): v${version}${fixupMessage}"`,
 ]);

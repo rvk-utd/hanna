@@ -18,6 +18,7 @@
   },
   "scripts": {
     "publish": "yarn install  &&  node ./build-release.mjs",
+    "publish:fixup": "yarn install  &&  node ./build-release.mjs --fixup",
     "build": "yarn install  &&  node build.mjs",
     "dev": "node build.mjs --dev"
   },
