@@ -7,6 +7,7 @@
   - feat: Unify styling of `.MainMenu2__main` items closer to mobile version,
     use same illustration for both
   - feat: Right-align menu if either "related" or "main" items are missing
+  - feat: Tweak overall font-sizes and spacing, fix header overlap in mobile
 
 ## 0.8.91
 

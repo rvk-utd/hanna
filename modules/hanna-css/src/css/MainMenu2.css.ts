@@ -8,7 +8,6 @@ import {
   iconStyle,
   mq,
   srOnly_focusableContent,
-  vw_f,
   WARNING__,
 } from '@reykjavik/hanna-css';
 
@@ -18,7 +17,7 @@ import { grid } from '../lib/grid.js';
 import { ButtonVariables } from './styles/buttons.js';
 import { freezeScroll_css } from './styles/header.js';
 import { LinkStyle_Reset } from './styles/links.js';
-import { cols_px, DEPS, extendBackgroundWithUnderlay, prem } from './utils/miscUtils.js';
+import { cols_px, DEPS, extendBackgroundWithUnderlay } from './utils/miscUtils.js';
 
 import { whiteLogo } from './Layout.css.js';
 
@@ -41,11 +40,6 @@ const mm2Vars = Variables.vars;
 
 const mq_mobileMode = mq.phone_tablet;
 const mq_desktopMode = mq.netbook_up;
-
-const largeFont = () => css`
-  font-size: ${prem(20)};
-  line-height: ${prem(32)};
-`;
 
 const resetNonLinkChildrenLayout = () => css`
   & > * {
@@ -100,19 +94,24 @@ export default css`
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
   .MainMenu2--open::before {
     /*
       This ::before sets up a same-background underlap for the layout
       logo/header so that the menu can be scrolled under it.
     */
-    content: '';
+    content: '...';
     position: fixed;
     z-index: 1;
     top: 0;
     /* Avoid overlapping the scrollbars */
     left: 20px;
     right: 20px;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    scrollbar-color: transparent transparent;
     height: ${vars.Layout$$header_height};
     background: inherit;
     background-color: ${dtVars.bgHead.or('inherit')};
@@ -199,7 +198,7 @@ export default css`
 
   .MainMenu2__main__item {
     ${resetNonLinkChildrenLayout()}
-    ${largeFont()};
+    font: ${vars.font_sh_s};
     margin-bottom: ${vars.space_1};
   }
   .MainMenu2__main__item[aria-current='true'] {
@@ -231,7 +230,7 @@ export default css`
   .MainMenu2__main__sub__items {
     margin-top: ${vars.space_2};
     margin-left: ${vars.space_2};
-    margin-bottom: ${vars.space_1};
+    margin-bottom: ${vars.space_3};
   }
 
   .MainMenu2__main__sub__item {
@@ -289,12 +288,9 @@ export default css`
   }
 
   .MainMenu2__related__title {
-    font-weight: ${vars.font_weight__bold};
+    font: ${vars.font_sh_s};
     padding-top: ${vars.space_1};
     padding-bottom: calc(${mm2Vars.mainLink__paddingBottom} - 1px);
-    /* color: ${vars.color_faxafloi_100};
-    border-bottom: 1px solid ${vars.color_faxafloi_75}; */
-    color: ${vars.color_suld_150};
     border-bottom: 1px solid ${vars.color_suld_100};
   }
   .MainMenu2__related__items {
@@ -417,10 +413,10 @@ export default css`
 
     .MainMenu2__related {
       position: relative;
-      z-index: 1;
       background-color: ${vars.color_suld_0};
       padding-top: ${vars.space_6};
-      padding-bottom: ${vars.space_4};
+      /* padding-bottom: ${vars.space_4}; */
+      padding-bottom: ${vars.space_2};
       ${extendBackgroundWithUnderlay()}
     }
     .MainMenu2__related:not(:first-child):not(button + *) {
@@ -428,7 +424,6 @@ export default css`
     }
 
     .MainMenu2__related__title {
-      ${largeFont()};
     }
   }
 
@@ -444,6 +439,7 @@ export default css`
       ${whiteLogo()}
     }
     .MainMenu2 {
+      // font: ${vars.font_bd_l};
       ${DesktopVariables.declare({
         // main__width: `calc(50% + ${vars.grid_1_1})`,
         main__width: `calc(50% + ${clamp_netbook(cols_px(0, 1), cols_px(1, 1))})`,
