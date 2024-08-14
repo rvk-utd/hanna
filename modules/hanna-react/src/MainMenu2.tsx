@@ -205,12 +205,23 @@ const getRenderers = (props: {
 
     const ButtonTag = button ? ButtonSecondary : 'button';
     const LinkTag = button ? ButtonSecondary : Link;
+
+    const commonProps = {
+      className: linkClassName,
+      'data-icon': icon ? iconMap[icon] : undefined,
+      'arial-label': labelLong,
+      title: labelLong, // For auto-tooltips on desktop
+      lang,
+    };
     const buttonCompProps = button
       ? {
           size: 'small' as const,
-          'data-icon': icon && iconMap[icon],
         }
       : undefined;
+
+    if (label === 'Græna planið') {
+      console.log('FOOBAR', icon, icon && iconMap[icon]);
+    }
 
     return (
       <Tag
@@ -220,34 +231,28 @@ const getRenderers = (props: {
       >
         {isBrowser && (onClick || href == null) ? (
           <ButtonTag
-            className={linkClassName}
+            {...commonProps}
             type="button"
+            aria-controls={controlsId}
             onClick={() => {
               const keepOpen1 = onClick && onClick(item) === false;
               const keepOpen2 = onItemClick && onItemClick(item) === false;
               !(keepOpen1 || keepOpen2) && closeMenu();
             }}
-            aria-controls={controlsId}
-            aria-label={labelLong}
-            title={labelLong} // For auto-tooltips on desktop
-            lang={lang}
             {...buttonCompProps}
           >
             {label} {itemDescr}
           </ButtonTag>
         ) : href != null ? (
           <LinkTag
-            className={linkClassName}
+            {...commonProps}
             href={href}
+            hrefLang={item.hrefLang}
             target={target}
-            aria-label={labelLong}
-            title={labelLong} // For auto-tooltips on desktop
             onClick={() => {
               const keepOpen = onItemClick && onItemClick(item) === false;
               !keepOpen && closeMenu();
             }}
-            lang={lang}
-            hrefLang={item.hrefLang}
             {...buttonCompProps}
           >
             {label} {itemDescr}
@@ -311,7 +316,7 @@ export type MainMenu2Props = {
     extra?: MainMenu2ButtonItemList;
 
     relatedTitle?: string;
-    related?: MainMenu2ItemList;
+    related?: MainMenu2ButtonItemList;
   };
 
   /**

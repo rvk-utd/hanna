@@ -8,6 +8,7 @@
     use same illustration for both
   - feat: Right-align menu if either "related" or "main" items are missing
   - feat: Tweak overall font-sizes and spacing, fix header overlap in mobile
+  - feat: Support `[data-icon]` attributes on `.MainMenu2__related__link`s
 
 ## 0.8.91
 

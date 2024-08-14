@@ -107,6 +107,7 @@ export default function () {
             relatedTitle: 'Sérvefir',
             related: [
               { label: 'Græna planið', href: '', target: '_blank' },
+              // { label: 'With icon', href: '', target: '_blank', icon: 'user' },
               { label: 'Gagnahlaðborðið', href: '', target: '_blank' },
               { label: 'Borgarbókasafnið', href: '', target: '_blank' },
               { label: 'Borgin okkar', href: '', target: '_blank' },

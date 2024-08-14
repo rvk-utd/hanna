@@ -19,6 +19,7 @@ import { freezeScroll_css } from './styles/header.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { cols_px, DEPS, extendBackgroundWithUnderlay } from './utils/miscUtils.js';
 
+import { enableDataIcon } from './Icon.css.js';
 import { whiteLogo } from './Layout.css.js';
 
 const globalCl = {
@@ -60,7 +61,7 @@ const resetNonLinkChildrenLayout = () => css`
 // ---------------------------------------------------------------------------
 
 export default css`
-  ${DEPS('ButtonPrimary', 'ButtonSecondary')}
+  ${DEPS('ButtonPrimary', 'ButtonSecondary', 'Icon')}
 
   ${globalCl.menuIsOpen} {
     ${freezeScroll_css({ fixHeader: true })}
@@ -303,6 +304,16 @@ export default css`
   .MainMenu2__related__item[aria-current='true'] {
   }
   .MainMenu2__related__link {
+  }
+  .MainMenu2__related__link[data-icon]::before {
+    ${enableDataIcon}
+    margin-right: ${vars.space_1};
+  }
+  /* Indent all __related__links at least one of them has an icon */
+  :has(.MainMenu2__related__link[data-icon])
+    > *
+    > .MainMenu2__related__link:not([data-icon]) {
+    padding-left: ${vars.space_3};
   }
 
   /*

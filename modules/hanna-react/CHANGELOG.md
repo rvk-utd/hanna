@@ -6,6 +6,7 @@
 - `MainÞMenu2`:
   - feat: Pass `openMenu()` prop to `MainMenu2CustomItem` callbacks
   - feat: Allow rich-text (JSX) `label`s for menu items
+  - feat: Allow `icon` prop on related items
   - fix: links with empty-string `href` not rendered server-side
 
 ## 0.10.133
