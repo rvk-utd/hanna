@@ -4,7 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - `MainMenu2` (desktop):
-  - feat: Unify styling of `.MainMenu2__main` items closer to mobile version
+  - feat: Unify styling of `.MainMenu2__main` items closer to mobile version,
+    use same illustration for both
   - feat: Right-align menu if either "related" or "main" items are missing
 
 ## 0.8.91

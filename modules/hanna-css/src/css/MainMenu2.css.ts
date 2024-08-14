@@ -348,7 +348,7 @@ export default css`
         'hot         hot' auto
         'extra     extra' auto
         'related related' 1fr
-        'illstr   illstr' clamp(175px, ${vw_f(115 / 325)}, 250px)
+        'illstr   illstr' min(100vw, 300px)
         / ${vars.Layout$$header_homelink_width} auto;
     }
 
@@ -357,9 +357,8 @@ export default css`
       content: '';
       grid-area: illstr;
       margin: 0 ${vars.grid_margin__neg};
-      background: ${vars.color_suld_0} url('/assets/valmundur-a-sundi.png')
-        calc(40% - 10px) 100% / auto 90% repeat-x;
-      /* mix-blend-mode: multiply; */
+      background: ${vars.color_suld_0} var(--menu-image, none) 50% calc(100% - 10px) /
+        auto 90% no-repeat;
     }
 
     /* ---------------------- */
