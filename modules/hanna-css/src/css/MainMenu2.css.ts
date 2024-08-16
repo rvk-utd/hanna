@@ -56,6 +56,9 @@ const resetNonLinkChildrenLayout = () => css`
   }
 `;
 
+const semiTransparentBg = 'rgba(255, 255, 255, .67)';
+const semiTransparentShadow = 'rgba(236, 236, 236, .67)';
+
 // ---------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------
@@ -472,15 +475,15 @@ export default css`
     }
     .MainMenu2:not(:has(.MainMenu2__related)) {
       ${DesktopVariables.override({
-        bgLeft: 'rgba(255, 255, 255, .67)',
-        bgShadw: 'rgba(0, 0, 0, .07)',
+        bgLeft: semiTransparentBg,
+        bgShadw: semiTransparentShadow,
         bgRight: vars.color_faxafloi_100,
       })};
     }
     .MainMenu2:not(:has(.MainMenu2__main)) {
       ${DesktopVariables.override({
-        bgLeft: 'rgba(255, 255, 255, .67)',
-        bgShadw: 'rgba(0, 0, 0, .07)',
+        bgLeft: semiTransparentBg,
+        bgShadw: semiTransparentShadow,
       })};
     }
 
