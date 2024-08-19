@@ -1,4 +1,4 @@
-import { ColorValue, css, VariablePrinter } from 'es-in-css';
+import { ColorValue, css, px, VariablePrinter } from 'es-in-css';
 
 import { hannaVars as vars } from './hannavars.js';
 
@@ -40,9 +40,9 @@ export const hoverKeyboardFocusAndActiveStyling = (
 
 // ---------------------------------------------------------------------------
 
-const defaultLink = () => vars.link_color__hover;
+const defaultLink = () => vars.color_faxafloi_100;
 const defaultBg = () => vars.color_suld_0;
-const defaultBorder = () => `3px double ${vars.link_color__hover}`;
+const defaultBorder = () => `3px double ${vars.color_faxafloi_100}`;
 const focusLinkZindex = () => vars.zindex__sr_only;
 
 type Mode = 'normal' | 'soft' | 'hard';
@@ -142,18 +142,17 @@ export const srOnly_focusableContent = (opts: SROnlyFocusProps & { dir?: Dir } =
     bg = defaultBg(),
     dir = 'ltr',
   } = opts;
-  const edge = dir === 'ltr' ? 'right' : 'left';
-  const opposite = dir === 'ltr' ? 'left' : 'right';
+  const offset = px(dir === 'ltr' ? -9999 : 9999);
 
   return css`
     position: absolute;
-    ${edge}: 9999px;
-    ${opposite}: auto;
+    z-index: ${focusLinkZindex};
+    transform: translateX(${offset});
 
-    a:focus,
-    a:active,
-    button:focus {
-      ${edge}: -9999px;
+    a:focus:focus,
+    a:active:active,
+    button:focus:focus {
+      transform: translateX(${px(-1 * offset)});
       ${sr_focusStyling({ link, border, bg })}
     }
   `;

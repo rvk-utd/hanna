@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Improve focus styling of screen-reader-only links
+  - links appear more often "in-place" rather than off to the side
+  - links always appear blue-on-white, regardless of local color overrides
 
 ## 0.8.91
 
