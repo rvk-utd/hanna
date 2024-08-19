@@ -275,8 +275,11 @@ export const _MainMenu = (props: MainMenuProps) => {
 
             // const menuElm = menuElmRef.current as HTMLElement;
             _setActivePanel((activePanel) => {
+              if (!newActive && !activePanel) {
+                return undefined;
+              }
               if (!newActive) {
-                activePanel && setLaggyActivePanel(activePanel, 1000);
+                setLaggyActivePanel(activePanel, 1000);
                 htmlElm.scrollTop = parseInt(htmlElmDataset.scrollTop || '') || 0;
                 delete htmlElmDataset.scrollTop;
                 delete htmlElmDataset.megaPanelActive;

@@ -8,6 +8,8 @@
   - feat: Allow rich-text (JSX) `label`s for menu items
   - feat: Allow `icon` prop on related items
   - fix: links with empty-string `href` not rendered server-side
+- `MainMenu`:
+  - fix: Unnecessary scroll-reset when resizing window to enter hamburger-mode
 
 ## 0.10.133
 

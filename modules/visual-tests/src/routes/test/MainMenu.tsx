@@ -116,7 +116,13 @@ export default function () {
   return (
     <Layout
       // siteName="Gagnahlaðborðið í tveimur línum"
-      mainChildren=""
+      mainChildren={
+        <>
+          {/* * /}
+          <div style={{ height: '100vh' }}>...</div>
+          {/* */}
+        </>
+      }
       navChildren={
         <MainMenu
           items={mainMenuItems}
