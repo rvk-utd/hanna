@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.134
+
+_2024-08-19_
+
 - `MainÞMenu2`:
   - feat: Pass `openMenu()` prop to `MainMenu2CustomItem` callbacks
   - feat: Allow rich-text (JSX) `label`s for menu items
