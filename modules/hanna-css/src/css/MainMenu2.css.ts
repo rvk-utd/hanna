@@ -443,9 +443,14 @@ export default css`
   */
 
   @media ${mq_desktopMode} {
-    ${globalCl.menuIsOpen}:has(.MainMenu2__related):has(.MainMenu2__main) {
+    ${globalCl.menuIsOpen} {
       ${whiteLogo()}
     }
+    ${globalCl.menuIsOpen}[class]:not(:has(.MainMenu2__related)),
+    ${globalCl.menuIsOpen}[class]:not(:has(.MainMenu2__main)) {
+      ${whiteLogo_reset()}
+    }
+
     .MainMenu2 {
       // font: ${vars.font_bd_l};
       ${DesktopVariables.declare({
