@@ -3,7 +3,6 @@ import {
   css,
   hannaVarOverride,
   hannaVars as vars,
-  hoverKeyboardFocusAndActiveStyling,
   htmlCl,
   iconStyle,
   mq,
@@ -218,12 +217,7 @@ export default css`
     padding-bottom: calc(${mm2Vars.mainLink__paddingBottom} - 2px);
     border-bottom: 2px solid transparent;
   }
-  .MainMenu2__main__link {
-    ${hoverKeyboardFocusAndActiveStyling(css`
-      color: ${vars.color_suld_0};
-      border-color: currentColor;
-    `)}
-  }
+
   .MainMenu2__main__link[aria-pressed='true'] {
     border-color: currentColor;
   }
