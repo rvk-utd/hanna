@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.16
+
+_2024-09-03_
+
 - feat: Filter `undefined` from key type of `OpenStringMap` and `OpenRecord`
 
 ## 0.2.15
