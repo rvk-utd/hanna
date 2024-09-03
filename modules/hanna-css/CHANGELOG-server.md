@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.92
+
+_2024-09-04_
+
 - `MainMenu2`:
   - feat: Add styling for `.MainMenu--variant--light`
   - fix: Remove stray `...` in upper-left corner of open menu
