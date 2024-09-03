@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.135
+
+_2024-09-03_
+
 - feat: Add prop `variant="light"` to `MainMenu2`
 
 ## 0.10.134
