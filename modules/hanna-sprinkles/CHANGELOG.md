@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.59
+
+_2024-09-04_
+
 - feat: Support className `.MainMenu--variant--light`
 - fix: scroll-reset when resizing window to enter `MainMenu`'s hamburger-mode
 
