@@ -24,7 +24,8 @@
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-openrecord
  */
-export type OpenRecord<T extends string, V> = Record<T, V> & Record<string, V>;
+export type OpenRecord<T extends string | undefined, V> = Record<T & string, V> &
+  Record<string, V>;
 
 // ---------------------------------------------------------------------------
 
@@ -62,7 +63,10 @@ export type OpenRecord<T extends string, V> = Record<T, V> & Record<string, V>;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-openstringmap
  */
-export type OpenStringMap<T extends string, V = T> = Record<T, T | V> &
+export type OpenStringMap<T extends string | undefined, V = T> = Record<
+  T & string,
+  T | V
+> &
   Record<string, T | V>;
 
 // ---------------------------------------------------------------------------
