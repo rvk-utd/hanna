@@ -105,7 +105,7 @@ export default css`
       This ::before sets up a same-background underlap for the layout
       logo/header so that the menu can be scrolled under it.
     */
-    content: '...';
+    content: '';
     position: fixed;
     z-index: 1;
     top: 0;
