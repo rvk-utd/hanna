@@ -22,6 +22,13 @@ export const whiteLogo = () =>
     Layout$$header_homelink_divColor: vars.color_faxafloi_75,
     Layout$$header_color: vars.color_suld_0,
   });
+export const whiteLogo_reset = () =>
+  hannaVarOverride({
+    Layout$$header_logo_color: 'initial',
+    Layout$$header_homelink_divColor: vars.color_suld_100,
+    Layout$$header_color: 'initial',
+  });
+
 export const whiteHeader = () =>
   whiteLogo() +
   hannaVarOverride({

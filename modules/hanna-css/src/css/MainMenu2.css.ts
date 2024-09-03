@@ -19,7 +19,7 @@ import { LinkStyle_Reset } from './styles/links.js';
 import { cols_px, DEPS, extendBackgroundWithUnderlay } from './utils/miscUtils.js';
 
 import { enableDataIcon } from './Icon.css.js';
-import { whiteLogo } from './Layout.css.js';
+import { whiteLogo, whiteLogo_reset } from './Layout.css.js';
 
 const globalCl = {
   menuIsOpen: '.menu-is-open',
@@ -163,12 +163,23 @@ export default css`
     margin: 0;
     width: auto; // DO NOT REMVE!
   }
+  .MainMenu2--variant--light .MainMenu2__toggler {
+    ${ButtonVariables.override({
+      color: vars.color_suld_200,
+      color__active: vars.color_faxafloi_150,
+    })}
+  }
   .MainMenu2__toggler[aria-pressed='true'] {
     position: sticky;
     top: calc(0.5 * calc(${vars.Layout$$header_height} - ${ButtonVariables.vars.height}));
     z-index: 1;
     ${ButtonVariables.override({
       backgroundColor__active: vars.color_faxafloi_100,
+    })}
+  }
+  .MainMenu2--variant--light .MainMenu2__toggler[aria-pressed='true'] {
+    ${ButtonVariables.override({
+      backgroundColor__active: vars.color_suld_200,
     })}
   }
   .MainMenu2__toggler::before {
@@ -196,6 +207,12 @@ export default css`
     ${hannaVarOverride({
       link_color: '_inherit',
       link_color__hover: vars.color_faxafloi_25,
+    })}
+  }
+  .MainMenu2--variant--light .MainMenu2__main {
+    color: ${vars.color_faxafloi_100};
+    ${hannaVarOverride({
+      link_color__hover: vars.color_faxafloi_150,
     })}
   }
 
@@ -324,12 +341,18 @@ export default css`
     ${globalCl.menuIsOpen} {
       ${whiteLogo()}
     }
+    ${globalCl.menuIsOpen}:has(.MainMenu2--variant--light) {
+      ${whiteLogo_reset()}
+    }
 
     .MainMenu2 {
       ${Variables.override({
         mainLink__paddingBottom: vars.space_1,
       })};
       background: ${vars.color_faxafloi_100};
+    }
+    .MainMenu2--variant--light {
+      background: ${vars.color_faxafloi_25};
     }
     .MainMenu2--closed {
       background: none;
@@ -446,6 +469,7 @@ export default css`
     ${globalCl.menuIsOpen} {
       ${whiteLogo()}
     }
+    ${globalCl.menuIsOpen}[class]:has(.MainMenu2--variant--light),
     ${globalCl.menuIsOpen}[class]:not(:has(.MainMenu2__related)),
     ${globalCl.menuIsOpen}[class]:not(:has(.MainMenu2__main)) {
       ${whiteLogo_reset()}
@@ -460,6 +484,11 @@ export default css`
         bgShadw: dtVars.bgLeft,
         bgRight: vars.color_suld_0,
         bgHead: vars.color_suld_0,
+      })};
+    }
+    .MainMenu2--variant--light {
+      ${DesktopVariables.override({
+        bgLeft: vars.color_faxafloi_25,
       })};
     }
 
@@ -547,6 +576,12 @@ export default css`
     }
     .MainMenu2__hot__item {
       margin-right: ${vars.space_2};
+    }
+    .MainMenu2--variant--light .MainMenu2__hot__items .ButtonSecondary {
+      ${ButtonVariables.override({
+        color: vars.color_suld_200,
+        color__active: vars.color_faxafloi_150,
+      })}
     }
 
     /* ---------------------- */

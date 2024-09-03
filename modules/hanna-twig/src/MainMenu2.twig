@@ -18,6 +18,8 @@
 
   - menu_image_url?: string // Url to an Hanna Illustration (E.g. https://styles.reykjavik.is/assets/illustrations/)
 
+  - variant?: 'light' | 'default' // Experimental prop for schools
+
   ---------------------------------------------------
 
   ## `SubMenu` Props
@@ -84,10 +86,12 @@
 
 {# ======================================================================= #}
 
+{% set variantClass = variant and variant != 'default' ? ' MainMenu2--variant--' ~ variant : '' %}
+
 
 <nav
   id="MainMenu2" {# Assuming there's only ever one MainMenu2 per page #}
-  class="MainMenu2"
+  class="MainMenu2{{ variantClass }}"
   {% if menu_image_url %} style="--menu-image: url('{{menu_image_url|e('html_attr')}}');" {% endif %}
   aria-label="{{ menu_title|e('html_attr') }}"
 >

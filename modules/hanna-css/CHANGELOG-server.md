@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - `MainMenu2`:
+  - feat: Add styling for `.MainMenu--variant--light`
   - fix: Remove stray `...` in upper-left corner of open menu
 - fix: Improve focus styling of screen-reader-only links
   - links appear more often "in-place" rather than off to the side

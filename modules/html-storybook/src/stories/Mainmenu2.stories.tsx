@@ -36,6 +36,7 @@ const createPanelItems = (
 
 type ControlProps = {
   ssr: boolean;
+  lightVariant: boolean;
 };
 
 const meta: Meta<ControlProps> = {
@@ -54,6 +55,7 @@ export const _MainMenu2: StoryObj<ControlProps> = {
   render: (args) => (
     <MainMenu2
       key={`${args.ssr}`}
+      variant={args.lightVariant ? 'light' : undefined}
       ssr={args.ssr ? 'ssr-only' : true}
       items={{
         main: [
@@ -93,8 +95,10 @@ export const _MainMenu2: StoryObj<ControlProps> = {
   ),
   argTypes: {
     ssr: { name: 'Server-side Markup' },
+    lightVariant: { name: 'Light-colored variant (experimental)' },
   },
   args: {
     ssr: false,
+    lightVariant: false,
   },
 };

@@ -13,7 +13,12 @@ import {
   MainMenu2SubMenu,
   MainMenu2SubMenuItem,
 } from '@reykjavik/hanna-react/MainMenu2';
-import { notNully } from '@reykjavik/hanna-utils';
+import { notNully, OpenStringMap } from '@reykjavik/hanna-utils';
+
+const variants: OpenStringMap<MainMenu2Props['variant']> = {
+  default: undefined,
+  light: 'light',
+};
 
 // ---------------------------------------------------------------------------
 
@@ -140,10 +145,13 @@ const getPropsFromSSRMainMenu2 = (elm: HTMLElement): MainMenu2Props => {
     .trim()
     .replace(/^url\((.+)\)$/, '$1');
 
+  const variantMatch = elm.className.match(/(?:^|\s)MainMenu2--variant--(\s+)/) || [];
+  const variant = variants[variantMatch[1] || ''];
+
   // Parse `<div class="MainMenu2" data-props-texts="{ title: 'Huvudmeny', ... }">`
   const texts = parseTextDataAttr(elm);
 
-  return { items, homeLink, imageUrl, texts };
+  return { items, homeLink, imageUrl, texts, variant };
 };
 
 // ---------------------------------------------------------------------------

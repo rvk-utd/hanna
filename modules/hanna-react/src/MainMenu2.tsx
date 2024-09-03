@@ -319,6 +319,9 @@ export type MainMenu2Props = {
     related?: MainMenu2ButtonItemList;
   };
 
+  /** Visual type */
+  variant?: 'default' | 'light';
+
   /**
    * NOTE: Clicking a MainMenu2 item will automatically close HannaUIState's
    * "Hamburger menu" (a.k.a. "Mobile menu")
@@ -339,6 +342,7 @@ export const MainMenu2 = (props: MainMenu2Props) => {
     onItemClick,
     illustration,
     imageUrl,
+    variant,
     wrapperProps = {},
   } = props;
   const domid = useDomid(wrapperProps.id);
@@ -445,7 +449,10 @@ export const MainMenu2 = (props: MainMenu2Props) => {
       {...props.wrapperProps}
       className={modifiedClass(
         'MainMenu2',
-        isBrowser && (isMenuOpen ? 'open' : 'closed'),
+        [
+          isBrowser && (isMenuOpen ? 'open' : 'closed'),
+          variant && variant !== 'default' ? `variant--${variant}` : undefined,
+        ],
         wrapperProps.className
       )}
       style={

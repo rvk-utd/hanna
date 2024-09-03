@@ -80,6 +80,7 @@ export default function () {
       }
       navChildren={
         <MainMenu2
+          // variant="light"
           ssr={ssrOnly}
           illustration="born1"
           items={{
