@@ -219,10 +219,6 @@ const getRenderers = (props: {
         }
       : undefined;
 
-    if (label === 'Græna planið') {
-      console.log('FOOBAR', icon, icon && iconMap[icon]);
-    }
-
     return (
       <Tag
         key={key}
