@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `scroll-behavior: smooth` to the `<html>` element
 
 ## 0.8.92
 

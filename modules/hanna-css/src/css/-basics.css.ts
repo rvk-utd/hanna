@@ -118,6 +118,7 @@ export default css`
     min-width: calc(${bp.phone} - ${vars.browser_scrollbar_width});
     box-sizing: border-box;
     position: relative;
+    scroll-behavior: smooth;
     overflow-y: scroll;
     overflow-x: hidden; // Normal browsers respect this.
     /**
