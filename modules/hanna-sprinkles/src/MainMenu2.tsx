@@ -145,7 +145,7 @@ const getPropsFromSSRMainMenu2 = (elm: HTMLElement): MainMenu2Props => {
     .trim()
     .replace(/^url\((.+)\)$/, '$1');
 
-  const variantMatch = elm.className.match(/(?:^|\s)MainMenu2--variant--(\s+)/) || [];
+  const variantMatch = elm.className.match(/(?:^|\s)MainMenu2--variant--([^\s]+)/) || [];
   const variant = variants[variantMatch[1] || ''];
 
   // Parse `<div class="MainMenu2" data-props-texts="{ title: 'Huvudmeny', ... }">`
