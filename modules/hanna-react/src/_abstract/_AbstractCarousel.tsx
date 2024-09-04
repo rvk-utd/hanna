@@ -24,12 +24,12 @@ import { BemProps } from '../utils/types.js';
 const scrollXBy = (elm: HTMLElement, deltaX: number) => {
   const left = elm.scrollLeft + deltaX;
   elm.scrollTo(left, elm.scrollTop);
-  // NOTE 1: using elm.scrollTo({ left, behavior: 'smooth' }); seems to be too much
-  // as `behavior: 'smooth'` starts some weird interactions with the browser's
-  // `scroll-snap-type` behavior.
+  // NOTE 1: The scroll behavior is left up to the CSS styles.
   //
   // NOTE 2: Both Chrome and Safari tend to snap hard to the nearest list item
   // while Firefox is more smooth. Haven't found a way around that.
+  // (`behavior: 'smooth'` starts some weird interactions with the browser's
+  // CSS `scroll-snap-type` behavior.)
 };
 
 // ---------------------------------------------------------------------------
