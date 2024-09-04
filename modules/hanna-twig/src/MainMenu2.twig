@@ -61,7 +61,7 @@
 {% macro make_item(name, item, linkType = 'normal', Tag='li') %}
   {% set classPrefix = 'MainMenu2__' ~ name %}
   {% set extraClasses = linkType == 'button' ? ' ButtonSecondary ButtonSecondary--small' : '' %}
-  <Tag
+  <{{Tag}}
     class="{{ classPrefix }}__item{{ item.modifier ? ' ' ~ classPrefix ~ '__item--' ~ item.modifier : '' }}"
     {% if item.current %} aria-current="true" {% endif %}
   >
@@ -79,7 +79,7 @@
         <small class="{{ classPrefix }}__link__descr">{{ item.descr }}</small>
       {%- endif -%}
     </a>
-  </Tag>
+  </{{Tag}}>
 {% endmacro %}
 
 {% from _self import make_item %}
@@ -90,10 +90,10 @@
 
 
 <nav
-  id="MainMenu2" {# Assuming there's only ever one MainMenu2 per page #}
   class="MainMenu2{{ variantClass }}"
   {% if menu_image_url %} style="--menu-image: url('{{menu_image_url|e('html_attr')}}');" {% endif %}
   aria-label="{{ menu_title|e('html_attr') }}"
+  id="MainMenu2" {# Assuming there's only ever one MainMenu2 per page #}
 >
 <div class="MainMenu2__content">
 
