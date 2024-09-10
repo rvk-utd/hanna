@@ -14,6 +14,9 @@ export const meta: V2_MetaFunction = autoTitle;
 // export const handle = cssTokens('Token');
 
 export default function () {
+  // const [showAlert, setShowAlert] = React.useState(false);
+  // const toggleAlert = () => setShowAlert((show) => !show);
+
   return (
     <Minimal>
       <Alert type="info" ssr>
@@ -48,6 +51,15 @@ export default function () {
         <strong>Critical</strong> - Veðurviðvörun fyrir höfuðborgarsvæðið.{' '}
         <a href="">Sjá nánar á vedur.is</a>
       </Alert>
+
+      {/** /}
+      <button onClick={toggleAlert}>Toggle Alert</button>
+      {showAlert && (
+        <Alert type="info" onClosed={toggleAlert} closable instantShow>
+          Leebur deroor iehroom, bork bork börk! Enim ad minim chokolat moose.
+        </Alert>
+      )}
+      {/**/}
     </Minimal>
   );
 }

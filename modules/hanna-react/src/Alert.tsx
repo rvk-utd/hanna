@@ -89,6 +89,8 @@ export type AlertProps = {
   closeUrl?: string;
   texts?: AlertI18n;
   lang?: HannaLang;
+  /** Set to true to opt out of the opening transition */
+  instantShow?: boolean;
 } & SSRSupportProps &
   EitherObj<
     {
@@ -124,13 +126,14 @@ export const Alert = (props: AlertProps) => {
     closable = !!(onClose || closeUrl != null),
     ssr,
     onClosed,
+    instantShow,
     wrapperProps,
   } = props;
   const autoClose = Math.max(props.autoClose || 0, 0);
 
   const closing = useRef<ReturnType<typeof setTimeout>>();
   const isBrowser = useIsBrowserSide(ssr);
-  const [open, setOpen] = useState(!isBrowser);
+  const [open, setOpen] = useState(instantShow || !isBrowser);
   const showCloseButton = closable && (isBrowser || closeUrl != null);
   const { closeLabel, closeLabelLong } = getTexts(props, defaultAlertTexts);
 

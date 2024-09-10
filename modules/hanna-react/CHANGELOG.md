@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add prop `instantShow` to `Alert`, to skip opening transitions
 
 ## 0.10.135
 
