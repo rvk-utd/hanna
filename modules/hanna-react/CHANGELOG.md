@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.136
+
+_2024-09-10_
+
 - feat: Add prop `instantShow` to `Alert`, to skip opening transitions
 
 ## 0.10.135
