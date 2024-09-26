@@ -117,7 +117,9 @@ export default css`
     padding-top: ${vars.space_1};
     margin-bottom: -2px;
     overflow: hidden;
-    margin-right: ${vars.space_3__neg};
+    margin-right: ${vars.space_7__neg};
+    padding-right: ${vars.space_4};
+
     position: relative;
   }
   .FormField--small > :not(.Multiselect__input--open) > * > .Multiselect__currentvalues {

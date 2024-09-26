@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add `scroll-behavior: smooth` to the `<html>` element
+- fix: Extend line-wrapped `MultiSelect` click area to the right edge
 
 ## 0.8.92
 
