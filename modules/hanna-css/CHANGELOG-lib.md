@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- docs: Improve readme and JSDoc comments for `mq` and `breakpoints_raw`
 - fix: Improve `srOnly_focusable` and `srOnly_focusableContent` style rules —
   Using `translateX` rather than `left`/`right` offsetting, hard-code links to
   be blue (on an already hard-coded white background)

@@ -368,7 +368,25 @@ console.log(iconName);
 
 ### `mq`
 
-Object with pre-fabricated media queries.
+The `mq` object contains pre-fabricated media-query strings for the basic
+Hanna media/screen types.
+
+These are:
+
+- `phone`: Typical mobile phone in portrait mode (~ 320—480px wide)
+- `phablet`: Mobile phones in landscape mode and tiny tablets (~ 480—760px
+  wide)
+- `tablet`: Typical tablets like iPads (not pro), in portrait mode (~
+  760—980px wide)
+- `netbook`: Tiny laptops, large tablets and smaller iPads in landscape mode
+  (~ 980—1368px wide)
+- `wide`: Desktops and larger laptops (~ 1368px wide and up)
+
+It also contains queries that (inclusively) span multiple media/screen
+types:  
+`netbook_up`, `tablet_netbook`, `tablet_up`, `phablet_tablet`,
+`phablet_netbook`, `phablet_up`, `phone_phablet`, `phone_tablet`,
+`phone_netbook`.
 
 ```js
 import { mq, css } from '@reykjavik/hanna-css';
