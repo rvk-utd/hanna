@@ -1,4 +1,4 @@
-# Hanna JavaScript Sprinkles
+# Hanna JavaScript Sprinkles m <!-- omit from toc -->
 
 The official vanilla JavaScript "sprinkle" effects for server-rendered
 components from **Hanna**, Reykjavík's design system.
@@ -10,6 +10,7 @@ effects.
 **Chapters:**
 
 <!-- prettier-ignore-start -->
+
 - [Script loading](#script-loading)
   - [Refreshing effects](#refreshing-effects)
 - [Script helpers](#script-helpers)

@@ -1,4 +1,4 @@
-# Reykjavík Design System CSS Server
+# Reykjavík Design System CSS Server <!-- omit from toc -->
 
 This package contains all you need to run the CSS server for Reykjavík's
 Design System.

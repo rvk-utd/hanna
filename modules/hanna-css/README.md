@@ -1,4 +1,4 @@
-# Hanna CSS Styles module
+# Hanna CSS Styles module <!-- omit from toc -->
 
 This module publishes two separate, yet tightly related assets:
 

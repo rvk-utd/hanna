@@ -1,4 +1,4 @@
-# Hanna for Developers
+# Hanna for Developers <!-- omit from toc -->
 
 Here are all the main developer resources (libraries/tools/documentation) for
 Hanna design system, together in one happy monorepo.

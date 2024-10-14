@@ -1,4 +1,4 @@
-# @reykjavik/hanna-css
+# @reykjavik/hanna-css <!-- omit from toc -->
 
 TypeScript helpers for developers writing custom CSS additions for Hanna-based
 designs.

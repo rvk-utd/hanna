@@ -1,4 +1,4 @@
-# Hanna Twig Templates
+# Hanna Twig Templates <!-- omit from toc -->
 
 This module contains [.twig](https://twig.symfony.com/) templates that
 implement the Hanna design system HTML patterns.
@@ -33,8 +33,8 @@ rm -rf __temp
 
 Leaves you with a neat folder called `hanna-twig`.
 
-NOTE: You can replace the two occurrances of the branch name `main` in the script
-above, with any commit SHA (or branch name) you like.
+NOTE: You can replace the two occurrances of the branch name `main` in the
+script above, with any commit SHA (or branch name) you like.
 
 ### Download in browser
 
@@ -48,8 +48,7 @@ Direct download link:
 ## Using the Templates in Drupal
 
 To integrate Hanna Twig templates into a Drupal theme, you can create a custom
-library.
-To get that add the following code into Drupal.
+library. To get that add the following code into Drupal.
 
 In composer.json file add the following code:
 
@@ -78,7 +77,8 @@ In composer.json file add the following code:
  "installer-paths": {"web/themes/custom/reykjavik/{$name}": ["type:drupal-hanna"]}
 ```
 
-Once the new repository is set in composer.json file, run the following command:
+Once the new repository is set in composer.json file, run the following
+command:
 
 ```sh
 composer require "<project_name>/hanna"

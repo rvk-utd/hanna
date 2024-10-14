@@ -1,4 +1,4 @@
-# @reykjavik/hanna-react
+# @reykjavik/hanna-react <!-- omit from toc -->
 
 The official React components for Hanna – Reykjavík's design-system
 

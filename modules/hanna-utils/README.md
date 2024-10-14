@@ -1,4 +1,4 @@
-# @reykjavik/hanna-utils
+# @reykjavik/hanna-utils <!-- omit from toc -->
 
 A collection of vanilla JavaScript functions and constants, that tend to be
 helpful when working with (or within) the Hanna design system.

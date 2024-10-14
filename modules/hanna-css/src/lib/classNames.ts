@@ -14,26 +14,22 @@ export const htmlCl = {
    */
   beforeSprinkling: '.before-sprinkling',
 
-  /* eslint-disable deprecation/deprecation */
-
   /**
    * @deprecated  Use `'.menu-is-active'` instead.  (Will be removed in v0.5)
    *
    * Indicates that a "mobile page menu" toggling behavior is enabled/initialized
    */
-  menuIsActive: '.menu-is-active',
+  menuIsActive: '.menu-is-active', // eslint-disable-line deprecation/deprecation
   /**
    * @deprecated  Use `'.menu-is-open'` instead.  (Will be removed in v0.5)
    *
    * Indicates that a "mobile page menu" is active and open
    */
-  menuIsOpen: '.menu-is-open',
+  menuIsOpen: '.menu-is-open', // eslint-disable-line deprecation/deprecation
   /**
    * @deprecated  Use `'.menu-is-closed'` instead.  (Will be removed in v0.5)
    *
    * Indicates that a "mobile page menu" is active but closed
    */
-  menuIsClosed: '.menu-is-closed',
-
-  /* eslint-enable deprecation/deprecation */
+  menuIsClosed: '.menu-is-closed', // eslint-disable-line deprecation/deprecation
 } as const;

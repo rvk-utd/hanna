@@ -1,4 +1,4 @@
-# Hanna Visual Regression Tests
+# Hanna Visual Regression Tests <!-- omit from toc -->
 
 This package contains a small web server that serves up
 [test pages](src/routes/test) with examples of Hanna components, and
@@ -26,6 +26,7 @@ individual pages to specify custom testing behavior. (See:
 - [Running the Tests](#running-the-tests)
 - [Reviewing Changed Screenshots](#reviewing-changed-screenshots)
 - [Updating or Adding New Tests](#updating-or-adding-new-tests)
+
 <!-- prettier-ignore-end -->
 
 ## System Requirements
