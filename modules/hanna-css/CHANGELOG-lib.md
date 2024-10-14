@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.15
+
+_2024-10-14_
+
 - docs: Improve readme and JSDoc comments for `mq` and `breakpoints_raw`
 - fix: Improve `srOnly_focusable` and `srOnly_focusableContent` style rules —
   Using `translateX` rather than `left`/`right` offsetting, hard-code links to
