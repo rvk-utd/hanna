@@ -1,3 +1,4 @@
+export * from './_/classUtils.js';
 export * from './_/ensure.js';
 export * from './_/focusElement.js';
 export * from './_/formatMonitor.js';

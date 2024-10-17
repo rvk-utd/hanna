@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `classes` and `modifiedClass` class-name construction helpers
 
 ## 0.2.16
 

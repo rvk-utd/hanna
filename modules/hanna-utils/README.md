@@ -20,6 +20,8 @@ yarn add @reykjavik/hanna-utils
   - [`printDate`](#printdate)
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
+  - [`classes`](#classes)
+  - [`modifiedClass`](#modifiedclass)
 - [Asset helpers](#asset-helpers)
   - [Reykjavík Logo](#reykjavík-logo)
   - [Favicons](#favicons)
@@ -185,6 +187,53 @@ import { capitalize } from '@reykjavik/hanna-utils';
 
 capitalize('hello world'); // "Hello world"
 capitalize('istanbul', 'TR'); // "İstanbul"
+```
+
+### `classes`
+
+**Syntax:**
+`classes(...args: Array<string | Falsy | Array<string | Falsy>>): string`
+
+Filters and joins a messy list of CSS classNames, neatly skipping falsy
+values.
+
+```ts
+import { classes } from '@reykjavik/hanna-utils';
+
+const className = classes(
+  'A',
+  false,
+  '',
+  'B',
+  ['C', null, [undefined, 'D']],
+  null
+);
+
+console.log(className);
+// 'A B C D'
+```
+
+### `modifiedClass`
+
+**Syntax:**
+`modifiedClass(base: string, modifiers: string | falsy | Array<string | Falsy>, extraClass?: string): string`
+
+Constructs a BEM class-name with one or more optional "--modifier" flags.
+
+```ts
+import { modifiedClass } from '@reykjavik/hanna-utils';
+
+const className = modifiedClass('MyComponent', 'primary', 'extra-class');
+// 'MyComponent MyComponent--primary extra-class'
+
+const className2 = modifiedClass('MyComponent', ['primary', 'large']);
+// 'MyComponent MyComponent--primary MyComponent--large'
+
+const className3 = modifiedClass('MyComponent', null);
+// 'MyComponent'
+
+const className4 = modifiedClass('MyComponent', [false, '', 'error']);
+// 'MyComponent MyComponent--error'
 ```
 
 <!--

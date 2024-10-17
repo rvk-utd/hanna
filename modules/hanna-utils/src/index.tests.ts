@@ -16,6 +16,10 @@ o.spec('hanna-utils lib', () => {
       /* ensure.ts */
       ensurePosInt: true,
 
+      /* classUtils.ts */
+      classes: true,
+      modifiedClass: true,
+
       /* focusElement.ts */
       focusElement: true,
 
@@ -50,6 +54,9 @@ o.spec('hanna-utils lib', () => {
 // Also check exported types. (Ignoring re-exported types from es-in-css.)
 import type {
   /* ObjectHelpers.ts */
+
+  /* classUtils.ts */
+  ClassNameModifiers,
 
   /* ensure.ts */
   PositiveInteger,
