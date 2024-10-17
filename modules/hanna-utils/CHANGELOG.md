@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.17
+
+_2024-10-17_
+
 - feat: Add `classes` and `modifiedClass` class-name construction helpers
 
 ## 0.2.16
