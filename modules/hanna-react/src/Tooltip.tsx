@@ -9,7 +9,7 @@ import {
   Side,
   useFloating,
 } from '@floating-ui/react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { useCallbackOnEsc } from './utils/useCallbackOnEsc.js';
 import { useLaggedState } from './utils/useLaggedState.js';

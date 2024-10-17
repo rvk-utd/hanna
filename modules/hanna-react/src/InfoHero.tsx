@@ -1,6 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { OpenRecord } from '@reykjavik/hanna-utils';
+import { modifiedClass, OpenRecord } from '@reykjavik/hanna-utils';
 
 import { BlingComboProps, Blings } from './_abstract/_Blings.js';
 import { ButtonProps } from './_abstract/_Button.js';

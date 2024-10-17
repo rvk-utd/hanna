@@ -1,5 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { Image, ImageProps } from './_abstract/_Image.js';
 import { WrapperElmProps } from './utils.js';

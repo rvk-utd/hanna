@@ -1,5 +1,5 @@
 import React, { FocusEvent, ReactNode, useEffect } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { isPreact } from './utils/env.js';
 import { useLaggedState } from './utils/useLaggedState.js';

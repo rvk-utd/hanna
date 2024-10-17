@@ -1,6 +1,5 @@
 import React, { memo, ReactNode, useMemo } from 'react';
-import { classes } from '@hugsmidjan/qj/classUtils';
-import { notNully } from '@reykjavik/hanna-utils';
+import { classes, notNully } from '@reykjavik/hanna-utils';
 
 import { HTMLProps, WrapperElmProps } from '../utils.js';
 

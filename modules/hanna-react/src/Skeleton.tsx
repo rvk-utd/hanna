@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import range from '@hugsmidjan/qj/range';
-import { EitherObj } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 
 import { WrapperElmProps } from './utils.js';
 

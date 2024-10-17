@@ -1,5 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { Button, ButtonProps } from './_abstract/_Button.js';
 import { DeprecatedSeenProp } from './utils/seenEffect.js';

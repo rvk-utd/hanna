@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { EitherObj } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 
 import { Button, ButtonProps } from './_abstract/_Button.js';
 

@@ -1,6 +1,5 @@
 import React, { FocusEvent, RefObject, useCallback, useState } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { RequireExplicitUndefined } from '@reykjavik/hanna-utils';
+import { modifiedClass, RequireExplicitUndefined } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG } from '@reykjavik/hanna-utils/i18n';
 
 import { TogglerGroupFieldProps } from './_abstract/_TogglerGroupField.js';

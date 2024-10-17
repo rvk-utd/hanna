@@ -1,6 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { EitherObj } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 
 import { ScrollWrapper } from './_abstract/_ScrollWrapper.js';
 import { Table, TableProps } from './_abstract/_Table.js';

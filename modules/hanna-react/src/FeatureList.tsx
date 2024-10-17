@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import { Efnistakn } from '@reykjavik/hanna-utils/assets';
 
 import { DeprecatedSeenProp } from './utils/seenEffect.js';

@@ -1,8 +1,8 @@
 import React, { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { prettyNum, PrettyNumOptions } from '@hugsmidjan/qj/prettyNum';
 import range from '@hugsmidjan/qj/range';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import {

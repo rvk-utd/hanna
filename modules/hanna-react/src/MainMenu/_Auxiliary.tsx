@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { OmitDistributive } from '@reykjavik/hanna-utils';
+import { modifiedClass, OmitDistributive } from '@reykjavik/hanna-utils';
 import { getIllustrationUrl } from '@reykjavik/hanna-utils/assets';
 
 import { Link } from '../_abstract/_Link.js';

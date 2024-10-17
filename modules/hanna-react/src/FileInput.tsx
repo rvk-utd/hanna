@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { OpenRecord } from '@reykjavik/hanna-utils';
+import { modifiedClass, OpenRecord } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, ensureHannaLang, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { useDropzone } from './_mixed_export_resolution_/ReactDropzone.js';

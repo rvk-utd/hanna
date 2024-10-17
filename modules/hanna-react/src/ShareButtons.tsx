@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
 import {
   DocMeta,

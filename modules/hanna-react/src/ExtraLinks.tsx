@@ -1,5 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { CardList, CardListProps, TextCardProps } from './_abstract/_CardList.js';
 import { Link } from './_abstract/_Link.js';

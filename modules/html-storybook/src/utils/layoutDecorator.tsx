@@ -1,8 +1,8 @@
 import React, { ReactElement, useEffect } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
 import { HannaColorTheme } from '@reykjavik/hanna-css';
 import { Layout } from '@reykjavik/hanna-react/Layout';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import type { StoryContext } from '@storybook/react';
 
 const hide = (selector: string) => {

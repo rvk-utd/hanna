@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Autosuggest, { RenderInputComponentProps } from 'react-autosuggest';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import SearchInput, { SearchInputProps } from './SearchInput.js';

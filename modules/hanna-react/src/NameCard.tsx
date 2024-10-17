@@ -1,5 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { Button } from './_abstract/_Button.js';

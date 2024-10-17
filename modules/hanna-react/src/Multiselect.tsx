@@ -6,9 +6,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import domId from '@hugsmidjan/qj/domid';
-import { notNully } from '@reykjavik/hanna-utils';
+import { modifiedClass, notNully } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { TogglerGroupFieldProps } from './_abstract/_TogglerGroupField.js';

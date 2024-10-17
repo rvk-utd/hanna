@@ -1,6 +1,5 @@
 import React, { RefObject } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { EitherObj } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 
 import { Link } from '../_abstract/_Link.js';
 import { BemModifierProps } from '../utils/types.js';

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';

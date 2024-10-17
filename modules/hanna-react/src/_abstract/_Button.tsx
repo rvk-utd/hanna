@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { IconName } from '@reykjavik/hanna-css';
-import { Expect, Extends, OpenStringMap } from '@reykjavik/hanna-utils';
+import { Expect, Extends, modifiedClass, OpenStringMap } from '@reykjavik/hanna-utils';
 
 import { BemModifierProps, BemProps } from '../utils/types.js';
 

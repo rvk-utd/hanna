@@ -1,6 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { EitherObj } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 
 import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { WrapperElmProps } from './utils.js';

@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
-import { EitherObj } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { issueSiteNameWarningInDev, renderLayoutHomeLink } from './_abstract/_Layouts.js';

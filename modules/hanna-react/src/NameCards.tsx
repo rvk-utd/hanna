@@ -1,5 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import NameCard, { NameCardProps } from './NameCard.js';
 import { WrapperElmProps } from './utils.js';

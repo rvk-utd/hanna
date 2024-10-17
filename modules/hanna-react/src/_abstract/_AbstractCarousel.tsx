@@ -8,11 +8,10 @@ import React, {
   useState,
 } from 'react';
 import A from '@hugsmidjan/qj/A';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import debounce from '@hugsmidjan/qj/debounce';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import throttle from '@hugsmidjan/qj/throttle';
-import { EitherObj, notNully } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass, notNully } from '@reykjavik/hanna-utils';
 
 import CarouselStepper from '../CarouselStepper.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from '../utils.js';

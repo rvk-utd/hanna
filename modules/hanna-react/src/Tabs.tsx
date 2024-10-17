@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, useState } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { getFrag } from '@hugsmidjan/qj/frag';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { DeprecatedSeenProp } from './utils/seenEffect.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';

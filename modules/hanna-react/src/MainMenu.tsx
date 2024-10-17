@@ -1,7 +1,11 @@
 import React, { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
-import { modifiedClass, Modifiers } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
-import { Cleanup, EitherObj } from '@reykjavik/hanna-utils';
+import {
+  ClassNameModifiers,
+  Cleanup,
+  EitherObj,
+  modifiedClass,
+} from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
@@ -165,7 +169,7 @@ export type MainMenuItem = {
   /**
    * Puts a modifier className for the menu __item <li/> element.
    * */
-  modifier?: Modifiers;
+  modifier?: ClassNameModifiers;
   /** Signifies if the menu item is part of the page's breadcrumb trail */
   current?: boolean;
 

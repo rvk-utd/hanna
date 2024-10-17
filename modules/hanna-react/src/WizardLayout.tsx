@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { renderLayoutHomeLink } from './_abstract/_Layouts.js';
 import { useScrollbarWidthCSSVar } from './utils/useScrollbarWidthCSSVar.js';

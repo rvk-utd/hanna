@@ -1,5 +1,5 @@
 import React, { ReactElement, useMemo } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import FormField, {
   FormFieldGroupWrappingProps,

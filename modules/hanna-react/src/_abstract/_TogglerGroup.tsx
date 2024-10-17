@@ -1,5 +1,5 @@
 import React, { ReactNode, useMemo } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { FormFieldInputProps } from '../FormField.js';
 import { HTMLProps, useMixedControlState } from '../utils.js';

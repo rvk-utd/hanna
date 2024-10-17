@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { DeprecatedSeenProp, EffectProp } from './utils/seenEffect.js';
 import SeenEffect from './SeenEffect.js';

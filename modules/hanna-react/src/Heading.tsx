@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { ComponentLayoutProps } from './constants.js';
 import { WrapperElmProps } from './utils.js';

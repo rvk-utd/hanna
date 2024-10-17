@@ -1,6 +1,5 @@
 import React, { memo, MouseEvent } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { EitherObj } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { Link } from './_abstract/_Link.js';
@@ -174,7 +173,9 @@ export const Pagination = memo((props: PaginationProps) => {
       {pageList
         .map((page, i) => {
           return page === '…' ? (
-            <span className="Pagination__ellipsis">…</span>
+            <span className="Pagination__ellipsis" key={i}>
+              …
+            </span>
           ) : (
             btn({
               key: i,

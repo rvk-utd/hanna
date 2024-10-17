@@ -1,11 +1,11 @@
-import { Modifiers } from '@hugsmidjan/qj/classUtils';
+import { ClassNameModifiers } from '@reykjavik/hanna-utils/_/classUtils';
 
 export type BemModifierProps = {
   /** List of CSS BEM --modifier's to add to the component's main wrapper.
    *
    * All falsy values are neatly skipped.
    */
-  modifier?: Modifiers;
+  modifier?: ClassNameModifiers;
 };
 export type BemProps<Required extends boolean = false> = BemModifierProps &
   (Required extends true

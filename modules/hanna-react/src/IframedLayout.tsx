@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import type { HannaColorTheme } from '@reykjavik/hanna-css';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import { HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { BemModifierProps } from './utils/types.js';

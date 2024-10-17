@@ -6,9 +6,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
-import { EitherObj } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { FocusTrap } from '../FocusTrap.js';

@@ -1,6 +1,5 @@
 import React from 'react';
-import { modifiedClass } from '@hugsmidjan/qj/classUtils';
-import { getStableRandomItem, OpenRecord } from '@reykjavik/hanna-utils';
+import { getStableRandomItem, modifiedClass, OpenRecord } from '@reykjavik/hanna-utils';
 
 import { BlingComboProps, Blings } from './_abstract/_Blings.js';
 import { Image, ImageProps } from './_abstract/_Image.js';

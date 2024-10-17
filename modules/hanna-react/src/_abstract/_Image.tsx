@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { classes, modifiedClass } from '@hugsmidjan/qj/classUtils';
+import { classes, modifiedClass } from '@reykjavik/hanna-utils';
 
 import { WrapperElmProps } from '../utils.js';
 import { BemProps } from '../utils/types.js';
