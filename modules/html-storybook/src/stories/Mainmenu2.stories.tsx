@@ -34,9 +34,12 @@ const createPanelItems = (
 
 // ---------------------------------------------------------------------------
 
+const contentOptions = ['full-blown', 'only-main', 'only-related'] as const;
+
 type ControlProps = {
   ssr: boolean;
   lightVariant: boolean;
+  menuContent: (typeof contentOptions)[number];
 };
 
 const meta: Meta<ControlProps> = {
@@ -52,52 +55,69 @@ const meta: Meta<ControlProps> = {
 export default meta;
 
 export const _MainMenu2: StoryObj<ControlProps> = {
-  render: (args) => (
-    <MainMenu2
-      key={`${args.ssr}`}
-      variant={args.lightVariant ? 'light' : undefined}
-      ssr={args.ssr ? 'ssr-only' : true}
-      items={{
-        main: [
-          createPanelItems('Íbúar', 8, 2),
-          createPanelItems('Stjórnkerfi', 5),
-          createPanelItems('Atvinnulíf', 4),
-          { label: 'Hverfið mitt', href: '', target: '_blank', current: false },
-        ],
-        hot: [
-          {
-            label: 'EN',
-            labelLong: 'English',
-            href: '',
-            icon: 'globe',
-            lang: 'en',
-            hrefLang: 'en',
-          },
-          { label: 'Mínar síður', href: '', icon: 'user', target: '_blank' },
-        ],
-        extra: [
-          { label: 'Leita', labelLong: 'Leita á vefnum', href: '', icon: 'search' },
-          { label: 'Tilkynningar', href: '', icon: 'alert' },
-        ],
-        relatedTitle: 'Sérvefir',
-        related: [
-          { label: 'Græna planið', href: '', target: '_blank' },
-          { label: 'Gagnahlaðborðið', href: '', target: '_blank' },
-          { label: 'Borgarbókasafnið', href: '', target: '_blank' },
-          { label: 'Borgin okkar', href: '', target: '_blank' },
-          { label: 'Borgarsögusafn Reykjavíkur ', href: '', target: '_blank' },
-          { label: 'Frístundavefurinn', href: '', target: '_blank' },
-          { label: 'Listasafn Reykjavíkur', href: '', target: '_blank' },
-        ],
-      }}
-      illustration="bekkur"
-    />
-  ),
+  render: (args) => {
+    const showMain = args.menuContent !== 'only-related' || undefined;
+    const showRelated = args.menuContent !== 'only-main' || undefined;
+    return (
+      <MainMenu2
+        key={`${args.ssr}`}
+        variant={args.lightVariant ? 'light' : undefined}
+        ssr={args.ssr ? 'ssr-only' : true}
+        items={{
+          main: showMain && [
+            createPanelItems('Íbúar', 8, 2),
+            createPanelItems('Stjórnkerfi', 5),
+            createPanelItems('Atvinnulíf', 4),
+            { label: 'Hverfið mitt', href: '', target: '_blank', current: false },
+          ],
+          hot: [
+            {
+              label: 'EN',
+              labelLong: 'English',
+              href: '',
+              icon: 'globe',
+              lang: 'en',
+              hrefLang: 'en',
+            },
+            { label: 'Mínar síður', href: '', icon: 'user', target: '_blank' },
+          ],
+          extra: [
+            { label: 'Leita', labelLong: 'Leita á vefnum', href: '', icon: 'search' },
+            { label: 'Tilkynningar', href: '', icon: 'alert' },
+          ],
+          relatedTitle: 'Sérvefir',
+          related: showRelated && [
+            { label: 'Græna planið', href: '', target: '_blank' },
+            { label: 'Gagnahlaðborðið', href: '', target: '_blank' },
+            { label: 'Borgarbókasafnið', href: '', target: '_blank' },
+            { label: 'Borgin okkar', href: '', target: '_blank' },
+            { label: 'Borgarsögusafn Reykjavíkur ', href: '', target: '_blank' },
+            { label: 'Frístundavefurinn', href: '', target: '_blank' },
+            { label: 'Listasafn Reykjavíkur', href: '', target: '_blank' },
+          ],
+        }}
+        illustration="bekkur"
+      />
+    );
+  },
   argTypes: {
+    menuContent: {
+      name: 'Menu content',
+      options: contentOptions,
+      control: {
+        type: 'inline-radio',
+        labels: {
+          'full-blown': 'Fully populated menu',
+          'only-main': 'Main items only',
+          'only-related': "'Related' items only",
+        } satisfies Record<ControlProps['menuContent'], string>,
+      },
+    },
     ssr: { name: 'Server-side Markup' },
     lightVariant: { name: 'Light-colored variant (experimental)' },
   },
   args: {
+    menuContent: 'full-blown',
     ssr: false,
     lightVariant: false,
   },
