@@ -508,6 +508,11 @@ export default css`
         bgRight: vars.color_faxafloi_100,
       })};
     }
+    .MainMenu2--variant--light:not(:has(.MainMenu2__related)) {
+      ${DesktopVariables.override({
+        bgRight: vars.color_faxafloi_25,
+      })};
+    }
     .MainMenu2:not(:has(.MainMenu2__main)) {
       ${DesktopVariables.override({
         bgLeft: semiTransparentBg,

@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - feat: Add `scroll-behavior: smooth` to the `<html>` element
 - fix: Extend line-wrapped `MultiSelect` click area to the right edge
+- `MainMenu2`:
+  - fix: `.MainMenu--variant--light` background if there's no related content
 
 ## 0.8.92
 
