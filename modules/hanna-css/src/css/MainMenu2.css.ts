@@ -173,6 +173,7 @@ export default css`
     position: sticky;
     top: calc(0.5 * calc(${vars.Layout$$header_height} - ${ButtonVariables.vars.height}));
     z-index: 1;
+    outline: 1px solid currentColor;
     ${ButtonVariables.override({
       backgroundColor__active: vars.color_faxafloi_100,
     })}

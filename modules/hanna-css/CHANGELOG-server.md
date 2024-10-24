@@ -7,6 +7,7 @@
 - `MultiSelect`:
   - fix: Extend line-wrapped click area to the right edge
 - `MainMenu2`:
+  - fix: Add white outline around the `__toggler` button
   - fix: `.MainMenu--variant--light` background if there's no related content
 
 ## 0.8.92
