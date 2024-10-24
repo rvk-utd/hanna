@@ -6,6 +6,8 @@
 - feat: Add `--variant--light` variant for `.MainMenu2`
 - feat: Optionally support checkbox and radio fields as children of
   `FormField__options__item` (instead of the `__item` itself).
+- fix: Improve stories for `.MainMenu2`, `Layout` (with content) and
+  `Datepicker`
 
 ## 0.8.39
 
