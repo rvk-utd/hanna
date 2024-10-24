@@ -5,10 +5,10 @@ import { ContactBubble } from '@reykjavik/hanna-react/ContactBubble';
 import { FooterBadges } from '@reykjavik/hanna-react/FooterBadges';
 import { FooterInfo } from '@reykjavik/hanna-react/FooterInfo';
 import { Layout } from '@reykjavik/hanna-react/Layout';
-import { MainMenu } from '@reykjavik/hanna-react/MainMenu';
+import { MainMenu2 } from '@reykjavik/hanna-react/MainMenu2';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { crumbTrail, mainMenuItems, megaMenuPanels } from '../utils/_dummyData.js';
+import { crumbTrail, mainMenu2Items } from '../utils/_dummyData.js';
 import { themeArgTypes, ThemeControlProps } from '../utils/knobs.js';
 
 import { contactBubbleData } from './shared/contactBubble.data.js';
@@ -52,7 +52,7 @@ const LayoutWithContentStory = (props: LayoutWithContentControlProps) => {
       navChildren={
         <>
           <BreadCrumbs trail={crumbTrail.slice(0, 2)} />
-          <MainMenu items={mainMenuItems} megaPanels={megaMenuPanels} />
+          <MainMenu2 items={mainMenu2Items()} />
         </>
       }
       footerChildren={
@@ -79,7 +79,7 @@ export const _LayoutWithContent: StoryObj<LayoutWithContentControlProps> = {
   parameters: {
     css: {
       noLayout: true,
-      tokens: 'Layout,MainMenu,FooterInfo,Alert,BreadCrumbs,FooterBadges,ContactBubble',
+      tokens: 'Layout,MainMenu2,FooterInfo,Alert,BreadCrumbs,FooterBadges,ContactBubble',
     },
   },
 };

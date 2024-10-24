@@ -10,6 +10,12 @@ import {
   MegaMenuItem,
   MegaMenuPanel,
 } from '@reykjavik/hanna-react/MainMenu';
+import {
+  MainMenu2Props,
+  MainMenu2SubMenu,
+  MainMenu2SubMenuItem,
+} from '@reykjavik/hanna-react/MainMenu2';
+import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
 import dummyImage from '../example_assets/ImageCard__image.jpg';
 
@@ -161,4 +167,70 @@ export const lorem = {
     'latin makinen dehr graek. Nawei raitinen de wehbsyte. Ut enim ad minim ' +
     'veniam, letsi ifder svensk og latin makinen dehr graek. Ut enim ad ' +
     'minim veniam, letsi ifder svensk og latin makinen dehr graek. ',
+};
+
+// ---------------------------------------------------------------------------
+
+const createMM2PanelItems = (
+  title: string,
+  length: number,
+  current?: number
+): MainMenu2SubMenu => ({
+  title,
+  subItems: Array.from({ length }).map(
+    (_, i): MainMenu2SubMenuItem => ({
+      label: `${title + (i === 2 ? ' lorem impsum dolor sit' : '')} item ${i + 1}`,
+      href: '',
+      current: current === i || undefined,
+      descr: getStableRandomItem(
+        [
+          'Lorem impsum dolor sit dolore amet',
+          'Enim ad minim impsum sita met fööt dolore bleargh.',
+          'Leebur deroor iehroom, bork bork bork! Enim ad minim chokolat moose flüü.',
+          undefined,
+          undefined,
+        ],
+        i * 11 + title.slice(0, 1)
+      ),
+    })
+  ),
+});
+export const mainMenu2Items = (
+  menuConent?: 'full-blown' | 'only-main' | 'only-related'
+): MainMenu2Props['items'] => {
+  const showMain = menuConent !== 'only-related' || undefined;
+  const showRelated = menuConent !== 'only-main' || undefined;
+  return {
+    main: showMain && [
+      createMM2PanelItems('Íbúar', 8, 2),
+      createMM2PanelItems('Stjórnkerfi', 5),
+      createMM2PanelItems('Atvinnulíf', 4),
+      { label: 'Hverfið mitt', href: '', target: '_blank', current: false },
+    ],
+    hot: [
+      {
+        label: 'EN',
+        labelLong: 'English',
+        href: '',
+        icon: 'globe',
+        lang: 'en',
+        hrefLang: 'en',
+      },
+      { label: 'Mínar síður', href: '', icon: 'user', target: '_blank' },
+    ],
+    extra: [
+      { label: 'Leita', labelLong: 'Leita á vefnum', href: '', icon: 'search' },
+      { label: 'Tilkynningar', href: '', icon: 'alert' },
+    ],
+    relatedTitle: 'Sérvefir',
+    related: showRelated && [
+      { label: 'Græna planið', href: '', target: '_blank' },
+      { label: 'Gagnahlaðborðið', href: '', target: '_blank' },
+      { label: 'Borgarbókasafnið', href: '', target: '_blank' },
+      { label: 'Borgin okkar', href: '', target: '_blank' },
+      { label: 'Borgarsögusafn Reykjavíkur ', href: '', target: '_blank' },
+      { label: 'Frístundavefurinn', href: '', target: '_blank' },
+      { label: 'Listasafn Reykjavíkur', href: '', target: '_blank' },
+    ],
+  };
 };
