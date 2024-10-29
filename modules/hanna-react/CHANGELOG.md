@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.137
+
+_2024-10-29_
+
 - fix: Optimize `useScrollEdgeDetect` to only assign the ref element once
 
 ## 0.10.136
