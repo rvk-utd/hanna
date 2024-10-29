@@ -1,4 +1,12 @@
-import { LegacyRef, MutableRefObject, RefObject, useEffect, useState } from 'react';
+import {
+  LegacyRef,
+  MutableRefObject,
+  RefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import throttle from '@hugsmidjan/qj/throttle';
 
 type ScrollAxis = 'horizontal' | 'vertical';
@@ -23,20 +31,29 @@ export const useScrollEdgeDetect = <RefElm extends HTMLElement = HTMLElement>(
 ): [scrollElmRef: LegacyRef<RefElm>, at: AtState] => {
   const opts: ScrollEdgeDetectOptions<RefElm> =
     typeof options === 'string' ? { axis: options } : options;
-  const [at, setAt] = useState(opts.startAt || { start: true, end: true });
+  const [at, setAt] = useState(() => opts.startAt || { start: true, end: true });
 
-  const [scrollerRefElm, _setScrollerRefElm] = useState<RefElm | null>(null);
-  const setScrollerRefElm: LegacyRef<RefElm> = (elm) => {
-    if (scrollerRef && elm) {
-      (scrollerRef as MutableRefObject<RefElm>).current = elm;
-    }
-    _setScrollerRefElm(elm);
-  };
+  const _scrollerRef = useRef<RefElm>();
+
+  const setScrollerRefElm: LegacyRef<RefElm> = useCallback(
+    (elm: RefElm | null) => {
+      if (!elm) {
+        return;
+      }
+      if (scrollerRef) {
+        (scrollerRef as MutableRefObject<RefElm>).current = elm;
+      }
+      _scrollerRef.current = elm;
+    },
+    [scrollerRef]
+  );
 
   const { getElm, axis } = opts;
   useEffect(() => {
+    const scrollerRefElm = _scrollerRef.current;
     const scrollerElm =
       scrollerRefElm && getElm ? getElm(scrollerRefElm) : scrollerRefElm;
+
     if (!(scrollerElm instanceof HTMLElement)) {
       return;
     }
@@ -70,7 +87,7 @@ export const useScrollEdgeDetect = <RefElm extends HTMLElement = HTMLElement>(
       scrollerElm.removeEventListener('scroll', checkScroll);
       window.removeEventListener('resize', checkScroll);
     };
-  }, [scrollerRefElm, getElm, axis]);
+  }, [getElm, axis]);
 
   return [setScrollerRefElm, at];
 };
