@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add testing type `NotExpect`
 
 ## 0.2.17
 

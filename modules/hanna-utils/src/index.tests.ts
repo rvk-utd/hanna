@@ -77,6 +77,7 @@ import type {
 
   /* testing.d.ts */
   Expect,
+  NotExpect,
   Equals,
   Extends,
   NotExtends,

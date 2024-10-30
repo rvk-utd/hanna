@@ -10,6 +10,14 @@
 export type Expect<T extends true> = T;
 
 /**
+ * Expects `T` to be `false` or a `string` (as returned by the `Equals`,
+ * `Extends` and `NotExtends` helpers).
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-notexpect
+ */
+export type NotExpect<T extends false | string> = T;
+
+/**
  * Returns true if types `A` and `B` are equal (and neither is `any`)
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#type-eequals

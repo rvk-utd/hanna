@@ -57,6 +57,7 @@ yarn add @reykjavik/hanna-utils
   - [Type `RequireExplicitUndefined`](#type-requireexplicitundefined)
   - [Type Testing Helpers](#type-testing-helpers)
     - [Type `Expect<T>`](#type-expectt)
+    - [Type `NotExpect<T>`](#type-notexpectt)
     - [Type `Equals<A, B>`](#type-equalsa-b)
     - [Type `Extends<A, B>`](#type-extendsa-b)
     - [Type `NotExtends<A, B>`](#type-notextendsa-b)
@@ -813,6 +814,20 @@ import type { Expect } from '@reykjavik/hanna-utils';
 
 type OK = Expect<true>;
 type Fails = Expect<false>; // Type Error
+type Fails = Expect<'Error message'>; // Type Error
+```
+
+#### Type `NotExpect<T>`
+
+Expects `T` to be `false` or a `string` (as returned by the `Equals`,
+`Extends` and `NotExtends` helpers).
+
+```ts
+import type { NotExpect } from '@reykjavik/hanna-utils';
+
+type OK1 = NotExpect<false>;
+type OK2 = NotExpect<'Error message'>;
+type Fails = NotExpect<true>; // Type Error
 ```
 
 #### Type `Equals<A, B>`
