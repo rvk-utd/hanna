@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `ActionCards`, `ExtraCards`, `ImageCards`, `ArticleCards`:
+  - feat: Add per-card prop `onClick`, and make `href` optional
 
 ## 0.10.137
 

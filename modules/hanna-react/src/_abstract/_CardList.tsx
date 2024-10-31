@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement, ReactNode } from 'react';
+import React, { CSSProperties, MouseEventHandler, ReactElement, ReactNode } from 'react';
 import { EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
 
 import { WrapperElmProps } from '../utils.js';
@@ -13,10 +13,11 @@ type Bem = {
 
 export type TextCardProps = {
   title: string;
-  href: string;
+  href?: string;
   meta?: string | JSX.Element;
   summary?: string | JSX.Element;
   target?: React.HTMLAttributeAnchorTarget;
+  onClick?: MouseEventHandler;
 };
 
 export type ImageCardProps = TextCardProps & {
@@ -25,12 +26,13 @@ export type ImageCardProps = TextCardProps & {
 };
 
 const Card = (props: EitherObj<ImageCardProps, TextCardProps> & Bem) => {
-  const { bem, href, title, imgPlaceholder, image, meta, summary, target } = props;
+  const { bem, href, title, imgPlaceholder, image, meta, summary, target, onClick } =
+    props;
   const cardClass = `${bem}__card`;
 
   return (
     <>
-      <Button bem={cardClass} href={href} target={target}>
+      <Button bem={cardClass} href={href} target={target} onClick={onClick}>
         {' '}
         {!!(image || imgPlaceholder) && (
           <Image bem={`${bem}__image`} {...image} placeholder={imgPlaceholder} />
