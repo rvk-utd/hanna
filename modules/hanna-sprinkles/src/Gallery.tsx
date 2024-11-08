@@ -11,8 +11,11 @@ import { getLang } from './_/getLang.js';
 
 const getGalleryData = (elm: HTMLElement): GalleryProps => {
   const lang = getLang(elm);
+  const contextual = q<HTMLDivElement>('.Gallery__contextual', elm)?.innerHTML;
   const items: Array<GalleryItemProps> = qq('.GalleryItem', elm).map(
     (itemElm): GalleryItemProps => {
+      const contextual = q<HTMLDivElement>('.GalleryItem__contextual', itemElm);
+      const contextualChildren = contextual?.innerHTML;
       const img = q<HTMLImageElement>('.GalleryItem__image img', itemElm);
       const caption = q('.GalleryItem__caption', itemElm)?.textContent || undefined;
       const description =
@@ -26,11 +29,12 @@ const getGalleryData = (elm: HTMLElement): GalleryProps => {
         caption,
         largeImageSrc,
         description,
+        contextual: contextualChildren,
       };
     }
   );
 
-  return { items, lang };
+  return { items, lang, contextual };
 };
 
 window.Hanna.makeSprinkle({

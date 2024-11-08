@@ -18,6 +18,10 @@ const getArticleCarouselData = (elm: HTMLElement): ArticleCarouselProps => {
   const title = q('.ArticleCarousel__title', elm)?.textContent || '';
   const items = qq<HTMLElement>('.ArticleCarouselCard', elm).map(
     (itemElm): ArticleCarouselCardProps => {
+      const contextual = q<HTMLDivElement>(
+        '.ArticleCarouselCard__contextual',
+        itemElm
+      )?.innerHTML;
       const img = q<HTMLImageElement>('.ArticleCarouselCard__illustration img', itemElm);
       const photo = !!q('.ArticleCarouselCard__illustration--photo', itemElm);
       const image: ArticleCarouselImageProps | undefined = img && {
@@ -35,8 +39,7 @@ const getArticleCarouselData = (elm: HTMLElement): ArticleCarouselProps => {
       const title = q('.ArticleCarouselCard__title', itemElm)?.textContent || '';
       const date = q('.ArticleCarouselCard__date', itemElm)?.textContent || undefined;
       const summary = q('.ArticleCarouselCard__summary', itemElm)?.textContent || '';
-
-      return { href, target, title, date, summary, image, color, theme };
+      return { href, target, title, date, summary, image, color, theme, contextual };
     }
   );
 

@@ -19,6 +19,7 @@ export type ArticleCarouselCardProps = {
    * then `color` takes precedence.
    */
   theme?: HannaColorTheme;
+  contextual?: string;
 } & (
   | {
       illustration: Illustration;
@@ -44,6 +45,7 @@ export const ArticleCarouselCard = (
     theme,
     illustration,
     image,
+    contextual,
   } = props;
 
   const photo = image?.photo;
@@ -55,6 +57,12 @@ export const ArticleCarouselCard = (
       data-color={color && colorFamilies[color]}
       data-color-theme={!color ? theme && themeOptions[theme] : undefined} // color takes precedence over "theme"
     >
+      {contextual && (
+        <div
+          className="ArticleCarouselCard__contextual"
+          dangerouslySetInnerHTML={{ __html: contextual }}
+        />
+      )}
       <Link className="ArticleCarouselCard__link" href={href} target={target}>
         {' '}
         <Image

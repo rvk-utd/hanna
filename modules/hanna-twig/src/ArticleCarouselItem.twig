@@ -11,6 +11,7 @@
 {% set targetValue = target ? '_blank' : '_self' %}
 
 <div class="ArticleCarouselCard" {{ colorAttr|raw }} {{ colorThemeAttr|raw }}>
+	{% block contextual %}{% endblock contextual %}
 	<a class="ArticleCarouselCard__link" target={{ targetValue }} href={{ image_link }}>
 		<picture class="ArticleCarouselCard__illustration{{ photoClass }}">
 			{{ image }}

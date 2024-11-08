@@ -1,5 +1,6 @@
 
 <figure class="GalleryItem">
+  {% block contextual %}{% endblock contextual %}
   {% if figcaption %}
     <figcaption class="GalleryItem__caption">{{ figcaption }}</figcaption>
   {% endif %}
@@ -14,6 +15,6 @@
   {% if description %}
     <div class="GalleryItem__description">
       {{ description }}
-    </div>  
+    </div>
   {% endif %}
 </figure>
