@@ -39,7 +39,7 @@ export const FocusTrap = (props: FocusTrapProps) => {
           return;
         }
         const focusables = container.querySelectorAll<FocusableElement>(
-          'a[href], input, select, textarea, button, [tabindex]:not(.FocusTrap):not([tabindex="-1"])'
+          'a[href], input, select, textarea, button, summary, iframe, [tabindex]:not(.FocusTrap):not([tabindex="-1"])'
         );
         const delta = props.atTop ? -1 : 1;
         let i = delta < 0 ? focusables.length - 1 : 0;

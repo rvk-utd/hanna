@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `FocusTrap:`
+  - fix: Add `iframe` and `summary` to the list of focusable elements
 
 ## 0.10.138
 
