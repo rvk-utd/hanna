@@ -10,7 +10,10 @@ export type FocusTrapProps = {
   /**
    * How deep the trap is placed in the DOM tree beneath its container element.
    *
-   * Default: `1`
+   * This is useful when the trap needs to be placed inside an element that's
+   * not a direct child of the desired trapping container.
+   *
+   * Default: `1`  (i.e. use the parent element.)
    */
   depth?: number;
 };

@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - `FocusTrap:`
   - fix: Add `iframe` and `summary` to the list of focusable elements
+  - docs: Add short JSDoc on why/how the `depth` prop is useful
 
 ## 0.10.138
 
