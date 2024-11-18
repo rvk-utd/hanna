@@ -1,4 +1,4 @@
-import { css } from 'es-in-css';
+import { css, scoped } from 'es-in-css';
 
 import { colors } from '../lib/colors.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -13,7 +13,18 @@ const tooltipBgColor = 'rgba(0, 0, 0, 0.7)';
 const triangleH = 6;
 const triangleW = 14;
 
+const openAnimation = scoped('DropdownMenu-open');
+
 export default css`
+  @keyframes ${openAnimation} {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .Tooltip {
     display: inline-block;
     position: relative;
@@ -61,6 +72,10 @@ export default css`
     left: var(--tooltip-content-pos-x);
     z-index: 1;
   }
+  [open] > .Tooltip__content {
+    animation: ${openAnimation} 200ms ease-in;
+  }
+
   .Tooltip__content::after {
     content: '';
     position: absolute;
