@@ -349,6 +349,13 @@ export default css`
     clear: both;
   }
 
+  summary::marker {
+    content: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
   // ===========================================================================
 
   table {

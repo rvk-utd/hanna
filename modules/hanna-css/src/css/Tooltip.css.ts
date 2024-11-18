@@ -37,13 +37,6 @@ export default css`
     border-bottom-color: ${colors.white};
   }
 
-  .Tooltip__trigger::marker {
-    content: none;
-  }
-  .Tooltip__trigger::-webkit-details-marker {
-    display: none;
-  }
-
   .Tooltip__trigger--icononly {
     ${hideText_css('soft')}
     width: ${prem(25)};
