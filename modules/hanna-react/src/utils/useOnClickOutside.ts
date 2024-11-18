@@ -6,11 +6,11 @@ type ClickHandler = (event: globalThis.MouseEvent | globalThis.TouchEvent) => vo
  * A hook that calls a `handler` function when a click event occurs outside of
  * a given `containerRef`.
  *
- * Pass `undefined` to remove the event listener.
+ * Pass `undefined` or `false` to remove the event listener.
  */
 export const useOnClickOutside = (
   containerRef: MutableRefObject<Element> | RefObject<Element>,
-  handler: ClickHandler | undefined
+  handler: ClickHandler | undefined | false
 ) => {
   const h = useRef(handler);
   const active = !!handler;
