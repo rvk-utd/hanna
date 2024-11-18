@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`:
+  - fix: Skip rendering pointless `<button/>`s when `onItemClick` is undefined
 - `FocusTrap:`
   - fix: Add `iframe` and `summary` to the list of focusable elements
   - docs: Add short JSDoc on why/how the `depth` prop is useful

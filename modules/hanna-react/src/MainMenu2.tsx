@@ -85,7 +85,7 @@ export const defaultMainMenu2Texts: DefaultTexts<MainMenu2I18n> = {
 
 export type MainMenu2Item = {
   /** Visible label text */
-  label: string | NonNullable<ReactElement>;
+  label: string | ReactElement;
   /** Un-abbreviated label set as `title=""` and `aria-label=""` */
   labelLong?: string;
   /** Language of the link label */
@@ -229,7 +229,7 @@ const getRenderers = (props: {
         className={modifiedClass(`${classPrefix}item`, item.modifier)}
         aria-current={item.current || undefined}
       >
-        {isBrowser && (onClick || href == null) ? (
+        {isBrowser && (onClick || (href == null && onItemClick)) ? (
           <ButtonTag
             {...commonProps}
             type="button"
