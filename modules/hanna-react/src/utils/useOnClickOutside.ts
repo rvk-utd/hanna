@@ -1,41 +1,35 @@
-import { MutableRefObject, RefObject, useEffect, useMemo } from 'react';
+import { MutableRefObject, RefObject, useEffect, useRef } from 'react';
 
-type Ref<E extends HTMLElement> = MutableRefObject<E> | RefObject<E>;
+type ClickHandler = (event: globalThis.MouseEvent | globalThis.TouchEvent) => void;
 
 /**
+ * A hook that calls a `handler` function when a click event occurs outside of
+ * a given `containerRef`.
  *
- * @param ref single or array of refs to check for click outside
- * @param handler callback to run when clicked outside of the ref
+ * Pass `undefined` to remove the event listener.
  */
-export const useOnClickOutside = <E extends HTMLElement>(
-  ref: Ref<E> | Array<Ref<E>>,
-  handler: (event: globalThis.MouseEvent | globalThis.TouchEvent) => void
+export const useOnClickOutside = (
+  containerRef: MutableRefObject<Element> | RefObject<Element>,
+  handler: ClickHandler | undefined
 ) => {
-  const refs = Array.isArray(ref) ? ref : [ref];
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const stableRefs = useMemo(() => refs, refs);
-
+  const h = useRef(handler);
+  const active = !!handler;
+  h.current = handler;
   useEffect(() => {
-    const listener = (event: globalThis.MouseEvent | globalThis.TouchEvent) => {
-      const shouldTrigger = !stableRefs.some((r) => {
-        const node = r.current;
-
-        if (!node) {
-          return false;
-        }
-
-        return node.contains(event.target as Node);
-      });
-
-      if (shouldTrigger) {
-        handler(event);
+    if (!active || !containerRef.current) {
+      return;
+    }
+    const listener: ClickHandler = (event) => {
+      if (!containerRef.current) {
+        return false;
+      }
+      if (!containerRef.current.contains(event.target as Node)) {
+        h.current && h.current(event);
       }
     };
-
     document.addEventListener('click', listener);
-
     return () => {
       document.removeEventListener('click', listener);
     };
-  }, [handler, stableRefs]);
+  }, [active, containerRef]);
 };
