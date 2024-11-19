@@ -1,4 +1,4 @@
-import { css, scoped } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { colors } from '../lib/colors.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -13,7 +13,7 @@ const tooltipBgColor = 'rgba(0, 0, 0, 0.7)';
 const triangleH = 6;
 const triangleW = 14;
 
-const openAnimation = scoped('DropdownMenu-open');
+const openAnimation = 'Tooltip-open';
 
 export default css`
   @keyframes ${openAnimation} {
