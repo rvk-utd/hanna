@@ -37,6 +37,9 @@ export default css`
     border-bottom-color: ${colors.white};
   }
 
+  .Tooltip__trigger {
+    cursor: auto;
+  }
   .Tooltip__trigger--icononly {
     ${hideText_css('soft')}
     width: ${prem(25)};

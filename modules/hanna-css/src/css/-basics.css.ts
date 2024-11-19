@@ -349,11 +349,12 @@ export default css`
     clear: both;
   }
 
-  summary::marker {
-    content: none;
+  summary {
+    display: block;
+    cursor: pointer; /* the default is silly IMO */
   }
-  summary::-webkit-details-marker {
-    display: none;
+  summary > * {
+    display: inline;
   }
 
   // ===========================================================================
