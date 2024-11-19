@@ -6,6 +6,7 @@
 - feat: Add `scroll-behavior: smooth` to the `<html>` element
 - `Tooltip`:
   - feat: Animate the `__content` element with "fade-in" effect
+  - fix: Remove bottom border and padding on `.Tooltip` elements
 - `MultiSelect`:
   - fix: Extend line-wrapped click area to the right edge
 - `MainMenu2`:

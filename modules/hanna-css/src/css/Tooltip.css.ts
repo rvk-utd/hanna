@@ -1,6 +1,5 @@
 import { css } from 'es-in-css';
 
-import { colors } from '../lib/colors.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
@@ -31,10 +30,11 @@ export default css`
     ${LinkStyle}
     transition: none;
   }
-
+  .Tooltip,
   .Tooltip:hover,
   .Tooltip:active {
-    border-bottom-color: ${colors.white};
+    padding-bottom: 0;
+    border-bottom: none;
   }
 
   .Tooltip__trigger {
