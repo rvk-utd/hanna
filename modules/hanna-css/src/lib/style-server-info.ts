@@ -41,6 +41,7 @@ export type CssModuleToken =
   | 'ContentArticle'
   | 'ContentImage'
   | 'Datepicker'
+  | 'DropdownButton'
   | 'efnistakn'
   | 'experimental_Columnized'
   | 'ExtraLinks'

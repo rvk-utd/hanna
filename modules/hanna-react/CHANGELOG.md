@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `DropdownButton`
 - `MainMenu2`:
   - fix: Skip rendering pointless `<button/>`s when `onItemClick` is undefined
 - `FocusTrap:`

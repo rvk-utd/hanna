@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add token `DropdownButton`
 
 ## 0.4.15
 

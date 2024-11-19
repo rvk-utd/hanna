@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `DropdownButton`
 - feat: Add `scroll-behavior: smooth` to the `<html>` element
 - `Tooltip`:
   - feat: Animate the `__content` element with "fade-in" effect
