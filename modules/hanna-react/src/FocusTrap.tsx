@@ -1,4 +1,5 @@
 import React from 'react';
+import { focusElement } from '@reykjavik/hanna-utils';
 
 type FocusableElement = Element & { focus: () => void };
 
@@ -42,7 +43,7 @@ export const FocusTrap = (props: FocusTrapProps) => {
           return;
         }
         const focusables = container.querySelectorAll<FocusableElement>(
-          'a[href], input, select, textarea, button, summary, iframe, [tabindex]:not(.FocusTrap):not([tabindex="-1"])'
+          focusElement.keyboardFocusableSelector
         );
         const delta = props.atTop ? -1 : 1;
         let i = delta < 0 ? focusables.length - 1 : 0;

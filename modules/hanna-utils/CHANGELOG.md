@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add property `focusElement.keyboardFocusableSelector`
 
 ## 0.2.18
 

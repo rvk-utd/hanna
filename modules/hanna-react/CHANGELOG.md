@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Layout`:
+  - fix: Clicking "Skip to navigation" focuses the first focusable element
 
 ## 0.10.139
 

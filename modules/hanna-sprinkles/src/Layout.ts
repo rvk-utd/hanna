@@ -33,8 +33,7 @@ window.Hanna.makeSprinkle({
 
     navLink.addEventListener('click', (e) => {
       e.preventDefault();
-      focusElement(navElm);
+      focusElement(navElm, true);
     });
-    navElm.tabIndex = -1;
   },
 });
