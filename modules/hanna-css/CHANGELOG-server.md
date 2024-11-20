@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.93
+
+_2024-11-22_
+
 - feat: Add component `DropdownButton`
 - feat: Add `scroll-behavior: smooth` to the `<html>` element
 - `Tooltip`:
