@@ -1,8 +1,15 @@
 import React from 'react';
-import domid from '@hugsmidjan/qj/domid';
 
 // @ts-expect-error  (transparently feature-detect useId hook, which is introduced in React@18)
 const useId: undefined | (() => string) = React.useId;
+
+const domid_prefix = `_${/*@__PURE__*/ `${Date.now()}-`.slice(6)}`;
+let domid_incr = 0;
+
+/**
+ * Returns a short locally-unique ID string.
+ */
+export const domid = () => domid_prefix + domid_incr++;
 
 /**
  * Returns a stable, unique ID string.

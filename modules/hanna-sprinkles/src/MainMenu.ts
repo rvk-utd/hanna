@@ -1,12 +1,12 @@
 import './_/initHannaNamespace.js';
 
-import domid from '@hugsmidjan/qj/domid';
 import E from '@hugsmidjan/qj/E';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { defaultMainMenuTexts } from '@reykjavik/hanna-react/MainMenu';
 import { defaultMobileMenuTogglerTexts } from '@reykjavik/hanna-react/MobileMenuToggler';
+import { domid } from '@reykjavik/hanna-react/utils';
 import { focusElement, getFormatMonitor, MediaFormat } from '@reykjavik/hanna-utils';
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
 

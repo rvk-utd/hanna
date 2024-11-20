@@ -7,7 +7,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import A from '@hugsmidjan/qj/A';
 import debounce from '@hugsmidjan/qj/debounce';
 import { focusElm } from '@hugsmidjan/qj/focusElm';
 import throttle from '@hugsmidjan/qj/throttle';
@@ -145,7 +144,7 @@ export const AbstractCarousel = <
       () => {
         const { scrollLeft, children } = listElm;
         // using Array#find as forEachUntil
-        A(children as unknown as ArrayLike<HTMLElement>).find((item, i) => {
+        (Array.from(children) as Array<HTMLElement>).find((item, i) => {
           if (scrollLeft <= item.offsetLeft + item.offsetWidth / 2) {
             setActiveItem(i);
             return true;

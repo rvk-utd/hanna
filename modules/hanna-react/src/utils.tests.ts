@@ -25,6 +25,7 @@ o.spec('hanna-react/utils lib', () => {
 
       /* utils/useDomid.ts */
       useDomid: true,
+      domid: true,
 
       /* utils/useFormatMonitor.ts */
       useFormatMonitor: true,

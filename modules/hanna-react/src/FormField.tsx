@@ -26,7 +26,7 @@ const inputClassNames: InputClassNames = {
 };
 
 export type FormFieldInputProps = {
-  id?: string;
+  id: string;
   required?: boolean;
   readOnly?: boolean;
   disabled?: boolean;

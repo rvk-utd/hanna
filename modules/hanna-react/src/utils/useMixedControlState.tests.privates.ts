@@ -1,6 +1,5 @@
 import { createElement, useState } from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import { wait } from '@hugsmidjan/qj/wait';
 import o, { Spy } from 'ospec';
 
 import { useMixedControlState } from './useMixedControlState.js';
@@ -49,6 +48,13 @@ type WarningLoggerSpy = Spy<Parameters<WL>, undefined>;
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Simple sleep function. Returns a promise that resolves after `length`
+ * milliseconds.
+ */
+const sleep = (length: number) =>
+  new Promise<void>((resolve) => setTimeout(resolve, length));
+
 export const createTest = (config: MakeCfg, callback: TestCallback) => {
   let containerElm: HTMLElement | undefined;
 
@@ -90,7 +96,7 @@ export const createTest = (config: MakeCfg, callback: TestCallback) => {
     };
 
   const waitForState = (expected?: State, message?: string): Promise<State> =>
-    wait(30).then(() => {
+    sleep(30).then(() => {
       if (expected) {
         return assert(expected, message)(state);
       }
