@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `DropdownButton`
+- `Multiselect`:
+  - fix: Incorrect `aria-controls` attribute value on input/toggler elements
 - `MainMenu2`:
   - fix: Skip rendering pointless `<button/>`s when `onItemClick` is undefined
 - `FocusTrap:`
