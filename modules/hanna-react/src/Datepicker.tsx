@@ -286,7 +286,6 @@ export const Datepicker = (props: DatepickerProps) => {
               />
             )}
             <ReactDatePicker
-              id={domid}
               required={inputProps.required}
               disabled={inputProps.disabled}
               readOnly={inputProps.readOnly}

@@ -26,7 +26,7 @@ const inputClassNames: InputClassNames = {
 };
 
 export type FormFieldInputProps = {
-  id: string;
+  id?: string;
   required?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
@@ -121,7 +121,7 @@ type FormFieldProps = FormFieldGroupWrappingProps & {
 
   renderInput(
     className: InputClassNames,
-    inputProps: FormFieldInputProps,
+    inputProps: FormFieldInputProps & { id: string },
     addFocusProps: FocusPropMaker,
     isBrowser?: boolean
   ): JSX.Element;
@@ -211,7 +211,7 @@ export const FormField = (props: FormFieldProps) => {
     </abbr>
   );
 
-  const inputProps: FormFieldInputProps = {
+  const inputProps: FormFieldInputProps & { id: string } = {
     id: domid,
     disabled: disabled,
     required: required,

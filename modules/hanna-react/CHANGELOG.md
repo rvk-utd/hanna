@@ -11,6 +11,8 @@
 - `FocusTrap:`
   - fix: Add `iframe` and `summary` to the list of focusable elements
   - docs: Add short JSDoc on why/how the `depth` prop is useful
+- `FormField`:
+  - fix: Indicate that `renderInput`'s `inputProps.id` value is always set
 - `utils`:
   - feat: Add low-level `domid` helper function
 
