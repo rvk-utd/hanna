@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.139
+
+_2024-11-20_
+
 - feat: Add component `DropdownButton`
 - `Multiselect`:
   - fix: Incorrect `aria-controls` attribute value on input/toggler elements
