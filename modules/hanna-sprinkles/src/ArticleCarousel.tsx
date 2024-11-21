@@ -13,15 +13,11 @@ import {
 
 import { autoSeenEffectsRefresh, autoSeenEffectWrapperProps } from './_/addSeenEffect.js';
 
-const getArticleCarouselData = (elm: HTMLElement): ArticleCarouselProps => {
+const getArticleCarouselData = (elm: HTMLElement) => {
   const moreLabel = q('.ArticleCarouselCard__morelink', elm)?.textContent || '';
   const title = q('.ArticleCarousel__title', elm)?.textContent || '';
   const items = qq<HTMLElement>('.ArticleCarouselCard', elm).map(
     (itemElm): ArticleCarouselCardProps => {
-      const contextual = q<HTMLDivElement>(
-        '.ArticleCarouselCard__contextual',
-        itemElm
-      )?.innerHTML;
       const img = q<HTMLImageElement>('.ArticleCarouselCard__illustration img', itemElm);
       const photo = !!q('.ArticleCarouselCard__illustration--photo', itemElm);
       const image: ArticleCarouselImageProps | undefined = img && {
@@ -39,18 +35,23 @@ const getArticleCarouselData = (elm: HTMLElement): ArticleCarouselProps => {
       const title = q('.ArticleCarouselCard__title', itemElm)?.textContent || '';
       const date = q('.ArticleCarouselCard__date', itemElm)?.textContent || undefined;
       const summary = q('.ArticleCarouselCard__summary', itemElm)?.textContent || '';
-      return { href, target, title, date, summary, image, color, theme, contextual };
+      return { href, target, title, date, summary, image, color, theme };
     }
   );
 
-  return { title, items, moreLabel };
+  return {
+    props: { title, items, moreLabel } satisfies ArticleCarouselProps,
+    itemContextuals: qq('.ArticleCarouselCard', elm).map((itemElm) =>
+      q('.ArticleCarouselCard__contextual', itemElm)
+    ),
+  };
 };
 
 window.Hanna.makeSprinkle({
   name: 'ArticleCarousel',
 
   init: (elm: HTMLElement) => {
-    const props = getArticleCarouselData(elm);
+    const { props, itemContextuals } = getArticleCarouselData(elm);
     const root = elm;
     elm.getAttributeNames().forEach((attrName) => {
       elm.removeAttribute(attrName);
@@ -65,6 +66,14 @@ window.Hanna.makeSprinkle({
       root,
       () => autoSeenEffectsRefresh()
     );
+
+    const galleryItems = qq<HTMLDivElement>('.ArticleCarouselCard', root);
+    itemContextuals.forEach((contextual, idx) => {
+      if (contextual) {
+        galleryItems[idx]!.insertAdjacentElement('afterbegin', contextual);
+      }
+    });
+
     return root;
   },
   unmount: (elm: HTMLElement, root) => {
