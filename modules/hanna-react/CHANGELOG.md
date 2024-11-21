@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.140
+
+_2024-11-21_
+
 - `Layout`:
   - fix: Clicking "Skip to navigation" focuses the first focusable element
 
