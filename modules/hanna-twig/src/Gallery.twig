@@ -1,10 +1,8 @@
 {{ attach_library('hanna/Gallery') }}
 
 <div {{ attributes.addClass('Gallery') }}>
-    {% block contextual %}{% endblock contextual %}
-  <div class="Gallery__itemlist-wrapper">
-    <div class="Gallery__itemlist">
-      {{ gallery_items }}
-    </div>
+  {% block contextual %}{% endblock contextual %}
+  <div class="Gallery__itemlist">
+    {{ gallery_items }}
   </div>
 </div>
