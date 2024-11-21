@@ -6,7 +6,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import domId from '@hugsmidjan/qj/domid';
 import { modifiedClass, notNully } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
@@ -340,7 +339,7 @@ export const Multiselect = (props: MultiselectProps) => {
                 className="Multiselect__search"
                 id={`toggler:${id}`}
                 aria-label={texts.search}
-                aria-controls={domId()}
+                aria-controls={id}
                 data-expanded={isOpen || undefined}
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
@@ -357,7 +356,7 @@ export const Multiselect = (props: MultiselectProps) => {
                 id={`toggler:${id}`}
                 type="button"
                 aria-label={texts.buttonShow}
-                aria-controls={domId()}
+                aria-controls={id}
                 aria-expanded={isOpen}
                 onClick={() => toggleOpen()}
                 disabled={disabled}

@@ -349,6 +349,14 @@ export default css`
     clear: both;
   }
 
+  summary {
+    display: block;
+    cursor: pointer; /* the default is silly IMO */
+  }
+  summary > * {
+    display: inline;
+  }
+
   // ===========================================================================
 
   table {

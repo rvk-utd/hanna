@@ -2,7 +2,7 @@
 /* eslint-env es2022 */
 import { existsSync } from 'fs';
 
-import { $, getPkgVersion, updatePkgVersion } from '../../build-helpers.mjs';
+import { $, getPkgVersion, opts, updatePkgVersion } from '../../build-helpers.mjs';
 
 const rootFolder = '../../';
 const serverFolder = `${rootFolder}servers/docs/`;
@@ -15,7 +15,11 @@ const pkgConfig = {
   offerDateShift: true,
 };
 
-await updatePkgVersion(pkgConfig);
+const fixupMessage = opts.fixup ? ' (fixup)' : '';
+
+if (!opts.fixup) {
+  await updatePkgVersion(pkgConfig);
+}
 
 await $(`yarn run build`);
 
@@ -47,10 +51,10 @@ await $([
   // submodule commit
   `cd ${serverFolder}`,
   `git add "./*"`,
-  `git commit -m "release(html-storybook): v${htmlVersion}"`,
+  `git commit -m "release(html-storybook): v${htmlVersion}${fixupMessage}"`,
   `cd -`,
 
   // local commit
   `git add ${rootFolder}package.json ${rootFolder}CHANGELOG.md ${serverFolder}`,
-  `git commit -m "release(html): v${htmlVersion}"`,
+  `git commit -m "release(html): v${htmlVersion}${fixupMessage}"`,
 ]);

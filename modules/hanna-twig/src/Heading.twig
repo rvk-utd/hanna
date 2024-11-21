@@ -4,4 +4,6 @@
 {% set Tag = tag == 'h3' ? 'h3' : forceH1 ? 'h1' : 'h2' %}
 {% set variantClass = size == 'small' ? ' Heading--small' : size == 'large' ? ' Heading--large' %}
 
-<{{Tag}} class="Heading{{ variantClass ~ layoutClass }}">{{ title }}</{{Tag}}>
+{% if title is not empty %}
+  <{{Tag}} class="Heading{{ variantClass ~ layoutClass }}">{{ title }}</{{Tag}}>
+{% endif %}

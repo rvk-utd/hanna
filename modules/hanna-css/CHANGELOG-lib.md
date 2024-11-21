@@ -4,6 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.4.16
+
+_2024-11-20_
+
+- feat: Add token `DropdownButton`
+
 ## 0.4.15
 
 _2024-10-14_

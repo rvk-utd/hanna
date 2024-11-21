@@ -3,9 +3,9 @@ import { useEffect, useRef } from 'react';
 /**
  * Performs a callback whenever the user hits the ESC key.
  *
- * Pass `undefined` to remove the event listener
+ * Pass `undefined` or `false` to remove the event listener.
  */
-export const useCallbackOnEsc = (callback: (() => void) | undefined) => {
+export const useCallbackOnEsc = (callback: (() => void) | undefined | false) => {
   const cb = useRef(callback);
   const active = !!callback;
   cb.current = callback;

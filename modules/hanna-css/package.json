@@ -1,6 +1,6 @@
 {
   "name": "@reykjavik/hanna-css",
-  "version": "0.4.15",
+  "version": "0.4.16",
   "author": "Reykjavík (http://www.reykjavik.is)",
   "contributors": [
     "Hugsmiðjan ehf (http://www.hugsmidjan.is)",
@@ -15,7 +15,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@reykjavik/hanna-utils": "^0.2.17",
+    "@reykjavik/hanna-utils": "^0.2.19",
     "es-in-css": "^0.7.7",
     "tslib": "^2.4.0"
   },

@@ -3,7 +3,16 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.93
+
+_2024-11-22_
+
+- feat: Add component `DropdownButton`
 - feat: Add `scroll-behavior: smooth` to the `<html>` element
+- `Tooltip`:
+  - feat: Animate the `__content` element with "fade-in" effect
+  - fix: Remove bottom border and padding on `.Tooltip` elements
 - `MultiSelect`:
   - fix: Extend line-wrapped click area to the right edge
 - `MainMenu2`:

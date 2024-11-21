@@ -3,6 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.40
+
+_2024-11-22_
+
+- feat: Add component `DropdownButton`
 - feat: Add `--variant--light` variant for `.MainMenu2`
 - feat: Optionally support checkbox and radio fields as children of
   `FormField__options__item` (instead of the `__item` itself).

@@ -1,6 +1,5 @@
 import React, { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { prettyNum, PrettyNumOptions } from '@hugsmidjan/qj/prettyNum';
 import range from '@hugsmidjan/qj/range';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DefaultTexts, getTexts, HannaLang } from '@reykjavik/hanna-utils/i18n';
@@ -13,6 +12,15 @@ import { useDomid } from './utils/useDomid.js';
 import Alert from './Alert.js';
 import Tabs, { TabItemProps } from './Tabs.js';
 import { WrapperElmProps } from './utils.js';
+
+const _fmts: Record<string, Intl.NumberFormat> = {};
+const formatNumber = (num: number, lang: string) => {
+  let fmt = _fmts[lang];
+  if (!fmt) {
+    fmt = _fmts[lang] = new Intl.NumberFormat(lang);
+  }
+  return fmt.format(num);
+};
 
 const renderDefaultErrorText = () => (
   <>
@@ -74,7 +82,7 @@ const SearchResults_Tabs = (props: SRTabsProps) => {
     () =>
       (filters || []).map(({ label, count }) => ({
         label,
-        badge: prettyNum(count, { lang }),
+        badge: count && formatNumber(count, lang),
       })),
     [filters, lang]
   );
@@ -150,7 +158,7 @@ const SearchResults__loadmore = (props: LoadMoreProps) => {
     >
       {texts.loadMore}{' '}
       <span className="SearchResults__loadmore__count">
-        ({prettyNum(moreCount, { lang })})
+        ({formatNumber(moreCount, lang)})
       </span>
     </button>
   ) : null;
@@ -164,9 +172,7 @@ const renderTitle = (props: SearchResultsProps, texts: SearchReesultI18n) => {
       {status === 'loadingquery'
         ? texts.loadQueryTitle
         : totalHits
-        ? `${prettyNum(totalHits, { lang: texts.lang as PrettyNumOptions['lang'] })} ${
-            texts.resultsTitle
-          }`
+        ? `${formatNumber(totalHits, texts.lang)} ${texts.resultsTitle}`
         : texts.noResultsTitle}
       <span className="SearchResults__query">{query}</span>
     </h2>

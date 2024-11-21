@@ -81,7 +81,7 @@ export const Layout = (props: LayoutProps) => {
             <a
               className="Layout__header__navlink"
               href="#pagenav"
-              onClick={handleAnchorLinkClick}
+              onClick={(e) => handleAnchorLinkClick(e, true)}
               aria-label={txt.skipLinkLabel}
             >
               {txt.skipLinkLabel}

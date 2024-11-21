@@ -1,3 +1,13 @@
+const keyboardFocusableSelector =
+  'a[href],' +
+  'button,' +
+  'input,' +
+  'select,' +
+  'textarea,' +
+  'summary,' +
+  'iframe,' +
+  '[tabindex]:not(.FocusTrap):not([tabindex="-1"])';
+
 /**
  * Simplistic helper to move keyboard `.focus()` to a given element.
  *
@@ -13,12 +23,26 @@
  * ```
  */
 export const focusElement = (
-  target: string | HTMLElement
+  target: string | HTMLElement,
+  forwardToFirstFocusable?: boolean
 ): ReturnType<typeof setTimeout> =>
   setTimeout(() => {
-    const elm =
+    let elm =
       typeof target === 'string' ? document.querySelector<HTMLElement>(target) : target;
-    if (elm) {
-      elm.focus();
+    if (!elm) {
+      return;
     }
+    if (forwardToFirstFocusable && elm.tabIndex === -1) {
+      elm = elm.querySelector<HTMLElement>(keyboardFocusableSelector) || elm;
+    }
+    if (elm.tabIndex === -1) {
+      elm.tabIndex = -1;
+    }
+    elm.focus();
   }, 0);
+
+/**
+ * A CSS selector used to find keyboard-focusable elements.
+ * Tuned to work best in Hanna-based UIs.
+ */
+focusElement.keyboardFocusableSelector = keyboardFocusableSelector;

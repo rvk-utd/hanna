@@ -1,6 +1,3 @@
-import addUrlParams from '@hugsmidjan/qj/addUrlParams';
-import htmlLang from '@hugsmidjan/qj/htmlLang';
-
 import { ObjectKeys } from './_/ObjectHelpers.js';
 import { DEFAULT_LANG, DefaultTexts } from './i18n.js';
 
@@ -102,6 +99,22 @@ export const shareButtonTexts: DefaultTexts<ShareButtonI18n> = {
 };
 
 /**
+ * Adds URL parameters to a base URL.
+ */
+const makeUrl = (
+  baseUrl: string,
+  paramsObj: Record<string, string | undefined>
+): string => {
+  const url = new URL(baseUrl);
+  Object.entries(paramsObj).forEach(([key, value]) => {
+    if (value !== undefined) {
+      url.searchParams.append(key, value);
+    }
+  });
+  return url.toString();
+};
+
+/**
  * MetaData for the current page, including fully constructed sharing
  * URLs for all `ShareButtonPlatforms`
  */
@@ -138,23 +151,18 @@ export const getDocMeta = (cfg: DocMetaConfig = {}): DocMeta => {
     getAttr('meta[property="og:description"]', 'content') ||
     getAttr('meta[name="description"]', 'content') ||
     '';
-  const lang = cfg.lang || htmlLang() || '';
+  const lang = cfg.lang || document.documentElement.lang.slice(0, 2).toLowerCase() || '';
 
   return {
     hrefs: {
-      facebook: addUrlParams('https://www.facebook.com/sharer.php', {
-        u: url,
-      }),
-      twitter: addUrlParams('https://twitter.com/intent/tweet', {
-        url,
-        text: title,
-      }),
-      linkedin: addUrlParams('https://www.linkedin.com/shareArticle?mini=true', {
+      facebook: makeUrl('https://www.facebook.com/sharer.php', { u: url }),
+      twitter: makeUrl('https://twitter.com/intent/tweet', { url, text: title }),
+      linkedin: makeUrl('https://www.linkedin.com/shareArticle?mini=true', {
         url,
         title,
         summary: description,
       }),
-      email: addUrlParams('mailto:', {
+      email: makeUrl('mailto:', {
         subject:
           cfg.emailSubject ||
           (shareButtonTexts[lang] || shareButtonTexts[DEFAULT_LANG]).emailSubject,

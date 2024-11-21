@@ -4,6 +4,30 @@
 
 - ... <!-- Add new lines here. -->
 
+## 0.10.140
+
+_2024-11-21_
+
+- `Layout`:
+  - fix: Clicking "Skip to navigation" focuses the first focusable element
+
+## 0.10.139
+
+_2024-11-20_
+
+- feat: Add component `DropdownButton`
+- `Multiselect`:
+  - fix: Incorrect `aria-controls` attribute value on input/toggler elements
+- `MainMenu2`:
+  - fix: Skip rendering pointless `<button/>`s when `onItemClick` is undefined
+- `FocusTrap:`
+  - fix: Add `iframe` and `summary` to the list of focusable elements
+  - docs: Add short JSDoc on why/how the `depth` prop is useful
+- `FormField`:
+  - fix: Indicate that `renderInput`'s `inputProps.id` value is always set
+- `utils`:
+  - feat: Add low-level `domid` helper function
+
 ## 0.10.138
 
 _2024-10-31_

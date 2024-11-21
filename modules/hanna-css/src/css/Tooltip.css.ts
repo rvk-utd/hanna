@@ -1,6 +1,5 @@
 import { css } from 'es-in-css';
 
-import { colors } from '../lib/colors.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
@@ -13,26 +12,34 @@ const tooltipBgColor = 'rgba(0, 0, 0, 0.7)';
 const triangleH = 6;
 const triangleW = 14;
 
+const openAnimation = 'Tooltip-open';
+
 export default css`
+  @keyframes ${openAnimation} {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .Tooltip {
     display: inline-block;
     position: relative;
     ${LinkStyle}
     transition: none;
   }
-
+  .Tooltip,
   .Tooltip:hover,
   .Tooltip:active {
-    border-bottom-color: ${colors.white};
+    padding-bottom: 0;
+    border-bottom: none;
   }
 
-  .Tooltip__trigger::marker {
-    content: none;
+  .Tooltip__trigger {
+    cursor: auto;
   }
-  .Tooltip__trigger::-webkit-details-marker {
-    display: none;
-  }
-
   .Tooltip__trigger--icononly {
     ${hideText_css('soft')}
     width: ${prem(25)};
@@ -61,6 +68,10 @@ export default css`
     left: var(--tooltip-content-pos-x);
     z-index: 1;
   }
+  [open] > .Tooltip__content {
+    animation: ${openAnimation} 200ms ease-in;
+  }
+
   .Tooltip__content::after {
     content: '';
     position: absolute;

@@ -76,13 +76,14 @@ export type ButtonVariantProps = {
 
 type _ButtonProps = ButtonProps &
   ButtonVariantProps &
-  BemProps & { children?: ReactNode };
+  BemProps & { children?: ReactNode; as?: 'summary' };
 
 // NOTE: As this component already accepts all `<button/>` and `<a/>` props
 // directly, it makes little sense to add support for `wrapperProps` on top.
 
 export const Button = (props: _ButtonProps) => {
   const {
+    as: CustomTag,
     bem,
     small, // eslint-disable-line deprecation/deprecation
     size = small ? 'small' : 'normal',
@@ -104,6 +105,13 @@ export const Button = (props: _ButtonProps) => {
 
   const iconProp = icons[icon] && { 'data-icon': icons[icon] };
 
+  if (CustomTag) {
+    return (
+      <CustomTag {...buttonProps} className={className} {...iconProp}>
+        {label}
+      </CustomTag>
+    );
+  }
   if (buttonProps.href != null) {
     return (
       <Link {...buttonProps} className={className} {...iconProp}>

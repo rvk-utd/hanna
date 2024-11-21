@@ -1,5 +1,3 @@
-import load from '@hugsmidjan/qj/load';
-
 const isSvgUrl = (url: string) => /\.svg(?:$|\?|#)/i.test(url);
 
 /**
@@ -13,7 +11,13 @@ export const getSVGtext = (
   altText?: string
 ): Promise<string> => {
   return url && isSvgUrl(url)
-    ? load(url)
+    ? fetch(url)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`Failed to fetch SVG from ${url}`);
+          }
+          return res.text();
+        })
         .then((res) => {
           const svgStart = res.search(/<svg/i);
           if (svgStart === -1) {

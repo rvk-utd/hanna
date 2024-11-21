@@ -1,6 +1,13 @@
 import React, { ReactElement } from 'react';
-import { getCssBundleUrl } from '@reykjavik/hanna-css';
+import { getCssBundleUrl, setStyleServerUrl } from '@reykjavik/hanna-css';
 import type { StoryContext } from '@storybook/react';
+
+if (
+  typeof document !== 'undefined' &&
+  document.location.hostname.endsWith('.test.thon.is')
+) {
+  setStyleServerUrl('https://styles.test.thon.is');
+}
 
 const makeCssUrl = (module: string | Array<string> | undefined, noLayout?: boolean) => {
   const layout = noLayout ? '' : 'Layout,';

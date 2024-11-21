@@ -99,6 +99,13 @@ export default function () {
                 lang: 'en',
                 hrefLang: 'en',
               },
+              // {
+              //   label: <span>Yo!</span>,
+              //   onClick: (item) => {
+              //     console.log('onClick', item);
+              //     return true;
+              //   },
+              // },
               { label: 'Mínar síður', href: '', icon: 'user', target: '_blank' },
             ],
             extra: [
