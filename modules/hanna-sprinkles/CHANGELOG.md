@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.60
+
+_2024-11-22_
+
 - `Layout`:
   - fix: Clicking "Skip to navigation" focuses the first focusable element
 - feat: Support "\_\_contextual" elements in `ArticleCarousel` and `Gallery`
