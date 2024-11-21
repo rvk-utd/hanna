@@ -9,22 +9,16 @@ import { GalleryModalContext } from './_GalleryModalContext.js';
 
 export type GalleryItemProps = {
   caption?: string;
-  contextual?: string;
   description?: string;
   largeImageSrc?: string;
 } & ImageProps;
 
 export const GalleryItem = (props: GalleryItemProps) => {
-  const { caption, contextual, description, largeImageSrc, ...image } = props;
+  const { caption, description, largeImageSrc, ...image } = props;
   const { setCurrentImage } = useContext(GalleryModalContext);
+
   return (
     <figure className="GalleryItem">
-      {contextual && (
-        <div
-          className="GalleryItem__contextual"
-          dangerouslySetInnerHTML={{ __html: contextual }}
-        />
-      )}
       <figcaption className="GalleryItem__caption">{caption}</figcaption>
       {largeImageSrc ? (
         <Button

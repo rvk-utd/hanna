@@ -71,11 +71,7 @@ export type CarouselProps<
 type AbstractCarouselProps<
   I extends Record<string, unknown> = Record<string, unknown>,
   P extends Record<string, unknown> | undefined = Record<string, unknown>
-> = CarouselProps<I, P> &
-  BemProps & {
-    title?: string;
-    contextual?: string;
-  };
+> = CarouselProps<I, P> & BemProps & { title?: string };
 
 // eslint-disable-next-line complexity
 export const AbstractCarousel = <
@@ -86,7 +82,6 @@ export const AbstractCarousel = <
 ) => {
   const {
     title,
-    contextual,
     items = [],
     Component,
     ComponentProps,
@@ -233,39 +228,31 @@ export const AbstractCarousel = <
       {title && <h2 className={`${bem}__title`}>{title}</h2>}
 
       {isBrowser ? (
-        <>
-          {contextual && (
+        <div className={`${bem}__itemlist-wrapper`}>
+          {itemList}
+          {activeItem > 0 && (
             <div
-              className={`${bem}__contextual`}
-              dangerouslySetInnerHTML={{ __html: contextual }}
+              className={`${bem}__itemlist-goLeft`}
+              onClick={() => {
+                delayedScrollLeft.cancel();
+                scrollToItem(activeItem - 1);
+              }}
+              onMouseOver={() => delayedScrollLeft(activeItem)}
+              onMouseOut={() => delayedScrollLeft.cancel()}
             />
           )}
-          <div className={`${bem}__itemlist-wrapper`}>
-            {itemList}
-            {activeItem > 0 && (
-              <div
-                className={`${bem}__itemlist-goLeft`}
-                onClick={() => {
-                  delayedScrollLeft.cancel();
-                  scrollToItem(activeItem - 1);
-                }}
-                onMouseOver={() => delayedScrollLeft(activeItem)}
-                onMouseOut={() => delayedScrollLeft.cancel()}
-              />
-            )}
-            {activeItem < itemCount - 1 && (
-              <div
-                className={`${bem}__itemlist-goRight`}
-                onClick={() => {
-                  delayedScrollRight.cancel();
-                  scrollToItem(activeItem + 1);
-                }}
-                onMouseOver={() => delayedScrollRight(activeItem)}
-                onMouseOut={() => delayedScrollRight.cancel()}
-              />
-            )}
-          </div>
-        </>
+          {activeItem < itemCount - 1 && (
+            <div
+              className={`${bem}__itemlist-goRight`}
+              onClick={() => {
+                delayedScrollRight.cancel();
+                scrollToItem(activeItem + 1);
+              }}
+              onMouseOver={() => delayedScrollRight(activeItem)}
+              onMouseOut={() => delayedScrollRight.cancel()}
+            />
+          )}
+        </div>
       ) : (
         itemList
       )}

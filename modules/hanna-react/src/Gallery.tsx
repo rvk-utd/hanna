@@ -38,7 +38,6 @@ const defaultTexts: DefaultTexts<GalleryI18n> = {
 
 export type GalleryProps = {
   items: Array<GalleryItemProps>;
-  contextual?: string;
   texts?: GalleryI18n;
   lang?: HannaLang;
 } & SSRSupportProps &
@@ -46,7 +45,7 @@ export type GalleryProps = {
   DeprecatedSeenProp;
 
 export const Gallery = (props: GalleryProps) => {
-  const { items, ssr, contextual } = props;
+  const { items, ssr } = props;
   const texts = getTexts(props, defaultTexts);
   const [currentImage, setCurrentImage] = useState<GalleryItemProps | undefined>(
     undefined
@@ -61,7 +60,6 @@ export const Gallery = (props: GalleryProps) => {
       <AbstractCarousel
         bem="Gallery"
         items={items}
-        contextual={contextual}
         Component={GalleryItem}
         ssr={ssr}
         wrapperProps={props.wrapperProps}
