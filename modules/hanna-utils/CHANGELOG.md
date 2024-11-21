@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.19
+
+_2024-11-21_
+
 - feat: Add property `focusElement.keyboardFocusableSelector`
 
 ## 0.2.18
