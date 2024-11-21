@@ -1,10 +1,11 @@
-# Change Log
+# Change Log for `hanna-sprinkles`
 
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
 - `Layout`:
   - fix: Clicking "Skip to navigation" focuses the first focusable element
+- feat: Support "\_\_contextual" elements in `ArticleCarousel` and `Gallery`
 
 ## 0.8.59
 
