@@ -1,7 +1,7 @@
 import { css } from 'es-in-css';
 
 import { buildVariables } from '../lib/cssutils.js';
-import { hannaVars as vars } from '../lib/hannavars.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
 import { LinkStyle } from './styles/links.js';
 import { prem } from './utils/miscUtils.js';
@@ -34,12 +34,16 @@ export default css`
     margin-bottom: ${vars.Button__gapV};
   }
 
+  /* ------------------------------------------------------------------------ */
+
   /* Doubles also as 'ButtonSecondary' or 'ButtonPrimary' */
   .DropdownButton__toggler {
     margin: 0;
     min-width: 0;
     width: auto; /* needed by Firefox (as of 2024-11) Some conflicts between .Button* styles applying a min-width and width:max-content  */
   }
+
+  /* ------------------------------------------------------------------------ */
 
   .DropdownButton__menu {
     position: absolute;
@@ -60,11 +64,15 @@ export default css`
     animation: ${openAnimation} 200ms ease-in;
   }
 
+  /* ------------------------------------------------------------------------ */
+
   .DropdownButton__item {
   }
   .DropdownButton__item:not(:last-child) {
     border-bottom: ${vars.border_default};
   }
+
+  /* ------------------------------------------------------------------------ */
 
   .DropdownButton__itembutton {
     ${LinkStyle()};
@@ -77,6 +85,18 @@ export default css`
     border: none;
     border-radius: calc(${vars.space_0$5} - 1px);
   }
+  .DropdownButton__itembutton:hover,
+  .DropdownButton__itembutton:focus {
+    background-color: ${vars.color_suld_50};
+  }
+
+  [aria-current='true'] > .DropdownButton__itembutton {
+    ${hannaVarOverride({
+      link_color: vars.color_faxafloi_150,
+    })}
+    background: ${vars.color_faxafloi_25};
+  }
+
   .DropdownButton__itembutton[data-icon]::before {
     ${enableDataIcon}
     margin-right: ${vars.space_1};
@@ -86,10 +106,5 @@ export default css`
     > *
     > .DropdownButton__itembutton:not([data-icon]) {
     padding-left: calc(${db.vars.DropdownButton__padH} + ${vars.space_3});
-  }
-
-  .DropdownButton__itembutton:hover,
-  .DropdownButton__itembutton:focus {
-    background-color: ${vars.color_suld_50};
   }
 `;

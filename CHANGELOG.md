@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add example of a `.DropdownButton__item` marked as "current"
 
 ## 0.8.40
 

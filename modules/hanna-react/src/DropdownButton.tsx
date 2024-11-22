@@ -131,7 +131,11 @@ export const DropdownButton = (props: DropdownButtonProps) => {
             'arial-label': item.labelLong,
           };
           return (
-            <li key={i} className="DropdownButton__item">
+            <li
+              key={i}
+              className={modifiedClass('DropdownButton__item', item.modifier)}
+              aria-current={item.current || undefined}
+            >
               {isBrowser && onClick ? (
                 <button
                   {...commonProps}

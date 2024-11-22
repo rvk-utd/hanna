@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `DropdownButton`:
+  - feat: Support rendering `current` status of menu items
 
 ## 0.10.140
 

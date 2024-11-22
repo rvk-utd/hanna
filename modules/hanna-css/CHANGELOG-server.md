@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `DropdownButton`:
+  - feat: Add `[aria-crurrent]` styling for menu items
 
 ## 0.8.93
 

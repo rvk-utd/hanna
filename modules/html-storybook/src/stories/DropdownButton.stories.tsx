@@ -33,6 +33,7 @@ const mockItems: DropdownButtonProps['items'] = [
       </>
     ),
     href: '',
+    current: true,
   },
   {
     label: 'Some stuff',

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { V2_MetaFunction } from '@remix-run/node';
 import {
   DropdownButton,
@@ -24,6 +24,10 @@ export const meta: V2_MetaFunction = autoTitle;
 export const handle = cssTokens('VSpacer');
 
 export default function () {
+  useEffect(() => {
+    document.querySelector<HTMLElement>('.DropdownButton__toggler')?.click();
+  }, []);
+
   return (
     <Minimal>
       <DropdownButton
@@ -41,6 +45,7 @@ export default function () {
               </>
             ),
             href: '',
+            current: true,
           },
           {
             label: 'Delete',
