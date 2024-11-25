@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.141
+
+_2024-11-25_
+
 - `DropdownButton`:
   - feat: Support rendering `current` status of menu items
   - feat: Add prop `onItemClick`
