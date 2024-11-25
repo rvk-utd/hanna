@@ -223,13 +223,15 @@ const getRenderers = (props: {
         }
       : undefined;
 
+    const doRenderButton = isBrowser && (onClick || (onItemClick && href == null));
+
     return (
       <Tag
         key={key}
         className={modifiedClass(`${classPrefix}item`, item.modifier)}
         aria-current={item.current || undefined}
       >
-        {isBrowser && (onClick || (href == null && onItemClick)) ? (
+        {doRenderButton ? (
           <ButtonTag
             {...commonProps}
             type="button"
