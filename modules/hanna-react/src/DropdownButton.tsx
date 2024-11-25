@@ -25,13 +25,22 @@ export type DropdownButtonCustomItem = (props: {
 
 //
 
-export type DropdownButtonProps = Prefix<Omit<ButtonVariantProps, 'small'>, 'button'> & {
+export type DropdownButtonProps = {
   label: string | NonNullable<React.ReactElement>;
   labelLong?: string;
+  items: Array<DropdownButtonItem | DropdownButtonCustomItem>;
+
+  /**
+   * NOTE: Clicking a MainMenu2 item will automatically close HannaUIState's
+   * "Hamburger menu" (a.k.a. "Mobile menu")
+   * … unless the `onItemClick` function explicitly returns `false`.
+   */
+  onItemClick?: (item: MainMenu2Item) => void | boolean;
+
   /** Default: `"seconcary"` */
   buttonType?: 'primary' | 'secondary';
-  items: Array<DropdownButtonItem | DropdownButtonCustomItem>;
-} & WrapperElmProps<'details', 'open' | 'name'> &
+} & Prefix<Omit<ButtonVariantProps, 'small'>, 'button'> &
+  WrapperElmProps<'details', 'open' | 'name'> &
   SSRSupportProps;
 
 export const DropdownButton = (props: DropdownButtonProps) => {
@@ -51,7 +60,7 @@ export const DropdownButton = (props: DropdownButtonProps) => {
     whileElementsMounted: autoUpdate,
   });
 
-  const { wrapperProps = {} } = props;
+  const { onItemClick, wrapperProps = {} } = props;
 
   return (
     <details
@@ -130,19 +139,24 @@ export const DropdownButton = (props: DropdownButtonProps) => {
             'data-icon': item.icon,
             'arial-label': item.labelLong,
           };
+
+          const doRenderButton = isBrowser && (onClick || (onItemClick && href == null));
+
           return (
             <li
               key={i}
               className={modifiedClass('DropdownButton__item', item.modifier)}
               aria-current={item.current || undefined}
             >
-              {isBrowser && onClick ? (
+              {doRenderButton ? (
                 <button
                   {...commonProps}
                   type="button"
                   aria-controls={item.controlsId}
-                  onClick={(e) => {
-                    onClick(item) !== false && closeMenuStat();
+                  onClick={() => {
+                    const keepOpen1 = onClick && onClick(item) === false;
+                    const keepOpen2 = onItemClick && onItemClick(item) === false;
+                    !(keepOpen1 || keepOpen2) && closeMenuStat();
                   }}
                 >
                   {label}
@@ -153,6 +167,10 @@ export const DropdownButton = (props: DropdownButtonProps) => {
                   href={href}
                   hrefLang={item.hrefLang}
                   target={item.target}
+                  onClick={() => {
+                    const keepOpen = onItemClick && onItemClick(item) === false;
+                    !keepOpen && closeMenuStat();
+                  }}
                 >
                   {label}
                 </a>

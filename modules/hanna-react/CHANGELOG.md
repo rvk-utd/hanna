@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - `DropdownButton`:
   - feat: Support rendering `current` status of menu items
+  - feat: Add prop `onItemClick`
 
 ## 0.10.140
 
