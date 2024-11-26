@@ -19,7 +19,7 @@ if (!opts.dev) {
       const contents = await readFile(fileName);
       await writeFile(
         fileName,
-        contents.toString().replace(/typeof _NPM_PUB_ !== 'undefined'/g, 'true')
+        contents.toString().replace(/typeof _NPM_PUB_/g, "'boolean'")
       );
     })
   );

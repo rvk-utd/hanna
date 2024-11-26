@@ -1,12 +1,11 @@
 import { css, rem } from 'es-in-css';
 
-import { srOnly } from '../lib/a11y.js';
+import { hoverKeyboardFocusAndActiveStyling, srOnly } from '../lib/a11y.js';
 import { clamp_phone_netbook } from '../lib/between.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { hoverKeyboardFocusAndActiveStyling } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
 import { DEPS, grid_units, prem } from './utils/miscUtils.js';
 

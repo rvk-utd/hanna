@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { srOnly } from '../lib/a11y.js';
+import { hoverKeyboardFocusAndActiveStyling, srOnly } from '../lib/a11y.js';
 import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
@@ -11,7 +11,6 @@ import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LabeledTitleStyle__basics } from './styles/labeledTitle.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { afterClear_css } from './utils/afterClear.js';
-import { hoverKeyboardFocusAndActiveStyling } from './utils/focus-selectors.js';
 import { cols_px, DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 const baseDashWidth = 24;

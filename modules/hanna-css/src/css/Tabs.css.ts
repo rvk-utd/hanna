@@ -7,7 +7,6 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LinkStyle_Reset } from './styles/links.js';
-import { keyboardFocusStyling } from './utils/focus-selectors.js';
 import { cols_px, prem } from './utils/miscUtils.js';
 
 export default css`
@@ -65,12 +64,10 @@ export default css`
     ${htmlCl.beforeSprinkling} .TabPanel:not([data-sprinkled]) {
       display: none;
     }
-    .TabPanel {
-      ${keyboardFocusStyling(css`
-        outline-color: ${vars.color_suld_100};
-        outline-style: dotted;
-        outline-offset: ${vars.space_1};
-      `)}
+    .TabPanel:focus-visible {
+      outline-color: ${vars.color_suld_100};
+      outline-style: dotted;
+      outline-offset: ${vars.space_1};
     }
 
     // Nested/sub-tabs
@@ -124,10 +121,9 @@ export default css`
       margin: 0;
       padding: ${vars.space_2} ${vars.space_1};
       white-space: normal;
-
-      ${keyboardFocusStyling(css`
-        outline-offset: -3px;
-      `)}
+    }
+    .Tabs--vertical .Tabs__tab:focus-visible {
+      outline-offset: -3px;
     }
     .Tabs--vertical > .Tabs__tab {
       margin-top: ${vars.space_0$5};

@@ -1,8 +1,5 @@
 /* eslint-disable import/newline-after-import, import/first, simple-import-sort/imports */
 
-import './_/focus-visible.js';
-
-// ---------------------------------------------------------------------------
 import { ObjectEntries, getFormatMonitor } from '@reykjavik/hanna-utils';
 export { getFormatMonitor, ObjectEntries };
 

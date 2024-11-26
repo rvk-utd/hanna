@@ -1,10 +1,10 @@
 import { css } from 'es-in-css';
 
+import { hoverKeyboardFocusAndActiveStyling } from '../lib/a11y.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { hoverKeyboardFocusAndActiveStyling } from './utils/focus-selectors.js';
 import { hideText_css } from './utils/hideText.js';
 import { DEPS, prem } from './utils/miscUtils.js';
 

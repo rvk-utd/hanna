@@ -1,15 +1,12 @@
 import { css, px } from 'es-in-css';
 
+import { hoverKeyboardFocusAndActiveStyling } from '../../lib/a11y.js';
 import { scale_phone_netbook, scale_tablet_netbook } from '../../lib/between.js';
 import { mq } from '../../lib/breakpoints.js';
 import { buildVariables } from '../../lib/cssutils.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { iconStyle } from '../../lib/icons.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
-import {
-  hoverKeyboardFocusAndActiveStyling,
-  keyboardFocusStyling,
-} from '../utils/focus-selectors.js';
 import { prem } from '../utils/miscUtils.js';
 
 import { LinkStyle_Reset } from './links.js';
@@ -105,10 +102,10 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
       })}
     }
 
-    ${keyboardFocusStyling(css`
+    &:focus-visible {
       outline: ${prem(2)} solid ${bVars.color};
       outline-offset: ${prem(2)};
-    `)}
+    }
 
     &:disabled,
     &[aria-disabled='true'] {
@@ -240,19 +237,17 @@ export const ButtonTertiaryStyle__hoverFocus = () => css`
     width: ${btVars.dashWidth};
   }
 
-  ${keyboardFocusStyling(css`
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: ${prem(-13)} ${prem(-16)};
-      border: ${prem(1)} dotted ${btVars.dashColor};
-      border-radius: ${prem(8)};
-    }
-  `)}
+  &:focus-visible::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: ${prem(-13)} ${prem(-16)};
+    border: ${prem(1)} dotted ${btVars.dashColor};
+    border-radius: ${prem(8)};
+  }
 `;
 
 export const ButtonTertiaryStyle__disabled = () => css`

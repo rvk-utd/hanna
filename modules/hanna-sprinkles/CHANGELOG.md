@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Stop auto-loading the `focus-visible` polyfill when loading sprinkles
 
 ## 0.8.60
 
@@ -395,7 +396,7 @@ _2020-11-11_
 _2020-11-11_
 
 - feat: Turn all `<table/>`s into `BasicTable` by default
-- feat: Add helper `utils/focus-visible`
+- feat: ~~Add helper `utils/focus-visible`~~ (This import never really worked)
 - feat: Auto-import `focus-visible` polyfill when loading any sprinkles
 - fix: Add missing dependencies to package.json
 - fix: Broken build of `utils/elsearch/renderSiteSearchPage`

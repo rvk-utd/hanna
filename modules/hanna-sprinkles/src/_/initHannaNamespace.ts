@@ -1,5 +1,3 @@
-import 'focus-visible'; // needed for most browsers
-
 import getScrollbarWidth from '@hugsmidjan/qj/getScrollbarWidth';
 import qq from '@hugsmidjan/qj/qq';
 import { setDefaultLanguage } from '@reykjavik/hanna-utils/i18n';

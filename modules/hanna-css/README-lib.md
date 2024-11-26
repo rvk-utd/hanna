@@ -47,7 +47,6 @@ yarn add @reykjavik/hanna-css
   - [`srOnly` mixin](#sronly-mixin)
   - [`srOnly_focusable` mixin](#sronly_focusable-mixin)
   - [`srOnly_focusableContent` mixin](#sronly_focusablecontent-mixin)
-  - [`keyboardFocusStyling` mixin](#keyboardfocusstyling-mixin)
   - [`hoverKeyboardFocusAndActiveStyling` mixin](#hoverkeyboardfocusandactivestyling-mixin)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
@@ -596,38 +595,13 @@ const myCss = css`
 `;
 ```
 
-### `keyboardFocusStyling` mixin
-
-**Syntax:** `keyboardFocusStyling: (css: string) => CssString`
-
-Generates backwards compatible selectors for `:focus-visible` — and also
-targets the class-names injected by the
-[`focus-visible` polyfill](https://www.npmjs.com/package/@reykjavik/hanna-utils#focus-visible-polyfill)
-
-```js
-import { css, keyboardFocusStyling } from '@reykjavik/hanna-css';
-
-const myCss = css`
-  .MyComponent__cardlink {
-    /* Card link styles ... */
-    /* :hover styles ... */
-
-    ${keyboardFocusStyling(css`
-      outline: 2px solid currentColor;
-      outline-offset: 2px;
-    `)};
-  }
-`;
-```
-
 ### `hoverKeyboardFocusAndActiveStyling` mixin
 
 **Syntax:**
 `hoverKeyboardFocusAndActiveStyling: (css: string, options?: { notActive?: stirng }) => CssString`
 
 Generates `:hover`, `:active` and `:focus-visible` selectors in a backwards
-compatible manner. (It also targets the class-names injected by the
-[`focus-visible` polyfill](https://www.npmjs.com/package/@reykjavik/hanna-utils#focus-visible-polyfill))
+compatible manner.
 
 ```js
 import {

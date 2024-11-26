@@ -15,10 +15,6 @@ import { WARNING_border__ } from '../lib/WARNING__.js';
 import { hannaVarDeclarations } from './styles/hannaVarDeclarations.js';
 import { LinkStyle, LinkStyle__focusOutline } from './styles/links.js';
 import { buttonReset } from './utils/buttonReset.js';
-import {
-  setDefaultKeyboardFocusStyle,
-  setDefaultNonKeyboardFocusStyle,
-} from './utils/focus-selectors.js';
 import { normalizeCss } from './utils/normalize.js';
 import { writeMediaFormatMarkers } from './utils/writeMediaFormatMarkers.js';
 
@@ -104,14 +100,22 @@ export default css`
     display: none;
   }
 
-  ${setDefaultKeyboardFocusStyle(css`
-    ${LinkStyle__focusOutline}
-  `)};
-
-  ${setDefaultNonKeyboardFocusStyle(css`
+  /* Set default keyboard focus style */
+  *:focus:focus {
+    ${LinkStyle__focusOutline()};
+  }
+  *:focus-visible:focus-visible {
+    ${LinkStyle__focusOutline()};
+  }
+  /* Set default non-keyboard focus style */
+  *:focus[tabindex='-1'] {
     outline: none;
     outline-offset: 0;
-  `)};
+  }
+  *:focus:not(:focus-visible) {
+    outline: none;
+    outline-offset: 0;
+  }
 
   html {
     min-height: 100vh;

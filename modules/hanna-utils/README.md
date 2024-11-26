@@ -40,8 +40,6 @@ yarn add @reykjavik/hanna-utils
   - [`setDefaultLanguage`](#setdefaultlanguage)
   - [`setDefaultLanguage.push()`](#setdefaultlanguagepush)
 - [Social Media Sharing](#social-media-sharing)
-- [Polyfills / A11y](#polyfills--a11y)
-  - [`focus-visible` polyfill](#focus-visible-polyfill)
 - [Branded types](#branded-types)
   - [`ensurePosInt`](#ensureposint)
 - [TypeScript helpers](#typescript-helpers)
@@ -576,20 +574,6 @@ Until proper documentation is ready, see
 (and
 [ShareButtons.tsx](https://github.com/rvk-utd/hanna/blob/main/modules/hanna-react/src/ShareButtons.tsx)
 for an example of how it's used in `hanna-react`).
-
-## Polyfills / A11y
-
-### `focus-visible` polyfill
-
-Exposes [`focus-visible`](https://www.npmjs.com/package/focus-visible) as an
-optionally importable module to consumers of `hanna-utils`, without requiring
-them to install it as a standalone dependency in their project.
-
-At/near the top of your App do:
-
-```ts
-import '@reykjavik/hanna-utils/focus-visible';
-```
 
 ## Branded types
 

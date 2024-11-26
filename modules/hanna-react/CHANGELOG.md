@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Deprecate `focus-visible` polyfill module; browser support is now good
 
 ## 0.10.141
 

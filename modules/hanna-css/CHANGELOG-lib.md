@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Deprecate `keyboardFocusStyling` as `:focus-visible` has wide support
 
 ## 0.4.16
 

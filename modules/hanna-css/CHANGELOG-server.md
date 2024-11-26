@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - `DropdownButton`:
   - feat: Add `[aria-crurrent]` styling for menu items
+- perf: Remove stylings aimed at the `focus-visible` JavaScript polyfill
 
 ## 0.8.93
 

@@ -96,7 +96,7 @@ export default defineConfig({
       treeshake: {
         preset: 'safest',
         moduleSideEffects: (id, external) =>
-          !external || /\/(?:initHannaNamespace|focus-visible)\.(?:mjs|js|ts)?/.test(id),
+          !external || /\/(?:initHannaNamespace)\.(?:mjs|js|ts)?/.test(id),
       },
 
       output: {
