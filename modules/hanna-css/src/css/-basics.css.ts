@@ -1,16 +1,12 @@
-import {
-  font_raw,
-  hannaVarOverride,
-  hannaVars as vars,
-  WARNING__,
-} from '@reykjavik/hanna-css';
 import { css, str } from 'es-in-css';
 import md5File from 'md5-file';
 
 import { srOnly } from '../lib/a11y.js';
 import { bp } from '../lib/breakpoints.js';
+import { font } from '../lib/font.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { characters, iconfont_raw } from '../lib/icons.js';
-import { WARNING_border__ } from '../lib/WARNING__.js';
+import { WARNING__, WARNING_border__ } from '../lib/WARNING__.js';
 
 import { hannaVarDeclarations } from './styles/hannaVarDeclarations.js';
 import { LinkStyle, LinkStyle__focusOutline } from './styles/links.js';
@@ -53,16 +49,16 @@ export default css`
   }
 
   @font-face {
-    font-family: ${font_raw.familyName};
-    font-weight: ${font_raw.weight_normal};
+    font-family: ${font.familyName};
+    font-weight: ${font.weight_normal};
     font-style: normal;
     font-display: block;
     src: url('${esjaFolder}/Esja-regular.woff2') format('woff2'),
       url('${esjaFolder}/Esja-regular.woff') format('woff');
   }
   @font-face {
-    font-family: ${font_raw.familyName};
-    font-weight: ${font_raw.weight_bold};
+    font-family: ${font.familyName};
+    font-weight: ${font.weight_bold};
     font-style: normal;
     font-display: block;
     src: url('${esjaFolder}/Esja-bold.woff2') format('woff2'),
@@ -70,16 +66,16 @@ export default css`
   }
   /** /
   @font-face {
-    font-family: ${font_raw.familyName};
-    font-weight: ${font_raw.weight_normal};
+    font-family: ${font.familyName};
+    font-weight: ${font.weight_normal};
     font-style: italic;
     font-display: block;
     src: url('${esjaFolder}/Esja-regularitalic.woff2') format('woff2'),
       url('${esjaFolder}/Esja-regularitalic.woff') format('woff');
   }
   @font-face {
-    font-family: ${font_raw.familyName};
-    font-weight: ${font_raw.weight_bold};
+    font-family: ${font.familyName};
+    font-weight: ${font.weight_bold};
     font-style: italic;
     font-display: block;
     src: url('${esjaFolder}/Esja-bolditalic.woff2') format('woff2'),

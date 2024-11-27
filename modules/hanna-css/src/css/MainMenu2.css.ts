@@ -1,17 +1,14 @@
-import {
-  buildVariables,
-  css,
-  hannaVarOverride,
-  hannaVars as vars,
-  htmlCl,
-  iconStyle,
-  mq,
-  srOnly_focusableContent,
-  WARNING__,
-} from '@reykjavik/hanna-css';
+import { css } from 'es-in-css';
 
+import { srOnly_focusableContent } from '../lib/a11y.js';
 import { clamp_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
+import { htmlCl } from '../lib/classNames.js';
+import { buildVariables } from '../lib/cssutils.js';
 import { grid } from '../lib/grid.js';
+import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import { ButtonVariables } from './styles/buttons.js';
 import { freezeScroll_css } from './styles/header.js';

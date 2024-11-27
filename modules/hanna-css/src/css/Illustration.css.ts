@@ -1,6 +1,8 @@
-import { hannaVars as vars, isDevMode, mq } from '@reykjavik/hanna-css';
 import { css } from 'es-in-css';
 
+import { mq } from '../lib/breakpoints.js';
+import { isDevMode } from '../lib/cssutils.js';
+import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { DEPS } from './utils/miscUtils.js';

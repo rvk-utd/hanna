@@ -1,8 +1,8 @@
-import { grid_raw } from '@reykjavik/hanna-css';
 import { css, px } from 'es-in-css';
 
 import { srOnly_focusable } from '../lib/a11y.js';
 import { mq } from '../lib/breakpoints.js';
+import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
@@ -45,7 +45,7 @@ export default /*#__PURE__*/ css`
     }
     ${mobileMenuIsOpen} .MobileMenuToggler {
       position: fixed;
-      right: max(calc(50vw - ${px(grid_raw.contentMaxWidth / 2)}), ${vars.grid_margin});
+      right: max(calc(50vw - ${px(grid.contentMaxWidth / 2)}), ${vars.grid_margin});
       --open-icon-opacity: 0;
       --close-icon-opacity: 1;
       // margin-right: ${vars.browser_scrollbar_width};

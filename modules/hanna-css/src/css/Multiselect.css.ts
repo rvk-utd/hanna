@@ -1,7 +1,7 @@
-import { colors_raw } from '@reykjavik/hanna-css';
 import { color, css } from 'es-in-css';
 
 import { htmlCl } from '../lib/classNames.js';
+import { colors } from '../lib/colors.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { formFieldVars as ff } from '../lib/otherTokens.js';
@@ -146,7 +146,7 @@ export default css`
     margin-bottom: ${vars.space_1};
     ${TagPillVariables.override({
       // NOTE: Is this something we may want to do in the TagPill itself?
-      background: color(colors_raw.suld_100).alpha(0.25),
+      background: color(colors.suld_100).alpha(0.25),
     })}
   }
   :not(.Multiselect__input--open) > * > .Multiselect__currentvalues > .TagPill {
