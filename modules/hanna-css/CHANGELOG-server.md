@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`:
+  - feat: Make white page-overlay slightly more opaque
 - `DropdownButton`:
   - feat: Add `[aria-crurrent]` styling for menu items
 - perf: Remove stylings aimed at the `focus-visible` JavaScript polyfill

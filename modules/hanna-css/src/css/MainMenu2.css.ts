@@ -1,4 +1,4 @@
-import { css } from 'es-in-css';
+import { color, css } from 'es-in-css';
 
 import { srOnly_focusableContent } from '../lib/a11y.js';
 import { clamp_netbook } from '../lib/between.js';
@@ -52,8 +52,8 @@ const resetNonLinkChildrenLayout = () => css`
   }
 `;
 
-const semiTransparentBg = 'rgba(255, 255, 255, .67)';
-const semiTransparentShadow = 'rgba(236, 236, 236, .67)';
+const semiTransparentBg = color('#ffffff').alpha(0.8);
+const semiTransparentShadow = color('#e0e0e0').alpha(0.8);
 
 // ---------------------------------------------------------------------------
 
