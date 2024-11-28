@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.142
+
+_2024-11-28_
+
 - feat: Deprecate `focus-visible` polyfill module; browser support is now good
 - `Datepicker`:
   - fix: Set `minDate` prop values to `T00:00` to allow manual min date input
