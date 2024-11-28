@@ -15,7 +15,7 @@ export const meta: V2_MetaFunction = autoTitle;
 
 const startDate = new Date('2022-10-05');
 
-const lang: DatepickerProps['localeCode'] = undefined;
+const lang: DatepickerProps['lang'] = undefined;
 
 // Use `handle` if you're using multiple Hanna compnents
 export const handle = { lang, ...cssTokens('RowBlock', 'RowBlockColumn') };

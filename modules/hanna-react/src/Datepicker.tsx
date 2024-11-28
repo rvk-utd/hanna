@@ -218,6 +218,9 @@ export const Datepicker = (props: DatepickerProps) => {
     fieldWrapperProps,
   } = groupFormFieldWrapperProps(props);
 
+  // Make sure all minDates are at the start of the day
+  const minDateNormalized = minDate ? new Date(minDate.setHours(0, 0, 0, 0)) : undefined;
+
   const [value, setValue] = useMixedControlState.raw(
     props.value || props.initialDate, // eslint-disable-line deprecation/deprecation
     props.defaultValue,
@@ -305,7 +308,7 @@ export const Datepicker = (props: DatepickerProps) => {
               placeholderText={placeholder}
               // TODO: Implement this
               // selectsRange
-              minDate={minDate}
+              minDate={minDateNormalized}
               maxDate={maxDate}
               startDate={startDate}
               endDate={endDate}
