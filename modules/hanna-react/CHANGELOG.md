@@ -2,7 +2,12 @@
 
 ## Upcoming...
 
-- ... <!-- Add new lines here. -->+
+- ... <!-- Add new lines here. -->
+
+## 0.10.143
+
+_2024-12-06_
+
 - `Datepicker:`
   - fix: Timezone mismatch in `isoMode` (emitted UTC-based dates, not local)
 
