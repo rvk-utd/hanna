@@ -2,7 +2,9 @@
 
 ## Upcoming...
 
-- ... <!-- Add new lines here. -->
+- ... <!-- Add new lines here. -->+
+- `Datepicker:`
+  - fix: Timezone mismatch in `isoMode` (emitted UTC-based dates, not local)
 
 ## 0.10.142
 

@@ -13,7 +13,8 @@ import { cssTokens } from '../../utils/route.js';
 
 export const meta: V2_MetaFunction = autoTitle;
 
-const startDate = new Date('2022-10-05');
+const startDate = new Date('2022-10-05T00:00Z'); // Stress test easterly timezones
+// const startDate = new Date('2022-10-05T23:00Z'); // Stress test westerly timezones
 
 const lang: DatepickerProps['lang'] = undefined;
 

@@ -191,6 +191,14 @@ const defaultDatepickerTexts: DefaultTexts<DatepickerLocaleProps> = {
   },
 };
 
+const toLocalIsoDate = (date: Date | undefined) => {
+  if (!date) {
+    return undefined;
+  }
+  const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+  return localDate.toISOString().split('T')[0];
+};
+
 /**
  * A compo
  *
@@ -281,13 +289,7 @@ export const Datepicker = (props: DatepickerProps) => {
             }
             {...addFocusProps()}
           >
-            {isoMode && (
-              <input
-                type="hidden"
-                name={name}
-                value={value?.toISOString().slice(0, 10)}
-              />
-            )}
+            {isoMode && <input type="hidden" name={name} value={toLocalIsoDate(value)} />}
             <ReactDatePicker
               required={inputProps.required}
               disabled={inputProps.disabled}
