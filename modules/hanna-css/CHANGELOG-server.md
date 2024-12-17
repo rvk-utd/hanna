@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `IframedLayout`:
+  - fix: Remove min-height rule preventing auto-reducing height of iframes
 - `MainMenu2`:
   - feat: Make white page-overlay slightly more opaque
 - `DropdownButton`:
