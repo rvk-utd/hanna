@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.144
+
+_2024-12-18_
+
 - `Alert`:
   - feat: (TS) Change `alertTypes` into `Record<string, 1>` for easier use
 
