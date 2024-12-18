@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Alert`:
+  - feat: (TS) Change `alertTypes` into `Record<string, 1>` for easier use
 
 ## 0.10.143
 

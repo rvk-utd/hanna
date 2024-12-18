@@ -68,14 +68,15 @@ export const defaultAlertTexts: DefaultTexts<AlertI18n> = {
   pl: { closeLabel: 'Ukryj' },
 };
 
-export const alertTypes = {
+type AlertType = 'info' | 'success' | 'warning' | 'error' | 'critical';
+
+export const alertTypes: Record<string, 1> = {
   info: 1,
   success: 1,
   warning: 1,
   error: 1,
   critical: 1,
-};
-type AlertType = keyof typeof alertTypes;
+} satisfies Record<AlertType, 1>;
 
 // ---------------------------------------------------------------------------
 
