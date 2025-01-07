@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Drop support for a `message` property on site-wide alert objects
 - feat: Stop auto-loading the `focus-visible` polyfill when loading sprinkles
 
 ## 0.8.60
