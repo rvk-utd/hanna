@@ -24,32 +24,33 @@ const gcDismissed = () => {
   }
 };
 
-const shouldShowOnThisPage = (baseUrl: string) => (alert: SiteWideAlert) => {
-  const pages = alert.showOnPages || [];
-  if (pages.length === 0) {
-    return true;
-  }
-  const negate = alert.negateShowOnPages ?? true;
+const shouldShowOnThisPage =
+  (currentPath: string, baseUrl: string) => (alert: SiteWideAlert) => {
+    const pages = alert.showOnPages || [];
+    if (pages.length === 0) {
+      return true;
+    }
 
-  let pagePathMatches = false;
-  const currentPath = window.location.pathname;
+    const negate = alert.negateShowOnPages ?? true;
 
-  for (let i = 0; i < pages.length; i++) {
-    const page = baseUrl.slice(0, -1) + pages[i];
+    let pagePathMatches = false;
 
-    if (page.charAt(page.length - 1) === '*') {
-      if (currentPath.startsWith(page.substring(0, page.length - 1))) {
+    for (let i = 0; i < pages.length; i++) {
+      const page = baseUrl.replace(/\/$/, '') + pages[i];
+
+      if (page.charAt(page.length - 1) === '*') {
+        if (currentPath.startsWith(page.substring(0, page.length - 1))) {
+          pagePathMatches = true;
+          break;
+        }
+      } else if (page === currentPath) {
         pagePathMatches = true;
         break;
       }
-    } else if (page === currentPath) {
-      pagePathMatches = true;
-      break;
     }
-  }
 
-  return negate ? !pagePathMatches : pagePathMatches;
-};
+    return negate ? !pagePathMatches : pagePathMatches;
+  };
 
 const isNotDismissed = (alert: SiteWideAlert) => {
   const isDismissed =
@@ -59,7 +60,11 @@ const isNotDismissed = (alert: SiteWideAlert) => {
   return !isDismissed;
 };
 
-const fetchAlerts = (alertsUri: string, baseUrl: string): Promise<Array<SiteWideAlert>> =>
+const fetchAlerts = (
+  alertsUri: string,
+  currentPath: string,
+  baseUrl: string
+): Promise<Array<SiteWideAlert>> =>
   fetch(alertsUri)
     .then((res) => res.json())
     .then((res: { sitewideAlerts: Array<SiteWideAlert> }) => {
@@ -75,7 +80,9 @@ const fetchAlerts = (alertsUri: string, baseUrl: string): Promise<Array<SiteWide
           alert.dismissible = false;
         }
       });
-      return newAlerts.filter(isNotDismissed).filter(shouldShowOnThisPage(baseUrl));
+      return newAlerts
+        .filter(isNotDismissed)
+        .filter(shouldShowOnThisPage(currentPath, baseUrl));
     })
     .catch((e) => {
       console.error('Site wide alerts failed loading', e);
@@ -134,21 +141,35 @@ type SiteWideAlert = {
 };
 
 export type SiteWideAlertsProps = {
-  /** URL of the API endpoint to fetch alerts from */
+  /**
+   * URL of the API endpoint to fetch alerts from
+   */
   alertsUri: string;
 
-  /** URL of the current page/site-section.
-   * Used to filter out unrelated alerts from the master list.
+  /**
+   * Milliseconds between checks for new alerts.
+   *
+   * Default: `120_000` (2 minutes)
+   */
+  refreshInterval?: number;
+
+  /**
+   * Base PATH of the current website (or site-section).
+   * The incoming `showOnPages` paths are trated as being relative to this root.
+   *
+   * Seldom used, except maybe when you're running this against an `alertsUri`
+   * endpoint that doesn't know the base URL of your site.
    *
    * Default: `'/'`
    */
   baseUrl?: string;
 
-  /** Milliseconds between checks for new alerts.
+  /**
+   * The language of the alerts. Only needed if the global Hanna `DEFAULT_LANG`
+   * can't be set correctly.
    *
-   * Default: `120_000` (2 minutes)  */
-  refreshInterval?: number;
-
+   * Default: `undefined` (effectively `DEFAULT_LANG`)
+   */
   lang?: HannaLang;
 };
 
@@ -165,10 +186,16 @@ export const SiteWideAlerts = (props: SiteWideAlertsProps) => {
   // Garbage collect dismissed alerts
   useEffect(gcDismissed, []);
 
+  const currentPath = typeof window !== 'undefined' && window.location.pathname;
+
   // fetch alert info from server
   useEffect(() => {
     const _fetchAlerts = () => {
-      fetchAlerts(alertsUri, baseUrl).then((newAlerts) => {
+      fetchAlerts(
+        alertsUri,
+        currentPath as string, // currentPath is always defined when useEffect runs
+        baseUrl
+      ).then((newAlerts) => {
         setAlerts((alerts) => {
           const changed =
             alerts.length !== newAlerts.length ||
@@ -182,7 +209,7 @@ export const SiteWideAlerts = (props: SiteWideAlertsProps) => {
     return () => {
       clearInterval(nextFetch);
     };
-  }, [alertsUri, baseUrl, refreshInterval]);
+  }, [currentPath, alertsUri, baseUrl, refreshInterval]);
 
   // check if any of the currently active alerts need to have their `dismissible` flag flipped
   // because their `dismissalIgnoreBefore` is expiring
