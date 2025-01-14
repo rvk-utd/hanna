@@ -2,6 +2,7 @@ import React from 'react';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { BemModifierProps } from './utils/types.js';
+import { WrapperElmProps } from './utils.js';
 
 export type FooterInfoGroup = {
   title: string;
@@ -16,13 +17,16 @@ export type FooterInfoBoxes = Array<FooterInfoGroup>;
 
 export type FooterInfoProps = {
   boxes: FooterInfoBoxes;
-};
+} & WrapperElmProps;
 
 export const FooterInfo = (props: FooterInfoProps) => {
-  const { boxes } = props;
+  const { boxes, wrapperProps } = props;
 
   return (
-    <div className="FooterInfo">
+    <div
+      {...wrapperProps}
+      className={modifiedClass('FooterInfo', null, (wrapperProps || {}).className)}
+    >
       {boxes.map((group, i) => (
         <div
           className={modifiedClass('FooterInfo__group', [

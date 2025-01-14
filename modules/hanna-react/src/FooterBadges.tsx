@@ -1,6 +1,8 @@
 import React from 'react';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 
 import { Link } from './_abstract/_Link.js';
+import { WrapperElmProps } from './utils.js';
 
 export type FooterBadgesProps = {
   badges: Array<{
@@ -8,14 +10,21 @@ export type FooterBadgesProps = {
     src: string;
     href?: string;
   }>;
-};
+} & WrapperElmProps<'ul'>;
 
 export const FooterBadges = (props: FooterBadgesProps) => {
   if (!props.badges.length) {
     return null;
   }
   return (
-    <ul className="FooterBadges">
+    <ul
+      {...props.wrapperProps}
+      className={modifiedClass(
+        'FooterBadges',
+        null,
+        (props.wrapperProps || {}).className
+      )}
+    >
       {props.badges.map(({ altText, src, href }, i) => (
         <li key={i} className="FooterBadges__badge">
           {href ? (
