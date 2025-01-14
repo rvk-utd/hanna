@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.145
+
+_2025-01-14_
+
 - feat: Add prop `wrapperProps` to `FooterInfo` and `FooterBadges`
 
 ## 0.10.144
