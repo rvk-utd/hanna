@@ -7,6 +7,7 @@
  *
  * const mixed = ['hi', null, undefined, ''];
  * const strings: Array<string> = mixed.filter(notNully);
+ * // ['hi', '']
  * ```
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#notnully
@@ -23,7 +24,8 @@ export type Falsy = undefined | null | false | 0 | '';
  * import { notFalsy } from '@reykjavik/hanna-utils';
  *
  * const mixed = ['hi', null, undefined, '', 0, false, 'ho'] as const;
- * const strings: Array<string> = mixed.filter(notFalsy);
+ * const strings: Array<'hi' | 'ho'> = mixed.filter(notFalsy);
+ * // ['hi', 'ho']
  * ```
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#notfalsy
@@ -41,7 +43,7 @@ export const notFalsy = <T>(val: T | Falsy): val is T => !!val;
  * import { capitalize } from '@reykjavik/hanna-utils';
  *
  * capitalize('hello world'); // "Hello world"
- * capitalize('istanbul', 'TR'); // "İstanbul"
+ * capitalize('istanbul', 'tr'); // "İstanbul"
  * ```
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#capitalize
@@ -50,4 +52,4 @@ export const capitalize = <S extends string>(
   str: S,
   locale?: string | Array<string>
 ): Capitalize<S> =>
-  ((str[0] || '').toLocaleUpperCase(locale || 'IS') + str.slice(1)) as Capitalize<S>;
+  ((str[0] || '').toLocaleUpperCase(locale || 'is') + str.slice(1)) as Capitalize<S>;
