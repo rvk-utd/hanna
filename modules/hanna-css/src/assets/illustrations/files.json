@@ -808,5 +808,10 @@
     "tags": ["theme/trustworthy"],
     "src": "https://styles.reykjavik.is/assets/illustrations/vegvisir.png",
     "thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/vegvisir.png"
+  },
+  "renna": {
+    "tags": ["theme/lively"],
+    "src": "https://styles.reykjavik.is/assets/illustrations/renna.png",
+    "thumb": "https://styles.reykjavik.is/assets/illustrations/thumb/renna.png"
   }
 }

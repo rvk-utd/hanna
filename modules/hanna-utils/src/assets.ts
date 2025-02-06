@@ -172,6 +172,7 @@ export const illustrations = [
   'rafskuta',
   'reikningur1',
   'reikningur1b',
+  'renna',
   'ruslabill',
   'samstarf',
   'samvinna1',

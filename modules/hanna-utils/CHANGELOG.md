@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Deprecate `focus-visible` polyfill module; browser support is now good
+- feat: Add illustration token `renna`
 
 ## 0.2.19
 
