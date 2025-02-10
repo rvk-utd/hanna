@@ -191,12 +191,12 @@ const defaultDatepickerTexts: DefaultTexts<DatepickerLocaleProps> = {
   },
 };
 
-const toLocalIsoDate = (date: Date | undefined) => {
+const toLocalIsoDate = (date: Date | undefined): string => {
   if (!date) {
-    return undefined;
+    return '';
   }
   const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-  return localDate.toISOString().split('T')[0];
+  return localDate.toISOString().split('T')[0]!;
 };
 
 /**
