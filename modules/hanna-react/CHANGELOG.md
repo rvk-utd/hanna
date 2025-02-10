@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.146
+
+_2025-02-10_
+
 - fix: Avoid conrolled–uncontrolled warning for `Datepicker` in `isoMode`
 
 ## 0.10.145
