@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - `AutosuggestSearch`:
+  - feat: Add props `errorMessage`, `invalid`, `assistText`
   - fix: `wrapperProps.className` overrides wrapper's default class
 
 ## 0.10.146

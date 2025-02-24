@@ -83,7 +83,10 @@ export type AutosuggestSearchProps<T extends string | object> = {
 
   texts?: AutosuggestSearchI18n;
   lang?: HannaLang;
-} & Pick<SearchInputProps, 'onSubmit' | 'onButtonClick' | 'button'> &
+} & Pick<
+  SearchInputProps,
+  'onSubmit' | 'onButtonClick' | 'button' | 'invalid' | 'errorMessage' | 'assistText'
+> &
   WrapperElmProps<'div', 'aria-label'>;
 
 export const AutosuggestSearch = <T extends string | object>(
@@ -115,6 +118,10 @@ export const AutosuggestSearch = <T extends string | object>(
 
     InputComponent = SearchInput,
     renderInputField,
+
+    invalid,
+    errorMessage,
+    assistText,
   } = props;
   const [inputValue, setInputValue] = useMixedControlState(props, 'inputValue', '');
 
@@ -224,6 +231,9 @@ export const AutosuggestSearch = <T extends string | object>(
                   label={txt.inputLabel}
                   placeholder={txt.placeholder}
                   buttonText={txt.buttonText}
+                  invalid={invalid}
+                  errorMessage={errorMessage}
+                  assistText={assistText}
                   onSubmit={onSubmit && (() => onSubmit(inputValue))}
                   onButtonClick={onButtonClick && (() => onButtonClick(inputValue))}
                 />
