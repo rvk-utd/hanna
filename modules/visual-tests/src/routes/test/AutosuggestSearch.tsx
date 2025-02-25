@@ -27,7 +27,6 @@ export default function () {
       <AutosuggestSearch
         options={options}
         emptyMessage="No results"
-        onClearOptions={() => setOptions([])}
         inputValue={inputValue}
         onInput={(value) => {
           setInputValue(value);

@@ -6,6 +6,7 @@
 - `AutosuggestSearch`:
   - feat: Add props `errorMessage`, `invalid`, `assistText`
   - fix: `wrapperProps.className` overrides wrapper's default class
+  - fix: Make `onClearOptions` prop optional
 
 ## 0.10.146
 

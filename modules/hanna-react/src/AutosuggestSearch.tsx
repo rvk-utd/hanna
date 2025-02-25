@@ -62,7 +62,7 @@ export type AutosuggestSearchProps<T extends string | object> = {
   emptyMessage?: EmptyMessage | EmptyMessage['message'];
   onInput: (value: string) => void;
   onSelected: (payload: { value: string; option: T }) => void;
-  onClearOptions: () => void;
+  onClearOptions?: () => void;
 
   getOptionValue?: (option: T) => string;
   renderSuggestion?: (
@@ -149,7 +149,7 @@ export const AutosuggestSearch = <T extends string | object>(
       }}
       focusInputOnSuggestionClick={true}
       suggestions={showEmptyMessage ? [true as unknown as T] : options}
-      onSuggestionsClearRequested={onClearOptions}
+      onSuggestionsClearRequested={onClearOptions || (() => undefined)}
       onSuggestionsFetchRequested={
         (/* { value } */) => {
           // weirdly required prop, but we don't need to do anything here
