@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - `AutosuggestSearch`:
   - feat: Add props `errorMessage`, `invalid`, `assistText`
+  - feat: Add props `onInputFocus` and `onInputBlur`
   - fix: `wrapperProps.className` overrides wrapper's default class
   - fix: Make `onClearOptions` prop optional
 

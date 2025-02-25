@@ -64,6 +64,23 @@ export type AutosuggestSearchProps<T extends string | object> = {
   onSelected: (payload: { value: string; option: T }) => void;
   onClearOptions?: () => void;
 
+  /**
+   * Called when the sarch input receives focus, except when the user clicks
+   * a suggestion.
+   *
+   * Clicking a suggestion briefly blurs the input, and then when the
+   * input is immediately re-focused, this event is not triggered.
+   */
+  onInputFocus?: () => void;
+  /**
+   * Called when the search input loses focus, except when the user clicks
+   * a suggestion and the input is immediately re-focused.
+   *
+   * Thus the triggering of this callback is thus always delayed by about 100ms
+   * and may occur after other elements have received focused.
+   */
+  onInputBlurred?: () => void;
+
   getOptionValue?: (option: T) => string;
   renderSuggestion?: (
     option: T,
@@ -122,6 +139,9 @@ export const AutosuggestSearch = <T extends string | object>(
     invalid,
     errorMessage,
     assistText,
+
+    onInputFocus,
+    onInputBlurred,
   } = props;
   const [inputValue, setInputValue] = useMixedControlState(props, 'inputValue', '');
 
@@ -132,6 +152,27 @@ export const AutosuggestSearch = <T extends string | object>(
   const showEmptyMessage = !options.length && emptyMessage;
 
   const { className, ...wrapperProps } = props.wrapperProps || {};
+
+  const blurTimeout = useRef<ReturnType<typeof setTimeout>>();
+  const inputFocusProps =
+    onInputFocus || onInputBlurred
+      ? {
+          onFocus: () => {
+            if (!blurTimeout.current) {
+              onInputFocus?.();
+            }
+            clearTimeout(blurTimeout.current);
+            blurTimeout.current = undefined;
+          },
+          onBlur: () => {
+            clearTimeout(blurTimeout.current);
+            blurTimeout.current = setTimeout(() => {
+              blurTimeout.current = undefined;
+              onInputBlurred?.();
+            }, 100);
+          },
+        }
+      : undefined;
 
   return (
     <Autosuggest
@@ -211,6 +252,7 @@ export const AutosuggestSearch = <T extends string | object>(
           onInput(newValue);
           setInputValue(newValue);
         },
+        ...inputFocusProps,
       }}
       renderInputComponent={
         renderInputField
