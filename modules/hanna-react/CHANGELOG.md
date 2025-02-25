@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `AutosuggestSearch`:
+  - fix: `wrapperProps.className` overrides wrapper's default class
 
 ## 0.10.146
 
