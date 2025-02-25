@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.147
+
+_2025-02-25_
+
 - `AutosuggestSearch`:
   - feat: Add props `errorMessage`, `invalid`, `assistText`
   - feat: Add props `onInputFocus` and `onInputBlur`
