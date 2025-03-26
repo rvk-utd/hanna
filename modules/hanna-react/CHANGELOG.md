@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `BreadCrumbs`:
+  - fix: Drop `aria-lebel=""` for `role="none"` on `BreadCrumbs__separator`
 
 ## 0.10.147
 

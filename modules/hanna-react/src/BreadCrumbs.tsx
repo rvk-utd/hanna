@@ -70,7 +70,7 @@ export const BreadCrumbs = (props: BreadCrumbsProps) => {
         return (
           <React.Fragment key={i}>
             <BreadCrumbs__item link={link} />{' '}
-            <span className="BreadCrumbs__separator" aria-label="">
+            <span className="BreadCrumbs__separator" role="none">
               &gt;
             </span>{' '}
           </React.Fragment>
