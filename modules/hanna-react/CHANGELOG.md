@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.148
+
+_2025-03-26_
+
 - `BreadCrumbs`:
   - fix: Drop `aria-lebel=""` for `role="none"` on `BreadCrumbs__separator`
 
