@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Tooltip`:
+  - fix: Set `vertical-align: top` as a better default
 - `IframedLayout`:
   - fix: Remove min-height rule preventing auto-reducing height of iframes
 - `MainMenu2`:

@@ -26,6 +26,7 @@ export default css`
 
   .Tooltip {
     display: inline-block;
+    vertical-align: top;
     position: relative;
     ${LinkStyle}
     transition: none;
