@@ -68,6 +68,7 @@ export default css`
     top: var(--tooltip-content-pos-y);
     left: var(--tooltip-content-pos-x);
     z-index: 1;
+    transform: translateX(0px); // Needed to fix floating-ui arrow pos calc bug
   }
   [open] > .Tooltip__content {
     animation: ${openAnimation} 200ms ease-in;

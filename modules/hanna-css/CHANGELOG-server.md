@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - `Tooltip`:
   - fix: Set `vertical-align: top` as a better default
+  - fix: Tweak `__content` styles to fix floating-ui arrow pos calc bug
 - `IframedLayout`:
   - fix: Remove min-height rule preventing auto-reducing height of iframes
 - `MainMenu2`:
