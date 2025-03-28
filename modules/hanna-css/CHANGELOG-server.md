@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.94
+
+_2025-03-31_
+
 - `Tooltip`:
   - fix: Set `vertical-align: top` as a better default
   - fix: Tweak `__content` styles to fix floating-ui arrow pos calc bug
