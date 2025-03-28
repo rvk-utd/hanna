@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.20
+
+_2025-03-28_
+
 - feat: Deprecate `focus-visible` polyfill module; browser support is now good
 - feat: Add illustration token `renna`
 
