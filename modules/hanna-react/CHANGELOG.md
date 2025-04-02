@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.149
+
+_2025-04-02_
+
 - perf: Don't render `Modal`s (and their contents) unless "visible"
 
 ## 0.10.148
