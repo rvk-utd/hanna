@@ -85,37 +85,36 @@ export default function () {
   return (
     <Minimal>
       {buttons}
-      {modalData && (
-        <Modal
-          modifier={width}
-          open={open}
-          onClosed={handleModalClosed}
-          // startOpen
-          // stable
-          // noCloseButton
-          bling={bling && renderBling()}
-          render={({ closeModal }) => {
-            return (
-              <Fragment>
-                <Heading>Ertu viss?</Heading>
-                <TextBlock>
-                  <p>
-                    Athugið að þegar hætt er við umsókn mun hún ekki vistast og þú munt
-                    þurfa að byrja upp á nýtt.
-                  </p>
-                  {width === 'w10' && <p>{loremRT.long(true)}</p>}
-                </TextBlock>
-                <ButtonBar>
-                  <ButtonSecondary onClick={closeModal}>
-                    Nei, halda áfram með umsókn
-                  </ButtonSecondary>{' '}
-                </ButtonBar>
-                {'\n\n'}
-              </Fragment>
-            );
-          }}
-        />
-      )}
+
+      <Modal
+        modifier={width}
+        open={open}
+        onClosed={handleModalClosed}
+        // startOpen
+        // stable
+        // noCloseButton
+        bling={bling && renderBling()}
+        render={({ closeModal }) => {
+          return (
+            <Fragment>
+              <Heading>Ertu viss?</Heading>
+              <TextBlock>
+                <p>
+                  Athugið að þegar hætt er við umsókn mun hún ekki vistast og þú munt
+                  þurfa að byrja upp á nýtt.
+                </p>
+                {width === 'w10' && <p>{loremRT.long(true)}</p>}
+              </TextBlock>
+              <ButtonBar>
+                <ButtonSecondary onClick={closeModal}>
+                  Nei, halda áfram með umsókn
+                </ButtonSecondary>{' '}
+              </ButtonBar>
+              {'\n\n'}
+            </Fragment>
+          );
+        }}
+      />
     </Minimal>
   );
 }

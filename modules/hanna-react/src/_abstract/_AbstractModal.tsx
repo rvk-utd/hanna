@@ -189,10 +189,12 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
   const domid = wrapperProps.id || privateDomId;
   const modalElmRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(() => !!props.startOpen && openProp);
+  const [visible, setVisible] = useState(open);
 
   const openModal = () => {
     if (!open) {
       addToModalStack(privateDomId);
+      setVisible(true);
       setTimeout(() => {
         setOpen(true);
         focusElm(modalElmRef.current, { delay: 50 });
@@ -206,7 +208,10 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
       setOpen(false);
       removeFromModalStack(privateDomId);
       props.onClose && props.onClose();
-      setTimeout(props.onClosed, closeDelay);
+      setTimeout(() => {
+        setVisible(false);
+        props.onClosed();
+      }, closeDelay);
     }
   };
 
@@ -255,7 +260,6 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
   );
 
   const PortalOrFragment = props.portal !== false ? Portal : Fragment;
-  const children = props.render ? props.render({ closeModal }) : props.children;
 
   const closeButtonLabel = txt.closeButtonLabel || txt.closeButton;
 
@@ -263,39 +267,41 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
 
   return (
     <PortalOrFragment>
-      <div
-        {...wrapperProps}
-        className={modifiedClass(`${bem}wrapper`, [modifier, className])}
-        hidden={!open}
-        role="dialog"
-        onClick={
-          closeOnCurtainClick && onClick
-            ? (e) => {
-                closeOnCurtainClick(e);
-                onClick(e);
-              }
-            : closeOnCurtainClick || onClick
-        }
-        id={domid}
-      >
-        {isBrowser && <FocusTrap atTop />}
-        <div className={modifiedClass(bem, modifier)} ref={modalElmRef}>
-          {children}
-          {isBrowser && !props.noCloseButton && (
-            <button
-              className={`${bem}__closebutton`}
-              type="button"
-              onClick={closeModal}
-              aria-label={closeButtonLabel}
-              aria-controls={domid}
-              title={closeButtonLabel}
-            >
-              {txt.closeButton}
-            </button>
-          )}
+      {visible && (
+        <div
+          {...wrapperProps}
+          className={modifiedClass(`${bem}wrapper`, [modifier, className])}
+          hidden={!open}
+          role="dialog"
+          onClick={
+            closeOnCurtainClick && onClick
+              ? (e) => {
+                  closeOnCurtainClick(e);
+                  onClick(e);
+                }
+              : closeOnCurtainClick || onClick
+          }
+          id={domid}
+        >
+          {isBrowser && <FocusTrap atTop />}
+          <div className={modifiedClass(bem, modifier)} ref={modalElmRef}>
+            {props.render ? props.render({ closeModal }) : props.children}
+            {isBrowser && !props.noCloseButton && (
+              <button
+                className={`${bem}__closebutton`}
+                type="button"
+                onClick={closeModal}
+                aria-label={closeButtonLabel}
+                aria-controls={domid}
+                title={closeButtonLabel}
+              >
+                {txt.closeButton}
+              </button>
+            )}
+          </div>
+          {isBrowser && <FocusTrap />}
         </div>
-        {isBrowser && <FocusTrap />}
-      </div>
+      )}
     </PortalOrFragment>
   );
 };
