@@ -417,7 +417,7 @@ const updateChangelog = async (changelogFileName, opts) => {
     .slice(upcomingIdx, releaseIdx)
     .trim()
     .split(/\n\s*- /)
-    .map((line) => line.trim().match(/^(\*\*BREAKING\*\*|feat:|fix:)/)?.[1])
+    .map((line) => line.trim().match(/^(\*\*BREAKING\*\*|feat:|fix:|docs:|perf:)/)?.[1])
     .filter(/** @type {((x: unknown) => x is string)} */ ((x) => !!x));
 
   if (updates.length === 0) {
@@ -440,7 +440,7 @@ const updateChangelog = async (changelogFileName, opts) => {
   } else if (updates.includes('feat:')) {
     newVersionArr[patchIdx] = 0;
     newVersionArr[minorIdx] = oldVersion[minorIdx] + 1;
-  } else if (updates.includes('fix:')) {
+  } else {
     newVersionArr[patchIdx] = oldVersion[patchIdx] + 1;
   }
   const newVersion = newVersionArr.join('.');
