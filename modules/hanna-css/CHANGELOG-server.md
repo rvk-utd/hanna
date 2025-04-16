@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Set `.Tooltip`'s trigger icon to a fixed `font-size`
 
 ## 0.8.94
 

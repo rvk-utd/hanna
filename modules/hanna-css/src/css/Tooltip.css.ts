@@ -1,6 +1,7 @@
-import { css } from 'es-in-css';
+import { css, em } from 'es-in-css';
 
-import { hannaVars as vars } from '../lib/hannavars.js';
+import { font } from '../lib/font.js';
+import { hannaVars, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
 import { LinkStyle, LinkStyle_SameColor } from './styles/links.js';
@@ -11,6 +12,8 @@ const tooltipBgColor = 'rgba(0, 0, 0, 0.7)';
 
 const triangleH = 6;
 const triangleW = 14;
+
+const ballSize = em(25 / font.base_size);
 
 const openAnimation = 'Tooltip-open';
 
@@ -26,10 +29,11 @@ export default css`
 
   .Tooltip {
     display: inline-block;
-    vertical-align: top;
     position: relative;
-    ${LinkStyle}
+    vertical-align: top;
+    font-size: ${hannaVars.font_base_size};
     transition: none;
+    ${LinkStyle}
   }
   .Tooltip,
   .Tooltip:hover,
@@ -43,13 +47,13 @@ export default css`
   }
   .Tooltip__trigger--icononly {
     ${hideText_css('soft')}
-    width: ${prem(25)};
+    width: ${ballSize};
   }
 
   .Tooltip__trigger::before {
     ${iconStyle(vars.icon__info)}
-    width: ${prem(25)};
-    height: ${prem(25)};
+    width: ${ballSize};
+    height: ${ballSize};
     display: inline-block;
     text-align: center;
   }
@@ -59,10 +63,10 @@ export default css`
     color: ${vars.color_white};
     background-color: ${tooltipBgColor};
     font-weight: normal;
-    font-size: ${prem(12)};
+    font-size: ${hannaVars.font_label_size};
+    line-height: 1.5em;
     border-radius: ${prem(8)};
     box-sizing: border-box;
-    line-height: 1.5;
     padding: ${prem(10)} ${prem(20)};
     position: absolute;
     top: var(--tooltip-content-pos-y);
