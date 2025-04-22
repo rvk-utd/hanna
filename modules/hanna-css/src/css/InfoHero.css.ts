@@ -2,9 +2,10 @@ import { css, px } from 'es-in-css';
 
 import { scale_container, scale_phablet_tablet } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { cols_pct, cols_px, DEPS, prem, px_pct } from './utils/miscUtils.js';
+import { cols_pct, DEPS, prem, px_pct } from './utils/miscUtils.js';
 
 export default css`
   ${DEPS('ButtonTertiary', 'Sharpie', 'Bling')}
@@ -27,7 +28,7 @@ export default css`
     }
     @media ${mq.phone_phablet} {
       .InfoHero {
-        padding-right: ${scale_phablet_tablet(0, cols_px(3, 3))};
+        padding-right: ${scale_phablet_tablet(0, gridPx(3, 3))};
       }
     }
 

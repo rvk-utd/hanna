@@ -2,11 +2,11 @@ import { css, em } from 'es-in-css';
 
 import { scale_container, scale_phablet_tablet } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { grid } from '../lib/grid.js';
+import { grid, gridPx } from '../lib/grid.js';
 import { hannaVars } from '../lib/hannavars.js';
 import { WARNING_soft__ } from '../lib/WARNING__.js';
 
-import { cols_pct, cols_px, DEPS, prem, resetImageChild } from './utils/miscUtils.js';
+import { cols_pct, DEPS, prem, resetImageChild } from './utils/miscUtils.js';
 
 export default css`
   ${DEPS('ButtonPrimary', 'ButtonTertiary')}
@@ -54,7 +54,7 @@ export default css`
 
   @media ${mq.phablet_tablet} {
     .HeroBlock {
-      padding-right: ${scale_phablet_tablet(0, cols_px(3, 3))};
+      padding-right: ${scale_phablet_tablet(0, gridPx(3, 3))};
     }
   }
 

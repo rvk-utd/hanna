@@ -4,7 +4,7 @@ import { css, pct_f } from 'es-in-css';
 import { scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { colorFamilies } from '../lib/colors.js';
-import { grid } from '../lib/grid.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
@@ -104,7 +104,7 @@ export default css`
 
     .ArticleCarouselCard__illustration {
       position: relative;
-      padding-top: ${pct_f(300 / (3 * grid.column + 4 * grid.gutter))};
+      padding-top: ${pct_f(300 / gridPx(3, 4))};
       display: block;
       margin: 0 -1px;
       margin-bottom: ${vars.space_4};

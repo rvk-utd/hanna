@@ -2,9 +2,10 @@ import { css } from 'es-in-css';
 
 import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-import { cols_px, DEPS, prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 
 export default css`
   ${DEPS('Bling', 'efnistakn')}
@@ -32,7 +33,7 @@ export default css`
 
     .FeatureList__title {
       font: ${vars.font_hd_s};
-      max-width: ${cols_px(4, 4)};
+      max-width: ${gridPx(4, 4)};
       margin-bottom: ${scale_container(20, 84)};
       margin-left: var(--left-offset);
     }
@@ -47,7 +48,7 @@ export default css`
       }
       @media ${mq.tablet_up} {
         width: calc(${vars.grid_9_9} + 3 * ${vars.grid_0_1});
-        max-width: ${cols_px(9, 9)};
+        max-width: ${gridPx(9, 9)};
         columns: 3;
       }
     }

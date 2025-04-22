@@ -3,11 +3,12 @@ import { css } from 'es-in-css';
 import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { LinkStyle_Reset } from './styles/links.js';
-import { cols_px, prem } from './utils/miscUtils.js';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {
@@ -100,7 +101,7 @@ export default css`
       float: left; // default layout behavior
       width: 100%;
       margin-top: 0;
-      max-width: ${cols_px(3)};
+      max-width: ${gridPx(3)};
       border-bottom: 0;
       flex-direction: column;
 

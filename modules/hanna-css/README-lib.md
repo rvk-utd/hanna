@@ -64,6 +64,8 @@ yarn add @reykjavik/hanna-css
   - [Container Relative Scalers](#container-relative-scalers)
     - [`scale_container`](#scale_container)
     - [`scale_cols`](#scale_cols)
+  - [Static grid width helper](#static-grid-width-helper)
+    - [`gridPx`](#gridpx)
 - [Raw Design Constants](#raw-design-constants)
 - [Helpful VSCode Snippets](#helpful-vscode-snippets)
 - [Changelog](#changelog)
@@ -857,6 +859,37 @@ container. (As defined by Hanna's `grid_raw.contentMinWidth` and
 Generates a `%`-based `calc()` value that scales linearly between `from` and
 `to` inside a container whos width is certain nubmer of grid columns and
 gutters.
+
+### Static grid width helper
+
+#### `gridPx`
+
+**Syntax:** `gridPx(columns: number, gutters?: number): PxValue`
+
+Returns a fixed pixel width value for grid layout styling. Mainly usable for
+`max-width`/`min-width` boundaries.
+
+**NOTE:** Make sure to use the scalable `hannaVars.grid_*` variable tokens,
+whenever possible.
+
+```ts
+import { css, gridPx, hannaVars } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyComponent {
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: ${hannaVars.grid_gutter};
+  }
+  .MyComponent__sideCol {
+    width: ${hannaVars.grid_3};
+  }
+  .MyComponent__mainCol {
+    width: ${hannaVars.grid_9};
+    max-width: ${gridPx(6)};
+  }
+`;
+```
 
 ## Raw Design Constants
 

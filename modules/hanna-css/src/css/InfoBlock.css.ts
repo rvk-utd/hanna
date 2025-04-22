@@ -2,12 +2,13 @@ import { css } from 'es-in-css';
 
 import { scale_cols, scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { AttentionStyle } from './styles/attention.js';
-import { cols_pct, cols_px, grid_units, prem } from './utils/miscUtils.js';
+import { cols_pct, grid_units, prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {
@@ -18,7 +19,7 @@ export default css`
       margin-left: ${vars.grid_margin__neg};
       box-sizing: content-box;
       position: relative;
-      max-width: ${cols_px(10)};
+      max-width: ${gridPx(10)};
       margin-bottom: ${prem(64)};
     }
     .InfoBlock::before {

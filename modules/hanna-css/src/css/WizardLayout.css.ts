@@ -1,11 +1,11 @@
 import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints.js';
-import { grid } from '../lib/grid.js';
+import { grid, gridPx } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
 import { LayoutHeaderHomeLink } from './styles/header.js';
-import { cols_px, grid_units, prem } from './utils/miscUtils.js';
+import { grid_units, prem } from './utils/miscUtils.js';
 
 import { WizardLayoutClose_css } from './WizardLayoutClose.css.js';
 
@@ -97,7 +97,7 @@ export default css`
 
     .WizardLayout__alerts {
       margin-left: ${prem(8)};
-      max-width: ${cols_px(9, 9)};
+      max-width: ${gridPx(9, 9)};
     }
 
     .WizardLayout__wrap {

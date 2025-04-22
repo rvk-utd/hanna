@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `gridPx(columns, gutters?)` helper fixed pixel width values
 
 ## 0.4.17
 

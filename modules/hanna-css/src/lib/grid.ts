@@ -1,4 +1,4 @@
-import { px as _px } from 'es-in-css';
+import { px as _px, PxValue } from 'es-in-css';
 
 import { bp } from './breakpoints.js';
 
@@ -32,3 +32,14 @@ export const grid = {
   contentMinWidth__outer,
   contentMaxWidth__outer,
 } as const;
+
+/**
+ * Returns a fixed pixel width value for grid layout styling.
+ * Mainly usable for `max-width`/`min-width` boundaries.
+ *
+ * By default use the `hannaVars.grid_*` variable tokens.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#gridpx
+ */
+export const gridPx = (columns: number, gutters = columns - 1): PxValue =>
+  px(columns * column + gutters * gutter);

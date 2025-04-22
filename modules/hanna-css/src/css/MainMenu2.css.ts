@@ -5,7 +5,7 @@ import { clamp_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
-import { grid } from '../lib/grid.js';
+import { grid, gridPx } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
@@ -13,7 +13,7 @@ import { WARNING__ } from '../lib/WARNING__.js';
 import { ButtonVariables } from './styles/buttons.js';
 import { freezeScroll_css } from './styles/header.js';
 import { LinkStyle_Reset } from './styles/links.js';
-import { cols_px, DEPS, extendBackgroundWithUnderlay } from './utils/miscUtils.js';
+import { DEPS, extendBackgroundWithUnderlay } from './utils/miscUtils.js';
 
 import { enableDataIcon } from './Icon.css.js';
 import { whiteLogo, whiteLogo_reset } from './Layout.css.js';
@@ -477,7 +477,7 @@ export default css`
       // font: ${vars.font_bd_l};
       ${DesktopVariables.declare({
         // main__width: `calc(50% + ${vars.grid_1_1})`,
-        main__width: `calc(50% + ${clamp_netbook(cols_px(0, 1), cols_px(1, 1))})`,
+        main__width: `calc(50% + ${clamp_netbook(gridPx(0, 1), gridPx(1, 1))})`,
         bgLeft: vars.color_faxafloi_100,
         bgShadw: dtVars.bgLeft,
         bgRight: vars.color_suld_0,

@@ -5,11 +5,11 @@ import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { font } from '../lib/font.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
-import { cols_px } from './utils/miscUtils.js';
 import { textContent } from './utils/textContent.js';
 
 const a = buildVariables(['leftIndent', 'iconWidth']);
@@ -17,7 +17,7 @@ const a = buildVariables(['leftIndent', 'iconWidth']);
 export default css`
   @media screen {
     .AccordionList {
-      max-width: ${cols_px(8)};
+      max-width: ${gridPx(8)};
       margin-top: ${scale_container(32, 56)};
 
       ${a.declare({
@@ -33,7 +33,7 @@ export default css`
       }
     }
     .AccordionList--wide {
-      max-width: ${cols_px(11)};
+      max-width: ${gridPx(11)};
     }
 
     .AccordionList__item {

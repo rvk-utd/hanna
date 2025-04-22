@@ -3,13 +3,14 @@ import { css, em } from 'es-in-css';
 import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { buildVariables } from '../lib/cssutils.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { freezeScroll_css } from './styles/header.js';
 import { hideText_css } from './utils/hideText.js';
-import { cols_px, prem } from './utils/miscUtils.js';
+import { prem } from './utils/miscUtils.js';
 
 const ModalVariables = buildVariables(['paddingV', 'paddingH'], 'Modal');
 const mVars = ModalVariables.vars;
@@ -54,7 +55,7 @@ export default css`
         paddingH: vars.grid_1,
       })}
 
-      max-width: ${cols_px(8)};
+      max-width: ${gridPx(8)};
       position: relative;
       width: 95%;
       margin: 0 auto;
@@ -73,7 +74,7 @@ export default css`
     }
 
     .Modal--w6 {
-      max-width: ${cols_px(6)};
+      max-width: ${gridPx(6)};
 
       @media ${mq.tablet_up} {
         ${ModalVariables.override({
@@ -82,10 +83,10 @@ export default css`
       }
     }
     .Modal--w8 {
-      max-width: ${cols_px(8)};
+      max-width: ${gridPx(8)};
     }
     .Modal--w10 {
-      max-width: ${cols_px(10)};
+      max-width: ${gridPx(10)};
 
       @media ${mq.netbook_up} {
         ${ModalVariables.override({

@@ -1,8 +1,7 @@
 import { css } from 'es-in-css';
 
+import { gridPx } from '../lib/grid.js';
 import { WARNING__, WARNING_message__ } from '../lib/WARNING__.js';
-
-import { cols_px } from './utils/miscUtils.js';
 
 const not = (selectors?: Array<string>) =>
   selectors ? `:not(${selectors.join('):not(')})` : '';
@@ -10,7 +9,7 @@ const not = (selectors?: Array<string>) =>
 // Included in ContentArticle
 export const centerColumnsStyling = (opts: { allowed?: Array<string> } = {}) => css`
   & {
-    max-width: ${cols_px(8)};
+    max-width: ${gridPx(8)};
     margin: 0 auto;
   }
 

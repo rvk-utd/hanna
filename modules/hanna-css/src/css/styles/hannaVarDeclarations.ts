@@ -9,7 +9,7 @@ import {
 import { bp, mq } from '../../lib/breakpoints.js';
 import { colors } from '../../lib/colors.js';
 import { font } from '../../lib/font.js';
-import { grid } from '../../lib/grid.js';
+import { grid, gridPx } from '../../lib/grid.js';
 import {
   borderEffectVars,
   breakpointVars,
@@ -28,7 +28,7 @@ import {
 } from '../../lib/hannavars.js';
 import iconfonttokens from '../../lib/iconfonttokens.js';
 import { fullCssVersion } from '../../lib/style-server-info.js';
-import { cols_pct, cols_px, grid_units, prem } from '../utils/miscUtils.js';
+import { cols_pct, grid_units, prem } from '../utils/miscUtils.js';
 
 import { ButtonTertiaryVarDeclarations } from './buttons.js';
 
@@ -456,33 +456,33 @@ const gridVarDeclarations = css`
       grid_margin: px(grid.margin__wide),
       grid_margin__neg: px(-1 * grid.margin__wide),
 
-      grid_0_1: cols_px(0, 1),
-      grid_1: cols_px(1),
-      grid_1_1: cols_px(1, 1),
-      grid_2: cols_px(2),
-      grid_2_2: cols_px(2, 2),
-      grid_3: cols_px(3),
-      grid_3_3: cols_px(3, 3),
-      grid_4: cols_px(4),
-      grid_4_4: cols_px(4, 4),
-      grid_5: cols_px(5),
-      grid_5_5: cols_px(5, 5),
-      grid_6: cols_px(6),
-      grid_6_6: cols_px(6, 6),
-      grid_7: cols_px(7),
-      grid_7_7: cols_px(7, 7),
-      grid_8: cols_px(8),
-      grid_8_8: cols_px(8, 8),
-      grid_9: cols_px(9),
-      grid_9_9: cols_px(9, 9),
-      grid_10: cols_px(10),
-      grid_10_10: cols_px(10, 10),
-      grid_11: cols_px(11),
-      grid_11_11: cols_px(11, 11),
-      grid_12: cols_px(12),
+      grid_0_1: gridPx(0, 1),
+      grid_1: gridPx(1),
+      grid_1_1: gridPx(1, 1),
+      grid_2: gridPx(2),
+      grid_2_2: gridPx(2, 2),
+      grid_3: gridPx(3),
+      grid_3_3: gridPx(3, 3),
+      grid_4: gridPx(4),
+      grid_4_4: gridPx(4, 4),
+      grid_5: gridPx(5),
+      grid_5_5: gridPx(5, 5),
+      grid_6: gridPx(6),
+      grid_6_6: gridPx(6, 6),
+      grid_7: gridPx(7),
+      grid_7_7: gridPx(7, 7),
+      grid_8: gridPx(8),
+      grid_8_8: gridPx(8, 8),
+      grid_9: gridPx(9),
+      grid_9_9: gridPx(9, 9),
+      grid_10: gridPx(10),
+      grid_10_10: gridPx(10, 10),
+      grid_11: gridPx(11),
+      grid_11_11: gridPx(11, 11),
+      grid_12: gridPx(12),
 
-      grid_0_1__neg: cols_px(0, -1),
-      grid_1__neg: cols_px(-1, 0),
+      grid_0_1__neg: gridPx(0, -1),
+      grid_1__neg: gridPx(-1, 0),
     })}
   }
 `;

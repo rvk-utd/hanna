@@ -1,11 +1,12 @@
 import { css } from 'es-in-css';
 
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
-import { cols_px, prem } from './utils/miscUtils.js';
+import { prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {
@@ -16,7 +17,7 @@ export default css`
       flex-flow: column;
       min-height: ${prem(230)};
       // for standalone-display
-      max-width: ${cols_px(4)};
+      max-width: ${gridPx(4)};
       flex-grow: 1;
       margin-bottom: max(${vars.space_2}, ${vars.grid_gutter});
     }

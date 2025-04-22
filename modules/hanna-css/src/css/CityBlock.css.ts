@@ -7,13 +7,13 @@ import {
   scale_phone_phablet,
 } from '../lib/between.js';
 import { bp, mq } from '../lib/breakpoints.js';
-import { grid } from '../lib/grid.js';
+import { grid, gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING_soft__ } from '../lib/WARNING__.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LinkStyle_SameColor } from './styles/links.js';
-import { cols_pct, cols_px, DEPS, grid_units, prem } from './utils/miscUtils.js';
+import { cols_pct, DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 const minH = px(480 - 2 * grid.column);
 
@@ -121,7 +121,7 @@ export default css`
       display: flex;
       flex-flow: column;
       box-sizing: content-box;
-      width: ${scale(300, cols_px(5, 3), bp.tablet, grid.contentMaxWidth, '%')};
+      width: ${scale(300, gridPx(5, 3), bp.tablet, grid.contentMaxWidth, '%')};
       margin: ${cols_pct(0, 1)} 0;
       margin-left: auto;
       padding-left: ${cols_pct(0, 1)};

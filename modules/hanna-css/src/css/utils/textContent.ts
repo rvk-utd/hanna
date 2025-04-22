@@ -2,10 +2,11 @@ import { css, em, str } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints.js';
 import { buildVariables } from '../../lib/cssutils.js';
+import { gridPx } from '../../lib/grid.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { characters } from '../../lib/icons.js';
 
-import { cols_px, prem } from './miscUtils.js';
+import { prem } from './miscUtils.js';
 
 export const defaultULStyle = () => css`
   list-style: none;
@@ -40,7 +41,7 @@ export const pullQuoteContainerStyle = () => css`
     line: `2px solid ${vars.theme_color_primary}`,
     indent: 0,
   })}
-  max-width: calc(${cols_px(8)} - ${q.vars.indent});
+  max-width: calc(${gridPx(8)} - ${q.vars.indent});
   padding-top: ${vars.space_5};
   margin-left: ${q.vars.indent};
   position: relative;

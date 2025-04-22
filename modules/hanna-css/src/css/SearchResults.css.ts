@@ -4,14 +4,14 @@ import { hoverKeyboardFocusAndActiveStyling, srOnly } from '../lib/a11y.js';
 import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
-import { grid } from '../lib/grid.js';
+import { grid, gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LabeledTitleStyle__basics } from './styles/labeledTitle.js';
 import { LinkStyle_Reset } from './styles/links.js';
 import { afterClear_css } from './utils/afterClear.js';
-import { cols_px, DEPS, grid_units, prem } from './utils/miscUtils.js';
+import { DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 const baseDashWidth = 24;
 const hoverDashWidth = 48;
@@ -123,7 +123,7 @@ export default css`
       flex-flow: column;
       padding-left: ${vars.grid_1};
       margin-left: ${vars.grid_1__neg};
-      max-width: ${cols_px(6)};
+      max-width: ${gridPx(6)};
 
       @media ${mq.tablet_up} {
         margin-left: 0;

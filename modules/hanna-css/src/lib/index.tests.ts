@@ -47,6 +47,7 @@ o.spec('hanna-css lib', () => {
       font_raw: true,
 
       /* grid.ts */
+      gridPx: true,
       grid_raw: true,
 
       /* icons.ts */

@@ -1,13 +1,4 @@
-import {
-  css,
-  CssString,
-  LengthValue,
-  pct_f,
-  PlainNumber,
-  px,
-  PxValue,
-  rem,
-} from 'es-in-css';
+import { css, CssString, LengthValue, pct_f, PlainNumber, PxValue, rem } from 'es-in-css';
 
 import { CssModuleToken, isDevMode } from '../../lib/cssutils.js';
 import { grid } from '../../lib/grid.js';
@@ -68,10 +59,6 @@ export const px_pct = (
   /** Pixel-based modifier for the column-based container width. (Useful for gridded-containers with non-standard padding/margin) */
   edge: PlainNumber | PxValue = 0
 ) => pct_f(nPx / (ofCols * column + ofGutters * gutter + edge));
-
-/** pixel length - by columns */
-export const cols_px = (numCols: PlainNumber, numGutters: PlainNumber = numCols - 1) =>
-  px(numCols * column + numGutters * gutter);
 
 // ===========================================================================
 

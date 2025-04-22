@@ -2,11 +2,11 @@ import { css, em } from 'es-in-css';
 
 import { scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars, hannaVars as vars } from '../lib/hannavars.js';
 
 import {
   cols_pct,
-  cols_px,
   DEPS,
   extendBackgroundWithUnderlay,
   grid_units,
@@ -70,7 +70,7 @@ export default css`
       margin-top: ${prem(20)};
       margin-bottom: ${scale_container(0, 24)};
       width: 100%;
-      max-width: ${cols_px(9, 9)};
+      max-width: ${gridPx(9, 9)};
     }
 
     .PageFilter__filters > .FormField {

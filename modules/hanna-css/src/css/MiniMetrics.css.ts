@@ -3,10 +3,11 @@ import { css, em, rem } from 'es-in-css';
 import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
+import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
-import { cols_px, prem, px_pct } from './utils/miscUtils.js';
+import { prem, px_pct } from './utils/miscUtils.js';
 
 export default css`
   @media screen {
@@ -17,14 +18,14 @@ export default css`
       display: flex;
       flex-flow: column;
       justify-content: center;
-      min-height: ${cols_px(3)};
+      min-height: ${gridPx(3)};
     }
 
     .MiniMetrics__text {
       font: ${vars.font_hd_xl};
       display: block;
       margin-bottom: ${em(40 / font.sizes.hd_xl_size)};
-      max-width: ${cols_px(9)};
+      max-width: ${gridPx(9)};
     }
     .MiniMetrics__more {
       ${ButtonTertiaryStyle}
