@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.18
+
+_2025-04-22_
+
 - feat: Add `gridPx(columns, gutters?)` helper fixed pixel width values
 
 ## 0.4.17
