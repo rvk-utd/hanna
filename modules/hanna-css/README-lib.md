@@ -134,7 +134,7 @@ The values of those variables are declared as part of the
 
 Type-safe collection of CSS variables for use in your CSS code.
 
-```js
+```ts
 import { hannaVars, css } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -161,7 +161,7 @@ const myCss = css`
 This function provides a type-safe way to write local overrides for the Hanna
 CSS variables. _Use sparingly, with caution!_
 
-```js
+```ts
 import { hannaVarOverride, css } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -185,7 +185,7 @@ const myCss = css`
 Type-safe collection of CSS variables for styling `FormField`-derived
 components.
 
-```js
+```ts
 import { formFieldVars, css } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -215,7 +215,7 @@ You can use this helper to generate custom CSS variables for your one-off
 component styling, using the same naming pattern as the Hanna CSS varibles,
 and the same type-safety as `hannaVars`.
 
-```js
+```ts
 import { buildVariables, rem, css } from '@reykjavik/hanna-css';
 
 const myVars = buildVariables(['Component$$title__fontSize']);
@@ -244,7 +244,7 @@ variable names. (NOTE: Namespaces are internally normalized to end with either
 
 Thus the code example above could be rewritten like this:
 
-```js
+```ts
 const namespace = 'Component__';
 const myVars = buildVariables(['title__fontSize'], namespace);
 
@@ -277,7 +277,7 @@ Here's how you'd use the `beforeSprinkling` selector to suppress flicker of
 unstyled/unscripted content in your server-rendered HTML, while you
 "progressively enhance" them after useEffect.
 
-```js
+```ts
 import { htmlCl, css } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -340,7 +340,7 @@ console.log(familyName);
 Object with several named unicode symbols for use in generated content
 (`::marker`s, `::before` texts, etc.). Includes `bullets`, `spaces`, `quotes`
 
-```js
+```ts
 import { characters } from '@reykjavik/hanna-css';
 
 const { bullets, spaces, quotes } = characters;
@@ -355,7 +355,7 @@ Object with the names of the "decorative" icons available for general use with
 `data-icon=""` and `data-icon-after=""` attributes, and for React component
 icon props.
 
-```js
+```ts
 import { icons } from '@reykjavik/hanna-css';
 import type { IconName } from '@reykjavik/hanna-css';
 
@@ -387,7 +387,7 @@ types:
 `phablet_netbook`, `phablet_up`, `phone_phablet`, `phone_tablet`,
 `phone_netbook`.
 
-```js
+```ts
 import { mq, css } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -419,7 +419,7 @@ This methods generates a URL to load a correctly versioned CSS bundle from the
 You must pass a list of `cssTokens` corresponding to the Hanna design
 components you use on your page(s).
 
-```js
+```ts
 import { getCssBundleUrl } from '@reykjavik/hanna-css';
 
 const cssTokens = [
@@ -456,7 +456,7 @@ The default is always the most recent major version of the Hanna CSS files.
 Use this option if you, for some reason, wish/need to pin your CSS files to an
 older, or more specific version folder.
 
-```js
+```ts
 const cssUrl = getCssBundleUrl(cssTokens, { version: 'v1.0.3' });
 ```
 
@@ -527,7 +527,7 @@ Primary use is for debugging/informational purposes.
 Convenience shorthand for `process.env.NODE_ENV !== 'production'`, used
 internally in some of the exported mixins, etc.
 
-```js
+```ts
 import { isDevMode } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -546,7 +546,7 @@ const myCss = css`
 Mixin that hides an element visually, but still makes it accessible to screen
 readers.
 
-```js
+```ts
 import { css, srOnly } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -567,7 +567,7 @@ be avoided by using more precise selectors for the `srOnly` mixin.)
 Similar to the `srOnly` mixin, but intended for links/buttons that should
 become visible on keyboard focus (`:focus-visible`).
 
-```js
+```ts
 import { css, srOnly_focusable } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -585,7 +585,7 @@ Similar to the `srOnly_focusable` mixin above, but for non-interactive
 elements that **contain** buttons/links that should become visible on keyboard
 focus.
 
-```js
+```ts
 import { css, srOnly_focusableContent } from '@reykjavik/hanna-css';
 
 const myCss = css`
@@ -603,7 +603,7 @@ const myCss = css`
 Generates `:hover`, `:active` and `:focus-visible` selectors in a backwards
 compatible manner.
 
-```js
+```ts
 import {
   css,
   hoverKeyboardFocusAndActiveStyling,
@@ -636,7 +636,7 @@ By default, these messages are only visible in CSS rendered when
 
 Example usage:
 
-```js
+```ts
 import { WARNING__, WARNING_message__ } from '@reykjavik/hanna-css';
 
 export default css`
@@ -746,7 +746,7 @@ container/viewport size of `max`.
 If the unit parameter is set to either `vw`/`vh`, then the `min` and `max`
 values refer to the viewport size.
 
-```js
+```ts
 import { css, px, pct } from `@reykjavik/hanna-css`
 import { scale } from `@reykjavik/hanna-css/scale`
 
@@ -794,7 +794,7 @@ media-query boundries.
 
 Example:
 
-```js
+```ts
 import { css } from '@reykjavik/hanna-css';
 import { clamp_tablet_netbook } from '@reykjavik/hanna-css/scale';
 
@@ -813,7 +813,7 @@ const myCSS = css`
 Which is effectively the same as this using the corresponding `scale_*`
 function:
 
-```js
+```ts
 import { css, mq, px } from '@reykjavik/hanna-css';
 import { scale_tablet_netbook } from '@reykjavik/hanna-css/scale';
 
@@ -866,7 +866,7 @@ raw values the CSS variables build on.
 
 For that this library exports some helpful objects.
 
-```js
+```ts
 import {
   breakpoints_raw,
   colors_raw,
