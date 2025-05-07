@@ -173,6 +173,7 @@ export default css`
     padding: 0 ${vars.space_1$5};
     padding-top: ${vars.space_1};
     font: ${vars.font_button};
+    font-weight: ${vars.font_weight__normal};
     color: ${vars.color_suld_100};
   }
 
@@ -206,7 +207,6 @@ export default css`
 
   .Multiselect__noresults {
     font: ${vars.font_button};
-    font-weight: ${vars.font_weight__bold};
     padding: ${vars.space_2} ${vars.space_2};
   }
 `;

@@ -313,7 +313,7 @@ const fontVarDeclarations = css`
     font_sh_s: `${_f.font_weight__bold} ${_f.font_sh_s_size} / ${_f.font_sh_s_leading} ${_f.font_family}`,
     font_bd_l: `${_f.font_bd_l_size} / ${_f.font_bd_l_leading} ${_f.font_family}`,
     font_bd_s: `${_f.font_bd_s_size} / ${_f.font_bd_s_leading} ${_f.font_family}`,
-    font_button: `${_f.font_button_size} / ${_f.font_button_leading} ${_f.font_family}`,
+    font_button: `${_f.font_weight__bold} ${_f.font_button_size} / ${_f.font_button_leading} ${_f.font_family}`,
     font_label: `${_f.font_label_size} / ${_f.font_label_leading} ${_f.font_family}`,
 
     font_hd_xl_size: px(_fsz.hd_xl_size__phone),

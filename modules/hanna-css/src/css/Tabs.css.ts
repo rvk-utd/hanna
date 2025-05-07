@@ -19,7 +19,6 @@ export default css`
       flex-flow: row wrap;
       border-bottom: var(--Tabs--borderWidth) solid ${vars.color_suld_50};
       font: ${vars.font_button};
-      font-weight: ${vars.font_weight__bold};
       margin: ${vars.space_5} 0;
     }
     .Tabs::after {

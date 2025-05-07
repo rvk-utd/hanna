@@ -62,7 +62,6 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
     background-color: ${bVars.backgroundColor};
     display: inline-block;
     font: ${vars.font_button};
-    font-weight: ${vars.font_weight__bold};
     border: ${bVars.border} solid ${bVars.color};
     line-height: calc(${bVars.height} - 2 * ${bVars.border});
     margin-right: ${vars.Button__gapH};
@@ -281,7 +280,6 @@ export const ButtonTertiaryStyle = (isStatic = false) => css`
   padding-right: calc(${btVars.hover__dashWidth} - var(--dashWidth));
   margin-right: ${btVars.gapH};
   margin-bottom: ${vars.space_1};
-  font-weight: 700;
   transition: all 100ms ease-in;
 
   &::before {
