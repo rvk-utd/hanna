@@ -11,6 +11,9 @@ type ControlProps = {
 
 const meta: Meta<ControlProps> = {
   title: 'ActionCards',
+  parameters: {
+    css: { tokens: ['ActionCards', 'ButtonTertiary'] },
+  },
 };
 export default meta;
 
