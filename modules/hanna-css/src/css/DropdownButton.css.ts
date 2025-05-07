@@ -4,7 +4,7 @@ import { buildVariables } from '../lib/cssutils.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 
 import { LinkStyle } from './styles/links.js';
-import { prem } from './utils/miscUtils.js';
+import { DEPS, prem } from './utils/miscUtils.js';
 
 import { enableDataIcon } from './Icon.css.js';
 
@@ -13,10 +13,7 @@ const openAnimation = 'DropdownButton-open';
 const db = buildVariables(['DropdownButton__padH']);
 
 export default css`
-  /*!@deps
-    ButtonPrimary
-    ButtonSecondary
-  */
+  ${DEPS('ButtonPrimary', 'ButtonSecondary')}
 
   @keyframes ${openAnimation} {
     0% {
