@@ -45,7 +45,6 @@ export default css`
 
     .AccordionList__title {
       font: ${vars.font_sh_s};
-      font-weight: ${vars.font_weight__bold};
       padding-left: ${a.vars.leftIndent};
     }
     .AccordionList__button {
