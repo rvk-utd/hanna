@@ -25,13 +25,15 @@ export const InfoBlock = (props: InfoBlockProps) => {
     >
       <h2 className="InfoBlock__title">{title}</h2>
       {subtitle && <div className="InfoBlock__subtitle">{subtitle}</div>}
-      <ul className="InfoBlock__items">
-        {items.map((item, i) => (
-          <li key={i} className="InfoBlock__item">
-            {item}
-          </li>
-        ))}
-      </ul>
+      {items.length > 0 && (
+        <ul className="InfoBlock__items">
+          {items.map((item, i) => (
+            <li key={i} className="InfoBlock__item">
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
       {'extraInfo' in props && (
         <div className="InfoBlock__extrainfo">{props.extraInfo}</div>
       )}
