@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.150
+
+_2025-05-08_
+
 - `InfoBlock`:
   - feat: Suppress rendering empty `div.InfoBlock__items` list element
 
