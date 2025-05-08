@@ -43,6 +43,7 @@ export const setDefaultLanguage = (newLang: HannaLang | undefined) => {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ensurelang
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const ensureHannaLang = (maybeLang: string | undefined): HannaLang | undefined =>
   maybeLang && langs.has(maybeLang) ? (maybeLang as HannaLang) : undefined;
 
@@ -70,6 +71,7 @@ setDefaultLanguage.pop = () => {
  *
  * In development mode it emits an error message to the console
  */
+/*#__NO_SIDE_EFFECTS__*/
 const langMissing = <T extends Record<string, unknown>>(
   lang: string,
   defaultTexts: T
@@ -97,6 +99,7 @@ export type DefaultTexts<Texts extends Record<string, unknown>> = {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#gettexts
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getTexts = <Texts extends Readonly<Record<string, unknown>>>(
   props: { texts?: Texts; lang?: string },
   defaultTexts: DefaultTexts<Texts>

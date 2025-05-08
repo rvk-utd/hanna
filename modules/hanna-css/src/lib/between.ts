@@ -26,6 +26,7 @@ export type ScaleEdge = Edge;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#scale
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale = (
   from: Edge,
   to: Edge,
@@ -70,6 +71,7 @@ export const scale = (
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_phone = (from: Edge, to: Edge) =>
   scale(from, to, phone, phablet, 'vw');
 
@@ -79,6 +81,7 @@ export const scale_phone = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_phablet = (from: Edge, to: Edge) =>
   scale(from, to, phablet, tablet, 'vw');
 
@@ -88,6 +91,7 @@ export const scale_phablet = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_tablet = (from: Edge, to: Edge) =>
   scale(from, to, tablet, netbook, 'vw');
 
@@ -97,6 +101,7 @@ export const scale_tablet = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_netbook = (from: Edge, to: Edge) =>
   scale(from, to, netbook, wide, 'vw');
 
@@ -108,6 +113,7 @@ export const scale_netbook = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_phone_netbook = (from: Edge, to: Edge) =>
   scale(from, to, phone, wide, 'vw');
 
@@ -117,6 +123,7 @@ export const scale_phone_netbook = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_phablet_netbook = (from: Edge, to: Edge) =>
   scale(from, to, phablet, wide, 'vw');
 
@@ -126,6 +133,7 @@ export const scale_phablet_netbook = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_tablet_netbook = (from: Edge, to: Edge) =>
   scale(from, to, tablet, wide, 'vw');
 
@@ -137,6 +145,7 @@ export const scale_tablet_netbook = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_phone_tablet = (from: Edge, to: Edge) =>
   scale(from, to, phone, netbook, 'vw');
 
@@ -146,6 +155,7 @@ export const scale_phone_tablet = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_phablet_tablet = (from: Edge, to: Edge) =>
   scale(from, to, phablet, netbook, 'vw');
 
@@ -157,6 +167,7 @@ export const scale_phablet_tablet = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_phone_phablet = (from: Edge, to: Edge) =>
   scale(from, to, phone, tablet, 'vw');
 
@@ -171,6 +182,7 @@ const _scaleDown = grid.contentMinWidth / grid.contentMaxWidth;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#scale_cols
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_cols = (
   from: Edge,
   to: Edge,
@@ -191,6 +203,7 @@ export const scale_cols = (
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#scale_container
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_container = (from: Edge, to: Edge) =>
   scale(from, to, grid.contentMinWidth, grid.contentMaxWidth, '%');
 
@@ -223,6 +236,7 @@ const _clamp = (from: Edge, to: Edge, scaler: (from: Edge, to: Edge) => string) 
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_phone = (from: Edge, to: Edge) => _clamp(from, to, scale_phone);
 
 /**
@@ -231,6 +245,7 @@ export const clamp_phone = (from: Edge, to: Edge) => _clamp(from, to, scale_phon
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_phablet = (from: Edge, to: Edge) => _clamp(from, to, scale_phablet);
 
 /**
@@ -239,6 +254,7 @@ export const clamp_phablet = (from: Edge, to: Edge) => _clamp(from, to, scale_ph
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_tablet = (from: Edge, to: Edge) => _clamp(from, to, scale_tablet);
 
 /**
@@ -247,6 +263,7 @@ export const clamp_tablet = (from: Edge, to: Edge) => _clamp(from, to, scale_tab
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_netbook = (from: Edge, to: Edge) => _clamp(from, to, scale_netbook);
 
 /**
@@ -255,6 +272,7 @@ export const clamp_netbook = (from: Edge, to: Edge) => _clamp(from, to, scale_ne
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_phone_netbook = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phone_netbook);
 
@@ -264,6 +282,7 @@ export const clamp_phone_netbook = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_phablet_netbook = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phablet_netbook);
 
@@ -273,6 +292,7 @@ export const clamp_phablet_netbook = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_tablet_netbook = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_tablet_netbook);
 
@@ -282,6 +302,7 @@ export const clamp_tablet_netbook = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_phone_tablet = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phone_tablet);
 
@@ -291,6 +312,7 @@ export const clamp_phone_tablet = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_phablet_tablet = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phablet_tablet);
 
@@ -300,6 +322,7 @@ export const clamp_phablet_tablet = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_phone_phablet = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phone_phablet);
 
@@ -313,6 +336,7 @@ export const clamp_phone_phablet = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_Hamburger = scale_phone_tablet;
 
 /**
@@ -320,6 +344,7 @@ export const scale_Hamburger = scale_phone_tablet;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const scale_Topmenu = scale_netbook;
 
 /**
@@ -327,6 +352,7 @@ export const scale_Topmenu = scale_netbook;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_Hamburger = (from: Edge, to: Edge) =>
   _clamp(from, to, scale_phone_tablet);
 
@@ -335,4 +361,5 @@ export const clamp_Hamburger = (from: Edge, to: Edge) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#media-bracket-scalers
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const clamp_Topmenu = (from: Edge, to: Edge) => _clamp(from, to, scale_netbook);

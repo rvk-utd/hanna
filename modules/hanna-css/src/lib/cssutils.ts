@@ -43,6 +43,7 @@ const variableOptions: Partial<VariableOptions> = {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#buildvariables
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const buildVariables = <T extends string>(
   input: Array<T>,
   /**
@@ -71,8 +72,8 @@ export const buildVariables = <T extends string>(
 // the chance of bundlers (e.g. Rollup) treating getting the methods on
 // `makeVariables` as a side-effect
 const { isVar, join } = makeVariables;
-buildVariables.isVar = isVar;
-buildVariables.join = join;
+buildVariables.isVar = /*#__NO_SIDE_EFFECTS__*/ isVar;
+buildVariables.join = /*#__NO_SIDE_EFFECTS__*/ join;
 
 // ---------------------------------------------------------------------------
 
@@ -107,6 +108,7 @@ export type {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getcssbundleurl
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getCssBundleUrl = <AcceptNewerVersion extends boolean = false>(
   cssTokens: string | Array<CssModuleToken>,
   options?: CssBundleOpts<AcceptNewerVersion>
@@ -185,6 +187,7 @@ const noFlickerSnippet = `
  * Removes all whitespace from script-snippets, except non-breaking spaces
  * which get turned into real spaces.
  */
+/*#__NO_SIDE_EFFECTS__*/
 const cmprss = (script: string) =>
   script
     .replace(/[\t \n]/g, '') // remove all whitespace
@@ -197,6 +200,7 @@ const cmprss = (script: string) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#getessentialhannascripts
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getEssentialHannaScripts = () =>
   cmprss(safariSidescrollFix + noFlickerSnippet);
 

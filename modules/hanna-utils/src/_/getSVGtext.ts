@@ -1,3 +1,4 @@
+/*#__NO_SIDE_EFFECTS__*/
 const isSvgUrl = (url: string) => /\.svg(?:$|\?|#)/i.test(url);
 
 /**
@@ -6,6 +7,7 @@ const isSvgUrl = (url: string) => /\.svg(?:$|\?|#)/i.test(url);
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#getsvgtext
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getSVGtext = (
   url: string | undefined,
   altText?: string

@@ -14,6 +14,7 @@ const stupidStableRandom = (seed: string) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#getstablerandomitem
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getStableRandomItem = <T>(
   items: ReadonlyArray<T> | Record<string, T>,
   seed: string

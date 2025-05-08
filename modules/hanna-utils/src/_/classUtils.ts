@@ -7,6 +7,7 @@ type ClassNames = string | Falsy | ReadonlyArray<ClassNames>;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#classes
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const classes = (...classNames: ReadonlyArray<ClassNames>): string => {
   let classStr = '';
   for (let i = 0, len = classNames.length; i < len; i++) {
@@ -41,6 +42,7 @@ export type ClassNameModifiers = string | Falsy | ReadonlyArray<ClassNameModifie
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#modifiedclass
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const modifiedClass = (
   /** The base BEM class-name */
   bemClass: string,

@@ -46,6 +46,7 @@ let _formatMonitor: FormatChange<typeof formatGroups>;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formatmonitor
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getFormatMonitor = () => {
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!_formatMonitor) {

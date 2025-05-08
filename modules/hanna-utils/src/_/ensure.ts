@@ -20,6 +20,7 @@ export type PositiveInteger = number & { [PositiveInteger__brand]: true };
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#ensureposint
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const ensurePosInt = (candidate: unknown): PositiveInteger | undefined => {
   const num = Number(candidate);
   return num && num > 0 && num < Infinity && num === Math.floor(num)

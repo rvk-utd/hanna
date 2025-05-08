@@ -380,6 +380,7 @@ export type BlingType = (typeof blingTypes)[number];
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#misc-style-server-assets
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getAssetUrl = (filePath: string): string =>
   `${styleServerUrl}/assets/${filePath}`;
 
@@ -390,6 +391,7 @@ type IllustrationVariant = 'thumb';
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#illustrations
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getIllustrationUrl = (
   illustration: Illustration,
   variant?: IllustrationVariant
@@ -403,6 +405,7 @@ export const getIllustrationUrl = (
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#efnistákn-icons
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getEfnistaknUrl = (icon: Efnistakn): string =>
   getAssetUrl(`efnistakn/${icon}.svg`);
 
@@ -411,6 +414,7 @@ export const getEfnistaknUrl = (icon: Efnistakn): string =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#formheimur-shapes
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getFormheimurUrl = (shapes: Formheimur): string =>
   getAssetUrl(`formheimur/${shapes}.svg`);
 
@@ -419,6 +423,7 @@ export const getFormheimurUrl = (shapes: Formheimur): string =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#bling-shapes
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getBlingUrl = (blingType: BlingType): string =>
   getAssetUrl(`bling/${blingType}.svg`);
 
@@ -440,6 +445,7 @@ export type Favicon =
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#favicons
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getFavicon = (faviconFile: Favicon): string => getAssetUrl(faviconFile);
 
 export type RvkLogo =
@@ -458,5 +464,6 @@ export type RvkLogo =
 
   @see https://www.npmjs.com/package/@reykjavik/hanna-utils#reykjavik-logo
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getRvkLogoUrl = (logoFile: RvkLogo = 'reykjavik-logo.svg'): string =>
   getAssetUrl(logoFile);

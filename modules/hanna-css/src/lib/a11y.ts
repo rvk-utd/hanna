@@ -17,6 +17,7 @@ export const keyboardFocusStyling = (content: string) => css`
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hoverkeyboardfocusandactivestyling-mixin
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const hoverKeyboardFocusAndActiveStyling = (
   content?: string,
   opts: { notActive?: boolean } = {}
@@ -65,6 +66,7 @@ const sr_focusStyling = ({ link, border, bg }: Required<SROnlyFocusProps>) => cs
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#sronly-mixin
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const srOnly = (mode: Mode = 'normal') => css`
   position: absolute;
   width: 1px;
@@ -84,6 +86,7 @@ export const srOnly = (mode: Mode = 'normal') => css`
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#sronly-mixin
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const srOnly__undo = (mode: Mode = 'normal') => css`
   width: auto;
   height: auto;
@@ -103,6 +106,7 @@ export const srOnly__undo = (mode: Mode = 'normal') => css`
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#sronly_focusable-mixin
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const srOnly_focusable = (opts: SROnlyFocusProps = {}) => {
   const { link = defaultLink(), border = defaultBorder(), bg = defaultBg() } = opts;
   const focusStyling = css`
@@ -127,6 +131,7 @@ export const srOnly_focusable = (opts: SROnlyFocusProps = {}) => {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#sronly_focusablecontent-mixin
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const srOnly_focusableContent = (opts: SROnlyFocusProps & { dir?: Dir } = {}) => {
   const {
     link = defaultLink(),

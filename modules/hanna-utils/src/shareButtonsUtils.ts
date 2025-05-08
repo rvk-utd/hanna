@@ -15,7 +15,7 @@ export type ShareButtonPlatforms = keyof typeof shareButtonPlatforms;
 /**
  * List of supported social media platforms
  */
-export const shareButtonTypes = ObjectKeys(shareButtonPlatforms);
+export const shareButtonTypes = /*#__PURE__*/ ObjectKeys(shareButtonPlatforms);
 
 /**
  * Texts for the social media sharing UI
@@ -39,6 +39,7 @@ const _token = '${name}';
  * Interpolates the platform name, if the provided label contains
  * a `${name}` token.
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getShareButtonLabel = (
   type: ShareButtonPlatforms,
   label: string
@@ -139,6 +140,7 @@ type DocMetaConfig = {
  * as well as ready-made "share this page" URLs for all
  * `ShareButtonPlatforms`.
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getDocMeta = (cfg: DocMetaConfig = {}): DocMeta => {
   const url =
     getElm<HTMLLinkElement>('link[rel="canonical"]').href ||

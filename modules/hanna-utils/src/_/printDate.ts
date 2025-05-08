@@ -58,6 +58,7 @@ const monthsByLang: OpenRecord<HannaLang, Array<string>> = {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#printdate
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const printDate = (date: string | Date, lang?: HannaLang): string => {
   date = typeof date === 'string' ? new Date(date) : date;
   const d = date.getUTCDate();

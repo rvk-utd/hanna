@@ -1,8 +1,6 @@
-import { px as _px, PxValue } from 'es-in-css';
+import { px, PxValue } from 'es-in-css';
 
 import { bp } from './breakpoints.js';
-
-const px = (value: number) => /*#__PURE__*/ _px(value);
 
 const unit = px(8);
 const gutter = px(40);
@@ -41,5 +39,6 @@ export const grid = {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#gridpx
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const gridPx = (columns: number, gutters = columns - 1): PxValue =>
   px(columns * column + gutters * gutter);

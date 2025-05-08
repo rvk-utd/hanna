@@ -8,6 +8,7 @@
  *
  * Use this helper when you want to reliably scroll the whole page.
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const getPageScrollElm = (customWindow: Window = window) => {
   const { body, documentElement } = customWindow.document;
   if (body.clientHeight !== body.scrollHeight) {

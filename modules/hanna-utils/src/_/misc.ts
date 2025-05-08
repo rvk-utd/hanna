@@ -12,6 +12,7 @@
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#notnully
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const notNully = <T>(val: T | null | undefined): val is T => val != null;
 
 export type Falsy = undefined | null | false | 0 | '';
@@ -30,7 +31,7 @@ export type Falsy = undefined | null | false | 0 | '';
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#notfalsy
  */
-
+/*#__NO_SIDE_EFFECTS__*/
 export const notFalsy = <T>(val: T | Falsy): val is T => !!val;
 
 /**
@@ -48,6 +49,7 @@ export const notFalsy = <T>(val: T | Falsy): val is T => !!val;
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#capitalize
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const capitalize = <S extends string>(
   str: S,
   locale?: string | Array<string>

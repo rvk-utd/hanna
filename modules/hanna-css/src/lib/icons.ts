@@ -17,6 +17,7 @@ const iconfontName = 'icons';
  * Mixin to use in either `::before` or `:after` contexts
  * to set up iconfont styling
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const iconStyle = (iconChar?: string | VariablePrinter) => {
   if (typeof iconChar === 'string') {
     iconChar = str(iconChar);

@@ -116,6 +116,7 @@ const _suppress_WARNING__ = (opts?: WarningOpts, mode: Mode = 'normal') => {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning__
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const WARNING__ = (message: string, opts?: WarningOpts) =>
   _WARNING__(message, opts);
 
@@ -125,6 +126,7 @@ export const WARNING__ = (message: string, opts?: WarningOpts) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning_soft__
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const WARNING_soft__ = (message: string, opts?: WarningOpts) =>
   _WARNING__(message, opts, 'soft');
 
@@ -136,6 +138,7 @@ export const WARNING_soft__ = (message: string, opts?: WarningOpts) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning_message__
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const WARNING_message__ = (message: string) => _WARNING_message__(message);
 
 // ---------------------------------------------------------------------------
@@ -145,6 +148,7 @@ export const WARNING_message__ = (message: string) => _WARNING_message__(message
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning_border__
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const WARNING_border__ = (opts?: MiniWarningOpts) => _WARNING_border__(opts);
 
 /**
@@ -153,6 +157,7 @@ export const WARNING_border__ = (opts?: MiniWarningOpts) => _WARNING_border__(op
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#warning_border_soft__
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const WARNING_border_soft__ = (opts?: MiniWarningOpts) =>
   _WARNING_border__(opts, 'soft');
 
@@ -163,6 +168,7 @@ export const WARNING_border_soft__ = (opts?: MiniWarningOpts) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#suppress_warning__
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const suppress_WARNING__ = (message: string, opts?: WarningOpts) =>
   _suppress_WARNING__(opts);
 
@@ -171,5 +177,6 @@ export const suppress_WARNING__ = (message: string, opts?: WarningOpts) =>
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#suppress_warning_soft__
  */
+/*#__NO_SIDE_EFFECTS__*/
 export const suppress_WARNING_soft__ = (opts?: WarningOpts) =>
   _suppress_WARNING__(opts, 'soft');
