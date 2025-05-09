@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - perf: Add `#__NO_SIDE_EFFECTS__` compiler notation to all exported functions
+- feat: Add vars `font_heading_*` and `font_body_*` to `hannaVars`
+- feat: Deprecate vars `font_hd_*`, `font_sh_*`, `font_bd_*` on `hannaVars`
 
 ## 0.4.18
 

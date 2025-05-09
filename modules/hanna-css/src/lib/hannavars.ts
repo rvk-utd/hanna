@@ -1,4 +1,5 @@
 import { ObjectKeys } from '@reykjavik/hanna-utils';
+import { VariablePrinter } from 'es-in-css';
 
 import { buildVariables } from './cssutils.js';
 import iconfonttokens from './iconfonttokens.js';
@@ -148,46 +149,44 @@ export const fontVars = /*@__PURE__*/ buildVariables([
   'font_weight__normal',
   'font_weight__bold',
 
-  'font_base_size',
-  'font_base_leading',
-
   // Compound `font:` shortand property values
   'font_base',
-  'font_hd_xl',
-  'font_hd_l',
-  'font_hd_m',
-  'font_hd_s',
-  'font_sh_l',
-  'font_sh_l_thin',
-  'font_sh_s',
-  'font_bd_l',
-  'font_bd_s',
+  // -
+  'font_heading_xl',
+  'font_heading_l',
+  'font_heading_m',
+  'font_heading_s',
+  'font_heading_xs',
+  // -
+  'font_body_l',
+  'font_body_m',
+  'font_body_s',
+  // -
   'font_button',
   'font_label',
 
-  // headings
-  'font_hd_xl_size',
-  'font_hd_xl_leading',
-  'font_hd_l_size',
-  'font_hd_l_leading',
-  'font_hd_m_size',
-  'font_hd_m_leading',
-  'font_hd_s_size',
-  'font_hd_s_leading',
-
-  // subheadings
-  'font_sh_l_size',
-  'font_sh_l_leading',
-  'font_sh_s_size',
-  'font_sh_s_leading',
-
-  // body text
-  'font_bd_l_size',
-  'font_bd_l_leading',
-  'font_bd_s_size',
-  'font_bd_s_leading',
-
-  // buttons and labels
+  // Size/leading components
+  'font_base_size',
+  'font_base_leading',
+  // -
+  'font_heading_xl_size',
+  'font_heading_xl_leading',
+  'font_heading_l_size',
+  'font_heading_l_leading',
+  'font_heading_m_size',
+  'font_heading_m_leading',
+  'font_heading_s_size',
+  'font_heading_s_leading',
+  'font_heading_xs_size',
+  'font_heading_xs_leading',
+  // -
+  'font_body_l_size',
+  'font_body_l_leading',
+  'font_body_m_size',
+  'font_body_m_leading',
+  'font_body_s_size',
+  'font_body_s_leading',
+  // -
   'font_button_size',
   'font_button_leading',
   'font_label_size',
@@ -196,6 +195,33 @@ export const fontVars = /*@__PURE__*/ buildVariables([
   // v margins
   'baseVerticalMargin',
   'baseVerticalMargin_2',
+
+  // @deprecated variable (Remove in v0.5)
+  /**/ 'font_hd_xl',
+  /**/ 'font_hd_xl_size',
+  /**/ 'font_hd_xl_leading',
+  /**/ 'font_hd_l',
+  /**/ 'font_hd_l_size',
+  /**/ 'font_hd_l_leading',
+  /**/ 'font_hd_m',
+  /**/ 'font_hd_m_size',
+  /**/ 'font_hd_m_leading',
+  /**/ 'font_hd_s',
+  /**/ 'font_hd_s_size',
+  /**/ 'font_hd_s_leading',
+  /**/ 'font_sh_l',
+  /**/ 'font_sh_l_thin',
+  /**/ 'font_sh_l_size',
+  /**/ 'font_sh_l_leading',
+  /**/ 'font_sh_s',
+  /**/ 'font_sh_s_size',
+  /**/ 'font_sh_s_leading',
+  /**/ 'font_bd_l',
+  /**/ 'font_bd_l_size',
+  /**/ 'font_bd_l_leading',
+  /**/ 'font_bd_s',
+  /**/ 'font_bd_s_size',
+  /**/ 'font_bd_s_leading',
 ]);
 
 // ---------------------------------------------------------------------------
@@ -357,18 +383,73 @@ const _hannaVars = /*@__PURE__*/ buildVariables.join(
 const { vars, override } = _hannaVars;
 
 /**
- * Type-safe collection of CSS variables for use in your CSS code.
- *
- * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hannavars
- */
-export const hannaVars = vars;
-
-/**
  * This function provides a type-safe way to write local overrides for the Hanna
  * CSS variables. _Use sparingly, with caution!_
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hannavaroverride
  */
 export const hannaVarOverride = override;
+
+/**
+ * Type-safe collection of CSS variables for use in your CSS code.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#hannavars
+ */
+export const hannaVars = vars as typeof vars & {
+  // MANUALLY ADD DEPRECATED VARS HERE
+
+  /** @deprecated Use token `.font_heading_xl` instead  (Will be removed in v0.5) */
+  font_hd_xl: VariablePrinter;
+  /** @deprecated Use token `.font_heading_xl_size` instead  (Will be removed in v0.5) */
+  font_hd_xl_size: VariablePrinter;
+  /** @deprecated Use token `.font_heading_xl_leading` instead  (Will be removed in v0.5) */
+  font_hd_xl_leading: VariablePrinter;
+  /** @deprecated Use token `.font_heading_xl` instead  (Will be removed in v0.5) */
+  font_hd_l: VariablePrinter;
+  /** @deprecated Use token `.font_heading_xl_size` instead  (Will be removed in v0.5) */
+  font_hd_l_size: VariablePrinter;
+  /** @deprecated Use token `.font_heading_xl_leading` instead  (Will be removed in v0.5) */
+  font_hd_l_leading: VariablePrinter;
+  /** @deprecated Use token `.font_heading_l` instead  (Will be removed in v0.5) */
+  font_hd_m: VariablePrinter;
+  /** @deprecated Use token `.font_heading_l_size` instead  (Will be removed in v0.5) */
+  font_hd_m_size: VariablePrinter;
+  /** @deprecated Use token `.font_heading_l_leading` instead  (Will be removed in v0.5) */
+  font_hd_m_leading: VariablePrinter;
+  /** @deprecated Use token `.font_heading_m` instead  (Will be removed in v0.5) */
+  font_hd_s: VariablePrinter;
+  /** @deprecated Use token `.font_heading_m_size` instead  (Will be removed in v0.5) */
+  font_hd_s_size: VariablePrinter;
+  /** @deprecated Use token `.font_heading_m_leading` instead  (Will be removed in v0.5) */
+  font_hd_s_leading: VariablePrinter;
+
+  /** @deprecated Use token `.font_heading_m` instead  (Will be removed in v0.5) */
+  font_sh_l: VariablePrinter;
+  /** @deprecated Use token `.font_heading_m` instead  (Will be removed in v0.5) */
+  font_sh_l_thin: VariablePrinter;
+  /** @deprecated Use token `.font_heading_m_size` instead  (Will be removed in v0.5) */
+  font_sh_l_size: VariablePrinter;
+  /** @deprecated Use token `.font_heading_m_leading` instead  (Will be removed in v0.5) */
+  font_sh_l_leading: VariablePrinter;
+  /** @deprecated Use token `.font_heading_s` instead  (Will be removed in v0.5) */
+  font_sh_s: VariablePrinter;
+  /** @deprecated Use token `.font_heading_s_size` instead  (Will be removed in v0.5) */
+  font_sh_s_size: VariablePrinter;
+  /** @deprecated Use token `.font_heading_s_leading` instead  (Will be removed in v0.5) */
+  font_sh_s_leading: VariablePrinter;
+
+  /** @deprecated Use token `.font_body_l` instead  (Will be removed in v0.5) */
+  font_bd_l: VariablePrinter;
+  /** @deprecated Use token `.font_body_l_size` instead  (Will be removed in v0.5) */
+  font_bd_l_size: VariablePrinter;
+  /** @deprecated Use token `.font_body_l_leading` instead  (Will be removed in v0.5) */
+  font_bd_l_leading: VariablePrinter;
+  /** @deprecated Use token `.font_body_m` instead  (Will be removed in v0.5) */
+  font_bd_s: VariablePrinter;
+  /** @deprecated Use token `.font_body_m_size` instead  (Will be removed in v0.5) */
+  font_bd_s_size: VariablePrinter;
+  /** @deprecated Use token `.font_body_m_leading` instead  (Will be removed in v0.5) */
+  font_bd_s_leading: VariablePrinter;
+};
 
 export type HannaCssVarToken = keyof typeof hannaVars;

@@ -35,7 +35,7 @@ import { ButtonTertiaryVarDeclarations } from './buttons.js';
 const _c = colorVars.vars;
 const _g = gridVars.vars;
 const _f = fontVars.vars;
-const _fsz = font.sizes;
+const _fsz = font.sz;
 
 // ---------------------------------------------------------------------------
 
@@ -121,12 +121,13 @@ const colorVarDeclarations =
     color_blackish: colors.blackish,
   }) +
   css`
-    // @deprecated This was a typo (Will be removed in version v0.9)
+    /* @deprecated This was a typo (Will be removed in version v0.9) */
     --color-ellidarardalur-25: ${_c.color_ellidaardalur_25};
     --color-ellidarardalur-50: ${_c.color_ellidaardalur_50};
     --color-ellidarardalur-75: ${_c.color_ellidaardalur_75};
     --color-ellidarardalur-100: ${_c.color_ellidaardalur_100};
     --color-ellidarardalur-150: ${_c.color_ellidaardalur_150};
+    /* END: deprecation */
   `;
 
 // ---------------------------------------------------------------------------
@@ -300,82 +301,133 @@ const fontVarDeclarations = css`
     font_weight__normal: font.weight_normal,
     font_weight__bold: font.weight_bold,
 
-    font_base_size: px(font.base_size),
-    font_base_leading: px(font.base_leading),
+    // `font:` short hands
 
     font_base: `${_f.font_base_size} / ${_f.font_base_leading} ${_f.font_family}`,
-    font_hd_xl: `${_f.font_weight__bold} ${_f.font_hd_xl_size} / ${_f.font_hd_xl_leading} ${_f.font_family}`,
-    font_hd_l: `${_f.font_weight__bold} ${_f.font_hd_l_size} / ${_f.font_hd_l_leading} ${_f.font_family}`,
-    font_hd_m: `${_f.font_weight__bold} ${_f.font_hd_m_size} / ${_f.font_hd_m_leading} ${_f.font_family}`,
-    font_hd_s: `${_f.font_weight__bold} ${_f.font_hd_s_size} / ${_f.font_hd_s_leading} ${_f.font_family}`,
-    font_sh_l: `${_f.font_weight__bold} ${_f.font_sh_l_size} / ${_f.font_sh_l_leading} ${_f.font_family}`,
-    font_sh_l_thin: `${_f.font_sh_l_size} / ${_f.font_sh_l_leading} ${_f.font_family}`,
-    font_sh_s: `${_f.font_weight__bold} ${_f.font_sh_s_size} / ${_f.font_sh_s_leading} ${_f.font_family}`,
-    font_bd_l: `${_f.font_bd_l_size} / ${_f.font_bd_l_leading} ${_f.font_family}`,
-    font_bd_s: `${_f.font_bd_s_size} / ${_f.font_bd_s_leading} ${_f.font_family}`,
+
+    font_heading_xl: `${_f.font_weight__bold} ${_f.font_heading_xl_size} / ${_f.font_heading_xl_leading} ${_f.font_family}`,
+    font_heading_l: `${_f.font_weight__bold} ${_f.font_heading_l_size} / ${_f.font_heading_l_leading} ${_f.font_family}`,
+    font_heading_m: `${_f.font_weight__bold} ${_f.font_heading_m_size} / ${_f.font_heading_m_leading} ${_f.font_family}`,
+    font_heading_s: `${_f.font_weight__bold} ${_f.font_heading_s_size} / ${_f.font_heading_s_leading} ${_f.font_family}`,
+    font_heading_xs: `${_f.font_weight__bold} ${_f.font_heading_xs_size} / ${_f.font_heading_xs_leading} ${_f.font_family}`,
+
+    font_body_l: `${_f.font_weight__normal} ${_f.font_body_l_size} / ${_f.font_body_l_leading} ${_f.font_family}`,
+    font_body_m: `${_f.font_weight__normal} ${_f.font_body_m_size} / ${_f.font_body_m_leading} ${_f.font_family}`,
+    font_body_s: `${_f.font_weight__normal} ${_f.font_body_s_size} / ${_f.font_body_s_leading} ${_f.font_family}`,
+
     font_button: `${_f.font_weight__bold} ${_f.font_button_size} / ${_f.font_button_leading} ${_f.font_family}`,
     font_label: `${_f.font_label_size} / ${_f.font_label_leading} ${_f.font_family}`,
 
-    font_hd_xl_size: px(_fsz.hd_xl_size__phone),
-    font_hd_xl_leading: px(_fsz.hd_xl_leading__phone),
-    font_hd_l_size: px(_fsz.hd_l_size__phone),
-    font_hd_l_leading: px(_fsz.hd_l_leading__phone),
-    font_hd_m_size: px(_fsz.hd_m_size__phone),
-    font_hd_m_leading: px(_fsz.hd_m_leading__phone),
-    font_hd_s_size: px(_fsz.hd_s_size__phone),
-    font_hd_s_leading: px(_fsz.hd_s_leading__phone),
+    // `font-size:` and `line-height:` values
 
-    font_sh_l_size: px(_fsz.sh_l_size__phone),
-    font_sh_l_leading: px(_fsz.sh_l_leading__phone),
-    font_sh_s_size: px(_fsz.sh_s_size__phone),
-    font_sh_s_leading: px(_fsz.sh_s_leading__phone),
+    font_base_size: px(font.base_size),
+    font_base_leading: px(font.base_leading),
 
-    font_bd_l_size: px(_fsz.bd_l_size),
-    font_bd_l_leading: px(_fsz.bd_l_leading),
-    font_bd_s_size: px(_fsz.bd_s_size),
-    font_bd_s_leading: px(_fsz.bd_s_leading),
+    font_heading_xl_size: px(_fsz.heading_xl_size__phone),
+    font_heading_xl_leading: px(_fsz.heading_xl_leading__phone),
+    font_heading_l_size: px(_fsz.heading_l_size__phone),
+    font_heading_l_leading: px(_fsz.heading_l_leading__phone),
+    font_heading_m_size: px(_fsz.heading_m_size__phone),
+    font_heading_m_leading: px(_fsz.heading_m_leading__phone),
+    font_heading_s_size: px(_fsz.heading_s_size__phone),
+    font_heading_s_leading: px(_fsz.heading_s_leading__phone),
+    font_heading_xs_size: px(_fsz.heading_xs_size__phone),
+    font_heading_xs_leading: px(_fsz.heading_xs_leading__phone),
+
+    font_body_l_size: px(_fsz.body_l_size__phone),
+    font_body_l_leading: px(_fsz.body_l_leading__phone),
+    font_body_m_size: px(_fsz.body_m_size__phone),
+    font_body_m_leading: px(_fsz.body_m_leading__phone),
+    font_body_s_size: px(_fsz.body_s_size__phone),
+    font_body_s_leading: px(_fsz.body_s_leading__phone),
 
     font_button_size: px(_fsz.button_size),
     font_button_leading: px(_fsz.button_leading),
     font_label_size: px(_fsz.label_size),
     font_label_leading: px(_fsz.label_leading),
 
+    // -
+
     baseVerticalMargin: scale_phone_netbook(2 * grid.unit, 3 * grid.unit),
     baseVerticalMargin_2: scale_phone_netbook(4 * grid.unit, 6 * grid.unit),
+
+    // @deprecated variables (Will be removed in version v0.9)
+    /**/ font_hd_xl: _f.font_heading_xl,
+    /**/ font_hd_l: _f.font_heading_xl,
+    /**/ font_hd_m: _f.font_heading_l,
+    /**/ font_hd_s: _f.font_heading_m,
+    /**/ font_sh_l: _f.font_heading_m,
+    /**/ font_sh_l_thin: `${_f.font_heading_m_size} / ${_f.font_heading_m_leading} ${_f.font_family}`,
+    /**/ font_sh_s: _f.font_heading_s,
+    /**/ font_bd_l: _f.font_body_l,
+    /**/ font_bd_s: _f.font_body_m,
+    /**/ font_hd_xl_size: _f.font_heading_xl_size,
+    /**/ font_hd_xl_leading: _f.font_heading_xl_leading,
+    /**/ font_hd_l_size: _f.font_heading_xl_size,
+    /**/ font_hd_l_leading: _f.font_heading_xl_leading,
+    /**/ font_hd_m_size: _f.font_heading_l_size,
+    /**/ font_hd_m_leading: _f.font_heading_l_leading,
+    /**/ font_hd_s_size: _f.font_heading_m_size,
+    /**/ font_hd_s_leading: _f.font_heading_m_leading,
+    /**/ font_sh_l_size: _f.font_heading_m_size,
+    /**/ font_sh_l_leading: _f.font_heading_m_leading,
+    /**/ font_sh_s_size: _f.font_heading_s_size,
+    /**/ font_sh_s_leading: _f.font_heading_s_leading,
+    /**/ font_bd_l_size: _f.font_body_l_size,
+    /**/ font_bd_l_leading: _f.font_body_l_leading,
+    /**/ font_bd_s_size: _f.font_body_m_size,
+    /**/ font_bd_s_leading: _f.font_body_m_leading,
   })}
 
   @media ${mq.phablet_netbook} {
     ${fontVars.override({
-      font_hd_xl_size: scale(_fsz.hd_xl_size__phone, _fsz.hd_xl_size),
-      font_hd_xl_leading: scale(_fsz.hd_xl_leading__phone, _fsz.hd_xl_leading),
-      font_hd_l_size: scale(_fsz.hd_l_size__phone, _fsz.hd_l_size),
-      font_hd_l_leading: scale(_fsz.hd_l_leading__phone, _fsz.hd_l_leading),
-      font_hd_m_size: scale(_fsz.hd_m_size__phone, _fsz.hd_m_size),
-      font_hd_m_leading: scale(_fsz.hd_m_leading__phone, _fsz.hd_m_leading),
-      font_hd_s_size: scale(_fsz.hd_s_size__phone, _fsz.hd_s_size),
-      font_hd_s_leading: scale(_fsz.hd_s_leading__phone, _fsz.hd_s_leading),
-
-      font_sh_l_size: scale(_fsz.sh_l_size__phone, _fsz.sh_l_size),
-      font_sh_l_leading: scale(_fsz.sh_l_leading__phone, _fsz.sh_l_leading),
-      font_sh_s_size: scale(_fsz.sh_s_size__phone, _fsz.sh_s_size),
-      font_sh_s_leading: scale(_fsz.sh_s_leading__phone, _fsz.sh_s_leading),
+      font_heading_xl_size: scale(_fsz.heading_xl_size__phone, _fsz.heading_xl_size),
+      font_heading_xl_leading: scale(
+        _fsz.heading_xl_leading__phone,
+        _fsz.heading_xl_leading
+      ),
+      font_heading_l_size: scale(_fsz.heading_l_size__phone, _fsz.heading_l_size),
+      font_heading_l_leading: scale(
+        _fsz.heading_l_leading__phone,
+        _fsz.heading_l_leading
+      ),
+      font_heading_m_size: scale(_fsz.heading_m_size__phone, _fsz.heading_m_size),
+      font_heading_m_leading: scale(
+        _fsz.heading_m_leading__phone,
+        _fsz.heading_m_leading
+      ),
+      font_heading_s_size: scale(_fsz.heading_s_size__phone, _fsz.heading_s_size),
+      font_heading_s_leading: scale(
+        _fsz.heading_s_leading__phone,
+        _fsz.heading_s_leading
+      ),
+      // // Redundant as these variables are the same in all viewport sizes
+      // font_heading_xs_size: scale(_fsz.heading_xs_size__phone, _fsz.heading_xs_size),
+      // font_heading_xs_leading: scale(
+      //   _fsz.heading_xs_leading__phone,
+      //   _fsz.heading_xs_leading
+      // ),
+      font_body_l_size: scale(_fsz.body_l_size__phone, _fsz.body_l_size),
+      font_body_l_leading: scale(_fsz.body_l_leading__phone, _fsz.body_l_leading),
+      // // Redundant as these variables are the same in all viewport sizes
+      // font_body_m_size: scale(_fsz.body_m_size__phone, _fsz.body_m_size),
+      // font_body_m_leading: scale(_fsz.body_m_leading__phone, _fsz.body_m_leading),
+      // font_body_s_size: scale(_fsz.body_s_size__phone, _fsz.body_s_size),
+      // font_body_s_leading: scale(_fsz.body_s_leading__phone, _fsz.body_s_leading),
     })}
   }
   @media ${mq.wide} {
     ${fontVars.override({
-      font_hd_xl_size: px(_fsz.hd_xl_size),
-      font_hd_xl_leading: px(_fsz.hd_xl_leading),
-      font_hd_l_size: px(_fsz.hd_l_size),
-      font_hd_l_leading: px(_fsz.hd_l_leading),
-      font_hd_m_size: px(_fsz.hd_m_size),
-      font_hd_m_leading: px(_fsz.hd_m_leading),
-      font_hd_s_size: px(_fsz.hd_s_size),
-      font_hd_s_leading: px(_fsz.hd_s_leading),
-
-      font_sh_l_size: px(_fsz.sh_l_size),
-      font_sh_l_leading: px(_fsz.sh_l_leading),
-      font_sh_s_size: px(_fsz.sh_s_size),
-      font_sh_s_leading: px(_fsz.sh_s_leading),
+      font_heading_xl_size: px(_fsz.heading_xl_size),
+      font_heading_xl_leading: px(_fsz.heading_xl_leading),
+      font_heading_l_size: px(_fsz.heading_l_size),
+      font_heading_l_leading: px(_fsz.heading_l_leading),
+      font_heading_m_size: px(_fsz.heading_m_size),
+      font_heading_m_leading: px(_fsz.heading_m_leading),
+      font_heading_s_size: px(_fsz.heading_s_size),
+      font_heading_s_leading: px(_fsz.heading_s_leading),
+      font_body_l_size: px(_fsz.body_l_size),
+      font_body_l_leading: px(_fsz.body_l_leading),
 
       baseVerticalMargin: px(3 * grid.unit),
       baseVerticalMargin_2: px(6 * grid.unit),
@@ -444,12 +496,12 @@ const gridVarDeclarations = css`
     grid_column__neg: _g.grid_1__neg,
   })}
 
-  // @deprecated (Remove in v0.9)
+  /* @deprecated (Remove in v0.9)*/
   --grid-edge: ${_g.grid_margin};
   --grid-edge--neg: ${_g.grid_margin__neg};
   --grid-edge--right: ${_g.grid_margin__right};
   --grid-edge--right--neg: ${_g.grid_margin__right__neg};
-  // END: deprecation
+  /* END: deprecation */
 
   @media ${mq.wide} {
     ${gridVars.override({

@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add new `--foint-heading-*` and `--font-body-*` variables — with new
+  responsive sizing strategies
+- feat: Deprecate all `--font-hd-*`, `--font-sh-*`, `--font-bd-*` variables
 - fix: Make `--font-button` styling bold by default
 - fix: Set `.Tooltip`'s trigger icon to a fixed `font-size`
 
