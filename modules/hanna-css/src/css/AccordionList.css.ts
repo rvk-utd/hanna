@@ -87,7 +87,7 @@ export default css`
     // ---------------------------------------------------------------------------
 
     .AccordionList__content {
-      ${textContent} // no headings above h4
+      ${textContent({ skipH2: true, skipH3: true })}
 
       font: ${vars.font_body_l};
       transition: all 200ms ease-in;

@@ -30,7 +30,7 @@ export default css`
   }
 
   .BlockQuote__quote {
-    ${textContent}
+    ${textContent({ skipH2: true, skipBlockquote: true })};
     font: ${vars.font_body_m};
     border-left: ${pqVars.line};
     padding-left: ${vars.space_2};

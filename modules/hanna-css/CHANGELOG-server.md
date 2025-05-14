@@ -9,6 +9,8 @@
   and map all existing text styles to the new variables
 - fix: Make `--font-button` styling bold by default
 - fix: Set `.Tooltip`'s trigger icon to a fixed `font-size`
+- fix: feat: Remove styles for unsupported rich text content inside
+  `AccordionList`, `BlockQuote` and `LabeledTextBlock`
 
 ## 0.8.94
 
