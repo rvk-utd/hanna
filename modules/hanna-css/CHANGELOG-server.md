@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.95
+
+_2025-05-23_
+
 - feat: Add new `--foint-heading-*` and `--font-body-*` variables — with new
   responsive sizing strategies
 - feat: Deprecate all `--font-hd-*`, `--font-sh-*`, `--font-bd-*` variables —
