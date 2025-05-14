@@ -5,6 +5,7 @@ import { font } from '../../lib/font.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { cols_pct, prem } from '../utils/miscUtils.js';
 
+const fontStyle = vars.font_heading_m;
 const fontSize = font.sz.heading_m_size;
 
 export const LabeledTitleVars = buildVariables([
@@ -15,7 +16,7 @@ export const LabeledTitleVars = buildVariables([
 const l = LabeledTitleVars;
 
 export const LabeledTitleStyle__basics = (margin = true) => css`
-  font: ${vars.font_heading_m};
+  font: ${fontStyle};
   display: flex;
   ${margin &&
   css`

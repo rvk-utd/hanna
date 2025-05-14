@@ -88,7 +88,7 @@ export const textContent = (opts: Opts = {}) => css`
       `
     : css`
         h2 {
-          font: ${vars.font_heading_m};
+          font: ${vars.font_heading_l};
           margin-bottom: ${t.vars.h2__marginBottom.or(vars.baseVerticalMargin)};
           clear: both;
         }
