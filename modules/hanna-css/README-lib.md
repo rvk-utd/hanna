@@ -142,7 +142,7 @@ import { hannaVars, css } from '@reykjavik/hanna-css';
 const myCss = css`
   .SomeComponent {
     background-color: ${hannaVars.theme_color_primary};
-    font: ${hannaVars.font_hd_s};
+    font: ${hannaVars.font_heading_m};
     max-width: ${hannaVars.grid_6};
   }
 `;

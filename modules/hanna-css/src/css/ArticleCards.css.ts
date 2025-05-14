@@ -52,7 +52,7 @@ export default css`
       link_weight: vars.font_weight__normal,
     })}
 
-    font: ${vars.font_bd_s};
+    font: ${vars.font_body_m};
 
     display: flex;
     flex-flow: column;
@@ -98,7 +98,7 @@ export default css`
   }
 
   .ArticleCards__card__title {
-    font: ${vars.font_sh_s};
+    font: ${vars.font_heading_s};
   }
   .ArticleCards__card__title:last-child {
     margin-bottom: ${vars.space_1};

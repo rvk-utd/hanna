@@ -98,7 +98,7 @@ export default css`
         link_underline__hover: `1px solid ${vars.color_faxafloi_100}`,
         link_weight: vars.font_weight__normal,
       })}
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
 
       display: flex;
       flex-flow: column;
@@ -138,7 +138,7 @@ export default css`
     }
 
     .ImageCards__card__title {
-      font: ${vars.font_sh_s};
+      font: ${vars.font_heading_s};
     }
     .ImageCards__card__title:last-child {
       margin-bottom: ${vars.space_1};

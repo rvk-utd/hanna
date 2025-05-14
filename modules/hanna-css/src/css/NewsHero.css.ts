@@ -42,7 +42,7 @@ export default css`
     }
 
     .NewsHero__title {
-      font: ${vars.font_hd_l};
+      font: ${vars.font_heading_xl};
       margin: ${prem(32)} 0 ${prem(24)};
     }
 
@@ -53,7 +53,7 @@ export default css`
     }
 
     .NewsHero__summary {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       margin-bottom: ${prem(32)};
     }
 

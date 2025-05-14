@@ -81,7 +81,7 @@ export default css`
     }
 
     .InfoHero__title {
-      font: ${vars.font_hd_l};
+      font: ${vars.font_heading_xl};
       margin-bottom: 0;
       word-break: break-word;
       overflow-wrap: break-word;
@@ -96,11 +96,11 @@ export default css`
       margin-bottom: ${px_pct(24, 5)};
     }
     .InfoHero__subtitle {
-      font: ${vars.font_sh_l};
+      font: ${vars.font_heading_m};
       margin-bottom: ${prem(8)};
     }
     .InfoHero__blurb {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       color: ${vars.color_suld_150};
       margin-bottom: ${prem(8)};
     }
@@ -113,7 +113,7 @@ export default css`
     }
 
     .InfoHero__footer {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       margin-top: ${prem(32)};
     }
 

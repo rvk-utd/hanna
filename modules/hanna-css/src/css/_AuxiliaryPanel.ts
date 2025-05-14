@@ -53,7 +53,7 @@ export const AuxiliaryPanel_css = () => css`
     }
 
     .AuxiliaryPanel__title {
-      font: ${vars.font_sh_s};
+      font: ${vars.font_heading_s};
       padding-bottom: ${vars.space_1};
       margin-bottom: ${vars.space_2};
       margin-right: 0;

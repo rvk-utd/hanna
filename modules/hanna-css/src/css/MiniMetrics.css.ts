@@ -22,20 +22,20 @@ export default css`
     }
 
     .MiniMetrics__text {
-      font: ${vars.font_hd_xl};
+      font: ${vars.font_heading_xl};
       display: block;
-      margin-bottom: ${em(40 / font.sizes.hd_xl_size)};
+      margin-bottom: ${em(40 / font.sz.heading_xl_size)};
       max-width: ${gridPx(9)};
     }
     .MiniMetrics__more {
       ${ButtonTertiaryStyle}
-      font: ${vars.font_sh_s};
-      --ButtonTertiary--dashWidth: ${rem(24 / font.sizes.sh_s_size)};
+      font: ${vars.font_heading_s};
+      --ButtonTertiary--dashWidth: ${rem(24 / font.sz.heading_s_size)};
       // --ButtonTertiary--hover--dashWidth: ${prem(48)};
-      --ButtonTertiary--dashHeight: ${rem(4 / font.sizes.sh_s_size)};
+      --ButtonTertiary--dashHeight: ${rem(4 / font.sz.heading_s_size)};
     }
     .MiniMetrics__more::before {
-      top: calc(0.5 * ${vars.font_sh_s_leading});
+      top: calc(0.5 * ${vars.font_heading_s_leading});
     }
 
     @media ${mq.phablet_up} {

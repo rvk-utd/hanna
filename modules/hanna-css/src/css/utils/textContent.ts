@@ -71,10 +71,10 @@ const t = textContentVars;
 
 // reset <button> styles for easier custom styling
 export const textContent = () => css`
-  font: ${vars.font_bd_l};
+  font: ${vars.font_body_l};
 
   h2 {
-    font: ${vars.font_hd_s};
+    font: ${vars.font_heading_m};
     margin-bottom: ${t.vars.h2__marginBottom.or(vars.baseVerticalMargin)};
     clear: both;
   }
@@ -82,7 +82,7 @@ export const textContent = () => css`
     margin-top: ${t.vars.h2__marginTop.or(em(1.5))};
   }
   h3 {
-    font: ${vars.font_sh_l};
+    font: ${vars.font_heading_m};
     margin-bottom: ${vars.baseVerticalMargin};
     clear: both;
   }
@@ -90,7 +90,7 @@ export const textContent = () => css`
     margin-top: ${t.vars.h3__marginTop.or(em(1.25))};
   }
   h4 {
-    font: ${vars.font_sh_s};
+    font: ${vars.font_heading_s};
     margin-bottom: ${vars.baseVerticalMargin};
   }
   p {
@@ -110,7 +110,7 @@ export const textContent = () => css`
   blockquote:not(.BlockQuote__quote):not(.PullQuote__quote) {
     ${pullQuoteContainerStyle}
 
-    font: ${vars.font_bd_s};
+    font: ${vars.font_body_m};
     position: relative;
     margin-bottom: ${vars.space_4};
     padding-left: calc(${vars.space_2} + 2px);

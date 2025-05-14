@@ -142,7 +142,7 @@ export default css`
     }
 
     .ExtraLinks__related__title {
-      font: ${vars.font_hd_s};
+      font: ${vars.font_heading_m};
       margin-bottom: ${scale_phone_netbook(20, 53)};
     }
 
@@ -151,7 +151,7 @@ export default css`
       position: relative;
     }
     .ExtraLinks__related__link {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       color: ${vars.color_suld_200};
     }
     .ExtraLinks__related__link::before {

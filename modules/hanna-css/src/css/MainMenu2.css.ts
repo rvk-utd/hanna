@@ -216,7 +216,7 @@ export default css`
 
   .MainMenu2__main__item {
     ${resetNonLinkChildrenLayout()}
-    font: ${vars.font_sh_s};
+    font: ${vars.font_heading_s};
     margin-bottom: ${vars.space_1};
   }
   .MainMenu2__main__item[aria-current='true'] {
@@ -301,7 +301,7 @@ export default css`
   }
 
   .MainMenu2__related__title {
-    font: ${vars.font_sh_s};
+    font: ${vars.font_heading_s};
     padding-top: ${vars.space_1};
     padding-bottom: calc(${mm2Vars.mainLink__paddingBottom} - 1px);
     border-bottom: 1px solid ${vars.color_suld_100};
@@ -474,7 +474,7 @@ export default css`
     }
 
     .MainMenu2 {
-      // font: ${vars.font_bd_l};
+      // font: ${vars.font_body_l};
       ${DesktopVariables.declare({
         // main__width: `calc(50% + ${vars.grid_1_1})`,
         main__width: `calc(50% + ${clamp_netbook(gridPx(0, 1), gridPx(1, 1))})`,

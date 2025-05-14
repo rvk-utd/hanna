@@ -24,7 +24,7 @@ export const CardBlock_css = () => css`
 export const CardListTitle_css = () => css`
   grid-area: title;
   margin-bottom: ${vars.baseVerticalMargin};
-  font: ${vars.font_hd_s};
+  font: ${vars.font_heading_m};
 `;
 
 export const CardList_css = () => css`
@@ -56,7 +56,7 @@ export const CardList_css = () => css`
 
 export const Card_css = () => css`
   ${LinkStyle_Reset}
-  font: ${vars.font_bd_s};
+  font: ${vars.font_body_m};
   display: block;
   width: 100%;
   padding: ${prem(24)} ${prem(24)} ${prem(32)} ${prem(24)};
@@ -83,7 +83,7 @@ export const Card_css = () => css`
   }
 
   &__title {
-    font: ${vars.font_bd_l};
+    font: ${vars.font_heading_xs};
     font-weight: ${vars.font_weight__bold};
   }
   &__title:last-child {

@@ -44,7 +44,7 @@ export default css`
     }
 
     .AccordionList__title {
-      font: ${vars.font_sh_s};
+      font: ${vars.font_heading_s};
       padding-left: ${a.vars.leftIndent};
     }
     .AccordionList__button {
@@ -70,7 +70,7 @@ export default css`
       position: absolute;
       left: 0;
       width: ${a.vars.iconWidth};
-      font-size: ${em(18 / font.sizes.sh_s_size)};
+      font-size: ${em(18 / font.sz.heading_s_size)};
       color: ${vars.color_suld_200};
       transform: rotateZ(45deg);
       transition: transform 200ms ease-in;
@@ -89,7 +89,7 @@ export default css`
     .AccordionList__content {
       ${textContent} // no headings above h4
 
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       transition: all 200ms ease-in;
       transition-property: opacity, visibility, max-height, padding-top;
       overflow: hidden;

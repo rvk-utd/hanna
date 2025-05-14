@@ -13,8 +13,8 @@ export default css`
       margin-bottom: ${vars.baseVerticalMargin};
     }
     .RelatedLinks__title {
-      font-size: ${vars.font_bd_l_size};
-      line-height: ${vars.font_bd_l_leading};
+      font-size: ${vars.font_body_l_size};
+      line-height: ${vars.font_body_l_leading};
       font-weight: ${vars.font_weight__bold};
       color: ${vars.color_suld_150};
       margin-bottom: ${grid_units(1)};

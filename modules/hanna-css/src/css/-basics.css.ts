@@ -360,7 +360,7 @@ export default css`
   // ===========================================================================
 
   table {
-    font: ${vars.font_bd_s};
+    font: ${vars.font_body_m};
     border-collapse: collapse;
     margin-bottom: ${vars.baseVerticalMargin};
   }

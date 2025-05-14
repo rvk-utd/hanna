@@ -17,7 +17,7 @@ export const Heading_css = () => css`
   .Heading {
     ${ComponentLayout}
 
-    font: ${vars.font_hd_m};
+    font: ${vars.font_heading_l};
     margin-top: ${scale_phone_netbook(40, 60)};
     margin-bottom: ${scale_phone_netbook(24, 32)};
 
@@ -27,10 +27,10 @@ export const Heading_css = () => css`
     }
   }
   .Heading--large {
-    font: ${vars.font_hd_l};
+    font: ${vars.font_heading_xl};
   }
   .Heading--small {
-    font: ${vars.font_hd_s};
+    font: ${vars.font_heading_m};
   }
 
   .Heading a {

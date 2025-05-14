@@ -8,14 +8,14 @@ export default css`
   @media screen {
     .Attention {
       margin: ${vars.baseVerticalMargin_2} 0;
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       border-left: ${vars.space_1} solid ${vars.theme_color_primary};
       padding-left: ${vars.space_4};
       padding-right: ${vars.grid_column};
     }
 
     .Attention--small {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
       padding-left: ${vars.space_3};
     }
 

@@ -24,7 +24,7 @@ export default css`
         input__height_inner: `calc(${ff.input__height} - 2px)`,
         input__padding_top: prem(InputField_paddingTop),
         input__padding_bottom: px(0),
-        input__font_size: vars.font_bd_l_size,
+        input__font_size: vars.font_body_l_size,
         input__color: vars.color_suld_200,
         input__color_placeholder: vars.color_suld_150,
         input__line_height: `calc(
@@ -48,7 +48,7 @@ export default css`
 
     .FormField--small {
       ${FormFieldVariables.override({
-        input__font_size: vars.font_bd_s_size,
+        input__font_size: vars.font_body_m_size,
         input__height: prem(40),
         input__padding_top: px(0),
         input__padding_bottom: px(0),
@@ -95,7 +95,7 @@ export default css`
       > [data-inputlabel].FormField__label,
     .FormField--empty:not(.FormField--small):not(.FormField--focused)
       > label.FormField__label {
-      font-size: ${vars.font_bd_s_size};
+      font-size: ${vars.font_body_m_size};
       line-height: ${ff.input__height_inner};
     }
 
@@ -112,7 +112,7 @@ export default css`
     // ---------------------------------------------------------------------------
 
     .FormField__input {
-      font-size: ${vars.font_bd_l_size};
+      font-size: ${vars.font_body_l_size};
       position: relative;
       display: flex;
       width: 100%;

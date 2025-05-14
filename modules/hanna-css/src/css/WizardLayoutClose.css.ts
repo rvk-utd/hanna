@@ -17,7 +17,7 @@ export default css`
 export const WizardLayoutClose_css = () => css`
   @media screen {
     .WizardLayoutClose {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
       position: absolute;
       z-index: 5;
       right: 0;

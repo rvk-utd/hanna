@@ -53,12 +53,12 @@ export default css`
     }
 
     .IslandPageBlock__title {
-      font: ${vars.font_hd_s};
+      font: ${vars.font_heading_m};
       margin-bottom: ${vars.space_3};
     }
 
     .IslandPageBlock__summary {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       margin-bottom: ${vars.space_3};
     }
     .IslandPageBlock__button {

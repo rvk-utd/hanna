@@ -20,7 +20,7 @@ export default css`
     }
 
     .HeroBlock__title {
-      font: ${hannaVars.font_hd_l};
+      font: ${hannaVars.font_heading_xl};
       margin-bottom: ${em(40 / 64)};
     }
 
@@ -32,7 +32,7 @@ export default css`
     }
 
     .HeroBlock__summary {
-      font: ${hannaVars.font_bd_l};
+      font: ${hannaVars.font_body_l};
       margin-bottom: ${em(40 / 20)};
     }
 

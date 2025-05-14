@@ -189,7 +189,7 @@ export default css`
     }
 
     .MainMenu__item {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       width: 100%;
       margin-bottom: ${grid_units(2)};
     }
@@ -206,7 +206,7 @@ export default css`
     }
 
     .MainMenu__separator ~ .MainMenu__item {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
     }
 
     .MainMenu__item--lang {

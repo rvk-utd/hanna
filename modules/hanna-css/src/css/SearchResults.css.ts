@@ -3,7 +3,6 @@ import { css } from 'es-in-css';
 import { hoverKeyboardFocusAndActiveStyling, srOnly } from '../lib/a11y.js';
 import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
-import { font } from '../lib/font.js';
 import { grid, gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
@@ -50,7 +49,7 @@ export default css`
     }
 
     .SearchResults__title {
-      font: ${vars.font_hd_m};
+      font: ${vars.font_heading_l};
       margin-bottom: ${scale_phone_netbook(48, 64)};
 
       @media ${mq.wide} {
@@ -59,7 +58,7 @@ export default css`
     }
 
     .SearchResults__query {
-      font: ${vars.font_sh_s};
+      font: ${vars.font_heading_s};
       display: block;
     }
     .SearchResults__query::before {
@@ -213,9 +212,7 @@ export default css`
       }
     }
     .SearchResults__loadmore__count {
-      // TODO: Check if value is right
-      /* font-size: ${vars.font_label_size}; */
-      font-size: ${font.sizes.size_12};
+      font-size: ${vars.font_label_size};
       color: ${vars.color_suld_150};
       font-weight: ${vars.font_weight__normal};
       margin-left: ${prem(4)};
@@ -260,12 +257,12 @@ export default css`
       box-shadow: inset 0 0 0 1px ${vars.color_faxafloi_100};
     }
     .SearchResultsHighlightItem__title {
-      font: ${vars.font_hd_s};
+      font: ${vars.font_heading_m};
       margin-bottom: ${grid_units(3)};
     }
 
     .SearchResultsHighlightItem__meta {
-      /* font: ${vars.font_bd_s}; */
+      /* font: ${vars.font_body_m}; */
       font: ${vars.font_label};
       color: ${vars.color_suld_150};
       margin-top: ${vars.space_1$5__neg};

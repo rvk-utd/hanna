@@ -27,7 +27,7 @@ export default css`
 
     .NameCard__name {
       width: 100%;
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       font-weight: ${vars.font_weight__bold};
       margin-bottom: ${vars.space_1};
     }

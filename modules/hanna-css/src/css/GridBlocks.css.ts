@@ -73,7 +73,7 @@ export default css`
 
     .GridBlocks__item__title {
       position: relative; // as offset for the __titlelink::before hit-area
-      font: ${hannaVars.font_sh_l};
+      font: ${hannaVars.font_heading_m};
       margin-bottom: ${grid_units(2)};
       word-break: break-word;
       overflow-wrap: break-word;

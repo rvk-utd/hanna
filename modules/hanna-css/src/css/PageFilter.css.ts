@@ -54,7 +54,7 @@ export default css`
     }
 
     .PageFilter__title {
-      font: ${vars.font_hd_s};
+      font: ${vars.font_heading_m};
       margin-bottom: ${em(20 / 64)};
       width: 100%;
     }

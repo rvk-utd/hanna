@@ -82,14 +82,14 @@ export default css`
   }
 
   .FooterInfo__grouptitle {
-    font: ${vars.font_sh_s};
+    font: ${vars.font_heading_s};
     margin-bottom: ${vars.space_3};
   }
   .FooterInfo__groupcontent {
   }
 
   .FooterInfo__groupcontent h4 {
-    font: ${vars.font_sh_s};
+    font: ${vars.font_heading_s};
     margin-bottom: ${vars.space_1};
   }
   .FooterInfo__groupcontent h4:not(:first-child) {

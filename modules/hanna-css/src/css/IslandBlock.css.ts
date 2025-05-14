@@ -40,12 +40,12 @@ export default css`
     }
 
     .IslandBlock__title {
-      font: ${vars.font_hd_s};
+      font: ${vars.font_heading_m};
       margin-bottom: ${grid_units(3)};
     }
 
     .IslandBlock__summary {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       margin-bottom: ${grid_units(4)};
     }
 

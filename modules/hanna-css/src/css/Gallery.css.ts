@@ -90,7 +90,7 @@ export default css`
 
     .GalleryItem__caption {
       --leading: ${em(1.25)};
-      font-size: ${vars.font_bd_l_size};
+      font-size: ${vars.font_body_l_size};
       line-height: var(--leading);
 
       width: 0;

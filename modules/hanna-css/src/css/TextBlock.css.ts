@@ -32,16 +32,16 @@ export default css`
       margin-bottom: ${scale_container(20, 30)};
     }
     .TextBlock--small {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
 
       h2 {
-        font: ${vars.font_sh_l};
+        font: ${vars.font_heading_m};
       }
       h3 {
-        font: ${vars.font_sh_s};
+        font: ${vars.font_heading_s};
       }
       h4 {
-        font: ${vars.font_bd_l};
+        font: ${vars.font_body_l};
         font-weight: ${vars.font_weight__bold};
       }
     }

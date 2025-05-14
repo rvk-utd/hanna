@@ -29,7 +29,7 @@ export default css`
     }
 
     .ProcessOverview__title {
-      font: ${vars.font_hd_s};
+      font: ${vars.font_heading_m};
       margin-bottom: ${scale_phone_netbook(40, 118)};
 
       @media ${mq.wide} {
@@ -47,7 +47,7 @@ export default css`
     }
 
     .ProcessOverview__item__content {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
     }
 
     .ProcessOverview__attention {

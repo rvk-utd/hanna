@@ -17,7 +17,7 @@ export const SubHeading_css = () => css`
   .SubHeading {
     ${ComponentLayout}
 
-    font: ${vars.font_sh_l};
+    font: ${vars.font_heading_m};
     margin-top: ${scale_phone_netbook(40, 50)};
     margin-bottom: ${scale_phone_netbook(20, 30)};
 
@@ -27,7 +27,7 @@ export const SubHeading_css = () => css`
     }
   }
   .SubHeading--small {
-    font: ${vars.font_sh_s};
+    font: ${vars.font_heading_s};
   }
 
   .SubHeading a {

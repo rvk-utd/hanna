@@ -16,11 +16,11 @@ export const PageHeading_css = () => css`
   .PageHeading {
     ${ComponentLayout(false)}
 
-    font: ${vars.font_hd_l};
+    font: ${vars.font_heading_xl};
     margin-top: ${scale_container(0, 3 * grid.unit)};
     margin-bottom: ${em(40 / 64)};
   }
   .PageHeading--small {
-    font: ${vars.font_hd_m};
+    font: ${vars.font_heading_l};
   }
 `;

@@ -168,7 +168,7 @@ export const GalleryModalItem_css = () => css`
     }
 
     .GalleryModalItem__caption {
-      font: ${vars.font_sh_s};
+      font: ${vars.font_heading_s};
       margin-bottom: ${vars.space_2};
     }
 

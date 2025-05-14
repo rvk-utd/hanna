@@ -42,12 +42,12 @@ export default css`
     }
 
     .InfoBlock__title {
-      font: ${vars.font_hd_s};
+      font: ${vars.font_heading_m};
       margin-bottom: ${prem(20)};
     }
 
     .InfoBlock__subtitle {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
 
       @media ${mq.tablet_up} {
         width: ${cols_pct(5)};

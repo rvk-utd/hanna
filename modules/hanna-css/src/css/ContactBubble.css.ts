@@ -71,7 +71,7 @@ export default css`
       bottom: ${vars.space_3};
       pointer-events: auto;
       box-sizing: content-box;
-      font-size: ${vars.font_bd_l_size};
+      font-size: ${vars.font_body_l_size};
       font-weight: ${vars.font_weight__bold};
       background-color: ${vars.color_suld_25};
       color: ${vars.color_faxafloi_100};
@@ -215,7 +215,7 @@ export default css`
 
     .ContactBubble__title {
       @media ${mq_Fullscreen} {
-        font: ${vars.font_hd_l};
+        font: ${vars.font_heading_xl};
         max-width: 9em; /* Makes for nice line-wrap in the text 'Hvað getum við \n gert fyrir þig?' */
         margin-bottom: ${scale(3 * grid.unit, 8 * grid.unit, 480, 812, 'vh')};
         margin-bottom: min(
@@ -224,14 +224,14 @@ export default css`
         );
       }
       @media ${mq_Popup} {
-        font: ${vars.font_bd_l};
+        font: ${vars.font_body_l};
         font-weight: ${vars.font_weight__bold};
         margin-bottom: ${grid_units(3)};
       }
     }
 
     .ContactBubble__list {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
       border-top: 1px solid ${vars.color_suld_50};
       font-weight: ${vars.font_weight__bold};
     }
@@ -240,7 +240,7 @@ export default css`
       box-sizing: content-box;
       padding: ${grid_units(2)} ${grid_units(4)};
       padding-left: ${grid_units(7)};
-      min-height: calc(${vars.font_bd_s_leading} + ${vars.font_label_leading});
+      min-height: calc(${vars.font_body_m_leading} + ${vars.font_label_leading});
       border-bottom: 1px solid ${vars.color_suld_50};
       ${hannaVarOverride({
         link_underline: 'none',

@@ -12,7 +12,7 @@ export default css`
 export const ArticleMeta_css = () => css`
   @media screen {
     .ArticleMeta {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
       color: ${vars.color_suld_150};
       margin-bottom: ${vars.space_1};
     }

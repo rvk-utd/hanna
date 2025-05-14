@@ -28,10 +28,10 @@ export const TextInput_css = () => css`
     }
     .TextInput--multiline > .FormField__input {
       ${FormFieldVariables.override({
-        input__font_size: vars.font_bd_s_size,
+        input__font_size: vars.font_body_m_size,
       })}
       ${TextInputVariables.declare({
-        textarea__leading: vars.font_bd_s_leading,
+        textarea__leading: vars.font_body_m_leading,
         textarea__rows: minRows - 1,
         textarea__extraPad: `calc(
           (${ff.input__line_height} - ${ti.textarea__leading}) / 2

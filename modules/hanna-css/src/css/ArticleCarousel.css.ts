@@ -30,7 +30,7 @@ export default css`
     }
 
     .ArticleCarousel__title {
-      font: ${vars.font_hd_m};
+      font: ${vars.font_heading_l};
       margin-bottom: ${scale_phone_netbook(32, 72)};
 
       @media ${mq.wide} {
@@ -133,19 +133,19 @@ export default css`
     }
 
     .ArticleCarouselCard__title {
-      font: ${vars.font_sh_l};
+      font: ${vars.font_heading_m};
       margin-bottom: ${vars.space_4};
     }
 
     .ArticleCarouselCard__date {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
       color: ${vars.color_suld_150};
       margin-bottom: ${vars.space_4};
       display: block;
     }
 
     .ArticleCarouselCard__summary {
-      font: ${vars.font_bd_s};
+      font: ${vars.font_body_m};
       margin-bottom: ${vars.space_3};
     }
 

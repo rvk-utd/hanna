@@ -45,7 +45,7 @@ export const PrimaryPanel_css = () => css`
     }
 
     .PrimaryPanel__title {
-      font: ${vars.font_sh_s};
+      font: ${vars.font_heading_s};
     }
 
     // .MainMenu[data-sprinkled] .PrimaryPanel__title {
@@ -111,7 +111,7 @@ export const PrimaryPanel_css = () => css`
     }
 
     .PrimaryPanel__linkTitle {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
     }
 
     .PrimaryPanel__summary {

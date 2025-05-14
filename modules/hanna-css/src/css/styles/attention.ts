@@ -6,7 +6,7 @@ import { hannaVars as vars } from '../../lib/hannavars.js';
 import { grid_units } from '../utils/miscUtils.js';
 
 export const AttentionStyle = (border = true) => css`
-  font: ${vars.font_bd_l};
+  font: ${vars.font_body_l};
   position: relative;
   padding-left: ${grid_units(5)};
   margin-top: ${scale_phone_netbook(64, 80)};

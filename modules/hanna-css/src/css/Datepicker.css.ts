@@ -396,7 +396,7 @@ export default css`
       visibility: visible !important; // override inline 'visibility: hidden'
       text-transform: capitalize;
       color: ${vars.color_suld_0};
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       font-weight: ${vars.font_weight__bold};
     }
 

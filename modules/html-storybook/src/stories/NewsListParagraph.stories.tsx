@@ -70,7 +70,7 @@ const NewsListParagraphStory = () => {
           margin-bottom: ${hannaVars.space_1};
         }
         .NewsListTopItem__summary {
-          font: ${hannaVars.font_bd_l};
+          font: ${hannaVars.font_body_l};
           margin-top: ${hannaVars.space_2};
           margin-bottom: ${hannaVars.space_2};
         }

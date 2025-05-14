@@ -12,13 +12,13 @@ export default css`
     .FieldGroup {
       margin-bottom: ${scale_container(30, 70)};
       ${FieldGroupVariables.declare({
-        legendSize: vars.font_sh_l,
+        legendSize: vars.font_heading_m,
         legendMargin: vars.space_2,
       })}
     }
     .FieldGroup--small {
       ${FieldGroupVariables.override({
-        legendSize: vars.font_sh_s,
+        legendSize: vars.font_heading_s,
         legendMargin: vars.space_1,
       })}
     }

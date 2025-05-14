@@ -32,7 +32,7 @@ export default css`
     }
 
     .FeatureList__title {
-      font: ${vars.font_hd_s};
+      font: ${vars.font_heading_m};
       max-width: ${gridPx(4, 4)};
       margin-bottom: ${scale_container(20, 84)};
       margin-left: var(--left-offset);

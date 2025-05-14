@@ -31,7 +31,7 @@ export default css`
 
   .BlockQuote__quote {
     ${textContent}
-    font: ${vars.font_bd_s};
+    font: ${vars.font_body_m};
     border-left: ${pqVars.line};
     padding-left: ${vars.space_2};
 

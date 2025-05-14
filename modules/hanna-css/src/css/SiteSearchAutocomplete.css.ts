@@ -43,7 +43,7 @@ export default css`
     }
 
     .SiteSearchAutocomplete__item {
-      font: ${vars.font_bd_l};
+      font: ${vars.font_body_l};
       padding: ${vars.space_2} ${vars.space_4};
       padding-right: ${vars.space_7};
 
@@ -63,7 +63,7 @@ export default css`
       ${iconStyle(vars.icon__search)}
       color: ${vars.color_suld_100};
       float: right;
-      font-size: ${vars.font_bd_s_size};
+      font-size: ${vars.font_body_m_size};
       width: ${vars.space_1$5};
       margin-right: ${vars.space_3__neg};
       margin-left: ${vars.space_1};
