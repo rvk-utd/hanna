@@ -1,9 +1,9 @@
 //@ts-check
 /* eslint-env es2022 */
 
-import { getPkgVersion } from '../../../build-helpers.mjs';
+import { getPkgVersion } from '@maranomynet/libtools';
 
-/** @type {import('../../../build-helpers.mjs').PkgVersionCfg} */
+/** @type {import('@maranomynet/libtools').PackageVersionOpts & import('@maranomynet/libtools').UpdatePkgVersionOpts} */
 export const serverPkgConfig = {
   pkgJsonSuffix: '-server',
   changelogSuffix: '-server',

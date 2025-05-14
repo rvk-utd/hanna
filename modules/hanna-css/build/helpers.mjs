@@ -1,24 +1,17 @@
 //@ts-check
 /* eslint-env es2022 */
+import { logError, logThenExit1, shell$ } from '@maranomynet/libtools';
 import { compileCSSFromJS } from 'es-in-css/compiler';
 import { sync as globSync } from 'glob';
 
-import {
-  $,
-  esbuild,
-  getExternalDeps,
-  logError,
-  logThenExit1,
-  opts,
-  srcDir,
-} from '../../../build-helpers.mjs';
+import { esbuild, getExternalDeps, isDev, srcDir } from '../../../build-helpers.mjs';
 
 import { devDistCssFolder } from './config.mjs';
 import { buildIconfont, compressCssImages } from './gulp-tasks.mjs';
 
 // ===========================================================================
 
-export const handlError = opts.dev ? logError : logThenExit1;
+export const handlError = isDev ? logError : logThenExit1;
 
 // ===========================================================================
 
@@ -31,7 +24,7 @@ const cssModuleFiles = globSync(`**/*${cssSourceExtension}`, { cwd: cssSrcDir })
  * @returns {Promise<void>}
  */
 export const buildCssFiles = async (NODE_ENV) => {
-  await $(`rm -rf ${devDistCssFolder}  &&  mkdir ${devDistCssFolder}`);
+  await shell$(`rm -rf ${devDistCssFolder}  &&  mkdir ${devDistCssFolder}`);
   await Promise.all([
     buildIconfont().catch(handlError),
     compressCssImages().catch(handlError),
@@ -80,7 +73,7 @@ export const buildCssFiles = async (NODE_ENV) => {
       outbase: cssSrcDir,
       outdir: cssSrcDir,
       write: false,
-      watch: !!opts.dev && {
+      watch: isDev && {
         onRebuild: (error, results) => {
           if (results && !error) {
             cssCompile(results).catch(handlError);
@@ -90,7 +83,7 @@ export const buildCssFiles = async (NODE_ENV) => {
       define: { 'process.env.NODE_ENV': JSON.stringify(NODE_ENV) },
     })
     .then((res) => {
-      if (opts.dev) {
+      if (isDev) {
         process.on('exit', () => {
           res.stop?.();
         });

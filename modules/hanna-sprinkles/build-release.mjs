@@ -10,15 +10,14 @@
   TODO: Create a sprinkles/index.html which either links to the README.md,
   or contains the contents of the readme file
 */
+import { args, logThenExit1, shell$ } from '@maranomynet/libtools';
 import { existsSync } from 'fs';
-
-import { $, logThenExit1, opts } from '../../build-helpers.mjs';
 
 import { bumpVersion, getServerConfig } from './build-config.mjs';
 
-const fixupMessage = opts.fixup ? ' (fixup)' : '';
+const fixupMessage = args.fixup ? ' (fixup)' : '';
 
-if (!opts.fixup) {
+if (!args.fixup) {
   await bumpVersion();
 }
 const {
@@ -38,7 +37,7 @@ if (!existsSync(distFolder)) {
 
 const redirectsFile = 'redirects-sprinkles.json';
 
-await $([
+await shell$([
   `git submodule update --init --quiet`,
   `cd ${serverPath}`,
   `git stash`,

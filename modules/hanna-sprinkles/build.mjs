@@ -1,31 +1,25 @@
 //@ts-check
 /* eslint-env es2022 */
+import { logError, logThenExit1, shell$ } from '@maranomynet/libtools';
 import { mkdir, writeFile } from 'fs/promises';
 import { globSync } from 'glob';
 
-import {
-  $,
-  buildAndRunTests,
-  esbuild,
-  logError,
-  logThenExit1,
-  opts,
-  srcDir,
-} from '../../build-helpers.mjs';
+import { buildAndRunTests, esbuild, isDev, srcDir } from '../../build-helpers.mjs';
 
 import { getServerConfig } from './build-config.mjs';
 
 const { distFolder, sprinklesFolder, version, versionFolder } = await getServerConfig();
 
-if (opts.dev) {
+if (isDev) {
   await buildAndRunTests();
-  $(`NODE_ENV=development  yarn run vite build --logLevel warn --force --watch`).catch(
+  shell$(
+    `NODE_ENV=development  yarn run vite build --logLevel warn --force --watch`,
     logError
   );
-  $(`yarn run http-server ./ -c-1 -p1337 -o examples/`).catch(logError);
+  shell$(`yarn run http-server ./ -c-1 -p1337 -o examples/`, logError);
 } else {
   await buildAndRunTests();
-  await $(`yarn run vite build`);
+  await shell$(`yarn run vite build`);
 }
 
 // ===========================================================================
@@ -38,7 +32,7 @@ const replaceTokens = (res, err) => {
   if (err) {
     return;
   }
-  const fallbackSprinklesUrl = opts.dev
+  const fallbackSprinklesUrl = isDev
     ? '__REMOVE__"new URL("/dist/", document.location.href)"__REMOVE__' // hack to dynamically get the correct host in dev
     : `https://styles.reykjavik.is/${sprinklesFolder + versionFolder}/`;
 
@@ -64,10 +58,10 @@ await esbuild
   .build({
     bundle: true,
     format: 'iife',
-    minify: !opts.dev,
+    minify: !isDev,
     entryPoints: globSync(`${srcDir}/index.{js,mjs,ts}`),
     write: false,
-    watch: !!opts.dev && {
+    watch: isDev && {
       onRebuild: (err, results) => results && replaceTokens(results, err),
     },
     outdir: distFolder,

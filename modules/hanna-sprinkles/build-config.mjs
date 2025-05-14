@@ -1,17 +1,12 @@
 //@ts-check
 /* eslint-env es2022 */
 
-import { getPkgVersion, updatePkgVersion } from '../../build-helpers.mjs';
+import { getPkgVersion, updatePkgVersion } from '@maranomynet/libtools';
 
-/** @type {import('../../build-helpers.mjs').PkgVersionCfg} */
-const pkgConfig = {
-  offerDateShift: true,
-};
-
-export const bumpVersion = () => updatePkgVersion(pkgConfig);
+export const bumpVersion = () => updatePkgVersion({ offerDateShift: true });
 
 export const getServerConfig = async () => {
-  const version = await getPkgVersion(pkgConfig);
+  const version = await getPkgVersion();
   // const versionFolder = (version.match(/^0\.\d+/) || [version])[0];
   const versionFolder = `v${(version.match(/^\d+.\d+/) || [''])[0]}`;
   if (versionFolder === 'v') {

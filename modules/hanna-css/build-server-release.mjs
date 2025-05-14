@@ -1,9 +1,8 @@
 //@ts-check
 /* eslint-env es2022 */
+import { args, logError, shell$, updatePkgVersion } from '@maranomynet/libtools';
 import { existsSync } from 'fs';
 import { sync as globSync } from 'glob';
-
-import { $, logError, opts, updatePkgVersion } from '../../build-helpers.mjs';
 
 import {
   assetsDistFolder,
@@ -18,13 +17,13 @@ import { buildCssFiles } from './build/helpers.mjs';
 
 // ===========================================================================
 
-const fixupMessage = opts.fixup ? ' (fixup)' : '';
+const fixupMessage = args.fixup ? ' (fixup)' : '';
 
 /**
  * @returns {Promise<void>}
  */
 const resetStyleServerSubmodule = () =>
-  $([
+  shell$([
     `git submodule update --init --quiet`,
     `cd ${serverFolder}`,
     `git stash`,
@@ -38,11 +37,14 @@ const resetStyleServerSubmodule = () =>
  * @returns {Promise<void>}
  */
 const commitToGitSubmodule = (folder) =>
-  $([
-    `cd ${serverFolder}`,
-    `git add ${folder.slice(serverFolder.length)}`,
-    `git commit -m "build: ${folder.slice(publicFolder.length)}${fixupMessage}"`,
-  ]).catch(logError);
+  shell$(
+    [
+      `cd ${serverFolder}`,
+      `git add ${folder.slice(serverFolder.length)}`,
+      `git commit -m "build: ${folder.slice(publicFolder.length)}${fixupMessage}"`,
+    ],
+    logError
+  );
 
 /**
  * @param {string} publishCssFolder
@@ -51,7 +53,7 @@ const commitToGitSubmodule = (folder) =>
 const runPrePublishTests = async (publishCssFolder) => {
   let cssFolderAlreadyExist = existsSync(publishCssFolder);
   if (cssFolderAlreadyExist && globSync(`${publishCssFolder}/*`).length === 0) {
-    await $(`rmdir ${publishCssFolder}`);
+    await shell$(`rmdir ${publishCssFolder}`);
     cssFolderAlreadyExist = false;
   }
   if (cssFolderAlreadyExist) {
@@ -69,7 +71,7 @@ const runPrePublishTests = async (publishCssFolder) => {
 
 // ===========================================================================
 
-if (!opts.fixup) {
+if (!args.fixup) {
   await updatePkgVersion(serverPkgConfig);
 }
 const { cssFolderVersion, fullCssVersion, majorCssVersion } = await getCssVersionConfig();
@@ -80,30 +82,30 @@ await import('./build-lib.mjs'); // CSS builds depend on the lib being correct
 // Build and commit production CSS
 await buildCssFiles('production');
 if (!process.env.SKIP_VISUAL_TESTS) {
-  await $(`yarn workspace hanna-visual-tests run test`);
+  await shell$(`yarn workspace hanna-visual-tests run test`);
 }
 const publishCssFolder = `${publicFolder}css/v${cssFolderVersion}`;
-cssFolderVersion.startsWith('0.') && (await $(`rm -rf ${publishCssFolder}`));
+cssFolderVersion.startsWith('0.') && (await shell$(`rm -rf ${publishCssFolder}`));
 await runPrePublishTests(publishCssFolder);
-await $(`cp -R ${devDistCssFolder} ${publishCssFolder}`);
+await shell$(`cp -R ${devDistCssFolder} ${publishCssFolder}`);
 await commitToGitSubmodule(publishCssFolder);
 
 // Build and commit dev-v* CSS
 await buildCssFiles('development');
 const publishDevCssFolder = `${publicFolder}css/dev-v${majorCssVersion}`;
-await $(`rm -rf ${publishDevCssFolder}`);
-await $(`cp -R ${devDistCssFolder} ${publishDevCssFolder}`);
+await shell$(`rm -rf ${publishDevCssFolder}`);
+await shell$(`cp -R ${devDistCssFolder} ${publishDevCssFolder}`);
 await commitToGitSubmodule(publishDevCssFolder);
 
-if (!opts.skipAssets) {
+if (!args.skipAssets) {
   // Compress and commit assets
-  await $(`rm -rf ${assetsDistFolder}`);
+  await shell$(`rm -rf ${assetsDistFolder}`);
   await compressStaticAssets();
   await commitToGitSubmodule(assetsDistFolder.replace(/\/$/, ''));
 }
 
 // Update submodule root files and commit the version bump
-await $([
+await shell$([
   // update submodule files
   `cp package-server.json ${serverFolder}package.json`,
   `cp README-server.md ${serverFolder}README.md`,

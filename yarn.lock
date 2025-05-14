@@ -2450,6 +2450,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@maranomynet/libtools@npm:^0.1.17":
+  version: 0.1.17
+  resolution: "@maranomynet/libtools@npm:0.1.17"
+  dependencies:
+    glob: ^10.4.1
+  checksum: dc2af0e694866a9a6554ca083fc2c30c75fe74731e85bace3623e1127563a2e4d1991498499e88b8b188ae3f2a1f05ab4f4890a8cf191353f3c51f365fdff072
+  languageName: node
+  linkType: hard
+
 "@ndelangen/get-tarball@npm:^3.0.7":
   version: 3.0.9
   resolution: "@ndelangen/get-tarball@npm:3.0.9"
@@ -11450,7 +11459,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.4.5":
+"glob@npm:^10.4.1, glob@npm:^10.4.5":
   version: 10.4.5
   resolution: "glob@npm:10.4.5"
   dependencies:
@@ -12079,6 +12088,7 @@ __metadata:
   resolution: "hanna@workspace:."
   dependencies:
     "@hugsmidjan/hxmstyle": ^8.4.0
+    "@maranomynet/libtools": ^0.1.17
     "@types/eslint": ^8
     "@types/gulp": ^4
     "@types/jsdom": ^16.2.14

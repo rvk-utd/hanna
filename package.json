@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@hugsmidjan/hxmstyle": "^8.4.0",
+    "@maranomynet/libtools": "^0.1.17",
     "@types/eslint": "^8",
     "@types/gulp": "^4",
     "@types/jsdom": "^16.2.14",

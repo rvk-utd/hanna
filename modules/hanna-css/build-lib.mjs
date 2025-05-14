@@ -1,15 +1,10 @@
 //@ts-check
 /* eslint-env es2022 */
+import { logThenExit1 } from '@maranomynet/libtools';
 import { writeFile } from 'fs/promises';
 import { sync as globSync } from 'glob';
 
-import {
-  buildAndRunTests,
-  buildNpmLib,
-  distDir,
-  logThenExit1,
-  srcDir,
-} from '../../build-helpers.mjs';
+import { buildAndRunTests, buildNpmLib, distDir, srcDir } from '../../build-helpers.mjs';
 
 import { getCssVersionConfig, serverFolder } from './build/config.mjs';
 import { buildIconfont } from './build/gulp-tasks.mjs';

@@ -1,82 +1,20 @@
 //@ts-check
 /* eslint-env es2022 */
-import { exec } from 'child_process';
+import { args, ignoreError, logThenExit1, shell$ } from '@maranomynet/libtools';
 import esbuild from 'esbuild';
 import { mkdir, readFile, writeFile } from 'fs/promises';
 import { sync as globSync } from 'glob';
 import { dirname } from 'path';
-import { createInterface } from 'readline';
 
 export { esbuild };
 
-/** @type {Record<string, true | string | undefined>} */
-export const opts = process.argv.slice(2).reduce((map, arg) => {
-  const [key, value] = arg.replace(/^-+/, '').split('=');
-  map[key] = value == null ? true : value;
-  return map;
-}, {});
+export const isDev = !!args.dev;
 
 export const testsDir = '__tests';
 export const distDir = '_npm-lib';
 export const srcDir = 'src';
 
 export const testGlobs = `${srcDir}/**/*.tests.{ts,tsx}`;
-
-// ---------------------------------------------------------------------------
-
-/**
- * @param {string | Array<string | undefined | null | false | 0>} cmd
- * @returns {Promise<void>}
- */
-export const $ = (cmd) =>
-  new Promise((resolve, reject) => {
-    if (Array.isArray(cmd)) {
-      cmd = cmd.filter((cmdItem) => !!cmdItem).join(' && ');
-    }
-    const execProc = exec(cmd, (error) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(undefined);
-      }
-    });
-    const killProc = () => {
-      execProc.kill();
-    };
-    process.on('exit', killProc);
-    execProc.once('close', () => {
-      process.off('exit', killProc);
-    });
-    execProc.stdout?.pipe(process.stdout);
-    execProc.stderr?.pipe(process.stderr);
-  });
-
-// ---------------------------------------------------------------------------
-
-export const ignoreError = () => undefined;
-
-/**
- * @param {object} err
- * @returns {void}
- */
-export const logError = (err) => {
-  const { message, output } =
-    /** @type {{ message?: string; output?: Array<Buffer> }} */ (
-      'message' in err ? err : { message: String(err) }
-    );
-
-  console.info('--------------------------');
-  console.error(output ? output.join('\n').trim() : message || err);
-};
-
-/**
- * @param {object} err
- * @returns {never}
- */
-export const logThenExit1 = (err) => {
-  logError(err);
-  process.exit(1);
-};
 
 // ---------------------------------------------------------------------------
 
@@ -158,7 +96,9 @@ const makeWriteOnlyAffected = (stripHashPrefix) => {
  * @returns {Promise<void>}
  */
 export const typeCheckModule = () =>
-  $(`yarn run -T tsc --project ./tsconfig.json --noEmit --pretty --incremental false`);
+  shell$(
+    `yarn run -T tsc --project ./tsconfig.json --noEmit --pretty --incremental false`
+  );
 
 // ---------------------------------------------------------------------------
 
@@ -181,9 +121,9 @@ const tscBuild = async (config) => {
     )}`
   );
   try {
-    await $(`yarn run -T tsc --project ${cfgFile}  &&  rm ${cfgFile}`);
+    await shell$(`yarn run -T tsc --project ${cfgFile}  &&  rm ${cfgFile}`);
   } catch (err) {
-    await $(`rm ${cfgFile}`);
+    await shell$(`rm ${cfgFile}`);
     logThenExit1(new Error(err.output.toString()));
   }
 };
@@ -240,7 +180,7 @@ export const esbuildBuild = async (entryPoints, outdir, options) => {
     })
     .then((res) => {
       writeOnlyAffected(res);
-      if (opts.dev) {
+      if (isDev) {
         process.on('exit', () => res.stop?.());
       }
     })
@@ -253,14 +193,14 @@ export const esbuildBuild = async (entryPoints, outdir, options) => {
  * @returns {Promise<void>}
  */
 export const buildAndRunTests = async () => {
-  await $(`rm -rf ${testsDir} && mkdir -p ${testsDir}`);
+  await shell$(`rm -rf ${testsDir} && mkdir -p ${testsDir}`);
   await esbuildBuild(globSync(testGlobs), testsDir, {
-    watch: !!opts.dev,
-    typeCheck: !opts.dev,
+    watch: isDev,
+    typeCheck: !isDev,
     entryNames: '[dir]/$$[hash]$$-[name]',
-    onChange: (fileName) => $(`yarn run -T ospec ${fileName}`).catch(ignoreError),
+    onChange: (fileName) => shell$(`yarn run -T ospec ${fileName}`).catch(ignoreError),
   });
-  await $(`yarn run -T ospec "${testsDir}/**/*.tests.js"`).catch(ignoreError);
+  await shell$(`yarn run -T ospec "${testsDir}/**/*.tests.js"`).catch(ignoreError);
 };
 
 // ---------------------------------------------------------------------------
@@ -304,8 +244,8 @@ const addReferenePathsToIndex = async (entryPoints, distFolder) => {
  * @returns {Promise<void>}
  */
 export const buildNpmLib = async (libName, custom) => {
-  if (opts.dev) {
-    await $(`rm -rf ${distDir}`);
+  if (isDev) {
+    await shell$(`rm -rf ${distDir}`);
     return;
   }
 
@@ -327,7 +267,7 @@ export const buildNpmLib = async (libName, custom) => {
   if (!libName) {
     throw new Error('`libName` argument is required');
   }
-  await $([`rm -rf ${distDir}`, `mkdir ${distDir} ${distDir}/esm`, ...cpCmds]);
+  await shell$([`rm -rf ${distDir}`, `mkdir ${distDir} ${distDir}/esm`, ...cpCmds]);
   await writeFile(`${distDir}/esm/package.json`, JSON.stringify({ type: 'module' }));
 
   await makePackageJson(distDir, {
@@ -365,214 +305,13 @@ export const buildNpmLib = async (libName, custom) => {
     await addReferenePathsToIndex(entryPoints, tempLibRoot);
 
     const rootDir = module === 'esnext' ? 'esm' : '.';
-    await $([
+    await shell$([
       `mv ${tempLibRoot}/* ${distDir}/${rootDir}`,
       `rm -rf ${tempOutDir}`,
       // …
     ]);
   }
   /* eslint-enable no-await-in-loop */
-};
-
-// ---------------------------------------------------------------------------
-
-/**
- * @param {string} changelogFileName
- * @param {{
- *  offerDateShift?: true
- * }} [opts]
- * @returns {Promise<{
- *   oldVersion: string,
- *   newVersion: string,
- *   newChangelog: string
- * }>}
- */
-const updateChangelog = async (changelogFileName, opts) => {
-  const { offerDateShift } = opts || {};
-  const changelogFull = (await readFile(changelogFileName)).toString();
-  const changelog = changelogFull.slice(0, 4000);
-  const changelogTail = changelogFull.slice(4000);
-
-  const upcomingHeader = '## Upcoming...';
-  const addNewLines = '- ... <!-- Add new lines here. -->';
-
-  let upcomingIdx = changelog.indexOf(upcomingHeader);
-  if (upcomingIdx < 0) {
-    throw new Error(`Could not find "${upcomingHeader}" header in ${changelogFileName}`);
-  }
-  upcomingIdx += upcomingHeader.length;
-  const releaseIdx = changelog.indexOf('## ', upcomingIdx);
-  const oldVersion = changelog
-    .slice(releaseIdx, releaseIdx + 128)
-    .match(
-      /^##\s+(?:\d+\.\d+\.\d+(?:[-+][a-z0-9-.]+)?\s*[-–—]\s*)?(\d+)\.(\d+)\.(\d+)(?:[-+][a-z0-9-.]+)?\s*(?:\n|$)/
-    )
-    ?.slice(1)
-    .map(Number);
-  if (!oldVersion || oldVersion.length !== 3) {
-    throw new Error(`Could not find a valid "last version" in ${changelogFileName}`);
-  }
-
-  const updates = changelog
-    .slice(upcomingIdx, releaseIdx)
-    .trim()
-    .split(/\n\s*- /)
-    .map((line) => line.trim().match(/^(\*\*BREAKING\*\*|feat:|fix:|docs:|perf:)/)?.[1])
-    .filter(/** @type {((x: unknown) => x is string)} */ ((x) => !!x));
-
-  if (updates.length === 0) {
-    console.info(
-      `No significant/relevant unreleased updates found in ${changelogFileName}`
-    );
-    process.exit(0);
-  }
-
-  const isPrerelease = !oldVersion[0];
-  const majorIdx = isPrerelease ? 1 : 0;
-  const minorIdx = majorIdx + 1;
-  const patchIdx = minorIdx + (isPrerelease ? 0 : 1);
-
-  const newVersionArr = [...oldVersion];
-  if (updates.includes('**BREAKING**')) {
-    newVersionArr[patchIdx] = 0;
-    newVersionArr[minorIdx] = 0;
-    newVersionArr[majorIdx] = oldVersion[majorIdx] + 1;
-  } else if (updates.includes('feat:')) {
-    newVersionArr[patchIdx] = 0;
-    newVersionArr[minorIdx] = oldVersion[minorIdx] + 1;
-  } else {
-    newVersionArr[patchIdx] = oldVersion[patchIdx] + 1;
-  }
-  const newVersion = newVersionArr.join('.');
-
-  const addNewLinesIdx = changelog.indexOf(addNewLines, upcomingIdx);
-  if (addNewLinesIdx < 0) {
-    throw new Error(
-      `Could not find "${addNewLines}" marker at the top of ${changelogFileName}`
-    );
-  }
-
-  const dayOffset = !offerDateShift
-    ? 0
-    : await new Promise((resolve) => {
-        const readline = createInterface({
-          input: process.stdin,
-          output: process.stdout,
-        });
-        readline.question(`Delay release date by how many days? (0)  `, (answer) => {
-          readline.close();
-          resolve(parseInt(answer) || 0);
-        });
-      });
-  const DAY_MS = 24 * 60 * 60 * 1000;
-  const releaseDate = new Date(Date.now() + dayOffset * DAY_MS);
-
-  const newChangelog =
-    changelog.slice(0, addNewLinesIdx + addNewLines.length) +
-    [
-      '',
-      '',
-      `## ${newVersion}`,
-      '',
-      `_${releaseDate.toISOString().slice(0, 10)}_`,
-      '',
-    ].join('\n') +
-    changelog.slice(addNewLinesIdx + addNewLines.length) +
-    changelogTail;
-
-  return {
-    oldVersion: oldVersion.join('.'),
-    newVersion,
-    newChangelog,
-  };
-};
-
-// ---------------------------------------------------------------------------
-
-/**
- * @typedef {{
- *   changelogSuffix?: string,
- *   pkgJsonSuffix?: string,
- *   rootFolder?: string,
- *   versionKey?: string
- *   offerDateShift?: true
- * }} PkgVersionCfg
- */
-
-/**
- * @param {PkgVersionCfg} [opts]
- * @returns {Promise<void>}
- */
-export const updatePkgVersion = async (opts) => {
-  const {
-    changelogSuffix = '',
-    pkgJsonSuffix = '',
-    rootFolder = '.',
-    versionKey = 'version',
-    offerDateShift,
-  } = opts || {};
-  const changelogFile = `${rootFolder}/CHANGELOG${changelogSuffix}.md`;
-  const pkgFile = `${rootFolder}/package${pkgJsonSuffix}.json`;
-
-  try {
-    const pkg = await readFile(pkgFile).then((buffer) => JSON.parse(buffer.toString()));
-
-    const { oldVersion, newVersion, newChangelog } = await updateChangelog(
-      changelogFile,
-      { offerDateShift }
-    );
-
-    if (oldVersion !== pkg[versionKey]) {
-      throw new Error(
-        `Version mismatch between ${changelogFile} (${oldVersion}) and ${pkgFile} (${pkg[versionKey]})`
-      );
-    }
-
-    await new Promise((resolve, reject) => {
-      const readline = createInterface({ input: process.stdin, output: process.stdout });
-      readline.question(
-        `New version: ${newVersion}\nIs this correct? (Y/n)  `,
-        (answer) => {
-          answer = answer.trim().toLowerCase() || 'y';
-          if (answer === 'y') {
-            readline.close();
-            resolve(true);
-          } else if (answer === 'n') {
-            readline.close();
-            reject(Error('Aborted by user'));
-          }
-        }
-      );
-    });
-
-    pkg[versionKey] = newVersion;
-    await Promise.all([
-      writeFile(pkgFile, `${JSON.stringify(pkg, null, '  ')}\n`),
-      writeFile(changelogFile, newChangelog),
-    ]);
-  } catch (err) {
-    logError(err);
-    process.exit(1);
-  }
-};
-
-// ---------------------------------------------------------------------------
-
-/**
- * @param {Omit<PkgVersionCfg, 'changelogSuffix'>} [opts]
- * @returns {Promise<string>}
- */
-export const getPkgVersion = (opts) => {
-  const { rootFolder = '.', versionKey = 'version', pkgJsonSuffix = '' } = opts || {};
-  const pkgFile = `${rootFolder}/package${pkgJsonSuffix}.json`;
-  return readFile(pkgFile).then((buffer) => {
-    const versionValue = JSON.parse(buffer.toString())[versionKey];
-    if (typeof versionValue !== 'string') {
-      const valueStr = JSON.stringify(versionValue, null, 2);
-      throw new Error(`Invalid '${versionKey}' value in '${pkgFile}':\n  ${valueStr}`);
-    }
-    return versionValue;
-  });
 };
 
 // ---------------------------------------------------------------------------
@@ -595,12 +334,12 @@ export const updateDependentPackages = async (
     const updatedPkgFile = `../${updatedPkgName}/package.json`;
     const originalPkgStr = (await readFile(updatedPkgFile)).toString();
     const updatedPkgStr = originalPkgStr.replace(
-      new RegExp(`("@reykjavik/${packageName}": "\\^)(?:\\d+\\.\\d+\\.\\d+)(")`, 'g'),
+      new RegExp(`("${packageName}": "\\^)(?:\\d+\\.\\d+\\.\\d+)(")`, 'g'),
       `$1${newVersion}$2`
     );
     if (updatedPkgStr === originalPkgStr) {
       throw new Error(
-        `Could not find "@reykjavik/${packageName}" as a versioned dependency in ${updatedPkgFile}`
+        `Could not find "${packageName}" as a versioned dependency in ${updatedPkgFile}`
       );
     }
     await writeFile(updatedPkgFile, updatedPkgStr);
@@ -616,6 +355,7 @@ export const updateDependentPackages = async (
  * @typedef {{
  *   changelogSuffix?: string,
  *   updatePkgs?: Array<string>
+ *   tag?: string
  * }}  PublishOpts
  */
 
@@ -623,26 +363,31 @@ export const updateDependentPackages = async (
  * @param {PublishOpts} [opts]
  * @returns {Promise<void>}
  */
-export const publishToNpm = async (opts) => {
-  const { changelogSuffix = '', updatePkgs } = opts || {};
+export const publishToNpm = async (opts = {}) => {
+  const { changelogSuffix = '', updatePkgs } = opts;
 
   const pkg = await readPackageJson();
-  const pkgName = pkg.name.replace(/^@reykjavik\//, '');
   const version = pkg.version;
 
-  const updatedPkgFiles = await updateDependentPackages(
-    pkgName,
-    version,
-    updatePkgs
-  ).catch(logThenExit1);
+  const tag = opts.tag || version.split('-')[1]?.split('.')[0];
+  const tagArg = tag ? `--tag ${tag}` : '';
 
-  await $([
+  let updatedPkgFiles = [];
+  if (!tag) {
+    updatedPkgFiles = await updateDependentPackages(pkg.name, version, updatePkgs).catch(
+      logThenExit1
+    );
+  }
+
+  const shortPkgName = pkg.name.replace(/^@reykjavik\//, '');
+
+  await shell$([
     `cd _npm-lib`,
-    `npm publish`,
+    `npm publish --access public ${tagArg}`,
     `cd ..`,
     updatedPkgFiles.length && `yarn install`,
     updatedPkgFiles.length && `git add ../../yarn.lock ${updatedPkgFiles.join(' ')}`,
     `git add ./package.json ./CHANGELOG${changelogSuffix}.md`,
-    `git commit -m "release(${pkgName}): v${version}"`,
+    `git commit -m "release(${shortPkgName}): v${version}"`,
   ]);
 };

@@ -1,27 +1,20 @@
 //@ts-check
 /* eslint-env es2022 */
+import { args, getPkgVersion, shell$, updatePkgVersion } from '@maranomynet/libtools';
 import { existsSync } from 'fs';
 
-import { $, getPkgVersion, opts, updatePkgVersion } from '../../build-helpers.mjs';
-
-const rootFolder = '../../';
-const serverFolder = `${rootFolder}servers/docs/`;
+const root = '../../';
+const serverFolder = `${root}servers/docs/`;
 const htmlDocsFolder = `${serverFolder}public/html/`;
 const tempDistFolder = 'storybook-static';
 
-/** @type {import('../../build-helpers.mjs').PkgVersionCfg} */
-const pkgConfig = {
-  rootFolder,
-  offerDateShift: true,
-};
+const fixupMessage = args.fixup ? ' (fixup)' : '';
 
-const fixupMessage = opts.fixup ? ' (fixup)' : '';
-
-if (!opts.fixup) {
-  await updatePkgVersion(pkgConfig);
+if (!args.fixup) {
+  await updatePkgVersion({ root, offerDateShift: true });
 }
 
-await $(`yarn run build`);
+await shell$(`yarn run build`);
 
 if (!existsSync(tempDistFolder)) {
   throw new Error(
@@ -29,11 +22,11 @@ if (!existsSync(tempDistFolder)) {
   );
 }
 
-const htmlVersion = await getPkgVersion(pkgConfig);
+const htmlVersion = await getPkgVersion({ root });
 // Only use the MAJOR + MINOR version
 const htmlVersionFolder = htmlVersion.split('.').slice(0, 2).join('.');
 
-await $([
+await shell$([
   `git submodule update --init`,
   `cd ${serverFolder}`,
   `git stash`,
@@ -55,6 +48,6 @@ await $([
   `cd -`,
 
   // local commit
-  `git add ${rootFolder}package.json ${rootFolder}CHANGELOG.md ${serverFolder}`,
+  `git add ${root}package.json ${root}CHANGELOG.md ${serverFolder}`,
   `git commit -m "release(html): v${htmlVersion}${fixupMessage}"`,
 ]);

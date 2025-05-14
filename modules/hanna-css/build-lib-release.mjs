@@ -1,13 +1,11 @@
 //@ts-check
 /* eslint-env es2022 */
-import { publishToNpm, updatePkgVersion } from '../../build-helpers.mjs';
+import { argStrings, updatePkgVersion } from '@maranomynet/libtools';
 
-/** @type {import('../../build-helpers.mjs').PublishOpts} */
-const publishOpts = {
-  changelogSuffix: '-lib',
-  updatePkgs: ['hanna-react'],
-};
+import { publishToNpm } from '../../build-helpers.mjs';
 
-await updatePkgVersion(publishOpts);
+const changelogSuffix = '-lib';
+
+await updatePkgVersion({ changelogSuffix, preReleaseName: argStrings.name });
 await import(`./build-lib.mjs`);
-await publishToNpm(publishOpts);
+await publishToNpm({ changelogSuffix, updatePkgs: ['hanna-react'] });
