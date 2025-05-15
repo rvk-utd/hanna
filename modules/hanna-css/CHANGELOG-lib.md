@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.19-beta.1
+
+_2025-05-15_
+
 - perf: Add `#__NO_SIDE_EFFECTS__` compiler notation to all exported functions
 - feat: Add vars `font_heading_*` and `font_body_*` to `hannaVars`
 - feat: Deprecate vars `font_hd_*`, `font_sh_*`, `font_bd_*` on `hannaVars`
