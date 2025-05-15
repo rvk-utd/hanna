@@ -35,12 +35,11 @@ export const Heading = (props: HeadingProps) => {
     <Tag
       {...wrapperProps}
       data-dev-forcedh1={suppressWarning}
-      className={modifiedClass('Heading', [
-        sizes[size],
-        align === 'right' && `align--${align}`,
-        !align && wide && 'wide',
-        (wrapperProps || {}).className,
-      ])}
+      className={modifiedClass(
+        'Heading',
+        [sizes[size], align === 'right' && `align--${align}`, !align && wide && 'wide'],
+        (wrapperProps || {}).className
+      )}
     >
       {children}
     </Tag>

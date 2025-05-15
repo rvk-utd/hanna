@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Heading`:
+  - fix: Apply `wrapperProps.className` standalone, not as a modifier
 
 ## 0.10.150
 
