@@ -1,23 +1,21 @@
 import { color, css } from 'es-in-css';
 
-import { scale, ScaleEdge } from '../lib/between.js';
-import { bp, mq } from '../lib/breakpoints.js';
+import { clamp_phone_netbook } from '../lib/between.js';
+import { mq } from '../lib/breakpoints.js';
 import { colors } from '../lib/colors.js';
 import { buildVariables } from '../lib/cssutils.js';
-import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { DEPS, prem } from './utils/miscUtils.js';
 
-const _between = (from: ScaleEdge, to: ScaleEdge) =>
-  scale(from, to, bp.phone, grid.contentMaxWidth, '%');
-
 export const BasicTableVariables = buildVariables(
-  ['width', 'margin_left', 'pad_left', 'pad_right'],
+  ['width', 'margin_left', 'pad_left', 'pad_right', 'cellPad_X', 'cellPad_Y'],
   'BasicTable'
 );
 const btVars = BasicTableVariables.vars;
+
+const outdentOnMobile = true as boolean;
 
 export default css`
   ${DEPS('Footnote')}
@@ -33,6 +31,8 @@ export default css`
         margin_left: '0px',
         pad_left: '0px',
         pad_right: '0px',
+        cellPad_Y: clamp_phone_netbook(12, 24),
+        cellPad_X: clamp_phone_netbook(16, 24),
       })};
 
       width: calc(${btVars.width} + ${btVars.pad_left} + ${btVars.pad_right});
@@ -181,54 +181,60 @@ export default css`
       margin-bottom: ${prem(30)};
     }
 
-    .BasicTable {
+    table.BasicTable {
       margin-left: ${btVars.pad_left};
       margin-right: ${btVars.pad_right};
+      max-width: calc(100% - ${btVars.pad_left} - ${btVars.pad_right});
 
-      @media ${mq.phone_phablet} {
+      @media ${mq.phone_tablet} {
         width: 100%;
       }
+    }
+    .BasicTable--compact {
+      ${BasicTableVariables.override({
+        cellPad_Y: clamp_phone_netbook(8, 12),
+        cellPad_X: clamp_phone_netbook(12, 16),
+      })};
+    }
+
+    ${outdentOnMobile &&
+    css`
+      @media ${mq.phone_phablet} {
+        table.BasicTable {
+          max-width: calc(
+            100% - ${btVars.pad_left} - ${btVars.pad_right} + 2 * ${btVars.cellPad_X}
+          );
+          margin-left: calc(${btVars.pad_left} - ${btVars.cellPad_X});
+          margin-right: calc(${btVars.pad_right} - ${btVars.cellPad_X});
+        }
+        .BasicTable > caption {
+          padding-left: ${btVars.cellPad_X};
+          padding-right: ${btVars.cellPad_X};
+        }
+      }
+    `}
+
+    .BasicTable > tbody > tr:nth-child(odd) {
+      background-color: ${vars.color_esja_25};
     }
 
     .BasicTable > * > * > th,
     .BasicTable > * > * > td {
-      padding: ${_between(12, 24)} ${_between(16, 30)};
+      padding: ${btVars.cellPad_Y} ${btVars.cellPad_X};
+      padding-right: 0;
       text-align: left;
       vertical-align: center;
-
-      &:first-child {
-        padding-left: 0;
-      }
-      &:last-child {
-        padding-right: ${prem(12)};
-      }
-
-      @media ${mq.wide} {
-        padding: ${prem(24)};
-      }
     }
+    .BasicTable > * > * > th:last-child,
+    .BasicTable > * > * > td:last-child {
+      padding-right: ${btVars.cellPad_X};
+    }
+
     .BasicTable > thead > * > th {
-      padding-bottom: ${_between(8, 18)};
-
-      @media ${mq.wide} {
-        padding-bottom: ${prem(18)};
-      }
-    }
-
-    .BasicTable--compact > * > * > th,
-    .BasicTable--compact > * > * > td {
-      padding: ${_between(6, 12)};
-
-      @media ${mq.wide} {
-        padding: ${prem(12)};
-      }
+      padding-bottom: ${clamp_phone_netbook(8, 16)};
     }
     .BasicTable--compact > thead > * > th {
-      padding-bottom: ${_between(4, 8)};
-
-      @media ${mq.wide} {
-        padding-bottom: ${prem(8)};
-      }
+      padding-bottom: ${clamp_phone_netbook(4, 8)};
     }
 
     .BasicTable > tfoot > * > th,
@@ -255,19 +261,19 @@ export default css`
     }
     .BasicTable > * > * > .Cell--tel {
       text-align: left;
+      min-width: 6.5em; /* Mundu sjö stafa símanúmer */
       white-space: normal;
     }
     .BasicTable > * > * > .Cell--text {
       text-align: left;
+      min-width: 10em;
       white-space: normal;
     }
     .BasicTable > * > * > .Cell--text--right {
       text-align: right;
-      white-space: normal;
     }
     .BasicTable > * > * > .Cell--text--center {
       text-align: center;
-      white-space: normal;
     }
   }
 `;

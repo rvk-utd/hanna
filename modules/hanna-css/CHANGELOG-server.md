@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - `BasicTable`
+  - feat: Update styles with new zebra-design
   - feat: Apply colors to `--Cell--number--(pos|neg)` variants
 
 ## 0.8.95

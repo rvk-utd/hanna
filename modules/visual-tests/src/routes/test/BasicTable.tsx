@@ -26,7 +26,7 @@ type TableDataProps = {
 };
 
 const content = (): TableDataProps => ({
-  cols: [{ number: true }, {}, {}, {}, { tel: true }, { number: 'pos' }, {}],
+  cols: [{ number: true }, { text: true }, {}, {}, { tel: true }, { number: 'pos' }, {}],
   thead: [
     [
       'Erindi nr.',
