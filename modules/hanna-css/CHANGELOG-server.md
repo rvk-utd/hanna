@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `BasicTable`
+  - feat: Apply colors to `--Cell--number--(pos|neg)` variants
 
 ## 0.8.95
 

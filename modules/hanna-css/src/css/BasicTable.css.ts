@@ -1,7 +1,8 @@
-import { css } from 'es-in-css';
+import { color, css } from 'es-in-css';
 
 import { scale, ScaleEdge } from '../lib/between.js';
 import { bp, mq } from '../lib/breakpoints.js';
+import { colors } from '../lib/colors.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -242,6 +243,15 @@ export default css`
     .BasicTable > * > * > .Cell--number {
       text-align: right;
       white-space: nowrap;
+    }
+    .BasicTable > * > * > td.Cell--number--pos {
+      // ACK! Ellidaardalur 150 is too dark green to register, while
+      // Ellidaardalur 100 is too light to pass our A11y contrast requirements.
+      // Improved color pallette may fix this!
+      color: ${color(colors.ellidaardalur_150).mix(color(colors.ellidaardalur_100), 0.5)};
+    }
+    .BasicTable > * > * > td.Cell--number--neg {
+      color: ${vars.color_heidmork_100};
     }
     .BasicTable > * > * > .Cell--tel {
       text-align: left;

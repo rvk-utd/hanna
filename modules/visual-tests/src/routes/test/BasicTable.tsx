@@ -26,7 +26,7 @@ type TableDataProps = {
 };
 
 const content = (): TableDataProps => ({
-  cols: [{ number: true }, {}, {}, {}, { tel: true }, { number: true }, {}],
+  cols: [{ number: true }, {}, {}, {}, { tel: true }, { number: 'pos' }, {}],
   thead: [
     [
       'Erindi nr.',
@@ -54,7 +54,7 @@ const content = (): TableDataProps => ({
       lorem.tiny.slice(0, 20),
       '16.09.2019 / kl. 18:45',
       '',
-      '5.663.000 kr',
+      { value: '-5.663.000 kr', number: 'neg' },
       'Í vinnslu',
     ],
     [
