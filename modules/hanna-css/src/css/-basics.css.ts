@@ -372,7 +372,6 @@ export default css`
     text-align: left;
     vertical-align: top;
     padding: ${vars.space_1} ${vars.space_2};
-    color: ${vars.color_suld_150};
     font-weight: ${vars.font_weight__normal};
 
     &:first-child {
