@@ -15,7 +15,7 @@ export const BasicTableVariables = buildVariables(
 );
 const btVars = BasicTableVariables.vars;
 
-const outdentOnMobile = true as boolean;
+const outdentOnMobile = false as boolean;
 
 export default css`
   ${DEPS('Footnote')}
