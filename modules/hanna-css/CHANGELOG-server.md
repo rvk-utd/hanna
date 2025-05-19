@@ -6,7 +6,7 @@
 
 ## 0.8.95
 
-_2025-05-23_
+_2025-05-26_
 
 - Font styling:
   - feat: Add new `--foint-heading-*` and `--font-body-*` variables — with new
