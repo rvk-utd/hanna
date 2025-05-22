@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.151
+
+_2025-05-22_
+
 - `Heading`:
   - fix: Apply `wrapperProps.className` standalone, not as a modifier
 - `Layout`:
