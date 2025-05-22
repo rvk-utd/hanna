@@ -96,9 +96,11 @@ export const Layout = (props: LayoutProps) => {
             {navChildren}
           </div>
         )}
-        <div className="Layout__footer" role="complementary">
-          {footerChildren}
-        </div>
+        {footerChildren && (
+          <div className="Layout__footer" role="complementary">
+            {footerChildren}
+          </div>
+        )}
       </div>
     </div>
   );
