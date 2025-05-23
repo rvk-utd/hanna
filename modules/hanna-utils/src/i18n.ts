@@ -25,9 +25,14 @@ const _history: Array<HannaLang> = [];
  * This sets the value of Hanna `currentLang` variable globally. Use it at the
  * top of your application to match its locale.
  *
+ * It's safe to run this multiple times.
+ *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#setdefaultlanguage
  */
 export const setDefaultLanguage = (newLang: HannaLang | undefined) => {
+  if (newLang === DEFAULT_LANG) {
+    return;
+  }
   DEFAULT_LANG = !newLang
     ? _BASE_DEFAULT_LANG
     : langs.has(newLang)
