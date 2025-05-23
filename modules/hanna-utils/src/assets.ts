@@ -5,11 +5,13 @@
 // See: https://github.com/remix-run/remix/discussions/3541
 declare const _NPM_PUB_: boolean;
 
+const testServer = 'https://styles.test.thon.is';
+
 const _defaultStyleServerUrl =
   process.env.NODE_ENV === 'production'
     ? 'https://styles.reykjavik.is'
     : typeof _NPM_PUB_ !== 'undefined'
-    ? 'https://styles.test.thon.is' // <-- dev mode for consumers of `@reykjavik/hanna-*`
+    ? testServer // <-- dev mode for consumers of `@reykjavik/hanna-*`
     : 'http://localhost:4000'; // <-- dev mode for hanna monorepo dvelopers
 
 /**
@@ -28,11 +30,13 @@ const history: Array<string> = [];
  * application if you want to load assets and CSS bundles from a custom
  * style-server instance, e.g. during testing/staging/etc.
  *
+ * Treats the token `'test'` as an alias for the default test server URL.
+ *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#setstyleserverurl
  */
 export const setStyleServerUrl = (url: string | URL | undefined) => {
   // NOTE: This THROWS if user passes an invalid URL string
-  url = typeof url === 'string' ? new URL(url) : url;
+  url = typeof url === 'string' ? new URL(url === 'test' ? testServer : url) : url;
   styleServerUrl = url
     ? (url.toString().split(/[#?]/) as [string])[0].replace(/\/+$/, '')
     : _defaultStyleServerUrl;

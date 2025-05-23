@@ -439,6 +439,14 @@ passing `undefined` as an argument — like so:
 
 ```js
 setStyleServerUrl(undefined); // pushes the default URL to the stack
+console.log(styleServerURL); // 'https://styles.reykjavik.is'
+```
+
+Similarly the token `'test'` is an alias for the default test server URL.
+
+```js
+setStyleServerUrl('test'); // pushes the default test server URL to the stack
+console.log(styleServerURL); // 'https://styles.test.thon.is'
 ```
 
 ## I18N helpers
