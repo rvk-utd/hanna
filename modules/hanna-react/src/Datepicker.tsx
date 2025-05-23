@@ -324,6 +324,7 @@ export const Datepicker = (props: DatepickerProps) => {
               {...inputProps}
               {...txts}
               {...datepickerExtraProps}
+              autoComplete="off"
             />
           </div>
         );

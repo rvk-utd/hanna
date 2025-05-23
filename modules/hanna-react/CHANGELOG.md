@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Datepicker`:
+  - fix: set `autoComplete="off"` on the input element
 
 ## 0.10.151
 
