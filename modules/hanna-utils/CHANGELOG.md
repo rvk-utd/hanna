@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.2.21
+
+_2025-05-23_
+
 - feat: Support `setStyleServerUrl('test')` as shorthand token
 - perf: Add `#__NO_SIDE_EFFECTS__` compiler notation to all exported functions
 
