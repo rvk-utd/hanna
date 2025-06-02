@@ -9,7 +9,7 @@
 _2025-05-26_
 
 - Font styling:
-  - feat: Add new `--foint-heading-*` and `--font-body-*` variables — with new
+  - feat: Add new `--font-heading-*` and `--font-body-*` variables — with new
     responsive sizing strategies
   - feat: Deprecate all `--font-hd-*`, `--font-sh-*`, `--font-bd-*` variables
     — and map all existing text styles to the new variables
