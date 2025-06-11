@@ -444,10 +444,20 @@ However, because of how CSS cascade works, it's **strongly recommended** to
 try and maintain (and update in-place) a single CSS
 `<link rel="stylesheet" href="..." />` URL, instead of requesting multiple CSS
 bundles. (NOTE: If you're using the `@reykjavik/hanna-react` package you
-should use it's `<HannaCssLink ... />` component.)
+should use it's `<HannaCssLink ... />` component to minimize
+[FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content).)
 
-Multiple bundles will **often** work, but may occasionally fail in
-unpredictable ways.
+```ts
+import { HannaCssLink } from '@reykjavik/hanna-react/HannaCssLink';
+
+// ...then, inside your React component's JSX section:
+<HannaCssLink
+  tokens={['-basics', 'Layout', 'HeroBlock', 'ButtonPrimary' /* etc... */]}
+/>;
+```
+
+Multiple bundles will **often** work, but the end-result may occasionally fail
+in unpredictable ways.
 
 #### Type `CssBundleOpts`
 
