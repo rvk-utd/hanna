@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Change `.Layout__header__navlink`'s redundant `aria-label=` to `title=`
 
 ## 0.10.152
 

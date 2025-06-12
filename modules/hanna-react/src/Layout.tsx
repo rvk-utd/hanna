@@ -82,7 +82,7 @@ export const Layout = (props: LayoutProps) => {
               className="Layout__header__navlink"
               href="#pagenav"
               onClick={(e) => handleAnchorLinkClick(e, true)}
-              aria-label={txt.skipLinkLabel}
+              title={txt.skipLinkLabel} // To show native mouseover tooltip in desktop browsers
             >
               {txt.skipLinkLabel}
             </a>
