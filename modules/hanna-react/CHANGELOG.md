@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.153
+
+_2025-06-19_
+
 - `Layout`:
   - feat: Add prop `customLogo`
   - fix: Change `__header__navlink`'s redundant `aria-label=` to `title=`
