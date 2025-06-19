@@ -35,6 +35,8 @@ export type LayoutProps = {
   logoLink?: string;
   siteName?: string;
 
+  customLogo?: { src: string; altText: string };
+
   texts?: LayoutI18n;
   lang?: HannaLang;
 
@@ -55,6 +57,7 @@ export const Layout = (props: LayoutProps) => {
     children,
     siteName,
     logoLink = '/',
+    customLogo,
     wrapperProps,
   } = props;
 
@@ -75,7 +78,7 @@ export const Layout = (props: LayoutProps) => {
       )}
       <div className="Layout__content">
         <div className="Layout__header" role="banner">
-          {renderLayoutHomeLink('Layout', logoLink, siteName)}{' '}
+          {renderLayoutHomeLink('Layout', logoLink, siteName, customLogo)}{' '}
           {/* {renderLegacyLayoutHomeLink('Layout', logoLink, siteName)}{' '} */}
           {navChildren && (
             <a

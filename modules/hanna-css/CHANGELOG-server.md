@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support `.Layout__header__logo--custom` with automatic width
 
 ## 0.8.95
 
@@ -14,7 +15,7 @@ _2025-06-11_
   - feat: Deprecate all `--font-hd-*`, `--font-sh-*`, `--font-bd-*` variables
     — and map all existing text styles to the new variables
   - fix: Make `--font-button` styling bold by default
-- `BasicTable`
+- `BasicTable`:
   - feat: Update styles with new zebra-design
   - feat: Apply colors to `--Cell--number--(pos|neg)` variants
 - fix: Set `.Tooltip`'s trigger icon to a fixed `font-size`

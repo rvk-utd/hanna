@@ -56,6 +56,11 @@ export const LayoutHeaderHomeLink = () => css`
       width: ${prem(172)};
     }
   }
+
+  &__logo--custom {
+    width: auto;
+  }
+
   /** @deprecated Back-compat selector  (Remove in Hanna 0.9) */
   a&__logo {
     box-sizing: content-box;

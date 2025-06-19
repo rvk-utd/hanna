@@ -3,7 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Change `.Layout__header__navlink`'s redundant `aria-label=` to `title=`
+- `Layout`:
+  - feat: Add prop `customLogo`
+  - fix: Change `__header__navlink`'s redundant `aria-label=` to `title=`
 
 ## 0.10.152
 
