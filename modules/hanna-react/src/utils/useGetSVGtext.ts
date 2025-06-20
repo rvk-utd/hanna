@@ -16,6 +16,9 @@ export const useGetSVGtext = (
   useEffect(() => {
     if (imageSrc) {
       getSVGtext(imageSrc, altText).then((code) => {
+        if (!code) {
+          return;
+        }
         if (imageSrc === srcRef.current) {
           setInlineSvg({ imageSrc, code });
         }

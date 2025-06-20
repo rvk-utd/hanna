@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `ImageProps.inline` should not fail to replace with an empty result
 
 ## 0.10.153
 
