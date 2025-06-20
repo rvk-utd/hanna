@@ -11,7 +11,7 @@ export const renderLayoutHomeLink = (
   bem: string,
   logoLink: string,
   siteName?: string,
-  customLogo?: { src: string; altText: string }
+  customLogo?: { src: string; altText: string; inline?: boolean }
 ) => {
   if (!siteName) {
     customLogo = undefined;
@@ -27,7 +27,7 @@ export const renderLayoutHomeLink = (
           getRvkLogoUrl(siteName ? 'reykjavik-logo-notext.svg' : 'reykjavik-logo.svg')
         }
         altText={customLogo?.altText || 'Reykjavík'}
-        inline={true}
+        inline={customLogo ? customLogo.inline : true}
       />{' '}
       {siteName && <span className={`${bem}__header__sitename`}>{siteName}</span>}{' '}
     </Link>
