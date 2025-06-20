@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.154
+
+_2025-06-20_
+
 - feat: Add optional `inline` prop to `LayoutProps.customLogo`
 - fix: `ImageProps.inline` should not fail to replace with an empty result
 
