@@ -90,6 +90,12 @@ export const LayoutHeaderHomeLink = () => css`
     margin-left: -1px;
   }
 
+  &__logo--custom > svg,
+  &__logo--custom > img {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   &__sitename {
     position: relative;
     flex-shrink: 1;
