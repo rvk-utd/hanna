@@ -4,18 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.10.156
+## 0.10.155 – 0.10.156
 
 _2025-06-23_
 
-- feat: Allow `MainMenu2` items to be `null` or `false` also
-
-## 0.10.155
-
-_2025-06-23_
-
-- feat: Allow `MainMenu2` items to be `undefined` for easier conditional item
-  array population
+- feat: Allow `MainMenu2` items to be `undefined`, `null` or `false` for
+  easier conditional item array population
 
 ## 0.10.154
 
