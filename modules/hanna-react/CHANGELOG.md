@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Allow `MainMenu2` items to be `undefined` for easier conditional item
+  array population
 
 ## 0.10.154
 

@@ -139,12 +139,16 @@ export type MainMenu2SubMenuItem = MainMenu2Item & { descr?: string };
 export type MainMenu2SubMenu = {
   title: string;
   current?: boolean;
-  subItems: Array<MainMenu2SubMenuItem | MainMenu2CustomItem>;
+  subItems: Array<MainMenu2SubMenuItem | MainMenu2CustomItem | undefined>;
 };
 
-export type MainMenu2ItemList = Array<MainMenu2Item | MainMenu2CustomItem>;
-export type MainMenu2ButtonItemList = Array<MainMenu2ButtonItem | MainMenu2CustomItem>;
-export type MainMenu2SubMenuItemList = Array<MainMenu2SubMenuItem | MainMenu2CustomItem>;
+export type MainMenu2ItemList = Array<MainMenu2Item | MainMenu2CustomItem | undefined>;
+export type MainMenu2ButtonItemList = Array<
+  MainMenu2ButtonItem | MainMenu2CustomItem | undefined
+>;
+export type MainMenu2SubMenuItemList = Array<
+  MainMenu2SubMenuItem | MainMenu2CustomItem | undefined
+>;
 
 // ---------------------------------------------------------------------------
 
@@ -176,7 +180,8 @@ const getRenderers = (props: {
   const { onItemClick, closeMenu, openMenu, isBrowser } = props;
   type AnyMenuItem =
     | (MainMenu2Item & MainMenu2ButtonItem & MainMenu2SubMenuItem)
-    | MainMenu2CustomItem;
+    | MainMenu2CustomItem
+    | undefined;
 
   const renderItem = (
     classPrefix: string,
@@ -187,6 +192,9 @@ const getRenderers = (props: {
       button?: boolean;
     } = {}
   ) => {
+    if (!item) {
+      return;
+    }
     const { key, Tag = 'li', button } = opts;
     if (typeof item === 'function') {
       const Item = item;
@@ -266,7 +274,7 @@ const getRenderers = (props: {
 
   const renderList = (
     classSuffix: string,
-    items?: Array<AnyMenuItem>,
+    items?: Array<AnyMenuItem | undefined>,
     opts: { listProps?: HTMLProps<'ul'>; buttons?: boolean } = {}
   ) => {
     if (!items || !items.length) {
@@ -274,8 +282,10 @@ const getRenderers = (props: {
     }
     return (
       <ul className={`${classSuffix}items`} {...opts.listProps}>
-        {items.map((listItem, i) =>
-          renderItem(classSuffix, listItem, { key: i, button: opts.buttons })
+        {items.map(
+          (listItem, i) =>
+            listItem &&
+            renderItem(classSuffix, listItem, { key: i, button: opts.buttons })
         )}
       </ul>
     );
@@ -399,7 +409,8 @@ export const MainMenu2 = (props: MainMenu2Props) => {
         return item;
       }
       const current = item.subItems.find(
-        (subItem): subItem is MainMenu2Item => 'current' in subItem && !!subItem.current
+        (subItem): subItem is MainMenu2Item =>
+          !!(subItem && 'current' in subItem && !!subItem.current)
       )?.current;
       return { ...item, current };
     });
