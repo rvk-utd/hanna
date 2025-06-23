@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Allow `MainMenu2` items to be `null` or `false` also
 
 ## 0.10.155
 

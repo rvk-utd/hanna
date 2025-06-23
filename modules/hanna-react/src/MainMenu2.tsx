@@ -43,6 +43,8 @@ const globalClasses = {
   menuIsClosed: 'menu-is-closed',
 };
 
+type Falseish = undefined | null | false;
+
 // ---------------------------------------------------------------------------
 
 export type MainMenu2I18n = {
@@ -139,15 +141,15 @@ export type MainMenu2SubMenuItem = MainMenu2Item & { descr?: string };
 export type MainMenu2SubMenu = {
   title: string;
   current?: boolean;
-  subItems: Array<MainMenu2SubMenuItem | MainMenu2CustomItem | undefined>;
+  subItems: Array<MainMenu2SubMenuItem | MainMenu2CustomItem | Falseish>;
 };
 
-export type MainMenu2ItemList = Array<MainMenu2Item | MainMenu2CustomItem | undefined>;
+export type MainMenu2ItemList = Array<MainMenu2Item | MainMenu2CustomItem | Falseish>;
 export type MainMenu2ButtonItemList = Array<
-  MainMenu2ButtonItem | MainMenu2CustomItem | undefined
+  MainMenu2ButtonItem | MainMenu2CustomItem | Falseish
 >;
 export type MainMenu2SubMenuItemList = Array<
-  MainMenu2SubMenuItem | MainMenu2CustomItem | undefined
+  MainMenu2SubMenuItem | MainMenu2CustomItem | Falseish
 >;
 
 // ---------------------------------------------------------------------------
@@ -181,7 +183,7 @@ const getRenderers = (props: {
   type AnyMenuItem =
     | (MainMenu2Item & MainMenu2ButtonItem & MainMenu2SubMenuItem)
     | MainMenu2CustomItem
-    | undefined;
+    | Falseish;
 
   const renderItem = (
     classPrefix: string,
@@ -274,7 +276,7 @@ const getRenderers = (props: {
 
   const renderList = (
     classSuffix: string,
-    items?: Array<AnyMenuItem | undefined>,
+    items?: Array<AnyMenuItem | Falseish>,
     opts: { listProps?: HTMLProps<'ul'>; buttons?: boolean } = {}
   ) => {
     if (!items || !items.length) {
