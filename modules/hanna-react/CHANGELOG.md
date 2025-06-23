@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.156
+
+_2025-06-23_
+
 - feat: Allow `MainMenu2` items to be `null` or `false` also
 
 ## 0.10.155
