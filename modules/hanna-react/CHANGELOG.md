@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - `Multiselect`
   - fix: Sync `.checked` prop of keyboard-toggled `input`s with visual state
+- `Selectbox`:
+  - fix: Remove stray `modifier` prop from `SelectboxProps`
 
 ## 0.10.155 – 0.10.156
 

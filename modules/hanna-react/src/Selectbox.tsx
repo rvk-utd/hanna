@@ -27,7 +27,7 @@ const getValue = (opt: SelectboxOption | string | number | undefined) => {
 
 export type SelectboxProps<O extends OptionOrValue = OptionOrValue> =
   FormFieldWrappingProps &
-    Omit<_SelectboxProps<O>, 'bem'> & {
+    Omit<_SelectboxProps<O>, 'bem' | 'modifier'> & {
       small?: boolean;
     };
 
