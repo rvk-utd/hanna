@@ -275,6 +275,17 @@ export const Multiselect = (props: MultiselectProps) => {
           e.preventDefault();
           const selItem = filteredOptions[activeItemIndex];
           if (selItem) {
+            // Manually toggle the checkbox, to ensure that uncontrolled
+            // components (e.g. screen readers) are in sync with the visual state.
+            let input: HTMLInputElement;
+            inputWrapperRef
+              .current!.querySelectorAll<HTMLInputElement>(`input[type="checkbox"]`)
+              .forEach((elm) => {
+                if (elm.value === selItem.value) {
+                  input = elm;
+                }
+              });
+            input!.checked = !input!.checked;
             handleCheckboxSelection(selItem);
           }
         }

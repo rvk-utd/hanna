@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Multiselect`
+  - fix: Sync `.checked` prop of keyboard-toggled `input`s with visual state
 
 ## 0.10.155 – 0.10.156
 
