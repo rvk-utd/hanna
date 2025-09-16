@@ -241,61 +241,54 @@ export const Multiselect = (props: MultiselectProps) => {
     }
   };
 
-  // When the dropdown is open, add keydown handlers
-  useEffect(() => {
-    if (!isOpen) {
+  const handleWrapperKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!isOpen || !inputWrapperRef.current?.contains(e.target as Node)) {
       return;
     }
-    const handleKeyDown = (e: KeyboardEvent) => {
-      const inputElm = inputRef.current!;
-      if (e.key === 'ArrowUp') {
+    const inputElm = inputRef.current!;
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      inputElm.focus();
+      setActiveItemIndex((prevIndex) =>
+        prevIndex === 0 ? filteredOptions.length - 1 : prevIndex - 1
+      );
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      inputElm.focus();
+      setActiveItemIndex((prevIndex) =>
+        prevIndex === filteredOptions.length - 1 ? 0 : prevIndex + 1
+      );
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      inputElm.blur();
+      inputElm.focus();
+      toggleOpen(false);
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      if ((e.target as HTMLElement).closest('.Multiselect__currentvalues')) {
+        return;
+      }
+      const focusInRange =
+        activeItemIndex >= 0 && activeItemIndex < filteredOptions.length;
+      if (focusInRange) {
         e.preventDefault();
-        inputElm.focus();
-        setActiveItemIndex((prevIndex) =>
-          prevIndex === 0 ? filteredOptions.length - 1 : prevIndex - 1
-        );
-      } else if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        inputElm.focus();
-        setActiveItemIndex((prevIndex) =>
-          prevIndex === filteredOptions.length - 1 ? 0 : prevIndex + 1
-        );
-      } else if (e.key === 'Escape') {
-        e.preventDefault();
-        inputElm.blur();
-        inputElm.focus();
-        toggleOpen(false);
-      } else if (e.key === 'Enter' || e.key === ' ') {
-        if ((e.target as HTMLElement).closest('.Multiselect__currentvalues')) {
-          return;
-        }
-        const focusInRange =
-          activeItemIndex >= 0 && activeItemIndex < filteredOptions.length;
-        if (focusInRange) {
-          e.preventDefault();
-          const selItem = filteredOptions[activeItemIndex];
-          if (selItem) {
-            // Manually toggle the checkbox, to ensure that uncontrolled
-            // components (e.g. screen readers) are in sync with the visual state.
-            let input: HTMLInputElement;
-            inputWrapperRef
-              .current!.querySelectorAll<HTMLInputElement>(`input[type="checkbox"]`)
-              .forEach((elm) => {
-                if (elm.value === selItem.value) {
-                  input = elm;
-                }
-              });
-            input!.checked = !input!.checked;
-            handleCheckboxSelection(selItem);
-          }
+        const selItem = filteredOptions[activeItemIndex];
+        if (selItem) {
+          // Manually toggle the checkbox, to ensure that uncontrolled
+          // components (e.g. screen readers) are in sync with the visual state.
+          let input: HTMLInputElement;
+          e.currentTarget
+            .querySelectorAll<HTMLInputElement>(`input[type="checkbox"]`)
+            .forEach((elm) => {
+              if (elm.value === selItem.value) {
+                input = elm;
+              }
+            });
+          input!.checked = !input!.checked;
+          handleCheckboxSelection(selItem);
         }
       }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [activeItemIndex, filteredOptions, isOpen, handleCheckboxSelection, inputRef]);
+    }
+  };
 
   // Auto-close the dropdown when focus has left the building
   useEffect(() => {
@@ -344,6 +337,7 @@ export const Multiselect = (props: MultiselectProps) => {
             {...addFocusProps()}
             data-sprinkled={isBrowser}
             ref={inputWrapperRef}
+            onKeyDown={handleWrapperKeyDown}
           >
             {!isBrowser ? null : isSearchable ? (
               <input

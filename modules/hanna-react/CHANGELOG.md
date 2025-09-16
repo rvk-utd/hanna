@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Multiselect`
+  - fix: Scope "global" keyboard event listener to the component's element
 
 ## 0.10.157
 
