@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.158
+
+_2025-09-16_
+
 - `Multiselect`
   - feat: Add prop `onDropdown` prop
   - fix: Scope "global" keyboard event listener to the component's element
