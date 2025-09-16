@@ -4,20 +4,14 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.10.158
+## 0.10.157 – 0.10.158
 
 _2025-09-16_
 
 - `Multiselect`
   - feat: Add prop `onDropdown` prop
-  - fix: Scope "global" keyboard event listener to the component's element
-
-## 0.10.157
-
-_2025-09-16_
-
-- `Multiselect`
   - fix: Sync `.checked` prop of keyboard-toggled `input`s with visual state
+  - fix: Scope "global" keyboard event listener to the component's element
 - `Selectbox`:
   - fix: Remove stray `modifier` prop from `SelectboxProps`
 - docs: Add JSDoc comments for `FormfieldProps.renderInput` parameters
