@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - `Multiselect`
+  - feat: Add prop `onDropdown` prop
   - fix: Scope "global" keyboard event listener to the component's element
 
 ## 0.10.157

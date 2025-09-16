@@ -133,10 +133,19 @@ export type MultiselectProps = TogglerGroupFieldProps<string, { group?: string }
 
   texts?: MultiselectI18n;
   lang?: HannaLang;
+
+  /** Fires whenever the dropdown menu is opened or closed */
+  onDropdown?: (isOpen: boolean) => void;
 };
 
 export const Multiselect = (props: MultiselectProps) => {
-  const { onSelected, options: _options, disabled: _disabled, readOnly } = props;
+  const {
+    onSelected,
+    onDropdown,
+    options: _options,
+    disabled: _disabled,
+    readOnly,
+  } = props;
   const disabled = _disabled === true;
   const disableds = !disabled && _disabled;
 
@@ -166,6 +175,9 @@ export const Multiselect = (props: MultiselectProps) => {
         inputWrapperRef.current!.querySelector('.Multiselect__choices')!.scrollTo(0, 0);
         setSearchQuery('');
         setActiveItemIndex(-1);
+      }
+      if (onDropdown && newIsOpen !== isOpen) {
+        onDropdown(newIsOpen);
       }
       return newIsOpen;
     });
