@@ -10,7 +10,7 @@ import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 type InputClassNames = {
   /** Basic/raw FormField BEM name */
   bem: string;
-  /** Standard name for "<input/>"-styled controls */
+  /** Standard name for "<input/>"-styled controls or container elements */
   input: string;
   /** Standard name for radio/checkbox group conotrols */
   options: string;
@@ -120,9 +120,26 @@ type FormFieldProps = FormFieldGroupWrappingProps & {
   filled?: boolean;
 
   renderInput(
+    /**
+     * Object with standard classNames for various input-related elements
+     */
     className: InputClassNames,
+    /**
+     * The input's managed props, including `id`, a bunch of `aria-*` attributes,
+     * `disabled`, `readOnly`, and `required`.
+     */
     inputProps: FormFieldInputProps & { id: string },
+    /**
+     * Function that generates `onFocus` and `onBlur` event handlers for the
+     * `___input` element, capturing bubbled `FocusEvent`s and emulating
+     * `onFocusOut` and `onFocusIn` behavior. This is useful for multi-input
+     * controls.
+     */
     addFocusProps: FocusPropMaker,
+    /**
+     * Sugar flag indicating whether the component is being rendered in a browser
+     * environment or not.
+     */
     isBrowser?: boolean
   ): JSX.Element;
 };

@@ -7,6 +7,7 @@
   - fix: Sync `.checked` prop of keyboard-toggled `input`s with visual state
 - `Selectbox`:
   - fix: Remove stray `modifier` prop from `SelectboxProps`
+- docs: Add JSDoc comments for `FormfieldProps.renderInput` parameters
 
 ## 0.10.155 – 0.10.156
 
