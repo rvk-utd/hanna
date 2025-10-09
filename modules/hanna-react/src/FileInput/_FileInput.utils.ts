@@ -52,8 +52,6 @@ export const formatBytes = (bytes: number, lang = 'is', decimals = 2): string =>
  * Figures out how to handle adding files to a FileInput
  * Which files to retaine, which too delete, and
  * what the updated fileList should look like.
- *
- *
  */
 export const getFileListUpdate = (
   oldFileList: Array<File>,

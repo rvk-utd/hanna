@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
-import { modifiedClass, OpenRecord } from '@reykjavik/hanna-utils';
+import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, ensureHannaLang, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
 import { useDropzone } from './_mixed_export_resolution_/ReactDropzone.js';
@@ -17,13 +17,13 @@ import FormField, {
   groupFormFieldWrapperProps,
 } from './FormField.js';
 
-const defaultRemoveFileText: OpenRecord<HannaLang, string> = {
+const defaultRemoveFileText: Record<HannaLang, string> = {
   is: 'Fjarlægja',
   en: 'Remove',
   pl: 'Usuń',
 };
 
-const defaultDropzoneText: OpenRecord<HannaLang, () => ReactElement> = {
+const defaultDropzoneText: Record<HannaLang, () => ReactElement> = {
   is: () => (
     <>
       Dragðu skrá hingað, eða <strong>smelltu</strong> til að velja.
@@ -73,7 +73,8 @@ export type FileInputProps = FormFieldWrappingProps & {
   onFilesUpdated?: (
     /** Updated, full list of Files. */
     files: Array<File>,
-    /** Information about which Files were added or removed during with this update.
+    /**
+     * Information about which Files were added or removed during this update.
      *
      * NOTE: When a diff contains both added and deleted files, this indicates a
      * name-conflict occurred — i.e. one of the added files has a name that
