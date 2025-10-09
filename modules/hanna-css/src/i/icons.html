@@ -7,7 +7,7 @@
     <link href="/assets/favicon.png" rel="shortcut icon" />
     <link
       rel="stylesheet"
-      href="/bundle/dev?m=-basics,Layout,PageHeading,TextBlock,Icon"
+      href="/bundle/v0.8?m=-basics,Layout,PageHeading,TextBlock,Icon"
     />
     <link rel="stylesheet" href="/assets/ThumbnailGrid.css" />
     <style>
@@ -41,6 +41,16 @@
     </div>
 
     <script type="module">
+      if (document.location.hostname === 'localhost') {
+        const cssLink = document.querySelector(
+          'link[rel="stylesheet"][href^="/bundle/"]'
+        );
+        cssLink.setAttribute(
+          'href',
+          cssLink.getAttribute('href').replace(/\/bundle\/.+?\?/, '/bundle/dev?')
+        );
+      }
+
       const mainElm = document.querySelector('.Layout__main');
       const link = mainElm.querySelector('a[href$=".json"]');
       fetch(link.href)
