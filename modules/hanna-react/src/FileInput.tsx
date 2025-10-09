@@ -41,6 +41,12 @@ const defaultDropzoneText: Record<HannaLang, () => ReactElement> = {
   ),
 };
 
+const replaceFileTest: Record<HannaLang, string> = {
+  is: 'Yfirskrifa núverandi skrá',
+  en: 'Replace existing file',
+  pl: 'Zastąp istniejący plik',
+};
+
 const defaultOnFilesRejected: FileInputProps['onFilesRejected'] = (rejectedFiles) => {
   window.alert(
     `Error:\n${rejectedFiles
@@ -85,6 +91,12 @@ export type FileInputProps = FormFieldWrappingProps & {
      */
     diff: { deleted?: Array<File>; added?: Array<File> }
   ) => void;
+  /**
+   * Confirm replacing existing (name-conflicting) files in multi-upload mode
+   *
+   * This feature is "unstable" because its behavior might change in the future.
+   */
+  unstable_confirmReplace?: boolean;
   onFilesRejected?: (rejectedFiles: Array<File>) => void;
   name?: string;
   value?: ReadonlyArray<File>;
@@ -115,7 +127,7 @@ export const FileInput = (props: FileInputProps) => {
     multiple = props.dropzoneProps?.multiple ?? true, // eslint-disable-line deprecation/deprecation
     accept = props.dropzoneProps?.accept, // eslint-disable-line deprecation/deprecation
     dropzoneText = defaultDropzoneText[lang](),
-
+    unstable_confirmReplace,
     removeFileText = defaultRemoveFileText[lang],
     FileList = DefaultFileList,
     onFilesUpdated = () => undefined,
@@ -198,14 +210,28 @@ export const FileInput = (props: FileInputProps) => {
 
   const addFiles = (added: Array<File>): void => {
     const { fileList, diff } = getFileListUpdate(files, added, !multiple);
+
+    let updatedFileList = fileList;
+    if (diff.deleted && multiple && props.unstable_confirmReplace) {
+      diff.deleted = diff.deleted.filter((file) =>
+        window.confirm(`${replaceFileTest} "${file.name}"?`)
+      );
+      // When unstable_confirmReplace becomes stable, we should stop returning
+      // `fileList` from getFileListUpdate and just always do this thing.
+      // That change will require changing the tests too, so let's wait.
+      updatedFileList = files
+        .filter((file) => !diff.deleted.includes(file))
+        .concat(added);
+    }
+
     if (fileInput.current) {
-      fileInput.current.files = arrayToFileList(fileList);
+      fileInput.current.files = arrayToFileList(updatedFileList);
     }
     if (inputRef.current) {
       // Empty on every add
       inputRef.current.files = arrayToFileList([]);
     }
-    onFilesUpdated(fileList, diff);
+    onFilesUpdated(updatedFileList, diff);
   };
 
   return (

@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `FileUpload`:
+  - feat: Add prop `unstable_confirmReplace` for multi-upload name-conflicts
 
 ## 0.10.157 – 0.10.158
 
