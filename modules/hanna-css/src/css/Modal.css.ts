@@ -61,7 +61,7 @@ export default css`
       margin: 0 auto;
       padding: ${mVars.paddingV} ${mVars.paddingH};
       background-color: #fff;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+      box-shadow: ${vars.boxShadow_elevated};
 
       transition: all 200ms ease-in;
       transition-property: opacity, visibility, transform;

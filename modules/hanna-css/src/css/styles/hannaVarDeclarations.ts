@@ -615,7 +615,7 @@ const borderEffectVarDeclarations = borderEffectVars.declare({
   border_dark: `1px solid ${colorVars.vars.color_suld_150}`,
 
   boxShadow_subtle: `0 4px 8px 0 rgba(0,0,0, 0.08)`,
-  boxShadow_hover: `0 12px 16px 0 rgba(0,0,0, 0.08)`,
+  boxShadow_hover: `0 12px 16px 0 rgba(0,0,0, 0.08)`, // Is this too transparent?
   boxShadow_elevated: `0 30px 60px 0 rgba(0,0,0, 0.08), 0 60px 120px 0 rgba(0,0,0, 0.08)`,
 });
 
