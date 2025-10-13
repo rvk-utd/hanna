@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.160
+
+_2025-10-13_
+
 - `ReadSpeakerPlayer`:
   - fix: Default `lang` to Hanna's `DEFAULT_LANG` value, like other components
 
