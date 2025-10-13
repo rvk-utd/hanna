@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { modifiedClass } from '@reykjavik/hanna-utils';
-import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
+import { DEFAULT_LANG, DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { HTMLProps } from './utils.js';
 
@@ -101,18 +101,14 @@ export const ReadSpeakerPlayer = (props: ReadSpeakerPlayerProps) => {
     align,
     float,
     customerId = '11315',
-    lang = 'is',
+    lang = DEFAULT_LANG,
     voice = /^is(?:_is)?$/i.test(lang) ? 'is_dora' : '',
     readId = '',
     readClass = readId ? '' : 'Layout__main',
     wrapperProps,
-    texts,
   } = props;
 
-  const { linkText, linkLabel } = getTexts(
-    { lang: lang.slice(0, 2), texts },
-    defaultReadSpeakerPlayerTexts
-  );
+  const { linkText, linkLabel } = getTexts(props, defaultReadSpeakerPlayerTexts);
 
   useEffect(
     () => {
