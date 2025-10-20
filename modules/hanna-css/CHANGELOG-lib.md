@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.20
+
+_2025-10-20_
+
 - feat: Export `suppress_WARNING__` and `suppress_WARNING_soft__` dev helpers
 
 ## 0.4.19
