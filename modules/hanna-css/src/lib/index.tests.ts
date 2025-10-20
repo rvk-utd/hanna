@@ -65,9 +65,9 @@ o.spec('hanna-css lib', () => {
       /* WARNING__.ts */
       WARNING__: true,
       WARNING_message__: true,
-      // suppress_WARNING__: true,
       WARNING_soft__: true,
-      // suppress_WARNING_soft__: true,
+      suppress_WARNING__: true,
+      suppress_WARNING_soft__: true,
     };
 
     reportKeyMismatch(

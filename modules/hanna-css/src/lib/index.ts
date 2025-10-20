@@ -13,5 +13,11 @@ export { characters, iconfont_raw, icons, iconStyle } from './icons.js';
 export { formFieldVars } from './otherTokens.js';
 export type { HannaColorTheme } from './themes.js';
 export { colorThemes } from './themes.js';
-export { WARNING__, WARNING_message__, WARNING_soft__ } from './WARNING__.js';
+export {
+  suppress_WARNING__,
+  suppress_WARNING_soft__,
+  WARNING__,
+  WARNING_message__,
+  WARNING_soft__,
+} from './WARNING__.js';
 export * from 'es-in-css'; // Re-export all of es-in-css for convenience
