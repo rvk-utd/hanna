@@ -3,7 +3,6 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Use `boxShadow_*` tokens for button hover state and `Modal` shadow
 
 ## 0.4.19
 
