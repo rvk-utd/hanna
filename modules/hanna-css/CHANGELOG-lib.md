@@ -4,13 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.4.21
-
-_2025-10-20_
-
-- fix: Incorrect all signature for `suppress_WARNING__`, requiring a message
-
-## 0.4.20
+## 0.4.20 – 0.4.21
 
 _2025-10-20_
 
