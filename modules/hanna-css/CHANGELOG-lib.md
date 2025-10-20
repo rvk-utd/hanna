@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Incorrect all signature for `suppress_WARNING__`, requiring a message
 
 ## 0.4.20
 

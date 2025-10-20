@@ -169,8 +169,7 @@ export const WARNING_border_soft__ = (opts?: MiniWarningOpts) =>
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#suppress_warning__
  */
 /*#__NO_SIDE_EFFECTS__*/
-export const suppress_WARNING__ = (message: string, opts?: WarningOpts) =>
-  _suppress_WARNING__(opts);
+export const suppress_WARNING__ = (opts?: WarningOpts) => _suppress_WARNING__(opts);
 
 /**
  * Attempts to remove lower-priority (`:hover`) warning border and message.
