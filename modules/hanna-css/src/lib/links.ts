@@ -62,8 +62,7 @@ export const LinkStyle_Reset = (
     link_weight: '_inherit',
     link_underline: 'none',
   })}
-  // NOTE: This intentionally doesn't reset the :hover style
-  // unless..
+  ${/* NOTE: This intentionally doesn't reset the :hover style unless.. */ ''}
   ${hover &&
   hannaVarOverride({
     link_color__hover: hover !== 'no-underline' && vars.link_color,

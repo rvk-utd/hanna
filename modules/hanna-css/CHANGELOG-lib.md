@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: `LinkStyle_Reset` emitted js-style `// comments` into the CSS output
 
 ## 0.4.22
 
