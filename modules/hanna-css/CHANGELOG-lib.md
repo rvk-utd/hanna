@@ -4,13 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 
-## 0.4.23
-
-_2025-11-26_
-
-- fix: `LinkStyle_Reset` emitted js-style `// comments` into the CSS output
-
-## 0.4.22
+## 0.4.22 – 0.4.23
 
 _2025-11-26_
 
