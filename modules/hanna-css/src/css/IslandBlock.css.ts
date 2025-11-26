@@ -9,7 +9,7 @@ import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
-import { LinkStyle_SameColor } from './styles/links.js';
+import { LinkStyle_SameColor } from '../lib/links.js';
 import { cols_pct, extendBackgroundWithUnderlay, grid_units } from './utils/miscUtils.js';
 
 const offset = scale_phone_phablet(0, 60);

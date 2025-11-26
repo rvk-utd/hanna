@@ -5,7 +5,7 @@ import { hannaVars as vars } from '../../lib/hannavars.js';
 import { hideText_css } from '../utils/hideText.js';
 import { prem } from '../utils/miscUtils.js';
 
-import { LinkStyle_Reset } from './links.js';
+import { LinkStyle_Reset } from '../../lib/links.js';
 
 const mq_Topmenu = mq.netbook_up;
 

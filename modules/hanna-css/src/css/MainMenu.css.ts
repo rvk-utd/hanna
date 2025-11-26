@@ -14,7 +14,7 @@ import { WARNING__ } from '../lib/WARNING__.js';
 
 import { ButtonVariables } from './styles/buttons.js';
 import { freezeScroll_css } from './styles/header.js';
-import { LinkStyle } from './styles/links.js';
+import { LinkStyle } from '../lib/links.js';
 import { extendSides } from './utils/extendSides.js';
 import { DEPS, grid_units, prem } from './utils/miscUtils.js';
 import { AuxiliaryPanel_css } from './_AuxiliaryPanel.js';

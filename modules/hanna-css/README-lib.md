@@ -48,6 +48,10 @@ yarn add @reykjavik/hanna-css
   - [`srOnly_focusable` mixin](#sronly_focusable-mixin)
   - [`srOnly_focusableContent` mixin](#sronly_focusablecontent-mixin)
   - [`hoverKeyboardFocusAndActiveStyling` mixin](#hoverkeyboardfocusandactivestyling-mixin)
+- [Link Styling](#link-styling)
+  - [`LinkStyle`](#linkstyle)
+  - [`LinkStyle_Reset`](#linkstyle_reset)
+  - [`LinkStyle_SameColor`](#linkstyle_samecolor)
 - [Markup Warning Helpers](#markup-warning-helpers)
   - [`WARNING__`](#warning__)
   - [`WARNING_soft__`](#warning_soft__)
@@ -635,6 +639,72 @@ const myCss = css`
 By passing a second `options` parameter, the `:active` selector can be
 skipped.
 
+## Link Styling
+
+### `LinkStyle`
+
+**Syntax:** `LinkStyle: () => CssString`
+
+Use this to style `<button>`s and style-reset anchor elements to look like
+basic text links with Hanna's default `:hover` styling, etc.
+
+```ts
+import { css, LinkStyle } from '@reykjavik/hanna-css';
+
+export default css`
+  .MyComponent__linkLikeButton {
+    ${LinkStyle()};
+    /* ...Custom styling tweaks... */
+  }
+`;
+```
+
+### `LinkStyle_Reset`
+
+**Syntax:**
+`LinkStyle_Reset: (hover?: true | 'no-hover' | 'no-underline') => CssString`
+
+Use this where you need to use anchor tags that shouldn't look like
+text-links.
+
+Does not reset the `:hover` style unless `hover` parameter is set to `true` or
+`'no-hover'`.
+
+If the `hover` parameter is set to `'no-underline'`, it removes the underline,
+but the element retains its `:hover` color-change.
+
+```ts
+import { css, LinkStyle_Reset } from '@reykjavik/hanna-css';
+
+export default css`
+  a.MyComponent__button {
+    ${LinkStyle_Reset('no-hover')};
+    /* ...Add custom button-esque styling here... */
+  }
+`;
+```
+
+### `LinkStyle_SameColor`
+
+**Syntax:** `LinkStyle_SameColor: () => CssString`
+
+Use this where the local link color should be the same as the surrounding text
+color.
+
+It applies a subtle "hairline" underline to indicate that it's a link, and
+adds subtle, same-color `:hover` styling.
+
+```ts
+import { css, LinkStyle_SameColor } from '@reykjavik/hanna-css';
+
+export default css`
+  .MyComponent__textbox a {
+    ${LinkStyle_SameColor()};
+    /* ...Custom styling tweaks... */
+  }
+`;
+```
+
 ## Markup Warning Helpers
 
 Sometimes you need to discourage certain HTML markup patterns, and **Hanna**
@@ -649,7 +719,7 @@ By default, these messages are only visible in CSS rendered when
 Example usage:
 
 ```ts
-import { WARNING__, WARNING_message__ } from '@reykjavik/hanna-css';
+import { css, WARNING__, WARNING_message__ } from '@reykjavik/hanna-css';
 
 export default css`
   :not(ul):not(ol) > li {

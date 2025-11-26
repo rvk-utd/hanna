@@ -6,11 +6,11 @@ import { mq } from '../lib/breakpoints.js';
 import { colorFamilies } from '../lib/colors.js';
 import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
 import { ButtonTertiaryStyle } from './styles/buttons.js';
-import { LinkStyle_Reset } from './styles/links.js';
 import { DEPS, prem } from './utils/miscUtils.js';
 
 import { carouselStepperBeforeSprinklingPadding } from './CarouselStepper.css.js';
@@ -99,7 +99,7 @@ export default css`
     )}
 
     .ArticleCarouselCard__link {
-      ${LinkStyle_Reset('noborder')};
+      ${LinkStyle_Reset('no-underline')};
     }
 
     .ArticleCarouselCard__illustration {

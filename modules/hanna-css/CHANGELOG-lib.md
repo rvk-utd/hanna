@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Export mixins `LinkStyle`, `LinkStyle_Reset`, `LinkStyle_SameColor`
 
 ## 0.4.20 – 0.4.21
 

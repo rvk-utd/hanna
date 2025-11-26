@@ -1,6 +1,6 @@
 import { css } from 'es-in-css';
 
-import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars.js';
+import { hannaVarOverride, hannaVars as vars } from './hannavars.js';
 
 const _LinkStyle__basic = () => css`
   text-decoration: none;
@@ -21,6 +21,8 @@ const _LinkStyle__hover = () => css`
 /**
  * Use to style `<button>`s and style-reset anchor elements to look like basic
  * text links with Hanna's default `:hover` styling, etc.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#linkstyle
  */
 export const LinkStyle = () => css`
   ${_LinkStyle__basic}
@@ -49,8 +51,12 @@ export const LinkStyle__focusOutline = () => css`
  *
  * If the `hover` parameter is set to `'no-underline'`, it removes the underline,
  * but the element retains its `:hover` color-change.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#linkstyle_reset
  */
-export const LinkStyle_Reset = (hover: boolean | 'noborder' = false) => css`
+export const LinkStyle_Reset = (
+  hover: boolean | 'no-hover' | 'no-underline' = false
+) => css`
   ${hannaVarOverride({
     link_color: '_inherit',
     link_weight: '_inherit',
@@ -60,7 +66,7 @@ export const LinkStyle_Reset = (hover: boolean | 'noborder' = false) => css`
   // unless..
   ${hover &&
   hannaVarOverride({
-    link_color__hover: hover !== 'noborder' && vars.link_color,
+    link_color__hover: hover !== 'no-underline' && vars.link_color,
     link_underline__hover: 'none',
     link_underline_offset: 0,
   })}
@@ -72,6 +78,8 @@ export const LinkStyle_Reset = (hover: boolean | 'noborder' = false) => css`
  *
  *  It applies a subtle "hairline" underline to indicate that it's a link, and
  *  adds subtle, same-color `:hover` styling.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#linkstyle_samecolor
  */
 export const LinkStyle_SameColor = () => css`
   ${hannaVarOverride({

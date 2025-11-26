@@ -6,7 +6,7 @@ import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
-import { LinkStyle_Reset } from './styles/links.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 import { DEPS, prem } from './utils/miscUtils.js';
 
 export default css`

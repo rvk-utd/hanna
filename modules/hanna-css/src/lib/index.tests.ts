@@ -56,6 +56,11 @@ o.spec('hanna-css lib', () => {
       iconfont_raw: true,
       icons: true,
 
+      /* links.ts */
+      LinkStyle: true,
+      LinkStyle_Reset: true,
+      LinkStyle_SameColor: true,
+
       /* otherTokens.ts */
       formFieldVars: true,
 

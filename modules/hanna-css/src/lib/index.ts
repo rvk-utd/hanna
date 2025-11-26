@@ -10,6 +10,7 @@ export type { HannaCssVarToken } from './hannavars.js';
 export { hannaVarOverride, hannaVars } from './hannavars.js';
 export type { IconName } from './icons.js';
 export { characters, iconfont_raw, icons, iconStyle } from './icons.js';
+export { LinkStyle, LinkStyle_Reset, LinkStyle_SameColor } from './links.js';
 export { formFieldVars } from './otherTokens.js';
 export type { HannaColorTheme } from './themes.js';
 export { colorThemes } from './themes.js';

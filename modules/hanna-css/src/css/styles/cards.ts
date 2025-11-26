@@ -5,7 +5,7 @@ import { buildVariables } from '../../lib/cssutils.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
 import { prem } from '../utils/miscUtils.js';
 
-import { LinkStyle_Reset } from './links.js';
+import { LinkStyle_Reset } from '../../lib/links.js';
 
 export const CardListVariables = buildVariables(['card_width']);
 export const cardListVars = CardListVariables.vars;

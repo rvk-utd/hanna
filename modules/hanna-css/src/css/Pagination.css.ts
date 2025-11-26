@@ -3,8 +3,8 @@ import { css, rem } from 'es-in-css';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 
-import { LinkStyle_Reset } from './styles/links.js';
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
 
@@ -28,7 +28,7 @@ export default css`
     }
   }
   .Pagination__button {
-    ${LinkStyle_Reset('noborder')};
+    ${LinkStyle_Reset('no-underline')};
     ${hannaVarOverride({
       link_focus_outlineColor: vars.link_color__hover,
     })}

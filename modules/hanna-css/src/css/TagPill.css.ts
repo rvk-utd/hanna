@@ -5,7 +5,7 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_Reset } from './styles/links.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 import { hideText_css } from './utils/hideText.js';
 
 export const TagPillVariables = buildVariables(

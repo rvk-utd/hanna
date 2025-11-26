@@ -9,7 +9,7 @@ import { characters, iconfont_raw } from '../lib/icons.js';
 import { WARNING__, WARNING_border__ } from '../lib/WARNING__.js';
 
 import { hannaVarDeclarations } from './styles/hannaVarDeclarations.js';
-import { LinkStyle, LinkStyle__focusOutline } from './styles/links.js';
+import { LinkStyle, LinkStyle__focusOutline } from '../lib/links.js';
 import { buttonReset } from './utils/buttonReset.js';
 import { normalizeCss } from './utils/normalize.js';
 import { writeMediaFormatMarkers } from './utils/writeMediaFormatMarkers.js';

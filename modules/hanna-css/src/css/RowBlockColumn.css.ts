@@ -5,7 +5,7 @@ import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_SameColor } from './styles/links.js';
+import { LinkStyle_SameColor } from '../lib/links.js';
 import { cols_pct, DEPS } from './utils/miscUtils.js';
 
 export default css`

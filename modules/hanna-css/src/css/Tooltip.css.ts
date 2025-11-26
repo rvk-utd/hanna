@@ -4,7 +4,7 @@ import { font } from '../lib/font.js';
 import { hannaVars, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 
-import { LinkStyle, LinkStyle_SameColor } from './styles/links.js';
+import { LinkStyle, LinkStyle_SameColor } from '../lib/links.js';
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
 

@@ -7,7 +7,7 @@ import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_Reset } from './styles/links.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 import { prem } from './utils/miscUtils.js';
 
 export default css`
