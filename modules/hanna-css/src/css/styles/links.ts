@@ -2,7 +2,7 @@ import { css } from 'es-in-css';
 
 import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars.js';
 
-export const LinkStyle__basic = () => css`
+const _LinkStyle__basic = () => css`
   text-decoration: none;
   color: ${vars.link_color};
   font-weight: ${vars.link_weight};
@@ -13,7 +13,7 @@ export const LinkStyle__basic = () => css`
     outline;
 `;
 
-export const LinkStyle__hover = () => css`
+const _LinkStyle__hover = () => css`
   color: ${vars.link_color__hover};
   border-bottom: ${vars.link_underline__hover};
 `;
@@ -25,11 +25,11 @@ export const LinkStyle__focusOutline = () => css`
 `;
 
 export const LinkStyle = () => css`
-  ${LinkStyle__basic}
+  ${_LinkStyle__basic}
 
   &:hover,
   &:active {
-    ${LinkStyle__hover}
+    ${_LinkStyle__hover}
   }
 `;
 
