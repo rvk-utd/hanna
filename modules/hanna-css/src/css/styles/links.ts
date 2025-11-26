@@ -18,12 +18,10 @@ const _LinkStyle__hover = () => css`
   border-bottom: ${vars.link_underline__hover};
 `;
 
-export const LinkStyle__focusOutline = () => css`
-  outline: ${vars.link_focus_outline};
-  outline-color: ${vars.link_focus_outlineColor};
-  outline-offset: ${vars.link_focus_outlineOffset};
-`;
-
+/**
+ * Use to style `<button>`s and style-reset anchor elements to look like basic
+ * text links with Hanna's default `:hover` styling, etc.
+ */
 export const LinkStyle = () => css`
   ${_LinkStyle__basic}
 
@@ -34,8 +32,23 @@ export const LinkStyle = () => css`
 `;
 
 /**
- * Use this where you need to use anchor tags
- * That shouldn't look like text-links
+ * Sets the ugly default high-contrast :focus-visible outline on an element.
+ * Only really useful in `-basics.css` as a global default reset.
+ */
+export const LinkStyle__focusOutline = () => css`
+  outline: ${vars.link_focus_outline};
+  outline-color: ${vars.link_focus_outlineColor};
+  outline-offset: ${vars.link_focus_outlineOffset};
+`;
+
+/**
+ * Use this where you need to use anchor tags that shouldn't look like text-links.
+ *
+ * Does not reset the `:hover` style unless `hover` parameter is set to `true` or
+ * `'no-hover'`.
+ *
+ * If the `hover` parameter is set to `'no-underline'`, it removes the underline,
+ * but the element retains its `:hover` color-change.
  */
 export const LinkStyle_Reset = (hover: boolean | 'noborder' = false) => css`
   ${hannaVarOverride({
@@ -54,8 +67,11 @@ export const LinkStyle_Reset = (hover: boolean | 'noborder' = false) => css`
 `;
 
 /**
- * Use this where the local link color
- * is the same as the surrounding text color.
+ * Use this where the local link color should be the same as the surrounding text
+ * color.
+ *
+ *  It applies a subtle "hairline" underline to indicate that it's a link, and
+ *  adds subtle, same-color `:hover` styling.
  */
 export const LinkStyle_SameColor = () => css`
   ${hannaVarOverride({
