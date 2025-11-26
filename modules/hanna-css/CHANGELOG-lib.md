@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.22
+
+_2025-11-26_
+
 - feat: Export mixins `LinkStyle`, `LinkStyle_Reset`, `LinkStyle_SameColor`
 
 ## 0.4.20 – 0.4.21
