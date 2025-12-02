@@ -9,10 +9,10 @@ import {
 import { bp, mq } from '../lib/breakpoints.js';
 import { grid, gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { LinkStyle_SameColor } from '../lib/links.js';
 import { WARNING_soft__ } from '../lib/WARNING__.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
-import { LinkStyle_SameColor } from '../lib/links.js';
 import { cols_pct, DEPS, grid_units, prem } from './utils/miscUtils.js';
 
 const minH = px(480 - 2 * grid.column);

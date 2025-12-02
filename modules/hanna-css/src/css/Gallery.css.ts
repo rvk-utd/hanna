@@ -3,10 +3,10 @@ import { css, em } from 'es-in-css';
 import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { carouselItemsScrollSnapStyles } from './styles/abstractCarousel.js';
-import { LinkStyle_Reset } from '../lib/links.js';
 import { DEPS } from './utils/miscUtils.js';
 import { GalleryModal_css, GalleryModalItem_css } from './_GalleryModal.js';
 

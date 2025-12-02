@@ -5,9 +5,9 @@ import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 
 import { freezeScroll_css } from './styles/header.js';
-import { LinkStyle_Reset } from '../lib/links.js';
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem } from './utils/miscUtils.js';
 

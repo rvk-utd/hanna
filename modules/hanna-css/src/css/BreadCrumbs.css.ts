@@ -2,9 +2,9 @@ import { css } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_Reset } from '../lib/links.js';
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
 

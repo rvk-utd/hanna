@@ -2,10 +2,9 @@ import { ColorValue, css, VariablePrinter } from 'es-in-css';
 
 import { mq } from '../../lib/breakpoints.js';
 import { hannaVars as vars } from '../../lib/hannavars.js';
+import { LinkStyle_Reset } from '../../lib/links.js';
 import { hideText_css } from '../utils/hideText.js';
 import { prem } from '../utils/miscUtils.js';
-
-import { LinkStyle_Reset } from '../../lib/links.js';
 
 const mq_Topmenu = mq.netbook_up;
 

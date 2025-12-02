@@ -3,9 +3,9 @@ import { css } from 'es-in-css';
 import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { LinkStyle_SameColor } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
-import { LinkStyle_SameColor } from '../lib/links.js';
 import { cols_pct, DEPS } from './utils/miscUtils.js';
 
 export default css`

@@ -8,11 +8,11 @@ import { buildVariables } from '../lib/cssutils.js';
 import { grid, gridPx } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { ButtonVariables } from './styles/buttons.js';
 import { freezeScroll_css } from './styles/header.js';
-import { LinkStyle_Reset } from '../lib/links.js';
 import { DEPS, extendBackgroundWithUnderlay } from './utils/miscUtils.js';
 
 import { enableDataIcon } from './Icon.css.js';

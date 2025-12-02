@@ -5,10 +5,10 @@ import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { grid, gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { LinkStyle_Reset } from '../lib/links.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { LabeledTitleStyle__basics } from './styles/labeledTitle.js';
-import { LinkStyle_Reset } from '../lib/links.js';
 import { afterClear_css } from './utils/afterClear.js';
 import { DEPS, grid_units, prem } from './utils/miscUtils.js';
 

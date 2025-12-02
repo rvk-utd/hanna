@@ -2,8 +2,8 @@ import { css } from 'es-in-css';
 
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-
 import { LinkStyle } from '../lib/links.js';
+
 import { DEPS, prem } from './utils/miscUtils.js';
 
 import { enableDataIcon } from './Icon.css.js';
