@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `.MainMenu2__hot__item--redhot` for "hot" item to always show
+- feat: Add `[data-customitem]` attribute to custom content `MainMenu2` items
 - feat: Add example of a `.DropdownButton__item` marked as "current"
 - fix: Drop `aria-lebel=""` for `role="none"` on `.BreadCrumbs__separator`
 - fix: Load missing button CSS for `ActionCards` stories showing "more" link

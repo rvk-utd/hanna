@@ -98,32 +98,26 @@ export const LayoutHeaderHomeLink = () => css`
   &__sitename {
     position: relative;
     flex-shrink: 1;
-    font-size: ${prem(16)};
-    line-height: 1.5;
-    font-weight: ${vars.font_weight__bold};
+    font: ${vars.font_heading_xs};
     margin-left: 13px;
-    padding-left: 16px;
-
-    @media ${mq_Topmenu} {
+  }
+  @media ${mq_Topmenu} {
+    &__sitename {
       font-size: ${prem(24)};
       line-height: 1.2;
-      margin-left: 21px;
+      margin-left: 24px;
       padding-left: 24px;
     }
-  }
-  &__sitename::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 2px;
-    height: ${prem(28)};
-    background-color: ${vars.Layout$$header_homelink_divColor};
-    margin: auto 0;
-
-    @media ${mq_Topmenu} {
-      height: ${prem(32)};
+    &__sitename::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      bottom: 0;
+      width: 2px;
+      height: 32px;
+      background-color: ${vars.Layout$$header_homelink_divColor};
+      margin: auto 0;
     }
   }
 `;

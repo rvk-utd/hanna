@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`:
+  - feat: Support `.MainMenu2__hot__item--redhot` items
+  - feat: Support custom and scripted `[data-customitem]` item contents
 
 ## 0.8.61
 

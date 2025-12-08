@@ -7,6 +7,7 @@ import qq from '@hugsmidjan/qj/qq';
 import {
   MainMenu2,
   MainMenu2ButtonItem,
+  MainMenu2CustomItem,
   MainMenu2I18n,
   MainMenu2Item,
   MainMenu2Props,
@@ -62,14 +63,39 @@ const parseItem = (
   itemElm: HTMLElement | undefined
 ):
   | (MainMenu2Item & MainMenu2ButtonItem & MainMenu2SubMenuItem & { href: string })
+  | MainMenu2CustomItem
   | undefined => {
   if (!itemElm) {
     return;
+  }
+  const modifier = itemElm.className.match(/[a-zA-Z0-9]__item--(.+)(?: |$)/)?.[1];
+  const current = isAriaCurrent(itemElm);
+
+  if (itemElm.hasAttribute('data-customitem')) {
+    const nodes = itemElm.childNodes;
+    nodes.forEach((node) => node.remove());
+    return {
+      modifier,
+      current,
+      Content: () => {
+        const ref = useRef<HTMLSpanElement>(null);
+        useEffect(() => {
+          const spanElm = ref.current;
+          if (!spanElm) {
+            return;
+          }
+          spanElm.parentNode!.append(...nodes);
+          spanElm.remove();
+        }, []);
+        return <span ref={ref} />;
+      },
+    };
   }
   const linkElm = q<HTMLAnchorElement>('a[href]', itemElm);
   if (!linkElm) {
     return;
   }
+
   const descrElm = q('.MainMenu2__main__sub__link__descr', itemElm);
   descrElm?.remove();
   const descr = descrElm?.textContent!.trim();
@@ -85,9 +111,6 @@ const parseItem = (
   const hrefLang = linkElm.getAttribute('hreflang') || undefined;
   const labelLong = linkElm.getAttribute('aria-label') || linkElm.title || undefined;
   const icon = linkElm.dataset.icon as MainMenu2ButtonItem['icon'] | undefined;
-
-  const modifier = itemElm.className.match(/[a-zA-Z0-9]__item--(.+)(?: |$)/)?.[1];
-  const current = isAriaCurrent(itemElm);
 
   return {
     label,
@@ -132,7 +155,10 @@ const getPropsFromSSRMainMenu2 = (elm: HTMLElement): MainMenu2Props => {
       .filter(notNully),
   };
 
-  const homeLink = parseItem(q<HTMLElement>('.MainMenu2__main__item--home', elm));
+  let homeLink = parseItem(q<HTMLElement>('.MainMenu2__main__item--home', elm));
+  if (typeof homeLink === 'function' || (homeLink && 'Content' in homeLink)) {
+    homeLink = undefined;
+  }
   if (homeLink) {
     delete homeLink.modifier;
     delete homeLink.controlsId;

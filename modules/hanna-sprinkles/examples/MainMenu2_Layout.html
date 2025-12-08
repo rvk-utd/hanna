@@ -287,7 +287,10 @@
                 </div>
               </div>
               <ul class="MainMenu2__hot__items">
-                <li class="MainMenu2__hot__item">
+                <li
+                  class="MainMenu2__hot__item MainMenu2__hot__item--redhot"
+                  data-customitem
+                >
                   <a
                     class="ButtonSecondary ButtonSecondary--small MainMenu2__hot__link"
                     href="/en"
@@ -297,6 +300,25 @@
                     hreflang="en"
                     >EN
                   </a>
+                  <strong
+                    hidden
+                    style="position: absolute; margin-top: 40px; margin-left: -80px"
+                  >
+                    <em
+                      >Extra Custom<br />
+                      Content</em
+                    >
+                  </strong>
+                  <script>
+                    const btn = document.querySelector(
+                      'a[href="/en"].MainMenu2__hot__link'
+                    );
+                    btn.addEventListener('click', (e) => {
+                      e.preventDefault();
+                      btn.nextElementSibling.hidden = !btn.nextElementSibling.hidden;
+                    });
+                    btn.parentNode.lastElementChild.remove();
+                  </script>
                 </li>
                 <li class="MainMenu2__hot__item">
                   <a

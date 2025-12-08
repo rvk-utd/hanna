@@ -125,31 +125,44 @@ export type MainMenu2Item = {
   onClick?: (item: MainMenu2Item) => void | boolean;
   /** Sets `aria-controls=""` on `<button/>`s with `onClick` */
   controlsId?: string;
+
+  Content?: never; // To discrimiate bteween this and MainMenu2CustomItem
 };
 
 export type MainMenu2ButtonItem = MainMenu2Item & {
   icon?: 'search' | 'user' | 'alert' | 'globe';
 };
 
-export type MainMenu2CustomItem = (props: {
+type MainMenu2CustomItemFn = (props: {
   closeMenu: () => void;
   openMenu: () => void;
 }) => ReactElement;
+
+export type MainMenu2CustomItem = Pick<MainMenu2Item, 'modifier' | 'current'> & {
+  Content: MainMenu2CustomItemFn;
+};
 
 export type MainMenu2SubMenuItem = MainMenu2Item & { descr?: string };
 
 export type MainMenu2SubMenu = {
   title: string;
   current?: boolean;
-  subItems: Array<MainMenu2SubMenuItem | MainMenu2CustomItem | Falseish>;
+  subItems: Array<
+    MainMenu2SubMenuItem | MainMenu2CustomItem | MainMenu2CustomItemFn | Falseish
+  >;
 };
 
-export type MainMenu2ItemList = Array<MainMenu2Item | MainMenu2CustomItem | Falseish>;
-export type MainMenu2ButtonItemList = Array<
-  MainMenu2ButtonItem | MainMenu2CustomItem | Falseish
+export type MainMenu2ItemList = Array<
+  MainMenu2Item | MainMenu2CustomItem | MainMenu2CustomItemFn | Falseish
+>;
+export type MainMenu2ButtonItemList<Extra = unknown> = Array<
+  | (MainMenu2ButtonItem & Extra)
+  | (MainMenu2CustomItem & Extra)
+  | MainMenu2CustomItemFn
+  | Falseish
 >;
 export type MainMenu2SubMenuItemList = Array<
-  MainMenu2SubMenuItem | MainMenu2CustomItem | Falseish
+  MainMenu2SubMenuItem | MainMenu2CustomItem | MainMenu2CustomItemFn | Falseish
 >;
 
 // ---------------------------------------------------------------------------
@@ -183,8 +196,10 @@ const getRenderers = (props: {
   type AnyMenuItem =
     | (MainMenu2Item & MainMenu2ButtonItem & MainMenu2SubMenuItem)
     | MainMenu2CustomItem
+    | MainMenu2CustomItemFn
     | Falseish;
 
+  // eslint-disable-next-line complexity
   const renderItem = (
     classPrefix: string,
     item: AnyMenuItem,
@@ -199,16 +214,29 @@ const getRenderers = (props: {
     }
     const { key, Tag = 'li', button } = opts;
     if (typeof item === 'function') {
-      const Item = item;
+      item = { Content: item };
+    }
+
+    const itemProps = {
+      key,
+      className: modifiedClass(`${classPrefix}item`, item.modifier),
+      'aria-current': item.current || undefined,
+    };
+
+    if ('Content' in item) {
       return (
-        <li key={key} className={`${classPrefix}item`}>
-          <Item closeMenu={closeMenu} openMenu={openMenu} />
-        </li>
+        <Tag data-customitem="" {...itemProps}>
+          <item.Content closeMenu={closeMenu} openMenu={openMenu} />
+        </Tag>
       );
     }
     const linkClassName = `${classPrefix}link`;
     const { label, labelLong, href, target, lang, controlsId, onClick, descr, icon } =
       item;
+
+    // TypeScript type-narrowing helper for the onClick callbacks below — because
+    // `item` is a variable and could hypothetically change before the click occurs
+    const _item = item;
 
     const itemDescr = descr && (
       <>
@@ -247,8 +275,8 @@ const getRenderers = (props: {
             type="button"
             aria-controls={controlsId}
             onClick={() => {
-              const keepOpen1 = onClick && onClick(item) === false;
-              const keepOpen2 = onItemClick && onItemClick(item) === false;
+              const keepOpen1 = onClick && onClick(_item) === false;
+              const keepOpen2 = onItemClick && onItemClick(_item) === false;
               !(keepOpen1 || keepOpen2) && closeMenu();
             }}
             {...buttonCompProps}
@@ -262,7 +290,7 @@ const getRenderers = (props: {
             hrefLang={item.hrefLang}
             target={target}
             onClick={() => {
-              const keepOpen = onItemClick && onItemClick(item) === false;
+              const keepOpen = onItemClick && onItemClick(_item) === false;
               !keepOpen && closeMenu();
             }}
             {...buttonCompProps}
@@ -326,7 +354,7 @@ export type MainMenu2Props = {
      * "Open Menu" button. Make sure to only use 2–3 items, and remember that
      * they may be hidden on smaller screens.
      */
-    hot?: MainMenu2ButtonItemList;
+    hot?: MainMenu2ButtonItemList<{ redhot?: true }>;
     extra?: MainMenu2ButtonItemList;
 
     relatedTitle?: string;
@@ -572,7 +600,19 @@ export const MainMenu2 = (props: MainMenu2Props) => {
           </div>
         )}
 
-        {renderList('MainMenu2__hot__', items.hot, { buttons: true })}
+        {renderList(
+          'MainMenu2__hot__',
+          items.hot?.map((i) => {
+            if (i && 'redhot' in i) {
+              return {
+                ...i,
+                modifier: i.modifier ? [i.modifier, 'redhot'] : 'redhot',
+              };
+            }
+            return i;
+          }),
+          { buttons: true }
+        )}
         {renderList('MainMenu2__extra__', items.extra, { buttons: true })}
 
         {items.related && items.related.length > 0 && (

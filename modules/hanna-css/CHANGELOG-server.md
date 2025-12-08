@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`
+  - feat: Update styling of mobile menu to match latest design tweaks
+  - feat: Add support for `--redhot` for "hot" items
 - `DropdownButton`:
   - feat: Limit dropdown `max-width` to viewport width
 - feat: Support `.Layout__header__logo--custom` with automatic width

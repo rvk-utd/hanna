@@ -10,11 +10,11 @@
 
   - main_items: Array<SubMenu | MenuLink>
 
-  - hot_items: Array<MenuButtonLink>
-  - extra_items: Array<MenuButtonLink>
+  - hot_items: Array<MenuButtonLink | MenuCustomItem>
+  - extra_items: Array<MenuButtonLink | MenuCustomItem>
 
   - related_title: string
-  - related_items: Array<MenuLink>
+  - related_items: Array<MenuLink | MenuCustomItem>
 
   - menu_image_url?: string // Url to an Hanna Illustration (E.g. https://styles.reykjavik.is/assets/illustrations/)
 
@@ -23,7 +23,7 @@
   ---------------------------------------------------
 
   ## `SubMenu` Props
-  - title: string,
+  - title: string
   - items: Array<MenuLinkWithDescription>
 
   ---------------------------------------------------
@@ -31,6 +31,7 @@
   ## `MenuLinkWithDescription` Props
   Extends `MenuLink`
   - descr?: string
+
   ---------------------------------------------------
 
   ## `MenuButtonLink` Props
@@ -49,6 +50,12 @@
   - lang?: string  // For links with labels in a different language than the current page
   // feel free to skip this one
   - href_lang?: string  // For links to pages a different language than the current page
+
+  ---------------------------------------------------
+
+  ## `MenuCustomItem` Props
+  - html: string  // Custom HTML string for the menu item, which gets inserted into a
+                  // <li class="MainMenu2__*__item" data-customitem="" /> wrapper.
 
   ---------------------------------------------------
 
@@ -226,6 +233,7 @@
       {
         label: 'EN',
         label_long: 'English',
+        modifier: 'redhot', // <-- special modifier to always show this one item on mobile screens
         href: '/en',
         lang: 'en',
         href_lang: 'en',

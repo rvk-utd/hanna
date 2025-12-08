@@ -40,6 +40,10 @@ const createPanelItems = (
   ),
 });
 
+const hasMainMenu: true | undefined = true;
+const hasExtraMenu: true | undefined = true;
+const hasRelatedMenu: true | undefined = true;
+
 const startOpen = false as boolean;
 
 export const meta: V2_MetaFunction = autoTitle;
@@ -84,7 +88,7 @@ export default function () {
           ssr={ssrOnly}
           illustration="born1"
           items={{
-            main: [
+            main: hasMainMenu && [
               createPanelItems('Íbúar', 8, 2),
               createPanelItems('Stjórnkerfi', 5),
               createPanelItems('Atvinnulíf', 4),
@@ -92,12 +96,41 @@ export default function () {
             ],
             hot: [
               {
-                label: 'EN',
-                labelLong: 'English',
-                href: '',
-                icon: 'globe',
-                lang: 'en',
-                hrefLang: 'en',
+                redhot: true,
+                Content: () => {
+                  return (
+                    <>
+                      <a
+                        href=""
+                        className="ButtonSecondary ButtonSecondary--small MainMenu2__hot__link"
+                        aria-label="English"
+                        data-icon="user"
+                        lang="en"
+                        hrefLang="en"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const extraElm = e.currentTarget
+                            .nextElementSibling as HTMLElement | null;
+                          if (extraElm) {
+                            extraElm.hidden = !extraElm.hidden;
+                          }
+                        }}
+                      >
+                        EN
+                      </a>
+                      <strong
+                        hidden
+                        style={{
+                          position: 'absolute',
+                          marginTop: '40px',
+                          marginLeft: '-120px',
+                        }}
+                      >
+                        <em>Extra Custom Content</em>
+                      </strong>
+                    </>
+                  );
+                },
               },
               // {
               //   label: <span>Yo!</span>,
@@ -108,12 +141,12 @@ export default function () {
               // },
               { label: 'Mínar síður', href: '', icon: 'user', target: '_blank' },
             ],
-            extra: [
+            extra: hasExtraMenu && [
               { label: 'Leita', labelLong: 'Leita á vefnum', href: '', icon: 'search' },
               { label: 'Tilkynningar', href: '', icon: 'alert' },
             ],
-            relatedTitle: 'Sérvefir',
-            related: [
+            relatedTitle: hasRelatedMenu && 'Sérvefir',
+            related: hasRelatedMenu && [
               { label: 'Græna planið', href: '', target: '_blank' },
               // { label: 'With icon', href: '', target: '_blank', icon: 'user' },
               { label: 'Gagnahlaðborðið', href: '', target: '_blank' },

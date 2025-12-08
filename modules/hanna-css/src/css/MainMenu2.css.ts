@@ -56,10 +56,10 @@ const semiTransparentBg = color('#ffffff').alpha(0.8);
 const semiTransparentShadow = color('#e0e0e0').alpha(0.8);
 
 // ---------------------------------------------------------------------------
-
+// Common Styles
 // ---------------------------------------------------------------------------
 
-export default css`
+const commonStyles = css`
   ${DEPS('ButtonPrimary', 'ButtonSecondary', 'Icon')}
 
   ${globalCl.menuIsOpen} {
@@ -143,7 +143,6 @@ export default css`
     display: none; // ok as long as aria-label/aria-labelledby is used!
   }
 
-  .MainMenu2--closed > * > .MainMenu2__hot__items,
   .MainMenu2--closed > * > .MainMenu2__main,
   .MainMenu2--closed > * > .MainMenu2__extra__items,
   .MainMenu2--closed > * > .MainMenu2__related {
@@ -305,6 +304,8 @@ export default css`
     padding-top: ${vars.space_1};
     padding-bottom: calc(${mm2Vars.mainLink__paddingBottom} - 1px);
     border-bottom: 1px solid ${vars.color_suld_100};
+    width: max-content;
+    min-width: 10em;
   }
   .MainMenu2__related__items {
     padding-top: ${vars.space_3};
@@ -327,14 +328,13 @@ export default css`
     > .MainMenu2__related__link:not([data-icon]) {
     padding-left: ${vars.space_3};
   }
+`;
 
-  /*
+// ===========================================================================
+// Mobile mode
+// ===========================================================================
 
-   ==========================================================================
-    Mobile mode
-   ==========================================================================
-  */
-
+const mobileStyles = css`
   @media ${mq_mobileMode} {
     ${globalCl.menuIsOpen} {
       ${whiteLogo()}
@@ -377,6 +377,13 @@ export default css`
         / ${vars.Layout$$header_homelink_width} auto;
     }
 
+    .MainMenu2--closed > .MainMenu2__content {
+      grid-template:
+        '.    toggler' ${vars.Layout$$header_height}
+        'hot      hot' auto
+        / ${vars.Layout$$header_homelink_width} auto;
+    }
+
     :not([data-sprinkled]) > .MainMenu2__content::after,
     .MainMenu2--open > .MainMenu2__content::after {
       content: '';
@@ -393,7 +400,15 @@ export default css`
       width: 0;
       padding-left: 0;
       padding-right: 0;
-      min-width: ${vars.space_8};
+      min-width: ${vars.space_5};
+    }
+    .MainMenu2--open > * > .MainMenu2__toggler {
+      ${ButtonVariables.override({
+        backgroundColor: vars.color_suld_0,
+        backgroundColor__active: vars.color_suld_50,
+        textColor: vars.color_faxafloi_100,
+        textColor__active: vars.color_faxafloi_150,
+      })};
     }
     .MainMenu2__toggler[class]::before {
       width: 100%;
@@ -407,13 +422,13 @@ export default css`
         border: '1px',
       })}
     }
-    .MainMenu2 .ButtonSecondary {
+    .MainMenu2--open > * > * > .MainMenu2__hot__item--redhot .ButtonSecondary {
       ${ButtonVariables.override({
         backgroundColor: vars.color_faxafloi_100,
         backgroundColor__active: vars.color_faxafloi_150,
         color: vars.color_suld_0,
         color__active: vars.color_suld_50,
-      })}
+      })};
     }
 
     /* ---------------------- */
@@ -431,11 +446,54 @@ export default css`
       flex-flow: row wrap;
       gap: ${vars.space_2};
       align-items: center;
-      margin-top: ${vars.space_2};
+      padding-top: ${vars.space_4};
+      background-color: ${vars.color_suld_0};
+      ${extendBackgroundWithUnderlay()}
     }
+    .MainMenu2__hot__items + .MainMenu2__extra__items {
+      padding-top: ${vars.space_2};
+    }
+
     .MainMenu2__hot__items:last-child,
     .MainMenu2__extra__items:last-child {
-      margin-bottom: ${vars.space_6};
+      padding-bottom: ${vars.space_6};
+    }
+
+    // Move "--redhot" item out of flow and fix its position
+    // next to the toggler button
+    .MainMenu2--closed
+      > *
+      > *
+      > .MainMenu2__hot__item:not(.MainMenu2__hot__item--redhot) {
+      display: none !important;
+    }
+    [data-sprinkled] > * > * > .MainMenu2__hot__item--redhot {
+      position: fixed;
+      z-index: 1;
+      top: calc(${vars.Layout$$header_height} / 2);
+      right: ${vars.grid_margin__right};
+      margin-right: ${vars.space_7};
+      transform: translateY(-50%);
+    }
+    .MainMenu2--open > * > * > .MainMenu2__hot__item--redhot {
+      right: ${vars.grid_margin};
+    }
+    .MainMenu2__hot__item--redhot ~ .MainMenu2__hot__item--redhot {
+      position: static;
+      ${WARNING__('Only one `--redhot` item is allowed per menu')}
+    }
+
+    .MainMenu2__hot__item--redhot > .ButtonSecondary[data-icon] {
+      overflow: hidden;
+      width: 0;
+      padding-left: 0;
+      padding-right: 0;
+      min-width: ${vars.space_5};
+    }
+    .MainMenu2__hot__item--redhot > .ButtonSecondary[data-icon]::before {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 1px;
     }
 
     /* ---------------------- */
@@ -449,20 +507,19 @@ export default css`
       ${extendBackgroundWithUnderlay()}
     }
     .MainMenu2__related:not(:first-child):not(button + *) {
-      margin-top: ${vars.space_6};
+      padding-top: ${vars.space_4};
     }
 
     .MainMenu2__related__title {
     }
   }
+`;
 
-  /*
+// ===========================================================================
+// Desktop mode
+// ===========================================================================
 
-   ==========================================================================
-    Desktop mode
-   ==========================================================================
-  */
-
+const desktopStyles = css`
   @media ${mq_desktopMode} {
     ${globalCl.menuIsOpen} {
       ${whiteLogo()}
@@ -589,13 +646,19 @@ export default css`
 
     /* ---------------------- */
 
+    .MainMenu2__extra__items {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+    }
+
     .MainMenu2__extra__items,
     :not(.MainMenu2__extra__items) + .MainMenu2__related {
       padding-bottom: 235px;
       margin-bottom: ${vars.space_2};
     }
     .MainMenu2__extra__item {
-      margin-bottom: ${vars.space_2};
+      margin-right: ${vars.space_2};
     }
 
     /* ---------------------- */
@@ -619,3 +682,5 @@ export default css`
     ${WARNING__('`MainMenu` can not be used when `MainMenu2.css` is loaded')}
   }
 `;
+
+export default commonStyles + mobileStyles + desktopStyles;
