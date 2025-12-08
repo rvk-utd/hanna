@@ -49,7 +49,7 @@ export default css`
     z-index: ${vars.zindex__overlay};
     margin: ${vars.space_0$5} 0;
 
-    max-width: ${prem(500)};
+    max-width: min(${prem(500)}, 90vw);
     width: max-content;
 
     background: ${vars.color_white};

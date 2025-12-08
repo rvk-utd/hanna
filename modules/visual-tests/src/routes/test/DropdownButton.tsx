@@ -53,9 +53,11 @@ export default function () {
           },
         ]}
       />
+
       <VSpacer size="large" />
       <p>&nbsp;</p>
       <VSpacer size="large" />
+
       <DropdownButton buttonType="primary" label="A" items={mockItems} />
       <DropdownButton
         label={
@@ -64,6 +66,7 @@ export default function () {
           </>
         }
         items={mockItems}
+        buttonIcon="edit"
       />
       <DropdownButton
         label={

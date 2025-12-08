@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `DropdownButton`:
+  - feat: Limit dropdown `max-width` to viewport width
 - feat: Support `.Layout__header__logo--custom` with automatic width
 - fix: Remove `:active` styling on disabled `*Buttons`
 - fix: Use `boxShadow_*` tokens for button hover state and `Modal` shadow
