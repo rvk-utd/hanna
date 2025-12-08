@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Support `.Layout__header__logo--custom` with automatic width
+- fix: Remove `:active` styling on disabled `*Buttons`
 - fix: Use `boxShadow_*` tokens for button hover state and `Modal` shadow
 
 ## 0.8.95

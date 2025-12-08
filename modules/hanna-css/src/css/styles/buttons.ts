@@ -89,7 +89,7 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
       border: ${bVars.border} solid ${bVars.color};
     `)}
 
-    &:active,
+    &:active:not(:disabled):not([aria-disabled='true']),
     &[aria-pressed='true'] {
       text-decoration: none;
       ${ButtonVariables.override({
