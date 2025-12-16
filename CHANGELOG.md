@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `ReykjavikWaves` (also works as "utility-class")
 - feat: Add `.MainMenu2__hot__item--redhot` for "hot" item to always show
 - feat: Add `[data-customitem]` attribute to custom content `MainMenu2` items
 - feat: Add example of a `.DropdownButton__item` marked as "current"

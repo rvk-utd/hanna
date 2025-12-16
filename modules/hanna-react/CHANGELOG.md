@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `ReykjavikWaves`
 - feat: Add prop `redhot` to `MainMenu2Props.items.hot` items to always show
   them on mobile
 

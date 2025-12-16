@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `ReykjavikWaves` (Also works as "utility class")
 - `MainMenu2`
   - feat: Update styling of mobile menu to match latest design tweaks
   - feat: Add support for `--redhot` for "hot" items

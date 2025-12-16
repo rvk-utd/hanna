@@ -90,6 +90,7 @@ export type CssModuleToken =
   | 'RadioGroup'
   | 'ReadSpeakerPlayer'
   | 'RelatedLinks'
+  | 'ReykjavikWaves'
   | 'RowBlock'
   | 'RowBlockColumn'
   | 'SearchInput'
