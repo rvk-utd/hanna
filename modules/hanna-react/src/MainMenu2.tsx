@@ -222,7 +222,7 @@ const getRenderers = (props: {
       'aria-current': item.current || undefined,
     };
 
-    if ('Content' in item) {
+    if ('Content' in item && item.Content) {
       return (
         <Tag data-customitem="" {...itemProps}>
           <item.Content closeMenu={closeMenu} openMenu={openMenu} />
