@@ -118,8 +118,7 @@ export type MainMenu2Item = {
    * during initial (server-side) render, which then gets replaced by a
    * <button/> element during the first client-side
    *
-   * NOTE: Clicking a menu item will automatically close HannaUIState's
-   * "Hamburger menu" (a.k.a. "Mobile menu")
+   * NOTE: Clicking a menu item will automatically close tghe menu
    * … unless the `onClick` function explicitly returns `false`.
    */
   onClick?: (item: MainMenu2Item) => void | boolean;
@@ -365,8 +364,7 @@ export type MainMenu2Props = {
   variant?: 'default' | 'light';
 
   /**
-   * NOTE: Clicking a MainMenu2 item will automatically close HannaUIState's
-   * "Hamburger menu" (a.k.a. "Mobile menu")
+   * NOTE: Clicking a `MainMenu2` item will automatically close the menu
    * … unless the `onItemClick` function explicitly returns `false`.
    */
   onItemClick?: (item: MainMenu2Item) => void | boolean;

@@ -4,8 +4,10 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `ReykjavikWaves`
-- feat: Add prop `redhot` to `MainMenu2Props.items.hot` items to always show
-  them on mobile
+- `MainMenu2`:
+  - feat: Add prop `redhot` to `MainMenu2Props.items.hot` items to always show
+    them on mobile
+  - docs: Minor JSDoc corrections for on-click handlers
 
 ## 0.10.160
 
