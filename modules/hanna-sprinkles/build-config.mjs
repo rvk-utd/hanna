@@ -1,6 +1,4 @@
 //@ts-check
-/* eslint-env es2022 */
-
 import { getPkgVersion, updatePkgVersion } from '@maranomynet/libtools';
 
 export const bumpVersion = () => updatePkgVersion({ offerDateShift: true });

@@ -1,5 +1,4 @@
 //@ts-check
-/* eslint-env es2022 */
 import { args, ignoreError, logThenExit1, shell$ } from '@maranomynet/libtools';
 import esbuild from 'esbuild';
 import { mkdir, readFile, writeFile } from 'fs/promises';
@@ -60,19 +59,21 @@ const makePackageJson = async (outDir, extraFields) => {
  * ) => void}
  */
 const makeWriteOnlyAffected = (stripHashPrefix) => {
+  /** @type {Record<string, true>} */
   let fileMem = {};
   return (res, err, onChange) => {
     if (!res || err) {
       return;
     }
     const { outputFiles = [] } = res;
+    /** @type {Record<string, true>} */
     const newFiles = {};
     const cwdLength = process.cwd().length + 1;
     outputFiles
       .filter(({ path }) => !fileMem[path])
       .forEach(({ path, text }) => {
         const targetDir = dirname(path);
-        newFiles[path] = 1;
+        newFiles[path] = true;
         if (stripHashPrefix) {
           path = path.replace(/(^|\/)\$\$[A-Z0-9]+\$\$-/, '$1');
         }
@@ -83,7 +84,7 @@ const makeWriteOnlyAffected = (stripHashPrefix) => {
     // map this set of outputFiles as the fileMem for next time
     fileMem = {};
     outputFiles.forEach(({ path }) => {
-      fileMem[path] = 1;
+      fileMem[path] = true;
     });
   };
 };
@@ -124,7 +125,12 @@ const tscBuild = async (config) => {
     await shell$(`yarn run -T tsc --project ${cfgFile}  &&  rm ${cfgFile}`);
   } catch (err) {
     await shell$(`rm ${cfgFile}`);
-    logThenExit1(new Error(err.output.toString()));
+    logThenExit1(
+      new Error(
+        /** @type {import('node:child_process').ExecException} */ (err).stdout?.toString()
+      )
+    );
+    throw err;
   }
 };
 
@@ -210,7 +216,8 @@ export const buildAndRunTests = async () => {
  * @param {string} distFolder
  */
 const addReferenePathsToIndex = async (entryPoints, distFolder) => {
-  const dtsify = (tsFilePath) => tsFilePath.replace(/\.(tsx?)$/, '.d.$1');
+  const dtsify = /** @param {string} tsFilePath */ (tsFilePath) =>
+    tsFilePath.replace(/\.(tsx?)$/, '.d.$1');
   const indexTsFile = entryPoints.find((filePath) =>
     /(?:^|\/)index.tsx?$/.test(filePath)
   );
@@ -372,6 +379,7 @@ export const publishToNpm = async (opts = {}) => {
   const tag = opts.tag || version.split('-')[1]?.split('.')[0];
   const tagArg = tag ? `--tag ${tag}` : '';
 
+  /** @type {Array<string>} */
   let updatedPkgFiles = [];
   if (!tag) {
     updatedPkgFiles = await updateDependentPackages(pkg.name, version, updatePkgs).catch(

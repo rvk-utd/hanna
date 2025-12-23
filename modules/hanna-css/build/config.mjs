@@ -1,6 +1,4 @@
 //@ts-check
-/* eslint-env es2022 */
-
 import { getPkgVersion } from '@maranomynet/libtools';
 
 /** @type {import('@maranomynet/libtools').PackageVersionOpts & import('@maranomynet/libtools').UpdatePkgVersionOpts} */

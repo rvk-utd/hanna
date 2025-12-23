@@ -1,5 +1,4 @@
 //@ts-check
-/* eslint-env es2022 */
 import iconfontTaskFactory from '@hugsmidjan/gulp-iconfont';
 import imagesTaskFactory from '@hugsmidjan/gulp-images';
 import { writeFileSync } from 'fs';

@@ -1,5 +1,4 @@
 //@ts-check
-/* eslint-env es2022 */
 import { logError, logThenExit1, shell$ } from '@maranomynet/libtools';
 import { compileCSSFromJS } from 'es-in-css/compiler';
 import { sync as globSync } from 'glob';
@@ -30,6 +29,7 @@ export const buildCssFiles = async (NODE_ENV) => {
     compressCssImages().catch(handlError),
   ]);
 
+  /** @type {Record<string, boolean>} */
   let fileMem = {};
   /**
    * @param {NonNullable<import('esbuild').BuildResult['outputFiles']>} resOutputFiles

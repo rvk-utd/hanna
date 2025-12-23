@@ -1,7 +1,5 @@
 //@ts-check
-/* eslint-env es2022 */
-
-import { $ } from '../../build-helpers.mjs';
+import { shell$ } from '@maranomynet/libtools';
 
 import { assetsDistFolder } from './build/config.mjs';
 import { compressStaticAssets } from './build/gulp-tasks.mjs';
@@ -9,5 +7,7 @@ import { handlError } from './build/helpers.mjs';
 
 // ===========================================================================
 
-await $(`rm -rf ${assetsDistFolder}`);
-await compressStaticAssets().catch(handlError);
+(async () => {
+  await shell$(`rm -rf ${assetsDistFolder}`);
+  await compressStaticAssets().catch(handlError);
+})();
