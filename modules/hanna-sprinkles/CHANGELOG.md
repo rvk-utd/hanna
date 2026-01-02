@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `DropdownButton` sprinkle
 - `MainMenu2`:
   - feat: Support `.MainMenu2__hot__item--redhot` items
   - feat: Support custom and scripted `[data-customitem]` item contents

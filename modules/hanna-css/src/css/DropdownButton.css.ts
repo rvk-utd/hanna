@@ -1,16 +1,14 @@
 import { css } from 'es-in-css';
 
-import { buildVariables } from '../lib/cssutils.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { LinkStyle } from '../lib/links.js';
+import { LinkStyle_Reset } from '../lib/links.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import { DEPS, prem } from './utils/miscUtils.js';
 
 import { enableDataIcon } from './Icon.css.js';
 
 const openAnimation = 'DropdownButton-open';
-
-const db = buildVariables(['DropdownButton__padH']);
 
 export default css`
   ${DEPS('ButtonPrimary', 'ButtonSecondary')}
@@ -33,12 +31,21 @@ export default css`
 
   /* ------------------------------------------------------------------------ */
 
-  /* Doubles also as 'ButtonSecondary' or 'ButtonPrimary' */
+  /* Doubles also as 'ButtonSecondary' or 'ButtonPrimary' by default */
   .DropdownButton__toggler {
     margin: 0;
     min-width: 0;
     width: auto; /* needed by Firefox (as of 2024-11) Some conflicts between .Button* styles applying a min-width and width:max-content  */
   }
+  ${['a', 'button']
+    .map(
+      (tag) => css`
+        .DropdownButton__toggler ${tag} {
+          ${WARNING__(`<${tag}/> is not allowed inside <summary/>`)}
+        }
+      `
+    )
+    .join('\n')}
 
   /* ------------------------------------------------------------------------ */
 
@@ -72,13 +79,12 @@ export default css`
   /* ------------------------------------------------------------------------ */
 
   .DropdownButton__itembutton {
-    ${LinkStyle()};
+    ${LinkStyle_Reset('no-hover')};
   }
   .DropdownButton__itembutton[class] {
     display: block;
     width: 100%;
-    ${db.declare({ DropdownButton__padH: vars.space_2 })};
-    padding: ${vars.space_1} ${db.vars.DropdownButton__padH};
+    padding: ${vars.space_2};
     border: none;
     border-radius: calc(${vars.space_0$5} - 1px);
   }
@@ -94,14 +100,13 @@ export default css`
     background: ${vars.color_faxafloi_25};
   }
 
+  /* Indent all buttons if at least one of them has an icon */
+  :has(.DropdownButton__itembutton[data-icon]) > * > .DropdownButton__itembutton {
+    padding-left: ${vars.space_5 /* padding-left + 3 */};
+  }
   .DropdownButton__itembutton[data-icon]::before {
     ${enableDataIcon}
+    margin-left: ${vars.space_3__neg};
     margin-right: ${vars.space_1};
-  }
-  /* Indent all __related__links at least one of them has an icon */
-  :has(.DropdownButton__itembutton[data-icon])
-    > *
-    > .DropdownButton__itembutton:not([data-icon]) {
-    padding-left: calc(${db.vars.DropdownButton__padH} + ${vars.space_3});
   }
 `;

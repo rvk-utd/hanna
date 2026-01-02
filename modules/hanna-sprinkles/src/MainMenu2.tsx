@@ -16,6 +16,8 @@ import {
 } from '@reykjavik/hanna-react/MainMenu2';
 import { notNully, OpenStringMap } from '@reykjavik/hanna-utils';
 
+import { InjectHTML } from './_/InjectHTML.js';
+
 const variants: OpenStringMap<MainMenu2Props['variant']> = {
   default: undefined,
   light: 'light',
@@ -38,20 +40,6 @@ const parseTextDataAttr = (elm: HTMLElement): MainMenu2I18n | undefined => {
     }
   } catch (error) {}
   return;
-};
-
-// ---------------------------------------------------------------------------
-
-/** Hack component to inject innerHTML without an element wrapper */
-const InjectHTML = ({ html }: { html: string }) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  useEffect(() => {
-    if (!ref.current) {
-      return;
-    }
-    ref.current.outerHTML = ref.current.innerHTML;
-  }, []);
-  return <span ref={ref} dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
 const parseItem = (

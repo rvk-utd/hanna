@@ -8,7 +8,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // TODO: Use an alias for visual-tests
 
 type ControlProps = {
-  buttonType: NonNullable<DropdownButtonProps['buttonType']>;
+  buttonType: NonNullable<DropdownButtonProps['buttonType']> | 'custom';
   smallButton: boolean;
 };
 
@@ -47,24 +47,42 @@ const mockItems: DropdownButtonProps['items'] = [
 ];
 
 export const _DropdownButton: StoryObj<ControlProps> = {
-  render: (args) => (
-    <DropdownButton
-      label="Toggler text"
-      labelLong="Optional longer toggler label"
-      items={mockItems}
-      buttonType={args.buttonType}
-      buttonSize={args.smallButton ? 'small' : undefined}
-    />
-  ),
+  render: (args) =>
+    args.buttonType === 'custom' ? (
+      <DropdownButton
+        Toggler={({ isOpen }) => (
+          <span
+            className="Button Button--secondary DropdownButton__toggler"
+            style={{
+              background: 'yellow',
+              padding: '4px 8px',
+            }}
+            aria-label="Longer text for toggler"
+          >
+            Custom toggler {isOpen ? '▲' : '▼'}
+          </span>
+        )}
+        items={mockItems}
+      />
+    ) : (
+      <DropdownButton
+        label="Toggler label"
+        labelLong="Optional longer toggler label"
+        buttonType={args.buttonType}
+        buttonSize={args.smallButton ? 'small' : undefined}
+        items={mockItems}
+      />
+    ),
 
   argTypes: {
     buttonType: {
       name: 'Button type',
-      options: ['secondary', 'primary'],
+      options: ['secondary', 'primary', 'custom'],
       control: 'inline-radio',
     },
     smallButton: {
       name: 'Small button',
+      if: { arg: 'buttonType', neq: 'custom' },
     },
   },
   args: {

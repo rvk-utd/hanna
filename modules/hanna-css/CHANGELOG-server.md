@@ -8,6 +8,7 @@
   - feat: Update styling of mobile menu to match latest design tweaks
   - feat: Add support for `--redhot` for "hot" items
 - `DropdownButton`:
+  - feat: Update styling of dropdown menu to match latest design tweaks
   - feat: Limit dropdown `max-width` to viewport width
 - feat: Support `.Layout__header__logo--custom` with automatic width
 - fix: Remove `:active` styling on disabled `*Buttons`

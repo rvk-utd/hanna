@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Support custom content for `.DropdownButton__toggler`
 - feat: Add component `ReykjavikWaves` (also works as "utility-class")
 - feat: Add `.MainMenu2__hot__item--redhot` for "hot" item to always show
 - feat: Add `[data-customitem]` attribute to custom content `MainMenu2` items
