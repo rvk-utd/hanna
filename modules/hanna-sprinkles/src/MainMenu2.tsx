@@ -54,11 +54,6 @@ const InjectHTML = ({ html }: { html: string }) => {
   return <span ref={ref} dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
-const isAriaCurrent = (elm: HTMLElement): boolean => {
-  const ariaCurrent = elm.getAttribute('aria-current');
-  return ariaCurrent === 'true' || ariaCurrent === 'page';
-};
-
 const parseItem = (
   itemElm: HTMLElement | undefined
 ):
@@ -68,15 +63,17 @@ const parseItem = (
   if (!itemElm) {
     return;
   }
-  const modifier = itemElm.className.match(/[a-zA-Z0-9]__item--(.+)(?: |$)/)?.[1];
-  const current = isAriaCurrent(itemElm);
+  const modifier = itemElm.className
+    .match(/[a-zA-Z0-9]__item--(.+?)(?: |$)/g)
+    ?.map((m) => m.slice(m.indexOf('--') + 2));
+  const current = itemElm.getAttribute('aria-current') === 'true';
 
   if (itemElm.hasAttribute('data-customitem')) {
     const nodes = itemElm.childNodes;
     nodes.forEach((node) => node.remove());
     return {
       modifier,
-      current,
+      current: itemElm.getAttribute('aria-current') === 'true',
       Content: () => {
         const ref = useRef<HTMLSpanElement>(null);
         useEffect(() => {
@@ -138,7 +135,7 @@ const getPropsFromSSRMainMenu2 = (elm: HTMLElement): MainMenu2Props => {
         }
         return {
           title: elm.textContent!.trim(),
-          current: isAriaCurrent(elm),
+          current: elm.getAttribute('aria-current') === 'true',
           subItems: qq<HTMLElement>('.MainMenu2__main__sub__item', subItemsElm)
             .map(parseItem)
             .filter(notNully),
