@@ -4,9 +4,13 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `ReykjavikWaves`
+- `DropdownButton`:
+  - feat: Add prop `Toggler` to for custom toggler content
+  - feat: Add "customitem" object with `Content`, `modifier` and `current`
 - `MainMenu2`:
   - feat: Add prop `redhot` to `MainMenu2Props.items.hot` items to always show
     them on mobile
+  - feat: Add "customitem" object with `Content`, `modifier` and `current`
   - docs: Minor JSDoc corrections for on-click handlers
 
 ## 0.10.160
