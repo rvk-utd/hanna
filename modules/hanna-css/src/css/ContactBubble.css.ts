@@ -286,10 +286,7 @@ export default css`
       float: left;
       margin-left: ${grid_units(-6)};
       vertical-align: top;
-      mask-image: var(--ContactBubble--type--icon);
-      mask-size: auto 100%;
-      mask-position: 0% 50%;
-      mask-repeat: no-repeat;
+      mask: var(--ContactBubble--type--icon) 0% 50% / auto 100% no-repeat;
       transition: inherit;
     }
     .ContactBubble__link:hover::before {

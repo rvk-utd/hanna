@@ -51,9 +51,7 @@ export default css`
           padding-top: ${px_pct(127)};
           // background-color: ${vars.theme_color_secondary};
           background-color: ${vars.color_rokkur_100};
-          mask-image: url('/assets/bling/circle-small.svg');
-          mask-position: 50% 50%;
-          mask-repeat: no-repeat;
+          mask: url('/assets/bling/circle-small.svg') 50% 50% no-repeat;
         }
         .MiniMetrics::after {
           content: '';
@@ -66,10 +64,7 @@ export default css`
           padding-top: ${px_pct(232)};
           // background-color: ${vars.theme_color_tertiary};
           background-color: ${vars.color_esja_100};
-          mask-image: url('/assets/bling/waves-medium.svg');
-          mask-size: 133.33% auto;
-          mask-position: 0% 50%;
-          mask-repeat: no-repeat;
+          mask: url('/assets/bling/waves-medium.svg') 0% 50% / 133.33% auto no-repeat;
         }
       }
     }
