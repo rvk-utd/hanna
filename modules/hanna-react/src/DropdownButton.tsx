@@ -28,7 +28,7 @@ type Prefix<record extends Record<string, unknown>, prefix extends string> = {
 export type DropdownButtonItem = {
   /** Visible label text */
   label: string | ReactElement;
-  /** Un-abbreviated label set as `title=""` and `aria-label=""` */
+  /** Un-abbreviated label set as `aria-label=""` */
   labelLong?: string;
   /** Language of the link label */
   lang?: string;
@@ -65,7 +65,7 @@ export type DropdownButtonItem = {
   /** Sets `aria-controls=""` on `<button/>`s with `onClick` */
   controlsId?: string;
 
-  Content?: never; // To discrimiate bteween this and MainMenu2CustomItem
+  Content?: never; // To discrimiate bteween this and `MainMenu2CustomItem`
 
   icon?: IconName;
 };
@@ -82,6 +82,7 @@ export type DropdownButtonCustomItem = Pick<
 //
 
 export type DropdownButtonProps = {
+  /** The items to display inside the dropdown menu */
   items: Array<DropdownButtonItem | DropdownButtonCustomItem>;
   /**
    * NOTE: Clicking a DropdownButton item will automatically close the drropdown
@@ -90,12 +91,15 @@ export type DropdownButtonProps = {
   onItemClick?: (item: MainMenu2Item) => void | boolean;
 } & EitherObj<
   {
+    /** Label for the toggler button */
     label: string | ReactElement;
+    /** Longer accessible toggler label text */
     labelLong?: string;
-    /** Default: `"seconcary"` */
+    /** Default: `"secondary"` */
     buttonType?: 'primary' | 'secondary';
   } & Prefix<Omit<ButtonVariantProps, 'small'>, 'button'>,
   {
+    /** Custom toggler rendering function component */
     Toggler: (props: { isOpen: boolean }) => ReactElement;
   }
 > &

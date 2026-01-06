@@ -16,44 +16,51 @@
   - related_title: string
   - related_items: Array<MenuLink | MenuCustomItem>
 
-  - menu_image_url?: string // Url to an Hanna Illustration (E.g. https://styles.reykjavik.is/assets/illustrations/)
+  - menu_image_url?: string  \
+    // Url to an Hanna Illustration (E.g. https://styles.reykjavik.is/assets/illustrations/)
 
-  - variant?: 'light' | 'default' // Experimental prop for schools
+  - variant?: 'light' | 'default'  \
+    // Experimental prop for schools
 
   ---------------------------------------------------
 
-  ## `SubMenu` Props
+  ## `SubMenu` Props:
   - title: string
   - items: Array<MenuLinkWithDescription>
 
   ---------------------------------------------------
 
-  ## `MenuLinkWithDescription` Props
+  ## `MenuLinkWithDescription` Props:
   Extends `MenuLink`
   - descr?: string
 
   ---------------------------------------------------
 
-  ## `MenuButtonLink` Props
+  ## `MenuButtonLink` Props:
   Extends `MenuLink`
-  - icon?: 'globe' | 'user' | 'search' | 'alert'  // more options will come later
+  - icon?: 'globe' | 'user' | 'search' | 'alert'  \
+    // more options will come later
 
   ---------------------------------------------------
 
-  ## `MenuLink` Props
+  ## `MenuLink` Props:
   - href: string
-  - current?: boolean // Ror links that are the current page or an ancestor of the current page
+  - current?: boolean  \
+    // For links that are the current page or an ancestor of the current page
   - label: string
-  - label_long?: string  // For links with an abbreviated `label`
+  - label_long?: string  \
+    // For links with an abbreviated `label`
   - target?: '_blank' | string
   - modifier?: string
-  - lang?: string  // For links with labels in a different language than the current page
-  // feel free to skip this one
-  - href_lang?: string  // For links to pages a different language than the current page
+    // Optional modifier class suffix for the item wrapper `<li>` (e.g. `MainMenu2__*__item--{{modifier}`})
+  - lang?: string  \
+    // For links with **labels** in a different language than the current page
+  - href_lang?: string  \
+    // For links **to pages** in a different language than the current page
 
   ---------------------------------------------------
 
-  ## `MenuCustomItem` Props
+  ## `MenuCustomItem` Props:
   - html: string  // Custom HTML string for the menu item, which gets inserted into a
                   // <li class="MainMenu2__*__item" data-customitem="" /> wrapper.
 

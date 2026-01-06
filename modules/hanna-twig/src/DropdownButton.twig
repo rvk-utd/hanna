@@ -1,0 +1,182 @@
+{{ attach_library('hanna/DropdownButton') }}
+{#
+  ## `DropdownButton` Props:
+
+  - items: Array<DropdownButtonItem | DropdownButtonCustomItem>
+    // The items to display inside the dropdown menu
+  - wrapperProps?: object  \
+    // Additional props/attributes to add to the outer wrapper `<div>` element
+
+  Then for the toggler button, either:
+
+  - label: string  \
+    // Label for the toggler button.
+  - label_html: string  \
+    // Label for the toggler button that should be rendered as raw HTML.
+    // (If both `label` and `label_html` are provided, a non-empty`label` takes precedence.)
+  - label_long?: string  \
+    // Un-abbreviated toggler label set as `aria-label=""`
+  - button_type: 'primary' | 'secondary'  \
+    // Button type style (default: 'secondary')
+  - button_size?: 'small' | 'wide' | 'normal'  \
+    // Button size style (default: 'normal')
+  - button_variant?: 'normal' | 'destructive'  \
+    // Button variant style (default: 'normal')
+  - button_icon?: IconName  \
+    // Icon name to show in the button (see Figma icon asset names)
+
+  Or:
+
+  - toggler: string  \
+    // Custom HTML content to use as the toggler button
+
+  ---------------------------------------------------
+
+  ## `DropdownButtonItem` Props
+
+  - label: string  \
+    // Label text for the menu item
+  - label_html?: string  \
+    // Label HTML string for the menu item
+    // (If both `label` and `label_html` are provided, a non-empty`label` takes precedence.)
+  - label_long?: string  \
+    // Un-abbreviated label set as `aria-label=""`
+  - lang?: string  \
+    // Language of the link label, if different from the current page's
+  - href_lang?: string  \
+    // Languge of the linked resource, if different from the current page's
+  - href: string  \
+    // The URL the link points to
+  - target?: string  \
+    // The target attribute for the link (e.g. `_blank` to open in a
+  - icon?: IconName  \
+    // Optional icon name to show alongside the label (see Figma icon asset names)
+  - current?: boolean  \
+    // If true, adds `aria-current="true"` to the item wrapper `<li>`
+  - modifier?: string  \
+    // Optional modifier class suffix for the item wrapper `<li>` (e.g. `DropdownButton__item--{{modifier}`})
+
+
+  ---------------------------------------------------
+
+  ## `DropdownButtonCustomItem` Props
+
+  - content: string  \
+    // Custom HTML string for the menu item, which gets inserted into a
+    // <li class="DropdownButton__item" /> wrapper.
+  - current?: boolean  \
+    // If true, adds `aria-current="true"` to the item wrapper `<li>`
+  - modifier?: string  \
+    // Optional modifier class suffix for the item wrapper `<li>` (e.g. `DropdownButton__item--{{modifier}`})
+
+
+  ---------------------------------------------------
+
+  See example props data/values at the bottom of this file;
+
+#}
+
+{# ======================================================================= #}
+
+
+
+<details class="DropdownButton">
+  {% if toggler %}
+    <summary class="DropdownButton__toggler">
+      {{ toggler|raw }}
+    </summary>
+  {% else %}
+    {% set buttonClass = button_type == 'primary' ? ' ButtonPrimary' : ' ButtonSecondary' %}
+    {% set buttonSizeClass = button_size and button_size != 'normal' ? ' ' ~ buttonClass ~ '--' ~ button_size : '' %}
+    {% set buttonVariantClass = button_variant and button_variant != 'normal' ? ' ' ~ buttonClass ~ '--' ~ button_variant : '' %}
+    <summary
+      class="DropdownButton__toggler{{ buttonClass ~ buttonSizeClass ~ buttonVariantClass }}"
+      {% if button_icon %} data-icon="{{ button_icon }}" {% endif %}
+      {% if label_long %} aria-label="{{ label_long }}" title="{{ label_long }}" {% endif %}
+    >
+      {% if label_html and not label %}
+        {{ label_html|raw }}
+      {% else %}
+        {{ label }}
+      {% endif %}
+    </summary>
+  {% endif %}
+
+  <ul class="DropdownButton__menu" role="menu">
+    {% for item in items %}
+      {% set itemModifierClass = item.modifier ? ' DropdownButton__item--' ~ item.modifier : '' %}
+      <li
+        class="DropdownButton__item{{ itemModifierClass }}"
+        {% if item.current %} aria-current="true" {% endif %}
+      >
+        {% if item.content %}
+          {{ item.content|raw }}
+        {% else %}
+          <a
+            class="DropdownButton__itembutton"
+            href="{{ item.href }}"
+            {% if item.lang %} lang="{{ item.lang }}" {% endif %}
+            {% if item.href_lang %} hreflang="{{ item.href_lang }}" {% endif %}
+            {% if item.target %} target="{{ item.target }}" {% endif %}
+            {% if item.icon %} data-icon="{{ item.icon }}" {% endif %}
+            {% if item.label_long %} aria-label="{{ item.label_long }}" {% endif %}
+          >
+            {% if item.label_html and not item.label %}
+              {{ item.label_html|raw }}
+            {% else %}
+              {{ item.label }}
+            {% endif %}
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</details>
+
+{#
+  # Example 1 (Dummy) Props Data:
+
+  {
+    label: '',
+    label_long: 'Tungumálavalmynd',
+    button_type: 'secondary',
+    button_icon: 'location', // globe icon
+    items: [
+      {
+        label: 'Íslenska',
+        href: ''
+        current: true,
+      },
+      {
+        label: 'English',
+        href: '/en/same-page-in-english',
+        lang: 'en',
+        href_lang: 'en',
+      },
+      {
+        label: 'Polish',
+        href: '/pl/ta-sama-strona-po-polsku',
+        lang: 'pl',
+        href_lang: 'pl',
+      },
+    ],
+
+  }
+
+  # Example 2 with custom toggler
+  {
+    toggler: `<span style="display:block;background:yellow;padding:8px">Open Menu ▼</span>`,
+    items: [
+      {
+        label: 'Item 1',
+        href: '/path/to/item-1',
+        icon: 'favorite',
+        modifier: 'sparkling',
+      },
+      {
+        current: true
+        content: `<strong style="color:blue;">Custom Item 2</strong>`,
+      },
+    ],
+  }
+#}
