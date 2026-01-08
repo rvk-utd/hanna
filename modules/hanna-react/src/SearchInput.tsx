@@ -108,7 +108,12 @@ export const SearchInput = (props: SearchInputProps) => {
               type="submit"
               onClick={
                 handleButtonClick &&
-                ((e) => !handleButtonClick(e.currentTarget.value) && e.preventDefault())
+                ((e) =>
+                  !handleButtonClick(
+                    e.currentTarget.parentElement!.querySelector<HTMLInputElement>(
+                      'input.SearchInput__input'
+                    )!.value
+                  ) && e.preventDefault())
               }
               title={buttonText}
               ref={buttonRef}
