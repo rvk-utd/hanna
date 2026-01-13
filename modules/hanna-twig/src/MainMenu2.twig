@@ -61,8 +61,14 @@
   ---------------------------------------------------
 
   ## `MenuCustomItem` Props:
-  - html: string  // Custom HTML string for the menu item, which gets inserted into a
-                  // <li class="MainMenu2__*__item" data-customitem="" /> wrapper.
+  - content: string  \
+    // Custom HTML string for the menu item, which gets inserted into a
+    // <li class="MainMenu2__*__item" data-customitem="" /> wrapper.
+  - current?: boolean  \
+    // If true, adds `aria-current="true"` to the item wrapper `<li>`
+  - modifier?: string  \
+    // Optional modifier class suffix for the item wrapper `<li>`
+    // (e.g. `MainMenu2__*__item--{{modifier}`})
 
   ---------------------------------------------------
 
@@ -79,20 +85,24 @@
     class="{{ classPrefix }}__item{{ item.modifier ? ' ' ~ classPrefix ~ '__item--' ~ item.modifier : '' }}"
     {% if item.current %} aria-current="true" {% endif %}
   >
-    <a
-      class="{{ classPrefix }}__link{{ extraClasses }}"
-      href="{{ item.href|e('html_attr') }}"
-      {% if item.target %} target="{{ item.target }}" {% endif %}
-      {% if item.lang %} lang="{{ item.lang }}" {% endif %}
-      {% if item.href_lang %} hreflang="{{ item.href_lang }}" {% endif %}
-      {% if item.label_long %} aria-label="{{ item.label_long|e('html_attr') }}" title="{{ item.label_long }}" {% endif %}
-      {% if item.icon %} data-icon="{{ item.icon }}" {% endif %}
-    >
-      {{- item.label -}}
-      {%- if item.descr %}
-        <small class="{{ classPrefix }}__link__descr">{{ item.descr }}</small>
-      {%- endif -%}
-    </a>
+    {%- if item.content -%}
+      {{ item.content|raw }}
+    {%- else -%}
+      <a
+        class="{{ classPrefix }}__link{{ extraClasses }}"
+        href="{{ item.href|e('html_attr') }}"
+        {% if item.target %} target="{{ item.target }}" {% endif %}
+        {% if item.lang %} lang="{{ item.lang }}" {% endif %}
+        {% if item.href_lang %} hreflang="{{ item.href_lang }}" {% endif %}
+        {% if item.label_long %} aria-label="{{ item.label_long|e('html_attr') }}" title="{{ item.label_long }}" {% endif %}
+        {% if item.icon %} data-icon="{{ item.icon }}" {% endif %}
+      >
+        {{- item.label -}}
+        {%- if item.descr -%}
+          <small class="{{ classPrefix }}__link__descr">{{ item.descr }}</small>
+        {%- endif -%}
+      </a>
+    {%- endif -%}
   </{{Tag}}>
 {% endmacro %}
 
@@ -238,13 +248,8 @@
     ],
     hot_items: [
       {
-        label: 'EN',
-        label_long: 'English',
         modifier: 'redhot', // <-- special modifier to always show this one item on mobile screens
-        href: '/en',
-        lang: 'en',
-        href_lang: 'en',
-        icon: 'globe',
+        content: '<div class="DropdownButton">...</div>', // <-- custom HTML for the item
       },
       {
         label: 'Mínar síður',
