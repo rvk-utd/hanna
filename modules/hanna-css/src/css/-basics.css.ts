@@ -41,6 +41,7 @@ export default css`
   /*! Reykjavík Design System basic CSS styles */
 
   @font-face {
+    // eslint-disable-next-line deprecation/deprecation
     font-family: ${iconfont_raw.name};
     font-weight: normal;
     font-style: normal;

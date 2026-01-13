@@ -9,8 +9,7 @@ const _LinkStyle__basic = () => css`
   padding-bottom: ${vars.link_underline_offset};
   border-bottom: ${vars.link_underline};
   transition: ${vars.link_transition};
-  transition-property: border-color, background-color, color, text-shadow, box-shadow,
-    outline;
+  transition-property: border-color, background-color, color, text-shadow, box-shadow;
 `;
 
 const _LinkStyle__hover = () => css`

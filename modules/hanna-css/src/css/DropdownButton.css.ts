@@ -1,10 +1,11 @@
 import { css } from 'es-in-css';
 
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
+import { iconStyle } from '../lib/icons.js';
 import { LinkStyle_Reset } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
-import { DEPS, prem } from './utils/miscUtils.js';
+import { DEPS, overflowEllipsis, prem } from './utils/miscUtils.js';
 
 import { enableDataIcon } from './Icon.css.js';
 
@@ -62,13 +63,16 @@ export default css`
     z-index: ${vars.zindex__overlay};
     margin: ${vars.space_0$5} 0;
 
-    max-width: min(${prem(500)}, 90vw);
+    max-width: min(${prem(480)}, 90vw);
     width: max-content;
+    min-width: ${prem(200)};
 
     background: ${vars.color_white};
     box-shadow: ${vars.boxShadow_elevated};
     border: 1px solid ${vars.color_suld_100};
     border-radius: ${vars.space_0$5};
+
+    font: ${vars.font_button};
   }
   [open] > .DropdownButton__menu {
     animation: ${openAnimation} 200ms ease-in;
@@ -77,15 +81,52 @@ export default css`
   /* ------------------------------------------------------------------------ */
 
   .DropdownButton__item {
+    ${hannaVarOverride({
+      link_focus_outlineColor: vars.color_faxafloi_100,
+      link_focus_outlineOffset: 0,
+    })}
   }
-  .DropdownButton__item:not(:last-child) {
-    border-bottom: ${vars.border_default};
+  .DropdownButton__item[aria-current='true']:has(
+      > .DropdownButton__itembutton--destructive
+    ) {
+    ${WARNING__('Destructive and current do not mix')}
+  }
+
+  /* ------------------------------------------------------------------------ */
+
+  .DropdownButton__itemDivider {
+    /* border-top: 1px solid ${vars.color_suld_50}; */
+    border-top: ${vars.border_default};
+    margin: 0 ${vars.space_2};
+    height: 0;
+  }
+  .DropdownButton__itemDivider--labelled {
+    height: auto;
+    padding: ${vars.space_1} 0;
+    color: ${vars.color_suld_100};
+  }
+  :has(.DropdownButton__itembutton[data-icon])
+    > *
+    > .DropdownButton__itemDivider--labelled {
+    ${overflowEllipsis()}
+    padding-left: ${vars.space_1 /* (icon_size--medium +  2) */};
+  }
+  .DropdownButton__itemDivider--labelled:first-child {
+    border-top: none;
+  }
+  .DropdownButton__itemDivider:first-child:not(.DropdownButton__itemDivider--labelled) {
+    ${WARNING__('First item __itemDivider makes no sense')}
+  }
+  .DropdownButton__itemDivider:last-child {
+    ${WARNING__('Last item __itemDivider makes no sense')}
   }
 
   /* ------------------------------------------------------------------------ */
 
   .DropdownButton__itembutton {
     ${LinkStyle_Reset('no-hover')};
+    ${overflowEllipsis()}
+    position: relative;
   }
   .DropdownButton__itembutton[class] {
     display: block;
@@ -96,23 +137,47 @@ export default css`
   }
   .DropdownButton__itembutton:hover,
   .DropdownButton__itembutton:focus {
-    background-color: ${vars.color_suld_50};
+    background-color: ${vars.color_esja_25};
+  }
+
+  .DropdownButton__itembutton--destructive {
+    ${hannaVarOverride({
+      link_color: vars.color_heidmork_100,
+    })}
+  }
+  .DropdownButton__itembutton--destructive:hover,
+  .DropdownButton__itembutton--destructive:focus {
+    background-color: ${vars.color_heidmork_25};
   }
 
   [aria-current='true'] > .DropdownButton__itembutton {
     ${hannaVarOverride({
       link_color: vars.color_faxafloi_150,
     })}
-    background: ${vars.color_faxafloi_25};
+
+    padding-right: ${vars.space_6 /* (padding-right + icon_size__medium + 1) */};
+    background: ${vars.color_esja_50};
+  }
+  [aria-current='true'] > .DropdownButton__itembutton:hover,
+  [aria-current='true'] > .DropdownButton__itembutton:focus {
+    background-color: ${vars.color_esja_75};
+  }
+
+  [aria-current='true'] > .DropdownButton__itembutton::after {
+    ${iconStyle('check')};
+    color: ${vars.color_suld_200};
+    position: absolute;
+    right: ${vars.space_2};
+    top: ${vars.space_2};
   }
 
   /* Indent all buttons if at least one of them has an icon */
   :has(.DropdownButton__itembutton[data-icon]) > * > .DropdownButton__itembutton {
-    padding-left: ${vars.space_5 /* padding-left + 3 */};
+    padding-left: ${vars.space_7 /* (padding-left + icon_size--medium +  2) */};
   }
   .DropdownButton__itembutton[data-icon]::before {
     ${enableDataIcon}
-    margin-left: ${vars.space_3__neg};
-    margin-right: ${vars.space_1};
+    margin-left: ${vars.space_5__neg};
+    margin-right: ${vars.space_2};
   }
 `;

@@ -69,6 +69,10 @@ export type DropdownButtonItem = {
 
   Content?: never; // To discrimiate bteween this and `MainMenu2CustomItem`
 
+  /** Seldom used flag for buttons that do destruction */
+  destructive?: boolean;
+
+  // eslint-disable-next-line deprecation/deprecation
   icon?: IconToken | IconName_old;
 };
 
@@ -83,9 +87,15 @@ export type DropdownButtonCustomItem = Pick<
 
 //
 
+/** Renders a divider line between `Dropdown*Item`s with an optional legend */
+export type DropdownButtonItemDivider = {
+  divider: true;
+  label?: string;
+};
+
 export type DropdownButtonProps = {
   /** The items to display inside the dropdown menu */
-  items: Array<DropdownButtonItem | DropdownButtonCustomItem>;
+  items: Array<DropdownButtonItem | DropdownButtonCustomItem | DropdownButtonItemDivider>;
   /**
    * NOTE: Clicking a DropdownButton item will automatically close the drropdown
    * … unless the `onItemClick` function explicitly returns `false`.
@@ -194,75 +204,99 @@ export const DropdownButton = (props: DropdownButtonProps) => {
             : undefined
         }
       >
-        {props.items.map((item, i) => {
-          if (typeof item === 'function') {
-            item = { Content: item };
-          }
+        {props.items.map(
+          // eslint-disable-next-line complexity
+          (item, i) => {
+            if ('divider' in item) {
+              if ((i === 0 && !item.label) || i === props.items.length - 1) {
+                // Gracefully omit pointless dividers
+                return null;
+              }
+              return (
+                <li
+                  key={i}
+                  className={modifiedClass(
+                    'DropdownButton__itemDivider',
+                    item.label && 'labelled'
+                  )}
+                >
+                  {item.label || false}
+                </li>
+              );
+            }
+            if (typeof item === 'function') {
+              item = { Content: item };
+            }
 
-          const itemProps = {
-            className: modifiedClass('DropdownButton__item', item.modifier),
-            'aria-current': item.current || undefined,
-          };
+            const itemProps = {
+              className: modifiedClass('DropdownButton__item', item.modifier),
+              'aria-current': item.current || undefined,
+            };
 
-          if ('Content' in item && item.Content) {
+            if ('Content' in item && item.Content) {
+              return (
+                <li key={i} data-customitem="" {...itemProps}>
+                  <item.Content closeMenu={closeMenuStat} />
+                </li>
+              );
+            }
+
+            const { label, onClick, href, destructive } = item;
+
+            const commonProps = {
+              className: modifiedClass(
+                'DropdownButton__itembutton',
+                destructive && 'destructive'
+              ),
+              lang: item.lang,
+              'data-icon': item.icon,
+              'arial-label': item.labelLong,
+            };
+
+            const doRenderButton =
+              isBrowser && (onClick || (onItemClick && href == null));
+
+            // TypeScript type-narrowing helper for the onClick callbacks below — because
+            // `item` is a variable and could hypothetically change before the click occurs
+            const _item = item;
+
             return (
-              <li key={i} data-customitem="" {...itemProps}>
-                <item.Content closeMenu={closeMenuStat} />
+              <li
+                key={i}
+                className={modifiedClass('DropdownButton__item', item.modifier)}
+                aria-current={item.current || undefined}
+              >
+                {doRenderButton ? (
+                  <button
+                    {...commonProps}
+                    type="button"
+                    aria-controls={item.controlsId}
+                    onClick={() => {
+                      const keepOpen1 = onClick && onClick(_item) === false;
+                      const keepOpen2 = onItemClick && onItemClick(_item) === false;
+                      !(keepOpen1 || keepOpen2) && closeMenuStat();
+                    }}
+                  >
+                    {label}
+                  </button>
+                ) : href != null ? (
+                  <a
+                    {...commonProps}
+                    href={href}
+                    hrefLang={item.hrefLang}
+                    target={item.target}
+                    onClick={() => {
+                      const keepOpen = onItemClick && onItemClick(_item) === false;
+                      !keepOpen && closeMenuStat();
+                    }}
+                  >
+                    {label}
+                  </a>
+                ) : null}
               </li>
             );
           }
-
-          const { label, onClick, href } = item;
-
-          const commonProps = {
-            className: 'DropdownButton__itembutton',
-            lang: item.lang,
-            'data-icon': item.icon,
-            'arial-label': item.labelLong,
-          };
-
-          const doRenderButton = isBrowser && (onClick || (onItemClick && href == null));
-
-          // TypeScript type-narrowing helper for the onClick callbacks below — because
-          // `item` is a variable and could hypothetically change before the click occurs
-          const _item = item;
-
-          return (
-            <li
-              key={i}
-              className={modifiedClass('DropdownButton__item', item.modifier)}
-              aria-current={item.current || undefined}
-            >
-              {doRenderButton ? (
-                <button
-                  {...commonProps}
-                  type="button"
-                  aria-controls={item.controlsId}
-                  onClick={() => {
-                    const keepOpen1 = onClick && onClick(_item) === false;
-                    const keepOpen2 = onItemClick && onItemClick(_item) === false;
-                    !(keepOpen1 || keepOpen2) && closeMenuStat();
-                  }}
-                >
-                  {label}
-                </button>
-              ) : href != null ? (
-                <a
-                  {...commonProps}
-                  href={href}
-                  hrefLang={item.hrefLang}
-                  target={item.target}
-                  onClick={() => {
-                    const keepOpen = onItemClick && onItemClick(_item) === false;
-                    !keepOpen && closeMenuStat();
-                  }}
-                >
-                  {label}
-                </a>
-              ) : null}
-            </li>
-          );
-        })}
+        )}
         <FocusTrap Tag="li" depth={2} />
       </ul>
     </details>

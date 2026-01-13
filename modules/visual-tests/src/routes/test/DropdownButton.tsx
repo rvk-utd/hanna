@@ -11,10 +11,19 @@ import { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.js';
 
-const mockItems: Array<DropdownButtonItem> = Array.from({ length: 4 }).map(() => ({
+const mockItems: Array<DropdownButtonItem> = Array.from({ length: 4 }).map((_, i) => ({
   label: 'Something lorem ipsum diolor sit ament Leebur deroor ieroom',
   href: '',
+  current: i === 2,
 }));
+
+const mockItemsShort: Array<DropdownButtonItem> = Array.from({ length: 4 }).map(
+  (_, i) => ({
+    label: `Item ${i}`,
+    href: '',
+    current: i === 2,
+  })
+);
 
 // ---------------------------------------------------------------------------
 
@@ -48,8 +57,18 @@ export default function () {
             current: true,
           },
           {
+            label: 'Something else',
+            href: '',
+          },
+          {
+            divider: true,
+            // label: 'Caution!! this is very long and should be truncated at some point',
+            // label: 'Caution!!',
+          },
+          {
             label: 'Delete',
             href: '',
+            destructive: true,
           },
         ]}
       />
@@ -58,7 +77,7 @@ export default function () {
       <p>&nbsp;</p>
       <VSpacer size="large" />
 
-      <DropdownButton buttonType="primary" label="A" items={mockItems} />
+      <DropdownButton buttonType="primary" label="A" items={mockItemsShort} />
       <DropdownButton
         label={
           <>
@@ -82,7 +101,7 @@ export default function () {
         label="A"
         buttonVariant="destructive"
         buttonSize="small"
-        items={mockItems}
+        items={mockItemsShort}
       />
       <DropdownButton
         Toggler={({ isOpen }) => (
