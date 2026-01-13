@@ -287,7 +287,7 @@ const linkVarDeclarations = linkVars.declare({
   link_transition: `200ms ease-in`,
 
   link_focus_outlineColor: `currentColor`,
-  link_focus_outline: `3px solid currentColor`,
+  link_focus_outline: `2px solid currentColor`,
   link_focus_outlineOffset: px(2),
 });
 
@@ -638,7 +638,7 @@ const buttonVarDeclarations = css`
 
 const iconVarDeclarations = iconVars.declare({
   icon_size__small: px(20),
-  icon_size__normal: px(24),
+  icon_size__medium: px(24),
   icon_size__large: px(40),
 
   // @deprecated variables (Will be removed in version v0.9)

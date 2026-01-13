@@ -237,7 +237,7 @@ o.spec('cssVars', () => {
 
       // icons.ts
       icon_size__small: true,
-      icon_size__normal: true,
+      icon_size__medium: true,
       icon_size__large: true,
       // @deprecated
       /**/ icon__alert: true,

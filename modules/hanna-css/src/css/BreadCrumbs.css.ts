@@ -41,7 +41,8 @@ export default css`
       margin: 0 ${vars.space_0$5__neg};
     }
     .BreadCrumbs__title + .BreadCrumbs__item::before {
-      ${iconStyle('house', 'small')}
+      ${iconStyle('home', 'small')}
+      font-size: 18px; /* Ragnar Freyr blessed this */
       width: 100%;
       margin-right: 1px;
     }
@@ -57,6 +58,10 @@ export default css`
     }
     .BreadCrumbs__separator::before {
       ${iconStyle('chevron_forward', 'small')}
+      /* TODO: Get updated design from Ragnar Freyr */
+      font-size: ${vars.font_label_size};
+      margin-top: 0.5px;
+      margin-bottom: -0.5px;
       width: 100%;
       margin-right: 1px;
     }

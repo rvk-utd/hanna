@@ -69,7 +69,6 @@ export default css`
 
     background: ${vars.color_white};
     box-shadow: ${vars.boxShadow_elevated};
-    border: 1px solid ${vars.color_suld_100};
     border-radius: ${vars.space_0$5};
 
     font: ${vars.font_button};
@@ -125,6 +124,7 @@ export default css`
 
   .DropdownButton__itembutton {
     ${LinkStyle_Reset('no-hover')};
+    font-weight: ${vars.font_weight__normal};
     ${overflowEllipsis()}
     position: relative;
   }
@@ -133,11 +133,19 @@ export default css`
     width: 100%;
     padding: ${vars.space_2};
     border: none;
-    border-radius: calc(${vars.space_0$5} - 1px);
   }
+  :first-child > .DropdownButton__itembutton {
+    border-radius: ${vars.space_0$5} ${vars.space_0$5} 0 0;
+  }
+  /** FIXME: .FocusTrap is the :last-child, must handle that... */
+  :last-child > .DropdownButton__itembutton {
+    border-radius: 0 0 ${vars.space_0$5} ${vars.space_0$5};
+  }
+
   .DropdownButton__itembutton:hover,
   .DropdownButton__itembutton:focus {
     background-color: ${vars.color_esja_25};
+    z-index: 1;
   }
 
   .DropdownButton__itembutton--destructive {

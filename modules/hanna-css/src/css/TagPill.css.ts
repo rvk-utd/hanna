@@ -122,7 +122,7 @@ export default css`
     }
 
     .TagPill__remove::before {
-      ${iconStyle('close_small', 'small')}
+      ${iconStyle('close', 'small')}
       width: 100%;
       margin-right: 2em;
     }

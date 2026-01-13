@@ -147,10 +147,10 @@ export default css`
       top: 0;
       left: 0;
       color: inherit;
-      width: ${vars.icon_size__normal};
+      width: ${vars.icon_size__small};
 
       &::before {
-        ${iconStyle('close_small')}
+        ${iconStyle('close', 'small')}
         color: ${vars.color_faxafloi_100};
       }
 

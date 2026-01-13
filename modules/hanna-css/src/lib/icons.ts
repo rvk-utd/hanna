@@ -62,7 +62,7 @@ export const iconContent = (iconChar: IconToken | VariablePrinter, filled?: bool
   `;
 };
 
-export type IconSize = 'small' | 'normal' | 'large';
+export type IconSize = 'small' | 'medium' | 'large';
 /**
  * Mixin to use in either `::before` or `:after` pseudo-elements
  * to set up iconfont styling.
@@ -90,7 +90,7 @@ export const iconStyle = (
     direction: ltr;
     -moz-font-feature-settings: 'liga';
     letter-spacing: normal;
-    font-size: ${hannaVars[`icon_size__${_opts.size || 'normal'}`]};
+    font-size: ${hannaVars[`icon_size__${_opts.size || 'medium'}`]};
     -moz-osx-font-smoothing: grayscale;
   `;
 };
@@ -256,7 +256,7 @@ export const icons: Readonly<OpenRecord<IconName_old, IconToken>> = {
   edit: 'edit',
   external: 'open_in_new',
   file_pdf: 'picture_as_pdf',
-  home: 'house',
+  home: 'home',
   info: 'info_filled',
   link: 'link',
   location: 'location_on',

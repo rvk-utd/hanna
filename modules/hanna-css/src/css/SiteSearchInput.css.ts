@@ -39,6 +39,22 @@ export default css`
     // .SiteSearchInput__input {
     // }
 
+    .SiteSearchInput__button {
+      z-index: 1;
+      background-color: ${vars.color_faxafloi_100};
+      color: ${vars.color_suld_0};
+    }
+    .SiteSearchInput__button {
+      ${hoverKeyboardFocusAndActiveStyling(css`
+        background-color: ${vars.color_faxafloi_150};
+        color: ${vars.color_suld_0};
+      `)}
+    }
+
+    .SiteSearchInput > .FormField__input::after,
+    .SiteSearchInput__button::before {
+      ${iconStyle('search', 'large')}
+    }
     .SiteSearchInput > .FormField__input::after,
     .SiteSearchInput__button {
       ${hideText_css('soft')}
@@ -53,30 +69,15 @@ export default css`
       border: solid ${prem(2)} transparent;
       border-radius: 0 ${ff.input__border_radius} ${ff.input__border_radius} 0;
     }
+    .SiteSearchInput__button::before {
+      width: 100%;
+      margin-right: 1px;
+    }
     .SiteSearchInput > .FormField__input::after {
       color: ${vars.color_suld_100};
       background-color: ${vars.color_suld_0};
       background-clip: padding-box;
       pointer-events: none;
-    }
-    .SiteSearchInput__button {
-      z-index: 1;
-      background-color: ${vars.color_faxafloi_100};
-      color: ${vars.color_suld_0};
-    }
-    .SiteSearchInput__button {
-      ${hoverKeyboardFocusAndActiveStyling(css`
-        background-color: ${vars.color_faxafloi_150};
-        color: ${vars.color_suld_0};
-      `)}
-    }
-    .SiteSearchInput > .FormField__input::after,
-    .SiteSearchInput__button::before {
-      ${iconStyle('search', 'large')}
-    }
-    .SiteSearchInput__button::before {
-      width: 100%;
-      margin-right: 1px;
     }
   }
 `;

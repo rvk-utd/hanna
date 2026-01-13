@@ -85,11 +85,11 @@ export default css`
   }
   .Pagination__button--next::before,
   .Pagination__button--prev::before {
-    ${iconStyle('arrow_back_ios_new', 'small')};
+    ${iconStyle('chevron_backward')};
     width: 100%;
     margin-right: 1px;
   }
   .Pagination__button--next::before {
-    ${iconContent('arrow_forward_ios')};
+    ${iconContent('chevron_forward')};
   }
 `;

@@ -45,7 +45,7 @@ export default css`
 
       ${iconVariables.declare({
         Icon: 'initial',
-        Icon__size: vars.icon_size__normal,
+        Icon__size: vars.icon_size__medium,
         Icon__enabled: 'none',
       })}
     }
@@ -89,7 +89,7 @@ export default css`
 
       ${iconAfterVariables.declare({
         Icon_after: 'initial',
-        Icon_after__size: vars.icon_size__normal,
+        Icon_after__size: vars.icon_size__medium,
         Icon_after__enabled: 'none',
       })}
     }

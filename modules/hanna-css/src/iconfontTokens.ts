@@ -55,10 +55,10 @@ export const _iconTokenList = [
   'groups',
   'help',
   'help_center',
+  'home',
   'home_repair_service',
   'home_work',
   'hourglass',
-  'house',
   'info',
   'info_filled',
   'keep',
@@ -117,7 +117,7 @@ export const _iconTokenList = [
   'warning_filled',
   'work',
   'zoom_in',
-  'zoom_out',
+  'zoom_out'
 ] as const;
 
 export type IconToken = (typeof _iconTokenList)[number];

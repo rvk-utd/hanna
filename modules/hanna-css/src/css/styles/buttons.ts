@@ -153,6 +153,11 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
       margin-left: ${bVars.iconSpace};
     }
 
+    &--small::before,
+    &--small::after {
+      font-size: ${vars.icon_size__small};
+    }
+
     &[data-icon]::before {
       ${enableDataIcon}
       margin-left: ${bVars.iconOutdent};

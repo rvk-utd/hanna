@@ -422,7 +422,7 @@ const iconName: IconToken = 'warning_filled';
 Mixin to style pseudo-elements (`::before` or `::after`) to display Hanna
 iconfont icons with proper sizing and font settings.
 
-The `size` option can be `'small'`, `'normal'` (default), or `'large'`.
+The `size` option can be `'small'`, `'medium'` (default), or `'large'`.
 
 Filled icons are normally auto-requested by passing an icon name that ends
 with `_filled`, but in certain cases where tokens are passed via a CSS

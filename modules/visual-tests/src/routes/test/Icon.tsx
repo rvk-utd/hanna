@@ -7,7 +7,7 @@ import { Minimal } from '../../layout/Minimal.js';
 import { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 
-const sizes = ['small', 'normal', 'large'] as const;
+const sizes = ['small', 'medium', 'large'] as const;
 type IconSize = (typeof sizes)[number];
 
 type _ = Expect<Equals<IconSize, NonNullable<IconProps['size']>>>;

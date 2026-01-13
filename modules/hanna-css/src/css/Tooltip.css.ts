@@ -44,14 +44,14 @@ export default css`
   }
   .Tooltip__trigger--icononly {
     ${hideText_css('soft')}
-    width: ${vars.icon_size__normal};
+    width: ${vars.icon_size__small};
   }
 
   .Tooltip__trigger::before {
-    ${iconStyle('info_filled')}
+    ${iconStyle('info_filled', 'small')}
     width: 1em;
     height: 1em;
-    margin-right: 1px;
+    margin-right: ${vars.space_0$5};
     display: inline-block;
     text-align: center;
   }

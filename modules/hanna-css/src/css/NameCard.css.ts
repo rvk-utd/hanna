@@ -56,7 +56,7 @@ export default css`
     }
     .NameCard__location:before,
     .NameCard__hours::before {
-      ${iconStyle('location_on', 'small')}
+      ${iconStyle('home', 'small')}
       float: left;
       margin-left: ${vars.space_4__neg};
       width: ${vars.space_3};
@@ -84,19 +84,19 @@ export default css`
     }
 
     .NameCard__vacancy, // @deprecated (remove in v0.9)
-	.NameCard__availability {
+	  .NameCard__availability {
       color: ${vars.color_suld_150};
       --led-color: ${vars.color_suld_150};
       margin-top: ${vars.space_1};
       margin-right: ${vars.space_2};
     }
     .NameCard__vacancy--vacany, // @deprecated (remove in v0.9)
-	.NameCard__availability--available {
+	  .NameCard__availability--available {
       color: ${vars.color_suld_200};
       --led-color: ${vars.color_ellidaardalur_100};
     }
     .NameCard__vacancy::before, // @deprecated (remove in v0.9)
-	.NameCard__availability::before {
+	  .NameCard__availability::before {
       content: '';
       display: inline-block;
       vertical-align: middle;

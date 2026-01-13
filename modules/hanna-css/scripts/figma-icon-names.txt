@@ -17,7 +17,7 @@ vertical_align_bottom
 open_in_new
 right_panel_close
 right_panel_open
-house
+home
 home_work
 light_mode
 lock

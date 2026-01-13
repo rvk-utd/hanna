@@ -357,7 +357,7 @@ export const buttonVars = /*@__PURE__*/ buildVariables(['Button__gapH', 'Button_
 export const iconVars = /*@__PURE__*/ buildVariables([
   .../*#__PURE__*/ ObjectKeys(iconfonttokens),
   'icon_size__small',
-  'icon_size__normal',
+  'icon_size__medium',
   'icon_size__large',
 ]);
 

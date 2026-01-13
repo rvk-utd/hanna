@@ -63,8 +63,8 @@ export default css`
       mask-image: url('i/icons/twitter.svg');
     }
     .ShareButtons__link--linkedin::before {
-      font-size: 18px;
-      content: 'Li';
+      font-size: 20px;
+      content: 'in';
     }
     .ShareButtons__link--email::before {
       font-size: 20px;

@@ -37,16 +37,16 @@ export default css`
       border-radius: ${prem(8)};
       position: relative;
 
-      padding: ${prem(13)} ${prem(20)} ${prem(12)} ${prem(44)};
+      padding: ${prem(13)} ${prem(20)} ${prem(12)} ${prem(40)};
       margin-bottom: ${prem(20)};
 
       @media ${mq.tablet_up} {
-        padding: ${prem(17)} ${prem(32)} ${prem(16)} ${prem(64)};
+        padding: ${prem(17)} ${prem(32)} ${prem(16)} ${prem(54)};
         margin-bottom: ${prem(30)};
       }
     }
     .Alert::before {
-      ${iconStyle(alertVars.icon, { filled: true })}
+      ${iconStyle(alertVars.icon, { size: 'small', filled: true })}
       color: ${alertVars.icon_color};
       position: absolute;
       top: ${prem(14)};
@@ -163,7 +163,7 @@ export default css`
       font-size: ${prem(16)};
     }
     .Alert__close::before {
-      ${iconStyle('close')}
+      ${iconStyle('close', 'small')}
       margin-right: 1px;
       width: 100%;
     }

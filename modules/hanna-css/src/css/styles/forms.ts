@@ -82,52 +82,57 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') =>
       position: relative;
       color: ${tglVars.label__color};
     }
-    .${bem}__label::before {
+
+    .${bem}__label::before, .${bem}__label::after {
       content: '';
-      text-align: center;
-      float: left;
-      /* margin-top: ${prem(2)}; */
-      margin-left: ${prem(-36)};
+      position: absolute;
+      top: ${vars.space_1};
+      left: 0;
       width: ${prem(20)};
       height: ${prem(20)};
-      line-height: ${prem(18)};
-      font-size: ${prem(radio ? 14 : 16)};
+      transition: all 200ms ease-in;
+      transition-property: box-shadow, border-color, background-color, outline;
+    }
+
+    .${bem}__label::before {
       ${radio &&
       css`
         border-radius: 50%;
       `}
       border: ${prem(1)} solid ${tglVars.knob__color};
-      transition: all 200ms ease-in;
-      transition-property: box-shadow, border-color, background-color, outline;
       outline: 0 solid transparent;
+    }
+    .${bem}__label::after {
     }
 
     // Focus/Hover
     .${bem}__label[class]:hover, //
-  .${bem}__input:focus + .${bem}__label {
+    .${bem}__input:focus + .${bem}__label {
       color: ${tglVars.label__color};
     }
     .${bem}__label[class]:hover::before, //
-  .${bem}__input:focus + .${bem}__label::before {
+    .${bem}__input:focus + .${bem}__label::before {
       border-color: ${tglVars.knob__color_active};
       box-shadow: inset 0 0 0 2px ${tglVars.knob__color_active};
     }
 
     // Checked
     .${bem}__input:checked + .${bem}__label::before {
-      mask: exclude linear-gradient(#000, #000) 50% / cover no-repeat,
-        url(${dataURI(radio ? 'i/icons/radioball.svg' : 'i/icons/checkmark.svg')}) 50% /
-          16px 16px no-repeat;
       border-color: transparent;
       background-color: ${tglVars.knob__color_active};
       color: ${vars.color_suld_0};
     }
-
     // Checked + Focus/Hover
     .${bem}__input:checked + .${bem}__label:hover::before, //
-  .${bem}__input:checked:focus + .${bem}__label::before {
+    .${bem}__input:checked:focus + .${bem}__label::before {
       outline: ${prem(1)} solid ${tglVars.knob__color_active};
       outline-offset: ${prem(1)};
+    }
+
+    .${bem}__input:checked + .${bem}__label::after {
+      mask: url(${dataURI(radio ? 'i/icons/radioball.svg' : 'i/icons/checkmark.svg')}) 50% /
+        16px 16px no-repeat;
+      background-color: ${vars.color_suld_0};
     }
 
     // Invalid
@@ -169,6 +174,12 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') =>
         color: ${vars.color_suld_50};
       }
     `}
+    ${!radio &&
+    css`
+      .${bem}__input:disabled:checked + .${bem}__label::after {
+        background-color: ${vars.color_suld_100};
+      }
+    `}
 
     ${!radio &&
     css`
@@ -196,12 +207,17 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') =>
       vertical-align: top;
     }
     .${bem}--nolabel > .${bem}__label {
-      padding: 2px 0;
+      height: 100%;
+      padding-top: 2px;
+      padding-bottom: 2px;
     }
     .${bem}--nolabel > .${bem}__label::before {
-      margin-left: 2px;
-      display: inline-block;
-      margin-right: 3px;
+      top: 2px;
+      left: 2px;
+    }
+    .${bem}--nolabel > .${bem}__label::after {
+      top: 2px;
+      left: 2px;
     }
     .${bem}--nolabel > .${bem}__error {
       ${srOnly()};
@@ -288,8 +304,7 @@ export const TogglerButtonsKnob = (bem: string, radio = bem === 'RadioButton') =
     font-weight: ${vars.font_weight__normal};
   }
 
-  .${bem}__label::before {
-    position: absolute;
+  .${bem}__label::before, .${bem}__label::after {
     top: 50%;
     left: ${vars.space_3};
     margin-top: ${prem(-10)};
