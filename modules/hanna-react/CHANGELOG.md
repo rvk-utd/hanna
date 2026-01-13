@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Icon`
 - feat: Add component `ReykjavikWaves`
 - `DropdownButton`:
   - feat: Add prop `Toggler` for custom toggler content
