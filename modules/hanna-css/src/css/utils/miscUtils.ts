@@ -1,4 +1,5 @@
 import { css, CssString, LengthValue, pct_f, PlainNumber, PxValue, rem } from 'es-in-css';
+import { readFileSync } from 'fs';
 
 import { CssModuleToken, isDevMode } from '../../lib/cssutils.js';
 import { grid } from '../../lib/grid.js';
@@ -146,5 +147,21 @@ export const resetImageChild = () => css`
     ${resetImageProps}
   }
 `;
+
+// ---------------------------------------------------------------------------
+
+type FilExt = 'svg' | 'png' | 'jpg';
+const mimeTypes: Record<FilExt, string> = {
+  svg: 'image/svg+xml',
+  png: 'image/png',
+  jpg: 'image/jpeg',
+};
+
+export const dataURI = (file: `${string}.${FilExt}`) => {
+  const ext = file.split('.').pop() as FilExt;
+  return `'data:${mimeTypes[ext]},${encodeURIComponent(
+    readFileSync(`./src/${file}`).toString()
+  )}'`;
+};
 
 // ---------------------------------------------------------------------------

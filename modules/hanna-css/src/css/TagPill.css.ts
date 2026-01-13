@@ -1,4 +1,4 @@
-import { css, em } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
@@ -122,8 +122,7 @@ export default css`
     }
 
     .TagPill__remove::before {
-      ${iconStyle(vars.icon__close)}
-      font-size: ${em(12 / 16)};
+      ${iconStyle('close_small', 'small')}
       width: 100%;
       margin-right: 2em;
     }

@@ -3,6 +3,13 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add vars `icon_size__(small|normal|large)` to `hannaVars`
+- feat: Add second param to `iconStyle()` to set icon `size`
+- feat: Add `iconContent(iconToken)` helper
+- feat: Add `iconToken(iconToken)` type-safety sugar function
+- feat: Deprecate vars `icon__*` in favor of direct string names (use
+  `iconToken(nameToken)` in TypeScript contexts)
+- docs: Add missing docs for `iconStyle()`
 
 ## 0.4.22 – 0.4.23
 

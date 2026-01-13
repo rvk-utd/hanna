@@ -30,8 +30,7 @@ export const WizardLayoutClose_css = () => css`
     }
 
     .WizardLayoutClose::after {
-      ${iconStyle(vars.icon__close)}
-      font-size: ${prem(13)};
+      ${iconStyle('close', 'small')}
       margin-left: ${prem(13)};
       padding-top: ${prem(1)};
       transition: transform ${vars.link_transition};

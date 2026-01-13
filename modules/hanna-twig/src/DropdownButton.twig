@@ -22,8 +22,9 @@
     // Button size style (default: 'normal')
   - button_variant?: 'normal' | 'destructive'  \
     // Button variant style (default: 'normal')
-  - button_icon?: IconName  \
-    // Icon name to show in the button (see Figma icon asset names)
+  - button_icon?: IconToken  \
+    // Icon name to show in the button
+    // (see ../../hanna-css/scripts/figma-icon-names.txt for available icons)
 
   Or:
 
@@ -49,8 +50,9 @@
     // The URL the link points to
   - target?: string  \
     // The target attribute for the link (e.g. `_blank` to open in a
-  - icon?: IconName  \
-    // Optional icon name to show alongside the label (see Figma icon asset names)
+  - icon?: IconToken  \
+    // Optional icon name to show alongside the label
+    // (see ../../hanna-css/scripts/figma-icon-names.txt for available icons)
   - current?: boolean  \
     // If true, adds `aria-current="true"` to the item wrapper `<li>`
   - modifier?: string  \
@@ -140,7 +142,7 @@
     label: '',
     label_long: 'Tungumálavalmynd',
     button_type: 'secondary',
-    button_icon: 'location', // globe icon
+    button_icon: 'language', // globe icon
     items: [
       {
         label: 'Íslenska',

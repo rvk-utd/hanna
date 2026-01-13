@@ -60,10 +60,9 @@ export default css`
       background-color: ${vars.color_suld_25};
     }
     .SiteSearchAutocomplete__item--highlighted::before {
-      ${iconStyle(vars.icon__search)}
+      ${iconStyle('search')};
       color: ${vars.color_suld_100};
       float: right;
-      font-size: ${vars.font_body_m_size};
       width: ${vars.space_1$5};
       margin-right: ${vars.space_3__neg};
       margin-left: ${vars.space_1};

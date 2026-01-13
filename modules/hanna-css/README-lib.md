@@ -32,8 +32,12 @@ yarn add @reykjavik/hanna-css
   - [`colorThemes`](#colorthemes)
   - [`colorFamilies`](#colorfamilies)
   - [`characters`](#characters)
-  - [`icons`](#icons)
   - [`mq`](#mq)
+- [Icons](#icons)
+  - [type `IconToken`](#type-icontoken)
+  - [`iconStyle`](#iconstyle)
+  - [`iconContent`](#iconcontent)
+  - [`iconToken`](#icontoken)
 - [Hanna CSS Env](#hanna-css-env)
   - [`getCssBundleUrl`](#getcssbundleurl)
     - [Type `CssBundleOpts`](#type-cssbundleopts)
@@ -355,22 +359,6 @@ console.log(quotes.IS.open + 'Hæ!' + quotes.IS.close);
 // "„Hæ!“"
 ```
 
-### `icons`
-
-Object with the names of the "decorative" icons available for general use with
-`data-icon=""` and `data-icon-after=""` attributes, and for React component
-icon props.
-
-```ts
-import { icons } from '@reykjavik/hanna-css';
-import type { IconName } from '@reykjavik/hanna-css';
-
-const iconName: IconName = icons.close;
-
-console.log(iconName);
-// "close"
-```
-
 ### `mq`
 
 The `mq` object contains pre-fabricated media-query strings for the basic
@@ -411,6 +399,122 @@ const myCss = css`
 }
 `*/
 ```
+
+## Icons
+
+### type `IconToken`
+
+Type with the names of all the "decorative" icon token names that available
+for general use with `data-icon=""` and `data-icon-after=""` attributes, and
+for React component icon props.
+
+```ts
+import type { IconToken } from '@reykjavik/hanna-css';
+
+const iconName: IconToken = 'warning_filled';
+```
+
+### `iconStyle`
+
+**Syntax:**
+`iconStyle(iconChar?: IconToken | VariablePrinter, opts?: IconSize | { size?: IconSize; filled?: boolean }): CssString`
+
+Mixin to style pseudo-elements (`::before` or `::after`) to display Hanna
+iconfont icons with proper sizing and font settings.
+
+The `size` option can be `'small'`, `'normal'` (default), or `'large'`.
+
+Filled icons are normally auto-requested by passing an icon name that ends
+with `_filled`, but in certain cases where tokens are passed via a CSS
+variable, then the `filled: true` option will prove necessary.
+
+```ts
+import { css, iconStyle } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyComponent__icon::before {
+    ${iconStyle('search')};
+  }
+
+  .MyComponent__download::before {
+    ${iconStyle('download', 'small')};
+  }
+
+  .MyComponent__item::after {
+    ${iconStyle(`var(--MyComponent__item-Icon)`, {
+      size: 'large',
+      filled: true,
+    })};
+  }
+`;
+```
+
+### `iconContent`
+
+**Syntax:**
+`iconContent(iconChar: IconToken | VariablePrinter, filled?: boolean) => CssString`
+
+Mixin to use in either `::before` or `:after` pseudo-elements to set `content`
+and `font-variation-settings` properties correctly and in a typesafe and
+accessible way.
+
+The `filled` parameter can be used to force rendering of the filled variant of
+an icon, this is useful when the icon character is passed via a CSS variable.
+
+(Used internally by [`iconStyle()`](#iconstyle).)
+
+```ts
+import { css, iconStyle, iconContent } from '@reykjavik/hanna-css';
+
+const myCss = css`
+  .MyComponent__button::before {
+    ${iconStyle()}; /* No defualt icon set */
+    content: '';
+  }
+
+  .MyComponent__button--search::before {
+    ${iconContent('search')};
+  }
+  .MyComponent__button--fav::after {
+    ${iconContent(`favorite`)};
+  }
+  .MyComponent__button--fav--current::after {
+    ${iconContent(`favorite_filled`)};
+  }
+`;
+```
+
+### `iconToken`
+
+**Syntax:** `iconToken(iconToken: IconToken): "'${IconToken}'"`
+
+Sugar identity function to get typesafe `IconToken` values wrapped in
+quotatiton marks.
+
+```ts
+import { css, iconToken, iconStyle } from '@reykjavik/hanna-css';
+import { myVars } from '../lib/cssVariables.ts';
+
+const myCss = css`
+  .MyComponent__status {
+    ${myVars.declare({
+      MyComponent__icon: iconToken('lock_open'),
+    })}
+  }
+  .MyComponent__status--locked {
+    ${myVars.override({
+      MyComponent__icon: iconToken('lock'),
+    })}
+  }
+
+  .MyComponent__status::before {
+    ${iconContent(myVars.vars.MyComponent__icon)};
+  }
+`;
+```
+
+**NOTE:** Removes `_filled` suffix from the token name, as the filled variant
+should be controlled elsewhere via `font-variation-settings: 'FILL' 1;`
 
 ## Hanna CSS Env
 
@@ -985,7 +1089,6 @@ import {
   colors_raw,
   font_raw,
   grid_raw,
-  iconfont_raw,
 } from '@reykjavik/hanna-css';
 ```
 

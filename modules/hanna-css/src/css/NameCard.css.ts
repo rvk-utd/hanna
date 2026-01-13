@@ -2,7 +2,7 @@ import { css } from 'es-in-css';
 
 import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
@@ -56,14 +56,14 @@ export default css`
     }
     .NameCard__location:before,
     .NameCard__hours::before {
-      ${iconStyle(vars.icon__location)}
+      ${iconStyle('location_on', 'small')}
       float: left;
       margin-left: ${vars.space_4__neg};
       width: ${vars.space_3};
       color: ${vars.color_suld_150};
     }
     .NameCard__hours:before {
-      content: ${vars.icon__time};
+      ${iconContent('schedule')}
     }
 
     .NameCard__abouttext {

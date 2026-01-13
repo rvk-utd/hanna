@@ -4,7 +4,7 @@ import { scale_container } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 
 import { hideText_css } from './utils/hideText.js';
 import { grid_units, prem } from './utils/miscUtils.js';
@@ -59,8 +59,7 @@ export const GalleryModal_css = () => css`
       color: ${vars.color_faxafloi_100};
 
       &::before {
-        ${iconStyle(vars.icon__arrow_left)}
-        font-size: 23px;
+        ${iconStyle('arrow_back', 'large')}
       }
     }
 
@@ -89,7 +88,7 @@ export const GalleryModal_css = () => css`
       right: ${vars.grid_margin};
     }
     .GalleryModalPager__button--next::before {
-      content: ${vars.icon__arrow_right};
+      ${iconContent('arrow_forward')};
     }
     .GalleryModalPager__button:disabled {
       display: none;

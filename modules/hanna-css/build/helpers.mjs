@@ -6,7 +6,7 @@ import { sync as globSync } from 'glob';
 import { esbuild, getExternalDeps, isDev, srcDir } from '../../../build-helpers.mjs';
 
 import { devDistCssFolder } from './config.mjs';
-import { buildIconfont, compressCssImages } from './gulp-tasks.mjs';
+import { compressCssImages } from './gulp-tasks.mjs';
 
 // ===========================================================================
 
@@ -24,10 +24,7 @@ const cssModuleFiles = globSync(`**/*${cssSourceExtension}`, { cwd: cssSrcDir })
  */
 export const buildCssFiles = async (NODE_ENV) => {
   await shell$(`rm -rf ${devDistCssFolder}  &&  mkdir ${devDistCssFolder}`);
-  await Promise.all([
-    buildIconfont().catch(handlError),
-    compressCssImages().catch(handlError),
-  ]);
+  await compressCssImages().catch(handlError);
 
   /** @type {Record<string, boolean>} */
   let fileMem = {};

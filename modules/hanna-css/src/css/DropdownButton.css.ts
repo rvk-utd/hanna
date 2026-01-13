@@ -37,6 +37,12 @@ export default css`
     min-width: 0;
     width: auto; /* needed by Firefox (as of 2024-11) Some conflicts between .Button* styles applying a min-width and width:max-content  */
   }
+  summary:where(.DropdownButton__toggler) {
+    list-style: none; /* reset default disclosure triangle */
+    cursor: pointer;
+    display: inline-block;
+    width: auto;
+  }
   ${['a', 'button']
     .map(
       (tag) => css`

@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="/assets/ThumbnailGrid.css" />
     <style>
       .IconExample {
-        --Icon--enabled: initial;
-        font-size: 3rem;
         height: 6rem;
         line-height: 6rem;
       }
@@ -69,7 +67,12 @@
                   .map(
                     ([name, char]) => `
 										<li class="ThumbnailGrid__item">
-											<span class="IconExample" data-icon="${name}" style="--Icon: '${char}';"></span>
+											<span
+                        class="Icon IconExample"
+                        data-icon-size="large"
+                        data-icon="${name}"
+                        style="--Icon: '${char}';"
+                      ></span>
 											<strong class="ThumbnailGrid__label">${name}</strong>
 										</li>
 									`

@@ -6,7 +6,6 @@ import { LinkStyle_Reset } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { hideText_css } from './utils/hideText.js';
-import { prem } from './utils/miscUtils.js';
 
 export default css`
   @media screen {
@@ -38,14 +37,13 @@ export default css`
 
     .BreadCrumbs__title + .BreadCrumbs__item {
       ${hideText_css('soft')}
-      width: ${prem(25)};
-      margin: 0 ${prem(-5)};
+      width: ${vars.space_3};
+      margin: 0 ${vars.space_0$5__neg};
     }
     .BreadCrumbs__title + .BreadCrumbs__item::before {
-      ${iconStyle(vars.icon__home)}
+      ${iconStyle('house', 'small')}
       width: 100%;
       margin-right: 1px;
-      font-size: ${prem(14)};
     }
 
     // .BreadCrumbs__item[aria-current='true'] {
@@ -54,13 +52,13 @@ export default css`
     .BreadCrumbs__separator {
       ${hideText_css('soft')}
       display: inline-block;
-      width: ${prem(13)};
+      width: ${vars.icon_size__small};
+      margin: 0 -4px;
     }
     .BreadCrumbs__separator::before {
-      ${iconStyle(vars.icon__chevron_soft_right)}
+      ${iconStyle('chevron_forward', 'small')}
       width: 100%;
       margin-right: 1px;
-      font-size: ${prem(5)};
     }
 
     /* ------------------------------------------------------------------------ */

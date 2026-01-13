@@ -636,11 +636,16 @@ const buttonVarDeclarations = css`
 
 // ---------------------------------------------------------------------------
 
-const iconVarDeclarations = iconVars.declare(
-  ObjectFromEntries(
+const iconVarDeclarations = iconVars.declare({
+  icon_size__small: px(20),
+  icon_size__normal: px(24),
+  icon_size__large: px(40),
+
+  // @deprecated variables (Will be removed in version v0.9)
+  ...ObjectFromEntries(
     ObjectEntries(iconfonttokens).map(([name, char]) => [name, str(char)])
-  )
-);
+  ),
+});
 
 // ---------------------------------------------------------------------------
 

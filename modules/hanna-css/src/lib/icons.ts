@@ -3,42 +3,95 @@ import {
   Extends,
   ObjectEntries,
   ObjectFromEntries,
+  OpenRecord,
 } from '@reykjavik/hanna-utils';
-import { css, str, VariablePrinter } from 'es-in-css';
+import { css, VariablePrinter } from 'es-in-css';
+
+import { IconToken } from '../iconfontTokens.js';
 
 import { font } from './font.js';
+import { hannaVars } from './hannavars.js';
 import iconfonttokens from './iconfonttokens.js';
 
 // ---------------------------------------------------------------------------
 
-const iconfontName = 'icons';
+export const _legacyIconfontName = 'icons';
+const iconfontName = 'iconfont';
 
 /**
- * Mixin to use in either `::before` or `:after` contexts
- * to set up iconfont styling
+ * Sugar identity function to get typesafe `IconToken` values
+ * wrapped in quotatiton marks.
+ *
+ * Removes `_filled` suffix from the token name, as the filled variant
+ * should be controlled elsewhere via `font-variation-settings: 'FILL' 1;`
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#icontoken
+ */
+export const iconToken = (iconToken: IconToken): `"${IconToken}"` =>
+  `"${iconToken.replace(/_filled$/, '') as IconToken}"`;
+
+/**
+ * Mixin to use in either `::before` or `:after` pseudo-elements to set `content`
+ * and `font-variation-settings` properties correctly and in a typesafe and
+ * accessible way.
+ *
+ * The `filled` parameter can be used to force rendering of the filled variant of
+ * an icon, this is useful when the icon character is passed via a CSS variable.
+ *
+ * (Used internally by `iconStyle()`.)
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#iconcontent
  */
 /*#__NO_SIDE_EFFECTS__*/
-export const iconStyle = (iconChar?: string | VariablePrinter) => {
+export const iconContent = (iconChar: IconToken | VariablePrinter, filled?: boolean) => {
+  let isFilled = filled;
+  let _iconChar: VariablePrinter | string | undefined = iconChar;
   if (typeof iconChar === 'string') {
-    iconChar = str(iconChar);
+    isFilled = filled || iconChar.endsWith('_filled');
+    _iconChar = iconToken(iconChar);
   }
-
+  // Uses `content: 'visible' / 'alt';` syntax in an effort to hide
+  // presentational, english language icon names from screen-readers
   return css`
+    content: ${_iconChar};
+    content: ${_iconChar} / '';
+    ${isFilled &&
+    css`
+      font-variation-settings: 'FILL' 1;
+    `}
+  `;
+};
+
+export type IconSize = 'small' | 'normal' | 'large';
+/**
+ * Mixin to use in either `::before` or `:after` pseudo-elements
+ * to set up iconfont styling.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#iconstyle
+ */
+/*#__NO_SIDE_EFFECTS__*/
+export const iconStyle = (
+  iconChar?: IconToken | VariablePrinter,
+  opts?: IconSize | { size?: IconSize; filled?: boolean }
+) => {
+  const _opts = typeof opts === 'string' ? { size: opts } : opts || {};
+  return css`
+    ${iconChar && iconContent(iconChar, _opts.filled)};
     display: inline-block;
     text-indent: 0;
     text-align: center;
+    width: 1em;
     vertical-align: top;
-    ${'' /* iconFontStyling */}
-    font-family: ${`${iconfontName}, ${font.family_w_fallback}`};
-    speak: none;
+    font-family: ${`${iconfontName}, ${_legacyIconfontName}, ${font.family_w_fallback}`};
     font-weight: normal;
     font-style: normal;
     white-space: nowrap;
-    ${'' /* fix for light text on dark background from beeing smudgy in webkit/mac */}
-    -webkit-font-smoothing: antialiased;
+    word-wrap: normal;
+    direction: ltr;
+    -moz-font-feature-settings: 'liga';
+    letter-spacing: normal;
+    font-size: ${hannaVars[`icon_size__${_opts.size || 'normal'}`]};
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0;
-    ${iconChar && `content: ${iconChar};`}
   `;
 };
 
@@ -122,25 +175,16 @@ export const characters = {
 
 // ---------------------------------------------------------------------------
 
-type TrimmedIconName = keyof typeof iconfonttokens extends `icon__${infer ShortName}`
+type _TrimmedIconName = keyof typeof iconfonttokens extends `icon__${infer ShortName}`
   ? ShortName
   : never;
 
-export const iconfont_raw = /*#__PURE__*/ (() =>
-  ({
-    name: iconfontName,
-    chars: ObjectFromEntries(
-      ObjectEntries(iconfonttokens).map(([name, char]) => [
-        name.replace(/^icon__/, '') as TrimmedIconName,
-        char,
-      ])
-    ),
-  } as const))();
-
 /**
- * Icon names available for data-icon="" attributes
+ * @deprecated Use type `IconToken` instead  (Will be removed in v0.5)
+ *
+ *  This list of icons is fixed and only for back-compat reasons
  */
-export type IconName =
+export type IconName_old =
   | 'calendar'
   | 'chat'
   | 'checkmark'
@@ -158,33 +202,68 @@ export type IconName =
   | 'search'
   | 'text'
   | 'time'
-  | 'user';
-
+  | 'user'
+  | 'globe'; // added informally to Button* icon prop
 // Type tests
 type _ = {
-  IconNames_Exist: Expect<Extends<IconName, TrimmedIconName>>;
+  // eslint-disable-next-line deprecation/deprecation
+  old_iconNames_Exist: Expect<Extends<IconName_old, _TrimmedIconName | 'globe'>>;
 };
 
 /**
- * The icons
+ * Icon names available for `data-icon=""` and `data-icon-after=""` attributes,
+ * and for use in hanna-react components.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-css#type-icontoken
  */
-export const icons: Readonly<Record<IconName, IconName>> = {
-  calendar: 'calendar',
-  chat: 'chat',
-  checkmark: 'checkmark',
+export type { IconToken } from '../iconfontTokens.js';
+
+/** @deprecated Use the `IconName` type instead (Will be removed in v0.5)
+ *
+ * This object only contains the old iconfont token names from before when
+ * Material Symbols was adopted.
+ *
+ * If you need a full list of current icon names at runtime, consider using
+ * `https://styles.reykjavik.is/css/v0.8/i/iconfont.json`
+ */
+export const iconfont_raw = /*#__PURE__*/ (() =>
+  ({
+    name: iconfontName,
+    chars: ObjectFromEntries(
+      ObjectEntries(iconfonttokens).map(([name, char]) => [
+        name.replace(/^icon__/, '') as _TrimmedIconName,
+        char,
+      ])
+    ),
+  } as const))();
+
+/** @deprecated Use the `IconName` type instead (Will be removed in v0.5)
+ *
+ * This object only contains the old icon names from before Material Symbols
+ * was adopted.
+ *
+ * If you need a full list of current icon names at runtime, consider using
+ * `https://styles.reykjavik.is/css/v0.8/i/iconfont.json`
+ */
+// eslint-disable-next-line deprecation/deprecation
+export const icons: Readonly<OpenRecord<IconName_old, IconToken>> = {
+  calendar: 'calendar_month',
+  chat: 'forum',
+  checkmark: 'check',
   close: 'close',
-  data: 'data',
-  document: 'document',
+  data: 'pie_chart',
+  document: 'docs',
   edit: 'edit',
-  external: 'external',
-  file_pdf: 'file_pdf',
-  home: 'home',
-  info: 'info',
+  external: 'open_in_new',
+  file_pdf: 'picture_as_pdf',
+  home: 'house',
+  info: 'info_filled',
   link: 'link',
-  location: 'location',
-  pen: 'pen',
+  location: 'location_on',
+  pen: 'edit',
   search: 'search',
-  text: 'text',
-  time: 'time',
-  user: 'user',
+  text: 'notes',
+  time: 'schedule',
+  user: 'account_circle',
+  globe: 'language',
 };

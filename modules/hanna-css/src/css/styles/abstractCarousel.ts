@@ -73,7 +73,7 @@ export const carouselItemsScrollSnapStyles = () => css`
 
   &-goRight::before,
   &-goLeft::before {
-    ${iconStyle(vars.icon__chevron_right)}
+    ${iconStyle('arrow_forward_ios', 'large')}
     font-size: 2.5rem;
     margin-right: 0.5rem;
     color: ${vars.color_suld_150};

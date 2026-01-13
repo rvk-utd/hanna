@@ -3,8 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Support custom content for `.DropdownButton__toggler`
+- feat: Add component `Icon` for inlined icons
+- feat: Support `data-icon-size` attribute along with `data-icon` and
+  `data-icon-after`
 - feat: Add component `ReykjavikWaves` (also works as "utility-class")
+- feat: Support custom content for `.DropdownButton__toggler`
 - feat: Add `.MainMenu2__hot__item--redhot` for "hot" item to always show
 - feat: Add `[data-customitem]` attribute to custom content `MainMenu2` items
 - feat: Add example of a `.DropdownButton__item` marked as "current"

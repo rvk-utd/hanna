@@ -3,7 +3,7 @@ import { css } from 'es-in-css';
 import { srOnly } from '../lib/a11y.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 import { suppress_WARNING__ } from '../lib/WARNING__.js';
 
 import { hideText_css } from './utils/hideText.js';
@@ -53,10 +53,9 @@ export default css`
     .react-datepicker__input-container {
     }
     .react-datepicker__input-container::after {
-      ${iconStyle(vars.icon__calendar)}
+      ${iconStyle('calendar_month')}
       display: block;
       color: ${vars.color_suld_0};
-      font-size: 1em;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -168,15 +167,13 @@ export default css`
       width: ${prem(24)};
 
       &::after {
-        ${iconStyle(vars.icon__chevron_left)}
+        ${iconStyle('arrow_back_ios_new', 'small')}
         display: block;
         color: ${vars.color_suld_0};
-        font-size: 10px;
         position: absolute;
         top: 0;
         left: 0;
-        width: ${prem(24)};
-        line-height: ${prem(24)};
+        width: 100%;
       }
 
       &:hover::after,
@@ -195,7 +192,7 @@ export default css`
         left: auto;
 
         &::after {
-          content: ${vars.icon__chevron_right};
+         ${iconContent('arrow_forward_ios')};
         }
       }
 
@@ -207,6 +204,7 @@ export default css`
 
     [class].react-datepicker__navigation--years {
       ${suppress_WARNING__}
+      display: block;
       position: relative;
       top: auto;
       left: auto;
@@ -218,7 +216,7 @@ export default css`
       }
 
       &::after {
-        content: ${vars.icon__chevron_down};
+        ${iconContent('keyboard_arrow_down')}
         color: ${vars.color_suld_150};
       }
 
@@ -231,7 +229,7 @@ export default css`
     }
 
     [class].react-datepicker__navigation--years-upcoming::after {
-      content: ${vars.icon__chevron_up};
+      ${iconContent('keyboard_arrow_up')};
     }
 
     .react-datepicker__month .react-datepicker__month-text {
@@ -411,10 +409,9 @@ export default css`
       height: ${prem(14)};
 
       &::before {
-        ${iconStyle(vars.icon__chevron_down)}
+        ${iconStyle('keyboard_arrow_down', 'small')}
         display: block;
         color: ${vars.color_suld_0};
-        font-size: 10px;
         position: absolute;
         top: 0;
         left: 0;

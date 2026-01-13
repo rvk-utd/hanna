@@ -104,7 +104,7 @@ export default function () {
                         href=""
                         className="ButtonSecondary ButtonSecondary--small MainMenu2__hot__link"
                         aria-label="English"
-                        data-icon="user"
+                        data-icon="language"
                         lang="en"
                         hrefLang="en"
                         onClick={(e) => {
@@ -143,13 +143,13 @@ export default function () {
             ],
             extra: hasExtraMenu && [
               { label: 'Leita', labelLong: 'Leita á vefnum', href: '', icon: 'search' },
-              { label: 'Tilkynningar', href: '', icon: 'alert' },
+              { label: 'Tilkynningar', href: '', icon: 'notifications' },
             ],
             relatedTitle: hasRelatedMenu && 'Sérvefir',
             related: hasRelatedMenu && [
               { label: 'Græna planið', href: '', target: '_blank' },
               // { label: 'With icon', href: '', target: '_blank', icon: 'user' },
-              { label: 'Gagnahlaðborðið', href: '', target: '_blank' },
+              { label: 'Gagnahlaðborðið', href: '', target: '_blank', icon: 'pie_chart' },
               { label: 'Borgarbókasafnið', href: '', target: '_blank' },
               { label: 'Borgin okkar', href: '', target: '_blank' },
               { label: 'Borgarsögusafn Reykjavíkur ', href: '', target: '_blank' },

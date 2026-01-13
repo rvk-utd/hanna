@@ -29,13 +29,12 @@ export default css`
 
     // underlying inactive button-like icon
     .SearchInput > .FormField__input::after {
-      ${iconStyle(vars.icon__search)}
+      ${iconStyle('search')}
       display: block;
       position: absolute;
       top: 0px;
       right: 0px;
       bottom: 0px;
-      font-size: 1em;
       width: var(--buttonWidth);
       line-height: ${ff.input__height_inner};
       color: var(--buttonColor);
@@ -75,7 +74,8 @@ export default css`
       opacity: 0.5;
     }
     .SearchInput__button::before {
-      ${iconStyle(vars.icon__search)}
+      ${iconStyle('search')}
+      /* font-size: 28px; */
       width: 100%;
       margin-right: 1px;
       transition: all 100ms ease-in;

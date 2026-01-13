@@ -9,7 +9,7 @@ import { buildVariables } from '../lib/cssutils.js';
 import { font } from '../lib/font.js';
 import { grid } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 import { LinkStyle } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
@@ -82,14 +82,13 @@ export default css`
 
     .MainMenu__link::before {
       ${iconStyle()}
-      margin-right: ${prem(8)};
-      vertical-align: ${prem(-3)};
+      margin-right: ${vars.space_1};
     }
     .MainMenu__item--mypages > .MainMenu__link::before {
-      content: ${vars.icon__user};
+      ${iconContent('account_circle')};
     }
     .MainMenu__item--search > .MainMenu__link::before {
-      content: ${vars.icon__search};
+      ${iconContent('search')};
     }
   }
 
@@ -471,8 +470,7 @@ export default css`
     }
 
     .MainMenu__megapanel__backtomenu::before {
-      ${iconStyle(vars.icon__close)}
-      font-size: ${prem(16)};
+      ${iconStyle('close')}
       width: 100%;
       text-align: left;
       margin-left: 8px;

@@ -84,6 +84,14 @@ export default function () {
         buttonSize="small"
         items={mockItems}
       />
+      <DropdownButton
+        Toggler={({ isOpen }) => (
+          <span style={{ display: 'block', background: 'yellow', padding: '8px' }}>
+            Custom toggler {isOpen ? '▲' : '▼'}
+          </span>
+        )}
+        items={mockItems}
+      />
     </Minimal>
   );
 }

@@ -1,10 +1,9 @@
-import { css, em } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { scale_container, scale_phone_phablet } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
-import { font } from '../lib/font.js';
 import { gridPx } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
@@ -65,12 +64,10 @@ export default css`
     }
 
     .AccordionList__button::before {
-      ${iconStyle(vars.icon__close)}
-
+      ${iconStyle('close_small', 'large')}
       position: absolute;
       left: 0;
       width: ${a.vars.iconWidth};
-      font-size: ${em(18 / font.sz.heading_s_size)};
       color: ${vars.color_suld_200};
       transform: rotateZ(45deg);
       transition: transform 200ms ease-in;

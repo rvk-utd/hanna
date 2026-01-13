@@ -9,7 +9,7 @@ import { hannaVarOverride, hannaVars as vars } from '../../lib/hannavars.js';
 import { iconStyle } from '../../lib/icons.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
 import { hideText_css } from '../utils/hideText.js';
-import { grid_units, prem } from '../utils/miscUtils.js';
+import { dataURI, grid_units, prem } from '../utils/miscUtils.js';
 
 export const FormField__error = (
   paddingLeft: LengthValue | VariablePrinter | 0 = vars.space_2,
@@ -22,9 +22,8 @@ export const FormField__error = (
   margin-top: ${marginTop};
 
   &::before {
-    ${iconStyle(vars.icon__error)}
+    ${iconStyle('error_filled', { size: 'small', filled: true })}
     margin-right: ${grid_units(1)};
-    font-size: ${prem(10)};
   }
 
   &:not([id]) {
@@ -61,152 +60,156 @@ const TogglerVariables = buildVariables(
 );
 const tglVars = TogglerVariables.vars;
 
-export const TogglerKnob = (bem: string, radio = bem === 'Radio') => css`
-  .${bem} {
-    margin-bottom: ${vars.space_3};
-  }
+export const TogglerKnob = (bem: string, radio = bem === 'Radio') =>
+  css`
+    .${bem} {
+      margin-bottom: ${vars.space_3};
+    }
 
-  .${bem}__input {
-    ${srOnly}
-  }
-  .${bem}__label {
-    ${TogglerVariables.declare({
-      knob__color: vars.color_suld_100,
-      knob__color_active: vars.color_faxafloi_100,
-      label__color: '_inherit',
-    })}
-    display: inline-block;
-    font: ${vars.font_button};
-    padding: ${vars.space_1} 0;
-    padding-left: ${prem(36)};
-    position: relative;
-    color: ${tglVars.label__color};
-  }
-  .${bem}__label::before {
-    ${iconStyle('')}
-    float: left;
-    /* margin-top: ${prem(2)}; */
-    margin-left: ${prem(-36)};
-    width: ${prem(20)};
-    height: ${prem(20)};
-    line-height: ${prem(18)};
-    font-size: ${prem(radio ? 14 : 16)};
+    .${bem}__input {
+      ${srOnly}
+    }
+    .${bem}__label {
+      ${TogglerVariables.declare({
+        knob__color: vars.color_suld_100,
+        knob__color_active: vars.color_faxafloi_100,
+        label__color: '_inherit',
+      })}
+      display: inline-block;
+      font: ${vars.font_button};
+      padding: ${vars.space_1} 0;
+      padding-left: ${prem(36)};
+      position: relative;
+      color: ${tglVars.label__color};
+    }
+    .${bem}__label::before {
+      content: '';
+      text-align: center;
+      float: left;
+      /* margin-top: ${prem(2)}; */
+      margin-left: ${prem(-36)};
+      width: ${prem(20)};
+      height: ${prem(20)};
+      line-height: ${prem(18)};
+      font-size: ${prem(radio ? 14 : 16)};
+      ${radio &&
+      css`
+        border-radius: 50%;
+      `}
+      border: ${prem(1)} solid ${tglVars.knob__color};
+      transition: all 200ms ease-in;
+      transition-property: box-shadow, border-color, background-color, outline;
+      outline: 0 solid transparent;
+    }
+
+    // Focus/Hover
+    .${bem}__label[class]:hover, //
+  .${bem}__input:focus + .${bem}__label {
+      color: ${tglVars.label__color};
+    }
+    .${bem}__label[class]:hover::before, //
+  .${bem}__input:focus + .${bem}__label::before {
+      border-color: ${tglVars.knob__color_active};
+      box-shadow: inset 0 0 0 2px ${tglVars.knob__color_active};
+    }
+
+    // Checked
+    .${bem}__input:checked + .${bem}__label::before {
+      mask: exclude linear-gradient(#000, #000) 50% / cover no-repeat,
+        url(${dataURI(radio ? 'i/icons/radioball.svg' : 'i/icons/checkmark.svg')}) 50% /
+          16px 16px no-repeat;
+      border-color: transparent;
+      background-color: ${tglVars.knob__color_active};
+      color: ${vars.color_suld_0};
+    }
+
+    // Checked + Focus/Hover
+    .${bem}__input:checked + .${bem}__label:hover::before, //
+  .${bem}__input:checked:focus + .${bem}__label::before {
+      outline: ${prem(1)} solid ${tglVars.knob__color_active};
+      outline-offset: ${prem(1)};
+    }
+
+    // Invalid
+    .${bem}__input[aria-invalid='true'] + .${bem}__label {
+      ${TogglerVariables.override({
+        knob__color: vars.color_heidmork_100,
+        knob__color_active: vars.color_heidmork_100,
+        label__color: vars.color_heidmork_100,
+      })}
+      ${hannaVarOverride({
+        link_color: vars.color_heidmork_150,
+        link_underline: vars.link_underline__hairline,
+      })}
+    }
+
+    // Disabled
+    .${bem}__input[class]:disabled + .${bem}__label {
+      ${TogglerVariables.override({
+        label__color: vars.color_suld_200,
+      })}
+      opacity: 0.5;
+    }
+    .${bem}__input[class][readonly] + .${bem}__label {
+      opacity: 1;
+    }
+    .${bem}__input[class]:disabled + .${bem}__label::before {
+      border-color: ${vars.color_suld_100};
+      background-color: ${vars.color_suld_50};
+      color: ${vars.color_suld_100};
+      box-shadow: none;
+      outline: 0;
+    }
+
+    // Disabled + Checked
     ${radio &&
     css`
-      border-radius: 50%;
+      .${bem}__input:disabled:checked + .${bem}__label::before {
+        background-color: ${vars.color_suld_100};
+        color: ${vars.color_suld_50};
+      }
     `}
-    border: ${prem(1)} solid ${tglVars.knob__color};
-    transition: all 200ms ease-in;
-    transition-property: box-shadow, border-color, background-color, outline;
-    outline: 0 solid transparent;
-  }
 
-  // Focus/Hover
-  .${bem}__label[class]:hover, //
-  .${bem}__input:focus + .${bem}__label {
-    color: ${tglVars.label__color};
-  }
-  .${bem}__label[class]:hover::before, //
-  .${bem}__input:focus + .${bem}__label::before {
-    border-color: ${tglVars.knob__color_active};
-    box-shadow: inset 0 0 0 2px ${tglVars.knob__color_active};
-  }
-
-  // Checked
-  .${bem}__input:checked + .${bem}__label::before {
-    content: ${radio ? vars.icon__radioball : vars.icon__checkmark};
-    border-color: transparent;
-    background-color: ${tglVars.knob__color_active};
-    color: ${vars.color_suld_0};
-  }
-
-  // Checked + Focus/Hover
-  .${bem}__input:checked + .${bem}__label:hover::before, //
-  .${bem}__input:checked:focus + .${bem}__label::before {
-    outline: ${prem(1)} solid ${tglVars.knob__color_active};
-    outline-offset: ${prem(1)};
-  }
-
-  // Invalid
-  .${bem}__input[aria-invalid='true'] + .${bem}__label {
-    ${TogglerVariables.override({
-      knob__color: vars.color_heidmork_100,
-      knob__color_active: vars.color_heidmork_100,
-      label__color: vars.color_heidmork_100,
-    })}
-    ${hannaVarOverride({
-      link_color: vars.color_heidmork_150,
-      link_underline: vars.link_underline__hairline,
-    })}
-  }
-
-  // Disabled
-  .${bem}__input[class]:disabled + .${bem}__label {
-    ${TogglerVariables.override({
-      label__color: vars.color_suld_200,
-    })}
-    opacity: 0.5;
-  }
-  .${bem}__input[class][readonly] + .${bem}__label {
-    opacity: 1;
-  }
-  .${bem}__input[class]:disabled + .${bem}__label::before {
-    border-color: ${vars.color_suld_100};
-    background-color: ${vars.color_suld_50};
-    color: ${vars.color_suld_100};
-    box-shadow: none;
-    outline: 0;
-  }
-
-  // Disabled + Checked
-  ${radio &&
-  css`
-    .${bem}__input:disabled:checked + .${bem}__label::before {
-      background-color: ${vars.color_suld_100};
-      color: ${vars.color_suld_50};
-    }
-  `}
-
-  ${!radio &&
-  css`
-    .${bem}__label__reqstar {
-      border-bottom: none;
-      float: left;
-      margin-right: 0.15em;
-    }
-  `}
+    ${!radio &&
+    css`
+      .${bem}__label__reqstar {
+        border-bottom: none;
+        float: left;
+        margin-right: 0.15em;
+      }
+    `}
 
   .${bem}__error {
-    ${FormField__error(prem(36), 0)};
-  }
+      ${FormField__error(prem(36), 0)};
+    }
 
-  /*
+    /*
     No-label variant
   */
-  .${bem}--nolabel {
-    ${hideText_css('soft')};
-    margin-right: ${vars.space_2};
-    display: inline-block;
-    height: ${prem(24)};
-    margin-left: -2px;
-    width: ${prem(20 + 4)};
-    vertical-align: top;
-  }
-  .${bem}--nolabel > .${bem}__label {
-    padding: 2px 0;
-  }
-  .${bem}--nolabel > .${bem}__label::before {
-    margin-left: 2px;
-    display: inline-block;
-    margin-right: 3px;
-  }
-  .${bem}--nolabel > .${bem}__error {
-    ${srOnly()};
-  }
-  .${bem}--nolabel:not(div) {
-    ${WARNING__('--nolabel should only be used on <div/>s')}
-  }
-`;
+    .${bem}--nolabel {
+      ${hideText_css('soft')};
+      margin-right: ${vars.space_2};
+      display: inline-block;
+      height: ${prem(24)};
+      margin-left: -2px;
+      width: ${prem(20 + 4)};
+      vertical-align: top;
+    }
+    .${bem}--nolabel > .${bem}__label {
+      padding: 2px 0;
+    }
+    .${bem}--nolabel > .${bem}__label::before {
+      margin-left: 2px;
+      display: inline-block;
+      margin-right: 3px;
+    }
+    .${bem}--nolabel > .${bem}__error {
+      ${srOnly()};
+    }
+    .${bem}--nolabel:not(div) {
+      ${WARNING__('--nolabel should only be used on <div/>s')}
+    }
+  `;
 
 // ===========================================================================
 

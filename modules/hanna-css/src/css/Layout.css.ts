@@ -5,7 +5,7 @@ import { mq } from '../lib/breakpoints.js';
 import { isDevMode } from '../lib/cssutils.js';
 import { grid } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 import { LinkStyle_Reset } from '../lib/links.js';
 
 import { LayoutHeaderHomeLink } from './styles/header.js';
@@ -171,23 +171,21 @@ export default css`
 
     .Layout__header__skiplink::before,
     .Layout__header__skiplink::after {
-      ${iconStyle('')}
+      ${iconStyle(undefined, 'large')}
       width: 100%;
       margin-right: 1px;
       transition: inherit;
     }
 
     .Layout__header__skiplink::before {
-      content: ${vars.icon__menu};
-      font-size: ${prem(34)};
+      ${iconContent('menu')};
       color: var(--open-icon-color);
     }
     .Layout__header__skiplink::after {
+      ${iconContent('close')};
       position: absolute;
       top: 0;
       left: 0;
-      content: ${vars.icon__close};
-      font-size: ${prem(26)};
       color: var(--close-icon-color);
     }
 

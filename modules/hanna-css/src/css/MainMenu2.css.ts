@@ -7,7 +7,7 @@ import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { grid, gridPx } from '../lib/grid.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 import { LinkStyle_Reset } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
@@ -180,12 +180,12 @@ const commonStyles = css`
     })}
   }
   .MainMenu2__toggler::before {
-    ${iconStyle(vars.icon__text)};
+    ${iconStyle('menu')};
     margin-left: ${ButtonVariables.vars.iconOutdent};
     margin-right: ${ButtonVariables.vars.iconSpace};
   }
   .MainMenu2__toggler[aria-pressed='true']::before {
-    content: ${vars.icon__close};
+    ${iconContent('close')};
   }
 
   a.MainMenu2__toggler {
@@ -298,8 +298,7 @@ const commonStyles = css`
     grid-area: related;
     color: ${vars.color_suld_200};
   }
-
-  .MainMenu2__related__title {
+  j .MainMenu2__related__title {
     font: ${vars.font_heading_s};
     padding-top: ${vars.space_1};
     padding-bottom: calc(${mm2Vars.mainLink__paddingBottom} - 1px);
@@ -319,14 +318,15 @@ const commonStyles = css`
   .MainMenu2__related__link {
   }
   .MainMenu2__related__link[data-icon]::before {
-    ${enableDataIcon}
+    ${enableDataIcon('small')}
     margin-right: ${vars.space_1};
+    margin-left: ${vars.space_0$5__neg};
   }
   /* Indent all __related__links at least one of them has an icon */
   :has(.MainMenu2__related__link[data-icon])
     > *
     > .MainMenu2__related__link:not([data-icon]) {
-    padding-left: ${vars.space_3};
+    padding-left: calc(${vars.icon_size__small} + ${vars.space_0$5});
   }
 `;
 

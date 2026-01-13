@@ -1,4 +1,4 @@
-import { css, rem } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { hoverKeyboardFocusAndActiveStyling, srOnly } from '../lib/a11y.js';
 import { clamp_phone_netbook } from '../lib/between.js';
@@ -72,8 +72,7 @@ export default css`
     }
     .SiteSearchInput > .FormField__input::after,
     .SiteSearchInput__button::before {
-      ${iconStyle(vars.icon__search)}
-      font-size: ${rem(32 / 20)};
+      ${iconStyle('search', 'large')}
     }
     .SiteSearchInput__button::before {
       width: 100%;

@@ -4,7 +4,7 @@ import { mq } from '../lib/breakpoints.js';
 import { colors } from '../lib/colors.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconStyle, iconToken } from '../lib/icons.js';
 import { LinkStyle_Reset } from '../lib/links.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
@@ -25,7 +25,7 @@ export default css`
       ${AlertVariables.declare({
         background: color(colors.faxafloi_50).mix(pureWhite, 0.5),
         icon_color: vars.color_faxafloi_100,
-        icon: vars.icon__info,
+        icon: iconToken('info_filled'),
       })}
 
       ${hannaVarOverride({
@@ -46,12 +46,8 @@ export default css`
       }
     }
     .Alert::before {
-      ${iconStyle(vars.icon__info)}
-      content: ${alertVars.icon};
+      ${iconStyle(alertVars.icon, { filled: true })}
       color: ${alertVars.icon_color};
-
-      font-size: ${prem(16)};
-      // line-height: ${prem(12)};
       position: absolute;
       top: ${prem(14)};
       left: ${prem(14)};
@@ -79,7 +75,7 @@ export default css`
       ${AlertVariables.override({
         background: color(colors.heidmork_50).mix(pureWhite, 0.5),
         icon_color: vars.color_heidmork_100,
-        icon: vars.icon__error,
+        icon: iconToken('error_filled'),
       })}
     }
     .Alert--warning {
@@ -89,7 +85,7 @@ export default css`
           color(colors.nautholsvik_150),
           0.33
         ),
-        icon: vars.icon__warning,
+        icon: iconToken('warning_filled'),
       })}
     }
     .Alert--success {
@@ -99,7 +95,7 @@ export default css`
           color(colors.ellidaardalur_150),
           0.33
         ),
-        icon: vars.icon__checkmark,
+        icon: iconToken('check'),
       })}
     }
 
@@ -167,7 +163,7 @@ export default css`
       font-size: ${prem(16)};
     }
     .Alert__close::before {
-      ${iconStyle(vars.icon__close)}
+      ${iconStyle('close')}
       margin-right: 1px;
       width: 100%;
     }

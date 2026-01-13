@@ -2,6 +2,7 @@ import { css, px } from 'es-in-css';
 
 import { srOnly } from '../lib/a11y.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { iconContent } from '../lib/icons.js';
 import { FormFieldVariables, formFieldVars as ff } from '../lib/otherTokens.js';
 
 import { FormField__error } from './styles/forms.js';
@@ -207,8 +208,7 @@ export default css`
       color: ${vars.color_suld_150};
     }
     .FormField__assist::before {
-      content: ${vars.icon__alert};
-      font-size: ${prem(11)};
+      ${iconContent('warning_filled')}
     }
   }
 

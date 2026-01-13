@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { OpenRecord } from '@reykjavik/hanna-utils';
 
 import { Button, ButtonProps, ButtonVariantProps } from './_abstract/_Button.js';
 
@@ -9,12 +10,11 @@ const sizes = {
   small: 'small',
 } as const;
 
-type TertiaryIcon = Extract<ButtonVariantProps['icon'], 'none' | 'go-back'>;
+type TertiaryIcon = Extract<ButtonVariantProps['icon'], 'go-back'>;
 
-const icons = {
-  none: 'none',
+const icons: OpenRecord<string, TertiaryIcon> = {
   'go-back': 'go-back',
-} as const;
+};
 
 export type ButtonTertiaryProps = ButtonProps &
   Omit<ButtonVariantProps, 'icon' | 'size'> & {
@@ -26,7 +26,7 @@ export type ButtonTertiaryProps = ButtonProps &
 // `<a/>` props are allowed directly, so adding `wrapperProps` makes no sense.
 
 export const ButtonTertiary = (props: ButtonTertiaryProps & { children?: ReactNode }) => {
-  const { size = 'normal', icon = 'none' } = props;
+  const { size = 'normal', icon = '' } = props;
 
   return <Button bem="ButtonTertiary" {...props} size={sizes[size]} icon={icons[icon]} />;
 };

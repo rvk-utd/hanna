@@ -1,8 +1,8 @@
-import { css, rem } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 import { LinkStyle_Reset } from '../lib/links.js';
 
 import { hideText_css } from './utils/hideText.js';
@@ -85,12 +85,11 @@ export default css`
   }
   .Pagination__button--next::before,
   .Pagination__button--prev::before {
-    ${iconStyle(vars.icon__chevron_left)};
-    font-size: ${rem(12 / 16)}; /* 12px */
+    ${iconStyle('arrow_back_ios_new', 'small')};
     width: 100%;
     margin-right: 1px;
   }
   .Pagination__button--next::before {
-    content: ${vars.icon__chevron_right};
+    ${iconContent('arrow_forward_ios')};
   }
 `;

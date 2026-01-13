@@ -2,7 +2,7 @@ import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 import { LinkStyle_Reset } from '../lib/links.js';
 
 import { grid_units } from './utils/miscUtils.js';
@@ -55,34 +55,29 @@ export default css`
       outline: 1px solid currentColor;
     }
     .RelatedLinks__link::before {
-      ${iconStyle(vars.icon__link)}
+      ${iconStyle('link')}
       position: absolute;
-      top: 50%;
       left: ${grid_units(2)};
-      font-size: ${grid_units(3)};
-      width: 1em;
-      line-height: 1em;
-      margin-top: -0.5em;
     }
 
     .RelatedLinks__link[target]::before {
-      content: ${vars.icon__external};
+      ${iconContent('open_in_new')}
     }
     // exclude taget="_self" without increasing selector specificity
     .RelatedLinks__link:not([target='_self'])::before {
-      content: ${vars.icon__link};
+      ${iconContent('link')}
     }
 
     .RelatedLinks__link[href$='.pdf']::before,
     .RelatedLinks__link[href*='.pdf?']::before,
     .RelatedLinks__link[data-type='pdf']::before {
-      content: ${vars.icon__file_pdf};
+      ${iconContent('picture_as_pdf')}
     }
     .RelatedLinks__link[data-type='document']::before {
-      content: ${vars.icon__document};
+      ${iconContent('docs')}
     }
     .RelatedLinks__link[data-type='external']::before {
-      content: ${vars.icon__external};
+      ${iconContent('open_in_new')}
     }
   }
 `;

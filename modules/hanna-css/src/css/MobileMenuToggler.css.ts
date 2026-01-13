@@ -4,7 +4,7 @@ import { srOnly_focusable } from '../lib/a11y.js';
 import { mq } from '../lib/breakpoints.js';
 import { grid } from '../lib/grid.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle } from '../lib/icons.js';
 import { LinkStyle_Reset } from '../lib/links.js';
 
 import { freezeScroll_css } from './styles/header.js';
@@ -57,25 +57,22 @@ export default /*#__PURE__*/ css`
 
     .MobileMenuToggler::before,
     .MobileMenuToggler::after {
-      ${iconStyle()}
+      ${iconStyle('menu', 'large')}
       width: 100%;
       margin-right: 1px;
       transition: inherit;
     }
 
     .MobileMenuToggler::before {
-      content: ${vars.icon__menu};
       color: ${vars.color_faxafloi_100};
-      font-size: ${prem(34)};
       opacity: var(--open-icon-opacity);
     }
     .MobileMenuToggler::after {
-      content: ${vars.icon__close};
+      ${iconContent('close')}
       position: absolute;
       top: 0;
       left: 0;
       color: ${vars.color_suld_0};
-      font-size: ${prem(26)};
       opacity: var(--close-icon-opacity);
     }
 

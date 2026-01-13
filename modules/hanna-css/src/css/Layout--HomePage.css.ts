@@ -27,20 +27,18 @@ export default css`
       margin-top: ${scale_container(-30, -80)};
       margin-bottom: ${scale_container(30, 210)};
       // TODO: Is font-size right value? Is '12' on prod.
-      font-size: ${prem(12)};
       font-weight: ${vars.font_weight__bold};
+      text-align: center;
 
       @media ${mq.tablet_up} {
         display: block;
       }
     }
     .ScrollCTA::after {
-      ${iconStyle(vars.icon__chevron_down)}
+      ${iconStyle('keyboard_arrow_down')}
       display: block;
-      margin-top: ${prem(6)};
+      margin: 0 auto;
       width: 1em;
-      height: 1em;
-      line-height: 1em;
       color: ${vars.color_faxafloi_100};
     }
 

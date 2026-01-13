@@ -2,7 +2,6 @@ import { css } from 'es-in-css';
 
 import { srOnly } from '../lib/a11y.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
 
 import { hideText_css } from './utils/hideText.js';
 import { prem } from './utils/miscUtils.js';
@@ -22,7 +21,6 @@ export default css`
       ${hideText_css}
       width: 35px;
       height: 35px;
-      line-height: 35px;
       border-radius: 50%;
       background-color: ${vars.theme_color_primary};
       color: ${vars.theme_color_primary__text};
@@ -36,14 +34,17 @@ export default css`
     }
 
     .ShareButtons__link::before {
-      ${iconStyle('')}
+      content: '';
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
+      top: 50%;
       left: 0;
       text-indent: 0;
       text-align: center;
+      font-weight: bold;
+      width: 100%;
+      height: 1em;
+      line-height: 1.1;
+      margin-top: -0.5em;
     }
 
     .ShareButtons__item {
@@ -53,21 +54,22 @@ export default css`
       }
     }
 
-    .ShareButtons__link--facebook::before {
-      content: ${vars.icon__facebook};
+    .ShareButtons__link--facebook::before,
+    .ShareButtons__link--twitter::before {
+      mask: url('i/icons/facebook.svg') 50% 50% / 1em auto no-repeat;
+      background-color: currentColor;
     }
     .ShareButtons__link--twitter::before {
-      content: ${vars.icon__twitter};
+      mask-image: url('i/icons/twitter.svg');
     }
     .ShareButtons__link--linkedin::before {
+      font-size: 18px;
       content: 'Li';
-      font-weight: bold;
-      line-height: 31px;
     }
     .ShareButtons__link--email::before {
+      font-size: 20px;
       content: '@';
-      font-weight: bold;
-      line-height: 28px;
+      margin-top: -0.6em;
     }
   }
 `;

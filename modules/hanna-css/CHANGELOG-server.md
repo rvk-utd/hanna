@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Icon` for inlined icons
+- feat: Grow the list of available Button-related icons via `IconToken` type
 - feat: Add component `ReykjavikWaves` (Also works as "utility class")
 - `MainMenu2`
   - feat: Update styling of mobile menu to match latest design tweaks

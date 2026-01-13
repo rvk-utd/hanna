@@ -1,4 +1,4 @@
-import { css, em } from 'es-in-css';
+import { css } from 'es-in-css';
 
 import { scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
@@ -153,8 +153,7 @@ export default css`
       }
     }
     .Modal__closebutton::before {
-      ${iconStyle(vars.icon__close)}
-      font-size: ${em(26 / 64)};
+      ${iconStyle('close', 'large')}
       width: 100%;
       margin-right: 1px;
     }

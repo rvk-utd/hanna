@@ -6,8 +6,6 @@ import { sync as globSync } from 'glob';
 import { buildAndRunTests, buildNpmLib, distDir, srcDir } from '../../build-helpers.mjs';
 
 import { getCssVersionConfig, serverFolder } from './build/config.mjs';
-import { buildIconfont } from './build/gulp-tasks.mjs';
-import { handlError } from './build/helpers.mjs';
 
 (async () => {
   const { fullCssVersion, cssFolderVersion, majorCssVersion } =
@@ -100,7 +98,6 @@ import { handlError } from './build/helpers.mjs';
   // ===========================================================================
 
   await createStyleServerInfoTsFile();
-  await buildIconfont().catch(handlError);
   await buildAndRunTests();
   await buildNpmLib('css', {
     src: 'src/lib',

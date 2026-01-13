@@ -8,8 +8,21 @@ export { font as font_raw } from './font.js';
 export { grid as grid_raw, gridPx } from './grid.js';
 export type { HannaCssVarToken } from './hannavars.js';
 export { hannaVarOverride, hannaVars } from './hannavars.js';
-export type { IconName } from './icons.js';
-export { characters, iconfont_raw, icons, iconStyle } from './icons.js';
+export type {
+  // eslint-disable-next-line deprecation/deprecation
+  IconName_old as IconName,
+  IconToken,
+} from './icons.js';
+export {
+  characters,
+  iconContent,
+  // eslint-disable-next-line deprecation/deprecation
+  iconfont_raw,
+  // eslint-disable-next-line deprecation/deprecation
+  icons,
+  iconStyle,
+  iconToken,
+} from './icons.js';
 export { LinkStyle, LinkStyle_Reset, LinkStyle_SameColor } from './links.js';
 export { formFieldVars } from './otherTokens.js';
 export type { HannaColorTheme } from './themes.js';

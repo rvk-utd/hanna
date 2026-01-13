@@ -59,14 +59,13 @@ export default css`
       margin: 0;
 
       &::before {
-        ${iconStyle(vars.icon__arrow_up_long)}
+        ${iconStyle('arrow_upward')}
         position: absolute;
         top: 0;
         left: 50%;
         width: ${prem(64)};
         margin-left: ${prem(-32)};
         line-height: ${prem(64)};
-        font-size: ${prem(24)};
         color: #fff; // TODO: Should this be hardcoded?
         background: ${vars.color_faxafloi_100};
         border-radius: 50%;
@@ -145,16 +144,13 @@ export default css`
     .FileInput__file-remove {
       ${hideText_css('soft')}
       position: absolute;
-      top: 50%;
+      top: 0;
       left: 0;
       color: inherit;
-      width: ${prem(10)};
-      margin-top: ${prem(-5)};
+      width: ${vars.icon_size__normal};
 
       &::before {
-        ${iconStyle(vars.icon__close)}
-        font-size: ${prem(10)};
-        line-height: 1;
+        ${iconStyle('close_small')}
         color: ${vars.color_faxafloi_100};
       }
 

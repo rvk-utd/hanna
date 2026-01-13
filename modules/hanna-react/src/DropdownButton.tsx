@@ -8,8 +8,10 @@ import React, {
   useState,
 } from 'react';
 import { autoUpdate, flip, shift, useFloating } from '@floating-ui/react';
-import { IconName } from '@reykjavik/hanna-css';
+import { IconToken } from '@reykjavik/hanna-css';
 import { ClassNameModifiers, EitherObj, modifiedClass } from '@reykjavik/hanna-utils';
+
+import { IconName_old } from '../../hanna-css/src/lib/icons.js';
 
 import { Button, ButtonVariantProps } from './_abstract/_Button.js';
 import { useCallbackOnEsc } from './utils/useCallbackOnEsc.js';
@@ -67,7 +69,7 @@ export type DropdownButtonItem = {
 
   Content?: never; // To discrimiate bteween this and `MainMenu2CustomItem`
 
-  icon?: IconName;
+  icon?: IconToken | IconName_old;
 };
 
 type DropdownButtonCustomItemFn = (props: { closeMenu: () => void }) => ReactElement;

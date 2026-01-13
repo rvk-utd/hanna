@@ -6,7 +6,7 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { iconStyle } from '../lib/icons.js';
 import { formFieldVars as ff } from '../lib/otherTokens.js';
 
-import { DEPS, prem } from './utils/miscUtils.js';
+import { DEPS } from './utils/miscUtils.js';
 
 import { TagPillVariables } from './TagPill.css.js';
 
@@ -55,7 +55,7 @@ export default css`
   }
 
   .Multiselect__input[data-sprinkled]::after {
-    ${iconStyle(vars.icon__chevron_down)}
+    ${iconStyle('keyboard_arrow_down')}
     position: absolute;
     z-index: 2;
     top: 0;
@@ -66,7 +66,6 @@ export default css`
     margin: auto;
     color: ${ff.input__border_color};
     transition: all 200ms ease-in;
-    font-size: ${prem(16)};
     height: 1em;
     line-height: 1em;
   }

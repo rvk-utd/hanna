@@ -354,9 +354,12 @@ export const buttonVars = /*@__PURE__*/ buildVariables(['Button__gapH', 'Button_
 // ---------------------------------------------------------------------------
 
 /** CSS variables for Hanna icon types */
-export const iconVars = /*@__PURE__*/ buildVariables(
-  /*#__PURE__*/ ObjectKeys(iconfonttokens)
-);
+export const iconVars = /*@__PURE__*/ buildVariables([
+  .../*#__PURE__*/ ObjectKeys(iconfonttokens),
+  'icon_size__small',
+  'icon_size__normal',
+  'icon_size__large',
+]);
 
 // ---------------------------------------------------------------------------
 

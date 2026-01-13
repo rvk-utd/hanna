@@ -52,11 +52,7 @@ export const _DropdownButton: StoryObj<ControlProps> = {
       <DropdownButton
         Toggler={({ isOpen }) => (
           <span
-            className="Button Button--secondary DropdownButton__toggler"
-            style={{
-              background: 'yellow',
-              padding: '4px 8px',
-            }}
+            style={{ display: 'block', background: 'yellow', padding: '8px' }}
             aria-label="Longer text for toggler"
           >
             Custom toggler {isOpen ? '▲' : '▼'}

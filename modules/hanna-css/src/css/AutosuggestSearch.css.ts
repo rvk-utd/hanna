@@ -1,10 +1,14 @@
 import { css } from 'es-in-css';
 
 import { mq } from '../lib/breakpoints.js';
+import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconStyle, iconToken } from '../lib/icons.js';
 
 import { DEPS } from './utils/miscUtils.js';
+
+const AsSVariables = buildVariables(['action_icon'], 'AutosuggestSearch');
+const asSVars = AsSVariables.vars;
 
 export default css`
   ${DEPS('SearchInput')}
@@ -50,13 +54,13 @@ export default css`
     }
 
     .AutosuggestSearch__list {
-      --action-icon: none;
+      ${AsSVariables.declare({ action_icon: 'none' })}
     }
     .AutosuggestSearch__list--action--search {
-      --action-icon: ${vars.icon__search};
+      ${AsSVariables.override({ action_icon: iconToken('search') })}
     }
     .AutosuggestSearch__list--action--go {
-      --action-icon: ${vars.icon__arrow_right};
+      ${AsSVariables.override({ action_icon: iconToken('arrow_forward') })}
     }
 
     .AutosuggestSearch__item {
@@ -77,11 +81,9 @@ export default css`
       background-color: ${vars.color_suld_25};
     }
     .AutosuggestSearch__item--highlighted::before {
-      ${iconStyle()}
-      content: var(--action-icon);
+      ${iconStyle(asSVars.action_icon)}
       color: ${vars.color_suld_100};
       float: right;
-      font-size: ${vars.font_body_m_size};
       width: ${vars.space_1$5};
       margin-right: ${vars.space_3__neg};
       margin-left: ${vars.space_1};

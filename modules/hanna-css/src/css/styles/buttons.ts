@@ -8,7 +8,7 @@ import { hannaVars as vars } from '../../lib/hannavars.js';
 import { iconStyle } from '../../lib/icons.js';
 import { LinkStyle_Reset } from '../../lib/links.js';
 import { WARNING__ } from '../../lib/WARNING__.js';
-import { prem } from '../utils/miscUtils.js';
+import { dataURI, prem } from '../utils/miscUtils.js';
 
 import { enableDataIcon } from '../Icon.css.js';
 
@@ -47,8 +47,8 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
       backgroundColor__active: bVars.color__active,
       border: px(0), // Must have a unit, because it gets used inside a calc()
       height: vars.space_7,
-      iconOutdent: vars.space_0$5__neg,
-      iconSpace: vars.space_1,
+      iconOutdent: vars.space_1__neg,
+      iconSpace: vars.space_0$5,
       ...opts.overrides,
     })}
 
@@ -122,8 +122,6 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
     }
     &--small {
       ${ButtonVariables.override({
-        iconOutdent: vars.space_0$5__neg,
-        iconSpace: vars.space_1,
         height: prem(40),
       })}
       min-width: ${scale_phone_netbook(64, 96)};
@@ -141,7 +139,7 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
       order: -10;
     }
     &--go--back::before {
-      ${iconStyle(vars.icon__arrow_left)}
+      ${iconStyle('arrow_back')}
       margin-left: ${bVars.iconOutdent};
       margin-right: ${bVars.iconSpace};
     }
@@ -150,7 +148,7 @@ export const ButtonStyle = (opts: ButtonStyleOptions = {}) => {
       margin-left: auto;
     }
     &--go--forward::after {
-      ${iconStyle(vars.icon__arrow_right)}
+      ${iconStyle('arrow_forward')}
       margin-right: ${bVars.iconOutdent};
       margin-left: ${bVars.iconSpace};
     }
@@ -299,9 +297,8 @@ export const ButtonTertiaryStyle = (isStatic = false) => css`
 `;
 
 export const ButtonTertiaryStyle__backArrow = () => css`
-  ${iconStyle(vars.icon__arrow_left_long)}
-  background: 0;
-  height: auto;
-  font-size: 0.75em;
+  content: '';
+  mask: url(${dataURI('i/icons/arrow-left-long.svg')}) 0% 50% / auto 12px no-repeat;
+  height: 1em;
   overflow: hidden;
 `;

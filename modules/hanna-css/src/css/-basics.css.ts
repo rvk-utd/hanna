@@ -5,7 +5,7 @@ import { srOnly } from '../lib/a11y.js';
 import { bp } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { characters, iconfont_raw } from '../lib/icons.js';
+import { _legacyIconfontName, characters, iconfont_raw } from '../lib/icons.js';
 import { LinkStyle, LinkStyle__focusOutline } from '../lib/links.js';
 import { WARNING__, WARNING_border__ } from '../lib/WARNING__.js';
 
@@ -31,7 +31,8 @@ const quotes = (lang: 'IS' | 'EN' | 'PL') => {
   return `${str(q.open)} ${str(q.close)} ${str(q.openSingle)} ${str(q.closeSingle)}`;
 };
 
-const iconFontVersion = fileChecksum('../../servers/styles/public/css/dev/i/icons.woff2');
+const iconFontVersion = fileChecksum('./src/i/icons.woff2');
+const _legacyIconFontVersion = fileChecksum('./src/i/icons.woff2');
 const esjaFolder = '/assets/fonts/Esja';
 
 // ---------------------------------------------------------------------------
@@ -44,8 +45,18 @@ export default css`
     font-weight: normal;
     font-style: normal;
     font-display: block;
-    src: url('i/icons.woff2?${iconFontVersion}') format('woff2'),
-      url('i/icons.woff?${iconFontVersion}') format('woff');
+    src: url('i/iconfont.woff2?${iconFontVersion}') format('woff2');
+  }
+
+  @font-face {
+    /* @deprecated, only left in as a fallback icon front
+      to prevent old HTML data-icon="" values from breaking
+    */
+    font-family: ${_legacyIconfontName};
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* don't block */
+    src: url('i/icons.woff2?${_legacyIconFontVersion}') format('woff2');
   }
 
   @font-face {

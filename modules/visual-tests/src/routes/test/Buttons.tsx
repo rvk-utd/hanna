@@ -43,6 +43,16 @@ const buttons = (
         return (
           <div className={name} key={i}>
             <p>
+              {ButtonComponent !== ButtonTertiary && (
+                <ButtonPrimary
+                  size={sizeValue}
+                  variant={variantType}
+                  onClick={modeToggler}
+                  icon="language"
+                >
+                  {sizeName} {variantName} {name} Button
+                </ButtonPrimary>
+              )}{' '}
               <ButtonComponent
                 size={sizeValue}
                 variant={variantType}
@@ -73,7 +83,7 @@ const buttons = (
                 <ButtonComponent
                   size={sizeValue}
                   variant={variantType}
-                  icon={'go-forward' as 'none'}
+                  icon={'go-forward' as unknown as undefined}
                 >
                   Go Forward
                 </ButtonComponent>

@@ -32,17 +32,18 @@
     "build:css": "yarn install  &&  node build-css.mjs",
     "build:assets": "yarn install  &&  node build-assets.mjs",
     "dev": "node build-css.mjs --dev",
+    "iconfont": "node ./scripts/fetch-iconfont.mjs",
     "prepublishOnly": "echo \"\nRun 'yarn run publish:lib' to publish this package\n\n\"  && exit 1",
     "publish:lib": "yarn install  &&  node build-lib-release.mjs",
     "publish:server": "yarn install  &&  node ./build-server-release.mjs",
     "publish:server:fixup": "yarn install  &&  node ./build-server-release.mjs --fixup"
   },
   "devDependencies": {
-    "@hugsmidjan/gulp-iconfont": "^0.4.3",
     "@hugsmidjan/gulp-images": "^0.2.4",
     "@hugsmidjan/qj": "^4.22.1",
     "@types/md5-file": "^5",
     "gulp": "^4.0.2",
-    "md5-file": "^5.0.0"
+    "md5-file": "^5.0.0",
+    "node-fetch": "^3.3.2"
   }
 }

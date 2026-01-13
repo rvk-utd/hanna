@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import { IconName } from '@reykjavik/hanna-css';
-import { Expect, Extends, modifiedClass, OpenStringMap } from '@reykjavik/hanna-utils';
+import React, { ComponentProps, ReactElement, ReactNode } from 'react';
+import { modifiedClass, OpenStringMap } from '@reykjavik/hanna-utils';
 
+import { IconToken } from '../../../hanna-css/src/iconfontTokens.js';
 import { BemModifierProps, BemProps } from '../utils/types.js';
 
 import { Link } from './_Link.js';
@@ -9,7 +9,7 @@ import { Link } from './_Link.js';
 type ButtonElmProps = {
   href?: never;
 } & BemModifierProps &
-  JSX.IntrinsicElements['button'];
+  ComponentProps<'button'>;
 
 type AnchorElmProps = {
   href: string;
@@ -17,11 +17,11 @@ type AnchorElmProps = {
   name?: never;
   value?: never;
 } & BemModifierProps &
-  JSX.IntrinsicElements['a'];
+  ComponentProps<'a'>;
 
 export type ButtonProps = {
   /** Label takes preference over `children` */
-  label?: string | JSX.Element;
+  label?: string | ReactElement;
 } & (ButtonElmProps | AnchorElmProps);
 
 // ---------------------------------------------------------------------------
@@ -43,32 +43,23 @@ type ButtonVariant = keyof typeof variants;
 
 // ---------------------------------------------------------------------------
 
-type NavigationFlag = 'none' | 'go-back' | 'go-forward';
+type NavigationFlag = 'go-back' | 'go-forward';
 const navigationFlags: OpenStringMap<NavigationFlag, string> = {
-  none: '',
   'go-back': 'go--back',
   'go-forward': 'go--forward',
 };
 
 // ---------------------------------------------------------------------------
 
-// type ButtonIcon = never;
+/** @deprecated (Will be removed in v0.11) */
 export type ButtonIcon = 'edit';
-type _ = {
-  ButtonIcon_is_valid: Expect<Extends<ButtonIcon, IconName>>;
-};
-
-const icons: OpenStringMap<ButtonIcon> = {
-  // TODO: insert icons
-  edit: 'edit',
-};
 
 // ---------------------------------------------------------------------------
 
 export type ButtonVariantProps = {
   size?: ButtonSize;
   variant?: ButtonVariant;
-  icon?: ButtonIcon | NavigationFlag;
+  icon?: NavigationFlag | IconToken;
 
   /** @deprecated Use `size="small"` instead  (Will be removed in v0.11) */
   small?: boolean;
@@ -90,7 +81,7 @@ export const Button = (props: _ButtonProps) => {
     modifier,
     children,
     variant = 'normal',
-    icon = 'none',
+    icon,
     label = children,
     ...buttonProps
   } = props;
@@ -99,22 +90,25 @@ export const Button = (props: _ButtonProps) => {
     bem &&
     modifiedClass(
       bem,
-      [modifier, variants[variant], sizes[size], navigationFlags[icon]],
+      [modifier, variants[variant], sizes[size], navigationFlags[icon || '']],
       props.className
     );
 
-  const iconProp = icons[icon] && { 'data-icon': icons[icon] };
+  const iconProp: IconToken | undefined =
+    icon && !(icon in navigationFlags)
+      ? (icon as IconToken)
+      : (props['data-icon' as keyof ButtonProps] as IconToken);
 
   if (CustomTag) {
     return (
-      <CustomTag {...buttonProps} className={className} {...iconProp}>
+      <CustomTag {...buttonProps} className={className} data-icon={iconProp}>
         {label}
       </CustomTag>
     );
   }
   if (buttonProps.href != null) {
     return (
-      <Link {...buttonProps} className={className} {...iconProp}>
+      <Link {...buttonProps} className={className} data-icon={iconProp}>
         {label}
       </Link>
     );
@@ -124,7 +118,7 @@ export const Button = (props: _ButtonProps) => {
         type="button"
         {...(buttonProps as ButtonElmProps)}
         className={className}
-        {...iconProp}
+        data-icon={iconProp}
       >
         {label}
       </button>

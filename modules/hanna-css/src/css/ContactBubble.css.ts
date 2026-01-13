@@ -115,32 +115,35 @@ export default css`
 
     .ContactBubble__openbtn::before,
     .ContactBubble__openbtn::after {
-      ${iconStyle(vars.icon__chat)}
+      content: '';
       position: absolute;
       top: 50%;
-      font-size: ${prem(40)};
       left: ${grid_units(2)};
-      margin-top: -0.5em;
       width: ${grid_units(5)};
-      height: 1em;
-      line-height: 1em;
-      transition: opacity 200ms ease-in;
-    }
-    .ContactBubble__openbtn::after {
-      content: ${vars.icon__close};
-      opacity: 0;
-      font-size: ${prem(26)};
+      margin-top: -1em;
+      height: 2em;
+      line-height: 2em;
     }
 
+    .ContactBubble__openbtn::before {
+      background-color: currentColor;
+      mask: url(i/ContactBubble/chat-toggler.svg) 5% 50% / auto 40px no-repeat;
+      display: inline-block;
+      transition: background-color 250ms 150ms ease-in;
+    }
     .ContactBubble__openbtn[aria-expanded='true']::before {
+      background-color: transparent;
+      transition-delay: 0ms;
+    }
+
+    .ContactBubble__openbtn::after {
+      ${iconStyle('close', 'large')}
+      transition: opacity 250ms 50ms ease-in;
       opacity: 0;
-      transition-delay: 200ms;
-      transition-duration: 200ms;
     }
     .ContactBubble__openbtn[aria-expanded='true']::after {
       opacity: 1;
       transition-delay: 200ms;
-      transition-duration: 200ms;
     }
 
     // ---------------------------------------------------------------------------
@@ -315,8 +318,7 @@ export default css`
         transform: scale(1.15);
       }
       .ContactBubble__closebtn::before {
-        ${iconStyle(vars.icon__close)}
-        font-size: ${prem(26)};
+        ${iconStyle('close', 'large')}
         width: 100%;
         margin-right: 1px;
       }

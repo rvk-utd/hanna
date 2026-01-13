@@ -3,10 +3,12 @@ import { css, str } from 'es-in-css';
 import { mq } from '../lib/breakpoints.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-import { characters, iconStyle } from '../lib/icons.js';
+import { characters, iconStyle, iconToken } from '../lib/icons.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
 import { prem } from './utils/miscUtils.js';
+
+const ballSize = prem(24);
 
 const WizardStepperVariables = buildVariables(
   ['ballBackground', 'ballColor', 'ballIcon', 'lineColor'],
@@ -23,7 +25,7 @@ export default css`
       ${WizardStepperVariables.declare({
         ballBackground: vars.color_faxafloi_75,
         ballColor: vars.color_suld_0,
-        ballIcon: vars.icon__checkmark,
+        ballIcon: iconToken('check'),
         lineColor: vars.color_faxafloi_100,
       })}
       color: ${vars.color_faxafloi_100};
@@ -44,8 +46,8 @@ export default css`
     }
     .WizardStepper__step::before {
       content: counter(step);
-      width: ${prem(24)};
-      line-height: ${prem(24)};
+      width: ${ballSize};
+      line-height: ${ballSize};
       position: absolute;
       top: ${prem(8)};
       left: ${prem(8)};
@@ -97,16 +99,15 @@ export default css`
     .WizardStepper__step[aria-current='step'] {
       ${WizardStepperVariables.override({
         ballBackground: vars.color_faxafloi_100,
-        ballIcon: vars.icon__edit,
+        ballIcon: iconToken('edit'),
         lineColor: vars.color_suld_75,
       })}
     }
 
     .WizardStepper__step--done::before,
     .WizardStepper__step[aria-current='step']::before {
-      ${iconStyle('')}
-      content: ${wsVars.ballIcon};
-      font-size: ${prem(12)};
+      ${iconStyle(wsVars.ballIcon, 'small')}
+      width: ${ballSize};
     }
 
     button.WizardStepper__step:hover,

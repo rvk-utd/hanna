@@ -1,14 +1,15 @@
 import range from '@hugsmidjan/qj/range';
-import { css, em, ms } from 'es-in-css';
+import { css, ms } from 'es-in-css';
 
 import { scale_container, scale_phone_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
-import { iconStyle } from '../lib/icons.js';
+import { iconContent, iconStyle, IconToken } from '../lib/icons.js';
 
 import { Card_css, CardList_css, CardListTitle_css } from './styles/cards.js';
 import {
   cols_pct,
+  dataURI,
   extendBackgroundWithUnderlay,
   prem,
   px_pct,
@@ -63,10 +64,10 @@ export const ExtraLinks__seenEffects = (trigger?: null | string) => css`
 // ---------------------------------------------------------------------------
 
 const icon_indent = prem(26);
-const iconList = [
-  { name: 'text', icon: vars.icon__text },
-  { name: 'pdf', icon: vars.icon__file_pdf },
-  { name: 'link', icon: vars.icon__link },
+const iconList: Array<{ name: string; icon: IconToken }> = [
+  { name: 'text', icon: 'notes' },
+  { name: 'pdf', icon: 'picture_as_pdf' },
+  { name: 'link', icon: 'link' },
 ];
 
 export default css`
@@ -155,19 +156,22 @@ export default css`
       color: ${vars.color_suld_200};
     }
     .ExtraLinks__related__link::before {
-      ${iconStyle(vars.icon__dash)}
+      ${iconStyle('remove', 'small')}
       position: absolute;
       top: 0;
       right: 100%;
       width: ${icon_indent};
       text-align: left;
-      font-size: ${em(16 / 20)};
+      background: currentColor;
+      mask: url(${dataURI('i/icons/dash.svg')}) 0% 50% / auto 1em no-repeat;
     }
 
     ${iconList.map(
       ({ name, icon }) => css`
         .ExtraLinks__related__link--${name}::before {
-          content: ${icon};
+          ${iconContent(icon)}
+          mask: none;
+          background: none;
         }
       `
     )}

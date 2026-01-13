@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    // somehow setting this is "../../tsconfig.base.json" doesn't work
+    // somehow setting this in "../../tsconfig.base.json" doesn't work
     "jsx": "react"
   },
   "include": ["../**/*.ts", "../**/*.tsx"]

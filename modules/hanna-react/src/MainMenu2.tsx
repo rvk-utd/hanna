@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { IconName } from '@reykjavik/hanna-css';
+import { IconName, IconToken } from '@reykjavik/hanna-css';
 import {
   ClassNameModifiers,
   Cleanup,
@@ -18,7 +18,6 @@ import {
 import { getIllustrationUrl, Illustration } from '@reykjavik/hanna-utils/assets';
 import { DefaultTexts, getTexts } from '@reykjavik/hanna-utils/i18n';
 
-import { ButtonIcon } from './_abstract/_Button.js';
 import { Link } from './_abstract/_Link.js';
 import { handleAnchorLinkClick } from './utils/a11yHelpers.js';
 import { I18NProps } from './utils/types.js';
@@ -129,7 +128,8 @@ export type MainMenu2Item = {
 };
 
 export type MainMenu2ButtonItem = MainMenu2Item & {
-  icon?: 'search' | 'user' | 'alert' | 'globe';
+  // eslint-disable-next-line deprecation/deprecation
+  icon?: IconToken | IconName; // exclude "go-back" and "go-forward"
 };
 
 type MainMenu2CustomItemFn = (props: {
@@ -165,20 +165,6 @@ export type MainMenu2SubMenuItemList = Array<
 >;
 
 // ---------------------------------------------------------------------------
-
-const iconMap: Record<NonNullable<MainMenu2ButtonItem['icon']>, ButtonIcon> = {
-  alert: 'info',
-  globe: undefined,
-  search: 'search',
-  user: 'user',
-  // NOTE: We're temporarily coerceing `IconName` to `ButtonIcon`
-  // TODO: Remove this once Hanna icons (and `ButtonIcons` sperifically)
-  // have been expanded better standardised.
-} satisfies Record<
-  NonNullable<MainMenu2ButtonItem['icon']>,
-  IconName | undefined
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-> as any;
 
 /**
  * Function that turns menu item props/objects into HTML
@@ -249,16 +235,16 @@ const getRenderers = (props: {
 
     const commonProps = {
       className: linkClassName,
-      'data-icon': icon ? iconMap[icon] : undefined,
+      'data-icon': icon,
       'arial-label': labelLong,
       title: labelLong, // For auto-tooltips on desktop
       lang,
     };
-    const buttonCompProps = button
-      ? {
-          size: 'small' as const,
-        }
-      : undefined;
+
+    if (button) {
+      console.log('Rendering button for menu item:', commonProps);
+    }
+    const buttonCompProps = button ? { size: 'small' as const } : undefined;
 
     const doRenderButton = isBrowser && (onClick || (onItemClick && href == null));
 
