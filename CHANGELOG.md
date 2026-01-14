@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.41
+
+_2026-01-19_
+
 - feat: Add component `Icon` for inlined icons
 - feat: Support `data-icon-size` attribute along with `data-icon` and
   `data-icon-after`
