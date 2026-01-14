@@ -220,7 +220,7 @@ export const mainMenu2Items = (
     ],
     extra: [
       { label: 'Leita', labelLong: 'Leita á vefnum', href: '', icon: 'search' },
-      { label: 'Tilkynningar', href: '', icon: 'alert' },
+      { label: 'Tilkynningar', href: '', icon: 'notifications' },
     ],
     relatedTitle: 'Sérvefir',
     related: showRelated && [

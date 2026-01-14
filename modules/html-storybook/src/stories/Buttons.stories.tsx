@@ -84,7 +84,7 @@ const ButtonsStory: React.FC<ControlProps> = ({ size, variant }) => {
                 <ButtonComponent
                   size={sizeValue}
                   variant={_variant}
-                  icon={'go-forward' as 'none'}
+                  icon={'go-forward' as 'go-back'}
                 >
                   Go Forward
                 </ButtonComponent>

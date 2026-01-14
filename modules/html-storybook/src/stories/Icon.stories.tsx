@@ -3,7 +3,7 @@ import { Icon, IconProps } from '@reykjavik/hanna-react/Icon';
 import { Equals, Expect } from '@reykjavik/hanna-utils';
 import { Meta, StoryObj } from '@storybook/react';
 
-const sizeOptions = ['small', 'normal', 'large'] as const;
+const sizeOptions = ['small', 'medium', 'large'] as const;
 
 type IconSize = (typeof sizeOptions)[number];
 
@@ -38,6 +38,6 @@ export const _Icon: StoryObj<ControlProps> = {
     },
   },
   args: {
-    size: 'normal',
+    size: 'medium',
   },
 };
