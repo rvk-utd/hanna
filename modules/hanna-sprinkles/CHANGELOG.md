@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.62
+
+_2026-01-19_
+
 - feat: Add `DropdownButton` sprinkle
 - `MainMenu2`:
   - feat: Support `.MainMenu2__hot__item--redhot` items
