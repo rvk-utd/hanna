@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.96
+
+_2026-01-19_
+
 - feat: Add component `Icon` for inlined icons
 - feat: Grow the list of available Button-related icons via `IconToken` type
 - feat: Add component `ReykjavikWaves` (Also works as "utility class")
