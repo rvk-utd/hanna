@@ -7,7 +7,7 @@ import { buildAndRunTests, buildNpmLib, distDir, srcDir } from '../../build-help
 
 import { getCssVersionConfig, serverFolder } from './build/config.mjs';
 
-(async () => {
+export default (async () => {
   const { fullCssVersion, cssFolderVersion, majorCssVersion } =
     await getCssVersionConfig();
 

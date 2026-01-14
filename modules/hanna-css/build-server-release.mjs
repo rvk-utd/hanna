@@ -78,7 +78,7 @@ const runPrePublishTests = async (publishCssFolder) => {
     await getCssVersionConfig();
 
   await resetStyleServerSubmodule();
-  await import('./build-lib.mjs'); // CSS builds depend on the lib being correct
+  await import('./build-lib.mjs').then((exports) => exports.default); // CSS builds depend on the lib being correct
 
   // Build and commit production CSS
   await buildCssFiles('production');

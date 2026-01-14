@@ -9,7 +9,7 @@ import { buildCssFiles } from './build/helpers.mjs';
 // ===========================================================================
 
 (async () => {
-  await import('./build-lib.mjs');
+  await import('./build-lib.mjs').then((exports) => exports.default);
   await buildCssFiles(process.env.NODE_ENV);
 
   if (isDev) {
