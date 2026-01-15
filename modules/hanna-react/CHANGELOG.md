@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.161
+
+_2026-01-15_
+
 - feat: Add component `Icon`
 - feat: Add component `ReykjavikWaves`
 - `DropdownButton`:
