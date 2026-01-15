@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.24
+
+_2026-01-15_
+
 - feat: Add vars `icon_size__(small|normal|large)` to `hannaVars`
 - feat: Add second param to `iconStyle()` to set icon `size`
 - feat: Add `iconContent(iconToken)` helper
