@@ -59,8 +59,7 @@ export default css`
       `
     )}
     [data-icon]::before {
-      ${iconStyle};
-      content: ${iVars.Icon__enabled.or(iVars.Icon.or(`attr(data-icon)`))};
+      ${iconStyle(iVars.Icon__enabled.or(iVars.Icon.or(`attr(data-icon)`)))};
       font-size: ${iVars.Icon__size};
       margin-right: ${vars.space_1};
     }
@@ -103,9 +102,8 @@ export default css`
       `
     )}
     [data-icon-after]::after {
-      ${iconStyle};
-      content: ${iAVars.Icon_after__enabled.or(
-        iAVars.Icon_after.or(`attr(data-icon-after)`)
+      ${iconStyle(
+        iAVars.Icon_after__enabled.or(iAVars.Icon_after.or(`attr(data-icon-after)`))
       )};
       font-size: ${iAVars.Icon_after__size};
       margin-left: ${vars.space_1$5};
