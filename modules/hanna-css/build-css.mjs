@@ -8,12 +8,10 @@ import { buildCssFiles } from './build/helpers.mjs';
 
 // ===========================================================================
 
-(async () => {
-  await import('./build-lib.mjs').then((exports) => exports.default);
-  await buildCssFiles(process.env.NODE_ENV);
+await import('./build-lib.mjs');
+await buildCssFiles(process.env.NODE_ENV);
 
-  if (isDev) {
-    shell$(`yarn run gulp --gulpfile build/gulp-tasks.mjs --cwd . watch`, logError);
-    shell$(`cd ${serverFolder} && sh scripts/start-dev.sh`, logError);
-  }
-})();
+if (isDev) {
+  shell$(`yarn run gulp --gulpfile build/gulp-tasks.mjs --cwd . watch`, logError);
+  shell$(`cd ${serverFolder} && sh scripts/start-dev.sh`, logError);
+}

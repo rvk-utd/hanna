@@ -14,54 +14,52 @@ import { existsSync } from 'fs';
 
 import { bumpVersion, getServerConfig } from './build-config.mjs';
 
-(async () => {
-  const fixupMessage = args.fixup ? ' (fixup)' : '';
+const fixupMessage = args.fixup ? ' (fixup)' : '';
 
-  if (!args.fixup) {
-    await bumpVersion();
-  }
-  const {
-    distFolder,
-    serverPath,
-    sprinklesPath,
-    sprinklesVersionPath,
-    version,
-    versionFolder,
-  } = await getServerConfig();
+if (!args.fixup) {
+  await bumpVersion();
+}
+const {
+  distFolder,
+  serverPath,
+  sprinklesPath,
+  sprinklesVersionPath,
+  version,
+  versionFolder,
+} = await getServerConfig();
 
-  await import(`./build.mjs`);
+await import('./build.mjs');
 
-  if (!existsSync(distFolder)) {
-    logThenExit1(new Error(`distFolder does not exist: ${distFolder}`));
-  }
+if (!existsSync(distFolder)) {
+  logThenExit1(new Error(`distFolder does not exist: ${distFolder}`));
+}
 
-  const redirectsFile = 'redirects-sprinkles.json';
+const redirectsFile = 'redirects-sprinkles.json';
 
-  await shell$([
-    `git submodule update --init --quiet`,
-    `cd ${serverPath}`,
-    `git stash`,
-    `git checkout main`,
-    `cd -`,
-    `git submodule update --remote --rebase --quiet`,
+await shell$([
+  `git submodule update --init --quiet`,
+  `cd ${serverPath}`,
+  `git stash`,
+  `git checkout main`,
+  `cd -`,
+  `git submodule update --remote --rebase --quiet`,
 
-    // update submodule files
-    `cp -R ${distFolder} ${sprinklesVersionPath}`,
+  // update submodule files
+  `cp -R ${distFolder} ${sprinklesVersionPath}`,
 
-    // update redirects
-    `cp CHANGELOG.md ${sprinklesPath}changelog.txt`,
-    `sed 's/\${versionFolder}/${versionFolder}/g' ${redirectsFile} > ${
-      serverPath + redirectsFile
-    }`,
+  // update redirects
+  `cp CHANGELOG.md ${sprinklesPath}changelog.txt`,
+  `sed 's/\${versionFolder}/${versionFolder}/g' ${redirectsFile} > ${
+    serverPath + redirectsFile
+  }`,
 
-    // submodule commit
-    `cd ${serverPath}`,
-    `git add "./*"`,
-    `git commit -m "release(sprinkles): v${version}${fixupMessage}"`,
-    `cd -`,
+  // submodule commit
+  `cd ${serverPath}`,
+  `git add "./*"`,
+  `git commit -m "release(sprinkles): v${version}${fixupMessage}"`,
+  `cd -`,
 
-    // local commit
-    `git add ./package.json ./CHANGELOG.md ${serverPath}`,
-    `git commit -m "release(sprinkles): v${version}${fixupMessage}"`,
-  ]);
-})();
+  // local commit
+  `git add ./package.json ./CHANGELOG.md ${serverPath}`,
+  `git commit -m "release(sprinkles): v${version}${fixupMessage}"`,
+]);

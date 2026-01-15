@@ -7,7 +7,5 @@ import { handlError } from './build/helpers.mjs';
 
 // ===========================================================================
 
-(async () => {
-  await shell$(`rm -rf ${assetsDistFolder}`);
-  await compressStaticAssets().catch(handlError);
-})();
+await shell$(`rm -rf ${assetsDistFolder}`);
+await compressStaticAssets().catch(handlError);

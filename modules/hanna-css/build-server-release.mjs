@@ -70,58 +70,55 @@ const runPrePublishTests = async (publishCssFolder) => {
 
 // ===========================================================================
 
-(async () => {
-  if (!args.fixup) {
-    await updatePkgVersion(serverPkgConfig);
-  }
-  const { cssFolderVersion, fullCssVersion, majorCssVersion } =
-    await getCssVersionConfig();
+if (!args.fixup) {
+  await updatePkgVersion(serverPkgConfig);
+}
+const { cssFolderVersion, fullCssVersion, majorCssVersion } = await getCssVersionConfig();
 
-  await resetStyleServerSubmodule();
-  await import('./build-lib.mjs').then((exports) => exports.default); // CSS builds depend on the lib being correct
+await resetStyleServerSubmodule();
+await import('./build-lib.mjs'); // CSS builds depend on the lib being correct
 
-  // Build and commit production CSS
-  await buildCssFiles('production');
-  if (!process.env.SKIP_VISUAL_TESTS) {
-    await shell$(`yarn workspace hanna-visual-tests run test`);
-  }
-  const publishCssFolder = `${publicFolder}css/v${cssFolderVersion}`;
-  cssFolderVersion.startsWith('0.') && (await shell$(`rm -rf ${publishCssFolder}`));
-  await runPrePublishTests(publishCssFolder);
-  await shell$(`cp -R ${devDistCssFolder} ${publishCssFolder}`);
-  await commitToGitSubmodule(publishCssFolder);
+// Build and commit production CSS
+await buildCssFiles('production');
+if (!process.env.SKIP_VISUAL_TESTS) {
+  await shell$(`yarn workspace hanna-visual-tests run test`);
+}
+const publishCssFolder = `${publicFolder}css/v${cssFolderVersion}`;
+cssFolderVersion.startsWith('0.') && (await shell$(`rm -rf ${publishCssFolder}`));
+await runPrePublishTests(publishCssFolder);
+await shell$(`cp -R ${devDistCssFolder} ${publishCssFolder}`);
+await commitToGitSubmodule(publishCssFolder);
 
-  // Build and commit dev-v* CSS
-  await buildCssFiles('development');
-  const publishDevCssFolder = `${publicFolder}css/dev-v${majorCssVersion}`;
-  await shell$(`rm -rf ${publishDevCssFolder}`);
-  await shell$(`cp -R ${devDistCssFolder} ${publishDevCssFolder}`);
-  await commitToGitSubmodule(publishDevCssFolder);
+// Build and commit dev-v* CSS
+await buildCssFiles('development');
+const publishDevCssFolder = `${publicFolder}css/dev-v${majorCssVersion}`;
+await shell$(`rm -rf ${publishDevCssFolder}`);
+await shell$(`cp -R ${devDistCssFolder} ${publishDevCssFolder}`);
+await commitToGitSubmodule(publishDevCssFolder);
 
-  if (!args.skipAssets) {
-    // Compress and commit assets
-    await shell$(`rm -rf ${assetsDistFolder}`);
-    await compressStaticAssets();
-    await commitToGitSubmodule(assetsDistFolder.replace(/\/$/, ''));
-  }
+if (!args.skipAssets) {
+  // Compress and commit assets
+  await shell$(`rm -rf ${assetsDistFolder}`);
+  await compressStaticAssets();
+  await commitToGitSubmodule(assetsDistFolder.replace(/\/$/, ''));
+}
 
-  // Update submodule root files and commit the version bump
-  await shell$([
-    // update submodule files
-    `cp package-server.json ${serverFolder}package.json`,
-    `cp README-server.md ${serverFolder}README.md`,
-    `cp CHANGELOG-server.md ${serverFolder}CHANGELOG.md`,
-    `cp cssserve-prod-server.json ${serverFolder}cssserve-prod.json`,
+// Update submodule root files and commit the version bump
+await shell$([
+  // update submodule files
+  `cp package-server.json ${serverFolder}package.json`,
+  `cp README-server.md ${serverFolder}README.md`,
+  `cp CHANGELOG-server.md ${serverFolder}CHANGELOG.md`,
+  `cp cssserve-prod-server.json ${serverFolder}cssserve-prod.json`,
 
-    // submodule commit
-    `cd ${serverFolder}`,
-    `yarn install`, // in case package-server.json has new dependencies
-    `git add "./*"`,
-    `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
-    `cd -`,
+  // submodule commit
+  `cd ${serverFolder}`,
+  `yarn install`, // in case package-server.json has new dependencies
+  `git add "./*"`,
+  `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
+  `cd -`,
 
-    // local commit
-    `git add ./*-server.* ./src/**/style-server-info.ts ${serverFolder}`,
-    `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
-  ]);
-})();
+  // local commit
+  `git add ./*-server.* ./src/**/style-server-info.ts ${serverFolder}`,
+  `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
+]);
