@@ -3,14 +3,14 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add component `ContextMenu` (previously `DropdownButton`)
-- feat: Deprecate component `DropdownButton` (in favor of `ContextMenu`)
 
 ## 0.8.96
 
 _2026-01-19_
 
 - feat: Add component `Icon` for inlined icons
+- feat: Add component `ContextMenu` (previously `DropdownButton`)
+- feat: Deprecate component `DropdownButton` (in favor of `ContextMenu`)
 - feat: Grow the list of available Button-related icons via `IconToken` type
 - feat: Add component `ReykjavikWaves` (Also works as "utility class")
 - `MainMenu2`
