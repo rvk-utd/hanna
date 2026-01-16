@@ -9,6 +9,8 @@
 _2026-01-19_
 
 - feat: Add component `Icon` for inlined icons
+- feat: Add component `ContextMenu` (previously `DropdownButton`)
+- feat: Deprecate component `DropdownButton` (in favor of `ContextMenu`)
 - feat: Support `data-icon-size` attribute along with `data-icon` and
   `data-icon-after`
 - feat: Add component `ReykjavikWaves` (also works as "utility-class")

@@ -1,11 +1,3 @@
-// ===========================================================================
-/*
-  NOTE:
-  THIS COMPONENT IS DEPRECATED AND WILL BE REMOVED IN A FUTURE VERSION.
-  DO NOT UPDATE IT OR ADD NEW FEATURES.
-
-*/
-// ===========================================================================
 import React, {
   CSSProperties,
   HTMLAttributeAnchorTarget,
@@ -25,7 +17,6 @@ import { Button, ButtonVariantProps } from './_abstract/_Button.js';
 import { useCallbackOnEsc } from './utils/useCallbackOnEsc.js';
 import { useLaggedState } from './utils/useLaggedState.js';
 import { useOnClickOutside } from './utils/useOnClickOutside.js';
-import { ContextMenuItem } from './ContextMenu.js';
 import { FocusTrap } from './FocusTrap.js';
 import { SSRSupportProps, useIsBrowserSide, WrapperElmProps } from './utils.js';
 
@@ -35,7 +26,7 @@ type Prefix<record extends Record<string, unknown>, prefix extends string> = {
 
 // ---------------------------------------------------------------------------
 
-type _DropdownButtonItem = {
+export type ContextMenuItem = {
   /** Visible label text */
   label: string | ReactElement;
   /** Un-abbreviated label set as `aria-label=""` */
@@ -71,11 +62,11 @@ type _DropdownButtonItem = {
    * NOTE: Clicking a menu item will automatically close tghe menu
    * … unless the `onClick` function explicitly returns `false`.
    */
-  onClick?: (item: _DropdownButtonItem) => void | boolean;
+  onClick?: (item: ContextMenuItem) => void | boolean;
   /** Sets `aria-controls=""` on `<button/>`s with `onClick` */
   controlsId?: string;
 
-  Content?: never; // To discrimiate bteween this and `DropdownButtonCustomItem`
+  Content?: never; // To discrimiate bteween this and `ContextMenuCustomItem`
 
   /** Seldom used flag for buttons that do destruction */
   destructive?: boolean;
@@ -84,22 +75,23 @@ type _DropdownButtonItem = {
   icon?: IconToken | IconName_old;
 };
 
-type DropdownbButtonCustomItemFn = (props: { closeMenu: () => void }) => ReactElement;
+type ContextMenuCustomItemFn = (props: { closeMenu: () => void }) => ReactElement;
 
-type _DropdownButtonCustomItem = Pick<ContextMenuItem, 'modifier' | 'current'> & {
-  Content: DropdownbButtonCustomItemFn;
+export type ContextMenuCustomItem = Pick<ContextMenuItem, 'modifier' | 'current'> & {
+  Content: ContextMenuCustomItemFn;
 };
 
-type _DropdownButtonItemDivider = {
+//
+
+/** Renders a divider line between `ContextMenu*Item`s with an optional legend */
+export type ContextMenuItemDivider = {
   divider: true;
   label?: string;
 };
 
-type _DropdownButtonProps = {
+export type ContextMenuProps = {
   /** The items to display inside the dropdown menu */
-  items: Array<
-    _DropdownButtonItem | _DropdownButtonCustomItem | _DropdownButtonItemDivider
-  >;
+  items: Array<ContextMenuItem | ContextMenuCustomItem | ContextMenuItemDivider>;
   /**
    * NOTE: Clicking a ContextMenu item will automatically close the drropdown
    * … unless the `onItemClick` function explicitly returns `false`.
@@ -114,8 +106,8 @@ type _DropdownButtonProps = {
     /** Longer accessible toggler label text */
     labelLong?: string;
     /** Default: `"secondary"` */
-    buttonType?: 'primary' | 'secondary';
-  } & Prefix<Omit<ButtonVariantProps, 'small'>, 'button'>,
+    togglerType?: 'primary' | 'secondary';
+  } & Prefix<Omit<ButtonVariantProps, 'small'>, 'toggler'>,
   {
     /** Custom toggler rendering function component */
     Toggler: (props: { isOpen: boolean }) => ReactElement;
@@ -124,9 +116,7 @@ type _DropdownButtonProps = {
   WrapperElmProps<'details', 'open' | 'name'> &
   SSRSupportProps;
 
-/** @deprecated Use `ContextMenu` instead.  (Will be removed in v0.11) */
-// eslint-disable-next-line deprecation/deprecation
-export const DropdownButton = (props: DropdownButtonProps) => {
+export const ContextMenu = (props: ContextMenuProps) => {
   const [isOpen, setIsOpen] = useLaggedState(false, 10);
   const isBrowser = useIsBrowserSide(props.ssr);
   const [isHovering, setIsHovering] = useState(false);
@@ -153,11 +143,7 @@ export const DropdownButton = (props: DropdownButtonProps) => {
   return (
     <details
       {...wrapperProps}
-      className={modifiedClass(
-        'DropdownButton',
-        isOpen && 'open',
-        wrapperProps.className
-      )}
+      className={modifiedClass('ContextMenu', isOpen && 'open', wrapperProps.className)}
       open={isOpen}
       onBlur={(e) => {
         if (!isHovering) {
@@ -170,22 +156,22 @@ export const DropdownButton = (props: DropdownButtonProps) => {
           return;
         }
         (wrapperRef as MutableRefObject<HTMLDetailsElement>).current = elm;
-        refs.setReference(elm.querySelector('.DropdownButton__toggler'));
-        refs.setFloating(elm.querySelector('.DropdownButton__menu'));
+        refs.setReference(elm.querySelector('.ContextMenu__toggler'));
+        refs.setFloating(elm.querySelector('.ContextMenu__menu'));
       }}
     >
       {props.Toggler ? (
-        <summary className="DropdownButton__toggler" onClick={toggle}>
+        <summary className="ContextMenu__toggler" onClick={toggle}>
           <props.Toggler isOpen={isOpen} />
         </summary>
       ) : (
         <Button
           as="summary"
-          className="DropdownButton__toggler"
-          bem={props.buttonType === 'primary' ? 'ButtonPrimary' : 'ButtonSecondary'}
-          icon={props.buttonIcon}
-          size={props.buttonSize}
-          variant={props.buttonVariant}
+          className="ContextMenu__toggler"
+          bem={props.togglerType === 'primary' ? 'ButtonPrimary' : 'ButtonSecondary'}
+          icon={props.togglerIcon}
+          size={props.togglerSize}
+          variant={props.togglerVariant}
           aria-label={props.labelLong}
           onClick={toggle}
         >
@@ -193,7 +179,7 @@ export const DropdownButton = (props: DropdownButtonProps) => {
         </Button>
       )}
       <ul
-        className="DropdownButton__menu"
+        className="ContextMenu__menu"
         onMouseEnter={() => {
           setIsHovering(true);
         }}
@@ -206,8 +192,8 @@ export const DropdownButton = (props: DropdownButtonProps) => {
         style={
           x != null
             ? ({
-                '--DropdownButton-pos-y': `${y}px`,
-                '--DropdownButton-pos-x': `${x}px`,
+                '--ContextMenu-pos-y': `${y}px`,
+                '--ContextMenu-pos-x': `${x}px`,
               } as CSSProperties)
             : undefined
         }
@@ -224,7 +210,7 @@ export const DropdownButton = (props: DropdownButtonProps) => {
                 <li
                   key={i}
                   className={modifiedClass(
-                    'DropdownButton__itemDivider',
+                    'ContextMenu__itemDivider',
                     item.label && 'labelled'
                   )}
                 >
@@ -237,7 +223,7 @@ export const DropdownButton = (props: DropdownButtonProps) => {
             }
 
             const itemProps = {
-              className: modifiedClass('DropdownButton__item', item.modifier),
+              className: modifiedClass('ContextMenu__item', item.modifier),
               'aria-current': item.current || undefined,
             };
 
@@ -253,7 +239,7 @@ export const DropdownButton = (props: DropdownButtonProps) => {
 
             const commonProps = {
               className: modifiedClass(
-                'DropdownButton__itembutton',
+                'ContextMenu__itembutton',
                 destructive && 'destructive'
               ),
               lang: item.lang,
@@ -271,7 +257,7 @@ export const DropdownButton = (props: DropdownButtonProps) => {
             return (
               <li
                 key={i}
-                className={modifiedClass('DropdownButton__item', item.modifier)}
+                className={modifiedClass('ContextMenu__item', item.modifier)}
                 aria-current={item.current || undefined}
               >
                 {doRenderButton ? (
@@ -310,14 +296,3 @@ export const DropdownButton = (props: DropdownButtonProps) => {
     </details>
   );
 };
-
-// ===========================================================================
-
-/** @deprecated Use `ContextMenuItem` instead.  (Will be removed in v0.11) */
-export type DropdownButtonItem = _DropdownButtonItem;
-/** @deprecated Use `ContextMenuCustomItem` instead.  (Will be removed in v0.11) */
-export type DropdownButtonCustomItem = _DropdownButtonCustomItem;
-/** @deprecated Use `ContextMenuItemDivider` instead.  (Will be removed in v0.11) */
-export type DropdownButtonItemDivider = _DropdownButtonItemDivider;
-/** @deprecated Use `ContextMenuProps` instead.  (Will be removed in v0.11) */
-export type DropdownButtonProps = _DropdownButtonProps;

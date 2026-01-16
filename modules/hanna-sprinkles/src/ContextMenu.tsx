@@ -6,47 +6,46 @@ import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { ButtonSecondaryProps } from '@reykjavik/hanna-react/ButtonSecondary.jsx';
 import {
-  DropdownButton,
-  DropdownButtonCustomItem,
-  DropdownButtonProps,
-} from '@reykjavik/hanna-react/DropdownButton';
+  ContextMenu,
+  ContextMenuCustomItem,
+  ContextMenuProps,
+} from '@reykjavik/hanna-react/ContextMenu';
 
-import { InjectHTML } from './_/InjectHTML.jsx';
+import { InjectHTML } from './_/InjectHTML.js';
 
-const getDropdownButtonData = (elm: HTMLElement): DropdownButtonProps | undefined => {
-  const items = qq<HTMLLIElement>(
-    '.DropdownButton__menu > .DropdownButton__item',
-    elm
-  ).map((itemElm): DropdownButtonCustomItem => {
-    const modifier = itemElm.className
-      .match(/[a-zA-Z0-9]__item--(.+?)(?: |$)/g)
-      ?.map((m) => m.slice(m.indexOf('--') + 2));
-    const current = itemElm.getAttribute('aria-current') === 'true';
+const getContextMenuData = (elm: HTMLElement): ContextMenuProps | undefined => {
+  const items = qq<HTMLLIElement>('.ContextMenu__menu > .ContextMenu__item', elm).map(
+    (itemElm): ContextMenuCustomItem => {
+      const modifier = itemElm.className
+        .match(/[a-zA-Z0-9]__item--(.+?)(?: |$)/g)
+        ?.map((m) => m.slice(m.indexOf('--') + 2));
+      const current = itemElm.getAttribute('aria-current') === 'true';
 
-    const nodes = itemElm.childNodes;
-    nodes.forEach((node) => node.remove());
-    itemElm.classList.remove('DropdownButton__item');
-    // Defensively turn all menu items into custom items,
-    // to preserve onClick behaviors, etc...
-    return {
-      modifier,
-      current,
-      Content: () => {
-        const ref = useRef<HTMLSpanElement>(null);
-        useEffect(() => {
-          const spanElm = ref.current;
-          if (!spanElm) {
-            return;
-          }
-          spanElm.parentNode!.append(...nodes);
-          spanElm.remove();
-        }, []);
-        return <span ref={ref} />;
-      },
-    };
-  });
+      const nodes = itemElm.childNodes;
+      nodes.forEach((node) => node.remove());
+      itemElm.classList.remove('ContextMenu__item');
+      // Defensively turn all menu items into custom items,
+      // to preserve onClick behaviors, etc...
+      return {
+        modifier,
+        current,
+        Content: () => {
+          const ref = useRef<HTMLSpanElement>(null);
+          useEffect(() => {
+            const spanElm = ref.current;
+            if (!spanElm) {
+              return;
+            }
+            spanElm.parentNode!.append(...nodes);
+            spanElm.remove();
+          }, []);
+          return <span ref={ref} />;
+        },
+      };
+    }
+  );
 
-  const summmaryElm = q<HTMLElement>('.DropdownButton__toggler', elm);
+  const summmaryElm = q<HTMLElement>('.ContextMenu__toggler', elm);
   if (!summmaryElm || items.length === 0) {
     return;
   }
@@ -75,10 +74,10 @@ const getDropdownButtonData = (elm: HTMLElement): DropdownButtonProps | undefine
 };
 
 window.Hanna.makeSprinkle({
-  name: 'DropdownButton',
+  name: 'ContextMenu',
 
   init: (elm: HTMLElement) => {
-    const props = getDropdownButtonData(elm);
+    const props = getContextMenuData(elm);
     if (!props) {
       return;
     }
@@ -89,7 +88,7 @@ window.Hanna.makeSprinkle({
     elm.remove();
 
     ReactDOM.render(
-      <DropdownButton {...props} ssr={false} wrapperProps={{ 'data-sprinkled': '' }} />,
+      <ContextMenu {...props} ssr={false} wrapperProps={{ 'data-sprinkled': '' }} />,
       root
     );
 

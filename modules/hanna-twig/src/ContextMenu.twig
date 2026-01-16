@@ -1,39 +1,39 @@
-{{ attach_library('hanna/DropdownButton') }}
+{{ attach_library('hanna/ContextMenu') }}
 {#
-  ## `DropdownButton` Props:
+  ## `ContextMenu` Props:
 
-  - items: Array<DropdownButtonItem | DropdownButtonCustomItem>
+  - items: Array<ContextMenuItem | ContextMenuCustomItem>
     // The items to display inside the dropdown menu
   - wrapperProps?: object  \
     // Additional props/attributes to add to the outer wrapper `<div>` element
 
-  Then for the toggler button, either:
+  Then for the toggler toggler, either:
 
   - label: string  \
-    // Label for the toggler button.
+    // Label for the toggler.
   - label_html: string  \
-    // Label for the toggler button that should be rendered as raw HTML.
+    // Label for the toggler that should be rendered as raw HTML.
     // (If both `label` and `label_html` are provided, a non-empty`label` takes precedence.)
   - label_long?: string  \
     // Un-abbreviated toggler label set as `aria-label=""`
-  - button_type: 'primary' | 'secondary'  \
+  - toggler_type: 'primary' | 'secondary'  \
     // Button type style (default: 'secondary')
-  - button_size?: 'small' | 'wide' | 'normal'  \
+  - toggler_size?: 'small' | 'wide' | 'normal'  \
     // Button size style (default: 'normal')
-  - button_variant?: 'normal' | 'destructive'  \
+  - toggler_variant?: 'normal' | 'destructive'  \
     // Button variant style (default: 'normal')
-  - button_icon?: IconToken  \
-    // Icon name to show in the button
+  - toggler_icon?: IconToken  \
+    // Icon name to show in the toggler
     // (see ../../hanna-css/scripts/figma-icon-names.txt for available icons)
 
   Or:
 
   - toggler: string  \
-    // Custom HTML content to use as the toggler button
+    // Custom HTML content to use as the toggler
 
   ---------------------------------------------------
 
-  ## `DropdownButtonItem` Props
+  ## `ContextMenuItem` Props
 
   - label: string  \
     // Label text for the menu item
@@ -56,21 +56,21 @@
   - current?: boolean  \
     // If true, adds `aria-current="true"` to the item wrapper `<li>`
   - modifier?: string  \
-    // Optional modifier class suffix for the item wrapper `<li>` (e.g. `DropdownButton__item--{{modifier}`})
+    // Optional modifier class suffix for the item wrapper `<li>` (e.g. `ContextMenu__item--{{modifier}`})
 
 
   ---------------------------------------------------
 
-  ## `DropdownButtonCustomItem` Props
+  ## `ContextMenuCustomItem` Props
 
   - content: string  \
     // Custom HTML string for the menu item, which gets inserted into a
-    // <li class="DropdownButton__item" /> wrapper.
+    // <li class="ContextMenu__item" /> wrapper.
   - current?: boolean  \
     // If true, adds `aria-current="true"` to the item wrapper `<li>`
   - modifier?: string  \
     // Optional modifier class suffix for the item wrapper `<li>`
-    // (e.g. `DropdownButton__item--{{modifier}`})
+    // (e.g. `ContextMenu__item--{{modifier}`})
 
 
   ---------------------------------------------------
@@ -83,18 +83,18 @@
 
 
 
-<details class="DropdownButton">
+<details class="ContextMenu">
   {% if toggler %}
-    <summary class="DropdownButton__toggler">
+    <summary class="ContextMenu__toggler">
       {{ toggler|raw }}
     </summary>
   {% else %}
-    {% set buttonClass = button_type == 'primary' ? ' ButtonPrimary' : ' ButtonSecondary' %}
-    {% set buttonSizeClass = button_size and button_size != 'normal' ? ' ' ~ buttonClass ~ '--' ~ button_size : '' %}
-    {% set buttonVariantClass = button_variant and button_variant != 'normal' ? ' ' ~ buttonClass ~ '--' ~ button_variant : '' %}
+    {% set togglerClass = toggler_type == 'primary' ? ' ButtonPrimary' : ' ButtonSecondary' %}
+    {% set togglerSizeClass = toggler_size and toggler_size != 'normal' ? ' ' ~ togglerClass ~ '--' ~ toggler_size : '' %}
+    {% set togglerVariantClass = toggler_variant and toggler_variant != 'normal' ? ' ' ~ togglerClass ~ '--' ~ toggler_variant : '' %}
     <summary
-      class="DropdownButton__toggler{{ buttonClass ~ buttonSizeClass ~ buttonVariantClass }}"
-      {% if button_icon %} data-icon="{{ button_icon }}" {% endif %}
+      class="ContextMenu__toggler{{ togglerClass ~ togglerSizeClass ~ togglerVariantClass }}"
+      {% if toggler_icon %} data-icon="{{ toggler_icon }}" {% endif %}
       {% if label_long %} aria-label="{{ label_long }}" title="{{ label_long }}" {% endif %}
     >
       {% if label_html and not label %}
@@ -105,18 +105,18 @@
     </summary>
   {% endif %}
 
-  <ul class="DropdownButton__menu" role="menu">
+  <ul class="ContextMenu__menu" role="menu">
     {% for item in items %}
-      {% set itemModifierClass = item.modifier ? ' DropdownButton__item--' ~ item.modifier : '' %}
+      {% set itemModifierClass = item.modifier ? ' ContextMenu__item--' ~ item.modifier : '' %}
       <li
-        class="DropdownButton__item{{ itemModifierClass }}"
+        class="ContextMenu__item{{ itemModifierClass }}"
         {% if item.current %} aria-current="true" {% endif %}
       >
         {% if item.content %}
           {{ item.content|raw }}
         {% else %}
           <a
-            class="DropdownButton__itembutton"
+            class="ContextMenu__itembutton"
             href="{{ item.href }}"
             {% if item.lang %} lang="{{ item.lang }}" {% endif %}
             {% if item.href_lang %} hreflang="{{ item.href_lang }}" {% endif %}
@@ -142,8 +142,8 @@
   {
     label: '',
     label_long: 'Tungumálavalmynd',
-    button_type: 'secondary',
-    button_icon: 'language', // globe icon
+    toggler_type: 'secondary',
+    toggler_icon: 'language', // globe icon
     items: [
       {
         label: 'Íslenska',

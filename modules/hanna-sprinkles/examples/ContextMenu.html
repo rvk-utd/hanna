@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>ContextMenu sprinkles test</title>
+    <link href="http://localhost:4000/assets/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:4000/bundle/dev?m=-basics,Layout,ContextMenu"
+    />
+
+    <script src="/dist/index.js"></script>
+
+    <script>
+      Hanna.loadSprinkles('ContextMenu');
+    </script>
+  </head>
+
+  <body>
+    <div class="Layout">
+      <div class="Layout__content">
+        <div class="Layout__main">
+          <!-- -->
+
+          <details class="ContextMenu">
+            <summary
+              class="ButtonSecondary ContextMenu__toggler"
+              aria-label="Optional longer toggler label"
+            >
+              Toggler label
+            </summary>
+            <ul class="ContextMenu__menu">
+              <li class="ContextMenu__item">
+                <button class="ContextMenu__itembutton" data-icon="edit" type="button">
+                  Edit with onClick
+                </button>
+              </li>
+              <li class="ContextMenu__item" aria-current="true">
+                <a class="ContextMenu__itembutton" href="">
+                  Something else with
+                  <small>some JSX</small>
+                  and a long label
+                </a>
+              </li>
+              <li class="ContextMenu__item">
+                <a class="ContextMenu__itembutton" data-icon="document" href="">
+                  Some stuff
+                </a>
+              </li>
+              <li class="ContextMenu__item">
+                <a class="ContextMenu__itembutton" href="">Delete</a>
+              </li>
+              <li class="FocusTrap" tabindex="0"></li>
+            </ul>
+          </details>
+
+          <details class="ContextMenu">
+            <summary
+              class="ButtonPrimary ButtonPrimary--small ContextMenu__toggler"
+              aria-label="Optional longer toggler label"
+            >
+              Toggler label
+            </summary>
+            <ul class="ContextMenu__menu">
+              <li class="ContextMenu__item">
+                <button class="ContextMenu__itembutton" data-icon="edit" type="button">
+                  Edit with onClick
+                </button>
+              </li>
+              <li class="ContextMenu__item" aria-current="true">
+                <a class="ContextMenu__itembutton" href="">
+                  Something else with
+                  <small>some JSX</small>
+                  and a long label
+                </a>
+              </li>
+              <li class="ContextMenu__item">
+                <a class="ContextMenu__itembutton" data-icon="document" href="">
+                  Some stuff
+                </a>
+              </li>
+              <li class="ContextMenu__item">
+                <a class="ContextMenu__itembutton" href="">Delete</a>
+              </li>
+              <li class="FocusTrap" tabindex="0"></li>
+            </ul>
+          </details>
+
+          <details class="ContextMenu">
+            <summary class="ContextMenu__toggler">
+              <span
+                class="Button Button--secondary ContextMenu__toggler"
+                style="background: yellow; padding: 4px 8px"
+                aria-label="Longer text for custom toggler"
+              >
+                Custom toggler
+              </span>
+            </summary>
+            <ul class="ContextMenu__menu">
+              <li class="ContextMenu__item">
+                <button class="ContextMenu__itembutton" data-icon="edit" type="button">
+                  Edit with onClick
+                </button>
+              </li>
+              <li class="ContextMenu__item" aria-current="true">
+                <a class="ContextMenu__itembutton" href="">
+                  Something else with
+                  <small>some JSX</small>
+                  and a long label
+                </a>
+              </li>
+              <li class="ContextMenu__item">
+                <a class="ContextMenu__itembutton" data-icon="document" href="">
+                  Some stuff
+                </a>
+              </li>
+              <li class="ContextMenu__item">
+                <a class="ContextMenu__itembutton" href="">Delete</a>
+              </li>
+              <li class="FocusTrap" tabindex="0"></li>
+            </ul>
+          </details>
+
+          <!-- -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.Hanna.refresh();
+    </script>
+  </body>
+</html>

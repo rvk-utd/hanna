@@ -1,9 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { V2_MetaFunction } from '@remix-run/node';
-import {
-  DropdownButton,
-  DropdownButtonItem,
-} from '@reykjavik/hanna-react/DropdownButton';
+import { ContextMenu, ContextMenuItem } from '@reykjavik/hanna-react/ContextMenu';
 import { VSpacer } from '@reykjavik/hanna-react/VSpacer';
 
 import { Minimal } from '../../layout/Minimal.js';
@@ -11,19 +8,17 @@ import { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 import { cssTokens } from '../../utils/route.js';
 
-const mockItems: Array<DropdownButtonItem> = Array.from({ length: 4 }).map((_, i) => ({
+const mockItems: Array<ContextMenuItem> = Array.from({ length: 4 }).map((_, i) => ({
   label: 'Something lorem ipsum diolor sit ament Leebur deroor ieroom',
   href: '',
   current: i === 2,
 }));
 
-const mockItemsShort: Array<DropdownButtonItem> = Array.from({ length: 4 }).map(
-  (_, i) => ({
-    label: `Item ${i}`,
-    href: '',
-    current: i === 2,
-  })
-);
+const mockItemsShort: Array<ContextMenuItem> = Array.from({ length: 4 }).map((_, i) => ({
+  label: `Item ${i}`,
+  href: '',
+  current: i === 2,
+}));
 
 // ---------------------------------------------------------------------------
 
@@ -34,12 +29,12 @@ export const handle = cssTokens('VSpacer');
 
 export default function () {
   useEffect(() => {
-    document.querySelector<HTMLElement>('.DropdownButton__toggler')?.click();
+    document.querySelector<HTMLElement>('.ContextMenu__toggler')?.click();
   }, []);
 
   return (
     <Minimal>
-      <DropdownButton
+      <ContextMenu
         label="Actions"
         items={[
           {
@@ -77,33 +72,33 @@ export default function () {
       <p>&nbsp;</p>
       <VSpacer size="large" />
 
-      <DropdownButton buttonType="primary" label="A" items={mockItemsShort} />
-      <DropdownButton
+      <ContextMenu togglerType="primary" label="A" items={mockItemsShort} />
+      <ContextMenu
         label={
           <>
             Actions <span style={{ fontWeight: 'normal' }}>JSX</span>
           </>
         }
         items={mockItems}
-        buttonIcon="edit"
+        togglerIcon="edit"
       />
-      <DropdownButton
+      <ContextMenu
         label={
           <>
             Actions <span style={{ fontWeight: 'normal' }}>JSX</span>
           </>
         }
-        buttonSize="small"
-        buttonType="primary"
+        togglerSize="small"
+        togglerType="primary"
         items={mockItems}
       />
-      <DropdownButton
+      <ContextMenu
         label="A"
-        buttonVariant="destructive"
-        buttonSize="small"
+        togglerVariant="destructive"
+        togglerSize="small"
         items={mockItemsShort}
       />
-      <DropdownButton
+      <ContextMenu
         Toggler={({ isOpen }) => (
           <span style={{ display: 'block', background: 'yellow', padding: '8px' }}>
             Custom toggler {isOpen ? '▲' : '▼'}
@@ -119,9 +114,9 @@ export default function () {
 
 export const testing: TestingInfo = {
   prep: async ({ page, dumbHover }) => {
-    const dropdown = page.locator('.DropdownButton >> nth=0');
+    const dropdown = page.locator('.ContextMenu >> nth=0');
 
     await dropdown.click();
-    await dumbHover(dropdown.locator('.DropdownButton__item >> nth=1'));
+    await dumbHover(dropdown.locator('.ContextMenu__item >> nth=1'));
   },
 };

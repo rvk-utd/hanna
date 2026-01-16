@@ -8,7 +8,7 @@
 
 _2026-01-19_
 
-- feat: Add `DropdownButton` sprinkle
+- feat: Add `ContextMenu` sprinkle
 - `MainMenu2`:
   - feat: Support `.MainMenu2__hot__item--redhot` items
   - feat: Support custom and scripted `[data-customitem]` item contents

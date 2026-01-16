@@ -3,11 +3,13 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add CSS module token `ContextMenu` (previously `DropdownButton`)
 
 ## 0.4.24
 
 _2026-01-15_
 
+- feat: Add CSS module tokens `Icon`, `ReykjavikWaves`
 - feat: Add vars `icon_size__(small|normal|large)` to `hannaVars`
 - feat: Add second param to `iconStyle()` to set icon `size`
 - feat: Add `iconContent(iconToken)` helper
@@ -60,7 +62,7 @@ _2025-03-28_
 
 _2024-11-20_
 
-- feat: Add token `DropdownButton`
+- feat: Add CSS module token `DropdownButton`
 
 ## 0.4.15
 
@@ -75,7 +77,7 @@ _2024-10-14_
 
 _2024-01-26_
 
-- feat: Add token `IframeedLayout`
+- feat: Add CSS module token `IframeedLayout`
 
 ## 0.4.13
 
@@ -88,13 +90,13 @@ _2024-01-11_
 
 _2023-12-13_
 
-- feat: Add token `Radio`
+- feat: Add CSS module token `Radio`
 
 ## 0.4.10 – 0.4.11
 
 _2023-12-08_
 
-- feat: Add token `MainMenu2`
+- feat: Add CSS module token `MainMenu2`
 - feat: Deprecate `hannaVars.bp_w_Hamburger` in favor of `bp_w_netbook`
 - feat: Deprecate `scale_Hambureger`, `clamp_Hamburger`, `scale_Topmenu`,
   `clamp_Topmenu` from `scale` module
@@ -114,15 +116,14 @@ _2023-10-25_
 
 _2023-10-04_
 
-- feat: Add token `AutosuggestSearch` to `CssModuleToken`
+- feat: Add CSS module token `AutosuggestSearch`
 
 ## 0.4.7
 
 _2023-09-04_
 
 - feat: Add `formFieldVars` for custom styling `FormField`'s
-- feat: Add tokens `Pagination`, `-legacy-AutoSeenEffects` to
-  `CssModuleToken`s
+- feat: Add CSS module tokens `Pagination`, `-legacy-AutoSeenEffects`
 
 ## 0.4.6
 
@@ -144,7 +145,7 @@ _2023-07-31_
 _2023-07-26_
 
 - feat: Add `@reykjavik/hanna-css/scale` with `clamp*` and `scale*` helpers
-- feat: Add tokens `Multiselect`, `ReadSpeakerPlayer` to `CssModuleToken`s
+- feat: Add CSS module tokens `Multiselect`, `ReadSpeakerPlayer`
 - fix: List `tslib` as dependency
 
 ## 0.4.3
@@ -191,8 +192,8 @@ _2023-04-04_
 
 _2023-03-20_
 
+- feat: Add CSS module token `Tooltip`
 - feat: Add `hannaVars.Layout$$main__paddingTop`
-- feat: Add token `Tooltip` to `CssModuleToken`s
 
 ## 0.3.14
 

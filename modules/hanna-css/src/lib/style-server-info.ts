@@ -40,6 +40,7 @@ export type CssModuleToken =
   | 'ContactBubble'
   | 'ContentArticle'
   | 'ContentImage'
+  | 'ContextMenu'
   | 'Datepicker'
   | 'DropdownButton'
   | 'efnistakn'

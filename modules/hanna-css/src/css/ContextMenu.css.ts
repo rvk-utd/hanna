@@ -9,10 +9,9 @@ import { DEPS, overflowEllipsis, prem } from './utils/miscUtils.js';
 
 import { enableDataIcon } from './Icon.css.js';
 
-const openAnimation = 'DropdownButton-open';
+const openAnimation = 'ContextMenu-open';
 
 export default css`
-  /** @deprecated  Renamed to 'ContextMenu'  (Will be removed in v0.9) */
   ${DEPS('ButtonPrimary', 'ButtonSecondary')}
 
   @keyframes ${openAnimation} {
@@ -24,7 +23,7 @@ export default css`
     }
   }
 
-  .DropdownButton {
+  .ContextMenu {
     display: inline-block;
     position: relative;
     margin-right: ${vars.Button__gapH};
@@ -34,12 +33,12 @@ export default css`
   /* ------------------------------------------------------------------------ */
 
   /* Doubles also as 'ButtonSecondary' or 'ButtonPrimary' by default */
-  .DropdownButton__toggler {
+  .ContextMenu__toggler {
     margin: 0;
     min-width: 0;
     width: auto; /* needed by Firefox (as of 2024-11) Some conflicts between .Button* styles applying a min-width and width:max-content  */
   }
-  summary:where(.DropdownButton__toggler) {
+  summary:where(.ContextMenu__toggler) {
     list-style: none; /* reset default disclosure triangle */
     cursor: pointer;
     display: inline-block;
@@ -48,7 +47,7 @@ export default css`
   ${['a', 'button']
     .map(
       (tag) => css`
-        .DropdownButton__toggler ${tag} {
+        .ContextMenu__toggler ${tag} {
           ${WARNING__(`<${tag}/> is not allowed inside <summary/>`)}
         }
       `
@@ -57,10 +56,10 @@ export default css`
 
   /* ------------------------------------------------------------------------ */
 
-  .DropdownButton__menu {
+  .ContextMenu__menu {
     position: absolute;
-    top: var(--DropdownButton-pos-y);
-    left: var(--DropdownButton-pos-x);
+    top: var(--ContextMenu-pos-y);
+    left: var(--ContextMenu-pos-x);
     z-index: ${vars.zindex__overlay};
     margin: ${vars.space_0$5} 0;
 
@@ -74,92 +73,88 @@ export default css`
 
     font: ${vars.font_button};
   }
-  [open] > .DropdownButton__menu {
+  [open] > .ContextMenu__menu {
     animation: ${openAnimation} 200ms ease-in;
   }
 
   /* ------------------------------------------------------------------------ */
 
-  .DropdownButton__item {
+  .ContextMenu__item {
     ${hannaVarOverride({
       link_focus_outlineColor: vars.color_faxafloi_100,
       link_focus_outlineOffset: 0,
     })}
   }
-  .DropdownButton__item[aria-current='true']:has(
-      > .DropdownButton__itembutton--destructive
-    ) {
+  .ContextMenu__item[aria-current='true']:has(> .ContextMenu__itembutton--destructive) {
     ${WARNING__('Destructive and current do not mix')}
   }
 
   /* ------------------------------------------------------------------------ */
 
-  .DropdownButton__itemDivider {
+  .ContextMenu__itemDivider {
     /* border-top: 1px solid ${vars.color_suld_50}; */
     border-top: ${vars.border_default};
     margin: 0 ${vars.space_2};
     height: 0;
   }
-  .DropdownButton__itemDivider--labelled {
+  .ContextMenu__itemDivider--labelled {
     height: auto;
     padding: ${vars.space_1} 0;
     color: ${vars.color_suld_100};
   }
-  :has(.DropdownButton__itembutton[data-icon])
-    > *
-    > .DropdownButton__itemDivider--labelled {
+  :has(.ContextMenu__itembutton[data-icon]) > * > .ContextMenu__itemDivider--labelled {
     ${overflowEllipsis()}
     padding-left: ${vars.space_1 /* (icon_size--medium +  2) */};
   }
-  .DropdownButton__itemDivider--labelled:first-child {
+  .ContextMenu__itemDivider--labelled:first-child {
     border-top: none;
   }
-  .DropdownButton__itemDivider:first-child:not(.DropdownButton__itemDivider--labelled) {
+  .ContextMenu__itemDivider:first-child:not(.ContextMenu__itemDivider--labelled) {
     ${WARNING__('First item __itemDivider makes no sense')}
   }
-  .DropdownButton__itemDivider:last-child {
+  .ContextMenu__itemDivider:last-child {
     ${WARNING__('Last item __itemDivider makes no sense')}
   }
 
   /* ------------------------------------------------------------------------ */
 
-  .DropdownButton__itembutton {
+  .ContextMenu__itembutton {
     ${LinkStyle_Reset('no-hover')};
     font-weight: ${vars.font_weight__normal};
     ${overflowEllipsis()}
     position: relative;
   }
-  .DropdownButton__itembutton[class] {
+  .ContextMenu__itembutton[class] {
     display: block;
     width: 100%;
     padding: ${vars.space_2};
     border: none;
   }
-  :first-child > .DropdownButton__itembutton {
+  :first-child > .ContextMenu__itembutton {
     border-radius: ${vars.space_0$5} ${vars.space_0$5} 0 0;
   }
   /** FIXME: .FocusTrap is the :last-child, must handle that... */
-  :last-child > .DropdownButton__itembutton {
+  :last-child > .ContextMenu__itembutton {
     border-radius: 0 0 ${vars.space_0$5} ${vars.space_0$5};
   }
 
-  .DropdownButton__itembutton:hover,
-  .DropdownButton__itembutton:focus {
+  .ContextMenu__itembutton:hover,
+  .ContextMenu__itembutton:focus {
     background-color: ${vars.color_esja_25};
     z-index: 1;
   }
 
-  .DropdownButton__itembutton--destructive {
+  .ContextMenu__itembutton--destructive {
     ${hannaVarOverride({
       link_color: vars.color_heidmork_100,
     })}
   }
-  .DropdownButton__itembutton--destructive:hover,
-  .DropdownButton__itembutton--destructive:focus {
+  .ContextMenu__itembutton--destructive:hover,
+  .ContextMenu__itembutton--destructive:focus {
     background-color: ${vars.color_heidmork_25};
   }
 
-  [aria-current='true'] > .DropdownButton__itembutton {
+  [aria-current='true'] > .ContextMenu__itembutton {
     ${hannaVarOverride({
       link_color: vars.color_faxafloi_150,
     })}
@@ -167,12 +162,12 @@ export default css`
     padding-right: ${vars.space_6 /* (padding-right + icon_size__medium + 1) */};
     background: ${vars.color_esja_50};
   }
-  [aria-current='true'] > .DropdownButton__itembutton:hover,
-  [aria-current='true'] > .DropdownButton__itembutton:focus {
+  [aria-current='true'] > .ContextMenu__itembutton:hover,
+  [aria-current='true'] > .ContextMenu__itembutton:focus {
     background-color: ${vars.color_esja_75};
   }
 
-  [aria-current='true'] > .DropdownButton__itembutton::after {
+  [aria-current='true'] > .ContextMenu__itembutton::after {
     ${iconStyle('check')};
     color: ${vars.color_suld_200};
     position: absolute;
@@ -181,10 +176,10 @@ export default css`
   }
 
   /* Indent all buttons if at least one of them has an icon */
-  :has(.DropdownButton__itembutton[data-icon]) > * > .DropdownButton__itembutton {
+  :has(.ContextMenu__itembutton[data-icon]) > * > .ContextMenu__itembutton {
     padding-left: ${vars.space_7 /* (padding-left + icon_size--medium +  2) */};
   }
-  .DropdownButton__itembutton[data-icon]::before {
+  .ContextMenu__itembutton[data-icon]::before {
     ${enableDataIcon}
     margin-left: ${vars.space_5__neg};
     margin-right: ${vars.space_2};
