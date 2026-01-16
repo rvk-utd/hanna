@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.162
+
+_2026-01-16_
+
 - feat: Add component `ContextMenu` (previously `DropdownButton`)
 - feat: Deprecate component `DropdownButton` (in favor of `ContextMenu`)
 
