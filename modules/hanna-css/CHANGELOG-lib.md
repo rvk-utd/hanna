@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.25
+
+_2026-01-16_
+
 - feat: Add CSS module token `ContextMenu` (previously `DropdownButton`)
 
 ## 0.4.24
