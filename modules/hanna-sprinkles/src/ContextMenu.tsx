@@ -49,7 +49,7 @@ const getContextMenuData = (elm: HTMLElement): ContextMenuProps | undefined => {
   if (!summmaryElm || items.length === 0) {
     return;
   }
-  // only support simple Buttton-based togglers for now
+  // NOTE: We only support simple Buttton-based togglers for now
   const isStringLabel = summmaryElm.getElementsByTagName('*').length === 0;
   const label = isStringLabel ? (
     summmaryElm.textContent!.trim()
@@ -58,16 +58,17 @@ const getContextMenuData = (elm: HTMLElement): ContextMenuProps | undefined => {
   );
   return {
     items,
-
     label,
     labelLong: summmaryElm.getAttribute('aria-label') || undefined,
-    buttonType: summmaryElm.classList.contains('ButtonPrimary') ? 'primary' : 'secondary',
-    buttonIcon: summmaryElm.dataset.icon as ButtonSecondaryProps['icon'] | undefined,
-    buttonSize: summmaryElm.className.match(/--(small|wide)(?: |$)/)?.[1] as
+    togglerType: summmaryElm.classList.contains('ButtonPrimary')
+      ? 'primary'
+      : 'secondary',
+    togglerIcon: summmaryElm.dataset.icon as ButtonSecondaryProps['icon'] | undefined,
+    togglerSize: summmaryElm.className.match(/--(small|wide)(?: |$)/)?.[1] as
       | 'small'
       | 'wide'
       | undefined,
-    buttonVariant: summmaryElm.className.match(/--(destuctive)(?: |$)/)?.[1] as
+    togglerVariant: summmaryElm.className.match(/--(destuctive)(?: |$)/)?.[1] as
       | 'destructive'
       | undefined,
   };
