@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.26
+
+_2026-01-20_
+
 - fix: Broken/missing `IconToken` type export due to bad import path
 
 ## 0.4.25
