@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.163
+
+_2026-01-20_
+
 - feat: Add `useLaggedState` to `utils` for advanced delayed state updates
 
 ## 0.10.162
