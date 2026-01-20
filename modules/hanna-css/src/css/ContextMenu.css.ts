@@ -74,7 +74,7 @@ export default css`
     font: ${vars.font_button};
   }
   [open] > .ContextMenu__menu {
-    animation: ${openAnimation} 200ms ease-in;
+    animation: ${openAnimation} 150ms ease-in;
   }
 
   /* ------------------------------------------------------------------------ */
