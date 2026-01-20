@@ -117,6 +117,10 @@ export default css`
     /* Styling for the Icon component (which uses the 'data-icon' attributes styled above) */
     .Icon {
       ${enableDataIcon};
+
+      &::before {
+        margin-right: 0;
+      }
     }
 
     // ===========================================================================
