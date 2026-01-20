@@ -7,11 +7,10 @@ import {
 } from '@reykjavik/hanna-utils';
 import { css, VariablePrinter } from 'es-in-css';
 
-import { IconToken } from '../iconfontTokens.js';
-
 import { font } from './font.js';
 import { hannaVars } from './hannavars.js';
-import iconfonttokens from './iconfonttokens.js';
+import { IconToken } from './iconfontTokens.js';
+import iconfonttokens_old from './iconfonttokens_old.js';
 
 // ---------------------------------------------------------------------------
 
@@ -175,7 +174,7 @@ export const characters = {
 
 // ---------------------------------------------------------------------------
 
-type _TrimmedIconName = keyof typeof iconfonttokens extends `icon__${infer ShortName}`
+type _TrimmedIconName = keyof typeof iconfonttokens_old extends `icon__${infer ShortName}`
   ? ShortName
   : never;
 
@@ -216,7 +215,7 @@ type _ = {
  *
  * @see https://www.npmjs.com/package/@reykjavik/hanna-css#type-icontoken
  */
-export type { IconToken } from '../iconfontTokens.js';
+export type { IconToken } from './iconfontTokens.js';
 
 /** @deprecated Use the `IconName` type instead (Will be removed in v0.5)
  *
@@ -230,7 +229,7 @@ export const iconfont_raw = /*#__PURE__*/ (() =>
   ({
     name: iconfontName,
     chars: ObjectFromEntries(
-      ObjectEntries(iconfonttokens).map(([name, char]) => [
+      ObjectEntries(iconfonttokens_old).map(([name, char]) => [
         name.replace(/^icon__/, '') as _TrimmedIconName,
         char,
       ])

@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Broken/missing `IconToken` type export due to bad import path — affects
+  both `Button*` and `Icon` components
 
 ## 0.10.163
 

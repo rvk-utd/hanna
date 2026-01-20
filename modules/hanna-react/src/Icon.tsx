@@ -1,7 +1,6 @@
 import React from 'react';
+import { IconToken } from '@reykjavik/hanna-css';
 import { classes } from '@reykjavik/hanna-utils';
-
-import { IconToken } from '../../hanna-css/src/iconfontTokens.js';
 
 import { HTMLProps } from './utils.js';
 

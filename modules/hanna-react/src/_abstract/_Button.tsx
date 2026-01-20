@@ -1,7 +1,7 @@
 import React, { ComponentProps, ReactElement, ReactNode } from 'react';
+import { IconToken } from '@reykjavik/hanna-css';
 import { modifiedClass, OpenStringMap } from '@reykjavik/hanna-utils';
 
-import { IconToken } from '../../../hanna-css/src/iconfontTokens.js';
 import { BemModifierProps, BemProps } from '../utils/types.js';
 
 import { Link } from './_Link.js';

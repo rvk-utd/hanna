@@ -1,9 +1,9 @@
 import { ObjectEntries } from '@reykjavik/hanna-utils';
 import { css } from 'es-in-css';
 
-import { _iconTokenList } from '../iconfontTokens.js';
 import { buildVariables } from '../lib/cssutils.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { _iconTokenList } from '../lib/iconfontTokens.js';
 import { icons, IconSize, iconStyle } from '../lib/icons.js';
 
 const filledTokens = _iconTokenList.filter((token) => token.endsWith('_filled'));

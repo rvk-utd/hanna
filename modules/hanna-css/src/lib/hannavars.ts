@@ -2,7 +2,7 @@ import { ObjectKeys } from '@reykjavik/hanna-utils';
 import { VariablePrinter } from 'es-in-css';
 
 import { buildVariables } from './cssutils.js';
-import iconfonttokens from './iconfonttokens.js';
+import iconfonttokens_old from './iconfonttokens_old.js';
 
 export const envVars = /*@__PURE__*/ buildVariables([
   'cssVersion',
@@ -355,7 +355,8 @@ export const buttonVars = /*@__PURE__*/ buildVariables(['Button__gapH', 'Button_
 
 /** CSS variables for Hanna icon types */
 export const iconVars = /*@__PURE__*/ buildVariables([
-  .../*#__PURE__*/ ObjectKeys(iconfonttokens),
+  /** @deprecated  (Will be removed in v0.5) */
+  .../*#__PURE__*/ ObjectKeys(iconfonttokens_old),
   'icon_size__small',
   'icon_size__medium',
   'icon_size__large',

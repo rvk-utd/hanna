@@ -26,7 +26,7 @@ import {
   themeVars,
   zIndexVars,
 } from '../../lib/hannavars.js';
-import iconfonttokens from '../../lib/iconfonttokens.js';
+import iconfonttokens from '../../lib/iconfonttokens_old.js';
 import { fullCssVersion } from '../../lib/style-server-info.js';
 import { cols_pct, grid_units, prem } from '../utils/miscUtils.js';
 

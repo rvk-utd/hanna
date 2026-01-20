@@ -3,7 +3,6 @@
 /_npm-lib
 
 /src/css/vars/$$*$$-*.css.js
-/src/lib/iconfonttokens.ts
 
 ## Misc notes and stuff...
 /assets-originals

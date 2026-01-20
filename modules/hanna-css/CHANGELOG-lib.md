@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Broken/missing `IconToken` type export due to bad import path
 
 ## 0.4.25
 
