@@ -6,7 +6,7 @@
 
 ## 0.8.96
 
-_2026-01-19_
+_2026-01-23_
 
 - feat: Add component `Icon` for inlined icons
 - feat: Add component `ContextMenu` (previously `DropdownButton`)
