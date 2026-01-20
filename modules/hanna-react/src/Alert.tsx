@@ -99,12 +99,16 @@ export type AlertProps = {
     {
       /**
        * Seconds until the Alert auto-closes.
-       * Mosueover and keyboard focus resets the timer.
+       * Mosueover and keyboard focus resets the timer.  \
+       * NOTE: An `onClosed` handler is required when using this option.
        */
       autoClose: number;
       /** Return `false` to prevent the alert from closing. */
       onClose?: () => void | boolean;
-      /** Callback that fires when the alert has closed/transitoned out */
+      /**
+       * Callback that fires when the alert has closed/transitoned out.  \
+       * Required when `autoClose` is used.
+       */
       onClosed: () => void;
     },
     {
