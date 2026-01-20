@@ -82,8 +82,11 @@ export const alertTypes: Record<string, 1> = {
 
 export type AlertProps = {
   type: AlertType;
+  /** Defaults to `true` if an `onClose` handler or a `closeUrl` is passaed */
   closable?: boolean;
+  /** The alert content */
   children?: ReactNode;
+  /** UNSAFE raw HTML content for the Alert, e.g. one emitted by a CMS. */
   childrenHTML?: string;
   /** server-side anchor href */
   closeUrl?: string;
@@ -94,8 +97,8 @@ export type AlertProps = {
 } & SSRSupportProps &
   EitherObj<
     {
-      /** Seconds until the Alert auto-closes.
-       *
+      /**
+       * Seconds until the Alert auto-closes.
        * Mosueover and keyboard focus resets the timer.
        */
       autoClose: number;
@@ -105,7 +108,8 @@ export type AlertProps = {
       onClosed: () => void;
     },
     {
-      /** @deprecated This signature with the `event` argument will be removed in hanna-react v0.11
+      /**
+       * NOTE: The signature with the `event` argument will be removed in hanna-react v0.11
        *
        * Return `false` to prevent the alert from closing
        */
@@ -121,7 +125,7 @@ export const Alert = (props: AlertProps) => {
     type,
     childrenHTML,
     children,
-    onClose, // eslint-disable-line deprecation/deprecation
+    onClose,
     closeUrl,
     closable = !!(onClose || closeUrl != null),
     ssr,
@@ -146,7 +150,7 @@ export const Alert = (props: AlertProps) => {
       const ret =
         onClose &&
         // @ts-expect-error  (@deprecated `event` parameter will be removed in v0.11)
-        onClose(event); // eslint-disable-line deprecation/deprecation
+        onClose(event);
 
       if (ret !== false) {
         setOpen(false);
