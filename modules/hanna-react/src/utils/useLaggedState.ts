@@ -3,7 +3,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 // ---------------------------------------------------------------------------
 
 /**
- * A `useState` alternative with in-built support for delayed (debounced) effect.
+ * An advanced `useState` alternative with in-built support for delayed
+ * (debounced) effect.
  *
  * This is especially useful when emulating "focusin"/"focusout" events,
  * and a less jittery 'onMouseEnter'/'onMouseLeave' behavior.

@@ -33,6 +33,9 @@ o.spec('hanna-react/utils lib', () => {
       /* utils/useGetSVGtext.ts */
       useGetSVGtext: true,
 
+      /* utils/useLaggedState.ts */
+      useLaggedState: true,
+
       /* utils/useMenuToggling.ts */
       useMenuToggling: true,
 

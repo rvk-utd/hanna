@@ -6,6 +6,7 @@ export * from './utils/useDidChange.js';
 export * from './utils/useDomid.js';
 export * from './utils/useFormatMonitor.js';
 export * from './utils/useGetSVGtext.js';
+export * from './utils/useLaggedState.js';
 export * from './utils/useMixedControlState.js';
 export * from './utils/useScrollbarWidthCSSVar.js';
 
