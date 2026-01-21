@@ -118,7 +118,7 @@ export default css`
     .Icon {
       ${enableDataIcon};
 
-      &::before {
+      &:where(:empty)::before {
         margin-right: 0;
       }
     }
