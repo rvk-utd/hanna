@@ -124,6 +124,7 @@ export type AlertProps = {
   > &
   WrapperElmProps<null, 'role' | 'hidden'>;
 
+// eslint-disable-next-line complexity
 export const Alert = (props: AlertProps) => {
   const {
     type,
@@ -131,13 +132,15 @@ export const Alert = (props: AlertProps) => {
     children,
     onClose,
     closeUrl,
-    closable = !!(onClose || closeUrl != null),
     ssr,
     onClosed,
     instantShow,
     wrapperProps,
   } = props;
+
   const autoClose = Math.max(props.autoClose || 0, 0);
+  const closable =
+    props.closable ?? !!(onClose || (onClosed && !autoClose) || closeUrl != null);
 
   const closing = useRef<ReturnType<typeof setTimeout>>();
   const isBrowser = useIsBrowserSide(ssr);
