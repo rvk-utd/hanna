@@ -10,12 +10,15 @@ export default css`
     width: 100%;
     height: 100%;
   }
+  .Picture > svg, /* inlined */
   .Picture > img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+  }
+  .Picture--inlined > img {
     object-fit: cover;
   }
   .Picture--contain > img {

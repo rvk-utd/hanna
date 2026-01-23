@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - `Alert`:
   - feat: Auto-show close button if `onClosed` is set without `autoClose`
+- `Picture`:
+  - feat: Add prop `inline` to support inlined SVGs
 
 ## 0.10.164
 

@@ -9,6 +9,7 @@
 _2026-01-23_
 
 - feat: Add component `Icon` for inlined icons
+- feat: Add styling for inlined SVGs inside `.Picture` component
 - feat: Add component `ContextMenu` (previously `DropdownButton`)
 - feat: Deprecate component `DropdownButton` (in favor of `ContextMenu`)
 - feat: Grow the list of available Button-related icons via `IconToken` type

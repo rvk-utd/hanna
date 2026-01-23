@@ -9,6 +9,7 @@
 _2026-01-23_
 
 - feat: Add component `Icon` for inlined icons
+- feat: Add `.Picture--inlined` modifier to `Picture` component with SVGs
 - feat: Add component `ContextMenu` (previously `DropdownButton`)
 - feat: Deprecate component `DropdownButton` (in favor of `ContextMenu`)
 - feat: Support `data-icon-size` attribute along with `data-icon` and
