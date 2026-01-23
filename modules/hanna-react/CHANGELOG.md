@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.165
+
+_2026-01-23_
+
 - `Alert`:
   - feat: Auto-show close button if `onClosed` is set without `autoClose`
 - `Picture`:
