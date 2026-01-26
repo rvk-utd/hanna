@@ -83,7 +83,8 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') =>
       color: ${tglVars.label__color};
     }
 
-    .${bem}__label::before, .${bem}__label::after {
+    .${bem}__label::before, //
+    .${bem}__label::after {
       content: '';
       position: absolute;
       top: ${vars.space_1};

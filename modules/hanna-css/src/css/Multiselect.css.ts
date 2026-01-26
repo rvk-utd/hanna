@@ -198,6 +198,11 @@ export default css`
     padding-bottom: ${vars.space_2};
     border-left: ${vars.space_2} solid transparent;
     width: 100%;
+
+    &::before,
+    &::after {
+      margin-top: ${vars.space_1};
+    }
   }
 
   .Multiselect__option--focused {
