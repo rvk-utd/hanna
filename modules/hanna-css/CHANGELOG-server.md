@@ -22,6 +22,7 @@ _2026-01-23_
   - feat: Limit dropdown `max-width` to viewport width
 - feat: Support `.Layout__header__logo--custom` with automatic width
 - feat: Increase `.Multiselect__optionSeparator` text color contrast
+- fix: Make all checkbox and radio labels have normal font weight again
 - fix: Remove `:active` styling on disabled `*Buttons`
 - fix: Use `boxShadow_*` tokens for button hover state and `Modal` shadow
 
