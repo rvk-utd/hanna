@@ -104,20 +104,24 @@ if (!args.skipAssets) {
 }
 
 // Update submodule root files and commit the version bump
+await shell$(
+  [
+    // update submodule files
+    `cp package-server.json ${serverFolder}package.json`,
+    `cp README-server.md ${serverFolder}README.md`,
+    `cp CHANGELOG-server.md ${serverFolder}CHANGELOG.md`,
+    `cp cssserve-prod-server.json ${serverFolder}cssserve-prod.json`,
+
+    // submodule commit
+    `cd ${serverFolder}`,
+    `yarn install`, // in case package-server.json has new dependencies
+    `git add "./*"`,
+    `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
+  ],
+  logError
+);
+
 await shell$([
-  // update submodule files
-  `cp package-server.json ${serverFolder}package.json`,
-  `cp README-server.md ${serverFolder}README.md`,
-  `cp CHANGELOG-server.md ${serverFolder}CHANGELOG.md`,
-  `cp cssserve-prod-server.json ${serverFolder}cssserve-prod.json`,
-
-  // submodule commit
-  `cd ${serverFolder}`,
-  `yarn install`, // in case package-server.json has new dependencies
-  `git add "./*"`,
-  `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
-  `cd -`,
-
   // local commit
   `git add ./*-server.* ./src/**/style-server-info.ts ${serverFolder}`,
   `git commit -m "release(css): v${fullCssVersion}${fixupMessage}"`,
