@@ -72,6 +72,7 @@ export default css`
     border-radius: ${vars.space_0$5};
 
     font: ${vars.font_button};
+    font-weight: ${vars.font_weight__normal};
   }
   [open] > .ContextMenu__menu {
     animation: ${openAnimation} 150ms ease-in;
@@ -93,7 +94,6 @@ export default css`
 
   .ContextMenu__itemDivider {
     border-top: ${vars.border_default};
-    font-weight: ${vars.font_weight__normal};
     margin: 0 ${vars.space_2};
     height: 0;
   }
@@ -120,7 +120,6 @@ export default css`
 
   .ContextMenu__itembutton {
     ${LinkStyle_Reset('no-hover')};
-    font-weight: ${vars.font_weight__normal};
     ${overflowEllipsis()}
     position: relative;
   }

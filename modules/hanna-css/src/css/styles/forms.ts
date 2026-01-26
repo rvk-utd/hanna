@@ -77,6 +77,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') =>
       })}
       display: inline-block;
       font: ${vars.font_button};
+      font-weight: ${vars.font_weight__normal};
       padding: ${vars.space_1} 0;
       padding-left: ${prem(36)};
       position: relative;

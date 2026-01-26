@@ -73,6 +73,7 @@ export default css`
     border-radius: ${vars.space_0$5};
 
     font: ${vars.font_button};
+    font-weight: ${vars.font_weight__normal};
   }
   [open] > .DropdownButton__menu {
     animation: ${openAnimation} 200ms ease-in;
@@ -125,7 +126,6 @@ export default css`
 
   .DropdownButton__itembutton {
     ${LinkStyle_Reset('no-hover')};
-    font-weight: ${vars.font_weight__normal};
     ${overflowEllipsis()}
     position: relative;
   }
