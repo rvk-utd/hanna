@@ -173,7 +173,7 @@ export default css`
     padding-top: ${vars.space_1};
     font: ${vars.font_button};
     font-weight: ${vars.font_weight__normal};
-    color: ${vars.color_suld_100};
+    color: ${vars.color_suld_150};
   }
 
   .Multiselect__optionSeparator:not(.Multiselect__option + *) {

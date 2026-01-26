@@ -100,7 +100,7 @@ export default css`
   .ContextMenu__itemDivider--labelled {
     height: auto;
     padding: ${vars.space_1} 0;
-    color: ${vars.color_suld_100};
+    color: ${vars.color_suld_150};
   }
   :has(.ContextMenu__itembutton[data-icon]) > * > .ContextMenu__itemDivider--labelled {
     ${overflowEllipsis()}

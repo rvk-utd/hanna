@@ -21,6 +21,7 @@ _2026-01-23_
   - feat: Update styling of dropdown menu to match latest design tweaks
   - feat: Limit dropdown `max-width` to viewport width
 - feat: Support `.Layout__header__logo--custom` with automatic width
+- feat: Increase `.Multiselect__optionSeparator` text color contrast
 - fix: Remove `:active` styling on disabled `*Buttons`
 - fix: Use `boxShadow_*` tokens for button hover state and `Modal` shadow
 
