@@ -92,8 +92,8 @@ export default css`
   /* ------------------------------------------------------------------------ */
 
   .ContextMenu__itemDivider {
-    /* border-top: 1px solid ${vars.color_suld_50}; */
     border-top: ${vars.border_default};
+    font-weight: ${vars.font_weight__normal};
     margin: 0 ${vars.space_2};
     height: 0;
   }

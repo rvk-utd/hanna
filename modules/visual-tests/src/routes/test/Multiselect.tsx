@@ -30,9 +30,10 @@ const optsLong = opts.flatMap((val) => [val, `${val} (crate)`]);
 const testGrouping = true as boolean;
 const optsShort = !testGrouping
   ? opts.slice(0, 4)
-  : ['Apricot', 'Blueberry']
-      .concat(opts.slice(0, 4))
-      .map((value, i) => ({ value, group: i < 2 ? '' : undefined }));
+  : ['Apricot', 'Blueberry'].concat(opts.slice(0, 4)).map((value, i) => ({
+      value,
+      group: i < 2 ? '' : undefined /** / || 'Group label' /**/,
+    }));
 const optsFew = opts.slice(5, 7);
 
 const multiselects: Record<string, MultiselectProps> = {
