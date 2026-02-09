@@ -6,7 +6,7 @@
 
 ## 0.8.96
 
-_2026-01-27_
+_2026-02-11_
 
 - feat: Add component `Icon` for inlined icons
 - feat: Add styling for inlined SVGs inside `.Picture` component

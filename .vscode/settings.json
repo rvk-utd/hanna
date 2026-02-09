@@ -10,6 +10,7 @@
     "**/.pnp.*": true,
     "servers/docs/*": true,
     "servers/styles/*": true,
-    "modules/visual-tests/tests/*": true
+    "modules/visual-tests/tests/*": true,
+    "modules/html-storybook/CHANGELOG.md": true // This is a symlink to the project-root CHANGELOG.md.
   }
 }
