@@ -163,10 +163,28 @@ export type AbstractModalProps = {
   portal?: boolean;
 } & EitherObj<
   {
-    /** Render function that receives a `closeModal` action dispatcher. */
+    /**
+     * @deprecated  Use children instead  (Will be removed in v0.11)
+     *
+     * Render function that receives a `closeModal` action dispatcher.
+     */
     render: (props: { closeModal(): void }) => ReactNode;
   },
-  { children: ReactNode }
+  {
+    /** Either a `ReactNode` or render function */
+    children:
+      | ReactNode
+      | ((props: {
+          /** Action dispacher that initiates modal closing action */
+          closeModal(): void;
+          /**
+           * Whether the modal is visible or not. The `onOpen` and `onClosed`
+           * callbacks are triggered once the modal has become fully visible or
+           * fully hidden.
+           */
+          visible: boolean;
+        }) => ReactNode);
+  }
 > &
   WrapperElmProps<'div', 'hidden' | 'role'> &
   SSRSupportProps;
@@ -175,7 +193,15 @@ type AbstractModalProps_private = AbstractModalProps & BemProps<true>;
 
 // eslint-disable-next-line complexity
 export const AbstractModal = (props: AbstractModalProps_private) => {
-  const { bem, modifier, closeDelay = 500, wrapperProps = {}, ssr } = props;
+  const {
+    bem,
+    modifier,
+    closeDelay = 500,
+    wrapperProps = {},
+    ssr,
+    render, // eslint-disable-line deprecation/deprecation
+    children,
+  } = props;
 
   // eslint-disable-next-line deprecation/deprecation
   const isFickle = !(props.stable ?? props.fickle === false) || undefined;
@@ -285,7 +311,11 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
         >
           {isBrowser && <FocusTrap atTop />}
           <div className={modifiedClass(bem, modifier)} ref={modalElmRef}>
-            {props.render ? props.render({ closeModal }) : props.children}
+            {render
+              ? render({ closeModal })
+              : typeof children === 'function'
+              ? children({ closeModal, visible })
+              : children}
             {isBrowser && !props.noCloseButton && (
               <button
                 className={`${bem}__closebutton`}

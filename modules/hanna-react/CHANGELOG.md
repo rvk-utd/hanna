@@ -3,6 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Modal`:
+  - feat: Allow `children` to be render function receiving `closeModal`
+    dispacther and `visible` state
+  - feat: Deprecate `render` prop in favor of `children` as render function
 
 ## 0.10.165
 
