@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.166
+
+_2026-02-16_
+
 - `Modal`:
   - feat: Allow `children` to be render function receiving `closeModal`
     dispacther and `visible` state
