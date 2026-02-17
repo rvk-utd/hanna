@@ -241,9 +241,6 @@ const getRenderers = (props: {
       lang,
     };
 
-    if (button) {
-      console.log('Rendering button for menu item:', commonProps);
-    }
     const buttonCompProps = button ? { size: 'small' as const } : undefined;
 
     const doRenderButton = isBrowser && (onClick || (onItemClick && href == null));

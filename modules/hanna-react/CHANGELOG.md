@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`:
+  - fix: Delete `console.log()` noise when rendering button items
 
 ## 0.10.166
 
