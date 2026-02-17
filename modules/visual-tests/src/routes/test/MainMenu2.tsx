@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { useSearchParams } from '@remix-run/react';
+import { ContextMenu } from '@reykjavik/hanna-react/ContextMenu';
 import { Layout } from '@reykjavik/hanna-react/Layout';
 import {
   MainMenu2,
@@ -12,6 +13,7 @@ import { getStableRandomItem } from '@reykjavik/hanna-utils';
 import { makeStateBridge } from '../../test-helpers/makeStateBridge.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
+import { cssTokens } from '../../utils/route.js';
 
 const showAuxState = makeStateBridge<true | undefined>('showAux');
 
@@ -48,8 +50,8 @@ const startOpen = false as boolean;
 
 export const meta: V2_MetaFunction = autoTitle;
 
-// // Use `handle` if you're using multiple Hanna compnents
-// export const handle = cssTokens('ButtonPrimary', 'ButtonSecondary');
+// Use `handle` if you're using multiple Hanna compnents
+export const handle = cssTokens('MainMenu2', 'ContextMenu');
 
 // ---------------------------------------------------------------------------
 
@@ -97,40 +99,27 @@ export default function () {
             hot: [
               {
                 redhot: true,
-                Content: () => {
-                  return (
-                    <>
-                      <a
-                        href=""
-                        className="ButtonSecondary ButtonSecondary--small MainMenu2__hot__link"
-                        aria-label="English"
-                        data-icon="language"
-                        lang="en"
-                        hrefLang="en"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const extraElm = e.currentTarget
-                            .nextElementSibling as HTMLElement | null;
-                          if (extraElm) {
-                            extraElm.hidden = !extraElm.hidden;
-                          }
-                        }}
-                      >
-                        EN
-                      </a>
-                      <strong
-                        hidden
-                        style={{
-                          position: 'absolute',
-                          marginTop: '40px',
-                          marginLeft: '-120px',
-                        }}
-                      >
-                        <em>Extra Custom Content</em>
-                      </strong>
-                    </>
-                  );
-                },
+                Content: () => (
+                  <ContextMenu
+                    label="IS"
+                    labelLong="Veldu tungumál"
+                    togglerIcon="language"
+                    togglerSize="small"
+                    items={[
+                      {
+                        href: '/',
+                        label: 'Íslenska',
+                        current: true,
+                      },
+                      {
+                        href: '/en',
+                        label: 'English',
+                        lang: 'en',
+                        hrefLang: 'en',
+                      },
+                    ]}
+                  />
+                ),
               },
               // {
               //   label: <span>Yo!</span>,

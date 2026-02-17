@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`:
+  - fix: Suppress visible bg on `hot__items` when menu is closed on mobile
+  - fix: Collapse `rethot` `.ContextMenu__toggler` to only show icon on mobile
 
 ## 0.8.96
 

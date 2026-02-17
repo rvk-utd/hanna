@@ -459,6 +459,11 @@ const mobileStyles = css`
       padding-bottom: ${vars.space_6};
     }
 
+    .MainMenu2--closed > * > .MainMenu2__hot__items {
+      padding: 0;
+      background: none;
+    }
+
     // Move "--redhot" item out of flow and fix its position
     // next to the toggler button
     .MainMenu2--closed
@@ -483,14 +488,14 @@ const mobileStyles = css`
       ${WARNING__('Only one `--redhot` item is allowed per menu')}
     }
 
-    .MainMenu2__hot__item--redhot > .ButtonSecondary[data-icon] {
+    .MainMenu2__hot__item--redhot .ButtonSecondary[data-icon] {
       overflow: hidden;
       width: 0;
       padding-left: 0;
       padding-right: 0;
       min-width: ${vars.space_5};
     }
-    .MainMenu2__hot__item--redhot > .ButtonSecondary[data-icon]::before {
+    .MainMenu2__hot__item--redhot .ButtonSecondary[data-icon]::before {
       width: 100%;
       margin-left: 0;
       margin-right: 1px;
