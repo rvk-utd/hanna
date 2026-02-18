@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Modal`:
+  - fix: Drop redundant `visible` flag for the `children` render function —
+    (It was always `true`)
 
 ## 0.10.167
 

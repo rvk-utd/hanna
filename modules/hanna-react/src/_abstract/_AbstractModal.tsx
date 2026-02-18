@@ -177,12 +177,6 @@ export type AbstractModalProps = {
       | ((props: {
           /** Action dispacher that initiates modal closing action */
           closeModal(): void;
-          /**
-           * Whether the modal is visible or not. The `onOpen` and `onClosed`
-           * callbacks are triggered once the modal has become fully visible or
-           * fully hidden.
-           */
-          visible: boolean;
         }) => ReactNode);
   }
 > &
@@ -314,7 +308,7 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
             {render
               ? render({ closeModal })
               : typeof children === 'function'
-              ? children({ closeModal, visible })
+              ? children({ closeModal })
               : children}
             {isBrowser && !props.noCloseButton && (
               <button
