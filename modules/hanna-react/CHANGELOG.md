@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.168
+
+_2026-02-23_
+
 - `Modal`:
   - fix: `children` render function not invoked correctly
   - fix: Drop redundant `visible` flag for the `children` render function —
