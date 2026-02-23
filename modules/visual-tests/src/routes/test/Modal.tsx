@@ -94,7 +94,8 @@ export default function () {
         // stable
         // noCloseButton
         bling={bling && renderBling()}
-        render={({ closeModal }) => {
+      >
+        {({ closeModal }) => {
           return (
             <Fragment>
               <Heading>Ertu viss?</Heading>
@@ -114,7 +115,7 @@ export default function () {
             </Fragment>
           );
         }}
-      />
+      </Modal>
     </Minimal>
   );
 }

@@ -4,6 +4,7 @@
 
 - ... <!-- Add new lines here. -->
 - `Modal`:
+  - fix: `children` render function not invoked correctly
   - fix: Drop redundant `visible` flag for the `children` render function —
     (It was always `true`)
 

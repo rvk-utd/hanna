@@ -16,14 +16,21 @@ export type ModalProps = AbstractModalProps & {
 };
 
 export const Modal = (props: ModalProps) => {
-  const { bling, render, children } = props;
+  const {
+    bling,
+    render, // eslint-disable-line deprecation/deprecation
+    children,
+  } = props;
 
   return (
-    <AbstractModal
-      {...props}
-      bem="Modal"
-      render={(renderProps) => {
-        const _children = render ? render(renderProps) : children;
+    <AbstractModal {...props} bem="Modal" render={undefined}>
+      {(renderProps) => {
+        const _children = render
+          ? render(renderProps)
+          : typeof children === 'function'
+          ? children(renderProps)
+          : children;
+
         return bling ? (
           <>
             {_children}
@@ -35,9 +42,7 @@ export const Modal = (props: ModalProps) => {
           _children
         );
       }}
-      // Required since props might contain children
-      children={undefined} // eslint-disable-line react/no-children-prop
-    />
+    </AbstractModal>
   );
 };
 
