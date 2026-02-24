@@ -272,6 +272,7 @@ export const Multiselect = (props: MultiselectProps) => {
       );
     } else if (e.key === 'Escape') {
       e.preventDefault();
+      e.stopPropagation();
       inputElm.blur();
       inputElm.focus();
       toggleOpen(false);

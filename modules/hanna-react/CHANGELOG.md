@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Multiselect`:
+  - fix: Stop `'Escape'` key events bubbling and causing side-effects (e.g.
+    closing a parent `Modal`)
 
 ## 0.10.168
 
