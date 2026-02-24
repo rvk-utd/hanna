@@ -235,18 +235,6 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
     }
   };
 
-  // ---
-  // Update open state when props.open changes. Icky but simple.
-  const lastPropsOpen = useRef(openProp);
-  if (openProp !== lastPropsOpen.current && openProp !== open) {
-    lastPropsOpen.current = openProp;
-    // these update state during render, which aborts the current render
-    // and triggers an immediate rerender.
-    openProp ? openModal() : closeModal();
-  }
-  lastPropsOpen.current = openProp;
-  // ---
-
   const closeOnCurtainClick =
     isFickle &&
     ((e: MouseEvent) => {
@@ -277,6 +265,16 @@ export const AbstractModal = (props: AbstractModalProps_private) => {
       return () => removeFromModalStack(privateDomId);
     },
     [] // eslint-disable-line react-hooks/exhaustive-deps
+  );
+
+  useEffect(
+    () => {
+      if (openProp === open) {
+        return;
+      }
+      openProp ? openModal() : closeModal();
+    },
+    [openProp] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   const PortalOrFragment = props.portal !== false ? Portal : Fragment;

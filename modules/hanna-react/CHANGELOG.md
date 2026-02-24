@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Modal`:
+  - fix: Togling `open` prop works unreliably in modern React versions
 - `Multiselect`:
   - fix: Stop `'Escape'` key events bubbling and causing side-effects (e.g.
     closing a parent `Modal`)
