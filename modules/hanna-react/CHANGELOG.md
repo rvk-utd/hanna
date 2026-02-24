@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.169
+
+_2026-02-24_
+
 - `Modal`:
   - fix: Togling `open` prop works unreliably in modern React versions
 - `Multiselect`:
