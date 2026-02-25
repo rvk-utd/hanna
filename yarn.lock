@@ -2438,12 +2438,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@maranomynet/libtools@npm:^0.1.17":
-  version: 0.1.17
-  resolution: "@maranomynet/libtools@npm:0.1.17"
+"@maranomynet/libtools@npm:^0.1.19":
+  version: 0.1.19
+  resolution: "@maranomynet/libtools@npm:0.1.19"
   dependencies:
     glob: ^10.4.1
-  checksum: dc2af0e694866a9a6554ca083fc2c30c75fe74731e85bace3623e1127563a2e4d1991498499e88b8b188ae3f2a1f05ab4f4890a8cf191353f3c51f365fdff072
+  checksum: 3c3ba297ad6f1c0aac71b4dc2a47fbeb32bd847d5f60c51b53f6707b3d810d1bb5d6276a5b07aed549c1ac662eb57cfd6b333a1ef9c336df85d4a119c7921863
   languageName: node
   linkType: hard
 
@@ -11873,7 +11873,7 @@ __metadata:
   resolution: "hanna@workspace:."
   dependencies:
     "@hugsmidjan/hxmstyle": ^8.4.0
-    "@maranomynet/libtools": ^0.1.17
+    "@maranomynet/libtools": ^0.1.19
     "@types/eslint": ^8
     "@types/gulp": ^4
     "@types/jsdom": ^16.2.14
