@@ -297,7 +297,7 @@ const commonStyles = css`
     grid-area: related;
     color: ${vars.color_suld_200};
   }
-  j .MainMenu2__related__title {
+  .MainMenu2__related__title {
     font: ${vars.font_heading_s};
     padding-top: ${vars.space_1};
     padding-bottom: calc(${mm2Vars.mainLink__paddingBottom} - 1px);
