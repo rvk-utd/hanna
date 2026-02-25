@@ -2,6 +2,7 @@ import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { color, css, em, px, rem, str } from 'es-in-css';
 
 import {
+  clamp_netbook,
   scale_container,
   scale_phablet_netbook,
   scale_phone_netbook,
@@ -595,7 +596,7 @@ const layoutVarDeclarations = css`
   @media ${mq.netbook_up} {
     ${layoutVars.override({
       Layout$$header_height: px(_lHead_max),
-      Layout$$header_homelink_width: prem(456),
+      Layout$$header_homelink_width: clamp_netbook(365, gridPx(6, 6)),
       Layout$$header_homelink_space: `calc(${layoutVars.vars.Layout$$header_homelink_width} + ${gridVars.vars.grid_0_1})`,
     })}
   }

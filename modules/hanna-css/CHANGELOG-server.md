@@ -3,6 +3,12 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`:
+  - feat: Make "related" and "hot" areas fixed width on netbook + wide
+    viewports
+- `Layout`:
+  - feat: Make `--Layout__header-homelink-width` scale on netbook + wide
+    viewports
 
 ## 0.8.97
 

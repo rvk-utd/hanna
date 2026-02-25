@@ -71,7 +71,7 @@ export default function () {
     <Layout
       siteName=""
       // siteName="Gagnahlaðborðið í tveimur línum"
-      // siteName="Gagnahlaðborðið í tveimur línum þetta er rugl lang"
+      // siteName="Gagnahlaðborðið í tveimur línum þetta er rugl langt"
       mainChildren={
         <>
           {/* * /}

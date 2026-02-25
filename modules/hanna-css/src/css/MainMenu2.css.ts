@@ -1,7 +1,6 @@
 import { color, css } from 'es-in-css';
 
 import { srOnly_focusableContent } from '../lib/a11y.js';
-import { clamp_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
@@ -539,7 +538,8 @@ const desktopStyles = css`
       // font: ${vars.font_body_l};
       ${DesktopVariables.declare({
         // main__width: `calc(50% + ${vars.grid_1_1})`,
-        main__width: `calc(50% + ${clamp_netbook(gridPx(0, 1), gridPx(1, 1))})`,
+        // main__width: `calc(50% + ${clamp_netbook(gridPx(0, 1), gridPx(1, 1))})`,
+        main__width: `calc(50% + ${vars.grid_6} - ${gridPx(5, 4)})`,
         bgLeft: vars.color_faxafloi_100,
         bgShadw: dtVars.bgLeft,
         bgRight: vars.color_suld_0,
