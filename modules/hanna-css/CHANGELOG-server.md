@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.98
+
+_2026-02-26_
+
 - `MainMenu2`:
   - feat: Make "related" and "hot" areas fixed width on netbook + wide
     viewports
