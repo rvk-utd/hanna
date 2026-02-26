@@ -12,6 +12,7 @@ _2026-02-26_
   - feat: Make "related" and "hot" areas fixed width on netbook + wide
     viewports
   - fix: Add back missing styling for `MainMenu2__related__title`
+  - fix: Overly long `:hover` underline on `__related__link`s without icons
 - `Layout`:
   - feat: Make `--Layout__header-homelink-width` scale on netbook + wide
     viewports

@@ -325,7 +325,7 @@ const commonStyles = css`
   :has(.MainMenu2__related__link[data-icon])
     > *
     > .MainMenu2__related__link:not([data-icon]) {
-    padding-left: calc(${vars.icon_size__small} + ${vars.space_0$5});
+    margin-left: calc(${vars.icon_size__small} + ${vars.space_0$5});
   }
 `;
 
