@@ -1,8 +1,11 @@
 import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { DEPS } from './utils/miscUtils.js';
 
 export default css`
-  .Timeline__item[aria-current='step'] .Timeline__item__title::before {
+  ${DEPS('Skeleton')}
+
+  .Timeline__item[aria-current='step'] > .Timeline__item__title::before {
     background-color: ${vars.color_faxafloi_100};
   }
 
@@ -29,6 +32,11 @@ export default css`
     border-left: 1px solid ${vars.color_faxafloi_50};
     padding-left: calc(${vars.space_2} + 5px);
     margin-left: 5px;
+    min-height: 20px;
+  }
+
+  .Timeline__item:last-child > .Timeline__subitems {
+    min-height: auto;
   }
 
   .Timeline__subitem {
@@ -47,5 +55,28 @@ export default css`
   .Timeline__item__category,
   .Timeline__item__date {
     color: ${vars.color_suld_150};
+  }
+
+  .Timeline__item--skeleton {
+    position: relative;
+  }
+
+  .Timeline__item--skeleton > .Skeleton {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 250px;
+    margin-left: 25px;
+  }
+
+  .Skeleton__circle {
+    width: 11px !important;
+    height: 11px;
+    border-radius: 11px;
+    margin: 0;
+    margin-left: 0px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    margin-left: 0 !important;
   }
 `;

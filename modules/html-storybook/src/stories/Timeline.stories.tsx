@@ -40,12 +40,14 @@ const TimelineStory = (props: ControlProps) => {
           category: 'Starfsmaður Erlingsson',
           curent: false,
         },
+        'skeleton',
         {
           title: 'Ný umsókn',
           date: new Date(2025, 0, 10),
           category: 'Umsækjandi Umsækjandason',
           curent: false,
         },
+        'skeleton',
       ]}
     />
   );

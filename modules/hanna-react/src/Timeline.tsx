@@ -1,4 +1,5 @@
 import React from 'react';
+import { Skeleton } from '@reykjavik/hanna-react/Skeleton.js';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
@@ -10,7 +11,7 @@ export type TimelineProps = {
         title: string;
         category?: string;
         description?: string;
-        date: string | Date;
+        date?: string | Date;
         /**
          * If no item is marked current, then the first item in the array is impilicitly the current one.
          *
@@ -52,7 +53,8 @@ export const Timeline = (props: TimelineProps) => {
           if (item === 'skeleton') {
             return (
               <li key={i} className="Timeline__item Timeline__item--skeleton">
-                ...TBD, something something <code>&lt;Skeleton/&gt;</code>...
+                <Skeleton height={1} wrapperProps={{ className: 'Skeleton__circle' }} />
+                <Skeleton items={1} height={3} text />
               </li>
             );
           }
