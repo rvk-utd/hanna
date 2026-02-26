@@ -30,29 +30,21 @@ const TimelineStory = (props: ControlProps) => {
         {
           title: 'Vantar upplýsingar',
           date: new Date(2025, 1, 12),
-          category: 'Nafn starfsmanns',
+          category: 'Starfsmaður Erlingsson',
           curent: true,
-          description: 'Þarf að sanna á sér deili',
+          description: 'Þarf vantar *gerð skjals*',
         },
         {
           title: 'Í vinnslu',
           date: new Date(2025, 1, 10),
-          category: 'Nafn starfsmanns',
+          category: 'Starfsmaður Erlingsson',
           curent: false,
         },
         {
-          title: 'Vantar upplýsingar',
+          title: 'Ný umsókn',
           date: new Date(2025, 0, 10),
-          category: 'Nafn starfsmanns',
+          category: 'Umsækjandi Umsækjandason',
           curent: false,
-          description: 'Vantar sakavottorð',
-        },
-        {
-          title: 'Póstur sendur',
-          date: new Date(2025, 0, 5),
-          category: 'Nafn starfsmanns',
-          curent: false,
-          description: 'Áminning um að sinna einstaklingsáætlun',
         },
       ]}
     />

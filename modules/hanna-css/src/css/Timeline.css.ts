@@ -9,12 +9,10 @@ export default css`
   .Timeline__item__title {
     display: flex;
     align-items: center;
+    font: ${vars.font_body_m};
+    font-weight: ${vars.font_weight__bold};
     color: ${vars.color_suld_200};
-    font-family: Esja;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
+    padding-bottom: 4px;
   }
 
   .Timeline__item__title::before {
@@ -35,9 +33,19 @@ export default css`
 
   .Timeline__subitem {
     padding: 4px 0;
+    font: ${vars.font_body_s};
   }
 
   .Timeline__subitem:last-child {
     padding: 4px 0 8px 0;
+  }
+
+  .Timeline__item__description {
+    color: ${vars.color_suld_200};
+  }
+
+  .Timeline__item__category,
+  .Timeline__item__date {
+    color: ${vars.color_suld_150};
   }
 `;
