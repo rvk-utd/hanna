@@ -66,17 +66,17 @@ export default css`
     flex-direction: column-reverse;
     width: 250px;
     margin-left: 25px;
+    margin-bottom: calc(var(--Skeleton--gap) * var(--space-1));
   }
 
   .Skeleton__circle {
     width: 11px !important;
     height: 11px;
     border-radius: 11px;
-    margin: 0;
     margin-left: 0px;
     position: absolute;
     left: 0;
     top: 5px;
-    margin-left: 0 !important;
+    margin: 0 !important;
   }
 `;
