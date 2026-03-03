@@ -4,6 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 type ControlProps = {
   nrOfItems: number;
+  isLoading: boolean;
 };
 
 type TimelineItem = {
@@ -57,8 +58,12 @@ export default meta;
 
 const TimelineStory = (props: ControlProps) => {
   const nrOfItems = props.nrOfItems;
+  const isLoading = props.isLoading;
   // Generate dynamic timeline items
   const items = Array.from({ length: nrOfItems }, (_, i) => {
+    if (isLoading) {
+      return 'skeleton';
+    }
     const timelineItem = timelineItems[i];
     return {
       title: timelineItem?.title,
@@ -80,8 +85,10 @@ export const _Timeline: StoryObj<ControlProps> = {
       options: [1, 2, 3, 4, 5, 6],
       control: 'select',
     },
+    isLoading: { name: 'Is loading' },
   },
   args: {
     nrOfItems: 4,
+    isLoading: false,
   },
 };
