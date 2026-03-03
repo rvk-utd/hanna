@@ -2,12 +2,8 @@ import React from 'react';
 import { Timeline } from '@reykjavik/hanna-react/Timeline.js';
 import { Meta, StoryObj } from '@storybook/react';
 
-const typeOptions = ['link', 'button', 'submit'] as const;
-const stateOptions = ['1_25', '9_25', '25_25', '1_5'] as const;
-
 type ControlProps = {
-  type: (typeof typeOptions)[number];
-  state: (typeof stateOptions)[number];
+  nrOfItems: number;
 };
 
 type TimelineItem = {
@@ -43,8 +39,9 @@ const timelineItems: Array<TimelineItem> = [
   {
     title: 'Athugasemd',
     category: 'Nafn starfsmanns',
-    description:
-      'Umsækjandi þarf að koma með skilríki þegar hann mætir. Þetta er nauðsynlegt til að staðfesta auðkenni hans. Vinsamlegast tryggið að skilríkin séu gild.',
+    description: `Umsækjandi þarf að koma með skilríki þegar hann mætir.
+    Þetta er nauðsynlegt til að staðfesta auðkenni hans.
+    Vinsamlegast tryggið að skilríkin séu gild.`,
   },
 ];
 
@@ -59,9 +56,7 @@ const meta: Meta<ControlProps> = {
 export default meta;
 
 const TimelineStory = (props: ControlProps) => {
-  const { type, state } = props;
-
-  const nrOfItems = 6;
+  const nrOfItems = props.nrOfItems;
   // Generate dynamic timeline items
   const items = Array.from({ length: nrOfItems }, (_, i) => {
     const timelineItem = timelineItems[i];
@@ -79,4 +74,14 @@ const TimelineStory = (props: ControlProps) => {
 
 export const _Timeline: StoryObj<ControlProps> = {
   render: (args) => <TimelineStory {...args} />,
+  argTypes: {
+    nrOfItems: {
+      name: 'Nr. of items',
+      options: [1, 2, 3, 4, 5, 6],
+      control: 'select',
+    },
+  },
+  args: {
+    nrOfItems: 4,
+  },
 };

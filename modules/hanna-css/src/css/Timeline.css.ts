@@ -1,9 +1,14 @@
 import { css } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars.js';
+import { ComponentLayout } from './styles/componentLayout.js';
 import { DEPS } from './utils/miscUtils.js';
 
 export default css`
   ${DEPS('Skeleton')}
+
+  .Timeline {
+    ${ComponentLayout};
+  }
 
   .Timeline__item[aria-current='step'] > .Timeline__item__title::before {
     background-color: ${vars.color_faxafloi_100};
