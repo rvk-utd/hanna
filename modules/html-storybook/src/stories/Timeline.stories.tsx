@@ -68,21 +68,11 @@ const TimelineStory = (props: ControlProps) => {
   const isLoading = props.isLoading;
   const oldestFirst = props.oldestFirst;
 
-  const items = Array.from({ length: nrOfItems }, (_, i) => {
-    const timelineItem = timelineItems[i];
-    if (isLoading || !timelineItem) {
-      return 'skeleton';
-    }
-    return {
-      title: timelineItem.title,
-      date: timelineItem.date,
-      category: timelineItem.category,
-      curent: timelineItem.curent,
-      description: timelineItem.description,
-    };
-  });
+  const result: Array<TimeLineItem | 'skeleton'> = isLoading
+    ? new Array(nrOfItems).fill('skeleton')
+    : timelineItems.slice(0, nrOfItems);
 
-  return <Timeline items={items} oldestFirst={oldestFirst} />;
+  return <Timeline items={result} oldestFirst={oldestFirst} />;
 };
 
 export const _Timeline: StoryObj<ControlProps> = {
