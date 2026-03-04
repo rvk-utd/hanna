@@ -3,24 +3,22 @@ import { Skeleton } from '@reykjavik/hanna-react/Skeleton.js';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
+export type TimeLineItem = {
+  title: string;
+  category?: string;
+  description?: string;
+  date?: string | Date;
+  /**
+   * If no item is marked current, then the first item in the array is impilicitly the current one.
+   *
+   * If multiple items are marked current, then the first one is the current one.
+   */
+  curent?: boolean;
+};
+
 export type TimelineProps = {
   title?: string;
-  hideTitle?: boolean;
-  items: Array<
-    | {
-        title: string;
-        category?: string;
-        description?: string;
-        date?: string | Date;
-        /**
-         * If no item is marked current, then the first item in the array is impilicitly the current one.
-         *
-         * If multiple items are marked current, then the first one is the current one.
-         */
-        curent?: boolean;
-      }
-    | 'skeleton'
-  >;
+  items: Array<TimeLineItem | 'skeleton'>;
   /** If true, the timeline will be sorted with the oldest item first. By default, the newest item is first. */
   oldestFirst?: boolean;
   /** Defaults to the current global `DEFAULT_LANG` */
@@ -41,13 +39,8 @@ export const Timeline = (props: TimelineProps) => {
   );
 
   return (
-    <div
-      className={modifiedClass('Timeline', [
-        oldestFirst && 'oldestFirst',
-        props.hideTitle && 'hidetitle',
-      ])}
-    >
-      <h3 className="Timeline__title">{title}</h3>
+    <div className={modifiedClass('Timeline', [oldestFirst && 'oldestFirst'])}>
+      {title && <h3 className="Timeline__title">{title}</h3>}
       <ul className="Timeline__items">
         {items.map((item, i) => {
           if (item === 'skeleton') {
