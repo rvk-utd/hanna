@@ -2,17 +2,6 @@ import React from 'react';
 import { Timeline } from '@reykjavik/hanna-react/Timeline.js';
 import { Meta, StoryObj } from '@storybook/react';
 
-type ControlProps = {
-  nrOfItems: number;
-  isLoading: boolean;
-};
-
-type TimelineItem = {
-  title: string;
-  category: string;
-  description?: string;
-};
-
 const timelineItems: Array<TimelineItem> = [
   {
     title: 'Vantar upplýsingar',
@@ -46,6 +35,18 @@ const timelineItems: Array<TimelineItem> = [
   },
 ];
 
+type ControlProps = {
+  nrOfItems: number;
+  isLoading: boolean;
+  oldestFirst: boolean;
+};
+
+type TimelineItem = {
+  title: string;
+  category: string;
+  description?: string;
+};
+
 // ---------------------------------------------------------------------------
 
 const meta: Meta<ControlProps> = {
@@ -59,22 +60,23 @@ export default meta;
 const TimelineStory = (props: ControlProps) => {
   const nrOfItems = props.nrOfItems;
   const isLoading = props.isLoading;
-  // Generate dynamic timeline items
+  const oldestFirst = props.oldestFirst;
+
   const items = Array.from({ length: nrOfItems }, (_, i) => {
-    if (isLoading) {
+    const timelineItem = timelineItems[i];
+    if (isLoading || !timelineItem) {
       return 'skeleton';
     }
-    const timelineItem = timelineItems[i];
     return {
-      title: timelineItem?.title,
+      title: timelineItem.title,
       date: new Date(2025, 0, 10 - i * 2),
-      category: timelineItem?.category,
+      category: timelineItem.category,
       curent: i === 0,
-      description: timelineItem?.description,
+      description: timelineItem.description,
     };
   });
 
-  return <Timeline key="hugahuga" items={items} />;
+  return <Timeline items={items} oldestFirst={oldestFirst} />;
 };
 
 export const _Timeline: StoryObj<ControlProps> = {
@@ -86,9 +88,11 @@ export const _Timeline: StoryObj<ControlProps> = {
       control: 'select',
     },
     isLoading: { name: 'Is loading' },
+    oldestFirst: { name: 'Oldest item first' },
   },
   args: {
     nrOfItems: 4,
     isLoading: false,
+    oldestFirst: false,
   },
 };

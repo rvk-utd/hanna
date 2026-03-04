@@ -33,6 +33,15 @@ export default css`
     margin-right: ${vars.space_2};
   }
 
+  .Timeline__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Timeline--oldestFirst .Timeline__items {
+    flex-direction: column-reverse;
+  }
+
   .Timeline__subitems {
     border-left: 1px solid ${vars.color_faxafloi_50};
     padding-left: calc(${vars.space_2} + 5px);
