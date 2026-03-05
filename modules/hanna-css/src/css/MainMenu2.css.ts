@@ -472,14 +472,16 @@ const mobileStyles = css`
       display: none !important;
     }
     [data-sprinkled] > * > * > .MainMenu2__hot__item--redhot {
-      position: fixed;
-      z-index: 1;
-      top: calc(${vars.Layout$$header_height} / 2);
-      right: ${vars.grid_margin__right};
+      position: absolute;
+      top: calc(${vars.Layout$$header_height} / -2);
+      right: 0;
       margin-right: ${vars.space_7};
       transform: translateY(-50%);
     }
     .MainMenu2--open > * > * > .MainMenu2__hot__item--redhot {
+      position: fixed;
+      z-index: 1;
+      top: calc(${vars.Layout$$header_height} / 2);
       right: ${vars.grid_margin};
     }
     .MainMenu2__hot__item--redhot ~ .MainMenu2__hot__item--redhot {

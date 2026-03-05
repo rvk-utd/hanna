@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu2`:
+  - fix: `--redhot` on small viewports was always `position: fixed`
 
 ## 0.8.98
 
