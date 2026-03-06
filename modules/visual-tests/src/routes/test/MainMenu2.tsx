@@ -76,6 +76,7 @@ export default function () {
         <>
           {/* * /}
           <style>{`.foo { height: 24vh; border: 2px dotted orange;  border-width: 2px 0 0 2px; }`}</style>
+          <div className="foo">—————————————————————————————————————————————————</div>
           <div className="foo">...some content 1...</div>
           <div className="foo">...some content … 2...</div>
           <div className="foo">...some content … … 3 ...</div>

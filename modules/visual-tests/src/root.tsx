@@ -27,8 +27,8 @@ const remoteStyles = false as boolean;
 const cssVersion = remoteStyles ? 'dev-v0.8' : ('dev' as 'v0.8');
 const styleServer = remoteStyles
   ? 'https://styles.test.thon.is/'
-  : //'http://bs-local.com:4000' // Use this when you do local testing with browserstack.com
-    'http://localhost:4000';
+  : 'http://localhost:4000';
+// : 'http://bs-local.com:4000'; // Use this when you do local testing with browserstack.com
 
 setStyleServerUrl(styleServer);
 

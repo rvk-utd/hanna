@@ -3,6 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `-basics`:
+  - fix: Set `overflow-x: clip` on `<body/>` — to stop broken customn CSS
+    triggering horizontal content overflows and `position: fixed`
+    misalignments in mobile browsers
 
 ## 0.8.99
 
