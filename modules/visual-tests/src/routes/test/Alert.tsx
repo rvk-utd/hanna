@@ -31,7 +31,6 @@ export default function () {
         type="success"
         // autoClose={2}
         // onClosed={() => undefined}
-        closable
         closeUrl="?close=1"
         ssr
       >
@@ -46,7 +45,7 @@ export default function () {
         </p>
       </Alert>
 
-      <Alert type="warning" closable closeUrl="?close=2" ssr>
+      <Alert type="warning" closeUrl="?close=2" ssr>
         <strong>Warning</strong> - Kosningar í fullum gangi.{' '}
         <a href="">Flettu upp þínum kosningarstað</a>
       </Alert>
