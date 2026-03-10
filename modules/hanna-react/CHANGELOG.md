@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.170
+
+_2026-03-10_
+
 - `Alert`:
   - fix: On freeze only extend auto-closing alerts' remaining time by a bit
 
