@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Alert`:
+  - fix: On freeze only extend auto-closing alerts' remaining time by a bit
 
 ## 0.10.169
 

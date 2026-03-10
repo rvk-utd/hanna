@@ -22,26 +22,45 @@ import {
 // FIXME: Eventually import from @reykjavik/hanna-css
 const AlertCloseTransitionDuration = 400;
 
+/** How much to extend the remaining time when the auto-closing is interrupted (frozen) by mouseover or keyboard focus */
+const FREEZE_EXTENSION_MS = 750;
+
 const useAutoClosing = (autoClose: number, props: HTMLProps) => {
-  const [temp, setTemp] = useState(0);
+  const startTime = useRef(Date.now());
+  const remainingMs = useRef(autoClose);
+  const [frost, setFrost] = useState(0);
+
   if (!autoClose) {
-    return { autoClosing: false };
+    return { autoCloseIn: undefined };
   }
   const thaw = (e: FocusEvent | MouseEvent) => {
-    setTemp((temp) => temp + 1);
+    // When it's about to thaw, make set a new start time to base future
+    // "remaining time" calculations on.
+    if (frost === 1) {
+      startTime.current = Date.now();
+    }
+    setFrost((frost) => frost - 1);
     const handler = props[e.type.startsWith('blur') ? 'onBlur' : 'onMouseLeave'];
-    // @ts-expect-error  (Proper fix ends up as too much code for this extreme edge case)
-    handler && handler(e);
+    handler && handler(e as FocusEvent<HTMLDivElement> & MouseEvent<HTMLDivElement>);
   };
   const freeze = (e: FocusEvent | MouseEvent) => {
-    setTemp((temp) => temp - 1);
+    // When there's no frost and it's about to freeze, make note
+    // of the remaining time. Furhter freezes should not update this.
+    if (!frost) {
+      console.log(remainingMs.current);
+      // Calculate the currently remaining time based on the last start time.
+      const newRemainingMs = remainingMs.current - (Date.now() - startTime.current);
+      // Extend the remainint time a bit to give usees some leeway,
+      // but never extend it beyond the original autoClose value.
+      remainingMs.current = Math.min(newRemainingMs + FREEZE_EXTENSION_MS, autoClose);
+    }
+    setFrost((frost) => frost + 1);
     const handler = props[e.type.startsWith('focus') ? 'onFocus' : 'onMouseEnter'];
-    // @ts-expect-error  (Resolving ends up as too much code for this extreme edge case)
-    handler && handler(e);
+    handler && handler(e as FocusEvent<HTMLDivElement> & MouseEvent<HTMLDivElement>);
   };
 
   return {
-    autoClosing: temp === 0,
+    autoCloseIn: frost === 0 ? remainingMs.current : undefined,
     autoClosingProps: {
       onMouseEnter: freeze,
       onMouseLeave: thaw,
@@ -82,7 +101,7 @@ export const alertTypes: Record<string, 1> = {
 
 export type AlertProps = {
   type: AlertType;
-  /** Defaults to `true` if an `onClose` handler or a `closeUrl` is passaed */
+  /** Defaults to `true` if an `onClose` or `closeUrl` handlers are passaed */
   closable?: boolean;
   /** The alert content */
   children?: ReactNode;
@@ -98,7 +117,7 @@ export type AlertProps = {
   EitherObj<
     {
       /**
-       * Seconds until the Alert auto-closes.
+       * Number of **seconds** until the Alert auto-closes.
        * Mosueover and keyboard focus resets the timer.  \
        * NOTE: An `onClosed` handler is required when using this option.
        */
@@ -138,7 +157,7 @@ export const Alert = (props: AlertProps) => {
     wrapperProps,
   } = props;
 
-  const autoClose = Math.max(props.autoClose || 0, 0);
+  const autoClose = Math.max(props.autoClose || 0, 0) * 1_000;
   const closable =
     props.closable ?? !!(onClose || (onClosed && !autoClose) || closeUrl != null);
 
@@ -173,14 +192,14 @@ export const Alert = (props: AlertProps) => {
     [onClose, onClosed]
   );
 
-  const { autoClosing, autoClosingProps } = useAutoClosing(autoClose, props);
+  const { autoCloseIn, autoClosingProps } = useAutoClosing(autoClose, props);
 
   useEffect(() => {
-    if (autoClosing) {
+    if (autoCloseIn) {
       let autoCloseTimeout: ReturnType<typeof setTimeout> | undefined;
       autoCloseTimeout = setTimeout(() => {
         closeAlert();
-      }, autoClose * 1_000);
+      }, autoCloseIn);
       return () => {
         if (autoCloseTimeout) {
           clearTimeout(autoCloseTimeout);
@@ -192,7 +211,7 @@ export const Alert = (props: AlertProps) => {
         }
       };
     }
-  }, [closeAlert, autoClosing, autoClose]);
+  }, [closeAlert, autoCloseIn]);
 
   return (
     <div

@@ -27,9 +27,17 @@ export default function () {
         assumenda!
       </Alert>
 
-      <Alert type="success" closable closeUrl="?close=1" ssr>
+      <Alert
+        type="success"
+        // autoClose={2}
+        // onClosed={() => undefined}
+        closable
+        closeUrl="?close=1"
+        ssr
+      >
         <p>
-          <strong>Success</strong> -{' '}
+          <strong>Success</strong>
+          {' - '}
           <a href="" id="hover-me">
             Bein útsending
           </a>{' '}
