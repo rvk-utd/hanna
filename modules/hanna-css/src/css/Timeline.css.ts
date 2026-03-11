@@ -94,16 +94,21 @@ export default css`
     color: ${vars.color_suld_150};
   }
 
+  .Timeline__item--loading::before,
+  .Timeline__item--loading::after {
+    display: none;
+  }
+
   .Timeline__item--loading {
     position: relative;
+    padding-left: 0;
   }
 
   .Timeline__item--loading > .Skeleton {
     display: flex;
     flex-direction: column-reverse;
     width: 250px;
-    margin-left: 25px;
-    margin-bottom: calc(var(--Skeleton--gap) * var(--space-1));
+    margin: 0 0 calc(var(--Skeleton--gap) * var(--space-1)) ${vars.space_3};
   }
 
   .Skeleton__circle {
