@@ -5,6 +5,10 @@ import { hannaVars as vars } from '../lib/hannavars.js';
 import { ComponentLayout } from './styles/componentLayout.js';
 import { DEPS } from './utils/miscUtils.js';
 
+const circleWidth = '11px';
+const circleHeight = '11px';
+const circleBorderRadius = '50%';
+
 export default css`
   ${DEPS('Skeleton')}
 
@@ -23,10 +27,10 @@ export default css`
     top: 6px;
     left: 0;
     content: '';
-    width: 11px;
-    height: 11px;
+    width: ${circleWidth};
+    height: ${circleHeight};
     background-color: ${vars.color_faxafloi_75};
-    border-radius: 50%;
+    border-radius: ${circleBorderRadius};
     flex-shrink: 0;
     margin-right: ${vars.space_2};
   }
@@ -112,13 +116,12 @@ export default css`
   }
 
   .Skeleton__circle {
-    width: 11px !important;
-    height: 11px;
-    border-radius: 11px;
-    margin-left: 0px;
     position: absolute;
     left: 0;
     top: 5px;
+    width: ${circleWidth} !important;
+    height: ${circleHeight};
+    border-radius: ${circleBorderRadius};
     margin: 0 !important;
   }
 `;
