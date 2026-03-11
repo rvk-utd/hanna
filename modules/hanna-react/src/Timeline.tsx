@@ -65,23 +65,19 @@ export const Timeline = (props: TimelineProps) => {
               aria-current={currentIdx === i ? 'step' : undefined}
             >
               <div className="Timeline__item__title">{title}</div>
-              <div className="Timeline__subitems">
-                {author && (
-                  <div className="Timeline__subitem Timeline__item__category">
-                    {author}
-                  </div>
-                )}
-                {description && (
-                  <div className="Timeline__subitem Timeline__item__description">
-                    {description}
-                  </div>
-                )}
-                {date && (
-                  <div className="Timeline__subitem Timeline__item__date">
-                    {typeof date === 'string' ? date : formatDate.format(date)}
-                  </div>
-                )}
-              </div>
+              {author && (
+                <div className="Timeline__subitem Timeline__item__category">{author}</div>
+              )}
+              {description && (
+                <div className="Timeline__subitem Timeline__item__description">
+                  {description}
+                </div>
+              )}
+              {date && (
+                <div className="Timeline__subitem Timeline__item__date">
+                  {typeof date === 'string' ? date : formatDate.format(date)}
+                </div>
+              )}
             </li>
           );
         })}

@@ -12,7 +12,38 @@ export default css`
     ${ComponentLayout};
   }
 
-  .Timeline__item[aria-current='step'] > .Timeline__item__title::before {
+  .Timeline__item {
+    position: relative;
+    padding-left: ${vars.space_3};
+  }
+
+  .Timeline__item::before {
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: ${vars.color_faxafloi_75};
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: ${vars.space_2};
+  }
+
+  .Timeline__item::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 18px;
+    bottom: 0;
+    left: 5px;
+    width: 1px;
+    background-color: ${vars.color_faxafloi_75};
+    margin: 5px 0;
+  }
+
+  .Timeline__item[aria-current='step']::before {
     background-color: ${vars.color_faxafloi_100};
   }
 
@@ -23,16 +54,6 @@ export default css`
     font-weight: ${vars.font_weight__bold};
     color: ${vars.color_suld_200};
     padding-bottom: 4px;
-  }
-
-  .Timeline__item__title::before {
-    content: '';
-    width: 11px;
-    height: 11px;
-    background-color: ${vars.color_faxafloi_75};
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-right: ${vars.space_2};
   }
 
   .Timeline__items {
