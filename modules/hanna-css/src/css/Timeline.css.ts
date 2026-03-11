@@ -44,7 +44,7 @@ export default css`
     left: 5px;
     width: 1px;
     background-color: ${vars.color_faxafloi_75};
-    margin: 5px 0;
+    margin: ${vars.space_1} 0;
   }
 
   .Timeline__item[aria-current='step']::before {
@@ -72,7 +72,7 @@ export default css`
   .Timeline__item__category,
   .Timeline__item__description,
   .Timeline__item__date {
-    padding: 4px 0;
+    padding: ${vars.space_0$5} 0;
     font: ${vars.font_body_s};
     color: ${vars.color_suld_150};
   }
