@@ -68,8 +68,8 @@ const TimelineStory = (props: ControlProps) => {
   const isLoading = props.isLoading;
   const oldestFirst = props.oldestFirst;
 
-  const result: Array<TimeLineItem | 'skeleton'> = isLoading
-    ? new Array(nrOfItems).fill('skeleton')
+  const result = isLoading
+    ? new Array(nrOfItems).fill('loading')
     : timelineItems.slice(0, nrOfItems);
 
   return <Timeline items={result} oldestFirst={oldestFirst} />;

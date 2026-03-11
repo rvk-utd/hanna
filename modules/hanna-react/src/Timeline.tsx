@@ -3,22 +3,24 @@ import { Skeleton } from '@reykjavik/hanna-react/Skeleton.js';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
-export type TimeLineItem = {
-  title: string;
-  category?: string;
-  description?: string;
-  date?: string | Date;
-  /**
-   * If no item is marked current, then the first item in the array is impilicitly the current one.
-   *
-   * If multiple items are marked current, then the first one is the current one.
-   */
-  curent?: boolean;
-};
+export type TimeLineItem =
+  | {
+      title: string;
+      category?: string;
+      description?: string;
+      date?: string | Date;
+      /**
+       * If no item is marked current, then the first item in the array is impilicitly the current one.
+       *
+       * If multiple items are marked current, then the first one is the current one.
+       */
+      curent?: boolean;
+    }
+  | 'loading';
 
 export type TimelineProps = {
   title?: string;
-  items: Array<TimeLineItem | 'skeleton'>;
+  items: Array<TimeLineItem>;
   /** If true, the timeline will be sorted with the oldest item first. By default, the newest item is first. */
   oldestFirst?: boolean;
   /** Defaults to the current global `DEFAULT_LANG` */
@@ -34,7 +36,7 @@ export const Timeline = (props: TimelineProps) => {
     day: 'numeric',
   });
   const currentIdx = Math.max(
-    items.findIndex((item) => item !== 'skeleton' && !!item.curent),
+    items.findIndex((item) => item !== 'loading' && !!item.curent),
     0
   );
 
@@ -43,9 +45,9 @@ export const Timeline = (props: TimelineProps) => {
       {title && <h3 className="Timeline__title">{title}</h3>}
       <ul className="Timeline__items">
         {items.map((item, i) => {
-          if (item === 'skeleton') {
+          if (item === 'loading') {
             return (
-              <li key={i} className="Timeline__item Timeline__item--skeleton">
+              <li key={i} className="Timeline__item Timeline__item--loading">
                 <Skeleton height={1} wrapperProps={{ className: 'Skeleton__circle' }} />
                 <Skeleton items={1} height={3} text />
               </li>

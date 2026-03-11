@@ -1,5 +1,7 @@
 import { css } from 'es-in-css';
+
 import { hannaVars as vars } from '../lib/hannavars.js';
+
 import { ComponentLayout } from './styles/componentLayout.js';
 import { DEPS } from './utils/miscUtils.js';
 
@@ -71,11 +73,11 @@ export default css`
     color: ${vars.color_suld_150};
   }
 
-  .Timeline__item--skeleton {
+  .Timeline__item--loading {
     position: relative;
   }
 
-  .Timeline__item--skeleton > .Skeleton {
+  .Timeline__item--loading > .Skeleton {
     display: flex;
     flex-direction: column-reverse;
     width: 250px;
