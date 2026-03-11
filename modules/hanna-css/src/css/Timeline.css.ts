@@ -69,26 +69,16 @@ export default css`
     flex-direction: column-reverse;
   }
 
-  .Timeline__item:last-child > .Timeline__subitems {
-    min-height: auto;
-  }
-
-  .Timeline__subitem {
+  .Timeline__item__category,
+  .Timeline__item__description,
+  .Timeline__item__date {
     padding: 4px 0;
     font: ${vars.font_body_s};
-  }
-
-  .Timeline__subitem:last-child {
-    padding: 4px 0 8px 0;
+    color: ${vars.color_suld_150};
   }
 
   .Timeline__item__description {
     color: ${vars.color_suld_200};
-  }
-
-  .Timeline__item__category,
-  .Timeline__item__date {
-    color: ${vars.color_suld_150};
   }
 
   .Timeline__item--loading::before,
