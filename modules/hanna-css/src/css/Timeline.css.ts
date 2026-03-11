@@ -57,7 +57,7 @@ export default css`
     font: ${vars.font_body_m};
     font-weight: ${vars.font_weight__bold};
     color: ${vars.color_suld_200};
-    padding-bottom: 4px;
+    padding-bottom: ${vars.space_0$5};
   }
 
   .Timeline__items {
@@ -67,13 +67,6 @@ export default css`
 
   .Timeline--oldestFirst .Timeline__items {
     flex-direction: column-reverse;
-  }
-
-  .Timeline__subitems {
-    border-left: 1px solid ${vars.color_faxafloi_50};
-    padding-left: calc(${vars.space_2} + 5px);
-    margin-left: 5px;
-    min-height: 20px;
   }
 
   .Timeline__item:last-child > .Timeline__subitems {
