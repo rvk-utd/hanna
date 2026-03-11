@@ -1,10 +1,10 @@
 import React from 'react';
-import { Timeline, TimeLineItem } from '@reykjavik/hanna-react/Timeline.js';
+import { Timeline, TimeLineItem } from '@reykjavik/hanna-react/Timeline';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { lorem } from '../utils/_dummyData.js';
 
-const timelineItems: Array<TimeLineItem> = [
+export const timelineItems: Array<TimeLineItem> = [
   {
     title: 'Vantar upplýsingar',
     category: 'Nafn starfsmanns',

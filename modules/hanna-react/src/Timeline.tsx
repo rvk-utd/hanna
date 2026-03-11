@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton } from '@reykjavik/hanna-react/Skeleton.js';
+import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
