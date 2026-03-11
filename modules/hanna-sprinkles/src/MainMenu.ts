@@ -6,8 +6,12 @@ import q from '@hugsmidjan/qj/q';
 import qq from '@hugsmidjan/qj/qq';
 import { defaultMainMenuTexts } from '@reykjavik/hanna-react/MainMenu';
 import { defaultMobileMenuTogglerTexts } from '@reykjavik/hanna-react/MobileMenuToggler';
-import { domid } from '@reykjavik/hanna-react/utils';
-import { focusElement, getFormatMonitor, MediaFormat } from '@reykjavik/hanna-utils';
+import {
+  focusElement,
+  getFormatMonitor,
+  dumbId,
+  MediaFormat,
+} from '@reykjavik/hanna-utils';
 import { getTexts } from '@reykjavik/hanna-utils/i18n';
 
 import { getLang } from './_/getLang.js';
@@ -37,7 +41,7 @@ const htmlClass = document.documentElement.classList;
 
 const addMenuToggler = (menuElm: HTMLElement, lang: string) => {
   menuElm.tabIndex = -1;
-  const menuId = menuElm.id || domid();
+  const menuId = menuElm.id || dumbId();
   if (!menuElm.id) {
     menuElm.id = menuId;
   }

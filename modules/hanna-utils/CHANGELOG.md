@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 
+- feat: Add `makeId` helper to generate short, locally-unique DOM-friendly IDs
+
 ## 0.2.21
 
 _2025-05-23_

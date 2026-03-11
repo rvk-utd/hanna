@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `utils`:
+  - feat: Deprecate `domid` in favor of `dumbId` from `@reykjavik/hanna-utils`
 
 ## 0.10.170
 

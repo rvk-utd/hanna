@@ -20,6 +20,7 @@ yarn add @reykjavik/hanna-utils
   - [`printDate`](#printdate)
   - [`getStableRandomItem`](#getstablerandomitem)
   - [`capitalize`](#capitalize)
+  - [`dumbId`](#dumbid)
   - [`classes`](#classes)
   - [`modifiedClass`](#modifiedclass)
 - [Asset helpers](#asset-helpers)
@@ -186,6 +187,22 @@ import { capitalize } from '@reykjavik/hanna-utils';
 
 capitalize('hello world'); // "Hello world"
 capitalize('istanbul', 'TR'); // "İstanbul"
+```
+
+### `dumbId`
+
+**Syntax:** `dumbId(): string`
+
+Returns a fast, short, **locally-unique**, append/prend-friendly, DOM-safe ID
+string.
+
+**NOTE:** The generated IDs are very predictable and should only be used for
+temporary/frivolous purposes, e.g. as `id` attributes for DOM elements, etc.
+
+```ts
+import { dumbId } from '@reykjavik/hanna-utils';
+
+const myDomId = dumbId(); // "_30828007-1_"
 ```
 
 ### `classes`
