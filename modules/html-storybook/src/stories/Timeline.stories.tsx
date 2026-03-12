@@ -15,6 +15,7 @@ export const timelineItems: Array<TimeLineItem> = [
     title: 'Í vinnslu',
     category: 'Nafn starfsmanns',
     date: new Date(2025, 0, 8),
+    status: { label: 'Móttekið', color: 'green' },
   },
   {
     title: 'Vantar upplýsingar',
@@ -39,6 +40,7 @@ export const timelineItems: Array<TimeLineItem> = [
     description: 'Áminning um að sinna einstaklingsáætlun',
     date: new Date(2024, 11, 31),
   },
+  'loading',
 ];
 
 type ControlProps = {

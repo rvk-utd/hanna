@@ -10,7 +10,7 @@ const circleHeight = '11px';
 const circleBorderRadius = '50%';
 
 export default css`
-  ${DEPS('Skeleton')}
+  ${DEPS('Skeleton', 'TagPill')}
 
   .Timeline {
     ${ComponentLayout};
@@ -49,6 +49,10 @@ export default css`
 
   .Timeline__item[aria-current='step']::before {
     background-color: ${vars.color_faxafloi_100};
+  }
+
+  .Timeline__item .TagPill {
+    margin: ${vars.space_0$5};
   }
 
   .Timeline__item__title {

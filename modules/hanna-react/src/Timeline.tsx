@@ -1,7 +1,13 @@
 import React from 'react';
 import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
+import { TagPill, TagPillColor } from '@reykjavik/hanna-react/TagPill';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
+
+type Status = {
+  label: string;
+  color: TagPillColor;
+};
 
 export type TimeLineItem =
   | {
@@ -15,6 +21,7 @@ export type TimeLineItem =
        * If multiple items are marked current, then the first one is the current one.
        */
       curent?: boolean;
+      status?: Status;
     }
   | 'loading';
 
@@ -54,7 +61,7 @@ export const Timeline = (props: TimelineProps) => {
             );
           }
 
-          const { title, category: author, description, date } = item;
+          const { title, category: author, description, date, status } = item;
           return (
             <li
               key={i}
@@ -65,6 +72,7 @@ export const Timeline = (props: TimelineProps) => {
               aria-current={currentIdx === i ? 'step' : undefined}
             >
               <div className="Timeline__item__title">{title}</div>
+              {status && <TagPill color={status.color}>{status.label}</TagPill>}
               {author && <div className="Timeline__item__category">{author}</div>}
               {description && (
                 <div className="Timeline__item__description">{description}</div>
