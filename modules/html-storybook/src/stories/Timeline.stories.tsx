@@ -40,7 +40,6 @@ export const timelineItems: Array<TimeLineItem> = [
     description: 'Áminning um að sinna einstaklingsáætlun',
     date: new Date(2024, 11, 31),
   },
-  'loading',
 ];
 
 type ControlProps = {

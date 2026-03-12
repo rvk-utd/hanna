@@ -6,6 +6,8 @@ import { timelineItems } from 'modules/html-storybook/src/stories/Timeline.stori
 import { Minimal } from '../../layout/Minimal.js';
 import { autoTitle } from '../../utils/meta.js';
 
+const _timelineItems = [...timelineItems, 'loading'];
+
 // ---------------------------------------------------------------------------
 
 export const meta: V2_MetaFunction = autoTitle;
@@ -17,7 +19,7 @@ export default function () {
   return (
     <Minimal>
       <div>
-        <Timeline items={timelineItems} />
+        <Timeline items={_timelineItems} />
       </div>
     </Minimal>
   );
