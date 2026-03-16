@@ -72,10 +72,10 @@ export default function () {
           light={false}
           color="grey"
         >
-          Large Grey
+          Light off Large Grey
         </StatusTag>
         <StatusTag wrapperProps={{ id: 'large-lightoff-blue' }} large light={false}>
-          Large Default
+          Light off Large Default
         </StatusTag>
         <StatusTag
           wrapperProps={{ id: 'large-lightoff-green' }}
@@ -83,7 +83,7 @@ export default function () {
           light={false}
           color="green"
         >
-          Large Green
+          Light off Large Green
         </StatusTag>
         <StatusTag
           wrapperProps={{ id: 'large-lightoff-yellow' }}
@@ -91,7 +91,7 @@ export default function () {
           light={false}
           color="yellow"
         >
-          Large Yellow
+          Light off Large Yellow
         </StatusTag>
         <StatusTag
           wrapperProps={{ id: 'large-lightoff-red' }}
@@ -99,7 +99,7 @@ export default function () {
           light={false}
           color="red"
         >
-          Large Red
+          Light off Large Red
         </StatusTag>
       </div>
     </Minimal>
