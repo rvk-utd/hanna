@@ -4,6 +4,7 @@ import { Timeline } from '@reykjavik/hanna-react/Timeline';
 import { timelineItems } from 'modules/html-storybook/src/stories/Timeline.stories';
 
 import { Minimal } from '../../layout/Minimal.js';
+import type { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
 
 const _timelineItems = [...timelineItems, 'loading'];
@@ -26,3 +27,5 @@ export default function () {
 }
 
 // ---------------------------------------------------------------------------
+
+export const testing: TestingInfo = {};
