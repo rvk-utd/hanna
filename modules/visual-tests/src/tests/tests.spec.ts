@@ -120,6 +120,7 @@ import { testing as TagPill__test } from '../routes/test/TagPill.js';
 import { testing as TextBlock__test } from '../routes/test/TextBlock.js';
 import { testing as TextButton__test } from '../routes/test/TextButton.js';
 import { testing as TextInput__test } from '../routes/test/TextInput.js';
+import { testing as Timeline__test } from '../routes/test/Timeline.js';
 import { testing as Tooltip__test } from '../routes/test/Tooltip.js';
 import { testing as VSpacer__test } from '../routes/test/VSpacer.js';
 import { testing as WizardLayout__test } from '../routes/test/WizardLayout.js';
@@ -217,6 +218,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   TextBlock: TextBlock__test,
   TextButton: TextButton__test,
   TextInput: TextInput__test,
+  Timeline: Timeline__test,
   Tooltip: Tooltip__test,
   VSpacer: VSpacer__test,
   WizardLayout: WizardLayout__test,
