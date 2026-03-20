@@ -25,9 +25,38 @@ export type TimeLineItem =
     }
   | 'loading';
 
+const dateFormatters: Partial<Record<HannaLang, Intl.DateTimeFormat>> = {};
+const dateTimeFormatters: Partial<Record<HannaLang, Intl.DateTimeFormat>> = {};
+
+const getDateFormatter = (lang: HannaLang, hideTime?: boolean): Intl.DateTimeFormat =>
+  hideTime
+    ? dateFormatters[lang] ||
+      (dateFormatters[lang] = new Intl.DateTimeFormat(lang, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }))
+    : dateTimeFormatters[lang] ||
+      (dateTimeFormatters[lang] = new Intl.DateTimeFormat(lang, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      }));
+
 export type TimelineProps = {
   title?: string;
   items: Array<TimeLineItem>;
+
+  /**
+   * If true, Item `Dates` will be formatted year, month day only, without the
+   * time of day (hours and minutes) visible.
+   *
+   * Default: `false`
+   */
+  hideTime?: boolean;
+
   /** If true, the timeline will be sorted with the oldest item first. By default, the newest item is first. */
   oldestFirst?: boolean;
   /** Defaults to the current global `DEFAULT_LANG` */
@@ -35,13 +64,10 @@ export type TimelineProps = {
 };
 
 export const Timeline = (props: TimelineProps) => {
-  const { title, items, oldestFirst, lang = DEFAULT_LANG } = props;
+  const { title, items, oldestFirst, lang = DEFAULT_LANG, hideTime } = props;
 
-  const formatDate = new Intl.DateTimeFormat(lang, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const dateFmt = getDateFormatter(lang, hideTime);
+
   const currentIdx = Math.max(
     items.findIndex((item) => item !== 'loading' && !!item.curent),
     0
@@ -62,6 +88,7 @@ export const Timeline = (props: TimelineProps) => {
           }
 
           const { title, category: author, description, date, status } = item;
+
           return (
             <li
               key={i}
@@ -79,7 +106,7 @@ export const Timeline = (props: TimelineProps) => {
               )}
               {date && (
                 <div className="Timeline__item__date">
-                  {typeof date === 'string' ? date : formatDate.format(date)}
+                  {typeof date === 'string' ? date : dateFmt.format(date)}
                 </div>
               )}
             </li>
