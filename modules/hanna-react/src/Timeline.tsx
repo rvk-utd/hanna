@@ -4,24 +4,33 @@ import { TagPill, TagPillColor } from '@reykjavik/hanna-react/TagPill';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 import { DEFAULT_LANG, HannaLang } from '@reykjavik/hanna-utils/i18n';
 
-type Status = {
-  label: string;
-  color: TagPillColor;
-};
-
 export type TimeLineItem =
   | {
+      /** The main timeline item value */
       title: string;
+      /** Flexible categorization field. Could for example contain a person/user's name  */
       category?: string;
+      /** More details about the  */
       description?: string;
-      date?: string | Date;
+      /**
+       * The date/time of the timeline event.
+       *
+       * `Date` and `number` (timestamp) values are auto formatted according to the
+       * currently active `HannaLang`. If you need a non-default format pass it as a
+       * preformatted string.
+       */
+      date?: Date | number | string;
+      /** Displays a status tag next to the timeline item. */
+      status?: {
+        label: string;
+        color?: TagPillColor;
+      };
       /**
        * If no item is marked current, then the first item in the array is impilicitly the current one.
        *
        * If multiple items are marked current, then the first one is the current one.
        */
       curent?: boolean;
-      status?: Status;
     }
   | 'loading';
 
@@ -46,7 +55,10 @@ const getDateFormatter = (lang: HannaLang, hideTime?: boolean): Intl.DateTimeFor
       }));
 
 export type TimelineProps = {
+  /** Optional title to show above the timeline. */
   title?: string;
+
+  /** The items to display in the timeline. */
   items: Array<TimeLineItem>;
 
   /**
