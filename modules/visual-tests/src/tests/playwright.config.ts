@@ -164,8 +164,8 @@ export default defineConfig({
       reuseExistingServer: false,
     },
     {
-      command: 'yarn run dev:server',
-      cwd: '../../hanna-css',
+      command: 'sh scripts/start-dev.sh',
+      cwd: '../../../servers/styles',
       port: 4000,
       reuseExistingServer: false,
     },
