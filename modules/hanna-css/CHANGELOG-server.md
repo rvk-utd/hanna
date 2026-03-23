@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `AccordionList`:
+  - fix: Vertical misalignment of the "plus" icon on narrow/mobile viewports
 - `-basics`:
   - fix: Set `overflow-x: clip` on `<body/>` — to stop broken customn CSS
     triggering horizontal content overflows and `position: fixed`
