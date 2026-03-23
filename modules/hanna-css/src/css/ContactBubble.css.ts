@@ -219,16 +219,16 @@ export default css`
 
     .ContactBubble__title {
       @media ${mq_Fullscreen} {
-        font: ${vars.font_heading_xl};
+        font: ${vars.font_heading_l};
         max-width: 9em; /* Makes for nice line-wrap in the text 'Hvað getum við \n gert fyrir þig?' */
-        margin-bottom: ${scale(3 * grid.unit, 8 * grid.unit, 480, 812, 'vh')};
-        margin-bottom: min(
-          ${vars.space_8},
-          ${scale(3 * grid.unit, 8 * grid.unit, 480, 812, 'vh')}
+        margin-bottom: clamp(
+          ${vars.space_2},
+          ${scale(2 * grid.unit, 4 * grid.unit, 480, 812, 'vh')},
+          ${vars.space_4}
         );
       }
       @media ${mq_Popup} {
-        font: ${vars.font_body_l};
+        font: ${vars.font_heading_s};
         font-weight: ${vars.font_weight__bold};
         margin-bottom: ${grid_units(3)};
       }

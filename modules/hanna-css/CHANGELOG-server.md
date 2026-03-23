@@ -5,6 +5,7 @@
 - ... <!-- Add new lines here. -->
 - `ContactBubble`:
   - fix: Cropping of the `__openbtn` icon on smaller screens
+  - fix: Tweak `__title` font-size and margin-bottom
 - `Radio`:
   - fix: Slightly reduce size of checked "ball" circle
 - `AccordionList`:
