@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `ContactBubble`:
+  - fix: Cropping of the `__openbtn` icon on smaller screens
 - `Radio`:
   - fix: Slightly reduce size of checked "ball" circle
 - `AccordionList`:

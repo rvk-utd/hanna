@@ -119,7 +119,8 @@ export default css`
       position: absolute;
       top: 50%;
       left: ${grid_units(2)};
-      width: ${grid_units(5)};
+      font-size: ${grid_units(5)};
+      width: 1em;
       margin-top: -1em;
       height: 2em;
       line-height: 2em;
