@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Radio`:
+  - fix: Slightly reduce size of checked "ball" circle
 - `AccordionList`:
   - fix: Vertical misalignment of the "plus" icon on narrow/mobile viewports
 - `-basics`:
