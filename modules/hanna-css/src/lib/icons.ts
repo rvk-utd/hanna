@@ -53,7 +53,14 @@ export const iconContent = (iconChar: IconToken | VariablePrinter, filled?: bool
   // presentational, english language icon names from screen-readers
   return css`
     content: ${_iconChar};
-    content: ${_iconChar} / '';
+    ${
+      // While the Hanna project repo is using node@16 we can only upgrade
+      // PlayWright to v1.45.0 which includes browsers that don't  support
+      // `content: var(--icon) / 'alt';` syntax, so we have to skip this line
+      // while visual-testing.
+      !(process.env.VISUAL_TESTING && typeof _iconChar !== 'string') &&
+      `content: ${_iconChar} / ''`
+    };
     ${isFilled &&
     css`
       font-variation-settings: 'FILL' 1;

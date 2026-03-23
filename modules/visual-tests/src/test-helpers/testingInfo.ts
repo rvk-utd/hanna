@@ -4,7 +4,10 @@ import type {
   Locator,
   LocatorScreenshotOptions,
   PageScreenshotOptions,
-  test,
+  PlaywrightTestArgs,
+  PlaywrightTestOptions,
+  PlaywrightWorkerArgs,
+  PlaywrightWorkerOptions,
 } from '@playwright/test';
 import { CssModuleToken } from '@reykjavik/hanna-css';
 
@@ -111,7 +114,10 @@ export type TestInfoObj = {
 // ---------------------------------------------------------------------------
 
 export type TestFnArgs = Pick<
-  Parameters<Parameters<typeof test>[1]>[0],
+  PlaywrightTestArgs &
+    PlaywrightTestOptions &
+    PlaywrightWorkerArgs &
+    PlaywrightWorkerOptions,
   'page' | 'context' | 'browserName' | 'isMobile' | 'hasTouch'
 > & {
   /** Name of the currently running project */
