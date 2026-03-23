@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `FormField`:
+  - fix: Font-size of `__input`s should not shrink on smaller screens
 - `ContentImage`:
   - feat: Stack `__text` and `__credit` vertically on smaller screens
 - `ContactBubble`:

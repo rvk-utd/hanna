@@ -152,6 +152,10 @@ o.spec('cssVars', () => {
       font_body_s_leading: true,
       font_button_size: true,
       font_button_leading: true,
+      font_input_size: true,
+      font_input_leading: true,
+      font_input_s_size: true,
+      font_input_s_leading: true,
       font_label_size: true,
       font_label_leading: true,
 
@@ -165,6 +169,8 @@ o.spec('cssVars', () => {
       font_body_m: true,
       font_body_s: true,
       font_button: true,
+      font_input: true,
+      font_input_s: true,
       font_label: true,
 
       baseVerticalMargin: true,

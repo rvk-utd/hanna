@@ -49,6 +49,13 @@ const sz = {
   button_size: px(16),
   button_leading: px(20),
 
+  input_size: px(20),
+  input_leading: px(32),
+  input_size__phone: px(20),
+  input_leading__phone: px(32),
+  input_s_size: px(16),
+  input_s_leading: px(24),
+
   label_size: px(12),
   label_leading: px(16),
 };

@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add vars `font_ipput_*` and `font_ipput_s_*` to `hannaVars` for form
+  input values
 
 ## 0.4.26
 
