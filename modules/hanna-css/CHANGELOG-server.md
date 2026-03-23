@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `ContentImage`:
+  - feat: Stack `__text` and `__credit` vertically on smaller screens
 - `ContactBubble`:
   - fix: Cropping of the `__openbtn` icon on smaller screens
   - fix: Tweak `__title` font-size and margin-bottom
