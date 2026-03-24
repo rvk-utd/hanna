@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `MainMenu` (old):
+  - fix: Incorrect left offset of main items in "top menu" mode
 - `FileInput`:
   - fix: Fix vertical alignment and spacing of `.FileInput__filelist` contents
 - `FormField`:
