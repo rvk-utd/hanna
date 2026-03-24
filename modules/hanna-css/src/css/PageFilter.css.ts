@@ -66,6 +66,7 @@ export default css`
     .PageFilter__filters {
       display: flex;
       flex-flow: row wrap;
+      column-gap: ${hannaVars.grid_gutter};
       align-items: flex-start;
       margin-top: ${prem(20)};
       margin-bottom: ${scale_container(0, 24)};
@@ -74,14 +75,14 @@ export default css`
     }
 
     .PageFilter__filters > .FormField {
-      margin-right: ${hannaVars.grid_gutter};
       margin-bottom: ${grid_units(3)};
-      ${
-        '' // min-width: ${cols_pct(3, 2, { ofCols: 9, ofGutters: 9 })}; // In FireFox the min-width becomes larger and thus only fits 2 FormFields per line.
-      }
-      min-width: ${cols_pct(3, 1, { ofCols: 9, ofGutters: 9 })};
+      min-width: ${cols_pct(3, 2, { ofCols: 9, ofGutters: 9 })};
+      width: min-content;
 
-      @media ${mq.phone} {
+      @media ${mq.tablet} {
+        min-width: ${vars.grid_6};
+      }
+      @media ${mq.phone_phablet} {
         width: 100%;
       }
     }

@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `PageFilter`:
+  - fix: Correct widths of contained `.FormField`s on desktop viewports
 - `Modal`:
   - fix: Tweak position of `.Modal__closebutton` on smaller screens
 - `MainMenu` (old):
