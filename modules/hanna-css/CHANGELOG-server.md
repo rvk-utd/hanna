@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Modal`:
+  - fix: Tweak position of `.Modal__closebutton` on smaller screens
 - `MainMenu` (old):
   - fix: Incorrect left offset of main items in "top menu" mode
 - `FileInput`:
