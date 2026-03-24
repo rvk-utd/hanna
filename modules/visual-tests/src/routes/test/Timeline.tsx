@@ -17,36 +17,34 @@ export const meta: V2_MetaFunction = autoTitle;
 export default function () {
   return (
     <Minimal>
-      <div>
-        <Timeline
-          items={[
-            {
-              title: 'Vantar upplýsingar',
-              category: 'Nafn starfsmanns',
-              description: 'Þarf að sanna sér deili',
-              date: new Date(2025, 0, 10),
-            },
-            {
-              title: 'Í vinnslu',
-              category: 'Nafn starfsmanns',
-              date: new Date(2025, 0, 8),
-              status: { label: 'Móttekið', color: 'green' },
-            },
-            {
-              title: 'Vantar upplýsingar',
-              category: 'Nafn starfsmanns',
-              description: 'Vantar sakavottorð',
-              date: new Date(2025, 0, 6),
-            },
-            {
-              title: 'Athugasemd',
-              category: 'Nafn starfsmanns',
-              description: lorem.medium,
-              date: new Date(2025, 0, 4),
-            },
-          ]}
-        />
-      </div>
+      <Timeline
+        items={[
+          {
+            title: 'Vantar upplýsingar',
+            category: 'Nafn starfsmanns',
+            description: 'Þarf að sanna sér deili',
+            date: new Date(2025, 0, 10),
+          },
+          {
+            title: 'Í vinnslu',
+            category: 'Nafn starfsmanns',
+            date: new Date(2025, 0, 8),
+            status: { label: 'Móttekið', color: 'green' },
+          },
+          {
+            title: 'Vantar upplýsingar',
+            category: 'Nafn starfsmanns',
+            description: 'Vantar sakavottorð',
+            date: new Date(2025, 0, 6),
+          },
+          {
+            title: 'Athugasemd',
+            category: 'Nafn starfsmanns',
+            description: lorem.medium,
+            date: new Date(2025, 0, 4),
+          },
+        ]}
+      />
     </Minimal>
   );
 }
