@@ -3,7 +3,6 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- feat: Add CSS module token `Timeline`
 
 ## 0.8.97
 
