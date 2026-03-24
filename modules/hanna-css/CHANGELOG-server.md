@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `FileInput`:
+  - fix: Fix vertical alignment and spacing of `.FileInput__filelist` contents
 - `FormField`:
   - fix: Font-size of `__input`s should not shrink on smaller screens
 - `ContentImage`:

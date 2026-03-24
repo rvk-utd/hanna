@@ -37,7 +37,6 @@ export default css`
       transition: all 200ms ease-in;
       transition-property: background-color, border-color;
       cursor: pointer;
-      margin-bottom: ${prem(20)};
       text-align: center;
       color: ${vars.color_suld_200};
       position: relative;
@@ -103,12 +102,13 @@ export default css`
       display: flex;
       flex-flow: row wrap;
       align-items: center;
+      margin-top: ${vars.space_2};
     }
 
     .FileInput__file {
       width: 100%;
       padding-left: 26px;
-      margin-bottom: ${prem(8)};
+      margin-bottom: ${vars.space_1$5};
       position: relative;
     }
 
@@ -124,15 +124,18 @@ export default css`
       flex-shrink: 1;
     }
     .FileInput__filesize {
-      padding-left: ${prem(3)};
+      padding-top: 2px;
+      padding-left: ${vars.space_0$5};
+      color: ${vars.color_suld_150};
       white-space: nowrap;
     }
 
     .FileInput__preview {
       width: 40px;
       height: 40px;
+      margin: ${vars.space_1__neg} 0;
+      margin-right: ${vars.space_1};
       display: inline-block;
-      margin-right: ${prem(15)};
       vertical-align: middle;
     }
     .FileInput__preview img {
@@ -148,16 +151,15 @@ export default css`
       left: 0;
       color: inherit;
       width: ${vars.icon_size__small};
+    }
 
-      &::before {
-        ${iconStyle('close', 'small')}
-        color: ${vars.color_faxafloi_100};
-      }
-
-      &:hover::before,
-      &:focus::before {
-        color: ${vars.color_faxafloi_150};
-      }
+    .FileInput__file-remove::before {
+      ${iconStyle('close', 'small')}
+      color: ${vars.color_faxafloi_100};
+    }
+    .FileInput__file-remove:hover::before,
+    .FileInput__file-remove:focus::before {
+      color: ${vars.color_faxafloi_150};
     }
   }
 
