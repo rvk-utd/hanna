@@ -43,7 +43,6 @@ export const timelineItems: Array<TimeLineItem> = [
 ];
 
 type ControlProps = {
-  nrOfItems: number;
   loadingMore: boolean;
   oldestFirst: boolean;
 };
@@ -59,9 +58,9 @@ const meta: Meta<ControlProps> = {
 export default meta;
 
 const TimelineStory = (props: ControlProps) => {
-  const { nrOfItems, oldestFirst, loadingMore } = props;
+  const { oldestFirst, loadingMore } = props;
 
-  const result = timelineItems.slice(0, nrOfItems);
+  const result = timelineItems.slice(0, 4);
   if (loadingMore) {
     result[result.length - 1] = 'loading';
   }
@@ -72,16 +71,10 @@ const TimelineStory = (props: ControlProps) => {
 export const _Timeline: StoryObj<ControlProps> = {
   render: (args) => <TimelineStory {...args} />,
   argTypes: {
-    nrOfItems: {
-      name: 'Nr. of items',
-      options: [1, 2, 3, 4, 5, 6],
-      control: 'select',
-    },
     loadingMore: { name: 'Is loading' },
     oldestFirst: { name: 'Oldest item first' },
   },
   args: {
-    nrOfItems: 4,
     loadingMore: false,
     oldestFirst: false,
   },
