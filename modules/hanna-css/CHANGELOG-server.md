@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Picture`:
+  - fix: Regression causing messed up scaling/strething of `<img/>` elements
 - `PageFilter`:
   - fix: Correct widths of contained `.FormField`s on desktop viewports
 - `Modal`:
