@@ -186,7 +186,7 @@ export const testing: TestingInfo = [
     label: 'hamburger',
     tags: ['firefox-phone', 'firefox-tablet'],
     extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
-      const hamburgerBtn = page.locator('.MainMenuToggler');
+      const hamburgerBtn = page.locator('.MobileMenuToggler');
       const activePanel = page.locator('.PrimaryPanel--active');
       // NOTE: .MainMenu is the effective page-scroll-container in "hamburger-mode"
       const scrollContainer = page.locator('.MainMenu__items >> scrollContainer=');

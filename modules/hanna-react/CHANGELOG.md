@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - `utils`:
   - feat: Deprecate `domid` in favor of `dumbId` from `@reykjavik/hanna-utils`
+  - fix: Update className selector for `MobileMenuToggler` button in
+    `useHannaUIState()`
 
 ## 0.10.170
 
