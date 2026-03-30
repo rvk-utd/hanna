@@ -234,7 +234,7 @@ export const testing: TestingInfo = [
       await localScreenshot(auxPanel, 'auxlink-hover');
 
       // Test close button hover
-      const closeBtn = page.locator('.MainMenuToggler');
+      const closeBtn = page.locator('.MobileMenuToggler');
       await closeBtn.hover();
       await localScreenshot(closeBtn, 'closebtn-hover', { margin: true });
     },

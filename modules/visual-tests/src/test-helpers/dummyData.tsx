@@ -20,6 +20,10 @@ export const photo = {
   portrait: { src: '/media/photo-portrait.png', altText: 'Photo, portrait' },
   banner: { src: '/media/photo-banner.png', altText: 'Photo, long banner' },
 };
+export const svgPicture = {
+  landscape: { src: '/media/picture-landscape.svg', altText: 'Picture, landscape' },
+  portrait: { src: '/media/picture-portrait.svg', altText: 'Picture, portrait' },
+};
 
 export const blingUrl = '/media/bling.svg';
 

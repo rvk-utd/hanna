@@ -84,11 +84,10 @@ export default function () {
           <Radio label="Disabled" disabled checked={false} data-testid="disabled" />
           <Radio label="Checked Disabled" disabled checked />
           <Radio label="Invalid" invalid required checked={false} data-testid="invalid" />
+          <Radio label="Checked Invalid" invalid checked data-testid="invalidChecked" />
           <Radio
-            label="Checked Invalid"
-            invalid
-            checked
-            data-testid="invalidChecked"
+            label="With error message"
+            checked={false}
             errorMessage="Error message here"
           />
           <Radio label={lorem.short} />
@@ -151,10 +150,14 @@ export const testing: TestingInfo = {
           margin: 8,
         });
 
-        await nolabelInvalid[action]();
-        await localScreenshot(nolabelInvalid, `${type}-nolabelInvalid-${action}`, {
-          margin: 8,
-        });
+        await nolabelInvalid[action]({ force: true });
+        await localScreenshot(
+          nolabelInvalid.locator(`closest=.${type}`),
+          `${type}-nolabelInvalid-${action}`,
+          {
+            margin: 8,
+          }
+        );
       }
 
       await disabled.hover();
