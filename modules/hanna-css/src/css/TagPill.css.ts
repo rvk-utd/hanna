@@ -94,17 +94,14 @@ export default css`
     .TagPill__remove {
       ${hideText_css('soft')}
       box-sizing: content-box;
-      width: 1em;
-      padding-left: ${vars.space_0$5};
-      padding-right: ${vars.space_1};
+      width: calc(1em + ${vars.space_1$5});
       margin-right: ${vars.space_1__neg};
       border-radius: ${vars.space_0$5};
       float: right;
       position: relative;
+      // outline: 1px dotted red;
     }
     button.TagPill__remove:hover {
-      margin-left: ${vars.space_0$5__neg};
-      padding-left: ${vars.space_1};
       background-color: ${Tv.background__hover};
       color: ${Tv.color__hover};
     }
@@ -112,7 +109,7 @@ export default css`
       position: absolute;
       top: 0;
       right: 0;
-      margin: 0;
+      margin-right: 0;
     }
     .TagPill__button:hover + .TagPill__remove,
     .TagPill__button:active + .TagPill__remove {

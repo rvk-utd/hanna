@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `TagPill`:
+  - fix: Tweak width and placement of the `__remove` button and its icon
 - `Picture`:
   - fix: Regression causing messed up scaling/strething of `<img/>` elements
 - `PageFilter`:
