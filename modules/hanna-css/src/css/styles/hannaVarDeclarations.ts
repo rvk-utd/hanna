@@ -475,7 +475,9 @@ const zIndexVarDeclarations = zIndexVars.declare({
 const _flexCol = (cols: number, gutters = cols - 1) => {
   const f = cols_pct(cols, gutters) / 100;
   const from = f * grid.contentMinWidth;
-  const to = f * grid.contentMaxWidth;
+  // Workaround FireFox (v148 at least) subpixel rendering issues in grid
+  // column/gutter widths.
+  const to = f * grid.contentMaxWidth - 0.015;
   return scale_phone_netbook(from, to);
 };
 
