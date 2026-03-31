@@ -39,6 +39,7 @@ o.spec('hanna-utils lib', () => {
       notNully: true,
       notFalsy: true,
       capitalize: true,
+      dumbId: true,
 
       /* printDate.ts */
       printDate: true,

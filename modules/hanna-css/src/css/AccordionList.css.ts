@@ -11,7 +11,7 @@ import { WARNING__ } from '../lib/WARNING__.js';
 
 import { textContent } from './utils/textContent.js';
 
-const a = buildVariables(['leftIndent', 'iconWidth']);
+const a = buildVariables(['leftIndent']);
 
 export default css`
   @media screen {
@@ -20,14 +20,12 @@ export default css`
       margin-top: ${scale_container(32, 56)};
 
       ${a.declare({
-        leftIndent: scale_phone_phablet(32, 48),
-        iconWidth: scale_phone_phablet(24, 36),
+        leftIndent: scale_phone_phablet(32, 56),
       })}
 
       @media ${mq.tablet_up} {
         ${a.override({
           leftIndent: vars.grid_1_1,
-          iconWidth: vars.grid_1,
         })}
       }
     }
@@ -66,11 +64,15 @@ export default css`
     .AccordionList__button::before {
       ${iconStyle('close_small', 'large')}
       position: absolute;
-      left: 0;
-      width: ${a.vars.iconWidth};
+      left: ${vars.space_0$5__neg};
       color: ${vars.color_suld_200};
       transform: rotateZ(45deg);
       transition: transform 200ms ease-in;
+
+      @media ${mq.tablet_up} {
+        left: 0;
+        width: ${vars.grid_1};
+      }
     }
     .AccordionList__button[aria-pressed='true']::before,
     .AccordionList__button[aria-expanded='true']::before {

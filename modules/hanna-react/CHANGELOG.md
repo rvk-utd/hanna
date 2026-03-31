@@ -4,6 +4,17 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Timeline`
+- `utils`:
+  - feat: Deprecate `domid` in favor of `dumbId` from `@reykjavik/hanna-utils`
+  - fix: Update className selector for `MobileMenuToggler` button in
+    `useHannaUIState()`
+
+## 0.10.170
+
+_2026-03-10_
+
+- `Alert`:
+  - fix: On freeze only extend auto-closing alerts' remaining time by a bit
 
 ## 0.10.169
 

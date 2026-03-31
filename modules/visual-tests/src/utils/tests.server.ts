@@ -266,17 +266,17 @@ export const updateScreenshotsFor = async (id: string, action: 'accept' | 'rejec
 
   if (action === 'accept') {
     execSync(`rm -f ${bugFlagFile}`);
-    execSync(`touch ${okFlagFile}`);
     execSync(`cp ${actualFile} ${snapshotsFile}`);
+    execSync(`touch ${okFlagFile}`);
   } else {
     execSync(`rm -f ${okFlagFile}`);
-    execSync(`touch ${bugFlagFile}`);
     if (isNew) {
       execSync(`rm -f ${snapshotsFile}`);
     } else {
       const expectedFile = actualFile.replace(/-actual.png$/, '-expected.png');
       execSync(`cp ${expectedFile} ${snapshotsFile}`);
     }
+    execSync(`touch ${bugFlagFile}`);
   }
 
   // Always refresh changes list

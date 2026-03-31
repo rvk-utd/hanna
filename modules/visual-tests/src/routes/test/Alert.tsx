@@ -27,9 +27,16 @@ export default function () {
         assumenda!
       </Alert>
 
-      <Alert type="success" closable closeUrl="?close=1" ssr>
+      <Alert
+        type="success"
+        // autoClose={2}
+        // onClosed={() => undefined}
+        closeUrl="?close=1"
+        ssr
+      >
         <p>
-          <strong>Success</strong> -{' '}
+          <strong>Success</strong>
+          {' - '}
           <a href="" id="hover-me">
             Bein útsending
           </a>{' '}
@@ -38,7 +45,7 @@ export default function () {
         </p>
       </Alert>
 
-      <Alert type="warning" closable closeUrl="?close=2" ssr>
+      <Alert type="warning" closeUrl="?close=2" ssr>
         <strong>Warning</strong> - Kosningar í fullum gangi.{' '}
         <a href="">Flettu upp þínum kosningarstað</a>
       </Alert>

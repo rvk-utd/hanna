@@ -138,10 +138,10 @@ export default css`
       display: block;
       position: absolute;
       z-index: 5;
-      top: ${vars.grid_1};
-      right: ${vars.grid_1};
+      top: max(${vars.grid_1}, ${vars.space_1});
+      right: max(${vars.grid_1}, ${vars.space_1});
       color: ${vars.color_suld_200};
-      font-size: ${scale_phone_netbook(36, 64)};
+      font-size: ${prem(56)};
       margin: -0.4em;
       width: 1em;
       height: 1em;

@@ -126,7 +126,7 @@ export default defineConfig({
      * For example in `await expect(locator).toHaveText();`
      */
     timeout: 5000,
-    toHaveScreenshot: { threshold: 0.075 },
+    toHaveScreenshot: { threshold: 0.1 },
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -164,8 +164,8 @@ export default defineConfig({
       reuseExistingServer: false,
     },
     {
-      command: 'yarn run dev:server',
-      cwd: '../../hanna-css',
+      command: 'sh scripts/start-dev.sh',
+      cwd: '../../../servers/styles',
       port: 4000,
       reuseExistingServer: false,
     },

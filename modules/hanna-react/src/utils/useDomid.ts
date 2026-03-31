@@ -1,15 +1,8 @@
 import React from 'react';
+import { dumbId } from '@reykjavik/hanna-utils';
 
 // @ts-expect-error  (transparently feature-detect useId hook, which is introduced in React@18)
 const useId: undefined | (() => string) = React.useId;
-
-const domid_prefix = `_${/*@__PURE__*/ `${Date.now()}-`.slice(6)}`;
-let domid_incr = 0;
-
-/**
- * Returns a short locally-unique ID string.
- */
-export const domid = () => domid_prefix + domid_incr++;
 
 /**
  * Returns a stable, unique ID string.
@@ -30,7 +23,10 @@ export const useDomid = useId
   : (staticId?: string): string => {
       const idRef = React.useRef<string>();
       if (!idRef.current) {
-        idRef.current = staticId || domid();
+        idRef.current = staticId || dumbId();
       }
       return idRef.current;
     };
+
+/** @deprecated Use `import { dumbId } from '@reykjavik/hanna-utils'` instead  (Will be removed in v0.3) */
+export const domid = dumbId;

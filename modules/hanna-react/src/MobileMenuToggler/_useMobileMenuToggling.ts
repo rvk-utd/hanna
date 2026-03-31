@@ -30,7 +30,7 @@ type Opts = {
 };
 
 export const useMobileMenuToggling = (opts?: boolean | Opts): MenuTogglingState => {
-  const { doInitialize, togglerElm = '.MainMenuToggler' } =
+  const { doInitialize, togglerElm = '.MainMenuToggler, .MobileMenuToggler' } =
     typeof opts === 'boolean'
       ? ({ doInitialize: opts } satisfies Opts)
       : !opts

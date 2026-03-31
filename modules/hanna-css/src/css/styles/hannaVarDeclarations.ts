@@ -2,6 +2,7 @@ import { ObjectEntries, ObjectFromEntries } from '@reykjavik/hanna-utils';
 import { color, css, em, px, rem, str } from 'es-in-css';
 
 import {
+  clamp_netbook,
   scale_container,
   scale_phablet_netbook,
   scale_phone_netbook,
@@ -316,6 +317,8 @@ const fontVarDeclarations = css`
     font_body_s: `${_f.font_weight__normal} ${_f.font_body_s_size} / ${_f.font_body_s_leading} ${_f.font_family}`,
 
     font_button: `${_f.font_weight__bold} ${_f.font_button_size} / ${_f.font_button_leading} ${_f.font_family}`,
+    font_input: `${_f.font_weight__normal} ${_f.font_input_size} / ${_f.font_input_leading} ${_f.font_family}`,
+    font_input_s: `${_f.font_weight__normal} ${_f.font_input_s_size} / ${_f.font_input_s_leading} ${_f.font_family}`,
     font_label: `${_f.font_label_size} / ${_f.font_label_leading} ${_f.font_family}`,
 
     // `font-size:` and `line-height:` values
@@ -343,6 +346,10 @@ const fontVarDeclarations = css`
 
     font_button_size: px(_fsz.button_size),
     font_button_leading: px(_fsz.button_leading),
+    font_input_size: px(_fsz.input_size__phone),
+    font_input_leading: px(_fsz.input_leading__phone),
+    font_input_s_size: px(_fsz.input_s_size),
+    font_input_s_leading: px(_fsz.input_s_leading),
     font_label_size: px(_fsz.label_size),
     font_label_leading: px(_fsz.label_leading),
 
@@ -414,6 +421,10 @@ const fontVarDeclarations = css`
       // font_body_m_leading: scale(_fsz.body_m_leading__phone, _fsz.body_m_leading),
       // font_body_s_size: scale(_fsz.body_s_size__phone, _fsz.body_s_size),
       // font_body_s_leading: scale(_fsz.body_s_leading__phone, _fsz.body_s_leading),
+
+      // // Redundant as these variables are the same in all viewport sizes
+      // font_input_size: scale(_fsz.input_size__phone, _fsz.input_size),
+      // font_input_leading: scale(_fsz.input_leading__phone, _fsz.input_leading),
     })}
   }
   @media ${mq.wide} {
@@ -426,8 +437,21 @@ const fontVarDeclarations = css`
       font_heading_m_leading: px(_fsz.heading_m_leading),
       font_heading_s_size: px(_fsz.heading_s_size),
       font_heading_s_leading: px(_fsz.heading_s_leading),
+      // // Redundant as these variables are the same in all viewport sizes
+      // font_heading_xs_size: px(_fsz.heading_xs_size),
+      // font_heading_xs_leading: px(_fsz.heading_xs_leading),
+
       font_body_l_size: px(_fsz.body_l_size),
       font_body_l_leading: px(_fsz.body_l_leading),
+      // // Redundant as these variables are the same in all viewport sizes
+      // font_body_m_size: px(_fsz.body_m_size),
+      // font_body_m_leading: px(_fsz.body_m_leading),
+      // font_body_s_size: px(_fsz.body_s_size),
+      // font_body_s_leading: px(_fsz.body_s_leading),
+
+      // // Redundant as these variables are the same in all viewport sizes
+      // font_input_size: px(_fsz.input_size),
+      // font_input_leading: px(_fsz.input_leading),
 
       baseVerticalMargin: px(3 * grid.unit),
       baseVerticalMargin_2: px(6 * grid.unit),
@@ -451,7 +475,9 @@ const zIndexVarDeclarations = zIndexVars.declare({
 const _flexCol = (cols: number, gutters = cols - 1) => {
   const f = cols_pct(cols, gutters) / 100;
   const from = f * grid.contentMinWidth;
-  const to = f * grid.contentMaxWidth;
+  // Workaround FireFox (v148 at least) subpixel rendering issues in grid
+  // column/gutter widths.
+  const to = f * grid.contentMaxWidth - 0.015;
   return scale_phone_netbook(from, to);
 };
 
@@ -595,7 +621,7 @@ const layoutVarDeclarations = css`
   @media ${mq.netbook_up} {
     ${layoutVars.override({
       Layout$$header_height: px(_lHead_max),
-      Layout$$header_homelink_width: prem(456),
+      Layout$$header_homelink_width: clamp_netbook(365, gridPx(6, 6)),
       Layout$$header_homelink_space: `calc(${layoutVars.vars.Layout$$header_homelink_width} + ${gridVars.vars.grid_0_1})`,
     })}
   }

@@ -39,7 +39,7 @@ export type DatepickerProps = {
    * the `<input/>` element is still `type="text"` and it's `.value` is
    * the human-readable (parsed) date `string`.
    *
-   * Use this incombination with the `isoMode` prop to submit ISO-8601
+   * Use this in combination with the `isoMode` prop to submit ISO-8601
    * formatted input values
    */
   defaultValue?: Date;

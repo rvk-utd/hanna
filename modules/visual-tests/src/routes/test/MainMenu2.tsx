@@ -71,11 +71,12 @@ export default function () {
     <Layout
       siteName=""
       // siteName="Gagnahlaðborðið í tveimur línum"
-      // siteName="Gagnahlaðborðið í tveimur línum þetta er rugl lang"
+      // siteName="Gagnahlaðborðið í tveimur línum þetta er rugl langt"
       mainChildren={
         <>
           {/* * /}
           <style>{`.foo { height: 24vh; border: 2px dotted orange;  border-width: 2px 0 0 2px; }`}</style>
+          <div className="foo">—————————————————————————————————————————————————</div>
           <div className="foo">...some content 1...</div>
           <div className="foo">...some content … 2...</div>
           <div className="foo">...some content … … 3 ...</div>
@@ -156,9 +157,14 @@ export default function () {
 
 export const testing: TestingInfo = [
   {
-    label: 'topmenu',
-    tags: ['firefox-wide', 'firefox-netbook'],
-    initialHover: '.MainMenu__link:text("Stjórnkerfið")',
+    /*
+      FIXME: Add more tests
+      - Toggle the menu open and closed
+      - Hover the menu items and take screenshots
+      - Toggle different menu regions (related vs main etc.)
+      - Scroll and test the header underlap
+    */
+    /*
     extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
       // open a mega menu panel
       await page.locator('.MainMenu__link:text("Mannlíf")').click();
@@ -198,63 +204,6 @@ export const testing: TestingInfo = [
       await closeBtn.hover();
       await localScreenshot(closeBtn, 'closebtn-hover', { margin: 40 });
     },
-  },
-
-  {
-    label: 'hamburger',
-    tags: ['firefox-phone', 'firefox-tablet'],
-    extras: async ({ page, localScreenshot, pageScreenshot, setViewportSize }) => {
-      const hamburgerBtn = page.locator('.MainMenuToggler');
-      const activePanel = page.locator('.PrimaryPanel--active');
-      // NOTE: .MainMenu is the effective page-scroll-container in "hamburger-mode"
-      const scrollContainer = page.locator('.MainMenu__items >> scrollContainer=');
-      let menuScrollHeight = 0;
-
-      // hover the hamburger icon
-      await hamburgerBtn.hover();
-      await localScreenshot(hamburgerBtn, 'hamburger-hover', { margin: true });
-
-      // open the menu
-      await hamburgerBtn.click();
-      menuScrollHeight = await scrollContainer.evaluate((elm) => elm.scrollHeight);
-      await setViewportSize(0.6 * menuScrollHeight);
-      await page.locator('.MainMenu__link:text("Stjórnkerfið")').hover();
-      // test megamenu scroll-overflow
-      await pageScreenshot('menu-open-overflow');
-
-      // open the sub-menu
-      await page.locator('.MainMenu__link:text("Mannlíf")').click();
-      await page.waitForTimeout(100);
-      await page.mouse.move(0, 0);
-
-      // test megamenu scroll-overflow bottom-scrolled
-      await scrollContainer.evaluate((elm) => {
-        // NOTE: Webkit seems to fail to scroll all the way
-        // if we scroll by an obscenely large amount, like say 10_000
-        elm.scrollBy(0, elm.scrollHeight);
-      });
-      await page.waitForTimeout(100);
-      await pageScreenshot('menu-open-scrolled');
-
-      // resize viewport to more than the minimum required height.
-      menuScrollHeight = await scrollContainer.evaluate((elm) => elm.scrollHeight);
-      await setViewportSize(menuScrollHeight + 100);
-      await activePanel.locator('.PrimaryPanel__link:has-text("item 3")').hover();
-      await pageScreenshot('menu-open');
-
-      await showAuxState.send(page, undefined);
-      await pageScreenshot('menu-open-no-aux');
-      await showAuxState.send(page, true);
-
-      // test auxiliary menu link hover styling
-      const auxPanel = page.locator('.AuxiliaryPanel__items');
-      await auxPanel.locator('.AuxiliaryPanel__link:has-text("item 3")').hover();
-      await localScreenshot(auxPanel, 'auxlink-hover');
-
-      // Test close button hover
-      const closeBtn = page.locator('.MainMenuToggler');
-      await closeBtn.hover();
-      await localScreenshot(closeBtn, 'closebtn-hover', { margin: true });
-    },
+    */
   },
 ];

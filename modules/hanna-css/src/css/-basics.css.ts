@@ -169,6 +169,7 @@ export default css`
     // English style as "normal-looking" fallback for unknown languages
     quotes: ${quotes('EN')};
     // quotes: auto; // Doesn't work in most browsers yet... See: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes#Browser_compatibility
+    overflow-x: clip; // This seems required to overcome the "overflow-x: clip" above causing overflows
   }
 
   *:lang(is) {

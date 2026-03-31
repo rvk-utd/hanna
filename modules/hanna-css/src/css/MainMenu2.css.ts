@@ -1,7 +1,6 @@
 import { color, css } from 'es-in-css';
 
 import { srOnly_focusableContent } from '../lib/a11y.js';
-import { clamp_netbook } from '../lib/between.js';
 import { mq } from '../lib/breakpoints.js';
 import { htmlCl } from '../lib/classNames.js';
 import { buildVariables } from '../lib/cssutils.js';
@@ -298,7 +297,7 @@ const commonStyles = css`
     grid-area: related;
     color: ${vars.color_suld_200};
   }
-  j .MainMenu2__related__title {
+  .MainMenu2__related__title {
     font: ${vars.font_heading_s};
     padding-top: ${vars.space_1};
     padding-bottom: calc(${mm2Vars.mainLink__paddingBottom} - 1px);
@@ -326,7 +325,7 @@ const commonStyles = css`
   :has(.MainMenu2__related__link[data-icon])
     > *
     > .MainMenu2__related__link:not([data-icon]) {
-    padding-left: calc(${vars.icon_size__small} + ${vars.space_0$5});
+    margin-left: calc(${vars.icon_size__small} + ${vars.space_0$5});
   }
 `;
 
@@ -473,14 +472,16 @@ const mobileStyles = css`
       display: none !important;
     }
     [data-sprinkled] > * > * > .MainMenu2__hot__item--redhot {
-      position: fixed;
-      z-index: 1;
-      top: calc(${vars.Layout$$header_height} / 2);
-      right: ${vars.grid_margin__right};
+      position: absolute;
+      top: calc(${vars.Layout$$header_height} / -2);
+      right: 0;
       margin-right: ${vars.space_7};
       transform: translateY(-50%);
     }
     .MainMenu2--open > * > * > .MainMenu2__hot__item--redhot {
+      position: fixed;
+      z-index: 1;
+      top: calc(${vars.Layout$$header_height} / 2);
       right: ${vars.grid_margin};
     }
     .MainMenu2__hot__item--redhot ~ .MainMenu2__hot__item--redhot {
@@ -539,7 +540,8 @@ const desktopStyles = css`
       // font: ${vars.font_body_l};
       ${DesktopVariables.declare({
         // main__width: `calc(50% + ${vars.grid_1_1})`,
-        main__width: `calc(50% + ${clamp_netbook(gridPx(0, 1), gridPx(1, 1))})`,
+        // main__width: `calc(50% + ${clamp_netbook(gridPx(0, 1), gridPx(1, 1))})`,
+        main__width: `calc(50% + ${vars.grid_6} - ${gridPx(5, 4)})`,
         bgLeft: vars.color_faxafloi_100,
         bgShadw: dtVars.bgLeft,
         bgRight: vars.color_suld_0,

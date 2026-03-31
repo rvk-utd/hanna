@@ -4,8 +4,8 @@ import React, { useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { getFrag } from '@hugsmidjan/qj/frag';
 import { TabItemProps, Tabs } from '@reykjavik/hanna-react/Tabs';
-import { domid, WrapperElmProps } from '@reykjavik/hanna-react/utils';
-import { notNully } from '@reykjavik/hanna-utils';
+import { WrapperElmProps } from '@reykjavik/hanna-react/utils';
+import { dumbId, notNully } from '@reykjavik/hanna-utils';
 
 import { autoSeenEffectsRefresh, autoSeenEffectWrapperProps } from './_/addSeenEffect.js';
 
@@ -110,7 +110,7 @@ const getTabsData = (elm: HTMLElement): SprinkledTabsProps | undefined => {
         panelElm,
         isActive: tabElm.dataset.active === 'true',
         tab: {
-          id: tabElm.id || domid(),
+          id: tabElm.id || dumbId(),
           'aria-controls': controlsId,
           label: tabElm.textContent!,
           badge,

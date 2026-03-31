@@ -34,6 +34,8 @@ export type Falsy = undefined | null | false | 0 | '';
 /*#__NO_SIDE_EFFECTS__*/
 export const notFalsy = <T>(val: T | Falsy): val is T => !!val;
 
+// ---------------------------------------------------------------------------
+
 /**
  * Simple 'foo bar' --> 'Foo bar' mapper.
  *
@@ -55,3 +57,20 @@ export const capitalize = <S extends string>(
   locale?: string | Array<string>
 ): Capitalize<S> =>
   ((str[0] || '').toLocaleUpperCase(locale || 'is') + str.slice(1)) as Capitalize<S>;
+
+// ---------------------------------------------------------------------------
+
+const _id_prefix = /*@__PURE__*/ `${Date.now()}-`.slice(5);
+let _id_incr = 0;
+
+/**
+ * Returns a fast, short, **locally-unique**, append/prend-friendly, DOM-safe
+ * ID string.
+ *
+ * **NOTE:** The generated IDs are very predictable and should only be used for
+ * temporary/frivolous purposes, e.g. as `id` attributes for DOM elements, etc.
+ *
+ * @see https://www.npmjs.com/package/@reykjavik/hanna-utils#makeid
+ */
+/*#__NO_SIDE_EFFECTS__*/
+export const dumbId = () => `_${_id_prefix + _id_incr++}_`;
