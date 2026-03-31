@@ -3,6 +3,30 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Timeline`
+- `TagPill`:
+  - fix: Tweak width and placement of the `__remove` button and its icon
+- `Picture`:
+  - fix: Regression causing messed up scaling/strething of `<img/>` elements
+- `PageFilter`:
+  - fix: Correct widths of contained `.FormField`s on desktop viewports
+- `Modal`:
+  - fix: Tweak position of `.Modal__closebutton` on smaller screens
+- `MainMenu` (old):
+  - fix: Incorrect left offset of main items in "top menu" mode
+- `FileInput`:
+  - fix: Fix vertical alignment and spacing of `.FileInput__filelist` contents
+- `FormField`:
+  - fix: Font-size of `__input`s should not shrink on smaller screens
+- `ContentImage`:
+  - feat: Stack `__text` and `__credit` vertically on smaller screens
+- `ContactBubble`:
+  - fix: Cropping of the `__openbtn` icon on smaller screens
+  - fix: Tweak `__title` font-size and margin-bottom
+- `Radio`:
+  - fix: Slightly reduce size of checked "ball" circle
+- `AccordionList`:
+  - fix: Vertical misalignment of the "plus" icon on narrow/mobile viewports
 - `-basics`:
   - fix: Set `overflow-x: clip` on `<body/>` — to stop broken customn CSS
     triggering horizontal content overflows and `position: fixed`

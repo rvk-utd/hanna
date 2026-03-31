@@ -17,10 +17,9 @@ export default css`
     left: 0;
     width: 100%;
     height: 100%;
-  }
-  .Picture--inlined > img {
     object-fit: cover;
   }
+  .Picture--inlined > img, /* Inlining either failed or still underway */
   .Picture--contain > img {
     object-fit: contain;
     object-position: initial;

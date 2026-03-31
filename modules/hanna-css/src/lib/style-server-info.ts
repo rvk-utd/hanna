@@ -111,6 +111,7 @@ export type CssModuleToken =
   | 'TextBlock'
   | 'TextButton'
   | 'TextInput'
+  | 'Timeline'
   | 'Tooltip'
   | 'VSpacer'
   | 'WizardLayout'

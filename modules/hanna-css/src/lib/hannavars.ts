@@ -163,6 +163,8 @@ export const fontVars = /*@__PURE__*/ buildVariables([
   'font_body_s',
   // -
   'font_button',
+  'font_input',
+  'font_input_s',
   'font_label',
 
   // Size/leading components
@@ -189,6 +191,10 @@ export const fontVars = /*@__PURE__*/ buildVariables([
   // -
   'font_button_size',
   'font_button_leading',
+  'font_input_size',
+  'font_input_leading',
+  'font_input_s_size',
+  'font_input_s_leading',
   'font_label_size',
   'font_label_leading',
 

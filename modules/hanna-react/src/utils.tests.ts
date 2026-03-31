@@ -16,7 +16,7 @@ o.spec('hanna-react/utils lib', () => {
       useIsServerSide: true,
       setDefaultSSR: true,
 
-      /* MainMenu/_MainMenuToggler.tsx */
+      /* utils.ts via MobileMenuToggler/_useMobileMenuToggling.tsx */
       HannaUIState: true,
       useHannaUIState: true,
 
@@ -61,8 +61,6 @@ import type {
   /* utils/browserSide.ts */
   SSRSupport,
   SSRSupportProps,
-
-  /* MainMenu/_MainMenuToggler.ts */
 
   /* utils/useDidChange.ts */
 

@@ -268,13 +268,13 @@ export default css`
       z-index: ${vars.zindex__header};
       top: 0;
       right: 0;
-      left: ${vars.Layout$$header_homelink_space};
+      left: calc(${prem(240)} + ${vars.grid_0_1});
       height: ${vars.Layout$$header_height};
       padding-bottom: calc(
         ${vars.link_underline__thickness} + ${vars.link_underline_offset}
       );
       margin-right: ${scaleTopmenu(-8, -20)};
-      margin-left: ${scaleTopmenu(-(14 + 160), -(20 + 160))};
+      margin-left: ${scaleTopmenu(-14, -20)};
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -473,7 +473,7 @@ export default css`
       ${iconStyle('close')}
       width: 100%;
       text-align: left;
-      margin-left: 8px;
+      margin-left: 4px;
     }
 
     .MainMenu__megapanel__backtomenu::after {

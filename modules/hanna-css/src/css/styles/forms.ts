@@ -210,6 +210,7 @@ export const TogglerKnob = (bem: string, radio = bem === 'Radio') =>
     }
     .${bem}--nolabel > .${bem}__label {
       height: 100%;
+      width: 1px;
       padding-top: 2px;
       padding-bottom: 2px;
     }

@@ -15,6 +15,7 @@ import {
   MainMenu2SubMenu,
   MainMenu2SubMenuItem,
 } from '@reykjavik/hanna-react/MainMenu2';
+import { TimeLineItem } from '@reykjavik/hanna-react/Timeline';
 import { getStableRandomItem } from '@reykjavik/hanna-utils';
 
 import dummyImage from '../example_assets/ImageCard__image.jpg';
@@ -234,3 +235,41 @@ export const mainMenu2Items = (
     ],
   };
 };
+
+export const timelineItems: Array<TimeLineItem> = [
+  {
+    title: 'Vantar upplýsingar',
+    category: 'Nafn starfsmanns',
+    description: 'Þarf að sanna sér deili',
+    date: new Date(2025, 0, 10),
+  },
+  {
+    title: 'Í vinnslu',
+    category: 'Nafn starfsmanns',
+    date: new Date(2025, 0, 8),
+    status: { label: 'Móttekið', color: 'green' },
+  },
+  {
+    title: 'Vantar upplýsingar',
+    category: 'Nafn starfsmanns',
+    description: 'Vantar sakavottorð',
+    date: new Date(2025, 0, 6),
+  },
+  {
+    title: 'Athugasemd',
+    category: 'Nafn starfsmanns',
+    description: lorem.medium,
+    date: new Date(2025, 0, 4),
+  },
+  {
+    title: 'Í vinnslu',
+    category: 'Nafn starfsmanns',
+    date: new Date(2025, 0, 2),
+  },
+  {
+    title: 'Póstur sendur',
+    category: 'Nafn starfsmanns',
+    description: 'Áminning um að sinna einstaklingsáætlun',
+    date: new Date(2024, 11, 31),
+  },
+];
