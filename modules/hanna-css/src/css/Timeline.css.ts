@@ -16,11 +16,27 @@ export default css`
     ${ComponentLayout};
   }
 
+  .Timeline__title {
+    font: ${vars.font_heading_xs};
+    margin-bottom: ${vars.space_2};
+  }
+
+  .Timeline__items {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: ${vars.space_1};
+  }
+  .Timeline--oldestFirst .Timeline__items {
+    flex-direction: column-reverse;
+  }
+
   .Timeline__item {
     position: relative;
     padding-left: ${vars.space_3};
+    padding-bottom: ${vars.space_1};
   }
 
+  /* Ball */
   .Timeline__item::before {
     display: block;
     position: absolute;
@@ -34,7 +50,11 @@ export default css`
     flex-shrink: 0;
     margin-right: ${vars.space_2};
   }
+  .Timeline__item[aria-current='step']::before {
+    background-color: ${vars.color_faxafloi_100};
+  }
 
+  /* Vertical line */
   .Timeline__item::after {
     display: block;
     position: absolute;
@@ -44,45 +64,31 @@ export default css`
     left: 5px;
     width: 1px;
     background-color: ${vars.color_faxafloi_75};
-    margin: ${vars.space_1} 0;
+    margin-top: ${vars.space_1};
   }
 
-  .Timeline__item[aria-current='step']::before {
-    background-color: ${vars.color_faxafloi_100};
-  }
-
-  .Timeline__item .TagPill {
-    margin: ${vars.space_0$5};
+  .Timeline__item > .TagPill {
+    margin-bottom: ${vars.space_1};
   }
 
   .Timeline__item__title {
-    display: flex;
-    align-items: center;
+    display: block;
     font: ${vars.font_body_m};
     font-weight: ${vars.font_weight__bold};
     color: ${vars.color_suld_200};
-    padding-bottom: ${vars.space_0$5};
-  }
-
-  .Timeline__items {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .Timeline--oldestFirst .Timeline__items {
-    flex-direction: column-reverse;
+    padding-bottom: ${vars.space_1};
   }
 
   .Timeline__item__category,
   .Timeline__item__description,
   .Timeline__item__date {
-    padding: ${vars.space_0$5} 0;
     font: ${vars.font_body_s};
-    color: ${vars.color_suld_150};
+    padding-bottom: ${vars.space_1};
   }
 
-  .Timeline__item__description {
-    color: ${vars.color_suld_200};
+  .Timeline__item__category,
+  .Timeline__item__date {
+    color: ${vars.color_suld_150};
   }
 
   .Timeline__item--loading::before,

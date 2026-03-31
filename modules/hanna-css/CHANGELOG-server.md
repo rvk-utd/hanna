@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Timeline`
 - `TagPill`:
   - fix: Tweak width and placement of the `__remove` button and its icon
 - `Picture`:
