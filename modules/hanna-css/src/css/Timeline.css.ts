@@ -1,0 +1,120 @@
+import { css } from 'es-in-css';
+
+import { hannaVars as vars } from '../lib/hannavars.js';
+
+import { ComponentLayout } from './styles/componentLayout.js';
+import { DEPS } from './utils/miscUtils.js';
+
+const circleWidth = '11px';
+const circleHeight = '11px';
+const circleBorderRadius = '50%';
+
+export default css`
+  ${DEPS('Skeleton', 'TagPill')}
+
+  .Timeline {
+    ${ComponentLayout};
+  }
+
+  .Timeline__title {
+    font: ${vars.font_heading_xs};
+    margin-bottom: ${vars.space_2};
+  }
+
+  .Timeline__items {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: ${vars.space_1};
+  }
+  .Timeline--oldestFirst .Timeline__items {
+    flex-direction: column-reverse;
+  }
+
+  .Timeline__item {
+    position: relative;
+    padding-left: ${vars.space_3};
+    padding-bottom: ${vars.space_1};
+  }
+
+  /* Ball */
+  .Timeline__item::before {
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    content: '';
+    width: ${circleWidth};
+    height: ${circleHeight};
+    background-color: ${vars.color_faxafloi_75};
+    border-radius: ${circleBorderRadius};
+    flex-shrink: 0;
+    margin-right: ${vars.space_2};
+  }
+  .Timeline__item[aria-current='step']::before {
+    background-color: ${vars.color_faxafloi_100};
+  }
+
+  /* Vertical line */
+  .Timeline__item::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 18px;
+    bottom: 0;
+    left: 5px;
+    width: 1px;
+    background-color: ${vars.color_faxafloi_75};
+    margin-top: ${vars.space_1};
+  }
+
+  .Timeline__item > .TagPill {
+    margin-bottom: ${vars.space_1};
+  }
+
+  .Timeline__item__title {
+    display: block;
+    font: ${vars.font_body_m};
+    font-weight: ${vars.font_weight__bold};
+    color: ${vars.color_suld_200};
+    padding-bottom: ${vars.space_1};
+  }
+
+  .Timeline__item__category,
+  .Timeline__item__description,
+  .Timeline__item__date {
+    font: ${vars.font_body_s};
+    padding-bottom: ${vars.space_1};
+  }
+
+  .Timeline__item__category,
+  .Timeline__item__date {
+    color: ${vars.color_suld_150};
+  }
+
+  .Timeline__item--loading::before,
+  .Timeline__item--loading::after {
+    display: none;
+  }
+
+  .Timeline__item--loading {
+    position: relative;
+    padding-left: 0;
+  }
+
+  .Timeline__item--loading > .Skeleton {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 250px;
+    margin: 0 0 calc(var(--Skeleton--gap) * var(--space-1)) ${vars.space_3};
+  }
+
+  .Skeleton__circle {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: ${circleWidth} !important;
+    height: ${circleHeight};
+    border-radius: ${circleBorderRadius};
+    margin: 0 !important;
+  }
+`;

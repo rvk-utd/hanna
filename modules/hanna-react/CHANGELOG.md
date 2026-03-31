@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Timeline`
 - `utils`:
   - feat: Deprecate `domid` in favor of `dumbId` from `@reykjavik/hanna-utils`
   - fix: Update className selector for `MobileMenuToggler` button in
