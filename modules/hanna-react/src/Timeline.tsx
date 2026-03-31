@@ -110,7 +110,7 @@ export const Timeline = (props: TimelineProps) => {
               ])}
               aria-current={currentIdx === i ? 'step' : undefined}
             >
-              <div className="Timeline__item__title">{title}</div>
+              <strong className="Timeline__item__title">{title}</strong>
               {status && <TagPill color={status.color}>{status.label}</TagPill>}
               {author && <div className="Timeline__item__category">{author}</div>}
               {description && (
