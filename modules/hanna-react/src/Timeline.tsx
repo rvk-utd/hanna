@@ -30,7 +30,7 @@ export type TimeLineItem =
        *
        * If multiple items are marked current, then the first one is the current one.
        */
-      curent?: boolean;
+      current?: boolean;
     }
   | 'loading';
 
@@ -81,7 +81,7 @@ export const Timeline = (props: TimelineProps) => {
   const dateFmt = getDateFormatter(lang, hideTime);
 
   const currentIdx = Math.max(
-    items.findIndex((item) => item !== 'loading' && !!item.curent),
+    items.findIndex((item) => item !== 'loading' && !!item.current),
     0
   );
 
