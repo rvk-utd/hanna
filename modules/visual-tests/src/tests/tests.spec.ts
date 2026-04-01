@@ -114,6 +114,7 @@ import { testing as ShareButtons__test } from '../routes/test/ShareButtons.js';
 import { testing as SiteSearchAutocomplete__test } from '../routes/test/SiteSearchAutocomplete.js';
 import { testing as SiteSearchInput__test } from '../routes/test/SiteSearchInput.js';
 import { testing as Skeleton__test } from '../routes/test/Skeleton.js';
+import { testing as StatusTag__test } from '../routes/test/StatusTag.js';
 import { testing as SubHeading__test } from '../routes/test/SubHeading.js';
 import { testing as Tabs__test } from '../routes/test/Tabs.js';
 import { testing as TagPill__test } from '../routes/test/TagPill.js';
@@ -212,6 +213,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,
   SiteSearchInput: SiteSearchInput__test,
   Skeleton: Skeleton__test,
+  StatusTag: StatusTag__test,
   SubHeading: SubHeading__test,
   Tabs: Tabs__test,
   TagPill: TagPill__test,

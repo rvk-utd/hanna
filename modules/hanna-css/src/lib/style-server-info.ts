@@ -104,6 +104,7 @@ export type CssModuleToken =
   | 'SiteSearchCurtain'
   | 'SiteSearchInput'
   | 'Skeleton'
+  | 'StatusTag'
   | 'SubHeading'
   | 'Tabs'
   | 'TagPill'
