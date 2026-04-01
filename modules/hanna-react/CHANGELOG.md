@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `StatusTag`
 - feat: Add component `Timeline`
 - `utils`:
   - feat: Deprecate `domid` in favor of `dumbId` from `@reykjavik/hanna-utils`

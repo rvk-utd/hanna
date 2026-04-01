@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `StatusTag`
 - feat: Add component `Timeline`
 
 ## 0.8.41
