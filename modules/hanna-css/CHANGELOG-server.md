@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.100
+
+_2026-04-08_
+
 - feat: Add component `StatusTag`
 - feat: Add component `Timeline`
 - `TagPill`:
