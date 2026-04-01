@@ -1,6 +1,7 @@
 import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
-import { StatusTag } from '@reykjavik/hanna-react/StatusTag';
+import { StatusTag, StatusTagColor } from '@reykjavik/hanna-react/StatusTag';
+import { capitalize, Equals, Expect } from '@reykjavik/hanna-utils';
 
 import { Minimal } from '../../layout/Minimal.js';
 import type { TestingInfo } from '../../test-helpers/testingInfo.js';
@@ -13,95 +14,38 @@ export const meta: V2_MetaFunction = autoTitle;
 
 export const handle = cssTokens('StatusTag');
 
+const largeOnOff = [undefined, { large: true }];
+const lightOnOff = [undefined, { light: 'off' as const }];
+
+const colors = ['none', 'blue', 'green', 'yellow', 'red'] as const;
+type _ = Expect<Equals<(typeof colors)[number], StatusTagColor>>;
+
 export default function () {
   return (
     <Minimal>
-      <div>
-        <StatusTag wrapperProps={{ id: 'default-grey' }} color="grey">
-          Grey
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'default-blue' }}>Default</StatusTag>
-        <StatusTag wrapperProps={{ id: 'default-green' }} color="green">
-          Green
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'default-yellow' }} color="yellow">
-          Yellow
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'default-red' }} color="red">
-          Red
-        </StatusTag>
-      </div>
-      <div>
-        <StatusTag wrapperProps={{ id: 'lightoff-grey' }} light={false} color="grey">
-          Light off Grey
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'lightoff-blue' }} light={false}>
-          Light off
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'lightoff-green' }} light={false} color="green">
-          Light off Green
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'lightoff-yellow' }} light={false} color="yellow">
-          Light off Yellow
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'lightoff-red' }} light={false} color="red">
-          Light off Red
-        </StatusTag>
-      </div>
-      <div>
-        <StatusTag wrapperProps={{ id: 'large-grey' }} large color="grey">
-          Large Grey
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'large-blue' }} large>
-          Large Default
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'large-green' }} large color="green">
-          Large Green
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'large-yellow' }} large color="yellow">
-          Large Yellow
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'large-red' }} large color="red">
-          Large Red
-        </StatusTag>
-      </div>
-      <div>
-        <StatusTag
-          wrapperProps={{ id: 'large-lightoff-grey' }}
-          large
-          light={false}
-          color="grey"
-        >
-          Light off Large Grey
-        </StatusTag>
-        <StatusTag wrapperProps={{ id: 'large-lightoff-blue' }} large light={false}>
-          Light off Large Default
-        </StatusTag>
-        <StatusTag
-          wrapperProps={{ id: 'large-lightoff-green' }}
-          large
-          light={false}
-          color="green"
-        >
-          Light off Large Green
-        </StatusTag>
-        <StatusTag
-          wrapperProps={{ id: 'large-lightoff-yellow' }}
-          large
-          light={false}
-          color="yellow"
-        >
-          Light off Large Yellow
-        </StatusTag>
-        <StatusTag
-          wrapperProps={{ id: 'large-lightoff-red' }}
-          large
-          light={false}
-          color="red"
-        >
-          Light off Large Red
-        </StatusTag>
-      </div>
+      {largeOnOff.flatMap((largeProps) =>
+        lightOnOff.map((lightOffProps) => (
+          <div key={`${!!largeProps}:${!!lightOffProps}`}>
+            {colors.flatMap((colorVal) => {
+              const color = colorVal === 'none' ? undefined : colorVal;
+              return [
+                <StatusTag
+                  key={color}
+                  color={color}
+                  {...largeProps}
+                  {...lightOffProps}
+                  label={
+                    capitalize(color || 'default') +
+                    (largeProps ? ' large' : '') +
+                    (lightOffProps ? ', light off' : '')
+                  }
+                />,
+                ' ',
+              ];
+            })}
+          </div>
+        ))
+      )}
     </Minimal>
   );
 }
@@ -109,33 +53,5 @@ export default function () {
 // ---------------------------------------------------------------------------
 
 export const testing: TestingInfo = {
-  extras: async ({ page, localScreenshot }) => {
-    for (const id of [
-      'default-grey',
-      'default-blue',
-      'default-green',
-      'default-yellow',
-      'default-red',
-      'lightoff-grey',
-      'lightoff-blue',
-      'lightoff-green',
-      'lightoff-yellow',
-      'lightoff-red',
-      'large-grey',
-      'large-blue',
-      'large-green',
-      'large-yellow',
-      'large-red',
-      'large-lightoff-grey',
-      'large-lightoff-blue',
-      'large-lightoff-green',
-      'large-lightoff-yellow',
-      'large-lightoff-red',
-    ]) {
-      /* eslint-disable no-await-in-loop */
-      const statusTag = page.locator(`#${id}`);
-      await localScreenshot(statusTag, id);
-      /* eslint-enable no-await-in-loop */
-    }
-  },
+  __DEV_FOCUS__: true,
 };
