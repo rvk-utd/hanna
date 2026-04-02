@@ -45,7 +45,6 @@
   },
   "scripts": {
     "publish:lib": "yarn install  &&  node build-release.mjs",
-    "publish:lib:dangerously_skipVRT": "SKIP_VISUAL_TESTS=true  yarn run publish:lib",
     "prepublishOnly": "echo \"\nRun 'yarn run publish:lib' to publish this package\n\n\"  && exit 1",
     "build": "yarn install  &&  node build.mjs",
     "dev": "node build.mjs --dev"
