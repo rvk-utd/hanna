@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.27
+
+_2026-04-02_
+
 - feat: Add CSS module token `StatusTag`
 - feat: Add CSS module token `Timeline`
 - feat: Add vars `font_ipput_*` and `font_ipput_s_*` to `hannaVars` for form
