@@ -45,6 +45,7 @@ export default css`
       })}
       position: relative;
       display: block;
+      word-break: break-word; // Because of long filenames with underscores in them.
       background-color: ${vars.color_suld_25};
       text-decoration: none;
       padding: ${grid_units(2)} ${grid_units(3)};

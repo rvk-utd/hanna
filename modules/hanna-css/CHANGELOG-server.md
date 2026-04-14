@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `RelatedLinks`:
+  - fix: Long filenames with underscores overflowing `.RelatedLinks__link`
 
 ## 0.8.100
 
