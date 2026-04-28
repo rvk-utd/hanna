@@ -18,7 +18,7 @@ export default css`
   @media screen {
     .IslandBlock {
       display: flex;
-      flex-flow: column-reverse;
+      flex-flow: column;
       justify-content: space-between;
       margin-top: ${scale_container(30, 100)};
       margin-bottom: ${scale_container(40, 167)};
@@ -112,6 +112,7 @@ export default css`
       margin-left: ${offset};
     }
     .IslandBlock__image {
+      order: -1;
       min-height: ${scale_phone_phablet(210, 400)};
     }
     .IslandBlock__image > svg {
@@ -142,6 +143,7 @@ export default css`
         min-height: 400px;
       }
     }
+
     .IslandBlock__content:last-child,
     .IslandBlock__image {
       margin-top: ${scale_container(50, 105)};

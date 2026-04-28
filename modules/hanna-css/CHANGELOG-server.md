@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `IslandBlock`: 
+  - fix: Secondary `__content` block should render second on smaller viewports
 - `RelatedLinks`:
   - fix: Long filenames with underscores overflowing `.RelatedLinks__link`
 
