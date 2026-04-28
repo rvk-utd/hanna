@@ -8,6 +8,7 @@ import {
 import { mq } from '../lib/breakpoints.js';
 import { hannaVars as vars } from '../lib/hannavars.js';
 import { LinkStyle_SameColor } from '../lib/links.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 import { ButtonTertiaryStyle } from './styles/buttons.js';
 import { cols_pct, extendBackgroundWithUnderlay, grid_units } from './utils/miscUtils.js';
@@ -37,6 +38,10 @@ export default css`
       background-color: ${vars.theme_color_primary};
       color: ${vars.theme_color_primary__text};
       ${LinkStyle_SameColor}
+    }
+
+    .IslandBlock__content:not(:last-child):not(:first-child) {
+      ${WARNING__('Only two `__content` blocks are allowed')}
     }
 
     .IslandBlock__title {
