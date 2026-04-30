@@ -48,6 +48,8 @@ export default css`
       display: block;
       position: relative;
       font: ${vars.font_base};
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      pointer-events: auto;
     }
 
     .react-datepicker__input-container {
@@ -83,7 +85,10 @@ export default css`
     // The popper
     .react-datepicker-popper {
       z-index: ${vars.zindex__overlay};
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      // ensure a bit of space below the calendar appears when we scroll to the bottom of a
+      padding-bottom: 40px;
+      margin-bottom: -40px;
+      pointer-events: none;
     }
 
     .react-datepicker-popper[data-placement^='bottom'] {
@@ -91,7 +96,7 @@ export default css`
     }
 
     .react-datepicker-popper[data-placement^='top'] {
-      margin-bottom: 10px;
+      margin-bottom: -30px;
     }
 
     .react-datepicker-popper[data-placement^='right'] {

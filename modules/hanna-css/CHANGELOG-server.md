@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Dateoicker`:
+  - feat: Add some spacing below calendar popper in top-aligned placements
 - `IslandBlock`: 
   - fix: Secondary `__content` block should render second on smaller viewports
   - feat: Add dev warning for nth>=3 `.IslandBlock__content` blocks
