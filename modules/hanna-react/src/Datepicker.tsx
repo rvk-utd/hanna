@@ -1,4 +1,4 @@
-import React, { MutableRefObject, RefObject, useMemo } from 'react';
+import React, { MutableRefObject, RefObject, useMemo, useRef } from 'react';
 import { Expect, Extends } from '@reykjavik/hanna-utils';
 import {
   DEFAULT_LANG,
@@ -266,6 +266,8 @@ export const Datepicker = (props: DatepickerProps) => {
       .concat(['P', 'PP', 'PPP']);
   }, [dateFormat, txts]);
 
+  const wrapperRef = useRef<HTMLDivElement | null>();
+
   return (
     <FormField
       extraClassName="Datepicker"
@@ -279,14 +281,14 @@ export const Datepicker = (props: DatepickerProps) => {
             onClick={({ target, currentTarget }) =>
               target === currentTarget && currentTarget.querySelector('input')?.focus()
             }
-            ref={
-              inputRef &&
-              ((elm) => {
+            ref={(elm) => {
+              wrapperRef.current = elm;
+              if (inputRef) {
                 (inputRef as MutableRefObject<HTMLInputElement | undefined>).current =
                   elm?.querySelector('input') || undefined;
-                return elm;
-              })
-            }
+              }
+              return elm;
+            }}
             {...addFocusProps()}
           >
             {isoMode && <input type="hidden" name={name} value={toLocalIsoDate(value)} />}
@@ -320,6 +322,17 @@ export const Datepicker = (props: DatepickerProps) => {
               showYearDropdown
               scrollableYearDropdown
               yearDropdownItemNumber={15}
+              onCalendarOpen={() => {
+                setTimeout(() => {
+                  const calElm = wrapperRef.current?.querySelector('.react-datepicker');
+                  calElm?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+              }}
+              onCalendarClose={() => {
+                const inputElm =
+                  inputRef?.current || wrapperRef.current?.querySelector('input');
+                inputElm?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }}
               showMonthDropdown
               {...inputProps}
               {...txts}

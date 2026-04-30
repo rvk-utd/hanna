@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `Datepicker`:
+  - feat: Scroll calendar into view when opened, and back to input when closed
 
 ## 0.10.171
 
