@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.172
+
+_2026-04-30_
+
 - `Datepicker`:
   - feat: Scroll calendar into view when opened, and back to input when closed
 
