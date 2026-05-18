@@ -3,9 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- fix: Remove stray semicolions between rule-blocks, breaking Chrome
 - `Dateoicker`:
   - feat: Add some spacing below calendar popper in top-aligned placements
-- `IslandBlock`: 
+- `IslandBlock`:
   - fix: Secondary `__content` block should render second on smaller viewports
   - feat: Add dev warning for nth>=3 `.IslandBlock__content` blocks
 - `RelatedLinks`:

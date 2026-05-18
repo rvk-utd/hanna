@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: `css` helper removes accidental extra semicolons on template joints
 
 ## 0.4.27
 

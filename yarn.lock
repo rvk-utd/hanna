@@ -3456,7 +3456,7 @@ __metadata:
     "@hugsmidjan/qj": ^4.22.1
     "@reykjavik/hanna-utils": ^0.2.22
     "@types/md5-file": ^5
-    es-in-css: ^0.8.0
+    es-in-css: ^0.8.1
     gulp: ^4.0.2
     md5-file: ^5.0.0
     node-fetch: ^3.3.2
@@ -8665,9 +8665,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-in-css@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "es-in-css@npm:0.8.0"
+"es-in-css@npm:^0.8.1":
+  version: 0.8.1
+  resolution: "es-in-css@npm:0.8.1"
   dependencies:
     "@types/color": ^3.0.6
     "@types/color-name": ^1.1.5
@@ -8684,7 +8684,7 @@ __metadata:
     prettier: ^2.8.8
   bin:
     es-in-css: bin/cli.js
-  checksum: 755dae30efa0d907fd5bfa62967a0a62f81f7a837e3f1feec52c2307a7b9f59707cdb37b7bd853dd0d08c8cfccd266fce9504cad59b129a9fde14d8e01ca8966
+  checksum: ecfb3d67ed8f95dd712d361184a2f6bcee71dd1b82318818c3e18da3b1502bf9aab68c4724bc213aa3d73b3392ca58d0386567ebcf7758e2957edad820bcffba
   languageName: node
   linkType: hard
 
