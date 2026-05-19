@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Add `role="generic"` to checkbox- and radio-group `<li/>` elments
+- `AutosuggestSearch`:
+  - fix: Suppress `role="listbox"` when there are no suggestions
 
 ## 0.10.172
 

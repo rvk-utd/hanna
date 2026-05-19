@@ -237,6 +237,7 @@ export const AutosuggestSearch = <T extends string | object>(
           <div
             {...containerProps}
             aria-label={options.length ? txt.suggestionsLabel : undefined}
+            {...(!options.length && { role: undefined })}
           >
             {contents}
           </div>
