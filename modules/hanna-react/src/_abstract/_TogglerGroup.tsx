@@ -135,14 +135,20 @@ export const TogglerGroup = (props: TogglerGroupProps & _TogglerGroupProps) => {
 
         if (renderItemSubContent) {
           return (
-            <li key={i} className={`${bem}__item`}>
+            <li key={i} className={`${bem}__item`} role="generic">
               <Toggler {...togglerProps} />
               {renderItemSubContent(option, isChecked)}
             </li>
           );
         }
         return (
-          <Toggler key={i} className={`${bem}__item`} Wrapper="li" {...togglerProps} />
+          <Toggler
+            key={i}
+            className={`${bem}__item`}
+            Wrapper="li"
+            role="generic"
+            {...togglerProps}
+          />
         );
       })}
     </ul>

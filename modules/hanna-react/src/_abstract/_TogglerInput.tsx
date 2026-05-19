@@ -57,6 +57,7 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
     innerWrap,
     wrapperProps,
     inputProps,
+    role,
     ...restInputProps
   } = props;
 
@@ -91,6 +92,7 @@ export const TogglerInput = (props: TogglerInputProps & _TogglerInputProps) => {
         // Prefer `className` over `wrapperProps.className`
         className || (wrapperProps || {}).className
       )}
+      role={role}
     >
       <input
         className={`${bem}__input`}

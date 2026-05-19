@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add `role="generic"` to checkbox- and radio-group `<li/>` elments
 
 ## 0.8.42
 

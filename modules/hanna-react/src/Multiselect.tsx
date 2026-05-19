@@ -462,6 +462,7 @@ export const Multiselect = (props: MultiselectProps) => {
                         readOnly={readOnly}
                         required={props.required}
                         Wrapper="li"
+                        role="generic"
                         name={name}
                         {...item}
                         checked={isChecked}
