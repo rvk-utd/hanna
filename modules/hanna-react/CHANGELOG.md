@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.173
+
+_2026-05-19_
+
 - fix: Add `role="generic"` to checkbox- and radio-group `<li/>` elments
 - `AutosuggestSearch`:
   - fix: Suppress `role="listbox"` when there are no suggestions
