@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `ContextMenu`:
+  - feat: Add prop `renderToggler()`, deprecate `Toggler` (comp) prop instead
 
 ## 0.10.173
 

@@ -109,7 +109,11 @@ export type ContextMenuProps = {
     togglerType?: 'primary' | 'secondary';
   } & Prefix<Omit<ButtonVariantProps, 'small'>, 'toggler'>,
   {
-    /** Custom toggler rendering function component */
+    /** Custom toggler render function */
+    renderToggler: (props: { isOpen: boolean }) => ReactElement;
+  },
+  {
+    /** @deprecated Use the `renderToggler` prop instead  (Will be removed in v0.11) */
     Toggler: (props: { isOpen: boolean }) => ReactElement;
   }
 > &
@@ -160,24 +164,32 @@ export const ContextMenu = (props: ContextMenuProps) => {
         refs.setFloating(elm.querySelector('.ContextMenu__menu'));
       }}
     >
-      {props.Toggler ? (
-        <summary className="ContextMenu__toggler" onClick={toggle}>
-          <props.Toggler isOpen={isOpen} />
-        </summary>
-      ) : (
-        <Button
-          as="summary"
-          className="ContextMenu__toggler"
-          bem={props.togglerType === 'primary' ? 'ButtonPrimary' : 'ButtonSecondary'}
-          icon={props.togglerIcon}
-          size={props.togglerSize}
-          variant={props.togglerVariant}
-          aria-label={props.labelLong}
-          onClick={toggle}
-        >
-          {props.label}
-        </Button>
-      )}
+      {
+        // eslint-disable-next-line deprecation/deprecation
+        props.Toggler || props.renderToggler ? (
+          <summary className="ContextMenu__toggler" onClick={toggle}>
+            {props.renderToggler ? (
+              props.renderToggler({ isOpen })
+            ) : (
+              // eslint-disable-next-line deprecation/deprecation
+              <props.Toggler isOpen={isOpen} />
+            )}
+          </summary>
+        ) : (
+          <Button
+            as="summary"
+            className="ContextMenu__toggler"
+            bem={props.togglerType === 'primary' ? 'ButtonPrimary' : 'ButtonSecondary'}
+            icon={props.togglerIcon}
+            size={props.togglerSize}
+            variant={props.togglerVariant}
+            aria-label={props.labelLong}
+            onClick={toggle}
+          >
+            {props.label}
+          </Button>
+        )
+      }
       <ul
         className="ContextMenu__menu"
         onMouseEnter={() => {

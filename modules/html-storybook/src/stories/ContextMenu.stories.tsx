@@ -47,7 +47,7 @@ export const _ContextMenu: StoryObj<ControlProps> = {
   render: (args) =>
     args.togglerType === 'custom' ? (
       <ContextMenu
-        Toggler={({ isOpen }) => (
+        renderToggler={({ isOpen }) => (
           <span
             style={{ display: 'block', background: 'yellow', padding: '8px' }}
             aria-label="Longer text for toggler"

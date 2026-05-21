@@ -99,7 +99,7 @@ export default function () {
         items={mockItemsShort}
       />
       <ContextMenu
-        Toggler={({ isOpen }) => (
+        renderToggler={({ isOpen }) => (
           <span style={{ display: 'block', background: 'yellow', padding: '8px' }}>
             Custom toggler {isOpen ? '▲' : '▼'}
           </span>
