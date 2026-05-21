@@ -22,7 +22,7 @@ export default css`
       font-weight: ${vars.font_weight__bold};
       align-items: center;
       padding: ${vars.space_0$5} ${vars.space_1};
-      border: 1px solid ${Stv.borderColor};
+      box-shadow: inset 0 0 0 1px ${Stv.borderColor};
       border-radius: ${vars.space_0$5};
       background: ${Stv.background};
       color: ${vars.color_suld_200};
@@ -57,29 +57,29 @@ export default css`
 
     .StatusTag--color--blue {
       ${StatusTagVariables.override({
-        background: vars.color_faxafloi_25,
         borderColor: vars.color_faxafloi_50,
+        background: vars.color_faxafloi_25,
         lightColor: vars.color_faxafloi_100,
       })};
     }
     .StatusTag--color--green {
       ${StatusTagVariables.override({
-        borderColor: vars.color_ellidaardalur_100,
-        background: vars.color_ellidaardalur_50,
+        borderColor: vars.color_ellidaardalur_50,
+        background: vars.color_ellidaardalur_25,
         lightColor: vars.color_ellidaardalur_100,
       })};
     }
     .StatusTag--color--yellow {
       ${StatusTagVariables.override({
-        borderColor: vars.color_nautholsvik_100,
-        background: vars.color_nautholsvik_50,
+        borderColor: vars.color_nautholsvik_50,
+        background: vars.color_nautholsvik_25,
         lightColor: vars.color_nautholsvik_100,
       })};
     }
     .StatusTag--color--red {
       ${StatusTagVariables.override({
-        borderColor: vars.color_heidmork_100,
-        background: vars.color_heidmork_50,
+        borderColor: vars.color_heidmork_50,
+        background: vars.color_heidmork_25,
         lightColor: vars.color_heidmork_100,
       })};
     }

@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - fix: Remove stray semicolions between rule-blocks, breaking Chrome
+- `StatusTag`:
+  - fix: Lighten border- and background-colors, and reduce padding by `1px`
 - `Dateoicker`:
   - feat: Add some spacing below calendar popper in top-aligned placements
 - `IslandBlock`:
