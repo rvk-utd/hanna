@@ -3,7 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
-- fix: Remove stray semicolions between rule-blocks, breaking Chrome
+- fix: Remove stray semi-colons between rule-blocks, breaking Chrome
 - `StatusTag`:
   - fix: Lighten border- and background-colors, and reduce padding by `1px`
 - `Dateoicker`:
