@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.28
+
+_2026-06-01_
+
 - fix: Limit `getEssentialHannaScripts` Safari side-scroll fix to versions 15
   and below
 - feat: `css` helper removes accidental extra semicolons on template joints
