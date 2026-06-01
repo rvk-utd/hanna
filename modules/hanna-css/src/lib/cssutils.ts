@@ -157,7 +157,9 @@ export const getCssBundleUrl = <AcceptNewerVersion extends boolean = false>(
  */
 const safariSidescrollFix = `
   (function (d, u, h) {
-    u.indexOf('Chrome') < 0 && u.indexOf('Safari') > 0 &&
+    if (!u.includes('Safari') || u.includes('Chrome')) return;
+    const v = u.match(/Version\\/([0-9]+)/);
+    if (!v || parseInt(v[1]) >= 16) return;
     d.addEventListener("scroll", function () {
       (h = d.documentElement).scrollLeft > 0 &&
         (h.scrollLeft = 0);
