@@ -4,10 +4,11 @@
 {% if footer_badges is defined and footer_badges %}
 	{% for badge in footer_badges %}
 		<li class="FooterBadges__badge">
-			{% if badge.href %}<a href="{{ badge.href }}">{% endif %}
-			{% if badge.src %}<img src="{{ badge.src }}" alt="{{ badge.alt }}" />{% endif %}
-			{% if badge.svg %}{{ badge.svg|raw }}{% endif %}
-			{% if badge.href %}</a>{% endif %}
+			{% if badge.href is defined and badge.href %}
+				<a href="{{ badge.href }}"><img src="{{ badge.src }}" alt="{{ badge.alt }}" /></a>
+			{% else %}
+				<img src="{{ badge.src }}" alt="{{ badge.alt }}" />
+			{% endif %}
 		</li>
 	{% endfor %}
 {% elseif default_badge is defined and default_badge %}
