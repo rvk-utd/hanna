@@ -16,18 +16,18 @@ export const _ProgressBar: StoryObj = {
   render: () => (
     <div style={{ display: 'flex' }}>
       <div style={{ width: 280, padding: '1rem', border: '1px dashed #A867FC' }}>
-        <ProgressBar value={0} />
-        <ProgressBar value={50} />
-        <ProgressBar value={100} />
-        <ProgressBar value={0} />
-        <ProgressBar value={0} />
+        <ProgressBar barColor="blue" value={0} />
+        <ProgressBar barColor="blue" value={25} />
+        <ProgressBar barColor="blue" value={50} />
+        <ProgressBar barColor="blue" value={75} />
+        <ProgressBar barColor="blue" value={100} />
       </div>
       <div style={{ backgroundColor: '#0367E1', width: 280, padding: '1rem' }}>
         <ProgressBar barColor="white" value={0} />
+        <ProgressBar barColor="white" value={25} />
         <ProgressBar barColor="white" value={50} />
+        <ProgressBar barColor="white" value={75} />
         <ProgressBar barColor="white" value={100} />
-        <ProgressBar barColor="white" value={0} />
-        <ProgressBar barColor="white" value={0} />
       </div>
     </div>
   ),
