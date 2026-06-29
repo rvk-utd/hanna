@@ -1,4 +1,5 @@
 import React from 'react';
+import ProgressBar from '@reykjavik/hanna-react/Progressbar';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
@@ -12,12 +13,5 @@ const meta: Meta = {
 export default meta;
 
 export const _ProgressBar: StoryObj = {
-  render: () => (
-    <div>
-      <p>huga buga</p>
-      <progress id="file" max="100" value="50">
-        70%
-      </progress>
-    </div>
-  ),
+  render: () => <ProgressBar />,
 };
