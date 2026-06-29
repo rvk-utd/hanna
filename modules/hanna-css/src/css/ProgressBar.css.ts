@@ -19,12 +19,9 @@ export default css`
     appearance: none;
     border: none;
     border-radius: ${BORDER_RADIUS};
+    background-color: ${TRACK_BAR_BLUE};
     width: 100%;
     height: 4px;
-  }
-
-  .ProgressBar--blue {
-    background-color: ${TRACK_BAR_BLUE};
   }
 
   .ProgressBar--white {
