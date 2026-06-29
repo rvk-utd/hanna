@@ -13,5 +13,21 @@ const meta: Meta = {
 export default meta;
 
 export const _ProgressBar: StoryObj = {
-  render: () => <ProgressBar />,
+  render: () => (
+    <div style={{ display: 'flex' }}>
+      <div style={{ width: 280, padding: '1rem' }}>
+        <ProgressBar barColor="blue" />
+        <ProgressBar barColor="blue" />
+        <ProgressBar barColor="blue" />
+        <ProgressBar barColor="blue" />
+        <ProgressBar barColor="blue" />
+      </div>
+      <div style={{ backgroundColor: '#0367E1', width: 280, padding: '1rem' }}>
+        <ProgressBar barColor="white" />
+        <ProgressBar barColor="white" />
+        <ProgressBar barColor="white" />
+        <ProgressBar barColor="white" />
+      </div>
+    </div>
+  ),
 };
