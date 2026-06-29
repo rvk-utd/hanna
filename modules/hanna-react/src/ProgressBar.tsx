@@ -17,16 +17,14 @@ export const ProgressBar = ({ barColor = 'blue', value }: ProgressBarProps) => {
   const normalizedValue = Math.max(0, Math.min(100, value));
 
   return (
-    <div>
-      <progress
-        className={modifiedClass('ProgressBar', barColor)}
-        id="file"
-        max="100"
-        value={normalizedValue}
-      >
-        70%
-      </progress>
-    </div>
+    <progress
+      className={modifiedClass('ProgressBar', barColor)}
+      id="file"
+      max="100"
+      value={normalizedValue}
+    >
+      {value}%
+    </progress>
   );
 };
 
