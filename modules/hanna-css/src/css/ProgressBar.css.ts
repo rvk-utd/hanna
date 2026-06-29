@@ -46,6 +46,11 @@ export default css`
     border-bottom-left-radius: ${BORDER_RADIUS};
   }
 
+  .ProgressBar[value='100']::-webkit-progress-value {
+    border-top-right-radius: ${BORDER_RADIUS};
+    border-bottom-right-radius: ${BORDER_RADIUS};
+  }
+
   .ProgressBar--white::-webkit-progress-value {
     background-color: ${PROGRESS_BAR_WHITE};
   }
