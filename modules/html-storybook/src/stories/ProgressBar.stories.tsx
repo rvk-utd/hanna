@@ -15,7 +15,7 @@ export default meta;
 export const _ProgressBar: StoryObj = {
   render: () => (
     <div style={{ display: 'flex' }}>
-      <div style={{ width: 280, padding: '1rem' }}>
+      <div style={{ width: 280, padding: '1rem', border: '1px dashed #A867FC' }}>
         <ProgressBar value={0} />
         <ProgressBar value={50} />
         <ProgressBar value={100} />

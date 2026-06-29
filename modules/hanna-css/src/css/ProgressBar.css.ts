@@ -2,9 +2,14 @@ import { css, px } from 'es-in-css';
 
 import { hannaVars as vars } from '../lib/hannavars.js';
 
-const TRACK_COLOR_BLUE = vars.color_faxafloi_100;
-const TRACK_COLOR_WHITE = vars.color_suld_0;
-const TRACK_BG_COLOR = vars.color_faxafloi_25;
+/* Progress bar */
+const PROGRESS_BAR_BLUE = vars.color_faxafloi_100;
+const PROGRESS_BAR_WHITE = vars.color_suld_0;
+
+/* Track bar */
+const TRACK_BAR_BLUE = vars.color_faxafloi_25;
+const TRACK_BAR_WHITE = '#4F95EA';
+
 const BORDER_RADIUS = px(99);
 
 export default css`
@@ -13,35 +18,47 @@ export default css`
     -moz-appearance: none;
     appearance: none;
     border: none;
-    background-color: ${TRACK_BG_COLOR};
     border-radius: ${BORDER_RADIUS};
     width: 100%;
+    height: 4px;
+  }
+
+  .ProgressBar--blue {
+    background-color: ${TRACK_BAR_BLUE};
+  }
+
+  .ProgressBar--white {
+    background-color: ${TRACK_BAR_WHITE};
   }
 
   /* Track - Chrome / Safari / Edge */
   .ProgressBar::-webkit-progress-bar {
-    background-color: ${TRACK_BG_COLOR};
+    background-color: ${TRACK_BAR_BLUE};
     border-radius: ${BORDER_RADIUS};
     border-radius: ${BORDER_RADIUS};
   }
 
+  .ProgressBar--white::-webkit-progress-bar {
+    background-color: ${TRACK_BAR_WHITE};
+  }
+
   /* Track filled - Chrome / Safari / Edge */
   .ProgressBar::-webkit-progress-value {
-    background-color: ${TRACK_COLOR_BLUE};
+    background-color: ${PROGRESS_BAR_BLUE};
     border-top-left-radius: ${BORDER_RADIUS};
     border-bottom-left-radius: ${BORDER_RADIUS};
   }
 
   .ProgressBar--white::-webkit-progress-value {
-    background-color: ${TRACK_COLOR_WHITE};
+    background-color: ${PROGRESS_BAR_WHITE};
   }
 
   /* Track - Firefox */
   .ProgressBar::-moz-progress-bar {
-    background-color: ${TRACK_COLOR_BLUE};
+    background-color: ${PROGRESS_BAR_BLUE};
   }
 
   .ProgressBar--white::-moz-progress-bar {
-    background-color: ${TRACK_COLOR_WHITE};
+    background-color: ${PROGRESS_BAR_WHITE};
   }
 `;
