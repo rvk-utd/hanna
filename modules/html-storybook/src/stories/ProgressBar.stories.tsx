@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
-  title: 'Progressbar',
+  title: 'ProgressBar',
   parameters: {
     controls: { hideNoControlsWarning: true },
     viewport: { defaultViewport: 'responsive' },
