@@ -33,10 +33,12 @@ export const Progress = (props: ProgressProps) => {
   }
   let bounds: { min?: number; max?: number } = {};
   let valueNow;
+  let valueText;
   if (percent != null) {
     bounds = { min: 0, max: 10 };
     percent = Math.max(0, Math.min(100, percent));
     valueNow = Math.round(percent / 10);
+    valueText = `${percent}%`;
   }
   return (
     <span
@@ -50,11 +52,12 @@ export const Progress = (props: ProgressProps) => {
       aria-valuemax={bounds.max}
       // NOTE: Progress is ndeterminate state is derived from this prop being absent
       aria-valuenow={valueNow}
+      aria-valuetext={valueText}
       aria-label={props.ariaLabel || undefined}
       aria-labelledby={props.ariaLabelledBy || undefined}
       id={props.id}
     >
-      {percent != null && <span className="Progress__value">{percent}%</span>}
+      {valueText && <span className="Progress__value">{valueText}</span>}
     </span>
   );
 };
