@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressBar from '@reykjavik/hanna-react/Progressbar';
+import ProgressBar from '@reykjavik/hanna-react/ProgressBar';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
