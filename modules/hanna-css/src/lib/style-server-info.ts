@@ -85,6 +85,7 @@ export type CssModuleToken =
   | 'Pagination'
   | 'Picture'
   | 'ProcessOverview'
+  | 'Progress'
   | 'ProgressBar'
   | 'PullQuote'
   | 'Radio'
