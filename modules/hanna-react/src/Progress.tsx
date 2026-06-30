@@ -31,13 +31,13 @@ export const Progress = (props: ProgressProps) => {
   if (done) {
     percent = 100;
   }
-  let bounds: { min?: number; max?: number } = {};
+  let steps;
   let valueNow;
   let valueText;
   if (percent != null) {
-    bounds = { min: 0, max: 10 };
+    steps = 10;
     percent = Math.max(0, Math.min(100, percent));
-    valueNow = Math.round(percent / 10);
+    valueNow = Math.round(percent / steps);
     valueText = `${percent}%`;
   }
   return (
@@ -48,10 +48,8 @@ export const Progress = (props: ProgressProps) => {
         props.className
       )}
       role="progressbar"
-      aria-valuemin={bounds.min}
-      aria-valuemax={bounds.max}
-      // NOTE: Progress is ndeterminate state is derived from this prop being absent
-      aria-valuenow={valueNow}
+      aria-valuemax={steps}
+      aria-valuenow={valueNow} // NOTE: Progress is ndeterminate state is derived from this prop being absent
       aria-valuetext={valueText}
       aria-label={props.ariaLabel || undefined}
       aria-labelledby={props.ariaLabelledBy || undefined}
