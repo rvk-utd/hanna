@@ -20,25 +20,35 @@ export default css`
     display: inline-block;
     width: 100%;
     height: 4px;
-    background: conic-gradient(
-      ${PROGRESS_BAR_BLUE_LIGHTER} 10%,
-      ${PROGRESS_BAR_BLUE} 90%
+    background: linear-gradient(
+      to right,
+      ${PROGRESS_BAR_BLUE} 40%,
+      ${PROGRESS_BAR_BLUE_LIGHTER} 60%
     );
   }
 
-  .Progress--spinner {
-    --progress: 75;
+  .Progress__value {
+    display: none;
+  }
 
+  ${range(0, 10).map(
+    (i) => css`
+      .Progress:not(.Progress--spinner)[aria-valuenow='${i}'] {
+        background: linear-gradient(
+          to right,
+          ${PROGRESS_BAR_BLUE} ${i * 10}%,
+          ${PROGRESS_BAR_BLUE_LIGHTER} ${i * 10}%
+        );
+      }
+    `
+  )}
+
+  .Progress--spinner {
     display: flex;
     width: 64px;
     height: 64px;
     background: red;
     border-radius: calc(infinity * 1px);
-    font-size: 1rem;
-    background: conic-gradient(
-      ${PROGRESS_BAR_BLUE} calc(var(--progress) * 1%),
-      ${PROGRESS_BAR_BLUE_LIGHTER} calc(var(--progress) * 1%)
-    );
   }
 
   .Progress--spinner::before {
@@ -53,11 +63,6 @@ export default css`
     margin: auto;
   }
 
-  .Progress--spinner .Progress__value {
-    display: none;
-  }
-
-  /* TODO: populate the loop */
   ${range(0, 10).map(
     (i) => css`
       .Progress--spinner[aria-valuenow='${i}'] {
