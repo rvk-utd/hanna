@@ -2,6 +2,9 @@ import React from 'react';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 
 export type ProgressProps = {
+  /** Custom class-name for the progress indicator element */
+  className?: string;
+
   /**
    * Whether to render the progress indicator as a circular spinner or a line/bar.
    *
@@ -15,7 +18,7 @@ export type ProgressProps = {
    */
   percent?: number;
 
-  /** If the progress bar should be display a "done" state */
+  /** If the progress bar should display a "done" state */
   done?: boolean;
 
   ariaLabel?: string;
@@ -29,28 +32,26 @@ export const Progress = (props: ProgressProps) => {
     percent = 100;
   }
   let bounds: { min?: number; max?: number } = {};
+  let valueNow;
   if (percent != null) {
-    bounds = { min: 0, max: 100 };
-    percent = Math.max(0, Math.min(100, Math.round(percent)));
+    bounds = { min: 0, max: 10 };
+    percent = Math.max(0, Math.min(100, percent));
+    valueNow = Math.round(percent / 10);
   }
   return (
     <span
-      className={modifiedClass('Progress', [
-        props.variant === 'spinner' && 'spinner',
-        done && 'done',
-      ])}
+      className={modifiedClass(
+        'Progress',
+        [props.variant === 'spinner' && 'spinner', done && 'done'],
+        props.className
+      )}
       role="progressbar"
       aria-valuemin={bounds.min}
       aria-valuemax={bounds.max}
       // NOTE: Progress is ndeterminate state is derived from this prop being absent
-      aria-valuenow={percent}
+      aria-valuenow={valueNow}
       aria-label={props.ariaLabel || undefined}
       aria-labelledby={props.ariaLabelledBy || undefined}
-      style={
-        percent != null
-          ? ({ '--Progress__value': `${percent}%` } as React.CSSProperties)
-          : undefined
-      }
       id={props.id}
     >
       {percent != null && <span className="Progress__value">{percent}%</span>}
