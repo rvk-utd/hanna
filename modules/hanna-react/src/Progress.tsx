@@ -2,8 +2,12 @@ import React from 'react';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 
 export type ProgressProps = {
-  /** Render as a circular spinner instead of a line/bar */
-  spinner?: boolean;
+  /**
+   * Whether to render the progress indicator as a circular spinner or a line/bar.
+   *
+   * Default: `"bar"`
+   */
+  variant?: 'spinner' | 'bar';
 
   /**
    * The value of the progress bar from 0-100.
@@ -31,7 +35,10 @@ export const Progress = (props: ProgressProps) => {
   }
   return (
     <span
-      className={modifiedClass('Progress', [props.spinner && 'spinner', done && 'done'])}
+      className={modifiedClass('Progress', [
+        props.variant === 'spinner' && 'spinner',
+        done && 'done',
+      ])}
       role="progressbar"
       aria-valuemin={bounds.min}
       aria-valuemax={bounds.max}
@@ -39,6 +46,11 @@ export const Progress = (props: ProgressProps) => {
       aria-valuenow={percent}
       aria-label={props.ariaLabel || undefined}
       aria-labelledby={props.ariaLabelledBy || undefined}
+      style={
+        percent != null
+          ? ({ '--Progress__value': `${percent}%` } as React.CSSProperties)
+          : undefined
+      }
       id={props.id}
     >
       {percent != null && <span className="Progress__value">{percent}%</span>}
