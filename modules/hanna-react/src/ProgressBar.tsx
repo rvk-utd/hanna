@@ -9,16 +9,16 @@ type EnumerateInternal<
 type PercentageValue = EnumerateInternal<101>;
 
 type ProgressBarProps = {
-  barColor: 'blue' | 'white';
+  color: 'blue' | 'white';
   value: PercentageValue;
 };
 
-export const ProgressBar = ({ barColor = 'blue', value }: ProgressBarProps) => {
+export const ProgressBar = ({ color = 'blue', value }: ProgressBarProps) => {
   const normalizedValue = Math.max(0, Math.min(100, value));
 
   return (
     <progress
-      className={modifiedClass('ProgressBar', barColor)}
+      className={modifiedClass('ProgressBar', color)}
       max="100"
       value={normalizedValue}
     >
