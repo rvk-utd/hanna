@@ -19,7 +19,6 @@ export const ProgressBar = ({ barColor = 'blue', value }: ProgressBarProps) => {
   return (
     <progress
       className={modifiedClass('ProgressBar', barColor)}
-      id="file"
       max="100"
       value={normalizedValue}
     >

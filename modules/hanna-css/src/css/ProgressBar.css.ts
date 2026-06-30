@@ -12,16 +12,34 @@ const TRACK_BAR_WHITE = '#4F95EA';
 
 const BORDER_RADIUS = px(99);
 
+const applyBorderRadius = (placement: 'left' | 'right' | 'both') => {
+  if (placement === 'left') {
+    return css`
+      border-top-left-radius: ${BORDER_RADIUS};
+      border-bottom-left-radius: ${BORDER_RADIUS};
+    `;
+  }
+  if (placement === 'right') {
+    return css`
+      border-top-right-radius: ${BORDER_RADIUS};
+      border-bottom-right-radius: ${BORDER_RADIUS};
+    `;
+  }
+  return css`
+    border-radius: ${BORDER_RADIUS};
+  `;
+};
+
 export default css`
   .ProgressBar {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     border: none;
-    border-radius: ${BORDER_RADIUS};
     background-color: ${TRACK_BAR_BLUE};
     width: 100%;
     height: 4px;
+    ${applyBorderRadius('both')}
   }
 
   .ProgressBar--white {
@@ -31,8 +49,7 @@ export default css`
   /* Track - Chrome / Safari / Edge */
   .ProgressBar::-webkit-progress-bar {
     background-color: ${TRACK_BAR_BLUE};
-    border-radius: ${BORDER_RADIUS};
-    border-radius: ${BORDER_RADIUS};
+    ${applyBorderRadius('both')}
   }
 
   .ProgressBar--white::-webkit-progress-bar {
@@ -42,13 +59,11 @@ export default css`
   /* Track filled - Chrome / Safari / Edge */
   .ProgressBar::-webkit-progress-value {
     background-color: ${PROGRESS_BAR_BLUE};
-    border-top-left-radius: ${BORDER_RADIUS};
-    border-bottom-left-radius: ${BORDER_RADIUS};
+    ${applyBorderRadius('left')}
   }
 
   .ProgressBar[value='100']::-webkit-progress-value {
-    border-top-right-radius: ${BORDER_RADIUS};
-    border-bottom-right-radius: ${BORDER_RADIUS};
+    ${applyBorderRadius('right')}
   }
 
   .ProgressBar--white::-webkit-progress-value {
