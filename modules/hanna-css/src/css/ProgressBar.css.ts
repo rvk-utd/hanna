@@ -15,14 +15,12 @@ const BORDER_RADIUS = px(99);
 const applyBorderRadius = (placement: 'left' | 'right' | 'both') => {
   if (placement === 'left') {
     return css`
-      border-top-left-radius: ${BORDER_RADIUS};
-      border-bottom-left-radius: ${BORDER_RADIUS};
+      border-radius: ${BORDER_RADIUS} 0 0 ${BORDER_RADIUS};
     `;
   }
   if (placement === 'right') {
     return css`
-      border-top-right-radius: ${BORDER_RADIUS};
-      border-bottom-right-radius: ${BORDER_RADIUS};
+      border-radius: 0 ${BORDER_RADIUS} ${BORDER_RADIUS} 0;
     `;
   }
   return css`
