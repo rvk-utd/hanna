@@ -3,7 +3,6 @@ import { css } from 'es-in-css';
 
 export default css`
   .Progress {
-    --progress: 75;
     display: inline-block;
     width: 100%;
     height: 4px;

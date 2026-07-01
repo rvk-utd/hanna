@@ -47,6 +47,24 @@ export const _Progress: StoryObj = {
         <Progress percent={75} color="red" />
         <Progress percent={100} />
       </div>
+
+      <div
+        style={{
+          width: 280,
+          padding: '1rem',
+          border: '1px dashed #A867FC',
+          gridGap: 15,
+          display: 'flex',
+          flexDirection: 'column',
+          backgroundColor: '#0367E1',
+        }}
+      >
+        <Progress percent={0} color="#fff" />
+        <Progress percent={25} color="#fff" />
+        <Progress percent={50} color="#fff" />
+        <Progress percent={75} color="#fff" />
+        <Progress percent={100} color="#fff" />
+      </div>
     </div>
   ),
 };
