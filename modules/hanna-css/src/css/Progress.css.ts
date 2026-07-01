@@ -4,15 +4,7 @@ import { css, px } from 'es-in-css';
 import { hannaVars as vars } from '../lib/hannavars.js';
 
 /* Progress bar */
-const PROGRESS_BAR_BLUE = vars.color_faxafloi_100;
-const PROGRESS_BAR_BLUE_LIGHTER = vars.color_faxafloi_50;
-const PROGRESS_BAR_WHITE = vars.color_suld_0;
-
-/* Track bar */
-const TRACK_BAR_BLUE = vars.color_faxafloi_25;
-const TRACK_BAR_WHITE = '#4F95EA';
-
-const BORDER_RADIUS = px(99);
+const PROGRESS_COLOR = vars.color_faxafloi_100;
 
 export default css`
   .Progress {
@@ -20,11 +12,7 @@ export default css`
     display: inline-block;
     width: 100%;
     height: 4px;
-    background: linear-gradient(
-      to right,
-      ${PROGRESS_BAR_BLUE} 40%,
-      ${PROGRESS_BAR_BLUE_LIGHTER} 60%
-    );
+    border-radius: 4px;
   }
 
   .Progress__value {
@@ -36,8 +24,8 @@ export default css`
       .Progress:not(.Progress--spinner)[aria-valuenow='${i}'] {
         background: linear-gradient(
           to right,
-          ${PROGRESS_BAR_BLUE} ${i * 10}%,
-          ${PROGRESS_BAR_BLUE_LIGHTER} ${i * 10}%
+          var(--progress-color) ${i * 10}%,
+          var(--progress-color-transparent) ${i * 10}%
         );
       }
     `
@@ -67,8 +55,8 @@ export default css`
     (i) => css`
       .Progress--spinner[aria-valuenow='${i}'] {
         background: conic-gradient(
-          ${PROGRESS_BAR_BLUE} ${i * 10}%,
-          ${PROGRESS_BAR_BLUE_LIGHTER} ${i * 10}%
+          var(--progress-color) ${i * 10}%,
+          var(--progress-color-transparent) ${i * 10}%
         );
       }
     `
