@@ -1,12 +1,16 @@
 import range from '@hugsmidjan/qj/range';
 import { css } from 'es-in-css';
+import { hannaVars } from '../lib/hannavars';
 
 export default css`
   .Progress {
+    --progress-color-transparent: color-mix(in srgb, currentColor 20%, transparent);
+
     display: inline-block;
     width: 100%;
     height: 4px;
     border-radius: 4px;
+    color: ${hannaVars.color_faxafloi_100};
   }
 
   .Progress__value {
@@ -18,7 +22,7 @@ export default css`
       .Progress:not(.Progress--spinner)[aria-valuenow='${i}'] {
         background: linear-gradient(
           to right,
-          var(--progress-color) ${i * 10}%,
+          currentColor ${i * 10}%,
           var(--progress-color-transparent) ${i * 10}%
         );
       }
@@ -29,27 +33,15 @@ export default css`
     display: flex;
     width: 64px;
     height: 64px;
-    background: red;
     border-radius: calc(infinity * 1px);
-  }
-
-  .Progress--spinner::before {
-    content: '';
-    width: 90%;
-    height: 90%;
-    background: white;
-    clip-path: circle(40%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+    mask-image: radial-gradient(circle, transparent 50%, black 50%);
   }
 
   ${range(0, 10).map(
     (i) => css`
       .Progress--spinner[aria-valuenow='${i}'] {
         background: conic-gradient(
-          var(--progress-color) ${i * 10}%,
+          currentColor ${i * 10}%,
           var(--progress-color-transparent) ${i * 10}%
         );
       }

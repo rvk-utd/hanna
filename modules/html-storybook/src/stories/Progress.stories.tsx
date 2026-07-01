@@ -28,7 +28,7 @@ export const _Progress: StoryObj = {
         <Progress percent={0} variant="spinner" />
         <Progress percent={25} variant="spinner" />
         <Progress percent={50} variant="spinner" />
-        <Progress percent={75} variant="spinner" color="orange" />
+        <Progress percent={75} variant="spinner" />
         <Progress percent={100} variant="spinner" />
       </div>
       <div
@@ -44,26 +44,8 @@ export const _Progress: StoryObj = {
         <Progress percent={0} />
         <Progress percent={25} />
         <Progress percent={50} />
-        <Progress percent={75} color="red" />
+        <Progress percent={75} />
         <Progress percent={100} />
-      </div>
-
-      <div
-        style={{
-          width: 280,
-          padding: '1rem',
-          border: '1px dashed #A867FC',
-          gridGap: 15,
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: '#0367E1',
-        }}
-      >
-        <Progress percent={0} color="#fff" />
-        <Progress percent={25} color="#fff" />
-        <Progress percent={50} color="#fff" />
-        <Progress percent={75} color="#fff" />
-        <Progress percent={100} color="#fff" />
       </div>
     </div>
   ),

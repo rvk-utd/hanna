@@ -1,5 +1,4 @@
 import React from 'react';
-import { hannaVars } from '@reykjavik/hanna-css';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 
 export type ProgressProps = {
@@ -25,11 +24,10 @@ export type ProgressProps = {
   ariaLabel?: string;
   ariaLabelledBy?: string;
   id?: string;
-  color?: string;
 };
 
 export const Progress = (props: ProgressProps) => {
-  let { percent, done, color = hannaVars.color_faxafloi_100 } = props;
+  let { percent, done } = props;
   if (done) {
     percent = 100;
   }
@@ -58,13 +56,6 @@ export const Progress = (props: ProgressProps) => {
       aria-label={props.ariaLabel || undefined}
       aria-labelledby={props.ariaLabelledBy || undefined}
       id={props.id}
-      style={
-        {
-          '--progress-color': color,
-          '--progress-color-transparent':
-            'color-mix(in srgb, var(--progress-color) 20%, transparent)',
-        } as React.CSSProperties
-      }
     >
       {valueText && <span className="Progress__value">{valueText}</span>}
     </span>
