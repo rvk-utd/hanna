@@ -1,10 +1,5 @@
 import range from '@hugsmidjan/qj/range';
-import { css, px } from 'es-in-css';
-
-import { hannaVars as vars } from '../lib/hannavars.js';
-
-/* Progress bar */
-const PROGRESS_COLOR = vars.color_faxafloi_100;
+import { css } from 'es-in-css';
 
 export default css`
   .Progress {
