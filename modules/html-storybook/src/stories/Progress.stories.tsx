@@ -25,6 +25,7 @@ export const _Progress: StoryObj = {
           flexDirection: 'column',
         }}
       >
+        <Progress variant="spinner" />
         <Progress percent={0} variant="spinner" />
         <Progress percent={25} variant="spinner" />
         <Progress percent={50} variant="spinner" />
@@ -41,6 +42,7 @@ export const _Progress: StoryObj = {
           flexDirection: 'column',
         }}
       >
+        <Progress />
         <Progress percent={0} />
         <Progress percent={25} />
         <Progress percent={50} />

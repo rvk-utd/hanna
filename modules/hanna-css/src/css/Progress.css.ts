@@ -2,7 +2,25 @@ import range from '@hugsmidjan/qj/range';
 import { css } from 'es-in-css';
 import { hannaVars } from '../lib/hannavars';
 
+const growAnimation = 'Progress-grow';
+const spinAnimation = 'Progress-spin';
+
 export default css`
+  @keyframes ${growAnimation} {
+    0% {
+      background-size: 0% 100%;
+    }
+    100% {
+      background-size: 100% 100%;
+    }
+  }
+
+  @keyframes ${spinAnimation} {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .Progress {
     --progress-color-transparent: color-mix(in srgb, currentColor 20%, transparent);
 
@@ -28,6 +46,13 @@ export default css`
       }
     `
   )}
+
+  .Progress:not(.Progress--spinner):not([aria-valuenow]) {
+    background-color: var(--progress-color-transparent);
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    animation: ${growAnimation} 1.5s ease-in-out infinite;
+  }
 
   .Progress--spinner {
     display: flex;
@@ -61,4 +86,12 @@ export default css`
       }
     `
   )}
+
+  .Progress--spinner:not([aria-valuenow]) {
+    background: conic-gradient(
+      currentColor,
+      var(--progress-color-transparent)
+    );
+    animation: ${spinAnimation} 1s linear infinite;
+  }
 `;
