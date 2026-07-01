@@ -34,7 +34,21 @@ export default css`
     width: 64px;
     height: 64px;
     border-radius: calc(infinity * 1px);
-    mask-image: radial-gradient(circle, transparent 50%, black 50%);
+    /*
+      Works but the circle becomes blurry
+       mask-image: radial-gradient(circle, transparent 50%, black 50%);
+    */
+  }
+  .Progress--spinner::before {
+    content: '';
+    width: 90%;
+    height: 90%;
+    background: white;
+    clip-path: circle(40%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
   }
 
   ${range(0, 10).map(
