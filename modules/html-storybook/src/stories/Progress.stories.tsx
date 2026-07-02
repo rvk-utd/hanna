@@ -26,6 +26,7 @@ export const _Progress: StoryObj = {
         }}
       >
         <Progress variant="spinner" />
+        <Progress variant="spinner" done />
         <Progress percent={0} variant="spinner" />
         <Progress percent={25} variant="spinner" />
         <Progress percent={50} variant="spinner" />
@@ -43,6 +44,7 @@ export const _Progress: StoryObj = {
         }}
       >
         <Progress />
+        <Progress done />
         <Progress percent={0} />
         <Progress percent={25} />
         <Progress percent={50} />

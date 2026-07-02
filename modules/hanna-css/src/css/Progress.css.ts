@@ -1,17 +1,31 @@
 import range from '@hugsmidjan/qj/range';
 import { css } from 'es-in-css';
 import { hannaVars } from '../lib/hannavars';
+import { iconStyle } from '../lib/icons';
 
-const growAnimation = 'Progress-grow';
+const indeterminateAnimation = 'Progress-indeterminate';
 const spinAnimation = 'Progress-spin';
 
 export default css`
-  @keyframes ${growAnimation} {
+  @keyframes ${indeterminateAnimation} {
+    /* Phase 1 – leading edge advances to the finish (bar grows, left edge pinned) */
     0% {
       background-size: 0% 100%;
+      background-position-x: 0%;
     }
-    100% {
+    50% {
       background-size: 100% 100%;
+      background-position-x: 0%;
+    }
+    /* Position flip happens while the bar fills the track, so it's invisible */
+    50.01% {
+      background-size: 100% 100%;
+      background-position-x: 100%;
+    }
+    /* Phase 2 – trailing edge advances to the finish (bar shrinks, right edge pinned) */
+    100% {
+      background-size: 0% 100%;
+      background-position-x: 100%;
     }
   }
 
@@ -51,13 +65,13 @@ export default css`
     background-color: var(--progress-color-transparent);
     background-image: linear-gradient(currentColor, currentColor);
     background-repeat: no-repeat;
-    animation: ${growAnimation} 1.5s ease-in-out infinite;
+    animation: ${indeterminateAnimation} 1.8s ease-in-out infinite;
   }
 
   .Progress--spinner {
     display: flex;
-    width: 64px;
-    height: 64px;
+    width: 32px;
+    height: 32px;
     border-radius: calc(infinity * 1px);
     /*
       Works but the circle becomes blurry
@@ -76,6 +90,22 @@ export default css`
     margin: auto;
   }
 
+  .Progress--spinner.Progress--done {
+    color: ${hannaVars.color_ellidaardalur_100};
+  }
+
+  .Progress--spinner.Progress--done::before {
+    ${iconStyle('check', 'small')}
+    clip-path: none;
+    width: 25%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${hannaVars.color_ellidaardalur_100};
+    color: ${hannaVars.color_ellidaardalur_150};
+  }
+
   ${range(0, 10).map(
     (i) => css`
       .Progress--spinner[aria-valuenow='${i}'] {
@@ -88,10 +118,7 @@ export default css`
   )}
 
   .Progress--spinner:not([aria-valuenow]) {
-    background: conic-gradient(
-      currentColor,
-      var(--progress-color-transparent)
-    );
+    background: conic-gradient(currentColor, var(--progress-color-transparent));
     animation: ${spinAnimation} 1s linear infinite;
   }
 `;
