@@ -1,6 +1,6 @@
 import range from '@hugsmidjan/qj/range';
 import { css } from 'es-in-css';
-import { hannaVars } from '../lib/hannavars';
+import { hannaVars as vars } from '../lib/hannavars';
 import { iconStyle } from '../lib/icons';
 
 const indeterminateAnimation = 'Progress-indeterminate';
@@ -42,7 +42,7 @@ export default css`
     width: 100%;
     height: 4px;
     border-radius: 4px;
-    color: ${hannaVars.color_faxafloi_100};
+    color: ${vars.color_faxafloi_100};
   }
 
   .Progress__value {
@@ -69,10 +69,12 @@ export default css`
   }
 
   .Progress--spinner {
+    --spinner-size: 32px;
     display: flex;
-    width: 32px;
-    height: 32px;
+    width: var(--spinner-size);
+    height: var(--spinner-size);
     border-radius: calc(infinity * 1px);
+    display: flex;
     /*
       Works but the circle becomes blurry
        mask-image: radial-gradient(circle, transparent 50%, black 50%);
@@ -91,19 +93,20 @@ export default css`
   }
 
   .Progress--spinner.Progress--done {
-    color: ${hannaVars.color_ellidaardalur_100};
+    color: ${vars.color_ellidaardalur_100};
   }
 
   .Progress--spinner.Progress--done::before {
     ${iconStyle('check', 'small')}
+    font-size: calc(var(--spinner-size) * 0.6);
     clip-path: none;
     width: 25%;
     height: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${hannaVars.color_ellidaardalur_100};
-    color: ${hannaVars.color_ellidaardalur_150};
+    background-color: ${vars.color_ellidaardalur_100};
+    color: ${vars.color_ellidaardalur_150};
   }
 
   ${range(0, 10).map(
