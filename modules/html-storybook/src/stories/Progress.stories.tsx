@@ -49,7 +49,7 @@ const ProgressStory = () => {
         }}
       >
         <h2>Determinate state</h2>
-        <Progress percent={percent} variant="spinner" />
+        <Progress percent={percent} variant="spinner" done={percent === 100} />
         <Progress percent={percent} variant="bar" />
       </div>
 
