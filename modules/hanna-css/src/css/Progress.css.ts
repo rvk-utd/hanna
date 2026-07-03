@@ -121,7 +121,10 @@ export default css`
   )}
 
   .Progress--spinner:not([aria-valuenow]) {
-    background: conic-gradient(currentColor, var(--progress-color-transparent));
+    background: conic-gradient(
+      currentColor 180deg,
+      var(--progress-color-transparent) 180deg
+    );
     animation: ${spinAnimation} 1s linear infinite;
   }
 `;
