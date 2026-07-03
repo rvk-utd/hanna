@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Progress } from '@reykjavik/hanna-react/Progress';
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -12,11 +12,11 @@ const meta: Meta = {
 
 export default meta;
 
-const SimulatedApiProgress = () => {
-  const [hugabuga, setHugabuga] = React.useState(0);
+const ProgressStory = () => {
+  const [percent, setPercent] = useState(0);
 
-  React.useEffect(() => {
-    setHugabuga(0);
+  useEffect(() => {
+    setPercent(0);
     const startedAt = Date.now();
     const durationMs = 5000;
 
@@ -24,7 +24,7 @@ const SimulatedApiProgress = () => {
       const elapsed = Date.now() - startedAt;
       const nextValue = Math.min(100, Math.round((elapsed / durationMs) * 100));
 
-      setHugabuga(nextValue);
+      setPercent(nextValue);
 
       if (nextValue >= 100) {
         window.clearInterval(interval);
@@ -49,8 +49,8 @@ const SimulatedApiProgress = () => {
         }}
       >
         <h2>Determinate state</h2>
-        <Progress percent={hugabuga} variant="spinner" />
-        <Progress percent={hugabuga} variant="bar" />
+        <Progress percent={percent} variant="spinner" />
+        <Progress percent={percent} variant="bar" />
       </div>
 
       <div style={{ display: 'flex' }}>
@@ -105,6 +105,7 @@ const SimulatedApiProgress = () => {
           <Progress percent={50} variant="spinner" />
           <Progress percent={75} variant="spinner" />
           <Progress percent={100} variant="spinner" />
+          <Progress percent={100} variant="spinner" done />
         </div>
       </div>
     </div>
@@ -112,5 +113,5 @@ const SimulatedApiProgress = () => {
 };
 
 export const _Progress: StoryObj = {
-  render: () => <SimulatedApiProgress />,
+  render: () => <ProgressStory />,
 };
