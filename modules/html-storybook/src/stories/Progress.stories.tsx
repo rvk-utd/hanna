@@ -12,9 +12,32 @@ const meta: Meta = {
 
 export default meta;
 
-export const _Progress: StoryObj = {
-  render: () => (
-    <div style={{ display: 'flex' }}>
+const SimulatedApiProgress = () => {
+  const [hugabuga, setHugabuga] = React.useState(0);
+
+  React.useEffect(() => {
+    setHugabuga(0);
+    const startedAt = Date.now();
+    const durationMs = 5000;
+
+    const interval = window.setInterval(() => {
+      const elapsed = Date.now() - startedAt;
+      const nextValue = Math.min(100, Math.round((elapsed / durationMs) * 100));
+
+      setHugabuga(nextValue);
+
+      if (nextValue >= 100) {
+        window.clearInterval(interval);
+      }
+    }, 50);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, []);
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
       <div
         style={{
           width: 280,
@@ -25,32 +48,69 @@ export const _Progress: StoryObj = {
           flexDirection: 'column',
         }}
       >
-        <Progress variant="spinner" />
-        <Progress variant="spinner" done />
-        <Progress percent={0} variant="spinner" />
-        <Progress percent={25} variant="spinner" />
-        <Progress percent={50} variant="spinner" />
-        <Progress percent={75} variant="spinner" />
-        <Progress percent={100} variant="spinner" />
+        <h2>Determinate state</h2>
+        <Progress percent={hugabuga} variant="spinner" />
+        <Progress percent={hugabuga} variant="bar" />
       </div>
-      <div
-        style={{
-          width: 280,
-          padding: '1rem',
-          border: '1px dashed #A867FC',
-          gridGap: 15,
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-        <Progress />
-        <Progress done />
-        <Progress percent={0} />
-        <Progress percent={25} />
-        <Progress percent={50} />
-        <Progress percent={75} />
-        <Progress percent={100} />
+
+      <div style={{ display: 'flex' }}>
+        <div
+          style={{
+            width: 280,
+            padding: '1rem',
+            border: '1px dashed #A867FC',
+            gridGap: 15,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <h2>Indeterminate state</h2>
+          <Progress variant="spinner" />
+          <Progress variant="bar" />
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <div
+          style={{
+            width: 280,
+            padding: '1rem',
+            border: '1px dashed #A867FC',
+            gridGap: 15,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <h2>Static state - bar</h2>
+          <Progress percent={0} />
+          <Progress percent={25} />
+          <Progress percent={50} />
+          <Progress percent={75} />
+          <Progress percent={100} />
+        </div>
+
+        <div
+          style={{
+            width: 280,
+            padding: '1rem',
+            border: '1px dashed #A867FC',
+            gridGap: 15,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <h2>Static state - spinner</h2>
+          <Progress percent={0} variant="spinner" />
+          <Progress percent={25} variant="spinner" />
+          <Progress percent={50} variant="spinner" />
+          <Progress percent={75} variant="spinner" />
+          <Progress percent={100} variant="spinner" />
+        </div>
       </div>
     </div>
-  ),
+  );
+};
+
+export const _Progress: StoryObj = {
+  render: () => <SimulatedApiProgress />,
 };
