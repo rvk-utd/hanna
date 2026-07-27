@@ -86,7 +86,6 @@ export type CssModuleToken =
   | 'Picture'
   | 'ProcessOverview'
   | 'Progress'
-  | 'ProgressBar'
   | 'PullQuote'
   | 'Radio'
   | 'RadioButtonsGroup'
