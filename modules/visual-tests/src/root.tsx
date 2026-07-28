@@ -106,6 +106,8 @@ export default function App() {
               transition: none !important;
               transition-delay: 0ms !important;
               transition-duration: 0ms !important;
+              animation-play-state: paused !important;
+              animation-delay: -100ms !important;
             }
             textarea {
               // prevent browser chrome changes causing false-positives
