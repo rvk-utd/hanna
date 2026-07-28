@@ -174,6 +174,13 @@ export default css`
   .Progress--spinner.Progress--size--large.Progress--done::before {
     font-size: 24px;
   }
+  .Progress--size--xsmall:not(.Progress--spinner),
+  .Progress--size--small:not(.Progress--spinner),
+  .Progress--size--large:not(.Progress--spinner) {
+    ${WARNING__('`--size--*` modifiers only apply to `--spinner` variant')}
+  }
+
+  /* ------------------------------------------------------------------------ */
 
   .ButtonPrimary .Progress--spinner,
   .ButtonSecondary .Progress--spinner {
