@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Add component `Progress`
 - `ContextMenu`:
   - feat: Add prop `renderToggler()`, deprecate `Toggler` (comp) prop instead
 

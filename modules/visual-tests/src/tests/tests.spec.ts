@@ -100,6 +100,7 @@ import { testing as PageHeading__test } from '../routes/test/PageHeading.js';
 import { testing as Pagination__test } from '../routes/test/Pagination.js';
 import { testing as Picture__test } from '../routes/test/Picture.js';
 import { testing as ProcessOverview__test } from '../routes/test/ProcessOverview.js';
+import { testing as Progress__test } from '../routes/test/Progress.js';
 import { testing as PullQuote__test } from '../routes/test/PullQuote.js';
 import { testing as RadioButtonsGroup__test } from '../routes/test/RadioButtonsGroup.js';
 import { testing as RadioGroup__test } from '../routes/test/RadioGroup.js';
@@ -199,6 +200,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   Pagination: Pagination__test,
   Picture: Picture__test,
   ProcessOverview: ProcessOverview__test,
+  Progress: Progress__test,
   PullQuote: PullQuote__test,
   RadioButtonsGroup: RadioButtonsGroup__test,
   RadioGroup: RadioGroup__test,
