@@ -3,7 +3,7 @@ import type { V2_MetaFunction } from '@remix-run/node';
 import { hannaVars } from '@reykjavik/hanna-css';
 import ButtonPrimary from '@reykjavik/hanna-react/ButtonPrimary';
 import ButtonSecondary from '@reykjavik/hanna-react/ButtonSecondary';
-import { Progress } from '@reykjavik/hanna-react/Progress';
+import { Progress, ProgressProps } from '@reykjavik/hanna-react/Progress';
 
 import { DummyBlock } from '../../layout/DummyBlock.js';
 import { Minimal } from '../../layout/Minimal.js';
@@ -23,6 +23,12 @@ export const handle = cssTokens(
 );
 
 export default function () {
+  type SpinnerSize = NonNullable<ProgressProps['size']>;
+  const sizes: Array<SpinnerSize> = ['large', 'medium', 'small', 'xsmall'];
+  const allSizes = (renderer: (size: SpinnerSize) => React.ReactNode) => (
+    <div>{sizes.map((size) => renderer(size))}</div>
+  );
+
   return (
     <Minimal>
       <Progress />
@@ -32,7 +38,7 @@ export default function () {
       <Progress percent={100} />
       <Progress done />
       <DummyBlock thin />
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {[0, 1].map((i) => (
           <div
             key={i}
@@ -42,28 +48,41 @@ export default function () {
                 i === 1 ? hannaVars.color_suld_75.toString() : 'transparent',
             }}
           >
-            <Progress variant="spinner" />
-            <Progress percent={33} variant="spinner" />
-            <Progress percent={61} variant="spinner" />
-            <Progress percent={67} variant="spinner" />
-            <Progress percent={100} variant="spinner" />
-            <Progress done variant="spinner" />
+            {allSizes((size) => (
+              <Progress spinner size={size} />
+            ))}
+            {allSizes((size) => (
+              <Progress spinner size={size} percent={33} />
+            ))}
+            {allSizes((size) => (
+              <Progress spinner size={size} percent={61} />
+            ))}
+            {allSizes((size) => (
+              <Progress spinner size={size} percent={67} />
+            ))}
+            {allSizes((size) => (
+              <Progress spinner size={size} percent={100} />
+            ))}
+            {allSizes((size) => (
+              <Progress spinner size={size} done />
+            ))}
           </div>
         ))}
       </div>
       <DummyBlock thin />
+      <ButtonPrimary>Loading...</ButtonPrimary>
       <ButtonPrimary>
-        <Progress variant="spinner" /> Loading...
+        <Progress spinner /> Loading...
       </ButtonPrimary>
       <ButtonPrimary variant="destructive">
-        <Progress variant="spinner" /> Loading...
+        <Progress spinner /> Loading...
       </ButtonPrimary>
       <DummyBlock thin />
       <ButtonSecondary>
-        <Progress variant="spinner" /> Loading...
+        <Progress spinner /> Loading...
       </ButtonSecondary>
       <ButtonSecondary variant="destructive">
-        <Progress variant="spinner" /> Loading...
+        <Progress spinner /> Loading...
       </ButtonSecondary>
     </Minimal>
   );

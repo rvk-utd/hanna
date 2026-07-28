@@ -1,10 +1,24 @@
 import range from '@hugsmidjan/qj/range';
-import { css } from 'es-in-css';
-import { hannaVars as vars } from '../lib/hannavars';
-import { iconStyle } from '../lib/icons';
+import {
+  buildVariables,
+  css,
+  hannaVars as vars,
+  pct,
+  scoped,
+  srOnly,
+  WARNING__,
+} from '@reykjavik/hanna-css';
 
-const indeterminateAnimation = 'Progress-indeterminate';
-const spinAnimation = 'Progress-spin';
+import { iconStyle } from '../lib/icons.js';
+
+const progressVars = buildVariables(
+  ['colorTransparent', 'spinnerSize', 'spinnerHoleRadius', 'value'],
+  'Process'
+);
+const pVars = progressVars.vars;
+
+const indeterminateAnimation = scoped('Progress-indeterminate');
+const spinAnimation = scoped('Progress-spin');
 
 export default css`
   @keyframes ${indeterminateAnimation} {
@@ -18,7 +32,7 @@ export default css`
       background-position-x: 0%;
     }
     /* Position flip happens while the bar fills the track, so it's invisible */
-    50.01% {
+    50.001% {
       background-size: 100% 100%;
       background-position-x: 100%;
     }
@@ -35,96 +49,137 @@ export default css`
     }
   }
 
-  .Progress {
-    --progress-color-transparent: color-mix(in srgb, currentColor 20%, transparent);
+  +  /** Makes the spinner value work for smooth CSS \`transition\`s  */
+  @property ${pVars.value.cssName} {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+  }
 
-    display: inline-block;
+  .Progress {
+    display: block;
+    vertical-align: middle;
     width: 100%;
     height: 4px;
     border-radius: 4px;
+    margin: ${vars.space_1} 0;
     color: ${vars.color_faxafloi_100};
+    transition: ${pVars.value.cssName} 500ms ease-in-out;
+    ${progressVars.override({
+      value: pct(0),
+      colorTransparent: 'color-mix(in srgb, currentColor 20%, transparent)',
+    })}
   }
-
   .Progress__value {
-    display: none;
+    ${srOnly()}
   }
 
   ${range(0, 10).map(
     (i) => css`
-      .Progress:not(.Progress--spinner)[aria-valuenow='${i}'] {
-        background: linear-gradient(
-          to right,
-          currentColor ${i * 10}%,
-          var(--progress-color-transparent) ${i * 10}%
-        );
+      .Progress[aria-valuenow='${i}'] {
+        ${progressVars.override({ value: pct(i * 10) })}
       }
     `
   )}
-
-  .Progress:not(.Progress--spinner):not([aria-valuenow]) {
-    background-color: var(--progress-color-transparent);
-    background-image: linear-gradient(currentColor, currentColor);
-    background-repeat: no-repeat;
-    animation: ${indeterminateAnimation} 1.8s ease-in-out infinite;
+  .Progress--done {
+    ${progressVars.override({ value: pct(100) })}
   }
+
+  .Progress--done:not([aria-valuenow='10']) {
+    ${WARNING__('`--done` state should always have aria-valuenow="10"')}
+  }
+
+  /* ------------------------------------------------------------------------ */
+
+  .Progress:not(.Progress--spinner) {
+    background: ${pVars.colorTransparent} linear-gradient(currentColor, currentColor)
+      no-repeat 0 0 / ${pVars.value} 100%;
+  }
+  /** Indeterminate spinner state */
+  .Progress:not(.Progress--spinner):not([aria-valuenow]) {
+    animation: ${indeterminateAnimation} 1.8s linear infinite;
+  }
+
+  /* ======================================================================== */
 
   .Progress--spinner {
-    --spinner-size: 32px;
-    display: flex;
-    width: var(--spinner-size);
-    height: var(--spinner-size);
-    border-radius: calc(infinity * 1px);
-    display: flex;
-    /*
-      Works but the circle becomes blurry
-       mask-image: radial-gradient(circle, transparent 50%, black 50%);
-    */
+    ${progressVars.override({
+      spinnerSize: vars.space_3,
+      spinnerHoleRadius: '8px',
+    })}
+    display: inline-block;
+    vertical-align: middle;
+    font-size: ${pVars.spinnerSize};
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    margin: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+      currentColor ${pVars.value},
+      ${pVars.colorTransparent} ${pVars.value}
+    );
+    mask-image: radial-gradient(
+      circle,
+      transparent ${pVars.spinnerHoleRadius},
+      black ${pVars.spinnerHoleRadius}
+    );
   }
-  .Progress--spinner::before {
-    content: '';
-    width: 90%;
-    height: 90%;
-    background: white;
-    clip-path: circle(40%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+
+  .Progress--spinner.Progress--size--xsmall {
+    ${progressVars.override({
+      spinnerSize: vars.space_1$5,
+      spinnerHoleRadius: '4px',
+    })}
+  }
+  .Progress--spinner.Progress--size--small {
+    ${progressVars.override({
+      spinnerSize: vars.space_2,
+      spinnerHoleRadius: '5px',
+    })}
+  }
+  .Progress--spinner.Progress--size--large {
+    ${progressVars.override({
+      spinnerSize: vars.space_4,
+      spinnerHoleRadius: '11px',
+    })}
+  }
+
+  /** Indeterminate spinner state */
+  .Progress--spinner:not([aria-valuenow]) {
+    background: conic-gradient(currentColor 180deg, ${pVars.colorTransparent} 180deg);
+    animation: ${spinAnimation} 1s linear infinite;
   }
 
   .Progress--spinner.Progress--done {
-    color: ${vars.color_ellidaardalur_100};
-  }
-
-  .Progress--spinner.Progress--done::before {
-    ${iconStyle('check', 'small')}
-    font-size: calc(var(--spinner-size) * 0.6);
-    clip-path: none;
-    width: 25%;
-    height: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: ${vars.color_ellidaardalur_100};
     color: ${vars.color_ellidaardalur_150};
+    background: ${vars.color_ellidaardalur_100};
+    mask-image: none;
+  }
+  .Progress--spinner.Progress--done::before {
+    ${iconStyle('check')}
+    font-size: 20px;
+    clip-path: none;
+    width: 100%;
+    height: 100%;
+    line-height: calc(${pVars.spinnerSize} / 1em);
   }
 
-  ${range(0, 10).map(
-    (i) => css`
-      .Progress--spinner[aria-valuenow='${i}'] {
-        background: conic-gradient(
-          currentColor ${i * 10}%,
-          var(--progress-color-transparent) ${i * 10}%
-        );
-      }
-    `
-  )}
+  .Progress--spinner.Progress--size--xsmall.Progress--done::before {
+    font-size: 1em;
+  }
+  .Progress--spinner.Progress--size--small.Progress--done::before {
+    font-size: 1em;
+  }
+  .Progress--spinner.Progress--size--large.Progress--done::before {
+    font-size: 24px;
+  }
 
-  .Progress--spinner:not([aria-valuenow]) {
-    background: conic-gradient(
-      currentColor 180deg,
-      var(--progress-color-transparent) 180deg
-    );
-    animation: ${spinAnimation} 1s linear infinite;
+  .ButtonPrimary .Progress--spinner,
+  .ButtonSecondary .Progress--spinner {
+    color: currentColor;
+    margin-bottom: 2px;
+    margin-left: ${vars.space_1__neg};
+    margin-right: ${vars.space_0$5};
   }
 `;

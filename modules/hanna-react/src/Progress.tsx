@@ -1,16 +1,17 @@
 import React from 'react';
-import { modifiedClass } from '@reykjavik/hanna-utils';
+import { EitherObj, modifiedClass, OpenRecord } from '@reykjavik/hanna-utils';
+
+/** Maps "size" prop values to className modifiers */
+const sizePropToModifier: OpenRecord<ProgressProps['size'], string | undefined> = {
+  xsmall: 'size--xsmall',
+  small: 'size--small',
+  medium: undefined,
+  large: 'size--large',
+};
 
 export type ProgressProps = {
   /** Custom class-name for the progress indicator element */
   className?: string;
-
-  /**
-   * Whether to render the progress indicator as a circular spinner or a line/bar.
-   *
-   * Default: `"bar"`
-   */
-  variant?: 'spinner' | 'bar';
 
   /**
    * The value of the progress bar from 0-100.
@@ -24,7 +25,27 @@ export type ProgressProps = {
   ariaLabel?: string;
   ariaLabelledBy?: string;
   id?: string;
-};
+} & EitherObj<
+  {
+    /**
+     * Renders the progress indicator as a circular spinner.
+     */
+    spinner?: false;
+  },
+  {
+    /**
+     * Renders the progress indicator as a circular spinner.
+     */
+    spinner: true;
+
+    /**
+     * The size of the progress spinner
+     *
+     * Default: `medium`
+     */
+    size?: 'xsmall' | 'small' | 'medium' | 'large';
+  }
+>;
 
 export const Progress = (props: ProgressProps) => {
   let { percent, done } = props;
@@ -44,12 +65,17 @@ export const Progress = (props: ProgressProps) => {
     <span
       className={modifiedClass(
         'Progress',
-        [props.variant === 'spinner' && 'spinner', done && 'done'],
+        [
+          props.spinner && 'spinner',
+          done && 'done',
+          props.size && sizePropToModifier[props.size],
+        ],
         props.className
       )}
       role="progressbar"
       aria-valuemax={steps}
-      aria-valuenow={valueNow} // NOTE: Progress is ndeterminate state is derived from this prop being absent
+      // NOTE: Progress' indeterminate state is derived from this prop being absent
+      aria-valuenow={valueNow}
       aria-valuetext={valueText}
       aria-label={props.ariaLabel || undefined}
       aria-labelledby={props.ariaLabelledBy || undefined}
