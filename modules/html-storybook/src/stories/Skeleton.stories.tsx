@@ -3,9 +3,11 @@ import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 import { Meta, StoryObj } from '@storybook/react';
 
 const variantOptions = ['text', 'block'] as const;
+const heightOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
 
 type ControlProps = {
   variant: (typeof variantOptions)[number];
+  height: (typeof heightOptions)[number];
 };
 
 const meta: Meta = {
@@ -17,10 +19,17 @@ const meta: Meta = {
 };
 export default meta;
 
-const SkeletonStory: React.FC<ControlProps> = ({ variant }) => {
+const SkeletonStory: React.FC<ControlProps> = ({ variant, height }) => {
   console.log('variant => ', variant);
   return (
     <>
+      <h3>HUGA BUGA</h3>
+      {variant === 'text' ? (
+        <Skeleton height={height} text />
+      ) : (
+        <Skeleton height={height} />
+      )}
+      <h3>HUGA BUGA END</h3>
       <p>
         <br /> Single line:
         <Skeleton text />
@@ -54,8 +63,14 @@ export const _Skeleton: StoryObj<ControlProps> = {
       options: variantOptions,
       control: 'radio',
     },
+    height: {
+      name: 'Height',
+      options: heightOptions,
+      control: 'select',
+    },
   },
   args: {
     variant: 'text',
+    height: 3,
   },
 };
