@@ -4,11 +4,13 @@ import { Meta, StoryObj } from '@storybook/react';
 
 const variantOptions = ['text', 'block'] as const;
 const numbersOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
+const gapOptions = [1, 2, 3, 4, 5] as const;
 
 type ControlProps = {
   variant: (typeof variantOptions)[number];
   height: (typeof numbersOptions)[number];
   items: (typeof numbersOptions)[number];
+  gap: (typeof gapOptions)[number];
 };
 
 const meta: Meta = {
@@ -20,36 +22,8 @@ const meta: Meta = {
 };
 export default meta;
 
-const SkeletonStory: React.FC<ControlProps> = ({ variant, height, items }) => {
-  console.log('variant => ', variant);
-  return (
-    <>
-      <h3>HUGA BUGA</h3>
-      <Skeleton height={height} items={items} text={variant === 'text'} />
-      <h3>HUGA BUGA END</h3>
-      <p>
-        <br /> Single line:
-        <Skeleton text />
-      </p>
-      <p>
-        <br /> Multi-line:
-        <Skeleton text height={4} />
-      </p>
-      <p>
-        <br /> Block:
-        <Skeleton height={6} />
-      </p>
-
-      <p>
-        <br /> Multi item (default gap: 3):
-        <Skeleton items={3} height={3} text />
-      </p>
-      <p>
-        <br /> Multi block:
-        <Skeleton items={3} height={3} gap={1} />
-      </p>
-    </>
-  );
+const SkeletonStory: React.FC<ControlProps> = ({ variant, height, items, gap }) => {
+  return <Skeleton height={height} items={items} text={variant === 'text'} gap={gap} />;
 };
 
 export const _Skeleton: StoryObj<ControlProps> = {
@@ -70,10 +44,17 @@ export const _Skeleton: StoryObj<ControlProps> = {
       options: numbersOptions,
       control: 'select',
     },
+    gap: {
+      name: 'gap',
+      options: gapOptions,
+      control: 'select',
+      if: { arg: 'items', neq: 1 },
+    },
   },
   args: {
     variant: 'text',
     height: 3,
     items: 1,
+    gap: 1,
   },
 };
