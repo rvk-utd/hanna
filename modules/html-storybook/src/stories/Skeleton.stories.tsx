@@ -23,7 +23,17 @@ const meta: Meta = {
 export default meta;
 
 const SkeletonStory: React.FC<ControlProps> = ({ variant, height, items, gap }) => {
-  return <Skeleton height={height} items={items} text={variant === 'text'} gap={gap} />;
+  return (
+    <>
+      <Skeleton height={height} items={items} text={variant === 'text'} gap={gap} />
+      {/*
+      <p>huga buga</p>
+      <Skeleton height={2} items={2} circle />
+      <p>huga huga</p>
+      <Skeleton height={3} items={1} text circle />
+      */}
+    </>
+  );
 };
 
 export const _Skeleton: StoryObj<ControlProps> = {
@@ -53,8 +63,8 @@ export const _Skeleton: StoryObj<ControlProps> = {
   },
   args: {
     variant: 'text',
-    height: 3,
+    height: 4,
     items: 1,
-    gap: 1,
+    gap: 2,
   },
 };

@@ -38,6 +38,7 @@ export type SkeletonProps = {
     Default: `3`
   */
   gap?: 1 | 2 | 3 | 4 | 5;
+  circle?: boolean;
 } & EitherObj<
   {
     // prettier-ignore
@@ -63,7 +64,12 @@ export const Skeleton = (props: SkeletonProps) => {
 
   const className = modifiedClass(
     'Skeleton',
-    [props.text && 'text', height && `height--${height}`, gap && `gap--${gap}`],
+    [
+      props.text && 'text',
+      props.circle && 'circle',
+      height && `height--${height}`,
+      gap && `gap--${gap}`,
+    ],
     (wrapperProps || {}).className
   );
 

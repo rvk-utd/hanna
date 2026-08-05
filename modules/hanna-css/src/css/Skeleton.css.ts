@@ -69,4 +69,9 @@ export default css`
   .Skeleton--text[class*='Skeleton--height--']:not(.Skeleton--height--1)::after {
     width: 35%;
   }
+
+  .Skeleton--circle {
+    width: calc(var(--Skeleton--height) * var(--Skeleton--lineHeight));
+    border-radius: ${pct(50)};
+  }
 `;
