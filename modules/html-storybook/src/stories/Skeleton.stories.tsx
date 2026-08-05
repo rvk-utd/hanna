@@ -2,6 +2,12 @@ import React from 'react';
 import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 import { Meta, StoryObj } from '@storybook/react';
 
+const variantOptions = ['text', 'block'] as const;
+
+type ControlProps = {
+  variant: (typeof variantOptions)[number];
+};
+
 const meta: Meta = {
   title: 'Skeleton',
   parameters: {
@@ -11,7 +17,8 @@ const meta: Meta = {
 };
 export default meta;
 
-const SkeletonStory = () => {
+const SkeletonStory: React.FC<ControlProps> = ({ variant }) => {
+  console.log('variant => ', variant);
   return (
     <>
       <p>
@@ -39,6 +46,16 @@ const SkeletonStory = () => {
   );
 };
 
-export const _Skeleton: StoryObj = {
-  render: () => <SkeletonStory />,
+export const _Skeleton: StoryObj<ControlProps> = {
+  render: (args) => <SkeletonStory {...args} />,
+  argTypes: {
+    variant: {
+      name: 'Variant',
+      options: variantOptions,
+      control: 'radio',
+    },
+  },
+  args: {
+    variant: 'text',
+  },
 };
