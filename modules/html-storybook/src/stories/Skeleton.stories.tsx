@@ -11,6 +11,7 @@ type ControlProps = {
   height: (typeof numbersOptions)[number];
   items: (typeof numbersOptions)[number];
   gap: (typeof gapOptions)[number];
+  circle: boolean;
 };
 
 const meta: Meta = {
@@ -22,10 +23,22 @@ const meta: Meta = {
 };
 export default meta;
 
-const SkeletonStory: React.FC<ControlProps> = ({ variant, height, items, gap }) => {
+const SkeletonStory: React.FC<ControlProps> = ({
+  variant,
+  height,
+  items,
+  gap,
+  circle,
+}) => {
   return (
     <>
-      <Skeleton height={height} items={items} text={variant === 'text'} gap={gap} />
+      <Skeleton
+        height={height}
+        items={items}
+        text={variant === 'text'}
+        gap={gap}
+        circle={circle}
+      />
       {/*
       <p>huga buga</p>
       <Skeleton height={2} items={2} circle />
@@ -60,11 +73,15 @@ export const _Skeleton: StoryObj<ControlProps> = {
       control: 'select',
       if: { arg: 'items', neq: 1 },
     },
+    circle: {
+      name: 'Circle',
+    },
   },
   args: {
     variant: 'text',
     height: 4,
     items: 1,
     gap: 2,
+    circle: false,
   },
 };
