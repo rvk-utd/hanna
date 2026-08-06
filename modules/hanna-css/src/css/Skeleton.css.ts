@@ -3,6 +3,7 @@ import { css, em, pct } from 'es-in-css';
 
 import { font } from '../lib/font.js';
 import { hannaVars, hannaVars as vars } from '../lib/hannavars.js';
+import { WARNING__ } from '../lib/WARNING__.js';
 
 // Top/bottom offset spacing for mock text skeleton background
 const sp = pct(15);
@@ -74,4 +75,9 @@ export default css`
     width: calc(var(--Skeleton--height) * var(--Skeleton--lineHeight));
     border-radius: ${pct(50)};
   }
-`;
+
+  .Skeleton--text.Skeleton--circle {
+    opacity: 1 !important;
+    ${WARNING__('Do not mix `--text` and `--circle`.')}
+  }
+ ;

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
+import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 
-const variantOptions = ['text', 'block'] as const;
+const variantOptions = ['block', 'text', 'circle'] as const;
 const numbersOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
 const gapOptions = [1, 2, 3, 4, 5] as const;
 
@@ -10,8 +11,7 @@ type ControlProps = {
   variant: (typeof variantOptions)[number];
   height: (typeof numbersOptions)[number];
   items: (typeof numbersOptions)[number];
-  gap: (typeof gapOptions)[number];
-  circle: boolean;
+  gap?: (typeof gapOptions)[number];
 };
 
 const meta: Meta = {
@@ -23,39 +23,36 @@ const meta: Meta = {
 };
 export default meta;
 
-const SkeletonStory: React.FC<ControlProps> = ({
-  variant,
-  height,
-  items,
-  gap,
-  circle,
-}) => {
+const SkeletonStory: React.FC<ControlProps> = ({ variant, height, items, gap }) => {
   return (
-    <>
-      <Skeleton
-        height={height}
-        items={items}
-        text={variant === 'text'}
-        gap={gap}
-        circle={circle}
-      />
-      {/*
-      <p>huga buga</p>
-      <Skeleton height={2} items={2} circle />
-      <p>huga huga</p>
-      <Skeleton height={3} items={1} text circle />
-      */}
-    </>
+    <Skeleton
+      height={height}
+      items={items}
+      text={variant === 'text'}
+      gap={gap}
+      circle={variant === 'circle'}
+    />
   );
 };
 
 export const _Skeleton: StoryObj<ControlProps> = {
-  render: (args) => <SkeletonStory {...args} />,
+  render: function Render(args) {
+    const [{ variant }, updateArgs] = useArgs();
+
+    useEffect(() => {
+      if (variant === 'circle') {
+        updateArgs({ gap: undefined });
+        updateArgs({ items: 1 });
+      }
+    }, [updateArgs, variant]);
+
+    return <SkeletonStory {...args} />;
+  },
   argTypes: {
     variant: {
       name: 'Variant',
       options: variantOptions,
-      control: 'radio',
+      control: 'inline-radio',
     },
     height: {
       name: 'Height',
@@ -66,22 +63,19 @@ export const _Skeleton: StoryObj<ControlProps> = {
       name: 'Items',
       options: numbersOptions,
       control: 'select',
+      if: { arg: 'variant', neq: 'circle' },
     },
     gap: {
-      name: 'gap',
+      name: 'Gap',
       options: gapOptions,
       control: 'select',
       if: { arg: 'items', neq: 1 },
     },
-    circle: {
-      name: 'Circle',
-    },
   },
   args: {
-    variant: 'text',
-    height: 4,
+    variant: 'block',
+    height: 6,
     items: 1,
     gap: 2,
-    circle: false,
   },
 };
