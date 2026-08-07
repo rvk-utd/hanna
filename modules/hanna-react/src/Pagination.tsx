@@ -11,7 +11,7 @@ type StringContaining<Token extends string> = `${string}${Token}${string}`;
 export type PageTemplateString = StringContaining<'${page}'>;
 
 type PaginationButtonProps = {
-  key?: string | number;
+  $key?: string | number;
   page: number;
   label?: string;
   labelLong: PageTemplateString;
@@ -29,7 +29,7 @@ const PaginationButton = (props: PaginationButtonProps) => {
   const labelShort = label ? label.replace(/\$\{page\}/, `${page}`) : `${page}`;
 
   const btnProps = {
-    key: props.key,
+    key: props.$key,
     className: modifiedClass('Pagination__button', modifier),
     title: labelLong,
     'aria-label': labelLong !== labelShort ? labelLong : undefined,
@@ -178,7 +178,7 @@ export const Pagination = memo((props: PaginationProps) => {
             </span>
           ) : (
             btn({
-              key: i,
+              $key: i,
               page,
               labelLong: texts.pageLabelLong,
               modifier: page === current && 'active',
