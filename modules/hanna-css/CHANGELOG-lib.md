@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add CSS module token `Progress`
+- feat: Add new values to `IconToken` type:  
+  `mic`, `circle`, `history`, `chart_data`, `fingerprint`, `robot_2`
 
 ## 0.4.28
 

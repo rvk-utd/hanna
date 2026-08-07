@@ -76,7 +76,7 @@ if (!cssRes.ok) {
 const cssText = await cssRes.text();
 
 // Parse out the font URL from the CSS
-const [_, fontUrl] = cssText.match(/(https:\/\/fonts\.gstatic\.com\/icon\/.*?)\)/m) || [];
+const [_, fontUrl] = cssText.match(/(https:\/\/fonts\.gstatic\.com\/.*?)\)/m) || [];
 if (!fontUrl) {
   throw new Error('Failed to parse font URL from CSS');
 }

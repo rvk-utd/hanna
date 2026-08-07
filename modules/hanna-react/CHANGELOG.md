@@ -6,6 +6,8 @@
 - feat: Add component `Progress`
 - `ContextMenu`:
   - feat: Add prop `renderToggler()`, deprecate `Toggler` (comp) prop instead
+- feat: Add new icon type props:  
+  `mic`, `circle`, `history`, `chart_data`, `fingerprint`, `robot_2`
 
 ## 0.10.173
 
