@@ -8,16 +8,28 @@ import { WARNING__ } from '../lib/WARNING__.js';
 // Top/bottom offset spacing for mock text skeleton background
 const sp = pct(15);
 
-const pulseAnimation = 'Skeleton-pulse';
+const shimmerAnimation = 'Skeleton-shimmer';
+
+const shimmerBackground = css`
+  background-color: var(--Skeleton--color);
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--Skeleton--colorShimmer),
+    transparent
+  );
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  animation: ${shimmerAnimation} 1.8s ease-out infinite;
+`;
 
 export default css`
-  @keyframes ${pulseAnimation} {
-    0%,
-    100% {
-      opacity: var(--Skeleton--opacity);
+  @keyframes ${shimmerAnimation} {
+    from {
+      background-position-x: -100%;
     }
-    50% {
-      opacity: var(--Skeleton--opacityPulse);
+    to {
+      background-position-x: 200%;
     }
   }
 
@@ -25,20 +37,12 @@ export default css`
     --Skeleton--gap: 3;
     --Skeleton--height: 1;
     --Skeleton--lineHeight: ${em(font.base_leading / font.base_size)};
-    --Skeleton--opacity: 0.03;
-    --Skeleton--opacityPulse: 0.09;
+    --Skeleton--color: color-mix(in srgb, ${vars.color_suld_200} 3%, transparent);
+    --Skeleton--colorShimmer: color-mix(in srgb, ${vars.color_suld_200} 8%, transparent);
     position: relative;
     display: block;
     height: calc(var(--Skeleton--height) * var(--Skeleton--lineHeight));
-    background-color: ${vars.color_suld_200};
-    opacity: var(--Skeleton--opacity);
-    animation: ${pulseAnimation} 1.5s ease-in-out infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .Skeleton {
-      animation: none;
-    }
+    ${shimmerBackground}
   }
 
   ${range(2, 20).map(
@@ -65,6 +69,7 @@ export default css`
 
   .Skeleton--text {
     background: none;
+    animation: none;
   }
 
   .Skeleton--text::before,
@@ -73,15 +78,17 @@ export default css`
     display: block;
     height: calc(calc(var(--Skeleton--height) - 1) * var(--Skeleton--lineHeight));
 
-    background-image: linear-gradient(
+    ${shimmerBackground}
+
+    mask-image: linear-gradient(
       180deg,
       transparent ${sp},
-      ${vars.color_suld_200} ${sp},
-      ${vars.color_suld_200} ${pct(100 - sp)},
+      black ${sp},
+      black ${pct(100 - sp)},
       transparent ${pct(100 - sp)}
     );
-    background-size: 100% var(--Skeleton--lineHeight);
-    background-repeat: repeat-y;
+    mask-size: 100% var(--Skeleton--lineHeight);
+    mask-repeat: repeat-y;
   }
 
   .Skeleton--text::after {
@@ -98,7 +105,15 @@ export default css`
   }
 
   .Skeleton--text.Skeleton--circle {
-    opacity: 1 !important;
     ${WARNING__('Do not mix `--text` and `--circle`.')}
+  }
+
+  /* Must come last, to beat the \`animation\` shorthands set above. */
+  @media (prefers-reduced-motion: reduce) {
+    .Skeleton,
+    .Skeleton--text::before,
+    .Skeleton--text::after {
+      animation: none;
+    }
   }
 `;
