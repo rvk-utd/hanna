@@ -4,6 +4,8 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Progress`
+- feat: Update iconfont adding new icons:  
+  `mic`, `circle`, `history`, `chart_data`, `fingerprint`, `robot_2`
 - `Skeleton`:
   - feat: Add styling for `--circle` variant
   - feat: Add delayed "shimmer" animation for all skeleton instances.

@@ -115,3 +115,9 @@ done_all
 info
 info_filled
 pie_chart
+mic
+circle
+history
+chart_data
+fingerprint
+robot_2

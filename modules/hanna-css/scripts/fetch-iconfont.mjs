@@ -5,7 +5,7 @@
   We use Google's Material Icons Rounded icon font, but only a subset of icons.
 
   This script:
-  - reads the "accepted" icon names from `icon-names.txt`
+  - reads the "accepted" icon names from `figma-icon-names.txt`
   - fetches the corresponding CSS from Google Fonts
   - parses out the font URL from the @font-face rule
   - downloads the .woff file and saves it locally.
@@ -76,7 +76,7 @@ if (!cssRes.ok) {
 const cssText = await cssRes.text();
 
 // Parse out the font URL from the CSS
-const [_, fontUrl] = cssText.match(/(https:\/\/fonts\.gstatic\.com\/icon\/.*?)\)/m) || [];
+const [_, fontUrl] = cssText.match(/(https:\/\/fonts\.gstatic\.com\/.*?)\)/m) || [];
 if (!fontUrl) {
   throw new Error('Failed to parse font URL from CSS');
 }

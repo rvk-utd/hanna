@@ -4,8 +4,12 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Progress`
+- feat: Add new icon type props:  
+  `mic`, `circle`, `history`, `chart_data`, `fingerprint`, `robot_2`
 - `ContextMenu`:
   - feat: Add prop `renderToggler()`, deprecate `Toggler` (comp) prop instead
+- `Pagination`:
+  - fix: Suppress annoying dev-mode warning message about `key` prop access
 - `Skeleton`:
   - feat: Add prop `circle`
   - feat: Add `Skeleton.circle` helper, and branded `SkeletonCircle` type
