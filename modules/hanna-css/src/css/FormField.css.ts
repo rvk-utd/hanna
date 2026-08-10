@@ -204,7 +204,7 @@ export default css`
       ${FormField__error}
     }
     .FormField__assist {
-      color: ${vars.color_suld_150};
+      color: ${vars.color_faxafloi_100};
     }
     .FormField__assist::before {
       ${iconContent('warning_filled')}
