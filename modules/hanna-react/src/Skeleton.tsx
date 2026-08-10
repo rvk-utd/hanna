@@ -128,8 +128,21 @@ declare const _SkeletonText__Brand: unique symbol;
 export type SkeletonText = ReactElement & { [_SkeletonText__Brand]: true };
 
 /**
- * Returns a single `<Skeleton height={X} text={true} />` element of branded
+ * Returns a single `<Skeleton text height={X} />` element of branded
  * type `SkeletonText`
  */
 Skeleton.text = (height?: SkeletonProps['height']): SkeletonText =>
   (<Skeleton text height={height} />) as SkeletonText;
+
+declare const _SkeletonCircle__Brand: unique symbol;
+/**
+ * The `<Skeleton circle height={X}/>` element returned by `Skeleton.circle(X)`
+ */
+export type SkeletonCircle = ReactElement & { [_SkeletonCircle__Brand]: true };
+
+/**
+ * Returns a single `<Skeleto circlen height={X} />` element of branded
+ * type `SkeletonCircle`
+ */
+Skeleton.circle = (height?: SkeletonProps['height']): SkeletonCircle =>
+  (<Skeleton circle height={height} />) as SkeletonCircle;
