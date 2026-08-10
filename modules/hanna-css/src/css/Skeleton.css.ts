@@ -8,16 +8,37 @@ import { WARNING__ } from '../lib/WARNING__.js';
 // Top/bottom offset spacing for mock text skeleton background
 const sp = pct(15);
 
+const pulseAnimation = 'Skeleton-pulse';
+
 export default css`
+  @keyframes ${pulseAnimation} {
+    0%,
+    100% {
+      opacity: var(--Skeleton--opacity);
+    }
+    50% {
+      opacity: var(--Skeleton--opacityPulse);
+    }
+  }
+
   .Skeleton {
     --Skeleton--gap: 3;
     --Skeleton--height: 1;
     --Skeleton--lineHeight: ${em(font.base_leading / font.base_size)};
+    --Skeleton--opacity: 0.03;
+    --Skeleton--opacityPulse: 0.09;
     position: relative;
     display: block;
     height: calc(var(--Skeleton--height) * var(--Skeleton--lineHeight));
     background-color: ${vars.color_suld_200};
-    opacity: 0.03;
+    opacity: var(--Skeleton--opacity);
+    animation: ${pulseAnimation} 1.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .Skeleton {
+      animation: none;
+    }
   }
 
   ${range(2, 20).map(
@@ -80,4 +101,4 @@ export default css`
     opacity: 1 !important;
     ${WARNING__('Do not mix `--text` and `--circle`.')}
   }
- ;
+`;
