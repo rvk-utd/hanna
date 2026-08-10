@@ -4,6 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Add component `Progress`
+- `Skeleton`:
+  - feat: Add styling for `--circle` variant
+  - feat: Add delayed "shimmer" animation for all skeleton instances.
 
 ## 0.8.101
 

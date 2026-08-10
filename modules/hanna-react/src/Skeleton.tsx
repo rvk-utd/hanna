@@ -30,7 +30,7 @@ export type SkeletonProps = {
    *
    *  Each unit is approximately one "standard line-height"
    *
-   * Deafult: `1`
+   * Deafult: `1`  (except for "circle" mode where the minimum height is `2`)
    */
   // prettier-ignore
   height?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
@@ -38,7 +38,7 @@ export type SkeletonProps = {
    * Sets the space between multiple skeleton `items`, in units of
    * "standard line-height"
    *
-   *  Default: `3`
+   *  Default: `3` (except for "circle" mode where the default  `1`)
    */
   gap?: 1 | 2 | 3 | 4 | 5;
 } & EitherObj<
@@ -58,10 +58,11 @@ export type SkeletonProps = {
  */
 // eslint-disable-next-line complexity
 export const Skeleton = (props: SkeletonProps) => {
-  const height = minmax(props.height, 20, 2);
+  const { wrapperProps, text, circle } = props;
+  const height = minmax(props.height, 20, circle ? 3 : 2);
+
   const gap = minmax(props.gap, 5, 1);
   const items = minmax(props.items, 20, 2) || 1;
-  const { wrapperProps, text, circle } = props;
 
   if (process.env.NODE_ENV !== 'production') {
     if (text && circle) {
@@ -88,7 +89,7 @@ export const Skeleton = (props: SkeletonProps) => {
     ((items === 1 && wrapperProps) || {}).className
   );
 
-  if (items && !circle) {
+  if (items > 1 && !circle) {
     return (
       <>
         {range(1, items).map((key) => (

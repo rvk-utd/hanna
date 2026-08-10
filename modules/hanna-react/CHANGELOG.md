@@ -6,6 +6,11 @@
 - feat: Add component `Progress`
 - `ContextMenu`:
   - feat: Add prop `renderToggler()`, deprecate `Toggler` (comp) prop instead
+- `Skeleton`:
+  - feat: Add prop `circle`
+  - feat: Add `Skeleton.circle` helper, and branded `SkeletonCircle` type
+  - feat: Emit console warnings when unsupported prop combinations are used
+  - fix: `wrapperElmProps` are now actually applied
 
 ## 0.10.173
 

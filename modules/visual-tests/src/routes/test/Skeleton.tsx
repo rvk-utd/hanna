@@ -17,7 +17,7 @@ export default function () {
       <Fragment>
         <p>
           Single line:
-          <Skeleton text />
+          <Skeleton text height={1} />
         </p>
         <p>
           Multi-line:
@@ -35,6 +35,11 @@ export default function () {
         <p>
           Multi block:
           <Skeleton items={3} height={3} gap={1} />
+        </p>
+        <p>
+          Circles:
+          <Skeleton circle />
+          <Skeleton circle height={5} />
         </p>
       </Fragment>
     </Minimal>
