@@ -3,6 +3,8 @@ import type { V2_MetaFunction } from '@remix-run/node';
 import { Icon, IconProps } from '@reykjavik/hanna-react/Icon';
 import { Equals, Expect } from '@reykjavik/hanna-utils';
 
+import { _iconTokenList } from '../../../../hanna-css/src/lib/iconfontTokens.js';
+import { DummyBlock } from '../../layout/DummyBlock.js';
 import { Minimal } from '../../layout/Minimal.js';
 import { TestingInfo } from '../../test-helpers/testingInfo.js';
 import { autoTitle } from '../../utils/meta.js';
@@ -11,6 +13,8 @@ const sizes = ['small', 'medium', 'large'] as const;
 type IconSize = (typeof sizes)[number];
 
 type _ = Expect<Equals<IconSize, NonNullable<IconProps['size']>>>;
+
+// ---------------------------------------------------------------------------
 
 export const meta: V2_MetaFunction = autoTitle;
 
@@ -29,6 +33,20 @@ export default function () {
           </div>
         </div>
       ))}
+      <DummyBlock thin />
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '8px',
+          marginBlock: '8px',
+          lineHeight: '1.5em',
+        }}
+      >
+        {_iconTokenList.map((icon, i) => (
+          <Icon key={i} type={icon} />
+        ))}
+      </div>
     </Minimal>
   );
 }
