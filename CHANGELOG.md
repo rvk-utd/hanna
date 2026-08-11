@@ -5,6 +5,8 @@
 - ... <!-- Add new lines here. -->
 - feat: Add component `Progress`
 - feat: Add `role="generic"` to checkbox- and radio-group `<li/>` elments
+- `Skeleton`:
+  - feat: Add `--circle` variant
 
 ## 0.8.42
 

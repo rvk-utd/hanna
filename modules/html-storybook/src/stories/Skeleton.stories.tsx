@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
+import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
+
+const variantOptions = ['block', 'text', 'circle'] as const;
+const numbersOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
+const gapOptions = [1, 2, 3, 4, 5] as const;
+
+type ControlProps = {
+  variant: (typeof variantOptions)[number];
+  height: (typeof numbersOptions)[number];
+  items: (typeof numbersOptions)[number];
+  gap?: (typeof gapOptions)[number];
+};
 
 const meta: Meta = {
   title: 'Skeleton',
@@ -11,34 +23,59 @@ const meta: Meta = {
 };
 export default meta;
 
-const SkeletonStory = () => {
+const SkeletonStory: React.FC<ControlProps> = ({ variant, height, items, gap }) => {
   return (
-    <>
-      <p>
-        <br /> Single line:
-        <Skeleton text />
-      </p>
-      <p>
-        <br /> Multi-line:
-        <Skeleton text height={4} />
-      </p>
-      <p>
-        <br /> Block:
-        <Skeleton height={6} />
-      </p>
-
-      <p>
-        <br /> Multi item (default gap: 3):
-        <Skeleton items={3} height={3} text />
-      </p>
-      <p>
-        <br /> Multi block:
-        <Skeleton items={3} height={3} gap={1} />
-      </p>
-    </>
+    <Skeleton
+      height={height}
+      items={items}
+      text={variant === 'text'}
+      gap={gap}
+      circle={variant === 'circle'}
+    />
   );
 };
 
-export const _Skeleton: StoryObj = {
-  render: () => <SkeletonStory />,
+export const _Skeleton: StoryObj<ControlProps> = {
+  render: function Render(args) {
+    const [{ variant }, updateArgs] = useArgs();
+
+    useEffect(() => {
+      if (variant === 'circle') {
+        updateArgs({ gap: undefined });
+        updateArgs({ items: 1 });
+      }
+    }, [updateArgs, variant]);
+
+    return <SkeletonStory {...args} />;
+  },
+  argTypes: {
+    variant: {
+      name: 'Variant',
+      options: variantOptions,
+      control: 'inline-radio',
+    },
+    height: {
+      name: 'Height',
+      options: numbersOptions,
+      control: 'select',
+    },
+    items: {
+      name: 'Items',
+      options: numbersOptions,
+      control: 'select',
+      if: { arg: 'variant', neq: 'circle' },
+    },
+    gap: {
+      name: 'Gap',
+      options: gapOptions,
+      control: 'select',
+      if: { arg: 'items', neq: 1 },
+    },
+  },
+  args: {
+    variant: 'block',
+    height: 6,
+    items: 1,
+    gap: 2,
+  },
 };
