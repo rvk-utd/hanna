@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.102
+
+_2026-08-17_
+
 - feat: Add component `Progress`
 - feat: Update iconfont adding new icons:  
   `mic`, `circle`, `history`, `chart_data`, `fingerprint`, `robot_2`
