@@ -84,6 +84,7 @@
   <{{Tag}}
     class="{{ classPrefix }}__item{{ item.modifier ? ' ' ~ classPrefix ~ '__item--' ~ item.modifier : '' }}"
     {% if item.current %} aria-current="true" {% endif %}
+    {% if item.content %} data-customitem {% endif %}
   >
     {%- if item.content -%}
       {{ item.content|raw }}
