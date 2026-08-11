@@ -133,6 +133,10 @@ export default css`
 
     /** @deprecated  (Remove in v0.9 or after 2027-01-01, whichever comes first) */
     ${ObjectEntries(icons) // eslint-disable-line deprecation/deprecation
+      .filter(
+        // No point in overloading existing (Material Symbols) icon names
+        ([iconName]) => !(_iconTokenList as Readonly<Array<string>>).includes(iconName)
+      )
       .map(([oldIcon, iconName]) => {
         const fillVariation = iconName.endsWith('_filled')
           ? (pos: string) =>
@@ -145,11 +149,15 @@ export default css`
 
         return css`
           [data-icon='${oldIcon}'] {
-            ${iconVariables.override({ Icon: `'${iconName}'` })}
+            ${iconVariables.override({
+              Icon: `'${iconName.replace(/_filled$/, '')}'`,
+            })}
             ${fillVariation('before')}
           }
           [data-icon-after='${oldIcon}'] {
-            ${iconAfterVariables.override({ Icon_after: `'${iconName}'` })}
+            ${iconAfterVariables.override({
+              Icon_after: `'${iconName.replace(/_filled$/, '')}'`,
+            })}
             ${fillVariation('after')}
           }
           /* ---- */

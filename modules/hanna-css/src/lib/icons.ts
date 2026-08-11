@@ -263,7 +263,7 @@ export const icons: Readonly<OpenRecord<IconName_old, IconToken>> = {
   external: 'open_in_new',
   file_pdf: 'picture_as_pdf',
   home: 'home',
-  info: 'info_filled',
+  info: 'info',
   link: 'link',
   location: 'location_on',
   pen: 'edit',
