@@ -15,6 +15,9 @@
   - feat: Add `Skeleton.circle` helper, and branded `SkeletonCircle` type
   - feat: Emit console warnings when unsupported prop combinations are used
   - fix: `wrapperElmProps` are now actually applied
+- `Layout`:
+  - feat: Make `siteName` prop required but allow `undefined`  
+    (This change should only affect a single project, www.reykjavik.is)
 
 ## 0.10.173
 

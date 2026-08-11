@@ -115,6 +115,7 @@ export default function () {
 
   return (
     <Layout
+      siteName=""
       // siteName="Gagnahlaðborðið í tveimur línum"
       mainChildren={
         <>

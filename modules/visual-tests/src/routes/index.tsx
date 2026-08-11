@@ -30,7 +30,7 @@ export default function Index() {
   const { tests } = useLoaderData<typeof loader>();
 
   return (
-    <Layout>
+    <Layout siteName="">
       <HeroBlock
         title="Hanna Visual Regression Testing"
         summary={
