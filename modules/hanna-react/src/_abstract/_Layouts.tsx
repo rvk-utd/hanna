@@ -10,7 +10,7 @@ import { Link } from './_Link.js';
 export const renderLayoutHomeLink = (
   bem: string,
   logoLink: string,
-  siteName?: string,
+  siteName: string | undefined,
   customLogo?: { src: string; altText: string; inline?: boolean }
 ) => {
   if (!siteName) {

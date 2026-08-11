@@ -87,7 +87,7 @@ export const ErrorBoundary = () => {
   const message = isRouteError ? error.data : (error as Error).message || 'Unknown error';
 
   return (
-    <Layout>
+    <Layout siteName="">
       <PageHeading small>{title}</PageHeading>
       <TextBlock>
         <p>{message}</p>

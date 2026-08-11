@@ -53,7 +53,7 @@ export default function () {
   const reportUrl = `/report/index.html?t=${reportCreatedDate}`;
 
   return (
-    <Layout>
+    <Layout siteName="">
       <PageHeading small>Review Changed Screenshots</PageHeading>
       <SeenEffect>
         {reportCreatedDate && (

@@ -33,7 +33,15 @@ export type LayoutProps = {
   footerChildren?: ReactNode;
   colorTheme?: HannaColorTheme;
   logoLink?: string;
-  siteName?: string;
+  /**
+   * The name of the website (e.g. "Mínar síður") that is displayed in the
+   * header alongside the Reykjavík City crest symbol.
+   *
+   * On Reykjavík's main website this prop should be set to `""` or `undefined`,
+   * to render the full official logo which also features the word "Reykjavík"
+   * in the official logotype font.
+   */
+  siteName: string | undefined;
 
   customLogo?: { src: string; altText: string };
 

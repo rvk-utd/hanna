@@ -58,6 +58,7 @@ export const layoutDecorator = (story: () => ReactElement, context: StoryContext
     children
   ) : fullLayout ? (
     <Layout
+      siteName=""
       modifier={modifier}
       navChildren={pos === 'nav' && children}
       footerChildren={pos === 'footer' && children}
