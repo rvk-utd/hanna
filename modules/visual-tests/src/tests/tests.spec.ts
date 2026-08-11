@@ -66,6 +66,7 @@ import { testing as CityBlock__test } from '../routes/test/CityBlock.js';
 import { testing as ContactBubble__test } from '../routes/test/ContactBubble.js';
 import { testing as ContentArticle__test } from '../routes/test/ContentArticle.js';
 import { testing as ContentImage__test } from '../routes/test/ContentImage.js';
+import { testing as ContextMenu__test } from '../routes/test/ContextMenu.js';
 import { testing as Datepicker__test } from '../routes/test/Datepicker.js';
 import { testing as ExtraLinks__test } from '../routes/test/ExtraLinks.js';
 import { testing as FeatureList__test } from '../routes/test/FeatureList.js';
@@ -107,12 +108,14 @@ import { testing as RadioButtonsGroup__test } from '../routes/test/RadioButtonsG
 import { testing as RadioGroup__test } from '../routes/test/RadioGroup.js';
 import { testing as ReadSpeakerPlayer__test } from '../routes/test/ReadSpeakerPlayer.js';
 import { testing as RelatedLinks__test } from '../routes/test/RelatedLinks.js';
+import { testing as ReykjavikWaves__test } from '../routes/test/ReykjavikWaves.js';
 import { testing as RowBlock__test } from '../routes/test/RowBlock.js';
 import { testing as SearchHeroParagraph__test } from '../routes/test/SearchHeroParagraph.js';
 import { testing as SearchInput__test } from '../routes/test/SearchInput.js';
 import { testing as SearchResults__test } from '../routes/test/SearchResults.js';
 import { testing as Selectbox__test } from '../routes/test/Selectbox.js';
 import { testing as ShareButtons__test } from '../routes/test/ShareButtons.js';
+import { testing as Sharpie__test } from '../routes/test/Sharpie.js';
 import { testing as SiteSearchAutocomplete__test } from '../routes/test/SiteSearchAutocomplete.js';
 import { testing as SiteSearchInput__test } from '../routes/test/SiteSearchInput.js';
 import { testing as Skeleton__test } from '../routes/test/Skeleton.js';
@@ -167,6 +170,7 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   ContactBubble: ContactBubble__test,
   ContentArticle: ContentArticle__test,
   ContentImage: ContentImage__test,
+  ContextMenu: ContextMenu__test,
   Datepicker: Datepicker__test,
   ExtraLinks: ExtraLinks__test,
   FeatureList: FeatureList__test,
@@ -208,12 +212,14 @@ const testingInfos: Record<TestPageLabel, TestingInfo> = {
   RadioGroup: RadioGroup__test,
   ReadSpeakerPlayer: ReadSpeakerPlayer__test,
   RelatedLinks: RelatedLinks__test,
+  ReykjavikWaves: ReykjavikWaves__test,
   RowBlock: RowBlock__test,
   SearchHeroParagraph: SearchHeroParagraph__test,
   SearchInput: SearchInput__test,
   SearchResults: SearchResults__test,
   Selectbox: Selectbox__test,
   ShareButtons: ShareButtons__test,
+  Sharpie: Sharpie__test,
   SiteSearchAutocomplete: SiteSearchAutocomplete__test,
   SiteSearchInput: SiteSearchInput__test,
   Skeleton: Skeleton__test,
@@ -260,11 +266,10 @@ const normalizeTestInfos = (tests: Record<string, TestingInfo>) =>
 
 // ---------------------------------------------------------------------------
 
-test(`All tests are accounted for ${TAG_PREFIX}meta`, () => {
+test(`All tests are accounted for ${TAG_PREFIX}meta${TAG_SUFFIX}`, () => {
   const { missing, unexpected } = compareKeys(testingInfos, testPagePaths);
   missing.forEach((token) => expectSoft(null).toBe(token));
   unexpected.forEach((token) => expectSoft(token).toBe(undefined));
-  expectSoft(null).toBe(false);
 });
 
 const allComponentTests = normalizeTestInfos(testingInfos);

@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { V2_MetaFunction } from '@remix-run/node';
 import { ContextMenu, ContextMenuItem } from '@reykjavik/hanna-react/ContextMenu';
-import { VSpacer } from '@reykjavik/hanna-react/VSpacer';
 
 import { Minimal } from '../../layout/Minimal.js';
 import { TestingInfo } from '../../test-helpers/testingInfo.js';
@@ -29,7 +28,11 @@ export const handle = cssTokens('VSpacer');
 
 export default function () {
   useEffect(() => {
-    document.querySelector<HTMLElement>('.ContextMenu__toggler')?.click();
+    const click = setTimeout(
+      () => document.querySelector<HTMLElement>('.ContextMenu__toggler')?.click(),
+      300
+    );
+    return () => clearTimeout(click);
   }, []);
 
   return (
@@ -68,9 +71,7 @@ export default function () {
         ]}
       />
 
-      <VSpacer size="large" />
-      <p>&nbsp;</p>
-      <VSpacer size="large" />
+      <p style={{ height: '250px' }}>&nbsp;</p>
 
       <ContextMenu togglerType="primary" label="A" items={mockItemsShort} />
       <ContextMenu
@@ -113,10 +114,27 @@ export default function () {
 // ---------------------------------------------------------------------------
 
 export const testing: TestingInfo = {
-  prep: async ({ page, dumbHover }) => {
-    const dropdown = page.locator('.ContextMenu >> nth=0');
+  __DEV_FOCUS__: true,
+  extras: async ({ page, localScreenshot, mediaFormat, dumbHover }) => {
+    if (!mediaFormat('wide')) {
+      return;
+    }
+    const menu = page.locator('.ContextMenu >> nth=0');
 
-    await dropdown.click();
-    await dumbHover(dropdown.locator('.ContextMenu__item >> nth=1'));
+    const normalItem = menu.locator('.ContextMenu__item >> nth=2');
+    await dumbHover(normalItem);
+    await localScreenshot(normalItem, `item-hover`, { margin: true });
+
+    const destructiveItem = menu.locator(
+      '.ContextMenu__item:has(.ContextMenu__itembutton--destructive)'
+    );
+    await dumbHover(destructiveItem);
+    await localScreenshot(destructiveItem, `item-hover-destructive`, {
+      margin: true,
+    });
+
+    const activeItem = menu.locator('.ContextMenu__item[aria-current="true"]');
+    await dumbHover(activeItem);
+    await localScreenshot(activeItem, `hover-active`, { margin: true });
   },
 };
