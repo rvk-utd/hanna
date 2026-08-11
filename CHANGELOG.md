@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.43
+
+_2026-08-17_
+
 - feat: Add component `Progress`
 - feat: Add `role="generic"` to checkbox- and radio-group `<li/>` elments
 - `Skeleton`:
