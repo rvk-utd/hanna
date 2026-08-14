@@ -73,7 +73,7 @@ export default css`
     .Alert--critical,
     .Alert--error {
       ${AlertVariables.override({
-        background: color(colors.heidmork_50).mix(pureWhite, 0.5),
+        background: vars.color_heidmork_25,
         icon_color: vars.color_heidmork_100,
         icon: iconToken('error_filled'),
       })}
@@ -81,10 +81,7 @@ export default css`
     .Alert--warning {
       ${AlertVariables.override({
         background: vars.color_nautholsvik_50,
-        icon_color: color(colors.nautholsvik_100).mix(
-          color(colors.nautholsvik_150),
-          0.33
-        ),
+        icon_color: vars.color_blafjoll_100,
         icon: iconToken('warning_filled'),
       })}
     }
