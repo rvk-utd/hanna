@@ -114,7 +114,6 @@ export default function () {
 // ---------------------------------------------------------------------------
 
 export const testing: TestingInfo = {
-  __DEV_FOCUS__: true,
   extras: async ({ page, localScreenshot, mediaFormat, dumbHover }) => {
     if (!mediaFormat('wide')) {
       return;
