@@ -26,6 +26,18 @@ export type SkeletonProps = {
   circle?: boolean;
 
   /**
+   * Adds rounded corners to block-thpe skeletons
+   *
+   * (Has no effect on `text` or `circle` variants)
+   */
+  rounded?: boolean;
+
+  /**
+   * Flag to switch to a higher-contrast rendering mode that works on dark backgrounds
+   */
+  highContrast?: boolean;
+
+  /**
    * Sets the height of the skeleton block or the number of lines of text.
    *
    *  Each unit is approximately one "standard line-height"
@@ -58,7 +70,7 @@ export type SkeletonProps = {
  */
 // eslint-disable-next-line complexity
 export const Skeleton = (props: SkeletonProps) => {
-  const { wrapperProps, text, circle } = props;
+  const { wrapperProps, text, circle, rounded, highContrast } = props;
   const height = minmax(props.height, 20, circle ? 3 : 2);
 
   const gap = minmax(props.gap, 5, 1);
@@ -68,6 +80,11 @@ export const Skeleton = (props: SkeletonProps) => {
     if (text && circle) {
       console.warn(
         '<Skeleton />: Do not use both `text` and `circle` props at the same time'
+      );
+    }
+    if (rounded && (text || circle)) {
+      console.warn(
+        '<Skeleton />: The `roundeed` prop has no effect on `text` and `circle` variants'
       );
     }
     if (circle && items > 1) {
@@ -81,8 +98,10 @@ export const Skeleton = (props: SkeletonProps) => {
   const className = modifiedClass(
     'Skeleton',
     [
+      highContrast && 'highcontrast',
       circle && 'circle',
       text && !circle && 'text',
+      rounded && !(circle || text) && 'rounded',
       height && `height--${height}`,
       gap && `gap--${gap}`,
     ],

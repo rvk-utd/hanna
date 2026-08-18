@@ -11,10 +11,10 @@
 - `Pagination`:
   - fix: Suppress annoying dev-mode warning message about `key` prop access
 - `Skeleton`:
-  - feat: Add prop `circle`
+  - feat: Add props `circle`, `rounded`, `highcontrast`
   - feat: Add `Skeleton.circle` helper, and branded `SkeletonCircle` type
   - feat: Emit console warnings when unsupported prop combinations are used
-  - fix: `wrapperElmProps` are now actually applied
+  - fix: `wrapperElmProps` values are now actually applied
 - `Layout`:
   - feat: Make `siteName` prop required but allow `undefined`  
     (This change should only affect a single project, www.reykjavik.is)

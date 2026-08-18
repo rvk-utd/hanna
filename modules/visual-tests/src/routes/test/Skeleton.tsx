@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
+import { hannaVars } from '@reykjavik/hanna-css';
 import { Skeleton } from '@reykjavik/hanna-react/Skeleton';
 
 import { Minimal } from '../../layout/Minimal.js';
@@ -14,34 +15,88 @@ export const meta: V2_MetaFunction = autoTitle;
 export default function () {
   return (
     <Minimal>
-      <Fragment>
-        <p>
-          Single line:
-          <Skeleton text height={1} />
-        </p>
-        <p>
-          Multi-line:
-          <Skeleton text height={4} />
-        </p>
-        <p>
-          Block:
-          <Skeleton height={6} />
-        </p>
+      <div style={{ display: 'flex', gap: '1em', flexFlow: 'row wrap' }}>
+        {[false, true].map((darkBg, i) => (
+          <div
+            key={i}
+            style={{
+              flexGrow: 1,
+              margin: 0,
+              paddingBlock: '1em',
+              ...(darkBg && {
+                paddingInline: hannaVars.space_3.toString(),
+                background: hannaVars.color_faxafloi_100.toString(),
+                color: hannaVars.color_suld_0.toString(),
+              }),
+            }}
+          >
+            <p>
+              Single line:
+              <Skeleton highContrast={darkBg} text height={1} />
+            </p>
+            <p>
+              Multi-line:
+              <Skeleton highContrast={darkBg} text height={4} />
+            </p>
+            <p>
+              Block:
+              <Skeleton highContrast={darkBg} height={6} />
+            </p>
+            <p>
+              Rounded:
+              <Skeleton highContrast={darkBg} rounded height={2} />
+            </p>
+            <p>
+              Multi item (default gap: 3):
+              <Skeleton highContrast={darkBg} items={3} height={3} text />
+            </p>
+            <p>
+              Multi block:
+              <Skeleton highContrast={darkBg} items={3} height={3} gap={1} />
+            </p>
+            <p>
+              Circles:
+              <Skeleton highContrast={darkBg} circle />
+              <Skeleton highContrast={darkBg} circle height={5} />
+            </p>
+          </div>
+        ))}
+      </div>
 
-        <p>
-          Multi item (default gap: 3):
-          <Skeleton items={3} height={3} text />
-        </p>
-        <p>
-          Multi block:
-          <Skeleton items={3} height={3} gap={1} />
-        </p>
-        <p>
-          Circles:
-          <Skeleton circle />
-          <Skeleton circle height={5} />
-        </p>
-      </Fragment>
+      {/** /
+        <div
+          style={{
+            marginBlock: '1em',
+            display: 'flex',
+            gap: '1em',
+            flexFlow: 'row wrap',
+          }}
+        >
+          {[
+            hannaVars.color_faxafloi_100,
+            hannaVars.color_suld_200,
+            hannaVars.color_suld_150,
+            hannaVars.color_suld_100,
+            hannaVars.color_suld_75,
+            hannaVars.color_suld_50,
+            hannaVars.color_suld_25,
+            hannaVars.color_suld_0,
+          ].map((color, i) => (
+            <div
+              key={i}
+              style={{
+                width: '21%',
+                flexGrow: 1,
+                background: color.toString(),
+                padding: '1em',
+              }}
+            >
+              <Skeleton highContrast={i < 4} circle />
+              <Skeleton highContrast={i < 4} height={2} />
+            </div>
+          ))}
+        </div>
+        /**/}
     </Minimal>
   );
 }

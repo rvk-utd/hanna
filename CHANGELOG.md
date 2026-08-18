@@ -6,12 +6,14 @@
 
 ## 0.8.43
 
-_2026-08-17_
+_2026-08-21_
 
 - feat: Add component `Progress`
 - feat: Add `role="generic"` to checkbox- and radio-group `<li/>` elments
 - `Skeleton`:
   - feat: Add `--circle` variant
+  - feat: Add `--rounded` variant
+  - feat: Add `--highcontrast` variant
 
 ## 0.8.42
 

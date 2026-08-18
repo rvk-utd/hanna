@@ -1,91 +1,167 @@
 import range from '@hugsmidjan/qj/range';
-import { colors_raw } from '@reykjavik/hanna-css';
-import { color, css, em, pct, pct_f, scoped } from 'es-in-css';
+import { buildVariables, colors_raw } from '@reykjavik/hanna-css';
+import { color, css, em, ms, pct, pct_f, scoped } from 'es-in-css';
 
 import { font } from '../lib/font.js';
 import { hannaVars } from '../lib/hannavars.js';
 import { WARNING__ } from '../lib/WARNING__.js';
 
+const skeletonVars = buildVariables(
+  ['shimmerPos', 'bgColor', 'shimmerColor', 'gap', 'height'],
+  'Skeleton'
+);
+const setVars = skeletonVars.override;
+const vars = skeletonVars.vars;
+
 // Top/bottom offset spacing for mock text skeleton background
 const sp = pct(15);
 const textLineHeight = em(font.base_leading / font.base_size);
 
-const suld_200 = color(colors_raw.suld_200);
-const suld_200_opacity_3pct = suld_200.alpha(0.03);
-const suld_200_opacity_8pct = suld_200.alpha(0.08);
+const shimmerDelay = ms(2_500);
+const shimmerSpeed = ms(1_500);
+const shimmerInterval = ms(2_000);
+const shimmerDuration = ms(shimmerSpeed + shimmerInterval);
+
+const bg = {
+  base: color(colors_raw.suld_200).alpha(0.25),
+  shimmer: color(colors_raw.suld_0),
+};
+const bgContrast: typeof bg = {
+  base: color(colors_raw.suld_0).alpha(0.67),
+  shimmer: color(colors_raw.suld_0),
+};
 
 const shimmer = {
   name: scoped('Skeleton-animation'),
-  bgWidth: pct(50),
-  bgOffset: pct(-100),
+  width: pct(75),
 };
 const shimmerCircle: typeof shimmer = {
   name: scoped('Skeleton-animation-circle'),
-  bgWidth: pct(80),
-  bgOffset: pct(-400),
+  width: pct(125),
 };
 
-const shimmerBackground = css`
-  background-color: ${suld_200_opacity_3pct};
-  background-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    ${suld_200_opacity_8pct} 45%,
-    ${suld_200_opacity_8pct} 55%,
-    transparent 100%
-  );
-  background-size: ${shimmer.bgWidth} 100%;
-  background-position-x: ${shimmer.bgOffset};
-  background-repeat: no-repeat;
-  animation-name: ${shimmer.name};
-  animation-delay: 2500ms;
-  animation-duration: 3800ms;
+const shimmerBackground = ({ width }: typeof shimmer) => {
+  const stop1 = pct(0.2 * width);
+  const stop2 = pct(0.37 * width);
+  const stopCenter = pct(0.5 * width);
+  const stop4 = pct(width - stop2);
+  const stop5 = pct(width - stop1);
 
-  animation-timing-function: linear;
-  animation-iteration-count: 5; // <float> | infinite
-`;
+  const opacity1 = pct(83);
+  const opacity2 = pct(25);
 
-const keyFrames = ({ name, bgOffset }: typeof shimmer) => css`
-  @keyframes ${name} {
-    0% {
-      background-position-x: ${bgOffset};
+  return css`
+    ${setVars({ shimmerPos: pct(-width) })}
+    background-image: linear-gradient(
+      90deg,
+      ${vars.bgColor} ${vars.shimmerPos},
+      color-mix(
+          in srgb,
+          ${vars.bgColor} ${opacity1},
+          ${vars.shimmerColor}
+        )
+        calc(${vars.shimmerPos} + ${stop1}),
+      color-mix(
+          in srgb,
+          ${vars.bgColor} ${opacity2},
+          ${vars.shimmerColor}
+        )
+        calc(${vars.shimmerPos} + ${stop2}),
+      ${vars.shimmerColor} calc(${vars.shimmerPos} + ${stopCenter}),
+      color-mix(
+          in srgb,
+          ${vars.bgColor} ${opacity2},
+          ${vars.shimmerColor}
+        )
+        calc(${vars.shimmerPos} + ${stop4}),
+      color-mix(
+          in srgb,
+          ${vars.bgColor} ${opacity1},
+          ${vars.shimmerColor}
+        )
+        calc(${vars.shimmerPos} + ${stop5}),
+      ${vars.bgColor} calc(${vars.shimmerPos} + ${width})
+    );
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation-delay: ${shimmerDelay};
+    animation-duration: ${shimmerDuration};
+    animation-timing-function: linear;
+    animation-iteration-count: 5; // <float> | infinite
+    animation-name: ${shimmer.name};
+  `;
+};
+
+const keyFrames = ({ name, width }: typeof shimmer) => {
+  return css`
+    @keyframes ${name} {
+      0% {
+        ${setVars({ shimmerPos: pct(-width) })}
+      }
+      ${pct_f(shimmerSpeed / shimmerDuration)} {
+        ${setVars({ shimmerPos: pct(100) })}
+      }
+      100% {
+        ${setVars({ shimmerPos: pct(100) })}
+      }
     }
-    ${pct_f(1_800 / 3_800)} {
-      background-position-x: ${pct(100 - bgOffset)};
-    }
-    100% {
-      background-position-x: ${pct(100 - bgOffset)};
-    }
-  }
-`;
+  `;
+};
 
 export default css`
+  @property ${vars.shimmerPos.cssName} {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+  }
   ${keyFrames(shimmer)}
   ${keyFrames(shimmerCircle)}
 
+
   .Skeleton {
-    --Skeleton--gap: 3;
-    --Skeleton--height: 1;
+    ${setVars({
+      gap: 3,
+      height: 1,
+    })}
     position: relative;
     display: block;
-    height: calc(var(--Skeleton--height) * ${textLineHeight});
-    ${shimmerBackground}
+    height: calc(${vars.height} * ${textLineHeight});
+    ${shimmerBackground(shimmer)}
+    ${setVars({
+      bgColor: bg.base,
+      shimmerColor: bg.shimmer,
+    })}
+    opacity: 0.25; // #f2f2f2
+  }
+  .Skeleton--highcontrast {
+    ${setVars({
+      bgColor: bgContrast.base,
+      shimmerColor: bgContrast.shimmer,
+    })}
+    opacity: 0.31; // #3b87e3
   }
   .Skeleton--circle {
-    --Skeleton--height: 2;
-    background-size: ${shimmerCircle.bgWidth} 100%;
-    background-position-x: ${shimmerCircle.bgOffset};
-    animation-name: ${shimmerCircle.name};
+    ${setVars({ height: 2 })}
+    ${shimmerBackground(shimmerCircle)}
   }
   .Skeleton--circle + .Skeleton:not([class*='Skeleton--gap--']) {
-    --Skeleton--gap: 1;
+    ${setVars({ gap: 1 })}
+  }
+
+  .Skeleton--rounded {
+    border-radius: 4px;
+  }
+  .Skeleton--rounded.Skeleton--circle,
+  .Skeleton--rounded.Skeleton--text {
+    ${WARNING__('`--rounded` does not mix with `--circle` or `--text`')}
   }
 
   ${range(2, 20).map(
     (i) =>
       css`
         .Skeleton--height--${i} {
-          --Skeleton--height: ${i};
+          ${setVars({ height: i })}
         }
       `
   )}
@@ -94,13 +170,13 @@ export default css`
     (i) =>
       css`
         .Skeleton--gap--${i} {
-          --Skeleton--gap: ${i};
+          ${setVars({ gap: i })}
         }
       `
   )}
 
   .Skeleton + .Skeleton {
-    margin-top: calc(var(--Skeleton--gap) * ${hannaVars.space_1});
+    margin-top: calc(${vars.gap} * ${hannaVars.space_1});
   }
 
   .Skeleton--text {
@@ -112,9 +188,9 @@ export default css`
   .Skeleton--text::after {
     content: '';
     display: block;
-    height: calc(calc(var(--Skeleton--height) - 1) * ${textLineHeight});
+    height: calc(calc(${vars.height} - 1) * ${textLineHeight});
 
-    ${shimmerBackground}
+    ${shimmerBackground(shimmer)}
 
     mask-image: linear-gradient(
       180deg,
@@ -137,7 +213,7 @@ export default css`
   }
 
   .Skeleton--circle {
-    width: calc(var(--Skeleton--height) * ${textLineHeight});
+    width: calc(${vars.height} * ${textLineHeight});
     border-radius: ${pct(50)};
   }
 

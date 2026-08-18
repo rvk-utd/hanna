@@ -6,7 +6,7 @@
 
 ## 0.8.102
 
-_2026-08-17_
+_2026-08-21_
 
 - feat: Add component `Progress`
 - feat: Update iconfont adding new icons:  
@@ -14,7 +14,7 @@ _2026-08-17_
 - `Icon`:
   - fix: Correct displayed icon for `"info"`
 - `Skeleton`:
-  - feat: Add styling for `--circle` variant
+  - feat: Add styling for variants `--circle`, `--rounded`, `--highcontrast`
   - feat: Add delayed "shimmer" animation for all skeleton instances.
 
 ## 0.8.101
