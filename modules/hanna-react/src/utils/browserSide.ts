@@ -1,4 +1,34 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+// Import (and possibly mock in React < 18) `useSyncExternalStore`
+// for limited module-local use
+let _useSyncExternalStore:
+  | undefined
+  | ((
+      subscribe: (onStoreChange: () => void) => () => void,
+      getSnapshot: () => boolean,
+      getServerSnapshot: () => boolean
+    ) => boolean) =
+  // @ts-expect-error  (transparently feature-detect useId hook, which is introduced in React@18)
+  React.useSyncExternalStore;
+
+if (!_useSyncExternalStore) {
+  let alreadyBrowserSide = false;
+
+  _useSyncExternalStore = (_, clientState, serverState) => {
+    const [state, setState] = useState(alreadyBrowserSide ? clientState : serverState);
+    useEffect(() => {
+      alreadyBrowserSide = true;
+      if (clientState !== serverState) {
+        setState(clientState());
+      }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    return state;
+  };
+}
+
+// ---------------------------------------------------------------------------
+
 /**
  * Indicates whether server-side rendering is supported or not.
  *
@@ -6,6 +36,13 @@ import { useEffect, useState } from 'react';
  * to demo the server-rendered version in a browser.
  */
 export type SSRSupport = boolean | 'ssr-only';
+
+const defaultSSRSupport: SSRSupport = true;
+/**
+ * The default value use for the optional `ssrSupport` parameter
+ * on the `useIsBRowserSide` and `useIsServerSide` hooks.`
+ */
+let DEFAULT_SSR_SUPPORT: SSRSupport = defaultSSRSupport;
 
 export type SSRSupportProps = {
   /**
@@ -17,54 +54,50 @@ export type SSRSupportProps = {
   ssr?: SSRSupport;
 };
 
-let alreadyBrowserSide = false;
-
-const defaultSSRSupport: SSRSupport = true;
-/**
- * The default value use for the optional `ssrSupport` parameter
- * on the `useIsBRowserSide` and `useIsServerSide` hooks.`
- */
-let DEFAULT_SSR_SUPPORT: SSRSupport = defaultSSRSupport;
+const _stableSubscribe = () => () => undefined;
+const _retTrue = () => true;
+const _retFalse = () => false;
 
 /**
- * Low-level useState wrapper that initializes the state to one value
- * during initial render and then updates it to another value
- * once the component has been mounted.
+ * Returns `true` when `useEffect` has executed.
  *
- * After that it's just a normal [value, setValue] pair.
+ * This signals the time to apply Progressive Enhancement.
  *
- * NOTE: The optional `ssrSupport` parameter is ignored after the initial render
+ * ```js
+ * const Knob = (props) => {
+ *   const [visible, setVisible] = useState(false);
+ *   const isBrowser = useIsBrowserSide();
+ *   const handleClick = () => {
+ *     setVisible(!visible);
+ *     props.onClick && props.onClick(!visible);
+ *   };
+ *
+ *   if (isBrowser) {
+ *     return (
+ *       <button className="Knob" aria-pressed={visible} onClick={handleClick}>
+ *         {props.label}
+ *       </button>
+ *     );
+ *   }
+ *   return <span className="Knob">{props.label}</span>
+ * }
+ * ```
+ *
+ * SSR support mode can optionally be set to:
+ *
+ * - `true` (the default) enables the serve-side phase (returns `true` then `undefined`).
+ * - `false` disables (skips) the serve-side phase (always returns `true`).
+ * - `"ssr-only"` disables (skips) the browser-side phase (always returns `undefined`).
+ *
+ * NOTE: The `ssrSupport` parameter is ignored after the initial render.
  */
-const useClientState = <T, U>(
-  serverState: T | (() => T),
-  clientState: U | (() => U),
-  /**
-   * Indicates whether server-side rendering is supported or not.
-   *
-   * The `ssr-only` value is useful for cases where you need
-   * to demo the server-rendered version in a browser.
-   */
-  ssrSupport: SSRSupport = DEFAULT_SSR_SUPPORT
-) => {
-  const stateTuple = useState<T | U>(
-    () =>
-      (ssrSupport === 'ssr-only'
-        ? serverState
-        : ssrSupport && !alreadyBrowserSide
-        ? serverState
-        : clientState) as T | U // TODO: Remove this type assertion once @types/react and typescript have been updated
-  );
-  useEffect(
-    () => {
-      alreadyBrowserSide = true;
-      if (ssrSupport !== 'ssr-only') {
-        stateTuple[1](clientState);
-      }
-    },
-    [] // eslint-disable-line react-hooks/exhaustive-deps
-  );
-  return stateTuple;
-};
+export const useIsBrowserSide = (ssrSupport = DEFAULT_SSR_SUPPORT) =>
+  // This implementation is based on sergiodxa/remix-utils `useHydrated` hook
+  _useSyncExternalStore!(
+    _stableSubscribe,
+    ssrSupport === 'ssr-only' ? _retFalse : _retTrue,
+    ssrSupport ? _retFalse : _retTrue
+  ) || undefined;
 
 /**
  * Returns `true` if `useEffect` has not executed yet.
@@ -100,44 +133,7 @@ const useClientState = <T, U>(
  *
  * NOTE: The `ssrSupport` parameter is ignored after the initial render.
  */
-export const useIsServerSide = (ssrSupport?: SSRSupport) =>
-  useClientState(true, false, ssrSupport)[0] || undefined;
-
-/**
- * Returns `true` when `useEffect` has executed.
- *
- * This signals the time to apply Progressive Enhancement.
- *
- * ```js
- * const Knob = (props) => {
- *   const [visible, setVisible] = useState(false);
- *   const isBrowser = useIsBrowserSide();
- *   const handleClick = () => {
- *     setVisible(!visible);
- *     props.onClick && props.onClick(!visible);
- *   };
- *
- *   if (isBrowser) {
- *     return (
- *       <button className="Knob" aria-pressed={visible} onClick={handleClick}>
- *         {props.label}
- *       </button>
- *     );
- *   }
- *   return <span className="Knob">{props.label}</span>
- * }
- * ```
- *
- * SSR support mode can optionally be set to:
- *
- * - `true` (the default) enables the serve-side phase (returns `true` then `undefined`).
- * - `false` disables (skips) the serve-side phase (always returns `true`).
- * - `"ssr-only"` disables (skips) the browser-side phase (always returns `undefined`).
- *
- * NOTE: The `ssrSupport` parameter is ignored after the initial render.
- */
-export const useIsBrowserSide = (ssrSupport?: SSRSupport) =>
-  useClientState(false, true, ssrSupport)[0] || undefined;
+export const useIsServerSide = (ssrSupport?: SSRSupport) => !useIsBrowserSide(ssrSupport);
 
 // ---------------------------------------------------------------------------
 

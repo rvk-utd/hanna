@@ -3,6 +3,9 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `useIsBrowserSide`, `useIsBrowserSide`:
+  - fix: Use `useSyncExternalStore` (when available) to suppress hydration
+    warnings for SSR-ed `Suspense` content
 - feat: Add component `Progress`
 - feat: Add new icon type props:  
   `mic`, `circle`, `history`, `chart_data`, `fingerprint`, `robot_2`
