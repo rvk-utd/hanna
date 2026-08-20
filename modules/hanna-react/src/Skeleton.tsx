@@ -129,39 +129,60 @@ export default Skeleton;
 
 declare const _SkeletonBlock__Brand: unique symbol;
 /**
- * The `<Skeleton height={X}/>` element returned by `Skeleton.block(X)`
+ * The `<Skeleton {...props} />` element returned by `Skeleton.block(props)`
  */
 export type SkeletonBlock = ReactElement & { [_SkeletonBlock__Brand]: true };
 
 /**
- * Returns a single `<Skeleton height={X} text={false} />` element of branded
+ * Returns a single `<Skeleton {...props} />` element of branded
  * type `SkeletonBlock`
  */
-Skeleton.block = (height?: SkeletonProps['height']): SkeletonBlock =>
-  (<Skeleton height={height} />) as SkeletonBlock;
+Skeleton.block = (
+  /** A bare height prop, or a limited subset of SkeletonProps */
+  props?: SkeletonProps['height'] | Pick<SkeletonProps, 'height' | 'negative' | 'rounded'>
+): SkeletonBlock => {
+  if (typeof props === 'number') {
+    props = { height: props };
+  }
+  return (<Skeleton {...props} />) as SkeletonBlock;
+};
 
 declare const _SkeletonText__Brand: unique symbol;
 /**
- * The `<Skeleton text height={X}/>` element returned by `Skeleton.text(X)`
+ * The `<Skeleton {...props} text />` element returned by `Skeleton.text(props)`
  */
 export type SkeletonText = ReactElement & { [_SkeletonText__Brand]: true };
 
 /**
- * Returns a single `<Skeleton text height={X} />` element of branded
+ * Returns a single `<Skeleton {...props} text />` element of branded
  * type `SkeletonText`
  */
-Skeleton.text = (height?: SkeletonProps['height']): SkeletonText =>
-  (<Skeleton text height={height} />) as SkeletonText;
+Skeleton.text = (
+  /** A bare height prop, or a limited subset of SkeletonProps */
+  props?: SkeletonProps['height'] | Pick<SkeletonProps, 'height' | 'negative'>
+): SkeletonText => {
+  if (typeof props === 'number') {
+    props = { height: props };
+  }
+  return (<Skeleton {...props} text />) as SkeletonText;
+};
 
 declare const _SkeletonCircle__Brand: unique symbol;
 /**
- * The `<Skeleton circle height={X}/>` element returned by `Skeleton.circle(X)`
+ * The `<Skeleton {...props} circle />` element returned by `Skeleton.circle(props)`
  */
 export type SkeletonCircle = ReactElement & { [_SkeletonCircle__Brand]: true };
 
 /**
- * Returns a single `<Skeleto circlen height={X} />` element of branded
+ * Returns a single `<Skeleton {...props} circle />` element of branded
  * type `SkeletonCircle`
  */
-Skeleton.circle = (height?: SkeletonProps['height']): SkeletonCircle =>
-  (<Skeleton circle height={height} />) as SkeletonCircle;
+Skeleton.circle = (
+  /** A bare height prop, or a limited subset of SkeletonProps */
+  props?: SkeletonProps['height'] | Pick<SkeletonProps, 'height' | 'negative'>
+): SkeletonCircle => {
+  if (typeof props === 'number') {
+    props = { height: props };
+  }
+  return (<Skeleton {...props} circle />) as SkeletonCircle;
+};
