@@ -38,7 +38,22 @@ export default function () {
       <Progress percent={100} />
       <Progress done />
       <DummyBlock thin />
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div
+        style={{ display: 'flex', flexWrap: 'wrap' }}
+        onClick={(e) => {
+          const target = e.target as HTMLElement;
+          if (target.classList.contains('Progress')) {
+            target.classList.toggle('Progress--done');
+            const isDone = target.classList.contains('Progress--done');
+            if (isDone) {
+              target.dataset.valueNow = target.getAttribute('aria-valuenow') || undefined;
+              target.setAttribute('aria-valuenow', '10');
+            } else if (target.dataset.valueNow) {
+              target.setAttribute('aria-valuenow', target.dataset.valueNow);
+            }
+          }
+        }}
+      >
         {[0, 1].map((i) => (
           <div
             key={i}

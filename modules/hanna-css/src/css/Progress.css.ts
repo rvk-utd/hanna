@@ -49,7 +49,7 @@ export default css`
     }
   }
 
-  +  /** Makes the spinner value work for smooth CSS \`transition\`s  */
+  /** Makes the spinner value work for smooth CSS \`transition\`s  */
   @property ${pVars.value.cssName} {
     syntax: '<percentage>';
     inherits: false;
@@ -67,7 +67,7 @@ export default css`
     transition: ${pVars.value.cssName} 500ms ease-in-out;
     ${progressVars.override({
       value: pct(0),
-      colorTransparent: 'color-mix(in srgb, currentColor 20%, transparent)',
+      colorTransparent: 'color-mix(in srgb, currentColor 25%, transparent)',
     })}
   }
   .Progress__value {
@@ -89,7 +89,7 @@ export default css`
     ${WARNING__('`--done` state should always have aria-valuenow="10"')}
   }
 
-  /* ------------------------------------------------------------------------ */
+  /* -------------------  ----------------------------------------------------- */
 
   .Progress:not(.Progress--spinner) {
     background: ${pVars.colorTransparent} linear-gradient(currentColor, currentColor)
@@ -147,13 +147,14 @@ export default css`
 
   /** Indeterminate spinner state */
   .Progress--spinner:not([aria-valuenow]) {
-    background: conic-gradient(currentColor 180deg, ${pVars.colorTransparent} 180deg);
+    background: conic-gradient(currentColor 270deg, ${pVars.colorTransparent} 270deg);
     animation: ${spinAnimation} 1s linear infinite;
   }
 
   .Progress--spinner.Progress--done {
     color: ${vars.color_ellidaardalur_150};
     background: ${vars.color_ellidaardalur_100};
+    transition: background-color 200ms ease-out;
     mask-image: none;
   }
   .Progress--spinner.Progress--done::before {
@@ -163,6 +164,13 @@ export default css`
     width: 100%;
     height: 100%;
     line-height: calc(${pVars.spinnerSize} / 1em);
+    transition: opacity 200ms ease-in-out, transform 400ms ease-in-out;
+  }
+  @starting-style {
+    .Progress--spinner.Progress--done::before {
+      transform: translateY(0.33em);
+      opacity: 0;
+    }
   }
 
   .Progress--spinner.Progress--size--xsmall.Progress--done::before {

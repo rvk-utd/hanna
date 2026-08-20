@@ -5,11 +5,13 @@ import { Meta, StoryObj } from '@storybook/react';
 type SpinnerSize = NonNullable<ProgressProps['size']>;
 const sizeOptions: Array<SpinnerSize> = ['xsmall', 'small', 'medium', 'large'];
 
+const variantOptions = ['bar', 'spinner'] as const;
+
 type ControlProps = {
   indeterminate: boolean;
   percent?: number;
   done: boolean;
-  spinner: boolean;
+  variant: (typeof variantOptions)[number];
   size?: (typeof sizeOptions)[number];
 };
 
@@ -24,16 +26,26 @@ export default meta;
 
 export const _Progress: StoryObj<ControlProps> = {
   render: (args) => {
-    const { done, indeterminate, percent, spinner, size } = args;
+    const { done, indeterminate, percent, variant, size } = args;
     return (
       <Progress
         {...(indeterminate ? {} : done ? { done } : { percent })}
-        {...(spinner ? { spinner: true, size } : { spinner: false })}
+        {...(variant === 'spinner' ? { spinner: true, size } : { spinner: false })}
       />
     );
   },
   argTypes: {
-    spinner: { name: 'Spinner variant' },
+    variant: {
+      name: 'Variant',
+      options: variantOptions,
+      control: {
+        type: 'inline-radio',
+        labels: {
+          bar: 'Bar (default)',
+          spinner: 'Spinner',
+        },
+      },
+    },
     size: {
       name: 'Spinner size',
       options: sizeOptions,
@@ -46,7 +58,7 @@ export const _Progress: StoryObj<ControlProps> = {
           large: 'Large',
         } satisfies Record<SpinnerSize, string>,
       },
-      if: { arg: 'spinner', eq: true },
+      if: { arg: 'variant', eq: 'spinner' },
     },
     indeterminate: { name: 'Indeterminate state' },
     percent: {
@@ -56,11 +68,10 @@ export const _Progress: StoryObj<ControlProps> = {
     },
     done: {
       name: 'Done state',
-      if: { arg: 'indeterminate', eq: false },
     },
   },
   args: {
-    spinner: false,
+    variant: 'bar',
     size: 'medium',
     indeterminate: false,
     percent: 17,
