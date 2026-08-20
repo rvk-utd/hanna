@@ -134,7 +134,7 @@ export default css`
     })}
     opacity: 0.25; // #f2f2f2
   }
-  .Skeleton--highcontrast {
+  .Skeleton--negative {
     ${setVars({
       bgColor: bgContrast.base,
       shimmerColor: bgContrast.shimmer,

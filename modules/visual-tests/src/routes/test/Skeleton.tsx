@@ -32,32 +32,32 @@ export default function () {
           >
             <p>
               Single line:
-              <Skeleton highContrast={darkBg} text height={1} />
+              <Skeleton negative={darkBg} text height={1} />
             </p>
             <p>
               Multi-line:
-              <Skeleton highContrast={darkBg} text height={4} />
+              <Skeleton negative={darkBg} text height={4} />
             </p>
             <p>
               Block:
-              <Skeleton highContrast={darkBg} height={6} />
+              <Skeleton negative={darkBg} height={6} />
             </p>
             <p>
               Rounded:
-              <Skeleton highContrast={darkBg} rounded height={2} />
+              <Skeleton negative={darkBg} rounded height={2} />
             </p>
             <p>
               Multi item (default gap: 3):
-              <Skeleton highContrast={darkBg} items={3} height={3} text />
+              <Skeleton negative={darkBg} items={3} height={3} text />
             </p>
             <p>
               Multi block:
-              <Skeleton highContrast={darkBg} items={3} height={3} gap={1} />
+              <Skeleton negative={darkBg} items={3} height={3} gap={1} />
             </p>
             <p>
               Circles:
-              <Skeleton highContrast={darkBg} circle />
-              <Skeleton highContrast={darkBg} circle height={5} />
+              <Skeleton negative={darkBg} circle />
+              <Skeleton negative={darkBg} circle height={5} />
             </p>
           </div>
         ))}

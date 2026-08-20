@@ -13,7 +13,7 @@ _2026-08-21_
 - `Skeleton`:
   - feat: Add `--circle` variant
   - feat: Add `--rounded` variant
-  - feat: Add `--highcontrast` variant
+  - feat: Add `--negative` variant
 
 ## 0.8.42
 

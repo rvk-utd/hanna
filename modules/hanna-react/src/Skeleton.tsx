@@ -33,9 +33,9 @@ export type SkeletonProps = {
   rounded?: boolean;
 
   /**
-   * Flag to switch to a higher-contrast rendering mode that works on dark backgrounds
+   * Flag to switch to a negative rendering mode optimized for dark backgrounds
    */
-  highContrast?: boolean;
+  negative?: boolean;
 
   /**
    * Sets the height of the skeleton block or the number of lines of text.
@@ -70,7 +70,7 @@ export type SkeletonProps = {
  */
 // eslint-disable-next-line complexity
 export const Skeleton = (props: SkeletonProps) => {
-  const { wrapperProps, text, circle, rounded, highContrast } = props;
+  const { wrapperProps, text, circle, rounded, negative } = props;
   const height = minmax(props.height, 20, circle ? 3 : 2);
 
   const gap = minmax(props.gap, 5, 1);
@@ -98,7 +98,7 @@ export const Skeleton = (props: SkeletonProps) => {
   const className = modifiedClass(
     'Skeleton',
     [
-      highContrast && 'highcontrast',
+      negative && 'negative',
       circle && 'circle',
       text && !circle && 'text',
       rounded && !(circle || text) && 'rounded',

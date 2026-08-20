@@ -14,7 +14,7 @@
 - `Pagination`:
   - fix: Suppress annoying dev-mode warning message about `key` prop access
 - `Skeleton`:
-  - feat: Add props `circle`, `rounded`, `highcontrast`
+  - feat: Add props `circle`, `rounded`, `negative`
   - feat: Add `Skeleton.circle` helper, and branded `SkeletonCircle` type
   - feat: Emit console warnings when unsupported prop combinations are used
   - fix: `wrapperElmProps` values are now actually applied

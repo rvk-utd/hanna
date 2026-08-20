@@ -14,7 +14,7 @@ _2026-08-21_
 - `Icon`:
   - fix: Correct displayed icon for `"info"`
 - `Skeleton`:
-  - feat: Add styling for variants `--circle`, `--rounded`, `--highcontrast`
+  - feat: Add styling for variants `--circle`, `--rounded`, `--negative`
   - feat: Add delayed "shimmer" animation for all skeleton instances.
 
 ## 0.8.101
