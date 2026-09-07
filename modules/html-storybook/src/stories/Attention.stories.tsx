@@ -4,6 +4,10 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { HiddenTiger } from '../utils/HiddenTiger.js';
 
+type ControlProps = {
+  small: boolean;
+};
+
 const meta: Meta = {
   title: 'Attention',
   parameters: {
@@ -13,7 +17,7 @@ const meta: Meta = {
 };
 export default meta;
 
-const AttentionStory = () => {
+const AttentionStory = ({ small }: ControlProps) => {
   return (
     <>
       <HiddenTiger>
@@ -22,12 +26,7 @@ const AttentionStory = () => {
           content.
         </p>
       </HiddenTiger>
-      <Attention>
-        Please note that - <a href="">Bein útsending frá fundi borgarstjórnar</a> í
-        Ráðhúsi Reykjavíkur hefst kl. 14:00
-      </Attention>
-      {'\n\n'}
-      <Attention small>
+      <Attention small={small}>
         Please note that - <a href="">Bein útsending frá fundi borgarstjórnar</a> í
         Ráðhúsi Reykjavíkur hefst kl. 14:00
       </Attention>
@@ -35,6 +34,12 @@ const AttentionStory = () => {
   );
 };
 
-export const _Attention: StoryObj = {
-  render: () => <AttentionStory />,
+export const _Attention: StoryObj<ControlProps> = {
+  render: (args) => <AttentionStory {...args} />,
+  argTypes: {
+    small: { name: 'Small' },
+  },
+  args: {
+    small: false,
+  },
 };
