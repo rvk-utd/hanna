@@ -14,9 +14,8 @@ _2026-08-21_
   `keyboard_return`, `mic`, `robot_2`,
 - feat: Add `role="generic"` to checkbox- and radio-group `<li/>` elments
 - `Skeleton`:
-  - feat: Add `--circle` variant
-  - feat: Add `--rounded` variant
-  - feat: Add `--negative` variant
+  - feat: **UNSTABLE** Add variants `--circle` , `--rounded`, `--negative`
+    variant
 
 ## 0.8.42
 

@@ -15,7 +15,8 @@ _2026-08-21_
 - `Icon`:
   - fix: Correct displayed icon for `"info"`
 - `Skeleton`:
-  - feat: Add styling for variants `--circle`, `--rounded`, `--negative`
+  - feat: **UNSTABLE** Add styling for variants `--circle`, `--rounded`,
+    `--negative`
   - feat: Add delayed "shimmer" animation for all skeleton instances.
 - `ReadSpeakerPlayer`:
   - feat: Fix alignment of floating player button icons
