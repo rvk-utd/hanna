@@ -52,6 +52,9 @@ export default function () {
 }
 
 export const testing: TestingInfo = {
+  // TODO: Re-enable this and review the screenshots to see if the playe design has changed
+  tags: [], // Temporarily disable these tests while the external readspeaker server is having hickups
+
   initialHover: '[data-testId="rsp1"] .rsbtn_tooltoggle',
   async extras({ page, pageScreenshot, mediaFormat }) {
     if (!mediaFormat('tablet')) {
