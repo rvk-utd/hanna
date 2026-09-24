@@ -9,6 +9,9 @@
 _2026-08-21_
 
 - feat: Add component `Progress`
+- feat: Add new `data-icon`/`data-icon-after` attribute values:  
+  `accessible` `chart_data`, `circle`, `ev_station`, `fingerprint`, `history`,
+  `keyboard_return`, `mic`, `robot_2`,
 - feat: Add `role="generic"` to checkbox- and radio-group `<li/>` elments
 - `Skeleton`:
   - feat: Add `--circle` variant

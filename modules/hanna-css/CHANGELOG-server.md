@@ -10,7 +10,8 @@ _2026-08-21_
 
 - feat: Add component `Progress`
 - feat: Update iconfont adding new icons:  
-  `mic`, `circle`, `history`, `chart_data`, `fingerprint`, `robot_2`
+  `accessible` `chart_data`, `circle`, `ev_station`, `fingerprint`, `history`,
+  `keyboard_return`, `mic`, `robot_2`,
 - `Icon`:
   - fix: Correct displayed icon for `"info"`
 - `Skeleton`:

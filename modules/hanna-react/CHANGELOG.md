@@ -8,7 +8,8 @@
     warnings for SSR-ed `Suspense` content
 - feat: Add component `Progress`
 - feat: Add new icon type props:  
-  `mic`, `circle`, `history`, `chart_data`, `fingerprint`, `robot_2`
+  `accessible` `chart_data`, `circle`, `ev_station`, `fingerprint`, `history`,
+  `keyboard_return`, `mic`, `robot_2`,
 - `ContextMenu`:
   - feat: Add prop `renderToggler()`, deprecate `Toggler` (comp) prop instead
 - `Pagination`:

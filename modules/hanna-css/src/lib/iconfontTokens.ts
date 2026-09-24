@@ -2,6 +2,7 @@
 // DO NOT EDIT!
 
 export const _iconTokenList = [
+  'accessible',
   'account_circle',
   'add',
   'add_circle',
@@ -37,6 +38,7 @@ export const _iconTokenList = [
   'edit',
   'error',
   'error_filled',
+  'ev_station',
   'exit_to_app',
   'fast_forward',
   'fast_rewind',
@@ -70,6 +72,7 @@ export const _iconTokenList = [
   'keep_off',
   'keyboard_arrow_down',
   'keyboard_arrow_up',
+  'keyboard_return',
   'language',
   'light_mode',
   'link',
