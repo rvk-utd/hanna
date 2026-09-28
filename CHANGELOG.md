@@ -6,7 +6,7 @@
 
 ## 0.8.43
 
-_2026-08-21_
+_2026-09-28_
 
 - feat: Add component `Progress`
 - feat: Add new `data-icon`/`data-icon-after` attribute values:  
