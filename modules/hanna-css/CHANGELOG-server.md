@@ -6,7 +6,7 @@
 
 ## 0.8.102
 
-_2026-08-21_
+_2026-09-28_
 
 - feat: Add component `Progress`
 - feat: Update iconfont adding new icons:  
