@@ -37,6 +37,7 @@ await shell$([
   `rm -rf ${htmlDocsFolder + htmlVersionFolder} ${htmlDocsFolder}latest`,
   `mkdir -p ${htmlDocsFolder}latest`,
   `find ${tempDistFolder} -name "*.map" -type f -delete`,
+  `cp ${root}CHANGELOG.md ${htmlDocsFolder}changelog.txt`,
   `cp -R ${tempDistFolder}/* ${htmlDocsFolder}latest`,
   `mv ${tempDistFolder} ${htmlDocsFolder + htmlVersionFolder}`,
 
