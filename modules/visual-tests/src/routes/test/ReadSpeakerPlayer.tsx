@@ -64,7 +64,15 @@ export const testing: TestingInfo = {
     await rsp1.locator('.rsbtn_toollist > li:nth-child(4)').hover();
     await pageScreenshot('menu-open');
 
-    await rsp1.locator('.rsbtn_play').click({ clickCount: 3 });
+    const { width, height } = page.viewportSize() || { width: 0, height: 0 };
+    await page.setViewportSize({
+      width,
+      // account for player resize causing linewrapping and the popup player
+      // initially rendering too high
+      height: height + 24,
+    });
+
+    await rsp1.locator('.rsbtn_play').click();
     await pageScreenshot('player-open');
   },
 };
