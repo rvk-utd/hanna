@@ -26,6 +26,9 @@ export default css`
   .ReadSpeakerPlayer button {
     text-align: center;
   }
+  button.rs-controlpanel-btn {
+    text-align: center;
+  }
 
   .ReadSpeakerPlayer .rsbtn {
     z-index: 1;

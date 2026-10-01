@@ -17,6 +17,8 @@ _2026-08-21_
 - `Skeleton`:
   - feat: Add styling for variants `--circle`, `--rounded`, `--negative`
   - feat: Add delayed "shimmer" animation for all skeleton instances.
+- `ReadSpeakerPlayer`:
+  - feat: Fix alignment of floating player button icons
 
 ## 0.8.101
 
