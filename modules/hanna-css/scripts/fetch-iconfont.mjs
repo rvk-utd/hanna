@@ -32,8 +32,7 @@ const iconNamesAll = iconNamesRaw
   .replace(/,/g, '\n')
   .replace(/\s\s+/gm, '\n')
   .split('\n')
-  .sort()
-  .filter((name, index, arr) => name !== arr[index - 1]); // dedupe
+  .filter((name, index, arr) => name && arr.indexOf(name) === index); // dedupe
 
 writeFileSync(
   './src/lib/iconfontTokens.ts',
