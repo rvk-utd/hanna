@@ -1,6 +1,6 @@
 import range from '@hugsmidjan/qj/range';
 import { buildVariables, colors_raw } from '@reykjavik/hanna-css';
-import { color, css, em, ms, pct, pct_f, scoped } from 'es-in-css';
+import { color, css, em, ms, pct, pct_f } from 'es-in-css';
 
 import { font } from '../lib/font.js';
 import { hannaVars } from '../lib/hannavars.js';
@@ -32,11 +32,11 @@ const bgContrast: typeof bg = {
 };
 
 const shimmer = {
-  name: scoped('Skeleton-animation'),
+  name: 'Skeleton-animation',
   width: pct(75),
 };
 const shimmerCircle: typeof shimmer = {
-  name: scoped('Skeleton-animation-circle'),
+  name: 'Skeleton-animation-circle',
   width: pct(125),
 };
 

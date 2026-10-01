@@ -4,7 +4,6 @@ import {
   css,
   hannaVars as vars,
   pct,
-  scoped,
   srOnly,
   WARNING__,
 } from '@reykjavik/hanna-css';
@@ -17,8 +16,8 @@ const progressVars = buildVariables(
 );
 const pVars = progressVars.vars;
 
-const indeterminateAnimation = scoped('Progress-indeterminate');
-const spinAnimation = scoped('Progress-spin');
+const indeterminateAnimation = 'Progress-indeterminate';
+const spinAnimation = 'Progress-spin';
 
 export default css`
   @keyframes ${indeterminateAnimation} {
