@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.4.29
+
+_2026-10-02_
+
 - feat: Add CSS module token `Progress`
 - feat: Add new values to `IconToken` type:  
   `accessible` `chart_data`, `circle`, `ev_station`, `fingerprint`, `history`,
