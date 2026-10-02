@@ -20,6 +20,10 @@ _2026-10-02_
   - feat: Add delayed "shimmer" animation for all skeleton instances.
 - `ReadSpeakerPlayer`:
   - feat: Fix alignment of floating player button icons
+- `Alert`:
+  - feat: Make `--warning` icon color darker, more orange
+- `FormField`:
+  - fix: Turn `__assist` texts to be blue
 
 ## 0.8.101
 
