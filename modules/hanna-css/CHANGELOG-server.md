@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.8.103
+
+_2026-10-07_
+
 - feat: Update `i/icons.html` to list new "iconfont" icons up top
 - fix: Swap load order of new/old iconfonts for more correct fallback for
   older icons using direct unicode-character values (new iconfont always uses
