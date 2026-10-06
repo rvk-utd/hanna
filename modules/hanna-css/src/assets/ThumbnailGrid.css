@@ -4,6 +4,9 @@
   gap: var(--grid-gutter);
   margin-bottom: var(--component-vspace--small);
 }
+.ThumbnailGrid--small {
+  gap: var(--space-2);
+}
 
 .ThumbnailGrid__item {
   flex-shrink: 0;
@@ -15,6 +18,11 @@
   min-width: 150px;
   outline: 1px solid var(--color-suld-75);
   padding: var(--space-1);
+}
+.ThumbnailGrid--small > .ThumbnailGrid__item {
+  width: var(--grid-1-1);
+  min-width: 80px;
+  gap: 0;
 }
 
 .ThumbnailGrid__label {

@@ -15,7 +15,7 @@ import iconfonttokens_old from './iconfonttokens_old.js';
 // ---------------------------------------------------------------------------
 
 export const _legacyIconfontName = 'icons';
-const iconfontName = 'iconfont';
+export const iconfontName = 'iconfont';
 
 /**
  * Sugar identity function to get typesafe `IconToken` values

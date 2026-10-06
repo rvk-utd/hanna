@@ -5,7 +5,7 @@ import { srOnly } from '../lib/a11y.js';
 import { bp } from '../lib/breakpoints.js';
 import { font } from '../lib/font.js';
 import { hannaVarOverride, hannaVars as vars } from '../lib/hannavars.js';
-import { _legacyIconfontName, characters, iconfont_raw } from '../lib/icons.js';
+import { _legacyIconfontName, characters, iconfontName } from '../lib/icons.js';
 import { LinkStyle, LinkStyle__focusOutline } from '../lib/links.js';
 import { WARNING__, WARNING_border__ } from '../lib/WARNING__.js';
 
@@ -31,8 +31,6 @@ const quotes = (lang: 'IS' | 'EN' | 'PL') => {
   return `${str(q.open)} ${str(q.close)} ${str(q.openSingle)} ${str(q.closeSingle)}`;
 };
 
-const iconFontVersion = fileChecksum('./src/i/icons.woff2');
-const _legacyIconFontVersion = fileChecksum('./src/i/icons.woff2');
 const esjaFolder = '/assets/fonts/Esja';
 
 // ---------------------------------------------------------------------------
@@ -41,12 +39,11 @@ export default css`
   /*! Reykjavík Design System basic CSS styles */
 
   @font-face {
-    // eslint-disable-next-line deprecation/deprecation
-    font-family: ${iconfont_raw.name};
+    font-family: ${iconfontName};
     font-weight: normal;
     font-style: normal;
     font-display: block;
-    src: url('i/iconfont.woff2?${iconFontVersion}') format('woff2');
+    src: url('i/iconfont.woff2?${fileChecksum('./src/i/iconfont.woff2')}') format('woff2');
   }
 
   @font-face {
@@ -57,7 +54,7 @@ export default css`
     font-weight: normal;
     font-style: normal;
     font-display: swap; /* don't block */
-    src: url('i/icons.woff2?${_legacyIconFontVersion}') format('woff2');
+    src: url('i/icons.woff2?${fileChecksum('./src/i/icons.woff2')}') format('woff2');
   }
 
   @font-face {

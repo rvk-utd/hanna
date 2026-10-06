@@ -3,6 +3,7 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- feat: Update `i/icons.html` to list new "iconfont" icons up top
 
 ## 0.8.102
 

@@ -27,7 +27,7 @@ import {
   themeVars,
   zIndexVars,
 } from '../../lib/hannavars.js';
-import iconfonttokens from '../../lib/iconfonttokens_old.js';
+import iconfonttokens_old from '../../lib/iconfonttokens_old.js';
 import { fullCssVersion } from '../../lib/style-server-info.js';
 import { cols_pct, grid_units, prem } from '../utils/miscUtils.js';
 
@@ -669,7 +669,7 @@ const iconVarDeclarations = iconVars.declare({
 
   // @deprecated variables (Will be removed in version v0.9)
   ...ObjectFromEntries(
-    ObjectEntries(iconfonttokens).map(([name, char]) => [name, str(char)])
+    ObjectEntries(iconfonttokens_old).map(([name, char]) => [name, str(char)])
   ),
 });
 

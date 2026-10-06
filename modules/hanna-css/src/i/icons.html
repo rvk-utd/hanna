@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="/assets/ThumbnailGrid.css" />
     <style>
       .IconExample {
-        height: 6rem;
-        line-height: 6rem;
+        height: 4rem;
+        line-height: 4rem;
       }
+      .
     </style>
   </head>
 
@@ -32,7 +33,14 @@
         <div class="Layout__main">
           <h1 class="PageHeading">Icons</h1>
           <div class="TextBlock">
-            <a href="./icons.json">icons.json</a>
+            <a href="iconfont.json">iconfont.json</a>
+          </div>
+
+          <hr />
+
+          <div class="TextBlock">
+            <h2>Legacy Iconfont</h2>
+            <a href="icons.json">icons.json</a>
           </div>
         </div>
       </div>
@@ -50,28 +58,38 @@
       }
 
       const mainElm = document.querySelector('.Layout__main');
-      const link = mainElm.querySelector('a[href$=".json"]');
-      fetch(link.href)
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error('Not Found');
-          }
-          return res.json();
-        })
-        .then((icons) => {
-          mainElm.insertAdjacentHTML(
-            'beforeend',
-            `
-							<ul class="ThumbnailGrid">
-								${Object.entries(icons)
+      const links = mainElm.querySelectorAll('a[href$=".json"]');
+
+      const getEntries = {
+        'icons.json': (icons) => Object.entries(icons),
+        'iconfont.json': (icons) => icons.map((icon) => [icon, icon]),
+      };
+
+      links.forEach((linkElm) => {
+        const href = linkElm.getAttribute('href');
+        const isLegacy = href === 'icons.json';
+
+        fetch(linkElm.href)
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error('Not Found');
+            }
+            return res.json();
+          })
+          .then((icons) => {
+            linkElm.parentNode.insertAdjacentHTML(
+              'afterend',
+              `
+							<ul class="ThumbnailGrid ThumbnailGrid--small">
+								${getEntries[href](icons)
                   .map(
-                    ([name, char]) => `
+                    ([name, value]) => `
 										<li class="ThumbnailGrid__item">
 											<span
                         class="Icon IconExample"
                         data-icon-size="large"
-                        data-icon="${name}"
-                        style="--Icon: '${char}';"
+                        data-icon="${isLegacy ? '' : value}"
+                        ${isLegacy ? `style="--Icon: '${value}';"` : ''}
                       ></span>
 											<strong class="ThumbnailGrid__label">${name}</strong>
 										</li>
@@ -80,19 +98,20 @@
                   .join('')}
 							</ul>
 						`
-          );
-        })
-        .catch((e) => {
-          mainElm.insertAdjacentHTML(
-            'beforeend',
-            `
-							<h1 class="PageHeading">Eeek!</h1>
-							<div class="TextBlock">
-								<p>${e.message}</p>
-							</div>
+            );
+          })
+          .catch((e) => {
+            linkElm.parentNode.insertAdjacentHTML(
+              'afterend',
+              `
+							<p>
+                <strong>Eeek!</strong><br />
+                ${e.message}
+              </p>
 						`
-          );
-        });
+            );
+          });
+      });
     </script>
   </body>
 </html>
