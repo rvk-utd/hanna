@@ -88,7 +88,7 @@ export const iconStyle = (
     text-align: center;
     width: 1em;
     vertical-align: top;
-    font-family: ${`${iconfontName}, ${_legacyIconfontName}, ${font.family_w_fallback}`};
+    font-family: ${`${_legacyIconfontName}, ${iconfontName}, ${font.family_w_fallback}`};
     font-weight: normal;
     font-style: normal;
     white-space: nowrap;

@@ -4,6 +4,9 @@
 
 - ... <!-- Add new lines here. -->
 - feat: Update `i/icons.html` to list new "iconfont" icons up top
+- fix: Swap load order of new/old iconfonts for more correct fallback for
+  older icons using direct unicode-character values (new iconfont always uses
+  ligatures)
 
 ## 0.8.102
 
