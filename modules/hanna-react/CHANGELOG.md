@@ -3,6 +3,11 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+
+## 0.10.174
+
+_2026-10-02_
+
 - `useIsBrowserSide`, `useIsBrowserSide`:
   - fix: Use `useSyncExternalStore` (when available) to suppress hydration
     warnings for SSR-ed `Suspense` content
