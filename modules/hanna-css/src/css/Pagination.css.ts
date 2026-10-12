@@ -66,11 +66,11 @@ export default css`
 
   .Pagination__ellipsis {
     margin: 0 ${vars.space_0$5__neg};
-    width: ${vars.space_2};
-    font-size: ${vars.font_label_size};
+    width: ${vars.space_4};
+    font-size: ${vars.font_heading_s_size};
     line-height: 1em;
     position: relative;
-    top: -0.25em;
+    bottom: 2px;
     color: ${vars.color_suld_100};
   }
 
