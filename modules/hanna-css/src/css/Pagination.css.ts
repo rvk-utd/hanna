@@ -70,7 +70,7 @@ export default css`
     font-size: ${vars.font_heading_s_size};
     line-height: 1em;
     position: relative;
-    bottom: 0;
+    bottom: 2px;
     color: ${vars.color_suld_100};
   }
 
