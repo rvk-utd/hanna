@@ -8,6 +8,7 @@ type ControlProps = FFControlProps & {
   showFileSize: boolean;
   showImagePreviews: boolean;
   allowMultipleFiles: boolean;
+  maxFiles: number | 'Unlimited';
   allowedFileTypes: string;
 };
 
@@ -24,7 +25,13 @@ const meta: Meta<ControlProps> = {
 export default meta;
 
 const FileInputStory = (props: ControlProps) => {
-  const { showFileSize, showImagePreviews, allowMultipleFiles, allowedFileTypes } = props;
+  const {
+    showFileSize,
+    showImagePreviews,
+    allowMultipleFiles,
+    maxFiles,
+    allowedFileTypes,
+  } = props;
   const ffProps = ffCtrls.getProps(props);
 
   const [files, setFiles] = useState<Array<File>>([]);
@@ -40,6 +47,7 @@ const FileInputStory = (props: ControlProps) => {
       value={files}
       onFilesUpdated={setFiles}
       multiple={allowMultipleFiles}
+      maxFiles={allowMultipleFiles && maxFiles !== 'Unlimited' ? maxFiles : undefined}
       accept={allowedFileTypes}
       dropzoneText={
         <>
@@ -57,6 +65,12 @@ export const _FileInput: StoryObj<ControlProps> = {
     showFileSize: { name: 'Show file size' },
     showImagePreviews: { name: 'Show image previews' },
     allowMultipleFiles: { name: 'Allow multiple files' },
+    maxFiles: {
+      name: 'Max number of files',
+      options: ['Unlimited', 1, 2, 3, 4, 5, 6],
+      control: 'select',
+      if: { arg: 'allowMultipleFiles' },
+    },
     allowedFileTypes: {
       name: 'Allowed file types',
       control: 'text',
@@ -67,6 +81,7 @@ export const _FileInput: StoryObj<ControlProps> = {
     showFileSize: false,
     showImagePreviews: false,
     allowMultipleFiles: true,
+    maxFiles: 6,
     allowedFileTypes: 'image/*',
   },
 };

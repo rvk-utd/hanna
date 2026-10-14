@@ -26,7 +26,7 @@
     "iframe-resizer-react": "^1.1.0",
     "react-autosuggest": "^10.1.0",
     "react-datepicker": "4.11.0",
-    "react-dropzone": "^10.2.2",
+    "react-dropzone": "^11.7.1",
     "react-intersection-observer": "^8.30.1",
     "react-transition-group": "^4.4.1",
     "tslib": "^2.4.0"

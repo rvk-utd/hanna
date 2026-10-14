@@ -47,7 +47,9 @@ const replaceFileTest: Record<HannaLang, string> = {
   pl: 'Zastąp istniejący plik',
 };
 
-const defaultOnFilesRejected: FileInputProps['onFilesRejected'] = (rejectedFiles) => {
+const defaultOnFilesRejected: NonNullable<FileInputProps['onFilesRejected']> = (
+  rejectedFiles
+) => {
   window.alert(
     `Error:\n${rejectedFiles
       .map((elm) => {
@@ -64,6 +66,7 @@ export type FileInputProps = FormFieldWrappingProps & {
    * Default: `true`
    */
   multiple?: boolean;
+  maxFiles?: number;
   /**
    * Accepted file mime type(s).
    *
@@ -156,7 +159,9 @@ export const FileInput = (props: FileInputProps) => {
       addFiles(acceptedFiles);
       setIsHover(false);
     },
-    onDropRejected: onFilesRejected || defaultOnFilesRejected,
+    onDropRejected: (fileRejections) => {
+      (onFilesRejected || defaultOnFilesRejected)(fileRejections.map(({ file }) => file));
+    },
     onDragEnter: () => {
       // 'dragLeave' always fires right after 'dragEnter', use 'dragOver' instead
       // console.log('enter');
@@ -166,6 +171,7 @@ export const FileInput = (props: FileInputProps) => {
       // console.log('leave');
       setIsHover(false);
     },
+    maxFiles: props.maxFiles,
     onDragOver: () => {
       // TODO: add error icon? 'isDragReject' gives unstable results
       // console.log(isDragReject);
@@ -280,6 +286,11 @@ export const FileInput = (props: FileInputProps) => {
               tabIndex={undefined}
             >
               <p className="FileInput__droptext">{dropzoneText}</p>
+              {multiple && props.maxFiles && (
+                <span className="FileInput__dropCounter">
+                  0{props.maxFiles && `/${props.maxFiles}`}
+                </span>
+              )}
             </div>
             {FileList && (
               <FileList

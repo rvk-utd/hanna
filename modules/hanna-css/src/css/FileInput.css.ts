@@ -40,6 +40,7 @@ export default css`
       text-align: center;
       color: ${vars.color_suld_200};
       position: relative;
+      max-width: 584px;
     }
 
     .FileInput__dropzone:hover,
@@ -69,6 +70,14 @@ export default css`
         background: ${vars.color_faxafloi_100};
         border-radius: 50%;
       }
+    }
+
+    .FileInput__dropCounter {
+      border-radius: 999px;
+      border: 1px solid ${vars.color_faxafloi_50};
+      background: ${vars.color_suld_0};
+      padding: 4px 8px;
+      font: ${vars.font_label};
     }
 
     .FileInput__droptext > strong {
