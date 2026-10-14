@@ -9,6 +9,8 @@ import { iconStyle } from '../lib/icons.js';
 import { hideText_css } from './utils/hideText.js';
 import { DEPS, overflowEllipsis, prem } from './utils/miscUtils.js';
 
+const FILE_ZONE_WIDTH = '584px';
+
 export default css`
   ${DEPS('FormField')}
 
@@ -40,7 +42,7 @@ export default css`
       text-align: center;
       color: ${vars.color_suld_200};
       position: relative;
-      max-width: 584px;
+      max-width: ${FILE_ZONE_WIDTH};
     }
 
     .FileInput__dropzone:hover,
@@ -112,13 +114,15 @@ export default css`
       flex-flow: row wrap;
       align-items: center;
       margin-top: ${vars.space_2};
+      max-width: ${FILE_ZONE_WIDTH};
     }
 
     .FileInput__file {
       width: 100%;
-      padding-left: 26px;
+      padding: 12px 16px;
       margin-bottom: ${vars.space_1$5};
       position: relative;
+      background-color: ${vars.color_suld_25};
     }
 
     .FileInput__fileinfo {
@@ -156,14 +160,14 @@ export default css`
     .FileInput__file-remove {
       ${hideText_css('soft')}
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 12px;
+      right: 12px;
       color: inherit;
       width: ${vars.icon_size__small};
     }
 
     .FileInput__file-remove::before {
-      ${iconStyle('close', 'small')}
+      ${iconStyle('delete', 'small')}
       color: ${vars.color_faxafloi_100};
     }
     .FileInput__file-remove:hover::before,
@@ -175,11 +179,6 @@ export default css`
   @media ${mq.tablet_up} {
     .FileInput__dropzone {
       padding: ${prem(64)};
-    }
-
-    .FileInput--multi .FileInput__file {
-      width: calc(50% - ${prem(30)});
-      margin-right: ${prem(30)};
     }
   }
 `;
