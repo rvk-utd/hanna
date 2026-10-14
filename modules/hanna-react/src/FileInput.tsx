@@ -286,9 +286,10 @@ export const FileInput = (props: FileInputProps) => {
               tabIndex={undefined}
             >
               <p className="FileInput__droptext">{dropzoneText}</p>
-              {multiple && props.maxFiles && (
+              {multiple && files.length > 0 && props.maxFiles && (
                 <span className="FileInput__dropCounter">
-                  0{props.maxFiles && `/${props.maxFiles}`}
+                  {files.length}
+                  {props.maxFiles && `/${props.maxFiles}`}
                 </span>
               )}
             </div>

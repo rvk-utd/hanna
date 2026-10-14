@@ -67,7 +67,7 @@ export const _FileInput: StoryObj<ControlProps> = {
     allowMultipleFiles: { name: 'Allow multiple files' },
     maxFiles: {
       name: 'Max number of files',
-      options: ['Unlimited', 1, 2, 3, 4, 5, 6],
+      options: ['Unlimited', 4],
       control: 'select',
       if: { arg: 'allowMultipleFiles' },
     },
