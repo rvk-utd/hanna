@@ -164,12 +164,18 @@ export default css`
       right: 12px;
       color: inherit;
       width: ${vars.icon_size__small};
+      border-radius: 4px;
     }
 
     .FileInput__file-remove::before {
       ${iconStyle('delete', 'small')}
-      color: ${vars.color_faxafloi_100};
+      color: ${vars.color_suld_200};
     }
+
+    .FileInput__file-remove:hover {
+      background-color: ${vars.color_suld_75};
+    }
+
     .FileInput__file-remove:hover::before,
     .FileInput__file-remove:focus::before {
       color: ${vars.color_faxafloi_150};

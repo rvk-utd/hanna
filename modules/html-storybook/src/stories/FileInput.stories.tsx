@@ -81,7 +81,7 @@ export const _FileInput: StoryObj<ControlProps> = {
     showFileSize: false,
     showImagePreviews: false,
     allowMultipleFiles: true,
-    maxFiles: 6,
+    maxFiles: 'Unlimited',
     allowedFileTypes: 'image/*',
   },
 };
