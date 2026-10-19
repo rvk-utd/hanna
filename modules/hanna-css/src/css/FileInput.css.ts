@@ -141,6 +141,12 @@ export default css`
       margin-bottom: ${vars.space_1$5};
       position: relative;
       background-color: ${vars.color_suld_25};
+      border-radius: 4px;
+    }
+
+    .FileInput__file:hover {
+      background-color: ${vars.color_suld_50};
+      color: ${vars.color_faxafloi_150};
     }
 
     .FileInput__fileinfo {
