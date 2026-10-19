@@ -87,9 +87,6 @@ export type FileInputProps = FormFieldWrappingProps & {
    */
   accept?: string | Array<string>;
   dropzoneText?: string | JSX.Element;
-  /**
-   * Text displayed in the dropzone when `maxFiles` has been reached.
-   */
   maxFilesReachedText?: string | JSX.Element;
   removeFileText?: string;
   lang?: HannaLang;
