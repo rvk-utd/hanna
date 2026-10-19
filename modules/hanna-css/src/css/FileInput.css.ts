@@ -43,6 +43,7 @@ export default css`
       color: ${vars.color_suld_200};
       position: relative;
       max-width: ${FILE_ZONE_WIDTH};
+      border-radius: 4px;
     }
 
     .FileInput__dropzone:hover,
