@@ -149,6 +149,12 @@ export default css`
       align-items: center;
       align-content: center;
     }
+    .FileInput__fileinfo::before {
+      ${iconStyle('check', 'small')}
+      flex-shrink: 0;
+      margin-right: ${vars.space_1};
+      color: ${vars.color_faxafloi_100};
+    }
 
     .FileInput__filename {
       ${overflowEllipsis};
