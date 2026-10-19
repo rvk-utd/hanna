@@ -3,6 +3,8 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `FileInput`:
+  - feat: Add `.FileInput__dropzone--disabled` styling (max files reached)
 
 ## 0.8.103
 

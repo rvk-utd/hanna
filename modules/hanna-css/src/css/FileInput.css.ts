@@ -75,6 +75,8 @@ export default css`
     }
 
     .FileInput__dropCounter {
+      display: inline-block;
+      margin-top: ${vars.space_2};
       border-radius: 999px;
       border: 1px solid ${vars.color_faxafloi_50};
       background: ${vars.color_suld_0};
@@ -101,6 +103,21 @@ export default css`
     }
     .FormField--disabled .FileInput__droptext::before {
       background: ${vars.color_suld_100};
+    }
+
+    // max files reached
+    .FileInput__dropzone.FileInput__dropzone--disabled {
+      border-color: ${vars.color_suld_100};
+      background: ${vars.color_suld_25};
+      cursor: default;
+    }
+    .FileInput__dropzone--disabled .FileInput__droptext,
+    .FileInput__dropzone--disabled .FileInput__droptext > strong {
+      color: ${vars.color_suld_150};
+      border: none;
+    }
+    .FileInput__dropzone--disabled .FileInput__droptext::before {
+      background: ${vars.color_suld_75};
     }
 
     //invalid
@@ -172,13 +189,9 @@ export default css`
       color: ${vars.color_suld_200};
     }
 
-    .FileInput__file-remove:hover {
+    .FileInput__file-remove:hover,
+    .FileInput__file-remove:focus {
       background-color: ${vars.color_suld_75};
-    }
-
-    .FileInput__file-remove:hover::before,
-    .FileInput__file-remove:focus::before {
-      color: ${vars.color_faxafloi_150};
     }
   }
 

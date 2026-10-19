@@ -41,6 +41,12 @@ const defaultDropzoneText: Record<HannaLang, () => ReactElement> = {
   ),
 };
 
+const defaultMaxFilesReachedText: Record<HannaLang, string> = {
+  is: 'Ekki er hægt að bæta við fleiri skjölum.',
+  en: 'No more files can be added.',
+  pl: 'Nie można dodać więcej plików.',
+};
+
 const replaceFileTest: Record<HannaLang, string> = {
   is: 'Yfirskrifa núverandi skrá',
   en: 'Replace existing file',
@@ -66,6 +72,13 @@ export type FileInputProps = FormFieldWrappingProps & {
    * Default: `true`
    */
   multiple?: boolean;
+  /**
+   * Accepted file mime type(s).
+   *
+   * `MaxFiles` only applies when `multiple` is true.
+   *
+   * Default: no restrictions.
+   */
   maxFiles?: number;
   /**
    * Accepted file mime type(s).
@@ -74,6 +87,10 @@ export type FileInputProps = FormFieldWrappingProps & {
    */
   accept?: string | Array<string>;
   dropzoneText?: string | JSX.Element;
+  /**
+   * Text displayed in the dropzone when `maxFiles` has been reached.
+   */
+  maxFilesReachedText?: string | JSX.Element;
   removeFileText?: string;
   lang?: HannaLang;
   showFileSize?: boolean;
@@ -130,6 +147,8 @@ export const FileInput = (props: FileInputProps) => {
     multiple = props.dropzoneProps?.multiple ?? true, // eslint-disable-line deprecation/deprecation
     accept = props.dropzoneProps?.accept, // eslint-disable-line deprecation/deprecation
     dropzoneText = defaultDropzoneText[lang](),
+    maxFilesReachedText = defaultMaxFilesReachedText[lang],
+    maxFiles: _maxFiles,
     unstable_confirmReplace,
     removeFileText = defaultRemoveFileText[lang],
     FileList = DefaultFileList,
@@ -148,6 +167,9 @@ export const FileInput = (props: FileInputProps) => {
   const fileInput = useRef<HTMLInputElement>(null);
   const files = value as Array<CustomFile>;
   const [isHover, setIsHover] = useState(false);
+
+  const maxFiles = multiple ? _maxFiles : undefined;
+  const isFull = !!maxFiles && files.length >= maxFiles;
 
   const { getRootProps, getInputProps, isDragReject, inputRef } = useDropzone({
     onDrop: (acceptedFiles: Array<File>) => {
@@ -171,7 +193,8 @@ export const FileInput = (props: FileInputProps) => {
       // console.log('leave');
       setIsHover(false);
     },
-    maxFiles: props.maxFiles,
+    maxFiles: maxFiles && maxFiles - files.length,
+    disabled: isFull,
     onDragOver: () => {
       // TODO: add error icon? 'isDragReject' gives unstable results
       // console.log(isDragReject);
@@ -278,17 +301,24 @@ export const FileInput = (props: FileInputProps) => {
               style={undefined}
               multiple={multiple || undefined}
               {...inputProps}
+              disabled={isFull || inputProps.disabled}
               required={undefined}
             />{' '}
             <div
-              className={modifiedClass('FileInput__dropzone', [isHover && 'highlight'])}
+              className={modifiedClass('FileInput__dropzone', [
+                isHover && !isFull && 'highlight',
+                isFull && 'disabled',
+              ])}
               {...getRootProps({ isDragReject })}
               tabIndex={undefined}
+              aria-disabled={isFull || undefined}
             >
-              <p className="FileInput__droptext">{dropzoneText}</p>
-              {multiple && files.length > 0 && props.maxFiles && (
+              <p className="FileInput__droptext">
+                {isFull ? maxFilesReachedText : dropzoneText}
+              </p>
+              {files.length > 0 && !!maxFiles && (
                 <span className="FileInput__dropCounter">
-                  {files.length}/{props.maxFiles}
+                  {files.length}/{maxFiles}
                 </span>
               )}
             </div>
