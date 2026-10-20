@@ -38,8 +38,10 @@ build-results into them.
   - CSS styles and related assets for all Hanna components.
   - Publishes a TypeScript helper library as the npm package
     [@reykjavik/hanna-css](https://www.npmjs.com/package/@reykjavik/hanna-css)
+    ([Changelog](modules/hanna-css/CHANGELOG-lib.md))
   - Publishes CSS files and related (typo)graphic assets to
-    [styles.reykjavik.is][].  
+    [styles.reykjavik.is][].
+    ([Changelog](modules/hanna-css/CHANGELOG-server.md))  
     (Builds into `/servers/styles/public/css/v${version}`, a part of the
     submodule repo [hanna-server-styles][].)
 
@@ -49,6 +51,7 @@ build-results into them.
   - The reference implementation of the Hanna HTML patterns.
   - Published as the npm package
     [@reykjavik/hanna-react](https://www.npmjs.com/package/@reykjavik/hanna-react).
+    ([Changelog](modules/hanna-react/CHANGELOG.md))
 
 - **[`hanna-utils`](modules/hanna-utils/)**
 
@@ -56,13 +59,15 @@ build-results into them.
     helpful when using the Hanna design system.
   - Published as the npm package
     [@reykjavik/hanna-utils](https://www.npmjs.com/package/@reykjavik/hanna-utils).
+    ([Changelog](modules/hanna-utils/CHANGELOG.md))
 
 - **[`hanna-sprinkles`](modules/hanna-sprinkles/)**
 
   - Vanilla JavaScript "sprinkles" that progressively enhance server-rendered
     HTML components.
   - Publishes JavaScript module files to
-    [styles.reykjavik.is/sprinkles/v${version}][].  
+    [styles.reykjavik.is/sprinkles/v\${version}](https://styles.reykjavik.is/sprinkles/v0.8).
+    ([Changelog](modules/hanna-sprinkles/CHANGELOG.md))  
     (Builds into `/servers/styles/public/sprinkles/v${version}`, a part of the
     submodule repo [hanna-server-styles][].)
 
@@ -85,8 +90,9 @@ build-results into them.
     behind every Hanna component. (Uses the [hanna-react](modules/hanna-react)
     components to render the HTML exmaples.)
   - Publishes to
-    [hanna-docs.reykjavik.is](https://hanna-docs.reykjavik.is/html).  
-     (Builds into `/servers/docs/html/${version}`, a part of the submodule repo
+    [hanna-docs.reykjavik.is](https://hanna-docs.reykjavik.is/html).
+    ([Changelog](modules/html-storybook/CHANGELOG.md)) (Builds into
+    `/servers/docs/html/${version}`, a part of the submodule repo
     [hanna-server-docs][].)
 
 - **More coming…**
