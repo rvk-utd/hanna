@@ -38,9 +38,11 @@ o.spec('icons', () => {
   // eslint-disable-next-line deprecation/deprecation
   type TrimmedIconName = keyof typeof icons;
 
+  // eslint-disable-next-line deprecation/deprecation
   type Test_IconName = Expect<Extends<IconName_old, TrimmedIconName>>;
   // IconName should remove some icons from TrimmedIconName
   type Test_IconName2 = Expect<
+    // eslint-disable-next-line deprecation/deprecation
     NotExtends<Record<IconName_old, true>, Record<keyof typeof iconfont_raw.chars, true>>
   >;
 }

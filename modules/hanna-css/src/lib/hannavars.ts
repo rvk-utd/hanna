@@ -362,7 +362,7 @@ export const buttonVars = /*@__PURE__*/ buildVariables(['Button__gapH', 'Button_
 /** CSS variables for Hanna icon types */
 export const iconVars = /*@__PURE__*/ buildVariables([
   /** @deprecated  (Will be removed in v0.5) */
-  .../*#__PURE__*/ ObjectKeys(iconfonttokens_old),
+  .../*#__PURE__*/ ObjectKeys(iconfonttokens_old), // eslint-disable-line deprecation/deprecation
   'icon_size__small',
   'icon_size__medium',
   'icon_size__large',

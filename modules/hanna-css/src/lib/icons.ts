@@ -181,6 +181,7 @@ export const characters = {
 
 // ---------------------------------------------------------------------------
 
+// eslint-disable-next-line deprecation/deprecation
 type _TrimmedIconName = keyof typeof iconfonttokens_old extends `icon__${infer ShortName}`
   ? ShortName
   : never;
@@ -236,6 +237,7 @@ export const iconfont_raw = /*#__PURE__*/ (() =>
   ({
     name: iconfontName,
     chars: ObjectFromEntries(
+      // eslint-disable-next-line deprecation/deprecation
       ObjectEntries(iconfonttokens_old).map(([name, char]) => [
         name.replace(/^icon__/, '') as _TrimmedIconName,
         char,

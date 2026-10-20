@@ -669,6 +669,7 @@ const iconVarDeclarations = iconVars.declare({
 
   // @deprecated variables (Will be removed in version v0.9)
   ...ObjectFromEntries(
+    // eslint-disable-next-line deprecation/deprecation
     ObjectEntries(iconfonttokens_old).map(([name, char]) => [name, str(char)])
   ),
 });
