@@ -167,10 +167,12 @@ export default css`
 
     .FileInput__filename {
       ${overflowEllipsis};
+      white-space: normal;
       flex-shrink: 1;
       color: ${vars.color_faxafloi_100};
       font: ${vars.font_body_m};
       font-weight: bold;
+      word-break: break-all;
     }
     .FileInput__filesize {
       padding-top: 2px;
