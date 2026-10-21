@@ -161,6 +161,9 @@ export default css`
       margin-right: ${vars.space_1};
       color: ${vars.color_faxafloi_100};
     }
+    .FileInput__fileinfo--preview::before {
+      display: none;
+    }
 
     .FileInput__filename {
       ${overflowEllipsis};
@@ -177,17 +180,18 @@ export default css`
     }
 
     .FileInput__preview {
-      width: 40px;
-      height: 40px;
-      margin: ${vars.space_1__neg} 0;
+      flex-shrink: 0;
+      width: ${prem(32)};
+      height: ${prem(32)};
       margin-right: ${vars.space_1};
-      display: inline-block;
-      vertical-align: middle;
+      border-radius: 2px;
+      overflow: hidden;
     }
     .FileInput__preview img {
+      display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
 
     .FileInput__file-remove {

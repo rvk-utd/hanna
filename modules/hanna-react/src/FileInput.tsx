@@ -136,6 +136,13 @@ const arrayToFileList = (arr: Array<File>): FileList => {
   return fileList.files;
 };
 
+const acceptsOnlyImages = (accept: FileInputProps['accept']): boolean => {
+  const types = (typeof accept === 'string' ? accept.split(',') : accept || [])
+    .map((type) => type.trim())
+    .filter(Boolean);
+  return types.length > 0 && types.every((type) => type.startsWith('image/'));
+};
+
 export const FileInput = (props: FileInputProps) => {
   const lang = ensureHannaLang(props.lang) || DEFAULT_LANG;
 
@@ -152,12 +159,13 @@ export const FileInput = (props: FileInputProps) => {
     onFilesUpdated = () => undefined,
     onFilesRejected,
     showFileSize,
-    showImagePreviews,
+    showImagePreviews: _showImagePreviews,
 
     value = [],
     fieldWrapperProps,
     ...inputElementProps
   } = groupFormFieldWrapperProps(props);
+  const showImagePreviews = _showImagePreviews ?? acceptsOnlyImages(accept);
 
   const domid = useDomid(props.id);
   const fileInputWrapper = useRef<FileInputWrapper>(null);
