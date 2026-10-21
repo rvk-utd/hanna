@@ -11,7 +11,6 @@ type StringContaining<Token extends string> = `${string}${Token}${string}`;
 export type PageTemplateString = StringContaining<'${page}'>;
 
 type PaginationButtonProps = {
-  $key?: string | number;
   page: number;
   label?: string;
   labelLong: PageTemplateString;
@@ -29,7 +28,6 @@ const PaginationButton = (props: PaginationButtonProps) => {
   const labelShort = label ? label.replace(/\$\{page\}/, `${page}`) : `${page}`;
 
   const btnProps = {
-    key: props.$key,
     className: modifiedClass('Pagination__button', modifier),
     title: labelLong,
     'aria-label': labelLong !== labelShort ? labelLong : undefined,
@@ -64,7 +62,9 @@ const getBtnRenderer = (cfg: PaginationProps) => {
   const type = submit ? 'submit' : 'button';
 
   return (
-    props: Omit<PaginationButtonProps, 'href' | 'onChange' | 'type' | 'ariaControls'>
+    props: Omit<PaginationButtonProps, 'href' | 'onChange' | 'type' | 'ariaControls'> & {
+      key?: string | number;
+    }
   ) => (
     <PaginationButton
       href={getHref}
@@ -170,22 +170,22 @@ export const Pagination = memo((props: PaginationProps) => {
         labelLong: texts.pageLabelLong,
         disabled: current === 1,
       })}{' '}
-      {pageList
-        .map((page, i) => {
-          return page === '…' ? (
+      {pageList.flatMap((page, i) => {
+        const item =
+          page === '…' ? (
             <span className="Pagination__ellipsis" key={i}>
               …
             </span>
           ) : (
             btn({
-              $key: i,
+              key: i,
               page,
               labelLong: texts.pageLabelLong,
               modifier: page === current && 'active',
             })
           );
-        })
-        .flatMap((itm) => [itm, ' '])}
+        return [item, ' '];
+      })}
     </nav>
   );
 });

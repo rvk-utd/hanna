@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { Pagination } from '@reykjavik/hanna-react/Pagination';
 
@@ -41,8 +41,8 @@ export default function () {
   return (
     <Minimal bare>
       <DummyBlock thin />
-      {btnTypes.map(({ label, props }) => (
-        <>
+      {btnTypes.map(({ label, props }, i) => (
+        <Fragment key={i}>
           <p>{label}</p>
           {stateExamples.map(([current, pageCount], i) => (
             <Pagination
@@ -55,7 +55,7 @@ export default function () {
             />
           ))}
           <DummyBlock thin />
-        </>
+        </Fragment>
       ))}
     </Minimal>
   );
