@@ -142,6 +142,7 @@ export default css`
       position: relative;
       background-color: ${vars.color_suld_25};
       border-radius: 4px;
+      padding-right: 50px;
     }
 
     .FileInput__file:hover {
