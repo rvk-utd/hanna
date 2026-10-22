@@ -1,6 +1,8 @@
 import React from 'react';
 import { modifiedClass } from '@reykjavik/hanna-utils';
 
+import { Progress } from '../Progress.js';
+
 import type { formatBytes } from './_FileInput.utils.js';
 import { CustomFile } from './_FileInput.utils.js';
 
@@ -40,8 +42,12 @@ export const DefaultFileList = (props: FileListProps) => {
               {removeFileText}
             </button>
             <span
-              className={modifiedClass('FileInput__fileinfo', [hasPreview && 'preview'])}
+              className={modifiedClass('FileInput__fileinfo', [
+                'loading',
+                hasPreview && 'preview',
+              ])}
             >
+              <Progress spinner size="small" />
               {hasPreview && (
                 <>
                   <span className="FileInput__preview">

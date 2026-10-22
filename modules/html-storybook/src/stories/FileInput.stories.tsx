@@ -20,6 +20,7 @@ const meta: Meta<ControlProps> = {
   title: 'Forms/FileInput',
   parameters: {
     viewport: { defaultViewport: 'responsive' },
+    css: { tokens: 'FileInput,Progress' },
   },
 };
 export default meta;

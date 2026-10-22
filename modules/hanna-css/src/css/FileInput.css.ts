@@ -182,6 +182,14 @@ export default css`
       white-space: nowrap;
     }
 
+    .FileInput__fileinfo--loading {
+      grid-gap: ${vars.space_2};
+    }
+
+    .FileInput__fileinfo--loading::before {
+      display: none;
+    }
+
     .FileInput__preview {
       flex-shrink: 0;
       width: ${prem(32)};
