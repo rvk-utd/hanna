@@ -9,6 +9,8 @@ import { iconStyle } from '../lib/icons.js';
 import { hideText_css } from './utils/hideText.js';
 import { DEPS, overflowEllipsis, prem } from './utils/miscUtils.js';
 
+const FILE_ZONE_WIDTH = '584px';
+
 export default css`
   ${DEPS('FormField')}
 
@@ -40,6 +42,8 @@ export default css`
       text-align: center;
       color: ${vars.color_suld_200};
       position: relative;
+      max-width: ${FILE_ZONE_WIDTH};
+      border-radius: 4px;
     }
 
     .FileInput__dropzone:hover,
@@ -71,6 +75,16 @@ export default css`
       }
     }
 
+    .FileInput__dropCounter {
+      display: inline-block;
+      margin-top: ${vars.space_2};
+      border-radius: 999px;
+      border: 1px solid ${vars.color_faxafloi_50};
+      background: ${vars.color_suld_0};
+      padding: 4px 8px;
+      font: ${vars.font_label};
+    }
+
     .FileInput__droptext > strong {
       display: inline-block;
       color: ${vars.color_faxafloi_100};
@@ -92,6 +106,21 @@ export default css`
       background: ${vars.color_suld_100};
     }
 
+    // max files reached
+    .FileInput__dropzone.FileInput__dropzone--disabled {
+      border-color: ${vars.color_suld_100};
+      background: ${vars.color_suld_25};
+      cursor: default;
+    }
+    .FileInput__dropzone--disabled .FileInput__droptext,
+    .FileInput__dropzone--disabled .FileInput__droptext > strong {
+      color: ${vars.color_suld_150};
+      border: none;
+    }
+    .FileInput__dropzone--disabled .FileInput__droptext::before {
+      background: ${vars.color_suld_75};
+    }
+
     //invalid
     .FormField--invalid .FileInput__dropzone {
       background: ${color(colors.heidmork_100).fade(0.9)};
@@ -103,13 +132,22 @@ export default css`
       flex-flow: row wrap;
       align-items: center;
       margin-top: ${vars.space_2};
+      max-width: ${FILE_ZONE_WIDTH};
     }
 
     .FileInput__file {
       width: 100%;
-      padding-left: 26px;
+      padding: 12px 16px;
       margin-bottom: ${vars.space_1$5};
       position: relative;
+      background-color: ${vars.color_suld_25};
+      border-radius: 4px;
+      padding-right: 50px;
+    }
+
+    .FileInput__file:hover {
+      background-color: ${vars.color_suld_50};
+      color: ${vars.color_faxafloi_150};
     }
 
     .FileInput__fileinfo {
@@ -118,10 +156,24 @@ export default css`
       align-items: center;
       align-content: center;
     }
+    .FileInput__fileinfo::before {
+      ${iconStyle('check', 'small')}
+      flex-shrink: 0;
+      margin-right: ${vars.space_1};
+      color: ${vars.color_faxafloi_100};
+    }
+    .FileInput__fileinfo--preview::before {
+      display: none;
+    }
 
     .FileInput__filename {
       ${overflowEllipsis};
+      white-space: normal;
       flex-shrink: 1;
+      color: ${vars.color_faxafloi_100};
+      font: ${vars.font_body_m};
+      font-weight: bold;
+      word-break: break-all;
     }
     .FileInput__filesize {
       padding-top: 2px;
@@ -130,47 +182,53 @@ export default css`
       white-space: nowrap;
     }
 
+    .FileInput__fileinfo--loading {
+      grid-gap: ${vars.space_2};
+    }
+
+    .FileInput__fileinfo--loading::before {
+      display: none;
+    }
+
     .FileInput__preview {
-      width: 40px;
-      height: 40px;
-      margin: ${vars.space_1__neg} 0;
+      flex-shrink: 0;
+      width: ${prem(32)};
+      height: ${prem(32)};
       margin-right: ${vars.space_1};
-      display: inline-block;
-      vertical-align: middle;
+      border-radius: 2px;
+      overflow: hidden;
     }
     .FileInput__preview img {
+      display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
 
     .FileInput__file-remove {
       ${hideText_css('soft')}
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 12px;
+      right: 12px;
       color: inherit;
       width: ${vars.icon_size__small};
+      border-radius: 4px;
     }
 
     .FileInput__file-remove::before {
-      ${iconStyle('close', 'small')}
-      color: ${vars.color_faxafloi_100};
+      ${iconStyle('delete', 'small')}
+      color: ${vars.color_suld_200};
     }
-    .FileInput__file-remove:hover::before,
-    .FileInput__file-remove:focus::before {
-      color: ${vars.color_faxafloi_150};
+
+    .FileInput__file-remove:hover,
+    .FileInput__file-remove:focus {
+      background-color: ${vars.color_suld_75};
     }
   }
 
   @media ${mq.tablet_up} {
     .FileInput__dropzone {
       padding: ${prem(64)};
-    }
-
-    .FileInput--multi .FileInput__file {
-      width: calc(50% - ${prem(30)});
-      margin-right: ${prem(30)};
     }
   }
 `;

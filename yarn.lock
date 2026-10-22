@@ -3483,7 +3483,7 @@ __metadata:
     react-autosuggest: ^10.1.0
     react-datepicker: 4.11.0
     react-dom: 17.0.2
-    react-dropzone: ^10.2.2
+    react-dropzone: ^11.7.1
     react-intersection-observer: ^8.30.1
     react-transition-group: ^4.4.1
     tslib: ^2.4.0
@@ -6170,10 +6170,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"attr-accept@npm:^2.0.0":
-  version: 2.2.2
-  resolution: "attr-accept@npm:2.2.2"
-  checksum: 496f7249354ab53e522510c1dc8f67a1887382187adde4dc205507d2f014836a247073b05e9d9ea51e2e9c7f71b0d2aa21730af80efa9af2d68303e5f0565c4d
+"attr-accept@npm:^2.2.2":
+  version: 2.2.5
+  resolution: "attr-accept@npm:2.2.5"
+  checksum: e6a23183c112f5d313ebfc7e63e454de0600caffe9ab88f86e9df420d2399a48e27e6c46ee8de2fc6f34fee3541ecdb557f2b86e6d8bd7d24fd3a66cc75e6349
   languageName: node
   linkType: hard
 
@@ -10432,12 +10432,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-selector@npm:^0.1.12":
-  version: 0.1.19
-  resolution: "file-selector@npm:0.1.19"
+"file-selector@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "file-selector@npm:0.4.0"
   dependencies:
-    tslib: ^2.0.1
-  checksum: 5b105a3ede9139729ada72d6653ae3f4387a7bf2585e8700f9fa53f22457d1f88304fdde9ad7b43b694a5610d67058302257f448a75248fc2225880bca6df5df
+    tslib: ^2.0.3
+  checksum: 1c9986e94bd033442cb4299d10d73d98fbc0b5f1af5b47d7a27b39f1e6bbd8d677f66c2628167da387166c652ad3c2429875042b453ba62f14945d903adf88d5
   languageName: node
   linkType: hard
 
@@ -17595,16 +17595,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dropzone@npm:^10.2.2":
-  version: 10.2.2
-  resolution: "react-dropzone@npm:10.2.2"
+"react-dropzone@npm:^11.7.1":
+  version: 11.7.1
+  resolution: "react-dropzone@npm:11.7.1"
   dependencies:
-    attr-accept: ^2.0.0
-    file-selector: ^0.1.12
-    prop-types: ^15.7.2
+    attr-accept: ^2.2.2
+    file-selector: ^0.4.0
+    prop-types: ^15.8.1
   peerDependencies:
     react: ">= 16.8"
-  checksum: af08b78db753dd9c277c64364c153d6cb6d563df3cc4db1731458edcc203cfa41ed3d032c5249822e5eb4d2534232e514d663a025962d08f0e6ea65550411116
+  checksum: 7549bb67da5222dfbb7b79d9df84a4f2bd417e53396df8b0772a95fd7621ec967b87a17ff7f1e54eb5597d73c51c2a0d16328c792b11e751c73e18e2f7160207
   languageName: node
   linkType: hard
 
@@ -20101,6 +20101,13 @@ __metadata:
   version: 2.4.1
   resolution: "tslib@npm:2.4.1"
   checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.0.3":
+  version: 2.8.1
+  resolution: "tslib@npm:2.8.1"
+  checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
   languageName: node
   linkType: hard
 

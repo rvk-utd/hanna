@@ -3,6 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `FileInput`:
+  - feat: Disable the dropzone when `maxFiles` is reached
+  - feat: Add prop `maxFilesReachedText`
+  - fix: Reject drops that would exceed `maxFiles`
 
 ## 0.10.174
 

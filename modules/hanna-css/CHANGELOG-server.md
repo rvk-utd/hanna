@@ -3,6 +3,10 @@
 ## Upcoming...
 
 - ... <!-- Add new lines here. -->
+- `FileInput`:
+  - feat: Add `.FileInput__dropzone--disabled` styling (max files reached)
+  - feat: Restyle `.FileInput__preview` thumbnails, and hide the check icon
+    on `.FileInput__fileinfo--preview`
 
 ## 0.8.103
 
